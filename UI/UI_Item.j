@@ -17,7 +17,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
 
         //집은 아이템
         integer F_PickUp
-        //픽업중 체크
+        //픽업중 체크22314
         boolean PickUpOn = false
 
         //장비아이템 버튼들
