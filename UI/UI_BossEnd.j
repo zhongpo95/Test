@@ -93,7 +93,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
             call t.start( 1.2, false, function RewardFunction2 )
         else
             if Player(st.pid) == GetLocalPlayer() then
-                if st.RewardItem[st.j] != null and st.RewardItem[st.j] != "" then
+                if st.RewardItem[st.j] != null and st.RewardItem[st.j] != "" and st.RewardItem[st.j] != "0" then
                     call DzFrameSetTexture(RewardItemBD[st.j], GetItemArt(st.RewardItem[st.j]), 0)
                     call additem(Player(st.pid), st.RewardItem[st.j])
                 endif
@@ -108,7 +108,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
             call t2.start( 1.2, false, function RewardFunction3 )
             
             if Player(st.pid) == GetLocalPlayer() then
-                if st.RewardItem[st.j] != null and st.RewardItem[st.j] != "" then
+                if st.RewardItem[st.j] != null and st.RewardItem[st.j] != "" and st.RewardItem[st.j] != "0" then
                     call DzFrameShow(Effect, true)
                 endif
             endif

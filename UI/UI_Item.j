@@ -647,7 +647,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 else
                     //장비
                     if F_ItemClickNumber < 50 then
-                        if (selectnumber-10000) < 50 then
+                        if (selectnumber-10000) < 50 and (selectnumber-10000) >= 0 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                             call AddIvItem.evaluate(pid, F_ItemClickNumber, items)
                             call AddStItem.evaluate(pid, (selectnumber-10000), items2)
@@ -665,7 +665,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set F_ItemClickNumber = 200
                     //창고장비
                     elseif (F_ItemClickNumber - 10000) < 50 and F_ItemClickNumber >= 10000 then
-                        if (selectnumber-10000) < 50 then
+                        if (selectnumber-10000) < 50 and (selectnumber-10000) >= 0 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                             call AddStItem.evaluate(pid, F_ItemClickNumber-10000, items)
                             call AddStItem.evaluate(pid, selectnumber-10000, items2)
@@ -673,7 +673,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     //기타
-                    elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                    elseif ((F_ItemClickNumber - 10000) >= 50 and (F_ItemClickNumber - 10000) < 100) and F_ItemClickNumber >= 10000 then
                         if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                             call AddStItem.evaluate(pid, F_ItemClickNumber-10000, items)
@@ -761,7 +761,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
             if PickUpOn == true then
                 //창고장비
                 if (F_ItemClickNumber - 10000) < 50 and F_ItemClickNumber >= 10000 then
-                    if (selectnumber-10000) < 50 then
+                    if (selectnumber-10000) < 50 and (selectnumber-10000) >= 0 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                         call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                         call AddStItem.evaluate(pid, selectnumber-10000, items2)
@@ -769,7 +769,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set F_ItemClickNumber = 200
                     endif
                 //창고기타
-                elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                elseif ((F_ItemClickNumber - 10000) >= 50 and (F_ItemClickNumber - 10000) < 100) and F_ItemClickNumber >= 10000 then
                     if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                         call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
@@ -779,7 +779,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     endif
                 //인벤장비
                 elseif F_ItemClickNumber < 50 then
-                    if (selectnumber-10000) < 50 then
+                    if (selectnumber-10000) < 50 and (selectnumber-10000) >= 0 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call AddStItem.evaluate(pid, selectnumber-10000, items2)
@@ -787,7 +787,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set F_ItemClickNumber = 200
                     endif
                 //기타장비
-                elseif F_ItemClickNumber < 100 then
+                elseif F_ItemClickNumber < 100 and F_ItemClickNumber >= 50 then
                     if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                         call RemoveItem2(pid, F_ItemClickNumber, false)
@@ -871,7 +871,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     //기타
-                    elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                    elseif ((F_ItemClickNumber - 10000) >= 50 and (F_ItemClickNumber - 10000) < 100) and F_ItemClickNumber >= 10000 then
                         if selectnumber < 100 then
                             //창고에 추가
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
@@ -1218,7 +1218,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set F_ItemClickNumber = 200
                     endif
                 //창고기타
-                elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                elseif ((F_ItemClickNumber - 10000) >= 50 and (F_ItemClickNumber - 10000) < 100) and F_ItemClickNumber >= 10000 then
                     if selectnumber < 100 and selectnumber >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                         call RemoveItem2(pid, F_ItemClickNumber - 10000, true)

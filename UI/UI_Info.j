@@ -435,7 +435,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
                         set Eitem[pid][selectnumber2] = ""
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[selectnumber2], "UI_Inventory.blp", 0)
                         //인벤에서 추가
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), items)
                         call AddIvItem(pid,j,items)
                         set F_ItemClickNumber = 200
                         call DzSyncData("해제",I2S(pid)+"\t"+I2S(selectnumber2)+"\t"+"0")

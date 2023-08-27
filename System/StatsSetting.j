@@ -15,6 +15,7 @@ library StatsSet initializer init requires UIHP, ITEM
     
     function ItemUIStatsSet takes integer pid returns nothing
         local real r =0
+        set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid]
         if GetLocalPlayer() == Player(pid) then
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
@@ -37,7 +38,6 @@ library StatsSet initializer init requires UIHP, ITEM
             //드랍률
             call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_Drop[pid] )) + "%" ) 
         endif
-        set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid]
         call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/58) + 100 + Hero_BuffMoveSpeed[pid] ) )
     endfunction
     
