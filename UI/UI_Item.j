@@ -1787,7 +1787,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetSize(F_CLButtons, 0.035, 0.0275)
         call DzFrameSetScriptByCode(F_CLButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton3, false)
         
-        
         call DzFrameShow(F_ItemBackDrop, false)
 
     endfunction
