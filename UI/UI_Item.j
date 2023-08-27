@@ -25,6 +25,14 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         boolean array FrameIn
         //마지막으로 우클릭한 인벤토리 칸 번호
         private integer LastRightClicked = -1
+        //아이템 파기 배경
+        integer F_ItemDelBackDrop
+        //진짜 파기 버튼
+        integer F_RDButtons
+        //파기 취소 버튼
+        integer F_CLButtons
+        //장비 분해 설명
+        integer F_DELText
 
         //장비아이템 버튼들
         integer array F_EItemButtons
@@ -597,6 +605,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
         if F_Storage_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
             call DzFrameShow(F_Storage_BackDrop, false)
+            call DzFrameShow(F_ItemDelBackDrop, false)
             set F_Storage_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
             set F_ItemClickNumber = 200
         else
@@ -611,6 +620,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
         if F_ItemOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
             call DzFrameShow(F_ItemBackDrop, false)
+            call DzFrameShow(F_ItemDelBackDrop, false)
             set F_ItemOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
             set F_ItemClickNumber = 200
         else
@@ -621,14 +631,12 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     endfunction
 
     private function ClickLockButton takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer i = LastRightClicked
         local integer j = 0
         local string items
         local integer itemty = 0
         local string sn = I2S(PlayerSlotNumber[pid])
-        //f: 트리거를 작동시킨 프레임(비동기화시에만 잡히니 주의.)
 
         call DzFrameShow(F_RightMenu, false )
 
@@ -656,6 +664,63 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call StartSound(gg_snd_MouseClick1)
     endfunction
 
+
+    private function ClickDELButton takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer i = LastRightClicked
+        local string sn = I2S(PlayerSlotNumber[pid])
+        //f: 트리거를 작동시킨 프레임(비동기화시에만 잡히니 주의.)
+
+        call DzFrameShow(F_RightMenu, false )
+        
+        if i != 200 then
+            if i < 50 then
+                if GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                    call DzFrameSetText(F_DELText, GetItemNames(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0"))+"을 분해하시겠습니까?")
+                    call DzFrameShow(F_ItemDelBackDrop, true)
+                else
+                    set LastRightClicked = -1
+                endif
+            endif
+        endif
+        
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
+    private function ClickDELButton2 takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer i = LastRightClicked
+        local string sn = I2S(PlayerSlotNumber[pid])
+        
+        call DzFrameShow(F_RightMenu, false )
+        
+        if i != 200 then
+            if StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0") != "0" and GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                call DzFrameShow(UI_Tip, false)
+                call RemoveItem2(pid,i,false)
+                //돈추가
+            endif
+        endif
+        
+        set LastRightClicked = -1
+        
+        call DzFrameShow(F_ItemDelBackDrop, false)
+
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
+    private function ClickDELButton3 takes nothing returns nothing
+        set LastRightClicked = -1
+        call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemDelBackDrop, false)
+    
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
     private function ClickStItemButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
@@ -671,6 +736,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local real r1 = 0
         local real r2 = 0
     
+        call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemDelBackDrop, false)
+
         if items != "0" then
             if F_ItemClickNumber == selectnumber then
                 if (selectnumber - 10000) < 50 then
@@ -865,6 +933,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local real r1
         local real r2
 
+        call DzFrameShow(F_ItemDelBackDrop, false)
         call DzFrameShow(F_RightMenu, false)
 
         //템있는곳클릭
@@ -1693,6 +1762,33 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetAlpha(DzFrameFindByName("RightMenu2High", 0), 32)
         call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu1", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickLockButton, false)
         //call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu2", 0), JN_FRAMEEVENT_CONTROL_CLICK, function RightClickMenuRemove, false)
+
+        //분해
+        set F_ItemDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        call DzFrameSetAbsolutePoint(F_ItemDelBackDrop, JN_FRAMEPOINT_CENTER, 0.4, 0.325)
+        call DzFrameSetSize(F_ItemDelBackDrop, 0.25, 0.10)
+        call DzFrameShow(F_ItemDelBackDrop, false)
+        call DzFrameSetPriority(F_ItemDelBackDrop, 199)
+        
+        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemDelBackDrop, "", 0)
+        call DzFrameSetPoint(F_DELText, JN_FRAMEPOINT_CENTER, F_ItemDelBackDrop , JN_FRAMEPOINT_CENTER, 0.0, 0.0125)
+        call DzFrameSetText(F_DELText, "장비 분해")
+        
+        set F_RDButtons = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ItemDelBackDrop, "ScriptDialogButton", 0)
+        call DzFrameSetPoint(F_RDButtons, JN_FRAMEPOINT_CENTER, F_ItemDelBackDrop , JN_FRAMEPOINT_CENTER, -0.035, -0.025)
+        call DzFrameSetText(F_RDButtons, "분해")
+        call DzFrameSetSize(F_RDButtons, 0.035, 0.0275)
+        call DzFrameSetScriptByCode(F_RDButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton2, false)
+        
+        set F_CLButtons = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ItemDelBackDrop, "ScriptDialogButton", 0)
+        call DzFrameSetPoint(F_CLButtons, JN_FRAMEPOINT_CENTER, F_ItemDelBackDrop , JN_FRAMEPOINT_CENTER, 0.035, -0.025)
+        call DzFrameSetText(F_CLButtons, "취소")
+        call DzFrameSetSize(F_CLButtons, 0.035, 0.0275)
+        call DzFrameSetScriptByCode(F_CLButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton3, false)
+        
+        
+        call DzFrameShow(F_ItemBackDrop, false)
+
     endfunction
     
     private function IKey takes nothing returns nothing
