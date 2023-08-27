@@ -15,10 +15,16 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         //취소 버튼
         integer F_ItemCancelButton
 
+        //우클릭메뉴
+        integer F_RightMenu
         //집은 아이템
         integer F_PickUp
         //픽업중 체크
         boolean PickUpOn = false
+        //프레임 마우스들어감
+        boolean array FrameIn
+        //마지막으로 우클릭한 인벤토리 칸 번호
+        private integer LastRightClicked = -1
 
         //장비아이템 버튼들
         integer array F_EItemButtons
@@ -87,7 +93,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local real r1
         local real r2
         
-        if F_ItemClickNumber != 200 then
+        if F_ItemClickNumber != 200 and PickUpOn == true then
             set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
             set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
             call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
@@ -97,7 +103,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
             call DzFrameSetUpdateCallback("")
         endif
     endfunction
-
 
     //템제거 RemoveItem2(플레이어아이디,지울번호,창고?)
     function RemoveItem2 takes integer pid, integer number, boolean st returns nothing
@@ -115,6 +120,36 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 call DzFrameShow(UI_Tip, false)
                 call StashRemove(pid:PLAYER_DATA, "창고"+I2S(number))
                 call DzFrameShow(F_Storage_ButtonLock[number], false)
+            endif
+        endif
+    endfunction
+
+    // 마우스 우클릭 ====================================================================================================
+    private function MouseRightClick takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerKeyPlayer())
+        local string sn = I2S(PlayerSlotNumber[pid])
+        local integer i
+        
+        // 템을 찝은 상태일 경우 찝기 해제
+        if F_ItemClickNumber != 200 and PickUpOn == true then
+            // 값 초기화, 프레임 숨기기
+            set F_ItemClickNumber = 200
+            set PickUpOn = false
+            call DzFrameShow(F_PickUp, false)
+        // 템을 안찝은 상태일 경우 우클릭 메뉴 보이기
+        else
+            set i = 0
+            loop
+            exitwhen i > 50
+                if FrameIn[i] and (GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) != 0 ) then
+                    exitwhen true
+                endif
+                set i = i + 1
+            endloop
+            if i < 50 then
+                set LastRightClicked = i
+                call DzFrameShow(DzFrameFindByName("RightMenuBack", 0), true)
+                call DzFrameSetPoint(DzFrameFindByName("RightMenuBack", 0), JN_FRAMEPOINT_TOPLEFT, F_ItemButtons[i], JN_FRAMEPOINT_TOPRIGHT, 0, 0)
             endif
         endif
     endfunction
@@ -316,6 +351,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     endfunction
     
     private function F_OFF_Actions takes nothing returns nothing
+        set FrameIn[LoadInteger(Hash, DzGetTriggerUIEventFrame(), StringHash("number"))] = false
+        call DzFrameShow(UI_Tip, false)
+    endfunction
+
+    private function F_OFF_ActionsSt takes nothing returns nothing
         call DzFrameShow(UI_Tip, false)
     endfunction
     
@@ -329,6 +369,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local string sn = I2S(PlayerSlotNumber[pid])
         local integer selectnumber = LoadInteger(Hash, f, StringHash("number"))
         
+        set FrameIn[selectnumber] = false
+
         set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), "0")
         
         set itemid = GetItemIDs(items)
@@ -361,6 +403,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local integer tier = 0
         local string sn = I2S(PlayerSlotNumber[pid])
         local integer selectnumber = LoadInteger(Hash, f, StringHash("number"))
+
+        set FrameIn[selectnumber] = true
 
         set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), "0")
         
@@ -579,12 +623,14 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     private function ClickLockButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        local integer i = F_ItemClickNumber
+        local integer i = LastRightClicked
         local integer j = 0
         local string items
         local integer itemty = 0
         local string sn = I2S(PlayerSlotNumber[pid])
         //f: 트리거를 작동시킨 프레임(비동기화시에만 잡히니 주의.)
+
+        call DzFrameShow(F_RightMenu, false )
 
         if i != 200 then
             set F_ItemClickNumber = 200
@@ -603,7 +649,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 endif
             endif
         endif
-    
+        
+        set LastRightClicked = -1
+
         call StopSound(gg_snd_MouseClick1, false, false)
         call StartSound(gg_snd_MouseClick1)
     endfunction
@@ -636,13 +684,13 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     set F_ItemClickNumber = selectnumber
                     set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber - 10000), "0")
                     // 좌표 바로 한 번 갱신하기
+                    set PickUpOn = true
                     call DzFrameShow(F_PickUp, true)
                     call DzFrameSetTexture(F_PickUp, GetItemArt(items), 0)
                     set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
                     set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
                     call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
                     call DzFrameSetUpdateCallbackByCode(function PickUpItem)
-                    set PickUpOn = true
                 //아이템을 들고있으면 자리바꿈
                 else
                     //장비
@@ -817,9 +865,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local real r1
         local real r2
 
+        call DzFrameShow(F_RightMenu, false)
+
         //템있는곳클릭
         if items != "0" and selectnumber < 100 then
-        //
             //같은아이템을 두번클릭 장비면 i=1 기타템이면 i=2
             if F_ItemClickNumber == selectnumber then
                 if selectnumber < 50 then
@@ -831,6 +880,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 //아이템을 들고있지않으면 템을 듦
                 if PickUpOn == false then
                     set F_ItemClickNumber = selectnumber
+                    set PickUpOn = true
                     set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                     call DzFrameShow(F_PickUp, true)
                     call DzFrameSetTexture(F_PickUp, GetItemArt(items), 0)
@@ -838,7 +888,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
                     call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
                     call DzFrameSetUpdateCallbackByCode(function PickUpItem)
-                    set PickUpOn = true
                 //템을 들고있으면 자리바꿈
                 else
                     //장비
@@ -928,9 +977,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
-                        call VJDebugMsg("1 : "+I2S(pid))
-                        call VJDebugMsg("2 : "+"7")
-                        call VJDebugMsg("3 : "+items)
                     elseif etyid2 == 0 then
                         //장착
                         set Eitem[pid][8] = items
@@ -1195,9 +1241,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if selectnumber < 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                         call RemoveItem2(pid, F_ItemClickNumber, false)
+                        set F_ItemClickNumber = 200
                         call AddIvItem.evaluate(pid, selectnumber, items2)
                         call DzFrameShow(F_PickUp, false)
-                        set F_ItemClickNumber = 200
                     endif
                 //기타
                 elseif F_ItemClickNumber < 100 then
@@ -1270,7 +1316,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetAllPoints(F_Storage_ButtonsBackDrop[types], F_Storage_Buttons[types])
         call DzFrameSetTexture(F_Storage_ButtonsBackDrop[types],"UI_Inventory.blp", 0)
         
-        set F_Storage_ButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtonsBackDrop[types], "template", 0)
+        set F_Storage_ButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_ButtonsBackDrop[types], "template", 0)
         call DzFrameSetSize(F_Storage_ButtonLock[types], 0.01, (19.0/ 16.0) * 0.01 )
         call DzFrameSetPoint(F_Storage_ButtonLock[types], 0, F_Storage_ButtonsBackDrop[types], 0, (( 28.0 / 16.0 ) * 0.01), (( 8.0 / 16.0 ) * 0.01)  )
         call DzFrameSetTexture(F_Storage_ButtonLock[types], "UI_Inventory_Lock2.blp", 0)
@@ -1279,7 +1325,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call SaveInteger(Hash, F_Storage_Buttons[types], StringHash("number"), types+10000)
 
         call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_ActionsSt, false)
-        call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_ActionsSt, false)
         call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_UP, function ClickStItemButton, false)
 
         set F_Storage_Buttons[types+50]=DzCreateFrameByTagName("BUTTON", "", F_Storage_ETCButtonsShow, "ScoreScreenTabButtonTemplate", 0)
@@ -1293,7 +1339,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call SaveInteger(Hash, F_Storage_Buttons[types+50], StringHash("number"), types+50)
 
         call DzFrameSetScriptByCode(F_Storage_Buttons[types+50], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_ActionsSt2, false)
-        call DzFrameSetScriptByCode(F_Storage_Buttons[types+50], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameSetScriptByCode(F_Storage_Buttons[types+50], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_ActionsSt, false)
         call DzFrameSetScriptByCode(F_Storage_Buttons[types+50], JN_FRAMEEVENT_MOUSE_UP, function ClickStItemButton, false)
 
     endfunction
@@ -1392,6 +1438,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local string s
         local integer i
         call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("FDE Import.toc")
         
         //가방 버튼 생성
         set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
@@ -1632,6 +1679,20 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         set F_PickUp = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
         call DzFrameSetSize(F_PickUp, 0.025, 0.025)
         call DzFrameShow(F_PickUp, false)
+
+        // 우클릭 메뉴
+        set F_RightMenu = DzCreateFrameByTagName("BACKDROP", "RightMenuBack", F_ItemBackDrop, "", 0)
+        call DzFrameSetSize(F_RightMenu, 0.02, 0.02)
+        call DzFrameSetTexture(F_RightMenu, "Textures\\black32.blp", 0)
+        call DzFrameSetPoint(DzCreateFrame("RightMenu1", F_RightMenu, 0), JN_FRAMEPOINT_TOPLEFT, F_RightMenu, JN_FRAMEPOINT_TOPLEFT, 0, 0)
+        call DzFrameSetEnable(DzFrameFindByName("RightMenuText1", 0), false)
+        call DzFrameSetEnable(DzFrameFindByName("RightMenuText2", 0), false)
+        call DzFrameSetText(DzFrameFindByName("RightMenuText1", 0), "잠금")
+        call DzFrameSetText(DzFrameFindByName("RightMenuText2", 0), "분해")
+        call DzFrameSetAlpha(DzFrameFindByName("RightMenu1High", 0), 32)
+        call DzFrameSetAlpha(DzFrameFindByName("RightMenu2High", 0), 32)
+        call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu1", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickLockButton, false)
+        //call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu2", 0), JN_FRAMEEVENT_CONTROL_CLICK, function RightClickMenuRemove, false)
     endfunction
     
     private function IKey takes nothing returns nothing
@@ -1677,6 +1738,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
             exitwhen index == 6
         endloop
 
+        // 우클릭
+        set t = CreateTrigger()
+        call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
         
         //I버튼으로 인벤토리 열기 및 닫기
         set t = CreateTrigger()
