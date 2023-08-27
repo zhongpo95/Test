@@ -138,6 +138,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local string sn = I2S(PlayerSlotNumber[pid])
         local integer i
         
+        call DzFrameShow(F_ItemDelBackDrop, false)
+        
         // 템을 찝은 상태일 경우 찝기 해제
         if F_ItemClickNumber != 200 and PickUpOn == true then
             // 값 초기화, 프레임 숨기기
@@ -663,7 +665,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call StopSound(gg_snd_MouseClick1, false, false)
         call StartSound(gg_snd_MouseClick1)
     endfunction
-
 
     private function ClickDELButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
@@ -1761,7 +1762,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetAlpha(DzFrameFindByName("RightMenu1High", 0), 32)
         call DzFrameSetAlpha(DzFrameFindByName("RightMenu2High", 0), 32)
         call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu1", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickLockButton, false)
-        //call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu2", 0), JN_FRAMEEVENT_CONTROL_CLICK, function RightClickMenuRemove, false)
+        call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu2", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickDELButton, false)
 
         //분해
         set F_ItemDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
