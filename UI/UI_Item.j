@@ -139,7 +139,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local integer i
         
         call DzFrameShow(F_ItemDelBackDrop, false)
-        
+
         // 템을 찝은 상태일 경우 찝기 해제
         if F_ItemClickNumber != 200 and PickUpOn == true then
             // 값 초기화, 프레임 숨기기
@@ -1834,7 +1834,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
             set index = index + 1
             exitwhen index == 6
         endloop
-
+        
         // 우클릭
         set t = CreateTrigger()
         call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
