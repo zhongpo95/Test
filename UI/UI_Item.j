@@ -98,6 +98,25 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         endif
     endfunction
 
+
+    //템제거 RemoveItem2(플레이어아이디,지울번호,창고?)
+    function RemoveItem2 takes integer pid, integer number, boolean st returns nothing
+        if GetLocalPlayer() == Player(pid) then
+            if st == false then
+            //인벤에서 제거
+                call DzFrameSetTexture(F_ItemButtonsBackDrop[number], "UI_Inventory.blp", 0)
+                call DzFrameShow(UI_Tip, false)
+                call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(number))
+                call DzFrameShow(F_ItemButtonLock[number], false)
+            elseif st == true then
+                call DzFrameSetTexture(F_Storage_ButtonsBackDrop[number], "UI_Inventory.blp", 0)
+                call DzFrameShow(UI_Tip, false)
+                call StashRemove(pid:PLAYER_DATA, "창고"+I2S(number))
+                call DzFrameShow(F_Storage_ButtonLock[number], false)
+            endif
+        endif
+    endfunction
+
     private function F_ON_ActionsSt takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
@@ -628,8 +647,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if F_ItemClickNumber < 50 then
                         if (selectnumber-10000) < 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items)
+                            call AddIvItem.evaluate(pid, F_ItemClickNumber, items)
                             call AddStItem.evaluate(pid, (selectnumber-10000), items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
@@ -638,8 +656,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     elseif F_ItemClickNumber < 100 then
                         if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items)
+                            call AddIvItem.evaluate(pid, F_ItemClickNumber, items)
                             call AddStItem.evaluate(pid, (selectnumber-10000), items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
@@ -655,7 +672,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set F_ItemClickNumber = 200
                     //기타
                     elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
-                        if (selectnumber-10000) < 100 then
+                        if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                             call AddStItem.evaluate(pid, F_ItemClickNumber-10000, items)
                             call AddStItem.evaluate(pid, selectnumber-10000, items2)
@@ -681,12 +698,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 endloop
                 if j < 50 then
                     //창고에서 제거
-                    call DzFrameSetTexture(F_Storage_ButtonsBackDrop[F_ItemClickNumber - 10000], "UI_Inventory.blp", 0)
-                    call DzFrameShow(UI_Tip, false)
-                    call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber - 10000))
-                    call DzFrameShow(F_Storage_ButtonLock[F_ItemClickNumber - 10000], false)
+                    call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                     //인벤에 추가
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(j), items)
                     call AddIvItem.evaluate(pid,j,items)
                     set F_ItemClickNumber = 200
                 endif
@@ -706,10 +719,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         //중첩변경
                         call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), items)
                         //제거
-                        call DzFrameSetTexture(F_Storage_ButtonsBackDrop[F_ItemClickNumber - 10000], "UI_Inventory.blp", 0)
-                        call DzFrameShow(UI_Tip, false)
-                        call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber - 10000))
-                        call DzFrameShow(F_Storage_ButtonLock[F_ItemClickNumber - 10000], false)
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                         
                         set F_ItemClickNumber = 200
                         
@@ -735,11 +745,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     endloop
                     if j < 100 then
                         //창고에서 제거
-                        call DzFrameSetTexture(F_Storage_ButtonsBackDrop[F_ItemClickNumber - 10000], "UI_Inventory.blp", 0)
-                        call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber - 10000))
-                        call DzFrameShow(F_Storage_ButtonLock[F_ItemClickNumber - 10000], false)
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                         //인벤에 추가
                         call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(j), items)
                         call AddIvItem.evaluate(pid,j,items)
@@ -747,12 +753,33 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     endif
                 endif
             endif
-            
             call StopSound(gg_snd_MouseClick1, false, false)
             call StartSound(gg_snd_MouseClick1)
+        else
+            //템을 들고있음
+            if PickUpOn == true then
+                if (F_ItemClickNumber - 10000) < 50 and F_ItemClickNumber >= 10000 then
+                    if (selectnumber-10000) < 50 then
+                        //장비
+                        set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
+                        call AddStItem.evaluate(pid, selectnumber-10000, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
+                //기타
+                elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                    if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
+                        set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
+                        call AddStItem.evaluate(pid, selectnumber-10000, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
+                endif
         endif
     endfunction
-    
+
     private function ClickItemButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
@@ -798,10 +825,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if F_ItemClickNumber < 50 then
                         if selectnumber < 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items)
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                            call AddIvItem.evaluate(pid,F_ItemClickNumber,items)
+                            call AddIvItem.evaluate(pid,selectnumber,items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
@@ -810,10 +835,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         //기타
                         if selectnumber < 100 and selectnumber >= 50 then
                             set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items)
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                            call AddIvItem.evaluate(pid,F_ItemClickNumber,items)
+                            call AddIvItem.evaluate(pid,selectnumber,items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
@@ -823,8 +846,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                             //창고에 추가
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                             call AddStItem.evaluate(pid, F_ItemClickNumber-10000, items)
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                            call AddIvItem.evaluate(pid,selectnumber,items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
@@ -834,8 +856,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                             //창고에 추가
                             set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                             call AddStItem.evaluate(pid, F_ItemClickNumber-10000, items)
-                            call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                            call AddIvItem.evaluate(pid,selectnumber,items2)
                         endif
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
@@ -877,17 +898,14 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 if itemty == 7 then
                     set etyid1 = GetItemIDs(Eitem[pid][7])
                     set etyid2 = GetItemIDs(Eitem[pid][8])
-                    set i = GetItemIDs(items)
+                    //set i = GetItemIDs(items)
                     if etyid1 == 0 then
                         //장착
                         set Eitem[pid][7] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
                         call VJDebugMsg("1 : "+I2S(pid))
@@ -898,11 +916,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set Eitem[pid][8] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[8], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"8"+"\t"+items)
                     else
@@ -911,31 +926,22 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set Eitem[pid][7] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
                         //교체
-                        set j = GetItemIDs(items2)
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items2)
-                        if GetItemLock(items2) == 0 then
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
-                        else
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], true)
-                        endif
+                        //set j = GetItemIDs(items2)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
                     endif
                 elseif itemty == 8 then
                     set etyid1 = GetItemIDs(Eitem[pid][9])
                     set etyid2 = GetItemIDs(Eitem[pid][10])
-                    set i = GetItemIDs(items)
+                    //set i = GetItemIDs(items)
                     if etyid1 == 0 then
                         //장착
                         set Eitem[pid][9] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
                     elseif etyid2 == 0 then
@@ -943,11 +949,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set Eitem[pid][10] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[10], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"10"+"\t"+items)
                     else
@@ -956,14 +959,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set Eitem[pid][9] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
                         //교체
-                        set j = GetItemIDs(items2)
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items2)
-                        if GetItemLock(items2) == 0 then
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
-                        else
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], true)
-                        endif
+                        //set j = GetItemIDs(items2)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
                     endif
@@ -971,31 +968,22 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if GetItemIDs(Eitem[pid][12]) == 0 then
                         //장착
                         set Eitem[pid][12] = items
-                        set i = GetItemIDs(items)
+                        //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+I2S(12)+"\t"+items)
                     else
                         //장착
                         set items2 = Eitem[pid][12]
                         set Eitem[pid][12] = items
-                        set i = GetItemIDs(items)
+                        //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
                         //교체
-                        set j = GetItemIDs(items2)
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items2)
-                        if GetItemLock(items2) == 0 then
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
-                        else
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], true)
-                        endif
+                        //set j = GetItemIDs(items2)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+I2S(12)+"\t"+items)
                     endif
@@ -1003,31 +991,22 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if GetItemIDs(Eitem[pid][itemty]) == 0 then
                         //장착
                         set Eitem[pid][itemty] = items
-                        set i = GetItemIDs(items)
+                        //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+I2S(itemty)+"\t"+items)
                     else
                         //장착
                         set items2 = Eitem[pid][itemty]
                         set Eitem[pid][itemty] = items
-                        set i = GetItemIDs(items)
+                        //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
                         //교체
-                        set j = GetItemIDs(items2)
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), items2)
-                        if GetItemLock(items2) == 0 then
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
-                        else
-                            call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], true)
-                        endif
+                        //set j = GetItemIDs(items2)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+I2S(itemty)+"\t"+items)
                     endif
@@ -1056,13 +1035,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                 endloop
                 if j < 50 then
                     //인벤에서 제거
-                    call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
-                    call DzFrameShow(UI_Tip, false)
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                    call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
+                    call RemoveItem2(pid, F_ItemClickNumber, false)
                     //창고에 추가
-                    call StashSave(pid:PLAYER_DATA, "창고"+I2S(j), items)
                     call AddStItem.evaluate(pid,j,items)
+                    call DzFrameShow(UI_Tip, false)
                     set F_ItemClickNumber = 200
                 endif
                 call DzFrameShow(F_PickUp, false)
@@ -1083,11 +1059,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         set items = SetItemCharge(items, j+k)
                         call AddStItem.evaluate(pid,i,items)
                         //제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
-                        call DzFrameShow(UI_Tip, false)
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         
+                        call DzFrameShow(UI_Tip, false)
                         set F_ItemClickNumber = 200
                         
                         set k = 1
@@ -1111,13 +1085,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     endloop
                     if j < 100 then
                         //인벤에서 제거
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
-                        call DzFrameShow(UI_Tip, false)
-                        
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber], false)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
                         //창고에 추가
                         call AddStItem.evaluate(pid,j,items)
+                        call DzFrameShow(UI_Tip, false)
                         set F_ItemClickNumber = 200
                     endif
                 endif
@@ -1203,10 +1174,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     if selectnumber < 50 then
                         //장비
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call AddIvItem(pid, selectnumber, items2)
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
@@ -1214,10 +1183,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     //기타
                     if selectnumber < 100 and selectnumber >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber], "UI_Inventory.blp", 0)
-                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber))
-                        call DzFrameSetTexture(F_ItemButtonsBackDrop[selectnumber], GetItemArt(items2), 0)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(selectnumber), items2)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call AddIvItem(pid, selectnumber, items2)
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
