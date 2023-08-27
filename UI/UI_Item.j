@@ -101,9 +101,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
 
     //템제거 RemoveItem2(플레이어아이디,지울번호,창고?)
     function RemoveItem2 takes integer pid, integer number, boolean st returns nothing
+        local string sn
         if GetLocalPlayer() == Player(pid) then
             if st == false then
             //인벤에서 제거
+                set sn = I2S(PlayerSlotNumber[pid])
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[number], "UI_Inventory.blp", 0)
                 call DzFrameShow(UI_Tip, false)
                 call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(number))
@@ -747,7 +749,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         //창고에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                         //인벤에 추가
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(j), items)
                         call AddIvItem.evaluate(pid,j,items)
                         set F_ItemClickNumber = 200
                     endif
@@ -758,16 +759,16 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         else
             //템을 들고있음
             if PickUpOn == true then
+                //창고장비
                 if (F_ItemClickNumber - 10000) < 50 and F_ItemClickNumber >= 10000 then
                     if (selectnumber-10000) < 50 then
-                        //장비
                         set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
                         call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
                         call AddStItem.evaluate(pid, selectnumber-10000, items2)
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
-                //기타
+                //창고기타
                 elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
                     if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
@@ -776,7 +777,26 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
+                //인벤장비
+                elseif F_ItemClickNumber < 50 then
+                    if (selectnumber-10000) < 50 then
+                        set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call AddStItem.evaluate(pid, selectnumber-10000, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
+                //기타장비
+                elseif F_ItemClickNumber < 100 then
+                    if (selectnumber-10000) < 100 and (selectnumber-10000) >= 50 then
+                        set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call AddStItem.evaluate(pid, selectnumber-10000, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
                 endif
+            endif
         endif
     endfunction
 
@@ -1170,27 +1190,44 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         else
             //템을 들고있음
             if PickUpOn == true then
+                //장비
                 if F_ItemClickNumber < 50 then
                     if selectnumber < 50 then
-                        //장비
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                         call RemoveItem2(pid, F_ItemClickNumber, false)
-                        call AddIvItem(pid, selectnumber, items2)
+                        call AddIvItem.evaluate(pid, selectnumber, items2)
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
+                //기타
                 elseif F_ItemClickNumber < 100 then
-                    //기타
                     if selectnumber < 100 and selectnumber >= 50 then
                         set items2 = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(F_ItemClickNumber), "0")
                         call RemoveItem2(pid, F_ItemClickNumber, false)
-                        call AddIvItem(pid, selectnumber, items2)
+                        call AddIvItem.evaluate(pid, selectnumber, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
+                //창고장비
+                elseif (F_ItemClickNumber - 10000) < 50 and F_ItemClickNumber >= 10000 then
+                    if selectnumber < 50 then
+                        set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
+                        call AddIvItem.evaluate(pid, selectnumber, items2)
+                        call DzFrameShow(F_PickUp, false)
+                        set F_ItemClickNumber = 200
+                    endif
+                //창고기타
+                elseif (F_ItemClickNumber - 10000) < 100 and F_ItemClickNumber >= 10000 then
+                    if selectnumber < 100 and selectnumber >= 50 then
+                        set items2 = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_ItemClickNumber-10000), "0")
+                        call RemoveItem2(pid, F_ItemClickNumber - 10000, true)
+                        call AddIvItem.evaluate(pid, selectnumber, items2)
                         call DzFrameShow(F_PickUp, false)
                         set F_ItemClickNumber = 200
                     endif
                 endif
             endif
-
         endif
 
         call StopSound(gg_snd_MouseClick1, false, false)
