@@ -11,11 +11,6 @@ library DataItem initializer init
         string array itemimage
     endglobals
 
-        
-    function MakeItem takes integer id returns string
-        return I2S(id)
-    endfunction
-
     private function init takes nothing returns nothing
         call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I001')
         call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I002')
