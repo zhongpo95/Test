@@ -1,4 +1,4 @@
-library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield
+library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro
     globals
         constant real HeadBounsDamage = 1.20
         constant real BackBounsDamage = 1.05
@@ -242,5 +242,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield
             endif
         endif
         
+        call PlayerBossAttack(source, target, dmg)
     endfunction
 endlibrary

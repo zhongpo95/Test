@@ -1,4 +1,4 @@
-library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd
+library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro
     globals
         private integer BossTip
         //10초
@@ -92,6 +92,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
+        local AggroSystem s
         
         if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
             set st.pattern1 = st.pattern1 - 1
@@ -109,6 +110,8 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             call st.ul.destroy()
             //그룹 보상
             call KillUnit(st.caster)
+            set s = BossStruct[IndexUnit(st.caster)]
+            call s.destroy()
             set st.caster = null
             call BossMapReset(st.rectnumber, 1)
             set st.rectnumber = 0
@@ -167,6 +170,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             call SetUnitPathing(st.caster,false)
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
+            set BossStruct[UnitIndex] = AggroSystem.create()
             
             //call SaveBoolean(Unithash,GetHandleId(st.caster),0,false)
             
