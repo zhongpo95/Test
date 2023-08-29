@@ -9,7 +9,7 @@ endglobals
 
 private function splashD takes nothing returns nothing
     local texttag ttag
-    call HeroDeal(splash.source,GetEnumUnit(),DR)
+    //call HeroDeal(splash.source,GetEnumUnit(),DR)
     
     if HeadTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(GetEnumUnit())) == true then
         set ttag=CreateTextTag()
@@ -98,7 +98,7 @@ private function F_A008 takes nothing returns nothing
     call AnimationStart2(fx.caster,4,0.4,1.5)
 endfunction
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("2.0")
     call AbilityEffectEvent.Create( 'A008', function F_A008 )
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 콘텐츠_끝()

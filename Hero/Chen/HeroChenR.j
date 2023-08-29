@@ -67,7 +67,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.525
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,true)
+        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -84,7 +84,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 2.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,true)
+        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
     endif
 endfunction
 
@@ -377,7 +377,7 @@ private function RSyncData2 takes nothing returns nothing
 endfunction
 
             
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     local trigger t
     
     set t = CreateTrigger()

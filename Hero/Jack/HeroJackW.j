@@ -8,7 +8,7 @@ globals
 endglobals
 
 private function splashD takes nothing returns nothing
-    call HeroDeal(splash.source,GetEnumUnit(),DR)
+    //call HeroDeal(splash.source,GetEnumUnit(),DR)
 endfunction
 
 private struct FxEffect
@@ -75,7 +75,7 @@ endfunction
         //return t.unit
     //endfunction
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     call AbilityEffectEvent.Create( 'A001', function F_A001 )
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 콘텐츠_끝()

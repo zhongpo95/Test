@@ -1,4 +1,4 @@
-library DataItem initializer init
+library DataItem
     globals
         hashtable ItemData = InitHashtable()
         string array ItemStats[9][100]
@@ -11,7 +11,7 @@ library DataItem initializer init
         string array itemimage
     endglobals
 
-    private function init takes nothing returns nothing
+    //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
         call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I001')
         call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I002')
         call SaveInteger(ItemData, StringHash("ITEMID"), 3, 'I003')
@@ -495,5 +495,5 @@ library DataItem initializer init
         call Quality.add(19,00.41)
         call Quality.add(20,00.37)
         call Quality.add(21,00.08)
-    endfunction
+    //! runtextmacro 이벤트_끝()
 endlibrary

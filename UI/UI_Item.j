@@ -1507,9 +1507,26 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     private function Main takes nothing returns nothing
         local string s
         local integer i
+        local trigger t
+        local integer index
+
         call DzLoadToc("war3mapImported\\Templates.toc")
         call DzLoadToc("FDE Import.toc")
+        call DzLoadToc("war3mapimported\\BoxedText.toc")
         
+        set index = 0
+        loop
+            set F_ItemOnOff[index] = false
+            set F_Storage_OnOff[index] = false
+            set index = index + 1
+            exitwhen index == 6
+        endloop
+        
+        // 우클릭
+        set t = CreateTrigger()
+        call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
+        set t = null
+
         //가방 버튼 생성
         set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
         call DzFrameSetAbsolutePoint(F_ItemOpenButton, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
@@ -1822,21 +1839,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         local trigger t = CreateTrigger()
         local integer index
         
-        call TriggerRegisterTimerEventSingle( t, 0.1 )
+        call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapimported\\BoxedText.toc")
-        
-        set index = 0
-        loop
-            set F_ItemOnOff[index] = false
-            set F_Storage_OnOff[index] = false
-            set index = index + 1
-            exitwhen index == 6
-        endloop
-        
-        // 우클릭
-        set t = CreateTrigger()
-        call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
         
         //I버튼으로 인벤토리 열기 및 닫기
         set t = CreateTrigger()

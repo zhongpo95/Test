@@ -76,7 +76,7 @@ private function F_A00D takes nothing returns nothing
     call AnimationStart(fx.caster,10)
 endfunction
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     call AbilityEffectEvent.Create( 'A00D', function F_A00D )
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 콘텐츠_끝()

@@ -1,149 +1,74 @@
-library BossAggroSystem
+library BossAggro requires Tick, UnitIndexer
     globals
-        private integer AggroUpdateTimer = null
-        private integer MaxAggroTime = 10
-        private integer AggroCheckInterval = 1
-        private integer AggroDataCount = 0
-        private constant integer MaxAggroData = 12
-        
-        private integer AggroData AggroList[MaxAggroData]
+        private unit Boss
+        private group PlayerGroup
+        private constant real AggroCheckInterval = 1.0
+        private constant integer AggroCheckCount = 10
+        private constant integer MaxPlayer = 6
+        private constant integer DamageArraySize = MaxPlayer * AggroCheckCount
+        integer array BossStruct
     endglobals
-
-    private struct AggroData
-        unit aggroTarget
-        real damageTaken
+    
+    struct AggroSystem
+        integer currentIndex
+        integer NowAggro
+        tick AggroCheckTimer
+        real array PlayerDamageCount[DamageArraySize]
+    
+        method SetDamage takes integer pid, real damage returns nothing
+            local integer index = this.currentIndex * MaxPlayer + pid
+            set this.PlayerDamageCount[index] = this.PlayerDamageCount[index] + damage
+        endmethod
+    
+        private static method AggroUpdate takes nothing returns nothing
+            local tick t = tick.getExpired()
+            local thistype this = t.data
+            local integer index = 0
+            local real maxDamage = 0
+            local real maxDamage2 = 0
+    
+            set this.currentIndex = this.currentIndex + 1
+    
+            if this.currentIndex == AggroCheckCount then
+                this.currentIndex = 0
+            endif
+    
+            loop
+                set maxDamage = 0
+                local playerOffset = this.currentIndex * MaxPlayer
+                local playerEnd = playerOffset + MaxPlayer - 1
+                for index = playerOffset to playerEnd do
+                    set maxDamage = maxDamage + this.PlayerDamageCount[index]
+                endfor
+    
+                if maxDamage2 <= maxDamage then
+                    set this.NowAggro = this.currentIndex
+                    set maxDamage2 = maxDamage
+                endif
+                
+                set this.currentIndex = this.currentIndex + 1
+                exitwhen this.currentIndex == AggroCheckCount
+            endloop
+            call BJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro) )
+        endmethod
+        
+        method onDestroy takes nothing returns nothing
+            call this.AggroCheckTimer.pause()
+            call this.AggroCheckTimer.destroy()
+        endmethod
+    
+        static method create takes nothing returns thistype
+            local thistype this = thistype.allocate()
+    
+            set this.AggroCheckTimer = tick.create(this)
+            call this.AggroCheckTimer.start(AggroCheckInterval, true, function thistype.AggroUpdate )
+    
+            return this
+        endmethod
     endstruct
     
-    private function InitializeAggroList takes nothing returns nothing
-        local integer i = 0
-        loop
-            exitwhen i >= MaxAggroData
-            set AggroList[i] = AggroData.create()
-            set AggroList[i].aggroTarget = null
-            set AggroList[i].damageTaken = 0
-            set i = i + 1
-        endloop
+    function PlayerBossAttack takes unit damagedUnit, unit damagingUnit, real damage returns nothing
+        local AggroSystem s = BossStruct[IndexUnit(damagingUnit)]
+        call s.SetDamage(GetPlayerId(GetOwningPlayer(damagedUnit)), damage)
     endfunction
-    
-    private function AggroUpdate takes nothing returns nothing
-        local integer i = 0
-        local real maxDamage = 0.0
-        local unit newAggroTarget = null
-        
-        loop
-            exitwhen i >= AggroDataCount
-            if AggroList[i].damageTaken > maxDamage then
-                set maxDamage = AggroList[i].damageTaken
-                set newAggroTarget = AggroList[i].aggroTarget
-            endif
-            set i = i + 1
-        endloop
-        
-        // Set new aggro target if found
-        if newAggroTarget != null then
-            call BJDebugMsg(GetUnitName(newAggroTarget))
-        endif
-    endfunction
-    
-    private function AggroCheck takes nothing returns nothing
-        local unit damagedUnit = GetTriggerUnit()
-        local unit damagingUnit = GetEventDamageSource()
-        local integer i = 0
-        local boolean found = false
-        
-        loop
-            exitwhen i >= AggroDataCount
-            if AggroList[i].aggroTarget == damagedUnit then
-                set AggroList[i].damageTaken = AggroList[i].damageTaken + GetEventDamage()
-                set found = true
-                exitwhen true
-            endif
-            set i = i + 1
-        endloop
-        
-        if not found and AggroDataCount < MaxAggroData then
-            set AggroList[AggroDataCount].aggroTarget = damagedUnit
-            set AggroList[AggroDataCount].damageTaken = GetEventDamage()
-            set AggroDataCount = AggroDataCount + 1
-        endif
-    endfunction
-    
-    private function AggroRemove takes unit u returns nothing
-        local integer i = 0
-        loop
-            exitwhen i >= AggroDataCount
-            if AggroList[i].aggroTarget == u then
-                // Move last element to fill the gap
-                set AggroList[i] = AggroList[AggroDataCount - 1]
-                set AggroList[AggroDataCount - 1] = AggroData.create()
-                set AggroList[AggroDataCount - 1].aggroTarget = null
-                set AggroList[AggroDataCount - 1].damageTaken = 0
-                set AggroDataCount = AggroDataCount - 1
-                exitwhen true
-            endif
-            set i = i + 1
-        endloop
-    endfunction
-    
-    private function Trig_AggroCheck_Conditions takes nothing returns boolean
-        return GetUnitAbilityLevel(GetTriggerUnit(), 'A00O') > 0
-    endfunction
-    
-    private function Trig_AggroCheck_Actions takes nothing returns nothing
-        local unit damagedUnit = GetTriggerUnit()
-        local unit damagingUnit = GetEventDamageSource()
-        
-        // Ignore friendly fire
-        if IsUnitEnemy(damagedUnit, GetOwningPlayer(damagingUnit)) then
-            call AggroCheck()
-        endif
-    endfunction
-    
-    private function Trig_AggroUpdate_Conditions takes nothing returns boolean
-        return AggroDataCount > 0
-    endfunction
-    
-    private function Trig_AggroUpdate_Actions takes nothing returns nothing
-        call AggroUpdate()
-    endfunction
-    
-    private function Trig_AggroRemove_Actions takes nothing returns nothing
-        call AggroRemove(GetTriggerUnit())
-    endfunction
-    
-    //===========================================================================
-    // Initialization
-    //===========================================================================
-    private function InitTriggers takes nothing returns nothing
-        local trigger t = CreateTrigger()
-        
-        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DAMAGED)
-        call TriggerAddCondition(t, Condition(function Trig_AggroCheck_Conditions))
-        call TriggerAddAction(t, function Trig_AggroCheck_Actions)
-        
-        set t = CreateTrigger()
-        call TriggerRegisterTimerEventPeriodic(t, AggroCheckInterval)
-        call TriggerAddCondition(t, Condition(function Trig_AggroUpdate_Conditions))
-        call TriggerAddAction(t, function Trig_AggroUpdate_Actions)
-        
-        set t = CreateTrigger()
-        call TriggerRegisterUnitEvent(t, EVENT_UNIT_DEATH, null)
-        call TriggerAddAction(t, function Trig_AggroRemove_Actions)
-    endfunction
-    
-    private function InitGlobals takes nothing returns nothing
-        set AggroUpdateTimer = CreateTimer()
-        call TimerStart(AggroUpdateTimer, MaxAggroTime, false, null)
-        
-        call InitializeAggroList()
-        
-        call InitTriggers()
-    endfunction
-    
-    //===========================================================================
-    // Main
-    //===========================================================================
-    private function main takes nothing returns nothing
-        call InitGlobals()
-    endfunction
-    endlibrary
+endlibrary

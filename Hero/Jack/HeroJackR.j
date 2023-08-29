@@ -62,7 +62,7 @@ private function F_A00C takes nothing returns nothing
     call AnimationStart(fx.caster,21)
 endfunction
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     call AbilityEffectEvent.Create( 'A00C', function F_A00C )
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 콘텐츠_끝()

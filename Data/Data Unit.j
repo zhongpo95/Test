@@ -113,7 +113,7 @@ function DataUnitIndex takes unit u returns integer
     return 0
 endfunction
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
     //포션
     set potion[1] = 'A01R'
     set potion[2] = 'A01S'

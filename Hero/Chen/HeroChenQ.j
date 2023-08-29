@@ -123,7 +123,7 @@ private function QSyncData takes nothing returns nothing
 endfunction
 
 
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     local trigger t
     
     set t = CreateTrigger()

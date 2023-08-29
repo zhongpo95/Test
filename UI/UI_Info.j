@@ -685,7 +685,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         local trigger t = CreateTrigger()
         local integer index
         
-        call TriggerRegisterTimerEventSingle( t, 0.10 )
+        call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
         call DzLoadToc("war3mapimported\\BoxedText.toc")
         

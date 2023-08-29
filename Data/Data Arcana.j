@@ -5,7 +5,7 @@ globals
     string array ArcanaText2
 endglobals
     
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
     //광대
     //각성 
     //각성기의 재사용 대기시간이 10% / 25% / 50% 감소한다.

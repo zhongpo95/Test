@@ -100,7 +100,7 @@ function GetMap takes integer thema returns integer
     return 0
 endfunction
 
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+//! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
     set MapRectCheck[1] = true
     set MapRectCheck[2] = true
     set MapRectCheck[3] = true
