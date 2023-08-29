@@ -29,7 +29,6 @@ library BossAggro requires Tick, UnitIndexer
             local real maxDamage2 = 0
             local integer playerOffset
             local real playerDamage = 0
-            local integer i = 0
             
             set this.currentIndex = this.currentIndex + 1
 
@@ -69,16 +68,6 @@ library BossAggro requires Tick, UnitIndexer
                 set index = index + 1
             endloop
             call BJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro)  )
-            call BJDebugMsg( "0 : " + R2S(this.PlayerDamageCount[0 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "1 : " + R2S(this.PlayerDamageCount[1 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "2 : " + R2S(this.PlayerDamageCount[2 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "3 : " + R2S(this.PlayerDamageCount[3 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "4 : " + R2S(this.PlayerDamageCount[4 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "5 : " + R2S(this.PlayerDamageCount[5 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "6 : " + R2S(this.PlayerDamageCount[6 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "7 : " + R2S(this.PlayerDamageCount[7 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "8 : " + R2S(this.PlayerDamageCount[8 + (AggroCheckCount * this.NowAggro)]))
-            call BJDebugMsg( "9 : " + R2S(this.PlayerDamageCount[9 + (AggroCheckCount * this.NowAggro)]))
         endmethod
         
         method onDestroy takes nothing returns nothing
