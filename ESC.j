@@ -29,6 +29,14 @@ scope ESC initializer init
         set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
+        set s = "8;"
+        set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
+        set s = SetItemQuality(s, (Quality.pick(false)-1) )
+        call additem(Player(0), s)
+        set s = "10;"
+        set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
+        set s = SetItemQuality(s, (Quality.pick(false)-1) )
+        call additem(Player(0), s)
         //call BJDebugMsg(JNStringRegex(s, "품질\\d+;", 0))
         //set s = JNStringReplace(s, JNStringRegex(s, "품질\\d+;", 0), "품질22;")
         //call BJDebugMsg("바꾼후 : "+s)

@@ -12,13 +12,14 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
         local integer Random3
         local string sn = I2S(PlayerSlotNumber[pid])
         
-        set Random1 = GetRandomInt(0,21)
+        set Random1 = GetRandomInt(0,13)
         loop
-            set loopA = GetRandomInt(0,21)
+            set loopA = GetRandomInt(0,13)
             set Random2 = loopA
             exitwhen loopA != Random1
         endloop
-         set Random3 = GetRandomInt(22,25)
+        //패널티각인
+         set Random3 = GetRandomInt(50,53)
                                             
         if ( GetTriggerPlayer() == GetLocalPlayer() ) then
             if IsUnitOwnedByPlayer(GetTriggerUnit(), Player(PLAYER_NEUTRAL_PASSIVE)) then

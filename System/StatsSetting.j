@@ -1,20 +1,28 @@
 library StatsSet initializer init requires UIHP, ITEM
     function SkillSpeed takes integer pid returns real
-        if (Equip_Swiftness[pid]/58) + Hero_BuffAttackSpeed[pid] >= 40 then
+        if (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] >= 40 then
             return 40.00
         endif
-        return (Equip_Swiftness[pid]/58) + Hero_BuffAttackSpeed[pid]
+        return (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid]
     endfunction
     
     function SkillSpeed2 takes integer pid, real PlusSpeed returns real
-        if (Equip_Swiftness[pid]/58) + Hero_BuffAttackSpeed[pid] >= 40 then
+        if (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] >= 40 then
             return 40.00 + PlusSpeed
         endif
-        return (Equip_Swiftness[pid]/58) + Hero_BuffAttackSpeed[pid] + PlusSpeed
+        return (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] + PlusSpeed
+    endfunction
+
+    function SwiftnessSpeed takes integer pid returns real
+        if (Equip_Swiftness[pid]/40) >= 40 then
+            return 40.00
+        endif
+        return (Equip_Swiftness[pid]/40)
     endfunction
     
     function ItemUIStatsSet takes integer pid returns nothing
         local real r =0
+        local integer speed = 0
         set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid]
         if GetLocalPlayer() == Player(pid) then
             //공격력
@@ -28,17 +36,21 @@ library StatsSet initializer init requires UIHP, ITEM
             //신속
             call DzFrameSetText(F_ItemStatsText[4], I2S(R2I(  Equip_Swiftness[pid] )) )
             //추가피해
-            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] ))+ "%" )
+            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] )) + "%" )
             //치명타확률
-            call DzFrameSetText(F_ItemStatsText[6], I2S(R2I(  Stats_Crit[pid] )) )
+            call DzFrameSetText(F_ItemStatsText[6], I2S(R2I(  Stats_Crit[pid] )) + "%")
             //공격속도
             call DzFrameSetText(F_ItemStatsText[7], I2S(R2I(  100 + SkillSpeed(pid) )) + "%" )
             //이동속도
-            call DzFrameSetText(F_ItemStatsText[8], I2S(R2I(  4 * ((Equip_Swiftness[pid]/58) + 100 + Hero_BuffMoveSpeed[pid] ) )) )
+            set speed = R2I(  ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
+            if speed > 140 then
+                set speed = 140
+            endif
+            call DzFrameSetText(F_ItemStatsText[8], I2S(speed) + "%" )
             //드랍률
             call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_Drop[pid] )) + "%" ) 
         endif
-        call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/58) + 100 + Hero_BuffMoveSpeed[pid] ) )
+        call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
     endfunction
     
     function PlayerStatsSet takes integer pid returns nothing

@@ -67,7 +67,7 @@ library BuffData requires Struct2Buff, StatsSet
         endmethod
         /* OnApply : Buff 최초 적용 성공 시 발동되는 메소드 */
         method OnApply takes nothing returns nothing
-            set Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] = Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] + 30.0
+            set Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] = Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] + 50.0
             call ItemUIStatsSet(GetPlayerId(GetOwningPlayer(.Target)))
         endmethod
         /* OnRemove : Buff 데이터 삭제 시 발동되는 메소드 */
@@ -75,7 +75,7 @@ library BuffData requires Struct2Buff, StatsSet
         endmethod
         /* OnDuration : 지속 시간 만료 시 발동되는 메소드(영구 지속 시 발동안함) */
         method OnDuration takes nothing returns nothing
-            set Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] = Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] - 30.0
+            set Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] = Hero_BuffMoveSpeed[GetPlayerId(GetOwningPlayer(.Target))] - 50.0
             call ItemUIStatsSet(GetPlayerId(GetOwningPlayer(.Target)))
         endmethod
         /* struct를 Buff로 만듦 */

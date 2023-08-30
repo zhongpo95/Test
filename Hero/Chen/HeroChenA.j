@@ -352,7 +352,7 @@ private function ASyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/58)
+        set fx.speed = (Equip_Swiftness[fx.pid]/40)
         set t.data = fx
         set Stack[fx.pid] = 11
         call t.start( 0.02, false, function EffectFunction2 )
@@ -362,7 +362,7 @@ private function ASyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/58)
+        set fx.speed = (Equip_Swiftness[fx.pid]/40)
         set t.data = fx
         set Stack[fx.pid] = 12
         call t.start( 0.02, false, function EffectFunction2 )
@@ -372,7 +372,7 @@ private function ASyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/58)
+        set fx.speed = (Equip_Swiftness[fx.pid]/40)
         set t.data = fx
         set Stack[fx.pid] = 13
         call t.start( 0.02, false, function EffectFunction2 )

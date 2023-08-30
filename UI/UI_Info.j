@@ -67,7 +67,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "신속" )
-        set str = "|cFFA5FA7D ◎ |r" + "이동속도와 공격속도가 " + "|cFFA5FA7D" + R2S(  (Equip_Swiftness[pid]/58)  ) + "%|r 증가했습니다.|n"
+        set str = "|cFFA5FA7D ◎ |r" + "이동속도와 공격속도가 " + "|cFFA5FA7D" + R2S(  SwiftnessSpeed(pid)  ) + "%|r 증가했습니다.|n"
         set str = str + "|cFFA5FA7D ◎ |r" + "스킬 재사용 시간이 " + "|cFFA5FA7D" + R2S(  (Equip_Swiftness[pid]/46)  ) + "%|r 감소합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -102,7 +102,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "공격속도" )
         set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  100 + SkillSpeed(pid)  ) + "%|r|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "시전시간이 1초일 경우 " + "|cFFA5FA7D" + R2S(  (1 - ( SkillSpeed(pid)/(100+ SkillSpeed(pid))) )  ) + "|r 초" 
+        set str = str + "|cFFA5FA7D ◎ |r" + "시전시간이 1초일 경우 " + "|cFFA5FA7D" + R2S(  (1 * (100.00-(Equip_Swiftness[pid]/46)) / 100 )  ) + "|r 초" 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -113,7 +113,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "이동속도" )
-        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  4 * ((Equip_Swiftness[pid]/58) + 100 + Hero_BuffMoveSpeed[pid] )  ) + "|r"
+        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  GetUnitMoveSpeed(MainUnit[pid])  ) + "|r"
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
