@@ -60,7 +60,7 @@ library BossAggro requires Tick, UnitIndexer
                 set playerDamage = playerDamage + this.PlayerDamageCount[8 + (playerOffset)]
                 set playerDamage = playerDamage + this.PlayerDamageCount[9 + (playerOffset)]
 
-                if maxDamage2 <= playerDamage then
+                if maxDamage2 < playerDamage or (maxDamage2 == 0 and index == this.NowAggro) then
                     set this.NowAggro = index
                     set maxDamage2 = playerDamage
                 endif
