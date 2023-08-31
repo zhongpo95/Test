@@ -550,7 +550,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         
         set F_ItemStatsText[1]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", 0)
         call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.070)
-        call DzFrameSetText(F_ItemStatsText[1], "|cFFFFE400방어등급")
+        call DzFrameSetText(F_ItemStatsText[1], "|cFFFFE400방어 등급")
         
         set F_ItemStatsText[1]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", 0)
         call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.070)

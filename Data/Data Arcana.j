@@ -80,7 +80,7 @@ endglobals
     //받는피해가 20% 증가하지만, 스킬의 피해가 4% / 10% / 18% 증가한다.
     set Arcana[14] = "ReplaceableTextures\\CommandButtons\\BTNArcana21.blp"
     set ArcanaText[14] = "세계"
-    set ArcanaText2[14] = "받는피해가 20% 증가하지만, 스킬의 피해가 4% / 10% / 18% 증가한다."
+    set ArcanaText2[14] = "방어등급이 1등급 감소하지만, 스킬의 피해가 4% / 10% / 18% 증가한다."
 
 
     set Arcana[14] = "ReplaceableTextures\\CommandButtons\\BTNArcana14.blp"
