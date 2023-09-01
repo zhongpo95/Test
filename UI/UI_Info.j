@@ -32,7 +32,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "방어 등급" )
-        set str = "|cFFA5FA7D ◎ |r" + "방어력이 " + "|cFFA5FA7D" + I2S(R2I(Equip_Defense[pid])) + "|r 증가했습니다.|n"
+        set str = "|cFFA5FA7D ◎ |r" + "방어력이 " + "|cFFA5FA7D" + I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) + "|r 증가했습니다.|n"
         set str = str + "|cFFA5FA7D ◎ |r" + "방어 등급 1 차이당 20%의 추가 데미지를 입습니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -79,7 +79,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "추가 피해" )
-        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Equip_DP[pid]  ) + "%|r"
+        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Equip_DP[pid] + Arcana_DP[pid]  ) + "%|r"
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     

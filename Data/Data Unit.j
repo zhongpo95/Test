@@ -77,6 +77,7 @@ globals
     unit array UnitCastingDummy
     real array UnitCastingSD
     real array UnitCastingSDMAX
+    real array UnitTier
     //플레이어 쉴드
     real array PUnitSD
     
@@ -259,6 +260,7 @@ endfunction
     set UnitSetSD[8] = 100000000
     set UnitSetArm[8] = 10000
     set UnitSetHPx[8] = 1
+    set UnitTier[8] = 5
     
     //나히다
     set UnitAbilityIndex[9] = 'h00A'

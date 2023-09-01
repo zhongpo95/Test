@@ -28,7 +28,7 @@ library StatsSet initializer init requires UIHP, ITEM
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
             //방어등급
-            call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] )) )
+            call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
             call DzFrameSetText(F_ItemStatsText[2], I2S(R2I(  Equip_Crit[pid] )) )
             //특화
@@ -36,7 +36,7 @@ library StatsSet initializer init requires UIHP, ITEM
             //신속
             call DzFrameSetText(F_ItemStatsText[4], I2S(R2I(  Equip_Swiftness[pid] )) )
             //추가피해
-            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] )) + "%" )
+            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] + Arcana_DP[pid] )) + "%" )
             //치명타확률
             call DzFrameSetText(F_ItemStatsText[6], I2S(R2I(  Stats_Crit[pid] )) + "%")
             //공격속도
