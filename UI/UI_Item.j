@@ -33,6 +33,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         integer F_CLButtons
         //장비 분해 설명
         integer F_DELText
+        //일괄파기 버튼
+        integer F_ALLDLEButtons
+        integer F_ItemALLDelBackDrop
 
         //장비아이템 버튼들
         integer array F_EItemButtons
@@ -666,6 +669,21 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call StartSound(gg_snd_MouseClick1)
     endfunction
 
+    private function ClickALLDELButton takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+
+        call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemDelBackDrop, false)
+        call DzFrameShow(F_ItemALLDelBackDrop, true)
+        
+        set LastRightClicked = -1
+        set F_ItemClickNumber = 200
+        
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
     private function ClickDELButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
@@ -674,6 +692,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         //f: 트리거를 작동시킨 프레임(비동기화시에만 잡히니 주의.)
 
         call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemALLDelBackDrop, false)
+        
+        set F_ItemClickNumber = 200
         
         if i != 200 then
             if i < 50 then
@@ -701,7 +722,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
             if StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0") != "0" and GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
                 call DzFrameShow(UI_Tip, false)
                 call RemoveItem2(pid,i,false)
-                //돈추가
+                //돈추가 동기화 해야됨
             endif
         endif
         
@@ -718,6 +739,45 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameShow(F_RightMenu, false )
         call DzFrameShow(F_ItemDelBackDrop, false)
     
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
+    private function ClickDELButton4 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        
+        call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemDelBackDrop, false)
+        call DzFrameShow(F_ItemALLDelBackDrop, false)
+    
+        call StopSound(gg_snd_MouseClick1, false, false)
+        call StartSound(gg_snd_MouseClick1)
+    endfunction
+
+    private function ClickDELButton5 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer i = 0
+        local string sn = I2S(PlayerSlotNumber[pid])
+        
+        loop
+            if StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0") != "" and GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                call DzFrameShow(UI_Tip, false)
+                call RemoveItem2(pid,i,false)
+                //돈추가 동기화 해야됨
+            endif
+            set i = i + 1
+            exitwhen i == 50
+        endloop
+
+        set LastRightClicked = -1
+        set F_ItemClickNumber = 200
+        
+        call DzFrameShow(F_RightMenu, false )
+        call DzFrameShow(F_ItemDelBackDrop, false)
+        call DzFrameShow(F_ItemALLDelBackDrop, false)
+
         call StopSound(gg_snd_MouseClick1, false, false)
         call StartSound(gg_snd_MouseClick1)
     endfunction
@@ -1781,6 +1841,37 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu1", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickLockButton, false)
         call DzFrameSetScriptByCode(DzFrameFindByName("RightMenu2", 0), JN_FRAMEEVENT_CONTROL_CLICK, function ClickDELButton, false)
 
+        
+        // 일괄 분해 버튼 생성
+        set F_ALLDLEButtons = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ItemBackDrop, "ScriptDialogButton", 0)
+        call DzFrameSetPoint(F_ALLDLEButtons, JN_FRAMEPOINT_CENTER, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.050, 0.055)
+        call DzFrameSetText(F_ALLDLEButtons, "|cffffffff일괄분해")
+        call DzFrameSetSize(F_ALLDLEButtons,  0.070, 0.0275)
+        call DzFrameSetScriptByCode(F_ALLDLEButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickALLDELButton, false)
+        
+        //일괄분해
+        set F_ItemALLDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        call DzFrameSetAbsolutePoint(F_ItemALLDelBackDrop, JN_FRAMEPOINT_CENTER, 0.4, 0.325)
+        call DzFrameSetSize(F_ItemALLDelBackDrop, 0.25, 0.10)
+        call DzFrameShow(F_ItemALLDelBackDrop, false)
+        call DzFrameSetPriority(F_ItemALLDelBackDrop, 198)
+        
+        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemALLDelBackDrop, "", 0)
+        call DzFrameSetPoint(F_DELText, JN_FRAMEPOINT_CENTER, F_ItemALLDelBackDrop , JN_FRAMEPOINT_CENTER, 0.0, 0.0125)
+        call DzFrameSetText(F_DELText, "장비를 전부 일괄 분해하시겠습니까?")
+        
+        set F_RDButtons = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ItemALLDelBackDrop, "ScriptDialogButton", 0)
+        call DzFrameSetPoint(F_RDButtons, JN_FRAMEPOINT_CENTER, F_ItemALLDelBackDrop , JN_FRAMEPOINT_CENTER, -0.035, -0.025)
+        call DzFrameSetText(F_RDButtons, "분해")
+        call DzFrameSetSize(F_RDButtons, 0.035, 0.0275)
+        call DzFrameSetScriptByCode(F_RDButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton5, false)
+        
+        set F_CLButtons = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ItemALLDelBackDrop, "ScriptDialogButton", 0)
+        call DzFrameSetPoint(F_CLButtons, JN_FRAMEPOINT_CENTER, F_ItemALLDelBackDrop , JN_FRAMEPOINT_CENTER, 0.035, -0.025)
+        call DzFrameSetText(F_CLButtons, "취소")
+        call DzFrameSetSize(F_CLButtons, 0.035, 0.0275)
+        call DzFrameSetScriptByCode(F_CLButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton4, false)
+
         //분해
         set F_ItemDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(F_ItemDelBackDrop, JN_FRAMEPOINT_CENTER, 0.4, 0.325)
@@ -1803,7 +1894,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetText(F_CLButtons, "취소")
         call DzFrameSetSize(F_CLButtons, 0.035, 0.0275)
         call DzFrameSetScriptByCode(F_CLButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton3, false)
-        
+
         call DzFrameShow(F_ItemBackDrop, false)
 
     endfunction
