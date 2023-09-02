@@ -1,4 +1,4 @@
-library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP
+library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana
 
     private function ESCAction takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
@@ -16,6 +16,8 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
             set F_Storage_OnOff[pid] = false
             call DzFrameShow(SHOP2_BackDrop, false)
             set SHOP2_OnOff[pid] = false
+            call DzFrameShow(F_ArcanaBackDrop, false)
+            set F_ArcanaOnOff[pid] = false
         endif
     endfunction
 

@@ -647,15 +647,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         call DzFrameShow(F_InfoBackDrop, false)
     endfunction
     
-    private function ESCAction takes nothing returns nothing
-        if F_InfoOnOff[GetPlayerId(GetTriggerPlayer())] == true then
-            if ( GetTriggerPlayer() == GetLocalPlayer() ) then
-                call DzFrameShow(F_InfoBackDrop, false)
-            endif
-            set F_InfoOnOff[GetPlayerId(GetTriggerPlayer())] = false
-        endif
-    endfunction
-    
     private function PKey takes nothing returns nothing
         local integer key = DzGetTriggerKey()
         local integer i = 0
@@ -695,17 +686,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
             set index = index + 1
             exitwhen index == 6
         endloop
-        
-        //esc버튼으로 인포창 닫기
-        set t = CreateTrigger()
-        
-        set index = 0
-        loop
-            call TriggerRegisterPlayerEvent(t, Player(index), EVENT_PLAYER_END_CINEMATIC)
-            set index = index + 1
-            exitwhen index == 6
-        endloop
-        call TriggerAddAction( t, function ESCAction )
         
         //P버튼으로 인포창 열기 및 닫기
         set t = CreateTrigger()
