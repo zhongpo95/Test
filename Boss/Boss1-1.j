@@ -154,7 +154,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function splashD ) == 0 then
             //컷신?
             call KillUnit(st.caster)
-            set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
+            //set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h008',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
             set Dataindex = DataUnitIndex(st.caster)
             set UnitIndex = IndexUnit(st.caster)

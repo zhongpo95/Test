@@ -90,6 +90,12 @@ library SkillButton requires DataUnit
                         call DzSyncData(("MoV"),data)
                     endif
                 endif
+                if key == JN_OSKEY_C then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("MoV"),data)
+                    endif
+                endif
             endif
         endif
         
@@ -147,6 +153,12 @@ library SkillButton requires DataUnit
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID8[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
                         call DzSyncData(("ChenV"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_C then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("ChenC"),data)
                     endif
                 endif
             endif
@@ -260,6 +272,8 @@ library SkillButton requires DataUnit
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_F, 1, false, function SkillButtonKey)
     set t = CreateTrigger()
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_V, 1, false, function SkillButtonKey)
+    set t = CreateTrigger()
+    call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_C, 1, false, function SkillButtonKey)
     
     //소모품
     set t = CreateTrigger()

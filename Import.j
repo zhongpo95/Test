@@ -76,6 +76,7 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Chen\HeroChenD.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Chen\HeroChenF.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Chen\HeroChenV.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Chen\HeroChenC.j"
 
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoQ.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoW.j"
