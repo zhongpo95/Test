@@ -183,7 +183,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
     private function BossMapReset2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local Reward st = t.data
-        call MapReset(st.i,st.j)
+        call MapReset(st.j,st.pid)
         call t.destroy()
         call st.destroy()
     endfunction
@@ -191,7 +191,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
     function BossMapReset takes integer i, integer j returns nothing
         local tick t = tick.create(0)
         local Reward st = Reward.create()
-        set st.i = i
+        set st.j = i
         set st.pid = j
         set t.data = st
         call t.start( 5.0, false, function BossMapReset2 ) 
