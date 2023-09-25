@@ -24,6 +24,18 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM
         local integer i
         call DzLoadToc("war3mapImported\\Templates.toc")
 
+        set i = 0
+        loop
+            call SaveInteger(ArcanaData, 0, i, 0)
+            call SaveInteger(ArcanaData, 1, i, 0)
+            call SaveInteger(ArcanaData, 2, i, 0)
+            call SaveInteger(ArcanaData, 3, i, 0)
+            call SaveInteger(ArcanaData, 4, i, 0)
+            call SaveInteger(ArcanaData, 5, i, 0)
+            set i  = i + 1
+        exitwhen i == 54
+        endloop
+
         //메뉴 배경
         set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(F_ArcanaBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)

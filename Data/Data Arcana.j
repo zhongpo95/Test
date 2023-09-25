@@ -1,5 +1,6 @@
 //! runtextmacro 시스템("DataArcana")
 globals
+    hashtable ArcanaData = InitHashtable()
     string array Arcana
     string array ArcanaText
     string array ArcanaText2

@@ -36,8 +36,9 @@ library Boss2 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
-                    call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
                 elseif fx.i == 100 then
                     call AnimationStart(fx.caster, 8)
                 //무력화 성공

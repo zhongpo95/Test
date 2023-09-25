@@ -37,6 +37,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                     call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
                     call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
                     call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
                     call UnitAddAbility(fx.caster,'A00V')
                 //카운터침
                 elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
