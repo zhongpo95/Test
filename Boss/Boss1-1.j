@@ -232,6 +232,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         
         call TriggerRegisterTimerEventSingle( t, 0.10 )
         call TriggerAddAction( t, function Main )
+        set t = null
     endfunction
     endlibrary
     

@@ -1,4 +1,4 @@
-library Boss2 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap
+library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap
     globals
         private integer BossTip
         //무력화시간
@@ -250,23 +250,6 @@ library Boss2 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         endif
         call SetUnitPosition(source, GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)))
         
-    endfunction
-    
-    
-    private function Main takes nothing returns nothing
-        set BossTip=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
-        call DzFrameSetPoint(BossTip, 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 700.00 / 1280.00 ))
-        call DzFrameSetSize(BossTip, ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
-        call DzFrameSetTexture(BossTip, "BossTip1.tga", 0)
-        call DzFrameShow(BossTip, false)
-    endfunction
-            
-    private function init takes nothing returns nothing
-        local trigger t = CreateTrigger()
-        local integer index
-        
-        call TriggerRegisterTimerEventSingle( t, 0.10 )
-        call TriggerAddAction( t, function Main )
     endfunction
     
     endlibrary
