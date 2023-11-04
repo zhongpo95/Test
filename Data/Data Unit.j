@@ -110,6 +110,8 @@ function DataUnitIndex takes unit u returns integer
         return 11
     elseif i == 'h00E' then
         return 12
+    elseif i == 'h00F' then
+        return 13
     endif
     return 0
 endfunction
@@ -289,6 +291,16 @@ endfunction
     set UnitHeroCheck[12] = false
     set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', -27500, 27900, 244)
     call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',-27500, 27900, 270)
+
+    //유유코
+    set UnitAbilityIndex[13] = 'h008'
+    set UnitHPValue[13] = 1
+    set UnitHPString[13] = ""
+    set UnitSetHP[13] = 100000000
+    set UnitSetSD[13] = 100000000
+    set UnitSetArm[13] = 10000
+    set UnitSetHPx[13] = 1
+    set UnitTier[13] = 5
 
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 시스템_끝()

@@ -1,7 +1,7 @@
 library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro
     globals
-        private integer BossTip
-        //10초
+        integer BossTip
+        //8초
         private constant integer Pattern1Cool = 400
         private unit CheckUnit
 
@@ -133,10 +133,6 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         call t.start( 0.02 , true, function EffectFunction2 ) 
     endfunction
     
-    
-    private function splashD takes nothing returns nothing
-    endfunction
-    
     private function NoRemove takes nothing returns nothing
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
@@ -152,7 +148,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local integer UnitIndex
         local unit Unit
         
-        if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function splashD ) == 0 then
+        if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
             //set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)

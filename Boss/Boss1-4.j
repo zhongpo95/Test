@@ -1,7 +1,7 @@
-library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
+library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
     globals
-        //무력화시간
-        private constant integer Pattern2Time = 500
+        //2분30초 7500
+        private constant integer Pattern1Cool = 1500
         private integer NoDieCheck
         private unit CheckUnit
 
@@ -22,7 +22,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call KnockbackInverse( GetEnumUnit(), splash.source, 2000, 2.0)
             call SetUnitZVelo( GetEnumUnit(), 30)
-            call BossDeal( splash.source, GetEnumUnit(), 1000000 , false)
+            call BossDeal( splash.source, GetEnumUnit(), 100 , false)
         endif
     endfunction
     
@@ -30,39 +30,29 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private method OnAction takes FxEffect fx returns nothing
             local effect e
             local real r
-            local integer index = IndexUnit(fx.caster)
             set fx.i = fx.i + 1
-            
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    //call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                elseif fx.i == 100 then
-                    call AnimationStart(fx.caster, 8)
-                //무력화 성공
-                elseif fx.i >= 1 and UnitCasting[index] == false then
-                    //체력감소
-                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
+                if fx.i == 100 then
+                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
+                    call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitAddAbility(fx.caster,'A00V')
+                //카운터침
+                elseif fx.i >= 100 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
                     call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,6)
+                    call AnimationStart(fx.caster,11)
+                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                    call UnitApplyTimedLife(fx.caster, 'BHwe', 1.5)
                     call fx.Stop()
-                //무력화를 못함
-                elseif fx.i == Pattern2Time then
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
+                //카운터를 못침
+                elseif fx.i == 175 then
                     call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD2 )
-                    call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 7, 0.6)
-                    set UnitCastingSD[index] = 0
-                    set UnitCastingSDMAX[index] = 0
-                    set UnitCasting[index] = false
-                    call KillUnit(UnitCastingDummy[index])
-                    set UnitCastingDummy[index] = null
-                    
+                    call UnitRemoveAbility(fx.caster,'A00V')
+                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                    //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                    call AnimationStart4(fx.caster, 36, 0.02)
+                    call UnitApplyTimedLife(fx.caster, 'BHwe', 2.2)
                     call fx.Stop()
                 endif
             //주금
@@ -74,7 +64,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         endmethod
         //! runtextmacro 연출효과_타이머("FxEffect", "0.02", "true")
     endstruct
-    
+
     private function NoDie takes nothing returns nothing
         set NoDieCheck = NoDieCheck + 1
         if IsUnitDeadVJ(GetEnumUnit()) then
@@ -106,7 +96,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 100)
     endfunction
     
-    private function EffectFunction2 takes nothing returns nothing
+    private function Function2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
@@ -127,21 +117,16 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         else
             if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
                 set st.pattern1 = st.pattern1 - 1
-                if st.pattern1 == 0 then
+                if st.pattern1 <= 0 then
                     set fx = FxEffect.Create()
-                    set fx.caster = st.caster
+                    set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetUnitX(st.caster)+Polar.X(500, GetUnitFacing(st.caster)),GetUnitY(st.caster)+Polar.Y(500, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
+                    call UnitRemoveAbility(fx.caster,'Amov')
+                    call SetUnitPathing(fx.caster,false)
+                    call PauseUnit(fx.caster,true)
                     set fx.i = 0
-                    call AnimationStart(fx.caster, 4)
+                    call AnimationStart(fx.caster, 12)
                     call fx.Start()
-                    set st.pattern1 = 750
-                    
-                    set index = IndexUnit(st.caster)
-                    call Sound3D(fx.caster,'A026')
-                    set UnitCasting[index] = true
-                    set UnitCastingSDMAX[index] = 300
-                    set UnitCastingSD[index] = UnitCastingSDMAX[index]
-                    set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetUnitX(fx.caster), GetUnitY(fx.caster), 270 )
-                    call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
+                    set st.pattern1 = Pattern1Cool
                 endif
             //주금
             else
@@ -157,7 +142,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         endif
     endfunction
     
-    private function Boss1Start2 takes MapStruct str returns nothing
+    private function Boss4Start2 takes MapStruct str returns nothing
         local tick t = tick.create(0) 
         local MapStruct st = str
         
@@ -165,9 +150,8 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         
         set MapRectCheck[st.rectnumber] = false
         
-        call t.start( 0.02 , true, function EffectFunction2 ) 
+        call t.start( 0.02 , true, function Function2 ) 
     endfunction
-    
     
     private function NoRemove takes nothing returns nothing
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
@@ -177,7 +161,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
     
-    private function EffectFunction takes nothing returns nothing
+    private function Function takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local integer Dataindex
@@ -187,7 +171,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
-            set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h008',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
+            set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00F',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
             set Dataindex = DataUnitIndex(st.caster)
             set UnitIndex = IndexUnit(st.caster)
             set UnitHPMAX[UnitIndex] = UnitSetHP[Dataindex]
@@ -211,7 +195,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call ForGroup(st.ul.super, function NoRemove)
             set CheckUnit = null
             
-            call Boss1Start2(st)
+            call Boss4Start2(st)
             
             set Unit = null
             call t.destroy()
@@ -219,14 +203,15 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         
     endfunction
     
-    function Boss2Start takes unit source returns nothing
+    function Boss4Start takes unit source returns nothing
         local tick t
         local MapStruct st
-        local integer pid = GetPlayerId(GetOwningPlayer(source))
+        local integer pid=GetPlayerId(GetOwningPlayer(source))
         
         set st = MapSt[GetMap(2)]
         
         if st.caster == null then
+            call BJDebugMsg(GetUnitName(source))
             set t = tick.create(0)
             set st.rectnumber = GetMap(2)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
@@ -234,28 +219,23 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set st.pattern1 = 250
             call GroupAddUnit( st.ul.super, source )
             set t.data = st
-            call t.start( 0.02 , true, function EffectFunction )
+            call t.start( 1.00 , true, function Function )
         else
+            call BJDebugMsg("2")
             call GroupAddUnit( st.ul.super, source )
         endif
         
+        call SetUnitPosition(source, GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)))
+
         if GetLocalPlayer() == Player(pid) then
             call SetCameraBoundsToRectForPlayerBJ( Player(pid), MapRectReturn(st.rectnumber) )
             call SetCameraPositionForPlayer( Player(pid), GetRectCenterX(MapRectReturn2(st.rectnumber)), GetRectCenterY(MapRectReturn2(st.rectnumber)))
             call DzFrameShow(BossTip, true)
         endif
-        call SetUnitPosition(source, GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)))
+
         
     endfunction
     
     endlibrary
-    
-    
-    //체력바 보이게123
-    //파티모드??
-    //패턴 체력비례, 시간비례, 랜덤패턴
-    //어그로 (패턴 2~4개후 전환) 대상과의 각도가 일정각도 이상이면 대가리 전환
-    //보스 체력바 플레이어마다 보이게 변경123
-    //유저부활123
     
     

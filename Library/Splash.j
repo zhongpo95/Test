@@ -11,6 +11,9 @@ library Splash requires Party
         private real SY = 0
 
     endglobals
+    
+    function SplashNothing takes nothing returns nothing
+    endfunction
 
     private struct filter extends array
 

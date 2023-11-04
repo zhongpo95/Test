@@ -1,4 +1,4 @@
-library UIBossStart initializer Init requires UIHP, Boss2, Boss1
+library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4
     globals
         integer FBS_BD                     //인포 배경
         integer FBS_CB                     //X버튼
@@ -147,7 +147,8 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1
         call DzFrameShow(FBS_BossTip[1], false)
         call DzFrameShow(FBS_BossTip[2], false)
         call DzFrameShow(FBS_SelectBBD, false)
-            
+        
+        //1페이지
         if f == FBS_BLB[0][1] then
             set Selectting = 1
             call DzFrameShow(FBS_BossTip[0], true)
@@ -159,6 +160,11 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1
         elseif f == FBS_BLB[0][3] then
             set Selectting = 3
             call DzFrameShow(FBS_BossTip[2], true)
+            call DzFrameShow(FBS_SelectBBD, true)
+        endif
+        if f == FBS_BLB[1][1] then
+            set Selectting = 4
+            //유유코이미지
             call DzFrameShow(FBS_SelectBBD, true)
         endif
     endfunction
@@ -433,7 +439,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1
     private function PickBossF takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local integer BossNumber = S2I(DzGetTriggerSyncData())
-        local integer pid=GetPlayerId(p)
+        local integer pid = GetPlayerId(p)
         local integer HeroTypeId
         
         //튜토 카운터
@@ -445,6 +451,11 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1
         elseif BossNumber == 2 then
             //set HeroTypeId = 'H003'
             call Boss2Start(MainUnit[pid])
+
+        //유유코
+        elseif BossNumber == 4 then
+            //set HeroTypeId = 'H00F'
+            call Boss4Start(MainUnit[pid])
         endif
         
         set p = null
