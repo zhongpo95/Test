@@ -88,76 +88,76 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time3 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 2 then
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time4 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 3 then
-            set fx.dummy = UnitEffectTimeEX('e01E', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01E', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01E', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01E', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01E', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01E', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01E', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01E', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 4 then
             call Sound3D(fx.caster,'A021')
-            set fx.dummy = UnitEffectTimeEX('e01F', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01F', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01F', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01F', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01F', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01F', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01F', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01F', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time6 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 5 then
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01C', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01C', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time7 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 6 then
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time8 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 7 then
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01G', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01G', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call t.start( Time9 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
         elseif fx.i == 8 then
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
-            set fx.dummy = UnitEffectTimeEX('e01D', GetUnitX(fx.caster), GetUnitY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
+            set fx.dummy = UnitEffectTimeEX('e01D', GetWidgetX(fx.caster), GetWidgetY(fx.caster), fx.Angle, 0.01)
             set Check = fx.Velue
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set Check = 0
             call fx.Stop()
             call t.destroy()

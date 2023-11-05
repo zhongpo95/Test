@@ -74,8 +74,8 @@ private function EffectFunction takes nothing returns nothing
     
 
     if fx.i == 1 then
-        set fx.dummy = UnitEffectTime2('e019', GetUnitX(fx.caster), GetUnitY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
-        set fx.dummy2 = UnitEffectTime2('e019', GetUnitX(fx.caster), GetUnitY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
+        set fx.dummy = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
+        set fx.dummy2 = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
     endif
     
     call UnitAddAbility(fx.caster,'Arav')
@@ -103,21 +103,21 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitFlyHeight(fx.dummy2, 200+((10 - fx.i) * 40)  ,0)
         endif
         call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
-        call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-        call SetUnitY(fx.dummy,GetUnitY(fx.caster))
-        call SetUnitX(fx.dummy2,GetUnitX(fx.caster))
-        call SetUnitY(fx.dummy2,GetUnitY(fx.caster))
-        call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD )
+        call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+        call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+        call SetUnitX(fx.dummy2,GetWidgetX(fx.caster))
+        call SetUnitY(fx.dummy2,GetWidgetY(fx.caster))
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
         call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction )
     else
         //call SetUnitFlyHeight(fx.caster, 0  ,0)
         call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
-        call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-        call SetUnitY(fx.dummy,GetUnitY(fx.caster))
-        call SetUnitX(fx.dummy2,GetUnitX(fx.caster))
-        call SetUnitY(fx.dummy2,GetUnitY(fx.caster))
+        call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+        call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+        call SetUnitX(fx.dummy2,GetWidgetX(fx.caster))
+        call SetUnitY(fx.dummy2,GetWidgetY(fx.caster))
         
-        call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD )
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
         
         if BuffMomiz01.Exists( fx.caster ) then
             call BuffMomiz01.Stop( fx.caster )

@@ -14,7 +14,7 @@ private function splashD takes nothing returns nothing
     if HeadTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(GetEnumUnit())) == true then
         set ttag=CreateTextTag()
         call SetTextTagText(ttag, "헤드 어택", 0.020)
-        call SetTextTagPos(ttag, GetUnitX(GetEnumUnit()), GetUnitY(GetEnumUnit()), 100)
+        call SetTextTagPos(ttag, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), 100)
         call SetTextTagColor(ttag, 255, 185, 0, 229)
         call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
         call SetTextTagFadepoint(ttag, 0.6)
@@ -25,7 +25,7 @@ private function splashD takes nothing returns nothing
     if BackTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(GetEnumUnit())) == true then
         set ttag=CreateTextTag()
         call SetTextTagText(ttag, "백 어택", 0.020)
-        call SetTextTagPos(ttag, GetUnitX(GetEnumUnit()), GetUnitY(GetEnumUnit()), 100)
+        call SetTextTagPos(ttag, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), 100)
         call SetTextTagColor(ttag, 255, 185, 0, 229)
         call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
         call SetTextTagFadepoint(ttag, 0.6)
@@ -38,7 +38,7 @@ private function splashD takes nothing returns nothing
         if HeadTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(GetEnumUnit())) == true then
             set ttag=CreateTextTag()
             call SetTextTagText(ttag, "카운터 어택", 0.020)
-            call SetTextTagPos(ttag, GetUnitX(GetEnumUnit()), GetUnitY(GetEnumUnit()), 100)
+            call SetTextTagPos(ttag, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), 100)
             call SetTextTagColor(ttag, 255, 185, 0, 229)
             call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
             call SetTextTagFadepoint(ttag, 0.6)
@@ -73,8 +73,8 @@ private struct FxEffect_Timer extends array
         set fx.i = fx.i + 1
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i == 15 then
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
-                call UnitEffectTimeEX('e005',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
+                call UnitEffectTimeEX('e005',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
                 call Sound3D(fx.caster,'A00A')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
             elseif fx.i == 35 then

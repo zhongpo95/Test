@@ -97,15 +97,15 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if Stack[fx.pid] == 11 then
             call Sound3D(fx.caster,'A01Q')
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
             call AnimationStart3(fx.caster,16, (100+fx.speed)/100)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
@@ -116,15 +116,15 @@ private function EffectFunction2 takes nothing returns nothing
             call t.destroy()
         elseif Stack[fx.pid] == 12 then
             call Sound3D(fx.caster,'A01Q')
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
             call AnimationStart3(fx.caster,16, (100+fx.speed)/100)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
@@ -135,15 +135,15 @@ private function EffectFunction2 takes nothing returns nothing
             call t.destroy()
         elseif Stack[fx.pid] == 13 then
             call Sound3D(fx.caster,'A01Q')
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
             call AnimationStart3(fx.caster,16, (100+fx.speed)/100)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
@@ -244,15 +244,15 @@ private function EffectFunction3 takes nothing returns nothing
     
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call Sound3D(fx.caster,'A01Q')
-        call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
         call AnimationStart3(fx.caster,16, (100+fx.speed)/100)
         set random = GetRandomInt(1,3)
         if random == 1 then
-            call UnitEffectTime2('e00L',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
         elseif random == 2 then
-            call UnitEffectTime2('e00M',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
         elseif random == 3 then
-            call UnitEffectTime2('e00N',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
         endif
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))

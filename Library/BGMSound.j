@@ -16,7 +16,7 @@ library PSound
         private constant integer DummyCode = 'h001'
     endglobals
     function Sound3D takes unit u, integer s returns nothing
-        local unit A = CreateUnit(Player(NeutralCode),DummyCode,GetUnitX(u),GetUnitY(u),0)
+        local unit A = CreateUnit(Player(NeutralCode),DummyCode,GetWidgetX(u),GetWidgetY(u),0)
         call UnitAddAbility(A,s)
         call IssueImmediateOrder( A, "berserk" )
         call UnitApplyTimedLife(A, 'BHwe', 1)

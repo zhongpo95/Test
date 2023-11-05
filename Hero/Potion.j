@@ -217,7 +217,7 @@
             if Distance.WBP(MainUnit[pid],x,y) <= MaxRange then
                 call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], x, y )
             else
-                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], GetUnitX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetUnitY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
+                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], GetWidgetX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetWidgetY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
             endif
             
         endif

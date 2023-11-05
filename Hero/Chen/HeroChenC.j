@@ -40,7 +40,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
     endif
     
     call fx.Stop()

@@ -91,18 +91,18 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTimeEX('e01B', GetUnitX(fx.caster), GetUnitY(fx.caster), GetUnitFacing(fx.caster),0.5)
+            set fx.dummy = UnitEffectTimeEX('e01B', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5)
         endif
         
         if fx.i != (TICK+1) then
-            set X = GetUnitX(fx.dummy)
-            set Y = GetUnitY(fx.dummy)
+            set X = GetWidgetX(fx.dummy)
+            set Y = GetWidgetY(fx.dummy)
             call SetUnitX(fx.dummy, X + Polar.X( 60, fx.Angle ))
             call SetUnitY(fx.dummy, Y + Polar.Y( 60, fx.Angle ))
             set Check = fx.Velue
             set CheckG = fx.ul.super
             set CheckU = fx.dummy
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.dummy), GetUnitY(fx.dummy), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
             set CheckU = null
             set CheckG = null
             set Check = 0

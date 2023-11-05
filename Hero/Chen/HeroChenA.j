@@ -49,11 +49,11 @@ private function EffectFunction2 takes nothing returns nothing
     
     if fx.r <= 1 then
         set x = ((fx.casterX)*(1.00-fx.r)*(1.00-fx.r))
-        set x = x + ((GetUnitX(fx.target))*(fx.r * fx.r))
+        set x = x + ((GetWidgetX(fx.target))*(fx.r * fx.r))
         set x = x + (2 * (fx.stopoverX) * (fx.r * (1.00 - fx.r)))
         call SetUnitX(fx.dummy, x )
         set y = ((fx.casterY)*(1.00-fx.r)*(1.00-fx.r))
-        set y = y + ((GetUnitY(fx.target))*(fx.r * fx.r))
+        set y = y + ((GetWidgetY(fx.target))*(fx.r * fx.r))
         set y = y + (2 * (fx.stopoverY) * (fx.r * (1.00 - fx.r)))
         call SetUnitY(fx.dummy, y)
         set fx.r = fx.r + 0.03
@@ -87,10 +87,10 @@ private function splashD takes nothing returns nothing
     set fx = FxEffect.Create()
     set fx.caster = splash.source
     set fx.target = GetEnumUnit()
-    set fx.casterX = GetUnitX(fx.caster)
-    set fx.casterY = GetUnitY(fx.caster)
-    set fx.targetX = GetUnitX(fx.target)
-    set fx.targetY = GetUnitY(fx.target)
+    set fx.casterX = GetWidgetX(fx.caster)
+    set fx.casterY = GetWidgetY(fx.caster)
+    set fx.targetX = GetWidgetX(fx.target)
+    set fx.targetY = GetWidgetY(fx.target)
     set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e00W', fx.casterX , fx.casterY, GetUnitFacing(fx.caster))
     call SetUnitFlyHeight( fx.dummy, 100.00, 0.00 )
     set fx.angle = Angle.WBW(fx.caster,fx.target)
@@ -108,8 +108,8 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTimeEX('e00X',GetUnitX(fx.caster),GetUnitY(fx.caster),GetUnitFacing(fx.caster),0.01)
-        call splash.range( splash.ALLY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), Dist, function splashD )
+        call UnitEffectTimeEX('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01)
+        call splash.range( splash.ALLY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), Dist, function splashD )
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
     

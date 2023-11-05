@@ -46,7 +46,7 @@ private struct FxEffect_Timer extends array
                 call SetUnitX(fx.caster,fx.TargetX)
                 call SetUnitY(fx.caster,fx.TargetY)
                 call AnimationStart(fx.caster,10)
-                call UnitEffectTimeEX('e00A',GetUnitX(fx.caster),GetUnitY(fx.caster),GetUnitFacing(fx.caster),2)
+                call UnitEffectTimeEX('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2)
                 call Sound3D(fx.caster,'A00F')
             elseif fx.i == 50 then
                 call fx.Stop()

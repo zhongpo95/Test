@@ -71,18 +71,18 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e00U',GetUnitX(fx.caster),GetUnitY(fx.caster),GetUnitFacing(fx.caster),1.0,1)
+            set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1)
         endif
         
         if fx.i != 5 then
             call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-            call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-            call SetUnitY(fx.dummy,GetUnitY(fx.caster))
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) )/5, false, function EffectFunction )
         else
             call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-            call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-            call SetUnitY(fx.dummy,GetUnitY(fx.caster))
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             
             //이속버프
             if HeroSkillLevel[fx.pid][0] >= 2 then
@@ -91,7 +91,7 @@ private function EffectFunction takes nothing returns nothing
                 endif
             endif
                 
-            if splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD ) != 0 then
+            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
                 //발도버프
                 if HeroSkillLevel[fx.pid][0] >= 1 then
                     call BuffMomiz01.Apply( fx.caster, Time3, 0 )

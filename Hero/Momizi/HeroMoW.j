@@ -72,26 +72,26 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e012',GetUnitX(fx.caster)+Polar.X( -100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1)
+            set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+Polar.X( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1)
         endif
         
         if fx.i != 5 then
             if HeroSkillLevel[fx.pid][1] >= 2 then
                 call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-                call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-                call SetUnitY(fx.dummy,GetUnitY(fx.caster))
+                call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+                call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             endif
             call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) )/5, false, function EffectFunction )
         else
             if HeroSkillLevel[fx.pid][1] >= 2 then
                 call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-                call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-                call SetUnitY(fx.dummy,GetUnitY(fx.caster))
+                call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+                call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             endif
             
-            call UnitEffectTime2('e011',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1)
+            call UnitEffectTime2('e011',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1)
             
-            if splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
+            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
                 //발도버프
                 if HeroSkillLevel[fx.pid][1] >= 1 then
                     call BuffMomiz01.Apply( fx.caster, Time3, 0 )

@@ -117,7 +117,7 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
             call AnimationStart3(fx.caster,17, (100+fx.speed)/100)
-            call UnitEffectTime2('e00R',GetUnitX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
             call Sound3D(fx.caster,'A01H')
         endif
         if Stack[fx.pid] == 11 then
@@ -128,8 +128,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
-                call UnitEffectTime2('e00S',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
                 call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -145,8 +145,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
-                call UnitEffectTime2('e00S',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
                 call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -162,8 +162,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
-                call UnitEffectTime2('e00S',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
                 call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -179,8 +179,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call UnitEffectTime2('e00T',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
+                call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
                 call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
                 call CastingBarShow(Player(fx.pid),false)

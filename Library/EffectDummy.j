@@ -66,4 +66,9 @@ library EffectDummy
         call t.Start(time,false)
         return t.unit
     endfunction
+    function DelayKill takes unit u, real time returns nothing
+        local EffectDummy t = EffectDummy.Create()
+        set t.unit = u
+        call t.Start(time,false)
+    endfunction
 endlibrary

@@ -41,9 +41,9 @@ library FXKnockback requires SafePos, UnitIndexer
         call SetUnitSafePolarUTA(expired.caster, expired.DIST, expired.RECT )
         call IssueImmediateOrder( expired.caster, "stop" )
         if expired.ICUR == 0 then
-            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetUnitX(expired.caster),GetUnitY(expired.caster)))
+            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(expired.caster),GetWidgetY(expired.caster)))
         elseif ModuloInteger(expired.ICUR,10) == 0 then
-            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetUnitX(expired.caster),GetUnitY(expired.caster)))
+            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(expired.caster),GetWidgetY(expired.caster)))
         endif
         if expired.ICUR < expired.IMAX then
             return
@@ -116,8 +116,8 @@ library FXKnockback requires SafePos, UnitIndexer
     endfunction
         
     function Knockback takes unit caster, real dir, real dist, real dur returns nothing
-        local real x = GetUnitX(caster) + Polar.X( dist, dir )
-        local real y = GetUnitY(caster) + Polar.Y( dist, dir )
+        local real x = GetWidgetX(caster) + Polar.X( dist, dir )
+        local real y = GetWidgetY(caster) + Polar.Y( dist, dir )
         call KnockbackTo( caster, x, y, dur )
     endfunction
         

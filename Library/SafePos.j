@@ -5,8 +5,8 @@ library SafePos
     endglobals
         
     function SetSafePolar takes unit u, real DIST, real RECT returns nothing
-        local real UnitX = GetUnitX(u)
-        local real UnitY = GetUnitY(u)
+        local real UnitX = GetWidgetX(u)
+        local real UnitY = GetWidgetY(u)
         local real TPX = UnitX+Polar.X( DIST, RECT )
         local real TPY = UnitY+Polar.Y( DIST, RECT )
         local real TPX2 = UnitX+Polar.X( DIST, RECT )
@@ -37,8 +37,8 @@ library SafePos
     endfunction
     
     function SetSafePolar2 takes unit u, real DIST, real RECT returns nothing
-        local real UnitX = GetUnitX(u)
-        local real UnitY = GetUnitY(u)
+        local real UnitX = GetWidgetX(u)
+        local real UnitY = GetWidgetY(u)
         local real TPX = UnitX+Polar.X( DIST, RECT )
         local real TPY = UnitY+Polar.Y( DIST, RECT )
         local real TPX2 = UnitX+Polar.X( DIST, RECT )
@@ -67,8 +67,8 @@ library SafePos
     endfunction
     //아이템위치로이동
     function SetUnitSafePolarUTA takes unit u, real DIST, real Ang returns nothing
-        local real UnitX = GetUnitX(u)
-        local real UnitY = GetUnitY(u)
+        local real UnitX = GetWidgetX(u)
+        local real UnitY = GetWidgetY(u)
         local real TPX = UnitX+Polar.X( DIST, Ang )
         local real TPY = UnitY+Polar.Y( DIST, Ang )
         local item tem
@@ -81,8 +81,8 @@ library SafePos
     endfunction
     function SetUnitSafePolarUTP takes unit u, real DIST, real tx, real ty returns nothing
         local real angle = Atan2(ty-GetWidgetY(u), tx-GetWidgetX(u))
-        local real TPX = GetUnitX(u)+ DIST * Cos(angle)
-        local real TPY = GetUnitY(u)+ DIST * Sin(angle)
+        local real TPX = GetWidgetX(u)+ DIST * Cos(angle)
+        local real TPY = GetWidgetY(u)+ DIST * Sin(angle)
         local item tem
         
         set tem = CreateItem('cnob', TPX, TPY)
@@ -92,8 +92,8 @@ library SafePos
         set tem = null
     endfunction
     function SetUnitSafeXY takes unit u, real X, real Y returns nothing
-        local real UnitX = GetUnitX(u)
-        local real UnitY = GetUnitY(u)
+        local real UnitX = GetWidgetX(u)
+        local real UnitY = GetWidgetY(u)
         local item tem
         
         set tem = CreateItem('cnob', X, Y)

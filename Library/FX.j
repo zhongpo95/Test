@@ -359,9 +359,9 @@
     
             
     
-            set X = GetUnitX($UNIT$)+dx
+            set X = GetWidgetX($UNIT$)+dx
     
-            set Y = GetUnitY($UNIT$)+dy
+            set Y = GetWidgetY($UNIT$)+dy
     
             
     
@@ -513,9 +513,9 @@
     
             
     
-            set X = GetUnitX($UNIT$)+dx
+            set X = GetWidgetX($UNIT$)+dx
     
-            set Y = GetUnitY($UNIT$)+dy
+            set Y = GetWidgetY($UNIT$)+dy
     
             
     

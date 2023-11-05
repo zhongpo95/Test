@@ -173,13 +173,13 @@ function SetUnitXYLocVJ takes unit u, location l returns nothing
 endfunction
 // 유닛의 좌표를 (거리) (각도) 만큼 이동합니다
 function PolarUnitVJ takes unit u, real d, real a returns nothing
-    call SetUnitX(u,GetUnitX(u)+d*Cos(a*bj_DEGTORAD))
-    call SetUnitY(u,GetUnitY(u)+d*Sin(a*bj_DEGTORAD))
+    call SetUnitX(u,GetWidgetX(u)+d*Cos(a*bj_DEGTORAD))
+    call SetUnitY(u,GetWidgetY(u)+d*Sin(a*bj_DEGTORAD))
 endfunction
 // 유닛의 좌표를 (거리) (호도) 만큼 이동합니다
 function PolarUnitRadVJ takes unit u, real d, real a returns nothing
-    call SetUnitX(u,GetUnitX(u)+d*Cos(a))
-    call SetUnitY(u,GetUnitY(u)+d*Sin(a))
+    call SetUnitX(u,GetWidgetX(u)+d*Cos(a))
+    call SetUnitY(u,GetWidgetY(u)+d*Sin(a))
 endfunction
 //===========================================================
 // 구역 내 무작위 X좌표를 가져옵니다. BJ에는 없습니다

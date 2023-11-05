@@ -45,6 +45,9 @@
 //! import "C:\Users\123\Desktop\JN\Test\Library\Add.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\SafePos.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\AddonCameraDistance.j"
+//! import "C:\Users\123\Desktop\JN\Test\Library\AOE.j"
+//! import "C:\Users\123\Desktop\JN\Test\Library\CustomEvent.j"
+
 
 //! import "C:\Users\123\Desktop\JN\Test\vJDK\vJDK Addon.j"
 //! import "C:\Users\123\Desktop\JN\Test\vJDK\vJDK Plugin BountyTextTag.j"
@@ -104,5 +107,6 @@
 //! import "C:\Users\123\Desktop\JN\Test\System\Market.j"
 //! import "C:\Users\123\Desktop\JN\Test\System\Daily.j"
 //! import "C:\Users\123\Desktop\JN\Test\System\ITEM.j"
+//! import "C:\Users\123\Desktop\JN\Test\System\AOEHit.j"
 
 //! import "C:\Users\123\Desktop\JN\Test\ESC.j"

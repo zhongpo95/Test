@@ -52,8 +52,8 @@ private function EffectFunction takes nothing returns nothing
         if HeroSkillLevel[fx.pid][6] >= 2 then
             call ShieldAdd(fx.caster,4.0,GetUnitMaxLifeVJ(fx.caster)*Value)
         endif
-        call UnitEffectTime2('e00V',GetUnitX(fx.caster),GetUnitY(fx.caster),GetUnitFacing(fx.caster),1.5,1)
-        if splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD ) != 0 then
+        call UnitEffectTime2('e00V',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.5,1)
+        if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
             //공증버프
             if HeroSkillLevel[fx.pid][6] >= 1 then
                 if Hero_Buff[fx.pid] == 0 then

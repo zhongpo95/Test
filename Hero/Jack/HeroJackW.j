@@ -34,15 +34,15 @@ private struct FxEffect_Timer extends array
         set fx.i = fx.i + 1
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i == 5 then
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
-                call UnitEffectTimeEX('e001',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
-                call UnitEffectTimeEX('e004',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
+                call UnitEffectTimeEX('e001',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call UnitEffectTimeEX('e004',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
                 call Sound3D(fx.caster,'A009')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
             elseif fx.i == 17 then
-                call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
-                call UnitEffectTimeEX('e002',GetUnitX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
-                call UnitEffectTimeEX('e003',GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetUnitY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
+                call UnitEffectTimeEX('e002',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call UnitEffectTimeEX('e003',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
                 call Sound3D(fx.caster,'A009')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
             elseif fx.i == 35 then

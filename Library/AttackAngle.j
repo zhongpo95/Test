@@ -36,7 +36,7 @@ library AttackAngle
         local texttag ttag
         set ttag=CreateTextTag()
         call SetTextTagText(ttag, "헤드 어택", 0.020)
-        call SetTextTagPos(ttag, GetUnitX(u), GetUnitY(u), 100)
+        call SetTextTagPos(ttag, GetWidgetX(u), GetWidgetY(u), 100)
         call SetTextTagColor(ttag, 255, 185, 0, 229)
         call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
         call SetTextTagFadepoint(ttag, 0.6)
@@ -49,7 +49,7 @@ library AttackAngle
         local texttag ttag
         set ttag=CreateTextTag()
         call SetTextTagText(ttag, "백 어택", 0.020)
-        call SetTextTagPos(ttag, GetUnitX(GetEnumUnit()), GetUnitY(GetEnumUnit()), 100)
+        call SetTextTagPos(ttag, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), 100)
         call SetTextTagColor(ttag, 255, 185, 0, 229)
         call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
         call SetTextTagFadepoint(ttag, 0.6)
@@ -62,7 +62,7 @@ library AttackAngle
         local texttag ttag
         set ttag=CreateTextTag()
         call SetTextTagText(ttag, "카운터 어택", 0.020)
-        call SetTextTagPos(ttag, GetUnitX(GetEnumUnit()), GetUnitY(GetEnumUnit()), 100)
+        call SetTextTagPos(ttag, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), 100)
         call SetTextTagColor(ttag, 255, 185, 0, 229)
         call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
         call SetTextTagFadepoint(ttag, 0.6)

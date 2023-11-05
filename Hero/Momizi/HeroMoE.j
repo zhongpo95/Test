@@ -141,7 +141,7 @@ endfunction
             if Distance.WBP(MainUnit[pid],x,y) <= MaxRange then
                 call IssuePointOrder( MainUnit[pid], "ambush", x, y )
             else
-                call IssuePointOrder( MainUnit[pid], "ambush", GetUnitX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetUnitY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
+                call IssuePointOrder( MainUnit[pid], "ambush", GetWidgetX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetWidgetY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
             endif
             
         endif

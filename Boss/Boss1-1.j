@@ -35,9 +35,9 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
                     call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                     call UnitAddAbility(fx.caster,'A00V')
                 //카운터침
                 elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
@@ -50,12 +50,16 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                     call fx.Stop()
                 //카운터를 못침
                 elseif fx.i == 75 then
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD2 )
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+
+                    //call AOE2(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 300, distance, 0.5,  100, 0, 1)
+
                     call UnitRemoveAbility(fx.caster,'A00V')
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
                     //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
@@ -148,7 +152,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local integer UnitIndex
         local unit Unit
         
-        if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function SplashNothing ) == 0 then
+        if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
             //set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)

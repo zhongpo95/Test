@@ -39,10 +39,10 @@ private struct FxEffect_Timer extends array
                 //call Sound3D(fx.caster,'A00E')
                 set fx.angle = Angle.WBW(fx.caster,fx.target)
                 call SetUnitFacing(fx.caster,fx.angle)
-                call SetUnitX(fx.caster,GetUnitX(fx.target)-Polar.X( 650 - (fx.i * 50), fx.angle ))
-                call SetUnitY(fx.caster,GetUnitY(fx.target)-Polar.Y( 650 - (fx.i * 50), fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.target)-Polar.X( 650 - (fx.i * 50), fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.target)-Polar.Y( 650 - (fx.i * 50), fx.angle ))
                 if fx.i == 6 then
-                    call UnitEffectTimeEX('e00B',GetUnitX(fx.caster),GetUnitY(fx.caster),fx.angle,1.0)
+                    call UnitEffectTimeEX('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0)
                     call Sound3D(fx.caster,'A009')
                 endif
             elseif fx.i == 12 then
@@ -51,19 +51,19 @@ private struct FxEffect_Timer extends array
                 call Sound3D(fx.caster,'A00M')
             elseif fx.i == 50 then
                 set fx.angle = Angle.WBW(fx.caster,fx.target)
-                call SetUnitX(fx.caster,GetUnitX(fx.target)+Polar.X( 250, fx.angle ))
-                call SetUnitY(fx.caster,GetUnitY(fx.target)+Polar.Y( 250, fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.target)+Polar.X( 250, fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.target)+Polar.Y( 250, fx.angle ))
             elseif fx.i == 60 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
                 call Sound3D(fx.caster,'A00I')
-                call UnitEffectTimeEX('e00B',GetUnitX(fx.target),GetUnitY(fx.target),fx.angle+30,1.0)
-                call UnitEffectTimeEX('e00C',GetUnitX(fx.target),GetUnitY(fx.target),fx.angle-30,1.0)
-                call UnitEffectTimeEX('e00D',GetUnitX(fx.target),GetUnitY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0)
+                call UnitEffectTimeEX('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
                 call HeroDeal(fx.caster,fx.target,DR)
             elseif fx.i == 70 then
                 call Sound3D(fx.caster,'A00H')
-                call UnitEffectTimeEX('e00B',GetUnitX(fx.target),GetUnitY(fx.target),fx.angle-30,1.0)
-                call UnitEffectTimeEX('e00E',GetUnitX(fx.target),GetUnitY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
                 call HeroDeal(fx.caster,fx.target,DR)
                 
                 call Sound3D(fx.caster,'A00L')

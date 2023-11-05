@@ -1,7 +1,9 @@
 library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
     globals
         //2분30초 7500
-        private constant integer Pattern1Cool = 1500
+        //test1500
+
+        private constant integer Pattern1Cool = 500
         private integer NoDieCheck
         private unit CheckUnit
 
@@ -11,9 +13,11 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     
     private struct FxEffect
         unit caster
+        unit dummy
         integer i
         private method OnStop takes nothing returns nothing
             set caster = null
+            set dummy = null
         endmethod
         //! runtextmacro 연출()
     endstruct
@@ -32,27 +36,30 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             local real r
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 100 then
+                if fx.i == 75 then
+                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))
                     call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                     call UnitAddAbility(fx.caster,'A00V')
                 //카운터침
-                elseif fx.i >= 100 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
+                elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,11)
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    call UnitApplyTimedLife(fx.caster, 'BHwe', 1.5)
+                    call DelayKill(fx.caster,1.5)
+                    call KillUnit(fx.dummy)
                     call fx.Stop()
                 //카운터를 못침
-                elseif fx.i == 175 then
-                    call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD2 )
+                elseif fx.i == 150 then
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
                     call UnitRemoveAbility(fx.caster,'A00V')
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
                     //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
                     call AnimationStart4(fx.caster, 36, 0.02)
-                    call UnitApplyTimedLife(fx.caster, 'BHwe', 2.2)
+                    call DelayKill(fx.caster,2.2)
+                    call KillUnit(fx.dummy)
                     call fx.Stop()
                 endif
             //주금
@@ -119,10 +126,12 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 set st.pattern1 = st.pattern1 - 1
                 if st.pattern1 <= 0 then
                     set fx = FxEffect.Create()
-                    set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetUnitX(st.caster)+Polar.X(500, GetUnitFacing(st.caster)),GetUnitY(st.caster)+Polar.Y(500, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
+                    set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetWidgetX(st.caster)+Polar.X(1000, GetUnitFacing(st.caster)),GetWidgetY(st.caster)+Polar.Y(1000, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
+                    call AddSpecialEffectTarget("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl",fx.caster,"origin")
                     call UnitRemoveAbility(fx.caster,'Amov')
                     call SetUnitPathing(fx.caster,false)
                     call PauseUnit(fx.caster,true)
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set fx.i = 0
                     call AnimationStart(fx.caster, 12)
                     call fx.Start()
@@ -168,7 +177,7 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         local integer UnitIndex
         local unit Unit
         
-        if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function SplashNothing ) == 0 then
+        if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00F',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)

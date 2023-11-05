@@ -65,19 +65,19 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e00U',GetUnitX(fx.caster),GetUnitY(fx.caster),GetUnitFacing(fx.caster),1.0,1)
+            set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1)
         endif
         
         if fx.i != 10 then
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
-            call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-            call SetUnitY(fx.dummy,GetUnitY(fx.caster))
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             call t.start( Time3 * (1 - (fx.speed/(100+fx.speed)) )/10, false, function EffectFunction )
         else
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
-            call SetUnitX(fx.dummy,GetUnitX(fx.caster))
-            call SetUnitY(fx.dummy,GetUnitY(fx.caster))
-            call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetUnitY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
             call fx.Stop()
             call t.destroy()
         endif

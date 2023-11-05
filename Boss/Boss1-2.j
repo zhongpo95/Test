@@ -35,9 +35,9 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
-                    //call UnitEffectTimeEX('e00F',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e00G',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e01S',GetUnitX(fx.caster),GetUnitY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 elseif fx.i == 100 then
                     call AnimationStart(fx.caster, 8)
                 //무력화 성공
@@ -49,12 +49,12 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call fx.Stop()
                 //무력화를 못함
                 elseif fx.i == Pattern2Time then
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetUnitX(fx.caster),GetUnitY(fx.caster),GetRandomReal(0,360),0.90)
-                    call splash.range( splash.ENEMY, fx.caster, GetUnitX(fx.caster), GetUnitY(fx.caster), scale, function splashD2 )
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
                     call AnimationStart2(fx.caster, 0, 0.6, 3.0)
                     call AnimationStart4(fx.caster, 7, 0.6)
                     set UnitCastingSD[index] = 0
@@ -140,7 +140,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     set UnitCasting[index] = true
                     set UnitCastingSDMAX[index] = 300
                     set UnitCastingSD[index] = UnitCastingSDMAX[index]
-                    set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetUnitX(fx.caster), GetUnitY(fx.caster), 270 )
+                    set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx.caster), GetWidgetY(fx.caster), 270 )
                     call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
                 endif
             //주금
@@ -184,7 +184,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         local integer UnitIndex
         local unit Unit
         
-        if splash.range( splash.ALLY, st.caster, GetUnitX(st.caster), GetUnitY(st.caster), 500, function SplashNothing ) == 0 then
+        if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h008',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)

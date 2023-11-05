@@ -50,14 +50,14 @@
     
     function DummyMagicleash takes unit u, real time returns nothing
         local Magicleash t = Magicleash.Create()
-        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetUnitX(u), GetUnitY(u), 270)
+        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
         set t.unit = u
         call IssueTargetOrder(t.dummy,"magicleash",u)
         call t.Start(time,false)
     endfunction
     
     function DummyMagicleash2 takes unit target returns unit
-        local unit dummy = CreateUnit(Player(NeutralCode), DummyCode, GetUnitX(target), GetUnitY(target), 270)
+        local unit dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(target), GetWidgetY(target), 270)
         call IssueTargetOrder(dummy,"magicleash",target)
         set target = dummy
         set dummy = null
@@ -66,7 +66,7 @@
     
     function DummyMagicleash3 takes unit u, real time returns nothing
         local Magicleash2 t = Magicleash2.Create()
-        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetUnitX(u), GetUnitY(u), 270)
+        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
         set t.unit = u
         set t.time = time
         set t.i = 0
