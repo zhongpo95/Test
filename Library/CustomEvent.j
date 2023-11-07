@@ -23,11 +23,6 @@
  */
  library MonoEvent
     
-
-    globals
-        constant key E_AOE 
-    endglobals
-    
     globals
         private hashtable TABLE_MONO = InitHashtable()
         private hashtable TABLE_DUO = InitHashtable()

@@ -1,8 +1,15 @@
 library AOE requires MonoEvent, DamageEffect2
+    globals
+        constant key E_AOE
+    endglobals
 
+    //추가해야함
+    //빨강은 그냥 데미지
+    //파랑은 상태이상
+    //노랑은 피격이나 경직
 
     private function filter2 takes nothing returns boolean
-        return not IsUnitType(GetFilterUnit(),UNIT_TYPE_SUMMONED) and UnitAlive(GetFilterUnit()) == true
+        return not IsUnitType(GetFilterUnit(),UNIT_TYPE_SUMMONED) and UnitAlive(GetFilterUnit())
     endfunction
 
     private struct AOESt
@@ -50,7 +57,7 @@ library AOE requires MonoEvent, DamageEffect2
             call GroupRemoveUnit(ul.super,tu)  
             exitwhen tu == null
             if IsUnitInRangeXY(tu, st.x, st.y, st.range * 1.35) then
-                if UnitAlive(tu) == true and IsUnitInRangeXY(tu,st.x,st.y,st.range) and IsUnitAlly(tu, GetOwningPlayer(st.caster)) == false then
+                if UnitAlive(tu) and IsUnitInRangeXY(tu,st.x,st.y,st.range) and not IsUnitAlly(tu, GetOwningPlayer(st.caster)) then
                     //데미지줌
                     call BossDeal( st.caster, tu, st.damage , false)
                     call MonoEvent.Fire( E_AOE, null, st.caster, tu, st.id) /*이벤트 - 투사체가 충돌했을때 작동*/
@@ -62,8 +69,13 @@ library AOE requires MonoEvent, DamageEffect2
         call t.destroy()
         call st.Stop()
     endfunction
-
-    function AOE takes unit u, real x, real y, real range, real time, real damage, integer eft, integer id returns nothing
+    /*types 0=red 1=blue 2=Yellow 3=green
+        빨강은 그냥 데미지
+        파랑은 상태이상(기절,혼란,속박)
+        노랑은 피격이나 경직(넉백,다운)
+        초록은 안전
+    */
+    function AOE takes unit u, real x, real y, real range, real time, real damage, integer eft, integer id, integer types returns nothing
         local tick t = tick.create(0)
         local AOESt st = AOESt.Create()
         local unit du = null
@@ -75,12 +87,21 @@ library AOE requires MonoEvent, DamageEffect2
         set st.eft = eft
         set st.id = id
         set t.data = st
-        
+
         set range = range * 0.01
 
         set du = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(du,100 * range, 100 * range, 100)
-        call SetUnitVertexColor(du, 255, 10, 10, 255) 
+        if types == 0 then
+            call SetUnitVertexColor(du, 255, 10, 10, 255) 
+        elseif types == 1 then
+            call SetUnitVertexColor(du, 255, 255, 10, 255) 
+        elseif types == 2 then
+            call SetUnitVertexColor(du, 10, 10, 255, 255) 
+        elseif types == 3 then
+            call SetUnitVertexColor(du, 10, 255, 10, 255) 
+        endif
+        
         call SetUnitTimeScale( du, 1 / time)
         call UnitApplyTimedLife(du, 'BHwe', 1 * time)
         set du = null
@@ -114,7 +135,7 @@ library AOE requires MonoEvent, DamageEffect2
             call GroupRemoveUnit(ul.super,tu)
             exitwhen tu == null
             if IsUnitInRangeXY(tu, st.x, st.y, st.range * 1.35) then
-                if UnitAlive(tu) == true and IsUnitInRangeXY(tu,st.x,st.y,st.range) and IsUnitAlly(tu, GetOwningPlayer(st.caster)) == false and IsUnitInGroup(tu, ul2.super) == false then
+                if UnitAlive(tu) and IsUnitInRangeXY(tu,st.x,st.y,st.range) and not IsUnitAlly(tu, GetOwningPlayer(st.caster)) and not IsUnitInGroup(tu, ul2.super) then
                     call BossDeal( st.caster, tu, st.damage , false)
                     call MonoEvent.Fire( E_AOE, null, st.caster, tu, st.id)
                 endif
