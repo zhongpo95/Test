@@ -1,10 +1,13 @@
 scope ESC initializer init
     globals
-        integer i = 0
-        string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
+        //integer i = 0
+        //string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
+        real AAA = 0
+        string s = "1"
     endglobals
 
     private function ESCAction2 takes nothing returns nothing
+        /*
         call BJDebugMsg("ESC")
 
         set i = i + 1
@@ -19,10 +22,11 @@ scope ESC initializer init
             call BJDebugMsg("Price[1] : "+I2S(Price[1]))
             set i = 0
         endif
-
+        */
     endfunction
     
-    private function ESCAction takes nothing returns nothing
+    private function ESCAction4 takes nothing returns nothing
+        /*
         local integer i = 0
 
         set s = "7;"
@@ -42,6 +46,16 @@ scope ESC initializer init
         //call BJDebugMsg("바꾼후 : "+s)
         //call BJDebugMsg("ESC")
         //call TodayQuestPlus(0)
+        */
+    endfunction
+
+    private function ESCAction takes nothing returns nothing
+        set AAA = S2R(s)
+        set AAA = AAA + AAA
+        set s = R2SW(AAA,1,0)
+        set s = SubString(s,0,StringLength(s)-2)
+        call DzFrameSetText(F_EnchantUpText, s )
+        call BJDebugMsg(s) 
     endfunction
 
     private function init takes nothing returns nothing
