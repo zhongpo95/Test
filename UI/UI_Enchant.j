@@ -292,7 +292,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if Player(pid) == GetLocalPlayer() then
-            if JNUse( ) then
+            if true then
+            //if JNUse( ) then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 set quality = GetItemQuality(items)
