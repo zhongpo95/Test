@@ -601,12 +601,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             call DzFrameShow(FS_OpenButton, true)
         endif
         
-        call SkillSetting(MainUnit[pid])
+        //call SkillSetting(MainUnit[pid])
         
         set PickCheck[pid] = true
         call PlayersHPBarShow(Player(pid),true)
         
-        call TodaySet(pid)
+        //call TodaySet(pid)
 
         call Deilycheck(pid)
         
@@ -683,10 +683,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         set Eitem[pid][4] = "6;"
         set Eitem[pid][5] = "1;"
         
-        set HeroSkillPoint[pid] = 10
         if GetLocalPlayer() == Player(pid) then
             call DzFrameSetText(F_GoldText, StashLoad(pid:PLAYER_DATA, "골드", "0"))
-            call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
             call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             call DzFrameSetTexture(F_EItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
@@ -709,12 +707,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             call DzFrameShow(FS_OpenButton, true)
         endif
         
-        call SkillSetting(MainUnit[pid])
+        //call SkillSetting(MainUnit[pid])
         
         set PickCheck[pid] = true
         call PlayersHPBarShow(Player(pid),true)
         
-        call TodaySet(pid)
+        //call TodaySet(pid)
 
         call Deilycheck(pid)
 

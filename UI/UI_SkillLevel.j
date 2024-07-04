@@ -9,8 +9,9 @@ library UISkillLevel initializer init requires DataUnit
         integer FS_TemplateBackDrop                 //스킬창 스킬공간
         integer FS_TemplateText                     //스킬창 스킬설명
         integer FS_CancelButton                     //스킬창 취소버튼
-        integer array FS_Button                     //스킬버튼
-        integer array FS_ButtonBackDrop             //스킬버튼 백드롭
+        integer array FS_Button[16][4]              //길버튼
+        integer array FS_ButtonBackDrop[16][4]      //길버튼 백드롭
+        integer array FS_LineBackDrop        //라인 백드롭
         integer array FS_ButtonTEXT                 //스킬버튼 텍스트
         integer array FS_ButtonTEXT2                //스킬버튼 텍스트
         integer array FS_UP                         //업버튼
@@ -24,64 +25,21 @@ library UISkillLevel initializer init requires DataUnit
         integer array FP_SLBD3                       //스킬레벨 백드롭
         integer array FP_SLTEXT3                       //스킬레벨 텍스트
         
-        boolean array FS_OnOff                      //플레이어 온오프
+        integer FS_LB                     //X버튼
+        integer FS_L                      //X버튼
+        integer FS_L2                     //X버튼
+        integer FS_RB
+        integer FS_R
+        integer FS_R2
         
+        boolean array FS_OnOff                      //플레이어 온오프
+
+        private integer NowList = 0        //현재리스트
+        private constant integer MaxList = 2
         //전역변수
         integer array HeroSkillLevel[13][8]
         integer array HeroSkillPoint[13]
     endglobals
-    
-    function SkillSetting takes unit u returns nothing
-        local integer index = DataUnitIndex(u)
-        local player p = GetOwningPlayer(u)
-        
-        if p == GetLocalPlayer() then
-            call DzFrameSetText(FS_ButtonTEXT[0], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID0[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[1], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID1[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[2], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID2[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[3], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID3[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[4], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID4[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[5], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID5[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[6], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID6[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[7], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID7[index])+"].Name") )
-            
-            call DzFrameSetTexture(FS_ButtonBackDrop[0], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID0[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[1], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID1[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[2], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID2[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[3], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID3[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[4], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID4[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[5], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID5[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[6], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID6[index])+"].Art"), 0)
-            call DzFrameSetTexture(FS_ButtonBackDrop[7], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID7[index])+"].Art"), 0)
-            
-            call DzFrameSetText(FP_SLTEXT1[0], HeroSkill0Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[0], HeroSkill0Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[0], HeroSkill0Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[1], HeroSkill1Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[1], HeroSkill1Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[1], HeroSkill1Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[2], HeroSkill2Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[2], HeroSkill2Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[2], HeroSkill2Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[3], HeroSkill3Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[3], HeroSkill3Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[3], HeroSkill3Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[4], HeroSkill4Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[4], HeroSkill4Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[4], HeroSkill4Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[5], HeroSkill5Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[5], HeroSkill5Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[5], HeroSkill5Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[6], HeroSkill6Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[6], HeroSkill6Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[6], HeroSkill6Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[7], HeroSkill7Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[7], HeroSkill7Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[7], HeroSkill7Text3[index] )
-        endif
-        
-        set p = null
-    endfunction
     
     private function ShowMenu takes nothing returns nothing
         //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
@@ -144,119 +102,498 @@ library UISkillLevel initializer init requires DataUnit
         
     endfunction
     
-    private function PushUP takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        if FS_UP[0] == f then
-            call DzSyncData(("BTUP"),"0")
-        elseif FS_UP[1] == f then
-            call DzSyncData(("BTUP"),"1")
-        elseif FS_UP[2] == f then
-            call DzSyncData(("BTUP"),"2")
-        elseif FS_UP[3] == f then
-            call DzSyncData(("BTUP"),"3")
-        elseif FS_UP[4] == f then
-            call DzSyncData(("BTUP"),"4")
-        elseif FS_UP[5] == f then
-            call DzSyncData(("BTUP"),"5")
-        elseif FS_UP[6] == f then
-            call DzSyncData(("BTUP"),"6")
-        elseif FS_UP[7] == f then
-            call DzSyncData(("BTUP"),"7")
-        endif
-    endfunction
-    
-    private function PushDOWN takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        if FS_DOWN[0] == f then
-            call DzSyncData(("BTDOWN"),"0")
-        elseif FS_DOWN[1] == f then
-            call DzSyncData(("BTDOWN"),"1")
-        elseif FS_DOWN[2] == f then
-            call DzSyncData(("BTDOWN"),"2")
-        elseif FS_DOWN[3] == f then
-            call DzSyncData(("BTDOWN"),"3")
-        elseif FS_DOWN[4] == f then
-            call DzSyncData(("BTDOWN"),"4")
-        elseif FS_DOWN[5] == f then
-            call DzSyncData(("BTDOWN"),"5")
-        elseif FS_DOWN[6] == f then
-            call DzSyncData(("BTDOWN"),"6")
-        elseif FS_DOWN[7] == f then
-            call DzSyncData(("BTDOWN"),"7")
-        endif
-    endfunction
-    
     //
-    private function CreateSkillButton takes integer types returns nothing
-        set FS_Button[types]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
-        call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.040, -0.080 +(-0.038*types))
-        call DzFrameSetSize(FS_Button[types], 0.030, 0.030)
-        call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+
+    private function ClickRLButton takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         
-        set FS_ButtonBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "", 0)
-        call DzFrameSetAllPoints(FS_ButtonBackDrop[types], FS_Button[types])
-        call DzFrameSetTexture(FS_ButtonBackDrop[types],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+        call DzFrameShow(FS_L, true)
+        call DzFrameShow(FS_R, true)
         
-        set FS_ButtonTEXT[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", 0)
-        call DzFrameSetPoint(FS_ButtonTEXT[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.035, -0.010)
-        call DzFrameSetText(FS_ButtonTEXT[types], "스킬이름스킬이름스킬이")
+        if f == FS_RB then
+            if NowList == MaxList then
+                set NowList = MaxList
+            else
+                set NowList = NowList + 1
+            endif
+            
+            if NowList == 0 then
+                call DzFrameShow(FS_L, false)
+                call DzFrameShow(FS_R, true)
+                call DzFrameShow(FS_L2, true)
+                call DzFrameShow(FS_R2, false)
+            elseif MaxList == NowList then
+                call DzFrameShow(FS_L, true)
+                call DzFrameShow(FS_R, false)
+                call DzFrameShow(FS_L2, false)
+                call DzFrameShow(FS_R2, true)
+            else
+                call DzFrameShow(FS_L, true)
+                call DzFrameShow(FS_R, true)
+                call DzFrameShow(FS_L2, false)
+                call DzFrameShow(FS_R2, false)
+            endif
+        elseif f == FS_LB then
+            if NowList == 0 then
+                set NowList = 0
+            else
+                set NowList = NowList - 1
+            endif
+            
+            if NowList == 0 then
+                call DzFrameShow(FS_L, false)
+                call DzFrameShow(FS_R, true)
+                call DzFrameShow(FS_L2, true)
+                call DzFrameShow(FS_R2, false)
+            elseif MaxList == NowList then
+                call DzFrameShow(FS_L, true)
+                call DzFrameShow(FS_R, false)
+                call DzFrameShow(FS_L2, false)
+                call DzFrameShow(FS_R2, true)
+            else
+                call DzFrameShow(FS_L, true)
+                call DzFrameShow(FS_R, true)
+                call DzFrameShow(FS_L2, false)
+                call DzFrameShow(FS_R2, false)
+            endif
+        endif
         
-        set FS_DOWN[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate", 0)
-        call DzFrameSetPoint(FS_DOWN[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
-        call DzFrameSetSize(FS_DOWN[types], 0.020, 0.020)
-        call DzFrameSetScriptByCode(FS_DOWN[types], JN_FRAMEEVENT_MOUSE_UP, function PushDOWN, false)
-        set FS_DOWNBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_DOWN[types], "template", 0)
-        call DzFrameSetTexture(FS_DOWNBD[types], "UI_M.blp", 0)
-        call DzFrameSetSize(FS_DOWNBD[types], 0.020, 0.020)
-        call DzFrameSetPoint(FS_DOWNBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
+        if NowList == 0 then
+            call DzFrameSetPoint(FS_Button[0][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*5), -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[1][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[1][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[1][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[1][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[2][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[2][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[2][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[2][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[3][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[3][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[3][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[3][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[4][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[4][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[4][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[4][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[5][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350, -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[6][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[6][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[6][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[6][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[7][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[7][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[7][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[7][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[8][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[8][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[8][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[8][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[9][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[9][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[9][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[9][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[10][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*5), -0.080 - 0.120)
+
+            call DzFrameShow(FS_Button[0][0], true)
+            call DzFrameShow(FS_Button[5][0], true)
+            call DzFrameShow(FS_Button[10][0], false)
+            call DzFrameShow(FS_Button[15][0], false)
+        elseif NowList == 1 then
+            call DzFrameSetPoint(FS_Button[5][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*5), -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[6][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[6][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[6][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[6][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[7][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[7][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[7][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[7][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[8][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[8][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[8][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[8][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[9][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[9][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[9][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[9][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[10][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350, -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[11][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[11][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[11][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[11][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[12][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[12][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[12][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[12][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[13][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[13][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[13][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[13][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[14][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[14][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[14][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[14][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[15][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*5), -0.080 - 0.120)
+            
+            call DzFrameShow(FS_Button[0][0], false)
+            call DzFrameShow(FS_Button[5][0], true)
+            call DzFrameShow(FS_Button[10][0], true)
+            call DzFrameShow(FS_Button[15][0], false)
+        elseif NowList == 2 then
+            call DzFrameSetPoint(FS_Button[10][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*5), -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[11][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[11][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[11][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[11][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[12][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[12][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[12][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[12][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[13][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[13][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[13][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[13][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[14][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FS_Button[14][1], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FS_Button[14][2], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FS_Button[14][3], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FS_Button[15][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350, -0.080 - 0.120)
+
+            call DzFrameSetPoint(FS_Button[16][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2.5), -0.080 - 0.120)
+
+            call DzFrameShow(FS_Button[0][0], false)
+            call DzFrameShow(FS_Button[5][0], false)
+            call DzFrameShow(FS_Button[10][0], true)
+            call DzFrameShow(FS_Button[15][0], true)
+        endif
         
-        set FS_ButtonTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", 0)
-        call DzFrameSetPoint(FS_ButtonTEXT2[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.200, -0.010)
-        call DzFrameSetText(FS_ButtonTEXT2[types], "0")
-        
-        set FS_UP[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate", 0)
-        call DzFrameSetPoint(FS_UP[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
-        call DzFrameSetSize(FS_UP[types], 0.020, 0.020)
-        call DzFrameSetScriptByCode(FS_UP[types], JN_FRAMEEVENT_MOUSE_UP, function PushUP, false)
-        set FS_UPBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_UP[types], "template", 0)
-        call DzFrameSetTexture(FS_UPBD[types], "UI_P.blp", 0)
-        call DzFrameSetSize(FS_UPBD[types], 0.020, 0.020)
-        call DzFrameSetPoint(FS_UPBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
-        
-        set FP_SLBD1[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
-        call DzFrameSetTexture(FP_SLBD1[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD1[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD1[types], JN_FRAMEPOINT_CENTER, 0.525, 0.38)
-        set FP_SLTEXT1[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD1[types], "", 0)
-        call DzFrameSetPoint(FP_SLTEXT1[types], JN_FRAMEPOINT_CENTER, FP_SLBD1[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT1[types], "0")
-        call DzFrameSetSize(FP_SLTEXT1[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT1[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD1[types], false)
-        
-        set FP_SLBD2[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
-        call DzFrameSetTexture(FP_SLBD2[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD2[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD2[types], JN_FRAMEPOINT_CENTER, 0.525, 0.28)
-        set FP_SLTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD2[types], "", 0)
-        call DzFrameSetPoint(FP_SLTEXT2[types], JN_FRAMEPOINT_CENTER, FP_SLBD2[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT2[types], "0")
-        call DzFrameSetSize(FP_SLTEXT2[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT2[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD2[types], false)
-        
-        set FP_SLBD3[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
-        call DzFrameSetTexture(FP_SLBD3[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD3[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD3[types], JN_FRAMEPOINT_CENTER, 0.525, 0.18)
-        set FP_SLTEXT3[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD3[types], "", 0)
-        call DzFrameSetPoint(FP_SLTEXT3[types], JN_FRAMEPOINT_CENTER, FP_SLBD3[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT3[types], "0")
-        call DzFrameSetSize(FP_SLTEXT3[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT3[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD3[types], false)
     endfunction
     
+
+    private function CreateSkillButton takes integer types, integer x returns nothing
+        local integer i
+
+        if types == 0 then
+            set FS_Button[types][0]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 - 0.120)
+            call DzFrameSetSize(FS_Button[types][0], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][0], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][0]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][0], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNGarithos.blp", 0)
+
+        elseif types == 5 or types == 10 or types == 15 then
+            set FS_Button[types][0]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 - 0.120)
+            call DzFrameSetSize(FS_Button[types][0], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][0], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][0]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][0], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+
+        elseif types == 16 then
+            set FS_Button[types][0]=DzCreateFrameByTagName("BUTTON", "", FS_Button[x*5][0], "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.050 + (0.060*types), -0.080 - 0.120)
+            call DzFrameSetSize(FS_Button[types][0], 0.050, 0.050)
+            //call DzFrameSetScriptByCode(FS_Button[types][0], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][0]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][0], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNGarithos.blp", 0)
+        else
+            set i = 0
+            set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[x*5][0], "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 )
+            call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set i = 1
+            set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[x*5][0], "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
+            call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set i = 2
+            set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[x*5][0], "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
+            call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set i = 3
+            set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[x*5][0], "ScoreScreenTabButtonTemplate", 0)
+            call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
+            call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
+            //call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
+            
+            set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
+            call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+        endif
+        //call DzFrameShow(FS_Button[types][0], false)
+    endfunction
+
+    private function CreateLine takes nothing returns nothing
+        //1번줄 앞칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        //call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        //call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1) + 0.025, -0.080 )
+        //call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        //call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        //call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1) + 0.035, -0.080 )
+        //call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        
+        //1번줄 뒷칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.025, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.035, -0.080 )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        //call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        //call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4) + 0.025, -0.080 )
+        //call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        //call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        //call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4) + 0.035, -0.080 )
+        //call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        
+        //2번줄 앞칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //2번줄 뒷칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.025, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.035, -0.080 + (-0.080*1) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //3번줄 앞칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //3번줄 뒷칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.025, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.035, -0.080 + (-0.080*2) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //4번줄 앞칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        //4번줄 뒷칸
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.025, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+        set FS_LineBackDrop[0]=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "", 0)
+        call DzFrameSetSize(FS_LineBackDrop[0], 0.002, 0.002)
+        call DzFrameSetPoint(FS_LineBackDrop[0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3) + 0.035, -0.080 + (-0.080*3) )
+        call DzFrameSetTexture(FS_LineBackDrop[0],"ReplaceableTextures\\TeamColor\\TeamColor04.blp", 0)
+    endfunction
+
     private function Main takes nothing returns nothing
         local string s
         local integer i
@@ -275,29 +612,71 @@ library UISkillLevel initializer init requires DataUnit
         /********************************** 메뉴 배경 생성 **********************************************/
         set FS_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(FS_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
-        call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
+        call DzFrameSetSize(FS_BackDrop, 0.75, 0.39)
         
-        /********************************** 프레임 이름 설명 생성 **********************************************/
-        set FS_CombinationText=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
-        call DzFrameSetPoint(FS_CombinationText, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.025, -0.025)
-        call DzFrameSetText(FS_CombinationText, "스킬")
+        //왼쪽
+        set FS_L2=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", 0)
+        call DzFrameSetTexture(FS_L2, "UI_L2.blp", 0)
+        call DzFrameSetSize(FS_L2, 0.030, 0.030)
+        call DzFrameSetAbsolutePoint(FS_L2, JN_FRAMEPOINT_CENTER, 0.6850, 0.1500)
+        call DzFrameShow(FS_L2, true)
+        set FS_LB = DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+        call DzFrameSetAbsolutePoint(FS_LB, JN_FRAMEPOINT_CENTER, 0.6850, 0.1500)
+        call DzFrameSetSize(FS_LB, 0.030, 0.030)
+        call DzFrameSetScriptByCode(FS_LB, JN_FRAMEEVENT_MOUSE_UP, function ClickRLButton, false)
+        set FS_L=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", 0)
+        call DzFrameSetTexture(FS_L, "UI_L.blp", 0)
+        call DzFrameSetSize(FS_L, 0.030, 0.030)
+        call DzFrameSetAbsolutePoint(FS_L, JN_FRAMEPOINT_CENTER, 0.6850, 0.1500)
+        call DzFrameShow(FS_L, false)
         
-        set FS_SPTEXT=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
-        call DzFrameSetPoint(FS_SPTEXT, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.170, -0.050)
-        call DzFrameSetText(FS_SPTEXT, "스킬포인트")
+        //오른쪽
+        set FS_R2=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", 0)
+        call DzFrameSetTexture(FS_R2, "UI_R2.blp", 0)
+        call DzFrameSetSize(FS_R2, 0.030, 0.030)
+        call DzFrameSetAbsolutePoint(FS_R2, JN_FRAMEPOINT_CENTER, 0.7300, 0.1500)
+        call DzFrameShow(FS_R2, false)
+        set FS_RB = DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+        call DzFrameSetAbsolutePoint(FS_RB, JN_FRAMEPOINT_CENTER, 0.7300, 0.1500)
+        call DzFrameSetSize(FS_RB, 0.030, 0.030)
+        call DzFrameSetScriptByCode(FS_RB, JN_FRAMEEVENT_MOUSE_UP, function ClickRLButton, false)
+        set FS_R=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", 0)
+        call DzFrameSetTexture(FS_R, "UI_R.blp", 0)
+        call DzFrameSetSize(FS_R, 0.030, 0.030)
+        call DzFrameSetAbsolutePoint(FS_R, JN_FRAMEPOINT_CENTER, 0.7300, 0.1500)
         
-        set FS_SPTEXTV=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
-        call DzFrameSetPoint(FS_SPTEXTV, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.245, -0.050)
-        call DzFrameSetText(FS_SPTEXTV, "0")
-        
-        call CreateSkillButton(0)
-        call CreateSkillButton(1)
-        call CreateSkillButton(2)
-        call CreateSkillButton(3)
-        call CreateSkillButton(4)
-        call CreateSkillButton(5)
-        call CreateSkillButton(6)
-        call CreateSkillButton(7)
+        //시작
+        call CreateSkillButton(0,0)
+
+        call CreateSkillButton(1,0)
+        call CreateSkillButton(2,0)
+        call CreateSkillButton(3,0)
+        call CreateSkillButton(4,0)
+        //보스선택or보너스
+        call CreateSkillButton(5,1)
+
+        call CreateSkillButton(6,1)
+        call CreateSkillButton(7,1)
+        call CreateSkillButton(8,1)
+        call CreateSkillButton(9,1)
+        //유물상자
+        call CreateSkillButton(10,2)
+
+        call CreateSkillButton(11,2)
+        call CreateSkillButton(12,2)
+        call CreateSkillButton(13,2)
+        call CreateSkillButton(14,2)
+
+        call CreateSkillButton(15,3)
+        //보스
+        call CreateSkillButton(16,3)
+        //선
+        call CreateLine()
+
+        call DzFrameShow(FS_Button[0][0], true)
+        call DzFrameShow(FS_Button[5][0], true)
+        call DzFrameShow(FS_Button[10][0], false)
+        call DzFrameShow(FS_Button[15][0], false)
         
         /********************************** 메뉴 취소 버튼 **********************************************/
         set FS_CancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", FS_BackDrop, "ScriptDialogButton", 0)
@@ -305,7 +684,6 @@ library UISkillLevel initializer init requires DataUnit
         call DzFrameSetText(FS_CancelButton, "X")
         call DzFrameSetSize(FS_CancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(FS_CancelButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
-        
         
         call DzFrameShow(FS_BackDrop, false)
     endfunction
@@ -345,92 +723,6 @@ library UISkillLevel initializer init requires DataUnit
         endif
     endfunction
     
-    private function BTUPF takes nothing returns nothing
-        local player p=(DzGetTriggerSyncPlayer())
-        local integer f = S2I(DzGetTriggerSyncData())
-        local integer pid = GetPlayerId(p)
-        local integer i = 0
-
-        
-        if HeroSkillLevel[pid][f] != 3 then
-            if HeroSkillPoint[pid] >= 1 then
-                set HeroSkillPoint[pid] = HeroSkillPoint[pid] - 1
-                set HeroSkillLevel[pid][f] = HeroSkillLevel[pid][f] + 1
-                
-                if p == GetLocalPlayer() then
-                    if HeroSkillLevel[pid][f] == 1 then
-                        call DzFrameSetTexture(FP_SLBD1[f], "UI_PickSelectButton.tga", 0)
-                    elseif HeroSkillLevel[pid][f] == 2 then
-                        call DzFrameSetTexture(FP_SLBD2[f], "UI_PickSelectButton.tga", 0)
-                    elseif HeroSkillLevel[pid][f] == 3 then
-                        call DzFrameSetTexture(FP_SLBD3[f], "UI_PickSelectButton.tga", 0)
-                    endif
-                    call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
-                    call DzFrameSetText(FS_ButtonTEXT2[f], I2S(HeroSkillLevel[pid][f]))
-                    
-                    set i = 0
-                    loop
-                        call DzFrameShow(FP_SLBD1[i], false)
-                        call DzFrameShow(FP_SLBD2[i], false)
-                        call DzFrameShow(FP_SLBD3[i], false)
-                        exitwhen i == 7
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    
-                    call DzFrameShow(FP_SLBD1[f], true)
-                    call DzFrameShow(FP_SLBD2[f], true)
-                    call DzFrameShow(FP_SLBD3[f], true)
-                    
-                endif
-            endif
-        endif
-            
-        set p = null
-    endfunction
-    
-    private function BTDOWNF takes nothing returns nothing
-        local player p=(DzGetTriggerSyncPlayer())
-        local integer f = S2I(DzGetTriggerSyncData())
-        local integer pid = GetPlayerId(p)
-        local integer i = 0
-        
-        if HeroSkillLevel[pid][f] >= 1 then
-            set HeroSkillPoint[pid] = HeroSkillPoint[pid] + 1
-            set HeroSkillLevel[pid][f] = HeroSkillLevel[pid][f] - 1
-            
-            if p == GetLocalPlayer() then
-                if HeroSkillLevel[pid][f] == 0 then
-                    call DzFrameSetTexture(FP_SLBD1[f], "UI_PickSelectButton2.tga", 0)
-                elseif HeroSkillLevel[pid][f] == 1 then
-                    call DzFrameSetTexture(FP_SLBD2[f], "UI_PickSelectButton2.tga", 0)
-                elseif HeroSkillLevel[pid][f] == 2 then
-                    call DzFrameSetTexture(FP_SLBD3[f], "UI_PickSelectButton2.tga", 0)
-                endif
-                call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
-                call DzFrameSetText(FS_ButtonTEXT2[f], I2S(HeroSkillLevel[pid][f]))
-                
-                set i = 0
-                loop
-                    call DzFrameShow(FP_SLBD1[i], false)
-                    call DzFrameShow(FP_SLBD2[i], false)
-                    call DzFrameShow(FP_SLBD3[i], false)
-                    exitwhen i == 7
-                    set i = i + 1
-                endloop
-                set i = 0
-                
-                call DzFrameShow(FP_SLBD1[f], true)
-                call DzFrameShow(FP_SLBD2[f], true)
-                call DzFrameShow(FP_SLBD3[f], true)
-                
-            endif
-        endif
-        
-        set p = null
-    endfunction
-    
-    
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         local integer index
@@ -443,12 +735,11 @@ library UISkillLevel initializer init requires DataUnit
         //esc버튼으로 인벤토리 닫기
         set t = CreateTrigger()
         
-        set index = 0
-        loop
-            call TriggerRegisterPlayerEvent(t, Player(index), EVENT_PLAYER_END_CINEMATIC)
-            set index = index + 1
-            exitwhen index == bj_MAX_PLAYER_SLOTS
-        endloop
+        call TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_END_CINEMATIC)
+        call TriggerRegisterPlayerEvent(t, Player(1), EVENT_PLAYER_END_CINEMATIC)
+        call TriggerRegisterPlayerEvent(t, Player(2), EVENT_PLAYER_END_CINEMATIC)
+        call TriggerRegisterPlayerEvent(t, Player(3), EVENT_PLAYER_END_CINEMATIC)
+
         call TriggerAddAction( t, function ESCAction )
         
         set index = 0
@@ -470,13 +761,6 @@ library UISkillLevel initializer init requires DataUnit
         set t = CreateTrigger()
         
         call DzTriggerRegisterKeyEventByCode(t, 'K', 0, false, function KKey)
-        
-        set t=CreateTrigger()
-        call DzTriggerRegisterSyncData(t,("BTUP"),(false))
-        call TriggerAddAction(t,function BTUPF)
-        set t=CreateTrigger()
-        call DzTriggerRegisterSyncData(t,("BTDOWN"),(false))
-        call TriggerAddAction(t,function BTDOWNF)
         
         set t = null
         

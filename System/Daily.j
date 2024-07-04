@@ -26,7 +26,7 @@ library Daily initializer init requires Stash, UIQuest
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
                 call JNDailySave(MapName, GetPlayerName(Player(pid)), MapApi, "Default String", "daily")
                 /*일퀘 리셋*/
-                call TodayReset(pid)
+                //call TodayReset(pid)
             endif
         else
             if JNUse( ) then
