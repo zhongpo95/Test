@@ -40,6 +40,7 @@ library UISkillLevel initializer init requires DataUnit
 
         private integer NowList = 0                 //현재리스트
         private constant integer MaxList = 2
+        integer ClickRoom = 0
         integer Myroom = 0
 
         //전역변수
@@ -64,7 +65,6 @@ library UISkillLevel initializer init requires DataUnit
         local integer LineNumber = S2I(DzGetTriggerSyncData())
         
         call BJDebugMsg(I2S(LineNumber)+"번 입장")
-        
         set p = null
     endfunction
 
@@ -74,200 +74,201 @@ library UISkillLevel initializer init requires DataUnit
         
         call DzFrameShow(FS_BackDrop, false)
         set FS_OnOff[pid] = false
+        set Myroom = ClickRoom
         //call SelectUnitForPlayerSingle( MainUnit[GetPlayerId(DzGetTriggerUIEventPlayer())], DzGetTriggerUIEventPlayer() )
-        call DzSyncData("PickLine", I2S(Myroom))
+        call DzSyncData("PickLine", I2S(ClickRoom))
     endfunction
 
     private function SelectLine takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer i = 0
         
-        if f == FS_Button[1][0] then
+        if f == FS_Button[1][0] and Myroom == 0 then
             call BJDebugMsg("1-1")
-            set Myroom = 1
-        elseif f == FS_Button[1][1] then
+            set ClickRoom = 1
+        elseif f == FS_Button[1][1] and Myroom == 0 then
             call BJDebugMsg("1-2")
-            set Myroom = 2
-        elseif f == FS_Button[1][2] then
+            set ClickRoom = 2
+        elseif f == FS_Button[1][2] and Myroom == 0  then
             call BJDebugMsg("1-3")
-            set Myroom = 3
-        elseif f == FS_Button[1][3] then
+            set ClickRoom = 3
+        elseif f == FS_Button[1][3] and Myroom == 0 then
             call BJDebugMsg("1-4")
-            set Myroom = 4
+            set ClickRoom = 4
         endif
         
-        if f == FS_Button[2][0] then
+        if f == FS_Button[2][0] and Myroom == 1 then
             call BJDebugMsg("2-1")
-            set Myroom = 5
-        elseif f == FS_Button[2][1] then
+            set ClickRoom = 5
+        elseif f == FS_Button[2][1] and Myroom == 2 then
             call BJDebugMsg("2-2")
-            set Myroom = 6
-        elseif f == FS_Button[2][2] then
+            set ClickRoom = 6
+        elseif f == FS_Button[2][2] and Myroom == 3 then
             call BJDebugMsg("2-3")
-            set Myroom = 7
-        elseif f == FS_Button[2][3] then
+            set ClickRoom = 7
+        elseif f == FS_Button[2][3] and Myroom == 4 then
             call BJDebugMsg("2-4")
-            set Myroom = 8
+            set ClickRoom = 8
         endif
 
-        if f == FS_Button[3][0] then
+        if f == FS_Button[3][0] and Myroom == 5 then
             call BJDebugMsg("3-1")
-            set Myroom = 9
-        elseif f == FS_Button[3][1] then
+            set ClickRoom = 9
+        elseif f == FS_Button[3][1] and Myroom == 6 then
             call BJDebugMsg("3-2")
-            set Myroom = 10
-        elseif f == FS_Button[3][2] then
+            set ClickRoom = 10
+        elseif f == FS_Button[3][2] and Myroom == 7 then
             call BJDebugMsg("3-3")
-            set Myroom = 11
-        elseif f == FS_Button[3][3] then
+            set ClickRoom = 11
+        elseif f == FS_Button[3][3] and Myroom == 8 then
             call BJDebugMsg("3-4")
-            set Myroom = 12
+            set ClickRoom = 12
         endif
 
-        if f == FS_Button[4][0] then
+        if f == FS_Button[4][0] and Myroom == 9 then
             call BJDebugMsg("4-1")
-            set Myroom = 13
-        elseif f == FS_Button[4][1] then
+            set ClickRoom = 13
+        elseif f == FS_Button[4][1] and Myroom == 10 then
             call BJDebugMsg("4-2")
-            set Myroom = 14
-        elseif f == FS_Button[4][2] then
+            set ClickRoom = 14
+        elseif f == FS_Button[4][2] and Myroom == 11 then
             call BJDebugMsg("4-3")
-            set Myroom = 15
-        elseif f == FS_Button[4][3] then
+            set ClickRoom = 15
+        elseif f == FS_Button[4][3] and Myroom == 12 then
             call BJDebugMsg("4-4")
-            set Myroom = 16
+            set ClickRoom = 16
         endif
         
-        if f == FS_Button[5][0] then
+        if f == FS_Button[5][0] and ( Myroom == 13 or Myroom == 14 or Myroom == 15 or Myroom == 16 ) then
             call BJDebugMsg("5")
-            set Myroom = 17
+            set ClickRoom = 17
         endif
 
-        if f == FS_Button[6][0] then
+        if f == FS_Button[6][0] and Myroom == 17 then
             call BJDebugMsg("6-1")
-            set Myroom = 18
-        elseif f == FS_Button[6][1] then
+            set ClickRoom = 18
+        elseif f == FS_Button[6][1] and Myroom == 17 then
             call BJDebugMsg("6-2")
-            set Myroom = 19
-        elseif f == FS_Button[6][2] then
+            set ClickRoom = 19
+        elseif f == FS_Button[6][2] and Myroom == 17 then
             call BJDebugMsg("6-3")
-            set Myroom = 20
-        elseif f == FS_Button[6][3] then
+            set ClickRoom = 20
+        elseif f == FS_Button[6][3] and Myroom == 17 then
             call BJDebugMsg("6-4")
-            set Myroom = 21
+            set ClickRoom = 21
         endif
 
-        if f == FS_Button[7][0] then
+        if f == FS_Button[7][0] and Myroom == 18 then
             call BJDebugMsg("7-1")
-            set Myroom = 22
-        elseif f == FS_Button[7][1] then
+            set ClickRoom = 22
+        elseif f == FS_Button[7][1] and Myroom == 19 then
             call BJDebugMsg("7-2")
-            set Myroom = 23
-        elseif f == FS_Button[7][2] then
+            set ClickRoom = 23
+        elseif f == FS_Button[7][2] and Myroom == 20 then
             call BJDebugMsg("7-3")
-            set Myroom = 24
-        elseif f == FS_Button[7][3] then
+            set ClickRoom = 24
+        elseif f == FS_Button[7][3] and Myroom == 21 then
             call BJDebugMsg("7-4")
-            set Myroom = 25
+            set ClickRoom = 25
         endif
 
-        if f == FS_Button[8][0] then
+        if f == FS_Button[8][0] and Myroom == 22 then
             call BJDebugMsg("8-1")
-            set Myroom = 26
-        elseif f == FS_Button[8][1] then
+            set ClickRoom = 26
+        elseif f == FS_Button[8][1] and Myroom == 23 then
             call BJDebugMsg("8-2")
-            set Myroom = 27
-        elseif f == FS_Button[8][2] then
+            set ClickRoom = 27
+        elseif f == FS_Button[8][2] and Myroom == 24 then
             call BJDebugMsg("8-3")
-            set Myroom = 28
-        elseif f == FS_Button[8][3] then
+            set ClickRoom = 28
+        elseif f == FS_Button[8][3] and Myroom == 25 then
             call BJDebugMsg("8-4")
-            set Myroom = 29
+            set ClickRoom = 29
         endif
 
-        if f == FS_Button[9][0] then
+        if f == FS_Button[9][0] and Myroom == 26 then
             call BJDebugMsg("9-1")
-            set Myroom = 30
-        elseif f == FS_Button[9][1] then
+            set ClickRoom = 30
+        elseif f == FS_Button[9][1] and Myroom == 27 then
             call BJDebugMsg("9-2")
-            set Myroom = 31
-        elseif f == FS_Button[9][2] then
+            set ClickRoom = 31
+        elseif f == FS_Button[9][2] and Myroom == 28 then
             call BJDebugMsg("9-3")
-            set Myroom = 32
-        elseif f == FS_Button[9][3] then
+            set ClickRoom = 32
+        elseif f == FS_Button[9][3] and Myroom == 29 then
             call BJDebugMsg("9-4")
-            set Myroom = 33
+            set ClickRoom = 33
         endif
 
-        if f == FS_Button[10][0] then
+        if f == FS_Button[10][0] and ( Myroom == 30 or Myroom == 31 or Myroom == 32 or Myroom == 33 ) then
             call BJDebugMsg("10")
-            set Myroom = 34
+            set ClickRoom = 34
         endif
 
-        if f == FS_Button[11][0] then
+        if f == FS_Button[11][0] and Myroom == 34 then
             call BJDebugMsg("11-1")
-            set Myroom = 35
-        elseif f == FS_Button[11][1] then
+            set ClickRoom = 35
+        elseif f == FS_Button[11][1] and Myroom == 34 then
             call BJDebugMsg("11-2")
-            set Myroom = 36
-        elseif f == FS_Button[11][2] then
+            set ClickRoom = 36
+        elseif f == FS_Button[11][2] and Myroom == 34 then
             call BJDebugMsg("11-3")
-            set Myroom = 37
-        elseif f == FS_Button[11][3] then
+            set ClickRoom = 37
+        elseif f == FS_Button[11][3] and Myroom == 34 then
             call BJDebugMsg("11-4")
-            set Myroom = 38
+            set ClickRoom = 38
         endif
 
-        if f == FS_Button[12][0] then
+        if f == FS_Button[12][0] and Myroom == 35 then
             call BJDebugMsg("12-1")
-            set Myroom = 39
-        elseif f == FS_Button[12][1] then
+            set ClickRoom = 39
+        elseif f == FS_Button[12][1] and Myroom == 36 then
             call BJDebugMsg("12-2")
-            set Myroom = 40
-        elseif f == FS_Button[12][2] then
+            set ClickRoom = 40
+        elseif f == FS_Button[12][2] and Myroom == 37 then
             call BJDebugMsg("12-3")
-            set Myroom = 41
-        elseif f == FS_Button[12][3] then
+            set ClickRoom = 41
+        elseif f == FS_Button[12][3] and Myroom == 38 then
             call BJDebugMsg("12-4")
-            set Myroom = 42
+            set ClickRoom = 42
         endif
 
-        if f == FS_Button[13][0] then
+        if f == FS_Button[13][0] and Myroom == 39 then
             call BJDebugMsg("13-1")
-            set Myroom = 43
-        elseif f == FS_Button[13][1] then
+            set ClickRoom = 43
+        elseif f == FS_Button[13][1] and Myroom == 40 then
             call BJDebugMsg("13-2")
-            set Myroom = 44
-        elseif f == FS_Button[13][2] then
+            set ClickRoom = 44
+        elseif f == FS_Button[13][2] and Myroom == 41 then
             call BJDebugMsg("13-3")
-            set Myroom = 45
-        elseif f == FS_Button[13][3] then
+            set ClickRoom = 45
+        elseif f == FS_Button[13][3] and Myroom == 42 then
             call BJDebugMsg("13-4")
-            set Myroom = 46
+            set ClickRoom = 46
         endif
 
-        if f == FS_Button[14][0] then
+        if f == FS_Button[14][0] and Myroom == 43 then
             call BJDebugMsg("14-1")
-            set Myroom = 47
-        elseif f == FS_Button[14][1] then
+            set ClickRoom = 47
+        elseif f == FS_Button[14][1] and Myroom == 44 then
             call BJDebugMsg("14-2")
-            set Myroom = 48
-        elseif f == FS_Button[14][2] then
+            set ClickRoom = 48
+        elseif f == FS_Button[14][2] and Myroom == 45 then
             call BJDebugMsg("14-3")
-            set Myroom = 49
-        elseif f == FS_Button[14][3] then
+            set ClickRoom = 49
+        elseif f == FS_Button[14][3] and Myroom == 46 then
             call BJDebugMsg("14-4")
-            set Myroom = 50
+            set ClickRoom = 50
         endif
 
-        if f == FS_Button[15][0] then
+        if f == FS_Button[15][0] and ( Myroom == 47 or Myroom == 48 or Myroom == 49 or Myroom == 50 ) then
             call BJDebugMsg("15")
-            set Myroom = 51
+            set ClickRoom = 51
         endif
 
-        if f == FS_Button[16][0] then
+        if f == FS_Button[16][0] and Myroom == 51 then
             call BJDebugMsg("16")
-            set Myroom = 52
+            set ClickRoom = 52
         endif
         
     endfunction
@@ -1156,6 +1157,9 @@ library UISkillLevel initializer init requires DataUnit
         call DzFrameSetSize(FS_CancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(FS_CancelButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
         
+        set Myroom = 0
+        set ClickRoom = 0
+
         call DzFrameShow(FS_BackDrop, false)
     endfunction
     
