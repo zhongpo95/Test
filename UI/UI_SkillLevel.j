@@ -10,6 +10,7 @@ library UISkillLevel initializer init requires DataUnit
         integer FS_TemplateText                     //스킬창 스킬설명
         integer FS_CancelButton                     //스킬창 취소버튼
         integer array FS_Button[16][4]              //길버튼
+        integer array FS_ButtonSP[16][4]            //길버튼 스프라이트
         integer array FS_ButtonBackDrop[16][4]      //길버튼 백드롭
         integer array FS_LineBackDrop        //라인 백드롭
         integer array FS_ButtonTEXT                 //스킬버튼 텍스트
@@ -46,7 +47,539 @@ library UISkillLevel initializer init requires DataUnit
         //전역변수
         integer array HeroSkillLevel[13][8]
         integer array HeroSkillPoint[13]
+        string array MapIcon
+
+        // 1 = 시작위치, 2 = 일반전투, 3 = 사건, 4 = 사건 및 전투, 5 = 휴식, 6 = 상점, 7 = 엘리트, 8 = 중간보스, 9 = 보스
+        // 스프라이트 0 = 휴식, 1 = 전투, 2 = 사건, 3 = 상점, 4 = 엘리트, 5 = 중간보스, 6 = 보스
+        integer array MapLineSelet[16][4]
     endglobals
+
+    function SetMapLine takes integer pid returns nothing
+        local integer i = 0
+
+        set MapLineSelet[0][0] = 1
+
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[1][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[1][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[1][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[1][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[1][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[1][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[1][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[1][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[1][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[1][3], "MapLine2.mdx", 0, 0)
+        endif
+
+
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[2][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[2][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[2][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[2][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[2][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[2][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[2][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[2][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[2][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[2][3], "MapLine2.mdx", 0, 0)
+        endif
+
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[3][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[3][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[3][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[3][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[3][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[3][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[3][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[3][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[3][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[3][3], "MapLine2.mdx", 0, 0)
+        endif
+        
+        set i = GetRandomInt(0,2)
+        if i == 0 then
+            set MapLineSelet[4][0] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][0],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][0], "MapLine0.mdx", 0, 0)
+        elseif i == 1 then
+            set MapLineSelet[4][0] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][0],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][0], "MapLine3.mdx", 0, 0)
+        elseif i == 2 then
+            set MapLineSelet[4][0] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][0],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][0], "MapLine4.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,2)
+        if i == 0 then
+            set MapLineSelet[4][1] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][1],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][1], "MapLine0.mdx", 0, 0)
+        elseif i == 1 then
+            set MapLineSelet[4][1] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][1],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][1], "MapLine3.mdx", 0, 0)
+        elseif i == 2 then
+            set MapLineSelet[4][1] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][1],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][1], "MapLine4.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,2)
+        if i == 0 then
+            set MapLineSelet[4][2] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][2],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][2], "MapLine0.mdx", 0, 0)
+        elseif i == 1 then
+            set MapLineSelet[4][2] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][2],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][2], "MapLine3.mdx", 0, 0)
+        elseif i == 2 then
+            set MapLineSelet[4][2] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][2],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][2], "MapLine4.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,2)
+        if i == 0 then
+            set MapLineSelet[4][3] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][3],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][3], "MapLine0.mdx", 0, 0)
+        elseif i == 1 then
+            set MapLineSelet[4][3] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][3],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][3], "MapLine3.mdx", 0, 0)
+        elseif i == 2 then
+            set MapLineSelet[4][3] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[4][3],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[4][3], "MapLine4.mdx", 0, 0)
+        endif
+
+        set MapLineSelet[5][0] = 8
+        call DzFrameSetTexture(FS_ButtonBackDrop[5][0],MapIcon[12], 0)
+        call DzFrameSetModel(FS_ButtonSP[5][0], "MapLine5.mdx", 0, 0)
+
+        
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[6][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[6][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[6][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[6][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[6][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[6][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[6][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[6][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[6][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[6][3], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[7][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[7][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[7][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[7][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[7][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[7][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[7][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[7][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[7][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[7][3], "MapLine2.mdx", 0, 0)
+        endif
+
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[8][0] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][0],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][0], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[8][0] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][0],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][0], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[8][1] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][1],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][1], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[8][1] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][1],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][1], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[8][2] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][2],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][2], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[8][2] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][2],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][2], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[8][3] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][3],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][3], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[8][3] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[8][3],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[8][3], "MapLine5.mdx", 0, 0)
+        endif
+
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[9][0] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][0],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][0], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[9][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][0], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[9][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][0], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[9][1] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][1],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][1], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[9][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][1], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[9][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][1], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[9][2] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][2],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][2], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[9][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][2], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[9][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][2], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[9][3] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][3],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][3], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[9][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][3], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[9][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[9][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[9][3], "MapLine2.mdx", 0, 0)
+        endif
+
+        set MapLineSelet[10][0] = 8
+        call DzFrameSetTexture(FS_ButtonBackDrop[10][0],MapIcon[12], 0)
+        call DzFrameSetModel(FS_ButtonSP[10][0], "MapLine5.mdx", 0, 0)
+        
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[11][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[11][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[11][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[11][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[11][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[11][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[11][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[11][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[11][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[11][3], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[12][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][0], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[12][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][0], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[12][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][1], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[12][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][1], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[12][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][2], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[12][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][2], "MapLine2.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,3) <= 2 then
+            set MapLineSelet[12][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][3], "MapLine1.mdx", 0, 0)
+        else
+            set MapLineSelet[12][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[12][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[12][3], "MapLine2.mdx", 0, 0)
+        endif
+
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[13][0] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][0],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][0], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[13][0] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][0],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][0], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[13][1] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][1],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][1], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[13][1] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][1],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][1], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[13][2] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][2],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][2], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[13][2] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][2],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][2], "MapLine5.mdx", 0, 0)
+        endif
+        if GetRandomInt(0,1) == 0 then
+            set MapLineSelet[13][3] = 5
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][3],MapIcon[0], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][3], "MapLine0.mdx", 0, 0)
+        else
+            set MapLineSelet[13][3] = 6
+            call DzFrameSetTexture(FS_ButtonBackDrop[13][3],MapIcon[8], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][3], "MapLine5.mdx", 0, 0)
+        endif
+
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[14][0] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][0],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[13][3], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[14][0] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][0],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][0], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[14][0] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][0],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][0], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[14][1] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][1],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][1], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[14][1] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][1],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][1], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[14][1] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][1],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][1], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[14][2] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][2],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][2], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[14][2] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][2],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][2], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[14][2] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][2],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][2], "MapLine2.mdx", 0, 0)
+        endif
+        set i = GetRandomInt(0,10)
+        if i <= 8 then
+            set MapLineSelet[14][3] = 7
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][3],MapIcon[10], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][3], "MapLine4.mdx", 0, 0)
+        elseif i == 9 then
+            set MapLineSelet[14][3] = 2
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][3],MapIcon[2], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][3], "MapLine1.mdx", 0, 0)
+        elseif i == 10 then
+            set MapLineSelet[14][3] = 3
+            call DzFrameSetTexture(FS_ButtonBackDrop[14][3],MapIcon[4], 0)
+            call DzFrameSetModel(FS_ButtonSP[14][3], "MapLine2.mdx", 0, 0)
+        endif
+
+        set MapLineSelet[15][0] = 5
+        call DzFrameSetTexture(FS_ButtonBackDrop[15][0],MapIcon[0], 0)
+        call DzFrameSetModel(FS_ButtonSP[15][0], "MapLine0.mdx", 0, 0)
+
+        set MapLineSelet[16][0] = 9
+        call DzFrameSetTexture(FS_ButtonBackDrop[16][0],MapIcon[14], 0)
+        call DzFrameSetModel(FS_ButtonSP[16][0], "MapLine6.mdx", 0, 0)
+
+    endfunction
 
     private function ShowMenu takes nothing returns nothing
         //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
@@ -65,18 +598,233 @@ library UISkillLevel initializer init requires DataUnit
         local integer LineNumber = S2I(DzGetTriggerSyncData())
         
         call BJDebugMsg(I2S(LineNumber)+"번 입장")
+
         set p = null
     endfunction
 
     private function ClickPickLineButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer i = 0
         
         call DzFrameShow(FS_BackDrop, false)
         set FS_OnOff[pid] = false
         set Myroom = ClickRoom
         //call SelectUnitForPlayerSingle( MainUnit[GetPlayerId(DzGetTriggerUIEventPlayer())], DzGetTriggerUIEventPlayer() )
         call DzSyncData("PickLine", I2S(ClickRoom))
+
+        if ClickRoom == 1 then
+            call DzFrameShow(FS_ButtonSP[1][0], false)
+            call DzFrameShow(FS_ButtonSP[1][1], false)
+            call DzFrameShow(FS_ButtonSP[1][2], false)
+            call DzFrameShow(FS_ButtonSP[1][3], false)
+            call DzFrameShow(FS_ButtonSP[2][0], true)
+        elseif ClickRoom == 2 then
+            call DzFrameShow(FS_ButtonSP[1][0], false)
+            call DzFrameShow(FS_ButtonSP[1][1], false)
+            call DzFrameShow(FS_ButtonSP[1][2], false)
+            call DzFrameShow(FS_ButtonSP[1][3], false)
+            call DzFrameShow(FS_ButtonSP[2][1], true)
+        elseif ClickRoom == 3 then
+            call DzFrameShow(FS_ButtonSP[1][0], false)
+            call DzFrameShow(FS_ButtonSP[1][1], false)
+            call DzFrameShow(FS_ButtonSP[1][2], false)
+            call DzFrameShow(FS_ButtonSP[1][3], false)
+            call DzFrameShow(FS_ButtonSP[2][2], true)
+        elseif ClickRoom == 4 then
+            call DzFrameShow(FS_ButtonSP[1][0], false)
+            call DzFrameShow(FS_ButtonSP[1][1], false)
+            call DzFrameShow(FS_ButtonSP[1][2], false)
+            call DzFrameShow(FS_ButtonSP[1][3], false)
+            call DzFrameShow(FS_ButtonSP[2][3], true)
+        elseif ClickRoom == 5 then
+            call DzFrameShow(FS_ButtonSP[2][0], false)
+            call DzFrameShow(FS_ButtonSP[3][0], true)
+        elseif ClickRoom == 6 then
+            call DzFrameShow(FS_ButtonSP[2][1], false)
+            call DzFrameShow(FS_ButtonSP[3][1], true)
+        elseif ClickRoom == 7 then
+            call DzFrameShow(FS_ButtonSP[2][2], false)
+            call DzFrameShow(FS_ButtonSP[3][2], true)
+        elseif ClickRoom == 8 then
+            call DzFrameShow(FS_ButtonSP[2][3], false)
+            call DzFrameShow(FS_ButtonSP[3][3], true)
+        endif
+
+        if ClickRoom == 9 then
+            call DzFrameShow(FS_ButtonSP[3][0], false)
+            call DzFrameShow(FS_ButtonSP[4][0], true)
+        elseif ClickRoom == 10 then
+            call DzFrameShow(FS_ButtonSP[3][1], false)
+            call DzFrameShow(FS_ButtonSP[4][1], true)
+        elseif ClickRoom == 11 then
+            call DzFrameShow(FS_ButtonSP[3][2], false)
+            call DzFrameShow(FS_ButtonSP[4][2], true)
+        elseif ClickRoom == 12 then
+            call DzFrameShow(FS_ButtonSP[3][3], false)
+            call DzFrameShow(FS_ButtonSP[4][3], true)
+        elseif ClickRoom == 13 then
+            call DzFrameShow(FS_ButtonSP[4][0], false)
+            call DzFrameShow(FS_ButtonSP[5][0], true)
+        elseif ClickRoom == 14 then
+            call DzFrameShow(FS_ButtonSP[4][1], false)
+            call DzFrameShow(FS_ButtonSP[5][0], true)
+        elseif ClickRoom == 15 then
+            call DzFrameShow(FS_ButtonSP[4][2], false)
+            call DzFrameShow(FS_ButtonSP[5][0], true)
+        elseif ClickRoom == 16 then
+            call DzFrameShow(FS_ButtonSP[4][3], false)
+            call DzFrameShow(FS_ButtonSP[5][0], true)
+        endif
+
+
+        if ClickRoom == 17 then
+            call DzFrameShow(FS_ButtonSP[5][0], false)
+            call DzFrameShow(FS_ButtonSP[6][0], true)
+            call DzFrameShow(FS_ButtonSP[6][1], true)
+            call DzFrameShow(FS_ButtonSP[6][2], true)
+            call DzFrameShow(FS_ButtonSP[6][3], true)
+        elseif ClickRoom == 18 then
+            call DzFrameShow(FS_ButtonSP[6][0], false)
+            call DzFrameShow(FS_ButtonSP[6][1], false)
+            call DzFrameShow(FS_ButtonSP[6][2], false)
+            call DzFrameShow(FS_ButtonSP[6][3], false)
+            call DzFrameShow(FS_ButtonSP[7][0], true)
+        elseif ClickRoom == 19 then
+            call DzFrameShow(FS_ButtonSP[6][0], false)
+            call DzFrameShow(FS_ButtonSP[6][1], false)
+            call DzFrameShow(FS_ButtonSP[6][2], false)
+            call DzFrameShow(FS_ButtonSP[6][3], false)
+            call DzFrameShow(FS_ButtonSP[7][1], true)
+        elseif ClickRoom == 20 then
+            call DzFrameShow(FS_ButtonSP[6][0], false)
+            call DzFrameShow(FS_ButtonSP[6][1], false)
+            call DzFrameShow(FS_ButtonSP[6][2], false)
+            call DzFrameShow(FS_ButtonSP[6][3], false)
+            call DzFrameShow(FS_ButtonSP[7][2], true)
+        elseif ClickRoom == 21 then
+            call DzFrameShow(FS_ButtonSP[6][0], false)
+            call DzFrameShow(FS_ButtonSP[6][1], false)
+            call DzFrameShow(FS_ButtonSP[6][2], false)
+            call DzFrameShow(FS_ButtonSP[6][3], false)
+            call DzFrameShow(FS_ButtonSP[7][3], true)
+        elseif ClickRoom == 22 then
+            call DzFrameShow(FS_ButtonSP[7][0], false)
+            call DzFrameShow(FS_ButtonSP[8][0], true)
+        elseif ClickRoom == 23 then
+            call DzFrameShow(FS_ButtonSP[7][1], false)
+            call DzFrameShow(FS_ButtonSP[8][1], true)
+        elseif ClickRoom == 24 then
+            call DzFrameShow(FS_ButtonSP[7][2], false)
+            call DzFrameShow(FS_ButtonSP[8][2], true)
+        elseif ClickRoom == 25 then
+            call DzFrameShow(FS_ButtonSP[7][3], false)
+            call DzFrameShow(FS_ButtonSP[8][3], true)
+        endif
+
+        if ClickRoom == 26 then
+            call DzFrameShow(FS_ButtonSP[8][0], false)
+            call DzFrameShow(FS_ButtonSP[9][0], true)
+        elseif ClickRoom == 27 then
+            call DzFrameShow(FS_ButtonSP[8][1], false)
+            call DzFrameShow(FS_ButtonSP[9][1], true)
+        elseif ClickRoom == 28 then
+            call DzFrameShow(FS_ButtonSP[8][2], false)
+            call DzFrameShow(FS_ButtonSP[9][2], true)
+        elseif ClickRoom == 29 then
+            call DzFrameShow(FS_ButtonSP[8][3], false)
+            call DzFrameShow(FS_ButtonSP[9][3], true)
+        elseif ClickRoom == 30 then
+            call DzFrameShow(FS_ButtonSP[9][0], false)
+            call DzFrameShow(FS_ButtonSP[10][0], true)
+        elseif ClickRoom == 31 then
+            call DzFrameShow(FS_ButtonSP[9][1], false)
+            call DzFrameShow(FS_ButtonSP[10][0], true)
+        elseif ClickRoom == 32 then
+            call DzFrameShow(FS_ButtonSP[9][2], false)
+            call DzFrameShow(FS_ButtonSP[10][0], true)
+        elseif ClickRoom == 33 then
+            call DzFrameShow(FS_ButtonSP[9][3], false)
+            call DzFrameShow(FS_ButtonSP[10][0], true)
+        endif
+
+        if ClickRoom == 34 then
+            call DzFrameShow(FS_ButtonSP[10][0], false)
+            call DzFrameShow(FS_ButtonSP[11][0], true)
+            call DzFrameShow(FS_ButtonSP[11][1], true)
+            call DzFrameShow(FS_ButtonSP[11][2], true)
+            call DzFrameShow(FS_ButtonSP[11][3], true)
+        elseif ClickRoom == 35 then
+            call DzFrameShow(FS_ButtonSP[11][0], false)
+            call DzFrameShow(FS_ButtonSP[11][1], false)
+            call DzFrameShow(FS_ButtonSP[11][2], false)
+            call DzFrameShow(FS_ButtonSP[11][3], false)
+            call DzFrameShow(FS_ButtonSP[12][0], true)
+        elseif ClickRoom == 36 then
+            call DzFrameShow(FS_ButtonSP[11][0], false)
+            call DzFrameShow(FS_ButtonSP[11][1], false)
+            call DzFrameShow(FS_ButtonSP[11][2], false)
+            call DzFrameShow(FS_ButtonSP[11][3], false)
+            call DzFrameShow(FS_ButtonSP[12][1], true)
+        elseif ClickRoom == 37 then
+            call DzFrameShow(FS_ButtonSP[11][0], false)
+            call DzFrameShow(FS_ButtonSP[11][1], false)
+            call DzFrameShow(FS_ButtonSP[11][2], false)
+            call DzFrameShow(FS_ButtonSP[11][3], false)
+            call DzFrameShow(FS_ButtonSP[12][2], true)
+        elseif ClickRoom == 38 then
+            call DzFrameShow(FS_ButtonSP[11][0], false)
+            call DzFrameShow(FS_ButtonSP[11][1], false)
+            call DzFrameShow(FS_ButtonSP[11][2], false)
+            call DzFrameShow(FS_ButtonSP[11][3], false)
+            call DzFrameShow(FS_ButtonSP[12][3], true)
+        elseif ClickRoom == 39 then
+            call DzFrameShow(FS_ButtonSP[12][0], false)
+            call DzFrameShow(FS_ButtonSP[13][0], true)
+        elseif ClickRoom == 40 then
+            call DzFrameShow(FS_ButtonSP[12][1], false)
+            call DzFrameShow(FS_ButtonSP[13][1], true)
+        elseif ClickRoom == 41 then
+            call DzFrameShow(FS_ButtonSP[12][2], false)
+            call DzFrameShow(FS_ButtonSP[13][2], true)
+        elseif ClickRoom == 42 then
+            call DzFrameShow(FS_ButtonSP[12][3], false)
+            call DzFrameShow(FS_ButtonSP[13][3], true)
+        endif
+
+        if ClickRoom == 43 then
+            call DzFrameShow(FS_ButtonSP[13][0], false)
+            call DzFrameShow(FS_ButtonSP[14][0], true)
+        elseif ClickRoom == 44 then
+            call DzFrameShow(FS_ButtonSP[13][1], false)
+            call DzFrameShow(FS_ButtonSP[14][1], true)
+        elseif ClickRoom == 45 then
+            call DzFrameShow(FS_ButtonSP[13][2], false)
+            call DzFrameShow(FS_ButtonSP[14][2], true)
+        elseif ClickRoom == 46 then
+            call DzFrameShow(FS_ButtonSP[13][3], false)
+            call DzFrameShow(FS_ButtonSP[14][3], true)
+        elseif ClickRoom == 47 then
+            call DzFrameShow(FS_ButtonSP[14][0], false)
+            call DzFrameShow(FS_ButtonSP[15][0], true)
+        elseif ClickRoom == 48 then
+            call DzFrameShow(FS_ButtonSP[14][1], false)
+            call DzFrameShow(FS_ButtonSP[15][0], true)
+        elseif ClickRoom == 49 then
+            call DzFrameShow(FS_ButtonSP[14][2], false)
+            call DzFrameShow(FS_ButtonSP[15][0], true)
+        elseif ClickRoom == 50 then
+            call DzFrameShow(FS_ButtonSP[14][3], false)
+            call DzFrameShow(FS_ButtonSP[15][0], true)
+        endif
+
+        if ClickRoom == 51 then
+            call DzFrameShow(FS_ButtonSP[15][0], false)
+            call DzFrameShow(FS_ButtonSP[16][0], true)
+        elseif ClickRoom == 52 then
+            call DzFrameShow(FS_ButtonSP[16][0], false)
+        endif
+
     endfunction
 
     private function SelectLine takes nothing returns nothing
@@ -505,15 +1253,24 @@ library UISkillLevel initializer init requires DataUnit
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNGarithos.blp", 0)
 
+            set FS_ButtonSP[types][0]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][0], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][0], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][0], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][0] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][0], false)
         elseif types == 5 or types == 10 or types == 15 then
             set FS_Button[types][0]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 - 0.120)
             call DzFrameSetSize(FS_Button[types][0], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][0], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][0]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][0], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
-            call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            call DzFrameSetTexture(FS_ButtonBackDrop[types][0],MapIcon[0], 0)
+
+            set FS_ButtonSP[types][0]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][0], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][0], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][0], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][0] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][0], false)
         elseif types == 16 then
             set FS_Button[types][0]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][0], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.050 + (0.060*types), -0.080 - 0.120)
@@ -523,86 +1280,131 @@ library UISkillLevel initializer init requires DataUnit
             set FS_ButtonBackDrop[types][0]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][0], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][0], FS_Button[types][0])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][0],"ReplaceableTextures\\CommandButtons\\BTNGarithos.blp", 0)
+
+            set FS_ButtonSP[types][0]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][0], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][0], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][0], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][0] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][0], false)
         elseif types == 1 or types == 6 or types == 11 then
             set i = 0
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 )
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
             
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
+
             set i = 1
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[types][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
             
             set i = 2
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[types][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
             
             set i = 3
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[types][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
         else
             set i = 0
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[(x*5) + 1][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 )
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
             
             set i = 1
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[(x*5) + 1][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
             
             set i = 2
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[(x*5) + 1][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
             
             set i = 3
             set FS_Button[types][i]=DzCreateFrameByTagName("BUTTON", "", FS_Button[(x*5) + 1][0], "ScoreScreenTabButtonTemplate", 0)
             call DzFrameSetPoint(FS_Button[types][i], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.060 + (0.060*types), -0.080 + (-0.080*i))
             call DzFrameSetSize(FS_Button[types][i], 0.030, 0.030)
             call DzFrameSetScriptByCode(FS_Button[types][i], JN_FRAMEEVENT_MOUSE_UP, function SelectLine, false)
-            
+
             set FS_ButtonBackDrop[types][i]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types][i], "", 0)
             call DzFrameSetAllPoints(FS_ButtonBackDrop[types][i], FS_Button[types][i])
             call DzFrameSetTexture(FS_ButtonBackDrop[types][i],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
+            
+            set FS_ButtonSP[types][i]=DzCreateFrameByTagName("SPRITE", "", FS_ButtonBackDrop[types][i], "", 0)
+            call DzFrameSetModel(FS_ButtonSP[types][i], "MapLine0.mdx", 0, 0)
+            call DzFrameSetPoint(FS_ButtonSP[types][i], JN_FRAMEPOINT_BOTTOMLEFT, FS_ButtonBackDrop[types][i] , JN_FRAMEPOINT_CENTER, 0, 0)
+            call DzFrameShow(FS_ButtonSP[types][i], false)
         endif
         //call DzFrameShow(FS_Button[types][0], false)
     endfunction
@@ -1161,6 +1963,10 @@ library UISkillLevel initializer init requires DataUnit
         set ClickRoom = 0
 
         call DzFrameShow(FS_BackDrop, false)
+        call DzFrameShow(FS_ButtonSP[1][0], true)
+        call DzFrameShow(FS_ButtonSP[1][1], true)
+        call DzFrameShow(FS_ButtonSP[1][2], true)
+        call DzFrameShow(FS_ButtonSP[1][3], true)
     endfunction
     
     private function ESCAction takes nothing returns nothing
@@ -1301,7 +2107,33 @@ library UISkillLevel initializer init requires DataUnit
         call TriggerAddAction(t,function PickLineF)
         
         set t = null
-        set t = null
+
+        // 1 = 시작위치, 2 = 일반전투, 3 = 사건, 4 = 사건 및 전투, 5 = 휴식, 6 = 상점, 7 = 엘리트, 8 = 중간보스, 9 = 보스
+        // 스프라이트 0 = 휴식, 1 = 전투, 2 = 사건, 3 = 상점, 4 = 엘리트, 5 = 중간보스, 6 = 보스
+        //휴식
+        set MapIcon[0] = "MapLine0.blp"
+        set MapIcon[1] = "MapLine1.blp"
+        //전투
+        set MapIcon[2] = "ReplaceableTextures\\CommandButtons\\BTNHoldPosition.blp"
+        set MapIcon[3] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNHoldPosition.blp"
+        //사건
+        set MapIcon[4] = "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp"
+        set MapIcon[5] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNSelectHeroOn.blp"
+        //사건 및 전투
+        set MapIcon[6] = "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp"
+        set MapIcon[7] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNSelectHeroOn.blp"
+        //상점
+        set MapIcon[8] = "ReplaceableTextures\\CommandButtons\\BTNMerchant.blp"
+        set MapIcon[9] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNMerchant.blp"
+        //엘리트
+        set MapIcon[10] = "ReplaceableTextures\\CommandButtons\\BTNReincarnation.blp"
+        set MapIcon[11] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNReincarnation.blp"
+        //중간보스
+        set MapIcon[12] = "ReplaceableTextures\\CommandButtons\\BTNGarithos.blp"
+        set MapIcon[13] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNGarithos.blp"
+        //보스
+        set MapIcon[14] = "ReplaceableTextures\\CommandButtons\\BTNHeroBlademaster.blp"
+        set MapIcon[15] = "ReplaceableTextures\\CommandButtonsDisabled\\DISBTNHeroBlademaster.blp"
         
     endfunction
 endlibrary

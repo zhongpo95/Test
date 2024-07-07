@@ -607,6 +607,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         call PlayersHPBarShow(Player(pid),true)
         
         //call TodaySet(pid)
+        
+        call SetMapLine(pid)
 
         call Deilycheck(pid)
         
@@ -713,6 +715,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         call PlayersHPBarShow(Player(pid),true)
         
         //call TodaySet(pid)
+
+        call SetMapLine(pid)
 
         call Deilycheck(pid)
 
