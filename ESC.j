@@ -4,6 +4,10 @@ scope ESC initializer init
         //string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
         real AAA = 0
         string s = "1"
+        integer frame1 = 0
+        integer frame2 = 0
+        integer frame3 = 0
+        integer frame4 = 0
     endglobals
 
     private function ESCAction2 takes nothing returns nothing
@@ -49,13 +53,33 @@ scope ESC initializer init
         */
     endfunction
 
+    private function ESCAction5 takes nothing returns nothing
+        //set AAA = S2R(s)
+        //set AAA = AAA + AAA
+        //set s = R2SW(AAA,1,0)
+        //set s = SubString(s,0,StringLength(s)-2)
+        //call DzFrameSetText(F_EnchantUpText, s )
+        //call BJDebugMsg(s) 
+    endfunction
+
     private function ESCAction takes nothing returns nothing
-        set AAA = S2R(s)
-        set AAA = AAA + AAA
-        set s = R2SW(AAA,1,0)
-        set s = SubString(s,0,StringLength(s)-2)
-        call DzFrameSetText(F_EnchantUpText, s )
-        call BJDebugMsg(s) 
+        set AAA = AAA + 1
+        if AAA == 1 then
+            set frame1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame1,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+            set frame2=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame2,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+            set frame3=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+            set frame4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame4,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+        else
+            call DzFrameSetModel(frame1, "Cut1.mdx", 0, 0)
+            call DzFrameSetModel(frame2, "Cut2.mdx", 0, 0)
+            call DzFrameSetModel(frame3, "Cut3.mdx", 0, 0)
+            call DzFrameSetModel(frame4, "Cut4.mdx", 0, 0)
+            call Sound3D(MainUnit[0],'A02A')
+        endif
     endfunction
 
     private function init takes nothing returns nothing
