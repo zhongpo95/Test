@@ -68,7 +68,7 @@ private function Main takes nothing returns nothing
     local real random
          
     if GetSpellAbilityId() == 'A017' then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()

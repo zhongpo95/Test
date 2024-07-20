@@ -8,6 +8,9 @@ scope ESC initializer init
         integer frame2 = 0
         integer frame3 = 0
         integer frame4 = 0
+
+        integer frame5 = 0
+        integer frame6 = 0
     endglobals
 
     private function ESCAction2 takes nothing returns nothing
@@ -62,7 +65,18 @@ scope ESC initializer init
         //call BJDebugMsg(s) 
     endfunction
 
+    private function EffectFunction takes nothing returns nothing
+        //set AAA = S2R(s)
+        //set AAA = AAA + AAA
+        //set s = R2SW(AAA,1,0)
+        //set s = SubString(s,0,StringLength(s)-2)
+        //call DzFrameSetText(F_EnchantUpText, s )
+        //call BJDebugMsg(s) 
+        call Sound3D(MainUnit[0],'A02B')
+    endfunction
+
     private function ESCAction takes nothing returns nothing
+        local tick t 
         set AAA = AAA + 1
         if AAA == 1 then
             set frame1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
@@ -73,12 +87,21 @@ scope ESC initializer init
             call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
             set frame4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
             call DzFrameSetAbsolutePoint(frame4,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+
+            set frame5=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame5,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.3)
         else
-            call DzFrameSetModel(frame1, "Cut1.mdx", 0, 0)
-            call DzFrameSetModel(frame2, "Cut2.mdx", 0, 0)
-            call DzFrameSetModel(frame3, "Cut3.mdx", 0, 0)
+            set t = tick.create(0)
+            call DzFrameSetModel(frame1, "Chen_Cut1.mdx", 0, 0)
+            call DzFrameSetModel(frame2, "Mika_Cut2.mdx", 0, 0)
+            call DzFrameSetModel(frame3, "Chen_Cut3.mdx", 0, 0)
             call DzFrameSetModel(frame4, "Cut4.mdx", 0, 0)
+
+            call DzFrameSetModel(frame5, "Sacred Exile.mdx", 0, 0)
             call Sound3D(MainUnit[0],'A02A')
+            call Sound3D(MainUnit[0],'A022')
+            call Sound3D(MainUnit[0],'A02C')
+            call t.start( 0.1, false, function EffectFunction ) 
         endif
     endfunction
 
