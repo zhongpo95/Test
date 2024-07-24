@@ -72,6 +72,7 @@ scope ESC initializer init
         //set s = SubString(s,0,StringLength(s)-2)
         //call DzFrameSetText(F_EnchantUpText, s )
         //call BJDebugMsg(s) 
+        //레이지소리
         call Sound3D(MainUnit[0],'A02B')
     endfunction
 
@@ -101,7 +102,8 @@ scope ESC initializer init
             call Sound3D(MainUnit[0],'A02A')
             call Sound3D(MainUnit[0],'A022')
             call Sound3D(MainUnit[0],'A02C')
-            call t.start( 0.1, false, function EffectFunction ) 
+            call Sound3D(MainUnit[0],'A02D')
+            call t.start( 0.1, false, function EffectFunction )
         endif
     endfunction
 
