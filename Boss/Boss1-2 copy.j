@@ -43,13 +43,9 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 //무력화 성공
                 elseif fx.i >= 1 and UnitCasting[index] == false then
                     //체력감소
-                    //set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
-
+                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,6)
-
-                    call DelayKill(CreateUnit(Player(0),'e01W',0,0,0), 3.0)
-
                     call fx.Stop()
                 //무력화를 못함
                 elseif fx.i == Pattern2Time then

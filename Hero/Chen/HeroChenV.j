@@ -1,6 +1,6 @@
 //! runtextmacro 콘텐츠("HeroChenV")
 globals
-    private constant real CoolTime = 300.0
+    private constant real CoolTime = 30.0
 endglobals
 
     private function Main takes nothing returns nothing
