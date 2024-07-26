@@ -9,6 +9,10 @@ endglobals
             set caster = GetTriggerUnit()
             
             call CooldownFIX(caster,'A01F',CoolTime)
+            
+            call DzFrameShow(frame1, false)
+            call DzFrameShow(frame4, false)
+            call DzFrameShow(frame5, false)
             set caster = null
         endif
     endfunction

@@ -31,6 +31,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             local effect e
             local real r
             local integer index = IndexUnit(fx.caster)
+            local integer frame = 0
             set fx.i = fx.i + 1
             
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
@@ -49,6 +50,14 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart(fx.caster,6)
 
                     call DelayKill(CreateUnit(Player(0),'e01W',0,0,0), 3.0)
+                    
+                    //set frame=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+                    //call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
+                    //call DzFrameSetModel(frame, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+                    call Sound3D(MainUnit[0],'A02B')
+                    call DzFrameSetModel(frame4, "VFX_HolyLight.mdx", 0, 0)
+                    call DzFrameSetModel(frame5, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+                    call DzFrameShow(frame1, true)
 
                     call fx.Stop()
                 //무력화를 못함

@@ -76,7 +76,7 @@ scope ESC initializer init
         call Sound3D(MainUnit[0],'A02B')
     endfunction
 
-    private function ESCAction takes nothing returns nothing
+    private function ESCAction6 takes nothing returns nothing
         local tick t 
         set AAA = AAA + 1
         if AAA == 1 then
@@ -104,6 +104,29 @@ scope ESC initializer init
             call Sound3D(MainUnit[0],'A02C')
             call Sound3D(MainUnit[0],'A02D')
             call t.start( 0.1, false, function EffectFunction )
+        endif
+    endfunction
+
+    private function ESCAction takes nothing returns nothing
+        local tick t 
+        set AAA = AAA + 1
+        if AAA == 1 then
+            set frame4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame4,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
+            set frame5=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+            call DzFrameSetAbsolutePoint(frame5,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
+            
+            set frame1=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+            call DzFrameSetTexture(frame1, "V.blp", 0)
+            call DzFrameSetSize(frame1, 0.030, 0.030)
+            call DzFrameSetAbsolutePoint(frame1, JN_FRAMEPOINT_CENTER, 0.4, 0.15)
+            call DzFrameShow(frame1, false)
+
+        else
+            call Sound3D(MainUnit[0],'A02B')
+            call DzFrameSetModel(frame4, "VFX_HolyLight.mdx", 0, 0)
+            call DzFrameSetModel(frame5, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+            call DzFrameShow(frame1, true)
         endif
     endfunction
 
