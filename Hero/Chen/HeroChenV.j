@@ -10,9 +10,16 @@ endglobals
             
             call CooldownFIX(caster,'A01F',CoolTime)
             
-            call DzFrameShow(frame1, false)
             call DzFrameShow(frame4, false)
             call DzFrameShow(frame5, false)
+            call DzFrameShow(frame1, false)
+            call DzFrameShow(frame3, false)
+
+            //call DzFrameSetModel(frame4, "VFX_HolyLight.mdx", 0, 0)
+            //call DzFrameSetModel(frame5, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+            //call DzFrameShow(frame1, true)
+            //call DzFrameSetModel(frame3, "Empyrean Nova.mdx", 0, 0)
+            
             set caster = null
         endif
     endfunction
