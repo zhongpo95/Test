@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroMoD")
+scope HeroMoD
 globals
     private constant real DR = 15.54
     private constant real SD = 41
@@ -189,4 +189,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

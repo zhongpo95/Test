@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroMoQ")
+scope HeroMoQ
 
 globals
     private constant real DR = 2.68
@@ -174,4 +174,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

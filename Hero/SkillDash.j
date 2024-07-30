@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("SkillDash")
+scope SkillDash
 globals
     //대쉬 최대이동거리
     private constant real MaxRange = 500
@@ -283,4 +283,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

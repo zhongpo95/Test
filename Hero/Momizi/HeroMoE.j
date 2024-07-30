@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroMoE")
+scope HeroMoE
 
 globals
     private constant real MaxRange = 1000
@@ -163,5 +163,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-
-//! runtextmacro 콘텐츠_끝()
+endscope

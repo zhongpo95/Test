@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroMoW")
+scope HeroMoW
 
 globals
     private constant real DR = 3.34
@@ -175,4 +175,4 @@ endfunction
     set t = null
 //! runtextmacro 이벤트_끝()
 
-//! runtextmacro 콘텐츠_끝()
+endscope

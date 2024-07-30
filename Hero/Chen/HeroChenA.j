@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroChenA")
+scope HeroChenA
 globals
     private constant real CoolTime = 40.0 //빠준 8.0
     //범위
@@ -186,4 +186,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

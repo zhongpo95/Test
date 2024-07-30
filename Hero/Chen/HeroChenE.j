@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroChenE")
+scope HeroChenE
 globals
     private constant real DR = 5.13 //22.63
     private constant real SD = 109.00
@@ -156,4 +156,4 @@ endfunction
     set t = null
 //! runtextmacro 이벤트_끝()
 
-//! runtextmacro 콘텐츠_끝()
+endscope

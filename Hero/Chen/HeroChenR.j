@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroChenR")
+scope HeroChenR
 
 globals
     private constant real DR = 12.93
@@ -456,5 +456,5 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope
 

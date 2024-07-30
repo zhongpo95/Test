@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroJackW")
+scope HeroJackW
 
 globals
     //데미지계수
@@ -78,4 +78,4 @@ endfunction
 //! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     call AbilityEffectEvent.Create( 'A001', function F_A001 )
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

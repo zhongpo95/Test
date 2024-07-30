@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("HeroMoV")
+scope HeroMoV
 
 globals
     private constant real CoolTime = 300.0
@@ -56,4 +56,4 @@ endglobals
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

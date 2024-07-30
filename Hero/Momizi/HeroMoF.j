@@ -1,4 +1,5 @@
-//! runtextmacro 콘텐츠("HeroMoF")
+scope HeroMoF
+
 globals
     private constant real DR = 17.01 / 8
     private constant real SD = 74 / 8
@@ -243,4 +244,4 @@ endfunction
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope

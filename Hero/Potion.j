@@ -1,4 +1,4 @@
-//! runtextmacro 콘텐츠("Potion")
+scope Potion
     globals
         private constant real MaxRange = 600
 
@@ -302,4 +302,4 @@
 
     set t = null
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 콘텐츠_끝()
+endscope
