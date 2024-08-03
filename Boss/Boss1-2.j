@@ -49,8 +49,6 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,6)
 
-                    call DelayKill(CreateUnit(Player(0),'e01W',0,0,0), 3.0)
-
                     call fx.Stop()
                 //무력화를 못함
                 elseif fx.i == Pattern2Time then

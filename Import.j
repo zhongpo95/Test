@@ -49,6 +49,7 @@
 //! import "C:\Users\123\Desktop\JN\Test\Library\AOE.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\CustomEvent.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\Missile.j"
+//! import "C:\Users\123\Desktop\JN\Test\Library\UnitAlpha.j"
 
 
 //! import "C:\Users\123\Desktop\JN\Test\vJDK\vJDK Addon.j"

@@ -1,6 +1,6 @@
 scope HeroChenV
 globals
-    private constant real CoolTime = 30.0
+    private constant real CoolTime = 2.0
     
     private player filterP = null
 endglobals
@@ -14,6 +14,16 @@ endglobals
         endmethod
         //! runtextmacro 연출()
     endstruct
+
+    private struct EFst
+        unit caster
+        unit target
+        real time
+        real time2
+        integer id
+        real r
+    endstruct
+
 
     private function filterE takes nothing returns boolean
         //중립아님
@@ -41,16 +51,68 @@ endglobals
     
     endfunction
 
+    
+
+
+    private function Effunction4 takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EFst fx = t.data
+        
+        call SetUnitTimeScale(fx.caster, 100 * 0.01)
+        call KillUnit(fx.caster)
+        set fx.caster = null
+        set fx.target = null
+
+        call fx.destroy()
+        call t.destroy()
+    endfunction
+
+    private function Effunction3 takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EFst fx = t.data
+        
+        call SetUnitTimeScale(fx.caster, 0 * 0.01)
+
+        call t.start(fx.time, false, function Effunction4 )
+    endfunction
+
+    private function Effunction2 takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EFst fx = t.data
+        
+        set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), fx.id, GetUnitX(fx.target), GetUnitY(fx.target), fx.r)
+        call UnitAddAbility(fx.caster,'Arav')
+        call UnitRemoveAbility(fx.caster,'Arav')
+        call SetUnitFlyHeight(fx.caster, GetRandomReal(125,275), 0)
+
+        call t.start(0.2, false, function Effunction3 )
+    endfunction
+
+    private function StopEft takes unit target, integer id, real r, real time, real time2 returns nothing
+        local tick t = tick.create(0)
+        local EFst fx = EFst.create()
+        
+        set fx.id = id
+        set fx.target = target
+        set fx.r = r
+        set fx.time = time2
+        set t.data = fx
+
+        call t.start(time, false, function Effunction2 )
+    endfunction
+
     private function Main takes nothing returns nothing
         local tick t
         local FxEffect fx
         local party ul
         if GetSpellAbilityId() == 'A01F' then
-            set t = t.create(0)
+            set t = tick.create(0)
             set fx = FxEffect.Create()
             set fx.caster = GetTriggerUnit()
             set fx.target = null
             set t.data = fx
+
+            set PlayerVCount[GetPlayerId(GetOwningPlayer(fx.caster))] = 1
 
             //쿨타임조정
             call CooldownFIX(GetTriggerUnit(),'A01F',CoolTime)
@@ -68,15 +130,32 @@ endglobals
             set fx.target = FirstOfGroup(ul.super)
             call ul.destroy()
 
-            //이펙트생성
-            //이펙트생성
-            //이펙트생성
-            //이펙트생성
-            //이펙트생성
-            //이펙트생성
-            //이펙트생성
+            call Sound3D(fx.caster,'A02E')
 
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.75, 2.25)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.95, 2.05)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 1.15, 1.85)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 1.25, 1.75)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 1.48, 1.42)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 1.70, 1.30)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 2.00, 1.00)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 2.10, 0.90)
+            call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 2.40, 0.60)
+            call DelayCreate(fx.target, 'e01Z', GetRandomReal(0,360), 3.0 )
+            call DelayCreate(fx.target, 'e021', GetRandomReal(0,360), 3.0 )
+            call AnimationStart(fx.caster,11)
+            call SetUnitFacing(fx.caster,Angle.WBW(fx.caster,fx.target))
+            call EXSetUnitFacing(fx.caster,Angle.WBW(fx.caster,fx.target))
 
+            call DelayAlpha(fx.caster, 0.60)
+            call DelayRemoveAlpha2(fx.caster, 3.0 )
+
+            call DummyMagicleash(fx.caster, 3.0 )
+
+            call TriggerSleepActionByTimer(3.0)
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 30 )
+            
+            
             //t.start()
         endif
     endfunction

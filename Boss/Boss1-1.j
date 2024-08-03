@@ -1,4 +1,4 @@
-library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile
+library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV
     globals
         integer BossTip
         //8초
@@ -7,14 +7,17 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
 
         private constant real scale = 750
         private constant real distance = 500
+        private integer groupCountUnits = 0
     endglobals
     
     private struct FxEffect
         unit caster
         integer rectnumber
         integer i
+        MapStruct st
         private method OnStop takes nothing returns nothing
             set rectnumber = 0
+            set st = 0
             set caster = null
         endmethod
         //! runtextmacro 연출()
@@ -26,12 +29,52 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             call SetUnitZVelo( GetEnumUnit(), 7.5)
         endif
     endfunction
+
+    private function CutinFor takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local MapStruct st = t.data
+        
+        set groupCountUnits = groupCountUnits + 1
+
+        if PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] == 1 then
+            set st.i = st.i + 1
+        endif
+    endfunction
+
+    private function Cutin takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local MapStruct st = t.data
+
+        set st.i = 0
+        set groupCountUnits = 0
+        call ForGroup(st.ul.super,function CutinFor)
+        
+        if st.i == groupCountUnits then
+            //인원 전부 사용
+            call VAction()
+        endif
+        set st.i = 0
+        call t.destroy()
+    endfunction
+
+
+    private function CutinLimit takes nothing returns nothing
+        local tick t = tick.getExpired()
+
+        call DzFrameShow(Ogiframe_1, false)
+        call DzFrameShow(Ogiframe_2, false)
+        call DzFrameShow(Ogiframe_3, false)
+        call DzFrameShow(Ogiframe_4, false)
+
+        call t.destroy()
+    endfunction
     
     private struct FxEffect_Timer extends array
         private method OnAction takes FxEffect fx returns nothing
             local effect e
             local real r
             local integer i
+            local tick t
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
@@ -46,15 +89,27 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                     //call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
                     //set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 60000000
                     
+                    call DelayKill(CreateUnit(Player(0),'e01W',0,0,0), 3.0)
+
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,6)
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
 
                     call Sound3D(MainUnit[0],'A02B')
-                    call DzFrameSetModel(frame4, "VFX_HolyLight.mdx", 0, 0)
-                    call DzFrameSetModel(frame5, "VFX_ERE_LightningField3Y.mdx", 0, 0)
-                    call DzFrameShow(frame1, true)
-                    call DzFrameSetModel(frame3, "Empyrean Nova.mdx", 0, 0)
+                    call DzFrameSetModel(Ogiframe_1, "VFX_HolyLight.mdx", 0, 0)
+                    call DzFrameShow(Ogiframe_1, true)
+                    call DzFrameSetModel(Ogiframe_2, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+                    call DzFrameShow(Ogiframe_2, true)
+                    call DzFrameShow(Ogiframe_3, true)
+                    call DzFrameSetModel(Ogiframe_4, "Empyrean Nova.mdx", 0, 0)
+                    call DzFrameShow(Ogiframe_4, true)
+
+                    set t = tick.create(0)
+                    call t.start(3, false, function CutinLimit)
+                    
+                    set t = tick.create(0)
+                    set t.data = fx.st
+                    call t.start(15, false, function Cutin)
 
                     call fx.Stop()
                 //카운터를 못침
@@ -127,6 +182,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                 set fx = FxEffect.Create()
                 set fx.caster = st.caster
                 set fx.i = 0
+                set fx.st = st
                 call AnimationStart(fx.caster, 5)
                 call fx.Start()
                 set st.pattern1 = Pattern1Cool

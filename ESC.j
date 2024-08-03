@@ -4,24 +4,6 @@ scope ESC initializer init
         //string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
         real AAA = 0
         string s = "1"
-        integer frame1 = 0
-        integer frame2 = 0
-        integer frame3 = 0
-        integer frame4 = 0
-
-        integer frame5 = 0
-        integer frame6 = 0
-        integer frame7 = 0
-        integer frame8 = 0
-        integer frame9 = 0
-        integer frame10 = 0
-        integer frame11 = 0
-        integer frame12 = 0
-        integer frame13 = 0
-        integer frame14 = 0
-        integer frame15 = 0
-        integer frame16 = 0
-        integer frame17 = 0
     endglobals
 
     private function ESCAction2 takes nothing returns nothing
@@ -85,6 +67,25 @@ scope ESC initializer init
         //call BJDebugMsg(s) 
         //레이지소리
         call Sound3D(MainUnit[0],'A02B')
+    endfunction
+
+    private function ESCAction123123 takes nothing returns nothing
+        if AAA == 0 then
+            set AAA = 1
+            set frame1=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "", 0)
+            call DzFrameSetTexture(frame1,"Narmaya_blue.blp",0)
+            call DzFrameSetAbsolutePoint(frame1,JN_FRAMEPOINT_CENTER,0.4,0.03)
+            call DzFrameSetSize(frame1,0.04,0.04)
+            call DzFrameShow(frame1, false)
+        elseif AAA == 1 then
+            set AAA = 2
+            call DzFrameSetTexture(frame1,"Narmaya_blue.blp",0)
+            call DzFrameShow(frame1, true)
+        elseif AAA == 2 then
+            set AAA = 1
+            call DzFrameSetTexture(frame1,"Narmaya_pink.blp",0)
+            call DzFrameShow(frame1, true)
+        endif
     endfunction
 
     private function ESCAction takes nothing returns nothing
@@ -151,10 +152,15 @@ scope ESC initializer init
             call DzFrameSetModel(frame15, "Light_Hit-2-Red.mdx", 0, 0)
             call DzFrameSetModel(frame16, "Light_Hit-2-Red.mdx", 0, 0)
 
+            //개인사운드로
+            //첸
             call Sound3D(MainUnit[0],'A02A')
-            call Sound3D(MainUnit[0],'A022')
-            call Sound3D(MainUnit[0],'A02C')
-            call Sound3D(MainUnit[0],'A02D')
+            //모미지
+            //call Sound3D(MainUnit[0],'A022')
+            //미카
+            //call Sound3D(MainUnit[0],'A02C')
+            //나루메아
+            //call Sound3D(MainUnit[0],'A02D')
 
             call t.start( 0.1, false, function EffectFunction )
         endif
@@ -178,7 +184,6 @@ scope ESC initializer init
 
             set frame3=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
             call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
-
         else
             //call Sound3D(MainUnit[0],'A02B')
             //call DzFrameSetModel(frame4, "VFX_HolyLight.mdx", 0, 0)
@@ -191,7 +196,6 @@ scope ESC initializer init
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         //esc버튼
-        set t = CreateTrigger()
         call TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_END_CINEMATIC)
         call TriggerAddAction( t, function ESCAction )
         set t = null

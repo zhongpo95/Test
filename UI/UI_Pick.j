@@ -593,7 +593,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         if GetLocalPlayer() == Player(pid) then
             call DzSyncData("리셋",I2S(pid))
             call DzFrameShow(HPBarBorder,false)
-            call DzFrameShow(MPBarBorder,false)
+            //call DzFrameShow(MPBarBorder,false)
             call DzFrameShow(HPTextFrame,false)
             call DzFrameShow(F_InfoOpenButton, true)
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), true)
@@ -701,7 +701,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[5], GetItemArt(Eitem[pid][5]), 0)
             call DzSyncData("리셋",I2S(pid))
             call DzFrameShow(HPBarBorder,false)
-            call DzFrameShow(MPBarBorder,false)
+            //call DzFrameShow(MPBarBorder,false)
             call DzFrameShow(HPTextFrame,false)
             call DzFrameShow(F_InfoOpenButton, true)
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), true)

@@ -56,6 +56,8 @@ globals
     integer array HeroSkillID9
     integer array HeroSkillID10
     integer array HeroSkillID11
+    //유저 V 카운트
+    integer array PlayerVCount
     
     //기초체력
     real array UnitSetHP
@@ -117,6 +119,12 @@ function DataUnitIndex takes unit u returns integer
 endfunction
     
 //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
+    //플레이어 오의 카운트
+    set PlayerVCount[0] = 0
+    set PlayerVCount[1] = 0
+    set PlayerVCount[2] = 0
+    set PlayerVCount[3] = 0
+    
     //포션
     set potion[1] = 'A01R'
     set potion[2] = 'A01S'

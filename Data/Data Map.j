@@ -11,6 +11,7 @@ struct MapStruct
     party ul
     integer rectnumber = 0
     integer pattern1 = 0
+    integer i = 0
     private method OnStop takes nothing returns nothing
     endmethod
     //! runtextmacro 연출()
