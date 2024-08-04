@@ -709,7 +709,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             call DzFrameShow(FS_OpenButton, true)
         endif
         
-        //call SkillSetting(MainUnit[pid])
+        call SkillSetting(MainUnit[pid])
         
         set PickCheck[pid] = true
         call PlayersHPBarShow(Player(pid),true)

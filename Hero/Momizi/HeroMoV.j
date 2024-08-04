@@ -1,19 +1,30 @@
 scope HeroMoV
 
 globals
-    private constant real CoolTime = 300.0
+    private constant real CoolTime = 3.0
 endglobals
 
     private function Main takes nothing returns nothing
-        local unit caster
         if GetSpellAbilityId() == 'A016' then
-            set caster = GetTriggerUnit()
-            
-            call CooldownFIX(caster,'A016',CoolTime)
-            set caster = null
+
+            set PlayerVCount[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
+
+            //쿨타임조정
+            call CooldownFIX(GetTriggerUnit(),'A016',CoolTime)
+
+            if GetLocalPlayer() == GetOwningPlayer(GetTriggerUnit()) then
+                //V UI 제거
+                call DzFrameShow(Ogiframe_1, false)
+                call DzFrameShow(Ogiframe_2, false)
+                call DzFrameShow(Ogiframe_3, false)
+                call DzFrameShow(Ogiframe_4, false)
+            endif
+            //t.start()
         endif
     endfunction
-    
+
+
+
     private function VSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())

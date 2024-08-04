@@ -9,6 +9,10 @@ globals
     boolean array UnitHeroCheck
     //대쉬모션번호
     integer array UnitDashCode
+    //컷인스트링
+    string array UnitCutString
+    //컷인사운드
+    sound array UnitCutSound
     //스킬blp
     string array HeroSkillBlp0
     string array HeroSkillBlp1
@@ -154,6 +158,8 @@ endfunction
     
     //모미지
     set UnitAbilityIndex[3] = 'H003'
+    set UnitCutString[3] = "Momizi_Cut"
+    set UnitCutSound[3]= gg_snd_Momi8
     set UnitHeroCheck[3] = true
     set UnitDashCode[3] = 3
     set HeroSkillBlp0[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
@@ -200,6 +206,8 @@ endfunction
     
     //챈
     set UnitAbilityIndex[4] = 'H004'
+    set UnitCutString[4] = "Chen_Cut"
+    set UnitCutSound[4]= gg_snd_ChenCut
     set UnitHeroCheck[4] = true
     set UnitDashCode[4] = 9
     set HeroSkillBlp0[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"

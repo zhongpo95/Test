@@ -62,6 +62,10 @@ scope Load initializer onInit
                 set pid:PLAYER_DATA = CreateStash()
                 set pid = 1
                 set pid:PLAYER_DATA = CreateStash()
+                set pid = 2
+                set pid:PLAYER_DATA = CreateStash()
+                set pid = 3
+                set pid:PLAYER_DATA = CreateStash()
             endif
         else
             //call BJDebugMsg( "로드 중 : " + I2S(JNStashNetGetProgress()) + "/" + I2S(JNStashNetGetMaximum()) )

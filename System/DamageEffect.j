@@ -4,6 +4,51 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         constant real BackBounsDamage = 1.05
         constant real BackBounsCri = 10.00
     endglobals
+
+
+    //컷인딜 대상, 체력계수 ex)13% 0.13
+    function CutInDeal takes unit target, real rate returns nothing
+        local integer index = DataUnitIndex(target)
+        local integer UnitIndex = GetUnitIndex(target)
+        local integer HPvalue = UnitHPValue[index]
+        local string HPString = UnitHPString[index]
+        local texttag ttag
+        local real dmg
+        local string s
+        local integer sl
+        
+        set dmg = UnitHPMAX[UnitIndex] * rate
+
+        set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
+        set ttag=CreateTextTag()
+        set s = I2S(R2I(dmg)) + HPString
+        set sl = JNStringLength(s)
+        if sl == 10 then
+            set s = JNStringSub(s,0,1) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)+ "," + JNStringSub(s,8,3)
+        elseif sl == 9 then
+            set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)+ "," + JNStringSub(s,6,3)
+        elseif sl == 8 then
+            set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)
+        elseif sl == 7 then
+            set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)+ "," + JNStringSub(s,4,3)
+        elseif sl == 6 then
+            set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)
+        elseif sl == 5 then
+            set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)
+        elseif sl == 4 then
+            set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)
+        endif
+        call SetTextTagText(ttag, s + " !", 0.030)
+        call SetTextTagPosUnit(ttag, target, 5.00)
+        call SetTextTagColor(ttag, 255, 255, 0, 229)
+        call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
+        call SetTextTagFadepoint(ttag, 0.8)
+        call SetTextTagLifespan(ttag, 1.0)
+        call SetTextTagPermanent(ttag, false)
+        call SetTextTagVisibility(ttag, true)
+        set ttag=null
+
+    endfunction
     
     //때린유닛,맞은유닛,계수,헤드판정,백판정,무력화,카운터
     function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, real SD, boolean counter returns nothing

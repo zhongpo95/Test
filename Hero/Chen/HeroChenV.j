@@ -1,6 +1,6 @@
 scope HeroChenV
 globals
-    private constant real CoolTime = 2.0
+    private constant real CoolTime = 3.0
     
     private player filterP = null
 endglobals
@@ -81,7 +81,6 @@ endglobals
         local EFst fx = t.data
         
         set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), fx.id, GetUnitX(fx.target), GetUnitY(fx.target), fx.r)
-        call BJDebugMsg(GetUnitName(fx.caster))
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
         call SetUnitFlyHeight(fx.caster, GetRandomReal(125,275), 0)
@@ -117,11 +116,14 @@ endglobals
 
             //쿨타임조정
             call CooldownFIX(GetTriggerUnit(),'A01F',CoolTime)
-            //V UI 제거
-            call DzFrameShow(Ogiframe_1, false)
-            call DzFrameShow(Ogiframe_2, false)
-            call DzFrameShow(Ogiframe_3, false)
-            call DzFrameShow(Ogiframe_4, false)
+
+            if GetLocalPlayer() == GetOwningPlayer(GetTriggerUnit()) then
+                //V UI 제거
+                call DzFrameShow(Ogiframe_1, false)
+                call DzFrameShow(Ogiframe_2, false)
+                call DzFrameShow(Ogiframe_3, false)
+                call DzFrameShow(Ogiframe_4, false)
+            endif
 
             //4500범위 대상 찾기
             set ul = party.create()
@@ -132,8 +134,6 @@ endglobals
             call ul.destroy()
 
             call Sound3D(fx.caster,'A02E')
-            
-            call CreateUnit(Player(0), 'e01Y', GetUnitX(fx.target), GetUnitY(fx.target), 0)
 
             call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.75, 2.25)
             call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.95, 2.05)

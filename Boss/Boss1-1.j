@@ -38,8 +38,25 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
 
         if PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] == 1 then
             set st.i = st.i + 1
-            //set PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] = 0
+            if st.i == 1 then
+                set st.cut1 = DataUnitIndex(GetEnumUnit())
+            elseif st.i == 2 then
+                set st.cut2 = DataUnitIndex(GetEnumUnit())
+            elseif st.i == 3 then
+                set st.cut3 = DataUnitIndex(GetEnumUnit())
+            elseif st.i == 4 then
+                set st.cut4 = DataUnitIndex(GetEnumUnit())
+            endif
         endif
+    endfunction
+
+    private function CutinBoom takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local MapStruct st = t.data
+        //딜 참가한인원 x3% 체퍼딜
+        call CutInDeal(st.caster, st.i * 0.03)
+        //행동불가 해제
+        call UnitRemoveAbility(st.caster, 'A02F')
     endfunction
 
     private function Cutin takes nothing returns nothing
@@ -50,13 +67,44 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         set groupCountUnits = 0
         call ForGroup(st.ul.super,function CutinFor)
         
-        if st.i == groupCountUnits then
-            //인원 전부 사용
-            call VAction()
-            //call ForGroup(st.ul.super,function VAction)
+        if st.i == groupCountUnits and st.i != 1 then
+
+            if st.i == 4 then
+                call ForGroup(st.ul.super,function VAction4)
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call t.start(2.5,false,function CutinBoom)
+            elseif st.i == 3 then
+                call ForGroup(st.ul.super,function VAction3)
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call t.start(2.5,false,function CutinBoom)
+            elseif st.i == 2 then
+                call ForGroup(st.ul.super,function VAction2)
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call t.start(2.5,false,function CutinBoom)
+            endif
+
+            //쓴사람 사운드 출력
+            call ForGroup(st.ul.super,function VActionSound)
+        elseif st.i != 0 then
+            call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
+            call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
+            call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+            call t.start(2.5,false,function CutinBoom)
+        else
+            set st.cut1 = 0
+            set st.cut2 = 0
+            set st.cut3 = 0
+            set st.cut4 = 0
+
+            set st.i = 0
+            call t.destroy()
         endif
-        set st.i = 0
-        call t.destroy()
     endfunction
     
     private struct FxEffect_Timer extends array
@@ -86,9 +134,12 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                     call AnimationStart(fx.caster,6)
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
                     
+                    //보스행동불가
+                    call UnitAddAbility(fx.caster, 'A02F')
+
                     set t = tick.create(0)
                     set t.data = fx.st
-                    call t.start(15, false, function Cutin)
+                    call t.start(5, false, function Cutin)
 
                     call fx.Stop()
                 //카운터를 못침
@@ -154,17 +205,21 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local MapStruct st = t.data
         local FxEffect fx
         local AggroSystem s
-        
+
         if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
-            set st.pattern1 = st.pattern1 - 1
-            if st.pattern1 <= 0 then
-                set fx = FxEffect.Create()
-                set fx.caster = st.caster
-                set fx.i = 0
-                set fx.st = st
-                call AnimationStart(fx.caster, 5)
-                call fx.Start()
-                set st.pattern1 = Pattern1Cool
+            //행동불가
+            if GetUnitAbilityLevel(st.caster,'A02F') >= 1 then
+            else
+                set st.pattern1 = st.pattern1 - 1
+                if st.pattern1 <= 0 then
+                    set fx = FxEffect.Create()
+                    set fx.caster = st.caster
+                    set fx.i = 0
+                    set fx.st = st
+                    call AnimationStart(fx.caster, 5)
+                    call fx.Start()
+                    set st.pattern1 = Pattern1Cool
+                endif
             endif
         //주금
         else
