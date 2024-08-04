@@ -36,14 +36,15 @@ library UISkillLevel initializer init requires DataUnit
         local player p = GetOwningPlayer(u)
         
         if p == GetLocalPlayer() then
-            call DzFrameSetText(FS_ButtonTEXT[0], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID0[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[1], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID1[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[2], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID2[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[3], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID3[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[4], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID4[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[5], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID5[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[6], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID6[index])+"].Name") )
-            call DzFrameSetText(FS_ButtonTEXT[7], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID7[index])+"].Name") )
+            
+            call DzFrameSetText(FS_ButtonTEXT[0], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[1], EXGetAbilityString(HeroSkillID1[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[2], EXGetAbilityString(HeroSkillID2[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[3], EXGetAbilityString(HeroSkillID3[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[4], EXGetAbilityString(HeroSkillID4[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[5], EXGetAbilityString(HeroSkillID5[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[6], EXGetAbilityString(HeroSkillID6[index],1,ABILITY_DATA_TIP) )
+            call DzFrameSetText(FS_ButtonTEXT[7], EXGetAbilityString(HeroSkillID7[index],1,ABILITY_DATA_TIP) )
             
             call DzFrameSetTexture(FS_ButtonBackDrop[0], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID0[index])+"].Art"), 0)
             call DzFrameSetTexture(FS_ButtonBackDrop[1], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID1[index])+"].Art"), 0)
@@ -78,7 +79,7 @@ library UISkillLevel initializer init requires DataUnit
             call DzFrameSetText(FP_SLTEXT1[7], HeroSkill7Text1[index] )
             call DzFrameSetText(FP_SLTEXT2[7], HeroSkill7Text2[index] )
             call DzFrameSetText(FP_SLTEXT3[7], HeroSkill7Text3[index] )
-            
+
             if index == 0 then
             endif
         endif
