@@ -3,7 +3,8 @@ globals
     private constant real DR = 5.13 //22.63
     private constant real SD = 109.00
     
-    private constant real CoolTime = 16.0 //빠준5.6
+    //private constant real CoolTime = 16.0 //빠준5.6
+    private constant real CoolTime = 10.0
     
     //쉐클시간
     private constant real Time = 0.60

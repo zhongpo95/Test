@@ -604,6 +604,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         endif
         
         call SkillSetting(MainUnit[pid])
+
+        set HeroSkillPoint[0] = 999
+        call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
         
         set PickCheck[pid] = true
         call PlayersHPBarShow(Player(pid),true)
@@ -714,6 +717,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         endif
         
         call SkillSetting(MainUnit[pid])
+
+        set HeroSkillPoint[0] = 999
+        call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
         
         set PickCheck[pid] = true
         call PlayersHPBarShow(Player(pid),true)

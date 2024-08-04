@@ -4,7 +4,8 @@ globals
     private constant real DR = 3.39
     private constant real SD = 21
     
-    private constant real CoolTime = 24.0
+    //private constant real CoolTime = 24.0
+    private constant real CoolTime = 10.0
     //쉐클시간
     private constant real Time = 0.8
     //쉴드량

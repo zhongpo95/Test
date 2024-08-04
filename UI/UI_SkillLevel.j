@@ -78,6 +78,7 @@ library UISkillLevel initializer init requires DataUnit
             call DzFrameSetText(FP_SLTEXT1[7], HeroSkill7Text1[index] )
             call DzFrameSetText(FP_SLTEXT2[7], HeroSkill7Text2[index] )
             call DzFrameSetText(FP_SLTEXT3[7], HeroSkill7Text3[index] )
+            
             if index == 0 then
             endif
         endif

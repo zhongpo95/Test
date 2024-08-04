@@ -1,6 +1,7 @@
 scope HeroChenA
 globals
-    private constant real CoolTime = 40.0 //빠준 8.0
+    //private constant real CoolTime = 40.0 //빠준 8.0
+    private constant real CoolTime = 10.0 //빠준 8.0
     //범위
     private constant real Dist = 1500
     //쉴드량

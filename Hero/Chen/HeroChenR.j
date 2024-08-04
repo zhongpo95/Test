@@ -5,7 +5,8 @@ globals
     
     private constant real SD = 70
     
-    private constant real CoolTime = 30.00
+    //private constant real CoolTime = 30.00
+    private constant real CoolTime = 10.0
     
     //쉐클시간
     private constant real Time = 0.20
