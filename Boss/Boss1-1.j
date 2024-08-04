@@ -38,6 +38,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
 
         if PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] == 1 then
             set st.i = st.i + 1
+            //set PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] = 0
         endif
     endfunction
 
@@ -52,20 +53,9 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         if st.i == groupCountUnits then
             //인원 전부 사용
             call VAction()
+            //call ForGroup(st.ul.super,function VAction)
         endif
         set st.i = 0
-        call t.destroy()
-    endfunction
-
-
-    private function CutinLimit takes nothing returns nothing
-        local tick t = tick.getExpired()
-
-        call DzFrameShow(Ogiframe_1, false)
-        call DzFrameShow(Ogiframe_2, false)
-        call DzFrameShow(Ogiframe_3, false)
-        call DzFrameShow(Ogiframe_4, false)
-
         call t.destroy()
     endfunction
     
@@ -75,6 +65,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             local real r
             local integer i
             local tick t
+            local MapStruct st
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
@@ -89,23 +80,11 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                     //call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
                     //set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 60000000
                     
-                    call DelayKill(CreateUnit(Player(0),'e01W',0,0,0), 3.0)
+                    call CutinLimit(fx.st.ul.super)
 
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,6)
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-
-                    call Sound3D(MainUnit[0],'A02B')
-                    call DzFrameSetModel(Ogiframe_1, "VFX_HolyLight.mdx", 0, 0)
-                    call DzFrameShow(Ogiframe_1, true)
-                    call DzFrameSetModel(Ogiframe_2, "VFX_ERE_LightningField3Y.mdx", 0, 0)
-                    call DzFrameShow(Ogiframe_2, true)
-                    call DzFrameShow(Ogiframe_3, true)
-                    call DzFrameSetModel(Ogiframe_4, "Empyrean Nova.mdx", 0, 0)
-                    call DzFrameShow(Ogiframe_4, true)
-
-                    set t = tick.create(0)
-                    call t.start(3, false, function CutinLimit)
                     
                     set t = tick.create(0)
                     set t.data = fx.st

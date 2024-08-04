@@ -81,6 +81,7 @@ endglobals
         local EFst fx = t.data
         
         set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), fx.id, GetUnitX(fx.target), GetUnitY(fx.target), fx.r)
+        call BJDebugMsg(GetUnitName(fx.caster))
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
         call SetUnitFlyHeight(fx.caster, GetRandomReal(125,275), 0)
@@ -131,6 +132,8 @@ endglobals
             call ul.destroy()
 
             call Sound3D(fx.caster,'A02E')
+            
+            call CreateUnit(Player(0), 'e01Y', GetUnitX(fx.target), GetUnitY(fx.target), 0)
 
             call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.75, 2.25)
             call StopEft(fx.target, 'e01Y', GetRandomReal(0,360), 0.95, 2.05)

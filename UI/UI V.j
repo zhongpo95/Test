@@ -8,7 +8,6 @@ library UIV initializer init
         integer frame2 = 0
         integer frame3 = 0
         integer frame4 = 0
-
         integer frame5 = 0
         integer frame6 = 0
         integer frame7 = 0
@@ -23,6 +22,40 @@ library UIV initializer init
         integer frame16 = 0
     endglobals
 
+    
+    private function CutinLimit2 takes nothing returns nothing
+        local tick t = tick.getExpired()
+
+        call DzFrameShow(Ogiframe_1, false)
+        call DzFrameShow(Ogiframe_2, false)
+        call DzFrameShow(Ogiframe_3, false)
+        call DzFrameShow(Ogiframe_4, false)
+
+        call t.destroy()
+    endfunction
+
+    private function limit3 takes nothing returns nothing
+        call DelayKill(CreateUnit(GetOwningPlayer(GetEnumUnit()),'e01W',0,0,0), 3.0)
+
+        call Sound3D(GetEnumUnit(),'A02B')
+        
+        if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
+            call DzFrameSetModel(Ogiframe_1, "VFX_HolyLight.mdx", 0, 0)
+            call DzFrameShow(Ogiframe_1, true)
+            call DzFrameSetModel(Ogiframe_2, "VFX_ERE_LightningField3Y.mdx", 0, 0)
+            call DzFrameShow(Ogiframe_2, true)
+            call DzFrameShow(Ogiframe_3, true)
+            call DzFrameSetModel(Ogiframe_4, "Empyrean Nova.mdx", 0, 0)
+            call DzFrameShow(Ogiframe_4, true)
+        endif
+    endfunction
+
+    function CutinLimit takes group g returns nothing
+        local tick t = tick.create(0)
+        
+        call ForGroup(g, function limit3)
+        call t.start( 3, false, function CutinLimit2 )
+    endfunction
 
     private function EffectFunction takes nothing returns nothing
         //레이지소리
@@ -32,10 +65,12 @@ library UIV initializer init
     function VAction takes nothing returns nothing
         local tick t = tick.create(0)
 
-        call DzFrameSetModel(frame1, "Chen_Cut1.mdx", 0, 0)
-        call DzFrameSetModel(frame2, "Mika_Cut2.mdx", 0, 0)
-        call DzFrameSetModel(frame3, "Chen_Cut3.mdx", 0, 0)
-        call DzFrameSetModel(frame4, "Cut4.mdx", 0, 0)
+        if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
+        endif
+            call DzFrameSetModel(frame1, "Chen_Cut1.mdx", 0, 0)
+            call DzFrameSetModel(frame2, "Mika_Cut2.mdx", 0, 0)
+            call DzFrameSetModel(frame3, "Chen_Cut3.mdx", 0, 0)
+            call DzFrameSetModel(frame4, "Cut4.mdx", 0, 0)
 
         //call DzFrameSetModel(frame5, "Sacred Exile.mdx", 0, 0)
 
