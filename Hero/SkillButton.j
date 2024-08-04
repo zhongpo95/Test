@@ -163,6 +163,78 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
+
+        
+        if DataUnitIndex(MainUnit[i]) == 14 then
+            if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
+                if key == JN_OSKEY_Q then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID0[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarQ"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_W then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID1[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarW"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_E then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID2[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarE"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_R then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID3[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarR"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_A then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID4[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarA"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_S then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID5[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarS"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_D then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID6[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarD"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_F then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID7[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarF"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_V then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID8[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarV"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_C then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarC"),data)
+                    endif
+                endif
+                if key == JN_OSKEY_Z then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                        set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                        call DzSyncData(("NarZ"),data)
+                    endif
+                endif
+            endif
+        endif
     endfunction
     
     private function SkillButtonKey2 takes nothing returns nothing
@@ -209,7 +281,9 @@ library SkillButton requires DataUnit
                     call DzSyncData(("MoV2"),data)
                 endif
             endif
-        elseif DataUnitIndex(MainUnit[i]) == 4 then
+        endif
+        
+        if DataUnitIndex(MainUnit[i]) == 4 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
                     set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
@@ -249,6 +323,47 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
+        
+        if DataUnitIndex(MainUnit[i]) == 14 then
+            if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
+                if key == JN_OSKEY_Q then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarQ2"),data)
+                endif
+                if key == JN_OSKEY_W then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarW2"),data)
+                endif
+                if key == JN_OSKEY_E then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarE2"),data)
+                endif
+                if key == JN_OSKEY_R then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarR2"),data)
+                endif
+                if key == JN_OSKEY_A then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarA2"),data)
+                endif
+                if key == JN_OSKEY_S then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarS2"),data)
+                endif
+                if key == JN_OSKEY_D then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarD2"),data)
+                endif
+                if key == JN_OSKEY_F then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarF2"),data)
+                endif
+                if key == JN_OSKEY_V then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("NarV2"),data)
+                endif
+            endif
+        endif
     endfunction
     
 //! runtextmacro 이벤트_맵이_로딩되면_발동()
@@ -274,6 +389,8 @@ library SkillButton requires DataUnit
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_V, 1, false, function SkillButtonKey)
     set t = CreateTrigger()
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_C, 1, false, function SkillButtonKey)
+    set t = CreateTrigger()
+    call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_Z, 1, false, function SkillButtonKey)
     
     //소모품
     set t = CreateTrigger()
@@ -304,6 +421,10 @@ library SkillButton requires DataUnit
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_F, 0, false, function SkillButtonKey2)
     set t = CreateTrigger()
     call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_V, 0, false, function SkillButtonKey2)
+    set t = CreateTrigger()
+    call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_C, 1, false, function SkillButtonKey2)
+    set t = CreateTrigger()
+    call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_Z, 1, false, function SkillButtonKey2)
 
     set t = null
 //! runtextmacro 이벤트_끝()

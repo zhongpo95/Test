@@ -118,6 +118,8 @@ function DataUnitIndex takes unit u returns integer
         return 12
     elseif i == 'h00F' then
         return 13
+    elseif i == 'H00I' then
+        return 14
     endif
     return 0
 endfunction
@@ -317,6 +319,58 @@ endfunction
     set UnitSetArm[13] = 10000
     set UnitSetHPx[13] = 1
     set UnitTier[13] = 5
+
+    //나루메아
+    set UnitAbilityIndex[14] = 'H004'
+    //추가해야됨
+    set UnitCutString[14] = "Mika_Cut"
+    set UnitCutSound[14]= gg_snd_Narmaya_Cut1
+    set UnitHeroCheck[14] = true
+    set UnitDashCode[14] = 9
+    set HeroSkillBlp0[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
+    set HeroSkillBlp1[14] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
+    set HeroSkillBlp2[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
+    set HeroSkillBlp3[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
+    set HeroSkillBlp4[14] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
+    set HeroSkillBlp5[14] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
+    set HeroSkillBlp6[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
+    set HeroSkillBlp7[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
+    set HeroSkillID0[14] = 'A02I'
+    set HeroSkillID1[14] = 'A02J'
+    set HeroSkillID2[14] = 'A02K'
+    set HeroSkillID3[14] = 'A02L'
+    set HeroSkillID4[14] = 'A02M'
+    set HeroSkillID5[14] = 'A02N'
+    set HeroSkillID6[14] = 'A02O'
+    set HeroSkillID7[14] = 'A02P'
+    set HeroSkillID8[14] = 'A02Q'
+    set HeroSkillID9[14] = 'A02R'
+    set HeroSkillID10[14] = 'A02S'
+
+    set HeroSkill0Text1[14] = "공격속도가 27.0% 증가한다."
+    set HeroSkill0Text2[14] = "적에게 주는 피해가 70.0% 증가한다."
+    set HeroSkill0Text3[14] = "차지 조작으로 변경된다.　　　　　　2단계 차지 시 총 52.5%의 증가된 피해를 주며, 풀 차지 시 총 150.0%의 증가된 피해를 주지만, 1단계 차지 시 피해가 20.0% 감소된다."
+    set HeroSkill1Text1[14] = "스킬 사용시 50.0% 확률로 재사용 대기시간이 4.9초 감소된다."
+    set HeroSkill1Text2[14] = "적에게 주는 피해가 50.0% 증가된다." 
+    set HeroSkill1Text3[14] = "적에게 주는 피해가 100.0% 증가된다."
+    set HeroSkill2Text1[14] = "재사용 대기시간이 5.6초 감소한다."
+    set HeroSkill2Text2[14] = "적에게 주는 피해가 70.0% 증가한다."
+    set HeroSkill2Text3[14] = "적에게 주는 피해가 159.5% 증가한다."
+    set HeroSkill3Text1[14] = "적에게 주는 피해가 50.0% 증가한다."
+    set HeroSkill3Text2[14] = "차지 단계가 올라갈수록 공격력이 30.0% 상승한다."
+    set HeroSkill3Text3[14] = "풀 차지 시 적에게 주는 피해가 122% 증가한다."
+    set HeroSkill4Text1[14] = "재사용 대기시간이 8.0초 감소한다."
+    set HeroSkill4Text2[14] = "보호막 지속 시간이 6.0초 증가한다."
+    set HeroSkill4Text3[14] = "보호막 수치가 자신의 최대 생명력의 40%로 변경된다."
+    set HeroSkill5Text1[14] = ""
+    set HeroSkill5Text2[14] = ""
+    set HeroSkill5Text3[14] = ""
+    set HeroSkill6Text1[14] = "공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시키고, 공격 적중 시 자신의 공격력이 10.0초간 35% 증가한다."
+    set HeroSkill6Text2[14] = "3.0초간 자신의 최대 생명력의 30.0% 만큼 보호막을 생성한다."
+    set HeroSkill6Text3[14] = "12.0초간 약점을 노출시켜 헤드 어택 및 백 어택의 경우, 받는 피해 효과 12.0% 증가한다."
+    set HeroSkill7Text1[14] = "적에게 주는 피해가 100.0% 증가한다."
+    set HeroSkill7Text2[14] = "풀 차지 시 마지막 공격의 피해가 100% 증가한다."
+    set HeroSkill7Text3[14] = "풀 차지 시 마지막 공격의 피해가 89.1% 증가한다."
 
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 시스템_끝()

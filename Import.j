@@ -95,6 +95,18 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoF.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoV.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarQ.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarW.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarE.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarR.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarA.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarS.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarD.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarF.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarV.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarC.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarZ.j"
+
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-1.j"
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-2.j"
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-4.j"
