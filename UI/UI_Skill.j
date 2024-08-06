@@ -1,6 +1,8 @@
 library UISkill initializer init
     globals
         integer array skillbuttonframe
+        integer NarAden
+        integer NarAden2
     endglobals
     
     private function Action takes nothing returns nothing
@@ -98,6 +100,19 @@ library UISkill initializer init
         //call DzFrameSetSize(skillbuttonframe[8],0.007,0.00)
         //call DzFrameSetPoint(skillbuttonframe[8],JN_FRAMEPOINT_BOTTOM,frame2,JN_FRAMEPOINT_BOTTOM,-0.007,0.007)
         //call DzFrameSetText(skillbuttonframe[8],"Z")
+        set NarAden = DzCreateFrameByTagName("BACKDROP", "", frame, "", 0)
+        call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAden,JN_FRAMEPOINT_CENTER,0.4,0.035)
+        call DzFrameSetSize(NarAden,0.04,0.04)
+        call DzFrameShow(NarAden, false)
+        set skillbuttonframe[8]=JNCreateFrameByType("TEXT","",frame,"",0)
+        call DzFrameSetSize(skillbuttonframe[8],0.007,0.00)
+        call DzFrameSetAbsolutePoint(skillbuttonframe[8],JN_FRAMEPOINT_CENTER,0.4,0.015)
+        call DzFrameSetText(skillbuttonframe[8],"Z")
+        call DzFrameShow(skillbuttonframe[8],false)
+        set NarAden2=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAden2, JN_FRAMEPOINT_BOTTOMLEFT, NarAden , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAden2, false)
 
         set frame2=JNCreateFrameByType("BACKDROP","Command10",frame,"",0)
         call DzFrameSetTexture(frame2,"Transparent.blp",0)

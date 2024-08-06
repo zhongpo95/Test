@@ -452,6 +452,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set HeroTypeId = 'H003'
         elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00I'
+            call DzFrameShow(NarAden, true)
+            call DzFrameShow(skillbuttonframe[8],true)
+            call DzFrameShow(NarAden2, true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -641,6 +644,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set HeroTypeId = 'H003'
         elseif SlotHero == 3 then
             set HeroTypeId = 'H00I'
+            call DzFrameShow(NarAden, true)
+            call DzFrameShow(skillbuttonframe[8],true)
+            call DzFrameShow(NarAden2, true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)

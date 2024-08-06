@@ -2,6 +2,9 @@ scope HeroNarZ
 
 globals
     private constant real CoolTime = 1.0
+
+    integer array NarForm
+    integer array NarStack
 endglobals
 
 private struct FxEffect
@@ -23,9 +26,51 @@ private struct FxEffect
 endstruct
 
     private function Main takes nothing returns nothing
+        local unit caster
+        local integer i
+        
         if GetSpellAbilityId() == 'A02S' then
+            set caster = GetTriggerUnit()
             //쿨타임조정
-            call CooldownFIX(GetTriggerUnit(),'A02S',CoolTime)
+            call CooldownFIX(caster,'A02S',CoolTime)
+            set i = IndexUnit(caster)
+
+            if NarForm[i] != 0 then
+                //카구라
+                set NarForm[i] = 0
+                call AddUnitAnimationProperties(caster, "Gold", true)
+                call AddUnitAnimationProperties(caster, "Alternate", true)
+                //사운드
+                if GetRandomInt(0,1) == 1 then
+                    call Sound3D(caster,'A02T')
+                else
+                    call Sound3D(caster,'A02U')
+                endif
+                //표기변경
+                if GetLocalPlayer() == GetOwningPlayer(caster) then
+                    call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
+                    //call DzFrameSetModel(NarAden2, "Narmaya_blue.mdx", 0, 0)
+                    call BJDebugMsg("카구라")
+                endif
+            else
+                //겐지
+                set NarForm[i] = 1
+                call AddUnitAnimationProperties(caster, "Gold", false)
+                call AddUnitAnimationProperties(caster, "Alternate", false)
+                //사운드
+                if GetRandomInt(0,1) == 1 then
+                    call Sound3D(caster,'A02V')
+                else
+                    call Sound3D(caster,'A02W')
+                endif
+                //표기변경
+                if GetLocalPlayer() == GetOwningPlayer(caster) then
+                    call DzFrameSetTexture(NarAden,"Narmaya_pink.blp",0)
+                    //call DzFrameSetModel(NarAden2, "Narmaya_pink.mdx", 0, 0)
+                    call BJDebugMsg("겐지")
+                endif
+            endif
+            set caster = null
         endif
     endfunction
 

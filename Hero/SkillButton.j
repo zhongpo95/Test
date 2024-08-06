@@ -228,7 +228,7 @@ library SkillButton requires DataUnit
                     endif
                 endif
                 if key == JN_OSKEY_Z then
-                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
+                    if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID10[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
                         call DzSyncData(("NarZ"),data)
                     endif
