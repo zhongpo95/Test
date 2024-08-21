@@ -1,6 +1,11 @@
 scope HeroNarW
 globals
-    private constant real CoolTime = 5.00
+    private constant real CoolTime = 1.00
+
+    integer array NarForm
+    integer array NarStack
+    unit array NarFormG
+    unit array NarFormC
 endglobals
 
 private struct FxEffect
@@ -18,12 +23,63 @@ private struct FxEffect
         set i = 0
         set speed = 0
     endmethod
-    //! runtextmacro 연출()
+//! runtextmacro 연출()
 endstruct
 
 private function Main takes nothing returns nothing
+    local unit caster
+    local integer i
+    
     if GetSpellAbilityId() == 'A02J' then
-        call CooldownFIX(GetTriggerUnit(),'A02J',CoolTime)
+        set caster = GetTriggerUnit()
+        //쿨타임조정
+        call CooldownFIX(caster,'A02J',CoolTime)
+        set i = IndexUnit(caster)
+
+        if NarForm[i] != 0 then
+            //카구라
+            set NarForm[i] = 0
+            call AddUnitAnimationProperties(caster, "Gold", true)
+            call AddUnitAnimationProperties(caster, "Alternate", true)
+            //사운드
+            if GetRandomInt(0,1) == 1 then
+                call Sound3D(caster,'A02T')
+            else
+                call Sound3D(caster,'A02U')
+            endif
+            //표기변경
+            if GetLocalPlayer() == GetOwningPlayer(caster) then
+                call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
+                //call DzFrameSetModel(NarAden2, "Narmaya_blue.mdx", 0, 0)
+                call BJDebugMsg("카구라")
+            endif
+            if not IsUnitDeadVJ(NarFormG[i]) then
+                call KillUnit(NarFormG[i])
+            endif
+            set NarFormC[i] = CreateUnit(GetOwningPlayer(caster),'e028',0,0,0)
+        else
+            //겐지
+            set NarForm[i] = 1
+            call AddUnitAnimationProperties(caster, "Gold", false)
+            call AddUnitAnimationProperties(caster, "Alternate", false)
+            //사운드
+            if GetRandomInt(0,1) == 1 then
+                call Sound3D(caster,'A02V')
+            else
+                call Sound3D(caster,'A02W')
+            endif
+            //표기변경
+            if GetLocalPlayer() == GetOwningPlayer(caster) then
+                call DzFrameSetTexture(NarAden,"Narmaya_pink.blp",0)
+                //call DzFrameSetModel(NarAden2, "Narmaya_pink.mdx", 0, 0)
+                call BJDebugMsg("겐지")
+            endif
+            if not IsUnitDeadVJ(NarFormC[i]) then
+                call KillUnit(NarFormC[i])
+            endif
+            set NarFormG[i] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
+        endif
+        set caster = null
     endif
 endfunction
     

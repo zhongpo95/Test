@@ -458,6 +458,16 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
+
+        
+        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "1" then
+
+        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "2" then
+
+        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
+            set NarFormG[IndexUnit(MainUnit[pid])] = CreateUnit(Player(pid),'e027',0,0,0)
+        endif
+
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
@@ -654,6 +664,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
         
+        if SlotHero == 1 then
+        elseif SlotHero == 2 then
+        elseif SlotHero == 3 then
+            set NarFormC[IndexUnit(MainUnit[pid])] = CreateUnit(Player(pid),'e028',0,0,0)
+        endif
+
         if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
             set PlayerItem1[pid] = CreateItem('I009',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
