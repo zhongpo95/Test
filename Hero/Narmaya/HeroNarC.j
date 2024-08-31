@@ -1,34 +1,129 @@
 scope HeroNarC
-
 globals
-    private constant real CoolTime = 5.0
+    private constant real DR = 1.00
+    private constant real SD = 0.00
+    
+    private constant real CoolTime = 0.8
+    
+    //쉐클시간
+    private constant real Time = 0.40
+    //스킬이펙트 시간
+    private constant real Time2 = 0.40
+    //전진시간
+    private constant real Time3 = 0.40
+    //전진거리
+    private constant real MoveD = 450
+
+    private constant real scale = 500
+    private constant real distance = 150
+
+    
 endglobals
 
     private struct FxEffect
         unit caster
         real TargetX
         real TargetY
+        real speed
+        integer index
         integer pid
         integer i
-        real speed
         private method OnStop takes nothing returns nothing
             set caster = null
             set TargetX = 0
             set TargetY = 0
-            set pid = 0
-            set i = 0
             set speed = 0
+            set index = 0
+            set i = 0
+            set pid = 0
         endmethod
         //! runtextmacro 연출()
     endstruct
 
-    private function Main takes nothing returns nothing
-        if GetSpellAbilityId() == 'A02R' then
-            //쿨타임조정
-            call CooldownFIX(GetTriggerUnit(),'A02R',CoolTime)
+    private function splashD takes nothing returns nothing
+        local real Velue = 1.0
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
         endif
     endfunction
 
+    //카구라
+    private function EffectFunction2 takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local FxEffect fx = t.data
+        
+        //파란이펙트
+
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+        endif
+        
+        call fx.Stop()
+        call t.destroy()
+    endfunction
+
+    //겐지
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local FxEffect fx = t.data
+        
+        set fx.i = fx.i + 1
+        //MoveD 전진거리
+        if fx.i >= 20/fx.speed then
+            //빨간이펙트
+            if NarStack[fx.pid] < 3 then
+                set NarStack[fx.pid] = NarStack[fx.pid] + 1
+            endif
+
+            if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+            endif
+            
+            call fx.Stop()
+            call t.destroy()
+        else
+            call SetUnitSafePolarUTA(fx.caster,MoveD/(20/fx.speed),GetUnitFacing(fx.caster))
+            call t.start( 0.02, false, function EffectFunction ) 
+        endif
+    endfunction
+    
+    private function Main takes nothing returns nothing
+        local integer pid
+        local tick t
+        local FxEffect fx
+        local real random
+             
+        if GetSpellAbilityId() == 'A02R' then
+            set t = tick.create(0) 
+            set fx = FxEffect.Create()
+            set fx.caster = GetTriggerUnit()
+            set fx.TargetX = GetSpellTargetX()
+            set fx.TargetY = GetSpellTargetY()
+            set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+            set fx.speed = ((100+SkillSpeed(pid))/100)
+            set fx.index = IndexUnit(MainUnit[pid])
+            set fx.i = 0 
+            
+            call CooldownFIX(fx.caster,'A02R', CoolTime)
+
+            //카구라
+            if NarForm[fx.index] == 0 then
+                call DummyMagicleash(fx.caster,Time /fx.speed)
+                call AnimationStart3(fx.caster,20, (100+fx.speed)/100)
+                set t.data = fx
+                call t.start( Time2 /fx.speed, false, function EffectFunction2 ) 
+            //겐지
+            elseif NarForm[fx.index] == 1 then
+                call DummyMagicleash(fx.caster,Time /fx.speed)
+                call AnimationStart3(fx.caster,20, (100+fx.speed)/100)
+                set t.data = fx
+                call t.start( 0.02, false, function EffectFunction ) 
+            endif
+
+        endif
+    endfunction
 
     private function CSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
@@ -57,7 +152,6 @@ endglobals
         
         set p=null
     endfunction
-
             
 //! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     local trigger t

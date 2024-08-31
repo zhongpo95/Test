@@ -30,15 +30,15 @@ private function Main takes nothing returns nothing
     local unit caster
     local integer i
     
+
     if GetSpellAbilityId() == 'A02J' then
         set caster = GetTriggerUnit()
-        //쿨타임조정
-        call CooldownFIX(caster,'A02J',CoolTime)
         set i = IndexUnit(caster)
-
+        
         if NarForm[i] != 0 then
             //카구라
             set NarForm[i] = 0
+            set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 0
             call AddUnitAnimationProperties(caster, "Gold", true)
             call AddUnitAnimationProperties(caster, "Alternate", true)
             //사운드
@@ -51,7 +51,6 @@ private function Main takes nothing returns nothing
             if GetLocalPlayer() == GetOwningPlayer(caster) then
                 call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
                 //call DzFrameSetModel(NarAden2, "Narmaya_blue.mdx", 0, 0)
-                call BJDebugMsg("카구라")
             endif
             if not IsUnitDeadVJ(NarFormG[i]) then
                 call KillUnit(NarFormG[i])
@@ -72,13 +71,15 @@ private function Main takes nothing returns nothing
             if GetLocalPlayer() == GetOwningPlayer(caster) then
                 call DzFrameSetTexture(NarAden,"Narmaya_pink.blp",0)
                 //call DzFrameSetModel(NarAden2, "Narmaya_pink.mdx", 0, 0)
-                call BJDebugMsg("겐지")
             endif
             if not IsUnitDeadVJ(NarFormC[i]) then
                 call KillUnit(NarFormC[i])
             endif
             set NarFormG[i] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
         endif
+
+        //쿨타임조정
+        call CooldownFIX(caster,'A02J',CoolTime)
         set caster = null
     endif
 endfunction
@@ -92,7 +93,7 @@ private function WSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID1[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))

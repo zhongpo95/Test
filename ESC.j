@@ -87,8 +87,12 @@ scope ESC initializer init
             call DzFrameShow(frame1, true)
         endif
     endfunction
-
+    
     private function ESCAction takes nothing returns nothing
+        call BJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+    endfunction
+
+    private function ESCAction4123 takes nothing returns nothing
         local tick t 
         set AAA = AAA + 1
         if AAA == 1 then

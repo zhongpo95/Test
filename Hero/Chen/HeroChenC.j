@@ -61,15 +61,15 @@ private function Main takes nothing returns nothing
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-        set speed = SkillSpeed(pid)
+        set speed = ((100+SkillSpeed(pid))/100)
         
         call CooldownFIX(fx.caster,'A028', CoolTime)
 
-        call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
+        call DummyMagicleash(fx.caster,Time /speed)
         call AnimationStart3(fx.caster,2, (100+speed)/100)
         
         set t.data = fx
-        call t.start( Time2 * (1 - (speed/(100+speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 /speed, false, function EffectFunction ) 
     endif
 endfunction
     

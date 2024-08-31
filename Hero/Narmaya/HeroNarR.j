@@ -23,6 +23,8 @@ endstruct
 
 private function Main takes nothing returns nothing
     if GetSpellAbilityId() == 'A02L' then
+        call DummyMagicleash(GetTriggerUnit(), 1)
+        call BJDebugMsg("R발동")
         call CooldownFIX(GetTriggerUnit(),'A02L',CoolTime)
     endif
 endfunction
@@ -36,9 +38,11 @@ private function RSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
+    local integer index = IndexUnit(MainUnit[pid])
     
+    call BJDebugMsg("R입력")
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID1[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+        if NarForm[index] == 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
             set data=SubString(data,valueLen+1,dataLen)

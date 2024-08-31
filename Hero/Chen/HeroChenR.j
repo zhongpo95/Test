@@ -117,22 +117,22 @@ private function EffectFunction2 takes nothing returns nothing
         
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
-            call AnimationStart3(fx.caster,17, (100+fx.speed)/100)
+            call AnimationStart3(fx.caster,17, fx.speed)
             call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
             call Sound3D(fx.caster,'A01H')
         endif
         if Stack[fx.pid] == 11 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
-                call DummyMagicleash(fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ), 0 )
-                call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
+                call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
+                call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
+                call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
                 call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-                call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
+                call DummyMagicleash(fx.caster, Time2 /fx.speed)
+                call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
                 call fx.Stop()
@@ -141,15 +141,15 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 12 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
-                call DummyMagicleash(fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ), 0 )
-                call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
+                call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
+                call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
+                call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
                 call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-                call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
+                call DummyMagicleash(fx.caster, Time2 /fx.speed)
+                call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
                 call fx.Stop()
@@ -158,15 +158,15 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 13 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
-                call DummyMagicleash(fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ), 0 )
-                call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
+                call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
+                call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
+                call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
                 call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-                call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
+                call DummyMagicleash(fx.caster, Time2 /fx.speed)
+                call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
                 call fx.Stop()
@@ -175,15 +175,15 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 14 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
-                call DummyMagicleash(fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ), 0 )
-                call t.start( (Time / 10) * (1 - (fx.speed/(100+fx.speed)) ) , false, function EffectFunction2 )
+                call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
+                call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
+                call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
                 call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-                call DummyMagicleash(fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ))
-                call BuffNoST.Apply( fx.caster, Time2 * (1 - (fx.speed/(100+fx.speed)) ), 0 )
+                call DummyMagicleash(fx.caster, Time2 /fx.speed)
+                call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
                 call fx.Stop()
@@ -214,9 +214,9 @@ private function EffectFunction takes nothing returns nothing
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i)
                 endif
-                call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25)
-                call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, 0 )
-                call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, false, function EffectFunction )
+                call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25)
+                call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25, 0 )
+                call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
             elseif fx.i == 25 then
                 set Stack[fx.pid] = 2
                 set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
@@ -228,17 +228,17 @@ private function EffectFunction takes nothing returns nothing
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i)
                 endif
-                call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2)
-                call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2, 0 )
-                call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2, false, function EffectFunction )
+                call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25 * 2)
+                call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25 * 2, 0 )
+                call t.start( (EffectTime /fx.speed )/25 * 2, false, function EffectFunction )
                 set fx.i = fx.i + 1
             elseif fx.i < 50 then
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i - 25)
                 endif
-                call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25)
-                call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, 0 )
-                call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, false, function EffectFunction )
+                call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25)
+                call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25, 0 )
+                call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
             elseif fx.i == 50 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 3
@@ -250,17 +250,17 @@ private function EffectFunction takes nothing returns nothing
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i - 25)
                 endif
-                call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2)
-                call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2, 0 )
-                call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25 * 2, false, function EffectFunction )
+                call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25 * 2)
+                call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25 * 2, 0 )
+                call t.start( (EffectTime /fx.speed )/25 * 2, false, function EffectFunction )
                 set fx.i = fx.i + 1
             elseif fx.i < 75 then
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i - 50)
                 endif
-                call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25)
-                call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, 0 )
-                call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, false, function EffectFunction )
+                call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25)
+                call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25, 0 )
+                call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
             elseif fx.i == 75 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 4
@@ -309,10 +309,10 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
-        set fx.speed = SkillSpeed(fx.pid)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         
         call CooldownFIX(fx.caster,'A01C',CoolTime)
-        call AnimationStart3(fx.caster,3, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster,3, fx.speed)
         
         set t.data = fx
         set Stack[fx.pid] = 1
@@ -322,9 +322,9 @@ private function Main takes nothing returns nothing
             call DzFrameSetValue(CastingBar,0)
             call CastingBarShow(Player(fx.pid),true)
         endif
-        call DummyMagicleash(fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25)
-        call BuffNoST.Apply( fx.caster, (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, 0 )
-        call t.start( (EffectTime * (1 - (fx.speed/(100+fx.speed)) ))/25, false, function EffectFunction )
+        call DummyMagicleash(fx.caster, (EffectTime /fx.speed )/25)
+        call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed )/25, 0 )
+        call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
     endif
 endfunction
     
@@ -371,7 +371,7 @@ private function RSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/40)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 11
         call t.start( 0.02, false, function EffectFunction2 )
@@ -381,7 +381,7 @@ private function RSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/40)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 12
         call t.start( 0.02, false, function EffectFunction2 )
@@ -391,7 +391,7 @@ private function RSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/40)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 13
         call t.start( 0.02, false, function EffectFunction2 )
@@ -401,7 +401,7 @@ private function RSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.speed = (Equip_Swiftness[fx.pid]/40)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 14
         call t.start( 0.02, false, function EffectFunction2 )

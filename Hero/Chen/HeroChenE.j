@@ -73,7 +73,7 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
-            call t.start( Time3 * (1 - (fx.speed/(100+fx.speed)) )/10, false, function EffectFunction )
+            call t.start( Time3 /fx.speed/10, false, function EffectFunction )
         else
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
@@ -98,7 +98,7 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.i = 0
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-        set fx.speed = SkillSpeed(pid)
+        set fx.speed = ((100+SkillSpeed(pid))/100)
         
         call Sound3D(fx.caster,'A01P')
         if HeroSkillLevel[pid][2] >= 1 then
@@ -106,11 +106,11 @@ private function Main takes nothing returns nothing
         else
             call CooldownFIX(fx.caster,'A019',CoolTime)
         endif
-        call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
-        call AnimationStart3(fx.caster,17, (100+fx.speed)/100)
+        call DummyMagicleash(fx.caster, Time /fx.speed)
+        call AnimationStart3(fx.caster,17, fx.speed)
         
         set t.data = fx
-        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 /fx.speed, false, function EffectFunction ) 
     endif
 endfunction
 

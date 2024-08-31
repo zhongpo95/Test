@@ -125,21 +125,23 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                 //카운터침
                 elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
                     //체력감소
-                    //call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
-                    //set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 60000000
-                    
-                    call CutinLimit(fx.st.ul.super)
+                    call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
+                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 30000000
+    
 
                     call Sound3D(fx.caster,'A00U')
                     call AnimationStart(fx.caster,6)
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    
-                    //보스행동불가
-                    call UnitAddAbility(fx.caster, 'A02F')
 
-                    set t = tick.create(0)
-                    set t.data = fx.st
-                    call t.start(5, false, function Cutin)
+                    //call CutinLimit(fx.st.ul.super)
+
+                    //보스행동불가
+                    //call UnitAddAbility(fx.caster, 'A02F')
+
+                    //컷인
+                    //set t = tick.create(0)
+                    //set t.data = fx.st
+                    //call t.start(5, false, function Cutin)
 
                     call fx.Stop()
                 //카운터를 못침
