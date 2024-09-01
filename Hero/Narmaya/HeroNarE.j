@@ -27,6 +27,7 @@ private struct FxEffect
     integer i
     real r
     real Aspeed
+    real A2speed
     private method OnStop takes nothing returns nothing
         set caster = null
         set TargetX = 0
@@ -35,6 +36,7 @@ private struct FxEffect
         set i = 0
         set r = 0
         set Aspeed = 0
+        set A2speed = 0
     endmethod
     //! runtextmacro 연출()
 endstruct
@@ -137,31 +139,38 @@ private function EffectFunction2 takes nothing returns nothing
     local FxEffect fx = t.data
     local string data
     local integer random
+    local integer i
         
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,15, fx.Aspeed)
         call KillUnit(StackDummy[fx.pid])
         call ShowUnit(StackDummy[fx.pid], false)
         set StackDummy[fx.pid] = null
+        set i = GetRandomInt(1,3)
+        if i == 1 then
+            call Sound3D(fx.caster,'A02Y')
+        elseif i == 2 then
+            call Sound3D(fx.caster,'A02Z')
+        elseif i == 3 then
+            call Sound3D(fx.caster,'A030')
+        endif
         //call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-        call Sound3D(fx.caster,'A01H')
         if Stack[fx.pid] == 11 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
-            //call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD1 )
+            call UnitEffectTime2('e02A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
         elseif Stack[fx.pid] == 12 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
-            //call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+            call UnitEffectTime2('e02A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
         elseif Stack[fx.pid] == 13 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
-            //call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD3 )
+            call UnitEffectTime2('e02A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
         elseif Stack[fx.pid] == 14 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-            //call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD4 )
+            call UnitEffectTime2('e02A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
         endif
         call DummyMagicleash(fx.caster, Time2 / fx.Aspeed)
         call CastingBarShow(Player(fx.pid),false)
@@ -177,6 +186,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
     local string data
     local effect e
+    local integer i
     
     set fx.i = fx.i + 1
     set Size[fx.pid] = fx.i
@@ -193,6 +203,12 @@ private function EffectFunction takes nothing returns nothing
                 call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
             elseif fx.i == 25 then
                 set Stack[fx.pid] = 2
+                set i = GetRandomInt(1,2)
+                if i == 1 then
+                    call Sound3D(fx.caster,'A02S')
+                elseif i == 2 then
+                    call Sound3D(fx.caster,'A02X')
+                endif
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i)
                 endif
@@ -255,7 +271,8 @@ private function Main takes nothing returns nothing
     local real speed
     local tick t
     local FxEffect fx
-    local real r 
+    local real r
+    local integer i 
     if GetSpellAbilityId() == 'A02K' then
         set t = tick.create(0)
         set fx = FxEffect.Create()
@@ -266,6 +283,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
         set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
         
         if StackDummy[fx.pid] == null then
             set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), Angle.WBP(fx.caster,fx.TargetX ,fx.TargetY))
@@ -284,9 +302,17 @@ private function Main takes nothing returns nothing
         
         set t.data = fx
         set Stack[fx.pid] = 1
-        call Sound3D(fx.caster,'A01O')
+        set i = GetRandomInt(1,3)
+        if i == 1 then
+            call Sound3D(fx.caster,'A031')
+        elseif i == 2 then
+            call Sound3D(fx.caster,'A031')
+        elseif i == 3 then
+            call Sound3D(fx.caster,'A031')
+        endif
+
         if Player(fx.pid) == GetLocalPlayer() then
-            call DzFrameSetText(CastingTextFrame,"차지중")
+            call DzFrameSetText(CastingTextFrame,"명경지수")
             call DzFrameSetValue(CastingBar,0)
             call CastingBarShow(Player(fx.pid),true)
         endif

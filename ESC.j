@@ -89,7 +89,28 @@ scope ESC initializer init
     endfunction
     
     private function ESCAction takes nothing returns nothing
+        local integer i = 0
+        local integer j = 0
+        local unit u
         call BJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+        if AAA == 0 then
+            set i = 0
+            loop
+                set j = 0
+                set i = i + 1
+                loop
+                    set j = j + 10
+                    set u = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00J',GetUnitX(MainUnit[0])+Polar.X(i*100,j),GetUnitY(MainUnit[0])+Polar.Y(i*100,j),270)
+                    call UnitRemoveAbility(u,'Amov')
+                    call SetUnitPathing(u,false)
+                    call PauseUnit(u,true)
+                    call SetUnitPosition(u,GetUnitX(MainUnit[0])+Polar.X(i*100,j),GetUnitY(MainUnit[0])+Polar.Y(i*100,j))
+                    exitwhen j == 360
+                endloop
+            exitwhen i == 12
+            endloop
+        endif
+        set AAA = AAA + 1
     endfunction
 
     private function ESCAction4123 takes nothing returns nothing

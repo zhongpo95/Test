@@ -3,8 +3,26 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         constant real HeadBounsDamage = 1.20
         constant real BackBounsDamage = 1.05
         constant real BackBounsCri = 10.00
+
+        private unit array TestUnit
     endglobals
 
+    private function Reset takes nothing returns nothing
+        local tick t = tick.getExpired()
+        call SetUnitVertexColorBJ( TestUnit[t.data], 100, 100, 100, 0 )
+        set TestUnit[t.data] = null
+        call t.destroy()
+    endfunction
+
+    //때린유닛,맞은유닛
+    function TestDeal takes unit target returns nothing
+        local tick t = tick.create(0)
+        set t.data = IndexUnit(target)
+        set TestUnit[t.data] = target
+        call SetUnitVertexColorBJ( target, 50, 50, 100, 0 )
+        call BJDebugMsg("맞음")
+        call t.start(1.0, false, function Reset)
+    endfunction
 
     //컷인딜 대상, 체력계수 ex)13% 0.13
     function CutInDeal takes unit target, real rate returns nothing

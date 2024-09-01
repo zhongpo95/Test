@@ -2,8 +2,8 @@ library AttackAngle
     
     function AngleTrue takes real A,real A2,real R returns boolean
         local boolean n
-       if RAbsBJ(A - A2) > 180 then
-            if ((A - A2) < 0 ) and A2 > 0 and A > 0 then
+       if RAbsBJ(A - A2) >= 180 then
+            if ((A - A2) <= 0 ) and A2 >= 0 and A >= 0 then
                 //(A - A2)가 음수인데 A와 A2가 양수
                 set A = A + 360
             else
@@ -16,17 +16,17 @@ library AttackAngle
             endif
        endif
        
-       call BJDebugMsg( "A : " + R2S( A ) )
-       call BJDebugMsg( "A2 : " + R2S( A2 ) )
+       //call BJDebugMsg( "A : " + R2S( A ) )
+       //call BJDebugMsg( "A2 : " + R2S( A2 ) )
        if A - A2 >= R*-1 then
-            call BJDebugMsg("A-A2 >= R*-1 = true")
+            //call BJDebugMsg("A-A2 >= R*-1 = true")
         else
-            call BJDebugMsg("A-A2 >= R*-1 = false")
+            //call BJDebugMsg("A-A2 >= R*-1 = false")
        endif
        if A-A2 <= R*1 then
-        call BJDebugMsg("A-A2 <= R*1 = true")
+        //call BJDebugMsg("A-A2 <= R*1 = true")
         else
-        call BJDebugMsg("A-A2 <= R*1 = false")
+        //call BJDebugMsg("A-A2 <= R*1 = false")
        endif
 
        if A - A2 >= R*-1 and A-A2 <= R*1 then

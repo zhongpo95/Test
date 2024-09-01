@@ -7,6 +7,7 @@ library EffectDummy
     //! runtextmacro 틱_끝()
     //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy")
         call KillUnit(expired.unit)
+        call ShowUnit(expired.unit,false)
         set expired.unit = null
         call expired.Destroy()
     //! runtextmacro 이벤트_끝()
