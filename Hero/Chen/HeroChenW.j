@@ -50,7 +50,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
         call UnitEffectTimeEX('e00I',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)+180,0.01)
         call UnitEffectTimeEX('e00H',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
@@ -113,7 +113,7 @@ private function WSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )

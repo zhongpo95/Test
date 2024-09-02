@@ -7,22 +7,22 @@ library SafePos
     function SetSafePolar takes unit u, real DIST, real RECT returns nothing
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
-        local real TPX = UnitX+Polar.X( DIST, RECT )
-        local real TPY = UnitY+Polar.Y( DIST, RECT )
-        local real TPX2 = UnitX+Polar.X( DIST, RECT )
-        local real TPY2 = UnitY+Polar.Y( DIST, RECT )
+        local real TPX = UnitX+PolarX( DIST, RECT )
+        local real TPY = UnitY+PolarY( DIST, RECT )
+        local real TPX2 = UnitX+PolarX( DIST, RECT )
+        local real TPY2 = UnitY+PolarY( DIST, RECT )
         local real dis = DIST
         local real dislimit = DIST
         
         loop
         exitwhen IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false or IsTerrainPathable(TPX2, TPY2, PATHING_TYPE_WALKABILITY) == false
             set dis = dis - 4.00
-            set TPX = UnitX+Polar.X( dis, RECT )
-            set TPY = UnitY+Polar.Y( dis, RECT )
+            set TPX = UnitX+PolarX( dis, RECT )
+            set TPY = UnitY+PolarY( dis, RECT )
             if dislimit < DIST+0.1 then
                 set dislimit = dislimit + 4.00
-                set TPX2 = UnitX+Polar.X( dis, RECT )
-                set TPY2 = UnitY+Polar.Y( dis, RECT )
+                set TPX2 = UnitX+PolarX( dis, RECT )
+                set TPY2 = UnitY+PolarY( dis, RECT )
             endif
         endloop
         if IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false then
@@ -39,22 +39,22 @@ library SafePos
     function SetSafePolar2 takes unit u, real DIST, real RECT returns nothing
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
-        local real TPX = UnitX+Polar.X( DIST, RECT )
-        local real TPY = UnitY+Polar.Y( DIST, RECT )
-        local real TPX2 = UnitX+Polar.X( DIST, RECT )
-        local real TPY2 = UnitY+Polar.Y( DIST, RECT )
+        local real TPX = UnitX+PolarX( DIST, RECT )
+        local real TPY = UnitY+PolarY( DIST, RECT )
+        local real TPX2 = UnitX+PolarX( DIST, RECT )
+        local real TPY2 = UnitY+PolarY( DIST, RECT )
         local real dis = DIST
         local real dislimit = DIST
         
         loop
         exitwhen IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false or IsTerrainPathable(TPX2, TPY2, PATHING_TYPE_WALKABILITY) == false
             set dis = dis - 4.00
-            set TPX = UnitX+Polar.X( dis, RECT )
-            set TPY = UnitY+Polar.Y( dis, RECT )
+            set TPX = UnitX+PolarX( dis, RECT )
+            set TPY = UnitY+PolarY( dis, RECT )
             if dislimit < DIST+0.1 then
                 set dislimit = dislimit + 4.00
-                set TPX2 = UnitX+Polar.X( dis, RECT )
-                set TPY2 = UnitY+Polar.Y( dis, RECT )
+                set TPX2 = UnitX+PolarX( dis, RECT )
+                set TPY2 = UnitY+PolarY( dis, RECT )
             endif
         endloop
         if IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false then
@@ -69,8 +69,8 @@ library SafePos
     function SetUnitSafePolarUTA takes unit u, real DIST, real Ang returns nothing
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
-        local real TPX = UnitX+Polar.X( DIST, Ang )
-        local real TPY = UnitY+Polar.Y( DIST, Ang )
+        local real TPX = UnitX+PolarX( DIST, Ang )
+        local real TPY = UnitY+PolarY( DIST, Ang )
         local item tem
         
         set tem = CreateItem('cnob', TPX, TPY)
@@ -132,7 +132,7 @@ library SafePos
             if this.Max < this.Speed then
                 call SetUnitSafePolarUTP(this.Owner,this.Speed,this.TargetX,this.TargetY)
                 call this.Stop()
-            elseif Distance.WBP(this.Owner,this.TargetX,this.TargetY) > this.Speed then
+            elseif DistanceWBP(this.Owner,this.TargetX,this.TargetY) > this.Speed then
                 // 속도만큼 이동시켜도 남은 거리가 더 있다면 [비행!]
                 call SetUnitSafePolarUTP(this.Owner,this.Speed,this.TargetX,this.TargetY)
                 set this.Max = this.Max - this.Speed

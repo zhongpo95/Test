@@ -37,10 +37,10 @@ private struct FxEffect_Timer extends array
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i < 12 then
                 //call Sound3D(fx.caster,'A00E')
-                set fx.angle = Angle.WBW(fx.caster,fx.target)
+                set fx.angle = AngleWBW(fx.caster,fx.target)
                 call SetUnitFacing(fx.caster,fx.angle)
-                call SetUnitX(fx.caster,GetWidgetX(fx.target)-Polar.X( 650 - (fx.i * 50), fx.angle ))
-                call SetUnitY(fx.caster,GetWidgetY(fx.target)-Polar.Y( 650 - (fx.i * 50), fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))
                 if fx.i == 6 then
                     call UnitEffectTimeEX('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0)
                     call Sound3D(fx.caster,'A009')
@@ -50,9 +50,9 @@ private struct FxEffect_Timer extends array
             elseif fx.i == 45 then
                 call Sound3D(fx.caster,'A00M')
             elseif fx.i == 50 then
-                set fx.angle = Angle.WBW(fx.caster,fx.target)
-                call SetUnitX(fx.caster,GetWidgetX(fx.target)+Polar.X( 250, fx.angle ))
-                call SetUnitY(fx.caster,GetWidgetY(fx.target)+Polar.Y( 250, fx.angle ))
+                set fx.angle = AngleWBW(fx.caster,fx.target)
+                call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( 250, fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( 250, fx.angle ))
             elseif fx.i == 60 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
                 call Sound3D(fx.caster,'A00I')

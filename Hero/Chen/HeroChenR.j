@@ -118,7 +118,7 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
             call AnimationStart3(fx.caster,17, fx.speed)
-            call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
             call Sound3D(fx.caster,'A01H')
         endif
         if Stack[fx.pid] == 11 then
@@ -129,8 +129,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -146,8 +146,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -163,8 +163,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -180,8 +180,8 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+Polar.X( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
+                call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -345,7 +345,7 @@ private function RSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ancestralspirit", x, y )
@@ -426,7 +426,7 @@ private function RSyncData3 takes nothing returns nothing
     set dataLen=dataLen-(valueLen+1)
     set y=S2R(data)
     set pid=GetPlayerId(p)
-    set angle = Angle.WBP(MainUnit[pid],x,y)
+    set angle = AngleWBP(MainUnit[pid],x,y)
         
     if Stack[pid] == 1 or Stack[pid] == 2 or Stack[pid] == 3 then
         call SetUnitFacing(MainUnit[pid],angle)

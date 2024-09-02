@@ -13,7 +13,7 @@ globals
 endglobals
 
 private function splashD takes nothing returns nothing
-    local real r = Distance.WBW(splash.source,GetEnumUnit())
+    local real r = DistanceWBW(splash.source,GetEnumUnit())
     //call Deal(splash.source,GetEnumUnit(),DR*SkillDamageRate[splash.int])
 endfunction
 

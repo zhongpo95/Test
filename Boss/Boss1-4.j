@@ -126,7 +126,7 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 set st.pattern1 = st.pattern1 - 1
                 if st.pattern1 <= 0 then
                     set fx = FxEffect.Create()
-                    set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetWidgetX(st.caster)+Polar.X(1000, GetUnitFacing(st.caster)),GetWidgetY(st.caster)+Polar.Y(1000, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
+                    set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetWidgetX(st.caster)+PolarX(1000, GetUnitFacing(st.caster)),GetWidgetY(st.caster)+PolarY(1000, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
                     call AddSpecialEffectTarget("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl",fx.caster,"origin")
                     call UnitRemoveAbility(fx.caster,'Amov')
                     call SetUnitPathing(fx.caster,false)

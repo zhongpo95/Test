@@ -106,8 +106,8 @@ library FXKnockback requires SafePos, UnitIndexer
         set t.caster = caster
         set t.XEND = tx
         set t.YEND = ty
-        set dist = Distance.WBP( caster, t.XEND, t.YEND )
-        set direct = Angle.WBP( caster, t.XEND, t.YEND )
+        set dist = DistanceWBP( caster, t.XEND, t.YEND )
+        set direct = AngleWBP( caster, t.XEND, t.YEND )
         set t.IMAX = IMaxBJ(1,R2I(dur*32))
         set t.DIST = dist/t.IMAX
         set t.RECT = direct
@@ -116,35 +116,35 @@ library FXKnockback requires SafePos, UnitIndexer
     endfunction
         
     function Knockback takes unit caster, real dir, real dist, real dur returns nothing
-        local real x = GetWidgetX(caster) + Polar.X( dist, dir )
-        local real y = GetWidgetY(caster) + Polar.Y( dist, dir )
+        local real x = GetWidgetX(caster) + PolarX( dist, dir )
+        local real y = GetWidgetY(caster) + PolarY( dist, dir )
         call KnockbackTo( caster, x, y, dur )
     endfunction
         
     function KnockbackFrom takes unit caster, unit ori, real dist, real dur returns nothing
-        local real dir = Angle.WBW( caster, ori )
+        local real dir = AngleWBW( caster, ori )
         call Knockback( caster, dir, dist, dur )
     endfunction
         
     function KnockbackFromPos takes unit caster, real ox, real oy, real dist, real dur returns nothing
-        local real dir = Angle.PBW( ox, oy, caster )
+        local real dir = AnglePBW( ox, oy, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
         
     function KnockbackFromTo takes unit caster, unit ori, real dist, real dur returns nothing
-        local real dir = Angle.WBW( ori, caster )
-        set dist = dist - Distance.WBW( ori, caster )
+        local real dir = AngleWBW( ori, caster )
+        set dist = dist - DistanceWBW( ori, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
         
     function KnockbackFromToPos takes unit caster, real ox, real oy, real dist, real dur returns nothing
-        local real dir = Angle.PBW( ox,oy, caster )
-        set dist = dist - Distance.PBW( ox,oy, caster )
+        local real dir = AnglePBW( ox,oy, caster )
+        set dist = dist - DistancePBW( ox,oy, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
     
     function KnockbackInverse takes unit caster, unit ori, real dist, real dur returns nothing
-        local real dir = Angle.WBW( ori, caster )
+        local real dir = AngleWBW( ori, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
     endlibrary

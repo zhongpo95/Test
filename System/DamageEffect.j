@@ -98,7 +98,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         
         //헤드 체크
         if head == true then
-            if HeadTrue(Angle.WBW(source,target), GetUnitFacing(target)) == true then
+            if HeadTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
                 if DeBuffMBackHead.Exists( target ) then
                     set DMGRate = DMGRate * 1.12
                 endif
@@ -109,7 +109,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         
         //백어택 체크
         if back == true then
-            if BackTrue(Angle.WBW(source,target), GetUnitFacing(target)) == true then
+            if BackTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
                 if DeBuffMBackHead.Exists( target ) then
                     set DMGRate = DMGRate * 1.12
                 endif
@@ -122,7 +122,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         //카운터 체크
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
-                if HeadTrue(Angle.WBW(source,target), GetUnitFacing(target)) == true then
+                if HeadTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
                     call UnitRemoveAbility(target,'A00V')
                     call CounterTag(target)
                 endif

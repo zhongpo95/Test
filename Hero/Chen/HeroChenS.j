@@ -51,14 +51,14 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+Polar.X( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + Polar.Y( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1)
+        call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
         
         if HeroSkillLevel[fx.pid][5] >= 3 then
             //set DM = 200 * 1.7
         endif
         
-        if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 150, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 150, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
+        if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 150, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
         endif
     endif
     
@@ -109,7 +109,7 @@ private function SSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "animatedead", x, y )

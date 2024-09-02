@@ -35,8 +35,8 @@ library Missile requires MonoEvent, DamageEffect2
         local tick t = tick.getExpired()
         local MissileSt st = t.data
         local party ul
-        local real x = EXGetEffectX(st.ef) + Polar.X( st.dis, st.ang )
-        local real y = EXGetEffectY(st.ef) + Polar.Y( st.dis, st.ang )
+        local real x = EXGetEffectX(st.ef) + PolarX( st.dis, st.ang )
+        local real y = EXGetEffectY(st.ef) + PolarY( st.dis, st.ang )
         local unit tu = null
 
         call EXSetEffectXY(st.ef, x, y)

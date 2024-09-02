@@ -59,7 +59,7 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         //뒤는안떄림
-        if AngleTrue( GetUnitFacing(splash.source), Angle.WBW(splash.source,GetEnumUnit()), 90 ) then
+        if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
             if level >= 1 then
                 if Check == 1 then
                     set velue = velue * 1.60
@@ -221,7 +221,7 @@ private function FSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "attributemodskill", x, y )

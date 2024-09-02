@@ -72,7 +72,7 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+Polar.X( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+Polar.Y( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1)
+            set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+PolarX( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1)
         endif
         
         if fx.i != 5 then
@@ -89,9 +89,9 @@ private function EffectFunction takes nothing returns nothing
                 call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             endif
             
-            call UnitEffectTime2('e011',GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1)
+            call UnitEffectTime2('e011',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1)
             
-            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
+            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
                 //발도버프
                 if HeroSkillLevel[fx.pid][1] >= 1 then
                     call BuffMomiz01.Apply( fx.caster, Time3, 0 )
@@ -151,7 +151,7 @@ private function WSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )

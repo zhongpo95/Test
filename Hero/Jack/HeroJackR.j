@@ -27,20 +27,20 @@ private struct FxEffect_Timer extends array
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i == 1 then
                 call Sound3D(fx.caster,'A00E')
-                set fx.angle = Angle.WBW(fx.caster,fx.target)
+                set fx.angle = AngleWBW(fx.caster,fx.target)
                 call SetUnitFacing(fx.caster,fx.angle)
-                call SetUnitX(fx.caster,GetWidgetX(fx.target)+Polar.X( -75, fx.angle ))
-                call SetUnitY(fx.caster,GetWidgetY(fx.target)+Polar.Y( -75, fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( -75, fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( -75, fx.angle ))
             elseif fx.i == 34 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
-                call SetUnitX(fx.caster,GetWidgetX(fx.caster)+Polar.X( -75, fx.angle ))
-                call SetUnitY(fx.caster,GetWidgetY(fx.caster)+Polar.Y( -75, fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.caster)+PolarX( -75, fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.caster)+PolarY( -75, fx.angle ))
                 //call DestroyEffect(AddSpecialEffectTarget("1213.mdl",fx.target,"over head"))
                 call DestroyEffect(AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest"))
                 call HeroDeal(fx.caster,fx.target,DR)
             elseif fx.i > 34 and fx.i <= 40 then
-                call SetUnitX(fx.caster,GetWidgetX(fx.caster)+Polar.X( -75, fx.angle ))
-                call SetUnitY(fx.caster,GetWidgetY(fx.caster)+Polar.Y( -75, fx.angle ))
+                call SetUnitX(fx.caster,GetWidgetX(fx.caster)+PolarX( -75, fx.angle ))
+                call SetUnitY(fx.caster,GetWidgetY(fx.caster)+PolarY( -75, fx.angle ))
             elseif fx.i == 50 then
                 call fx.Stop()
             endif

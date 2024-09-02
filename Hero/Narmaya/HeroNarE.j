@@ -62,7 +62,7 @@ private function splashD1 takes nothing returns nothing
     local integer level = HeroSkillLevel[pid][3]
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if AngleTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
+        if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             if level >= 1 then
                 set Velue = Velue * 1.50
             endif
@@ -77,7 +77,7 @@ private function splashD2 takes nothing returns nothing
     local integer level = HeroSkillLevel[pid][3]
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if AngleTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
+        if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             if level >= 1 then
                 set Velue = Velue * 1.50
             endif
@@ -96,7 +96,7 @@ private function splashD3 takes nothing returns nothing
     local integer level = HeroSkillLevel[pid][3]
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if AngleTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
+        if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             if level >= 1 then
                 set Velue = Velue * 1.50
             endif
@@ -115,7 +115,7 @@ private function splashD4 takes nothing returns nothing
     local integer level = HeroSkillLevel[pid][3]
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if AngleTrue(Angle.WBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
+        if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             if level >= 1 then
                 set Velue = Velue * 1.50
             endif
@@ -154,7 +154,7 @@ private function EffectFunction2 takes nothing returns nothing
         elseif i == 3 then
             call Sound3D(fx.caster,'A030')
         endif
-        //call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+Polar.X( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +Polar.Y( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+        //call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
         if Stack[fx.pid] == 11 then
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD1 )
@@ -286,11 +286,11 @@ private function Main takes nothing returns nothing
         set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
         
         if StackDummy[fx.pid] == null then
-            set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), Angle.WBP(fx.caster,fx.TargetX ,fx.TargetY))
+            set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
         else
             call KillUnit(StackDummy[fx.pid])
             call ShowUnit(StackDummy[fx.pid], false)
-            set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), Angle.WBP(fx.caster,fx.TargetX ,fx.TargetY))
+            set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
         endif
 
 
@@ -342,7 +342,7 @@ private function ESyncData takes nothing returns nothing
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             //call SetUnitFacing(MainUnit[pid],angle)
             //call EXSetUnitFacing(MainUnit[pid],angle)
             call IssuePointOrder( MainUnit[pid], "ambush", x, y )

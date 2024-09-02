@@ -78,7 +78,7 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+Polar.X( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +Polar.Y( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
             call fx.Stop()
             call t.destroy()
         endif
@@ -133,7 +133,7 @@ private function ESyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ambush", x, y )

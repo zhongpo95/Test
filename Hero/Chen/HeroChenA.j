@@ -94,9 +94,9 @@ private function splashD takes nothing returns nothing
     set fx.targetY = GetWidgetY(fx.target)
     set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e00W', fx.casterX , fx.casterY, GetUnitFacing(fx.caster))
     call SetUnitFlyHeight( fx.dummy, 100.00, 0.00 )
-    set fx.angle = Angle.WBW(fx.caster,fx.target)
-    set fx.stopoverX = fx.casterX + Polar.X(random, fx.angle + random2 )
-    set fx.stopoverY = fx.casterY + Polar.Y(random, fx.angle + random2 )
+    set fx.angle = AngleWBW(fx.caster,fx.target)
+    set fx.stopoverX = fx.casterX + PolarX(random, fx.angle + random2 )
+    set fx.stopoverY = fx.casterY + PolarY(random, fx.angle + random2 )
     set fx.r = 0
     set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
     
@@ -164,7 +164,7 @@ private function ASyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ancestralspirittarget", x, y )

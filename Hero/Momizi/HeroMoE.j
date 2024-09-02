@@ -134,14 +134,14 @@ endfunction
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             
-            if Distance.WBP(MainUnit[pid],x,y) <= MaxRange then
+            if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
                 call IssuePointOrder( MainUnit[pid], "ambush", x, y )
             else
-                call IssuePointOrder( MainUnit[pid], "ambush", GetWidgetX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetWidgetY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
+                call IssuePointOrder( MainUnit[pid], "ambush", GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
             endif
             
         endif

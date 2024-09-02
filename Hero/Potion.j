@@ -183,7 +183,7 @@ scope Potion
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             call UnitUseItemPoint( MainUnit[pid], PlayerItem1[pid], x, y )
@@ -210,14 +210,14 @@ scope Potion
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             
-            if Distance.WBP(MainUnit[pid],x,y) <= MaxRange then
+            if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
                 call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], x, y )
             else
-                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], GetWidgetX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetWidgetY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
+                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
             endif
             
         endif
@@ -243,7 +243,7 @@ scope Potion
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             call UnitUseItemPoint( MainUnit[pid], PlayerItem3[pid], x, y )
@@ -270,7 +270,7 @@ scope Potion
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             call UnitUseItemPoint( MainUnit[pid], PlayerItem4[pid], x, y )

@@ -23,7 +23,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                             
         if ( GetTriggerPlayer() == GetLocalPlayer() ) then
             if IsUnitOwnedByPlayer(GetTriggerUnit(), Player(PLAYER_NEUTRAL_PASSIVE)) then
-                if Distance.WBW(u,MainUnit[GetPlayerId(GetLocalPlayer())]) < 350 then
+                if DistanceWBW(u,MainUnit[GetPlayerId(GetLocalPlayer())]) < 350 then
                     //사신짱 클릭
                     if DataUnitIndex(u) == 5 then
                         //이미 열려있음

@@ -44,7 +44,7 @@ endglobals
             set dataLen=dataLen-(valueLen+1)
             set y=S2R(data)
             set pid=GetPlayerId(p)
-            set angle = Angle.WBP(MainUnit[pid],x,y)
+            set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             call IssuePointOrder( MainUnit[pid], "auraunholy", x, y )

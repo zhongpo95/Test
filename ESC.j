@@ -100,11 +100,11 @@ scope ESC initializer init
                 set i = i + 1
                 loop
                     set j = j + 10
-                    set u = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00J',GetUnitX(MainUnit[0])+Polar.X(i*100,j),GetUnitY(MainUnit[0])+Polar.Y(i*100,j),270)
+                    set u = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00J',GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j),270)
                     call UnitRemoveAbility(u,'Amov')
                     call SetUnitPathing(u,false)
                     call PauseUnit(u,true)
-                    call SetUnitPosition(u,GetUnitX(MainUnit[0])+Polar.X(i*100,j),GetUnitY(MainUnit[0])+Polar.Y(i*100,j))
+                    call SetUnitPosition(u,GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j))
                     exitwhen j == 360
                 endloop
             exitwhen i == 12

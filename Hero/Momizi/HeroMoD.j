@@ -53,7 +53,7 @@ private function splashD takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
             //뒤는안떄림
-            if AngleTrue( GetUnitFacing(CheckU), Angle.WBW(CheckU,GetEnumUnit()), 90 ) then
+            if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
             
                 if level >= 1 then
                     set velue = velue * 1.45
@@ -97,8 +97,8 @@ private function EffectFunction takes nothing returns nothing
         if fx.i != (TICK+1) then
             set X = GetWidgetX(fx.dummy)
             set Y = GetWidgetY(fx.dummy)
-            call SetUnitX(fx.dummy, X + Polar.X( 60, fx.Angle ))
-            call SetUnitY(fx.dummy, Y + Polar.Y( 60, fx.Angle ))
+            call SetUnitX(fx.dummy, X + PolarX( 60, fx.Angle ))
+            call SetUnitY(fx.dummy, Y + PolarY( 60, fx.Angle ))
             set Check = fx.Velue
             set CheckG = fx.ul.super
             set CheckU = fx.dummy
@@ -166,7 +166,7 @@ private function DSyncData takes nothing returns nothing
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "antimagicshell", x, y )

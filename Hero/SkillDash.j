@@ -91,7 +91,7 @@ private function F_A006 takes nothing returns nothing
             set TrgRemove[i] = GetUnitRemoveTrigger(caster)
             set ActRemove[i] = TriggerAddAction(TrgRemove[i],function OnRemove)
         endif
-        call EXEffectMatRotateZ(e,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXEffectMatRotateZ(e,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call DestroyEffect(e)
         set e = null
         set st.Owner = caster
@@ -100,8 +100,8 @@ private function F_A006 takes nothing returns nothing
         set st.Max = MaxRange
         set st.Speed = 32
         call st.Start()
-        call SetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        call EXSetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
         endif
@@ -138,7 +138,7 @@ private function F_A005 takes nothing returns nothing
         set caster = GetTriggerUnit()
         set st = SkillDash.Create()
         set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
-        call EXEffectMatRotateZ(e,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXEffectMatRotateZ(e,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call DestroyEffect(e)
         set e = null
         set st.Owner = caster
@@ -147,8 +147,8 @@ private function F_A005 takes nothing returns nothing
         set st.Max = MaxRange
         set st.Speed = 32
         call st.Start()
-        call SetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        call EXSetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
         endif
@@ -183,7 +183,7 @@ private function F_A004 takes nothing returns nothing
         set caster = GetTriggerUnit()
         set st = SkillDash.Create()
         set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
-        call EXEffectMatRotateZ(e,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXEffectMatRotateZ(e,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call DestroyEffect(e)
         set e = null
         set st.Owner = caster
@@ -192,8 +192,8 @@ private function F_A004 takes nothing returns nothing
         set st.Max = MaxRange
         set st.Speed = 32
         call st.Start()
-        call SetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        call EXSetUnitFacing(caster,Angle.WBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
@@ -249,12 +249,12 @@ endfunction
         set dataLen=dataLen-(valueLen+1)
         set y=S2R(data)
         set pid=GetPlayerId(p)
-        set angle = Angle.WBP(MainUnit[pid],x,y)
+        set angle = AngleWBP(MainUnit[pid],x,y)
         
-        if Distance.WBP(MainUnit[pid],x,y) <= MaxRange then
+        if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
             call IssuePointOrder( MainUnit[pid], "absorb", x, y )
         else
-            call IssuePointOrder( MainUnit[pid], "absorb", GetWidgetX(MainUnit[pid]) + Polar.X(MaxRange,angle), GetWidgetY(MainUnit[pid]) + Polar.Y(MaxRange,angle) )
+            call IssuePointOrder( MainUnit[pid], "absorb", GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
         endif
         
     set p=null
