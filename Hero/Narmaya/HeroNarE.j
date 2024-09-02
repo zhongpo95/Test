@@ -68,6 +68,7 @@ private function splashD1 takes nothing returns nothing
             endif
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
         endif
     endif
 endfunction
@@ -87,6 +88,7 @@ private function splashD2 takes nothing returns nothing
             endif
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
         endif
     endif
 endfunction
@@ -106,6 +108,7 @@ private function splashD3 takes nothing returns nothing
             endif
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
         endif
     endif
 endfunction
@@ -129,6 +132,7 @@ private function splashD4 takes nothing returns nothing
             endif
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
         endif
     endif
 endfunction
