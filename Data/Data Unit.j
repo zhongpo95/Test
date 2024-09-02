@@ -347,15 +347,15 @@ endfunction
     set HeroSkillID9[14] = 'A02R'
     set HeroSkillID10[14] = 'A02S'
 
-    set HeroSkill0Text1[14] = "공격속도가 27.0% 증가한다."
-    set HeroSkill0Text2[14] = "적에게 주는 피해가 70.0% 증가한다."
-    set HeroSkill0Text3[14] = "차지 조작으로 변경된다.　　　　　　2단계 차지 시 총 52.5%의 증가된 피해를 주며, 풀 차지 시 총 150.0%의 증가된 피해를 주지만, 1단계 차지 시 피해가 20.0% 감소된다."
+    set HeroSkill0Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하며, 적에게 공격 적중시 나비 1개 획득"
+    set HeroSkill0Text2[14] = "WER스킬을 제외한 스킬 사용시 차지 속도 150% 증가 (기본공격 차지속도증가랑 중첩불가)"
+    set HeroSkill0Text3[14] = "2단계 차지 시 2타 피해량이 적에게 주는 피해가 50% 증가하며, 풀 차지 시 2타 피해량이 적에게 주는 피해가 100.0% 증가된다."
     set HeroSkill1Text1[14] = "스킬 사용시 50.0% 확률로 재사용 대기시간이 4.9초 감소된다."
     set HeroSkill1Text2[14] = "적에게 주는 피해가 50.0% 증가된다." 
     set HeroSkill1Text3[14] = "적에게 주는 피해가 100.0% 증가된다."
-    set HeroSkill2Text1[14] = "재사용 대기시간이 5.6초 감소한다."
-    set HeroSkill2Text2[14] = "적에게 주는 피해가 70.0% 증가한다."
-    set HeroSkill2Text3[14] = "적에게 주는 피해가 159.5% 증가한다."
+    set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가한다."
+    set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승한다."
+    set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가된다."
     set HeroSkill3Text1[14] = "적에게 주는 피해가 50.0% 증가한다."
     set HeroSkill3Text2[14] = "차지 단계가 올라갈수록 공격력이 30.0% 상승한다."
     set HeroSkill3Text3[14] = "풀 차지 시 적에게 주는 피해가 122% 증가한다."

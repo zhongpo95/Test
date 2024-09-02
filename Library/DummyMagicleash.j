@@ -52,6 +52,9 @@
         local Magicleash t = Magicleash.Create()
         set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
         set t.unit = u
+        if GetUnitAbilityLevel(t.unit,BuffCode) > 0 then
+            call UnitRemoveAbility( t.unit, BuffCode )
+        endif
         call IssueTargetOrder(t.dummy,"magicleash",u)
         call t.Start(time,false)
     endfunction
