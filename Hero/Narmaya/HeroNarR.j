@@ -1,30 +1,16 @@
 scope HeroNarR
 globals
-    private constant real CoolTime = 5.00
+    private constant real CoolTime = 8.00
 endglobals
 
-private struct FxEffect
-    unit caster
-    real TargetX
-    real TargetY
-    integer pid
-    integer i
-    real speed
-    private method OnStop takes nothing returns nothing
-        set caster = null
-        set TargetX = 0
-        set TargetY = 0
-        set pid = 0
-        set i = 0
-        set speed = 0
-    endmethod
-    //! runtextmacro 연출()
-endstruct
-
 private function Main takes nothing returns nothing
+    local real speed
+    local tick t
+    local SkillFx fx
+    local real r
+    local integer i 
     if GetSpellAbilityId() == 'A02L' then
-        call DummyMagicleash(GetTriggerUnit(), 1)
-        call BJDebugMsg("R발동")
+        set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
         call CooldownFIX(GetTriggerUnit(),'A02L',CoolTime)
     endif
 endfunction
@@ -40,7 +26,6 @@ private function RSyncData takes nothing returns nothing
     local real angle
     local integer index = IndexUnit(MainUnit[pid])
     
-    call BJDebugMsg("R입력")
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         if NarForm[index] == 0 then
             set x=S2R(data)
@@ -67,7 +52,7 @@ private function RSyncData2 takes nothing returns nothing
     local real angle
     local real speed
     local tick t
-    local FxEffect fx
+    local SkillFx fx
     
     set p=null
 endfunction

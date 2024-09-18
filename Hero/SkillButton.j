@@ -1,7 +1,33 @@
 library SkillButton requires DataUnit
     globals
     endglobals
-    
+
+    struct SkillFx
+        unit caster
+        real TargetX
+        real TargetY
+        integer pid
+        integer i
+        real r
+        integer index
+        real speed
+        real Aspeed
+        real A2speed
+        private method OnStop takes nothing returns nothing
+            set caster = null
+            set TargetX = 0
+            set TargetY = 0
+            set pid = 0
+            set i = 0
+            set r = 0
+            set index = 0
+            set speed = 0
+            set Aspeed = 0
+            set A2speed = 0
+        endmethod
+        //! runtextmacro 연출()
+    endstruct
+
     private function SkillButtonKey takes nothing returns nothing
         local integer key = DzGetTriggerKey()
         local integer i = GetPlayerId(DzGetTriggerKeyPlayer())

@@ -72,6 +72,7 @@ private function splashD1 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -88,6 +89,7 @@ private function splashD2 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -104,6 +106,7 @@ private function splashD3 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -120,6 +123,7 @@ private function splashD4 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -132,6 +136,7 @@ private function splashD5 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -144,6 +149,7 @@ private function splashD6 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -159,6 +165,7 @@ private function splashD7 takes nothing returns nothing
             endif
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
@@ -171,6 +178,7 @@ private function splashD8 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
+            call Sound3D(GetEnumUnit(),'A037')
         endif
     endif
 endfunction
