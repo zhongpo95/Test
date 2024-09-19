@@ -222,6 +222,9 @@ private function EffectFunction4 takes nothing returns nothing
         elseif fx.i == 2 then
             call UnitRemoveAbility( fx.caster, 'B000' )
             call UnitApplyTimedLife( SDummy[fx.pid], 'BHwe', 0.1 )
+            if true then
+                call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
+            endif
             set SDummy[fx.pid] = null
             call t.start( 0.2, false, function EffectFunction4 )
         else
@@ -417,6 +420,12 @@ private function EffectFunction8 takes nothing returns nothing
         if Stack[fx.pid] == 11 then
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD8 )
         endif
+        if Size[fx.pid] == 75 then
+            if true then
+                call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
+            endif
+        endif
+
         call CastingBarShow(Player(fx.pid),false)
         call t.start( Time1 / fx.A2speed, false, function EffectFunction9 )
 
@@ -459,7 +468,7 @@ private function EffectFunction7 takes nothing returns nothing
             elseif fx.i == 76 then
                 if Stack[fx.pid] == 1 then
                     set fx.i = 0
-                    set Stack[fx.pid] = 14
+                    set Stack[fx.pid] = 11
                     call t.start( 0.02, false, function EffectFunction8 )
                 else
                     call fx.Stop()

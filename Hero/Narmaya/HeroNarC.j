@@ -74,25 +74,33 @@ endglobals
 
         set fx.i = fx.i + 1
 
+        //if BuffMomiz01.Exists( fx.caster ) then
+            //call BuffMomiz01.Stop( fx.caster )
+            //set fx.Velue = 1
+        //endif
+
         if NarStack[fx.pid] == 3 then
             //막타
             if fx.i == 8 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
                 set NarStack[fx.pid] = 0
+                if true then
+                    call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
+                endif
                 call fx.Stop()
                 call t.destroy()
             elseif fx.i == 1 or fx.i == 3 or fx.i == 5 then
                 call UnitEffectTime2('e02E',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.7,0)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
-                call t.start( Time10/fx.speed , false, function EffectFunction3 ) 
+                call t.start( Time10/fx.speed , false, function EffectFunction3 )
             elseif fx.i == 7 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
-                call t.start( Time10/fx.speed , false, function EffectFunction3 ) 
+                call t.start( Time10/fx.speed , false, function EffectFunction3 )
             else
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
-                call t.start( Time10/fx.speed , false, function EffectFunction3 ) 
+                call t.start( Time10/fx.speed , false, function EffectFunction3 )
             endif
         elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
             if fx.i == 3 then

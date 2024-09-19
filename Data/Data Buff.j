@@ -183,6 +183,36 @@ library BuffData requires Struct2Buff, StatsSet
     endstruct
     
     
+    //나루메아 전환버프
+    struct BuffNar00
+        effect Effect
+        /* OnBeforeStack : Buff 중첩 시도 시 발동되는 메소드 */
+        method OnBeforeStack takes unit caster, real timeout, real dur, integer arg returns boolean
+            return .Remaining < dur /* 남은 시간 < 새로 적용될 시간 : 일 경우에만 갱신! */
+        endmethod
+        /* OnStack : Buff 중첩 시도(OnBeforeStack) 성공(true) 시 발동되는 메소드 */
+        method OnAfterStack takes unit caster, real timeout, real dur, integer arg returns nothing
+            set .Timeout = timeout /* 새로운 시간 설정으로 갱신 */
+            set .Duration = dur
+            set .Argument = arg
+        endmethod
+        /* OnApply : Buff 최초 적용 성공 시 발동되는 메소드 */
+        method OnApply takes nothing returns nothing
+            local integer pid = GetPlayerId(GetOwningPlayer(.Target))
+            set .Effect = AddSpecialEffectTarget("Buff_Attack.mdl",.Target,"overhead")
+        endmethod
+        /* OnRemove : Buff 데이터 삭제 시 발동되는 메소드 */
+        method OnRemove takes nothing returns nothing
+            call DestroyEffect(.Effect)
+            set .Effect = null
+        endmethod
+        /* OnDuration : 지속 시간 만료 시 발동되는 메소드(영구 지속 시 발동안함) */
+        method OnDuration takes nothing returns nothing
+        endmethod
+        /* struct를 Buff로 만듦 */
+        //! runtextmacro Struct2Buff("-1.0") /* 틱 사용안함 = 틱 발동형 버프가 아님 */
+    endstruct
+
     //챈 공증버프
     struct BuffChen00
         effect Effect
