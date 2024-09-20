@@ -5,9 +5,11 @@ globals
     private constant real CoolTime = 1.00
 
     //폼전환강화 유지시간
-    constant real NarChangeTime = 1.0
+    constant real NarChangeTime = 0.75
     //카구라 강화전환시간
-    private constant real Time = 1.0
+    private constant real Time = 1.3
+    //카구라 강화전환사출
+    private constant real Time3 = 1.1
     //겐지 강화전환시간
     private constant real Time2 = 1.0
     
@@ -17,8 +19,8 @@ globals
     private unit CheckU
     //이동거리
     private constant real TICK = 20
-    private constant real scale = 600
-    private constant real distance = 400
+    private constant real scale = 300
+    private constant real distance = 175
 
     integer array NarForm
     integer array NarStack
@@ -70,6 +72,8 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+                call Sound3D(GetEnumUnit(),'A037')
                 call GroupAddUnit(CheckG,GetEnumUnit())
             endif
         endif
@@ -86,6 +90,9 @@ private function EffectFunction3 takes nothing returns nothing
     
     if fx.i == 1 then
         set fx.dummy = UnitEffectTimeEX('e02J', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5)
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+        //쿨타임조정
+        call CooldownFIX2(fx.caster,'A02J',CoolTime)
     endif
     
     if fx.i != (TICK+1) then
@@ -116,13 +123,16 @@ private function EffectFunction takes nothing returns nothing
     set fx.i = 0
     set fx.ul = party.create()
     set fx.Angle = GetUnitFacing(fx.caster)
-    call t.start( 0.02, false, function EffectFunction3 ) 
 
-    //쿨타임조정
-    call CooldownFIX2(fx.caster,'A02J',CoolTime)
+    if GetRandomInt(0,1) == 0 then
+        call Sound3DT(fx.caster,'A039',(Time3 /fx.speed )/2 )
+    else
+        call Sound3DT(fx.caster,'A03A',(Time3 /fx.speed )/2 )
+    endif
+    call t.start( Time3 /fx.speed, false, function EffectFunction3 ) 
 
-    call fx.Stop()
-    call t.destroy()
+    //call fx.Stop()
+    //call t.destroy()
 endfunction
 //겐지
 private function EffectFunction2 takes nothing returns nothing
