@@ -66,13 +66,21 @@ private function splashD1 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -80,6 +88,7 @@ private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
@@ -89,7 +98,14 @@ private function splashD2 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -97,6 +113,7 @@ private function splashD3 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
@@ -106,7 +123,14 @@ private function splashD3 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -114,6 +138,7 @@ private function splashD4 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
@@ -123,7 +148,14 @@ private function splashD4 takes nothing returns nothing
             
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -131,12 +163,20 @@ private function splashD5 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -144,12 +184,20 @@ private function splashD6 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -157,6 +205,7 @@ private function splashD7 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
@@ -165,7 +214,14 @@ private function splashD7 takes nothing returns nothing
             endif
             call HeroDeal(splash.source,GetEnumUnit(),DR2*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -173,12 +229,20 @@ private function splashD8 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
+    local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endif
 endfunction
@@ -211,7 +275,7 @@ private function EffectFunction4 takes nothing returns nothing
             endif
         endif
         if Stack[fx.pid] > 11 and fx.i == 1 then
-            call Sound3D(fx.caster,'A034')
+            call Sound3D(fx.caster,'A03O')
         endif
 
         if fx.i == 3 then
@@ -269,6 +333,7 @@ private function EffectFunction2 takes nothing returns nothing
         call ShowUnit(StackDummy[fx.pid], false)
         set StackDummy[fx.pid] = null
         set i = GetRandomInt(1,3)
+        call Sound3D(fx.caster,'A03O')
         if i == 1 then
             call Sound3D(fx.caster,'A02Y')
         elseif i == 2 then
@@ -313,6 +378,9 @@ private function EffectFunction takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if Stack[fx.pid] == 1 or Stack[fx.pid] == 2 or Stack[fx.pid] == 3 or Stack[fx.pid] == 4 then
             if fx.i < 25 then
+                if fx.i == 1 then
+                    call Sound3D(fx.caster,'A03L')
+                endif
                 set Stack[fx.pid] = 1
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i)
@@ -338,6 +406,7 @@ private function EffectFunction takes nothing returns nothing
                 endif
                 call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
             elseif fx.i == 50 then
+                call Sound3D(fx.caster,'A03M')
                 set Stack[fx.pid] = 3
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i - 25)
@@ -350,6 +419,7 @@ private function EffectFunction takes nothing returns nothing
                 endif
                 call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
             elseif fx.i == 75 then
+                call Sound3D(fx.caster,'A03N')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 4
                 set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
@@ -408,6 +478,7 @@ private function EffectFunction8 takes nothing returns nothing
         call ShowUnit(StackDummy[fx.pid], false)
         set StackDummy[fx.pid] = null
         set i = GetRandomInt(1,3)
+        call Sound3D(fx.caster,'A03O')
         if i == 1 then
             call Sound3D(fx.caster,'A02Y')
         elseif i == 2 then
@@ -451,6 +522,9 @@ private function EffectFunction7 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if Stack[fx.pid] == 1 or Stack[fx.pid] == 2 or Stack[fx.pid] == 3 or Stack[fx.pid] == 4 then
             if fx.i < 75 then
+                if fx.i == 1 then
+                    call Sound3D(fx.caster,'A03L')
+                endif
                 set Stack[fx.pid] = 1
                 if Player(fx.pid) == GetLocalPlayer() then
                     call DzFrameSetValue(CastingBar, fx.i/3)

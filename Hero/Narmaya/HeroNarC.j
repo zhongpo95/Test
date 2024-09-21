@@ -10,14 +10,12 @@ globals
     //스킬이펙트 시간
     private constant real Time2 = 0.40
     //쉐클시간
-    private constant real Time4 = 0.70
+    private constant real Time4 = 0.80
     //쉐클시간
     private constant real Time5 = 1.25
 
     //평타강화 1타
-    private constant real Time6 = 0.1
-    private constant real Time7 = 0.3
-    private constant real Time8 = 0.3
+    private constant real Time6 = 0.16
 
     //평타강화 막타
     private constant real Time9 = 0.30
@@ -30,9 +28,9 @@ globals
     private constant real MoveD = 450
 
     private constant real scale = 500
-    private constant real distance = 250
+    private constant real distance = 400
     private constant real scale2 = 500
-    private constant real distance2 = 325
+    private constant real distance2 = 350
 
     
 endglobals
@@ -40,31 +38,55 @@ endglobals
     private function splashD takes nothing returns nothing
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endfunction
     private function splashD2 takes nothing returns nothing
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endfunction
     private function splashD3 takes nothing returns nothing
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
-            call Sound3D(GetEnumUnit(),'A037')
+            set random = GetRandomInt(0,2)
+            if random == 0 then
+                call Sound3D(GetEnumUnit(),'A03X')
+            elseif random == 1 then
+                call Sound3D(GetEnumUnit(),'A03Y')
+            elseif random == 2 then
+                call Sound3D(GetEnumUnit(),'A05N')
+            endif
         endif
     endfunction
 
@@ -102,22 +124,48 @@ endglobals
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             endif
-        elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
-            if fx.i == 3 then
+        elseif NarStack[fx.pid] ==  1 then
+            if fx.i == 5 then
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                 set NarStack[fx.pid] = NarStack[fx.pid] + 1
                 call fx.Stop()
                 call t.destroy()
+            elseif fx.i == 4 then
+                call UnitEffectTime2('e02P',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
+            elseif fx.i == 3 then
+                call UnitEffectTime2('e02O',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
             elseif fx.i == 2 then
-                call UnitEffectTime2('e02H',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call UnitEffectTime2('e02M',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                call t.start( Time7/fx.speed , false, function EffectFunction3 ) 
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
             elseif fx.i == 1 then
-                call UnitEffectTime2('e02G',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+90 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+90 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call UnitEffectTime2('e02L',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+90 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+90 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                call t.start( Time8/fx.speed , false, function EffectFunction3 ) 
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
             endif
-        else
+        elseif NarStack[fx.pid] == 2 then
+            if fx.i == 4 then
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                set NarStack[fx.pid] = NarStack[fx.pid] + 1
+                call fx.Stop()
+                call t.destroy()
+            elseif fx.i == 3 then
+                call UnitEffectTime2('e02O',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
+            elseif fx.i == 2 then
+                call UnitEffectTime2('e02M',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
+            elseif fx.i == 1 then
+                call UnitEffectTime2('e02L',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+90 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+90 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
+            endif
         endif
 
     endfunction
@@ -132,16 +180,18 @@ endglobals
             call DummyMagicleash(fx.caster, Time5 /fx.speed)
             call AnimationStart3(fx.caster,19, (100+fx.speed)/100)
             set fx.i = 0
-            //call Sound3DT(fx.caster,'A035',0.02)
-            call Sound3D(fx.caster,'A035')
+            call Sound3DT(fx.caster,'A03E',0.02)
             call t.start( Time9/fx.speed, false, function EffectFunction3 ) 
         elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
-            //1,2타
-            call Sound3D(fx.caster,'A036')
             call DummyMagicleash(fx.caster, Time4 /fx.speed)
             call AnimationStart3(fx.caster,18, (100+fx.speed)/100)
+            if NarStack[fx.pid] ==  1 then
+                call Sound3D(fx.caster,'A03H')
+            elseif NarStack[fx.pid] ==  2 then
+                call Sound3D(fx.caster,'A03I')
+            endif
             set fx.i = 0
-            call UnitEffectTime2('e02F',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+270 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+270 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+            call UnitEffectTime2('e02N',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+270 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+270 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
             call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
         else
             //일반평타
