@@ -7,9 +7,10 @@ globals
     //폼전환강화 유지시간
     constant real NarChangeTime = 0.75
     //카구라 강화전환시간
-    private constant real Time = 1.3
+    private constant real Time = 1.5
     //카구라 강화전환사출, 타수
     private constant real Time3 = 1.1
+
     private constant real TICK2 = 10
     //겐지 강화전환시간
     private constant real Time2 = 1.6
@@ -29,7 +30,6 @@ globals
 
     integer array NarForm
     integer array NarStack
-    boolean array NarStack2
     unit array NarFormG
     unit array NarFormC
 endglobals
@@ -108,12 +108,15 @@ private function splashD takes nothing returns nothing
                 set fx = SkillRarW.Create()
                 set fx.caster = splash.source
                 set fx.dummy = GetEnumUnit()
+                if HeroSkillLevel[fx.pid][1] >= 3 then
+                    set velue = 0.5
+                endif
                 set fx.r = DR*velue
                 set fx.Angle = SD
                 set fx.i = 0
+                set fx.pid = pid
                 set t.data = fx
-
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),fx.r,false,false,SD,false)
                 call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
                 set random = GetRandomInt(0,2)
                 if random == 0 then
@@ -124,7 +127,12 @@ private function splashD takes nothing returns nothing
                     call Sound3D(GetEnumUnit(),'A05N')
                 endif
                 call GroupAddUnit(CheckG,GetEnumUnit())
-                call t.start(0.33, false, function splashEffect)
+                if HeroSkillLevel[fx.pid][1] >= 3 then
+                    call t.start(0.33, false, function splashEffect)
+                else
+                    call fx.Stop()
+                    call t.destroy()
+                endif
             endif
         endif
     endif
@@ -143,6 +151,7 @@ private function EffectFunction3 takes nothing returns nothing
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',CoolTime)
+        call CooldownSet(fx.caster,'A02L',0)
     endif
     
     if fx.i != (TICK+1) then
@@ -208,6 +217,7 @@ private function splashD2 takes nothing returns nothing
         endif
     endif
 endfunction
+
 private function splashD3 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     //local integer level = HeroSkillLevel[pid][6]
@@ -246,6 +256,9 @@ private function EffectFunction2 takes nothing returns nothing
         call AnimationStart3(fx.caster,15, (100+fx.speed)/100)
         call UnitEffectTime2('e02Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
+        if HeroSkillLevel[fx.pid][1] >= 2 then
+            set NarStack[fx.pid] = 3
+        endif
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',CoolTime)
         call fx.Stop()
@@ -328,7 +341,6 @@ private function Main takes nothing returns nothing
                 //카구라
                 set NarForm[i] = 0
                 set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 0
-                set NarStack2[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = false
                 call AddUnitAnimationProperties(caster, "Gold", true)
                 call AddUnitAnimationProperties(caster, "Alternate", true)
                 //사운드

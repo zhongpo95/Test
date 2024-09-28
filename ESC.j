@@ -88,7 +88,14 @@ scope ESC initializer init
         endif
     endfunction
     
+    
     private function ESCAction takes nothing returns nothing
+        //신속1800설정
+        set Equip_Swiftness[0] = 1800
+        call ItemUIStatsSet(0)
+    endfunction
+
+    private function ESCAction9999 takes nothing returns nothing
         local integer i = 0
         local integer j = 0
         local unit u

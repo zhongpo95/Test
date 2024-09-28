@@ -1,31 +1,56 @@
 scope HeroNarF
 globals
     private constant real CoolTime = 5.00
+    //쉐클시간
+    private constant real Time = 2.3
 endglobals
 
-private struct FxEffect
-    unit caster
-    real TargetX
-    real TargetY
-    integer pid
-    integer i
-    real speed
-    private method OnStop takes nothing returns nothing
-        set caster = null
-        set TargetX = 0
-        set TargetY = 0
-        set pid = 0
-        set i = 0
-        set speed = 0
-    endmethod
-    //! runtextmacro 연출()
-endstruct
+
+private function EffectFunction takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+
+endfunction
 
 private function Main takes nothing returns nothing
+    local real speed
+    local tick t
+    local SkillFx fx
+    local real r
+    local integer i
+    
+    //38 39 54 55
+
     if GetSpellAbilityId() == 'A02P' then
+        set t = tick.create(0)
+        set fx = SkillFx.Create()
+        set fx.caster = GetTriggerUnit()
+        set fx.TargetX = GetSpellTargetX()
+        set fx.TargetY = GetSpellTargetY()
+        set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set fx.i = 0
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+
+        //유닛애니메이션속도
+        call DummyMagicleash(fx.caster, Time /fx.Aspeed)
+        call AnimationStart3(fx.caster, 14, fx.Aspeed)
+        
+        call Sound3D(fx.caster,'A03J')
+
+        set r = GetRandomInt(0,1)
+        if r == 0 then
+            call Sound3D(fx.caster,'A04F')
+        elseif r == 1 then
+            call Sound3D(fx.caster,'A04D')
+        endif
+        set t.data = fx
+
+        call t.start( 0.02, false, function EffectFunction )
+
         call CooldownFIX(GetTriggerUnit(),'A02P',CoolTime)
     endif
 endfunction
+
     
 private function FSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
@@ -61,7 +86,6 @@ private function FSyncData2 takes nothing returns nothing
     local real angle
     local real speed
     local tick t
-    local FxEffect fx
     
     set p=null
 endfunction

@@ -1,6 +1,11 @@
 scope HeroNarA
 globals
-    private constant real CoolTime = 5.00
+    private constant real CoolTime = 15.00
+    //쉐클시간
+    private constant real Time2 = 1.4
+    //버프지속시간,공증량
+    private constant real Time3 = 10
+    private constant integer Velue2 = 350
 endglobals
 
     private struct FxEffect
@@ -22,8 +27,26 @@ endglobals
     endstruct
 
 private function Main takes nothing returns nothing
+    local unit caster
+    local integer pid
+    local real speed
+
     if GetSpellAbilityId() == 'A02M' then
-        call CooldownFIX(GetTriggerUnit(),'A02M',CoolTime)
+        set caster = GetTriggerUnit()
+        set pid = GetPlayerId(GetOwningPlayer(caster))
+        set speed = ((100+SkillSpeed(pid))/100)
+
+        call Sound3D(caster,'A03S')
+        call Sound3D(caster,'A04H')
+
+        call DummyMagicleash(caster, Time2 /speed)
+        call AnimationStart3(caster, 3, (100+speed)/100)
+
+        if Hero_Buff[pid] == 0 then
+            call BuffNar01.Apply( caster, Time3, Velue2 )
+        endif
+        call CooldownFIX(caster,'A02M',CoolTime)
+        set caster = null
     endif
 endfunction
     

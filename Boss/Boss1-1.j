@@ -3,6 +3,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         integer BossTip
         //8초
         private constant integer Pattern1Cool = 400
+        private constant integer CounterTime = 125
         private unit CheckUnit
 
         private constant real scale = 750
@@ -145,7 +146,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
 
                     call fx.Stop()
                 //카운터를 못침
-                elseif fx.i == 75 then
+                elseif fx.i == CounterTime then
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)

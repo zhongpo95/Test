@@ -273,6 +273,9 @@ private function EffectFunction4 takes nothing returns nothing
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
+            if HeroSkillLevel[fx.pid][1] >= 1 then
+                call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
+            endif
         endif
         if Stack[fx.pid] > 11 and fx.i == 1 then
             call Sound3D(fx.caster,'A03O')
@@ -286,9 +289,6 @@ private function EffectFunction4 takes nothing returns nothing
         elseif fx.i == 2 then
             call UnitRemoveAbility( fx.caster, 'B000' )
             call UnitApplyTimedLife( SDummy[fx.pid], 'BHwe', 0.1 )
-            if true then
-                call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
-            endif
             set SDummy[fx.pid] = null
             call t.start( 0.2, false, function EffectFunction4 )
         else
@@ -492,7 +492,7 @@ private function EffectFunction8 takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD8 )
         endif
         if Size[fx.pid] == 75 then
-            if true then
+            if HeroSkillLevel[fx.pid][1] >= 1 then
                 call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
             endif
         endif
@@ -778,5 +778,3 @@ endfunction
     set t = null
 //! runtextmacro 이벤트_끝()
 endscope
-
-//쉐클도중에 움직여짐 수정필요

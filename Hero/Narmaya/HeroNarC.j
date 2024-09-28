@@ -25,7 +25,7 @@ globals
     //전진시간
     private constant real Time3 = 0.40
     //전진거리
-    private constant real MoveD = 450
+    private constant real MoveD = 350
 
     private constant real scale = 500
     private constant real distance = 400
@@ -107,7 +107,7 @@ endglobals
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
                 set NarStack[fx.pid] = 0
-                if true then
+                if HeroSkillLevel[fx.pid][1] >= 1 then
                     call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
                 endif
                 call fx.Stop()
@@ -197,7 +197,8 @@ endglobals
             //일반평타
             //파란이펙트
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+                call UnitEffectTime2('e02R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )            
             endif
             call fx.Stop()
             call t.destroy()
@@ -219,19 +220,19 @@ endglobals
             endif
 
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+                call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD3 )
             endif
             
             call fx.Stop()
             call t.destroy()
         else
-            call SetUnitSafePolarUTA(fx.caster,MoveD/(20/fx.speed),GetUnitFacing(fx.caster))
+            call SetUnitSafePolarUTA(fx.caster, MoveD/(20/fx.speed), GetUnitFacing(fx.caster))
             call t.start( 0.02, false, function EffectFunction ) 
         endif
     endfunction
     
     private function Main takes nothing returns nothing
-        local integer pid
         local tick t
         local SkillFx fx
         local real random
@@ -242,9 +243,9 @@ endglobals
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()
-            set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-            set fx.speed = ((100+SkillSpeed(pid))/100)
-            set fx.index = IndexUnit(MainUnit[pid])
+            set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+            set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+            set fx.index = IndexUnit(MainUnit[fx.pid])
             set fx.i = 0 
             
             call CooldownFIX(fx.caster,'A02R', CoolTime)
@@ -265,7 +266,7 @@ endglobals
                 endif
             //겐지
             elseif NarForm[fx.index] == 1 then
-                call DummyMagicleash(fx.caster,Time /fx.speed)
+                call DummyMagicleash(fx.caster,Time3 /fx.speed)
                 call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
                 set t.data = fx
                 call t.start( 0.02, false, function EffectFunction ) 

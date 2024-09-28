@@ -347,30 +347,34 @@ endfunction
     set HeroSkillID9[14] = 'A02R'
     set HeroSkillID10[14] = 'A02S'
 
-    set HeroSkill0Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하며, 적에게 공격 적중시 나비 1개 획득"
-    set HeroSkill0Text2[14] = "WER스킬을 제외한 스킬 사용시 차지 속도 150% 증가 (기본공격 차지속도증가랑 중첩불가)"
-    set HeroSkill0Text3[14] = "2단계 차지 시 2타 피해량이 적에게 주는 피해가 50% 증가하며, 풀 차지 시 2타 피해량이 적에게 주는 피해가 100.0% 증가된다."
+
+    set HeroSkill0Text1[14] = ""
+    set HeroSkill0Text2[14] = ""
+    set HeroSkill0Text3[14] = ""
+
     set HeroSkill1Text1[14] = "E풀차지후 전환시 추가타격발생, R마지막 타격후 전환시 추가타격발생"
     set HeroSkill1Text2[14] = "R마지막 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가한다." 
-    set HeroSkill1Text3[14] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가한다."
+    set HeroSkill1Text3[14] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가한다, 즉시 R쿨타임 초기화시킨다."
+
     set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가한다."
     set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승한다."
     set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가된다."
-    set HeroSkill3Text1[14] = "적에게 주는 피해가 50.0% 증가한다."
-    set HeroSkill3Text2[14] = "차지 단계가 올라갈수록 공격력이 30.0% 상승한다."
-    set HeroSkill3Text3[14] = "풀 차지 시 적에게 주는 피해가 122% 증가한다."
-    set HeroSkill4Text1[14] = "재사용 대기시간이 8.0초 감소한다."
-    set HeroSkill4Text2[14] = "보호막 지속 시간이 6.0초 증가한다."
-    set HeroSkill4Text3[14] = "보호막 수치가 자신의 최대 생명력의 40%로 변경된다."
+
+    set HeroSkill3Text1[14] = ""
+    set HeroSkill3Text2[14] = ""
+    set HeroSkill3Text3[14] = ""
+    set HeroSkill4Text1[14] = ""
+    set HeroSkill4Text2[14] = ""
+    set HeroSkill4Text3[14] = ""
     set HeroSkill5Text1[14] = ""
     set HeroSkill5Text2[14] = ""
     set HeroSkill5Text3[14] = ""
-    set HeroSkill6Text1[14] = "공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시키고, 공격 적중 시 자신의 공격력이 10.0초간 35% 증가한다."
-    set HeroSkill6Text2[14] = "3.0초간 자신의 최대 생명력의 30.0% 만큼 보호막을 생성한다."
-    set HeroSkill6Text3[14] = "12.0초간 약점을 노출시켜 헤드 어택 및 백 어택의 경우, 받는 피해 효과 12.0% 증가한다."
-    set HeroSkill7Text1[14] = "적에게 주는 피해가 100.0% 증가한다."
-    set HeroSkill7Text2[14] = "풀 차지 시 마지막 공격의 피해가 100% 증가한다."
-    set HeroSkill7Text3[14] = "풀 차지 시 마지막 공격의 피해가 89.1% 증가한다."
+    set HeroSkill6Text1[14] = ""
+    set HeroSkill6Text2[14] = ""
+    set HeroSkill6Text3[14] = ""
+    set HeroSkill7Text1[14] = ""
+    set HeroSkill7Text2[14] = ""
+    set HeroSkill7Text3[14] = ""
 
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 시스템_끝()
