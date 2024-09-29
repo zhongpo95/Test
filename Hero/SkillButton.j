@@ -9,6 +9,7 @@ library SkillButton requires DataUnit
         integer pid
         integer i
         real r
+        real r2
         integer index
         real speed
         real Aspeed
@@ -20,6 +21,7 @@ library SkillButton requires DataUnit
             set pid = 0
             set i = 0
             set r = 0
+            set r2 = 0
             set index = 0
             set speed = 0
             set Aspeed = 0

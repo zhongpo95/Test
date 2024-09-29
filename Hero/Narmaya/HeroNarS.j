@@ -2,14 +2,36 @@ scope HeroNarS
 globals
     private constant real CoolTime = 5.00
     //쉐클시간
-    private constant real Time = 1.0
+    private constant real Time = 0.8
+    //후진거리
+    private constant real MoveD = 600
 endglobals
 
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
+    
+    set fx.i = fx.i + 1
 
+    if fx.i == 1 then
+        call SetUnitZVelo( fx.caster, 12)
+    endif
+
+
+    if fx.i >= 40/fx.speed then
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            //call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
+            //call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+        endif
+        //call Sound3D(fx.caster,'A03W')
+        call fx.Stop()
+        call t.destroy()
+    else
+        call SetUnitSafePolarUTA(fx.caster,fx.r/(40/fx.speed), fx.r2 )
+        call t.start( 0.02, false, function EffectFunction ) 
+    endif
 endfunction
+
 //45 56 57
 private function Main takes nothing returns nothing
     local real speed
@@ -17,6 +39,7 @@ private function Main takes nothing returns nothing
     local SkillFx fx
     local real r
     local integer i
+    local effect e
 
     if GetSpellAbilityId() == 'A02N' then
         set t = tick.create(0)
@@ -26,12 +49,20 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
-        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+        set fx.r = MoveD
 
         //유닛애니메이션속도
-        call DummyMagicleash(fx.caster, Time /fx.Aspeed)
-        call AnimationStart3(fx.caster, 12, fx.Aspeed)
+        call DummyMagicleash(fx.caster, Time /fx.speed)
+        call AnimationStart3(fx.caster, 12, fx.speed)
         
+        set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXEffectMatRotateZ(e,AnglePBW(fx.TargetX,fx.TargetY,fx.caster))
+        call DestroyEffect(e)
+        set e = null
+
+        set fx.r2 = AnglePBW(fx.TargetX,fx.TargetY,fx.caster)
+
         call Sound3D(fx.caster,'A03Z')
 
         set r = GetRandomInt(0,1)

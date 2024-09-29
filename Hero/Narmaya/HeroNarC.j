@@ -125,6 +125,7 @@ endglobals
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             endif
         elseif NarStack[fx.pid] ==  1 then
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 2 )
             if fx.i == 5 then
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                 set NarStack[fx.pid] = NarStack[fx.pid] + 1
@@ -148,6 +149,7 @@ endglobals
                 call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
             endif
         elseif NarStack[fx.pid] == 2 then
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 2 )
             if fx.i == 4 then
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                 set NarStack[fx.pid] = NarStack[fx.pid] + 1
