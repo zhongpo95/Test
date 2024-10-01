@@ -103,6 +103,13 @@ library AirbourneSystem initializer init
             call SaveReal(physics,GetHandleId(u),ZVELO,r)
         endif
     endfunction
+
+    function SetUnitZVeloP takes unit u, real r returns nothing
+        if not IsUnitInGroup(u,GROUP) then
+            call regist(u)
+        endif
+        call SaveReal(physics,GetHandleId(u),ZVELO,r)
+    endfunction
     
     function GetUnitGravity takes unit u returns real
         return LoadReal(physics,GetHandleId(u),GRAVITY)

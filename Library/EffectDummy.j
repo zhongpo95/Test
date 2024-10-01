@@ -84,16 +84,17 @@ library EffectDummy
     //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy3")
         local EffectDummy t = EffectDummy.Create()
         set t.unit = CreateUnit(Player(NeutralCode),expired.id,GetUnitX(expired.target),GetUnitY(expired.target),expired.r)
-        call t.Start(expired.time, false)
+        call t.Start(expired.time2, false)
         set expired.target = null
         call expired.Destroy()
     //! runtextmacro 이벤트_끝()
 
-    function DelayCreate takes unit target, integer id, real r, real time returns nothing
+    function DelayCreate takes unit target, integer id, real r, real time, real time2 returns nothing
         local EffectDummy3 t = EffectDummy3.Create()
         set t.id = id
         set t.target = target
         set t.r = r
+        set t.time = time2
         call t.Start(time,false)
     endfunction
 endlibrary

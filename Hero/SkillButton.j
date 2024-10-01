@@ -4,22 +4,27 @@ library SkillButton requires DataUnit
 
     struct SkillFx
         unit caster
+        unit dummy
         real TargetX
         real TargetY
         integer pid
         integer i
+        integer j
         real r
         real r2
         integer index
         real speed
         real Aspeed
         real A2speed
+        party ul
         private method OnStop takes nothing returns nothing
             set caster = null
+            set dummy = null
             set TargetX = 0
             set TargetY = 0
             set pid = 0
             set i = 0
+            set j = 0
             set r = 0
             set r2 = 0
             set index = 0

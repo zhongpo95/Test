@@ -1,29 +1,137 @@
 scope HeroNarS
 globals
+    private constant real DR = 1.00
+    private constant real SD = 0.00
     private constant real CoolTime = 5.00
     //쉐클시간
     private constant real Time = 0.8
     //후진거리
     private constant real MoveD = 600
+
+    private constant real TICK = 20
+
+    private constant real scale = 600
+    private constant real distance = 450
+    //범위체크
+    private group CheckG
+    //더미 유닛
+    private unit CheckU
 endglobals
+
+private function splashD takes nothing returns nothing
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    //local integer level = HeroSkillLevel[pid][6]
+    local real velue = 1.0
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
+            //뒤는안떄림
+            if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
+                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+                set random = GetRandomInt(0,2)
+                if random == 0 then
+                    call Sound3D(GetEnumUnit(),'A03X')
+                elseif random == 1 then
+                    call Sound3D(GetEnumUnit(),'A03Y')
+                elseif random == 2 then
+                    call Sound3D(GetEnumUnit(),'A05N')
+                endif
+                call GroupAddUnit(CheckG,GetEnumUnit())
+            endif
+        endif
+    endif
+endfunction
+
+private function EffectFunction2 takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+    local real X
+    local real Y
+    
+    set fx.i = fx.i + 1
+    
+    if fx.i == 1 then
+        if fx.j == 0 then
+            set fx.dummy = UnitEffectTimeEX('e02T', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+        elseif fx.j == 1 then
+            set fx.dummy = UnitEffectTimeEX('e02U', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+        elseif fx.j == 2 then
+            set fx.dummy = UnitEffectTimeEX('e02V', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+        endif
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+    endif
+    
+    if fx.i != (TICK+1) then
+        set X = GetWidgetX(fx.dummy)
+        set Y = GetWidgetY(fx.dummy)
+        call SetUnitX(fx.dummy, X + PolarX( 60, fx.r ))
+        call SetUnitY(fx.dummy, Y + PolarY( 60, fx.r ))
+        set CheckG = fx.ul.super
+        set CheckU = fx.dummy
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
+        set CheckU = null
+        set CheckG = null
+        call t.start( 0.02, false, function EffectFunction2 )
+    else
+        call fx.ul.destroy()
+        call fx.Stop()
+        call t.destroy()
+    endif
+
+endfunction
 
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
+    local tick t2
+    local SkillFx fx2
     
     set fx.i = fx.i + 1
 
     if fx.i == 1 then
-        call SetUnitZVelo( fx.caster, 12)
+        call SetUnitZVeloP( fx.caster, 12)
+    elseif fx.i == R2I(10/fx.speed) then
+        set t2 = tick.create(0)
+        set fx2 = SkillFx.Create()
+        set fx2.ul = party.create()
+        set fx2.caster = fx.caster
+        set fx2.r = fx.r2 + 180
+        set fx2.pid = GetPlayerId(GetOwningPlayer(fx2.caster))
+        set fx2.i = 0
+        set fx2.j = 0
+        set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
+        set t2.data = fx2
+        call t2.start( 0.02, false, function EffectFunction2 ) 
+    elseif fx.i == R2I(18/fx.speed) then
+        set t2 = tick.create(0)
+        set fx2 = SkillFx.Create()
+        set fx2.ul = party.create()
+        set fx2.caster = fx.caster
+        set fx2.r = fx.r2 + 180
+        set fx2.pid = GetPlayerId(GetOwningPlayer(fx2.caster))
+        set fx2.i = 0
+        set fx2.j = 1
+        set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
+        set t2.data = fx2
+        call t2.start( 0.02, false, function EffectFunction2 ) 
+    elseif fx.i == R2I(40/fx.speed) then
+        set t2 = tick.create(0)
+        set fx2 = SkillFx.Create()
+        set fx2.ul = party.create()
+        set fx2.caster = fx.caster
+        set fx2.r = fx.r2 + 180
+        set fx2.pid = GetPlayerId(GetOwningPlayer(fx2.caster))
+        set fx2.i = 0
+        set fx2.j = 2
+        set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
+        set t2.data = fx2
+        call t2.start( 0.02, false, function EffectFunction2 ) 
     endif
 
 
     if fx.i >= 40/fx.speed then
-        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-            //call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
-            //call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-        endif
-        //call Sound3D(fx.caster,'A03W')
         call fx.Stop()
         call t.destroy()
     else
@@ -47,7 +155,7 @@ private function Main takes nothing returns nothing
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
-        set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.r = MoveD
@@ -63,7 +171,8 @@ private function Main takes nothing returns nothing
 
         set fx.r2 = AnglePBW(fx.TargetX,fx.TargetY,fx.caster)
 
-        call Sound3D(fx.caster,'A03Z')
+        //call Sound3D(fx.caster,'A03Z')
+        call Sound3D(fx.caster,'A040')
 
         set r = GetRandomInt(0,1)
         if r == 0 then

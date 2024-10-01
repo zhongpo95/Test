@@ -1,13 +1,147 @@
 scope HeroNarD
 globals
+    private constant real DR = 1.00
+    private constant real SD = 0.00
     private constant real CoolTime = 5.00
     //쉐클시간
     private constant real Time = 2.3
+
+    private constant real scale = 800
+    private constant real distance = 500
+    private constant real scale2 = 900
+    private constant real distance2 = 650
 endglobals
+
+private function splashD takes nothing returns nothing
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    //local integer level = HeroSkillLevel[pid][6]
+    local real velue = 1.0
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        set random = GetRandomInt(0,2)
+        if random == 0 then
+            call Sound3D(GetEnumUnit(),'A03X')
+        elseif random == 1 then
+            call Sound3D(GetEnumUnit(),'A03Y')
+        elseif random == 2 then
+            call Sound3D(GetEnumUnit(),'A05N')
+        endif
+    endif
+endfunction
+
+private function splashD2 takes nothing returns nothing
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    //local integer level = HeroSkillLevel[pid][6]
+    local real velue = 1.0
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
+        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        set random = GetRandomInt(0,2)
+        if random == 0 then
+            call Sound3D(GetEnumUnit(),'A03X')
+        elseif random == 1 then
+            call Sound3D(GetEnumUnit(),'A03Y')
+        elseif random == 2 then
+            call Sound3D(GetEnumUnit(),'A05N')
+        endif
+    endif
+endfunction
 
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
+    local effect e
+
+    set fx.i = fx.i + 1
+
+    if fx.i == 1 then
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXSetEffectSize(e, 3.00)
+        call EXEffectMatRotateY(e, 180)
+        call DestroyEffect(e)
+        set e = null
+        call t.start( 0.02, false, function EffectFunction )
+    elseif fx.i == R2I(20/fx.speed) then
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXSetEffectSize(e, 3.00)
+        call EXEffectMatRotateY(e, 180)
+        call DestroyEffect(e)
+        set e = null
+        call t.start( 0.02, false, function EffectFunction )
+    elseif fx.i == R2I(40/fx.speed) then
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXSetEffectSize(e, 3.00)
+        call EXEffectMatRotateY(e, 180)
+        call DestroyEffect(e)
+        set e = null
+        call t.start( 0.02, false, function EffectFunction )
+    elseif fx.i == R2I(60/fx.speed) then
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXSetEffectSize(e, 3.00)
+        call EXEffectMatRotateY(e, 180)
+        call DestroyEffect(e)
+        set e = null
+        call t.start( 0.02, false, function EffectFunction )
+    elseif fx.i == R2I(90/fx.speed) then
+        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        call EXSetEffectSize(e, 3.00)
+        call EXEffectMatRotateY(e, 180)
+        call DestroyEffect(e)
+        set e = null
+        call UnitEffectTimeEX('e030',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.r,0.8)
+        call t.start( 0.02, false, function EffectFunction )
+    elseif fx.i >= R2I(105/fx.speed) then
+        call fx.Stop()
+        call t.destroy()
+    else
+        call t.start( 0.02, false, function EffectFunction )
+    endif
 
 endfunction
 
@@ -26,11 +160,12 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
-        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        set fx.r = GetUnitFacing(fx.caster)
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
 
         //유닛애니메이션속도
-        call DummyMagicleash(fx.caster, Time /fx.Aspeed)
-        call AnimationStart3(fx.caster, 13, fx.Aspeed)
+        call DummyMagicleash(fx.caster, Time /fx.speed)
+        call AnimationStart3(fx.caster, 13, fx.speed)
         
         call Sound3D(fx.caster,'A03J')
 
@@ -42,7 +177,7 @@ private function Main takes nothing returns nothing
         endif
         set t.data = fx
 
-        call t.start( 0.02, false, function EffectFunction )
+        call t.start( 0.20 /fx.speed , false, function EffectFunction )
 
         call CooldownFIX(GetTriggerUnit(),'A02O',CoolTime)
     endif

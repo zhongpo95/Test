@@ -62,7 +62,6 @@ private struct SkillRarW
         set speed = 0
         set Aspeed = 0
         set A2speed = 0
-        call ul.destroy()
     endmethod
     //! runtextmacro 연출()
 endstruct
@@ -166,6 +165,7 @@ private function EffectFunction3 takes nothing returns nothing
         set CheckG = null
         call t.start( 0.02, false, function EffectFunction3 )
     else
+        call fx.ul.destroy()
         call fx.Stop()
         call t.destroy()
     endif

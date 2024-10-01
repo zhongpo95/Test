@@ -1,15 +1,231 @@
 scope HeroNarF
 globals
-    private constant real CoolTime = 5.00
-    //쉐클시간
-    private constant real Time = 2.3
+    private constant real CoolTime = 10.00
+
+    private constant real DR = 13
+    private constant real DR2 = 7
+    private constant real SD = 70
+    
+    //모션시간
+    private constant real Time1 = 1.0
+    private constant real Time2 = 0.60
+
+    //차지시간
+    private constant real EffectTime = 3.0 / 3
+
+    private constant real scale = 1300
+    private constant real distance = 1000
+
+    private integer array Stack
+    private integer array Size
+    private unit array SDummy
 endglobals
 
+
+private function splashD takes nothing returns nothing
+    local real Velue = 1.0
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    //local integer level = HeroSkillLevel[pid][2]
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        set random = GetRandomInt(0,2)
+        if random == 0 then
+            call Sound3D(GetEnumUnit(),'A03X')
+        elseif random == 1 then
+            call Sound3D(GetEnumUnit(),'A03Y')
+        elseif random == 2 then
+            call Sound3D(GetEnumUnit(),'A05N')
+        endif
+    endif
+endfunction
+
+
+private function EffectFunction4 takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+    local integer i = 0
+
+    set fx.i = fx.i + 1
+        
+    if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+        if Stack[fx.pid] == 11 then
+        elseif Stack[fx.pid] == 12 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            if fx.i == 1 then
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+            endif
+        elseif Stack[fx.pid] == 13 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            if fx.i == 1 then
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+            endif
+        elseif Stack[fx.pid] == 14 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            if fx.i == 1 then
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+            endif
+        endif
+        if fx.i == 1 then
+            call Sound3D(fx.caster,'A03U')
+            if GetRandomInt(0,1) == 0 then
+                call Sound3D(fx.caster,'A05S')
+            else
+                call Sound3D(fx.caster,'A05T')
+            endif
+        endif
+
+        if fx.i == 3 then
+            set NarStack[fx.pid] = 0
+            set Stack[fx.pid] = 0
+            call fx.Stop()
+            call t.destroy()
+        elseif fx.i == 2 then
+            call UnitRemoveAbility( fx.caster, 'B000' )
+            call UnitApplyTimedLife( SDummy[fx.pid], 'BHwe', 0.1 )
+            set SDummy[fx.pid] = null
+            call t.start( 0.2, false, function EffectFunction4 )
+        else
+            call t.start( 0.2, false, function EffectFunction4 )
+        endif
+    else
+        set NarStack[fx.pid] = 0
+        set Stack[fx.pid] = 0
+        call fx.Stop()
+        call t.destroy()
+    endif
+endfunction
+
+private function EffectFunction3 takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+
+        
+    if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+        call AnimationStart3(fx.caster,16, fx.A2speed)
+        set fx.i = 0
+        call t.start( Time2 / fx.A2speed, false, function EffectFunction4 )
+    else
+        set NarStack[fx.pid] = 0
+        set Stack[fx.pid] = 0
+        call fx.Stop()
+        call t.destroy()
+    endif
+
+endfunction
+
+private function EffectFunction2 takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+    local string data
+    local integer random
+    local integer i
+        
+    //38 39 54 55
+    if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+        call AnimationStart3(fx.caster,15, fx.A2speed)
+        set i = GetRandomInt(1,3)
+        call Sound3D(fx.caster,'A03T')
+        call Sound3D(fx.caster,'A049')
+        //call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+        call UnitEffectTime2('e032',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.4,0)
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+        if Stack[fx.pid] == 11 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        elseif Stack[fx.pid] == 12 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        elseif Stack[fx.pid] == 13 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        elseif Stack[fx.pid] == 14 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+        endif
+        call CastingBarShow(Player(fx.pid),false)
+        call t.start( Time1 / fx.A2speed, false, function EffectFunction3 )
+    endif
+endfunction
 
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
-
+    local string data
+    local effect e
+    local integer i
+    
+    set fx.i = fx.i + 1
+    set Size[fx.pid] = fx.i
+    if Size[fx.pid] == 76 then
+        set Size[fx.pid] = 75
+    endif
+    if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+        if Stack[fx.pid] == 1 or Stack[fx.pid] == 2 or Stack[fx.pid] == 3 or Stack[fx.pid] == 4 then
+            if fx.i < 25 then
+                set Stack[fx.pid] = 1
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i)
+                endif
+                call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
+            elseif fx.i == 25 then
+                call Sound3D(fx.caster,'A03L')
+                set Stack[fx.pid] = 2
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i)
+                endif
+                call t.start( (EffectTime / fx.Aspeed) /25 * 2, false, function EffectFunction )
+                set fx.i = fx.i + 1
+            elseif fx.i < 50 then
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i - 25)
+                endif
+                call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
+            elseif fx.i == 50 then
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                call Sound3D(fx.caster,'A03M')
+                set Stack[fx.pid] = 3
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i - 25)
+                endif
+                call t.start( (EffectTime / fx.Aspeed) /25 * 2, false, function EffectFunction )
+                set fx.i = fx.i + 1
+            elseif fx.i < 75 then
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i - 50)
+                endif
+                call t.start( (EffectTime / fx.Aspeed) /25, false, function EffectFunction )
+            elseif fx.i == 75 then
+                call Sound3D(fx.caster,'A03N')
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                set Stack[fx.pid] = 4
+                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                call DestroyEffect(e)
+                set e = null
+                if Player(fx.pid) == GetLocalPlayer() then
+                    call DzFrameSetValue(CastingBar, fx.i - 50)
+                endif
+                call t.start( 1.0, false, function EffectFunction )
+            elseif fx.i == 76 then
+                if Stack[fx.pid] == 4 then
+                    set fx.i = 0
+                    set Stack[fx.pid] = 14
+                    call t.start( 0.02, false, function EffectFunction2 )
+                else
+                    call fx.Stop()
+                    call t.destroy()
+                endif
+            endif
+        else
+            call fx.Stop()
+            call t.destroy()
+        endif
+    else
+        call fx.Stop()
+        call t.destroy()
+    endif
 endfunction
 
 private function Main takes nothing returns nothing
@@ -27,27 +243,34 @@ private function Main takes nothing returns nothing
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
-        set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.i = 0
-        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
+        //if HeroSkillLevel[fx.pid][2] >= 1 then
+        if true then
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        else
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        endif
+
+        set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
+
+        set Stack[fx.pid] = 1
 
         //유닛애니메이션속도
-        call DummyMagicleash(fx.caster, Time /fx.Aspeed)
         call AnimationStart3(fx.caster, 14, fx.Aspeed)
         
-        call Sound3D(fx.caster,'A03J')
-
-        set r = GetRandomInt(0,1)
-        if r == 0 then
-            call Sound3D(fx.caster,'A04F')
-        elseif r == 1 then
-            call Sound3D(fx.caster,'A04D')
+        if Player(fx.pid) == GetLocalPlayer() then
+            call DzFrameSetText(CastingTextFrame,"찰 나")
+            call DzFrameSetValue(CastingBar,0)
+            call CastingBarShow(Player(fx.pid),true)
         endif
+
         set t.data = fx
+        set SDummy[fx.pid] =  DummyMagicleash2( fx.caster )
+        call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction )
 
-        call t.start( 0.02, false, function EffectFunction )
-
-        call CooldownFIX(GetTriggerUnit(),'A02P',CoolTime)
+        call CooldownFIX(fx.caster,'A02P',CoolTime)
     endif
 endfunction
 
@@ -86,7 +309,75 @@ private function FSyncData2 takes nothing returns nothing
     local real angle
     local real speed
     local tick t
-    
+    local SkillFx fx
+
+    if Stack[pid] == 0 then
+        
+    elseif Stack[pid] == 1 then
+        set t = tick.create(0) 
+        set fx = SkillFx.Create()
+        set fx.pid = pid
+        set fx.caster = MainUnit[fx.pid]
+        set fx.i = 0
+        if HeroSkillLevel[fx.pid][2] >= 1 then
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        else
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        endif
+        set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set t.data = fx
+        set Stack[fx.pid] = 11
+        call t.start( 0.02, false, function EffectFunction2 )
+    elseif Stack[pid] == 2 then
+        set t = tick.create(0) 
+        set fx = SkillFx.Create()
+        set fx.pid = pid
+        set fx.caster = MainUnit[fx.pid]
+        set fx.i = 0
+        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
+        if HeroSkillLevel[fx.pid][2] >= 1 then
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        else
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        endif
+        set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set t.data = fx
+        set Stack[fx.pid] = 12
+        call t.start( 0.02, false, function EffectFunction2 )
+    elseif Stack[pid] == 3 then
+        set t = tick.create(0) 
+        set fx = SkillFx.Create()
+        set fx.pid = pid
+        set fx.caster = MainUnit[fx.pid]
+        set fx.i = 0
+        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
+        if HeroSkillLevel[fx.pid][2] >= 1 then
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        else
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        endif
+        set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set t.data = fx
+        set Stack[fx.pid] = 13
+        call t.start( 0.02, false, function EffectFunction2 )
+    elseif Stack[pid] == 4 then
+        set t = tick.create(0) 
+        set fx = SkillFx.Create()
+        set fx.pid = pid
+        set fx.caster = MainUnit[fx.pid]
+        set fx.i = 0
+        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
+        if HeroSkillLevel[fx.pid][2] >= 1 then
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
+        else
+            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
+        endif
+        set fx.A2speed = ((100+SkillSpeed(pid))/100)
+        set t.data = fx
+        set Stack[fx.pid] = 14
+        call t.start( 0.02, false, function EffectFunction2 )
+    endif
+
     set p=null
 endfunction
 

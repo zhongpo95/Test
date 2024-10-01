@@ -72,30 +72,30 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
 
             if st.i == 4 then
                 call ForGroup(st.ul.super,function VAction4)
-                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5, 0.02 )
                 call t.start(2.5,false,function CutinBoom)
             elseif st.i == 3 then
                 call ForGroup(st.ul.super,function VAction3)
-                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5, 0.02 )
                 call t.start(2.5,false,function CutinBoom)
             elseif st.i == 2 then
                 call ForGroup(st.ul.super,function VAction2)
-                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
-                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+                call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5, 0.02 )
+                call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5, 0.02 )
                 call t.start(2.5,false,function CutinBoom)
             endif
 
             //쓴사람 사운드 출력
             call ForGroup(st.ul.super,function VActionSound)
         elseif st.i != 0 then
-            call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5 )
-            call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5 )
-            call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5 )
+            call DelayCreate(st.caster, 'e023', GetRandomReal(0,360), 2.5, 0.02 )
+            call DelayCreate(st.caster, 'e024', GetRandomReal(0,360), 2.5, 0.02 )
+            call DelayCreate(st.caster, 'e025', GetRandomReal(0,360), 2.5, 0.02 )
             call t.start(2.5,false,function CutinBoom)
         else
             set st.cut1 = 0
