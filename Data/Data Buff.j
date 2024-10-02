@@ -1,4 +1,31 @@
 library BuffData requires Struct2Buff, StatsSet
+    //무적
+    struct BuffNoDM
+        /* OnBeforeStack : Buff 중첩 시도 시 발동되는 메소드 */
+        method OnBeforeStack takes unit caster, real timeout, real dur, integer arg returns boolean
+            return .Remaining < dur /* 남은 시간 < 새로 적용될 시간 : 일 경우에만 갱신! */
+        endmethod
+        /* OnStack : Buff 중첩 시도(OnBeforeStack) 성공(true) 시 발동되는 메소드 */
+        method OnAfterStack takes unit caster, real timeout, real dur, integer arg returns nothing
+            set .Timeout = timeout /* 새로운 시간 설정으로 갱신 */
+            set .Duration = dur
+            set .Argument = arg
+        endmethod
+        /* OnApply : Buff 최초 적용 성공 시 발동되는 메소드 */
+        method OnApply takes nothing returns nothing
+            call UnitAddAbility(.Target, 'A01V')
+        endmethod
+        /* OnRemove : Buff 데이터 삭제 시 발동되는 메소드 */
+        method OnRemove takes nothing returns nothing
+            call UnitRemoveAbility(.Target, 'A01V')
+        endmethod
+        /* OnDuration : 지속 시간 만료 시 발동되는 메소드(영구 지속 시 발동안함) */
+        method OnDuration takes nothing returns nothing
+        endmethod
+        /* struct를 Buff로 만듦 */
+        //! runtextmacro Struct2Buff("-1.0") /* 틱 사용안함 = 틱 발동형 버프가 아님 */
+    endstruct
+
     //스턴 면역
     struct BuffNoST
         /* OnBeforeStack : Buff 중첩 시도 시 발동되는 메소드 */

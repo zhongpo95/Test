@@ -43,8 +43,24 @@ private function Main takes nothing returns nothing
         call AnimationStart3(caster, 3, (100+speed)/100)
 
         if Hero_Buff[pid] == 0 then
-            call BuffNar01.Apply( caster, Time3, Velue2 )
+            if HeroSkillLevel[pid][4] >= 2 then
+                call BuffNar01.Apply( caster, Time3 * 1.5, Velue2 )
+            else
+                call BuffNar01.Apply( caster, Time3, Velue2 )
+            endif
         endif
+
+        if HeroSkillLevel[pid][4] >= 1 then
+            if HeroSkillLevel[pid][4] >= 3 then
+                if GetRandomInt(0,1) == 1 then
+                    call NarNabiPlus(pid,6)
+                endif
+            else
+                call NarNabiPlus(pid,3)
+            endif
+        endif
+
+
         call CooldownFIX(caster,'A02M',CoolTime)
         set caster = null
     endif

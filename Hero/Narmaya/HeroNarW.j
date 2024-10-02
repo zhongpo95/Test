@@ -27,11 +27,7 @@ globals
     private constant real TICK = 20
     private constant real scale = 300
     private constant real distance = 175
-
-    integer array NarForm
-    integer array NarStack
-    unit array NarFormG
-    unit array NarFormC
+    private boolean StackChecker
 endglobals
 
 
@@ -128,6 +124,10 @@ private function splashD takes nothing returns nothing
                 call GroupAddUnit(CheckG,GetEnumUnit())
                 if HeroSkillLevel[fx.pid][1] >= 3 then
                     call t.start(0.33, false, function splashEffect)
+                    if StackChecker == false then
+                        call NarNabiPlus(fx.pid,1)
+                        set StackChecker = true
+                    endif
                 else
                     call fx.Stop()
                     call t.destroy()
@@ -150,7 +150,10 @@ private function EffectFunction3 takes nothing returns nothing
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',CoolTime)
-        call CooldownSet(fx.caster,'A02L',0)
+        
+        if HeroSkillLevel[fx.pid][3] >= 3 then
+            call CooldownSet(fx.caster,'A02L',0)
+        endif
     endif
     
     if fx.i != (TICK+1) then
@@ -160,7 +163,9 @@ private function EffectFunction3 takes nothing returns nothing
         call SetUnitY(fx.dummy, Y + PolarY( 60, fx.Angle ))
         set CheckG = fx.ul.super
         set CheckU = fx.dummy
+        set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
+        set StackChecker = false
         set CheckU = null
         set CheckG = null
         call t.start( 0.02, false, function EffectFunction3 )
@@ -237,6 +242,10 @@ private function splashD3 takes nothing returns nothing
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
+            if StackChecker == false then
+                call NarNabiPlus(pid,1)
+                set StackChecker = true
+            endif
         endif
     endif
 endfunction
@@ -255,7 +264,9 @@ private function EffectFunction2 takes nothing returns nothing
     elseif fx.i == 11 then
         call AnimationStart3(fx.caster,15, (100+fx.speed)/100)
         call UnitEffectTime2('e02Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
+        set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
+        set StackChecker = false
         if HeroSkillLevel[fx.pid][1] >= 2 then
             set NarStack[fx.pid] = 3
         endif
@@ -271,37 +282,43 @@ endfunction
 
 private function Main takes nothing returns nothing
     local unit caster
-    local integer i
+    local integer pid
     local tick t
     local SkillRarW fx
     
 
     if GetSpellAbilityId() == 'A02J' then
         set caster = GetTriggerUnit()
-        set i = IndexUnit(caster)
+        set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         
         //전환강화버프
         if BuffNar00.Exists( caster ) then
             //카구라
-            if NarForm[i] != 0 then
+            if NarForm[pid] != 0 then
                 set t = tick.create(0) 
                 set fx = SkillRarW.Create()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)
                 call BuffNar00.Stop( fx.caster )
-                set NarForm[i] = 0
+                set NarForm[pid] = 0
                 set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 0
                 call AddUnitAnimationProperties(fx.caster, "Gold", true)
                 call AddUnitAnimationProperties(fx.caster, "Alternate", true)
                 //표기변경
                 if GetLocalPlayer() == GetOwningPlayer(fx.caster) then
                     call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[0],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[1],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[2],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[3],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[4],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[5],"Narmaya_blue.blp",0)
                 endif
-                if not IsUnitDeadVJ(NarFormG[i]) then
-                    call KillUnit(NarFormG[i])
+                if not IsUnitDeadVJ(NarFormG[pid]) then
+                    call KillUnit(NarFormG[pid])
                 endif
-                set NarFormC[i] = CreateUnit(GetOwningPlayer(fx.caster),'e028',0,0,0)
+                set NarFormC[pid] = CreateUnit(GetOwningPlayer(fx.caster),'e028',0,0,0)
 
                 call DummyMagicleash(fx.caster,Time /fx.speed)
                 call AnimationStart3(fx.caster,17, (100+fx.speed)/100)
@@ -316,17 +333,23 @@ private function Main takes nothing returns nothing
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)
                 set fx.i = 0
                 call BuffNar00.Stop( fx.caster )
-                set NarForm[i] = 1
+                set NarForm[pid] = 1
                 call AddUnitAnimationProperties(fx.caster, "Gold", false)
                 call AddUnitAnimationProperties(fx.caster, "Alternate", false)
                 //표기변경
                 if GetLocalPlayer() == GetOwningPlayer(fx.caster) then
                     call DzFrameSetTexture(NarAden,"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[0],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[1],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[2],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[3],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[4],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[5],"Narmaya_pink.blp",0)
                 endif
-                if not IsUnitDeadVJ(NarFormC[i]) then
-                    call KillUnit(NarFormC[i])
+                if not IsUnitDeadVJ(NarFormC[pid]) then
+                    call KillUnit(NarFormC[pid])
                 endif
-                set NarFormG[i] = CreateUnit(GetOwningPlayer(fx.caster),'e027',0,0,0)
+                set NarFormG[pid] = CreateUnit(GetOwningPlayer(fx.caster),'e027',0,0,0)
 
                 call DummyMagicleash(fx.caster,Time2 /fx.speed)
                 call AnimationStart3(fx.caster,6, (100+fx.speed)/100)
@@ -337,9 +360,9 @@ private function Main takes nothing returns nothing
             endif
         //그냥전환
         else
-            if NarForm[i] != 0 then
+            if NarForm[pid] != 0 then
                 //카구라
-                set NarForm[i] = 0
+                set NarForm[pid] = 0
                 set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 0
                 call AddUnitAnimationProperties(caster, "Gold", true)
                 call AddUnitAnimationProperties(caster, "Alternate", true)
@@ -352,17 +375,22 @@ private function Main takes nothing returns nothing
                 //표기변경
                 if GetLocalPlayer() == GetOwningPlayer(caster) then
                     call DzFrameSetTexture(NarAden,"Narmaya_blue.blp",0)
-                    //call DzFrameSetModel(NarAden2, "Narmaya_blue.mdx", 0, 0)
+                    call DzFrameSetTexture(NarAdens[0],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[1],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[2],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[3],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[4],"Narmaya_blue.blp",0)
+                    call DzFrameSetTexture(NarAdens[5],"Narmaya_blue.blp",0)
                 endif
-                if not IsUnitDeadVJ(NarFormG[i]) then
-                    call KillUnit(NarFormG[i])
+                if not IsUnitDeadVJ(NarFormG[pid]) then
+                    call KillUnit(NarFormG[pid])
                 endif
-                set NarFormC[i] = CreateUnit(GetOwningPlayer(caster),'e028',0,0,0)
+                set NarFormC[pid] = CreateUnit(GetOwningPlayer(caster),'e028',0,0,0)
                 //쿨타임조정
                 call CooldownFIX(caster,'A02J',CoolTime)
             else
                 //겐지
-                set NarForm[i] = 1
+                set NarForm[pid] = 1
                 call AddUnitAnimationProperties(caster, "Gold", false)
                 call AddUnitAnimationProperties(caster, "Alternate", false)
                 //사운드
@@ -374,12 +402,17 @@ private function Main takes nothing returns nothing
                 //표기변경
                 if GetLocalPlayer() == GetOwningPlayer(caster) then
                     call DzFrameSetTexture(NarAden,"Narmaya_pink.blp",0)
-                    //call DzFrameSetModel(NarAden2, "Narmaya_pink.mdx", 0, 0)
+                    call DzFrameSetTexture(NarAdens[0],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[1],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[2],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[3],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[4],"Narmaya_pink.blp",0)
+                    call DzFrameSetTexture(NarAdens[5],"Narmaya_pink.blp",0)
                 endif
-                if not IsUnitDeadVJ(NarFormC[i]) then
-                    call KillUnit(NarFormC[i])
+                if not IsUnitDeadVJ(NarFormC[pid]) then
+                    call KillUnit(NarFormC[pid])
                 endif
-                set NarFormG[i] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
+                set NarFormG[pid] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
                 //쿨타임조정
                 call CooldownFIX(caster,'A02J',CoolTime)
             endif

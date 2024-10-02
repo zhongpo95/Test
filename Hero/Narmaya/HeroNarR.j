@@ -24,10 +24,9 @@ private function RSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    local integer index = IndexUnit(MainUnit[pid])
     
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
-        if NarForm[index] == 0 then
+        if NarForm[pid] == 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
             set data=SubString(data,valueLen+1,dataLen)

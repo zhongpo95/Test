@@ -32,6 +32,7 @@ globals
     private constant real scale2 = 500
     private constant real distance2 = 350
 
+    private boolean StackChecker
     
 endglobals
 
@@ -57,9 +58,13 @@ endglobals
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
+        local integer level = HeroSkillLevel[pid][3]
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            if level >= 2 then
+                set Velue = Velue * 2
+            endif
+            call HeroDeal(splash.source, GetEnumUnit(), DR * Velue, false, false, SD, false)
             call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -68,6 +73,12 @@ endglobals
                 call Sound3D(GetEnumUnit(),'A03Y')
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
+            endif
+            if level >= 1 then
+                if StackChecker == false then
+                    call NarNabiPlus(pid,1)
+                    set StackChecker = true
+                endif
             endif
         endif
     endfunction
@@ -105,7 +116,17 @@ endglobals
             //막타
             if fx.i == 8 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                if fx.j == 0 then
+                    set StackChecker = false
+                else
+                    set StackChecker = true
+                endif
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+                if StackChecker == true then
+                    set fx.j = 1
+                endif
+                set StackChecker = false
+
                 set NarStack[fx.pid] = 0
                 if HeroSkillLevel[fx.pid][1] >= 1 then
                     call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
@@ -114,14 +135,41 @@ endglobals
                 call t.destroy()
             elseif fx.i == 1 or fx.i == 3 or fx.i == 5 then
                 call UnitEffectTime2('e02E',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.7,0)
+                if fx.j == 0 then
+                    set StackChecker = false
+                else
+                    set StackChecker = true
+                endif
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+                if StackChecker == true then
+                    set fx.j = 1
+                endif
+                set StackChecker = false
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             elseif fx.i == 7 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+                if fx.j == 0 then
+                    set StackChecker = false
+                else
+                    set StackChecker = true
+                endif
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+                if StackChecker == true then
+                    set fx.j = 1
+                endif
+                set StackChecker = false
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             else
+                if fx.j == 0 then
+                    set StackChecker = false
+                else
+                    set StackChecker = true
+                endif
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+                if StackChecker == true then
+                    set fx.j = 1
+                endif
+                set StackChecker = false
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             endif
         elseif NarStack[fx.pid] ==  1 then
@@ -182,6 +230,7 @@ endglobals
             call DummyMagicleash(fx.caster, Time5 /fx.speed)
             call AnimationStart3(fx.caster,19, (100+fx.speed)/100)
             set fx.i = 0
+            set fx.j = 0
             call Sound3DT(fx.caster,'A03E',0.02)
             call t.start( Time9/fx.speed, false, function EffectFunction3 ) 
         elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
@@ -253,7 +302,7 @@ endglobals
             call CooldownFIX(fx.caster,'A02R', CoolTime)
 
             //카구라
-            if NarForm[fx.index] == 0 then
+            if NarForm[fx.pid] == 0 then
                 if NarStack[fx.pid] == 3 then
                     set t.data = fx
                     call t.start( 0.02, false, function EffectFunction2 ) 
@@ -267,7 +316,7 @@ endglobals
                     call t.start( Time2 /fx.speed, false, function EffectFunction2 ) 
                 endif
             //겐지
-            elseif NarForm[fx.index] == 1 then
+            elseif NarForm[fx.pid] == 1 then
                 call DummyMagicleash(fx.caster,Time3 /fx.speed)
                 call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
                 set t.data = fx

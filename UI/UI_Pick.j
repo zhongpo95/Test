@@ -452,9 +452,24 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set HeroTypeId = 'H003'
         elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00I'
-            call DzFrameShow(NarAden, true)
-            call DzFrameShow(skillbuttonframe[8],true)
-            call DzFrameShow(NarAden2, true)
+            if p == GetLocalPlayer() then
+                call DzFrameShow(NarAden, true)
+                call DzFrameShow(NarAdens[0], false)
+                call DzFrameShow(NarAdens[1], false)
+                call DzFrameShow(NarAdens[2], false)
+                call DzFrameShow(NarAdens[3], false)
+                call DzFrameShow(NarAdens[4], false)
+                call DzFrameShow(NarAdens[5], false)
+                call DzFrameShow(NarAdens2[0], true)
+                call DzFrameShow(NarAdens2[1], true)
+                call DzFrameShow(NarAdens2[2], true)
+                call DzFrameShow(NarAdens2[3], true)
+                call DzFrameShow(NarAdens2[4], true)
+                call DzFrameShow(NarAdens2[5], true)
+            endif
+            set NarNabi[pid] = 0
+            //call DzFrameShow(skillbuttonframe[8],true)
+            //call DzFrameShow(NarAden2, true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -465,7 +480,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "2" then
 
         elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
-            set NarFormG[IndexUnit(MainUnit[pid])] = CreateUnit(Player(pid),'e027',0,0,0)
+            set NarFormG[pid] = CreateUnit(Player(pid),'e027',0,0,0)
         endif
 
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
@@ -618,7 +633,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         
         call SkillSetting(MainUnit[pid])
 
-        set HeroSkillPoint[0] = 999
+        set HeroSkillPoint[pid] = 999
         call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
         
         set PickCheck[pid] = true
@@ -654,9 +669,24 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set HeroTypeId = 'H003'
         elseif SlotHero == 3 then
             set HeroTypeId = 'H00I'
-            call DzFrameShow(NarAden, true)
-            call DzFrameShow(skillbuttonframe[8],true)
-            call DzFrameShow(NarAden2, true)
+            if p == GetLocalPlayer() then
+                call DzFrameShow(NarAden, true)
+                call DzFrameShow(NarAdens[0], false)
+                call DzFrameShow(NarAdens[1], false)
+                call DzFrameShow(NarAdens[2], false)
+                call DzFrameShow(NarAdens[3], false)
+                call DzFrameShow(NarAdens[4], false)
+                call DzFrameShow(NarAdens[5], false)
+                call DzFrameShow(NarAdens2[0], true)
+                call DzFrameShow(NarAdens2[1], true)
+                call DzFrameShow(NarAdens2[2], true)
+                call DzFrameShow(NarAdens2[3], true)
+                call DzFrameShow(NarAdens2[4], true)
+                call DzFrameShow(NarAdens2[5], true)
+            endif
+            set NarNabi[pid] = 0
+            //call DzFrameShow(skillbuttonframe[8],true)
+            //call DzFrameShow(NarAden2, true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -667,7 +697,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         if SlotHero == 1 then
         elseif SlotHero == 2 then
         elseif SlotHero == 3 then
-            set NarFormC[IndexUnit(MainUnit[pid])] = CreateUnit(Player(pid),'e028',0,0,0)
+            set NarFormC[pid] = CreateUnit(Player(pid),'e028',0,0,0)
         endif
 
         if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
@@ -740,7 +770,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         
         call SkillSetting(MainUnit[pid])
 
-        set HeroSkillPoint[0] = 999
+        set HeroSkillPoint[pid] = 999
         call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
         
         set PickCheck[pid] = true

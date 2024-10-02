@@ -23,6 +23,7 @@ globals
     private integer array Size
     private unit array StackDummy
     private unit array SDummy
+    private boolean StackChecker
 endglobals
 
 private struct FxEffect
@@ -31,6 +32,7 @@ private struct FxEffect
     real TargetY
     integer pid
     integer i
+    integer j
     real r
     real Aspeed
     real A2speed
@@ -40,6 +42,7 @@ private struct FxEffect
         set TargetY = 0
         set pid = 0
         set i = 0
+        set j = 0
         set r = 0
         set Aspeed = 0
         set A2speed = 0
@@ -70,7 +73,6 @@ private function splashD1 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
             call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2)
             set random = GetRandomInt(0,2)
@@ -222,6 +224,12 @@ private function splashD7 takes nothing returns nothing
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
+            if level >= 2 then
+                if StackChecker == false then
+                    call NarNabiPlus(pid,1)
+                    set StackChecker = true
+                endif
+            endif
         endif
     endif
 endfunction
@@ -268,7 +276,16 @@ private function EffectFunction4 takes nothing returns nothing
                 call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
         elseif Stack[fx.pid] == 14 then
+            if fx.j == 0 then
+                set StackChecker = false
+            else
+                set StackChecker = true
+            endif
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale2, function splashD7 )
+            if StackChecker == true then
+                set fx.j = 1
+            endif
+            set StackChecker = false
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
@@ -310,6 +327,7 @@ private function EffectFunction3 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,16, fx.A2speed)
         set fx.i = 0
+        set fx.j = 0
         call t.start( Time2 / fx.A2speed, false, function EffectFunction4 )
     else
         set NarStack[fx.pid] = 0
@@ -639,10 +657,9 @@ private function ESyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    local integer index = IndexUnit(MainUnit[pid])
     
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
-        if NarForm[index] == 1 then
+        if NarForm[pid] == 1 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
             set data=SubString(data,valueLen+1,dataLen)

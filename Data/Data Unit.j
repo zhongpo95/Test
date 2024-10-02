@@ -348,33 +348,38 @@ endfunction
     set HeroSkillID10[14] = 'A02S'
 
 
-    set HeroSkill0Text1[14] = ""
-    set HeroSkill0Text2[14] = ""
-    set HeroSkill0Text3[14] = ""
+    set HeroSkill0Text1[14] = "모든 나비를 소모하여 나비 한개당 총 피해량이 100.0% 증가"
+    set HeroSkill0Text2[14] = "카운터 적중시 나비 6개 획득"
+    set HeroSkill0Text3[14] = "50% 확률로 나비 반환"
 
     set HeroSkill1Text1[14] = "E풀차지후 전환시 추가타격발생, R마지막 타격후 전환시 추가타격발생"
-    set HeroSkill1Text2[14] = "R마지막 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가한다." 
-    set HeroSkill1Text3[14] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가한다, 즉시 R쿨타임 초기화시킨다."
+    set HeroSkill1Text2[14] = "R마지막 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가" 
+    set HeroSkill1Text3[14] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가. 또한 전환시 추가타격 명중시 나비 1개 획득"
 
-    set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가한다."
-    set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승한다."
-    set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가된다."
+    set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가"
+    set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 풀 차지 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승"
+    set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가"
 
-    set HeroSkill3Text1[14] = ""
-    set HeroSkill3Text2[14] = ""
-    set HeroSkill3Text3[14] = ""
-    set HeroSkill4Text1[14] = ""
-    set HeroSkill4Text2[14] = ""
-    set HeroSkill4Text3[14] = ""
-    set HeroSkill5Text1[14] = ""
-    set HeroSkill5Text2[14] = ""
-    set HeroSkill5Text3[14] = ""
-    set HeroSkill6Text1[14] = ""
-    set HeroSkill6Text2[14] = ""
-    set HeroSkill6Text3[14] = ""
-    set HeroSkill7Text1[14] = ""
-    set HeroSkill7Text2[14] = ""
-    set HeroSkill7Text3[14] = ""
+    set HeroSkill3Text1[14] = "마지막 강화평타 적중시 나비 1개 획득"
+    set HeroSkill3Text2[14] = "마지막 강화 평타의 피해량이 100.0% 증가"
+    //바꿔야함
+    set HeroSkill3Text3[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화"
+    
+    set HeroSkill4Text1[14] = "사용시 나비를 3개 획득"
+    set HeroSkill4Text2[14] = "버프 지속시간 50% 증가"
+    set HeroSkill4Text3[14] = "50% 확률로 나비를 3개가 아닌 6개 획득"
+
+    set HeroSkill5Text1[14] = "모든 나비를 소모하여 3번의 참격을 날리며 나비 한개당 총 피해량이 100.0% 증가"
+    set HeroSkill5Text2[14] = "시전도중 CC면역"
+    set HeroSkill5Text3[14] = "50% 확률로 나비 반환"
+
+    set HeroSkill6Text1[14] = "모든 나비를 소모하여 나비 한개당 마지막 베기의 총 피해량이 100.0% 증가"
+    set HeroSkill6Text2[14] = "시전도중 CC면역"
+    set HeroSkill6Text3[14] = "50% 확률로 나비 반환"
+
+    set HeroSkill7Text1[14] = "모든 나비를 소모하여 나비 한개당 납도의 총 피해량이 100.0% 증가"
+    set HeroSkill7Text2[14] = "나비를 소모한 만큼 차지속도가 50%씩 증가"
+    set HeroSkill7Text3[14] = "50% 확률로 나비 반환, 나비를 6개 사용시, 납도 도중 무적"
 
 //! runtextmacro 이벤트_끝()
 //! runtextmacro 시스템_끝()

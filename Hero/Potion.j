@@ -28,7 +28,6 @@ scope Potion
         local tick t = tick.getExpired()
         local FxEffect fx = t.data
     
-        call UnitRemoveAbility(fx.caster, 'A01V')
         call DestroyEffect(fx.e)
         call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
         
@@ -107,7 +106,7 @@ scope Potion
             set fx.caster = GetTriggerUnit()
             set fx.e = AddSpecialEffectTarget("Abilities\\Spells\\Human\\DivineShield\\DivineShieldTarget.mdl",fx.caster,"origin")
             set t.data = fx
-            call UnitAddAbility(fx.caster, 'A01V')
+            call BuffNoDM.Apply( fx.caster,3.5, 0 )
             call DummyMagicleash3(fx.caster,3.5)
             call SetUnitVertexColorBJ( fx.caster, 33, 33, 33, 0 )
             

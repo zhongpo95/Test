@@ -69,7 +69,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
     endfunction
     
     //때린유닛,맞은유닛,계수,헤드판정,백판정,무력화,카운터
-    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, real SD, boolean counter returns nothing
+    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, real SD, boolean counter returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
         local integer index = DataUnitIndex(target)
         local integer UnitIndex = GetUnitIndex(target)
@@ -87,6 +87,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real Arm
         local string s
         local integer sl
+        local boolean CounterBoolean = false
         
         set ArmVelue = UnitArm[UnitIndex]
         if DeBuffMArm.Exists( target ) then
@@ -125,6 +126,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                 if HeadTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
                     call UnitRemoveAbility(target,'A00V')
                     call CounterTag(target)
+                    set CounterBoolean = true
                 endif
             endif
         endif
@@ -301,10 +303,11 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                 if Player(pid) == GetLocalPlayer() then
                     call SetTextTagVisibility(ttag, true)
                 endif
-                set ttag=null
+                set ttag = null
             endif
         endif
         
         call PlayerBossAttack(source, target, dmg)
+        return CounterBoolean
     endfunction
 endlibrary

@@ -20,7 +20,11 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,true)
+        if HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,true) then
+            if HeroSkillLevel[pid][0] >= 2 then
+                call NarNabiPlus(pid,6)
+            endif
+        endif
         //call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -37,6 +41,7 @@ private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
     local real random
+    local integer i
     
     set fx.i = fx.i + 1
     
@@ -57,6 +62,11 @@ private function EffectFunction takes nothing returns nothing
         if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
             call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+            loop
+            exitwhen fx.st == 0
+                set fx.st = fx.st - 1
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+            endloop
         endif
         call Sound3D(fx.caster,'A03W')
         call fx.Stop()
@@ -91,6 +101,16 @@ private function Main takes nothing returns nothing
             set fx.r = r
         endif
         
+        if HeroSkillLevel[fx.pid][0] >= 1 then
+            if HeroSkillLevel[fx.pid][0] >= 3 then
+                set fx.st = NarNabiUse(fx.pid,true)
+            else
+                set fx.st = NarNabiUse(fx.pid,false)
+            endif
+        else
+            set fx.st = 0
+        endif
+
         set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         call EXEffectMatRotateZ(e,AngleWBP(fx.caster,fx.TargetX,fx.TargetY))
         call DestroyEffect(e)

@@ -105,6 +105,8 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarF.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarV.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarC.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarZ.j"
+
 
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-1.j"
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-2.j"

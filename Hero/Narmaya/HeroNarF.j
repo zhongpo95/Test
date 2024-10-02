@@ -19,8 +19,37 @@ globals
     private integer array Stack
     private integer array Size
     private unit array SDummy
+    private integer array Nabi
+    private integer Nabi2
 endglobals
 
+private function splashD2 takes nothing returns nothing
+    local real Velue = 1.0
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    //local integer level = HeroSkillLevel[pid][2]
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+
+        loop
+        exitwhen Nabi2 == 0
+            set Nabi2 = Nabi2 - 1
+            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        endloop
+
+        set random = GetRandomInt(0,2)
+        if random == 0 then
+            call Sound3D(GetEnumUnit(),'A03X')
+        elseif random == 1 then
+            call Sound3D(GetEnumUnit(),'A03Y')
+        elseif random == 2 then
+            call Sound3D(GetEnumUnit(),'A05N')
+        endif
+    endif
+endfunction
 
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
@@ -52,23 +81,32 @@ private function EffectFunction4 takes nothing returns nothing
         
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if Stack[fx.pid] == 11 then
-        elseif Stack[fx.pid] == 12 then
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            set Nabi2 = fx.st
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster),GetWidgetY(fx.caster), scale, function splashD2 )
+            set Nabi2 = 0
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+            endif
+        elseif Stack[fx.pid] == 12 then
+            set Nabi2 = fx.st
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster),GetWidgetY(fx.caster), scale, function splashD2 )
+            set Nabi2 = 0
+            if fx.i == 1 then
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             endif
         elseif Stack[fx.pid] == 13 then
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            set Nabi2 = fx.st
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster),GetWidgetY(fx.caster), scale, function splashD2 )
+            set Nabi2 = 0
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
         elseif Stack[fx.pid] == 14 then
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale, function splashD )
+            set Nabi2 = fx.st
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster),GetWidgetY(fx.caster), scale, function splashD2 )
+            set Nabi2 = 0
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
         endif
         if fx.i == 1 then
@@ -81,7 +119,6 @@ private function EffectFunction4 takes nothing returns nothing
         endif
 
         if fx.i == 3 then
-            set NarStack[fx.pid] = 0
             set Stack[fx.pid] = 0
             call fx.Stop()
             call t.destroy()
@@ -94,7 +131,6 @@ private function EffectFunction4 takes nothing returns nothing
             call t.start( 0.2, false, function EffectFunction4 )
         endif
     else
-        set NarStack[fx.pid] = 0
         set Stack[fx.pid] = 0
         call fx.Stop()
         call t.destroy()
@@ -108,10 +144,14 @@ private function EffectFunction3 takes nothing returns nothing
         
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,16, fx.A2speed)
+        if HeroSkillLevel[fx.pid][7] >= 3 and fx.st == 6 then
+            call BuffNoDM.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
+            call BuffNoNB.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
+            call BuffNoST.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
+        endif
         set fx.i = 0
         call t.start( Time2 / fx.A2speed, false, function EffectFunction4 )
     else
-        set NarStack[fx.pid] = 0
         set Stack[fx.pid] = 0
         call fx.Stop()
         call t.destroy()
@@ -245,11 +285,21 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.i = 0
-        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-        //if HeroSkillLevel[fx.pid][2] >= 1 then
-        if true then
+        if HeroSkillLevel[fx.pid][7] >= 1 then
+            if HeroSkillLevel[fx.pid][7] >= 3 then
+                set fx.st = NarNabiUse(fx.pid,true)
+            else
+                set fx.st = NarNabiUse(fx.pid,false)
+            endif
+            if HeroSkillLevel[fx.pid][7] >= 2 then
+                set fx.r = 1 + ( 0.5 * fx.st )
+            else
+                set fx.r = 1
+            endif
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
+            set fx.st = 0
+            set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
 
@@ -319,9 +369,17 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if HeroSkillLevel[fx.pid][2] >= 1 then
+        if HeroSkillLevel[pid][7] >= 1 then
+            set fx.st = Nabi[fx.pid]
+            if HeroSkillLevel[pid][7] >= 2 then
+                set fx.r = 1 + ( 0.5 * fx.st )
+            else
+                set fx.r = 1
+            endif
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
+            set fx.st = 0
+            set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
@@ -334,10 +392,17 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-        if HeroSkillLevel[fx.pid][2] >= 1 then
+        if HeroSkillLevel[pid][7] >= 1 then
+            set fx.st = Nabi[fx.pid]
+            if HeroSkillLevel[pid][7] >= 2 then
+                set fx.r = 1 + ( 0.5 * fx.st )
+            else
+                set fx.r = 1
+            endif
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
+            set fx.st = 0
+            set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
@@ -350,10 +415,17 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-        if HeroSkillLevel[fx.pid][2] >= 1 then
+        if HeroSkillLevel[pid][7] >= 1 then
+            set fx.st = Nabi[fx.pid]
+            if HeroSkillLevel[pid][7] >= 2 then
+                set fx.r = 1 + ( 0.5 * fx.st )
+            else
+                set fx.r = 1
+            endif
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
+            set fx.st = 0
+            set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
@@ -366,10 +438,17 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-        if HeroSkillLevel[fx.pid][2] >= 1 then
+        if HeroSkillLevel[pid][7] >= 1 then
+            set fx.st = Nabi[fx.pid]
+            if HeroSkillLevel[pid][7] >= 2 then
+                set fx.r = 1 + ( 0.5 * fx.st )
+            else
+                set fx.r = 1
+            endif
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
+            set fx.st = 0
+            set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
         set fx.A2speed = ((100+SkillSpeed(pid))/100)

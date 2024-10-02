@@ -2,7 +2,8 @@ library UISkill initializer init
     globals
         integer array skillbuttonframe
         integer NarAden
-        integer NarAden2
+        integer array NarAdens
+        integer array NarAdens2
     endglobals
     
     private function Action takes nothing returns nothing
@@ -105,14 +106,62 @@ library UISkill initializer init
         call DzFrameSetAbsolutePoint(NarAden,JN_FRAMEPOINT_CENTER,0.4,0.035)
         call DzFrameSetSize(NarAden,0.04,0.04)
         call DzFrameShow(NarAden, false)
+        set NarAdens[0] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[0],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[0],JN_FRAMEPOINT_CENTER,0.4 - 0.035, 0.035 - 0.025)
+        call DzFrameSetSize(NarAdens[0],0.02,0.02)
+        call DzFrameShow(NarAdens[0], false)
+        set NarAdens2[0]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[0], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[0] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[0], false)
+        set NarAdens[1] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[1],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[1],JN_FRAMEPOINT_CENTER,0.4 - 0.050, 0.035 )
+        call DzFrameSetSize(NarAdens[1],0.02,0.02)
+        call DzFrameShow(NarAdens[1], false)
+        set NarAdens2[1]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[1], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[1] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[1], false)
+        set NarAdens[2] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[2],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[2],JN_FRAMEPOINT_CENTER,0.4 - 0.035, 0.035 + 0.025)
+        call DzFrameSetSize(NarAdens[2],0.02,0.02)
+        call DzFrameShow(NarAdens[2], false)
+        set NarAdens2[2]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[2], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[2] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[2], false)
+
+        set NarAdens[3] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[3],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[3],JN_FRAMEPOINT_CENTER,0.4 + 0.035, 0.035 - 0.025)
+        call DzFrameSetSize(NarAdens[3],0.02,0.02)
+        call DzFrameShow(NarAdens[3], false)
+        set NarAdens2[3]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[3], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[3] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[3], false)
+        set NarAdens[4] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[4],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[4],JN_FRAMEPOINT_CENTER,0.4 + 0.050, 0.035 )
+        call DzFrameSetSize(NarAdens[4],0.02,0.02)
+        call DzFrameShow(NarAdens[4], false)
+        set NarAdens2[4]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[4], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[4] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[4], false)
+        set NarAdens[5] = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+        call DzFrameSetTexture(NarAdens[5],"Narmaya_blue.blp",0)
+        call DzFrameSetAbsolutePoint(NarAdens[5],JN_FRAMEPOINT_CENTER,0.4 + 0.035, 0.035 + 0.025)
+        call DzFrameSetSize(NarAdens[5],0.02,0.02)
+        call DzFrameShow(NarAdens[5], false)
+        set NarAdens2[5]=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
+        call DzFrameSetPoint(NarAdens2[5], JN_FRAMEPOINT_BOTTOMLEFT, NarAdens[5] , JN_FRAMEPOINT_CENTER, 0, 0)
+        call DzFrameShow(NarAdens2[5], false)
+
         set skillbuttonframe[8]=JNCreateFrameByType("TEXT","",frame,"",0)
         call DzFrameSetSize(skillbuttonframe[8],0.007,0.00)
         call DzFrameSetAbsolutePoint(skillbuttonframe[8],JN_FRAMEPOINT_CENTER,0.4,0.015)
         call DzFrameSetText(skillbuttonframe[8],"Z")
         call DzFrameShow(skillbuttonframe[8],false)
-        set NarAden2=DzCreateFrameByTagName("SPRITE", "", NarAden, "", 0)
-        call DzFrameSetPoint(NarAden2, JN_FRAMEPOINT_BOTTOMLEFT, NarAden , JN_FRAMEPOINT_CENTER, 0, 0)
-        call DzFrameShow(NarAden2, false)
+
 
         set frame2=JNCreateFrameByType("BACKDROP","Command10",frame,"",0)
         call DzFrameSetTexture(frame2,"Transparent.blp",0)
