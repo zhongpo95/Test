@@ -91,8 +91,10 @@ scope ESC initializer init
     
     private function ESCAction takes nothing returns nothing
         //신속1800설정
-        set Equip_Swiftness[0] = 1800
-        call ItemUIStatsSet(0)
+        //set Equip_Swiftness[0] = 1800
+        //call ItemUIStatsSet(0)
+        
+        //call DzSetUnitModel(MainUnit[0], "[Hero]\\mh_Firefly_yz.mdl")
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing
