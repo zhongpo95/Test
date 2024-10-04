@@ -33,6 +33,7 @@ private struct FxEffect_Timer extends array
     private method OnAction takes FxEffect fx returns nothing
         local real x
         local real r
+        local effect e
         set fx.i = fx.i + 1
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i < 12 then
@@ -42,7 +43,7 @@ private struct FxEffect_Timer extends array
                 call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))
                 call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))
                 if fx.i == 6 then
-                    call UnitEffectTimeEX('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0)
+                    call UnitEffectTimeEX2('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
                     call Sound3D(fx.caster,'A009')
                 endif
             elseif fx.i == 12 then
@@ -56,20 +57,26 @@ private struct FxEffect_Timer extends array
             elseif fx.i == 60 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
                 call Sound3D(fx.caster,'A00I')
-                call UnitEffectTimeEX('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0)
-                call UnitEffectTimeEX('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
-                call UnitEffectTimeEX('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+                call UnitEffectTimeEX2('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+                call UnitEffectTimeEX2('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
                 call HeroDeal(fx.caster,fx.target,DR)
             elseif fx.i == 70 then
                 call Sound3D(fx.caster,'A00H')
-                call UnitEffectTimeEX('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
-                call UnitEffectTimeEX('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0)
+                call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+                call UnitEffectTimeEX2('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
                 call HeroDeal(fx.caster,fx.target,DR)
                 
                 call Sound3D(fx.caster,'A00L')
             elseif fx.i == 115 then
                 call HeroDeal(fx.caster,fx.target,DR2)
-                call DestroyEffect(AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest"))
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")
+                else
+                    set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")
+                endif
+                call DestroyEffect(e)
+                set e = null
                 call fx.Stop()
             endif
         else
@@ -84,9 +91,17 @@ private function F_A00J takes nothing returns nothing
     set fx = FxEffect.Create()
     set fx.caster = GetTriggerUnit()
     set fx.target = GetSpellTargetUnit()
-    set fx.e = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"chest")
-    set fx.e2 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"right hand")
-    set fx.e3 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"left hand")
+
+    if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+        set fx.e = AddSpecialEffectTarget(".mdl",fx.caster,"chest")
+        set fx.e2 = AddSpecialEffectTarget(".mdl",fx.caster,"right hand")
+        set fx.e3 = AddSpecialEffectTarget(".mdl",fx.caster,"left hand")
+    else
+        set fx.e = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"chest")
+        set fx.e2 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"right hand")
+        set fx.e3 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"left hand")
+    endif
+
     set fx.i = 0
     call fx.Start()
     //call Sound3D(fx.caster,'A00K')

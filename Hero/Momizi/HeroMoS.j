@@ -68,10 +68,10 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
 
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1)
-        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1)
-        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1)
-        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1)
+        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+        set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
         

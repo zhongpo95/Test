@@ -4892,6 +4892,7 @@ function Trig_J_Firefly____________008jn2 takes nothing returns nothing
     call EXSetEffectZ(tx , ( EXGetEffectZ(tx) + 300 )) //高度
     call DestroyEffect(tx)
     //中心受击刀光
+    effect
     set zfc="908196484.mdx"
     set tx=AddSpecialEffect(zfc, x3, y3)
     call EXEffectMatRotateZ(tx , jd) //角度

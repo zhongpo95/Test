@@ -51,7 +51,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1)
+        call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
         
         if HeroSkillLevel[fx.pid][5] >= 3 then

@@ -22,11 +22,11 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -47,13 +47,13 @@ private function splashD2 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi == 0
             set Nabi = Nabi - 1
             call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
         set random = GetRandomInt(0,2)
@@ -75,64 +75,80 @@ private function EffectFunction takes nothing returns nothing
     set fx.i = fx.i + 1
 
     if fx.i == 1 then
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
         call EXSetEffectSize(e, 3.00)
         call EXEffectMatRotateY(e, 180)
         call DestroyEffect(e)
         set e = null
         call t.start( 0.02, false, function EffectFunction )
     elseif fx.i == R2I(20/fx.speed) then
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
         call EXSetEffectSize(e, 3.00)
         call EXEffectMatRotateY(e, 180)
         call DestroyEffect(e)
         set e = null
         call t.start( 0.02, false, function EffectFunction )
     elseif fx.i == R2I(40/fx.speed) then
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
         call EXSetEffectSize(e, 3.00)
         call EXEffectMatRotateY(e, 180)
         call DestroyEffect(e)
         set e = null
         call t.start( 0.02, false, function EffectFunction )
     elseif fx.i == R2I(60/fx.speed) then
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
-        call UnitEffectTimeEX('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02W',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Y',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
+        call UnitEffectTimeEX2('e02Z',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.8,fx.pid)
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
         call EXSetEffectSize(e, 3.00)
         call EXEffectMatRotateY(e, 180)
         call DestroyEffect(e)
@@ -142,12 +158,16 @@ private function EffectFunction takes nothing returns nothing
         set Nabi = fx.st
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
         set Nabi = 0
-        set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("Air.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
         call EXSetEffectSize(e, 3.00)
         call EXEffectMatRotateY(e, 180)
         call DestroyEffect(e)
         set e = null
-        call UnitEffectTimeEX('e030',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.r,0.8)
+        call UnitEffectTimeEX2('e030',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.r,0.8,fx.pid)
         call t.start( 0.02, false, function EffectFunction )
     elseif fx.i >= R2I(105/fx.speed) then
         call fx.Stop()

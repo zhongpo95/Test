@@ -71,11 +71,11 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i != (TICK+1) then
-            set fx.dummy = UnitEffectTime2('e013',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1)
-            set fx.dummy = UnitEffectTime2('e014',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1)
-            set fx.dummy = UnitEffectTime2('e015',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1)
-            set fx.dummy = UnitEffectTime2('e016',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1)
-            set fx.dummy = UnitEffectTime2('e017',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1)
+            set fx.dummy = UnitEffectTime2('e013',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy = UnitEffectTime2('e014',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy = UnitEffectTime2('e015',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy = UnitEffectTime2('e016',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy = UnitEffectTime2('e017',fx.TargetX,fx.TargetY,GetRandomReal(0,360),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
             call splash.range( splash.ENEMY, fx.caster, fx.TargetX, fx.TargetY, scale, function splashD )
             call t.start( Time3 * (1 - (fx.speed/(100+fx.speed)) )/TICK, false, function EffectFunction )
         else

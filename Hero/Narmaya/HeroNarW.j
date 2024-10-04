@@ -71,7 +71,7 @@ private function splashEffect takes nothing returns nothing
     
     if fx.i != (TICK2+1) then
         call HeroDeal(fx.caster,fx.dummy,fx.r,false,false,fx.Angle,false)
-        call UnitEffectTimeEX('e02I',GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02I',GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),GetRandomReal(0,360),1.2,fx.pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
             call Sound3D(fx.dummy,'A03X')
@@ -112,7 +112,7 @@ private function splashD takes nothing returns nothing
                 set fx.pid = pid
                 set t.data = fx
                 call HeroDeal(splash.source,GetEnumUnit(),fx.r,false,false,SD,false)
-                call UnitEffectTimeEX('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+                call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,fx.pid)
                 set random = GetRandomInt(0,2)
                 if random == 0 then
                     call Sound3D(GetEnumUnit(),'A03X')
@@ -146,7 +146,7 @@ private function EffectFunction3 takes nothing returns nothing
     set fx.i = fx.i + 1
     
     if fx.i == 1 then
-        set fx.dummy = UnitEffectTimeEX('e02J', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5)
+        set fx.dummy = UnitEffectTimeEX2('e02J', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',CoolTime)
@@ -210,7 +210,7 @@ private function splashD2 takes nothing returns nothing
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
                 call Sound3D(GetEnumUnit(),'A03X')
@@ -233,7 +233,7 @@ private function splashD3 takes nothing returns nothing
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
             call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
                 call Sound3D(GetEnumUnit(),'A03X')
@@ -257,13 +257,13 @@ private function EffectFunction2 takes nothing returns nothing
     set fx.i = fx.i + 1
 
     if fx.i == 1 then
-        call UnitEffectTimeEX('e02K',GetWidgetX(fx.caster)+PolarX(375, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY(375, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.0/fx.speed)
+        call UnitEffectTimeEX2('e02K',GetWidgetX(fx.caster)+PolarX(375, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY(375, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.0/fx.speed,fx.pid)
     endif
     if fx.i == 10 then
         call t.start( 0.2/fx.speed, false, function EffectFunction2 )
     elseif fx.i == 11 then
         call AnimationStart3(fx.caster,15, (100+fx.speed)/100)
-        call UnitEffectTime2('e02Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0)
+        call UnitEffectTime2('e02Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
         set StackChecker = false

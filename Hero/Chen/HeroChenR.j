@@ -118,7 +118,7 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
             call AnimationStart3(fx.caster,17, fx.speed)
-            call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+            call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
             call Sound3D(fx.caster,'A01H')
         endif
         if Stack[fx.pid] == 11 then
@@ -130,7 +130,7 @@ private function EffectFunction2 takes nothing returns nothing
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -147,7 +147,7 @@ private function EffectFunction2 takes nothing returns nothing
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD2 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -164,7 +164,7 @@ private function EffectFunction2 takes nothing returns nothing
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD3 )
-                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call UnitEffectTime2('e00S',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -181,7 +181,7 @@ private function EffectFunction2 takes nothing returns nothing
             elseif fx.i == 10 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
+                call UnitEffectTime2('e00T',GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
                 call DummyMagicleash(fx.caster, Time2 /fx.speed)
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
@@ -219,9 +219,17 @@ private function EffectFunction takes nothing returns nothing
                 call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
             elseif fx.i == 25 then
                 set Stack[fx.pid] = 2
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
@@ -242,9 +250,17 @@ private function EffectFunction takes nothing returns nothing
             elseif fx.i == 50 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 3
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 if Player(fx.pid) == GetLocalPlayer() then
@@ -264,9 +280,17 @@ private function EffectFunction takes nothing returns nothing
             elseif fx.i == 75 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 4
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 if Player(fx.pid) == GetLocalPlayer() then

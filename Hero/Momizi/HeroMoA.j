@@ -74,8 +74,8 @@ private function EffectFunction takes nothing returns nothing
     
 
     if fx.i == 1 then
-        set fx.dummy = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
-        set fx.dummy2 = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1)
+        set fx.dummy = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+        set fx.dummy2 = UnitEffectTime2('e019', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.9,1,GetPlayerId(GetOwningPlayer(fx.caster)))
     endif
     
     call UnitAddAbility(fx.caster,'Arav')

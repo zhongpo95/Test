@@ -71,7 +71,7 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1)
+            set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         endif
         
         if fx.i != 5 then

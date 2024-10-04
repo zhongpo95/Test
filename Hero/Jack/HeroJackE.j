@@ -74,7 +74,7 @@ private struct FxEffect_Timer extends array
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
             if fx.i == 15 then
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
-                call UnitEffectTimeEX('e005',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5)
+                call UnitEffectTimeEX2('e005',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,GetPlayerId(GetOwningPlayer(fx.caster)))
                 call Sound3D(fx.caster,'A00A')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
             elseif fx.i == 35 then

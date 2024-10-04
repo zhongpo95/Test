@@ -31,13 +31,13 @@ private function splashD2 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi2 == 0
             set Nabi2 = Nabi2 - 1
             call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
-            call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+            call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
         set random = GetRandomInt(0,2)
@@ -59,7 +59,7 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
-        call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
             call Sound3D(GetEnumUnit(),'A03X')
@@ -172,8 +172,7 @@ private function EffectFunction2 takes nothing returns nothing
         set i = GetRandomInt(1,3)
         call Sound3D(fx.caster,'A03T')
         call Sound3D(fx.caster,'A049')
-        //call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1)
-        call UnitEffectTime2('e032',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.4,0)
+        call UnitEffectTime2('e032',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.4,0,fx.pid)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         if Stack[fx.pid] == 11 then
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
@@ -241,7 +240,11 @@ private function EffectFunction takes nothing returns nothing
                 call Sound3D(fx.caster,'A03N')
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 4
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffectTarget(".mdl",fx.caster,"hand left")
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Red2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 if Player(fx.pid) == GetLocalPlayer() then

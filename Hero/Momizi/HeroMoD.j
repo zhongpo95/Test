@@ -91,7 +91,7 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTimeEX('e01B', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5)
+            set fx.dummy = UnitEffectTimeEX2('e01B', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
         endif
         
         if fx.i != (TICK+1) then

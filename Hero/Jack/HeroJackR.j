@@ -36,7 +36,13 @@ private struct FxEffect_Timer extends array
                 call SetUnitX(fx.caster,GetWidgetX(fx.caster)+PolarX( -75, fx.angle ))
                 call SetUnitY(fx.caster,GetWidgetY(fx.caster)+PolarY( -75, fx.angle ))
                 //call DestroyEffect(AddSpecialEffectTarget("1213.mdl",fx.target,"over head"))
-                call DestroyEffect(AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest"))
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")
+                else
+                    set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")
+                endif
+                call DestroyEffect(e)
+                set e = null
                 call HeroDeal(fx.caster,fx.target,DR)
             elseif fx.i > 34 and fx.i <= 40 then
                 call SetUnitX(fx.caster,GetWidgetX(fx.caster)+PolarX( -75, fx.angle ))

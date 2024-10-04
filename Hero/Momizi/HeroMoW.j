@@ -72,7 +72,7 @@ private function EffectFunction takes nothing returns nothing
     
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
-            set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+PolarX( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1)
+            set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+PolarX( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         endif
         
         if fx.i != 5 then
@@ -89,7 +89,7 @@ private function EffectFunction takes nothing returns nothing
                 call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             endif
             
-            call UnitEffectTime2('e011',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1)
+            call UnitEffectTime2('e011',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1,fx.pid)
             
             if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
                 //발도버프

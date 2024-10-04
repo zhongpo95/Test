@@ -31,13 +31,13 @@ private function splashD takes nothing returns nothing
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 
                 call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-                call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+                call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
                 loop
                 exitwhen Nabi == 0
                     set Nabi = Nabi - 1
                     call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
-                    call UnitEffectTimeEX('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2)
+                    call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
                 endloop
 
                 set random = GetRandomInt(0,2)
@@ -64,11 +64,11 @@ private function EffectFunction2 takes nothing returns nothing
     
     if fx.i == 1 then
         if fx.j == 0 then
-            set fx.dummy = UnitEffectTimeEX('e02T', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+            set fx.dummy = UnitEffectTimeEX2('e02T', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4,fx.pid)
         elseif fx.j == 1 then
-            set fx.dummy = UnitEffectTimeEX('e02U', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+            set fx.dummy = UnitEffectTimeEX2('e02U', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4,fx.pid)
         elseif fx.j == 2 then
-            set fx.dummy = UnitEffectTimeEX('e02V', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4)
+            set fx.dummy = UnitEffectTimeEX2('e02V', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4,fx.pid)
         endif
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
@@ -198,7 +198,12 @@ private function Main takes nothing returns nothing
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster, 12, fx.speed)
         
-        set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
+        
         call EXEffectMatRotateZ(e,AnglePBW(fx.TargetX,fx.TargetY,fx.caster))
         call DestroyEffect(e)
         set e = null

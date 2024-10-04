@@ -109,7 +109,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTimeEX('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01)
+        call UnitEffectTimeEX2('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,fx.pid)
         call splash.range( splash.ALLY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), Dist, function splashD )
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif

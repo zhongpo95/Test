@@ -85,7 +85,11 @@ private function F_A006 takes nothing returns nothing
     if GetSpellAbilityId() == 'A006' then
         set caster = GetTriggerUnit()
         set st = SkillDash.Create()
-        set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
+        else
+            set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        endif
         set i = IndexUnit(caster)
         if ActRemove[i] == null then
             set TrgRemove[i] = GetUnitRemoveTrigger(caster)
@@ -137,7 +141,11 @@ private function F_A005 takes nothing returns nothing
     if GetSpellAbilityId() == 'A005' then
         set caster = GetTriggerUnit()
         set st = SkillDash.Create()
-        set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
+        else
+            set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        endif
         call EXEffectMatRotateZ(e,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call DestroyEffect(e)
         set e = null
@@ -182,7 +190,11 @@ private function F_A004 takes nothing returns nothing
     if GetSpellAbilityId() == 'A004' then
         set caster = GetTriggerUnit()
         set st = SkillDash.Create()
-        set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
+        else
+            set e = AddSpecialEffect("nitu.mdl",GetWidgetX(caster),GetWidgetY(caster))
+        endif
         call EXEffectMatRotateZ(e,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call DestroyEffect(e)
         set e = null

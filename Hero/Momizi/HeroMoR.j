@@ -81,9 +81,9 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i != (TICK+1) then
-            set fx.dummy1 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle+335), fx.CasterY+PolarY((fx.i*125),fx.Angle+335),GetRandomReal(0,360),1.2,1)
-            set fx.dummy2 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle), fx.CasterY+PolarY((fx.i*125),fx.Angle),GetRandomReal(0,360),1.2,1)
-            set fx.dummy3 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle+25), fx.CasterY+PolarY((fx.i*125),fx.Angle+25),GetRandomReal(0,360),1.2,1)
+            set fx.dummy1 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle+335), fx.CasterY+PolarY((fx.i*125),fx.Angle+335),GetRandomReal(0,360),1.2,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy2 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle), fx.CasterY+PolarY((fx.i*125),fx.Angle),GetRandomReal(0,360),1.2,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            set fx.dummy3 = UnitEffectTime2('e018', fx.CasterX+PolarX((fx.i*125),fx.Angle+25), fx.CasterY+PolarY((fx.i*125),fx.Angle+25),GetRandomReal(0,360),1.2,1,GetPlayerId(GetOwningPlayer(fx.caster)))
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy1), GetWidgetY(fx.dummy1), scale, function splashD )
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy2), GetWidgetY(fx.dummy2), scale, function splashD )
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy3), GetWidgetY(fx.dummy3), scale, function splashD )

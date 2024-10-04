@@ -102,11 +102,11 @@ private function EffectFunction2 takes nothing returns nothing
             call AnimationStart3(fx.caster,16, fx.speed)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time /fx.speed)
@@ -121,11 +121,11 @@ private function EffectFunction2 takes nothing returns nothing
             call AnimationStart3(fx.caster,16, fx.speed)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time /fx.speed)
@@ -140,11 +140,11 @@ private function EffectFunction2 takes nothing returns nothing
             call AnimationStart3(fx.caster,16, fx.speed)
             set random = GetRandomInt(1,3)
             if random == 1 then
-                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 2 then
-                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             elseif random == 3 then
-                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
             endif
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
             call DummyMagicleash(fx.caster, Time /fx.speed)
@@ -181,9 +181,17 @@ private function EffectFunction takes nothing returns nothing
                 call t.start( (EffectTime /fx.speed)/25, false, function EffectFunction )
             elseif fx.i == 25 then
                 set Stack[fx.pid] = 2
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
@@ -204,9 +212,17 @@ private function EffectFunction takes nothing returns nothing
             elseif fx.i == 50 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
                 set Stack[fx.pid] = 3
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
-                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_puple2.mdl",fx.caster,"hand left")
+                endif
                 call DestroyEffect(e)
                 set e = null
                 if Player(fx.pid) == GetLocalPlayer() then
@@ -249,11 +265,11 @@ private function EffectFunction3 takes nothing returns nothing
         call AnimationStart3(fx.caster,16, fx.speed)
         set random = GetRandomInt(1,3)
         if random == 1 then
-            call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
         elseif random == 2 then
-            call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
         elseif random == 3 then
-            call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1)
+            call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
         endif
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         call DummyMagicleash(fx.caster,Time /fx.speed)

@@ -51,8 +51,8 @@ private function EffectFunction takes nothing returns nothing
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-        call UnitEffectTimeEX('e00I',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)+180,0.01)
-        call UnitEffectTimeEX('e00H',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01)
+        call UnitEffectTimeEX2('e00I',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)+180,0.01,GetPlayerId(GetOwningPlayer(fx.caster)))
+        call UnitEffectTimeEX2('e00H',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,GetPlayerId(GetOwningPlayer(fx.caster)))
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
     

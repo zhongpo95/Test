@@ -46,7 +46,7 @@ private struct FxEffect_Timer extends array
                 call SetUnitX(fx.caster,fx.TargetX)
                 call SetUnitY(fx.caster,fx.TargetY)
                 call AnimationStart(fx.caster,10)
-                call UnitEffectTimeEX('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2)
+                call UnitEffectTimeEX2('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2,GetPlayerId(GetOwningPlayer(fx.caster)))
                 call Sound3D(fx.caster,'A00F')
             elseif fx.i == 50 then
                 call fx.Stop()
@@ -67,7 +67,11 @@ private function F_A00D takes nothing returns nothing
     set fx.caster = GetTriggerUnit()
     set fx.TargetX = GetSpellTargetX()
     set fx.TargetY = GetSpellTargetY()
-    set fx.e = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"chest")
+    if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+        set fx.e = AddSpecialEffectTarget(".mdl",fx.caster,"chest")
+    else
+        set fx.e = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"chest")
+    endif
     //set fx.e2 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"left hand")
     //set fx.e3 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"right hand")
     set fx.i = 0

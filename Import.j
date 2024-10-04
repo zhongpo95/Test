@@ -32,6 +32,8 @@
 //! import "C:\Users\123\Desktop\JN\Test\Library\EffectDummy.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\Airbourne.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\MemoryLib.j"
+//! import "C:\Users\123\Desktop\JN\Test\Library\EXSetEffectXYHook.j"
+//! import "C:\Users\123\Desktop\JN\Test\Library\Typecast.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\TimerSleep.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\ArrayEx.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\TimerUtils.j"
