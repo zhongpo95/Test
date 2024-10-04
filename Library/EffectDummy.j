@@ -52,10 +52,6 @@ library EffectDummy initializer init
         call t.Start(expired.time,false)
         call expired.Destroy()
     //! runtextmacro 이벤트_끝()
-    
-    function SetEffectView takes integer pid, boolean off returns nothing
-        set EffectOff[pid] = off
-    endfunction
 
     //투명적용안됨
     function UnitEffectTimeToTime takes integer id, real x, real y, real r, real time, real time2, integer i returns nothing
@@ -157,7 +153,32 @@ library EffectDummy initializer init
         call t.Start(time,false)
     endfunction
     
+    
+    function SetEffectViewON takes nothing returns nothing
+        set EffectOff[GetPlayerId(GetTriggerPlayer())] = true
+    endfunction
+    function SetEffectViewOFF takes nothing returns nothing
+        set EffectOff[GetPlayerId(GetTriggerPlayer())] = false
+    endfunction
+
     private function init takes nothing returns nothing
+        local trigger t
+        local trigger t2
+        local integer index = 0
+        set t = CreateTrigger()
+        set t2 = CreateTrigger()
+        loop
+            call TriggerRegisterPlayerChatEvent(t, Player(index), "-이펙트 끄기", false)
+            call TriggerRegisterPlayerChatEvent(t2, Player(index), "-이펙트 켜기", false)
+            set index = index + 1
+            exitwhen index == bj_MAX_PLAYER_SLOTS
+        endloop
+        call TriggerAddAction(t, function SetEffectViewOFF)
+        call TriggerAddAction(t2, function SetEffectViewON)
+        set t = null
+        set t2 = null
+
+
         set EffectOff[0] = true
         set EffectOff[1] = true
         set EffectOff[2] = true

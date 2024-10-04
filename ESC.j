@@ -95,14 +95,6 @@ scope ESC initializer init
         //call ItemUIStatsSet(0)
         
         //call DzSetUnitModel(MainUnit[0], "[Hero]\\mh_Firefly_yz.mdl")
-        call BJDebugMsg(I2S(GetPlayerId(GetTriggerPlayer())))
-        if EffectOff[GetPlayerId(GetTriggerPlayer())] == true then
-            call SetEffectView(GetPlayerId(GetTriggerPlayer()), false)
-            call BJDebugMsg(I2S(GetPlayerId(GetTriggerPlayer()))+"플레이어 false")
-        elseif EffectOff[GetPlayerId(GetTriggerPlayer())] == false then
-            call SetEffectView(GetPlayerId(GetTriggerPlayer()), true)
-            call BJDebugMsg(I2S(GetPlayerId(GetTriggerPlayer()))+"플레이어 true")
-        endif
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing
