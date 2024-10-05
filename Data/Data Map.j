@@ -1,4 +1,4 @@
-//! runtextmacro 시스템("DataMap")
+library DataMap requires FX
 globals
     rect array MapRect
     integer array Mapthema
@@ -130,4 +130,4 @@ endfunction
     set MapRect[5] = gg_rct_MapRect05
     set MapRect[6] = gg_rct_MapRect06
 //! runtextmacro 이벤트_끝()
-//! runtextmacro 시스템_끝()
+endlibrary

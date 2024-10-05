@@ -1,12 +1,10 @@
 scope HeroChenR
 
 globals
-    private constant real DR = 12.93
     
     private constant real SD = 70
     
-    //private constant real CoolTime = 30.00
-    private constant real CoolTime = 10.0
+    //private constant real HeroSkillCD3[4] = 30.00
     
     //쉐클시간
     private constant real Time = 0.20
@@ -48,7 +46,7 @@ private function splashD1 takes nothing returns nothing
             set Velue = Velue * 1.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,SD,false)
     endif
 endfunction
 private function splashD2 takes nothing returns nothing
@@ -65,7 +63,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.30
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,SD,false)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -82,7 +80,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 1.60
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,SD,false)
     endif
 endfunction
 private function splashD4 takes nothing returns nothing
@@ -103,7 +101,7 @@ private function splashD4 takes nothing returns nothing
             set Velue = Velue * 2.22
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,SD,false)
     endif
 endfunction
 
@@ -335,7 +333,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         
-        call CooldownFIX(fx.caster,'A01C',CoolTime)
+        call CooldownFIX(fx.caster,'A01C',HeroSkillCD3[4])
         call AnimationStart3(fx.caster,3, fx.speed)
         
         set t.data = fx

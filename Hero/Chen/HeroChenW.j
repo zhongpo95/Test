@@ -1,9 +1,6 @@
 scope HeroChenW
 globals
-    private constant real DR = 2.35
     private constant real SD = 20.00
-    
-    private constant real CoolTime = 7.0
     
     //쉐클시간
     private constant real Time = 0.50
@@ -40,8 +37,8 @@ private function splashD takes nothing returns nothing
             set Velue = Velue * 2.0
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),(DR/2)*Velue,true,false,SD,false)
-        call HeroDeal(splash.source,GetEnumUnit(),(DR/2)*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue1[4]/2)*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue1[4]/2)*Velue,true,false,SD,false)
     endif
 endfunction
 
@@ -51,8 +48,8 @@ private function EffectFunction takes nothing returns nothing
      
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-        call UnitEffectTimeEX2('e00I',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)+180,0.01,GetPlayerId(GetOwningPlayer(fx.caster)))
-        call UnitEffectTimeEX2('e00H',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,GetPlayerId(GetOwningPlayer(fx.caster)))
+        call UnitEffectTimeEX2('e00I',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster)+180,1.2,GetPlayerId(GetOwningPlayer(fx.caster)))
+        call UnitEffectTimeEX2('e00H',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,GetPlayerId(GetOwningPlayer(fx.caster)))
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
     
@@ -79,12 +76,12 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A01J')
         if HeroSkillLevel[pid][1] >= 1 then
             if GetRandomInt(0,1) == 1 then
-                call CooldownFIX(fx.caster,'A017', CoolTime - 5.00)
+                call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4] - 5.00)
             else
-                call CooldownFIX(fx.caster,'A017', CoolTime)
+                call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4])
             endif
         else
-            call CooldownFIX(fx.caster,'A017', CoolTime)
+            call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4])
         endif
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,9, (100+speed)/100)

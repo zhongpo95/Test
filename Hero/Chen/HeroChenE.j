@@ -1,10 +1,6 @@
 scope HeroChenE
 globals
-    private constant real DR = 5.13 //22.63
     private constant real SD = 109.00
-    
-    //private constant real CoolTime = 16.0 //빠준5.6
-    private constant real CoolTime = 10.0
     
     //쉐클시간
     private constant real Time = 0.60
@@ -51,7 +47,7 @@ private function splashD takes nothing returns nothing
             set Velue = Velue * 2.60
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,true)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,SD,true)
     endif
 endfunction
 
@@ -102,9 +98,9 @@ private function Main takes nothing returns nothing
         
         call Sound3D(fx.caster,'A01P')
         if HeroSkillLevel[pid][2] >= 1 then
-            call CooldownFIX(fx.caster,'A019',CoolTime-5.6)
+            call CooldownFIX(fx.caster,'A019',HeroSkillCD2[4]-5.6)
         else
-            call CooldownFIX(fx.caster,'A019',CoolTime)
+            call CooldownFIX(fx.caster,'A019',HeroSkillCD2[4])
         endif
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster,17, fx.speed)

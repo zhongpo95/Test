@@ -1,8 +1,6 @@
 scope HeroNarW
 globals
-    private constant real DR = 1.00
     private constant real SD = 0.00
-    private constant real CoolTime = 1.00
 
     //폼전환강화 유지시간
     constant real NarChangeTime = 0.75
@@ -106,7 +104,7 @@ private function splashD takes nothing returns nothing
                 if HeroSkillLevel[fx.pid][1] >= 3 then
                     set velue = 0.5
                 endif
-                set fx.r = DR*velue
+                set fx.r = HeroSkillVelue1[14]*velue
                 set fx.Angle = SD
                 set fx.i = 0
                 set fx.pid = pid
@@ -149,7 +147,7 @@ private function EffectFunction3 takes nothing returns nothing
         set fx.dummy = UnitEffectTimeEX2('e02J', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         //쿨타임조정
-        call CooldownFIX2(fx.caster,'A02J',CoolTime)
+        call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
         
         if HeroSkillLevel[fx.pid][3] >= 3 then
             call CooldownSet(fx.caster,'A02L',0)
@@ -209,7 +207,7 @@ private function splashD2 takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,SD,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -232,7 +230,7 @@ private function splashD3 takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance3) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,SD,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -271,7 +269,7 @@ private function EffectFunction2 takes nothing returns nothing
             set NarStack[fx.pid] = 3
         endif
         //쿨타임조정
-        call CooldownFIX2(fx.caster,'A02J',CoolTime)
+        call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
         call fx.Stop()
         call t.destroy()
     else
@@ -387,7 +385,7 @@ private function Main takes nothing returns nothing
                 endif
                 set NarFormC[pid] = CreateUnit(GetOwningPlayer(caster),'e028',0,0,0)
                 //쿨타임조정
-                call CooldownFIX(caster,'A02J',CoolTime)
+                call CooldownFIX(caster,'A02J',HeroSkillCD1[14])
             else
                 //겐지
                 set NarForm[pid] = 1
@@ -414,7 +412,7 @@ private function Main takes nothing returns nothing
                 endif
                 set NarFormG[pid] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
                 //쿨타임조정
-                call CooldownFIX(caster,'A02J',CoolTime)
+                call CooldownFIX(caster,'A02J',HeroSkillCD1[14])
             endif
 
         endif

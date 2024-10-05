@@ -1,8 +1,6 @@
 scope HeroNarD
 globals
-    private constant real DR = 1.00
     private constant real SD = 0.00
-    private constant real CoolTime = 5.00
     //쉐클시간
     private constant real Time = 2.3
 
@@ -21,11 +19,11 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         set random = GetRandomInt(0,2)
@@ -46,13 +44,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi == 0
             set Nabi = Nabi - 1
-            call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,SD,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -227,7 +225,7 @@ private function Main takes nothing returns nothing
 
         call t.start( 0.20 /fx.speed , false, function EffectFunction )
 
-        call CooldownFIX(fx.caster,'A02O',CoolTime)
+        call CooldownFIX(fx.caster,'A02O',HeroSkillCD6[14])
     endif
 endfunction
 

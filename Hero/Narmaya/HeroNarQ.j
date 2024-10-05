@@ -1,7 +1,5 @@
 scope HeroNarQ
 globals
-    private constant real CoolTime = 6.00
-    private constant real DR = 1.00
     private constant real SD = 0.00
 
     //전진시간
@@ -20,7 +18,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,true) then
+        if HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,SD,true) then
             if HeroSkillLevel[pid][0] >= 2 then
                 call NarNabiPlus(pid,6)
             endif
@@ -123,7 +121,7 @@ private function Main takes nothing returns nothing
 
         call Sound3D(fx.caster,'A03V')
 
-        call CooldownFIX(fx.caster, 'A02I', CoolTime)
+        call CooldownFIX(fx.caster, 'A02I', HeroSkillCD0[14])
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
         call AnimationStart3(fx.caster, 11, (100+fx.speed)/100)

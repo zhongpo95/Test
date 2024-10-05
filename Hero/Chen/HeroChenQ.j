@@ -1,10 +1,6 @@
 scope HeroChenQ
 globals
-    private constant real DR = 7.12
     private constant real SD = 60.00
-    
-    //private constant real CoolTime = 18.00
-    private constant real CoolTime = 10.0
     
     //쉐클시간
     private constant real Time = 0.30
@@ -50,7 +46,7 @@ private function splashD1 takes nothing returns nothing
             set Velue = Velue * 0.976
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
     endif
 endfunction
 
@@ -68,7 +64,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.525
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -85,7 +81,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 2.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
     endif
 endfunction
 
@@ -299,7 +295,7 @@ private function Main takes nothing returns nothing
         else
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         endif
-        call CooldownFIX(fx.caster,'A01A',CoolTime)
+        call CooldownFIX(fx.caster,'A01A',HeroSkillCD0[4])
         call AnimationStart3(fx.caster,15, fx.speed)
         
         if HeroSkillLevel[fx.pid][0] >= 3 then

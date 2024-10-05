@@ -1,6 +1,5 @@
 scope HeroNarA
 globals
-    private constant real CoolTime = 15.00
     //쉐클시간
     private constant real Time2 = 1.4
     //버프지속시간,공증량
@@ -61,7 +60,7 @@ private function Main takes nothing returns nothing
         endif
 
 
-        call CooldownFIX(caster,'A02M',CoolTime)
+        call CooldownFIX(caster,'A02M',HeroSkillCD4[14])
         set caster = null
     endif
 endfunction

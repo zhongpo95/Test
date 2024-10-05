@@ -1,6 +1,5 @@
 scope HeroNarR
 globals
-    private constant real CoolTime = 8.00
 endglobals
 
 private function Main takes nothing returns nothing
@@ -11,7 +10,7 @@ private function Main takes nothing returns nothing
     local integer i 
     if GetSpellAbilityId() == 'A02L' then
         set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
-        call CooldownFIX(GetTriggerUnit(),'A02L',CoolTime)
+        call CooldownFIX(GetTriggerUnit(),'A02L',HeroSkillCD3[14])
     endif
 endfunction
     

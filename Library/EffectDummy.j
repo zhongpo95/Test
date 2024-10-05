@@ -178,7 +178,6 @@ library EffectDummy initializer init
         set t = null
         set t2 = null
 
-
         set EffectOff[0] = true
         set EffectOff[1] = true
         set EffectOff[2] = true

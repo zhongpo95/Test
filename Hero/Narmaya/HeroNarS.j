@@ -1,8 +1,6 @@
 scope HeroNarS
 globals
-    private constant real DR = 1.00
     private constant real SD = 0.00
-    private constant real CoolTime = 5.00
     //쉐클시간
     private constant real Time = 0.8
     //후진거리
@@ -30,13 +28,13 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,SD,false)
                 call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
                 loop
                 exitwhen Nabi == 0
                     set Nabi = Nabi - 1
-                    call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,SD,false)
                     call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
                 endloop
 
@@ -242,7 +240,7 @@ private function Main takes nothing returns nothing
 
         call t.start( 0.02, false, function EffectFunction )
 
-        call CooldownFIX(fx.caster,'A02N',CoolTime)
+        call CooldownFIX(fx.caster,'A02N',HeroSkillCD5[14])
     endif
 endfunction
 

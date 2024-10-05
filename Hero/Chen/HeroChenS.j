@@ -1,9 +1,6 @@
 scope HeroChenS
 globals
-    private constant real DR = 1.84
     private constant real SD = 81.00
-    
-    private constant real CoolTime = 10.0
     
     //쉐클시간
     private constant real Time = 0.60
@@ -37,7 +34,7 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-        call HeroDeal(splash.source,GetEnumUnit(),DR,true,false,SD,true)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,SD,true)
         
         if level >= 1 then
             //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
@@ -81,7 +78,7 @@ private function Main takes nothing returns nothing
         set speed = SkillSpeed(fx.pid)
         
         call Sound3D(fx.caster,'A01K')
-        call CooldownFIX(fx.caster,'A018',CoolTime)
+        call CooldownFIX(fx.caster,'A018',HeroSkillCD5[4])
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,2, (100+speed)/100)
         

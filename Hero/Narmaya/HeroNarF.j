@@ -1,9 +1,5 @@
 scope HeroNarF
 globals
-    private constant real CoolTime = 10.00
-
-    private constant real DR = 13
-    private constant real DR2 = 7
     private constant real SD = 70
     
     //모션시간
@@ -30,13 +26,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi2 == 0
             set Nabi2 = Nabi2 - 1
-            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,SD,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -58,7 +54,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,SD,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -323,7 +319,7 @@ private function Main takes nothing returns nothing
         set SDummy[fx.pid] =  DummyMagicleash2( fx.caster )
         call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction )
 
-        call CooldownFIX(fx.caster,'A02P',CoolTime)
+        call CooldownFIX(fx.caster,'A02P',HeroSkillCD7[14])
     endif
 endfunction
 

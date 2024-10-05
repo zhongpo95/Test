@@ -1,12 +1,8 @@
 scope HeroChenA
 globals
-    //private constant real CoolTime = 40.0 //빠준 8.0
-    private constant real CoolTime = 10.0 //빠준 8.0
+    //private constant real HeroSkillCD4[4] = 40.0 //빠준 8.0
     //범위
     private constant real Dist = 1500
-    //쉴드량
-    private constant real Value = 0.15
-    private constant real Value2 = 0.40
     //쉐클시간
     private constant real Time = 0.8
 endglobals
@@ -62,15 +58,15 @@ private function EffectFunction2 takes nothing returns nothing
     else
         if HeroSkillLevel[fx.pid][4] >= 2 then
             if HeroSkillLevel[fx.pid][4] >= 3 then
-                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*Value2)
+                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4] + 0.25)
             else
-                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*Value)
+                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
             endif
         else
             if HeroSkillLevel[fx.pid][4] >= 3 then
-                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*Value2)
+                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4] + 0.25)
             else
-                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*Value)
+                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
             endif
         endif
         call fx.Stop()
@@ -135,9 +131,9 @@ private function Main takes nothing returns nothing
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,10, (100+speed)/100)
         if HeroSkillLevel[fx.pid][4] >= 1 then
-            call CooldownFIX(fx.caster,'A01E',CoolTime-8.0)
+            call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4]-8.0)
         else
-            call CooldownFIX(fx.caster,'A01E',CoolTime)
+            call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4])
         endif
         
         set t.data = fx

@@ -31,6 +31,228 @@ library UISkillLevel initializer init requires DataUnit
         integer array HeroSkillPoint[13]
     endglobals
     
+    private function F_OFF_Actions takes nothing returns nothing
+        call DzFrameShow(UI_Tip, false)
+    endfunction
+
+        //call DzFrameSetText(FS_ButtonTEXT[0], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
+
+    private function F_ON_Actions takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer index = DataUnitIndex(MainUnit[pid])
+        local string str = ""
+        local string items = ""
+        local integer itemid = 0
+        local integer i = 99999
+        local integer quality = 0
+        local integer up = 0
+        local integer cts = 0
+        local integer tier = 0
+        local item tem
+        
+        if f ==  FS_Button[0] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye0[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr0[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue0[index]*100))+" %"
+            elseif HeroSkillVCount0[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr0[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue0[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount0[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr0[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue0[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue20[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 0
+        elseif f == FS_Button[1] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID1[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye1[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr1[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue1[index]*100))+" %"
+            elseif HeroSkillVCount1[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr1[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue1[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount1[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr1[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue1[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue21[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 1
+        elseif f ==  FS_Button[2] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID2[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye2[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr2[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue2[index]*100))+" %"
+            elseif HeroSkillVCount2[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr2[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue2[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount2[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr2[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue2[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue22[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 2
+        elseif f ==  FS_Button[3] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID3[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye3[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr3[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue3[index]*100))+" %"
+            elseif HeroSkillVCount3[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr3[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue3[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount3[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr3[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue3[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue23[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 3
+        elseif f ==  FS_Button[4] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID4[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye4[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr4[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue4[index]*100))+" %"
+            elseif HeroSkillVCount4[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr1[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue4[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount4[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr4[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue4[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue24[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 4
+        elseif f ==  FS_Button[5] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID5[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye5[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr5[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue5[index]*100))+" %"
+            elseif HeroSkillVCount5[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr5[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue5[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount5[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr5[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue5[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue25[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 5
+        elseif f ==  FS_Button[6] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID6[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye6[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr6[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue6[index]*100))+" %"
+            elseif HeroSkillVCount6[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr6[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue6[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount6[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr6[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue6[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue26[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 6
+        elseif f ==  FS_Button[7] then
+            call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID7[index],1,ABILITY_DATA_TIP) )
+            if JNStringContains(HeroSkillTpye7[index], "버프") then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr7[index]
+                set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue7[index]*100))+" %"
+            elseif HeroSkillVCount7[index] == 1 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr7[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue7[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            elseif HeroSkillVCount7[index] == 2 then
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|c005AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = str + HeroSkillStr7[index]
+                set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue7[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue27[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+            endif
+            call DzFrameSetText(UI_Tip_Text[2], str )
+            call DzFrameShow(UI_Tip, true)
+            set i = 7
+        endif
+                
+        if itemid != 0 then
+            call DzFrameShow(UI_Tip, true)
+            set i = GetItemTypes(items)
+            set up = GetItemUp(items)
+            set quality = GetItemQuality(items)
+            set cts = GetItemCombatStats(items)
+            set tier = GetItemTier(items)
+                
+            if i >= 6 or tier == 1 then
+                call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
+            else
+                call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
+            endif
+            set str = "|cFFA5FA7D[ 종류 ]|r "
+
+            if i == 0 then
+                set str = str + "모자|n|n"
+                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 1 then
+                set str = str + "상의|n|n"
+                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 2 then
+                set str = str + "하의|n|n"
+                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 3 then
+                set str = str + "장갑|n|n"
+                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 4 then
+                set str = str + "견갑|n|n"
+                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 5 then
+                set str = str + "무기|n|n"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
+                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                set str = str + "|n|n|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                set str = str + "  |cFFB9E2FA추가 피해|r +"
+                set str = str + R2S(ItemWeaponQuality[quality]) + "%"
+            endif
+            
+            call DzFrameSetText(UI_Tip_Text[2], str)
+        endif
+    endfunction
+
     function SkillSetting takes unit u returns nothing
         local integer index = DataUnitIndex(u)
         local player p = GetOwningPlayer(u)
@@ -195,6 +417,8 @@ library UISkillLevel initializer init requires DataUnit
         set FS_Button[types]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
         call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.040, -0.080 +(-0.038*types))
         call DzFrameSetSize(FS_Button[types], 0.030, 0.030)
+        call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
+        call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
         
         set FS_ButtonBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "", 0)
