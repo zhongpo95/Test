@@ -50,7 +50,6 @@ library UISkillLevel initializer init requires DataUnit
         local integer cts = 0
         local integer tier = 0
         local item tem
-        
         if f ==  FS_Button[0] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye0[index], "버프") then
