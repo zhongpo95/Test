@@ -92,9 +92,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM
         set F_ArcanaOnOff[5] = false
         
         //P버튼으로 인포창 열기 및 닫기
-        set t = CreateTrigger()
-        
-        call DzTriggerRegisterKeyEventByCode(t, 'O', 0, false, function OKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'O', 0, false, function OKey)
         
         set t = null
     endfunction

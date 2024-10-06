@@ -694,9 +694,7 @@ library UISkillLevel initializer init requires DataUnit
         endloop
         
         //I버튼으로 인벤토리 열기 및 닫기
-        set t = CreateTrigger()
-        
-        call DzTriggerRegisterKeyEventByCode(t, 'K', 0, false, function KKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'K', 0, false, function KKey)
         
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("BTUP"),(false))

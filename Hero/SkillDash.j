@@ -285,9 +285,8 @@ endfunction
     call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
     call TriggerAddAction(t, function F_A006)
     
-    //F 버튼으로 대시사용
-    set t = CreateTrigger()
-    call DzTriggerRegisterKeyEventByCode(t, JN_OSKEY_X, 0, false, function XKey)
+    //X 버튼으로 대시사용
+    call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_X, 0, false, function XKey)
     
     set t=CreateTrigger()
     call DzTriggerRegisterSyncData(t,("DashSync"),(false))

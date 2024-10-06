@@ -3392,8 +3392,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
 
         
         //I버튼으로 인벤토리 열기 및 닫기
-        set t = CreateTrigger()
-        call DzTriggerRegisterKeyEventByCode(t, 'I', 0, false, function IKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'I', 0, false, function IKey)
         set t = null
     endfunction
 endlibrary

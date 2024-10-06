@@ -100,21 +100,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         integer F_Storage_ETCButtons
     endglobals
 
-    private function PickUpItem takes nothing returns nothing
-        local real r1
-        local real r2
-        
-        if F_ItemClickNumber != 200 and PickUpOn == true then
-            set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
-            set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
-            call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
-        else
-            set PickUpOn = false
-            call DzFrameShow(F_PickUp, false)
-            call DzFrameSetUpdateCallback("")
-        endif
-    endfunction
-
     //템제거 RemoveItem2(플레이어아이디,지울번호,창고?)
     function RemoveItem2 takes integer pid, integer number, boolean st returns nothing
         local string sn
@@ -819,7 +804,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
                     set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
                     call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
-                    call DzFrameSetUpdateCallbackByCode(function PickUpItem)
+                    //call DzFrameSetUpdateCallbackByCode(function FPS)
                 //아이템을 들고있으면 자리바꿈
                 else
                     //장비
@@ -1017,7 +1002,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
                     set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
                     set r2 = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
                     call DzFrameSetAbsolutePoint(F_PickUp, JN_FRAMEPOINT_CENTER, r1, r2)
-                    call DzFrameSetUpdateCallbackByCode(function PickUpItem)
+                    //call DzFrameSetUpdateCallbackByCode(function FPS)
                 //템을 들고있으면 자리바꿈
                 else
                     //장비
@@ -1934,8 +1919,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call TriggerAddAction( t, function Main )
         
         //I버튼으로 인벤토리 열기 및 닫기
-        set t = CreateTrigger()
-        call DzTriggerRegisterKeyEventByCode(t, 'I', 0, false, function IKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'I', 0, false, function IKey)
         set t = null
     endfunction
 endlibrary

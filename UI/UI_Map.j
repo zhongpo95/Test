@@ -2079,9 +2079,7 @@ library UIMap initializer init requires DataUnit
         endloop
         
         //I버튼으로 인벤토리 열기 및 닫기
-        set t = CreateTrigger()
-        
-        call DzTriggerRegisterKeyEventByCode(t, 'M', 0, false, function MKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'M', 0, false, function MKey)
         
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("PickLine"),(false))

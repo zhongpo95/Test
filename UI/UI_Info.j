@@ -688,9 +688,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM
         endloop
         
         //P버튼으로 인포창 열기 및 닫기
-        set t = CreateTrigger()
-        
-        call DzTriggerRegisterKeyEventByCode(t, 'P', 0, false, function PKey)
+        call DzTriggerRegisterKeyEventByCode(null, 'P', 0, false, function PKey)
         
         set t = null
     endfunction
