@@ -1,10 +1,8 @@
 scope HeroMoF
 
 globals
-    private constant real DR = 17.01 / 8
     private constant real SD = 74 / 8
     
-    private constant real CoolTime = 5.0
     //쉐클시간
     private constant real Time = 2.7
     //스킬이펙트 시간
@@ -74,7 +72,7 @@ private function splashD takes nothing returns nothing
                 set velue = velue * 1.95
             endif
             
-            call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[3]*velue,false,false,SD,false)
         endif
     endif
 endfunction
@@ -190,7 +188,7 @@ private function Main takes nothing returns nothing
         
         call Sound3D(fx.caster,'A01X')
         
-        call CooldownFIX(fx.caster,'A015',CoolTime)
+        call CooldownFIX(fx.caster,'A015',HeroSkillCD7[3])
         set fx.i = 0
         
         call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))

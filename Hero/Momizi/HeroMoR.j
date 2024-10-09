@@ -2,7 +2,6 @@ scope HeroMoR
 
 globals
     private constant real MaxRange = 1000
-    private constant real CoolTime = 14.0
     //쉐클시간
     private constant real Time = 0.30
     //스킬이펙트 시간
@@ -12,7 +11,6 @@ globals
     //스킬 틱
     private constant real TICK = 12
     
-    private constant real DR = 5.56/6
     private constant real SD = 10
 
     private constant real scale = 500
@@ -58,12 +56,12 @@ private function splashD takes nothing returns nothing
         
         if level >= 2 then
             if level >= 3 then
-                call HeroDeal(splash.source,GetEnumUnit(),(DR*2.72),false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue3[3]*2.72),false,false,SD,false)
             else
-                call HeroDeal(splash.source,GetEnumUnit(),(DR*1.60),false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue3[3]*1.60),false,false,SD,false)
             endif
         else
-            call HeroDeal(splash.source,GetEnumUnit(),(DR),false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue3[3]),false,false,SD,false)
         endif
     endif
 endfunction
@@ -111,7 +109,7 @@ private function Main takes nothing returns nothing
         set fx.Angle = AngleWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
         set fx.i = 0
         
-        call CooldownFIX(fx.caster,'A011',CoolTime)
+        call CooldownFIX(fx.caster,'A011',HeroSkillCD3[3])
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call AnimationStart3(fx.caster,5, (100+fx.speed)/100)
         

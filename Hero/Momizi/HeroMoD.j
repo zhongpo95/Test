@@ -1,9 +1,7 @@
 scope HeroMoD
 globals
-    private constant real DR = 15.54
     private constant real SD = 41
     
-    private constant real CoolTime = 27.0
     //쉐클시간
     private constant real Time = 1.5
     //스킬이펙트 시간
@@ -67,10 +65,10 @@ private function splashD takes nothing returns nothing
                             
                 if level >= 3 then
                     set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 210
-                    call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,SD,false)
                     set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 210
                 else
-                    call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,SD,false)
                 endif
                 call GroupAddUnit(CheckG,GetEnumUnit())
             endif
@@ -135,7 +133,7 @@ private function Main takes nothing returns nothing
         endif
         
         call Sound3D(fx.caster,'A023')
-        call CooldownFIX(fx.caster,'A014',CoolTime)
+        call CooldownFIX(fx.caster,'A014',HeroSkillCD6[3])
         set fx.i = 0
         
         call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))

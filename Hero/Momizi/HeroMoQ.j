@@ -1,10 +1,7 @@
 scope HeroMoQ
 
 globals
-    private constant real DR = 2.68
     private constant real SD = 21.00
-    
-    private constant real CoolTime = 7.0
     
     //쉐클시간
     private constant real Time = 0.80
@@ -56,9 +53,9 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 3 then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*2.05,false,false,SD,true)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[3]*2.05,false,false,SD,true)
         else
-            call HeroDeal(splash.source,GetEnumUnit(),DR,false,false,SD,true)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[3],false,false,SD,true)
         endif
     endif
 endfunction
@@ -122,7 +119,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         
         //call Sound3D(fx.caster,'A01K')
-        call CooldownFIX(fx.caster,'A00Y',CoolTime)
+        call CooldownFIX(fx.caster,'A00Y',HeroSkillCD0[3])
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
         call AnimationStart3(fx.caster,17, (100+fx.speed)/100)

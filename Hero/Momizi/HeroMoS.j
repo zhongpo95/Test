@@ -1,10 +1,8 @@
 scope HeroMoS
 
 globals
-    private constant real DR = 9.92
     private constant real SD = 48
     
-    private constant real CoolTime = 20.0//20.0
     //쉐클시간
     private constant real Time = 2.1
     //스킬이펙트 시간
@@ -54,10 +52,10 @@ private function splashD takes nothing returns nothing
                     
             if level >= 2 then
                 set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 180
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[3]*velue,false,false,SD,false)
                 set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 180
             else
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[3]*velue,false,false,SD,false)
             endif
         endif
     endif
@@ -96,10 +94,10 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         if HeroSkillLevel[fx.pid][5] >= 1 then
             set fx.speed = SkillSpeed2(fx.pid, 100.0)
-            call CooldownFIX(fx.caster,'A013',CoolTime-5.0)
+            call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3]-5.0)
         else
             set fx.speed = SkillSpeed(fx.pid)
-            call CooldownFIX(fx.caster,'A013',CoolTime)
+            call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3])
         endif
         set fx.i = 0
         

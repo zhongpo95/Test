@@ -1,10 +1,8 @@
 scope HeroMoA
 
 globals
-    private constant real DR = 10.0 * 0.10
     private constant real SD = 40 * 0.10
     
-    private constant real CoolTime = 20.0
     //쉐클시간
     private constant real Time = 0.90
     //스킬이펙트 시간
@@ -54,12 +52,12 @@ private function splashD takes nothing returns nothing
             endif
             if level >= 3 then
                 set velue = velue * 2.05
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
             else
-                call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
             endif
         else
-            call HeroDeal(splash.source,GetEnumUnit(),DR*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
         endif
     endif
 endfunction
@@ -148,7 +146,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         
         call Sound3D(fx.caster,'A01Z')
-        call CooldownFIX(fx.caster,'A012',CoolTime)
+        call CooldownFIX(fx.caster,'A012',HeroSkillCD4[3])
         call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
         call BuffNoNB.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )

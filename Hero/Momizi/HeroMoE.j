@@ -2,7 +2,6 @@ scope HeroMoE
 
 globals
     private constant real MaxRange = 1000
-    private constant real CoolTime = 30.0
     //쉐클시간
     private constant real Time = 0.30
     //스킬이펙트 시간
@@ -12,7 +11,6 @@ globals
     //스킬 틱
     private constant real TICK = 6
     
-    private constant real DR = 7.91
     private constant real SD = 113/6
 
     private constant real scale = 650
@@ -48,12 +46,12 @@ private function splashD takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
             if level >= 3 then
-                call HeroDeal(splash.source,GetEnumUnit(),(DR*3.06)/TICK,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue2[3]*3.06)/TICK,false,false,SD,false)
             else
-                call HeroDeal(splash.source,GetEnumUnit(),(DR*1.70)/TICK,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue2[3]*1.70)/TICK,false,false,SD,false)
             endif
         else
-            call HeroDeal(splash.source,GetEnumUnit(),(DR)/TICK,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),(HeroSkillVelue2[3])/TICK,false,false,SD,false)
         endif
     endif
     
@@ -102,9 +100,9 @@ private function Main takes nothing returns nothing
         
         //call Sound3D(fx.caster,'A01W')
         if HeroSkillLevel[fx.pid][2] >= 1 then
-            call CooldownFIX(fx.caster,'A010',CoolTime-11.0)
+            call CooldownFIX(fx.caster,'A010',HeroSkillCD2[3]-11.0)
         else
-            call CooldownFIX(fx.caster,'A010',CoolTime)
+            call CooldownFIX(fx.caster,'A010',HeroSkillCD2[3])
         endif
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
