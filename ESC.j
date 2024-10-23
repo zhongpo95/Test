@@ -3,6 +3,8 @@ scope ESC initializer init
         //integer i = 0
         //string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
         real AAA = 0
+        integer BBB = 0
+        integer BBBF
         string s = "1"
     endglobals
 
@@ -95,6 +97,52 @@ scope ESC initializer init
         //call ItemUIStatsSet(0)
         
         //call DzSetUnitModel(MainUnit[0], "[Hero]\\mh_Firefly_yz.mdl")
+
+        if BBB == 0 then
+            set BBBF = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
+            call DzFrameSetTexture(BBBF,"Narmaya_blue.blp",0)
+            call DzFrameSetAbsolutePoint(BBBF,JN_FRAMEPOINT_CENTER,0.4,0.3)
+            call DzFrameSetSize(BBBF,0.8,0.6)
+            call DzFrameShow(BBBF, false)
+        endif
+
+        //반디필터
+        set BBB = BBB + 1
+        if BBB < 10 then
+            //call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "war3mapImported\\BandiZ (0"+I2S(BBB)+").blp" , 100, 100, 100, 100, 100, 100, 100, 25)
+            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ (0"+I2S(BBB)+").blp",0)
+            call DzFrameShow(BBBF, true)
+        elseif BBB < 86 then
+            //call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "war3mapImported\\BandiZ ("+I2S(BBB)+").blp" , 100, 100, 100, 100, 100, 100, 100, 25)
+            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ ("+I2S(BBB)+").blp",0)
+            call DzFrameShow(BBBF, true)
+        elseif BBB < 91 then
+            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ (85).blp",0)
+            call DzFrameShow(BBBF, true)
+        endif
+//blp더추가
+        
+        if BBB == 2 then
+            call Sound3D(MainUnit[0],'A066')
+        elseif BBB == 56 then
+            call Sound3D(MainUnit[0],'A067')
+        elseif BBB == 87 then
+            call Sound3D(MainUnit[0],'A068')
+        endif
+
+
+        call TriggerSleepActionByTimer(0.03)
+
+
+        if BBB < 91 then
+            call ESCAction()
+        else
+            call DzFrameShow(BBBF, false)
+            call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "BANDI.blp" , 100, 100, 100, 100, 100, 100, 100, 25)
+            set BBB = 1
+        endif
+
+        
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing

@@ -10,3 +10,4 @@ library Cooldown requires TriggerSleepActionByTimer
         call JNStartUnitAbilityCooldown(caster, abilId, cooldown )
     endfunction
 endlibrary
+

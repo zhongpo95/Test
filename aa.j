@@ -1,3 +1,35 @@
+
+function StarOther__anon__0 takes nothing returns nothing
+    local integer i=LoadInteger(StarBaseHT, GetHandleId(GetExpiredTimer()), 0xA707D18B)
+    local player p=Player(i)
+    call PauseTimer(s__CFG_timers[i])
+    if ( GetLocalPlayer() == p ) then
+        call DisplayCineFilter(false)
+    endif
+    set p=null
+endfunction
+
+function SO_CinematicFilterGenerictakes takes player p,real duration,blendmode bmode,string tex,real red0,real green0,real blue0,real trans0,real red1,real green1,real blue1,real trans1 returns nothing
+    local integer pid=GetPlayerId(p)
+    if ( GetLocalPlayer() == p ) then
+        call SetCineFilterTexture(tex)
+        call SetCineFilterBlendMode(bmode)
+        call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
+        call SetCineFilterStartUV(0, 0, 1, 1)
+        call SetCineFilterEndUV(0, 0, 1, 1)
+        call SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100 - trans0))
+        call SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100 - trans1))
+        call SetCineFilterDuration(duration)
+        call DisplayCineFilter(true)
+    endif
+    
+    if ( GetLocalPlayer() == p ) then
+        call DisplayCineFilter(false)
+    endif
+endfunction
+
+
+
 function Trig_J_Firefly____________000_fzFunc013Func006T takes nothing returns nothing
     if ( ( mh_stpd2(LoadUnitHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x911D5DC2)) == 0 ) ) then
     call SaveReal(YDLOC, GetHandleId(GetExpiredTimer()), 0x6B54C545, LoadReal(YDHT, GetHandleId(LoadPlayerHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x48656946)), 0xA75A98EB))
