@@ -108,33 +108,28 @@ scope ESC initializer init
 
         //반디필터
         set BBB = BBB + 1
-        if BBB < 10 then
+        if BBB+29 < 10 then
             //call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "war3mapImported\\BandiZ (0"+I2S(BBB)+").blp" , 100, 100, 100, 100, 100, 100, 100, 25)
-            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ (0"+I2S(BBB)+").blp",0)
+            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ (0"+I2S(BBB+29)+").blp",0)
             call DzFrameShow(BBBF, true)
-        elseif BBB < 86 then
+        elseif BBB+29 < 86 then
             //call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "war3mapImported\\BandiZ ("+I2S(BBB)+").blp" , 100, 100, 100, 100, 100, 100, 100, 25)
-            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ ("+I2S(BBB)+").blp",0)
-            call DzFrameShow(BBBF, true)
-        elseif BBB < 91 then
-            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ (85).blp",0)
+            call DzFrameSetTexture(BBBF,"war3mapImported\\BandiZ ("+I2S(BBB+29)+").blp",0)
             call DzFrameShow(BBBF, true)
         endif
-//blp더추가
         
-        if BBB == 2 then
-            call Sound3D(MainUnit[0],'A066')
-        elseif BBB == 56 then
+        if BBB+29 == 31 then
+            //call Sound3D(MainUnit[0],'A066')
             call Sound3D(MainUnit[0],'A067')
-        elseif BBB == 87 then
+        elseif BBB+29 == 85 then
             call Sound3D(MainUnit[0],'A068')
         endif
 
 
-        call TriggerSleepActionByTimer(0.03)
+        call TriggerSleepActionByTimer(0.02)
 
 
-        if BBB < 91 then
+        if BBB+29 < 86 then
             call ESCAction()
         else
             call DzFrameShow(BBBF, false)
