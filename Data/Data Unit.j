@@ -498,7 +498,6 @@ private function init takes nothing returns nothing
     set HeroSkillID7[14] = 'A02P'
     set HeroSkillID8[14] = 'A02Q'
     set HeroSkillID9[14] = 'A02R'
-    set HeroSkillID10[14] = 'A02S'
 
 
     set HeroSkillTpye0[14] = "일반, 카운터"
@@ -580,6 +579,7 @@ private function init takes nothing returns nothing
     set UnitAbilityIndex[15] = 'H00K'
     //추가해야됨
     set UnitCutString[15] = "Mika_Cut"
+    //추가해야됨
     set UnitCutSound[15]= gg_snd_Narmaya_Cut1
     set UnitHeroCheck[15] = true
     set UnitDashCode[15] = 9
@@ -591,17 +591,20 @@ private function init takes nothing returns nothing
     set HeroSkillBlp5[15] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
     set HeroSkillBlp6[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     set HeroSkillBlp7[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
-    set HeroSkillID0[15] = 'A02I'
-    set HeroSkillID1[15] = 'A02J'
-    set HeroSkillID2[15] = 'A02K'
-    set HeroSkillID3[15] = 'A02L'
-    set HeroSkillID4[15] = 'A02M'
-    set HeroSkillID5[15] = 'A02N'
-    set HeroSkillID6[15] = 'A02O'
-    set HeroSkillID7[15] = 'A02P'
-    set HeroSkillID8[15] = 'A02Q'
-    set HeroSkillID9[15] = 'A02R'
-    set HeroSkillID10[15] = 'A02S'
+    set HeroSkillID0[15] = 'A06H'
+    set HeroSkillID1[15] = 'A06L'
+    set HeroSkillID2[15] = 'A06F'
+    set HeroSkillID3[15] = 'A06I'
+    set HeroSkillID4[15] = 'A06C'
+    set HeroSkillID5[15] = 'A06J'
+    set HeroSkillID6[15] = 'A06E'
+    set HeroSkillID7[15] = 'A06G'
+    //V
+    set HeroSkillID8[15] = 'A06K'
+    //C
+    set HeroSkillID9[15] = 'A06D'
+    //Z
+    set HeroSkillID10[15] = 'A06M'
 
     set HeroSkillTpye0[15] = "일반, 카운터"
     set HeroSkillStr0[15] = "지정 방향으로 돌진하며 피해를 입힙니다."
