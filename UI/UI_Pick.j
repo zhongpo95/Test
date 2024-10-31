@@ -17,6 +17,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         integer FP_LoadBBD          //로드결정
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
+        constant integer MaxHero = 4
     endglobals
     
     function StringNullCheck2 takes string s returns boolean
@@ -389,7 +390,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
                 set FP_HeroBBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "", 0)
                 call DzFrameSetAbsolutePoint(FP_HeroBBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.4500+(0.035*(i-1))+(0.0100*j), 0.5250-(0.035*j))
                 call DzFrameSetSize(FP_HeroBBD[i+(j*6)], 0.035, 0.035)
-                if i+(j*6) <= 3 then
+                if i+(j*6) <= MaxHero then
                     call DzFrameSetTexture(FP_HeroBBD[i+(j*6)], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon"+I2S(i+(j*6))+".blp", 0)
                     set FP_HeroB[i+(j*6)]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i+(j*6)], "ScoreScreenTabButtonTemplate", 0)
                     call DzFrameSetAllPoints(FP_HeroB[i+(j*6)], FP_HeroBBD[i+(j*6)])
@@ -470,6 +471,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set NarNabi[pid] = 0
             //call DzFrameShow(skillbuttonframe[8],true)
             //call DzFrameShow(NarAden2, true)
+        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "4" then
+            set HeroTypeId = 'H00K'
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -687,6 +690,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set NarNabi[pid] = 0
             //call DzFrameShow(skillbuttonframe[8],true)
             //call DzFrameShow(NarAden2, true)
+        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "4" then
+            set HeroTypeId = 'H00K'
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
