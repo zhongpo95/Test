@@ -3,7 +3,7 @@ globals
     private constant real SD = 0.00
 
     //폼전환강화 유지시간
-    constant real NarChangeTime = 0.75
+    //constant real NarChangeTime = 0.75
     //카구라 강화전환시간
     private constant real Time = 1.5
     //카구라 강화전환사출, 타수
@@ -285,7 +285,7 @@ private function Main takes nothing returns nothing
     local SkillRarW fx
     
 
-    if GetSpellAbilityId() == 'A02J' then
+    if GetSpellAbilityId() == 'A06L' then
         set caster = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         
@@ -385,7 +385,7 @@ private function Main takes nothing returns nothing
                 endif
                 set NarFormC[pid] = CreateUnit(GetOwningPlayer(caster),'e028',0,0,0)
                 //쿨타임조정
-                call CooldownFIX(caster,'A02J',HeroSkillCD1[14])
+                call CooldownFIX(caster,'A06L',HeroSkillCD1[14])
             else
                 //겐지
                 set NarForm[pid] = 1
@@ -412,7 +412,7 @@ private function Main takes nothing returns nothing
                 endif
                 set NarFormG[pid] = CreateUnit(GetOwningPlayer(caster),'e027',0,0,0)
                 //쿨타임조정
-                call CooldownFIX(caster,'A02J',HeroSkillCD1[14])
+                call CooldownFIX(caster,'A06L',HeroSkillCD1[14])
             endif
 
         endif
@@ -468,11 +468,11 @@ endfunction
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarW"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiW"),(false))
     call TriggerAddAction(t,function WSyncData)
     
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarW2"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiW2"),(false))
     call TriggerAddAction(t,function WSyncData2)
 
     set t = null

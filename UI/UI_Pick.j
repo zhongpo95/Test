@@ -473,6 +473,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             //call DzFrameShow(NarAden2, true)
         elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "4" then
             set HeroTypeId = 'H00K'
+            //call DzFrameShow(BanAden, true)
+            call DzFrameShow(BanAdens[0], true)
+            call DzFrameShow(BanAdens2[0], true)
+            call DzFrameShow(BanAdens2[1], true)
+            call DzFrameShow(BanAdens2[2], true)
+            call DzFrameShow(BanAdens2[3], true)
+            call DzFrameShow(BanAdens2[4], true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -690,8 +697,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set NarNabi[pid] = 0
             //call DzFrameShow(skillbuttonframe[8],true)
             //call DzFrameShow(NarAden2, true)
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "4" then
+        elseif SlotHero == 4 then
             set HeroTypeId = 'H00K'
+            //call DzFrameShow(BanAden, true)
+            call DzFrameShow(BanAdens[0], true)
+            call DzFrameShow(BanAdens2[0], true)
+            call DzFrameShow(BanAdens2[1], true)
+            call DzFrameShow(BanAdens2[2], true)
+            call DzFrameShow(BanAdens2[3], true)
+            call DzFrameShow(BanAdens2[4], true)
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)

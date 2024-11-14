@@ -30,7 +30,7 @@ private function Main takes nothing returns nothing
     local integer pid
     local real speed
 
-    if GetSpellAbilityId() == 'A02M' then
+    if GetSpellAbilityId() == 'A06C' then
         set caster = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(caster))
         set speed = ((100+SkillSpeed(pid))/100)
@@ -60,7 +60,7 @@ private function Main takes nothing returns nothing
         endif
 
 
-        call CooldownFIX(caster,'A02M',HeroSkillCD4[14])
+        call CooldownFIX(caster,'A06C',HeroSkillCD4[14])
         set caster = null
     endif
 endfunction
@@ -113,11 +113,11 @@ endfunction
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarA"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiA"),(false))
     call TriggerAddAction(t,function ASyncData)
     
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarA2"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiA2"),(false))
     call TriggerAddAction(t,function ASyncData2)
 
     set t = null

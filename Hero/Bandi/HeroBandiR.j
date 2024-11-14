@@ -8,9 +8,9 @@ private function Main takes nothing returns nothing
     local SkillFx fx
     local real r
     local integer i 
-    if GetSpellAbilityId() == 'A02L' then
+    if GetSpellAbilityId() == 'A06I' then
         set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
-        call CooldownFIX(GetTriggerUnit(),'A02L',HeroSkillCD3[14])
+        call CooldownFIX(GetTriggerUnit(),'A06I',HeroSkillCD3[14])
     endif
 endfunction
     
@@ -64,11 +64,11 @@ endfunction
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarR"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiR"),(false))
     call TriggerAddAction(t,function RSyncData)
     
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarR2"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiR2"),(false))
     call TriggerAddAction(t,function RSyncData2)
 
     set t = null

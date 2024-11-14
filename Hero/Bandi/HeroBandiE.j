@@ -587,7 +587,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     local real r
     local integer i 
-    if GetSpellAbilityId() == 'A02K' then
+    if GetSpellAbilityId() == 'A06F' then
         set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
@@ -648,7 +648,7 @@ private function Main takes nothing returns nothing
             call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction7 )
         endif
         //쿨변경
-        call CooldownFIX(fx.caster,'A02K',HeroSkillCD2[14])
+        call CooldownFIX(fx.caster,'A06F',HeroSkillCD2[14])
     endif
 endfunction
     
@@ -789,11 +789,11 @@ endfunction
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarE"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiE"),(false))
     call TriggerAddAction(t,function ESyncData)
     
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarE2"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiE2"),(false))
     call TriggerAddAction(t,function ESyncData2)
 
     set t = null

@@ -113,6 +113,17 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarC.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarZ.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiA.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiC.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiD.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiE.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiF.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiQ.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiR.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiS.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiV.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiW.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Bandi\HeroBandiZ.j"
 
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-1.j"
 //! import "C:\Users\123\Desktop\JN\Test\Boss\Boss1-2.j"

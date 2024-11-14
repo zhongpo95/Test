@@ -309,7 +309,7 @@ endglobals
         local SkillFx fx
         local real random
              
-        if GetSpellAbilityId() == 'A02R' then
+        if GetSpellAbilityId() == 'A06D' then
             set t = tick.create(0) 
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()
@@ -320,7 +320,7 @@ endglobals
             set fx.index = IndexUnit(MainUnit[fx.pid])
             set fx.i = 0 
             
-            call CooldownFIX(fx.caster,'A02R', CoolTime)
+            call CooldownFIX(fx.caster,'A06D', CoolTime)
 
             //카구라
             if NarForm[fx.pid] == 0 then
@@ -383,7 +383,7 @@ endglobals
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarC"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiC"),(false))
     call TriggerAddAction(t,function CSyncData)
 
     set t = null

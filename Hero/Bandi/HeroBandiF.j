@@ -276,7 +276,7 @@ private function Main takes nothing returns nothing
     
     //38 39 54 55
 
-    if GetSpellAbilityId() == 'A02P' then
+    if GetSpellAbilityId() == 'A06G' then
         set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.caster = GetTriggerUnit()
@@ -319,7 +319,7 @@ private function Main takes nothing returns nothing
         set SDummy[fx.pid] =  DummyMagicleash2( fx.caster )
         call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction )
 
-        call CooldownFIX(fx.caster,'A02P',HeroSkillCD7[14])
+        call CooldownFIX(fx.caster,'A06G',HeroSkillCD7[14])
     endif
 endfunction
 
@@ -468,11 +468,11 @@ endfunction
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarF"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiF"),(false))
     call TriggerAddAction(t,function FSyncData)
     
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarF2"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiF2"),(false))
     call TriggerAddAction(t,function FSyncData2)
 
     set t = null

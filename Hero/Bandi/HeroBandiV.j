@@ -4,7 +4,7 @@ globals
 endglobals
 
     private function Main takes nothing returns nothing
-        if GetSpellAbilityId() == 'A02Q' then
+        if GetSpellAbilityId() == 'A06K' then
 
             set PlayerVCount[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
 
@@ -61,7 +61,7 @@ endglobals
     call TriggerAddAction(t, function Main)
         
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarV"),(false))
+    call DzTriggerRegisterSyncData(t,("BandiV"),(false))
     call TriggerAddAction(t,function VSyncData)
 
     set t = null

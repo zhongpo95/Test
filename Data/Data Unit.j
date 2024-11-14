@@ -175,8 +175,8 @@ function DataUnitIndex takes unit u returns integer
         return 13
     elseif i == 'H00I' then
         return 14
-    elseif i == 'H00I' then
-        return 14
+    elseif i == 'H00K' then
+        return 15
     endif
     return 0
 endfunction
