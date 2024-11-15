@@ -141,40 +141,31 @@ scope HeroBandiZ
 
     globals
         integer array BanBisul
+        integer array BanBisulU
         real zchecker = 0
     endglobals
 
     function BanBisulPlus takes integer pid, integer i returns nothing
         loop
             if BanBisul[pid] == 5 then
-                set BanBisul[pid] = 0
+                set BanBisulU[pid] = CreateUnit(Player(pid),'e033',0,0,0)
             endif
         exitwhen i <= 0
             if GetLocalPlayer() == Player(pid) then
                 if BanBisul[pid] == 0 then
                     call DzFrameSetTexture(BanAdens[0],"Bandi_Aden1.blp",0)
-                    call DzFrameSetAbsolutePoint(BanAdens2[0],JN_FRAMEPOINT_BOTTOMLEFT,0.374,0.040)
-                    call BJDebugMsg(R2S(zchecker))
                     call DzFrameSetModel(BanAdens2[0], "Bandi_Aden.mdx", 0, 0)
                 elseif BanBisul[pid] == 1 then
                     call DzFrameSetTexture(BanAdens[0],"Bandi_Aden2.blp",0)
-                    call DzFrameSetAbsolutePoint(BanAdens2[1],JN_FRAMEPOINT_BOTTOMLEFT,0.379,0.048)
-                    call BJDebugMsg(R2S(zchecker))
                     call DzFrameSetModel(BanAdens2[1], "Bandi_Aden.mdx", 0, 0)
                 elseif BanBisul[pid] == 2 then
                     call DzFrameSetTexture(BanAdens[0],"Bandi_Aden3.blp",0)
-                    call DzFrameSetAbsolutePoint(BanAdens2[2],JN_FRAMEPOINT_BOTTOMLEFT,0.387,0.055)
-                    call BJDebugMsg(R2S(zchecker))
                     call DzFrameSetModel(BanAdens2[2], "Bandi_Aden.mdx", 0, 0)
                 elseif BanBisul[pid] == 3 then
                     call DzFrameSetTexture(BanAdens[0],"Bandi_Aden4.blp",0)
-                    call DzFrameSetAbsolutePoint(BanAdens2[3],JN_FRAMEPOINT_BOTTOMLEFT,0.396,0.060)
-                    call BJDebugMsg(R2S(zchecker))
                     call DzFrameSetModel(BanAdens2[3], "Bandi_Aden.mdx", 0, 0)
                 elseif BanBisul[pid] == 4 then
                     call DzFrameSetTexture(BanAdens[0],"Bandi_Aden5.blp",0)
-                    call DzFrameSetAbsolutePoint(BanAdens2[4],JN_FRAMEPOINT_BOTTOMLEFT,0.406,0.060)
-                    call BJDebugMsg(R2S(zchecker))
                     call DzFrameSetModel(BanAdens2[4], "Bandi_Aden.mdx", 0, 0)
                 endif
             endif
@@ -188,125 +179,21 @@ scope HeroBandiZ
         endloop
     endfunction
     
-    function BanBisulUse takes integer pid, boolean b returns integer
-        if BanBisul[pid] == 0 then
-            set BanBisul[pid] = 0
-            return 0
-        elseif BanBisul[pid] == 1 then
-            set BanBisul[pid] = 0
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 1
-        elseif BanBisul[pid] == 2 then
-            set BanBisul[pid] = 0
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                call DzFrameShow(BanAdens[1], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 2
-        elseif BanBisul[pid] == 3 then
-            set BanBisul[pid] = 0
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                call DzFrameShow(BanAdens[1], false)
-                call DzFrameShow(BanAdens[2], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 3
-        elseif BanBisul[pid] == 4 then
-            set BanBisul[pid] = 0
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                call DzFrameShow(BanAdens[1], false)
-                call DzFrameShow(BanAdens[2], false)
-                call DzFrameShow(BanAdens[3], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 4
-        elseif BanBisul[pid] == 5 then
-            set BanBisul[pid] = 0
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                call DzFrameShow(BanAdens[1], false)
-                call DzFrameShow(BanAdens[2], false)
-                call DzFrameShow(BanAdens[3], false)
-                call DzFrameShow(BanAdens[4], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[4], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[4], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 5
-        elseif BanBisul[pid] == 6 then
-            set BanBisul[pid] = 0
-                if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(BanAdens[0], false)
-                call DzFrameShow(BanAdens[1], false)
-                call DzFrameShow(BanAdens[2], false)
-                call DzFrameShow(BanAdens[3], false)
-                call DzFrameShow(BanAdens[4], false)
-                call DzFrameShow(BanAdens[5], false)
-                if NarForm[pid] == 0 then
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[4], "Narmaya_blue2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[5], "Narmaya_blue2.mdx", 0, 0)
-                else
-                    call DzFrameSetModel(BanAdens2[0], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[1], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[2], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[3], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[4], "Narmaya_pink2.mdx", 0, 0)
-                    call DzFrameSetModel(BanAdens2[5], "Narmaya_pink2.mdx", 0, 0)
-                endif
-            endif
-            return 6
+    function BanBisulUse takes integer pid returns nothing
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetTexture(BanAdens[0],"Bandi_Aden1.blp",0)
+            call DzFrameSetModel(BanAdens2[0], "Bandi_Aden.mdx", 0, 0)
+            call DzFrameSetModel(BanAdens2[1], "Bandi_Aden.mdx", 0, 0)
+            call DzFrameSetModel(BanAdens2[2], "Bandi_Aden.mdx", 0, 0)
+            call DzFrameSetModel(BanAdens2[3], "Bandi_Aden.mdx", 0, 0)
+            call DzFrameSetModel(BanAdens2[4], "Bandi_Aden.mdx", 0, 0)
         endif
         
-        return 0
+        if not IsUnitDeadVJ(BanBisulU[pid]) then
+            call KillUnit(BanBisulU[pid])
+        endif
+        
+        set BanBisul[pid] = 0
     endfunction
-
 
 endlibrary
