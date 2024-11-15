@@ -229,7 +229,6 @@ library UISkill initializer init
         
         //필살기 점등프레임
         set BanAdens[2] = DzCreateFrameByTagName("SPRITE", "", BanAdens[1], "", 0)
-        call DzFrameSetAbsolutePoint(BanAdens[2],JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.035)
         call DzFrameSetPoint(BanAdens[2], JN_FRAMEPOINT_BOTTOMLEFT, BanAdens[1] , JN_FRAMEPOINT_CENTER, 0, 0)
         call DzFrameShow(BanAdens[2], false)
 

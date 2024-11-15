@@ -21,6 +21,7 @@ scope HeroBandiZ
         real TargetX
         real TargetY
         real speed
+        effect e
         integer i
         private method OnStop takes nothing returns nothing
             set caster = null
@@ -36,6 +37,7 @@ scope HeroBandiZ
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
+        local effect e
        
         //반디필터
         set fx.i = fx.i + 1
@@ -56,7 +58,9 @@ scope HeroBandiZ
         if fx.i+29 == 31 then
             //call Sound3D(MainUnit[0],'A066')
             call Sound3D(MainUnit[0],'A067')
+            call Sound3D(MainUnit[0],'A065')
         elseif fx.i+29 == 85 then
+            call AnimationStart3(fx.caster,3, 1.00)
             call Sound3D(MainUnit[0],'A068')
         endif
 
@@ -64,7 +68,32 @@ scope HeroBandiZ
         if fx.i+29 < 86 then
             call t.start( 0.02, false, function EffectFunction ) 
         else
-            call DzFrameShow(BanAden, false)
+            if fx.i+29 == 86 then 
+                call DzFrameShow(BanAden, false)
+                call t.start( 1.35, false, function EffectFunction ) 
+            elseif fx.i+29 == 87 then
+                call AnimationStart3(fx.caster,4, 1.00)
+                set fx.e = AddSpecialEffectTarget("tx-LiuYing17.mdl",fx.caster,"chest")
+                call t.start( 0.05, false, function EffectFunction ) 
+            elseif fx.i+29 == 88 then
+                set e = AddSpecialEffect("tx-LiuYing15.mdl", GetUnitX(fx.caster), GetUnitY(fx.caster))
+                call EXSetEffectZ(e, 200)
+                call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
+                call EXSetEffectSize(e,2.0)
+                call DestroyEffect(e)
+                set e = null
+                set e = AddSpecialEffect("Suzakuin-17-Y.mdl", GetUnitX(fx.caster), GetUnitY(fx.caster))
+                call EXSetEffectZ(e, 200)
+                call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
+                call DestroyEffect(e)
+                set e = null
+                call t.start( 0.60, false, function EffectFunction ) 
+            else
+                call DestroyEffect(fx.e)
+                call EXPauseUnit(fx.caster,false)
+                set fx.e = null
+                call t.destroy()
+            endif
         endif
 
 
@@ -82,11 +111,14 @@ scope HeroBandiZ
             set fx.i = 0
             set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 
-            call Sound3D(fx.caster,'A01P')
-            call CooldownFIX(fx.caster,'A06M', 5.0)
-            call DummyMagicleash(fx.caster, Time)
+            call CooldownFIX(fx.caster,'A06M', 4.0)
+            //call DummyMagicleash(fx.caster, Time)
+            //call AnimationStart3(fx.caster,17, 1.00)
+            call BanBisul2Use(pid)
 
-            call AnimationStart3(fx.caster,17, 1.00)
+            call DzSetUnitModel(fx.caster, "[AWF]FireFlySam2.mdx")
+
+            call EXPauseUnit(fx.caster,true)
 
             set t.data = fx
             call t.start( Time2, false, function EffectFunction ) 
@@ -141,13 +173,18 @@ scope HeroBandiZ
 
     globals
         integer array BanBisul
-        integer array BanBisulU
-        real zchecker = 0
+        integer array BanBisul2
+        unit array BanBisulU
+        unit array BanBisul2U
+        boolean array BanBisul2Boolaen
     endglobals
 
     function BanBisulPlus takes integer pid, integer i returns nothing
         loop
             if BanBisul[pid] == 5 then
+                if not IsUnitDeadVJ(BanBisulU[pid]) then
+                    call KillUnit(BanBisulU[pid])
+                endif
                 set BanBisulU[pid] = CreateUnit(Player(pid),'e033',0,0,0)
             endif
         exitwhen i <= 0
@@ -169,11 +206,11 @@ scope HeroBandiZ
                     call DzFrameSetModel(BanAdens2[4], "Bandi_Aden.mdx", 0, 0)
                 endif
             endif
-    
+            
             if BanBisul[pid] == 5 then
                 set BanBisul[pid] = 4
             endif
-    
+            
             set i = i - 1
             set BanBisul[pid] = BanBisul[pid] + 1
         endloop
@@ -181,12 +218,15 @@ scope HeroBandiZ
     
     function BanBisulUse takes integer pid returns nothing
         if GetLocalPlayer() == Player(pid) then
-            call DzFrameSetTexture(BanAdens[0],"Bandi_Aden1.blp",0)
+            call DzFrameSetTexture(BanAdens[0],"Bandi_Aden0.blp",0)
             call DzFrameSetModel(BanAdens2[0], "Bandi_Aden.mdx", 0, 0)
             call DzFrameSetModel(BanAdens2[1], "Bandi_Aden.mdx", 0, 0)
             call DzFrameSetModel(BanAdens2[2], "Bandi_Aden.mdx", 0, 0)
             call DzFrameSetModel(BanAdens2[3], "Bandi_Aden.mdx", 0, 0)
             call DzFrameSetModel(BanAdens2[4], "Bandi_Aden.mdx", 0, 0)
+            call DzFrameShow(BanAdens[0],false)
+            call DzFrameShow(BanAdens[1],true)
+            call DzFrameShow(BanAdens[2],true)
         endif
         
         if not IsUnitDeadVJ(BanBisulU[pid]) then
@@ -194,6 +234,71 @@ scope HeroBandiZ
         endif
         
         set BanBisul[pid] = 0
+    endfunction
+
+    function BanBisul2Plus takes integer pid, integer i returns nothing
+        if BanBisul2Boolaen[pid] != true then
+            loop
+                if BanBisul2[pid] == 4 then
+                    //set BanBisulU[pid] = CreateUnit(Player(pid),'e033',0,0,0)
+                    if not IsUnitDeadVJ(BanBisul2U[pid]) then
+                        call KillUnit(BanBisul2U[pid])
+                    endif
+                    set BanBisul2U[pid] = CreateUnit(Player(pid),'e034',0,0,0)
+                endif
+            exitwhen i <= 0
+                if GetLocalPlayer() == Player(pid) then
+                    if BanBisul2[pid] == 0 then
+                        call DzFrameSetTexture(BanAdens[1],"Bandi_Aden2_25.blp",0)
+                    elseif BanBisul2[pid] == 1 then
+                        call DzFrameSetTexture(BanAdens[1],"Bandi_Aden2_50.blp",0)
+                    elseif BanBisul2[pid] == 2 then
+                        call DzFrameSetTexture(BanAdens[1],"Bandi_Aden2_75.blp",0)
+                    elseif BanBisul2[pid] == 3 then
+                        call DzFrameSetTexture(BanAdens[1],"Bandi_Aden2_100.blp",0)
+                        call DzFrameSetModel(BanAdens[2], "Bandi_Aden2.mdx", 0, 0)
+                    endif
+                endif
+                
+                if BanBisul2[pid] == 4 then
+                    set BanBisul2[pid] = 3
+                    call DzFrameSetModel(BanAdens[2], "Bandi_Aden2.mdx", 0, 0)
+                endif
+                
+                set i = i - 1
+                set BanBisul2[pid] = BanBisul2[pid] + 1
+            endloop
+        endif
+    endfunction
+
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+    
+        if GetLocalPlayer() == Player(t.data) then
+            call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
+        endif
+
+        if BanBisul2Boolaen[t.data] != true then
+            call t.destroy()
+        endif
+    endfunction
+    
+    function BanBisul2Use takes integer pid returns nothing
+        local tick t = tick.create(pid)
+
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetTexture(BanAdens[1],"Bandi_Aden3_0.blp",0)
+            call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
+        endif
+        
+        if not IsUnitDeadVJ(BanBisul2U[pid]) then
+            call KillUnit(BanBisul2U[pid])
+        endif
+        
+        set BanBisul2[pid] = 0
+        set BanBisul2Boolaen[pid] = true
+
+        call t.start( 1.0, true, function EffectFunction )
     endfunction
 
 endlibrary
