@@ -1,9 +1,49 @@
 scope HeroBandiQ
-globals
-    private constant real SD = 0.00
-endglobals
+    globals
+        private constant real SD = 0.00
+    
+        //전진시간
+        private constant real Time3 = 0.40
+        //최대 전진거리
+        private constant real MoveD = 300
+        
+        private constant real scale = 500
+        private constant real distance = 400
+    endglobals
 
+    private function splashD takes nothing returns nothing
+        local real Velue = 1.0
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local integer random
+        
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[15]*Velue,false,false,SD,true)
+            call BanBisulPlus(pid,1)
+            //call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
+        endif
+    endfunction
 
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local SkillFx fx = t.data
+        local integer i
+        
+        set fx.i = fx.i + 1
+    
+        if fx.i >= 20/fx.speed then
+            if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+                call UnitEffectTime2('e03D',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+            endif
+            call fx.Stop()
+            call t.destroy()
+        else
+            call SetUnitSafePolarUTA(fx.caster,fx.r/(20/fx.speed),GetUnitFacing(fx.caster))
+            call t.start( 0.02, false, function EffectFunction ) 
+        endif
+    endfunction
+
+//트포 비적중시에도 비술게이지 1 얻음
 private function Main takes nothing returns nothing
     local tick t
     local SkillFx fx
@@ -12,13 +52,6 @@ private function Main takes nothing returns nothing
     local effect e
          
     if GetSpellAbilityId() == 'A06H' then
-        call BanBisulPlus(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),1)
-        //call CooldownFIX(GetTriggerUnit(),'A06H',HeroSkillCD0[15])
-        call CooldownFIX(GetTriggerUnit(),'A06H',0.5)
-
-
-
-
         set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.caster = GetTriggerUnit()
@@ -45,21 +78,18 @@ private function Main takes nothing returns nothing
         call DestroyEffect(e)
         set e = null
 
-        call Sound3D(fx.caster,'A03V')
+        if GetRandomInt(0,1) == 1 then
+            call Sound3D(fx.caster,'A06R')
+        else
+            call Sound3D(fx.caster,'A06S')
+        endif
 
-        call CooldownFIX(fx.caster, 'A02I', HeroSkillCD0[14])
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
-        call AnimationStart3(fx.caster, 11, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster, 2, (100+fx.speed)/100)
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
-
-
-
-
-
-
-
+        call CooldownFIX(fx.caster, 'A06H', HeroSkillCD0[15])
     endif
 endfunction
 
@@ -91,18 +121,6 @@ private function QSyncData takes nothing returns nothing
     set p=null
 endfunction
 
-private function QSyncData2 takes nothing returns nothing
-    local player p = DzGetTriggerSyncPlayer()
-    local integer pid = GetPlayerId(p)
-    local real x
-    local real y
-    local real angle
-    local real speed
-    local tick t
-    
-    set p=null
-endfunction
-
             
 //! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     local trigger t
@@ -114,10 +132,6 @@ endfunction
     set t=CreateTrigger()
     call DzTriggerRegisterSyncData(t,("BandiQ"),(false))
     call TriggerAddAction(t,function QSyncData)
-    
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("BandiQ2"),(false))
-    call TriggerAddAction(t,function QSyncData2)
 
     set t = null
 //! runtextmacro 이벤트_끝()

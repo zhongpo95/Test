@@ -176,7 +176,7 @@ scope HeroBandiZ
 
     endscope
 
-    library HeroBandiZ2
+    library HeroBandiZ2 requires PSound
 
     globals
         integer array BanBisul
@@ -187,6 +187,12 @@ scope HeroBandiZ
     endglobals
 
     function BanBisulPlus takes integer pid, integer i returns nothing
+        local integer ch = 0
+
+        if BanBisul[pid] == 4 then
+            set ch = 1
+        endif
+
         loop
             if BanBisul[pid] == 5 then
                 if not IsUnitDeadVJ(BanBisulU[pid]) then
@@ -214,12 +220,20 @@ scope HeroBandiZ
                 endif
             endif
             
+            if BanBisul[pid] == 4 then
+                if ch == 1 then
+                    call Sound3D(MainUnit[pid],'A06U')
+                endif
+            endif
+
+            set i = i - 1
+
             if BanBisul[pid] == 5 then
-                set BanBisul[pid] = 4
+            else
+                set BanBisul[pid] = BanBisul[pid] + 1
             endif
             
             set i = i - 1
-            set BanBisul[pid] = BanBisul[pid] + 1
         endloop
     endfunction
     

@@ -2,78 +2,103 @@ scope HeroBandiW
 globals
     private constant real SD = 0.00
 
-    //폼전환강화 유지시간
-    //constant real NarChangeTime = 0.75
-    //카구라 강화전환시간
-    private constant real Time = 1.5
-    //카구라 강화전환사출, 타수
-    private constant real Time3 = 1.1
-
-    private constant real TICK2 = 10
-    //겐지 강화전환시간
-    private constant real Time2 = 1.6
-    private constant real scale2 = 1500
-    private constant real distance2 = 900
-    private constant real scale3 = 800
-    private constant real distance3 = 650
+    //전진시간
+    private constant real Time3 = 0.40
+    //최대 전진거리
+    private constant real MoveD = 1000
     
-    //범위체크
-    private group CheckG
-    //더미 유닛
-    private unit CheckU
-    //이동거리
-    private constant real TICK = 20
-    private constant real scale = 300
-    private constant real distance = 175
-    private boolean StackChecker
+    private constant real scale = 500
+    private constant real distance = 150
 endglobals
 
+//call BanBisulPlus(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),1)
 
-private struct SkillRarW
-    unit caster
-    unit dummy
-    real TargetX
-    real TargetY
-    integer pid
-    integer i
-    real r
-    real Angle
-    integer index
-    real speed
-    real Aspeed
-    real A2speed
-    party ul
-    private method OnStop takes nothing returns nothing
-        set caster = null
-        set dummy = null
-        set TargetX = 0
-        set TargetY = 0
-        set pid = 0
-        set i = 0
-        set Angle = 0
-        set r = 0
-        set index = 0
-        set speed = 0
-        set Aspeed = 0
-        set A2speed = 0
-    endmethod
-    //! runtextmacro 연출()
-endstruct
+private function splashD takes nothing returns nothing
+    local real Velue = 1.0
+    local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+    local integer random
+    
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[15]*Velue,false,false,SD,false)
+        call BanBisulPlus(pid,1)
+    endif
+endfunction
+
+private function EffectFunction takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
+    local real random
+    local integer i
+    local real r = GetUnitFacing(fx.caster)
+    set fx.i = fx.i + 1
+
+    if fx.i >= 10/fx.speed then
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            call UnitEffectTime2('e03E', fx.TargetX2 + PolarX( (fx.r+25)/5 * 1 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 1, r), GetUnitFacing(fx.caster),0.7,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 1 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 1, r), scale, function splashD )
+            call UnitEffectTime2('e03E', fx.TargetX2 + PolarX( (fx.r+25)/5 * 2 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 2, r), GetUnitFacing(fx.caster),0.7,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 2 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 2, r), scale, function splashD )
+            call UnitEffectTime2('e03E', fx.TargetX2 + PolarX( (fx.r+25)/5 * 3 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 3, r), GetUnitFacing(fx.caster),0.7,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 3 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 3, r), scale, function splashD )
+            call UnitEffectTime2('e03E', fx.TargetX2 + PolarX( (fx.r+25)/5 * 4 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 4, r), GetUnitFacing(fx.caster),0.7,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 4 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 4, r), scale, function splashD )
+            call UnitEffectTime2('e03E', fx.TargetX2 + PolarX( (fx.r+25)/5 * 5 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 5, r), GetUnitFacing(fx.caster),0.7,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 5 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 5, r), scale, function splashD )
+        endif
+        call Sound3D(fx.caster,'A03W')
+        call fx.Stop()
+        call t.destroy()
+    else
+        call SetUnitSafePolarUTA(fx.caster,fx.r/(10/fx.speed),GetUnitFacing(fx.caster))
+        call t.start( 0.02, false, function EffectFunction ) 
+    endif
+endfunction
 
 private function Main takes nothing returns nothing
-    local unit caster
-    local integer pid
     local tick t
-    local SkillRarW fx
+    local SkillFx fx
+    local real random
+    local real r
+    local effect e
     
     if GetSpellAbilityId() == 'A06L' then
-        set caster = GetTriggerUnit()
-        set pid = GetPlayerId(GetOwningPlayer(caster))
+        set t = tick.create(0)
+        set fx = SkillFx.Create()
+        set fx.caster = GetTriggerUnit()
+        set fx.TargetX = GetSpellTargetX()
+        set fx.TargetY = GetSpellTargetY()
+        set fx.TargetX2 = GetUnitX(fx.caster)
+        set fx.TargetY2 = GetUnitY(fx.caster)
+        set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+        set fx.index = IndexUnit(MainUnit[fx.pid])
+        set fx.i = 0
+        set r = DistanceWBP(fx.caster, fx.TargetX, fx.TargetY )
         
-        call BanBisulPlus(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),1)
-        //call CooldownFIX(GetTriggerUnit(),'A06H',HeroSkillCD0[15])
-        call CooldownFIX(GetTriggerUnit(),'A06L',0.5)
-        set caster = null
+        if r >= MoveD then
+            set fx.r = MoveD
+        else
+            set fx.r = r
+        endif
+
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
+            set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        else
+            set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+        endif
+        call EXEffectMatRotateZ(e,AngleWBP(fx.caster,fx.TargetX,fx.TargetY))
+        call DestroyEffect(e)
+        set e = null
+ 
+        call Sound3D(fx.caster,'A06T')
+
+
+        call DummyMagicleash(fx.caster, Time3/fx.speed)
+        call AnimationStart3(fx.caster, 2, (100+fx.speed)/100)
+        set t.data = fx
+        call t.start( 0.02, false, function EffectFunction )
+
+        call CooldownFIX(fx.caster, 'A06L', HeroSkillCD1[15])
     endif
 endfunction
     

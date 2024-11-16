@@ -7,6 +7,8 @@ library SkillButton requires DataUnit
         unit dummy
         real TargetX
         real TargetY
+        real TargetX2
+        real TargetY2
         integer pid
         integer i
         integer j
@@ -23,6 +25,8 @@ library SkillButton requires DataUnit
             set dummy = null
             set TargetX = 0
             set TargetY = 0
+            set TargetX2 = 0
+            set TargetY2 = 0
             set pid = 0
             set i = 0
             set j = 0

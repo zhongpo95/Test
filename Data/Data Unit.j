@@ -582,7 +582,7 @@ private function init takes nothing returns nothing
     //추가해야됨
     set UnitCutSound[15]= gg_snd_Narmaya_Cut1
     set UnitHeroCheck[15] = true
-    set UnitDashCode[15] = 9
+    set UnitDashCode[15] = 6
     set HeroSkillBlp0[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
     set HeroSkillBlp1[15] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
     set HeroSkillBlp2[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
@@ -607,78 +607,77 @@ private function init takes nothing returns nothing
     set HeroSkillID10[15] = 'A06M'
 
     set HeroSkillTpye0[15] = "일반, 카운터"
-    set HeroSkillStr0[15] = "지정 방향으로 돌진하며 피해를 입힙니다."
+    set HeroSkillStr0[15] = "지정 방향으로 짧게 돌진하며 피해를 입힙니다. 적중시 비술을 1 획득합니다."
     set HeroSkillCD0[15] = 6.00
     set HeroSkillVCount0[15] = 1
     set HeroSkillVelue0[15] = 1.00
-    set HeroSkill0Text1[15] = "모든 나비를 소모하여 나비 한개당 총 피해량이 100.0% 증가"
-    set HeroSkill0Text2[15] = "카운터 적중시 나비 6개 획득"
-    set HeroSkill0Text3[15] = "50% 확률로 나비 반환"
+    set HeroSkill0Text1[15] = "총 피해량이 66.0% 증가"
+    set HeroSkill0Text2[15] = "적중시 비술 1 을 추가 획득"
+    set HeroSkill0Text3[15] = "카운터 적중시 비술게이지 5개 획득"
 
     set HeroSkillTpye1[15] = "일반"
-    set HeroSkillStr1[15] = "카구라/겐지 자세를 변환합니다."
-    set HeroSkillCD1[15] = 1.00
+    set HeroSkillStr1[15] = "지정 방향으로 관통하며 5번의 피해를 입히며 돌진합니다. 각 적중시 비술을 1 획득합니다."
+    set HeroSkillCD1[15] = 8.00
     set HeroSkillVCount1[15] = 1
-    set HeroSkillVelue1[15] = 1.00
-    set HeroSkill1Text1[15] = "E풀차지후 전환시 추가타격발생, R마지막 타격후 전환시 추가타격발생"
-    set HeroSkill1Text2[15] = "R마지막 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가" 
-    set HeroSkill1Text3[15] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가. 또한 전환시 추가타격 명중시 나비 1개 획득"
+    set HeroSkillVelue1[15] = 0.66
+    set HeroSkill1Text1[15] = ""
+    set HeroSkill1Text2[15] = ""
+    set HeroSkill1Text3[15] = ""
 
-    set HeroSkillTpye2[15] = "일반, 차지"
-    set HeroSkillStr2[15] = "전방을 발도술로 공격합니다. 버튼을 길게 누르면 범위가 증가합니다."
+    set HeroSkillTpye2[15] = "일반, 키다운"
+    set HeroSkillStr2[15] = "비술이 5일 경우에만 사용 가능하며 누르고 있으면 비술 사용중 이동할 수 있습니다."
     set HeroSkillCD2[15] = 10.00
-    set HeroSkillVCount2[15] = 2
-    set HeroSkillVelue2[15] = 13.0
-    set HeroSkillVelue22[15] = 7.0
-    set HeroSkill2Text1[15] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가"
-    set HeroSkill2Text2[15] = "차지 단계가 생기며, 납도 동작이 추가되고 풀 차지 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승"
-    set HeroSkill2Text3[15] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가"
+    set HeroSkillVCount2[15] = 1
+    set HeroSkillVelue2[15] = 5.0
+    set HeroSkill2Text1[15] = "공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시킵니다."
+    set HeroSkill2Text2[15] = "입히는 피해가 총 100% 증가합니다."
+    set HeroSkill2Text3[15] = "비술 적중시 완전연소 게이지를 50% 회복합니다."
 
     set HeroSkillTpye3[15] = "일반"
-    set HeroSkillStr3[15] = "다음 3번의 평타공격을 강화합니다."
+    set HeroSkillStr3[15] = "짧게 지정 방향으로 이동하며 3회 공격합니다."
     set HeroSkillCD3[15] = 8.00
     set HeroSkillVCount3[15] = 2
     set HeroSkillVelue3[15] = 1.00
     set HeroSkillVelue23[15] = 1.00
-    set HeroSkill3Text1[15] = "마지막 강화평타 적중시 나비 1개 획득"
-    set HeroSkill3Text2[15] = "마지막 강화 평타의 피해량이 100.0% 증가"
-    set HeroSkill3Text3[15] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화"
+    set HeroSkill3Text1[15] = ""
+    set HeroSkill3Text2[15] = ""
+    set HeroSkill3Text3[15] = ""
     
-    set HeroSkillTpye4[15] = "버프"
-    set HeroSkillStr4[15] = "자신의 공격력을 증가시키는 버프를 겁니다."
-    set HeroSkillCD4[15] = 15.00
+    set HeroSkillTpye4[15] = "일반, 카운터"
+    set HeroSkillStr4[15] = "지정 지점으로 짧게 돌진하며 피해를 입힙니다."
+    set HeroSkillCD4[15] = 8.00
     set HeroSkillVCount4[15] = 1
     set HeroSkillVelue4[15] = 0.35
-    set HeroSkill4Text1[15] = "사용시 나비를 3개 획득"
-    set HeroSkill4Text2[15] = "버프 지속시간 50% 증가"
-    set HeroSkill4Text3[15] = "50% 확률로 나비를 3개가 아닌 6개 획득"
+    set HeroSkill4Text1[15] = "시전도중 CC면역"
+    set HeroSkill4Text2[15] = "적중시 최대체력의 20%를 회복합니다."
+    set HeroSkill4Text3[15] = "카운터 적중시 완전연소 게이지를 100% 회복합니다."
 
     set HeroSkillTpye5[15] = "일반"
-    set HeroSkillStr5[15] = "후방으로 물러나며 충격파를 쏘아 피해를 입힙니다."
+    set HeroSkillStr5[15] = "바닥을 발로 찍어 범위 피해를 입힙니다."
     set HeroSkillCD5[15] = 10.00
     set HeroSkillVCount5[15] = 1
     set HeroSkillVelue5[15] = 1.00
-    set HeroSkill5Text1[15] = "모든 나비를 소모하여 3번의 참격을 날리며 나비 한개당 총 피해량이 100.0% 증가"
-    set HeroSkill5Text2[15] = "시전도중 CC면역"
-    set HeroSkill5Text3[15] = "50% 확률로 나비 반환"
+    set HeroSkill5Text1[15] = "시전도중 CC면역"
+    set HeroSkill5Text2[15] = ""
+    set HeroSkill5Text3[15] = ""
 
     set HeroSkillTpye6[15] = "일반"
-    set HeroSkillStr6[15] = "여러번 횡베기를 하여 연속으로 피해를 입힙니다."
+    set HeroSkillStr6[15] = "자신의 현재체력의 20%를 소모하여 점프해서 발로 내려찍고 피해를 입히며 완전연소 게이지를 25% 회복합니다."
     set HeroSkillCD6[15] = 10.00
     set HeroSkillVCount6[15] = 1
     set HeroSkillVelue6[15] = 1.00
-    set HeroSkill6Text1[15] = "모든 나비를 소모하여 나비 한개당 마지막 베기의 총 피해량이 100.0% 증가"
-    set HeroSkill6Text2[15] = "시전도중 CC면역"
-    set HeroSkill6Text3[15] = "50% 확률로 나비 반환"
+    set HeroSkill6Text1[15] = "시전도중 CC면역"
+    set HeroSkill6Text2[15] = "소모한 체력과 최대체력과 비례하여 소모한 체력이 높을 수록 피해가 최대 500% 까지 증가합니다."
+    set HeroSkill6Text3[15] = "완전연소 게이지를 25%가 아닌 50%를 회복합니다."
 
-    set HeroSkillTpye7[15] = "일반, 차지"
-    set HeroSkillStr7[15] = "전방의 적을 발도술로 공격한다. 버튼을 길게 누르면 피해가 증가합니다."
+    set HeroSkillTpye7[15] = "일반"
+    set HeroSkillStr7[15] = "시전도중 무적 상태가 되며 지정 방향에 범위 입힙니다. 3번 사용하면 완전연소가 해제됩니다."
     set HeroSkillCD7[15] = 10.00
     set HeroSkillVCount7[15] = 1
     set HeroSkillVelue7[15] = 1.00
-    set HeroSkill7Text1[15] = "모든 나비를 소모하여 나비 한개당 납도의 총 피해량이 100.0% 증가"
-    set HeroSkill7Text2[15] = "나비를 소모한 만큼 차지속도가 50%씩 증가"
-    set HeroSkill7Text3[15] = "50% 확률로 나비 반환, 나비를 6개 사용시, 납도 도중 무적"
+    set HeroSkill7Text1[15] = ""
+    set HeroSkill7Text2[15] = ""
+    set HeroSkill7Text3[15] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다."
 
 endfunction
 

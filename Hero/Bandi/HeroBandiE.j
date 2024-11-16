@@ -37,7 +37,7 @@ private function EffectFunction2 takes nothing returns nothing
         call UnitEffectTime2('e038',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         call UnitEffectTime2('e039',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         
-        call DzSetUnitModel(fx.caster, "FireFly_V2.mdx")
+        call DzSetUnitModel(fx.caster, "[AWF]FireFlySam1.mdx")
         call AnimationStart3(fx.caster,7, 1.0)
 
         call DummyMagicleash(fx.caster, 0.5)
