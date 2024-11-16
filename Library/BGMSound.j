@@ -57,7 +57,7 @@ library PSound
         call fx.Stop()
         call t.destroy()
     endfunction
-
+    
     function Sound3DT takes unit u, integer s, real r returns nothing
         local tick t
         local FxSt fx

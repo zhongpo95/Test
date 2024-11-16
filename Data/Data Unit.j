@@ -626,7 +626,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye2[15] = "일반, 차지"
     set HeroSkillStr2[15] = "전방을 발도술로 공격합니다. 버튼을 길게 누르면 범위가 증가합니다."
-    set HeroSkillCD2[15] = 5.00
+    set HeroSkillCD2[15] = 10.00
     set HeroSkillVCount2[15] = 2
     set HeroSkillVelue2[15] = 13.0
     set HeroSkillVelue22[15] = 7.0

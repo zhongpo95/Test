@@ -13,6 +13,11 @@ scope HeroBandiZ
     
         private constant real scale = 500
         private constant real distance = 200
+
+        unit array BandiForm1
+        unit array BandiForm2
+        unit array BandiForm3
+
     endglobals
         
     private struct SkillFx
@@ -138,16 +143,18 @@ scope HeroBandiZ
         set pid=GetPlayerId(p)
             
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
-            set x=S2R(data)
-            set valueLen=StringLength(R2S(x))
-            set data=SubString(data,valueLen+1,dataLen)
-            set dataLen=dataLen-(valueLen+1)
-            set y=S2R(data)
-            set pid=GetPlayerId(p)
-            set angle = AngleWBP(MainUnit[pid],x,y)
-            call SetUnitFacing(MainUnit[pid],angle)
-            call EXSetUnitFacing(MainUnit[pid],angle)
-            call IssuePointOrder( MainUnit[pid], "autodispel", x, y )
+            if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
+                set x=S2R(data)
+                set valueLen=StringLength(R2S(x))
+                set data=SubString(data,valueLen+1,dataLen)
+                set dataLen=dataLen-(valueLen+1)
+                set y=S2R(data)
+                set pid=GetPlayerId(p)
+                set angle = AngleWBP(MainUnit[pid],x,y)
+                call SetUnitFacing(MainUnit[pid],angle)
+                call EXSetUnitFacing(MainUnit[pid],angle)
+                call IssuePointOrder( MainUnit[pid], "autodispel", x, y )
+            endif
         endif
             
         set p=null

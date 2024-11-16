@@ -262,11 +262,14 @@ endfunction
         set y=S2R(data)
         set pid=GetPlayerId(p)
         set angle = AngleWBP(MainUnit[pid],x,y)
-        
-        if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
-            call IssuePointOrder( MainUnit[pid], "absorb", x, y )
-        else
-            call IssuePointOrder( MainUnit[pid], "absorb", GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
+
+        //반디비술중
+        if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
+            if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
+                call IssuePointOrder( MainUnit[pid], "absorb", x, y )
+            else
+                call IssuePointOrder( MainUnit[pid], "absorb", GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
+            endif
         endif
         
     set p=null

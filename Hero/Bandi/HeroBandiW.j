@@ -70,9 +70,9 @@ private function Main takes nothing returns nothing
         set caster = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(caster))
         
-        call BanBisulUse(pid)
-
-        call CooldownFIX(caster,'A06L',3)
+        call BanBisulPlus(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),1)
+        //call CooldownFIX(GetTriggerUnit(),'A06H',HeroSkillCD0[15])
+        call CooldownFIX(GetTriggerUnit(),'A06L',0.5)
         set caster = null
     endif
 endfunction
@@ -88,16 +88,18 @@ private function WSyncData takes nothing returns nothing
     local real angle
 
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID1[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
-        set x=S2R(data)
-        set valueLen=StringLength(R2S(x))
-        set data=SubString(data,valueLen+1,dataLen)
-        set dataLen=dataLen-(valueLen+1)
-        set y=S2R(data)
-        set pid=GetPlayerId(p)
-        set angle = AngleWBP(MainUnit[pid],x,y)
-        call SetUnitFacing(MainUnit[pid],angle)
-        call EXSetUnitFacing(MainUnit[pid],angle)
-        call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )
+        if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
+            set x=S2R(data)
+            set valueLen=StringLength(R2S(x))
+            set data=SubString(data,valueLen+1,dataLen)
+            set dataLen=dataLen-(valueLen+1)
+            set y=S2R(data)
+            set pid=GetPlayerId(p)
+            set angle = AngleWBP(MainUnit[pid],x,y)
+            call SetUnitFacing(MainUnit[pid],angle)
+            call EXSetUnitFacing(MainUnit[pid],angle)
+            call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )
+        endif
     endif
 
     set p=null
