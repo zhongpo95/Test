@@ -2,8 +2,8 @@ scope HeroBandiQ
     globals
         private constant real SD = 0.00
     
-        //전진시간
-        private constant real Time3 = 0.40
+        //쉐클시간
+        private constant real Time3 = 0.60
         //최대 전진거리
         private constant real MoveD = 300
         

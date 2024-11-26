@@ -2,8 +2,8 @@ scope HeroBandiA
     globals
         private constant real SD = 0.00
     
-        //전진시간
-        private constant real Time3 = 0.40
+        //쉐클시간
+        private constant real Time3 = 0.60
         //최대 전진거리
         private constant real MoveD = 600
         
@@ -82,6 +82,7 @@ private function Main takes nothing returns nothing
 
         call Sound3D(fx.caster,'A05U')
         call Sound3D(fx.caster,'A05V')
+        call Sound3D(fx.caster,'A06V')
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
         call AnimationStart3(fx.caster, 0, (100+fx.speed)/100)
