@@ -92,6 +92,31 @@ scope ESC initializer init
     
     
     private function ESCAction takes nothing returns nothing
+        local integer i = 0
+        local integer j = 0
+        local item u
+        call BJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+        if AAA == 0 then
+            set i = 0
+            loop
+                set j = 0
+                set i = i + 1
+                loop
+                    set j = j + 10
+                    set u = CreateItem(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00J',GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j))
+                    call SetItemPosition(u,GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j))
+                    exitwhen j == 360
+                endloop
+            exitwhen i == 12
+            endloop
+        endif
+        set AAA = AAA + 1
+        call EnumItemsInRectBJ(Createrect)
+        MoveRectTo
+        Rect
+    endfunction
+
+    private function ESCActionban takes nothing returns nothing
         //신속1800설정
         //set Equip_Swiftness[0] = 1800
         //call ItemUIStatsSet(0)

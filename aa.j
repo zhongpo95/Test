@@ -590,7 +590,7 @@ function Trig_J_Firefly____________001jn2 takes nothing returns nothing
     call SaveEffectHandle(hsb, jsqid, StringHash("特效" + I2S(2)), tstx[2])
     set ydl_group=CreateGroup() //造成伤害
     call GroupEnumUnitsInRange(ydl_group, x2, y2, 4000, null)
-    loop
+    loop EnumItemsInRectBJ
     set ydl_unit=FirstOfGroup(ydl_group)
     exitwhen ydl_unit == null
     call GroupRemoveUnit(ydl_group, ydl_unit)
