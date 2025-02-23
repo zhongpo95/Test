@@ -91,32 +91,11 @@ scope ESC initializer init
     endfunction
     
     
-    private function ESCAction takes nothing returns nothing
-        local integer i = 0
-        local integer j = 0
-        local item u
-        call BJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        if AAA == 0 then
-            set i = 0
-            loop
-                set j = 0
-                set i = i + 1
-                loop
-                    set j = j + 10
-                    set u = CreateItem(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00J',GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j))
-                    call SetItemPosition(u,GetUnitX(MainUnit[0])+PolarX(i*100,j),GetUnitY(MainUnit[0])+PolarY(i*100,j))
-                    exitwhen j == 360
-                endloop
-            exitwhen i == 12
-            endloop
-        endif
-        set AAA = AAA + 1
-        call EnumItemsInRectBJ(Createrect)
-        MoveRectTo
-        Rect
+    private function ESCActionban takes nothing returns nothing
+
     endfunction
 
-    private function ESCActionban takes nothing returns nothing
+    private function ESCAction takes nothing returns nothing
         //신속1800설정
         //set Equip_Swiftness[0] = 1800
         //call ItemUIStatsSet(0)
@@ -124,11 +103,11 @@ scope ESC initializer init
         //call DzSetUnitModel(MainUnit[0], "[Hero]\\mh_Firefly_yz.mdl")
 
         if BBB == 0 then
-            set BBBF = DzCreateFrameByTagName("BACKDROP", "", NarAden, "", 0)
-            call DzFrameSetTexture(BBBF,"Narmaya_blue.blp",0)
+            set BBBF = DzCreateFrameByTagName("BACKDROP", "", JNCreateFrameByType("FRAME","heroStatusUI",DzGetGameUI(),"",0), "", 0)
+            //call DzFrameSetTexture(BBBF,"Narmaya_blue.blp",0)
             call DzFrameSetAbsolutePoint(BBBF,JN_FRAMEPOINT_CENTER,0.4,0.3)
             call DzFrameSetSize(BBBF,0.8,0.6)
-            call DzFrameShow(BBBF, false)
+            call DzFrameShow(BBBF, true)
         endif
 
         //반디필터
