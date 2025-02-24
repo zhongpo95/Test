@@ -483,6 +483,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
             set BandiForm1[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
+            //form 반디
+            set BandiState[pid] = 1
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
@@ -712,6 +714,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
             set BandiForm1[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
+            //form 반디
+            set BandiState[pid] = 1
         endif
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)

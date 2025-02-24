@@ -54,6 +54,10 @@ private function EffectFunction2 takes nothing returns nothing
             call KillUnit(BandiForm1[fx.pid])
         endif
         set BandiForm2[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e03B',0,0,0)
+
+        //form 샘
+        set BandiState[fx.pid] = 2
+
         call UnitRemoveAbility(fx.caster,'A06F')
         call UnitAddAbility(fx.caster,'A06Q')
         //변신해제 쿨 5초
@@ -119,7 +123,10 @@ private function Main takes nothing returns nothing
         if not IsUnitDeadVJ(BandiForm2[pid]) then
             call KillUnit(BandiForm2[pid])
         endif
+
         set BandiForm1[pid] = CreateUnit(GetOwningPlayer(caster),'e03A',0,0,0)
+        //form 반디
+        set BandiState[pid] = 1
 
         call DzSetUnitModel(caster, "FireFly_V1.mdx")
 

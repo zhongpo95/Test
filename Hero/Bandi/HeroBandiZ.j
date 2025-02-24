@@ -17,8 +17,6 @@ scope HeroBandiZ
         unit array BandiForm1
         unit array BandiForm2
         unit array BandiForm3
-
-        integer array BandiState
     endglobals
         
     private struct SkillFx
@@ -124,6 +122,9 @@ scope HeroBandiZ
 
             call DzSetUnitModel(fx.caster, "[AWF]FireFlySam2.mdx")
 
+            //form 완전연소
+            set BandiState[fx.pid] = 2
+
             call EXPauseUnit(fx.caster,true)
 
             set t.data = fx
@@ -185,6 +186,8 @@ scope HeroBandiZ
         unit array BanBisulU
         unit array BanBisul2U
         boolean array BanBisul2Boolaen
+        //1번 반디, 2번 샘, 3번 완전연소
+        integer array BandiState
     endglobals
 
     function BanBisulPlus takes integer pid, integer i returns nothing
@@ -259,7 +262,7 @@ scope HeroBandiZ
     endfunction
 
     function BanBisul2Plus takes integer pid, integer i returns nothing
-        if BanBisul2Boolaen[pid] != true then
+        if BandiState[pid] == 2 then
             loop
                 if BanBisul2[pid] == 4 then
                     //set BanBisulU[pid] = CreateUnit(Player(pid),'e033',0,0,0)
@@ -300,7 +303,7 @@ scope HeroBandiZ
             call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
         endif
 
-        if BanBisul2Boolaen[t.data] != true then
+        if BandiState[t.data] != 2 then
             call t.destroy()
         endif
     endfunction
@@ -318,9 +321,7 @@ scope HeroBandiZ
         endif
         
         set BanBisul2[pid] = 0
-        set BanBisul2Boolaen[pid] = true
 
         call t.start( 1.0, true, function EffectFunction )
     endfunction
-
 endlibrary
