@@ -291,7 +291,7 @@ scope HeroBandiZ
             endloop
         endif
     endfunction
-
+    
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
     
