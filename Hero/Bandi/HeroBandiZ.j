@@ -18,6 +18,7 @@ scope HeroBandiZ
         unit array BandiForm2
         unit array BandiForm3
 
+        integer array BandiState
     endglobals
         
     private struct SkillFx

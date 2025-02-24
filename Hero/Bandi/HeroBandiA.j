@@ -37,7 +37,7 @@ scope HeroBandiA
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call UnitEffectTime2('e03G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-                call BanBisul2Plus( GetPlayerId(GetOwningPlayer(fx.caster)),1)
+                call BanBisul2Plus( fx.pid,1)
             endif
             call fx.Stop()
             call t.destroy()
@@ -60,7 +60,7 @@ private function Main takes nothing returns nothing
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
-        set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+        set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
@@ -71,6 +71,7 @@ private function Main takes nothing returns nothing
             set fx.r = r
         endif
 
+        //이펙트 끄기
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         else
