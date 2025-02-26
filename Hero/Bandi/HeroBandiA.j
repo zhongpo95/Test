@@ -87,7 +87,7 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A06V')
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
-        call AnimationStart3(fx.caster, 0, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster, 0, fx.speed)
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
         call CooldownFIX(fx.caster, 'A06C', HeroSkillCD4[15])

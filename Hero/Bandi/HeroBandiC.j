@@ -249,14 +249,14 @@ endglobals
         if NarStack[fx.pid] == 3 then
             //막타
             call DummyMagicleash(fx.caster, Time5 /fx.speed)
-            call AnimationStart3(fx.caster,19, (100+fx.speed)/100)
+            call AnimationStart3(fx.caster,19, fx.speed)
             set fx.i = 0
             set fx.j = 0
             call Sound3DT(fx.caster,'A03E',0.02)
             call t.start( Time9/fx.speed, false, function EffectFunction3 ) 
         elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
             call DummyMagicleash(fx.caster, Time4 /fx.speed)
-            call AnimationStart3(fx.caster,18, (100+fx.speed)/100)
+            call AnimationStart3(fx.caster,18, fx.speed)
             if NarStack[fx.pid] ==  1 then
                 call Sound3D(fx.caster,'A03H')
             elseif NarStack[fx.pid] ==  2 then
@@ -332,14 +332,14 @@ endglobals
                     call t.start( 0.02, false, function EffectFunction2 ) 
                 else
                     call DummyMagicleash(fx.caster, Time /fx.speed)
-                    call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
+                    call AnimationStart3(fx.caster,21,fx.speed)
                     set t.data = fx
                     call t.start( Time2 /fx.speed, false, function EffectFunction2 ) 
                 endif
             //겐지
             elseif NarForm[fx.pid] == 1 then
                 call DummyMagicleash(fx.caster,Time3 /fx.speed)
-                call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
+                call AnimationStart3(fx.caster,21, fx.speed)
                 set t.data = fx
                 call t.start( 0.02, false, function EffectFunction ) 
             endif

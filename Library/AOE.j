@@ -148,6 +148,7 @@ library AOE requires MonoEvent, DamageEffect2
         call st.Stop()
     endfunction
 
+    //u = 유닛, x = x좌표, y = y좌표, safe = range보다 큰범위, range = 실제범위, time = 효과적용시간, damege = 피해량, 
     function AOE2 takes unit u, real x, real y, real safe, real range, real time, real damage, integer eft, integer id returns nothing
         local tick t = tick.create(0)
         local AOESt st = AOESt.Create()

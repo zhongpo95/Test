@@ -86,7 +86,7 @@ private function Main takes nothing returns nothing
 
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
-        call AnimationStart3(fx.caster, 2, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster, 2, fx.speed)
         set t.data = fx
         call t.start( 0.02, false, function EffectFunction )
         call CooldownFIX(fx.caster, 'A06H', HeroSkillCD0[15])

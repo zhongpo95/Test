@@ -138,6 +138,8 @@ globals
     unit array UnitCastingDummy
     real array UnitCastingSD
     real array UnitCastingSDMAX
+    //유닛의 상태, 0 아무행동없음 , 1 스킬시전중
+    integer array Unitstate
     real array UnitTier
     //플레이어 쉴드
     real array PUnitSD
@@ -177,6 +179,8 @@ function DataUnitIndex takes unit u returns integer
         return 14
     elseif i == 'H00K' then
         return 15
+    elseif i == 'h00L' then
+        return 16
     endif
     return 0
 endfunction
@@ -514,8 +518,8 @@ private function init takes nothing returns nothing
     set HeroSkillCD1[14] = 1.00
     set HeroSkillVCount1[14] = 1
     set HeroSkillVelue1[14] = 1.00
-    set HeroSkill1Text1[14] = "E풀차지후 전환시 추가타격발생, R마지막 타격후 전환시 추가타격발생"
-    set HeroSkill1Text2[14] = "R마지막 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가" 
+    set HeroSkill1Text1[14] = "E풀차지후 전환시 추가타격발생, R평타 강화 타격후 전환시 추가타격발생"
+    set HeroSkill1Text2[14] = "R평타 강화 타격후 전환 추가타격후 발동하는 E스킬의 차지속도가 150% 증가" 
     set HeroSkill1Text3[14] = "E풀차지후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가. 또한 전환시 추가타격 명중시 나비 1개 획득"
 
     set HeroSkillTpye2[14] = "일반, 차지"
@@ -529,13 +533,13 @@ private function init takes nothing returns nothing
     set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가"
 
     set HeroSkillTpye3[14] = "일반"
-    set HeroSkillStr3[14] = "다음 3번의 평타공격을 강화합니다."
+    set HeroSkillStr3[14] = "다음 평타 공격을 강화합니다."
     set HeroSkillCD3[14] = 8.00
     set HeroSkillVCount3[14] = 2
     set HeroSkillVelue3[14] = 1.00
     set HeroSkillVelue23[14] = 1.00
-    set HeroSkill3Text1[14] = "마지막 강화평타 적중시 나비 1개 획득"
-    set HeroSkill3Text2[14] = "마지막 강화 평타의 피해량이 100.0% 증가"
+    set HeroSkill3Text1[14] = "강화 평타 적중시 나비 1개 획득"
+    set HeroSkill3Text2[14] = "강화 평타의 피해량이 100.0% 증가"
     set HeroSkill3Text3[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화"
     
     set HeroSkillTpye4[14] = "버프"
@@ -679,6 +683,15 @@ private function init takes nothing returns nothing
     set HeroSkill7Text2[15] = ""
     set HeroSkill7Text3[15] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다."
 
+    //테스트
+    set UnitAbilityIndex[16] = 'h00L'
+    set UnitHPValue[16] = 1
+    set UnitHPString[16] = ""
+    set UnitSetHP[16] = 100000000
+    set UnitSetSD[16] = 100000000
+    set UnitSetArm[16] = 10000
+    set UnitSetHPx[16] = 10
+    set UnitTier[16] = 5
 endfunction
 
 endlibrary

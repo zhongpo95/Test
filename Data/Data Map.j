@@ -16,6 +16,10 @@ struct MapStruct
     integer pattern4 = 0
     integer pattern5 = 0
     integer pattern6 = 0
+    integer pattern7 = 0
+    integer pattern8 = 0
+    integer pattern9 = 0
+    integer pattern10 = 0
     integer i = 0
     integer cut1 = 0
     integer cut2 = 0

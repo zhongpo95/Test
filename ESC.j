@@ -91,15 +91,8 @@ scope ESC initializer init
     endfunction
     
     
-    private function ESCActionban takes nothing returns nothing
+    private function ESCAction22 takes nothing returns nothing
 
-    endfunction
-
-    private function ESCAction takes nothing returns nothing
-        //신속1800설정
-        //set Equip_Swiftness[0] = 1800
-        //call ItemUIStatsSet(0)
-        
         //call DzSetUnitModel(MainUnit[0], "[Hero]\\mh_Firefly_yz.mdl")
 
         if BBB == 0 then
@@ -134,13 +127,43 @@ scope ESC initializer init
 
 
         if BBB+29 < 86 then
-            call ESCAction()
+            call ESCAction22()
         else
             call DzFrameShow(BBBF, false)
             call CinematicFilter2(GetTriggerPlayer(), BLEND_MODE_BLEND , "BANDI.blp" , 100, 100, 100, 100, 100, 100, 100, 25)
             set BBB = 1
         endif
 
+    endfunction
+
+    private function ESCAction takes nothing returns nothing
+        //신속1800설정
+        if AAA == 0 then
+            set Equip_Swiftness[0] = 600
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속600")
+            set AAA = 1
+        elseif AAA == 1 then
+            set Equip_Swiftness[0] = 1200
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속1200")
+            set AAA = 2
+        elseif AAA == 2 then
+            set Equip_Swiftness[0] = 1800
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속1800")
+            set AAA = 3
+        elseif AAA == 3 then
+            set Equip_Swiftness[0] = 2200
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속2200")
+            set AAA = 4
+        elseif AAA == 4 then
+            set Equip_Swiftness[0] = 0
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속0")
+            set AAA = 0
+        endif
         
     endfunction
 

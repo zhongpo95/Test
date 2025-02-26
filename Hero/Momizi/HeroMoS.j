@@ -104,7 +104,7 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A01W')
         
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
-        call AnimationStart3(fx.caster,13, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster,13, fx.speed)
         
         set t.data = fx
         call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 

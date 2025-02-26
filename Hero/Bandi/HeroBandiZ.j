@@ -123,7 +123,7 @@ scope HeroBandiZ
             call DzSetUnitModel(fx.caster, "[AWF]FireFlySam2.mdx")
 
             //form 완전연소
-            set BandiState[fx.pid] = 2
+            set BandiState[pid] = 2
 
             call EXPauseUnit(fx.caster,true)
 

@@ -122,7 +122,7 @@ private function Main takes nothing returns nothing
         call CooldownFIX(fx.caster,'A00Z',HeroSkillCD1[3])
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
-        call AnimationStart3(fx.caster,18, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster,18, fx.speed)
         
         set t.data = fx
         call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 

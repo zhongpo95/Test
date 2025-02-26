@@ -212,7 +212,9 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
             //행동불가
             if GetUnitAbilityLevel(st.caster,'A02F') >= 1 then
+            //행동불가 상태가 아님
             else
+                //패턴 쿨타임 0.02초 감소
                 set st.pattern1 = st.pattern1 - 1
                 if st.pattern1 <= 0 then
                     set fx = FxEffect.Create()

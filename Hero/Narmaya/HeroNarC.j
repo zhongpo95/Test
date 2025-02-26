@@ -133,7 +133,7 @@ endglobals
             //set fx.Velue = 1
         //endif
 
-        if NarStack[fx.pid] == 3 then
+        if NarStack[fx.pid] == 1 then
             //막타
             if fx.i == 8 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
@@ -193,50 +193,6 @@ endglobals
                 set StackChecker = false
                 call t.start( Time10/fx.speed , false, function EffectFunction3 )
             endif
-        elseif NarStack[fx.pid] ==  1 then
-            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 2 )
-            if fx.i == 5 then
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                set NarStack[fx.pid] = NarStack[fx.pid] + 1
-                call fx.Stop()
-                call t.destroy()
-            elseif fx.i == 4 then
-                call UnitEffectTime2('e02P',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            elseif fx.i == 3 then
-                call UnitEffectTime2('e02O',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            elseif fx.i == 2 then
-                call UnitEffectTime2('e02M',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            elseif fx.i == 1 then
-                call UnitEffectTime2('e02L',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+90 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+90 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            endif
-        elseif NarStack[fx.pid] == 2 then
-            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 2 )
-            if fx.i == 4 then
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                set NarStack[fx.pid] = NarStack[fx.pid] + 1
-                call fx.Stop()
-                call t.destroy()
-            elseif fx.i == 3 then
-                call UnitEffectTime2('e02O',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            elseif fx.i == 2 then
-                call UnitEffectTime2('e02M',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ) ,GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            elseif fx.i == 1 then
-                call UnitEffectTime2('e02L',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+90 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+90 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD4 )
-                call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
-            endif
         endif
 
     endfunction
@@ -246,25 +202,14 @@ endglobals
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
     
-        if NarStack[fx.pid] == 3 then
+        if NarStack[fx.pid] == 1 then
             //막타
             call DummyMagicleash(fx.caster, Time5 /fx.speed)
-            call AnimationStart3(fx.caster,19, (100+fx.speed)/100)
+            call AnimationStart3(fx.caster,19, fx.speed)
             set fx.i = 0
             set fx.j = 0
             call Sound3DT(fx.caster,'A03E',0.02)
             call t.start( Time9/fx.speed, false, function EffectFunction3 ) 
-        elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
-            call DummyMagicleash(fx.caster, Time4 /fx.speed)
-            call AnimationStart3(fx.caster,18, (100+fx.speed)/100)
-            if NarStack[fx.pid] ==  1 then
-                call Sound3D(fx.caster,'A03H')
-            elseif NarStack[fx.pid] ==  2 then
-                call Sound3D(fx.caster,'A03I')
-            endif
-            set fx.i = 0
-            call UnitEffectTime2('e02N',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster)+270 )+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster)+270 )+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-            call t.start( Time6/fx.speed , false, function EffectFunction3 ) 
         else
             //일반평타
             //파란이펙트
@@ -324,22 +269,19 @@ endglobals
 
             //카구라
             if NarForm[fx.pid] == 0 then
-                if NarStack[fx.pid] == 3 then
+                if NarStack[fx.pid] == 1 then
                     set t.data = fx
-                    call t.start( 0.02, false, function EffectFunction2 ) 
-                elseif NarStack[fx.pid] ==  1 or NarStack[fx.pid] == 2 then
-                    set t.data = fx
-                    call t.start( 0.02, false, function EffectFunction2 ) 
+                    call t.start( 0.02, false, function EffectFunction2 )
                 else
                     call DummyMagicleash(fx.caster, Time /fx.speed)
-                    call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
+                    call AnimationStart3(fx.caster,21, fx.speed)
                     set t.data = fx
                     call t.start( Time2 /fx.speed, false, function EffectFunction2 ) 
                 endif
             //겐지
             elseif NarForm[fx.pid] == 1 then
                 call DummyMagicleash(fx.caster,Time3 /fx.speed)
-                call AnimationStart3(fx.caster,21, (100+fx.speed)/100)
+                call AnimationStart3(fx.caster,21, fx.speed)
                 set t.data = fx
                 call t.start( 0.02, false, function EffectFunction ) 
             endif

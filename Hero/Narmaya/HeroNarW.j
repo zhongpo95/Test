@@ -260,7 +260,7 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.i == 10 then
         call t.start( 0.2/fx.speed, false, function EffectFunction2 )
     elseif fx.i == 11 then
-        call AnimationStart3(fx.caster,15, (100+fx.speed)/100)
+        call AnimationStart3(fx.caster,15, fx.speed)
         call UnitEffectTime2('e02Q',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
@@ -319,7 +319,7 @@ private function Main takes nothing returns nothing
                 set NarFormC[pid] = CreateUnit(GetOwningPlayer(fx.caster),'e028',0,0,0)
 
                 call DummyMagicleash(fx.caster,Time /fx.speed)
-                call AnimationStart3(fx.caster,17, (100+fx.speed)/100)
+                call AnimationStart3(fx.caster,17, fx.speed)
                 set t.data = fx
                 call t.start( 0.02, false, function EffectFunction ) 
             //겐지
@@ -350,7 +350,7 @@ private function Main takes nothing returns nothing
                 set NarFormG[pid] = CreateUnit(GetOwningPlayer(fx.caster),'e027',0,0,0)
 
                 call DummyMagicleash(fx.caster,Time2 /fx.speed)
-                call AnimationStart3(fx.caster,6, (100+fx.speed)/100)
+                call AnimationStart3(fx.caster,6, fx.speed)
                 call Sound3D(fx.caster,'A03Q')
                 //다음15
                 set t.data = fx
