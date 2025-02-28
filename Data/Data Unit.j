@@ -687,8 +687,8 @@ private function init takes nothing returns nothing
     set UnitAbilityIndex[16] = 'h00L'
     set UnitHPValue[16] = 1
     set UnitHPString[16] = ""
-    set UnitSetHP[16] = 100000000
-    set UnitSetSD[16] = 100000000
+    set UnitSetHP[16] = 2000
+    set UnitSetSD[16] = 2000
     set UnitSetArm[16] = 10000
     set UnitSetHPx[16] = 10
     set UnitTier[16] = 5

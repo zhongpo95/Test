@@ -4,20 +4,36 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //50 1초
         //test1500
 
-        //카운터 밀치기
-        private constant integer Pattern1Cool = 1000
-        private constant integer Pattern1RandomCool = 500
-        private constant integer CounterTime = 125
-
+        //이동 Distance최소거리
+        private constant integer Pattern1Cool = 0
+        private constant integer Pattern1Distance = 300
+        //3장판 거리보다 멀면 사용안함
         private constant integer Pattern2Cool = 500
         private constant integer Pattern2RandomCool = 500
         private constant integer Pattern2Time = 100
-        //이동?
-        //
-        //
-        //
-        //
-        //
+        private constant integer Pattern2Distance = 1500
+        //카운터 밀치기 40초
+        private constant integer Pattern3Cool = 1500
+        private constant integer Pattern3RandomCool = 500
+        private constant integer Pattern3CounterTime = 125
+        private constant integer Pattern3Distance = 600
+        //얼음파편 100초 거리보다 멀면 사용안함
+        private constant integer Pattern4Cool = 5000
+        private constant integer Pattern4RandomCool = 500
+        private constant integer Pattern4Distance = 2000
+        //마력충전 거리안에 아무도 없을시 발동
+        private constant integer Pattern5Cool = 5000
+        private constant integer Pattern5RandomCool = 500
+        private constant integer Pattern5Distance = 3000
+        //마력포격 거리보다 멀면 사용안함
+        private constant integer Pattern6Cool = 5000
+        private constant integer Pattern6RandomCool = 500
+        private constant integer Pattern6Distance = 2000
+        //파이어볼 거리보다 멀면 사용안함
+        private constant integer Pattern7Cool = 1000
+        private constant integer Pattern7RandomCool = 500
+        private constant integer Pattern7Distance = 1500
+
         private integer NoDieCheck
         private unit CheckUnit
 
@@ -71,6 +87,10 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)
                     call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)
 
+                    call KillUnit(fx.dummy1)
+                    call KillUnit(fx.dummy2)
+                    call KillUnit(fx.dummy3)
+
                     //대기상태로 전환
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 0
@@ -120,7 +140,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
                     call fx.Stop()
                 //카운터를 못침
-                elseif fx.i == CounterTime then
+                elseif fx.i == Pattern3CounterTime then
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
@@ -186,28 +206,38 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         else
             //보스가 생존
             if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
-                //대기상태일경우에만 패턴쿨갱신
-                if Unitstate[IndexUnit(st.caster)] == 0 then
-                    //set st.pattern1 = st.pattern1 - 1
-                    set st.pattern2 = st.pattern2 - 1
+                
+                if splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), scale, function SplashNothing ) then
                 endif
-                //카운터
-                if st.pattern1 <= 0 then
-                    set fx = FxEffect.Create()
-                    set fx.caster = st.caster
-                    set fx.i = 0
-                    call AnimationStart(fx.caster, 5)
-                    call fx.Start()
-                    set Unitstate[IndexUnit(fx.caster)] = 1
-                    set st.pattern1 = Pattern1Cool + GetRandomInt(0,Pattern1RandomCool)
-                elseif st.pattern2 <= 0 then
-                    set fx2 = FxEffect2.Create()
-                    set fx2.caster = st.caster
-                    set fx2.i = 0
-                    call AnimationStart(fx.caster, 3)
-                    call fx2.Start()
-                    set Unitstate[IndexUnit(fx.caster)] = 1
-                    set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
+                //일반상태
+                if Unitstate[IndexUnit(st.caster)] == 0 then
+                    set st.pattern3 = st.pattern3 - 1
+                    set st.pattern2 = st.pattern2 - 1
+                        
+                    //카운터
+                    if st.pattern3 <= 0 then
+                        set fx = FxEffect.Create()
+                        set fx.caster = st.caster
+                        set fx.i = 0
+                        call AnimationStart(fx.caster, 5)
+                        call fx.Start()
+                        set Unitstate[IndexUnit(fx.caster)] = 1
+                        set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
+                    //3장판
+                    elseif st.pattern2 <= 0 then
+                        set fx2 = FxEffect2.Create()
+                        set fx2.caster = st.caster
+                        set fx2.i = 0
+                        call AnimationStart(fx2.caster, 3)
+                        call fx2.Start()
+                        set Unitstate[IndexUnit(fx2.caster)] = 1
+                        set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
+                    elseif 
+                    endif
+                //스킬사용중
+                elseif Unitstate[IndexUnit(st.caster)] == 1 then
+                //무력화
+                elseif Unitstate[IndexUnit(st.caster)] == 2 then
                 endif
             //주금
             else
@@ -215,6 +245,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call ForGroup(st.ul.super,function SuccessF)
                 call st.ul.destroy()
                 call KillUnit(st.caster)
+                set s = BossStruct[IndexUnit(st.caster)]
+                call s.destroy()
                 set st.caster = null
                 call BossMapReset(st.rectnumber, 2)
                 set st.rectnumber = 0
@@ -223,7 +255,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         endif
     endfunction
     
-    private function BossStart2 takes MapStruct str returns nothing
+    private function Boss1Start3 takes MapStruct str returns nothing
         local tick t = tick.create(0) 
         local MapStruct st = str
         
@@ -271,6 +303,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call SetUnitPathing(st.caster,false)
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
+            //어그로시스템설정
+            set BossStruct[UnitIndex] = AggroSystem.create()
             
             //call SaveBoolean(Unithash,GetHandleId(fx.caster),0,false)
             
@@ -280,7 +314,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call ForGroup(st.ul.super, function NoRemove)
             set CheckUnit = null
             
-            call BossStart2(st)
+            call Boss1Start3(st)
             
             set Unit = null
             call t.destroy()
@@ -301,7 +335,9 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set st.rectnumber = GetMap(2)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
-            set st.pattern1 = 250
+            set st.pattern1 = Pattern1Cool
+            set st.pattern2 = Pattern2Cool
+            set st.pattern3 = Pattern3Cool
             call GroupAddUnit( st.ul.super, source )
             set t.data = st
             call t.start( 1.00 , true, function Function )

@@ -458,9 +458,9 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4
             call Boss3Start(MainUnit[pid])
 
         //유유코
-        elseif BossNumber == 4 then
+        //elseif BossNumber == 4 then
             //set HeroTypeId = 'H00F'
-            call Boss4Start(MainUnit[pid])
+            //call Boss4Start(MainUnit[pid])
         endif
         
         set p = null

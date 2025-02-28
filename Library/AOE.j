@@ -95,9 +95,9 @@ library AOE requires MonoEvent, DamageEffect2
         if types == 0 then
             call SetUnitVertexColor(du, 255, 10, 10, 255) 
         elseif types == 1 then
-            call SetUnitVertexColor(du, 255, 255, 10, 255) 
-        elseif types == 2 then
             call SetUnitVertexColor(du, 10, 10, 255, 255) 
+        elseif types == 2 then
+            call SetUnitVertexColor(du, 255, 255, 10, 255) 
         elseif types == 3 then
             call SetUnitVertexColor(du, 10, 255, 10, 255) 
         endif

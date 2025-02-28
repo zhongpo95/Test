@@ -4,7 +4,7 @@ library AttackAngle
         local boolean n
        if RAbsBJ(A - A2) >= 180 then
             if ((A - A2) <= 0 ) and A2 >= 0 and A >= 0 then
-                //(A - A2)가 음수인데 A와 A2가 양수
+                //(A - A2)가 음수인데 A와 A2가 양수S
                 set A = A + 360
             else
                 if A < 0 then
