@@ -1,4 +1,4 @@
-library AOE requires MonoEvent, DamageEffect2
+library AOE initializer Init requires MonoEvent, DamageEffect2
     globals
         constant key E_AOE
     endglobals
@@ -7,6 +7,33 @@ library AOE requires MonoEvent, DamageEffect2
     //빨강은 그냥 데미지
     //파랑은 상태이상
     //노랑은 피격이나 경직
+
+    private function Act takes nothing returns nothing
+        local unit caster = MonoEvent.Unit
+        local unit target = MonoEvent.Unit2
+        local unit du = null
+        local integer id = MonoEvent.Integer
+        local real angle = 0
+        local integer ui = 0
+        local real dist = 0
+        local integer i = 0
+        local real r = 0
+        
+        //세리아 카운터 넉백
+        if id == 1 then
+            call BossDeal( caster, target, 100 , false)
+            call KnockbackInverse( target, caster, 500, 0.5)
+            call SetUnitZVelo( target, 7.5)
+        endif
+
+        set target = null
+        set du = null
+        set caster = null
+    endfunction
+            
+    private function Init takes nothing returns nothing
+        call MonoEvent.Add(E_AOE, function Act)
+    endfunction
 
     private function filter2 takes nothing returns boolean
         return not IsUnitType(GetFilterUnit(),UNIT_TYPE_SUMMONED) and UnitAlive(GetFilterUnit())
@@ -18,7 +45,6 @@ library AOE requires MonoEvent, DamageEffect2
         real y
         real range
         real safe
-        real damage
         integer eft
         //커스텀 이벤트 아이디
         integer id
@@ -28,7 +54,6 @@ library AOE requires MonoEvent, DamageEffect2
             set y = 0
             set range = 0
             set safe = 0
-            set damage = 0
             set eft = 0
             set id = 0
         endmethod
@@ -59,8 +84,7 @@ library AOE requires MonoEvent, DamageEffect2
             if IsUnitInRangeXY(tu, st.x, st.y, st.range * 1.35) then
                 if UnitAlive(tu) and IsUnitInRangeXY(tu,st.x,st.y,st.range) and not IsUnitAlly(tu, GetOwningPlayer(st.caster)) then
                     //데미지줌
-                    call BossDeal( st.caster, tu, st.damage , false)
-                    call MonoEvent.Fire( E_AOE, null, st.caster, tu, st.id) /*이벤트 - 투사체가 충돌했을때 작동*/
+                    call MonoEvent.Fire( E_AOE, null, st.caster, tu, st.id) /*이벤트 - 대미지 격발*/
                 endif
             endif
         endloop
@@ -75,7 +99,7 @@ library AOE requires MonoEvent, DamageEffect2
         노랑은 피격이나 경직(넉백,다운)
         초록은 안전
     */
-    function AOE takes unit u, real x, real y, real range, real time, real damage, integer eft, integer id, integer types returns nothing
+    function AOE takes unit u, real x, real y, real range, real time, integer eft, integer id, integer types returns nothing
         local tick t = tick.create(0)
         local AOESt st = AOESt.Create()
         local unit du = null
@@ -83,7 +107,6 @@ library AOE requires MonoEvent, DamageEffect2
         set st.x = x
         set st.y = y
         set st.range = range
-        set st.damage = damage
         set st.eft = eft
         set st.id = id
         set t.data = st
@@ -136,7 +159,6 @@ library AOE requires MonoEvent, DamageEffect2
             exitwhen tu == null
             if IsUnitInRangeXY(tu, st.x, st.y, st.range * 1.35) then
                 if UnitAlive(tu) and IsUnitInRangeXY(tu,st.x,st.y,st.range) and not IsUnitAlly(tu, GetOwningPlayer(st.caster)) and not IsUnitInGroup(tu, ul2.super) then
-                    call BossDeal( st.caster, tu, st.damage , false)
                     call MonoEvent.Fire( E_AOE, null, st.caster, tu, st.id)
                 endif
             endif
@@ -148,8 +170,8 @@ library AOE requires MonoEvent, DamageEffect2
         call st.Stop()
     endfunction
 
-    //u = 유닛, x = x좌표, y = y좌표, safe = range보다 큰범위, range = 실제범위, time = 효과적용시간, damege = 피해량, 
-    function AOE2 takes unit u, real x, real y, real safe, real range, real time, real damage, integer eft, integer id returns nothing
+    //u = 유닛, x = x좌표, y = y좌표, safe = range보다 큰범위, range = 실제범위, time = 효과적용시간, eft 이펙트, id 효과아이디
+    function AOE2 takes unit u, real x, real y, real safe, real range, real time, integer eft, integer id returns nothing
         local tick t = tick.create(0)
         local AOESt st = AOESt.Create()
         local unit du = null
@@ -158,7 +180,6 @@ library AOE requires MonoEvent, DamageEffect2
         set st.y = y
         set st.safe = safe
         set st.range = range
-        set st.damage = damage
         set st.eft = eft
         set st.id = id
         set t.data = st

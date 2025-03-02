@@ -1,7 +1,32 @@
-library Missile requires MonoEvent, DamageEffect2
+library Missile initializer Init requires MonoEvent, DamageEffect2
     globals
         constant key E_Missile
     endglobals
+
+    private function Act takes nothing returns nothing
+        local unit caster = MonoEvent.Unit
+        local unit target = MonoEvent.Unit2
+        local unit du = null
+        local integer id = MonoEvent.Integer
+        local real angle = 0
+        local integer ui = 0
+        local real dist = 0
+        local integer i = 0
+        local real r = 0
+
+        //얼음파편 기절
+        if id == 2 then
+            call CustomStun.Stun2( target, 2.0)
+        endif
+
+        set target = null
+        set du = null
+        set caster = null
+    endfunction
+        
+    private function Init takes nothing returns nothing
+        call MonoEvent.Add(E_Missile, function Act)
+    endfunction
 
     private function filter2 takes nothing returns boolean
         return not IsUnitType(GetFilterUnit(),UNIT_TYPE_SUMMONED) and UnitAlive(GetFilterUnit()) and GetOwningPlayer(GetFilterUnit()) != Player(PLAYER_NEUTRAL_AGGRESSIVE)
@@ -86,7 +111,7 @@ library Missile requires MonoEvent, DamageEffect2
         call t.start(0.02,true,function MissileOn)
     endfunction
 
-    //MakeMissile(모델,x,y,z,size,null)
+    //MakeMissile(모델,x,y,높이,각도,size,null)
     function MakeMissile takes string modelname, real x, real y, real z, real r, real size, effect ef returns effect
         set ef = AddSpecialEffect(modelname,x,y)
         call EXSetEffectZ(ef,z)

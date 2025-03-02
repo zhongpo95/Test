@@ -138,7 +138,7 @@ globals
     unit array UnitCastingDummy
     real array UnitCastingSD
     real array UnitCastingSDMAX
-    //유닛의 상태, 0 아무행동없음 , 1 스킬시전중
+    //유닛의 상태, 0 아무행동없음 , 1 스킬시전중, 2 무력화상태, 3 이동중, 4 패턴사용후 휴식
     integer array Unitstate
     real array UnitTier
     //플레이어 쉴드

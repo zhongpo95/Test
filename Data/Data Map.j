@@ -4,6 +4,8 @@ globals
     integer array Mapthema
     integer array MapSt
     boolean array MapRectCheck
+    //기본휴식타임 3초
+    constant integer StandTime = 150
 endglobals
 
 struct MapStruct
@@ -21,6 +23,7 @@ struct MapStruct
     integer pattern9 = 0
     integer pattern10 = 0
     integer i = 0
+    integer j = 0
     integer cut1 = 0
     integer cut2 = 0
     integer cut3 = 0
