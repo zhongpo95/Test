@@ -164,6 +164,7 @@ scope ESC initializer init
             call BJDebugMsg("신속0")
             set AAA = 0
         endif
+        call CreateUnit(GetOwningPlayer(MainUnit[0]), 'h00H', GetWidgetX(MainUnit[0]), GetWidgetY(MainUnit[0]), 270)
         
     endfunction
 

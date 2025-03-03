@@ -6,6 +6,8 @@ globals
     boolean array MapRectCheck
     //기본휴식타임 3초
     constant integer StandTime = 150
+    //카운터 그로기 5초
+    constant integer CounterTime = 250
 endglobals
 
 struct MapStruct
