@@ -131,13 +131,13 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         set du = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(du,100 * range, 100 * range, 100)
         if types == 0 then
-            //call SetUnitVertexColor(du, 255, 10, 10, 255) 
+            call SetUnitVertexColor(du, 255, 10, 10, 255) 
         elseif types == 1 then
-            //call SetUnitVertexColor(du, 10, 10, 255, 255) 
+            call SetUnitVertexColor(du, 10, 10, 255, 255) 
         elseif types == 2 then
-            //call SetUnitVertexColor(du, 255, 255, 10, 255) 
+            call SetUnitVertexColor(du, 255, 255, 10, 255) 
         elseif types == 3 then
-            //call SetUnitVertexColor(du, 10, 255, 10, 255) 
+            call SetUnitVertexColor(du, 10, 255, 10, 255) 
         endif
         
         call SetUnitTimeScale( du, 1 / time)
@@ -210,7 +210,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
 
         set du = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(du, 100 * range, 100 * range, 100)
-        //call SetUnitVertexColor(du, 255, 10, 10, 255) 
+        call SetUnitVertexColor(du, 255, 10, 10, 255) 
         call SetUnitTimeScale(du, 1 / time)
         call UnitApplyTimedLife(du, 'BHwe', 1 * time)
         set du = null
@@ -218,7 +218,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         set safe = safe * 0.01
         set du = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(du,93 * safe, 93 * safe, 100)
-        //call SetUnitVertexColor(du, 10, 255, 10, 255) 
+        call SetUnitVertexColor(du, 10, 255, 10, 255) 
         call SetUnitTimeScale( du, 1 / time)
         call UnitApplyTimedLife(du, 'BHwe', 1 * time)
         set du = null

@@ -1,4 +1,4 @@
-library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
+library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,PointToPolygon
     globals
         //2분30초 7500
         //50 1초
@@ -32,8 +32,10 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern5RandomCool = 500
         private constant integer Pattern5Distance = 3000
         //마력포격 거리보다 멀면 사용안함
-        private constant integer Pattern6Cool = 5000
-        private constant integer Pattern6RandomCool = 500
+        private constant integer Pattern6Cool = 50
+        private constant integer Pattern6RandomCool = 150
+        private constant integer Pattern6Time = 125
+        private constant integer Pattern6Time2 = 100
         private constant integer Pattern6Distance = 2000
         //파이어볼 거리보다 멀면 사용안함
         private constant integer Pattern7Cool = 1000
@@ -59,15 +61,14 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     endfunction
 
 
-    //마력포격
+    //마력 포격
     private struct FxEffect4
         unit caster
-        unit array dummy[7]
-        unit array targetUnit[7]
-        unit array effectdummy[7]
-        real array lockangle[7]
+        unit array dummy[5]
+        unit array targetUnit[5]
+        unit array effectdummy[5]
         integer i
-        integer targetcount
+        integer fake
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
@@ -76,33 +77,138 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set dummy[2] = null
             set dummy[3] = null
             set dummy[4] = null
-            set dummy[5] = null
-            set dummy[6] = null
             set targetUnit[0] = null
             set targetUnit[1] = null
             set targetUnit[2] = null
             set targetUnit[3] = null
             set targetUnit[4] = null
-            set targetUnit[5] = null
-            set targetUnit[6] = null
             set effectdummy[0] = null
             set effectdummy[1] = null
             set effectdummy[2] = null
             set effectdummy[3] = null
             set effectdummy[4] = null
-            set effectdummy[5] = null
-            set effectdummy[6] = null
             set i = 0
-            set targetcount = 0
+            set fake = 0
             set st = 0
         endmethod
         //! runtextmacro 연출()
     endstruct
     
+    private function splashF takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local polygon p = polygon.create()
+        local real ux
+        local real uy
+        local real x
+        local real y
+        local real r
+
+        set r = GetUnitFacing(splash.source)
+        set ux = GetWidgetX(splash.source)
+        set uy = GetWidgetY(splash.source)
+
+        set x = ux+PolarX(200,r-90)
+        set y = uy+PolarY(200,r-90)
+        call p.AddPoint(x, y)
+
+        set x = ux+PolarX(200,r+90)
+        set y = uy+PolarY(200,r+90)
+        call p.AddPoint(x, y)
+
+        set x = ux+PolarX(2000,r)+PolarX(200,r+90)
+        set y = uy+PolarY(2000,r)+PolarY(200,r+90)
+        call p.AddPoint(x, y)
+
+        set x = ux+PolarX(2000,r)+PolarX(200,r-90)
+        set y = uy+PolarY(2000,r)+PolarY(200,r-90)
+        call p.AddPoint(x, y)
+
+        if p.IsPointInside(GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit())) then
+            call Knockback( GetEnumUnit(), r, 200, 0.20)
+            call CustomStun.Stun2( GetEnumUnit(), 0.20)
+            call BossDeal( splash.source, GetEnumUnit(), 50 , false)
+        endif
+        call p.destroy()
+    endfunction
+
+    private function splashF2 takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        local polygon p = polygon.create()
+        local polygon p2 = polygon.create()
+        local real ux
+        local real uy
+        local real ux2
+        local real uy2
+        local real x
+        local real y
+        local real r
+        local integer i = 0
+        
+        set ux = GetWidgetX(splash.source)
+        set uy = GetWidgetY(splash.source)
+        set r = GetUnitFacing(splash.source)
+
+        set ux2 = ux + PolarX(800,r-90)
+        set uy2 = uy + PolarY(800,r-90)
+
+        set x = ux2+PolarX(200,r-90)
+        set y = uy2+PolarY(200,r-90)
+        call p.AddPoint(x, y)
+
+        set x = ux2+PolarX(600,r+90)
+        set y = uy2+PolarY(600,r+90)
+        call p.AddPoint(x, y)
+
+        set x = ux2+PolarX(2000,r)+PolarX(600,r+90)
+        set y = uy2+PolarY(2000,r)+PolarY(600,r+90)
+        call p.AddPoint(x, y)
+
+        set x = ux2+PolarX(2000,r)+PolarX(200,r-90)
+        set y = uy2+PolarY(2000,r)+PolarY(200,r-90)
+        call p.AddPoint(x, y)
+
+        if p.IsPointInside(GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit())) then
+            set i = i + 1
+        endif
+
+        set ux2 = ux+PolarX(800,r+90)
+        set uy2 = uy+PolarY(800,r+90)
+
+        set x = ux2+PolarX(600,r-90)
+        set y = uy2+PolarY(600,r-90)
+        call p2.AddPoint(x, y)
+
+        set x = ux2+PolarX(200,r+90)
+        set y = uy2+PolarY(200,r+90)
+        call p2.AddPoint(x, y)
+
+        set x = ux2+PolarX(2000,r)+PolarX(200,r+90)
+        set y = uy2+PolarY(2000,r)+PolarY(200,r+90)
+        call p2.AddPoint(x, y)
+
+        set x = ux2+PolarX(2000,r)+PolarX(600,r-90)
+        set y = uy2+PolarY(2000,r)+PolarY(600,r-90)
+        call p2.AddPoint(x, y)
+
+        if p2.IsPointInside(GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit())) then
+            set i = i + 1
+        endif
+
+        if i > 0 then
+            call Knockback( GetEnumUnit(), r, 200, 0.20)
+            call CustomStun.Stun2( GetEnumUnit(), 0.2)
+            call BossDeal( splash.source, GetEnumUnit(), 50 , false)
+        endif
+        call p.destroy()
+        call p2.destroy()
+    endfunction
+
     private struct FxEffect4_Timer extends array
         private method OnAction takes FxEffect4 fx returns nothing
             local effect e
             local real r
+            local real x
+            local real y
             local integer i
             local tick t
             local MapStruct st = fx.st
@@ -110,116 +216,59 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
-                    set NoDieCheck = 0
-                    call ForGroup(st.ul.super,function NoDie)
-                    set fx.targetcount = NoDieCheck - 1
-                    //call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1, 0)
-
-                    set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[0] = ClosestUnit(fx.dummy[0], 3000)
-                    set fx.effectdummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),270)
-                    set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[1] = ClosestUnit(fx.dummy[1], 3000)
-                    set fx.effectdummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),270)
-                    set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[2] = ClosestUnit(fx.dummy[2], 3000)
-                    set fx.effectdummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),270)
-                    set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[3] = ClosestUnit(fx.dummy[3], 3000)
-                    set fx.effectdummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),270)
-                    if fx.targetcount == 1 then
-                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[4] = ClosestUnit(fx.dummy[4], 3000)
-                        set fx.effectdummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),270)
-                    endif
-                    if fx.targetcount == 2 then
-                        set fx.dummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[5] = ClosestUnit(fx.dummy[5], 3000)
-                        set fx.effectdummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),270)
-                    endif
-                    if fx.targetcount == 3 then
-                        set fx.dummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[6] = ClosestUnit(fx.dummy[6], 3000)
-                        set fx.effectdummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),270)
-                    endif
-
-                //방향회전
-                elseif fx.i <= Pattern4Time then
-                    set fx.lockangle[0] = AngleWBW(fx.dummy[0], fx.targetUnit[0])
-                    call SetUnitFacing(fx.dummy[0],fx.lockangle[0])
-                    call EXSetUnitFacing(fx.dummy[0], fx.lockangle[0])
-                    call SetUnitFacing(fx.effectdummy[0],fx.lockangle[0])
-                    call EXSetUnitFacing(fx.effectdummy[0], fx.lockangle[0])
-                    set fx.lockangle[1] = AngleWBW(fx.dummy[1], fx.targetUnit[1])
-                    call SetUnitFacing(fx.dummy[1],fx.lockangle[1])
-                    call EXSetUnitFacing(fx.dummy[1], fx.lockangle[1])
-                    call SetUnitFacing(fx.effectdummy[1],fx.lockangle[1])
-                    call EXSetUnitFacing(fx.effectdummy[1], fx.lockangle[1])
-                    set fx.lockangle[2] = AngleWBW(fx.dummy[2], fx.targetUnit[2])
-                    call SetUnitFacing(fx.dummy[2],fx.lockangle[2])
-                    call EXSetUnitFacing(fx.dummy[2], fx.lockangle[2])
-                    call SetUnitFacing(fx.effectdummy[2],fx.lockangle[2])
-                    call EXSetUnitFacing(fx.effectdummy[2], fx.lockangle[2])
-                    set fx.lockangle[3] = AngleWBW(fx.dummy[3], fx.targetUnit[3])
-                    call SetUnitFacing(fx.dummy[3],fx.lockangle[3])
-                    call EXSetUnitFacing(fx.dummy[3], fx.lockangle[3])
-                    call SetUnitFacing(fx.effectdummy[3],fx.lockangle[3])
-                    call EXSetUnitFacing(fx.effectdummy[3], fx.lockangle[3])
-                    if fx.targetcount == 1 then
-                        set fx.lockangle[4] = AngleWBW(fx.dummy[4], fx.targetUnit[4])
-                        call SetUnitFacing(fx.dummy[4],fx.lockangle[4])
-                        call EXSetUnitFacing(fx.dummy[4], fx.lockangle[4])
-                        call SetUnitFacing(fx.effectdummy[4],fx.lockangle[4])
-                        call EXSetUnitFacing(fx.effectdummy[4], fx.lockangle[4])
-                    endif
-                    if fx.targetcount == 2 then
-                        set fx.lockangle[5] = AngleWBW(fx.dummy[5], fx.targetUnit[5])
-                        call SetUnitFacing(fx.dummy[5],fx.lockangle[5])
-                        call EXSetUnitFacing(fx.dummy[5], fx.lockangle[5])
-                        call SetUnitFacing(fx.effectdummy[5],fx.lockangle[5])
-                        call EXSetUnitFacing(fx.effectdummy[5], fx.lockangle[5])
-                    endif
-                    if fx.targetcount == 3 then
-                        set fx.lockangle[6] = AngleWBW(fx.dummy[6], fx.targetUnit[6])
-                        call SetUnitFacing(fx.dummy[6],fx.lockangle[6])
-                        call EXSetUnitFacing(fx.dummy[6], fx.lockangle[6])
-                        call SetUnitFacing(fx.effectdummy[6],fx.lockangle[6])
-                        call EXSetUnitFacing(fx.effectdummy[6], fx.lockangle[6])
+                    set r = GetUnitFacing(fx.caster)
+                    set x = GetWidgetX(fx.caster)+PolarX(-500,r)
+                    set y = GetWidgetY(fx.caster)+PolarY(-500,r)
+                    set fx.fake = GetRandomInt(0,1)
+                    if fx.fake == 1 then
+                        set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x,y,r)
+                        set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r-90),y+PolarY(400,r-90),r)
+                        set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r-90),y+PolarY(800,r-90),r)
+                        set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r+90),y+PolarY(400,r+90),r)
+                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r+90),y+PolarY(800,r+90),r)
+                    else
+                        set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x,y,r)
+                        set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r-90),y+PolarY(400,r-90),r)
+                        set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r-90),y+PolarY(800,r-90),r)
+                        set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r+90),y+PolarY(400,r+90),r)
+                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r+90),y+PolarY(800,r+90),r)
                     endif
                 //발사 및 종료
-                elseif fx.i == Pattern4Time2 then
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),50,fx.lockangle[0],1.00,null), Pattern4Distance, fx.lockangle[0], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                    call KillUnit(fx.dummy[0])
-                    call KillUnit(fx.effectdummy[0])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),50,fx.lockangle[1],1.00,null), Pattern4Distance, fx.lockangle[1], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                    call KillUnit(fx.dummy[1])
-                    call KillUnit(fx.effectdummy[1])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),50,fx.lockangle[2],1.00,null), Pattern4Distance, fx.lockangle[2], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                    call KillUnit(fx.dummy[2])
-                    call KillUnit(fx.effectdummy[2])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),50,fx.lockangle[3],1.00,null), Pattern4Distance, fx.lockangle[3], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                    call KillUnit(fx.dummy[3])
-                    call KillUnit(fx.effectdummy[3])
-                    if fx.targetcount == 1 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),50,fx.lockangle[4],1.00,null), Pattern4Distance, fx.lockangle[4], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                        call KillUnit(fx.dummy[4])
-                        call KillUnit(fx.effectdummy[4])
+                elseif fx.i == Pattern6Time then
+                    set r = GetUnitFacing(fx.dummy[0])
+                    if fx.fake == 1 then
+                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[1])+PolarX(-128,r),GetWidgetY(fx.dummy[1])+PolarY(-128,r),r), 'BHwe', 1.5)
+                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[2])+PolarX(-128,r),GetWidgetY(fx.dummy[2])+PolarY(-128,r),r), 'BHwe', 1.5)
+                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[3])+PolarX(-128,r),GetWidgetY(fx.dummy[3])+PolarY(-128,r),r), 'BHwe', 1.5)
+                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[4])+PolarX(-128,r),GetWidgetY(fx.dummy[4])+PolarY(-128,r),r), 'BHwe', 1.5)
+                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )
+                    else
+                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[0])+PolarX(-128,r),GetWidgetY(fx.dummy[0])+PolarY(-128,r),r), 'BHwe', 1.5)
+                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )
                     endif
-                    if fx.targetcount == 2 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),50,fx.lockangle[5],1.00,null), Pattern4Distance, fx.lockangle[5], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                        call KillUnit(fx.dummy[5])
-                        call KillUnit(fx.effectdummy[5])
+                    call UnitApplyTimedLife(fx.dummy[0], 'BHwe', 1.5)
+                    call UnitApplyTimedLife(fx.dummy[1], 'BHwe', 1.5)
+                    call UnitApplyTimedLife(fx.dummy[2], 'BHwe', 1.5)
+                    call UnitApplyTimedLife(fx.dummy[3], 'BHwe', 1.5)
+                    call UnitApplyTimedLife(fx.dummy[4], 'BHwe', 1.5)
+                elseif fx.i > Pattern6Time and fx.i < Pattern6Time + Pattern6Time2 then
+                    set i = fx.i-Pattern6Time
+                    if ModuloInteger(i,15) == 0 then 
+                        if fx.fake == 1 then
+                            call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )
+                        else
+                            call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )
+                        endif
                     endif
-                    if fx.targetcount == 3 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),50,fx.lockangle[6],1.00,null), Pattern4Distance, fx.lockangle[6], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
-                        call KillUnit(fx.dummy[6])
-                        call KillUnit(fx.effectdummy[6])
-                    endif
+                elseif fx.i == Pattern6Time + Pattern6Time2 then
+                    call BJDebugMsg("전환")
                     //대기상태로 전환
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    call BJDebugMsg("전환2")
                     call fx.Stop()
+                    call BJDebugMsg("전환3")
                 endif
             //주금
             else
@@ -647,9 +696,9 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 //일반상태,이동중,휴식
                 if Unitstate[IndexUnit(st.caster)] == 0 or Unitstate[IndexUnit(st.caster)] == 3 or Unitstate[IndexUnit(st.caster)] == 4 then
                     set st.pattern6 = st.pattern6 - 1
-                    set st.pattern4 = st.pattern4 - 1
-                    set st.pattern3 = st.pattern3 - 1
-                    set st.pattern2 = st.pattern2 - 1
+                    //set st.pattern4 = st.pattern4 - 1
+                    //set st.pattern3 = st.pattern3 - 1
+                    //set st.pattern2 = st.pattern2 - 1
                     call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편:"+I2S(st.pattern4)+", 마력포격:"+I2S(st.pattern6))
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
