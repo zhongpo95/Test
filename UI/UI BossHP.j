@@ -1,4 +1,4 @@
-library UIBossHP initializer init requires DataUnit
+library UIBossHP initializer init requires FrameCount, DataUnit
     globals
         private integer BHPBarBorder
         private integer BSDBarBorder
@@ -46,36 +46,36 @@ library UIBossHP initializer init requires DataUnit
     endfunction
 
     private function MyBarCreate takes nothing returns nothing
-        set BHPBar[0]=DzCreateFrameByTagName("BACKDROP", "frame00", DzGetGameUI(), "frame", 0)
+        set BHPBar[0]=DzCreateFrameByTagName("BACKDROP", "frame00", DzGetGameUI(), "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[0], 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 730.00 / 1280.00 ))
         call DzFrameSetSize(BHPBar[0], ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[0], "war3mapImported\\DGXT.tga", 0)
         call DzFrameShow(BHPBar[0], false)
-        set BHPBar[5]=DzCreateFrameByTagName("BACKDROP", "frame05", BHPBar[0], "frame", 1)
+        set BHPBar[5]=DzCreateFrameByTagName("BACKDROP", "frame05", BHPBar[0], "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[5], 0, DzGetGameUI(), 6, ( 322 / 1280.00 ), ( 705.00 / 1280.00 ))
         call DzFrameSetSize(BHPBar[5], ( 380.00 / 1280.00 ), ( 35.00 / 1280.00 ))
-        set BHPBar[1]=DzCreateFrameByTagName("BACKDROP", "frame01", BHPBar[0], "frame", 1)
+        set BHPBar[1]=DzCreateFrameByTagName("BACKDROP", "frame01", BHPBar[0], "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[1], 3, BHPBar[5], 3, 0.00, 0.00)
         call DzFrameSetSize(BHPBar[1], ( 380.00 / 1280.00 ), ( 35.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[1], "war3mapImported\\UIX.tga", 0)
-        set BHPBar[2]=DzCreateFrameByTagName("BACKDROP", "frame02", BHPBar[1], "frame", 2)
+        set BHPBar[2]=DzCreateFrameByTagName("BACKDROP", "frame02", BHPBar[1], "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[2], 0, DzGetGameUI(), 6, ( 322 / 1280.00 ), ( 705.00 / 1280.00 ))
         call DzFrameSetSize(BHPBar[2], ( 380.00 / 1280.00 ), ( 35.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[2], "war3mapImported\\ZT-[BOSS]-B0.blp", 0)
-        set BHPBar[4]=DzCreateFrameByTagName("TEXT", "", BHPBar[0], "template", 0)
+        set BHPBar[4]=DzCreateFrameByTagName("TEXT", "", BHPBar[0], "template", FrameCount())
         call DzFrameSetFont(BHPBar[4], "Fonts\\DFHeiMd.ttf", 0.011, 0)
         call DzFrameSetSize(BHPBar[4], ( 80.00 / 1280.00 ), ( 25.00 / 1280.00 ))
         call DzFrameSetPoint(BHPBar[4], 2, DzGetGameUI(), 6, ( 725.00 / 1280.00 ), ( 697.50 / 1280.00 ))
-        set BHPBar[6]=DzCreateFrameByTagName("BACKDROP", "frame06", BHPBar[0], "frame", 1)
+        set BHPBar[6]=DzCreateFrameByTagName("BACKDROP", "frame06", BHPBar[0], "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[6], 0, DzGetGameUI(), 6, ( 361.5 / 1280.00 ), ( 668.00 / 1280.00 ))
         call DzFrameSetSize(BHPBar[6], ( 450.00 / 1280.00 ), ( 300.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[6], "war3mapImported\\ZT-[BOSS]-B0.blp", 0)
-        set BHPBar[8]=DzCreateFrameByTagName("BACKDROP", "frame08", BHPBar[0], "frame", 1)
+        set BHPBar[8]=DzCreateFrameByTagName("BACKDROP", "frame08", BHPBar[0], "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[8], 4, BHPBar[0], 4, 0.00, 0.00)
         call DzFrameSetSize(BHPBar[8], ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[8], "war3mapImported\\DGXT.tga", 0)
         call DzFrameShow(BHPBar[8], true)
-        set BHPBar[7]=DzCreateFrameByTagName("TEXT", "", BHPBar[0], "template", 0)
+        set BHPBar[7]=DzCreateFrameByTagName("TEXT", "", BHPBar[0], "template", FrameCount())
         call DzFrameSetFont(BHPBar[7], "Fonts\\DFHeiMd.ttf", 0.011, 0)
         call DzFrameSetSize(BHPBar[7], ( 300.00 / 1280.00 ), ( 25.00 / 1280.00 ))
         call DzFrameSetPoint(BHPBar[7], 0, DzGetGameUI(), 6, ( 487.50 / 1280.00 ), ( 655.00 / 1280.00 ))

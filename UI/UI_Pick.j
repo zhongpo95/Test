@@ -1,4 +1,4 @@
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -311,64 +311,65 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         local integer i
         local integer j
         local integer k
-        
+
+        //카메라
         call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Pick )
         call SetCameraPositionForPlayer(GetLocalPlayer(),GetRectCenterX(gg_rct_Pick),GetRectCenterY(gg_rct_Pick))
         
         call DzLoadToc("war3mapImported\\Templates.toc")
         
-        set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(FP_BD, "UI_Pick.blp", 0)
         call DzFrameSetSize(FP_BD, 0.80, 0.60)
         call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.2800)
         call DzFrameShow(FP_BD, false)
         
-        set FP_SLB[1] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_SLB[1] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAbsolutePoint(FP_SLB[1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4900)
         call DzFrameSetSize(FP_SLB[1], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
         call DzFrameSetSize(FP_SL[1], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FP_SL[1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4900)
         
-        set FP_SLB[2] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_SLB[2] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAbsolutePoint(FP_SLB[2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3700)
         call DzFrameSetSize(FP_SLB[2], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[2]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_SL[2]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
         call DzFrameSetSize(FP_SL[2], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FP_SL[2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3700)
         
-        set FP_SLB[3] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_SLB[3] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAbsolutePoint(FP_SLB[3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2500)
         call DzFrameSetSize(FP_SLB[3], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[3]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_SL[3]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
         call DzFrameSetSize(FP_SL[3], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FP_SL[3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2500)
         
-        set FP_SLB[4] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_SLB[4] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAbsolutePoint(FP_SLB[4], JN_FRAMEPOINT_CENTER, 0.2750, 0.1300)
         call DzFrameSetSize(FP_SLB[4], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[4]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_SL[4]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2.blp", 0)
         call DzFrameSetSize(FP_SL[4], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FP_SL[4], JN_FRAMEPOINT_CENTER, 0.2750, 0.1300)
         
         
-        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.06, 0.03)
         call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.5800, 0.1200)
@@ -378,7 +379,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         call DzFrameSetAbsolutePoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, 0.5800, 0.1200)
         call DzFrameSetText(FP_SelectBT,"결정")
         
-        set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAllPoints(FP_SelectB, FP_SelectBBD)
         call DzFrameSetSize(FP_SelectB, 0.06, 0.03)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickHeroButton, false)
@@ -387,17 +388,17 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         loop
             set i = 1
             loop
-                set FP_HeroBBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "", 0)
+                set FP_HeroBBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "", FrameCount())
                 call DzFrameSetAbsolutePoint(FP_HeroBBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.4500+(0.035*(i-1))+(0.0100*j), 0.5250-(0.035*j))
                 call DzFrameSetSize(FP_HeroBBD[i+(j*6)], 0.035, 0.035)
                 if i+(j*6) <= MaxHero then
                     call DzFrameSetTexture(FP_HeroBBD[i+(j*6)], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon"+I2S(i+(j*6))+".blp", 0)
-                    set FP_HeroB[i+(j*6)]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i+(j*6)], "ScoreScreenTabButtonTemplate", 0)
+                    set FP_HeroB[i+(j*6)]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i+(j*6)], "ScoreScreenTabButtonTemplate",  FrameCount())
                     call DzFrameSetAllPoints(FP_HeroB[i+(j*6)], FP_HeroBBD[i+(j*6)])
                     call DzFrameSetSize(FP_HeroB[i+(j*6)], 0.035, 0.035)
                     call DzFrameSetScriptByCode(FP_HeroB[i+(j*6)], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
                     
-                    set FP_PotBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i+(j*6)], "template", 0)
+                    set FP_PotBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i+(j*6)], "template", FrameCount())
                     call DzFrameSetTexture(FP_PotBD[i+(j*6)], "UI_HeroPot"+I2S(i+(j*6))+".blp", 0)
                     call DzFrameSetSize(FP_PotBD[i+(j*6)], 0.22, 0.22)
                     call DzFrameSetAbsolutePoint(FP_PotBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.5700, 0.3600)
@@ -412,7 +413,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
             exitwhen j == 2
         endloop
                 
-        set FP_HeroTBD=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "template", 0)
+        set FP_HeroTBD=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "template", FrameCount())
         call DzFrameSetTexture(FP_HeroTBD, "UI_PickText.tga", 0)
         call DzFrameSetSize(FP_HeroTBD, 0.22, 0.12)
         call DzFrameSetAbsolutePoint(FP_HeroTBD, JN_FRAMEPOINT_CENTER, 0.5700, 0.2100)
@@ -420,7 +421,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         
         //로드
         
-        set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", 0)
+        set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_LoadBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_LoadBBD, 0.06, 0.03)
         call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.5800, 0.1200)
@@ -430,7 +431,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         call DzFrameSetAbsolutePoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, 0.5800, 0.1200)
         call DzFrameSetText(FP_LoadBT,"결정")
         
-        set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate", 0)
+        set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetAllPoints(FP_LoadB, FP_LoadBBD)
         call DzFrameSetSize(FP_LoadB, 0.06, 0.03)
         call DzFrameSetScriptByCode(FP_LoadB, JN_FRAMEEVENT_MOUSE_UP, function ClickLoadButton, false)
@@ -499,6 +500,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         endif
 
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
+        //카메라
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
         
@@ -720,6 +722,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily
         
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
+        //카메라
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
         

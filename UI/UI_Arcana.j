@@ -1,4 +1,4 @@
-library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM
+library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount
     globals
         integer F_ArcanaBackDrop                   //인포 배경
         integer F_ArcanaCancelButton               //X버튼
@@ -37,12 +37,12 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM
         endloop
 
         //메뉴 배경
-        set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(F_ArcanaBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_ArcanaBackDrop, 0.40, 0.27)
         
         //메뉴 취소 버튼
-        set F_ArcanaCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ArcanaBackDrop, "ScriptDialogButton", 0)
+        set F_ArcanaCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_ArcanaBackDrop, "ScriptDialogButton", FrameCount())
         call DzFrameSetPoint(F_ArcanaCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_ArcanaBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.010, -0.010)
         call DzFrameSetText(F_ArcanaCancelButton, "X")
         call DzFrameSetSize(F_ArcanaCancelButton, 0.03, 0.03)

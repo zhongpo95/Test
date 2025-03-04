@@ -1,4 +1,4 @@
-library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
+library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, FrameCount
     globals
         hashtable Hash = InitHashtable()
         //아이템창 여는 버튼 백드롭
@@ -1423,15 +1423,15 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     
     //창고 버튼 아이콘 생성 함수
     private function CreateStItemBackDrop takes integer types, real x, real y returns nothing
-        set F_Storage_Buttons[types]=DzCreateFrameByTagName("BUTTON", "", F_Storage_EQButtonsShow, "ScoreScreenTabButtonTemplate", 0)
+        set F_Storage_Buttons[types]=DzCreateFrameByTagName("BUTTON", "", F_Storage_EQButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_Storage_Buttons[types], JN_FRAMEPOINT_CENTER, F_Storage_EQBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
         call DzFrameSetSize(F_Storage_Buttons[types], 0.025, 0.025)
         
-        set F_Storage_ButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_Buttons[types], "", 0)
+        set F_Storage_ButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_Buttons[types], "", FrameCount())
         call DzFrameSetAllPoints(F_Storage_ButtonsBackDrop[types], F_Storage_Buttons[types])
         call DzFrameSetTexture(F_Storage_ButtonsBackDrop[types],"UI_Inventory.blp", 0)
         
-        set F_Storage_ButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_ButtonsBackDrop[types], "template", 0)
+        set F_Storage_ButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_ButtonsBackDrop[types], "template", FrameCount())
         call DzFrameSetSize(F_Storage_ButtonLock[types], 0.01, (19.0/ 16.0) * 0.01 )
         call DzFrameSetPoint(F_Storage_ButtonLock[types], 0, F_Storage_ButtonsBackDrop[types], 0, (( 28.0 / 16.0 ) * 0.01), (( 8.0 / 16.0 ) * 0.01)  )
         call DzFrameSetTexture(F_Storage_ButtonLock[types], "UI_Inventory_Lock2.blp", 0)
@@ -1443,11 +1443,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_ActionsSt, false)
         call DzFrameSetScriptByCode(F_Storage_Buttons[types], JN_FRAMEEVENT_MOUSE_UP, function ClickStItemButton, false)
 
-        set F_Storage_Buttons[types+50]=DzCreateFrameByTagName("BUTTON", "", F_Storage_ETCButtonsShow, "ScoreScreenTabButtonTemplate", 0)
+        set F_Storage_Buttons[types+50]=DzCreateFrameByTagName("BUTTON", "", F_Storage_ETCButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_Storage_Buttons[types+50], JN_FRAMEPOINT_CENTER, F_Storage_EQBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
         call DzFrameSetSize(F_Storage_Buttons[types+50], 0.025, 0.025)
         
-        set F_Storage_ButtonsBackDrop[types+50]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_Buttons[types+50], "", 0)
+        set F_Storage_ButtonsBackDrop[types+50]=DzCreateFrameByTagName("BACKDROP", "", F_Storage_Buttons[types+50], "", FrameCount())
         call DzFrameSetAllPoints(F_Storage_ButtonsBackDrop[types+50], F_Storage_Buttons[types+50])
         call DzFrameSetTexture(F_Storage_ButtonsBackDrop[types+50],"UI_Inventory.blp", 0)
 
@@ -1461,15 +1461,15 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     
     //버튼 아이콘 생성 함수
     private function CreateItemButton takes integer types, real x, real y returns nothing
-        set F_ItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_EQButtonsShow, "ScoreScreenTabButtonTemplate", 0)
+        set F_ItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_EQButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_ItemButtons[types], JN_FRAMEPOINT_CENTER, F_EQETCTemplateBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
         call DzFrameSetSize(F_ItemButtons[types], 0.025, 0.025)
         
-        set F_ItemButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtons[types], "", 0)
+        set F_ItemButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtons[types], "", FrameCount())
         call DzFrameSetAllPoints(F_ItemButtonsBackDrop[types], F_ItemButtons[types])
         call DzFrameSetTexture(F_ItemButtonsBackDrop[types],"UI_Inventory.blp", 0)
         
-        set F_ItemButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtonsBackDrop[types], "template", 0)
+        set F_ItemButtonLock[types]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtonsBackDrop[types], "template", FrameCount())
         call DzFrameSetSize(F_ItemButtonLock[types], 0.01, (19.0/ 16.0) * 0.01 )
         call DzFrameSetPoint(F_ItemButtonLock[types], 0, F_ItemButtonsBackDrop[types], 0, (( 28.0 / 16.0 ) * 0.01), (( 8.0 / 16.0 ) * 0.01)  )
         call DzFrameSetTexture(F_ItemButtonLock[types], "UI_Inventory_Lock2.blp", 0)
@@ -1482,11 +1482,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetScriptByCode(F_ItemButtons[types], JN_FRAMEEVENT_MOUSE_UP, function ClickItemButton, false)
         
 
-        set F_ItemButtons[types+50]= DzCreateFrameByTagName("BUTTON", "", F_ETCButtonsShow, "ScoreScreenTabButtonTemplate", 0)
+        set F_ItemButtons[types+50]= DzCreateFrameByTagName("BUTTON", "", F_ETCButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_ItemButtons[types+50], JN_FRAMEPOINT_CENTER, F_EQETCTemplateBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
         call DzFrameSetSize(F_ItemButtons[types+50], 0.025, 0.025)
         
-        set F_ItemButtonsBackDrop[types+50]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtons[types+50], "", 0)
+        set F_ItemButtonsBackDrop[types+50]=DzCreateFrameByTagName("BACKDROP", "", F_ItemButtons[types+50], "", FrameCount())
         call DzFrameSetAllPoints(F_ItemButtonsBackDrop[types+50], F_ItemButtons[types+50])
         call DzFrameSetTexture(F_ItemButtonsBackDrop[types+50],"UI_Inventory.blp", 0)
 
@@ -1499,11 +1499,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
     
     //버튼 아이콘 생성 함수
     private function CreateItemButton2 takes integer types, real x, real y returns nothing
-        set F_ItemButtonsBackDrop[types+100]=DzCreateFrameByTagName("BACKDROP", "", F_ETC2emplateBackDrop, "", 0)
+        set F_ItemButtonsBackDrop[types+100]=DzCreateFrameByTagName("BACKDROP", "", F_ETC2emplateBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemButtonsBackDrop[types+100], JN_FRAMEPOINT_CENTER, F_ETC2emplateBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
         call DzFrameSetSize(F_ItemButtonsBackDrop[types+100], 0.025, 0.025)
         call DzFrameSetTexture(F_ItemButtonsBackDrop[types+100], "UI_Inventory.blp", 0)
-        set F_ItemButtons[types+100]=DzCreateFrameByTagName("BUTTON", "", F_ETC2emplateBackDrop, "ScoreScreenTabButtonTemplate", 0)
+        set F_ItemButtons[types+100]=DzCreateFrameByTagName("BUTTON", "", F_ETC2emplateBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetScriptByCode(F_ItemButtons[types+100], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions2, false)
         call DzFrameSetScriptByCode(F_ItemButtons[types+100], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         call DzFrameSetAllPoints(F_ItemButtons[types+100], F_ItemButtonsBackDrop[types+100])
@@ -1573,11 +1573,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         set t = null
 
         //가방 버튼 생성
-        set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
+        set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_ItemOpenButton, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
         call DzFrameSetSize(F_ItemOpenButton, 0.020, 0.020)
         call DzFrameSetScriptByCode(F_ItemOpenButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
-        set F_ItemOpenButtonBD=DzCreateFrameByTagName("BACKDROP", "", F_ItemOpenButton, "template", 0)
+        set F_ItemOpenButtonBD=DzCreateFrameByTagName("BACKDROP", "", F_ItemOpenButton, "template", FrameCount())
         call DzFrameSetTexture(F_ItemOpenButtonBD, "inven.blp", 0)
         call DzFrameSetSize(F_ItemOpenButtonBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(F_ItemOpenButtonBD, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
@@ -1604,11 +1604,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetScriptByCode(F_ETCButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickETCButton, false)
         
         //골드 아이콘
-        set F_GoldBackDrop = DzCreateFrameByTagName("BACKDROP", "", F_ItemBackDrop, "template", 0)
+        set F_GoldBackDrop = DzCreateFrameByTagName("BACKDROP", "", F_ItemBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_GoldBackDrop, "UI\\Feedback\\Resources\\ResourceGold.blp", 0)
         call DzFrameSetPoint(F_GoldBackDrop, JN_FRAMEPOINT_CENTER, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.100, 0.0175)
         call DzFrameSetSize(F_GoldBackDrop, 0.010, 0.010)
-        set F_GoldText=DzCreateFrameByTagName("TEXT", "", F_GoldBackDrop, "", 0)
+        set F_GoldText=DzCreateFrameByTagName("TEXT", "", F_GoldBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_GoldText, JN_FRAMEPOINT_TOPRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.015, 0.025)
         call DzFrameSetPoint(F_GoldText, JN_FRAMEPOINT_BOTTOMLEFT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.090, 0.010)
         call JNFrameSetTextAlignment(F_GoldText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
@@ -1622,8 +1622,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetPoint(F_EQETCTemplateBackDrop, JN_FRAMEPOINT_BOTTOMRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.015, 0.075)
         
         
-        set F_EQButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_EQETCTemplateBackDrop, "", 0)
-        set F_ETCButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_EQETCTemplateBackDrop, "", 0)
+        set F_EQButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_EQETCTemplateBackDrop, "", FrameCount())
+        set F_ETCButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_EQETCTemplateBackDrop, "", FrameCount())
         call DzFrameShow(F_ETCButtonsShow,false)
         
         //장비,기타 아이템 버튼 생성
@@ -1737,8 +1737,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameSetPoint(F_Storage_EQBackDrop, JN_FRAMEPOINT_BOTTOMRIGHT, F_Storage_BackDrop , JN_FRAMEPOINT_BOTTOMRIGHT, -0.015, 0.025)
         
         
-        set F_Storage_EQButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_Storage_EQBackDrop, "", 0)
-        set F_Storage_ETCButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_Storage_EQBackDrop, "", 0)
+        set F_Storage_EQButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_Storage_EQBackDrop, "", FrameCount())
+        set F_Storage_ETCButtonsShow=DzCreateFrameByTagName("BACKDROP", "", F_Storage_EQBackDrop, "", FrameCount())
         call DzFrameShow(F_Storage_ETCButtonsShow,false)
         
         //장비,기타 아이템 버튼 생성
@@ -1808,12 +1808,12 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameShow(F_Storage_BackDrop, false)
 
         //집은 아이템
-        set F_PickUp = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set F_PickUp = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetSize(F_PickUp, 0.025, 0.025)
         call DzFrameShow(F_PickUp, false)
 
         // 우클릭 메뉴
-        set F_RightMenu = DzCreateFrameByTagName("BACKDROP", "RightMenuBack", F_ItemBackDrop, "", 0)
+        set F_RightMenu = DzCreateFrameByTagName("BACKDROP", "RightMenuBack", F_ItemBackDrop, "", FrameCount())
         call DzFrameSetSize(F_RightMenu, 0.02, 0.02)
         call DzFrameSetTexture(F_RightMenu, "Textures\\black32.blp", 0)
         call DzFrameSetPoint(DzCreateFrame("RightMenu1", F_RightMenu, 0), JN_FRAMEPOINT_TOPLEFT, F_RightMenu, JN_FRAMEPOINT_TOPLEFT, 0, 0)
@@ -1841,7 +1841,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameShow(F_ItemALLDelBackDrop, false)
         call DzFrameSetPriority(F_ItemALLDelBackDrop, 198)
         
-        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemALLDelBackDrop, "", 0)
+        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemALLDelBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_DELText, JN_FRAMEPOINT_CENTER, F_ItemALLDelBackDrop , JN_FRAMEPOINT_CENTER, 0.0, 0.0125)
         call DzFrameSetText(F_DELText, "장비를 전부 일괄 분해하시겠습니까?")
         
@@ -1864,7 +1864,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM
         call DzFrameShow(F_ItemDelBackDrop, false)
         call DzFrameSetPriority(F_ItemDelBackDrop, 199)
         
-        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemDelBackDrop, "", 0)
+        set F_DELText=DzCreateFrameByTagName("TEXT", "", F_ItemDelBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_DELText, JN_FRAMEPOINT_CENTER, F_ItemDelBackDrop , JN_FRAMEPOINT_CENTER, 0.0, 0.0125)
         call DzFrameSetText(F_DELText, "장비 분해")
         

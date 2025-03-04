@@ -1,4 +1,4 @@
-library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
+library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap, FrameCount
     globals
         private integer Failed
         private integer Success
@@ -30,6 +30,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
         
         if Player(t.data) == GetLocalPlayer() then
             call DzFrameShow(Failed, false)
+            //카메라
             call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Home )
             call SetCameraPositionForPlayer(GetLocalPlayer(),GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home))
             call ClearSelection()
@@ -48,6 +49,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
         
         if Player(t.data) == GetLocalPlayer() then
             call DzFrameShow(Success, false)
+            //카메라
             call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Home )
             call SetCameraPositionForPlayer(GetLocalPlayer(),GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home))
             call ClearSelection()
@@ -99,7 +101,7 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
                 endif
             endif
             
-            set Effect=DzCreateFrameByTagName("SPRITE", "", RewardItemBD[st.j], "template", 0)
+            set Effect=DzCreateFrameByTagName("SPRITE", "", RewardItemBD[st.j], "template", FrameCount())
             call DzFrameSetPoint(Effect, JN_FRAMEPOINT_CENTER, RewardItemBD[st.j] , JN_FRAMEPOINT_CENTER, 0.0110, 0.0090)
             call DzFrameSetModel(Effect, "f6102.mdx", 0, 0)
             call DzFrameSetSize(Effect, 0.02, 0.02)
@@ -199,36 +201,36 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap
 
     private function Main takes nothing returns nothing
         local integer i = 0
-        set Failed=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set Failed=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetPoint(Failed, 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 480.00 / 1280.00 ))
         call DzFrameSetSize(Failed, ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(Failed, "UI_Failed.blp", 0)
         call DzFrameShow(Failed, false)
-        set Success=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set Success=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetPoint(Success, 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 480.00 / 1280.00 ))
         call DzFrameSetSize(Success, ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(Success, "UI_Success.blp", 0)
         call DzFrameShow(Success, false)
-        set RewardBD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set RewardBD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(RewardBD, JN_FRAMEPOINT_CENTER, 0.4, 0.3)
         call DzFrameSetSize(RewardBD, 0.25, 0.25)
         call DzFrameSetTexture(RewardBD, "UI_PickSelectButton.tga", 0)
         
         set i = 1
         loop
-            set RewardItemBD[i]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", 0)
+            set RewardItemBD[i]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", FrameCount())
             call DzFrameSetAbsolutePoint(RewardItemBD[i], JN_FRAMEPOINT_CENTER, 0.330+(0.035*(i-1)), 0.34)
             call DzFrameSetSize(RewardItemBD[i], 0.035, 0.035)
             call DzFrameSetTexture(RewardItemBD[i], "UI_Inventory.blp", 0)
-            set RewardItemBD[i+5]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", 0)
+            set RewardItemBD[i+5]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", FrameCount())
             call DzFrameSetAbsolutePoint(RewardItemBD[i+5], JN_FRAMEPOINT_CENTER, 0.330+(0.035*(i-1)), 0.34-0.035)
             call DzFrameSetSize(RewardItemBD[i+5], 0.035, 0.035)
             call DzFrameSetTexture(RewardItemBD[i+5], "UI_Inventory.blp", 0)
-            set RewardItemBD[i+10]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", 0)
+            set RewardItemBD[i+10]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", FrameCount())
             call DzFrameSetAbsolutePoint(RewardItemBD[i+10], JN_FRAMEPOINT_CENTER, 0.330+(0.035*(i-1)), 0.34-0.070)
             call DzFrameSetSize(RewardItemBD[i+10], 0.035, 0.035)
             call DzFrameSetTexture(RewardItemBD[i+10], "UI_Inventory.blp", 0)
-            set RewardItemBD[i+15]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", 0)
+            set RewardItemBD[i+15]=DzCreateFrameByTagName("BACKDROP", "", RewardBD, "", FrameCount())
             call DzFrameSetAbsolutePoint(RewardItemBD[i+15], JN_FRAMEPOINT_CENTER, 0.330+(0.035*(i-1)), 0.34-0.105)
             call DzFrameSetSize(RewardItemBD[i+15], 0.035, 0.035)
             call DzFrameSetTexture(RewardItemBD[i+15], "UI_Inventory.blp", 0)

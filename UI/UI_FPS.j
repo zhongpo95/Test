@@ -1,4 +1,4 @@
-library FPS initializer Init requires UIItem, Emoji
+library FPS initializer Init requires UIItem, Emoji, FrameCount
 function FPS takes nothing returns nothing
     local real r1
     local real r2

@@ -155,14 +155,14 @@ endfunction
             set QL,GetHandleId(ConvertedPlayer(Xa)),J,4)
             set Xa=Xa+1
         endloop
-        set Ui,GetHandleId(GetTriggeringTrigger())*XZ,B,DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template",0))
+        set Ui,GetHandleId(GetTriggeringTrigger())*XZ,B,DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template", FrameCount()))
         call DzFrameSetTexture(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),"Expression_Point.blp",0)
         call DzFrameSetSize(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),.065,.065)
         call DzFrameShow(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),false)
         set YJ=1
         loop
             exitwhen YJ>4
-            set Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),"template",0))
+            set Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),"template", FrameCount()))
             set YK[YJ]=LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ)
             set YJ=YJ+1
         endloop
@@ -177,7 +177,7 @@ endfunction
         set YJ=5
         loop
             exitwhen YJ>8
-            set Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),"template",0))
+            set Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,B),"template", FrameCount()))
             call DzFrameSetSize(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ),.05,.05)
             set YK[YJ]=LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,X+YJ)
             set YJ=YJ+1

@@ -1,4 +1,4 @@
-library UISkillLevel initializer init requires DataUnit
+library UISkillLevel initializer init requires DataUnit, FrameCount
     globals
         integer FS_OpenButton                       //스킬창 여는 버튼
         integer FS_OpenButtonBD                     //스킬창 여는 버튼 백드롭
@@ -413,70 +413,70 @@ library UISkillLevel initializer init requires DataUnit
     
     //
     private function CreateSkillButton takes integer types returns nothing
-        set FS_Button[types]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+        set FS_Button[types]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.040, -0.080 +(-0.038*types))
         call DzFrameSetSize(FS_Button[types], 0.030, 0.030)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
         
-        set FS_ButtonBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "", 0)
+        set FS_ButtonBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "", FrameCount())
         call DzFrameSetAllPoints(FS_ButtonBackDrop[types], FS_Button[types])
         call DzFrameSetTexture(FS_ButtonBackDrop[types],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
         
-        set FS_ButtonTEXT[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", 0)
+        set FS_ButtonTEXT[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", FrameCount())
         call DzFrameSetPoint(FS_ButtonTEXT[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.035, -0.010)
         call DzFrameSetText(FS_ButtonTEXT[types], "스킬이름스킬이름스킬이")
         
-        set FS_DOWN[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate", 0)
+        set FS_DOWN[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(FS_DOWN[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
         call DzFrameSetSize(FS_DOWN[types], 0.020, 0.020)
         call DzFrameSetScriptByCode(FS_DOWN[types], JN_FRAMEEVENT_MOUSE_UP, function PushDOWN, false)
-        set FS_DOWNBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_DOWN[types], "template", 0)
+        set FS_DOWNBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_DOWN[types], "template", FrameCount())
         call DzFrameSetTexture(FS_DOWNBD[types], "UI_M.blp", 0)
         call DzFrameSetSize(FS_DOWNBD[types], 0.020, 0.020)
         call DzFrameSetPoint(FS_DOWNBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
         
-        set FS_ButtonTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", 0)
+        set FS_ButtonTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", FrameCount())
         call DzFrameSetPoint(FS_ButtonTEXT2[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.200, -0.010)
         call DzFrameSetText(FS_ButtonTEXT2[types], "0")
         
-        set FS_UP[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate", 0)
+        set FS_UP[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(FS_UP[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
         call DzFrameSetSize(FS_UP[types], 0.020, 0.020)
         call DzFrameSetScriptByCode(FS_UP[types], JN_FRAMEEVENT_MOUSE_UP, function PushUP, false)
-        set FS_UPBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_UP[types], "template", 0)
+        set FS_UPBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_UP[types], "template", FrameCount())
         call DzFrameSetTexture(FS_UPBD[types], "UI_P.blp", 0)
         call DzFrameSetSize(FS_UPBD[types], 0.020, 0.020)
         call DzFrameSetPoint(FS_UPBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
         
-        set FP_SLBD1[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
+        set FP_SLBD1[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
         call DzFrameSetTexture(FP_SLBD1[types], "UI_PickSelectButton2.tga", 0)
         call DzFrameSetSize(FP_SLBD1[types], 0.18, 0.08)
         call DzFrameSetAbsolutePoint(FP_SLBD1[types], JN_FRAMEPOINT_CENTER, 0.525, 0.38)
-        set FP_SLTEXT1[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD1[types], "", 0)
+        set FP_SLTEXT1[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD1[types], "", FrameCount())
         call DzFrameSetPoint(FP_SLTEXT1[types], JN_FRAMEPOINT_CENTER, FP_SLBD1[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
         call DzFrameSetText(FP_SLTEXT1[types], "0")
         call DzFrameSetSize(FP_SLTEXT1[types], 0.165, 0.00)
         call DzFrameSetFont(FP_SLTEXT1[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         call DzFrameShow(FP_SLBD1[types], false)
         
-        set FP_SLBD2[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
+        set FP_SLBD2[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
         call DzFrameSetTexture(FP_SLBD2[types], "UI_PickSelectButton2.tga", 0)
         call DzFrameSetSize(FP_SLBD2[types], 0.18, 0.08)
         call DzFrameSetAbsolutePoint(FP_SLBD2[types], JN_FRAMEPOINT_CENTER, 0.525, 0.28)
-        set FP_SLTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD2[types], "", 0)
+        set FP_SLTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD2[types], "", FrameCount())
         call DzFrameSetPoint(FP_SLTEXT2[types], JN_FRAMEPOINT_CENTER, FP_SLBD2[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
         call DzFrameSetText(FP_SLTEXT2[types], "0")
         call DzFrameSetSize(FP_SLTEXT2[types], 0.165, 0.00)
         call DzFrameSetFont(FP_SLTEXT2[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         call DzFrameShow(FP_SLBD2[types], false)
         
-        set FP_SLBD3[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", 0)
+        set FP_SLBD3[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
         call DzFrameSetTexture(FP_SLBD3[types], "UI_PickSelectButton2.tga", 0)
         call DzFrameSetSize(FP_SLBD3[types], 0.18, 0.08)
         call DzFrameSetAbsolutePoint(FP_SLBD3[types], JN_FRAMEPOINT_CENTER, 0.525, 0.18)
-        set FP_SLTEXT3[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD3[types], "", 0)
+        set FP_SLTEXT3[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD3[types], "", FrameCount())
         call DzFrameSetPoint(FP_SLTEXT3[types], JN_FRAMEPOINT_CENTER, FP_SLBD3[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
         call DzFrameSetText(FP_SLTEXT3[types], "0")
         call DzFrameSetSize(FP_SLTEXT3[types], 0.165, 0.00)
@@ -489,11 +489,11 @@ library UISkillLevel initializer init requires DataUnit
         local integer i
         
         /********************************** 스킬 버튼 생성 **********************************************/
-        set FS_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
+        set FS_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(FS_OpenButton, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
         call DzFrameSetSize(FS_OpenButton, 0.020, 0.020)
         call DzFrameSetScriptByCode(FS_OpenButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
-        set FS_OpenButtonBD=DzCreateFrameByTagName("BACKDROP", "", FS_OpenButton, "template", 0)
+        set FS_OpenButtonBD=DzCreateFrameByTagName("BACKDROP", "", FS_OpenButton, "template", FrameCount())
         call DzFrameSetTexture(FS_OpenButtonBD, "skill.blp", 0)
         call DzFrameSetSize(FS_OpenButtonBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(FS_OpenButtonBD, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
@@ -505,15 +505,15 @@ library UISkillLevel initializer init requires DataUnit
         call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
         
         /********************************** 프레임 이름 설명 생성 **********************************************/
-        set FS_CombinationText=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
+        set FS_CombinationText=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_CombinationText, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.025, -0.025)
         call DzFrameSetText(FS_CombinationText, "스킬")
         
-        set FS_SPTEXT=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
+        set FS_SPTEXT=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_SPTEXT, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.170, -0.050)
         call DzFrameSetText(FS_SPTEXT, "스킬포인트")
         
-        set FS_SPTEXTV=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", 0)
+        set FS_SPTEXTV=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_SPTEXTV, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.245, -0.050)
         call DzFrameSetText(FS_SPTEXTV, "0")
         

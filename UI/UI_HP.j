@@ -1,4 +1,4 @@
-library UIHP initializer init requires UnitIndexer, DataUnit
+library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
     globals
         integer HPBarBorder
         integer MPBarBorder
@@ -94,7 +94,7 @@ library UIHP initializer init requires UnitIndexer, DataUnit
     endfunction
     
     private function MyBarCreate takes nothing returns nothing
-        set HPBarBorder=DzCreateFrameByTagName("SIMPLESTATUSBAR","",DzFrameFindByName("InfoPanelIconBackdrop",0),"",0)
+        set HPBarBorder=DzCreateFrameByTagName("SIMPLESTATUSBAR","",DzFrameFindByName("InfoPanelIconBackdrop",0),"", FrameCount())
         call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.150,.0900)
         call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.305,.0740)
         call DzFrameSetTexture(HPBarBorder,"war3mapImported\\HPBarBackDrop.tga",0)
@@ -106,13 +106,13 @@ library UIHP initializer init requires UnitIndexer, DataUnit
         //call DzFrameSetTexture(MPBarBorder,"war3mapImported\\MPBarBackDrop.tga",0)
         //call DzFrameSetMinMaxValue(MPBarBorder,0,'d')
         //call DzFrameSetValue(MPBarBorder,'d')
-        set HPBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"",0)
+        set HPBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", FrameCount())
         call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.150+.0025,.0900-.0025)
         call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.305-.0025,.0740+.0025)
         call DzFrameSetTexture(HPBar,"war3mapImported\\HPBar.tga",0)
         call DzFrameSetMinMaxValue(HPBar,0,'d')
         call DzFrameSetValue(HPBar,'d')
-        set SDBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"",0)
+        set SDBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", FrameCount())
         call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.150+.0025,.0980-.0025)
         call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.305-.0025,.0900-.0025)
         call DzFrameSetTexture(SDBar,"war3mapImported\\BSDBar.tga",0)
@@ -124,7 +124,7 @@ library UIHP initializer init requires UnitIndexer, DataUnit
         //call DzFrameSetTexture(MPBar,"war3mapImported\\MPBar.tga",0)
         //call DzFrameSetMinMaxValue(MPBar,0,'d')
         //call DzFrameSetValue(MPBar,'d')
-        set HPTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"",0)
+        set HPTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", FrameCount())
         call DzFrameSetAbsolutePoint(HPTextFrame,JN_FRAMEPOINT_CENTER,.2275,.0820)
         call DzFrameSetFont(HPTextFrame, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         call DzFrameSetText(HPTextFrame,"0/0")

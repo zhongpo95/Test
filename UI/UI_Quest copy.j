@@ -1,4 +1,4 @@
-library UIQuest initializer init requires Stash
+library UIQuest initializer init requires Stash, FrameCount
 
     globals
         integer QuestMain
@@ -147,13 +147,13 @@ library UIQuest initializer init requires Stash
 
 
     private function QuestFrame takes integer i, real x, real y returns nothing
-        set Quest[i] = DzCreateFrameByTagName("BACKDROP", "", QuestMain, "template", 0)
+        set Quest[i] = DzCreateFrameByTagName("BACKDROP", "", QuestMain, "template", FrameCount())
         call DzFrameSetAbsolutePoint(Quest[i], 4, x, y)
         call DzFrameSetSize(Quest[i],0.2,0.05)
         call DzFrameSetTexture(Quest[i],"QuestT.blp",0)
         call DzFrameShow(Quest[i],true)
 
-        set QuestText[i] = DzCreateFrameByTagName("TEXT", "", Quest[i], "template", 0)
+        set QuestText[i] = DzCreateFrameByTagName("TEXT", "", Quest[i], "template", FrameCount())
         call DzFrameSetAbsolutePoint(QuestText[i], JN_FRAMEPOINT_TOPRIGHT, x + 0.08, y + 0.024 )
         call DzFrameSetAbsolutePoint(QuestText[i], JN_FRAMEPOINT_TOPLEFT, x - 0.09,  y + 0.024 )
         call DzFrameSetAbsolutePoint(QuestText[i], JN_FRAMEPOINT_BOTTOMRIGHT, x + 0.08, y + 0.010 )
@@ -162,7 +162,7 @@ library UIQuest initializer init requires Stash
         call DzFrameSetFont(QuestText[i], "Fonts\\DFHeiMd.ttf", 0.008, 0)
         call DzFrameSetText( QuestText[i], "퀘스트이름" )
 
-        set QuestText2[i] = DzCreateFrameByTagName("TEXT", "", Quest[i], "template", 0)
+        set QuestText2[i] = DzCreateFrameByTagName("TEXT", "", Quest[i], "template", FrameCount())
         call DzFrameSetAbsolutePoint(QuestText2[i], JN_FRAMEPOINT_TOPRIGHT, x + 0.08, y + 0.010)
         call DzFrameSetAbsolutePoint(QuestText2[i], JN_FRAMEPOINT_TOPLEFT, x - 0.09, y + 0.010)
         call DzFrameSetAbsolutePoint(QuestText2[i], JN_FRAMEPOINT_BOTTOMRIGHT, x + 0.08, y - 0.023)
@@ -176,12 +176,12 @@ library UIQuest initializer init requires Stash
         local real x = 0.70
         local real y = 0.37
         
-        set QuestMain = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
+        set QuestMain = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(QuestMain, 4, 0.78, 0.405)
         call DzFrameSetSize(QuestMain, 0.020, 0.020)
         call DzFrameSetScriptByCode(QuestMain, JN_FRAMEEVENT_MOUSE_UP, function Show, false)
 
-        set QuestMainBD=DzCreateFrameByTagName("BACKDROP", "", QuestMain, "template", 0)
+        set QuestMainBD=DzCreateFrameByTagName("BACKDROP", "", QuestMain, "template", FrameCount())
         call DzFrameSetTexture(QuestMainBD, "UI_M.blp", 0)
         call DzFrameSetSize(QuestMainBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(QuestMainBD, 4, 0.78, 0.405)

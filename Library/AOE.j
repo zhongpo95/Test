@@ -35,6 +35,11 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
             //1.5초스턴
             call CustomStun.Stun2(target, 1.5)
         endif
+        //세리아 지뢰마법
+        if id == 3 then
+            call BossDeal( caster, target, 300 , false)
+            call UnitApplyTimedLife(CreateUnit(GetOwningPlayer(caster), 'e03R', GetWidgetX(target), GetWidgetY(target), GetRandomReal(0,360)), 'BHwe', 1.0)
+        endif
 
         set target = null
         set du = null
@@ -86,7 +91,6 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
                 call UnitApplyTimedLife(du, 'BHwe', r)
                 set du = null
             endif
-            
             set ul = party.create()
             
             call GroupEnumUnitsInRange(ul.super, st.x, st.y, st.range * 1.35, Filter(function filter2)  )

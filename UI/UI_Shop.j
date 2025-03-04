@@ -1,4 +1,4 @@
-library UIShop initializer init requires DataUnit
+library UIShop initializer init requires DataUnit, FrameCount
 	globals
 	integer SHOP_BackDrop                         //상점 배경
 	integer SHOP_CancelButton                     //상점 취소버튼
@@ -291,21 +291,21 @@ library UIShop initializer init requires DataUnit
 	
 	//아이콘 생성 함수
 	private function CreateItemButton takes integer types, real x, real y returns nothing
-		set SHOP_Button[types]= DzCreateFrameByTagName("BUTTON", "", SHOP_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+		set SHOP_Button[types]= DzCreateFrameByTagName("BUTTON", "", SHOP_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
 		call DzFrameSetPoint(SHOP_Button[types], JN_FRAMEPOINT_CENTER, SHOP_BackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
 		call DzFrameSetSize(SHOP_Button[types], 0.040, 0.040)
 		
-		set SHOP_ButtonBackDrop[types]= DzCreateFrameByTagName("BACKDROP", "", SHOP_Button[types], "", 0)
+		set SHOP_ButtonBackDrop[types]= DzCreateFrameByTagName("BACKDROP", "", SHOP_Button[types], "", FrameCount())
 		call DzFrameSetAllPoints(SHOP_ButtonBackDrop[types], SHOP_Button[types])
 	endfunction
 
 	//아이콘 생성 함수
 	private function CreateItemButton2 takes integer types, real x, real y returns nothing
-		set SHOP2_Button[types]= DzCreateFrameByTagName("BUTTON", "", SHOP2_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+		set SHOP2_Button[types]= DzCreateFrameByTagName("BUTTON", "", SHOP2_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
 		call DzFrameSetPoint(SHOP2_Button[types], JN_FRAMEPOINT_CENTER, SHOP2_BackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
 		call DzFrameSetSize(SHOP2_Button[types], 0.040, 0.040)
 		
-		set SHOP2_ButtonBackDrop[types]= DzCreateFrameByTagName("BACKDROP", "", SHOP2_Button[types], "", 0)
+		set SHOP2_ButtonBackDrop[types]= DzCreateFrameByTagName("BACKDROP", "", SHOP2_Button[types], "", FrameCount())
 		call DzFrameSetAllPoints(SHOP2_ButtonBackDrop[types], SHOP2_Button[types])
 	endfunction
 	
@@ -317,7 +317,7 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetAbsolutePoint(SHOP_BackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.300)
 		call DzFrameSetSize(SHOP_BackDrop, 0.40, 0.30)
 		
-		set SHOP_CombinationText = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_CombinationText = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_CombinationText, JN_FRAMEPOINT_TOPLEFT, SHOP_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.025, -0.025)
 		call DzFrameSetText(SHOP_CombinationText, "가공품 상점")
 		
@@ -339,23 +339,23 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetTexture(SHOP_ButtonBackDrop[3], "ReplaceableTextures\\CommandButtons\\BTNArcana12.blp", 0)
 		call DzFrameSetTexture(SHOP_ButtonBackDrop[4], "ReplaceableTextures\\CommandButtons\\BTNArcana09.blp", 0)
 		
-		set SHOP_HowMuch[0] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_HowMuch[0] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_HowMuch[0], JN_FRAMEPOINT_CENTER, SHOP_ButtonBackDrop[0] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP_HowMuch[0], "1234")
-		set SHOP_HowMuch[1] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_HowMuch[1] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_HowMuch[1], JN_FRAMEPOINT_CENTER, SHOP_ButtonBackDrop[1] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP_HowMuch[1], "1234")
-		set SHOP_HowMuch[2] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_HowMuch[2] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_HowMuch[2], JN_FRAMEPOINT_CENTER, SHOP_ButtonBackDrop[2] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP_HowMuch[2], "1234")
-		set SHOP_HowMuch[3] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_HowMuch[3] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_HowMuch[3], JN_FRAMEPOINT_CENTER, SHOP_ButtonBackDrop[3] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP_HowMuch[3], "1234")
-		set SHOP_HowMuch[4] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_HowMuch[4] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_HowMuch[4], JN_FRAMEPOINT_CENTER, SHOP_ButtonBackDrop[4] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP_HowMuch[4], "1234")
 		
-		set SHOP_L = DzCreateFrameByTagName("BACKDROP", "", SHOP_BackDrop, "template", 0)
+		set SHOP_L = DzCreateFrameByTagName("BACKDROP", "", SHOP_BackDrop, "template", FrameCount())
 		call DzFrameSetTexture(SHOP_L, "UI_L.blp", 0)
 		call DzFrameSetSize(SHOP_L, 0.060, 0.060)
 		call DzFrameSetPoint(SHOP_L, JN_FRAMEPOINT_CENTER, SHOP_BackDrop, JN_FRAMEPOINT_CENTER, -0.010, 0.030)
@@ -376,19 +376,19 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetSize(SHOP_SellAll, 0.160, 0.030)
 		call DzFrameSetScriptByCode(SHOP_SellAll, JN_FRAMEEVENT_MOUSE_UP, function SellAll, false)
 		
-		set SHOP_Button[5]= DzCreateFrameByTagName("BUTTON", "", SHOP_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+		set SHOP_Button[5]= DzCreateFrameByTagName("BUTTON", "", SHOP_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
 		call DzFrameSetPoint(SHOP_Button[5], JN_FRAMEPOINT_CENTER, SHOP_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, 0.075)
 		call DzFrameSetSize(SHOP_Button[5], 0.040, 0.040)
 		
-		set SHOP_ButtonBackDrop[5]= DzCreateFrameByTagName("BACKDROP", "", SHOP_Button[5], "", 0)
+		set SHOP_ButtonBackDrop[5]= DzCreateFrameByTagName("BACKDROP", "", SHOP_Button[5], "", FrameCount())
 		call DzFrameSetAllPoints(SHOP_ButtonBackDrop[5], SHOP_Button[5])
 		call DzFrameSetTexture(SHOP_ButtonBackDrop[5], "UI_Inventory.blp", 0)
 		
-		set SHOP_Much[0] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_Much[0] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_Much[0], JN_FRAMEPOINT_CENTER, SHOP_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, 0.020)
 		call DzFrameSetText(SHOP_Much[0], " 1개 가격 :       ")
 		
-		set SHOP_Much[1] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", 0)
+		set SHOP_Much[1] = DzCreateFrameByTagName("TEXT", "", SHOP_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP_Much[1], JN_FRAMEPOINT_CENTER, SHOP_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, -0.020)
 		call DzFrameSetText(SHOP_Much[1], "10개 가격 :       ")
 		
@@ -399,7 +399,7 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetAbsolutePoint(SHOP2_BackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.300)
 		call DzFrameSetSize(SHOP2_BackDrop, 0.40, 0.30)
 		
-		set SHOP2_CombinationText = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_CombinationText = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_CombinationText, JN_FRAMEPOINT_TOPLEFT, SHOP2_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.025, -0.025)
 		call DzFrameSetText(SHOP2_CombinationText, "재료 판매")
 		
@@ -421,19 +421,19 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetTexture(SHOP2_ButtonBackDrop[3], "ReplaceableTextures\\CommandButtons\\BTNArcana12.blp", 0)
 		call DzFrameSetTexture(SHOP2_ButtonBackDrop[4], "ReplaceableTextures\\CommandButtons\\BTNArcana09.blp", 0)
 		
-		set SHOP2_HowMuch[0] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_HowMuch[0] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_HowMuch[0], JN_FRAMEPOINT_CENTER, SHOP2_ButtonBackDrop[0] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP2_HowMuch[0], "5")
-		set SHOP2_HowMuch[1] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_HowMuch[1] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_HowMuch[1], JN_FRAMEPOINT_CENTER, SHOP2_ButtonBackDrop[1] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP2_HowMuch[1], "25")
-		set SHOP2_HowMuch[2] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_HowMuch[2] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_HowMuch[2], JN_FRAMEPOINT_CENTER, SHOP2_ButtonBackDrop[2] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP2_HowMuch[2], "125")
-		set SHOP2_HowMuch[3] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_HowMuch[3] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_HowMuch[3], JN_FRAMEPOINT_CENTER, SHOP2_ButtonBackDrop[3] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP2_HowMuch[3], "625")
-		set SHOP2_HowMuch[4] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_HowMuch[4] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_HowMuch[4], JN_FRAMEPOINT_CENTER, SHOP2_ButtonBackDrop[4] , JN_FRAMEPOINT_CENTER, 0.070, 0.0)
 		call DzFrameSetText(SHOP2_HowMuch[4], "3125")
 		set SHOP2_MuchP[1] = 5
@@ -442,7 +442,7 @@ library UIShop initializer init requires DataUnit
 		set SHOP2_MuchP[4] = 625
 		set SHOP2_MuchP[5] = 3125
 		
-		set SHOP2_L = DzCreateFrameByTagName("BACKDROP", "", SHOP2_BackDrop, "template", 0)
+		set SHOP2_L = DzCreateFrameByTagName("BACKDROP", "", SHOP2_BackDrop, "template", FrameCount())
 		call DzFrameSetTexture(SHOP2_L, "UI_L.blp", 0)
 		call DzFrameSetSize(SHOP2_L, 0.060, 0.060)
 		call DzFrameSetPoint(SHOP2_L, JN_FRAMEPOINT_CENTER, SHOP2_BackDrop, JN_FRAMEPOINT_CENTER, -0.010, 0.030)
@@ -463,19 +463,19 @@ library UIShop initializer init requires DataUnit
 		call DzFrameSetSize(SHOP2_SellAll, 0.160, 0.030)
 		call DzFrameSetScriptByCode(SHOP2_SellAll, JN_FRAMEEVENT_MOUSE_UP, function Sell3, false)
 		
-		set SHOP2_Button[5]= DzCreateFrameByTagName("BUTTON", "", SHOP2_BackDrop, "ScoreScreenTabButtonTemplate", 0)
+		set SHOP2_Button[5]= DzCreateFrameByTagName("BUTTON", "", SHOP2_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
 		call DzFrameSetPoint(SHOP2_Button[5], JN_FRAMEPOINT_CENTER, SHOP2_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, 0.075)
 		call DzFrameSetSize(SHOP2_Button[5], 0.040, 0.040)
 		
-		set SHOP2_ButtonBackDrop[5]= DzCreateFrameByTagName("BACKDROP", "", SHOP2_Button[5], "", 0)
+		set SHOP2_ButtonBackDrop[5]= DzCreateFrameByTagName("BACKDROP", "", SHOP2_Button[5], "", FrameCount())
 		call DzFrameSetAllPoints(SHOP2_ButtonBackDrop[5], SHOP2_Button[5])
 		call DzFrameSetTexture(SHOP2_ButtonBackDrop[5], "UI_Inventory.blp", 0)
 		
-		set SHOP2_Much[0] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_Much[0] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_Much[0], JN_FRAMEPOINT_CENTER, SHOP2_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, 0.020)
 		call DzFrameSetText(SHOP2_Much[0], " 1개 가격 :       ")
 		
-		set SHOP2_Much[1] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", 0)
+		set SHOP2_Much[1] = DzCreateFrameByTagName("TEXT", "", SHOP2_BackDrop, "", FrameCount())
 		call DzFrameSetPoint(SHOP2_Much[1], JN_FRAMEPOINT_CENTER, SHOP2_BackDrop , JN_FRAMEPOINT_CENTER, 0.090, -0.020)
 		call DzFrameSetText(SHOP2_Much[1], "10개 가격 :       ")
 		

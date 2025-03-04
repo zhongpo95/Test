@@ -1,4 +1,7 @@
-library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana
+library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana, FrameCount
+
+
+
 
     private function ESCAction takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())

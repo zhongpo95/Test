@@ -14,9 +14,22 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         local integer i = 0
         local real r = 0
 
-        //얼음파편 기절
+        //나비
+        if id == 1 then
+            call BossDeal( caster, target, 50 , false)
+        endif
+
+        //세리아 얼음파편 기절
         if id == 2 then
+            call BossDeal( caster, target, 50 , false)
             call CustomStun.Stun2( target, 2.0)
+        endif
+
+        //세리아 파이어볼
+        if id == 3 then
+            call BossDeal( caster, target, 100 , false)
+            call CustomStun.Stun2( target, 2.0)
+            call UnitApplyTimedLife(CreateUnit(GetOwningPlayer(caster), 'e03R', GetWidgetX(target), GetWidgetY(target), GetRandomReal(0,360)), 'BHwe', 1.0)
         endif
 
         set target = null
@@ -41,7 +54,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         real col
         real damage
         integer id
-        
+        party ul
         private method OnStop takes nothing returns nothing
             set u = null
             set ef = null
@@ -75,7 +88,6 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             if IsUnitInRangeXY(tu, x, y, st.col * 1.35) then
                 if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) then
                     //데미지줌
-                    call BossDeal( st.u, tu, st.damage , false)
                     call MonoEvent.Fire( E_Missile, null, st.u, tu, st.id) /*이벤트 - 투사체가 충돌했을때 작동*/
                     set st.time = 0
                 endif
@@ -93,8 +105,47 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
 
     endfunction
 
+
+    private function MissileOn2 takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local MissileSt st = t.data
+        local party ul
+        local real x = EXGetEffectX(st.ef) + PolarX( st.dis, st.ang )
+        local real y = EXGetEffectY(st.ef) + PolarY( st.dis, st.ang )
+        local unit tu = null
+
+        call EXSetEffectXY(st.ef, x, y)
+
+        set ul = party.create()
+        call GroupEnumUnitsInRange(ul.super, x, y, st.col * 1.35, Filter(function filter2) )
+        loop
+            set tu = FirstOfGroup(ul.super)
+            call GroupRemoveUnit(ul.super,tu)  
+            exitwhen tu == null
+            if IsUnitInRangeXY(tu, x, y, st.col * 1.35) then
+                if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) and IsUnitInGroup(tu,st.ul.super) then
+                    //데미지줌
+                    call GroupAddUnit(st.ul.super, tu)
+                    call MonoEvent.Fire( E_Missile, null, st.u, tu, st.id) /*이벤트 - 투사체가 충돌했을때 작동*/
+                    set st.time = 0
+                endif
+            endif
+        endloop
+        set st.time = st.time - 1
+
+        call ul.destroy()
+
+        if st.time <= 0 then
+            call st.ul.destroy()
+            call DestroyEffect(st.ef)
+            call t.destroy()
+            call st.Stop()
+        endif
+
+    endfunction
+
     //Missile(미사일소유주, 이펙트, 날라갈거리, 각도, 도착까지의 시간, 피탄범위, 범위, id)
-    function Missile takes unit u, effect ef, real distance, real ang, real time, real collision, real damage, integer id returns nothing
+    function Missile takes unit u, effect ef, real distance, real ang, real time, real collision, integer id returns nothing
         local tick t = tick.create(0)
         local MissileSt st = MissileSt.Create()
 
@@ -104,11 +155,28 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         set st.dis = distance / st.time
         set st.ang = ang
         set st.col = collision
-        set st.damage = damage
         set st.id = id
 
         set t.data = st
         call t.start(0.02,true,function MissileOn)
+    endfunction
+
+    //Missile관통(미사일소유주, 이펙트, 날라갈거리, 각도, 도착까지의 시간, 피탄범위, 범위, id)
+    function Missile2 takes unit u, effect ef, real distance, real ang, real time, real collision, integer id returns nothing
+        local tick t = tick.create(0)
+        local MissileSt st = MissileSt.Create()
+
+        set st.u = u
+        set st.ef = ef
+        set st.time = time / 0.02
+        set st.dis = distance / st.time
+        set st.ang = ang
+        set st.col = collision
+        set st.id = id
+        set st.ul = party.create()
+
+        set t.data = st
+        call t.start(0.02,true,function MissileOn2)
     endfunction
 
     //MakeMissile(모델,x,y,높이,각도,size,null)

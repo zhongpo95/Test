@@ -149,14 +149,14 @@ endfunction
             call SaveInteger(QL,GetHandleId(ConvertedPlayer(Xa)),$DE33BF0F,4)
             set Xa=Xa+1
         endloop
-        call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31,DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template",0))
+        call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31,DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template", FrameCount()))
         call DzFrameSetTexture(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),"Expression_Point.blp",0)
         call DzFrameSetSize(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),.065,.065)
         call DzFrameShow(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),false)
         set YJ=1
         loop
             exitwhen YJ>4
-            call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),"template",0))
+            call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),"template", FrameCount()))
             set YK[YJ]=LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ)
             set YJ=YJ+1
         endloop
@@ -171,7 +171,7 @@ endfunction
         set YJ=5
         loop
             exitwhen YJ>8
-            call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),"template",0))
+            call SaveInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ,DzCreateFrameByTagName("BACKDROP","name",LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$2A5D9A31),"template", FrameCount()))
             call DzFrameSetSize(LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ),.05,.05)
             set YK[YJ]=LoadInteger(Ui,GetHandleId(GetTriggeringTrigger())*XZ,$82340862+YJ)
             set YJ=YJ+1

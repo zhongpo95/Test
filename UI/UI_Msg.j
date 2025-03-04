@@ -1,4 +1,4 @@
-library UIMsg initializer init
+library UIMsg initializer init requires FrameCount
 
     private function Action takes nothing returns nothing
         local integer frame=DzFrameGetChatMessage()

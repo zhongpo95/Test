@@ -1,4 +1,4 @@
-library UIV initializer init requires FX,DataUnit
+library UIV initializer init requires FrameCount,FX,DataUnit
     globals
         integer Ogiframe_1 = 0
         integer Ogiframe_2 = 0
@@ -198,62 +198,62 @@ library UIV initializer init requires FX,DataUnit
     endfunction
 
     private function Action takes nothing returns nothing
-        set Ogiframe_1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set Ogiframe_1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(Ogiframe_1, JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
-        set Ogiframe_2=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set Ogiframe_2=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(Ogiframe_2, JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
-        set Ogiframe_3=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", 0)
+        set Ogiframe_3=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(Ogiframe_3, "V.blp", 0)
         call DzFrameSetSize(Ogiframe_3, 0.030, 0.030)
         call DzFrameSetAbsolutePoint(Ogiframe_3, JN_FRAMEPOINT_CENTER, 0.4, 0.15)
         call DzFrameShow(Ogiframe_3, false)
-        set Ogiframe_4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set Ogiframe_4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(Ogiframe_4, JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.15)
 
-        set frame1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame1=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame1,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
-        set frame2=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame2=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame2,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
-        set frame3=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame3=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
-        set frame4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame4=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame4,JN_FRAMEPOINT_BOTTOMLEFT,0,0)
 
         //4인
-        set frame5=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame5=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame5,JN_FRAMEPOINT_BOTTOMLEFT,0.2,0.5)
-        set frame6=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame6=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame6,JN_FRAMEPOINT_BOTTOMLEFT,0.2,0.3)
-        set frame7=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame7=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame7,JN_FRAMEPOINT_BOTTOMLEFT,0.2,0.1)
 
-        set frame8=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame8=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame8,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.5)
-        set frame9=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame9=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame9,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.3)
-        set frame10=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame10=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame10,JN_FRAMEPOINT_BOTTOMLEFT,0.4,0.1)
 
-        set frame11=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame11=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame11,JN_FRAMEPOINT_BOTTOMLEFT,0.6,0.5)
-        set frame12=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame12=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame12,JN_FRAMEPOINT_BOTTOMLEFT,0.6,0.3)
-        set frame13=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame13=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame13,JN_FRAMEPOINT_BOTTOMLEFT,0.6,0.1)
 
         //3인
-        set frame14=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame14=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame14,JN_FRAMEPOINT_BOTTOMLEFT,0.2666,0.5)
-        set frame15=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame15=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame15,JN_FRAMEPOINT_BOTTOMLEFT,0.2666,0.3)
-        set frame16=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame16=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame16,JN_FRAMEPOINT_BOTTOMLEFT,0.2666,0.1)
 
-        set frame17=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame17=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame17,JN_FRAMEPOINT_BOTTOMLEFT,0.5333,0.5)
-        set frame18=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame18=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame18,JN_FRAMEPOINT_BOTTOMLEFT,0.5333,0.3)
-        set frame19=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", 0)
+        set frame19=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame19,JN_FRAMEPOINT_BOTTOMLEFT,0.5333,0.1)
     endfunction
     

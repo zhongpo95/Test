@@ -1,4 +1,4 @@
-library Emoji initializer init
+library Emoji initializer init requires FrameCount
 
     globals
         integer array EmojiNumber
@@ -98,32 +98,32 @@ library Emoji initializer init
 
     private function Main takes nothing returns nothing
         local trigger t
-        set EmojiFrameMain = DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template",0)
+        set EmojiFrameMain = DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template", FrameCount())
         call DzFrameSetTexture(EmojiFrameMain,"Expression_Point.blp",0)
         call DzFrameSetSize(EmojiFrameMain,0.065,0.065)
         call DzFrameShow(EmojiFrameMain,false)
-        set EmojiFrame[1] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[1] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetPoint(EmojiFrame[1],7,EmojiFrameMain,1,0,-.0325)
         call DzFrameSetSize(EmojiFrame[1],.14,.07)
-        set EmojiFrame[2] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[2] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetPoint(EmojiFrame[2],5,EmojiFrameMain,3,.0325,0)
         call DzFrameSetSize(EmojiFrame[2],.07,.14)
-        set EmojiFrame[3] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[3] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetPoint(EmojiFrame[3],1,EmojiFrameMain,7,0,.0325)
         call DzFrameSetSize(EmojiFrame[3],.14,.07)
-        set EmojiFrame[4] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[4] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetPoint(EmojiFrame[4],3,EmojiFrameMain,5,-.0325,0.)
         call DzFrameSetSize(EmojiFrame[4],.07,.14)
-        set EmojiFrame[5] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[5] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetSize(EmojiFrame[5],.05,.05)
         call DzFrameSetPoint(EmojiFrame[5],7,EmojiFrameMain,1,0,-.015)
-        set EmojiFrame[6] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[6] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetSize(EmojiFrame[6],.05,.05)
         call DzFrameSetPoint(EmojiFrame[6],5,EmojiFrameMain,3,.015,0)
-        set EmojiFrame[7] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[7] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetSize(EmojiFrame[7],.05,.05)
         call DzFrameSetPoint(EmojiFrame[7],1,EmojiFrameMain,7,0,.015)
-        set EmojiFrame[8] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template",0)
+        set EmojiFrame[8] = DzCreateFrameByTagName("BACKDROP","name",EmojiFrameMain,"template", FrameCount())
         call DzFrameSetSize(EmojiFrame[8],.05,.05)
         call DzFrameSetPoint(EmojiFrame[8],3,EmojiFrameMain,5,-.015,0.)
 

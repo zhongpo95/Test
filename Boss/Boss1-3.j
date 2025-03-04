@@ -25,7 +25,6 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern4Time2 = 175
         private constant integer Pattern4Distance = 2000
         private constant integer Pattern4Range = 75
-        private constant integer Pattern4DMG = 20
         private constant real Pattern4Speed = 1.0
         //마력충전 거리안에 아무도 없을시 발동
         private constant integer Pattern5Cool = 5000
@@ -38,13 +37,19 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern6Time2 = 100
         private constant integer Pattern6Distance = 2000
         //파이어볼 거리보다 멀면 사용안함
-        private constant integer Pattern7Cool = 1000
-        private constant integer Pattern7RandomCool = 500
+        private constant integer Pattern7Cool = 50
+        private constant integer Pattern7RandomCool = 150
+        private constant integer Pattern7Time = 150
+        private constant integer Pattern7Time2 = 175
+        private constant integer Pattern7Range = 125
         private constant integer Pattern7Distance = 1500
-        //지뢰마법,지뢰마법2 거리보다 멀면 사용안함
-        private constant integer Pattern8Cool = 1000
-        private constant integer Pattern8RandomCool = 500
+        private constant real Pattern7Speed = 2.0
+        //지뢰마법 거리보다 멀면 사용안함
+        private constant integer Pattern8Cool = 50
+        private constant integer Pattern8RandomCool = 150
         private constant integer Pattern8Distance = 2000
+        private constant integer Pattern8Time = 150
+        private constant integer Pattern8Range = 250
 
         private integer NoDieCheck
         private unit CheckUnit
@@ -60,6 +65,134 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         endif
     endfunction
 
+    //지뢰마법
+    private function splashF3 takes nothing returns nothing
+        call AOE(splash.source, GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()), 350, 2.0, 'e03J', 3, 0)
+    endfunction
+
+    private struct FxEffect6
+        unit caster
+        unit dummy1
+        unit dummy2
+        unit dummy3
+        integer i
+        MapStruct st
+        private method OnStop takes nothing returns nothing
+            set caster = null
+            set dummy1 = null
+            set dummy2 = null
+            set dummy3 = null
+            set st = 0
+        endmethod
+        //! runtextmacro 연출()
+    endstruct
+    
+    private struct FxEffect6_Timer extends array
+        private method OnAction takes FxEffect6 fx returns nothing
+            local effect e
+            local real r
+            local integer i
+            local tick t
+            local MapStruct st = fx.st
+            set fx.i = fx.i + 1
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+                if fx.i == 1 then
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 3000, function splashF3 )
+                elseif fx.i == Pattern8Time then
+                    //대기상태로 전환
+                    call AnimationStart4(fx.caster, 7, 0.02)
+                    set Unitstate[IndexUnit(fx.caster)] = 4
+                    set st.j = StandTime
+                    call fx.Stop()
+                endif
+            //주금
+            else
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call fx.Stop()
+            endif
+        endmethod
+        //! runtextmacro 연출효과_타이머("FxEffect6", "0.02", "true")
+    endstruct
+
+    //파이어볼
+    private struct FxEffect5
+        unit caster
+        unit dummy
+        unit targetUnit
+        unit effectdummy
+        real lockangle
+        integer i
+        MapStruct st
+        private method OnStop takes nothing returns nothing
+            set caster = null
+            set dummy = null
+            set targetUnit = null
+            set effectdummy = null
+            set i = 0
+            set st = 0
+        endmethod
+        //! runtextmacro 연출()
+    endstruct
+    
+    private struct FxEffect5_Timer extends array
+        private method OnAction takes FxEffect5 fx returns nothing
+            local effect e
+            local real r
+            local integer i
+            local tick t
+            local AggroSystem s
+            local MapStruct st = fx.st
+
+            set fx.i = fx.i + 1
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+                if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    set fx.targetUnit = MainUnit[s.NowAggro]
+                    set r = AngleWBW( fx.caster, fx.targetUnit)
+                    call SetUnitFacing(fx.caster, r)
+                    call EXSetUnitFacing(fx.caster, r)
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r),r)
+                    set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)
+
+                    //call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1, 0)
+                    //set r = GetUnitFacing(fx.caster)
+                    //set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(125,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(125,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster))
+                    //set fx.targetUnit[0] = ClosestUnit(fx.dummy[0], 3000)
+                    //set fx.effectdummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),270)
+                   
+                //방향회전
+                elseif fx.i <= Pattern7Time then
+                    set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
+                    call SetUnitFacing(fx.caster,fx.lockangle)
+                    call EXSetUnitFacing(fx.caster, fx.lockangle)
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                    set r = GetUnitFacing(fx.caster)
+                    call SetUnitPosition(fx.dummy,GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r))
+                    call SetUnitFacing(fx.dummy,fx.lockangle)
+                    call EXSetUnitFacing(fx.dummy, fx.lockangle)
+                    call SetUnitFacing(fx.effectdummy,fx.lockangle)
+                    call EXSetUnitFacing(fx.effectdummy, fx.lockangle)
+                //발사 및 종료
+                elseif fx.i == Pattern7Time2 then
+                    call AnimationStart4(fx.caster, 0, 0.02)
+                    call Missile2(fx.caster, MakeMissile("AZ_Kaer_D2.mdl",GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),100,fx.lockangle,2.00,null), Pattern7Distance, fx.lockangle, Pattern7Speed, Pattern7Range, 3)
+                    call KillUnit(fx.dummy)
+                    call KillUnit(fx.effectdummy)
+                    //대기상태로 전환
+                    call AnimationStart4(fx.caster, 7, 2.00)
+                    set Unitstate[IndexUnit(fx.caster)] = 4
+                    set st.j = StandTime
+                    call fx.Stop()
+                endif
+            //주금
+            else
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call fx.Stop()
+            endif
+        endmethod
+        //! runtextmacro 연출효과_타이머("FxEffect5", "0.02", "true")
+    endstruct
 
     //마력 포격
     private struct FxEffect4
@@ -467,30 +600,30 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     endif
                 //발사 및 종료
                 elseif fx.i == Pattern4Time2 then
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),50,fx.lockangle[0],1.00,null), Pattern4Distance, fx.lockangle[0], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),50,fx.lockangle[0],1.00,null), Pattern4Distance, fx.lockangle[0], Pattern4Speed, Pattern4Range, 2)
                     call KillUnit(fx.dummy[0])
                     call KillUnit(fx.effectdummy[0])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),50,fx.lockangle[1],1.00,null), Pattern4Distance, fx.lockangle[1], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),50,fx.lockangle[1],1.00,null), Pattern4Distance, fx.lockangle[1], Pattern4Speed, Pattern4Range, 2)
                     call KillUnit(fx.dummy[1])
                     call KillUnit(fx.effectdummy[1])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),50,fx.lockangle[2],1.00,null), Pattern4Distance, fx.lockangle[2], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),50,fx.lockangle[2],1.00,null), Pattern4Distance, fx.lockangle[2], Pattern4Speed, Pattern4Range, 2)
                     call KillUnit(fx.dummy[2])
                     call KillUnit(fx.effectdummy[2])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),50,fx.lockangle[3],1.00,null), Pattern4Distance, fx.lockangle[3], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),50,fx.lockangle[3],1.00,null), Pattern4Distance, fx.lockangle[3], Pattern4Speed, Pattern4Range, 2)
                     call KillUnit(fx.dummy[3])
                     call KillUnit(fx.effectdummy[3])
                     if fx.targetcount == 1 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),50,fx.lockangle[4],1.00,null), Pattern4Distance, fx.lockangle[4], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),50,fx.lockangle[4],1.00,null), Pattern4Distance, fx.lockangle[4], Pattern4Speed, Pattern4Range, 2)
                         call KillUnit(fx.dummy[4])
                         call KillUnit(fx.effectdummy[4])
                     endif
                     if fx.targetcount == 2 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),50,fx.lockangle[5],1.00,null), Pattern4Distance, fx.lockangle[5], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),50,fx.lockangle[5],1.00,null), Pattern4Distance, fx.lockangle[5], Pattern4Speed, Pattern4Range, 2)
                         call KillUnit(fx.dummy[5])
                         call KillUnit(fx.effectdummy[5])
                     endif
                     if fx.targetcount == 3 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),50,fx.lockangle[6],1.00,null), Pattern4Distance, fx.lockangle[6], Pattern4Speed, Pattern4Range, Pattern4DMG, 2)
+                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),50,fx.lockangle[6],1.00,null), Pattern4Distance, fx.lockangle[6], Pattern4Speed, Pattern4Range, 2)
                         call KillUnit(fx.dummy[6])
                         call KillUnit(fx.effectdummy[6])
                     endif
@@ -664,6 +797,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         local FxEffect2 fx2
         local FxEffect3 fx3
         local FxEffect4 fx4
+        local FxEffect5 fx5
+        local FxEffect6 fx6
         local integer index
         local AggroSystem s
         local real r
@@ -695,11 +830,14 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 //endif
                 //일반상태,이동중,휴식
                 if Unitstate[IndexUnit(st.caster)] == 0 or Unitstate[IndexUnit(st.caster)] == 3 or Unitstate[IndexUnit(st.caster)] == 4 then
-                    set st.pattern6 = st.pattern6 - 1
+                    set st.pattern8 = st.pattern8 - 1
+                    //set st.pattern7 = st.pattern7 - 1
+                    //set st.pattern6 = st.pattern6 - 1
                     //set st.pattern4 = st.pattern4 - 1
                     //set st.pattern3 = st.pattern3 - 1
                     //set st.pattern2 = st.pattern2 - 1
-                    call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편:"+I2S(st.pattern4)+", 마력포격:"+I2S(st.pattern6))
+                    call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편: "+I2S(st.pattern4))
+                    call BJDebugMsg("마력포격: "+I2S(st.pattern6)+", 파이어볼: "+I2S(st.pattern7)+", 지뢰: "+I2S(st.pattern8))
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
@@ -731,7 +869,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set fx3.caster = st.caster
                             set fx3.i = 0
                             set fx3.st = st
-                            call AnimationStart(fx3.caster, 3)
+                            call AnimationStart(fx3.caster, 4)
                             call fx3.Start()
                             set Unitstate[IndexUnit(fx3.caster)] = 1
                             set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
@@ -742,10 +880,32 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set fx4.caster = st.caster
                             set fx4.i = 0
                             set fx4.st = st
-                            call AnimationStart(fx4.caster, 3)
+                            call AnimationStart(fx4.caster, 4)
                             call fx4.Start()
                             set Unitstate[IndexUnit(fx4.caster)] = 1
                             set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
+                        //파이어볼
+                        elseif st.pattern7 <= 0 then
+                            call BJDebugMsg("파이어볼")
+                            set fx5 = FxEffect5.Create()
+                            set fx5.caster = st.caster
+                            set fx5.i = 0
+                            set fx5.st = st
+                            call AnimationStart(fx5.caster, 4)
+                            call fx5.Start()
+                            set Unitstate[IndexUnit(fx5.caster)] = 1
+                            set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
+                        //지뢰마법
+                        elseif st.pattern8 <= 0 then
+                            call BJDebugMsg("지뢰마법")
+                            set fx6 = FxEffect6.Create()
+                            set fx6.caster = st.caster
+                            set fx6.i = 0
+                            set fx6.st = st
+                            call AnimationStart(fx6.caster, 3)
+                            call fx6.Start()
+                            set Unitstate[IndexUnit(fx6.caster)] = 1
+                            set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)
                         //이동
                         else
                             //이동중이 아님
@@ -876,6 +1036,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set st.pattern5 = Pattern5Cool
             set st.pattern6 = Pattern6Cool
             set st.pattern7 = Pattern7Cool
+            set st.pattern8 = Pattern8Cool
             //휴식
             set st.j = 0
             call GroupAddUnit( st.ul.super, source )
@@ -888,6 +1049,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call SetUnitPosition(source, GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)))
 
         if GetLocalPlayer() == Player(pid) then
+            //카메라
             call SetCameraBoundsToRectForPlayerBJ( Player(pid), MapRectReturn(st.rectnumber) )
             call SetCameraPositionForPlayer( Player(pid), GetRectCenterX(MapRectReturn2(st.rectnumber)), GetRectCenterY(MapRectReturn2(st.rectnumber)))
             call DzFrameShow(BossTip, true)
