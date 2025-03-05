@@ -1,3 +1,4 @@
+
 library MemUI initializer Init requires optional Typecast
 
     globals
@@ -556,42 +557,65 @@ library MemUI initializer Init requires optional Typecast
         return SetCLayoutFrameSize( GetFrameLayout(pFrame), width, height )
     endfunction
     
+    function SetConsoleRaceUI takes nothing returns nothing
+        local string ConsoleTexture01 = "MyUITile01.blp"//"UI\\Console\\" + name + "\\" + name + "UITile01.blp"
+        local string ConsoleTexture02 = "MyUITile02.blp"//"UI\\Console\\" + name + "\\" + name + "UITile02.blp"
+        local string ConsoleTexture03 = "MyUITile03.blp" //"File00005271.blp" //"UI\\Console\\" + name + "\\" + name + "UITile03.blp"
+        local string ConsoleTexture04 = "Empty.blp"  //"UI\\Console\\" + name + "\\" + name + "UITile04.blp"
+        local string InventoryCoverFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile-InventoryCover.blp"
+        local string TimeOfDayIndicatorFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UI-TimeIndicator.mdl"
+        local string UpperMenuButtonTexture = "Empty.blp"//"UI\\Widgets\\Console\\" + name + "\\" + name + "-console-buttonstates2.blp"
+        local string CursorFile = "Empty.blp"//"UI\\Cursor\\" + name + "Cursor.mdl"
+        local integer frame
+        local integer frame2
+        
+        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(5), ConsoleTexture01, false)
+        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(6), ConsoleTexture02, false)
+        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(7), ConsoleTexture03, false)
+        call SetTimeOfDayIndicatorModel(TimeOfDayIndicatorFile)
+        call SetCSimpleTextureTexture(GetInventoryCoverTexture(), InventoryCoverFile, false)
+        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(5))
+        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(6))
+        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(7))
+        call DzFrameShow(GetSimpleConsoleTextureByIndex(5),true)
+        call DzFrameShow(GetSimpleConsoleTextureByIndex(6),true)
+        call DzFrameShow(GetSimpleConsoleTextureByIndex(7),true)
+    
+        call DzFrameHideInterface()
+        call DzFrameEditBlackBorders(0, 0)
+        
+        set frame=DzFrameGetMinimap()
+        call DzFrameClearAllPoints(frame)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
+        call DzFrameShow(frame,true)
+    endfunction
+    
     private function BtnIconConversionDisabledIcon takes string s returns string
         return "ReplaceableTextures\\CommandButtonsDisabled\\DIS" + SubString(s, 35, StringLength(s))
     endfunction
-
     function SetIdlePeonButtonTexture takes string peonIconFile returns nothing
         call SetCSimpleButtonStateTexture(GetIdlePeonButton(), 1, peonIconFile)
         call SetCSimpleButtonStateTexture(GetIdlePeonButton(), 0, BtnIconConversionDisabledIcon(peonIconFile))
     endfunction
 
-    function SetConsoleRaceUI takes string name returns nothing
-        local string ConsoleTexture01 = "UI\\Console\\" + name + "\\" + name + "UITile01.blp"
-        local string ConsoleTexture02 = "UI\\Console\\" + name + "\\" + name + "UITile02.blp"
-        local string ConsoleTexture03 = "UI\\Console\\" + name + "\\" + name + "UITile03.blp"
-        local string ConsoleTexture04 = "UI\\Console\\" + name + "\\" + name + "UITile04.blp"
-        local string InventoryCoverFile = "UI\\Console\\" + name + "\\" + name + "UITile-InventoryCover.blp"
-        local string TimeOfDayIndicatorFile = "UI\\Console\\" + name + "\\" + name + "UI-TimeIndicator.mdl"
-        local string UpperMenuButtonTexture = "UI\\Widgets\\Console\\" + name + "\\" + name + "-console-buttonstates2.blp"
-        local string CursorFile = "UI\\Cursor\\" + name + "Cursor.mdl"
-
-        call SetIdlePeonButtonTexture("ReplaceableTextures\\CommandButtons\\BTNPeasant.blp")
-
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(0), ConsoleTexture01, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(1), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(2), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(3), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(4), ConsoleTexture04, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(5), ConsoleTexture01, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(6), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(7), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(8), ConsoleTexture04, false)
-        call SetTimeOfDayIndicatorModel(TimeOfDayIndicatorFile)
-        call SetCSimpleTextureTexture(GetInventoryCoverTexture(), InventoryCoverFile, false)
+    private function Main takes nothing returns nothing
+        call SetConsoleRaceUI()
     endfunction
-
+    //인터페이스를 숨기기전에 인터페이스를 교체해놔야함
+    //스킬아이콘 위치이동은 DzFrameEditBlackBorders(0,0) 이후에 세션에서 해야함
     private function Init takes nothing returns nothing
+        local integer frame
+        local trigger t = CreateTrigger()
         set pGameDll = JNGetModuleHandle("Game.dll")
         set pGameUI  = GetGameUI2(0, 0)
+        set frame = DzFrameGetMinimap()
+        call DzFrameClearAllPoints(frame)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
+
+        call TriggerRegisterTimerEventSingle( t, 0.15 )
+        call TriggerAddAction( t, function Main )
+        set t = null
     endfunction
 endlibrary

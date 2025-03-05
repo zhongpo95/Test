@@ -16,14 +16,14 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
         if p == GetLocalPlayer() then
             if state then
                 call DzFrameShow(HPTextFrame,true)
-                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.150,.0900)
-                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.305,.0740)
+                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.180,.0300)
+                call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.520,.0140)
+                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0300-.0025)
+                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0140+.0025)
+                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0380-.0025)
+                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0300-.0025)
                 //call DzFrameSetAbsolutePoint(MPBarBorder,JN_FRAMEPOINT_TOPLEFT,.320,.0300)
                 //call DzFrameSetAbsolutePoint(MPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.480,.0200)
-                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.150+.0025,.0900-.0025)
-                call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.305-.0025,.0740+.0025)
-                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.150+.0025,.0980-.0025)
-                call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.305-.0025,.0900-.0025)
                 //call DzFrameSetAbsolutePoint(MPBar,JN_FRAMEPOINT_TOPLEFT,.320+.0025,.0300-.0025)
                 //call DzFrameSetAbsolutePoint(MPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.480-.0025,.0200+.0025)
             else
@@ -41,7 +41,6 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
             endif
         endif
     endfunction
-
 
     function RefreshHP takes unit u returns nothing
         if ( GetOwningPlayer(u) == GetLocalPlayer() ) then
@@ -92,8 +91,8 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
         endif
         set u = null
     endfunction
-    
-    private function MyBarCreate takes nothing returns nothing
+
+    private function MyBarCreate2 takes nothing returns nothing
         set HPBarBorder=DzCreateFrameByTagName("SIMPLESTATUSBAR","",DzFrameFindByName("InfoPanelIconBackdrop",0),"", FrameCount())
         call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.150,.0900)
         call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.305,.0740)
@@ -136,6 +135,32 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
         //call DzFrameSetText(MPTextFrame,"0/0")
     endfunction
 
+    
+    private function MyBarCreate takes nothing returns nothing
+        set HPBarBorder=DzCreateFrameByTagName("SIMPLESTATUSBAR","",DzFrameFindByName("InfoPanelIconBackdrop",0),"", 0)
+        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_TOPLEFT,.180,.0300)
+        call DzFrameSetAbsolutePoint(HPBarBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.520,.0140)
+        call DzFrameSetTexture(HPBarBorder,"war3mapImported\\HPBarBackDrop.tga",0)
+        call DzFrameSetMinMaxValue(HPBarBorder,0,'d')
+        call DzFrameSetValue(HPBarBorder,'d')
+        set HPBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", 0)
+        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0300-.0025)
+        call DzFrameSetAbsolutePoint(HPBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0140+.0025)
+        call DzFrameSetTexture(HPBar,"war3mapImported\\HPBar.tga",0)
+        call DzFrameSetMinMaxValue(HPBar,0,'d')
+        call DzFrameSetValue(HPBar,'d')
+        set SDBar=DzCreateFrameByTagName("SIMPLESTATUSBAR","",HPBarBorder,"", 0)
+        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_TOPLEFT,.180+.0025,.0380-.0025)
+        call DzFrameSetAbsolutePoint(SDBar,JN_FRAMEPOINT_BOTTOMRIGHT,.520-.0025,.0300-.0025)
+        call DzFrameSetTexture(SDBar,"war3mapImported\\BSDBar.tga",0)
+        call DzFrameSetMinMaxValue(SDBar,0,'d')
+        call DzFrameSetValue(SDBar,0)
+        set HPTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", 0)
+        call DzFrameSetAbsolutePoint(HPTextFrame,JN_FRAMEPOINT_CENTER,.3575,.0220)
+        call DzFrameSetFont(HPTextFrame, "Fonts\\DFHeiMd.ttf", 0.010, 0)
+        call DzFrameSetText(HPTextFrame,"0/0")
+        call PlayersHPBarShow(GetLocalPlayer(),false)
+    endfunction
     
     private function init takes nothing returns nothing
         local trigger t = CreateTrigger()
