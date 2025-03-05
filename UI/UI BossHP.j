@@ -216,13 +216,13 @@ library UIBossHP initializer init requires FrameCount, DataUnit
                 //보스의 갱신되기전 체력바의 퍼센트(현재체력바퍼센트) - 1
                 set fx.BHPxNNP = fx.BHPxNNP - 1.00
                 if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * (fx.BHPxNNP * ( 0.01 )), 0)
+                    call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * (fx.BHPxNNP * ( 0.01 )), 0)
                 endif
             else
             endif
             //지금체력바 길이조정
             if GetLocalPlayer() == Player(fx.id) then
-            call DzFrameSetSize(BHPBar[2], ( 3.8 * fx.BHPxNN ) / 1280.00, 35.00 / 1280.00 )
+                call DzFrameSetSize(BHPBar[2], ( 3.8 * fx.BHPxNN ) / 1280.00, 35.00 / 1280.00 )
             endif
             
             

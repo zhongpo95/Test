@@ -68,7 +68,7 @@ private function splashEffect takes nothing returns nothing
     set fx.i = fx.i + 1
     
     if fx.i != (TICK2+1) then
-        call HeroDeal(fx.caster,fx.dummy,fx.r,false,false,fx.Angle,false)
+        call HeroDeal(fx.caster,fx.dummy,fx.r,false,false,false)
         call UnitEffectTimeEX2('e02I',GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),GetRandomReal(0,360),1.2,fx.pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -105,11 +105,10 @@ private function splashD takes nothing returns nothing
                     set velue = 0.5
                 endif
                 set fx.r = HeroSkillVelue1[14]*velue
-                set fx.Angle = SD
                 set fx.i = 0
                 set fx.pid = pid
                 set t.data = fx
-                call HeroDeal(splash.source,GetEnumUnit(),fx.r,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),fx.r,false,false,false)
                 call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,fx.pid)
                 set random = GetRandomInt(0,2)
                 if random == 0 then
@@ -207,7 +206,7 @@ private function splashD2 takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -230,7 +229,7 @@ private function splashD3 takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance3) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[14]*velue,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then

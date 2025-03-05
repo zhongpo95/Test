@@ -68,8 +68,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
 
     endfunction
     
-    //때린유닛,맞은유닛,계수,헤드판정,백판정,무력화,카운터
-    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, real SD, boolean counter returns boolean
+    //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터
+    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, boolean counter returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
         local integer index = DataUnitIndex(target)
         local integer UnitIndex = GetUnitIndex(target)
@@ -88,6 +88,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local string s
         local integer sl
         local boolean CounterBoolean = false
+        local real SD = 1
         
         set ArmVelue = UnitArm[UnitIndex]
         if DeBuffMArm.Exists( target ) then
@@ -144,38 +145,35 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         
         set dmg = ad * rate / HPvalue * DMGRate
         
+        call BJDebugMsg("전 : "+R2S(UnitCastingSD[UnitIndex]))
         if UnitCasting[UnitIndex] == true then
             //게이지깎
-            if ( UnitCastingSD[UnitIndex] - SD ) < 0 then
-                if UnitCastingSD[UnitIndex] == 0 then
-                    //
-                else
-                    //캐스팅 무력화
-                    set UnitCastingSD[UnitIndex] = 0
-                    set UnitCastingSDMAX[UnitIndex] = 0
-                    set UnitCasting[UnitIndex] = false
-                    call KillUnit(UnitCastingDummy[UnitIndex])
-                    set UnitCastingDummy[UnitIndex] = null
-                    call Sound3D(target,'A00U')
-                    call SetUnitAnimation(target,"death")
-                endif
+            if ( UnitCastingSD[UnitIndex] - SD ) <= 0 then
+                set UnitCastingSD[UnitIndex] = 0
+                set UnitCastingSDMAX[UnitIndex] = 0
+                set UnitCasting[UnitIndex] = false
+                call KillUnit(UnitCastingDummy[UnitIndex])
+                set UnitCastingDummy[UnitIndex] = null
+                call Sound3D(target,'A00U')
+                call SetUnitAnimation(target,"death")
             else
                 set UnitCastingSD[UnitIndex] = UnitCastingSD[UnitIndex] - SD
                 call SetUnitAnimationByIndex(UnitCastingDummy[UnitIndex], (R2I((UnitCastingSD[UnitIndex] / UnitCastingSDMAX[UnitIndex]) * 100)-1) )
             endif
-        else
-            if ( UnitSD[UnitIndex] - SD ) < 0 then
-                if UnitSD[UnitIndex] == 0 then
+        //else
+            //if ( UnitSD[UnitIndex] - SD ) < 0 then
+                //if UnitSD[UnitIndex] == 0 then
                     //이미 0임
-                else
+                //else
                     //찐무력화
-                    call Sound3D(target,'A00U')
-                    set UnitSD[UnitIndex] = 0
-                endif
-            else
-                set UnitSD[UnitIndex] = UnitSD[UnitIndex] - SD
-            endif
+                    //call Sound3D(target,'A00U')
+                    //set UnitSD[UnitIndex] = 0
+                //endif
+            //else
+                //set UnitSD[UnitIndex] = UnitSD[UnitIndex] - SD
+            //endif
         endif
+        call BJDebugMsg("후 : "+R2S(UnitCastingSD[UnitIndex]))
         
         if dmg > 1 then
             if CriBoolean then

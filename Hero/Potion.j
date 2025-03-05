@@ -20,7 +20,7 @@ scope Potion
 
     private function splashD takes nothing returns nothing
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal(splash.source,GetEnumUnit(),1,false,false,100,false)
+            call HeroDeal(splash.source,GetEnumUnit(),1,false,false,false)
         endif
     endfunction
     

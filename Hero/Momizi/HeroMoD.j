@@ -65,10 +65,10 @@ private function splashD takes nothing returns nothing
                             
                 if level >= 3 then
                     set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 210
-                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,SD,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,false)
                     set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 210
                 else
-                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,SD,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,false)
                 endif
                 call GroupAddUnit(CheckG,GetEnumUnit())
             endif

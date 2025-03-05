@@ -52,12 +52,12 @@ private function splashD takes nothing returns nothing
             endif
             if level >= 3 then
                 set velue = velue * 2.05
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,false)
             else
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,false)
             endif
         else
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,SD,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[3]*velue,false,false,false)
         endif
     endif
 endfunction

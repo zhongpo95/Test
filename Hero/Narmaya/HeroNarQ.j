@@ -18,7 +18,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,SD,true) then
+        if HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true) then
             if HeroSkillLevel[pid][0] >= 2 then
                 call NarNabiPlus(pid,6)
             endif

@@ -26,10 +26,12 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern4Distance = 2000
         private constant integer Pattern4Range = 75
         private constant real Pattern4Speed = 1.0
-        //마력충전 거리안에 아무도 없을시 발동
-        private constant integer Pattern5Cool = 5000
+        //마력충전 거리안에 아무도 없을시 발동, 무력시간 10초
+        private constant integer Pattern5Cool = 0
         private constant integer Pattern5RandomCool = 500
+        private constant integer Pattern5Time = 500
         private constant integer Pattern5Distance = 3000
+        private constant integer Pattern5Real = 3000
         //마력포격 거리보다 멀면 사용안함
         private constant integer Pattern6Cool = 50
         private constant integer Pattern6RandomCool = 150
@@ -51,6 +53,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern8Time = 150
         private constant integer Pattern8Range = 250
 
+        //타임리미트
+
         private integer NoDieCheck
         private unit CheckUnit
 
@@ -64,6 +68,74 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set NoDieCheck = NoDieCheck - 1
         endif
     endfunction
+
+    //마력충전
+    private struct FxEffect7
+        unit caster
+        unit dummy1
+        unit dummy2
+        unit dummy3
+        integer i
+        MapStruct st
+        private method OnStop takes nothing returns nothing
+            set caster = null
+            set dummy1 = null
+            set dummy2 = null
+            set dummy3 = null
+            set st = 0
+        endmethod
+        //! runtextmacro 연출()
+    endstruct
+    
+    private struct FxEffect7_Timer extends array
+        private method OnAction takes FxEffect7 fx returns nothing
+            local effect e
+            local real r
+            local integer i
+            local tick t
+            local MapStruct st = fx.st
+            local integer index = IndexUnit(fx.caster)
+            set fx.i = fx.i + 1
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+                if fx.i == 1 then
+                    //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                elseif fx.i == 100 then
+                    call AnimationStart(fx.caster, 8)
+                //무력화 성공
+                elseif fx.i >= 1 and UnitCasting[index] == false then
+                    call Sound3D(fx.caster,'A00U')
+                    call AnimationStart(fx.caster,6)
+                    set Unitstate[IndexUnit(fx.caster)] = 4
+                    set st.j = StandTime + CounterTime
+                    call fx.Stop()
+                //무력화를 못함
+                elseif fx.i == Pattern5Time then
+                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
+                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
+                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
+                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3)
+                    call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                    call AnimationStart4(fx.caster, 7, 0.6)
+                    set UnitCastingSD[index] = 0
+                    set UnitCastingSDMAX[index] = 0
+                    set UnitCasting[index] = false
+                    call KillUnit(UnitCastingDummy[index])
+                    set UnitCastingDummy[index] = null
+                    
+                    set Unitstate[IndexUnit(fx.caster)] = 4
+                    set st.j = StandTime
+                    call fx.Stop()
+                endif
+            //주금
+            else
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call fx.Stop()
+            endif
+        endmethod
+        //! runtextmacro 연출효과_타이머("FxEffect7", "0.02", "true")
+    endstruct
 
     //지뢰마법
     private function splashF3 takes nothing returns nothing
@@ -154,13 +226,6 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r),r)
                     set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)
-
-                    //call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1, 0)
-                    //set r = GetUnitFacing(fx.caster)
-                    //set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(125,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(125,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster))
-                    //set fx.targetUnit[0] = ClosestUnit(fx.dummy[0], 3000)
-                    //set fx.effectdummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),270)
-                   
                 //방향회전
                 elseif fx.i <= Pattern7Time then
                     set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
@@ -799,6 +864,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         local FxEffect4 fx4
         local FxEffect5 fx5
         local FxEffect6 fx6
+        local FxEffect7 fx7
         local integer index
         local AggroSystem s
         local real r
@@ -833,11 +899,13 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     set st.pattern8 = st.pattern8 - 1
                     //set st.pattern7 = st.pattern7 - 1
                     //set st.pattern6 = st.pattern6 - 1
+                    set st.pattern5 = st.pattern5 - 1
                     //set st.pattern4 = st.pattern4 - 1
                     //set st.pattern3 = st.pattern3 - 1
                     //set st.pattern2 = st.pattern2 - 1
                     call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편: "+I2S(st.pattern4))
                     call BJDebugMsg("마력포격: "+I2S(st.pattern6)+", 파이어볼: "+I2S(st.pattern7)+", 지뢰: "+I2S(st.pattern8))
+                    call BJDebugMsg("마력충전: "+I2S(st.pattern5))
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
@@ -873,6 +941,25 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             call fx3.Start()
                             set Unitstate[IndexUnit(fx3.caster)] = 1
                             set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
+                        //마력충전
+                        elseif st.pattern5 <= 0 then
+                            set fx7 = FxEffect7.Create()
+                            set fx7.caster = st.caster
+                            set fx7.i = 0
+                            set fx7.st = st
+                            call AnimationStart(fx7.caster, 4)
+                            set Unitstate[IndexUnit(fx7.caster)] = 1
+                            set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
+                            
+                            set index = IndexUnit(st.caster)
+                            call Sound3D(fx7.caster,'A026')
+                            set UnitCasting[index] = true
+                            set UnitCastingSDMAX[index] = 5
+                            set UnitCastingSD[index] = UnitCastingSDMAX[index]
+                            set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx7.caster), GetWidgetY(fx7.caster), 270 )
+                            call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
+
+                            call fx7.Start()
                         //마력포격
                         elseif st.pattern6 <= 0 then
                             call BJDebugMsg("마력포격")

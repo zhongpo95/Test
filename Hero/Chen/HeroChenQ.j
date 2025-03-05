@@ -46,7 +46,7 @@ private function splashD1 takes nothing returns nothing
             set Velue = Velue * 0.976
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
     endif
 endfunction
 
@@ -64,7 +64,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.525
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -81,7 +81,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 2.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,SD,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
     endif
 endfunction
 

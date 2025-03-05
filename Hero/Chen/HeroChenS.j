@@ -34,7 +34,7 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,SD,true)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true)
         
         if level >= 1 then
             //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
