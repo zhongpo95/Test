@@ -1,8 +1,7 @@
 library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro
     globals
         constant real HeadBounsDamage = 1.20
-        constant real BackBounsDamage = 1.05
-        constant real BackBounsCri = 10.00
+        constant real BackBounsDamage = 1.20
 
         private unit array TestUnit
     endglobals
@@ -91,11 +90,14 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real SD = 1
         
         set ArmVelue = UnitArm[UnitIndex]
+        //방깍
         if DeBuffMArm.Exists( target ) then
             set ArmVelue = UnitArm[UnitIndex] * 0.88
         endif
+        //관통
+        set ArmVelue = (ArmVelue * (1 - Penetration[pid]))
         
-        set Arm = ((ArmVelue * (1 - Penetration[pid])) / ((ArmVelue * (1 - Penetration[pid])) + 10000))
+        set Arm = ArmVelue / (ArmVelue + 10000)
         set DMGRate = DMGRate * (1-Arm)
         
         //헤드 체크
@@ -116,7 +118,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                     set DMGRate = DMGRate * 1.12
                 endif
                 set DMGRate = DMGRate * BackBounsDamage
-                set cri = cri + BackBounsCri
                 call BackTag(target)
             endif
         endif

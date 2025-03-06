@@ -32,15 +32,15 @@ scope ESC initializer init
         local integer i = 0
 
         set s = "7;"
-        set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
+        set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
         set s = "8;"
-        set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
+        set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
         set s = "10;"
-        set s = SetItemGetItemCombatStats(s, GetRandomInt(1,3))
+        set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
         //call BJDebugMsg(JNStringRegex(s, "품질\\d+;", 0))
@@ -137,7 +137,21 @@ scope ESC initializer init
 
     endfunction
 
+    private function ESCActionF takes string s, string name returns string
+        local string s2
+        local string s3
+
+        set s2 = JNStringRegex(s, name+"\\d+;", 0)
+        set s3 = JNStringRegex(s2, "\\d+", 0)
+
+        return s3
+    endfunction
+
     private function ESCAction takes nothing returns nothing
+        local string s
+        local string s2
+        local string s3
+        local string name
         //신속1800설정
         if AAA == 0 then
             set Equip_Swiftness[0] = 600
@@ -168,6 +182,8 @@ scope ESC initializer init
         call CreateUnit(GetOwningPlayer(MainUnit[0]), 'h00H', GetWidgetX(MainUnit[0]), GetWidgetY(MainUnit[0]), 270)
         //call AnimationStringStart(CreateUnit(GetOwningPlayer(MainUnit[0]), 'h00H', GetWidgetX(MainUnit[0]), GetWidgetY(MainUnit[0]), 270),"birth")
         
+        set s = "Aa12222;Ab1;Qa1;Qb1;Qc1;Wa1;Wb1;Wc1;Ea1;Ea1;Ec1;Ra1;Rb1;Rc1;Fa1;Fb5;"
+        call BJDebugMsg(ESCActionF(s,"Aa"))
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing

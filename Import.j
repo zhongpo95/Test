@@ -76,6 +76,7 @@
 //! import "C:\Users\123\Desktop\JN\Test\vJDK\vJDK.j"
 //! import "C:\Users\123\Desktop\JN\Test\vJDK\vJDK HPlugin DamageSystem.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\Data\Native.j"
 //! import "C:\Users\123\Desktop\JN\Test\Data\Data Arcana.j"
 //! import "C:\Users\123\Desktop\JN\Test\Data\Data Item.j"
 //! import "C:\Users\123\Desktop\JN\Test\Data\Data Unit.j"

@@ -208,6 +208,20 @@ private function Main takes nothing returns nothing
 
         set fx.r2 = AnglePBW(fx.TargetX,fx.TargetY,fx.caster)
 
+        //카구라
+        if NarForm[fx.pid] == 0 then
+            //강화평타추가
+            if HeroSkillLevel[fx.pid][3] >= 3 then
+                set NarStack[fx.pid] = 1
+            endif
+        //겐지
+        elseif NarForm[fx.pid] == 1 then
+            //나루메아 E 시전속도증가
+            if HeroSkillLevel[fx.pid][2] >= 1 then
+                set NarStack[fx.pid] = 3
+            endif
+        endif
+
         if HeroSkillLevel[fx.pid][5] >= 1 then
             if HeroSkillLevel[fx.pid][5] >= 3 then
                 set fx.st = NarNabiUse(fx.pid,true)

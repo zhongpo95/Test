@@ -267,6 +267,7 @@ private function EffectFunction2 takes nothing returns nothing
         if HeroSkillLevel[fx.pid][1] >= 2 then
             set NarStack[fx.pid] = 3
         endif
+
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
         call fx.Stop()

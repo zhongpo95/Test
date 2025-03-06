@@ -207,6 +207,20 @@ private function Main takes nothing returns nothing
                 set fx.st = 0
             endif
         endif
+
+        //카구라
+        if NarForm[fx.pid] == 0 then
+            //강화평타추가
+            if HeroSkillLevel[fx.pid][3] >= 3 then
+                set NarStack[fx.pid] = 1
+            endif
+        //겐지
+        elseif NarForm[fx.pid] == 1 then
+            //나루메아 E 시전속도증가
+            if HeroSkillLevel[fx.pid][2] >= 1 then
+                set NarStack[fx.pid] = 3
+            endif
+        endif
         
         call Sound3D(fx.caster,'A03J')
 

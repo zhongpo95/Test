@@ -222,17 +222,17 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //치특
+                //치치
                 elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                    set str = str + "|n  |cFFB9E2FA특화|r "
+                    set str = str + "|n  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특신
+                //신신
                 elseif cts == 3 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
+                    set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -254,13 +254,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -282,13 +277,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -461,17 +451,17 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //치특
+                //치치
                 elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                    set str = str + "|n  |cFFB9E2FA특화|r "
+                    set str = str + "|n  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특신
+                //신신
                 elseif cts == 3 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
+                    set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -493,13 +483,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -521,13 +506,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"

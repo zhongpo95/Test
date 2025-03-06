@@ -59,8 +59,8 @@ library ITEM requires DataItem
         return S2I(s)
     endfunction
 
-    //특성변경 set items = SetItemGetItemCombatStats(items, 변경할수치(정수))
-    function SetItemGetItemCombatStats takes string items, integer i returns string
+    //특성변경 set items = SetItemCombatStats(items, 변경할수치(정수))
+    function SetItemCombatStats takes string items, integer i returns string
         local string s = JNStringRegex(items, "특성\\d+;", 0)
         if s == "" then
             return items + "특성"+I2S(i)+";"

@@ -8,47 +8,47 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern1Cool = 0
         private constant integer Pattern1Distance = 500
         private constant integer Pattern1Distance2 = 750
-        //3장판 거리보다 멀면 사용안함
-        private constant integer Pattern2Cool = 500
-        private constant integer Pattern2RandomCool = 500
+        //3장판 거리보다 멀면 사용안함 15~20초
+        private constant integer Pattern2Cool = 750
+        private constant integer Pattern2RandomCool = 250
         private constant integer Pattern2Time = 100
         private constant integer Pattern2Distance = 1500
         //카운터 밀치기 30~40초
-        private constant integer Pattern3Cool = 200 //1500
+        private constant integer Pattern3Cool = 1500 //1500
         private constant integer Pattern3RandomCool = 500
         private constant integer Pattern3CounterTime = 125
         private constant integer Pattern3Distance = 600
-        //얼음파편 30~35초 거리보다 멀면 사용안함
-        private constant integer Pattern4Cool = 1500 //1500
-        private constant integer Pattern4RandomCool = 250
+        //얼음파편 20~30초 거리보다 멀면 사용안함
+        private constant integer Pattern4Cool = 1000
+        private constant integer Pattern4RandomCool = 500
         private constant integer Pattern4Time = 150
         private constant integer Pattern4Time2 = 175
         private constant integer Pattern4Distance = 2000
         private constant integer Pattern4Range = 75
         private constant real Pattern4Speed = 1.0
-        //마력충전 거리안에 아무도 없을시 발동, 무력시간 10초
-        private constant integer Pattern5Cool = 0
-        private constant integer Pattern5RandomCool = 500
+        //마력충전 거리안에 아무도 없을시 발동, 무력시간 60초
+        private constant integer Pattern5Cool = 3000
+        private constant integer Pattern5RandomCool = 0
         private constant integer Pattern5Time = 500
-        private constant integer Pattern5Distance = 3000
+        private constant integer Pattern5Distance = 2000
         private constant integer Pattern5Real = 3000
-        //마력포격 거리보다 멀면 사용안함
-        private constant integer Pattern6Cool = 50
-        private constant integer Pattern6RandomCool = 150
+        //마력포격 거리보다 멀면 사용안함 20~30초
+        private constant integer Pattern6Cool = 1000
+        private constant integer Pattern6RandomCool = 500
         private constant integer Pattern6Time = 125
         private constant integer Pattern6Time2 = 100
         private constant integer Pattern6Distance = 2000
-        //파이어볼 거리보다 멀면 사용안함
-        private constant integer Pattern7Cool = 50
-        private constant integer Pattern7RandomCool = 150
+        //파이어볼 거리보다 멀면 사용안함 5~10초
+        private constant integer Pattern7Cool = 250
+        private constant integer Pattern7RandomCool = 250
         private constant integer Pattern7Time = 150
         private constant integer Pattern7Time2 = 175
         private constant integer Pattern7Range = 125
         private constant integer Pattern7Distance = 1500
         private constant real Pattern7Speed = 2.0
-        //지뢰마법 거리보다 멀면 사용안함
-        private constant integer Pattern8Cool = 50
-        private constant integer Pattern8RandomCool = 150
+        //지뢰마법 거리보다 멀면 사용안함 5~10초
+        private constant integer Pattern8Cool = 250
+        private constant integer Pattern8RandomCool = 250
         private constant integer Pattern8Distance = 2000
         private constant integer Pattern8Time = 150
         private constant integer Pattern8Range = 250
@@ -892,25 +892,24 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 elseif st.j == 0 and Unitstate[IndexUnit(st.caster)] == 4 then
                     set Unitstate[IndexUnit(st.caster)] = 0
                 endif
-                //if splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), scale, function SplashNothing ) then
-                //endif
                 //일반상태,이동중,휴식
                 if Unitstate[IndexUnit(st.caster)] == 0 or Unitstate[IndexUnit(st.caster)] == 3 or Unitstate[IndexUnit(st.caster)] == 4 then
                     set st.pattern8 = st.pattern8 - 1
-                    //set st.pattern7 = st.pattern7 - 1
-                    //set st.pattern6 = st.pattern6 - 1
+                    set st.pattern7 = st.pattern7 - 1
+                    set st.pattern6 = st.pattern6 - 1
                     set st.pattern5 = st.pattern5 - 1
-                    //set st.pattern4 = st.pattern4 - 1
-                    //set st.pattern3 = st.pattern3 - 1
-                    //set st.pattern2 = st.pattern2 - 1
+                    set st.pattern4 = st.pattern4 - 1
+                    set st.pattern3 = st.pattern3 - 1
+                    set st.pattern2 = st.pattern2 - 1
+
                     call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편: "+I2S(st.pattern4))
                     call BJDebugMsg("마력포격: "+I2S(st.pattern6)+", 파이어볼: "+I2S(st.pattern7)+", 지뢰: "+I2S(st.pattern8))
-                    call BJDebugMsg("마력충전: "+I2S(st.pattern5))
+                    call BJDebugMsg("마력충전: "+I2S(st.pattern5)+", 대기: " + I2S(st.j))
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
+                        call BJDebugMsg("입장")
                         //카운터
-                        if st.pattern3 <= 0 then
-                            call BJDebugMsg("카운터")
+                        if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
                             set fx = FxEffect.Create()
                             set fx.caster = st.caster
                             set fx.i = 0
@@ -920,7 +919,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set Unitstate[IndexUnit(fx.caster)] = 1
                             set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
                         //3장판
-                        elseif st.pattern2 <= 0 then
+                        elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
                             call BJDebugMsg("3장판")
                             set fx2 = FxEffect2.Create()
                             set fx2.caster = st.caster
@@ -931,7 +930,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set Unitstate[IndexUnit(fx2.caster)] = 1
                             set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
                         //얼음파편
-                        elseif st.pattern4 <= 0 then
+                        elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             call BJDebugMsg("파편")
                             set fx3 = FxEffect3.Create()
                             set fx3.caster = st.caster
@@ -942,7 +941,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set Unitstate[IndexUnit(fx3.caster)] = 1
                             set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
                         //마력충전
-                        elseif st.pattern5 <= 0 then
+                        elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
+                            call BJDebugMsg("마력충전")
                             set fx7 = FxEffect7.Create()
                             set fx7.caster = st.caster
                             set fx7.i = 0
@@ -950,7 +950,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             call AnimationStart(fx7.caster, 4)
                             set Unitstate[IndexUnit(fx7.caster)] = 1
                             set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                            
+                                
                             set index = IndexUnit(st.caster)
                             call Sound3D(fx7.caster,'A026')
                             set UnitCasting[index] = true
@@ -958,10 +958,9 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set UnitCastingSD[index] = UnitCastingSDMAX[index]
                             set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx7.caster), GetWidgetY(fx7.caster), 270 )
                             call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
-
                             call fx7.Start()
                         //마력포격
-                        elseif st.pattern6 <= 0 then
+                        elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
                             call BJDebugMsg("마력포격")
                             set fx4 = FxEffect4.Create()
                             set fx4.caster = st.caster
@@ -972,7 +971,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set Unitstate[IndexUnit(fx4.caster)] = 1
                             set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
                         //파이어볼
-                        elseif st.pattern7 <= 0 then
+                        elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
                             call BJDebugMsg("파이어볼")
                             set fx5 = FxEffect5.Create()
                             set fx5.caster = st.caster
@@ -983,7 +982,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set Unitstate[IndexUnit(fx5.caster)] = 1
                             set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
                         //지뢰마법
-                        elseif st.pattern8 <= 0 then
+                        elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
                             call BJDebugMsg("지뢰마법")
                             set fx6 = FxEffect6.Create()
                             set fx6.caster = st.caster
@@ -1117,13 +1116,13 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
             set st.pattern1 = Pattern1Cool
-            set st.pattern2 = Pattern2Cool
-            set st.pattern3 = Pattern3Cool
-            set st.pattern4 = Pattern4Cool
-            set st.pattern5 = Pattern5Cool
-            set st.pattern6 = Pattern6Cool
-            set st.pattern7 = Pattern7Cool
-            set st.pattern8 = Pattern8Cool
+            set st.pattern2 = Pattern2RandomCool
+            set st.pattern3 = Pattern3RandomCool
+            set st.pattern4 = Pattern4RandomCool
+            set st.pattern5 = Pattern5RandomCool
+            set st.pattern6 = Pattern6RandomCool
+            set st.pattern7 = Pattern7RandomCool
+            set st.pattern8 = Pattern8RandomCool
             //휴식
             set st.j = 0
             call GroupAddUnit( st.ul.super, source )

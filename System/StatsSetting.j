@@ -25,16 +25,16 @@ library StatsSet initializer init requires UIHP, ITEM
         local integer speed = 0
         set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid]
         if GetLocalPlayer() == Player(pid) then
+            //특화
+            //call DzFrameSetText(F_ItemStatsText[3], I2S(R2I(  Equip_Specialization[pid] )) )
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
             //방어등급
             call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
             call DzFrameSetText(F_ItemStatsText[2], I2S(R2I(  Equip_Crit[pid] )) )
-            //특화
-            call DzFrameSetText(F_ItemStatsText[3], I2S(R2I(  Equip_Specialization[pid] )) )
             //신속
-            call DzFrameSetText(F_ItemStatsText[4], I2S(R2I(  Equip_Swiftness[pid] )) )
+            call DzFrameSetText(F_ItemStatsText[3], I2S(R2I(  Equip_Swiftness[pid] )) )
             //추가피해
             call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] + Arcana_DP[pid] )) + "%" )
             //치명타확률
@@ -66,7 +66,6 @@ library StatsSet initializer init requires UIHP, ITEM
         set Equip_Defense[pid] = 0
         set Equip_Damage[pid] = 0
         set Equip_Crit[pid] = 0
-        set Equip_Specialization[pid] = 0
         set Equip_Swiftness[pid] = 0
         
         loop
@@ -90,7 +89,7 @@ library StatsSet initializer init requires UIHP, ITEM
                 elseif itemty >= 0 and itemty <= 4 then
                     set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                 elseif itemty == 6 then
-        //목걸이 0품0, 1품질 5당 추가량
+                //목걸이 0품0, 1품질 5당 추가량
                     // j특성
                     set j = GetItemCombatStats(items)
                     //치신
@@ -99,16 +98,16 @@ library StatsSet initializer init requires UIHP, ITEM
                         set j = GetItemQuality(items)
                         set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
-                    //치특
+                    //치치
                     elseif j == 2 then
                         set j = GetItemQuality(items)
                         set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
-                        set Equip_Specialization[pid] = Equip_Specialization[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
-                    //특신
+                        set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    //신신
                     elseif j == 3 then
                         set j = GetItemQuality(items)
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
-                        set Equip_Specialization[pid] = Equip_Specialization[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                        set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     endif
                     set j = 0
                 elseif itemty == 7 or itemty == 8 then
@@ -119,12 +118,8 @@ library StatsSet initializer init requires UIHP, ITEM
                         // j품질
                         set j = GetItemQuality(items)
                         set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
-                    //특
-                    elseif j == 2 then
-                        set j = GetItemQuality(items)
-                        set Equip_Specialization[pid] = Equip_Specialization[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     //신
-                    elseif j == 3 then
+                    elseif j == 2 then
                         set j = GetItemQuality(items)
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     endif

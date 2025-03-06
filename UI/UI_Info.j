@@ -45,7 +45,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "치명" )
         set str = "|cFFA5FA7D ◎ |r" + "치명타 적중률이 " + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r 증가했습니다.|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid]  ) + "%|r 증가합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -54,10 +53,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "특화" )
-        set str = "|cFFA5FA7D ◎ |r" + "각성 스킬 피해량이 " + "|cFFA5FA7D" + R2S(  (Equip_Specialization[pid]/18)  ) + "%|r 증가했습니다."
-        call DzFrameSetText(UI_Tip_Text[2], str )
+        //call DzFrameShow(UI_Tip, true)
+        //call DzFrameSetText(UI_Tip_Text[1], "특화" )
+        //set str = "|cFFA5FA7D ◎ |r" + "각성 스킬 피해량이 " + "|cFFA5FA7D" + R2S(  (Equip_Specialization[pid]/18)  ) + "%|r 증가했습니다."
+        //call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
     private function F_ON_Actions5 takes nothing returns nothing
@@ -91,6 +90,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "치명타 확률" )
         set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r"
+        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid]  ) + "%|r 증가합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -300,17 +300,17 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //치특
+                //치치
                 elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                    set str = str + "|n  |cFFB9E2FA특화|r "
+                    set str = str + "|n  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특신
+                //신신
                 elseif cts == 3 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
+                    set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -332,13 +332,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -360,13 +355,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
-                //특
-                elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                    set str = str + "  |cFFB9E2FA특화|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
-                elseif cts == 3 then
+                elseif cts == 2 then
                     set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
@@ -571,23 +561,23 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.030)
-        call DzFrameSetText(F_ItemStatsText[3], "|cFFFFE400특화")
+        call DzFrameSetText(F_ItemStatsText[3], "|cFFFFE400신속")
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.030)
         call DzFrameSetText(F_ItemStatsText[3], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[3], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions4, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[3], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[3], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
-        set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.010)
-        call DzFrameSetText(F_ItemStatsText[4], "|cFFFFE400신속")
+        //set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        //call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.010)
+        //call DzFrameSetText(F_ItemStatsText[4], "|cFFFFE400신속")
         
-        set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.010)
-        call DzFrameSetText(F_ItemStatsText[4], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
-        call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        //set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        //call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.010)
+        //call DzFrameSetText(F_ItemStatsText[4], "0")
+        //call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
+        //call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.155, -0.010)

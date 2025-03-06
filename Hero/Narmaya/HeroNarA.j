@@ -3,7 +3,7 @@ globals
     //쉐클시간
     private constant real Time2 = 1.4
     //버프지속시간,공증량
-    private constant real Time3 = 10
+    private constant real Time3 = 60
     private constant integer Velue2 = 350
 endglobals
 

@@ -528,7 +528,7 @@ private function init takes nothing returns nothing
     set HeroSkillVCount2[14] = 2
     set HeroSkillVelue2[14] = 13.0
     set HeroSkillVelue22[14] = 7.0
-    set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 스킬사용시 차지속도가 150% 증가"
+    set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 다른 스킬사용시 차지속도가 150% 증가"
     set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 풀 차지 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승"
     set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가"
 
@@ -540,11 +540,11 @@ private function init takes nothing returns nothing
     set HeroSkillVelue23[14] = 1.00
     set HeroSkill3Text1[14] = "강화 평타 적중시 나비 1개 획득"
     set HeroSkill3Text2[14] = "강화 평타의 피해량이 100.0% 증가"
-    set HeroSkill3Text3[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화"
+    set HeroSkill3Text3[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화, 다른 스킬사용시 사용하지 않아도 강화평타 사용가능"
     
     set HeroSkillTpye4[14] = "버프"
     set HeroSkillStr4[14] = "자신의 공격력을 증가시키는 버프를 겁니다."
-    set HeroSkillCD4[14] = 15.00
+    set HeroSkillCD4[14] = 120.00
     set HeroSkillVCount4[14] = 1
     set HeroSkillVelue4[14] = 0.35
     set HeroSkill4Text1[14] = "사용시 나비를 3개 획득"
@@ -553,7 +553,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye5[14] = "일반"
     set HeroSkillStr5[14] = "후방으로 물러나며 충격파를 쏘아 피해를 입힙니다."
-    set HeroSkillCD5[14] = 10.00
+    set HeroSkillCD5[14] = 20.00
     set HeroSkillVCount5[14] = 1
     set HeroSkillVelue5[14] = 1.00
     set HeroSkill5Text1[14] = "모든 나비를 소모하여 3번의 참격을 날리며 나비 한개당 총 피해량이 100.0% 증가"
@@ -562,7 +562,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye6[14] = "일반"
     set HeroSkillStr6[14] = "여러번 횡베기를 하여 연속으로 피해를 입힙니다."
-    set HeroSkillCD6[14] = 10.00
+    set HeroSkillCD6[14] = 32.00
     set HeroSkillVCount6[14] = 1
     set HeroSkillVelue6[14] = 1.00
     set HeroSkill6Text1[14] = "모든 나비를 소모하여 나비 한개당 마지막 베기의 총 피해량이 100.0% 증가"
@@ -571,7 +571,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye7[14] = "일반, 차지"
     set HeroSkillStr7[14] = "전방의 적을 발도술로 공격한다. 버튼을 길게 누르면 피해가 증가합니다."
-    set HeroSkillCD7[14] = 10.00
+    set HeroSkillCD7[14] = 55.00
     set HeroSkillVCount7[14] = 1
     set HeroSkillVelue7[14] = 1.00
     set HeroSkill7Text1[14] = "모든 나비를 소모하여 나비 한개당 납도의 총 피해량이 100.0% 증가"
@@ -687,8 +687,8 @@ private function init takes nothing returns nothing
     set UnitAbilityIndex[16] = 'h00L'
     set UnitHPValue[16] = 1
     set UnitHPString[16] = ""
-    set UnitSetHP[16] = 2000
-    set UnitSetSD[16] = 2000
+    set UnitSetHP[16] = 10000
+    set UnitSetSD[16] = 10000
     set UnitSetArm[16] = 10000
     set UnitSetHPx[16] = 10
     set UnitTier[16] = 5
