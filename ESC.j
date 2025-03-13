@@ -49,6 +49,35 @@ scope ESC initializer init
         //call BJDebugMsg("ESC")
         //call TodayQuestPlus(0)
         */
+
+        
+        //신속1800설정
+        if AAA == 0 then
+            set Equip_Swiftness[0] = 600
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속600")
+            set AAA = 1
+        elseif AAA == 1 then
+            set Equip_Swiftness[0] = 1200
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속1200")
+            set AAA = 2
+        elseif AAA == 2 then
+            set Equip_Swiftness[0] = 1800
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속1800")
+            set AAA = 3
+        elseif AAA == 3 then
+            set Equip_Swiftness[0] = 2200
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속2200")
+            set AAA = 4
+        elseif AAA == 4 then
+            set Equip_Swiftness[0] = 0
+            call ItemUIStatsSet(0)
+            call BJDebugMsg("신속0")
+            set AAA = 0
+        endif
     endfunction
 
     private function ESCAction5 takes nothing returns nothing
@@ -146,13 +175,16 @@ scope ESC initializer init
 
         return s3
     endfunction
+    
+
 
     private function ESCAction takes nothing returns nothing
         local string s
         local string s2
         local string s3
         local string name
-        //신속1800설정
+
+        
         if AAA == 0 then
             set Equip_Swiftness[0] = 600
             call ItemUIStatsSet(0)
@@ -179,11 +211,34 @@ scope ESC initializer init
             call BJDebugMsg("신속0")
             set AAA = 0
         endif
-        call CreateUnit(GetOwningPlayer(MainUnit[0]), 'h00H', GetWidgetX(MainUnit[0]), GetWidgetY(MainUnit[0]), 270)
-        //call AnimationStringStart(CreateUnit(GetOwningPlayer(MainUnit[0]), 'h00H', GetWidgetX(MainUnit[0]), GetWidgetY(MainUnit[0]), 270),"birth")
+
+        call BJDebugMsg("1")
+        call BJDebugMsg("전투력 : 1000 , 명성 : "+ I2S(TrailblazePower(1000)))
+        call BJDebugMsg("전투력 : 1100 , 명성 : "+ I2S(TrailblazePower(1100)))
+        call BJDebugMsg("전투력 : 1210 , 명성 : "+ I2S(TrailblazePower(1210)))
+        call BJDebugMsg("전투력 : 1331 , 명성 : "+ I2S(TrailblazePower(1331)))
+        call BJDebugMsg("전투력 : 1464 , 명성 : "+ I2S(TrailblazePower(1464)))
+        call BJDebugMsg("전투력 : 1610 , 명성 : "+ I2S(TrailblazePower(1610)))
+        call BJDebugMsg("전투력 : 1771 , 명성 : "+ I2S(TrailblazePower(1771)))
+        call BJDebugMsg("전투력 : 1948 , 명성 : "+ I2S(TrailblazePower(1948)))
         
-        set s = "Aa12222;Ab1;Qa1;Qb1;Qc1;Wa1;Wb1;Wc1;Ea1;Ea1;Ec1;Ra1;Rb1;Rc1;Fa1;Fb5;"
-        call BJDebugMsg(ESCActionF(s,"Aa"))
+        call BJDebugMsg("전투력 : 5000 , 명성 : "+ I2S(TrailblazePower(5000)))
+        call BJDebugMsg("전투력 : 6666 , 명성 : "+ I2S(TrailblazePower(6666)))
+        call BJDebugMsg("전투력 : 7241 , 명성 : "+ I2S(TrailblazePower(7241)))
+        call BJDebugMsg("전투력 : 10000 , 명성 : "+ I2S(TrailblazePower(10000)))
+        call BJDebugMsg("전투력 : 11000 , 명성 : "+ I2S(TrailblazePower(11000)))
+        call BJDebugMsg("전투력 : 30000 , 명성 : "+ I2S(TrailblazePower(30000)))
+
+        call BJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call BJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call BJDebugMsg("전투력 : 129129 , 명성 : "+ I2S(TrailblazePower(129129)))
+        call BJDebugMsg("전투력 : 142042 , 명성 : "+ I2S(TrailblazePower(142042)))
+        call BJDebugMsg("전투력 : 1000000 , 명성 : "+ I2S(TrailblazePower(1000000)))
+        call BJDebugMsg("전투력 : 2000000 , 명성 : "+ I2S(TrailblazePower(2000000)))
+        call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        
+        call BJDebugMsg("2")
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing

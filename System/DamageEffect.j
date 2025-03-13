@@ -19,7 +19,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set t.data = IndexUnit(target)
         set TestUnit[t.data] = target
         call SetUnitVertexColorBJ( target, 50, 50, 100, 0 )
-        call BJDebugMsg("맞음")
+        //call BJDebugMsg("맞음")
         call t.start(1.0, false, function Reset)
     endfunction
 
@@ -76,27 +76,33 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local string HPString = UnitHPString[index]
         local real CriRandom = GetRandomReal(0,100)
         local boolean CriBoolean = false
-        local real ad = R2I( Equip_Damage[pid] + Hero_Damage[pid]  )
+        local real ad = R2I( Equip_Damage[pid] + Hero_Damage[pid] + (Equip_Damage[pid] * (Equip_DamageP[pid] / 100.0)) )
         local real cri = Stats_Crit[pid]
         local texttag ttag
         local real dmg
         local real DMGRate = 1.0
-        local real crirate = Hero_CriDeal[pid]
+        local real crirate = Hero_CriDeal[pid] + Equip_CriDeal[pid]
         local real ArmVelue
         local real Arm
+        local real WDP = (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0))
+        local real DP = Equip_DP[pid]
+        local real LastDamage = Equip_LastDamage[pid]
         local string s
         local integer sl
         local boolean CounterBoolean = false
         local real SD = 1
-        
+
+        //방어력10000
         set ArmVelue = UnitArm[UnitIndex]
+        
         //방깍
         if DeBuffMArm.Exists( target ) then
             set ArmVelue = UnitArm[UnitIndex] * 0.88
         endif
         //관통
         set ArmVelue = (ArmVelue * (1 - Penetration[pid]))
-        
+        set ArmVelue = (ArmVelue * (1 - Equip_Penetration[pid]))
+
         set Arm = ArmVelue / (ArmVelue + 10000)
         set DMGRate = DMGRate * (1-Arm)
         
@@ -144,7 +150,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set CriBoolean = true
         endif
         
-        set dmg = ad * rate / HPvalue * DMGRate
+        set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage 
         
         call BJDebugMsg("전 : "+R2S(UnitCastingSD[UnitIndex]))
         if UnitCasting[UnitIndex] == true then

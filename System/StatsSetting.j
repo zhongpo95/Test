@@ -19,36 +19,135 @@ library StatsSet initializer init requires UIHP, ITEM
         endif
         return (Equip_Swiftness[pid]/40)
     endfunction
+
+    //전투력
+    function Power takes integer pid returns real
+        local real cooldownReduction = Equip_Swiftness[pid] / 46.0 / 100.0
+        local real critical = Equip_Crit[pid] / 28.0 / 100.0
+        local real defenseRatio = Equip_Penetration[pid] * 10000.0
+        local real defenseReductionAmount = defenseRatio / (defenseRatio + 10000.0)
+        local real damageReductionRate = 1.0 - defenseReductionAmount
+
+        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid] + 100) / 100.0) * (1.0 / (1.0 - cooldownReduction)) * damageReductionRate * (1.0 + Equip_DP[pid] / 100.0) * (1.0 + Equip_LastDamage[pid] / 100.0) 
+    endfunction
+
+
+    globals
+        // 전투력 1,173,908에 대한 명성 값 상수
+        private integer FAME_1 = 60000
+        // 전투력 1,173,908에 대한 명성 값 상수
+        private integer FAME_2 = 120000
+        // 전투력 1,173,908에 대한 명성 값 상수
+        private integer FAME_3 = 30000
+    endglobals
+
+
+    private function ln takes real x returns real
+        local real result = 0.0
+        local real term = 0.0
+        local integer n = 1
+    
+        if x <= 0.0 then
+            return 0.0
+        endif
+    
+        if x == 1.0 then
+            return 0.0
+        endif
+    
+        if x > 2.0 then
+            return -ln(1.0 / x)
+        endif
+    
+        set x = x - 1.0
+        set term = x
+    
+        loop
+            set result = result + term / n
+            set term = -term * x
+            set n = n + 1
+            exitwhen SquareRoot(term * term) < 0.000001
+        endloop
+    
+        return result
+    endfunction
+    
+    private function log1_1 takes real x returns real
+        local real LN_1_1 = 0.09531
+        return ln(x) / LN_1_1
+    endfunction
+
+    //개척력
+    function TrailblazePower takes real x returns integer
+        local real log_val
+        local real scaled_val
+    
+        if x < 1000 then
+            return 0
+        elseif x >= 13780612.0 then
+            // 전투력 13,780,612 이상일 경우 상수 사용
+            set log_val = log1_1(x / 13780612.0)
+            return FAME_2 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= 117391.0 then
+            // 전투력 117,391 이상일 경우 상수 사용
+            set log_val = log1_1(x / 117391.0)
+            return FAME_1 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= 6727.0 then
+            // 전투력 6,727 이상일 경우 상수 사용
+            set log_val = log1_1(x / 6727.0)
+            return FAME_3 + R2I(1000.0 * log_val + 0.5)
+        else
+            // 기존 계산 방식 사용
+            set log_val = log1_1(x / 1000.0)
+            set scaled_val = 10000.0 + 1000.0 * log_val
+            return R2I(scaled_val + 0.5)
+        endif
+    endfunction
+
     
     function ItemUIStatsSet takes integer pid returns nothing
         local real r =0
         local integer speed = 0
         set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid]
         if GetLocalPlayer() == Player(pid) then
-            //특화
-            //call DzFrameSetText(F_ItemStatsText[3], I2S(R2I(  Equip_Specialization[pid] )) )
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
             //방어등급
             call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
-            call DzFrameSetText(F_ItemStatsText[2], I2S(R2I(  Equip_Crit[pid] )) )
+            call DzFrameSetText(F_ItemStatsText[2], I2S(R2I( Equip_Crit[pid] )) )
             //신속
-            call DzFrameSetText(F_ItemStatsText[3], I2S(R2I(  Equip_Swiftness[pid] )) )
+            call DzFrameSetText(F_ItemStatsText[3], I2S(R2I( Equip_Swiftness[pid] )) )
             //추가피해
-            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I(  Equip_DP[pid] + Arcana_DP[pid] )) + "%" )
+            call DzFrameSetText(F_ItemStatsText[4], I2S(R2I( Equip_WDP[pid] + Arcana_DP[pid] + Equip_ED[pid] )) + "%" )
             //치명타확률
-            call DzFrameSetText(F_ItemStatsText[6], I2S(R2I(  Stats_Crit[pid] )) + "%")
+            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I( Stats_Crit[pid] )) + "%")
             //공격속도
-            call DzFrameSetText(F_ItemStatsText[7], I2S(R2I(  100 + SkillSpeed(pid) )) + "%" )
+            call DzFrameSetText(F_ItemStatsText[6], I2S(R2I( 100 + SkillSpeed(pid) )) + "%" )
             //이동속도
             set speed = R2I(  ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
             if speed > 140 then
                 set speed = 140
             endif
-            call DzFrameSetText(F_ItemStatsText[8], I2S(speed) + "%" )
+            call DzFrameSetText(F_ItemStatsText[7], I2S(speed) + "%" )
             //드랍률
-            call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_Drop[pid] )) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[8], I2S(R2I(  Equip_Drop[pid] )) + "%" ) 
+            //공퍼
+            call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_DamageP[pid] )) + "%" ) 
+            //쿨감
+            call DzFrameSetText(F_ItemStatsText[10], R2S(  (Equip_Swiftness[pid]/46)  ) + "%" ) 
+            //방관
+            call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(  Equip_Penetration[pid] )) + "%" ) 
+            //대미지증가
+            call DzFrameSetText(F_ItemStatsText[12], I2S(R2I(  Equip_DP[pid] )) + "%" ) 
+            //최종대미지증가
+            call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(  Equip_LastDamage[pid] )) + "%" ) 
+            //가상 전투력
+            set r = Power(pid)
+            call DzFrameSetText(F_ItemStatsText[14], R2SW(r, 1, 0) ) 
+            //개척력
+            //call DzFrameSetText(F_ItemStatsText[15], I2S(R2I(  TrailblazePower(r) )) ) 
+            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 0)) 
         endif
         call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
     endfunction
@@ -84,7 +183,7 @@ library StatsSet initializer init requires UIHP, ITEM
                 if itemty == 5 then
                     set quality = GetItemQuality(items)
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
-                    set Equip_DP[pid] = ItemWeaponQuality[quality]
+                    set Equip_WDP[pid] = ItemWeaponQuality[quality]
                 //0모자, 1상의, 2하의, 3장갑, 4견갑
                 elseif itemty >= 0 and itemty <= 4 then
                     set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))

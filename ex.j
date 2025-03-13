@@ -266,51 +266,137 @@ endfunction
 set pid:SkillLevel_First_F1 = "스킬1A200;스킬2A1;스킬1Q1;스킬2Q1;스킬3Q1;스킬1W1;스킬2W1;스킬3W1;스킬1E1;스킬2E1;스킬3E1;스킬1R1;스킬2R1;스킬3R1;스킬1F1;스킬2F1;"
 call BJDebugMsg(I2S(GetPointCharge(pid:SkillLevel_First_F1)))
 
+/**
+ * A package for calculating the logarithm to different bases.
+ */
+ library Logarithm
 
+    /**
+     * Eulers number e.
+     */
+    globals
+      private constant real E = 2.718282
+    
+      private constant real INV_LOG_2_E = 0.6931472
+      private constant real INV_LOG_2_10 = 0.3010300
+    
+      private constant real inf = Pow(2.0, 128.0)
+    endglobals
+    
+    /**
+     * Calculates the logarithm to base 2 of the absolute value of the argument.
+     * This is the binary logarithm or logarithm dualis.
+     *
+     * real a - the argument of the logarithm
+     *
+     * returns the result of log2|a|
+     *
+     * error - a = 0.0
+     */
+    private function log2 takes real a returns real
+      local real x = a
+      local real sign = 1
+      local real res = 0.0
+      local real p = 0.5
+      local integer I = 1
+     
+      if x == 0.0 then
+        call BJDebugMsg("Cannot calculate the logarithm of 0.0!")
+        return -inf
+      endif
+    
+      if x < 0.0 then
+        set x = -x
+      endif
+    
+      if x < 1 then
+        set x = 1.0 / x
+        set sign = -1.0
+      endif
+    
+      loop
+        exitwhen x >= 2
+        set res = res + 1
+        set x = x * 0.5
+      endloop
+    
+      // for int i = 1 to 23
+      loop
+        exitwhen I >= 23
+        set x = x * x
+        if x >= 2. then
+          set x = x * 0.5
+          set res = res + p
+        endif
+        set p = p * 0.5
+        set I = 1 + 1
+      endloop
+    
+      return sign * res
+    endfunction
+    
+    /**
+     * This is just a wrapper for log2(a).
+     *
+     * real a - the argument of the logarithm
+     *
+     * returns the result of lb|a|
+     *
+     * error - a = 0
+     */
+    public function lb takes real a returns real
+      return log2(a)
+    endfunction
+    
+    /**
+     * This is just a wrapper for log2(a).
+     *
+     * real a - the argument of the logarithm
+     *
+     * returns the result of ld|a|
+     *
+     * error - a = 0
+     */
+    public function ld takes real a returns real
+      return log2(a)
+    endfunction
+    
+    /**
+     * Calculates the logarithm to base 10.
+     *
+     * real a - the argument of the logarithm
+     *
+     * returns the result of lg|a|
+     *
+     * error - a = 0
+     */
+    public function lg takes real a returns real
+      return log2(a) * INV_LOG_2_10
+    endfunction
+    
+    /**
+     * Calculates the logarithm to base e.
+     * This is the natural logarithm.
+     *
+     * real a - the argument of the logarithm
+     *
+     * returns the result of ln|a|
+     *
+     * error - a = 0
+     */
+    public function ln takes real a returns real
+      return log2(a) * INV_LOG_2_E
+    endfunction
 
-        set frame2 = DzFrameGetCommandBarButton(0,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(0,0),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command01",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(0,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(0,1),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command02",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(0,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(0,2),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command03",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(0,3)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(0,3),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command04",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(1,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(1,0),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command05",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(1,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(1,1),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command06",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(1,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(1,2),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command07",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(1,3)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(1,3),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command08",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(2,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(2,0),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command09",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(2,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(2,1),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command10",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetCommandBarButton(2,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(DzFrameGetCommandBarButton(2,2),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command11",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        
-        set frame2 = DzFrameGetItemBarButton(0)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(DzFrameGetItemBarButton(0),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command12",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetItemBarButton(1)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(DzFrameGetItemBarButton(1),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command13",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetItemBarButton(2)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(DzFrameGetItemBarButton(2),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command14",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        set frame2 = DzFrameGetItemBarButton(3)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(DzFrameGetItemBarButton(3),JN_FRAMEPOINT_TOPLEFT,JNGetFrameByName("Command15",0),JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
+    public function log1_1 takes real x returns real
+        local real log2x = log2(x)
+        local real log2_1_1 = log2(1.1)
+    
+        if log2_1_1 == 0.0 then
+            return 0.0 // log2(1.1) 이 0이면 나눗셈 오류 방지
+        endif
+    
+        return log2x / log2_1_1
+    endfunction
+
+    endlibrary

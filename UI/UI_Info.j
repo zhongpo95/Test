@@ -1,10 +1,11 @@
 library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount
     globals
         integer F_InfoOpenButton                 //아이템창 여는 버튼
-        integer F_InfoOpenButtonBD                 //아이템창 여는 버튼 백드롭
+        integer F_InfoOpenButtonBD               //아이템창 여는 버튼 백드롭
         integer F_InfoBackDrop                   //인포 배경
-        integer F_InfoCancelButton               //X버튼
+        //integer F_InfoCancelButton             //X버튼
         integer array F_ItemStatsText            //스텟창 텍스트
+        integer F_ItemStatsIcon                  //스텟창 캐릭터 아이콘
         
         boolean array F_InfoOnOff                //인포 온오프
     endglobals
@@ -32,7 +33,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "방어 등급" )
-        set str = "|cFFA5FA7D ◎ |r" + "방어력이 " + "|cFFA5FA7D" + I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) + "|r 증가했습니다.|n"
+        set str = "|cFFA5FA7D ◎ |r" + "방어 등급 " + "|cFFA5FA7D" + I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) + "|r |n"
         set str = str + "|cFFA5FA7D ◎ |r" + "방어 등급 1 차이당 20%의 추가 데미지를 입습니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -46,17 +47,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetText(UI_Tip_Text[1], "치명" )
         set str = "|cFFA5FA7D ◎ |r" + "치명타 적중률이 " + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r 증가했습니다.|n"
         call DzFrameSetText(UI_Tip_Text[2], str )
-    endfunction
-    
-    private function F_ON_Actions4 takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        local string str = ""
-        
-        //call DzFrameShow(UI_Tip, true)
-        //call DzFrameSetText(UI_Tip_Text[1], "특화" )
-        //set str = "|cFFA5FA7D ◎ |r" + "각성 스킬 피해량이 " + "|cFFA5FA7D" + R2S(  (Equip_Specialization[pid]/18)  ) + "%|r 증가했습니다."
-        //call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
     private function F_ON_Actions5 takes nothing returns nothing
@@ -78,7 +68,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "추가 피해" )
-        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Equip_DP[pid] + Arcana_DP[pid]  ) + "%|r"
+        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Equip_WDP[pid] + Arcana_DP[pid] + Equip_ED[pid]  ) + "%|r"
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -89,8 +79,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "치명타 확률" )
-        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r"
-        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid]  ) + "%|r 증가합니다." 
+        set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid] + Equip_CriDeal[pid] ) + "%|r 증가합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -125,6 +115,85 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "추가 드랍률" )
         set str = "|cFFA5FA7D ◎ |r" + "아이템 드랍 확률이 " + "|cFFA5FA7D" + I2S(  R2I(Equip_Drop[pid])  ) + "%|r 증가했습니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions11 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "공격력" )
+        set str = "|cFFA5FA7D ◎ |r" + "공격력이 기본 공격력의 " + "|cFFA5FA7D" + I2S(  R2I(Equip_DamageP[pid])  ) + "%|r 증가했습니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions12 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "쿨타임 감소" )
+        set str = "|cFFA5FA7D ◎ |r" + "신속 스텟에 의해 쿨타임이 " + "|cFFA5FA7D" + R2S(  (Equip_Swiftness[pid]/46)  ) + "%|r 감소합니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions13 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "방어력 관통" )
+        set str = "|cFFA5FA7D ◎ |r" + "대상의 방어력을 " + "|cFFA5FA7D" + I2S(  R2I(Equip_Penetration[pid]) * 100  ) + "%|r 무시합니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions14 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "대미지 증가" )
+        set str = "|cFFA5FA7D ◎ |r" + "가하는 피해가 " + "|cFFA5FA7D" + I2S(  R2I(Equip_DP[pid]) * 100  ) + "%|r 증가합니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions15 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "최종 대미지 증가" )
+        set str = "|cFFA5FA7D ◎ |r" + "최종적으로 가하는 피해가 " + "|cFFA5FA7D" + I2S(  R2I(Equip_LastDamage[pid]) * 100  ) + "%|r 증가합니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions16 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "가상 전투력" )
+        set str = "|cFFA5FA7D ◎ |r" + "스킬과 버프를 제외한 스텟을 가상의 전투력으로 표시합니다."
+        call DzFrameSetText(UI_Tip_Text[2], str )
+    endfunction
+    
+    private function F_ON_Actions17 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string str = ""
+        
+        call DzFrameShow(UI_Tip, true)
+        call DzFrameSetText(UI_Tip_Text[1], "개척력" )
+        set str = "|cFFA5FA7D ◎ |r" + "가상 전투력을 보정한 수치입니다.|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 1000 이상일 경우 표시|n" 
+        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 약 10% 증가할 때마다 개척력이 약 1000 증가합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
         
@@ -491,16 +560,18 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameShow(F_InfoOpenButton, false)
         
         //메뉴 배경
-        set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        call DzFrameSetTexture(F_InfoBackDrop, "File00005255.blp", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
-        call DzFrameSetSize(F_InfoBackDrop, 0.40, 0.27)
+        call DzFrameSetSize(F_InfoBackDrop, 0.40, 0.43)
+
         
         //메뉴 취소 버튼
-        set F_InfoCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_InfoBackDrop, "ScriptDialogButton", 0)
-        call DzFrameSetPoint(F_InfoCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_InfoBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.010, -0.010)
-        call DzFrameSetText(F_InfoCancelButton, "X")
-        call DzFrameSetSize(F_InfoCancelButton, 0.03, 0.03)
-        call DzFrameSetScriptByCode(F_InfoCancelButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
+        //set F_InfoCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_InfoBackDrop, "ScriptDialogButton", 0)
+        //call DzFrameSetPoint(F_InfoCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_InfoBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.010, -0.010)
+        //call DzFrameSetText(F_InfoCancelButton, "X")
+        //call DzFrameSetSize(F_InfoCancelButton, 0.03, 0.03)
+        //call DzFrameSetScriptByCode(F_InfoCancelButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
         
         
         // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12어빌리티스톤
@@ -524,114 +595,187 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         //call CreateEItemButton(13 , 0.150 , - 0.235)
         //call CreateEItemButton(14 , 0.250 , - 0.235)
         
-        set F_ItemStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.155, 0.110)
-        call DzFrameSetText(F_ItemStatsText[5], "기본 정보")
+        set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)
+        call DzFrameSetText(i, "기본 정보")
 
         set F_ItemStatsText[0]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[0], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.090)
+        call DzFrameSetPoint(F_ItemStatsText[0], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.215)
         call DzFrameSetText(F_ItemStatsText[0], "|cFFFFE400공격력")
         
         set F_ItemStatsText[0]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[0], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.090)
+        call DzFrameSetPoint(F_ItemStatsText[0], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.215)
         call DzFrameSetText(F_ItemStatsText[0], "0")
         call DzFrameSetScriptByCode(F_ItemStatsText[0], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions1, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[0], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[1]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.070)
+        call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.195)
         call DzFrameSetText(F_ItemStatsText[1], "|cFFFFE400방어 등급")
         
         set F_ItemStatsText[1]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.070)
+        call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.195)
         call DzFrameSetText(F_ItemStatsText[1], "0")
         call DzFrameSetScriptByCode(F_ItemStatsText[1], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions2, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[1], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         
         set F_ItemStatsText[2]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[2], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.050)
+        call DzFrameSetPoint(F_ItemStatsText[2], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.175)
         call DzFrameSetText(F_ItemStatsText[2], "|cFFFFE400치명")
         
         set F_ItemStatsText[2]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[2], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.050)
+        call DzFrameSetPoint(F_ItemStatsText[2], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.175)
         call DzFrameSetText(F_ItemStatsText[2], "0")
         call DzFrameSetScriptByCode(F_ItemStatsText[2], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions3, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[2], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.030)
+        call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.155)
         call DzFrameSetText(F_ItemStatsText[3], "|cFFFFE400신속")
         
         set F_ItemStatsText[3]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.030)
+        call DzFrameSetPoint(F_ItemStatsText[3], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.155)
         call DzFrameSetText(F_ItemStatsText[3], "0")
         call DzFrameSetScriptByCode(F_ItemStatsText[3], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[3], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
-        //set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        //call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, 0.010)
-        //call DzFrameSetText(F_ItemStatsText[4], "|cFFFFE400신속")
+        set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.135)
+        call DzFrameSetText(i, "추가 정보")
+
+        set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.115)
+        call DzFrameSetText(F_ItemStatsText[4], "|cFFFFE400추가 피해")
         
-        //set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        //call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, 0.010)
-        //call DzFrameSetText(F_ItemStatsText[4], "0")
-        //call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
-        //call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
-        
-        set F_ItemStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.155, -0.010)
-        call DzFrameSetText(F_ItemStatsText[5], "추가 정보")
+        set F_ItemStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[4], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.115)
+        call DzFrameSetText(F_ItemStatsText[4], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions6, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[4], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
 
         set F_ItemStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, -0.030)
-        call DzFrameSetText(F_ItemStatsText[5], "|cFFFFE400추가 피해")
+        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.095)
+        call DzFrameSetText(F_ItemStatsText[5], "|cFFFFE400치명타 확률")
         
         set F_ItemStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, -0.030)
+        call DzFrameSetPoint(F_ItemStatsText[5], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.095)
         call DzFrameSetText(F_ItemStatsText[5], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[5], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions6, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[5], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions7, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[5], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
-
-        set F_ItemStatsText[6]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[6], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, -0.050)
-        call DzFrameSetText(F_ItemStatsText[6], "|cFFFFE400치명타 확률")
         
         set F_ItemStatsText[6]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[6], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, -0.050)
+        call DzFrameSetPoint(F_ItemStatsText[6], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.075)
+        call DzFrameSetText(F_ItemStatsText[6], "|cFFFFE400공격속도")
+        
+        set F_ItemStatsText[6]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[6], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.075)
         call DzFrameSetText(F_ItemStatsText[6], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[6], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions7, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[6], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions8, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[6], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[7]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[7], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, -0.070)
-        call DzFrameSetText(F_ItemStatsText[7], "|cFFFFE400공격속도")
+        call DzFrameSetPoint(F_ItemStatsText[7], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.055)
+        call DzFrameSetText(F_ItemStatsText[7], "|cFFFFE400이동속도")
         
         set F_ItemStatsText[7]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[7], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, -0.070)
+        call DzFrameSetPoint(F_ItemStatsText[7], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.055)
         call DzFrameSetText(F_ItemStatsText[7], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[7], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions8, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[7], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions9, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[7], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[8]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[8], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, -0.090)
-        call DzFrameSetText(F_ItemStatsText[8], "|cFFFFE400이동속도")
+        call DzFrameSetPoint(F_ItemStatsText[8], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.035)
+        call DzFrameSetText(F_ItemStatsText[8], "|cFFFFE400추가 드랍률")
         
         set F_ItemStatsText[8]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[8], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, -0.090)
+        call DzFrameSetPoint(F_ItemStatsText[8], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.035)
         call DzFrameSetText(F_ItemStatsText[8], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[8], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions9, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[8], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions10, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[8], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[9]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[9], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.135, -0.110)
-        call DzFrameSetText(F_ItemStatsText[9], "|cFFFFE400추가 드랍률")
+        call DzFrameSetPoint(F_ItemStatsText[9], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.115)
+        call DzFrameSetText(F_ItemStatsText[9], "|cFFFFE400공격력")
         
         set F_ItemStatsText[9]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_ItemStatsText[9], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_CENTER, -0.050, -0.110)
+        call DzFrameSetPoint(F_ItemStatsText[9], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.115)
         call DzFrameSetText(F_ItemStatsText[9], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[9], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions10, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[9], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions11, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[9], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.095)
+        call DzFrameSetText(F_ItemStatsText[10], "|cFFFFE400쿨타임 감소")
+        
+        set F_ItemStatsText[10]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[10], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.095)
+        call DzFrameSetText(F_ItemStatsText[10], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[10], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions12, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[10], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[11]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[11], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.075)
+        call DzFrameSetText(F_ItemStatsText[11], "|cFFFFE400방어력 관통")
+        
+        set F_ItemStatsText[11]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[11], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.075)
+        call DzFrameSetText(F_ItemStatsText[11], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[11], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions13, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[11], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[12]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[12], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.055)
+        call DzFrameSetText(F_ItemStatsText[12], "|cFFFFE400대미지 증가")
+        
+        set F_ItemStatsText[12]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[12], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.055)
+        call DzFrameSetText(F_ItemStatsText[12], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[12], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions14, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[12], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[13]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[13], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.250, 0.035)
+        call DzFrameSetText(F_ItemStatsText[13], "|cFFFFE400최종 대미지 증가")
+        
+        set F_ItemStatsText[13]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[13], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.325, 0.035)
+        call DzFrameSetText(F_ItemStatsText[13], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[13], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions15, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[13], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[14]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[14], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.215)
+        call DzFrameSetText(F_ItemStatsText[14], "|cFFFFE400가상 전투력")
+        
+        set F_ItemStatsText[14]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[14], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.195)
+        call DzFrameSetText(F_ItemStatsText[14], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[14], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions16, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[14], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[15]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[15], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.175)
+        call DzFrameSetText(F_ItemStatsText[15], "|cFFFFE400개척력")
+        
+        set F_ItemStatsText[15]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[15], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.155)
+        call DzFrameSetText(F_ItemStatsText[15], "0")
+        call DzFrameSetScriptByCode(F_ItemStatsText[15], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions17, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[15], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        
+        set F_ItemStatsText[16]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[16], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.400)
+        call DzFrameSetText(F_ItemStatsText[16], "아이디는가나다라마바사아")
+
+        set F_ItemStatsText[17]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsText[17], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.380)
+        call DzFrameSetText(F_ItemStatsText[17], "킹갓제")
+
+        set F_ItemStatsIcon=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "", FrameCount())
+        call DzFrameSetPoint(F_ItemStatsIcon, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.070, 0.380)
+        call DzFrameSetTexture(F_ItemStatsIcon, "File00005255.blp", 0)
+        call DzFrameSetSize(F_ItemStatsIcon, 0.06, 0.06)
         
         
         call DzFrameShow(F_InfoBackDrop, false)
