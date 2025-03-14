@@ -166,6 +166,22 @@ library StatsSet initializer init requires UIHP, ITEM
         set Equip_Damage[pid] = 0
         set Equip_Crit[pid] = 0
         set Equip_Swiftness[pid] = 0
+        call SaveInteger(ArcanaData, 0, pid, 0)
+        call SaveInteger(ArcanaData, 1, pid, 0)
+        call SaveInteger(ArcanaData, 2, pid, 0)
+        call SaveInteger(ArcanaData, 3, pid, 0)
+        call SaveInteger(ArcanaData, 4, pid, 0)
+        call SaveInteger(ArcanaData, 5, pid, 0)
+        call SaveInteger(ArcanaData, 6, pid, 0)
+        call SaveInteger(ArcanaData, 7, pid, 0)
+        call SaveInteger(ArcanaData, 8, pid, 0)
+        call SaveInteger(ArcanaData, 9, pid, 0)
+        call SaveInteger(ArcanaData, 10, pid, 0)
+        //패널티
+        call SaveInteger(ArcanaData, 50, pid, 0)
+        call SaveInteger(ArcanaData, 51, pid, 0)
+        call SaveInteger(ArcanaData, 52, pid, 0)
+        call SaveInteger(ArcanaData, 53, pid, 0)
         
         loop
             if GetItemIDs(Eitem[pid][i]) != 0 then
@@ -209,6 +225,12 @@ library StatsSet initializer init requires UIHP, ITEM
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     endif
+                    if GetItemCombatBonus2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatBonus1(items), pid, LoadInteger(ArcanaData, GetItemCombatBonus1(items), pid) + GetItemCombatBonus2(items) )
+                    endif
+                    if GetItemCombatPenalty2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatBonus1(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
+                    endif
                     set j = 0
                 //귀걸이,반지
                 elseif itemty == 7 or itemty == 8 then
@@ -224,11 +246,17 @@ library StatsSet initializer init requires UIHP, ITEM
                         set j = GetItemQuality(items)
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     endif
+                    if GetItemCombatBonus2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatBonus1(items), pid, LoadInteger(ArcanaData, GetItemCombatBonus1(items), pid) + GetItemCombatBonus2(items) )
+                    endif
+                    if GetItemCombatPenalty2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatBonus1(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
+                    endif
                     set j = 0
                 endif
                 //각인추가
             endif
-        exitwhen i == 12
+        exitwhen i == 15
             set i = i + 1
         endloop
         

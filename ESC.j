@@ -1,6 +1,6 @@
 scope ESC initializer init
     globals
-        //integer i = 0
+        private integer i = 0
         //string s = "12;1;1;2;3;45;1;3;45;6;1;각인32;각인수치99999;123123;"
         real AAA = 0
         integer BBB = 0
@@ -211,6 +211,16 @@ scope ESC initializer init
         call additem(Player(0), s)
         
         call additem(Player(0),"ID12"+";"+"0")
+
+        set i = i + 1
+        call SaveInteger(ArcanaData, 50, 0, i)
+        call SaveInteger(ArcanaData, 51, 0, i)
+        call SaveInteger(ArcanaData, 52, 0, i)
+        call SaveInteger(ArcanaData, 53, 0, i)
+
+        if i == 5 then
+            set i = 0
+        endif
 
         /*
         if AAA == 0 then

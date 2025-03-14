@@ -96,11 +96,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                         call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), items)
                     endif
                     //열기
-                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcana[ArcanaOption[1]], 0)
+                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcanablp[ArcanaOption[1]], 0)
                     call DzFrameSetText(F_ArcanaText[3], "|c005AD2FF" + ArcanaText[ArcanaOption[1]] + "|r")
-                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcana[ArcanaOption[2]], 0)
+                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcanablp[ArcanaOption[2]], 0)
                     call DzFrameSetText(F_ArcanaText[4], "|c005AD2FF" + ArcanaText[ArcanaOption[2]] + "|r")
-                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcana[ArcanaOption[3]], 0)
+                    call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcanablp[ArcanaOption[3]], 0)
                     call DzFrameSetText(F_ArcanaText[5], "|c00FF0000" + ArcanaText[ArcanaOption[3]] + "|r")
                     set loopA = 0
                     loop
@@ -175,7 +175,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         set F_ArcanaButton2BackDrop[1]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaButton2BackDrop[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_CENTER, -0.12 -0.0425, 0.05 )
         call DzFrameSetSize(F_ArcanaButton2BackDrop[1], 0.040 , 0.040)
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcana[ArcanaOption[1]], 0)
+        call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcanablp[ArcanaOption[1]], 0)
         set F_ArcanaButton2[1]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetScriptByCode(F_ArcanaButton2[1], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_ArcanaButton2[1], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
@@ -184,7 +184,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         set F_ArcanaButton2BackDrop[2]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaButton2BackDrop[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_CENTER, -0.12 -0.0425, 0.05 -0.04125)
         call DzFrameSetSize(F_ArcanaButton2BackDrop[2], 0.040 , 0.040)
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcana[ArcanaOption[2]], 0)
+        call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcanablp[ArcanaOption[2]], 0)
         set F_ArcanaButton2[2]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetScriptByCode(F_ArcanaButton2[2], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_ArcanaButton2[2], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
@@ -193,7 +193,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         set F_ArcanaButton2BackDrop[3]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaButton2BackDrop[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_CENTER, -0.12 -0.0425, 0.03 + (-0.04125 * 2))
         call DzFrameSetSize(F_ArcanaButton2BackDrop[3], 0.040 , 0.040)
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcana[ArcanaOption[3]], 0)
+        call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcanablp[ArcanaOption[3]], 0)
         set F_ArcanaButton2[3]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetScriptByCode(F_ArcanaButton2[3], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_ArcanaButton2[3], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)

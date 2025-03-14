@@ -37,6 +37,26 @@ library Native initializer init
         //각인 각인방어등급, 각인추뎀
         real array Arcana_Defense
         real array Arcana_DP
+
+        //각인
+        hashtable ArcanaData = InitHashtable()
+        real array Arcana_Count0
+        real array Arcana_Count1
+        real array Arcana_Count2
+        real array Arcana_Count3
+        real array Arcana_Count4
+        real array Arcana_Count5
+        real array Arcana_Count6
+        real array Arcana_Count7
+        real array Arcana_Count8
+        real array Arcana_Count9
+        real array Arcana_Count10
+
+        //패널티 각인
+        real array Arcana_Count50
+        real array Arcana_Count51
+        real array Arcana_Count52
+        real array Arcana_Count53
         
         //치명스텟크확, 전투력, 개척력(명성)
         real array Stats_Crit
@@ -82,6 +102,24 @@ private function init takes nothing returns nothing
 
         set Arcana_Defense[pid] = 0
         set Arcana_DP[pid] = 0
+        
+        //플레이어 각인 테이블 초기화
+        call SaveInteger(ArcanaData, 0, pid, 0)
+        call SaveInteger(ArcanaData, 1, pid, 0)
+        call SaveInteger(ArcanaData, 2, pid, 0)
+        call SaveInteger(ArcanaData, 3, pid, 0)
+        call SaveInteger(ArcanaData, 4, pid, 0)
+        call SaveInteger(ArcanaData, 5, pid, 0)
+        call SaveInteger(ArcanaData, 6, pid, 0)
+        call SaveInteger(ArcanaData, 7, pid, 0)
+        call SaveInteger(ArcanaData, 8, pid, 0)
+        call SaveInteger(ArcanaData, 9, pid, 0)
+        call SaveInteger(ArcanaData, 10, pid, 0)
+        //패널티
+        call SaveInteger(ArcanaData, 50, pid, 0)
+        call SaveInteger(ArcanaData, 51, pid, 0)
+        call SaveInteger(ArcanaData, 52, pid, 0)
+        call SaveInteger(ArcanaData, 53, pid, 0)
         
         set pid = pid + 1
         exitwhen pid == bj_MAX_PLAYER_SLOTS

@@ -62,13 +62,13 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                             //열기
                                             if F_StoneOnOff[pid] == false then
                                                 set ArcanaOption[1] = Random1
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcana[ArcanaOption[1]], 0)
+                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcanablp[ArcanaOption[1]], 0)
                                                 call DzFrameSetText(F_ArcanaText[3], "|c005AD2FF" + ArcanaText[ArcanaOption[1]] + "|r")
                                                 set ArcanaOption[2] = Random2
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcana[ArcanaOption[2]], 0)
+                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcanablp[ArcanaOption[2]], 0)
                                                 call DzFrameSetText(F_ArcanaText[4], "|c005AD2FF" + ArcanaText[ArcanaOption[2]] + "|r")
                                                 set ArcanaOption[3] = Random3
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcana[ArcanaOption[3]], 0)
+                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcanablp[ArcanaOption[3]], 0)
                                                 call DzFrameSetText(F_ArcanaText[5], "|c00FF0000" + ArcanaText[ArcanaOption[3]] + "|r")
                                                 set loopA = 0
                                                 loop
