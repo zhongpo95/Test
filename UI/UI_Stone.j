@@ -134,7 +134,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
     endfunction
     
         // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
-        //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8패널티각인, 9패널티각인수치, 10잠금
+        //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
             
@@ -533,11 +533,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                         exitwhen i == 50
                         //비어있는 공간이 있음
                         if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
-                            set items = I2S(11)+";"
-                            set items = SetItemCombat1Bonus1(items,ArcanaOption[1])
-                            set items = SetItemCombat1Bonus2(items,A)
-                            set items = SetItemCombat2Bonus1(items,ArcanaOption[2])
-                            set items = SetItemCombat2Bonus2(items,B)
+                            set items = "ID"+I2S(11)+";"
+                            set items = SetItemCombatBonus1(items,ArcanaOption[1])
+                            set items = SetItemCombatBonus2(items,A)
+                            //set items = SetItemCombat2Bonus1(items,ArcanaOption[2])
+                            //set items = SetItemCombat2Bonus2(items,B)
                             set items = SetItemCombatPenalty(items,ArcanaOption[3])
                             set items = SetItemCombatPenalty2(items,C)
                             call AddIvItem(pid,i,items)

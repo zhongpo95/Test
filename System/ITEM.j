@@ -4,18 +4,31 @@ library ITEM requires DataItem
 
         //0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
-        //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8패널티각인, 9패널티각인수치, 10잠금
+        //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
 
     //아이디
     function GetItemIDs takes string items returns integer
-        return S2I(JNStringSplit(items, ";", 0))
+        local string s = JNStringRegex(items, "ID\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
     endfunction
     //아이디문자열
     function GetItemIDs2 takes string items returns string
-        return JNStringSplit(items, ";", 0)
+        local string s = JNStringRegex(items, "ID\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return s
     endfunction
+
+    //아이디
+    //function GetItemIDs takes string items returns integer
+        //return S2I(JNStringSplit(items, ";", 0))
+    //endfunction
+    //아이디문자열
+    //function GetItemIDs2 takes string items returns string
+        //return JNStringSplit(items, ";", 0)
+    //endfunction
     
     //클래스
     function GetItemClass takes string items returns string
@@ -148,100 +161,68 @@ library ITEM requires DataItem
         return JNStringReplace(items, JNStringRegex(items, "장기\\d+;", 0), "장기"+I2S(i)+";")
     endfunction
 
-    //각인A
-    function GetItemCombat1Bonus1 takes string items returns integer
-        local string s = JNStringRegex(items, "각인A\\d+;", 0)
+    //각인
+    function GetItemCombatBonus1 takes string items returns integer
+        local string s = JNStringRegex(items, "각인\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
-    //각인A 변경 set items = SetItemCombat1Bonus1(items, 변경할수치(정수))
-    function SetItemCombat1Bonus1 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "각인A\\d+;", 0)
+    //각인 변경 set items = SetItemCombatBonus1(items, 변경할수치(정수))
+    function SetItemCombatBonus1 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "각인\\d+;", 0)
         if s == "" then
-            return items + "각인A"+I2S(i)+";"
+            return items + "각인"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "각인A\\d+;", 0), "각인A"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "각인\\d+;", 0), "각인"+I2S(i)+";")
     endfunction
 
-    //각인 A 수치
-    function GetItemCombat1Bonus2 takes string items returns integer
-        local string s = JNStringRegex(items, "각인A수치\\d+;", 0)
+    //각인 수치
+    function GetItemCombatBonus2 takes string items returns integer
+        local string s = JNStringRegex(items, "각인수치\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
-    //각인 A 수치 변경 set items = SetItemCombat1Bonus2(items, 변경할수치(정수))
-    function SetItemCombat1Bonus2 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "각인A수치\\d+;", 0)
+    //각인 수치 변경 set items = SetItemCombatBonus2(items, 변경할수치(정수))
+    function SetItemCombatBonus2 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "각인수치\\d+;", 0)
         if s == "" then
-            return items + "각인A수치"+I2S(i)+";"
+            return items + "각인수치"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "각인A수치\\d+;", 0), "각인A수치"+I2S(i)+";")
-    endfunction
-
-    //각인B
-    function GetItemCombat2Bonus1 takes string items returns integer
-        local string s = JNStringRegex(items, "각인B\\d+;", 0)
-        set s = JNStringRegex(s, "\\d+", 0)
-        return S2I(s)
-    endfunction
-
-    //각인B 변경 set items = SetItemCombat2Bonus1(items, 변경할수치(정수))
-    function SetItemCombat2Bonus1 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "각인B\\d+;", 0)
-        if s == "" then
-            return items + "각인B"+I2S(i)+";"
-        endif
-        return JNStringReplace(items, JNStringRegex(items, "각인B\\d+;", 0), "각인B"+I2S(i)+";")
-    endfunction
-
-    //각인B수치
-    function GetItemCombat2Bonus2 takes string items returns integer
-        local string s = JNStringRegex(items, "각인B수치\\d+;", 0)
-        set s = JNStringRegex(s, "\\d+", 0)
-        return S2I(s)
-    endfunction
-
-    //각인B수치 set items = SetItemCombat2Bonus2(items, 변경할수치(정수))
-    function SetItemCombat2Bonus2 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "각인B수치\\d+;", 0)
-        if s == "" then
-            return items + "각인B수치"+I2S(i)+";"
-        endif
-        return JNStringReplace(items, JNStringRegex(items, "각인B수치\\d+;", 0), "각인B수치"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "각인수치\\d+;", 0), "각인수치"+I2S(i)+";")
     endfunction
 
     //각인패널티
     function GetItemCombatPenalty takes string items returns integer
-        local string s = JNStringRegex(items, "패널티각인\\d+;", 0)
+        local string s = JNStringRegex(items, "각인P\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
     //각인패널티 변경 set items = SetItemCombatPenalty(items, 변경할수치(정수))
     function SetItemCombatPenalty takes string items, integer i returns string
-        local string s = JNStringRegex(items, "패널티각인\\d+;", 0)
+        local string s = JNStringRegex(items, "각인P\\d+;", 0)
         if s == "" then
-            return items + "패널티각인"+I2S(i)+";"
+            return items + "각인P"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "패널티각인\\d+;", 0), "패널티각인"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "각인P\\d+;", 0), "각인P"+I2S(i)+";")
     endfunction
 
     //각인패널티 수치
     function GetItemCombatPenalty2 takes string items returns integer
-        local string s = JNStringRegex(items, "패널티각인수치\\d+;", 0)
+        local string s = JNStringRegex(items, "각인P수치\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
     //각인패널티 수치 변경 set items = SetItemCombatPenalty2(items, 변경할수치(정수))
     function SetItemCombatPenalty2 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "패널티각인수치\\d+;", 0)
+        local string s = JNStringRegex(items, "각인P수치\\d+;", 0)
         if s == "" then
-            return items + "패널티각인수치"+I2S(i)+";"
+            return items + "각인P수치"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "패널티각인수치\\d+;", 0), "패널티각인수치"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "각인P수치\\d+;", 0), "각인P수치"+I2S(i)+";")
     endfunction
 
     //잠금 확인

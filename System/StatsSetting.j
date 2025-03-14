@@ -1,23 +1,23 @@
 library StatsSet initializer init requires UIHP, ITEM
     function SkillSpeed takes integer pid returns real
-        if (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] >= 40 then
+        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] >= 40 then
             return 40.00
         endif
-        return (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid]
+        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid]
     endfunction
     
     function SkillSpeed2 takes integer pid, real PlusSpeed returns real
-        if (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] >= 40 then
+        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] >= 40 then
             return 40.00 + PlusSpeed
         endif
-        return (Equip_Swiftness[pid]/40) + Hero_BuffAttackSpeed[pid] + PlusSpeed
+        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + PlusSpeed
     endfunction
 
     function SwiftnessSpeed takes integer pid returns real
-        if (Equip_Swiftness[pid]/40) >= 40 then
+        if (Equip_Swiftness[pid]/45) >= 40 then
             return 40.00
         endif
-        return (Equip_Swiftness[pid]/40)
+        return (Equip_Swiftness[pid]/45)
     endfunction
 
     //전투력
@@ -125,7 +125,7 @@ library StatsSet initializer init requires UIHP, ITEM
             //공격속도
             call DzFrameSetText(F_ItemStatsText[6], I2S(R2I( 100 + SkillSpeed(pid) )) + "%" )
             //이동속도
-            set speed = R2I(  ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
+            set speed = R2I(  ((Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] ) )
             if speed > 140 then
                 set speed = 140
             endif
@@ -149,7 +149,7 @@ library StatsSet initializer init requires UIHP, ITEM
             //call DzFrameSetText(F_ItemStatsText[15], I2S(R2I(  TrailblazePower(r) )) ) 
             call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 0)) 
         endif
-        call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/40) + 100 + Hero_BuffMoveSpeed[pid] ) )
+        call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] ) )
     endfunction
     
     function PlayerStatsSet takes integer pid returns nothing
@@ -175,7 +175,7 @@ library StatsSet initializer init requires UIHP, ITEM
                 set up = GetItemUp(items)
                 
                 // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지
-                //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인2, 6패널티각인
+                //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인2, 6각인P
                 //목걸이 0품0, 1품질 5당 추가량
                 //기타 0아이템아이디, 1중첩수
                 
@@ -187,6 +187,7 @@ library StatsSet initializer init requires UIHP, ITEM
                 //0모자, 1상의, 2하의, 3장갑, 4견갑
                 elseif itemty >= 0 and itemty <= 4 then
                     set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
+                //목걸이
                 elseif itemty == 6 then
                 //목걸이 0품0, 1품질 5당 추가량
                     // j특성
@@ -209,6 +210,7 @@ library StatsSet initializer init requires UIHP, ITEM
                         set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
                     endif
                     set j = 0
+                //귀걸이,반지
                 elseif itemty == 7 or itemty == 8 then
                     // j특성
                     set j = GetItemCombatStats(items)

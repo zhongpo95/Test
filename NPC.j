@@ -18,7 +18,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
             set Random2 = loopA
             exitwhen loopA != Random1
         endloop
-        //패널티각인
+        //각인P
          set Random3 = GetRandomInt(50,53)
                                             
         if ( GetTriggerPlayer() == GetLocalPlayer() ) then

@@ -63,131 +63,131 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set items = Eitem[pid][F_EnchantSelectNumber]
             set itemid = GetItemIDs(items)
             if itemid == 2 then
-                set items = "17;"
+                 set items = "ID17;"
                 set itemid = 17
             elseif itemid == 3 then
-                set items = "18;"
+                 set items = "ID18;"
                 set itemid = 18
             elseif itemid == 4 then
-                set items = "19;"
+                 set items = "ID19;"
                 set itemid = 19
             elseif itemid == 6 then
-                set items = "20;"
+                 set items = "ID20;"
                 set itemid = 20
             elseif itemid == 5 then
-                set items = "21;"
+                 set items = "ID21;"
                 set itemid = 21
             elseif itemid == 1 then
-                set items = "22;"
+                 set items = "ID22;"
                 set itemid = 22
             elseif itemid == 17 then
-                set items = "23;"
+                 set items = "ID23;"
                 set itemid = 23
             elseif itemid == 18 then
-                set items = "24;"
+                 set items = "ID24;"
                 set itemid = 24
             elseif itemid == 19 then
-                set items = "25;"
+                 set items = "ID25;"
                 set itemid = 25
             elseif itemid == 20 then
-                set items = "26;"
+                 set items = "ID26;"
                 set itemid = 26
             elseif itemid == 21 then
-                set items = "27;"
+                 set items = "ID27;"
                 set itemid = 27
             elseif itemid == 22 then
-                set items = "28;"
+                 set items = "ID28;"
                 set itemid = 28
             elseif itemid == 23 then
-                set items = "29;"
+                 set items = "ID29;"
                 set itemid = 29
             elseif itemid == 24 then
-                set items = "30;"
+                 set items = "ID30;"
                 set itemid = 30
             elseif itemid == 25 then
-                set items = "31;"
+                 set items = "ID31;"
                 set itemid = 31
             elseif itemid == 26 then
-                set items = "32;"
+                 set items = "ID32;"
                 set itemid = 32
             elseif itemid == 27 then
-                set items = "33;"
+                 set items = "ID33;"
                 set itemid = 33
             elseif itemid == 28 then
-                set items = "34;"
+                 set items = "ID34;"
                 set itemid = 34
             elseif itemid == 29 then
-                set items = "35;"
+                 set items = "ID35;"
                 set itemid = 35
             elseif itemid == 30 then
-                set items = "36;"
+                 set items = "ID36;"
                 set itemid = 36
             endif
             if itemid == 31 then
-                set items = "37;"
+                 set items = "ID37;"
                 set itemid = 37
             elseif itemid == 32 then
-                set items = "38;"
+                 set items = "ID38;"
                 set itemid = 38
             elseif itemid == 33 then
-                set items = "39;"
+                 set items = "ID39;"
                 set itemid = 39
             elseif itemid == 34 then
-                set items = "40;"
+                 set items = "ID40;"
                 set itemid = 40
             elseif itemid == 35 then
-                set items = "41;"
+                 set items = "ID41;"
                 set itemid = 41
             elseif itemid == 36 then
-                set items = "42;"
+                 set items = "ID42;"
                 set itemid = 42
             elseif itemid == 37 then
-                set items = "43;"
+                 set items = "ID43;"
                 set itemid = 43
             elseif itemid == 38 then
-                set items = "44;"
+                 set items = "ID44;"
                 set itemid = 44
             elseif itemid == 39 then
-                set items = "45;"
+                 set items = "ID45;"
                 set itemid = 45
             elseif itemid == 40 then
-                set items = "46;"
+                 set items = "ID46;"
                 set itemid = 46
             elseif itemid == 41 then
-                set items = "47;"
+                 set items = "ID47;"
                 set itemid = 47
             elseif itemid == 42 then
-                set items = "48;"
+                 set items = "ID48;"
                 set itemid = 48
             elseif itemid == 43 then
-                set items = "49;"
+                 set items = "ID49;"
                 set itemid = 49
             elseif itemid == 44 then
-                set items = "50;"
+                 set items = "ID50;"
                 set itemid = 50
             elseif itemid == 45 then
-                set items = "51;"
+                 set items = "ID51;"
                 set itemid = 51
             elseif itemid == 46 then
-                set items = "52;"
+                 set items = "ID52;"
                 set itemid = 52
             elseif itemid == 47 then
-                set items = "53;"
+                 set items = "ID53;"
                 set itemid = 53
             elseif itemid == 48 then
-                set items = "54;"
+                 set items = "ID54;"
                 set itemid = 54
             elseif itemid == 49 then
-                set items = "55;"
+                 set items = "ID55;"
                 set itemid = 55
             elseif itemid == 50 then
-                set items = "56;"
+                 set items = "ID56;"
                 set itemid = 56
             elseif itemid == 51 then
-                set items = "57;"
+                 set items = "ID57;"
                 set itemid = 57
             elseif itemid == 52 then
-                set items = "58;"
+                 set items = "ID58;"
                 set itemid = 58
             endif
         
@@ -197,7 +197,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         
         // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
-        //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8패널티각인, 9패널티각인수치, 10잠금
+        //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
                 
@@ -351,132 +351,132 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             endif
                             
                             if i == 2 then
-                                set items = "17;"
+                                 set items = "ID17;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 3 then
-                                set items = "18;"
+                                 set items = "ID18;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 4 then
-                                set items = "19;"
+                                 set items = "ID19;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 6 then
-                                set items = "20;"
+                                 set items = "ID20;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 5 then
-                                set items = "21;"
+                                 set items = "ID21;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 1 then
-                                set items = "22;"
+                                 set items = "ID22;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 17 then
-                                set items = "23;"
+                                 set items = "ID23;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 18 then
-                                set items = "24;"
+                                 set items = "ID24;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 19 then
-                                set items = "25;"
+                                 set items = "ID25;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 20 then
-                                set items = "26;"
+                                 set items = "ID26;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 21 then
-                                set items = "27;"
+                                 set items = "ID27;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 22 then
-                                set items = "28;"
+                                 set items = "ID28;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 23 then
-                                set items = "29;"
+                                 set items = "ID29;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 24 then
-                                set items = "30;"
+                                 set items = "ID30;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 25 then
-                                set items = "31;"
+                                 set items = "ID31;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 26 then
-                                set items = "32;"
+                                 set items = "ID32;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 27 then
-                                set items = "33;"
+                                 set items = "ID33;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 28 then
-                                set items = "34;"
+                                 set items = "ID34;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 29 then
-                                set items = "35;"
+                                 set items = "ID35;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 30 then
-                                set items = "36;"
+                                 set items = "ID36;"
                                 set items = SetItemQuality(items, quality)
                             endif
                             
                             if i == 31 then
-                                set items = "37;"
+                                 set items = "ID37;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 32 then
-                                set items = "38;"
+                                 set items = "ID38;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 33 then
-                                set items = "39;"
+                                 set items = "ID39;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 34 then
-                                set items = "40;"
+                                 set items = "ID40;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 35 then
-                                set items = "41;"
+                                 set items = "ID41;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 36 then
-                                set items = "42;"
+                                 set items = "ID42;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 37 then
-                                set items = "43;"
+                                 set items = "ID43;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 38 then
-                                set items = "44;"
+                                 set items = "ID44;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 39 then
-                                set items = "45;"
+                                 set items = "ID45;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 40 then
-                                set items = "46;"
+                                 set items = "ID46;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 41 then
-                                set items = "47;"
+                                 set items = "ID47;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 42 then
-                                set items = "48;"
+                                 set items = "ID48;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 43 then
-                                set items = "49;"
+                                 set items = "ID49;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 44 then
-                                set items = "50;"
+                                 set items = "ID50;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 45 then
-                                set items = "51;"
+                                 set items = "ID51;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 46 then
-                                set items = "52;"
+                                 set items = "ID52;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 47 then
-                                set items = "53;"
+                                 set items = "ID53;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 48 then
-                                set items = "54;"
+                                 set items = "ID54;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 49 then
-                                set items = "55;"
+                                 set items = "ID55;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 50 then
-                                set items = "56;"
+                                 set items = "ID56;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 51 then
-                                set items = "57;"
+                                 set items = "ID57;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 52 then
-                                set items = "58;"
+                                 set items = "ID58;"
                                 set items = SetItemQuality(items, quality)
                             endif
                             
@@ -579,7 +579,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             set fate = 0
                             set up = up + 1
                             set trycount = 0
-                            set items = I2S(i)+";"
+                            set items = "ID"+I2S(i)+";"
                             set items = SetItemQuality(items, quality)
                             set items = SetItemUp(items, up)
                             set items = SetItemTrycount(items, trycount)
@@ -598,7 +598,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             if fate >= 10000 then
                                 set fate = 10000
                             endif
-                            set items = I2S(i)+";"
+                            set items = "ID"+I2S(i)+";"
                             set items = SetItemQuality(items, quality)
                             set items = SetItemUp(items, up)
                             set items = SetItemTrycount(items, trycount)
@@ -657,7 +657,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         set fate = 0
                                         set up = up + 1
                                         set trycount = 0
-                                        set items = I2S(i)+";"
+                                        set items = "ID"+I2S(i)+";"
                                         set items = SetItemQuality(items, quality)
                                         set items = SetItemUp(items, up)
                                         set items = SetItemTrycount(items, trycount)
@@ -676,7 +676,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         if fate >= 10000 then
                                             set fate = 10000
                                         endif
-                                        set items = I2S(i)+";"
+                                        set items = "ID"+I2S(i)+";"
                                         set items = SetItemQuality(items, quality)
                                         set items = SetItemUp(items, up)
                                         set items = SetItemTrycount(items, trycount)

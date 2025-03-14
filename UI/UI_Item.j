@@ -183,7 +183,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
-            //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8패널티각인, 9패널티각인수치, 10잠금
+            //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
@@ -238,14 +238,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 7 then
                 set str = str + "귀걸이|n|n"
@@ -261,14 +258,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 8 then
                 set str = str + "반지|n|n"
@@ -284,14 +278,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 9 then
                 set str = str + "팔찌|n"
@@ -300,14 +291,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 set str = str + "|n|cFFB9E2FA체력 + "
                 set str = str + "0"
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             endif
             
@@ -412,7 +400,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
-            //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8패널티각인, 9패널티각인수치, 10잠금
+            //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
@@ -467,14 +455,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 7 then
                 set str = str + "귀걸이|n|n"
@@ -490,14 +475,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 8 then
                 set str = str + "반지|n|n"
@@ -513,14 +495,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 9 then
                 set str = str + "팔찌|n"
@@ -529,14 +508,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 set str = str + "|n|cFFB9E2FA체력 + "
                 set str = str + "0"
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             endif
             
@@ -1055,10 +1031,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
 
             // 0무기, 1모자, 2상의, 3하의, 4장갑, 5견갑, 6목걸이, 7귀걸이, 8반지
             
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12어빌리티스톤
+            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드
             
             //장착
             if i == 1 then
+                //귀걸이
                 if itemty == 7 then
                     set etyid1 = GetItemIDs(Eitem[pid][7])
                     set etyid2 = GetItemIDs(Eitem[pid][8])
@@ -1067,6 +1044,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         //장착
                         set Eitem[pid][7] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], GetItemArt(items), 0)
                         //인벤에서 제거
                         call DzFrameShow(UI_Tip, false)
                         call RemoveItem2(pid, F_ItemClickNumber, false)
@@ -1076,6 +1054,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         //장착
                         set Eitem[pid][8] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[8], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[2], GetItemArt(items), 0)
                         //인벤에서 제거
                         call DzFrameShow(UI_Tip, false)
                         call RemoveItem2(pid, F_ItemClickNumber, false)
@@ -1086,12 +1065,14 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         set items2 = Eitem[pid][7]
                         set Eitem[pid][7] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
                     endif
+                //반지
                 elseif itemty == 8 then
                     set etyid1 = GetItemIDs(Eitem[pid][9])
                     set etyid2 = GetItemIDs(Eitem[pid][10])
@@ -1100,6 +1081,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         //장착
                         set Eitem[pid][9] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
@@ -1109,6 +1091,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         //장착
                         set Eitem[pid][10] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[10], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[4], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
@@ -1119,18 +1102,21 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         set items2 = Eitem[pid][9]
                         set Eitem[pid][9] = items
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
                         call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
                     endif
+                //카드
                 elseif itemty == 10 then
                     if GetItemIDs(Eitem[pid][12]) == 0 then
                         //장착
                         set Eitem[pid][12] = items
                         //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
@@ -1142,6 +1128,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         set Eitem[pid][12] = items
                         //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
@@ -1154,6 +1141,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         set Eitem[pid][itemty] = items
                         //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
+                        if itemty == 6 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
+                        endif
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
@@ -1165,6 +1155,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                         set Eitem[pid][itemty] = items
                         //set i = GetItemIDs(items)
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
+                        if itemty == 6 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
+                        endif
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)

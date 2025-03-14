@@ -191,16 +191,16 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         call SuccessStart(GetEnumUnit())
         call RewardStart(GetEnumUnit())
         //확정드랍
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "14"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
         //확률드랍
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
     endfunction
 
     private function EffectFunction2 takes nothing returns nothing

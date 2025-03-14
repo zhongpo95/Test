@@ -1,7 +1,7 @@
 scope ESC initializer init
     globals
         //integer i = 0
-        //string s = "12;1;1;2;3;45;1;3;45;6;1;각인A32;각인A수치99999;123123;"
+        //string s = "12;1;1;2;3;45;1;3;45;6;1;각인32;각인수치99999;123123;"
         real AAA = 0
         integer BBB = 0
         integer BBBF
@@ -31,20 +31,28 @@ scope ESC initializer init
         /*
         local integer i = 0
 
-        set s = "7;"
+        //목
+        set s = "ID7;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
-        set s = "8;"
+        //귀
+        set s = "ID8;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
-        set s = "10;"
+        //반
+        set s = "ID10;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
         set s = SetItemQuality(s, (Quality.pick(false)-1) )
         call additem(Player(0), s)
+        */
+
         //call BJDebugMsg(JNStringRegex(s, "품질\\d+;", 0))
         //set s = JNStringReplace(s, JNStringRegex(s, "품질\\d+;", 0), "품질22;")
+        
+
+        /*
         //call BJDebugMsg("바꾼후 : "+s)
         //call BJDebugMsg("ESC")
         //call TodayQuestPlus(0)
@@ -185,6 +193,26 @@ scope ESC initializer init
         local string name
 
         
+        //목
+        set s = "ID7;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,3))
+        //set s = SetItemQuality(s, (Quality.pick(false)-1) )
+        set s = SetItemQuality(s, 20 )
+        call additem(Player(0), s)
+        //귀
+        set s = "ID8;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,2))
+        set s = SetItemQuality(s, 20 )
+        call additem(Player(0), s)
+        //반
+        set s = "ID10;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,2))
+        set s = SetItemQuality(s, 20 )
+        call additem(Player(0), s)
+        
+        call additem(Player(0),"ID12"+";"+"0")
+
+        /*
         if AAA == 0 then
             set Equip_Swiftness[0] = 600
             call ItemUIStatsSet(0)
@@ -211,8 +239,8 @@ scope ESC initializer init
             call BJDebugMsg("신속0")
             set AAA = 0
         endif
-
-        call BJDebugMsg("1")
+        */
+        /*
         call BJDebugMsg("전투력 : 1000 , 명성 : "+ I2S(TrailblazePower(1000)))
         call BJDebugMsg("전투력 : 1100 , 명성 : "+ I2S(TrailblazePower(1100)))
         call BJDebugMsg("전투력 : 1210 , 명성 : "+ I2S(TrailblazePower(1210)))
@@ -237,8 +265,8 @@ scope ESC initializer init
         call BJDebugMsg("전투력 : 2000000 , 명성 : "+ I2S(TrailblazePower(2000000)))
         call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
         call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        */
         
-        call BJDebugMsg("2")
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing

@@ -18,6 +18,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                     exitwhen i == 100
                     //보유중
                     if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == itemid then
+                        call BJDebugMsg("보유중")
                         set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0"))
                         set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")
                         set items = SetItemCharge(items,j+1)
@@ -34,9 +35,12 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                         exitwhen i == 100
                         //비어있는 공간이 있음
                         if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
-                            set items = GetItemIDs2(items)
+                            set items = "ID"+itemidstring + ";"
+                            call BJDebugMsg("보유X 아이템전체코드1: "+ items)
                             set items = SetItemCharge(items,1)
+                            call BJDebugMsg("보유X 아이템전체코드2: "+ items)
                             call AddIvItem(pid,i,items)
+                            call BJDebugMsg("보유X 아이템전체코드3: "+ items)
                             set i = 99
                         endif
                         set i = i + 1

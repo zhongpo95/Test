@@ -255,16 +255,6 @@ endfunction
 
 endscope
 
-function GetPointCharge takes string point returns integer
-    local string s = JNStringRegex(point, "스킬1A\\d+;", 0)
-    s = "스킬1A200" 처음 s
-    set s = JNStringRegex(s, "\\d+", 0)
-    s = "1"반환된s는 스킬1A200 에서 제일처음 숫자만 가져옴 스킬1A200 에서 제일처음 숫자는 1 그래서 1
-    return S2I(s)
-endfunction
-
-set pid:SkillLevel_First_F1 = "스킬1A200;스킬2A1;스킬1Q1;스킬2Q1;스킬3Q1;스킬1W1;스킬2W1;스킬3W1;스킬1E1;스킬2E1;스킬3E1;스킬1R1;스킬2R1;스킬3R1;스킬1F1;스킬2F1;"
-call BJDebugMsg(I2S(GetPointCharge(pid:SkillLevel_First_F1)))
 
 /**
  * A package for calculating the logarithm to different bases.

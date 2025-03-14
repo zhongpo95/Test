@@ -210,7 +210,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         local integer tier = 0
         local item tem
         
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12어빌리티스톤
+        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
         if f ==  F_EItemButtons[0] then
             set items = Eitem[pid][0]
             set itemid = GetItemIDs(Eitem[pid][0])
@@ -243,14 +243,14 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "장갑" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
-        elseif f ==  F_EItemButtons[4] then
-            set items = Eitem[pid][4]
-            set itemid =GetItemIDs(Eitem[pid][4])
-            if itemid == 0 then
-                call DzFrameShow(UI_Tip, true)
-                call DzFrameSetText(UI_Tip_Text[1], "견갑" )
-                call DzFrameSetText(UI_Tip_Text[2], "")
-            endif
+        //elseif f ==  F_EItemButtons[4] then
+            //set items = Eitem[pid][4]
+            //set itemid =GetItemIDs(Eitem[pid][4])
+            //if itemid == 0 then
+                //call DzFrameShow(UI_Tip, true)
+                //call DzFrameSetText(UI_Tip_Text[1], "견갑" )
+                //call DzFrameSetText(UI_Tip_Text[2], "")
+            //endif
         elseif f ==  F_EItemButtons[5] then
             set items = Eitem[pid][5]
             set itemid = GetItemIDs(Eitem[pid][5])
@@ -312,7 +312,23 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
             set itemid = GetItemIDs(Eitem[pid][12])
             if itemid == 0 then
                 call DzFrameShow(UI_Tip, true)
-                call DzFrameSetText(UI_Tip_Text[1], "어빌리티 스톤" )
+                call DzFrameSetText(UI_Tip_Text[1], "카드" )
+                call DzFrameSetText(UI_Tip_Text[2], "")
+            endif
+        elseif f ==  F_EItemButtons[13] then
+            set items = Eitem[pid][13]
+            set itemid = GetItemIDs(Eitem[pid][13])
+            if itemid == 0 then
+                call DzFrameShow(UI_Tip, true)
+                call DzFrameSetText(UI_Tip_Text[1], "보석" )
+                call DzFrameSetText(UI_Tip_Text[2], "")
+            endif
+        elseif f ==  F_EItemButtons[14] then
+            set items = Eitem[pid][14]
+            set itemid = GetItemIDs(Eitem[pid][14])
+            if itemid == 0 then
+                call DzFrameShow(UI_Tip, true)
+                call DzFrameSetText(UI_Tip_Text[1], "보석2" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         endif
@@ -331,7 +347,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드, 11보석, 12보석2
             if i == 0 then
                 set str = str + "모자|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
@@ -385,14 +401,11 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 7 then
                 set str = str + "귀걸이|n|n"
@@ -408,14 +421,11 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 8 then
                 set str = str + "반지|n|n"
@@ -431,14 +441,11 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
             elseif i == 9 then
                 set str = str + "팔찌|n|n"
@@ -446,15 +453,16 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 set str = str + "카드|n|n"
                 set str = str + "|n|cFFB9E2FA체력 + "
                 set str = str + "0"
-                if GetItemCombat1Bonus2(items) + GetItemCombat2Bonus2(items) + GetItemCombatPenalty2(items) > 0 then
+                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombat1Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat1Bonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatPenalty2(items))
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + I2S(GetItemCombatBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
                 endif
+            elseif i == 11 then
+                set str = str + "보석|n|n"
+            elseif i == 12 then
+                set str = str + "보석2|n|n"
             endif
             
             call DzFrameSetText(UI_Tip_Text[2], str)
@@ -493,6 +501,21 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                         //장착 해제
                         set Eitem[pid][selectnumber2] = ""
                         call DzFrameSetTexture(F_EItemButtonsBackDrop[selectnumber2], "UI_Inventory.blp", 0)
+
+                        if selectnumber2 == 12 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], "UI_Inventory.blp", 0)
+                        elseif selectnumber2 == 6 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], "UI_Inventory.blp", 0)
+                        elseif selectnumber2 == 7 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], "UI_Inventory.blp", 0)
+                        elseif selectnumber2 == 8 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[2], "UI_Inventory.blp", 0)
+                        elseif selectnumber2 == 9 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], "UI_Inventory.blp", 0)
+                        elseif selectnumber2 == 10 then
+                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[4], "UI_Inventory.blp", 0)
+                        endif
+
                         //인벤에서 추가
                         call AddIvItem(pid,j,items)
                         set F_ItemClickNumber = 200
@@ -516,7 +539,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
     //장비 빈 버튼 아이콘 생성 함수
     private function CreateEItemButton takes integer types, real x, real y returns nothing
         set F_EItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_InfoBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EItemButtons[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
+        call DzFrameSetPoint(F_EItemButtons[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
         call DzFrameSetSize(F_EItemButtons[types], 0.030, 0.030)
         
         set F_EItemButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_EItemButtons[types], "", FrameCount())
@@ -532,14 +555,19 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
     
     
     private function InfoOpen takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
         //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
-        if F_InfoOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
+        if F_InfoOnOff[pid] == true then
             call DzFrameShow(F_InfoBackDrop, false)
-            set F_InfoOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
+            set F_InfoOnOff[pid] = false
         else
+            if F_ArcanaOnOff[pid] == true then
+                call DzFrameShow(F_ArcanaBackDrop, false)
+                set F_ArcanaOnOff[pid] = false
+            endif
             call DzFrameShow(F_InfoBackDrop, true)
-            set F_InfoOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
+            set F_InfoOnOff[pid] = true
         endif
     endfunction
     
@@ -574,26 +602,29 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         //call DzFrameSetScriptByCode(F_InfoCancelButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
         
         
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12어빌리티스톤
+        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
         
-        call CreateEItemButton(0 , 0.270 , - 0.080)
-        call CreateEItemButton(1 , 0.270 , - 0.115)
-        call CreateEItemButton(2 , 0.270 , - 0.150)
-        call CreateEItemButton(3 , 0.310 , - 0.150)
-        call CreateEItemButton(4 , 0.310 , - 0.115)
-        call CreateEItemButton(5 , 0.230 , - 0.150)
+        call CreateEItemButton(5 , 0.040 , 0.320)
+        call CreateEItemButton(0 , 0.080 , 0.320)
+        call CreateEItemButton(1 , 0.120 , 0.320)
+        call CreateEItemButton(2 , 0.160 , 0.320)
+        call CreateEItemButton(3 , 0.200 , 0.320)
+
+        //call CreateEItemButton(4 , 0.310 , 0.320)
         
-        call CreateEItemButton(6 , 0.350 , - 0.080)
-        call CreateEItemButton(7 , 0.350 , - 0.115)
-        call CreateEItemButton(8 , 0.350 , - 0.150)
-        call CreateEItemButton(9 , 0.350 , - 0.185)
-        call CreateEItemButton(10 , 0.350 , - 0.220)
+        call CreateEItemButton(6 , 0.040 , 0.280)
+        call CreateEItemButton(7 , 0.080 , 0.280)
+        call CreateEItemButton(8 , 0.120 , 0.280)
+        call CreateEItemButton(9 , 0.160 , 0.280)
+        call CreateEItemButton(10 , 0.200 , 0.280)
 
 
-        call CreateEItemButton(11 , 0.310 , - 0.220)
-        call CreateEItemButton(12 , 0.270 , - 0.220)
-        //call CreateEItemButton(13 , 0.150 , - 0.235)
-        //call CreateEItemButton(14 , 0.250 , - 0.235)
+        call CreateEItemButton(11 , 0.275 , 0.320)
+        call CreateEItemButton(12 , 0.350 , 0.320)
+
+        call CreateEItemButton(13 , 0.255 , 0.280)
+        call CreateEItemButton(14 , 0.295 , 0.280)
+        call CreateEItemButton(15 , 0.350 , 0.280)
         
         set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)
@@ -798,6 +829,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                         call DzFrameShow(F_InfoBackDrop, false)
                         set F_InfoOnOff[j] = false
                     else
+                        if F_ArcanaOnOff[j] == true then
+                            call DzFrameShow(F_ArcanaBackDrop, false)
+                            set F_ArcanaOnOff[j] = false
+                        endif
                         call DzFrameShow(F_InfoBackDrop, true)
                         set F_InfoOnOff[j] = true
                     endif
