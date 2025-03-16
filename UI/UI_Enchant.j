@@ -221,35 +221,35 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
             if i == 0 then
                 set str = str + "모자|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 1 then
                 set str = str + "상의|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 2 then
                 set str = str + "하의|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 3 then
                 set str = str + "장갑|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 4 then
                 set str = str + "견갑|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 5 then
                 set str = str + "무기|n"
-                set str = str + "|n|c005AD2FF[ 효과 ]|r|n"
+                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                set str = str + "|n|n|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                set str = str + "|n|n|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                 set str = str + "  |cFFB9E2FA추가 피해|r +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
             endif

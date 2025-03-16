@@ -240,4 +240,54 @@ library ITEM requires DataItem
         endif
         return JNStringReplace(items, JNStringRegex(items, "잠금\\d+;", 0), "잠금"+I2S(i)+";")
     endfunction
+
+    //카드 앞수치
+    function GetItemCardBonus1 takes string items returns integer
+        local string s = JNStringRegex(items, "A\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
+    endfunction
+
+    //카드 앞수치 변경 set items = SetItemCombatBonus2(items, 변경할수치(정수))
+    function SetItemCardBonus1 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "A\\d+;", 0)
+        if s == "" then
+            return items + "A"+I2S(i)+";"
+        endif
+        return JNStringReplace(items, JNStringRegex(items, "A\\d+;", 0), "A"+I2S(i)+";")
+    endfunction
+
+    //카드 뒷수치
+    function GetItemCardBonus2 takes string items returns integer
+        local string s = JNStringRegex(items, "B\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
+    endfunction
+
+    //카드 뒷수치 변경 set items = SetItemCombatBonus2(items, 변경할수치(정수))
+    function SetItemCardBonus2 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "B\\d+;", 0)
+        if s == "" then
+            return items + "B"+I2S(i)+";"
+        endif
+        return JNStringReplace(items, JNStringRegex(items, "B\\d+;", 0), "B"+I2S(i)+";")
+    endfunction
+
+    //카드 패널티수치
+    function GetItemCardBonus3 takes string items returns integer
+        local string s = JNStringRegex(items, "C\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
+    endfunction
+
+    //카드 패널티수치 변경 set items = SetItemCombatBonus2(items, 변경할수치(정수))
+    function SetItemCardBonus3 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "C\\d+;", 0)
+        if s == "" then
+            return items + "C"+I2S(i)+";"
+        endif
+        return JNStringReplace(items, JNStringRegex(items, "C\\d+;", 0), "C"+I2S(i)+";")
+    endfunction
+
+
 endlibrary

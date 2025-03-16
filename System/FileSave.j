@@ -16,7 +16,7 @@ endfunction
 function FileSave_Actions takes nothing returns nothing
     local dialog d = DialogCreate()
     local tick t = tick.create(0)
-    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 60.0, "|cffFF0202Warning) |c00DFFB4F워크래프트3 기본 파일 세이브 기능은 사용이 불가능합니다! -save 명령어를 이용하세요.|r")
+    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 60.0, "|cffFF0202Warning) |cffDFFB4F워크래프트3 기본 파일 세이브 기능은 사용이 불가능합니다! -save 명령어를 이용하세요.|r")
     call DialogDisplay( GetLocalPlayer(), SaveDialog, true )
     call t.start( 0.0, false, function EffectFunction ) 
 endfunction

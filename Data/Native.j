@@ -33,6 +33,10 @@ library Native initializer init
         real array Equip_DP
         real array Equip_DamageP
         real array Equip_LastDamage
+
+        //카드 댐증
+        real array Equip_CardDamage1
+        real array Equip_CardDamage2
         
         //각인 각인방어등급, 각인추뎀
         real array Arcana_Defense
@@ -96,9 +100,11 @@ private function init takes nothing returns nothing
         set Equip_Drop[pid] = 0
         set Equip_Penetration [pid] = 0
         set Equip_ED[pid] = 0
-        set Equip_DP[pid] = 0
+        set Equip_DP[pid] = 1
         set Equip_DamageP[pid] = 0
         set Equip_LastDamage[pid] = 0
+        set Equip_CardDamage1[pid] = 0
+        set Equip_CardDamage2[pid] = 0
 
         set Arcana_Defense[pid] = 0
         set Arcana_DP[pid] = 0

@@ -28,7 +28,7 @@ library StatsSet initializer init requires UIHP, ITEM
         local real defenseReductionAmount = defenseRatio / (defenseRatio + 10000.0)
         local real damageReductionRate = 1.0 - defenseReductionAmount
 
-        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid] + 100) / 100.0) * (1.0 / (1.0 - cooldownReduction)) * damageReductionRate * (1.0 + Equip_DP[pid] / 100.0) * (1.0 + Equip_LastDamage[pid] / 100.0) 
+        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid] + 100) / 100.0) * (1.0 / (1.0 - cooldownReduction)) * damageReductionRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) 
     endfunction
 
 
@@ -139,15 +139,17 @@ library StatsSet initializer init requires UIHP, ITEM
             //방관
             call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(  Equip_Penetration[pid] )) + "%" ) 
             //대미지증가
-            call DzFrameSetText(F_ItemStatsText[12], I2S(R2I(  Equip_DP[pid] )) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[12], R2SW(( Equip_DP[pid] - 1) * 100  ,1,2) + "%" ) 
+            //카드댐증
+            call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
             //최종대미지증가
             call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(  Equip_LastDamage[pid] )) + "%" ) 
             //가상 전투력
             set r = Power(pid)
-            call DzFrameSetText(F_ItemStatsText[14], R2SW(r, 1, 0) ) 
+            call DzFrameSetText(F_ItemStatsText[14], R2SW(r, 1, 2) ) 
             //개척력
             //call DzFrameSetText(F_ItemStatsText[15], I2S(R2I(  TrailblazePower(r) )) ) 
-            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 0)) 
+            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 2)) 
         endif
         call SetUnitMoveSpeed( MainUnit[pid], 4 * ((Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] ) )
     endfunction
@@ -158,14 +160,21 @@ library StatsSet initializer init requires UIHP, ITEM
         local integer up
         local integer i = 0
         local integer j = 0
+        local integer k = 0
         local integer itemty = 0
         local integer qr = 0
         local integer quality = 0
+        local real a = 0
+        local real b = 0
         
         set Equip_Defense[pid] = 0
         set Equip_Damage[pid] = 0
         set Equip_Crit[pid] = 0
         set Equip_Swiftness[pid] = 0
+        set Equip_CardDamage1[pid] = 0
+        set Equip_CardDamage2[pid] = 0
+        set Equip_DamageP[pid] = 0
+        set Equip_DP[pid] = 1
         call SaveInteger(ArcanaData, 0, pid, 0)
         call SaveInteger(ArcanaData, 1, pid, 0)
         call SaveInteger(ArcanaData, 2, pid, 0)
@@ -182,6 +191,23 @@ library StatsSet initializer init requires UIHP, ITEM
         call SaveInteger(ArcanaData, 51, pid, 0)
         call SaveInteger(ArcanaData, 52, pid, 0)
         call SaveInteger(ArcanaData, 53, pid, 0)
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[4], "UI_Arcana_Work3.blp", 0)
+        endif
         
         loop
             if GetItemIDs(Eitem[pid][i]) != 0 then
@@ -200,8 +226,8 @@ library StatsSet initializer init requires UIHP, ITEM
                     set quality = GetItemQuality(items)
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     set Equip_WDP[pid] = ItemWeaponQuality[quality]
-                //0모자, 1상의, 2하의, 3장갑, 4견갑
-                elseif itemty >= 0 and itemty <= 4 then
+                //0모자, 1상의, 2하의, 3장갑
+                elseif itemty >= 0 and itemty <= 3 then
                     set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                 //목걸이
                 elseif itemty == 6 then
@@ -253,6 +279,83 @@ library StatsSet initializer init requires UIHP, ITEM
                         call SaveInteger(ArcanaData, GetItemCombatBonus1(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
                     endif
                     set j = 0
+                elseif itemty == 10 then
+                    set j = GetItemCardBonus1(items)
+                    set k = GetItemCardBonus2(items)
+                    if j == 0 then
+                        set Equip_CardDamage1[pid] = 0.00
+                    elseif j == 1 then
+                        set Equip_CardDamage1[pid] = 6.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0600
+                    elseif j == 2 then
+                        set Equip_CardDamage1[pid] = 7.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0750
+                    elseif j == 3 then
+                        set Equip_CardDamage1[pid] = 10.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1050
+                    elseif j == 4 then
+                        set Equip_CardDamage1[pid] = 12.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1200
+                    endif
+                    if k == 0 then
+                        set Equip_CardDamage2[pid] = 0.00
+                    elseif k == 1 then
+                        set Equip_CardDamage2[pid] = 6.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0600
+                    elseif k == 2 then
+                        set Equip_CardDamage2[pid] = 7.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0750
+                    elseif k == 3 then
+                        set Equip_CardDamage2[pid] = 10.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1050
+                    elseif k == 4 then
+                        set Equip_CardDamage2[pid] = 12.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1200
+                    endif
+                    call SaveInteger(ArcanaData, 50, pid, LoadInteger(ArcanaData, 50, pid) + GetItemCardBonus3(items) )
+
+                    set j = LoadInteger(ArcanaData, 50, pid)
+                    if j == 1 then
+                        if GetLocalPlayer() == Player(pid) then
+                            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                        endif
+                    elseif j == 2 then
+                        if GetLocalPlayer() == Player(pid) then
+                            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00002%|r")
+                        endif
+                        set Equip_DamageP[pid] = Equip_DamageP[pid] - 2
+                    elseif j == 3 then
+                        if GetLocalPlayer() == Player(pid) then
+                            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00004%|r")
+                        endif
+                        set Equip_DamageP[pid] = Equip_DamageP[pid] - 4
+                    elseif j == 4 then
+                        if GetLocalPlayer() == Player(pid) then
+                            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00008%|r")
+                        endif
+                        set Equip_DamageP[pid] = Equip_DamageP[pid] - 8
+                    elseif j == 5 then
+                        if GetLocalPlayer() == Player(pid) then
+                            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_UIArcana1[4], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000016%|r")
+                        endif
+                        set Equip_DamageP[pid] = Equip_DamageP[pid] - 16
+                    endif
+                    set j = 0
+                    set k = 0
                 endif
                 //각인추가
             endif

@@ -261,22 +261,32 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         local integer i = 0
+        local integer j = 0
         //local integer i = LoadInteger(ArcanaData, 53, pid)
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "카드효과" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if Equip_CardDamage1[pid] == 0.00 then
+            set str = "|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/10.50/12.00%" 
+        elseif Equip_CardDamage1[pid] == 6.00 then
+            set str = "|cFFA5FA7D ◎ |r" + "대미지 증가 |cFFFFE4006.00|r/7.50/10.50/12.00%" 
+        elseif Equip_CardDamage1[pid] == 7.50 then
+            set str = "|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/|cFFFFE4007.50|r/10.50/12.00%" 
+        elseif Equip_CardDamage1[pid] == 10.50 then
+            set str = "|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/|cFFFFE40010.50|r/12.00%" 
+        elseif Equip_CardDamage1[pid] == 12.00 then
+            set str = "|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/10.50/|cFFFFE40012.00|r%" 
+        endif
+        if Equip_CardDamage2[pid] == 0.00 then
+            set str = str + "|n|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/10.50/12.00%" 
+        elseif Equip_CardDamage2[pid] == 6.00 then
+            set str = str + "|n|cFFA5FA7D ◎ |r" + "대미지 증가 |cFFFFE4006.00|r/7.50/10.50/12.00%" 
+        elseif Equip_CardDamage2[pid] == 7.50 then
+            set str = str + "|n|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/|cFFFFE4007.50|r/10.50/12.00%" 
+        elseif Equip_CardDamage2[pid] == 10.50 then
+            set str = str + "|n|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/|cFFFFE40010.50|r/12.00%" 
+        elseif Equip_CardDamage2[pid] == 12.00 then
+            set str = str + "|n|cFFA5FA7D ◎ |r" + "대미지 증가 6.00/7.50/10.50/|cFFFFE40012.00|r%" 
         endif
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -364,29 +374,29 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 //치신
                 
                 if cts == 1 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //치치
                 elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA치명|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신신
                 elseif cts == 3 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                     set str = str + "|n  |cFFB9E2FA신속|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
-                    set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
+                    set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
                     set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
                     set str = str + I2S(GetItemCombatBonus2(items))
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
@@ -395,18 +405,18 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 set str = str + "귀걸이|n|n"
                 //치
                 if cts == 1 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
                 elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
-                    set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
+                    set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
                     set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
                     set str = str + I2S(GetItemCombatBonus2(items))
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
@@ -415,18 +425,18 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 set str = str + "반지|n|n"
                 //치
                 if cts == 1 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA치명|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 //신
                 elseif cts == 2 then
-                    set str = str + "|c005AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                    set str = str + "|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                     set str = str + "  |cFFB9E2FA신속|r "
-                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|c005AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
+                    set str = str + I2S(S2I(JNStringSplit(ItemStats[i][tier],";", 0 ))) + "|cff5AD2FF +" + I2S( quality * S2I(JNStringSplit(ItemStats[i][tier],";", 1 ))) + "|r"
                 endif
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
-                    set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
+                    set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
                     set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
                     set str = str + I2S(GetItemCombatBonus2(items))
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
@@ -435,13 +445,14 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 set str = str + "팔찌|n|n"
             elseif i == 10 then
                 set str = str + "카드|n|n"
-                set str = str + "|n|cFFB9E2FA체력 + "
-                set str = str + "0"
-                if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
-                    set str = str + "|n|n|c005AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
-                    set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                if GetItemCardBonus1(items) + GetItemCardBonus2(items) + GetItemCardBonus3(items) > 0 then
+                    set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
+                    set str = str + "  [|cFFFFE400 대미지 증가 |r] Lv "
+                    set str = str + I2S(GetItemCardBonus1(items))
+                    set str = str + "|n  [|cFFFFE400 대미지 증가 |r] Lv "
+                    set str = str + I2S(GetItemCardBonus2(items))
+                    set str = str + "|n  [|cFFFF0000 공격력 감소 |r] Lv "
+                    set str = str + I2S(GetItemCardBonus3(items))
                 endif
             elseif i == 11 then
                 set str = str + "보석|n|n"

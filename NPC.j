@@ -28,7 +28,8 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                     if DataUnitIndex(u) == 5 then
                         //이미 열려있음
                         if F_StoneOnOff[pid] == false then
-                            if JNUse( ) then
+                            if true then
+                            //if JNUse( ) then
                                 set loopA = 0
                                 set j = 50
                                 loop        
@@ -61,15 +62,6 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                             endif
                                             //열기
                                             if F_StoneOnOff[pid] == false then
-                                                set ArcanaOption[1] = Random1
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[1], Arcanablp[ArcanaOption[1]], 0)
-                                                call DzFrameSetText(F_ArcanaText[3], "|c005AD2FF" + ArcanaText[ArcanaOption[1]] + "|r")
-                                                set ArcanaOption[2] = Random2
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[2], Arcanablp[ArcanaOption[2]], 0)
-                                                call DzFrameSetText(F_ArcanaText[4], "|c005AD2FF" + ArcanaText[ArcanaOption[2]] + "|r")
-                                                set ArcanaOption[3] = Random3
-                                                call DzFrameSetTexture(F_ArcanaButton2BackDrop[3], Arcanablp[ArcanaOption[3]], 0)
-                                                call DzFrameSetText(F_ArcanaText[5], "|c00FF0000" + ArcanaText[ArcanaOption[3]] + "|r")
                                                 set loopA = 0
                                                 loop
                                                     set Arcana1[loopA] = 0
@@ -82,14 +74,52 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                                     set loopA = loopA + 1
                                                 endloop
                                                 set ArcanaA = 0
-                                                call DzFrameSetText(F_ArcanaText[6], "|c005AD2FFX " + I2S(ArcanaA) + "|r")
+                                                call DzFrameSetText(F_ArcanaText[6], "|cff5AD2FFX " + I2S(ArcanaA) + "|r")
                                                 set ArcanaB = 0
-                                                call DzFrameSetText(F_ArcanaText[7], "|c005AD2FFX " + I2S(ArcanaB) + "|r")
+                                                call DzFrameSetText(F_ArcanaText[7], "|cff5AD2FFX " + I2S(ArcanaB) + "|r")
                                                 set ArcanaC = 0
-                                                call DzFrameSetText(F_ArcanaText[8], "|c00FF0000X " + I2S(ArcanaC)+ "|r")
+                                                call DzFrameSetText(F_ArcanaText[8], "|cffFF0000X " + I2S(ArcanaC)+ "|r")
                                                 set ArcanaProbability = 0
                                                 call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                                                 call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                                                
+                                                set loopASC = 0
+                                                set loopBSC = 0
+                                                set loopCSC = 0
+                                                call DzFrameShow(F_ArcanaTextA[0],true)
+                                                call DzFrameShow(F_ArcanaTextA[1],true)
+                                                call DzFrameShow(F_ArcanaTextA[2],true)
+                                                call DzFrameShow(F_ArcanaTextA[3],true)
+                                                call DzFrameShow(F_ArcanaTextB[0],true)
+                                                call DzFrameShow(F_ArcanaTextB[1],true)
+                                                call DzFrameShow(F_ArcanaTextB[2],true)
+                                                call DzFrameShow(F_ArcanaTextB[3],true)
+                                                call DzFrameShow(F_ArcanaTextC[0],true)
+                                                call DzFrameShow(F_ArcanaTextC[1],true)
+                                                call DzFrameShow(F_ArcanaTextC[2],true)
+                                                call DzFrameSetText(F_ArcanaTextA[0], "Lv 1")
+                                                call DzFrameSetText(F_ArcanaTextA[1], "Lv 2")
+                                                call DzFrameSetText(F_ArcanaTextA[2], "Lv 3")
+                                                call DzFrameSetText(F_ArcanaTextA[3], "Lv 4")
+                                                call DzFrameSetText(F_ArcanaTextB[0], "Lv 1")
+                                                call DzFrameSetText(F_ArcanaTextB[1], "Lv 2")
+                                                call DzFrameSetText(F_ArcanaTextB[2], "Lv 3")
+                                                call DzFrameSetText(F_ArcanaTextB[3], "Lv 4")
+                                                call DzFrameSetText(F_ArcanaTextC[0], "Lv 1")
+                                                call DzFrameSetText(F_ArcanaTextC[1], "Lv 2")
+                                                call DzFrameSetText(F_ArcanaTextC[2], "Lv 3")
+                                                call DzFrameSetPoint(F_ArcanaTextA[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( 0 * 0.025), 0.2175 )
+                                                call DzFrameSetPoint(F_ArcanaTextA[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.2175 )
+                                                call DzFrameSetPoint(F_ArcanaTextA[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( 0 * 0.025), 0.2175 )
+                                                call DzFrameSetPoint(F_ArcanaTextA[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.2175 )
+                                                call DzFrameSetPoint(F_ArcanaTextB[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( 0 * 0.025), 0.1575 )
+                                                call DzFrameSetPoint(F_ArcanaTextB[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.1575 )
+                                                call DzFrameSetPoint(F_ArcanaTextB[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( 0 * 0.025), 0.1575 )
+                                                call DzFrameSetPoint(F_ArcanaTextB[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.1575 )
+                                                call DzFrameSetPoint(F_ArcanaTextC[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.155 + ( 0 * 0.025), 0.0400 )
+                                                call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.0400 )
+                                                call DzFrameSetPoint(F_ArcanaTextC[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.0400 )
+
                                                 call DzFrameShow(F_StoneBackDrop, true)
                                                 set F_StoneOnOff[pid] = true
                                             endif
@@ -98,10 +128,11 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                         set loopA = loopA + 1
                                     endloop
                                 else
-                                    call BJDebugMsg("서버에 연결되지 않았습니다.")
+                                    //템창에 빈공간이 없음
+                                    call BJDebugMsg("장비 창에 빈 공간이 없습니다.")
                                 endif
                             else
-                                //템창에 빈공간이 없음
+                                call BJDebugMsg("서버에 연결되지 않았습니다.")
                             endif
                         endif
                     //세레스티아 루덴베르크

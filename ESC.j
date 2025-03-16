@@ -213,10 +213,10 @@ scope ESC initializer init
         call additem(Player(0),"ID12"+";"+"0")
 
         set i = i + 1
-        call SaveInteger(ArcanaData, 50, 0, i)
-        call SaveInteger(ArcanaData, 51, 0, i)
-        call SaveInteger(ArcanaData, 52, 0, i)
-        call SaveInteger(ArcanaData, 53, 0, i)
+        //call SaveInteger(ArcanaData, 50, 0, i)
+        //call SaveInteger(ArcanaData, 51, 0, i)
+        //call SaveInteger(ArcanaData, 52, 0, i)
+        //call SaveInteger(ArcanaData, 53, 0, i)
 
         if i == 5 then
             set i = 0
