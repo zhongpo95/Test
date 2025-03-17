@@ -403,7 +403,7 @@ private function init takes nothing returns nothing
     set HeroSkill6Text2[4] = "3.0초간 자신의 최대 생명력의 30.0% 만큼 보호막을 생성한다."
     set HeroSkill6Text3[4] = "12.0초간 약점을 노출시켜 헤드 어택 및 백 어택의 경우, 받는 피해 효과 12.0% 증가한다."
     
-    set HeroSkillTpye7[4] = "헤드어택"
+    set HeroSkillTpye7[4] = "헤드어택, 차지"
     set HeroSkillStr7[4] = "키다운 해제시 연속으로 베어 피해를 입힙니다."
     set HeroSkillCD7[4] = 30.00
     set HeroSkillVCount7[4] = 2

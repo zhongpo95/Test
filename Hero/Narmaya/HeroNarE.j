@@ -70,7 +70,7 @@ private function splashD1 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -95,7 +95,7 @@ private function splashD2 takes nothing returns nothing
                 set Velue = Velue * 1.30
             endif
             
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -120,7 +120,7 @@ private function splashD3 takes nothing returns nothing
                 set Velue = Velue * 1.60
             endif
             
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -145,7 +145,7 @@ private function splashD4 takes nothing returns nothing
                 set Velue = Velue * 1.90
             endif
             
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -166,7 +166,7 @@ private function splashD5 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -187,7 +187,7 @@ private function splashD6 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -211,7 +211,7 @@ private function splashD7 takes nothing returns nothing
             if level >= 3 then
                 set Velue = Velue * 2.00
             endif
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -238,7 +238,7 @@ private function splashD8 takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -601,6 +601,9 @@ private function Main takes nothing returns nothing
         else
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
+        //슈차
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
+
         set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
         
         if StackDummy[fx.pid] == null then
@@ -705,6 +708,7 @@ private function ESyncData2 takes nothing returns nothing
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
             endif
+            set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
             set fx.A2speed = ((100+SkillSpeed(pid))/100)
             set t.data = fx
             set Stack[fx.pid] = 11
@@ -721,6 +725,7 @@ private function ESyncData2 takes nothing returns nothing
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
             endif
+            set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
             set fx.A2speed = ((100+SkillSpeed(pid))/100)
             set t.data = fx
             set Stack[fx.pid] = 12
@@ -737,6 +742,7 @@ private function ESyncData2 takes nothing returns nothing
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
             endif
+            set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
             set fx.A2speed = ((100+SkillSpeed(pid))/100)
             set t.data = fx
             set Stack[fx.pid] = 13
@@ -753,6 +759,7 @@ private function ESyncData2 takes nothing returns nothing
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
             endif
+            set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
             set fx.A2speed = ((100+SkillSpeed(pid))/100)
             set t.data = fx
             set Stack[fx.pid] = 14
@@ -771,6 +778,7 @@ private function ESyncData2 takes nothing returns nothing
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
             endif
+            set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
             set fx.A2speed = ((100+SkillSpeed(pid))/100)
             set t.data = fx
             set Stack[fx.pid] = 11

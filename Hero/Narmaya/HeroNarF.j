@@ -26,13 +26,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi2 == 0
             set Nabi2 = Nabi2 - 1
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -54,7 +54,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -301,7 +301,10 @@ private function Main takes nothing returns nothing
             set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
-        
+
+        //슈차
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
+
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
@@ -395,6 +398,7 @@ private function FSyncData2 takes nothing returns nothing
             set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 11
@@ -418,6 +422,7 @@ private function FSyncData2 takes nothing returns nothing
             set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 12
@@ -441,6 +446,7 @@ private function FSyncData2 takes nothing returns nothing
             set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 13
@@ -464,6 +470,7 @@ private function FSyncData2 takes nothing returns nothing
             set fx.r = 1
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
         endif
+        set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 14

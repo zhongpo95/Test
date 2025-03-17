@@ -38,9 +38,16 @@ library Native initializer init
         real array Equip_CardDamage1
         real array Equip_CardDamage2
         
-        //각인 각인방어등급, 각인추뎀
+        //각인 각인방어등급, 각인추뎀, 각인공속, 치확, 치피, 체력, 이속, 공속
         real array Arcana_Defense
         real array Arcana_DP
+        real array Arcana_SkillSpeed
+        real array Arcana_ChargeSpeed
+        real array Arcana_Cri
+        real array Arcana_CriDeal
+        real array Arcana_HP
+        real array Arcana_MoveSpeed
+        real array Arcana_SkillSpeed2
 
         //각인
         hashtable ArcanaData = InitHashtable()
@@ -108,6 +115,13 @@ private function init takes nothing returns nothing
 
         set Arcana_Defense[pid] = 0
         set Arcana_DP[pid] = 0
+        set Arcana_SkillSpeed[pid] = 0
+        set Arcana_ChargeSpeed[pid] = 1
+        set Arcana_Cri[pid] = 0
+        set Arcana_CriDeal[pid] = 0
+        set Arcana_HP[pid] = 1
+        set Arcana_MoveSpeed[pid] = 0
+        set Arcana_SkillSpeed2[pid] = 0
         
         //플레이어 각인 테이블 초기화
         call SaveInteger(ArcanaData, 0, pid, 0)

@@ -46,7 +46,7 @@ private function splashD1 takes nothing returns nothing
             set Velue = Velue * 1.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD2 takes nothing returns nothing
@@ -63,7 +63,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.30
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -80,7 +80,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 1.60
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD4 takes nothing returns nothing
@@ -101,7 +101,7 @@ private function splashD4 takes nothing returns nothing
             set Velue = Velue * 2.22
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 
@@ -332,6 +332,8 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+        
+        set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
         
         call CooldownFIX(fx.caster,'A01C',HeroSkillCD3[4])
         call AnimationStart3(fx.caster,3, fx.speed)

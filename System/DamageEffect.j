@@ -67,10 +67,11 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
 
     endfunction
     
-    //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터
-    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, boolean counter returns boolean
+    //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터,차지
+    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
         local integer index = DataUnitIndex(target)
+        local integer sourceindex = IndexUnit(source)
         local integer UnitIndex = GetUnitIndex(target)
         local integer HPvalue = UnitHPValue[index]
         local string HPString = UnitHPString[index]
@@ -81,7 +82,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local texttag ttag
         local real dmg
         local real DMGRate = 1.0
-        local real crirate = Hero_CriDeal[pid] + Equip_CriDeal[pid]
+        local real crirate = Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid]
         local real ArmVelue
         local real Arm
         local real WDP = (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0))
@@ -91,10 +92,13 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local integer sl
         local boolean CounterBoolean = false
         local real SD = 1
+        local real ArcanaRate = 1
+        local integer ArcanaLv = 0
+
 
         //방어력10000
         set ArmVelue = UnitArm[UnitIndex]
-        
+
         //방깍
         if DeBuffMArm.Exists( target ) then
             set ArmVelue = UnitArm[UnitIndex] * 0.88
@@ -106,14 +110,140 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set Arm = ArmVelue / (ArmVelue + 10000)
         set DMGRate = DMGRate * (1-Arm)
         
+        //아르카나
+        if true then
+            //저받
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 0, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if ArcanaLv == 1 then
+                set ArcanaRate = ArcanaRate * 1.11
+            elseif ArcanaLv == 2 then
+                set ArcanaRate = ArcanaRate * 1.14
+            elseif ArcanaLv == 3 then
+                set ArcanaRate = ArcanaRate * 1.17
+            endif
+            //돌대
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 1, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if ArcanaLv == 1 then
+                set ArcanaRate = ArcanaRate * ((GetUnitMoveSpeed(MainUnit[pid]) / 4) - 100) * 0.32
+            elseif ArcanaLv == 2 then
+                set ArcanaRate = ArcanaRate * ((GetUnitMoveSpeed(MainUnit[pid]) / 4) - 100) * 0.40
+            elseif ArcanaLv == 3 then
+                set ArcanaRate = ArcanaRate * ((GetUnitMoveSpeed(MainUnit[pid]) / 4) - 100) * 0.48
+            endif
+            //바리
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 4, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if USDT[sourceindex] != 0 then
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.11
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.14
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.17
+                endif
+            endif
+
+            //슈차
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 5, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if charge == true then
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.16
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.18
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.21
+                endif
+            endif
+
+            //질증
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 6, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if ArcanaLv == 1 then
+                set ArcanaRate = ArcanaRate * 1.13
+            elseif ArcanaLv == 2 then
+                set ArcanaRate = ArcanaRate * 1.16
+            elseif ArcanaLv == 3 then
+                set ArcanaRate = ArcanaRate * 1.19
+            endif
+
+            //안상
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 8, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if GetUnitStatePercent(source,UNIT_STATE_LIFE,UNIT_STATE_MAX_LIFE) >= 65 then
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.11
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.14
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.17
+                endif
+            endif
+
+            //원한
+            set ArcanaLv = 0
+            set ArcanaLv = LoadInteger(ArcanaData, 9, pid)
+            if ArcanaLv >= 3 then
+                set ArcanaLv = 3
+            endif
+            if ArcanaLv == 1 then
+                set ArcanaRate = ArcanaRate * 1.15
+            elseif ArcanaLv == 2 then
+                set ArcanaRate = ArcanaRate * 1.18
+            elseif ArcanaLv == 3 then
+                set ArcanaRate = ArcanaRate * 1.21
+            endif
+        endif
+        //사멸
+        set ArcanaLv = 0
+        set ArcanaLv = LoadInteger(ArcanaData, 2, pid)
+        if ArcanaLv >= 3 then
+            set ArcanaLv = 3
+        endif
+
         //헤드 체크
         if head == true then
             if HeadTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
                 if DeBuffMBackHead.Exists( target ) then
                     set DMGRate = DMGRate * 1.12
                 endif
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.160
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.198
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.226
+                endif
                 set DMGRate = DMGRate * HeadBounsDamage
                 call HeadTag(target)
+            else
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.040
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.048
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.076
+                endif
             endif
         endif
         
@@ -123,11 +253,42 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                 if DeBuffMBackHead.Exists( target ) then
                     set DMGRate = DMGRate * 1.12
                 endif
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.160
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.198
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.226
+                endif
                 set DMGRate = DMGRate * BackBounsDamage
                 call BackTag(target)
+            else
+                if ArcanaLv == 1 then
+                    set ArcanaRate = ArcanaRate * 1.040
+                elseif ArcanaLv == 2 then
+                    set ArcanaRate = ArcanaRate * 1.048
+                elseif ArcanaLv == 3 then
+                    set ArcanaRate = ArcanaRate * 1.076
+                endif
             endif
         endif
         
+        //타대
+        set ArcanaLv = 0
+        set ArcanaLv = LoadInteger(ArcanaData, 3, pid)
+        if ArcanaLv >= 3 then
+            set ArcanaLv = 3
+        endif
+        if back == false and head == false then
+            if ArcanaLv == 1 then
+                set ArcanaRate = ArcanaRate * 1.110
+            elseif ArcanaLv == 2 then
+                set ArcanaRate = ArcanaRate * 1.140
+            elseif ArcanaLv == 3 then
+                set ArcanaRate = ArcanaRate * 1.170
+            endif
+        endif
+
         //카운터 체크
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
@@ -150,9 +311,10 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set CriBoolean = true
         endif
         
-        set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage 
+        set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage * ArcanaRate
         
-        call BJDebugMsg("전 : "+R2S(UnitCastingSD[UnitIndex]))
+        
+        call BJDebugMsg(R2S(ArcanaRate))
         if UnitCasting[UnitIndex] == true then
             //게이지깎
             if ( UnitCastingSD[UnitIndex] - SD ) <= 0 then
@@ -180,7 +342,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                 //set UnitSD[UnitIndex] = UnitSD[UnitIndex] - SD
             //endif
         endif
-        call BJDebugMsg("후 : "+R2S(UnitCastingSD[UnitIndex]))
         
         if dmg > 1 then
             if CriBoolean then

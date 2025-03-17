@@ -167,7 +167,7 @@ library ITEM requires DataItem
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
-
+    
     //각인 변경 set items = SetItemCombatBonus1(items, 변경할수치(정수))
     function SetItemCombatBonus1 takes string items, integer i returns string
         local string s = JNStringRegex(items, "각인\\d+;", 0)
@@ -176,7 +176,7 @@ library ITEM requires DataItem
         endif
         return JNStringReplace(items, JNStringRegex(items, "각인\\d+;", 0), "각인"+I2S(i)+";")
     endfunction
-
+    
     //각인 수치
     function GetItemCombatBonus2 takes string items returns integer
         local string s = JNStringRegex(items, "각인수치\\d+;", 0)

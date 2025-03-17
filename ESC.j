@@ -198,16 +198,28 @@ scope ESC initializer init
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
         //set s = SetItemQuality(s, (Quality.pick(false)-1) )
         set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
         call additem(Player(0), s)
         //귀
         set s = "ID8;"
         set s = SetItemCombatStats(s, GetRandomInt(1,2))
         set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
         call additem(Player(0), s)
         //반
         set s = "ID10;"
         set s = SetItemCombatStats(s, GetRandomInt(1,2))
         set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
         call additem(Player(0), s)
         
         call additem(Player(0),"ID12"+";"+"0")

@@ -26,13 +26,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi2 == 0
             set Nabi2 = Nabi2 - 1
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -54,7 +54,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then

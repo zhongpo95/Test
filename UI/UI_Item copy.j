@@ -244,11 +244,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 7 then
@@ -272,11 +272,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 8 then
@@ -300,11 +300,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 9 then
@@ -316,11 +316,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             endif
@@ -786,11 +786,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 7 then
@@ -814,11 +814,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 8 then
@@ -842,11 +842,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 9 then
@@ -858,11 +858,11 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFFE400 " + ArcanaText[GetItemCombat2Bonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombat2Bonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] 활성도 +"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             endif

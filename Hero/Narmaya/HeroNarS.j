@@ -28,13 +28,13 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
                 call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
                 loop
                 exitwhen Nabi == 0
                     set Nabi = Nabi - 1
-                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false)
+                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
                     call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
                 endloop
 

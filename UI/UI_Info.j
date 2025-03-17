@@ -45,7 +45,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "치명" )
-        set str = "|cFFA5FA7D ◎ |r" + "치명타 적중률이 " + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r 증가했습니다.|n"
+        set str = "|cFFA5FA7D ◎ |r" + "치명타 적중률이 " + "|cFFA5FA7D" + R2S(  (Equip_Crit[pid]/28)  ) + "%|r 증가했습니다.|n"
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -80,7 +80,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "치명타 확률" )
         set str = "|cFFA5FA7D ◎ |r" + "|cFFA5FA7D" + R2S(  Stats_Crit[pid]  ) + "%|r|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid] + Equip_CriDeal[pid] ) + "%|r 증가합니다." 
+        set str = str + "|cFFA5FA7D ◎ |r" + "치명타 적중시 피해량이 " + "|cFFA5FA7D" + R2S(  Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid]) + "%|r 증가합니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -180,7 +180,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "가상 전투력" )
-        set str = "|cFFA5FA7D ◎ |r" + "스킬과 버프를 제외한 스텟을 가상의 전투력으로 표시합니다."
+        set str = "|cFFA5FA7D ◎ |r" + "스킬과 버프를 제외한 스텟을 가상의 전투력으로 표시합니다.|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "아르카나에 의한 피해증가는 조건을 전부 만족한 최대치로 계산한다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -193,7 +194,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetText(UI_Tip_Text[1], "개척력" )
         set str = "|cFFA5FA7D ◎ |r" + "가상 전투력을 보정한 수치입니다.|n"
         set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 1000 이상일 경우 표시|n" 
-        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 약 10% 증가할 때마다 개척력이 약 1000 증가합니다." 
+        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 약 10% 증가할 때마다 개척력이 약 1000 증가합니다.|n" 
+        set str = str + "|cFFA5FA7D ◎ |r" + "아르카나에 의한 피해증가는 조건을 전부 만족한 최대치로 계산한다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
         
@@ -403,9 +405,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 7 then
                 set str = str + "귀걸이|n|n"
@@ -423,9 +426,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 8 then
                 set str = str + "반지|n|n"
@@ -443,9 +447,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 9 then
                 set str = str + "팔찌|n|n"

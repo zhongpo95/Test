@@ -1,7 +1,7 @@
 library Shield requires UIHP,DataUnit
 
     globals
-        private integer array USDT
+        integer array USDT
         private trigger array TrgRemove
         private triggeraction array ActRemove
     endglobals

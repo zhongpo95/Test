@@ -8,7 +8,8 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         integer array F_UIArcana2                 
         integer array F_UIArcana3                
         integer array F_UIArcana4      
-        integer array F_ArcanaBD                        //각인 배경        
+        integer array F_ArcanaBD                        //각인 배경 
+        integer array F_ArcanaCheck                    //각인 배경        
         
         boolean array F_ArcanaOnOff                     //각인 온오프
     endglobals
@@ -135,125 +136,75 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
-        local integer i = 0
-        //local integer i = LoadInteger(ArcanaData, 53, pid)
+        local integer j = F_ArcanaCheck[0]
+        local integer i = LoadInteger(ArcanaData, j, pid)
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "각인이름" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if i >= 0 then
+            call DzFrameShow(UI_Tip, true)
+            call DzFrameSetText(UI_Tip_Text[1], ArcanaText[j] )
+            set str = "|cFFA5FA7D ◎ |r" + ArcanaText2[j]
+            call DzFrameSetText(UI_Tip_Text[2], str )
         endif
-        call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
 
     private function F_ON_Actions6 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
-        local integer i = 0
-        //local integer i = LoadInteger(ArcanaData, 53, pid)
+        local integer j = F_ArcanaCheck[1]
+        local integer i = LoadInteger(ArcanaData, j, pid)
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "각인이름" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if i >= 0 then
+            call DzFrameShow(UI_Tip, true)
+            call DzFrameSetText(UI_Tip_Text[1], ArcanaText[j] )
+            set str = "|cFFA5FA7D ◎ |r" + ArcanaText2[j]
+            call DzFrameSetText(UI_Tip_Text[2], str )
         endif
-        call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
 
     private function F_ON_Actions7 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
-        local integer i = 0
-        //local integer i = LoadInteger(ArcanaData, 53, pid)
+        local integer j = F_ArcanaCheck[2]
+        local integer i = LoadInteger(ArcanaData, j, pid)
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "각인이름" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if i >= 0 then
+            call DzFrameShow(UI_Tip, true)
+            call DzFrameSetText(UI_Tip_Text[1], ArcanaText[j] )
+            set str = "|cFFA5FA7D ◎ |r" + ArcanaText2[j]
+            call DzFrameSetText(UI_Tip_Text[2], str )
         endif
-        call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
 
     private function F_ON_Actions8 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
-        local integer i = 0
-        //local integer i = LoadInteger(ArcanaData, 53, pid)
+        local integer j = F_ArcanaCheck[3]
+        local integer i = LoadInteger(ArcanaData, j, pid)
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "각인이름" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if i >= 0 then
+            call DzFrameShow(UI_Tip, true)
+            call DzFrameSetText(UI_Tip_Text[1], ArcanaText[j] )
+            set str = "|cFFA5FA7D ◎ |r" + ArcanaText2[j]
+            call DzFrameSetText(UI_Tip_Text[2], str )
         endif
-        call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
 
     private function F_ON_Actions9 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
-        local integer i = 0
-        //local integer i = LoadInteger(ArcanaData, 53, pid)
+        local integer j = F_ArcanaCheck[4]
+        local integer i = LoadInteger(ArcanaData, j, pid)
         
-        call DzFrameShow(UI_Tip, true)
-        call DzFrameSetText(UI_Tip_Text[1], "각인이름" )
-        if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
-        elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
-        elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
-        elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
-        elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
-        elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+        if i >= 0 then
+            call DzFrameShow(UI_Tip, true)
+            call DzFrameSetText(UI_Tip_Text[1], ArcanaText[j] )
+            set str = "|cFFA5FA7D ◎ |r" + ArcanaText2[j]
+            call DzFrameSetText(UI_Tip_Text[2], str )
         endif
-        call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
 
     private function F_ON_Actions10 takes nothing returns nothing
@@ -397,9 +348,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 7 then
                 set str = str + "귀걸이|n|n"
@@ -417,9 +369,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 8 then
                 set str = str + "반지|n|n"
@@ -437,9 +390,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 //아르카나
                 if GetItemCombatBonus2(items) + GetItemCombatPenalty2(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
-                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] 활성도 +"
+                    set str = str + "  [|cFFFFE400 " + ArcanaText[GetItemCombatBonus1(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatBonus2(items))
-                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r]"
+                    set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
+                    set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
             elseif i == 9 then
                 set str = str + "팔찌|n|n"
@@ -649,9 +603,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzFrameSetSize(F_ArcanaBD[0], 0.068, 0.110)
         set F_ArcanaStatsText[4]=DzCreateFrameByTagName("TEXT", "", F_ArcanaBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaStatsText[4], JN_FRAMEPOINT_CENTER, F_ArcanaBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.050, 0.170)
-        call DzFrameSetText(F_ArcanaStatsText[4], "0%")
+        call DzFrameSetText(F_ArcanaStatsText[4], "Lv 0")
         call DzFrameSetScriptByCode(F_ArcanaStatsText[4], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions5, false)
         call DzFrameSetScriptByCode(F_ArcanaStatsText[4], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameShow(F_ArcanaBD[0],false)
 
         set F_ArcanaBD[1]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_ArcanaBD[1], "Arcana001.blp", 0)
@@ -659,9 +614,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzFrameSetSize(F_ArcanaBD[1], 0.068, 0.110)
         set F_ArcanaStatsText[5]=DzCreateFrameByTagName("TEXT", "", F_ArcanaBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaStatsText[5], JN_FRAMEPOINT_CENTER, F_ArcanaBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.125, 0.170)
-        call DzFrameSetText(F_ArcanaStatsText[5], "0%")
+        call DzFrameSetText(F_ArcanaStatsText[5], "Lv 0")
         call DzFrameSetScriptByCode(F_ArcanaStatsText[5], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions6, false)
         call DzFrameSetScriptByCode(F_ArcanaStatsText[5], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameShow(F_ArcanaBD[1],false)
 
         set F_ArcanaBD[2]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_ArcanaBD[2], "Arcana001.blp", 0)
@@ -669,9 +625,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzFrameSetSize(F_ArcanaBD[2], 0.068, 0.110)
         set F_ArcanaStatsText[6]=DzCreateFrameByTagName("TEXT", "", F_ArcanaBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaStatsText[6], JN_FRAMEPOINT_CENTER, F_ArcanaBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.170)
-        call DzFrameSetText(F_ArcanaStatsText[6], "0%")
+        call DzFrameSetText(F_ArcanaStatsText[6], "Lv 0")
         call DzFrameSetScriptByCode(F_ArcanaStatsText[6], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions7, false)
         call DzFrameSetScriptByCode(F_ArcanaStatsText[6], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameShow(F_ArcanaBD[2],false)
 
         set F_ArcanaBD[3]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_ArcanaBD[3], "Arcana001.blp", 0)
@@ -679,9 +636,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzFrameSetSize(F_ArcanaBD[3], 0.068, 0.110)
         set F_ArcanaStatsText[7]=DzCreateFrameByTagName("TEXT", "", F_ArcanaBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaStatsText[7], JN_FRAMEPOINT_CENTER, F_ArcanaBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.275, 0.170)
-        call DzFrameSetText(F_ArcanaStatsText[7], "0%")
+        call DzFrameSetText(F_ArcanaStatsText[7], "Lv 0")
         call DzFrameSetScriptByCode(F_ArcanaStatsText[7], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions8, false)
         call DzFrameSetScriptByCode(F_ArcanaStatsText[7], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameShow(F_ArcanaBD[3],false)
 
         set F_ArcanaBD[4]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_ArcanaBD[4], "Arcana001.blp", 0)
@@ -689,9 +647,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzFrameSetSize(F_ArcanaBD[4], 0.068, 0.110)
         set F_ArcanaStatsText[8]=DzCreateFrameByTagName("TEXT", "", F_ArcanaBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ArcanaStatsText[8], JN_FRAMEPOINT_CENTER, F_ArcanaBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.350, 0.170)
-        call DzFrameSetText(F_ArcanaStatsText[8], "0%")
+        call DzFrameSetText(F_ArcanaStatsText[8], "Lv 0")
         call DzFrameSetScriptByCode(F_ArcanaStatsText[8], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions9, false)
         call DzFrameSetScriptByCode(F_ArcanaStatsText[8], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameShow(F_ArcanaBD[4],false)
         //0.050,0.245
 
 

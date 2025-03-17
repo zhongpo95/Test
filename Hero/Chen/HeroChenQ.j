@@ -43,10 +43,12 @@ private function splashD1 takes nothing returns nothing
         endif
         
         if level >= 3 then
-            set Velue = Velue * 0.976
+            set Velue = Velue * 0.80
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
+        else
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,false)
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
     endif
 endfunction
 
@@ -64,7 +66,7 @@ private function splashD2 takes nothing returns nothing
             set Velue = Velue * 1.525
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
@@ -81,7 +83,7 @@ private function splashD3 takes nothing returns nothing
             set Velue = Velue * 2.50
         endif
         
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false)
+        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
     endif
 endfunction
 
@@ -296,9 +298,10 @@ private function Main takes nothing returns nothing
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         endif
         call CooldownFIX(fx.caster,'A01A',HeroSkillCD0[4])
-        call AnimationStart3(fx.caster,15, fx.speed)
         
         if HeroSkillLevel[fx.pid][0] >= 3 then
+            set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
+            call AnimationStart3(fx.caster,15, fx.speed)
             set t.data = fx
             set Stack[fx.pid] = 1
             if Player(fx.pid) == GetLocalPlayer() then
@@ -309,6 +312,7 @@ private function Main takes nothing returns nothing
             call DummyMagicleash(fx.caster,(EffectTime /fx.speed)/25)
             call t.start( (EffectTime /fx.speed)/25, false, function EffectFunction )
         else
+            call AnimationStart3(fx.caster,15, fx.speed)
             set t.data = fx
             set Stack[fx.pid] = 1
             call DummyMagicleash(fx.caster,(EffectTime /fx.speed)/25)

@@ -47,13 +47,13 @@ private function splashD takes nothing returns nothing
         if level >= 2 then
             if level >= 3 then
                 set Penetration[pid] = 0.8
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false,false)
                 set Penetration[pid] = 0
             else
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false)
+                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false,false)
             endif
         else
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3],false,false,false)
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[3],false,false,false,false)
         endif
     endif
     
