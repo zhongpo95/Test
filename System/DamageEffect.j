@@ -473,6 +473,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             endif
         endif
         
+        //어그로 시스템
         call PlayerBossAttack(source, target, dmg)
         return CounterBoolean
     endfunction
