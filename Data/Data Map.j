@@ -44,10 +44,10 @@ function MapRectReturn takes integer mapnumber returns rect
         return MapRect[3]
     elseif mapnumber == 4 then
         return MapRect[4]
-    elseif mapnumber == 5 then
-        return MapRect[5]
-    elseif mapnumber == 6 then
-        return MapRect[6]
+    //elseif mapnumber == 5 then
+        //return MapRect[5]
+    //elseif mapnumber == 6 then
+        //return MapRect[6]
     endif
     return null
 endfunction
@@ -60,10 +60,10 @@ function MapRectReturn2 takes integer mapnumber returns rect
         return gg_rct_Boss3
     elseif mapnumber == 4 then
         return gg_rct_Boss4
-    elseif mapnumber == 5 then
-        return gg_rct_Boss5
-    elseif mapnumber == 6 then
-        return gg_rct_Boss6
+    //elseif mapnumber == 5 then
+        //return gg_rct_Boss5
+    //elseif mapnumber == 6 then
+        //return gg_rct_Boss6
     endif
     return null
 endfunction
@@ -104,7 +104,7 @@ function GetMap takes integer thema returns integer
         if Mapthema[i] == thema and MapRectCheck[i] == true then
             return MapSet(i, thema)
         endif
-    exitwhen i == 6
+    exitwhen i == 4
     endloop
     //입장가능한 빈공간이 있음
     set i = 0
@@ -113,7 +113,7 @@ function GetMap takes integer thema returns integer
         if Mapthema[i] == 0 and MapRectCheck[i] == true then
             return MapSet(i, thema)
         endif
-    exitwhen i == 6
+    exitwhen i == 4
     endloop
     
     return 0
@@ -124,19 +124,19 @@ endfunction
     set MapRectCheck[2] = true
     set MapRectCheck[3] = true
     set MapRectCheck[4] = true
-    set MapRectCheck[5] = true
-    set MapRectCheck[6] = true
+    //set MapRectCheck[5] = true
+    //set MapRectCheck[6] = true
     set MapSt[1] = MapStruct.Create()
     set MapSt[2] = MapStruct.Create()
     set MapSt[3] = MapStruct.Create()
     set MapSt[4] = MapStruct.Create()
-    set MapSt[5] = MapStruct.Create()
-    set MapSt[6] = MapStruct.Create()
+    //set MapSt[5] = MapStruct.Create()
+    //set MapSt[6] = MapStruct.Create()
     set MapRect[1] = gg_rct_MapRect01
     set MapRect[2] = gg_rct_MapRect02
     set MapRect[3] = gg_rct_MapRect03
     set MapRect[4] = gg_rct_MapRect04
-    set MapRect[5] = gg_rct_MapRect05
-    set MapRect[6] = gg_rct_MapRect06
+    //set MapRect[5] = gg_rct_MapRect05
+    //set MapRect[6] = gg_rct_MapRect06
 //! runtextmacro 이벤트_끝()
 endlibrary
