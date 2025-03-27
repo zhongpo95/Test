@@ -82,7 +82,7 @@ library UIHP initializer init requires UnitIndexer, DataUnit, FrameCount
                         //call VJDebugMsg("아무것도안함")
                     else
                         //call VJDebugMsg("딴거누름")
-                        call SelectUnitForPlayerSingle( SelecttingUnit, GetLocalPlayer() )
+                        //call SelectUnitForPlayerSingle( SelecttingUnit, GetLocalPlayer() )
                     endif
                 else
                 endif

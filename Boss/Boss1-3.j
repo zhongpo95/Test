@@ -197,6 +197,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
+            call KillUnit(fx.dummy)
+            call KillUnit(fx.effectdummy)
             set dummy = null
             set targetUnit = null
             set effectdummy = null
@@ -270,6 +272,11 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
+            call KillUnit(dummy[0])
+            call KillUnit(dummy[1])
+            call KillUnit(dummy[2])
+            call KillUnit(dummy[3])
+            call KillUnit(dummy[4])
             set dummy[0] = null
             set dummy[1] = null
             set dummy[2] = null
@@ -548,6 +555,20 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
+            call KillUnit(fx.dummy[0])
+            call KillUnit(fx.effectdummy[0])
+            call KillUnit(fx.dummy[1])
+            call KillUnit(fx.effectdummy[1])
+            call KillUnit(fx.dummy[2])
+            call KillUnit(fx.effectdummy[2])
+            call KillUnit(fx.dummy[3])
+            call KillUnit(fx.effectdummy[3])
+            call KillUnit(fx.dummy[4])
+            call KillUnit(fx.effectdummy[4])
+            call KillUnit(fx.dummy[5])
+            call KillUnit(fx.effectdummy[5])
+            call KillUnit(fx.dummy[6])
+            call KillUnit(fx.effectdummy[6])
             set dummy[0] = null
             set dummy[1] = null
             set dummy[2] = null
@@ -717,6 +738,9 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
+            call KillUnit(dummy1)
+            call KillUnit(dummy2)
+            call KillUnit(dummy3)
             set dummy1 = null
             set dummy2 = null
             set dummy3 = null

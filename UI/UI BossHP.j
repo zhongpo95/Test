@@ -226,15 +226,15 @@ library UIBossHP initializer init requires FrameCount, DataUnit
             endif
             
             
-            //빨간체력바 쉴드게이지
-            //if ((3.00 * (UnitSD[fx.index] / UnitSDMAX[fx.index]) * 100) / 1280.00) == 0 then
-                //call DzFrameSetSize(BHPBar[6],  (1.00) / 1280.00 , 5.00 / 1280.00 )
-            //else
-                //call DzFrameSetSize(BHPBar[6],  (3.00 * (UnitSD[fx.index] / UnitSDMAX[fx.index]) * 100) / 1280.00 , 5.00 / 1280.00 )
-            //endif
+            //빨간체력바 체력퍼센트
+            if ((3.00 * (UnitHP[fx.index] / UnitHPMAX[fx.index]) * 100) / 1280.00) == 0 then
+                call DzFrameSetSize(BHPBar[6],  (1.00) / 1280.00 , 5.00 / 1280.00 )
+            else
+                call DzFrameSetSize(BHPBar[6],  (3.00 * (UnitHP[fx.index] / UnitHPMAX[fx.index]) * 100) / 1280.00 , 5.00 / 1280.00 )
+            endif
             
         else
-            //뒤지면 UI숨김
+            //죽으면 UI숨김
             if UnitAlive(fx.caster) == false then
                 if GetLocalPlayer() == Player(fx.id) then
                 call DzFrameShow(BHPBar[0], false)

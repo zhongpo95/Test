@@ -818,6 +818,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set Eitem[pid][2] = "ID4;"
         set Eitem[pid][3] = "ID6;"
         set Eitem[pid][5] = "ID1;"
+
+        set Eitem[pid][6] = "0"
+        set Eitem[pid][7] = "0"
+        set Eitem[pid][8] = "0"
+        set Eitem[pid][9] = "0"
+        set Eitem[pid][10] = "0"
+        set Eitem[pid][11] = "0"
+        set Eitem[pid][12] = "0"
+        set Eitem[pid][13] = "0"
+        set Eitem[pid][14] = "0"
+        set Eitem[pid][15] = "0"
+
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         
         if GetLocalPlayer() == Player(pid) then

@@ -572,6 +572,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameShow(F_ArcanaBackDrop, false)
                 set F_ArcanaOnOff[pid] = false
             endif
+            if F_Info2OnOff[pid] == true then
+                call DzFrameShow(F_InfoBackDrop2, false)
+                set F_Info2OnOff[pid] = false
+            endif
             call DzFrameShow(F_InfoBackDrop, true)
             set F_InfoOnOff[pid] = true
         endif
@@ -839,6 +843,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                             call DzFrameShow(F_ArcanaBackDrop, false)
                             set F_ArcanaOnOff[j] = false
                         endif
+                        if F_Info2OnOff[j] == true then
+                            call DzFrameShow(F_InfoBackDrop2, false)
+                            set F_Info2OnOff[j] = false
+                        endif
                         call DzFrameShow(F_InfoBackDrop, true)
                         set F_InfoOnOff[j] = true
                     endif
@@ -859,7 +867,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         loop
             set F_InfoOnOff[index] = false
             set index = index + 1
-            exitwhen index == 6
+            exitwhen index == 4
         endloop
         
         //P버튼으로 인포창 열기 및 닫기

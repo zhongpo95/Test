@@ -87,7 +87,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real Arm
         local real WDP = (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0))
         local real DP = Equip_DP[pid]
-        local real LastDamage = Equip_LastDamage[pid]
+        local real LastDamage = (1.0 + Equip_LastDamage[pid] / 100.0)
         local string s
         local integer sl
         local boolean CounterBoolean = false
@@ -312,9 +312,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         
         set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage * ArcanaRate
-        
-        
-        call BJDebugMsg(R2S(ArcanaRate))
+        call BJDebugMsg(R2S(dmg))
         if UnitCasting[UnitIndex] == true then
             //게이지깎
             if ( UnitCastingSD[UnitIndex] - SD ) <= 0 then

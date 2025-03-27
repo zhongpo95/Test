@@ -415,20 +415,20 @@ private function init takes nothing returns nothing
     //사신짱
     set UnitAbilityIndex[5] = 'h005'
     set UnitHeroCheck[5] = false
-    set NPCUnit[5]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h005', -28831, 28813, 319)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01M',-28831, 28813, 270)
+    set NPCUnit[5]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h005', -28831+1000, 28813-3565, 319)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01M',-28831+1000, 28813-3565, 270)
     
     //세레스티아 루덴베르크
     set UnitAbilityIndex[6] = 'h006'
     set UnitHeroCheck[6] = false
-    set NPCUnit[6]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h006', -28958, 28380, 335)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01K', -28958, 28380, 270)
+    set NPCUnit[6]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h006', -28958+1000, 28380-3565, 335)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01K', -28958+1000, 28380-3565, 270)
     
     //라이자
     set UnitAbilityIndex[7] = 'h007'
     set UnitHeroCheck[7] = false
-    set NPCUnit[7]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h007', -27445, 28849, 270)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01L',-27445, 28849, 270)
+    set NPCUnit[7]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h007', -27445+1000, 28849-3565, 270)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01L',-27445+1000, 28849-3565, 270)
     
     //반격
     set UnitAbilityIndex[8] = 'h008'
@@ -443,27 +443,27 @@ private function init takes nothing returns nothing
     //나히다
     set UnitAbilityIndex[9] = 'h00A'
     set UnitHeroCheck[9] = false
-    set NPCUnit[9]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00A', -29000, 27654, 344)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01N',-29000, 27654, 270)
+    set NPCUnit[9]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00A', -29000+1000, 27654-3565, 344)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01N',-29000+1000, 27654-3565, 270)
     
     //아즈사
     set UnitAbilityIndex[10] = 'h00C'
     set UnitHeroCheck[10] = false
     //set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', -27500, 27900, 244)
-    set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', -26022, 28784, 244)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01P',-26022, 28784, 270)
+    set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', -26022+1000, 28784-3565, 244)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01P',-26022+1000, 28784-3565, 270)
     
     //치카
     set UnitAbilityIndex[11] = 'h00D'
     set UnitHeroCheck[11] = false
-    set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', -25733, 28486, 228)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',-25733, 28486, 270)
+    set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', -25733+1000, 28486-3565, 228)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',-25733+1000, 28486-3565, 270)
     
     //미카
     set UnitAbilityIndex[12] = 'h00E'
     set UnitHeroCheck[12] = false
-    set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', -27500, 27900, 244)
-    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',-27500, 27900, 270)
+    set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', -27500+1000, 27900-3565, 244)
+    call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',-27500+1000, 27900-3565, 270)
 
     //유유코
     set UnitAbilityIndex[13] = 'h008'

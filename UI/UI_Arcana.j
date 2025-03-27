@@ -30,6 +30,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                 call DzFrameShow(F_InfoBackDrop, false)
                 set F_InfoOnOff[pid] = false
             endif
+            if F_Info2OnOff[pid] == true then
+                call DzFrameShow(F_InfoBackDrop2, false)
+                set F_Info2OnOff[pid] = false
+            endif
             call DzFrameShow(F_ArcanaBackDrop, true)
             set F_ArcanaOnOff[pid] = true
         endif
@@ -677,6 +681,10 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                         if F_InfoOnOff[j] == true then
                             call DzFrameShow(F_InfoBackDrop, false)
                             set F_InfoOnOff[j] = false
+                        endif
+                        if F_Info2OnOff[j] == true then
+                            call DzFrameShow(F_InfoBackDrop2, false)
+                            set F_Info2OnOff[j] = false
                         endif
                         call DzFrameShow(F_ArcanaBackDrop, true)
                         set F_ArcanaOnOff[j] = true

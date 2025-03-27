@@ -148,7 +148,7 @@ library DataItem
         set ItemStats[4][8] = "8"
         
         //무기 공격력
-        set ItemStats[5][1] = "10"
+        set ItemStats[5][1] = "1000"
         //증10퍼
         set ItemStats[5][2] = "100;110;121;133;146;161;177;194;214;235;259"
         //증5퍼
