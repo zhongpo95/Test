@@ -42,7 +42,7 @@ library MemUI initializer Init requires optional Typecast
 
         return 0
     endfunction
-
+    
     // unknown
     function GetTooltip takes nothing returns integer
         local integer pData
@@ -580,10 +580,10 @@ library MemUI initializer Init requires optional Typecast
         call DzFrameShow(GetSimpleConsoleTextureByIndex(5),true)
         call DzFrameShow(GetSimpleConsoleTextureByIndex(6),true)
         call DzFrameShow(GetSimpleConsoleTextureByIndex(7),true)
-    
+
         call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
-        
+
         set frame=DzFrameGetMinimap()
         call DzFrameClearAllPoints(frame)
         call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)

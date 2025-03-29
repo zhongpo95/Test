@@ -220,7 +220,6 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         set st = MapSt[GetMap(2)]
         
         if st.caster == null then
-            call BJDebugMsg(GetUnitName(source))
             set t = tick.create(0)
             set st.rectnumber = GetMap(2)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
@@ -230,7 +229,6 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set t.data = st
             call t.start( 1.00 , true, function Function )
         else
-            call BJDebugMsg("2")
             call GroupAddUnit( st.ul.super, source )
         endif
         

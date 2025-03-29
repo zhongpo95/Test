@@ -37,12 +37,13 @@ scope Load initializer onInit
                     call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
+                /*
                 set str = StashLoad(pid:PLAYER_DATA, "슬롯4", "없음")
                 if str != "없음" and str != null then
                     call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
-                
+                */
                 set j = 0
                 loop
                     set str = StashLoad(pid:PLAYER_DATA, "창고"+I2S(j), "없음")

@@ -312,7 +312,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         
         set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage * ArcanaRate
-        call BJDebugMsg(R2S(dmg))
+        //call BJDebugMsg(R2S(dmg))
         if UnitCasting[UnitIndex] == true then
             //게이지깎
             if ( UnitCastingSD[UnitIndex] - SD ) <= 0 then

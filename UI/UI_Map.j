@@ -578,7 +578,7 @@ library UIMap initializer init requires DataUnit, FrameCount
         local player p=(DzGetTriggerSyncPlayer())
         local integer LineNumber = S2I(DzGetTriggerSyncData())
         
-        call BJDebugMsg(I2S(LineNumber)+"번 입장")
+        //call BJDebugMsg(I2S(LineNumber)+"번 입장")
 
         set p = null
     endfunction

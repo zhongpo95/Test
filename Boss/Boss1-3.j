@@ -39,8 +39,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern6Time2 = 100
         private constant integer Pattern6Distance = 2000
         //파이어볼 거리보다 멀면 사용안함 5~10초
-        private constant integer Pattern7Cool = 250
-        private constant integer Pattern7RandomCool = 250
+        private constant integer Pattern7Cool = 0//250
+        private constant integer Pattern7RandomCool = 0//250
         private constant integer Pattern7Time = 150
         private constant integer Pattern7Time2 = 175
         private constant integer Pattern7Range = 125
@@ -197,8 +197,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
-            call KillUnit(fx.dummy)
-            call KillUnit(fx.effectdummy)
+            call KillUnit(dummy)
+            call KillUnit(effectdummy)
             set dummy = null
             set targetUnit = null
             set effectdummy = null
@@ -555,20 +555,20 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         MapStruct st
         private method OnStop takes nothing returns nothing
             set caster = null
-            call KillUnit(fx.dummy[0])
-            call KillUnit(fx.effectdummy[0])
-            call KillUnit(fx.dummy[1])
-            call KillUnit(fx.effectdummy[1])
-            call KillUnit(fx.dummy[2])
-            call KillUnit(fx.effectdummy[2])
-            call KillUnit(fx.dummy[3])
-            call KillUnit(fx.effectdummy[3])
-            call KillUnit(fx.dummy[4])
-            call KillUnit(fx.effectdummy[4])
-            call KillUnit(fx.dummy[5])
-            call KillUnit(fx.effectdummy[5])
-            call KillUnit(fx.dummy[6])
-            call KillUnit(fx.effectdummy[6])
+            call KillUnit(dummy[0])
+            call KillUnit(effectdummy[0])
+            call KillUnit(dummy[1])
+            call KillUnit(effectdummy[1])
+            call KillUnit(dummy[2])
+            call KillUnit(effectdummy[2])
+            call KillUnit(dummy[3])
+            call KillUnit(effectdummy[3])
+            call KillUnit(dummy[4])
+            call KillUnit(effectdummy[4])
+            call KillUnit(dummy[5])
+            call KillUnit(effectdummy[5])
+            call KillUnit(dummy[6])
+            call KillUnit(effectdummy[6])
             set dummy[0] = null
             set dummy[1] = null
             set dummy[2] = null

@@ -288,13 +288,14 @@ endfunction
     call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
     call TriggerAddAction(t, function F_A006)
     
-    //X 버튼으로 대시사용
-    call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_X, 0, false, function XKey)
-    
     set t=CreateTrigger()
     call DzTriggerRegisterSyncData(t,("DashSync"),(false))
     call TriggerAddAction(t,function DashSyncData)
 
     set t = null
 //! runtextmacro 이벤트_끝()
+
+    //! runtextmacro 이벤트_맵이_로딩되면_발동()
+    call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_X, 1, false, function XKey)
+    //! runtextmacro 이벤트_끝()
 endscope

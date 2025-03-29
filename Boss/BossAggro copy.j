@@ -49,7 +49,7 @@ library BossAggro requires Tick, UnitIndexer
                 set this.currentIndex = this.currentIndex + 1
                 exitwhen this.currentIndex == AggroCheckCount
             endloop
-            call BJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro) )
+            //call BJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro) )
         endmethod
         
         method onDestroy takes nothing returns nothing

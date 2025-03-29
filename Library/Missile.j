@@ -30,6 +30,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             call BossDeal( caster, target, 100 , false)
             call CustomStun.Stun2( target, 2.0)
             call UnitApplyTimedLife(CreateUnit(GetOwningPlayer(caster), 'e03R', GetWidgetX(target), GetWidgetY(target), GetRandomReal(0,360)), 'BHwe', 1.0)
+            call BJDebugMsg("스턴")
         endif
 
         set target = null
@@ -123,11 +124,11 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             call GroupRemoveUnit(ul.super,tu)  
             exitwhen tu == null
             if IsUnitInRangeXY(tu, x, y, st.col * 1.35) then
-                if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) and IsUnitInGroup(tu,st.ul.super) then
+                if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) and not IsUnitInGroup(tu,st.ul.super) then
                     //데미지줌
                     call GroupAddUnit(st.ul.super, tu)
                     call MonoEvent.Fire( E_Missile, null, st.u, tu, st.id) /*이벤트 - 투사체가 충돌했을때 작동*/
-                    set st.time = 0
+                    //set st.time = 0
                 endif
             endif
         endloop
