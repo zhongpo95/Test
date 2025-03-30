@@ -191,8 +191,14 @@ scope ESC initializer init
         local string s2
         local string s3
         local string name
+        local integer frame3
 
+        set AAA = AAA - 0.1
         
+        set frame3 = DzFrameGetCommandBarButton(2,0)
+        call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+
+        /*
         //목
         set s = "ID7;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
@@ -233,7 +239,8 @@ scope ESC initializer init
         if i == 5 then
             set i = 0
         endif
-
+        */
+        
         /*
         if AAA == 0 then
             set Equip_Swiftness[0] = 600

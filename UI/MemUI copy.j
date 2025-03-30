@@ -570,15 +570,9 @@ library MemUI initializer Init requires optional Typecast
         local integer frame2
         
 
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(0), ConsoleTexture01, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(1), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(2), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(3), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(4), ConsoleTexture04, false)
         call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(5), ConsoleTexture01, false)
         call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(6), ConsoleTexture02, false)
         call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(7), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(8), ConsoleTexture04, false)
         call SetTimeOfDayIndicatorModel(TimeOfDayIndicatorFile)
         call SetCSimpleTextureTexture(GetInventoryCoverTexture(), InventoryCoverFile, false)
         call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(5))
@@ -587,50 +581,15 @@ library MemUI initializer Init requires optional Typecast
         call DzFrameShow(GetSimpleConsoleTextureByIndex(5),true)
         call DzFrameShow(GetSimpleConsoleTextureByIndex(6),true)
         call DzFrameShow(GetSimpleConsoleTextureByIndex(7),true)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(3), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(4), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        
-        call DzFrameSetAbsolutePoint(GetIdlePeonButton(), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(3), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(4), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(5), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(6), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(7), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call ClearFrameAllPoints(GetPortraitButtonHPText())
-        call DzFrameSetAbsolutePoint(GetPortraitButtonHPText(), JN_FRAMEPOINT_TOPRIGHT,-1,-1)
-        call DzFrameSetAbsolutePoint(GetPortraitButtonHPText(),JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
-        call DzFrameShow(GetPortraitButtonHPText(),false)
-        call ClearFrameAllPoints(GetPortraitButtonManaText())
-        call DzFrameSetAbsolutePoint(GetPortraitButtonManaText(), JN_FRAMEPOINT_TOPRIGHT,-1,-1)
-        call DzFrameSetAbsolutePoint(GetPortraitButtonManaText(), JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
-        call DzFrameShow(GetPortraitButtonManaText(),false)
-        call DzFrameShow(GetUITimeOfDayIndicator(),false)
-        call DzFrameClearAllPoints(DzSimpleFrameFindByName("ResourceBarFrame", 0))
-        call DzFrameSetAbsolutePoint(DzSimpleFrameFindByName("ResourceBarFrame", 0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameClearAllPoints(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)))
-        call DzFrameSetAbsolutePoint(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameShow(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)),false)
 
-        //call DzSetMousePos(R2I(DzGetWindowWidth() * 0.60), R2I(DzGetWindowHeight()* 0.07))
-        //call PolledWait(0.15)
+        call DzSetMousePos(R2I(DzGetWindowWidth() * 0.60), R2I(DzGetWindowHeight()* 0.07))
+        call PolledWait(0.15)
 
         //call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
+        call ClearFrameAllPoints(GetUberTooltip())
+        call SetFrameAbsolutePoint(GetUberTooltip(), JN_FRAMEPOINT_CENTER, 0.4, 0.3)
+        call DzFrameShow(GetUberTooltip(),true)
 
         set frame=DzFrameGetMinimap()
         call DzFrameClearAllPoints(frame)
@@ -647,11 +606,10 @@ library MemUI initializer Init requires optional Typecast
         call SetCSimpleButtonStateTexture(GetIdlePeonButton(), 0, BtnIconConversionDisabledIcon(peonIconFile))
     endfunction
 
-    private function Main2 takes nothing returns nothing
-        call SetConsoleRaceUI()
-    endfunction
     private function Main takes nothing returns nothing
-        call SelectUnitForPlayerSingle( NPCUnit[7], GetLocalPlayer() )
+        call SetConsoleRaceUI()
+        //call DzFrameHideInterface()
+        //call DzFrameEditBlackBorders(0, 0)
     endfunction
     //인터페이스를 숨기기전에 인터페이스를 교체해놔야함
     //스킬아이콘 위치이동은 DzFrameEditBlackBorders(0,0) 이후에 세션에서 해야함
@@ -660,16 +618,13 @@ library MemUI initializer Init requires optional Typecast
         local trigger t = CreateTrigger()
         set pGameDll = JNGetModuleHandle("Game.dll")
         set pGameUI  = GetGameUI2(0, 0)
-        //set frame = DzFrameGetMinimap()
-        //call DzFrameClearAllPoints(frame)
-        //call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
-        //call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
+        set frame = DzFrameGetMinimap()
+        call DzFrameClearAllPoints(frame)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
 
-        call TriggerRegisterTimerEventSingle( t, 0.10 )
+        call TriggerRegisterTimerEventSingle( t, 0.15 )
         call TriggerAddAction( t, function Main )
-        set t = CreateTrigger()
-        call TriggerRegisterTimerEventSingle( t, 0.20 )
-        call TriggerAddAction( t, function Main2 )
         set t = null
     endfunction
 endlibrary
