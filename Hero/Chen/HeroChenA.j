@@ -5,6 +5,7 @@ globals
     private constant real Dist = 1500
     //쉐클시간
     private constant real Time = 0.8
+    boolean array IsCastingChenA
 endglobals
 
 private struct FxEffect
@@ -103,11 +104,15 @@ endfunction
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
+    
+    if IsCastingChenA[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
+        set IsCastingChenA[GetPlayerId(GetOwningPlayer(fx.caster))] = false
      
-    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTimeEX2('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,fx.pid)
-        call splash.range( splash.ALLY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), Dist, function splashD )
-        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            call UnitEffectTimeEX2('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,fx.pid)
+            call splash.range( splash.ALLY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), Dist, function splashD )
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+        endif
     endif
     
     call fx.Stop()
@@ -130,6 +135,7 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A01M')
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,10, (100+speed)/100)
+        set IsCastingChenA[fx.pid] = true
         if HeroSkillLevel[fx.pid][4] >= 1 then
             call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4]-8.0)
         else

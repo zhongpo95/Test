@@ -12,6 +12,7 @@ globals
 
     private constant real scale = 500
     private constant real distance = 150
+    boolean array IsCastingChenS
 endglobals
 
 private struct FxEffect
@@ -46,19 +47,23 @@ endfunction
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
-     
-    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1,GetPlayerId(GetOwningPlayer(fx.caster)))
-        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
+
+    if IsCastingChenS[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
+        set IsCastingChenS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
         
-        if HeroSkillLevel[fx.pid][5] >= 3 then
-            //set DM = 200 * 1.7
-        endif
-        
-        if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 150, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1,GetPlayerId(GetOwningPlayer(fx.caster)))
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
+            
+            if HeroSkillLevel[fx.pid][5] >= 3 then
+                //set DM = 200 * 1.7
+            endif
+            
+            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 150, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
+            endif
         endif
     endif
-    
+
     call fx.Stop()
     call t.destroy()
 endfunction
@@ -76,6 +81,7 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)
+        set IsCastingChenS[fx.pid] = true
         
         call Sound3D(fx.caster,'A01K')
         call CooldownFIX(fx.caster,'A018',HeroSkillCD5[4])

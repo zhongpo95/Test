@@ -13,6 +13,7 @@ globals
 
     private constant real scale = 500
     private constant real distance = 200
+    boolean array IsCastingChenE
 endglobals
 
 private struct FxEffect
@@ -38,16 +39,18 @@ private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     local integer level = HeroSkillLevel[pid][2]
     
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 2 then
-            set Velue = Velue * 1.70
+    if IsCastingChenE[pid] == true then
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+            if level >= 2 then
+                set Velue = Velue * 1.70
+            endif
+            
+            if level >= 3 then
+                set Velue = Velue * 2.60
+            endif
+            
+            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,true,false)
         endif
-        
-        if level >= 3 then
-            set Velue = Velue * 2.60
-        endif
-        
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,true,false)
     endif
 endfunction
 
@@ -57,14 +60,14 @@ private function EffectFunction takes nothing returns nothing
     
     set fx.i = fx.i + 1
     
-    if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) then
+    if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) or IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] == false then
+        set IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] = false
         call fx.Stop()
         call t.destroy()
     else
         if fx.i == 1 then
             set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         endif
-        
         if fx.i != 10 then
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
@@ -75,10 +78,14 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
+            
+            set IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] = false
             call fx.Stop()
             call t.destroy()
         endif
     endif
+
+    
 endfunction
 
 private function Main takes nothing returns nothing
@@ -95,6 +102,7 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(pid))/100)
+        set IsCastingChenE[pid] = true
         
         call Sound3D(fx.caster,'A01P')
         if HeroSkillLevel[pid][2] >= 1 then
@@ -104,7 +112,7 @@ private function Main takes nothing returns nothing
         endif
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster,17, fx.speed)
-        
+    
         set t.data = fx
         call t.start( Time2 /fx.speed, false, function EffectFunction ) 
     endif

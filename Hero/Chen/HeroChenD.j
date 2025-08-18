@@ -12,6 +12,7 @@ globals
 
     private constant real scale = 1500
     private constant real distance = 1000
+    boolean array IsCastingChenD
 endglobals
 
 private struct FxEffect
@@ -45,20 +46,23 @@ private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
      
-    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        if HeroSkillLevel[fx.pid][6] >= 2 then
-            call ShieldAdd(fx.caster,4.0,GetUnitMaxLifeVJ(fx.caster)*Value)
-        endif
-        call UnitEffectTime2('e00V',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.5,1, fx.pid)
-        if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
-            //공증버프
-            if HeroSkillLevel[fx.pid][6] >= 1 then
-                if Hero_Buff[fx.pid] == 0 then
-                    call BuffChen00.Apply( fx.caster, Time3, Velue2 )
+    if IsCastingChenD[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
+        set IsCastingChenD[GetPlayerId(GetOwningPlayer(fx.caster))] = false
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            if HeroSkillLevel[fx.pid][6] >= 2 then
+                call ShieldAdd(fx.caster,4.0,GetUnitMaxLifeVJ(fx.caster)*Value)
+            endif
+            call UnitEffectTime2('e00V',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.5,1, fx.pid)
+            if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
+                //공증버프
+                if HeroSkillLevel[fx.pid][6] >= 1 then
+                    if Hero_Buff[fx.pid] == 0 then
+                        call BuffChen00.Apply( fx.caster, Time3, Velue2 )
+                    endif
                 endif
             endif
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         endif
-        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
     
     call fx.Stop()
@@ -77,6 +81,7 @@ private function Main takes nothing returns nothing
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)
+        set IsCastingChenD[fx.pid] = true
         
         call Sound3D(fx.caster,'A01L')
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))

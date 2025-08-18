@@ -8,7 +8,7 @@ globals
     private trigger array TrgRemove
     private triggeraction array ActRemove
 endglobals
-       
+
 //! runtextmacro 틱("DashTimer")
     ability ab
     unit caster
@@ -262,6 +262,44 @@ endfunction
         set y=S2R(data)
         set pid=GetPlayerId(p)
         set angle = AngleWBP(MainUnit[pid],x,y)
+
+        //캐스팅중일시 캔슬
+        //챈(차지중엔 캔슬불가)
+        if DataUnitIndex(MainUnit[pid]) == 4 then
+            if IsCastingChenQ[pid] == true then
+                set IsCastingChenQ[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenC[pid] == true then
+                set IsCastingChenC[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenA[pid] == true then
+                set IsCastingChenA[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenW[pid] == true then
+                set IsCastingChenW[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenE[pid] == true then
+                set IsCastingChenE[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenD[pid] == true then
+                set IsCastingChenD[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+            if IsCastingChenS[pid] == true then
+                set IsCastingChenS[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
+        endif
+
+        //캐스팅중일시 캔슬
+        //나루메아(차지중엔 캔슬불가)
+        if DataUnitIndex(MainUnit[pid]) == 14 then
+        endif
 
         //반디비술중
         if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then

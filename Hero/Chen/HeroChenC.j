@@ -12,6 +12,7 @@ globals
 
     private constant real scale = 500
     private constant real distance = 150
+    boolean array IsCastingChenC
 endglobals
 
 private struct FxEffect
@@ -39,8 +40,12 @@ private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
      
-    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+    if IsCastingChenC[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
+        set IsCastingChenC[GetPlayerId(GetOwningPlayer(fx.caster))] = false
+
+        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
+        endif
     endif
     
     call fx.Stop()
@@ -62,11 +67,12 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = ((100+SkillSpeed(pid))/100)
+        set IsCastingChenC[pid] = true
         
         call CooldownFIX(fx.caster,'A028', CoolTime)
 
         call DummyMagicleash(fx.caster,Time /speed)
-        call AnimationStart3(fx.caster,2, (100+speed)/100)
+        call AnimationStart3(fx.caster, 18, (100+speed)/100)
         
         set t.data = fx
         call t.start( Time2 /speed, false, function EffectFunction ) 

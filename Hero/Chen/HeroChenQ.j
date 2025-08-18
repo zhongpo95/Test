@@ -12,6 +12,7 @@ globals
     private constant real distance = 350
 
     private integer array Stack
+    boolean array IsCastingChenQ
 endglobals
 
 private struct FxEffect
@@ -252,32 +253,46 @@ private function EffectFunction takes nothing returns nothing
 endfunction
 
 
+private function EffectFunction4 takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local FxEffect fx = t.data
+
+    if IsCastingChenQ[fx.pid] == true then
+        set IsCastingChenQ[fx.pid] = false
+    endif
+    
+    call fx.Stop()
+    call t.destroy()
+endfunction
+
 private function EffectFunction3 takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
     local integer random
     
-    if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-        call Sound3D(fx.caster,'A01Q')
-        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
-        call AnimationStart3(fx.caster,16, fx.speed)
-        set random = GetRandomInt(1,3)
-        if random == 1 then
-            call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
-        elseif random == 2 then
-            call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
-        elseif random == 3 then
-            call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
+    if IsCastingChenQ[fx.pid] == true then
+        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+            call Sound3D(fx.caster,'A01Q')
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD1 )
+            call AnimationStart3(fx.caster,16, fx.speed)
+            set random = GetRandomInt(1,3)
+            if random == 1 then
+                call UnitEffectTime2('e00L',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
+            elseif random == 2 then
+                call UnitEffectTime2('e00M',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
+            elseif random == 3 then
+                call UnitEffectTime2('e00N',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,1,fx.pid)
+            endif
+            //call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+            call DummyMagicleash(fx.caster,Time /fx.speed)
+            //call CastingBarShow(Player(fx.pid),false)
+            set Stack[fx.pid] = 0
+            call t.start( Time /fx.speed, false, function EffectFunction4 )
+        else
+            call fx.Stop()
+            call t.destroy()
         endif
-        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-        call DummyMagicleash(fx.caster,Time /fx.speed)
-        call CastingBarShow(Player(fx.pid),false)
-        set Stack[fx.pid] = 0
     endif
-    
-    call fx.Stop()
-    call t.destroy()
-    
 endfunction
 
 private function Main takes nothing returns nothing
@@ -312,10 +327,11 @@ private function Main takes nothing returns nothing
             call DummyMagicleash(fx.caster,(EffectTime /fx.speed)/25)
             call t.start( (EffectTime /fx.speed)/25, false, function EffectFunction )
         else
+            set IsCastingChenQ[fx.pid] = true
             call AnimationStart3(fx.caster,15, fx.speed)
             set t.data = fx
             set Stack[fx.pid] = 1
-            call DummyMagicleash(fx.caster,(EffectTime /fx.speed)/25)
+            call DummyMagicleash(fx.caster,((EffectTime /fx.speed)/25))
             call t.start( (EffectTime /fx.speed)/25, false, function EffectFunction3 )
         endif
     endif
