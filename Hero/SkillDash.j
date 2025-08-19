@@ -299,6 +299,10 @@ endfunction
         //캐스팅중일시 캔슬
         //나루메아(차지중엔 캔슬불가)
         if DataUnitIndex(MainUnit[pid]) == 14 then
+            if IsCastingNarC[pid] == true then
+                set IsCastingNarC[pid] = false
+                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            endif
         endif
 
         //반디비술중

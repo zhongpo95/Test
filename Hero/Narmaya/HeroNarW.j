@@ -148,9 +148,6 @@ private function EffectFunction3 takes nothing returns nothing
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
         
-        if HeroSkillLevel[fx.pid][3] >= 3 then
-            call CooldownSet(fx.caster,'A02L',0)
-        endif
     endif
     
     if fx.i != (TICK+1) then
@@ -193,6 +190,9 @@ private function EffectFunction takes nothing returns nothing
     endif
     call t.start( Time3 /fx.speed, false, function EffectFunction3 ) 
 
+    if HeroSkillLevel[fx.pid][3] >= 3 then
+        call CooldownSet(fx.caster,'A02L',0)
+    endif
     //call fx.Stop()
     //call t.destroy()
 endfunction

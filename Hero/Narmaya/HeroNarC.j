@@ -33,6 +33,7 @@ globals
     private constant real distance2 = 350
 
     private boolean StackChecker
+    boolean array IsCastingNarC
     
 endglobals
     //카구라 일반공격
@@ -132,8 +133,14 @@ endglobals
             //call BuffMomiz01.Stop( fx.caster )
             //set fx.Velue = 1
         //endif
-
-        if NarStack[fx.pid] == 1 then
+        if IsCastingNarC[fx.pid] == false then
+            set NarStack[fx.pid] = 0
+            //if HeroSkillLevel[fx.pid][1] >= 1 then
+                //call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
+            //endif
+            call fx.Stop()
+            call t.destroy()
+        elseif NarStack[fx.pid] == 1 then
             //막타
             if fx.i == 8 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
@@ -152,6 +159,7 @@ endglobals
                 if HeroSkillLevel[fx.pid][1] >= 1 then
                     call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
                 endif
+                set IsCastingNarC[fx.pid] = false
                 call fx.Stop()
                 call t.destroy()
             elseif fx.i == 1 or fx.i == 3 or fx.i == 5 then
@@ -203,19 +211,27 @@ endglobals
         local SkillFx fx = t.data
     
         if NarStack[fx.pid] == 1 then
-            //막타
-            call DummyMagicleash(fx.caster, Time5 /fx.speed)
-            call AnimationStart3(fx.caster,19, fx.speed)
-            set fx.i = 0
-            set fx.j = 0
-            call Sound3DT(fx.caster,'A03E',0.02)
-            call t.start( Time9/fx.speed, false, function EffectFunction3 ) 
+            if IsCastingNarC[fx.pid] == true then
+                //막타
+                call DummyMagicleash(fx.caster, Time5 /fx.speed)
+                call AnimationStart3(fx.caster,19, fx.speed)
+                set fx.i = 0
+                set fx.j = 0
+                call Sound3DT(fx.caster,'A03E',0.02)
+                call t.start( Time9/fx.speed, false, function EffectFunction3 )
+            elseif IsCastingNarC[fx.pid] == false then
+                call fx.Stop()
+                call t.destroy()
+            endif
         else
             //일반평타
             //파란이펙트
-            if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-                call UnitEffectTime2('e02R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )            
+            if IsCastingNarC[fx.pid] == true then
+                set IsCastingNarC[fx.pid] = false
+                if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+                    call UnitEffectTime2('e02R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )            
+                endif
             endif
             call fx.Stop()
             call t.destroy()
@@ -230,13 +246,18 @@ endglobals
         
         set fx.i = fx.i + 1
         //MoveD 전진거리
-        if fx.i >= 20/fx.speed then
+        
+        if IsCastingNarC[fx.pid] == false then
+            call fx.Stop()
+            call t.destroy()
+        elseif fx.i >= 20/fx.speed then
             //빨간이펙트
             if NarStack[fx.pid] < 3 then
                 set NarStack[fx.pid] = NarStack[fx.pid] + 1
             endif
 
-            if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+            if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 and IsCastingNarC[fx.pid] == true then
+                set IsCastingNarC[fx.pid] = false
                 call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD3 )
             endif
@@ -264,6 +285,8 @@ endglobals
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set fx.index = IndexUnit(MainUnit[fx.pid])
             set fx.i = 0 
+
+            set IsCastingNarC[fx.pid] = true
             
             call CooldownFIX(fx.caster,'A02R', CoolTime)
 
