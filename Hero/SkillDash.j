@@ -125,7 +125,6 @@ private function F_A006 takes nothing returns nothing
         call DummyMagicleash(t.caster,Time)
         call BuffNoNB.Apply( t.caster, Time, 0 )
         call BuffNoST.Apply( t.caster, Time, 0 )
-        call SetUnitVertexColorBJ( caster, 80, 80, 100, 0 )
         call TriggerSleepActionByTimer(0)
         call JNStartUnitAbilityCooldown(caster, 'A006', 1)
         set caster = null
@@ -263,45 +262,56 @@ endfunction
         set pid=GetPlayerId(p)
         set angle = AngleWBP(MainUnit[pid],x,y)
 
-        //캐스팅중일시 캔슬
-        //챈(차지중엔 캔슬불가)
-        if DataUnitIndex(MainUnit[pid]) == 4 then
-            if IsCastingChenQ[pid] == true then
-                set IsCastingChenQ[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenC[pid] == true then
-                set IsCastingChenC[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenA[pid] == true then
-                set IsCastingChenA[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenW[pid] == true then
-                set IsCastingChenW[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenE[pid] == true then
-                set IsCastingChenE[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenD[pid] == true then
-                set IsCastingChenD[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-            if IsCastingChenS[pid] == true then
-                set IsCastingChenS[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
-            endif
-        endif
+        if EXGetAbilityState(EXGetUnitAbility(MainUnit[pid],'A002'), ABILITY_STATE_COOLDOWN) == 0 then
 
-        //캐스팅중일시 캔슬
-        //나루메아(차지중엔 캔슬불가)
-        if DataUnitIndex(MainUnit[pid]) == 14 then
-            if IsCastingNarC[pid] == true then
-                set IsCastingNarC[pid] = false
-                call UnitRemoveAbility( MainUnit[pid], 'B000' )
+            //캐스팅중일시 캔슬
+            //챈(차지중엔 캔슬불가)
+            if DataUnitIndex(MainUnit[pid]) == 4 then
+                if IsCastingChenQ[pid] == true then
+                    set IsCastingChenQ[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenC[pid] == true then
+                    set IsCastingChenC[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenA[pid] == true then
+                    set IsCastingChenA[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenW[pid] == true then
+                    set IsCastingChenW[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenE[pid] == true then
+                    set IsCastingChenE[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenD[pid] == true then
+                    set IsCastingChenD[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingChenS[pid] == true then
+                    set IsCastingChenS[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+            endif
+
+            //캐스팅중일시 캔슬
+            //나루메아(차지중엔 캔슬불가)
+            if DataUnitIndex(MainUnit[pid]) == 14 then
+                if IsCastingNarC[pid] == true then
+                    set IsCastingNarC[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingNarD[pid] == true then
+                    set IsCastingNarD[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+                if IsCastingNarA[pid] == true then
+                    set IsCastingNarA[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
             endif
         endif
 

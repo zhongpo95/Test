@@ -124,7 +124,7 @@ library SafePos
         /*========================================================================*/
         private method OnStop takes nothing returns nothing
             call UnitRemoveAbility( this.Owner, 'B000' )
-            call SetUnitVertexColorBJ( this.Owner, 100, 100, 100, 0 )
+            //call SetUnitVertexColorBJ( this.Owner, 100, 100, 100, 0 )
             set this.Owner = null
         endmethod
         private method OnTick takes nothing returns nothing

@@ -68,9 +68,11 @@ library BuffData requires Struct2Buff, StatsSet
         /* OnApply : Buff 최초 적용 성공 시 발동되는 메소드 */
         method OnApply takes nothing returns nothing
             call UnitAddAbility(.Target, 'A00R')
+            call SetUnitVertexColorBJ( .Target, 80, 80, 100, 0 )
         endmethod
         /* OnRemove : Buff 데이터 삭제 시 발동되는 메소드 */
         method OnRemove takes nothing returns nothing
+            call SetUnitVertexColorBJ( .Target, 100, 100, 100, 0 )
             call UnitRemoveAbility(.Target, 'A00R')
         endmethod
         /* OnDuration : 지속 시간 만료 시 발동되는 메소드(영구 지속 시 발동안함) */

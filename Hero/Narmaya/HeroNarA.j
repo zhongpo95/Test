@@ -5,63 +5,69 @@ globals
     //버프지속시간,공증량
     private constant real Time3 = 60
     private constant integer Velue2 = 350
+    private constant real CancelTime = 1.00
+    boolean array IsCastingNarA
 endglobals
 
-    private struct FxEffect
-        unit caster
-        real TargetX
-        real TargetY
-        integer pid
-        integer i
-        real speed
-        private method OnStop takes nothing returns nothing
-            set caster = null
-            set TargetX = 0
-            set TargetY = 0
-            set pid = 0
-            set i = 0
-            set speed = 0
-        endmethod
-        //! runtextmacro 연출()
-    endstruct
 
-private function Main takes nothing returns nothing
-    local unit caster
-    local integer pid
-    local real speed
+private function EffectFunction takes nothing returns nothing
+    local tick t = tick.getExpired()
+    local SkillFx fx = t.data
 
-    if GetSpellAbilityId() == 'A02M' then
-        set caster = GetTriggerUnit()
-        set pid = GetPlayerId(GetOwningPlayer(caster))
-        set speed = ((100+SkillSpeed(pid))/100)
-
-        call Sound3D(caster,'A03S')
-        call Sound3D(caster,'A04H')
-
-        call DummyMagicleash(caster, Time2 /speed)
-        call AnimationStart3(caster, 3, (100+speed)/100)
-
-        if Hero_Buff[pid] == 0 then
-            if HeroSkillLevel[pid][4] >= 2 then
-                call BuffNar01.Apply( caster, Time3 * 1.5, Velue2 )
+    if IsCastingNarA[fx.pid] == true then
+        if Hero_Buff[fx.pid] == 0 then
+            if HeroSkillLevel[fx.pid][4] >= 2 then
+                call BuffNar01.Apply( fx.caster, Time3 * 1.5, Velue2 )
             else
-                call BuffNar01.Apply( caster, Time3, Velue2 )
+                call BuffNar01.Apply( fx.caster, Time3, Velue2 )
             endif
         endif
 
-        if HeroSkillLevel[pid][4] >= 1 then
-            if HeroSkillLevel[pid][4] >= 3 then
+        if HeroSkillLevel[fx.pid][4] >= 1 then
+            if HeroSkillLevel[fx.pid][4] >= 3 then
                 if GetRandomInt(0,1) == 1 then
-                    call NarNabiPlus(pid,6)
+                    call NarNabiPlus(fx.pid,6)
                 endif
             else
-                call NarNabiPlus(pid,3)
+                call NarNabiPlus(fx.pid,3)
             endif
         endif
 
+        call CooldownFIX2(fx.caster,'A02M',HeroSkillCD4[14])
 
-        call CooldownFIX(caster,'A02M',HeroSkillCD4[14])
-        set caster = null
+        set IsCastingNarA[fx.pid] = false
+        
+        call fx.Stop()
+        call t.destroy()
+    else
+        set IsCastingNarA[fx.pid] = false
+        call CooldownSet(fx.caster,'A02M', CancelTime)
+        call fx.Stop()
+        call t.destroy()
+    endif
+endfunction
+
+private function Main takes nothing returns nothing
+    local tick t
+    local SkillFx fx
+
+    if GetSpellAbilityId() == 'A02M' then
+        set t = tick.create(0)
+        set fx = SkillFx.Create()
+        set fx.caster = GetTriggerUnit()
+        set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
+        set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+
+        call Sound3D(fx.caster,'A03S')
+        call Sound3D(fx.caster,'A04H')
+
+        call DummyMagicleash(fx.caster, Time2 /fx.speed)
+        call AnimationStart3(fx.caster, 3, (100+fx.speed)/100)
+
+        set IsCastingNarA[fx.pid] = true
+
+        set t.data = fx
+        call t.start( Time2 /fx.speed , false, function EffectFunction )
     endif
 endfunction
     
@@ -91,19 +97,6 @@ private function ASyncData takes nothing returns nothing
     set p=null
 endfunction
 
-private function ASyncData2 takes nothing returns nothing
-    local player p = DzGetTriggerSyncPlayer()
-    local integer pid = GetPlayerId(p)
-    local real x
-    local real y
-    local real angle
-    local real speed
-    local tick t
-    local FxEffect fx
-    
-    set p=null
-endfunction
-
             
 //! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
     local trigger t
@@ -115,10 +108,6 @@ endfunction
     set t=CreateTrigger()
     call DzTriggerRegisterSyncData(t,("NarA"),(false))
     call TriggerAddAction(t,function ASyncData)
-    
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarA2"),(false))
-    call TriggerAddAction(t,function ASyncData2)
 
     set t = null
 //! runtextmacro 이벤트_끝()

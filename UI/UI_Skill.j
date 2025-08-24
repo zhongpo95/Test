@@ -112,10 +112,10 @@ library UISkill initializer init requires MemUI
         set frame=JNCreateFrameByType("BACKDROP","Command10",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
-        call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,-1, -1)
+        call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6075, 0.0475)
         set frame2 = DzFrameGetCommandBarButton(2,0)
         call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetAbsolutePoint(frame2,JN_FRAMEPOINT_TOPLEFT,-1, -1)
+        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         //x
         set frame=JNCreateFrameByType("BACKDROP","Command11",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
@@ -124,7 +124,7 @@ library UISkill initializer init requires MemUI
         set frame2 = DzFrameGetCommandBarButton(2,1)
         call DzFrameSetSize(frame2,.0275,.0275)
         call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        //v
+        //c
         set frame=JNCreateFrameByType("BACKDROP","Command12",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
@@ -132,14 +132,14 @@ library UISkill initializer init requires MemUI
         set frame2 = DzFrameGetCommandBarButton(2,2)
         call DzFrameSetSize(frame2,.0275,.0275)
         call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
-        //c
+        //v
         set frame=JNCreateFrameByType("BACKDROP","Command13",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
-        call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,-1, -1)
+        call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.7179, 0.0475)
         set frame2 = DzFrameGetCommandBarButton(2,3)
         call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetAbsolutePoint(frame2,JN_FRAMEPOINT_TOPLEFT,-1, -1)
+        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         
         //소모품
         set frame=JNCreateFrameByType("BACKDROP","Command14",heroStatusUI,"",0)
