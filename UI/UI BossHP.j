@@ -189,8 +189,8 @@ library UIBossHP initializer init requires FrameCount, DataUnit
             endif
             
             if GetLocalPlayer() == Player(fx.id) then
-            call DzFrameShow(BHPBar[0], true)
-            call DzFrameShow(BHPBar[8], true)
+                call DzFrameShow(BHPBar[0], true)
+                call DzFrameShow(BHPBar[8], true)
             endif
             
             //보스의 체력바갯수가 , 갱신된 체력바갯수보다 많음 = ??회복된건가??

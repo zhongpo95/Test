@@ -30,7 +30,6 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             call BossDeal( caster, target, 100 , false)
             call CustomStun.Stun2( target, 2.0)
             call UnitApplyTimedLife(CreateUnit(GetOwningPlayer(caster), 'e03R', GetWidgetX(target), GetWidgetY(target), GetRandomReal(0,360)), 'BHwe', 1.0)
-            call BJDebugMsg("스턴")
         endif
 
         set target = null

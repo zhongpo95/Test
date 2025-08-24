@@ -262,7 +262,14 @@ endfunction
         set pid=GetPlayerId(p)
         set angle = AngleWBP(MainUnit[pid],x,y)
 
+
+        //0스텍이 사용가능
         if EXGetAbilityState(EXGetUnitAbility(MainUnit[pid],'A002'), ABILITY_STATE_COOLDOWN) == 0 then
+
+            //스턴중이고 에어본상태가 아님
+            if GetUnitAbilityLevel(MainUnit[pid], 'BPSE') == 1 and GetUnitAbilityLevel(MainUnit[pid], 'A024') < 1 then
+                call CustomStun.Clear( MainUnit[pid] )
+            endif
 
             //캐스팅중일시 캔슬
             //챈(차지중엔 캔슬불가)
