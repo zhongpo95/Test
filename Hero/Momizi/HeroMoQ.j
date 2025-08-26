@@ -53,9 +53,9 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 3 then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[3]*2.05,false,false,true,false)
+            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue0[3]*2.05,false,false,true,false)
         else
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[3],false,false,true,false)
+            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue0[3],false,false,true,false)
         endif
     endif
 endfunction

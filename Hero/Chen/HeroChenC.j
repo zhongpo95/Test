@@ -32,7 +32,7 @@ private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
+        call HeroDeal('A028',splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
     endif
 endfunction
 

@@ -18,7 +18,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true,false) then
+        if HeroDeal('A02I',splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true,false) then
             if HeroSkillLevel[pid][0] >= 2 then
                 call NarNabiPlus(pid,6)
             endif
@@ -98,6 +98,9 @@ private function Main takes nothing returns nothing
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
+
+        call Overlay2Count(fx.pid,'A02I')
+
         set r = DistanceWBP(fx.caster, fx.TargetX, fx.TargetY )
         if r >= MoveD then
             set fx.r = MoveD

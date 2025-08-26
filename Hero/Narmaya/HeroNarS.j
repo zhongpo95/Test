@@ -28,13 +28,13 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 
-                call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
+                call HeroDeal('A02N',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
                 call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
                 loop
                 exitwhen Nabi == 0
                     set Nabi = Nabi - 1
-                    call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
+                    call HeroDeal('A02N',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
                     call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
                 endloop
 
@@ -191,6 +191,8 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.r = MoveD
+
+        call Overlay2Count(fx.pid,'A02N')
 
         //유닛애니메이션속도
         call DummyMagicleash(fx.caster, Time /fx.speed)

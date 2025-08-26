@@ -87,6 +87,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     
     private function AllDie takes nothing returns nothing
         call FailedStart(GetEnumUnit())
+        call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
     
     private function SuccessF takes nothing returns nothing
@@ -107,6 +108,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
+        call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
     
     private function EffectFunction2 takes nothing returns nothing
@@ -178,6 +180,7 @@ library Boss2 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call DzFrameShow(BossTip, false)
         endif
         call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
+        call Overlay(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
     
     private function EffectFunction takes nothing returns nothing

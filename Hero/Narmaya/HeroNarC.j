@@ -43,7 +43,7 @@ endglobals
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
+            call HeroDeal(2,splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -62,7 +62,7 @@ endglobals
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue3[14]*Velue,false,false,false,false)
+            call HeroDeal('A02L',splash.source,GetEnumUnit(),HeroSkillVelue3[14]*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -85,7 +85,7 @@ endglobals
             if level >= 2 then
                 set Velue = Velue * 2
             endif
-            call HeroDeal(splash.source, GetEnumUnit(), HeroSkillVelue23[14] * Velue, false, false, false,false)
+            call HeroDeal('A02L',splash.source, GetEnumUnit(), HeroSkillVelue23[14] * Velue, false, false, false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -110,7 +110,7 @@ endglobals
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-            call HeroDeal(splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
+            call HeroDeal(2,splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -285,6 +285,8 @@ endglobals
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set fx.index = IndexUnit(MainUnit[fx.pid])
             set fx.i = 0 
+
+            call Overlay2Count(fx.pid,2)
 
             set IsCastingNarC[fx.pid] = true
             

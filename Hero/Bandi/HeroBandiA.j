@@ -20,7 +20,7 @@ scope HeroBandiA
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  90 ) then
-                if HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue4[15]*Velue,false,false,true,false) then
+                if HeroDeal('A06C',splash.source,GetEnumUnit(),HeroSkillVelue4[15]*Velue,false,false,true,false) then
                 endif
             endif
         endif

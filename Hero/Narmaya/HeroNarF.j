@@ -26,13 +26,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
+        call HeroDeal('A02P',splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi2 == 0
             set Nabi2 = Nabi2 - 1
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
+            call HeroDeal('A02P',splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -54,7 +54,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
+        call HeroDeal('A02P',splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
         if random == 0 then
@@ -284,6 +284,9 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.i = 0
+
+        call Overlay2Count(fx.pid,'A02P')
+
         if HeroSkillLevel[fx.pid][7] >= 1 then
             if HeroSkillLevel[fx.pid][7] >= 3 then
                 set fx.st = NarNabiUse(fx.pid,true)

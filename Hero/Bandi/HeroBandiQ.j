@@ -17,7 +17,7 @@ scope HeroBandiQ
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue0[15]*Velue,false,false,true,false)
+            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue0[15]*Velue,false,false,true,false)
             call BanBisulPlus(pid,1)
             //call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endif

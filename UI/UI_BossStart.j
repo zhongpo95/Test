@@ -1,4 +1,4 @@
-library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCount
+library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCount, UIOverlay
     globals
         integer FBS_BD                     //인포 배경
         integer FBS_CB                     //X버튼

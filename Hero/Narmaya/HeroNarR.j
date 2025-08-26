@@ -11,6 +11,9 @@ private function Main takes nothing returns nothing
     if GetSpellAbilityId() == 'A02L' then
         set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
         call CooldownFIX(GetTriggerUnit(),'A02L',HeroSkillCD3[14])
+        
+        call Overlay2Count(GetPlayerId(GetOwningPlayer(GetTriggerUnit())),'A02L')
+
     endif
 endfunction
     

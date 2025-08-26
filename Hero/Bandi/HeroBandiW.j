@@ -19,7 +19,7 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue1[15]*Velue,false,false,false,false)
+        call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[15]*Velue,false,false,false,false)
         call BanBisulPlus(pid,1)
     endif
 endfunction

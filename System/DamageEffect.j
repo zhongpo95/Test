@@ -37,7 +37,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set dmg = UnitHPMAX[UnitIndex] * rate
 
         set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
-        set ttag=CreateTextTag()
+        set ttag = CreateTextTag()
         set s = I2S(R2I(dmg)) + HPString
         set sl = JNStringLength(s)
         if sl == 10 then
@@ -68,7 +68,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
     endfunction
     
     //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터,차지
-    function HeroDeal takes unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
+    function HeroDeal takes integer SkillCode, unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
         local integer index = DataUnitIndex(target)
         local integer sourceindex = IndexUnit(source)
@@ -94,8 +94,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real SD = 1
         local real ArcanaRate = 1
         local integer ArcanaLv = 0
-
-
+        local integer i = 0
+    
         //방어력10000
         set ArmVelue = UnitArm[UnitIndex]
 
@@ -312,6 +312,20 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         
         set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage * ArcanaRate
+
+        //미터기
+        loop
+            exitwhen i > 3
+            if pid == OverlayPlayerID[i] then
+                set OverlayPlayerValue[i] = OverlayPlayerValue[i] + (dmg * HPvalue)
+            endif
+            set i = i + 1
+        endloop
+        if PlayerOverlayStop[pid] == false then
+            //스킬,피해량,크리
+            call Overlay2(pid, SkillCode,(dmg * HPvalue), CriBoolean)
+        endif
+
         //call BJDebugMsg(R2S(dmg))
         if UnitCasting[UnitIndex] == true then
             //게이지깎

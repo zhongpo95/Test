@@ -60,7 +60,6 @@ private function Main takes nothing returns nothing
 
         call Sound3D(fx.caster,'A03S')
         call Sound3D(fx.caster,'A04H')
-
         call DummyMagicleash(fx.caster, Time2 /fx.speed)
         call AnimationStart3(fx.caster, 3, (100+fx.speed)/100)
 

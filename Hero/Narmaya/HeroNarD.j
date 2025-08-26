@@ -20,11 +20,11 @@ private function splashD takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
+        call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
+        call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
+        call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         set random = GetRandomInt(0,2)
@@ -45,13 +45,13 @@ private function splashD2 takes nothing returns nothing
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-        call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
+        call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
         loop
         exitwhen Nabi == 0
             set Nabi = Nabi - 1
-            call HeroDeal(splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
+            call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         endloop
 
@@ -201,6 +201,8 @@ private function Main takes nothing returns nothing
         set fx.i = 0
         set fx.r = GetUnitFacing(fx.caster)
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
+
+        call Overlay2Count(fx.pid,'A02O')
 
         //유닛애니메이션속도
         call DummyMagicleash(fx.caster, Time /fx.speed)

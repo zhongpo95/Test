@@ -1,7 +1,8 @@
-library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV
+library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay
     globals
         integer BossTip
         //8초
+        private integer NoDieCheck
         private constant integer Pattern1Cool = 400
         private constant integer Pattern1CounterTime = 125
         private unit CheckUnit
@@ -201,6 +202,19 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
+    endfunction
+
+    private function NoDie takes nothing returns nothing
+        set NoDieCheck = NoDieCheck + 1
+        if IsUnitDeadVJ(GetEnumUnit()) then
+            set NoDieCheck = NoDieCheck - 1
+        endif
+    endfunction
+
+    private function AllDie takes nothing returns nothing
+        call FailedStart(GetEnumUnit())
+        call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 
     private function EffectFunction2 takes nothing returns nothing
@@ -209,35 +223,50 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local FxEffect fx
         local AggroSystem s
 
-        if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
-            //행동불가
-            if GetUnitAbilityLevel(st.caster,'A02F') >= 1 then
-            //행동불가 상태가 아님
-            else
-                //패턴 쿨타임 0.02초 감소
-                set st.pattern1 = st.pattern1 - 1
-                if st.pattern1 <= 0 then
-                    set fx = FxEffect.Create()
-                    set fx.caster = st.caster
-                    set fx.i = 0
-                    set fx.st = st
-                    call AnimationStart(fx.caster, 5)
-                    call fx.Start()
-                    set st.pattern1 = Pattern1Cool
-                endif
-            endif
-        //주금
-        else
-            call ForGroup(st.ul.super,function SuccessF)
-            call st.ul.destroy()
-            //그룹 보상
+
+        set NoDieCheck = 0
+        call ForGroup(st.ul.super,function NoDie)
+        
+        //다죽음
+        if NoDieCheck == 0 then
             call KillUnit(st.caster)
-            set s = BossStruct[IndexUnit(st.caster)]
-            call s.destroy()
+            call RemoveUnit(st.caster)
+            call ForGroup(st.ul.super,function AllDie)
             set st.caster = null
-            call BossMapReset(st.rectnumber, 1)
+            call MapReset(st.rectnumber,2)
             set st.rectnumber = 0
             call t.destroy()
+        else
+            if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
+                //행동불가
+                if GetUnitAbilityLevel(st.caster,'A02F') >= 1 then
+                //행동불가 상태가 아님
+                else
+                    //패턴 쿨타임 0.02초 감소
+                    set st.pattern1 = st.pattern1 - 1
+                    if st.pattern1 <= 0 then
+                        set fx = FxEffect.Create()
+                        set fx.caster = st.caster
+                        set fx.i = 0
+                        set fx.st = st
+                        call AnimationStart(fx.caster, 5)
+                        call fx.Start()
+                        set st.pattern1 = Pattern1Cool
+                    endif
+                endif
+            //주금
+            else
+                call ForGroup(st.ul.super,function SuccessF)
+                call st.ul.destroy()
+                //그룹 보상
+                call KillUnit(st.caster)
+                set s = BossStruct[IndexUnit(st.caster)]
+                call s.destroy()
+                set st.caster = null
+                call BossMapReset(st.rectnumber, 1)
+                set st.rectnumber = 0
+                call t.destroy()
+            endif
         endif
         
     endfunction
@@ -255,11 +284,13 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
     endfunction
     
     private function NoRemove takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(GetEnumUnit()))
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
             call DzFrameShow(BossTip, false)
         endif
-        call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
+        call BOSSHPSTART(CheckUnit, pid)
+        call Overlay(pid)
     endfunction
     
     private function EffectFunction takes nothing returns nothing
@@ -269,8 +300,11 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local integer UnitIndex
         local unit Unit
         
+        //정비소에 아무도 없을경우
         if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
+
+            //정비소제거
             call KillUnit(st.caster)
             //set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h008',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
@@ -295,11 +329,14 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             //call SELECTEDBOSS(GetLocalPlayer(),SandBagUnit)
             
             set CheckUnit = st.caster
-            call ForGroup(st.ul.super, function NoRemove)
+            call ForGroup( st.ul.super, function NoRemove)
             set CheckUnit = null
+
+            //미터기 시작
+
             
             call Boss1Start2(st)
-            
+
             set Unit = null
             call t.destroy()
         endif
@@ -312,6 +349,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         local integer pid = GetPlayerId(GetOwningPlayer(source))
         
         set st = MapSt[GetMap(1)]
+        
         
         if st.caster == null then
             set t = tick.create(0)
