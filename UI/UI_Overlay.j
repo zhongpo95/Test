@@ -289,7 +289,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
             endif
 
             set s = R2SW(OverlayPlayerValue[2],1,1)
-            set s2 = TextChange(s)
+            set s3 = TextChange(s)
             call DzFrameSetText(OverlayValue[2], s3)
 
             if OverlayPlayerValue[2] != 0 then
@@ -298,7 +298,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
             endif
 
             set s = R2SW(OverlayPlayerValue[3],1,1)
-            set s2 = TextChange(s)
+            set s4 = TextChange(s)
             call DzFrameSetText(OverlayValue[3], s4)
 
             if OverlayPlayerValue[3] != 0 then
@@ -313,16 +313,16 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
             endif
             call DzFrameSetText(OverlayTimer, FormatSecondsToTime(OverlayTime[t.data]))
             if r != 0 then
-                if OverlayPlayerID[i2] == 0 then
+                if i2 == 0 then
                     call DzFrameSetText(OverlayDamage,s1)
                     call DzFrameSetText(OverlayDPS, TextChange(R2SW( OverlayPlayerValue[i2]/OverlayTime[t.data],1,1)) )
-                elseif OverlayPlayerID[i2] == 1 then
+                elseif i2 == 1 then
                     call DzFrameSetText(OverlayDamage,s2)
                     call DzFrameSetText(OverlayDPS, TextChange(R2SW( OverlayPlayerValue[i2]/OverlayTime[t.data],1,1)) )
-                elseif OverlayPlayerID[i2] == 2 then
+                elseif i2 == 2 then
                     call DzFrameSetText(OverlayDamage,s3)
                     call DzFrameSetText(OverlayDPS, TextChange(R2SW( OverlayPlayerValue[i2]/OverlayTime[t.data],1,1)) )
-                elseif OverlayPlayerID[i2] == 3 then
+                elseif i2 == 3 then
                     call DzFrameSetText(OverlayDamage,s4)
                     call DzFrameSetText(OverlayDPS, TextChange(R2SW( OverlayPlayerValue[i2]/OverlayTime[t.data],1,1)) )
                 endif
@@ -1340,17 +1340,17 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         call DzFrameShow(OverlayTimer,true)
 
         set OverlayDamage=JNCreateFrameByType("TEXT","",Overlay_BackDrop,"", FrameCount())
-        call DzFrameSetSize(OverlayDamage,0.145,0.00)
+        call DzFrameSetSize(OverlayDamage, 0.145,0.00)
         call DzFrameSetPoint(OverlayDamage, JN_FRAMEPOINT_TOPLEFT, Overlay_BackDrop, JN_FRAMEPOINT_TOPLEFT, 0.0375, -0.1100)
-        call DzFrameSetText(OverlayDamage,"피해량")
+        call DzFrameSetText(OverlayDamage, "피해량")
         call DzFrameSetFont(OverlayDamage, "Fonts\\DFHeiMd.ttf", 0.007, 0)
-        call DzFrameShow(OverlayDamage,true)
+        call DzFrameShow(OverlayDamage, true)
         set OverlayDamage=JNCreateFrameByType("TEXT","",Overlay_BackDrop,"", FrameCount())
-        call DzFrameSetSize(OverlayDamage,0.145,0.00)
+        call DzFrameSetSize(OverlayDamage, 0.145,0.00)
         call DzFrameSetPoint(OverlayDamage, JN_FRAMEPOINT_TOPLEFT, Overlay_BackDrop, JN_FRAMEPOINT_TOPLEFT, 0.0350, -0.1225)
-        call DzFrameSetText(OverlayDamage,""+"")
+        call DzFrameSetText(OverlayDamage, "")
         call DzFrameSetFont(OverlayDamage, "Fonts\\DFHeiMd.ttf", 0.007, 0)
-        call DzFrameShow(OverlayDamage,true)
+        call DzFrameShow(OverlayDamage, true)
 
         set OverlayDPS=JNCreateFrameByType("TEXT","",Overlay_BackDrop,"", FrameCount())
         call DzFrameSetSize(OverlayDPS,0.145,0.00)
@@ -1408,10 +1408,14 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
 
     private function Command takes nothing returns nothing
         if OverlayShow[GetPlayerId(GetTriggerPlayer())] == false then
-            call DzFrameShow(Overlay_BackDrop,true)
+            if GetLocalPlayer() == GetTriggerPlayer() then
+                call DzFrameShow(Overlay_BackDrop,true)
+            endif
             set OverlayShow[GetPlayerId(GetTriggerPlayer())] = true
         elseif OverlayShow[GetPlayerId(GetTriggerPlayer())] == true then
-            call DzFrameShow(Overlay_BackDrop,false)
+            if GetLocalPlayer() == GetTriggerPlayer() then
+                call DzFrameShow(Overlay_BackDrop,false)
+            endif
             set OverlayShow[GetPlayerId(GetTriggerPlayer())] = false
         endif
     endfunction
