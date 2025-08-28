@@ -1446,7 +1446,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         loop
             exitwhen i > 4
             call TriggerRegisterPlayerChatEvent( t, Player(i), "-미터기", false )
-            set OverlayShow[GetPlayerId(GetTriggerPlayer())] = false
+            set OverlayShow[i] = false
             set i = i + 1
         endloop
         call TriggerAddAction( t, function Command )
