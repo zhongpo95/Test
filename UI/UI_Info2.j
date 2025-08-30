@@ -221,6 +221,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 call DzFrameSetText(UI_Tip_Text[1], "모자" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
+            /*
         elseif f ==  F_EItemButtons2[1] then
             set items = Eitem[pid][1]
             set itemid = GetItemIDs(Eitem[pid][1])
@@ -253,6 +254,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 //call DzFrameSetText(UI_Tip_Text[1], "견갑" )
                 //call DzFrameSetText(UI_Tip_Text[2], "")
             //endif
+            */
         elseif f ==  F_EItemButtons2[5] then
             set items = Eitem[pid][5]
             set itemid = GetItemIDs(Eitem[pid][5])
@@ -836,6 +838,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 else
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[0], "UI_Inventory.blp", 0)
                 endif
+                /*
                 if Eitem[pid][1] != "0" and Eitem[pid][1] != "" and Eitem[pid][1] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetItemArt(Eitem[pid][1]), 0)
                 else
@@ -851,6 +854,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 else
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[3], "UI_Inventory.blp", 0)
                 endif
+                */
                 //if Eitem[pid][4] != "0" then
                     //call DzFrameSetTexture(F_EItemButtons2BackDrop[4], GetItemArt(Eitem[pid][4]), 0)
                 //endif

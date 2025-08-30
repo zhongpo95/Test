@@ -221,6 +221,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "모자" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
+        /*
         elseif f ==  F_EItemButtons[1] then
             set items = Eitem[pid][1]
             set itemid = GetItemIDs(Eitem[pid][1])
@@ -245,6 +246,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "장갑" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
+        */
         //elseif f ==  F_EItemButtons[4] then
             //set items = Eitem[pid][4]
             //set itemid =GetItemIDs(Eitem[pid][4])

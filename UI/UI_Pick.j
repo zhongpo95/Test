@@ -31,9 +31,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
+        /*
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
+        */
         //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
         if Eitem[pid][6] != null then
@@ -562,9 +564,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
         
         set Eitem[pid][0] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E0", "0")
+        /*
         set Eitem[pid][1] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E1", "0")
         set Eitem[pid][2] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E2", "0")
         set Eitem[pid][3] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E3", "0")
+        */
         //set Eitem[pid][4] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E4", "0")
         set Eitem[pid][5] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E5", "0")
         
@@ -597,6 +601,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             endif
+            /*
             if Eitem[pid][1] != "" then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
@@ -609,6 +614,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[3], GetItemArt(Eitem[pid][3]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[3], GetItemArt(Eitem[pid][3]), 0)
             endif
+            */
             if Eitem[pid][5] != "" then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[5], GetItemArt(Eitem[pid][5]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[5], GetItemArt(Eitem[pid][5]), 0)
@@ -824,11 +830,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "ID16;중첩수0")
         endif
         
-        set Eitem[pid][0] = "ID2;"
+        set Eitem[pid][0] = "ID9;"
+        /*
         set Eitem[pid][1] = "ID3;"
         set Eitem[pid][2] = "ID4;"
         set Eitem[pid][3] = "ID6;"
-        set Eitem[pid][5] = "ID1;"
+        */
+        set Eitem[pid][5] = "ID18;"
 
         set Eitem[pid][6] = "0"
         set Eitem[pid][7] = "0"
@@ -847,12 +855,14 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
             call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
+            /*
             call DzFrameSetTexture(F_EItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
             call DzFrameSetTexture(F_EItemButtonsBackDrop[2], GetItemArt(Eitem[pid][2]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[2], GetItemArt(Eitem[pid][2]), 0)
             call DzFrameSetTexture(F_EItemButtonsBackDrop[3], GetItemArt(Eitem[pid][3]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[3], GetItemArt(Eitem[pid][3]), 0)
+            */
             //call DzFrameSetTexture(F_EItemButtonsBackDrop[4], GetItemArt(Eitem[pid][4]), 0)
             //call DzFrameSetTexture(F_EEItemButtonsBackDrop[4], GetItemArt(Eitem[pid][4]), 0)
             call DzFrameSetTexture(F_EItemButtonsBackDrop[5], GetItemArt(Eitem[pid][5]), 0)

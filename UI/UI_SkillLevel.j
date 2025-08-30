@@ -223,22 +223,6 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = str + "모자|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 1 then
-                set str = str + "상의|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 2 then
-                set str = str + "하의|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 3 then
-                set str = str + "장갑|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 4 then
-                set str = str + "견갑|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 5 then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"

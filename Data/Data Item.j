@@ -12,83 +12,53 @@ library DataItem
     endglobals
 
     //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
-        call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I001')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I002')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 3, 'I003')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 4, 'I004')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 5, 'I005')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 6, 'I00F')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 7, 'I006')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 8, 'I007')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 9, 'I00D')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 10, 'I00E')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 11, 'I00K')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 12, 'I000')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 13, 'I009')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 14, 'I00B')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 15, 'I00A')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 16, 'I00C')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 17, 'I00M')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 18, 'I00N')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 19, 'I00O')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 20, 'I00P')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 21, 'I00Q')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 22, 'I00R')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 23, 'I00S')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 24, 'I00T')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 25, 'I00U')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 26, 'I00V')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 27, 'I00W')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 28, 'I00X')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 29, 'I00Y')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 30, 'I00Z')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 31, 'I010')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 32, 'I011')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 33, 'I012')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 34, 'I013')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 35, 'I014')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 36, 'I015')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 37, 'I016')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 38, 'I017')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 39, 'I018')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 40, 'I019')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 41, 'I01A')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 42, 'I01B')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 43, 'I01C')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 44, 'I01D')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 45, 'I01E')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 46, 'I01F')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 47, 'I01G')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 48, 'I01H')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 49, 'I01I')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 50, 'I01J')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 51, 'I01K')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 52, 'I01L')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 53, 'I01M')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 54, 'I01N')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 55, 'I01O')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 56, 'I01P')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 57, 'I01Q')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 58, 'I01R')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 59, 'I00L')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 60, 'I01S')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 61, 'I01T')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 62, 'I01U')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 63, 'I01V')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 64, 'I01W')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 65, 'I01X')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 66, 'I01Y')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 67, 'I01Z')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 68, 'I020')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 69, 'I021')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 70, 'I022')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 71, 'I023')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 72, 'I024')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 73, 'I025')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 74, 'I026')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 75, 'I027')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 76, 'I028')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 77, 'I029')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I007')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I00M')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 3, 'I00S')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 4, 'I00Y')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 5, 'I014')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 6, 'I01A')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 7, 'I01G')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 8, 'I01M')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 9, 'I002')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 10, 'I006')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 11, 'I00R')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 12, 'I00X')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 13, 'I013')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 14, 'I019')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 15, 'I01F')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 16, 'I01L')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 17, 'I01R')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 18, 'I001')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 19, 'I00E')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 20, 'I00D')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 21, 'I00K')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 22, 'I00G')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 23, 'I00C')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 24, 'I00A')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 25, 'I00I')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 26, 'I00J')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 27, 'I008')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 28, 'I025')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 29, 'I026')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 30, 'I027')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 31, 'I01Y')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 32, 'I00L')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 33, 'I028')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 34, 'I01Z')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 35, 'I01S')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 36, 'I029')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 37, 'I020')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 38, 'I01T')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 39, 'I021')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 40, 'I01U')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 41, 'I022')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 42, 'I01V')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 43, 'I023')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 44, 'I01W')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 45, 'I024')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 46, 'I01X')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 47, 'I000')
 
 
         //0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
@@ -107,48 +77,8 @@ library DataItem
         set ItemStats[0][7] = "7"
         set ItemStats[0][8] = "8"
         
-        //상의
-        set ItemStats[1][1] = "1"
-        set ItemStats[1][2] = "2"
-        set ItemStats[1][3] = "3"
-        set ItemStats[1][4] = "4"
-        set ItemStats[1][5] = "5"
-        set ItemStats[1][6] = "6"
-        set ItemStats[1][7] = "7"
-        set ItemStats[1][8] = "8"
-        
-        //하의
-        set ItemStats[2][1] = "1"
-        set ItemStats[2][2] = "2"
-        set ItemStats[2][3] = "3"
-        set ItemStats[2][4] = "4"
-        set ItemStats[2][5] = "5"
-        set ItemStats[2][6] = "6"
-        set ItemStats[2][7] = "7"
-        set ItemStats[2][8] = "8"
-        
-        //장갑
-        set ItemStats[3][1] = "1"
-        set ItemStats[3][2] = "2"
-        set ItemStats[3][3] = "3"
-        set ItemStats[3][4] = "4"
-        set ItemStats[3][5] = "5"
-        set ItemStats[3][6] = "6"
-        set ItemStats[3][7] = "7"
-        set ItemStats[3][8] = "8"
-        
-        //견갑
-        set ItemStats[4][1] = "1"
-        set ItemStats[4][2] = "2"
-        set ItemStats[4][3] = "3"
-        set ItemStats[4][4] = "4"
-        set ItemStats[4][5] = "5"
-        set ItemStats[4][6] = "6"
-        set ItemStats[4][7] = "7"
-        set ItemStats[4][8] = "8"
-        
         //무기 공격력
-        set ItemStats[5][1] = "1000"
+        set ItemStats[5][1] = "10"
         //증10퍼
         set ItemStats[5][2] = "100;110;121;133;146;161;177;194;214;235;259"
         //증5퍼

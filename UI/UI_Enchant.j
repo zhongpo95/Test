@@ -13,8 +13,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         integer array F_EnchantText                 //장기
         integer F_EnchantButton                     //강화버튼
         integer F_EnchantButtonBD                   //강화버튼
-        integer F_EnchantButton2                    //계승버튼
-        integer F_EnchantButtonBD2                  //계승버튼
+        integer F_EnchantButton2                    //승급버튼
+        integer F_EnchantButtonBD2                  //승급버튼
         
     endglobals
     
@@ -38,6 +38,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         if f ==  F_EEItemButtons[0] then
             set items = Eitem[pid][0]
             set itemid = GetItemIDs(items)
+        /*
         elseif f ==  F_EEItemButtons[1] then
             set items = Eitem[pid][1]
             set itemid = GetItemIDs(items)
@@ -50,6 +51,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         elseif f ==  F_EEItemButtons[4] then
             set items = Eitem[pid][4]
             set itemid = GetItemIDs(items)
+        */
         elseif f ==  F_EEItemButtons[5] then
             set items = Eitem[pid][5]
             set itemid = GetItemIDs(items)
@@ -62,134 +64,56 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         elseif f ==  F_EEItemButtons[8] then
             set items = Eitem[pid][F_EnchantSelectNumber]
             set itemid = GetItemIDs(items)
-            if itemid == 2 then
-                 set items = "ID17;"
-                set itemid = 17
+
+
+            //모자
+            if itemid == 9 then
+                set items = "ID2;"
+                set itemid = 2
+            elseif itemid == 2 then
+                set items = "ID3;"
+                set itemid = 3
             elseif itemid == 3 then
-                 set items = "ID18;"
-                set itemid = 18
+                set items = "ID4;"
+                set itemid = 4
             elseif itemid == 4 then
-                 set items = "ID19;"
-                set itemid = 19
-            elseif itemid == 6 then
-                 set items = "ID20;"
-                set itemid = 20
+                set items = "ID5;"
+                set itemid = 5
             elseif itemid == 5 then
-                 set items = "ID21;"
-                set itemid = 21
-            elseif itemid == 1 then
-                 set items = "ID22;"
-                set itemid = 22
-            elseif itemid == 17 then
-                 set items = "ID23;"
-                set itemid = 23
-            elseif itemid == 18 then
-                 set items = "ID24;"
-                set itemid = 24
-            elseif itemid == 19 then
-                 set items = "ID25;"
-                set itemid = 25
-            elseif itemid == 20 then
-                 set items = "ID26;"
-                set itemid = 26
-            elseif itemid == 21 then
-                 set items = "ID27;"
-                set itemid = 27
-            elseif itemid == 22 then
-                 set items = "ID28;"
-                set itemid = 28
-            elseif itemid == 23 then
-                 set items = "ID29;"
-                set itemid = 29
-            elseif itemid == 24 then
-                 set items = "ID30;"
-                set itemid = 30
-            elseif itemid == 25 then
-                 set items = "ID31;"
-                set itemid = 31
-            elseif itemid == 26 then
-                 set items = "ID32;"
-                set itemid = 32
-            elseif itemid == 27 then
-                 set items = "ID33;"
-                set itemid = 33
-            elseif itemid == 28 then
-                 set items = "ID34;"
-                set itemid = 34
-            elseif itemid == 29 then
-                 set items = "ID35;"
-                set itemid = 35
-            elseif itemid == 30 then
-                 set items = "ID36;"
-                set itemid = 36
+                set items = "ID6;"
+                set itemid = 6
+            elseif itemid == 6 then
+                set items = "ID7;"
+                set itemid = 7
+            elseif itemid == 7 then
+                set items = "ID8;"
+                set itemid = 8
             endif
-            if itemid == 31 then
-                 set items = "ID37;"
-                set itemid = 37
-            elseif itemid == 32 then
-                 set items = "ID38;"
-                set itemid = 38
-            elseif itemid == 33 then
-                 set items = "ID39;"
-                set itemid = 39
-            elseif itemid == 34 then
-                 set items = "ID40;"
-                set itemid = 40
-            elseif itemid == 35 then
-                 set items = "ID41;"
-                set itemid = 41
-            elseif itemid == 36 then
-                 set items = "ID42;"
-                set itemid = 42
-            elseif itemid == 37 then
-                 set items = "ID43;"
-                set itemid = 43
-            elseif itemid == 38 then
-                 set items = "ID44;"
-                set itemid = 44
-            elseif itemid == 39 then
-                 set items = "ID45;"
-                set itemid = 45
-            elseif itemid == 40 then
-                 set items = "ID46;"
-                set itemid = 46
-            elseif itemid == 41 then
-                 set items = "ID47;"
-                set itemid = 47
-            elseif itemid == 42 then
-                 set items = "ID48;"
-                set itemid = 48
-            elseif itemid == 43 then
-                 set items = "ID49;"
-                set itemid = 49
-            elseif itemid == 44 then
-                 set items = "ID50;"
-                set itemid = 50
-            elseif itemid == 45 then
-                 set items = "ID51;"
-                set itemid = 51
-            elseif itemid == 46 then
-                 set items = "ID52;"
-                set itemid = 52
-            elseif itemid == 47 then
-                 set items = "ID53;"
-                set itemid = 53
-            elseif itemid == 48 then
-                 set items = "ID54;"
-                set itemid = 54
-            elseif itemid == 49 then
-                 set items = "ID55;"
-                set itemid = 55
-            elseif itemid == 50 then
-                 set items = "ID56;"
-                set itemid = 56
-            elseif itemid == 51 then
-                 set items = "ID57;"
-                set itemid = 57
-            elseif itemid == 52 then
-                 set items = "ID58;"
-                set itemid = 58
+
+            //무기
+            if itemid == 18 then
+                set items = "ID11;"
+                set itemid = 11
+            elseif itemid == 11 then
+                set items = "ID12;"
+                set itemid = 12
+            elseif itemid == 12 then
+                set items = "ID13;"
+                set itemid = 13
+            elseif itemid == 13 then
+                set items = "ID14;"
+                set itemid = 14
+            elseif itemid == 14 then
+                set items = "ID15;"
+                set itemid = 15
+            elseif itemid == 15 then
+                set items = "ID16;"
+                set itemid = 16
+            elseif itemid == 16 then
+                set items = "ID17;"
+                set itemid = 17
             endif
+
         
         elseif f ==  F_EEItemButtons[9] then
             
@@ -221,26 +145,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
             if i == 0 then
                 set str = str + "모자|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 1 then
-                set str = str + "상의|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 2 then
-                set str = str + "하의|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 3 then
-                set str = str + "장갑|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 4 then
-                set str = str + "견갑|n"
                 set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
@@ -303,19 +207,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                     set l = 2
                 endif
                 if tier == 1 then
-                    set k = 59
+                    set k = 32
                 elseif tier == 2 then
-                    set k = 60
+                    set k = 35
                 elseif tier == 3 then
-                    set k = 61
+                    set k = 38
                 elseif tier == 4 then
-                    set k = 62
+                    set k = 40
                 elseif tier == 5 then
-                    set k = 63
+                    set k = 42
                 elseif tier == 6 then
-                    set k = 64
+                    set k = 44
                 elseif tier == 7 then
-                    set k = 65
+                    set k = 46
                 endif
                 
                 set j = 0
@@ -349,134 +253,52 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 set items = SetItemCharge(items, j-l)
                                 call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
                             endif
-                            
-                            if i == 2 then
-                                 set items = "ID17;"
+
+                            //모자
+                            if i == 9 then
+                                set items = "ID2;"
+                                set items = SetItemQuality(items, quality)
+                            elseif i == 2 then
+                                set items = "ID3;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 3 then
-                                 set items = "ID18;"
+                                set items = "ID4;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 4 then
-                                 set items = "ID19;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 6 then
-                                 set items = "ID20;"
+                                set items = "ID5;"
                                 set items = SetItemQuality(items, quality)
                             elseif i == 5 then
-                                 set items = "ID21;"
+                                set items = "ID6;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 1 then
-                                 set items = "ID22;"
+                            elseif i == 6 then
+                                set items = "ID7;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 17 then
-                                 set items = "ID23;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 18 then
-                                 set items = "ID24;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 19 then
-                                 set items = "ID25;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 20 then
-                                 set items = "ID26;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 21 then
-                                 set items = "ID27;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 22 then
-                                 set items = "ID28;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 23 then
-                                 set items = "ID29;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 24 then
-                                 set items = "ID30;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 25 then
-                                 set items = "ID31;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 26 then
-                                 set items = "ID32;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 27 then
-                                 set items = "ID33;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 28 then
-                                 set items = "ID34;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 29 then
-                                 set items = "ID35;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 30 then
-                                 set items = "ID36;"
+                            elseif i == 7 then
+                                set items = "ID8;"
                                 set items = SetItemQuality(items, quality)
                             endif
-                            
-                            if i == 31 then
-                                 set items = "ID37;"
+
+                            //무기
+                            if i == 18 then
+                                set items = "ID11;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 32 then
-                                 set items = "ID38;"
+                            elseif i == 11 then
+                                set items = "ID12;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 33 then
-                                 set items = "ID39;"
+                            elseif i == 12 then
+                                set items = "ID13;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 34 then
-                                 set items = "ID40;"
+                            elseif i == 13 then
+                                set items = "ID14;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 35 then
-                                 set items = "ID41;"
+                            elseif i == 14 then
+                                set items = "ID15;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 36 then
-                                 set items = "ID42;"
+                            elseif i == 15 then
+                                set items = "ID16;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 37 then
-                                 set items = "ID43;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 38 then
-                                 set items = "ID44;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 39 then
-                                 set items = "ID45;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 40 then
-                                 set items = "ID46;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 41 then
-                                 set items = "ID47;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 42 then
-                                 set items = "ID48;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 43 then
-                                 set items = "ID49;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 44 then
-                                 set items = "ID50;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 45 then
-                                 set items = "ID51;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 46 then
-                                 set items = "ID52;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 47 then
-                                 set items = "ID53;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 48 then
-                                 set items = "ID54;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 49 then
-                                 set items = "ID55;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 50 then
-                                 set items = "ID56;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 51 then
-                                 set items = "ID57;"
-                                set items = SetItemQuality(items, quality)
-                            elseif i == 52 then
-                                 set items = "ID58;"
+                            elseif i == 16 then
+                                set items = "ID17;"
                                 set items = SetItemQuality(items, quality)
                             endif
                             
@@ -541,19 +363,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set m = EnchantMaterial2[tier][up+1]
                     
                 if tier == 2 then
-                    set k = 66
+                    set k = 31
                 elseif tier == 3 then
-                    set k = 67
+                    set k = 34
                 elseif tier == 4 then
-                    set k = 68
+                    set k = 37
                 elseif tier == 5 then
-                    set k = 69
+                    set k = 39
                 elseif tier == 6 then
-                    set k = 70
+                    set k = 41
                 elseif tier == 7 then
-                    set k = 71
+                    set k = 43
                 elseif tier == 8 then
-                    set k = 72
+                    set k = 45
                 endif
                 
                 if tip == 5 then
@@ -740,129 +562,21 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set tier = GetItemTier(items)
             call DzFrameSetText(F_EnchantText[7], "x " + "1" )
             if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(59), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
             elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(60), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(35), 0)
             elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(61), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(38), 0)
             elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(62), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(40), 0)
             elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(63), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(42), 0)
             elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(64), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(44), 0)
             elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(65), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(46), 0)
             endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n계승을 시도하세요")
-            call DzFrameShow(F_EnchantButton, false)
-            call DzFrameShow(F_EnchantButton2, true)
-            call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[1] then
-            set F_EnchantSelectNumber = 1
-            set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set tier = GetItemTier(items)
-            call DzFrameSetText(F_EnchantText[7], "x " + "1" )
-            if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(59), 0)
-            elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(60), 0)
-            elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(61), 0)
-            elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(62), 0)
-            elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(63), 0)
-            elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(64), 0)
-            elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(65), 0)
-            endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n계승을 시도하세요")
-            call DzFrameShow(F_EnchantButton, false)
-            call DzFrameShow(F_EnchantButton2, true)
-            call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[2] then
-            set F_EnchantSelectNumber = 2
-            set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set tier = GetItemTier(items)
-            call DzFrameSetText(F_EnchantText[7], "x " + "1" )
-            if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(59), 0)
-            elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(60), 0)
-            elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(61), 0)
-            elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(62), 0)
-            elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(63), 0)
-            elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(64), 0)
-            elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(65), 0)
-            endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n계승을 시도하세요")
-            call DzFrameShow(F_EnchantButton, false)
-            call DzFrameShow(F_EnchantButton2, true)
-            call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[3] then
-            set F_EnchantSelectNumber = 3
-            set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set tier = GetItemTier(items)
-            call DzFrameSetText(F_EnchantText[7], "x " + "1" )
-            if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(59), 0)
-            elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(60), 0)
-            elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(61), 0)
-            elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(62), 0)
-            elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(63), 0)
-            elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(64), 0)
-            elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(65), 0)
-            endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n계승을 시도하세요")
-            call DzFrameShow(F_EnchantButton, false)
-            call DzFrameShow(F_EnchantButton2, true)
-            call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[4] then
-            set F_EnchantSelectNumber = 4
-            set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set tier = GetItemTier(items)
-            call DzFrameSetText(F_EnchantText[7], "x " + "1" )
-            if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(59), 0)
-            elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(60), 0)
-            elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(61), 0)
-            elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(62), 0)
-            elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(63), 0)
-            elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(64), 0)
-            elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(65), 0)
-            endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n계승을 시도하세요")
+            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
             call DzFrameShow(F_EnchantButton, false)
             call DzFrameShow(F_EnchantButton2, true)
             call DzFrameShow(F_EnchantUpText, true)
@@ -931,102 +645,41 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             //call DzFrameShow(F_EnchantButton2, true)
         endif
         
-        if itemid == 2 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(17), 0)
+        //모자
+        if itemid == 9 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
+        elseif itemid == 2 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
         elseif itemid == 3 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(18), 0)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
         elseif itemid == 4 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(19), 0)
-        elseif itemid == 6 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(20), 0)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
         elseif itemid == 5 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(21), 0)
-        elseif itemid == 1 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(22), 0)
-        elseif itemid == 17 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(23), 0)
-        elseif itemid == 18 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(24), 0)
-        elseif itemid == 19 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(25), 0)
-        elseif itemid == 20 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(26), 0)
-        elseif itemid == 21 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(27), 0)
-        elseif itemid == 22 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(28), 0)
-        elseif itemid == 23 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(29), 0)
-        elseif itemid == 24 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(30), 0)
-        elseif itemid == 25 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(31), 0)
-        elseif itemid == 26 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(32), 0)
-        elseif itemid == 27 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(33), 0)
-        elseif itemid == 28 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(34), 0)
-        elseif itemid == 29 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(35), 0)
-        elseif itemid == 30 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(36), 0)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
+        elseif itemid == 6 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
+        elseif itemid == 7 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
+        elseif itemid == 8 then
+            call DzFrameShow(F_EnchantButton2, false)
         endif
-        if itemid == 31 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(37), 0)
-        elseif itemid == 32 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(38), 0)
-        elseif itemid == 33 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(39), 0)
-        elseif itemid == 34 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(40), 0)
-        elseif itemid == 35 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(41), 0)
-        elseif itemid == 36 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(42), 0)
-        elseif itemid == 37 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(43), 0)
-        elseif itemid == 38 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(44), 0)
-        elseif itemid == 39 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(45), 0)
-        elseif itemid == 40 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(46), 0)
-        elseif itemid == 41 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(47), 0)
-        elseif itemid == 42 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(48), 0)
-        elseif itemid == 43 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(49), 0)
-        elseif itemid == 44 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(50), 0)
-        elseif itemid == 45 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(51), 0)
-        elseif itemid == 46 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(52), 0)
-        elseif itemid == 47 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(53), 0)
-        elseif itemid == 48 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(54), 0)
-        elseif itemid == 49 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(55), 0)
-        elseif itemid == 50 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(56), 0)
-        elseif itemid == 51 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(57), 0)
-        elseif itemid == 52 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(58), 0)
-        elseif itemid == 53 then
-            call DzFrameShow(F_EnchantButton2, false)
-        elseif itemid == 54 then
-            call DzFrameShow(F_EnchantButton2, false)
-        elseif itemid == 55 then
-            call DzFrameShow(F_EnchantButton2, false)
-        elseif itemid == 56 then
-            call DzFrameShow(F_EnchantButton2, false)
-        elseif itemid == 57 then
-            call DzFrameShow(F_EnchantButton2, false)
-        elseif itemid == 58 then
+
+        //무기
+        if itemid == 18 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(11), 0)
+        elseif itemid == 11 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(12), 0)
+        elseif itemid == 12 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(13), 0)
+        elseif itemid == 13 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(14), 0)
+        elseif itemid == 14 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(15), 0)
+        elseif itemid == 15 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(16), 0)
+        elseif itemid == 16 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(17), 0)
+        elseif itemid == 17 then
             call DzFrameShow(F_EnchantButton2, false)
         endif
         
@@ -1211,7 +864,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzTriggerRegisterSyncData(t,("Enchant"),(false))
         call TriggerAddAction(t,function ButtonEnchant)
         
-        //계승
+        //승급
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("Success"),(false))
         call TriggerAddAction(t,function ButtonSuccess)
