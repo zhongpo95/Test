@@ -248,9 +248,7 @@ library JNStashNet initializer onInit requires Stash
         local string jnNo = I2S(task) + "|DL_US_JN|0"
 
         if HaveSavedHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ) then
-            call fireTrigger( /*
-            */ LoadTriggerHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ), /*
-            */ user, 0, false, false, "서버와 통신을 시도합니다.", 0, 0 )
+            call fireTrigger( LoadTriggerHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ), user, 0, false, false, "서버와 통신을 시도합니다.", 0, 0 )
         endif
 
         if GetLocalPlayer( ) == user then
