@@ -155,5 +155,7 @@
 //! import "C:\Users\123\Desktop\JN\Test\System\PlayerState.j"
 //! import "C:\Users\123\Desktop\JN\Test\System\Filter.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\import\JNStashNet.j"
+
 
 //! import "C:\Users\123\Desktop\JN\Test\ESC.j"

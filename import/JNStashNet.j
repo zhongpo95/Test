@@ -69,13 +69,12 @@ library JNStashNet initializer onInit requires Stash
     /* REFERENCE : https://m16tool.xyz/JNAPI/Use */
     native JNUse takes nothing returns boolean
     /* REFERENCE : https://m16tool.xyz/JNAPI/ObjectUser */
-    native JNObjectUserInit takes string MapId, string UserId, string SecretKey, string Character returns integer
-    native JNObjectUserInit2 takes string MapId, string UserId, string SecretKey, string Character returns integer
-    native JNObjectUserSave takes string MapId, string UserId, string SecretKey, string Character returns string
-    native JNObjectUserSetInt takes string UserId, string Field, integer Value returns nothing
-    native JNObjectUserGetInt takes string UserId, string Field returns integer
-    native JNObjectUserSetString takes string UserId, string Field, string Value returns nothing
-    native JNObjectUserGetString takes string UserId, string Field returns string
+    native JNObjectCharacterInit takes string MapId, string UserId, string SecretKey, string Character returns integer
+    native JNObjectCharacterSave takes string MapId, string UserId, string SecretKey, string Character returns string
+    native JNObjectCharacterSetInt takes string UserId, string Field, integer Value returns nothing
+    native JNObjectCharacterGetInt takes string UserId, string Field returns integer
+    native JNObjectCharacterSetString takes string UserId, string Field, string Value returns nothing
+    native JNObjectCharacterGetString takes string UserId, string Field returns string
     
     globals
         private constant real CONNECTION_PROCESS_INTERVAL = 0.03125
@@ -248,11 +247,13 @@ library JNStashNet initializer onInit requires Stash
         local string jnNo = I2S(task) + "|DL_US_JN|0"
 
         if HaveSavedHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ) then
-            call fireTrigger( LoadTriggerHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ), user, 0, false, false, "서버와 통신을 시도합니다.", 0, 0 )
+            call fireTrigger( /*
+            */ LoadTriggerHandle( TASK_TRIG_TABLE, task, TASK_CALLBACK ), /*
+            */ user, 0, false, false, "서버와 통신을 시도합니다.", 0, 0 )
         endif
 
         if GetLocalPlayer( ) == user then
-            if JNObjectCharacterServerConnectCheck( ) then
+            if JNUse( ) then
                 call DzSyncData( TASK_SYNC_KEY, jnOk )
             else
                 call DzSyncData( TASK_SYNC_KEY, jnNo )
@@ -317,7 +318,7 @@ library JNStashNet initializer onInit requires Stash
         endif
 
         if GetLocalPlayer( ) == user then
-            set localResult = JNObjectUserInit( mapId, userId, secretKey, charId )
+            set localResult = JNObjectCharacterInit( mapId, userId, secretKey, charId )
             if localResult == 0 then
                 call DzSyncData( TASK_SYNC_KEY, jnOk )
             elseif localResult == - 1 then
@@ -406,7 +407,7 @@ library JNStashNet initializer onInit requires Stash
         endif
 
         if GetLocalPlayer( ) == user then
-            set localValue = JNObjectUserGetInt( userId, "stash.size" )
+            set localValue = JNObjectCharacterGetInt( userId, "stash.size" )
             call DzSyncData( TASK_SYNC_KEY, I2S(task) + "|DL_US_SIZE|" + I2S(localValue) )
         endif
 
@@ -477,7 +478,7 @@ library JNStashNet initializer onInit requires Stash
         else
             set bodyRequestKey = "stash." + I2S( bodyRequest )
             if GetLocalPlayer( ) == user then
-                call DzSyncData( TASK_SYNC_KEY, I2S(task) + "|DL_US_BODY|" + JNObjectUserGetString( userId, bodyRequestKey ) )
+                call DzSyncData( TASK_SYNC_KEY, I2S(task) + "|DL_US_BODY|" + JNObjectCharacterGetString( userId, bodyRequestKey ) )
             endif
 
             set bodyRequest = bodyRequest + 1
@@ -545,7 +546,7 @@ library JNStashNet initializer onInit requires Stash
             set field = "stash." + I2S(i)
             set value = StashKeyAt( whichStash, i )+"/"+StashValueAt( whichStash, i, "" )
             if GetLocalPlayer() == user then
-                call JNObjectUserSetString( userId, field, value )
+                call JNObjectCharacterSetString( userId, field, value )
             endif
 
             set i = i + 1
@@ -553,7 +554,7 @@ library JNStashNet initializer onInit requires Stash
 
         set field = "stash.size"
         if GetLocalPlayer() == user then
-            call JNObjectUserSetInt( userId, field, imax )
+            call JNObjectCharacterSetInt( userId, field, imax )
         endif
 
         call DestroyStash( whichStash )
@@ -579,8 +580,8 @@ library JNStashNet initializer onInit requires Stash
         endif
 
         if GetLocalPlayer() == user then
-            if JNObjectCharacterServerConnectCheck() then
-                set localResult = JNObjectUserSave( mapId, userId, secretKey, charId )
+            if JNUse() then
+                set localResult = JNObjectCharacterSave( mapId, userId, secretKey, charId )
                 call DzSyncData( TASK_SYNC_KEY, I2S(task) + "|UP_US_SAVE|" + localResult )
             else
                 call DzSyncData( TASK_SYNC_KEY, jnNo )

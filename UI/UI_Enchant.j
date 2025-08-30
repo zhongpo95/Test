@@ -487,7 +487,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                             call DzFrameShow(F_EnchantUpText, false)
                             call DzFrameShow(F_EnchantButton2, false)
-                            call CharacterSave(true , SLNumber)
+                            //call CharacterSave(true , SLNumber)
                         endif
                         set loopA = 99
                     endif
@@ -524,7 +524,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         set A = GetRandomInt(1,10000)
         
         if Player(pid) == GetLocalPlayer() then
-            if JNObjectCharacterServerConnectCheck( ) then
+            //if JNObjectCharacterServerConnectCheck( ) then
+            if true then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemArt(items), 0)
@@ -590,7 +591,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                             call DzFrameShow(F_EnchantUpText, false)
                             call DzFrameShow(F_EnchantButton, false)
-                            call CharacterSave(true , SLNumber)
+                            //call CharacterSave(true , SLNumber)
                         else
                             //실패
                             set trycount = trycount + 1
@@ -618,7 +619,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
                                 call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
                             endif
-                            call CharacterSave(true , SLNumber)
+                            //call CharacterSave(true , SLNumber)
                         endif
                     else
                         set loopA = 50
@@ -668,7 +669,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                                         call DzFrameShow(F_EnchantUpText, false)
                                         call DzFrameShow(F_EnchantButton, false)
-                                        call CharacterSave(true , SLNumber)
+                                        //call CharacterSave(true , SLNumber)
                                     else
                                         //실패
                                         set trycount = trycount + 1
@@ -696,7 +697,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                             call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
                                             call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
                                         endif
-                                        call CharacterSave(true , SLNumber)
+                                        //call CharacterSave(true , SLNumber)
                                     endif
                                 endif
                                 set loopA = 99

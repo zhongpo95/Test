@@ -16,10 +16,10 @@ scope Load initializer onInit
         
         if JNStashNetGetFinished( ) then
             if JNStashNetGetResult( ) then
-                //call BJDebugMsg( JNStashNetGetMessage( ) )
+                call BJDebugMsg( JNStashNetGetMessage( ) )
                 set pid = GetPlayerId(user)
                 set PLAYER_DATA[pid] = JNStashNetGetStash( )
-                //call JNObjectMapInit(MapName,MapApi)
+                call JNObjectMapInit(MapName,MapApi)
                 
                 //슬롯 이미지 세팅
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯1", "없음")
@@ -93,7 +93,7 @@ scope Load initializer onInit
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
+        //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
         if Eitem[pid][6] != null then
             call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
