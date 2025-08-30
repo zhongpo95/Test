@@ -17,12 +17,11 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 loop
                     exitwhen i == 100
                     //보유중
-                    if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == itemid then
-                        call BJDebugMsg("보유중")
-                        set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0"))
-                        set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == itemid then
+                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0"))
+                        set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")
                         set items = SetItemCharge(items,j+1)
-                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), items)
+                        call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), items)
                         set k = 1
                         set i = 99
                     endif
@@ -34,7 +33,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                     loop
                         exitwhen i == 100
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
                             set items = "ID"+itemidstring + ";"
                             call BJDebugMsg("보유X 아이템전체코드1: "+ items)
                             set items = SetItemCharge(items,1)
@@ -51,16 +50,16 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
             if class == "Charged" then
                 if LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I009' then
                     set i = 100
-                    call DzSyncData(("ICharge"),I2S(100)+"\t"+StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션1", "0") )
+                    call DzSyncData(("ICharge"),I2S(100)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션1", "0") )
                 elseif LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I00B' then
                     set i = 101
-                    call DzSyncData(("ICharge"),I2S(101)+"\t"+StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션2", "0") )
+                    call DzSyncData(("ICharge"),I2S(101)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0") )
                 elseif LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I00A' then
                     set i = 102
-                    call DzSyncData(("ICharge"),I2S(102)+"\t"+StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션3", "0") )
+                    call DzSyncData(("ICharge"),I2S(102)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0") )
                 elseif LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I00C' then
                     set i = 103
-                    call DzSyncData(("ICharge"),I2S(103)+"\t"+StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션4", "0") )
+                    call DzSyncData(("ICharge"),I2S(103)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0") )
                 endif
             endif
             
@@ -70,7 +69,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 loop
                     exitwhen i == 50
                     //비어있는 공간이 있음
-                    if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
                         call AddIvItem(pid,i,items)
                         set i = 49
                     endif
@@ -99,7 +98,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
 
             set items = SetItemCharge(items,j+1)
 
-            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션1", items)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션1", items)
             call SetItemCharges(PlayerItem1[pid],j+1)
         elseif i == 101 then
             set j = GetItemCharge(items)
@@ -109,7 +108,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
             endif
             set items = SetItemCharge(items,j+1)
-            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션2", items)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션2", items)
             call SetItemCharges(PlayerItem2[pid],j+1)
         elseif i == 102 then
             set j = GetItemCharge(items)
@@ -119,7 +118,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
             endif
             set items = SetItemCharge(items,j+1)
-            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션3", items)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션3", items)
             call SetItemCharges(PlayerItem3[pid],j+1)
         elseif i == 103 then
             set j = GetItemCharge(items)
@@ -129,7 +128,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 call UnitAddItem(MainUnit[pid],PlayerItem4[pid])
             endif
             set items = SetItemCharge(items,j+1)
-            call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션4", items)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션4", items)
             call SetItemCharges(PlayerItem4[pid],j+1)
         endif
         

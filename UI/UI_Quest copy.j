@@ -45,15 +45,15 @@ library UIQuest initializer init requires Stash, FrameCount
             call DzFrameShow(Quest[1], true)
             call DzFrameShow(Quest[2], true)
             set Quest_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")
         endif
     endfunction
 
     function TodaySet takes integer pid returns nothing
         local integer q
         if GetLocalPlayer() == Player(pid) then
-            if JNUse( ) then
-                set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0"))
+            if JNObjectCharacterServerConnectCheck( ) then
+                set q = S2I(StashLoad(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0"))
                 if q >= 7 then
                     set QuestNumber = 0
                 elseif q >= 5 then
@@ -102,9 +102,9 @@ library UIQuest initializer init requires Stash, FrameCount
     function TodayQuestPlus takes integer pid returns nothing
         local integer q
         if GetLocalPlayer() == Player(pid) then
-            set q = S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")) + 1
+            set q = S2I(StashLoad(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")) + 1
             call BJDebugMsg(I2S(q))
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", I2S(q))
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", I2S(q))
 
             if q >= 7 then
                 if q == 7 then

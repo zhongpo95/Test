@@ -30,44 +30,44 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     private function upload2 takes integer pid returns nothing
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E0", Eitem[pid][0])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E1", Eitem[pid][1])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E2", Eitem[pid][2])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E3", Eitem[pid][3])
-        //call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E4", Eitem[pid][4])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E5", Eitem[pid][5])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
+        //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
         if Eitem[pid][6] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E6", Eitem[pid][6])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
         endif
         if Eitem[pid][7] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E7", Eitem[pid][7])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E7", Eitem[pid][7])
         endif
         if Eitem[pid][8] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E8", Eitem[pid][8])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E8", Eitem[pid][8])
         endif
         if Eitem[pid][9] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E9", Eitem[pid][9])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E9", Eitem[pid][9])
         endif
         if Eitem[pid][10] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E10", Eitem[pid][10])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E10", Eitem[pid][10])
         endif
         if Eitem[pid][11] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E11", Eitem[pid][11])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E11", Eitem[pid][11])
         endif
         if Eitem[pid][12] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E12", Eitem[pid][12])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E12", Eitem[pid][12])
         endif
         if Eitem[pid][13] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E13", Eitem[pid][13])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E13", Eitem[pid][13])
         endif
         if Eitem[pid][14] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E14", Eitem[pid][14])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E14", Eitem[pid][14])
         endif
         if Eitem[pid][15] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E15", Eitem[pid][15])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E15", Eitem[pid][15])
         endif
         
-        call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, pid:PLAYER_DATA, UPLOAD_CALLBACK )
+        call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
     endfunction
 
     private function ClickLoadButton takes nothing returns nothing
@@ -148,32 +148,32 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         if f == FP_SLB[1] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯1", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
                 call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯1", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[2] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯2", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
                 call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯2", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[3] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯3", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
                 call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯3", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
             endif
         endif
         /*
         if f == FP_SLB[4] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯4", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
                 call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯4", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
             endif
         endif
         */
@@ -182,32 +182,32 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         if f == FP_SLB[1] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯1", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
                 call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯1", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[2] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯2", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
                 call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯2", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[3] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯3", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
                 call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯3", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
             endif
         endif
         /*
         if f == FP_SLB[4] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯4", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
                 call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+ StashLoad(pid:PLAYER_DATA, "슬롯4", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
             endif
         endif
         */
@@ -218,7 +218,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         
         if f == FP_SLB[1] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯1", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
                 call DzFrameShow(FP_HeroBBD[0], true)
                 call DzFrameShow(FP_LoadBBD, false)
                 set SLNumber = 1
@@ -242,7 +242,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             endif
         endif
         if f == FP_SLB[2] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯2", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
                 call DzFrameShow(FP_HeroBBD[0], true)
                 call DzFrameShow(FP_LoadBBD, false)
                 set SLNumber = 2
@@ -266,7 +266,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             endif
         endif
         if f == FP_SLB[3] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯3", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
                 call DzFrameShow(FP_HeroBBD[0], true)
                 call DzFrameShow(FP_LoadBBD, false)
                 set SLNumber = 3
@@ -291,7 +291,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
         /*
         if f == FP_SLB[4] then
-            if StashLoad(pid:PLAYER_DATA, "슬롯4", null) == null then
+            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
                 call DzFrameShow(FP_SelectBBD, true)
                 call DzFrameShow(FP_LoadBBD, false)
                 set SLNumber = 4
@@ -468,11 +468,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         
         set PlayerSlotNumber[pid] = SlotNumber
         
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "1" then
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
             set HeroTypeId = 'H004'
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "2" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
             set HeroTypeId = 'H003'
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then
                 call DzFrameShow(NarAden, true)
@@ -492,7 +492,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set NarNabi[pid] = 0
             //call DzFrameShow(skillbuttonframe[8],true)
             //call DzFrameShow(NarAden2, true)
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "4" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "4" then
             set HeroTypeId = 'H00K'
             //call DzFrameShow(BanAden, true)
             call DzFrameShow(BanAdens[0], true)
@@ -511,11 +511,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
 
         
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "1" then
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
 
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "2" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
 
-        elseif StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), null) == "3" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set NarFormG[pid] = CreateUnit(Player(pid),'e027',0,0,0)
         endif
 
@@ -524,53 +524,53 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
         
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
             set PlayerItem1[pid] = CreateItem('I009',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "0")))
         else
             set PlayerItem1[pid] = CreateItem('I00J',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "ID13;중첩수0;")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "ID13;중첩수0;")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")) > 0 then
             set PlayerItem2[pid] = CreateItem('I00B',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")))
         else
             set PlayerItem2[pid] = CreateItem('I00H',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "ID14;중첩수0;")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "ID14;중첩수0;")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")) > 0 then
             set PlayerItem3[pid] = CreateItem('I00A',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")))
         else
             set PlayerItem3[pid] = CreateItem('I00I',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "ID15;중첩수0;")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "ID15;중첩수0;")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "0")) > 0 then
             set PlayerItem4[pid] = CreateItem('I00C',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem4[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "0")))
         else
             set PlayerItem4[pid] = CreateItem('I00G',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem4[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "ID16;중첩수0;")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "ID16;중첩수0;")
         endif
         
-        set Eitem[pid][0] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E0", "0")
-        set Eitem[pid][1] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E1", "0")
-        set Eitem[pid][2] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E2", "0")
-        set Eitem[pid][3] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E3", "0")
-        //set Eitem[pid][4] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E4", "0")
-        set Eitem[pid][5] = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E5", "0")
+        set Eitem[pid][0] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E0", "0")
+        set Eitem[pid][1] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E1", "0")
+        set Eitem[pid][2] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E2", "0")
+        set Eitem[pid][3] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E3", "0")
+        //set Eitem[pid][4] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E4", "0")
+        set Eitem[pid][5] = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E5", "0")
         
         set j = 0
         loop
-            set str = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".아이템"+I2S(j), "없음")
+            set str = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".아이템"+I2S(j), "없음")
             if str != "없음" and str != null then
                 call AddIvItem(pid, j, str)
                 set str = null
@@ -581,7 +581,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
             
         loop
-            set str = StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".아이템"+I2S(j), "없음")
+            set str = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".아이템"+I2S(j), "없음")
             if str != "없음" and str != null then
                 call AddIvItem(pid, j, str)
                 set str = null
@@ -592,7 +592,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
         
         if GetLocalPlayer() == Player(pid) then
-            call DzFrameSetText(F_GoldText, StashLoad(pid:PLAYER_DATA, "골드", "0"))
+            call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
             if Eitem[pid][0] != "" then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
@@ -615,77 +615,77 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             endif
         endif
         
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E6", "0") != "0" then
-            set Eitem[pid][6] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E6", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E6", "0") != "0" then
+            set Eitem[pid][6] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E6", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[6], GetItemArt(Eitem[pid][6]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemArt(Eitem[pid][6]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(Eitem[pid][6]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E7", "0") != "0" then
-            set Eitem[pid][7] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E7", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E7", "0") != "0" then
+            set Eitem[pid][7] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E7", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(Eitem[pid][7]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemArt(Eitem[pid][7]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], GetItemArt(Eitem[pid][7]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E8", "0") != "0" then
-            set Eitem[pid][8] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E8", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E8", "0") != "0" then
+            set Eitem[pid][8] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E8", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[8], GetItemArt(Eitem[pid][8]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemArt(Eitem[pid][8]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[2], GetItemArt(Eitem[pid][8]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E9", "0") != "0" then
-            set Eitem[pid][9] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E9", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E9", "0") != "0" then
+            set Eitem[pid][9] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E9", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(Eitem[pid][9]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemArt(Eitem[pid][9]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], GetItemArt(Eitem[pid][9]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E10", "0") != "0" then
-            set Eitem[pid][10] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E10", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E10", "0") != "0" then
+            set Eitem[pid][10] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E10", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[10], GetItemArt(Eitem[pid][10]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[10], GetItemArt(Eitem[pid][10]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[4], GetItemArt(Eitem[pid][10]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E11", "0") != "0" then
-            set Eitem[pid][11] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E11", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E11", "0") != "0" then
+            set Eitem[pid][11] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E11", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[11], GetItemArt(Eitem[pid][11]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemArt(Eitem[pid][11]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E12", "0") != "0" then
-            set Eitem[pid][12] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E12", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E12", "0") != "0" then
+            set Eitem[pid][12] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E12", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(Eitem[pid][12]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[12], GetItemArt(Eitem[pid][12]), 0)
                 call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], GetItemArt(Eitem[pid][12]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E13", "0") != "0" then
-            set Eitem[pid][13] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E13", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E13", "0") != "0" then
+            set Eitem[pid][13] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E13", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[13], GetItemArt(Eitem[pid][13]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[13], GetItemArt(Eitem[pid][13]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E14", "0") != "0" then
-            set Eitem[pid][14] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E14", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E14", "0") != "0" then
+            set Eitem[pid][14] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E14", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[14], GetItemArt(Eitem[pid][14]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[14], GetItemArt(Eitem[pid][14]), 0)
             endif
         endif
-        if StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E15", "0") != "0" then
-            set Eitem[pid][15] =  StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".E15", "0")
+        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E15", "0") != "0" then
+            set Eitem[pid][15] =  StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".E15", "0")
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_EItemButtonsBackDrop[15], GetItemArt(Eitem[pid][15]), 0)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[15], GetItemArt(Eitem[pid][15]), 0)
@@ -717,7 +717,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         call Deilycheck(pid)
         
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", I2S( S2I(StashLoad(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")) + 1 ) )
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", I2S( S2I(StashLoad(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")) + 1 ) )
         
         call upload2(pid)
 
@@ -732,7 +732,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer HeroTypeId
         local integer SlotNumber = S2I(JNStringSplit(f, ";", 1))
         
-        call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber), I2S(SlotHero))
+        call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), I2S(SlotHero))
         set PlayerSlotNumber[pid] = SlotNumber
         
         if SlotHero == 1 then
@@ -787,41 +787,41 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set NarFormC[pid] = CreateUnit(Player(pid),'e028',0,0,0)
         endif
 
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "0")) > 0 then
             set PlayerItem1[pid] = CreateItem('I009',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "0")))
         else
             set PlayerItem1[pid] = CreateItem('I00J',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션1", "ID13;중첩수0")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션1", "ID13;중첩수0")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")) > 0 then
             set PlayerItem2[pid] = CreateItem('I00B',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")))
         else
             set PlayerItem2[pid] = CreateItem('I00H',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션2", "ID14;중첩수0")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "ID14;중첩수0")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")) > 0 then
             set PlayerItem3[pid] = CreateItem('I00A',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")))
         else
             set PlayerItem3[pid] = CreateItem('I00I',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션3", "ID15;중첩수0")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "ID15;중첩수0")
         endif
-        if GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "0")) > 0 then
+        if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "0")) > 0 then
             set PlayerItem4[pid] = CreateItem('I00C',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem4[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "0")))
+            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "0")))
         else
             set PlayerItem4[pid] = CreateItem('I00G',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem4[pid])
-            call StashSave(pid:PLAYER_DATA, "슬롯"+I2S(SlotNumber)+".포션4", "ID16;중첩수0")
+            call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션4", "ID16;중첩수0")
         endif
         
         set Eitem[pid][0] = "ID2;"
@@ -844,7 +844,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         
         if GetLocalPlayer() == Player(pid) then
-            call DzFrameSetText(F_GoldText, StashLoad(pid:PLAYER_DATA, "골드", "0"))
+            call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
             call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
             call DzFrameSetTexture(F_EItemButtonsBackDrop[1], GetItemArt(Eitem[pid][1]), 0)
@@ -881,7 +881,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         call Deilycheck(pid)
 
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")
 
         call upload2(pid)
 

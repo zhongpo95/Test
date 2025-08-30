@@ -69,106 +69,106 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local integer tier = 0
         
         if f ==  F_Storage_Buttons[0] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(0), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(0), "0")
         elseif f ==  F_Storage_Buttons[1] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(1), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(1), "0")
         elseif f ==  F_Storage_Buttons[2] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(2), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(2), "0")
         elseif f ==  F_Storage_Buttons[3] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(3), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(3), "0")
         elseif f ==  F_Storage_Buttons[4] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(4), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(4), "0")
         elseif f ==  F_Storage_Buttons[5] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(5), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(5), "0")
         elseif f ==  F_Storage_Buttons[6] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(6), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(6), "0")
         elseif f ==  F_Storage_Buttons[7] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(7), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(7), "0")
         elseif f ==  F_Storage_Buttons[8] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(8), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(8), "0")
         elseif f ==  F_Storage_Buttons[9] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(9), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(9), "0")
         elseif f ==  F_Storage_Buttons[10] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(10), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(10), "0")
         elseif f ==  F_Storage_Buttons[11] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(11), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(11), "0")
         elseif f ==  F_Storage_Buttons[12] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(12), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(12), "0")
         elseif f ==  F_Storage_Buttons[13] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(13), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(13), "0")
         elseif f ==  F_Storage_Buttons[14] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(14), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(14), "0")
         elseif f ==  F_Storage_Buttons[15] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(15), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(15), "0")
         elseif f ==  F_Storage_Buttons[16] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(16), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(16), "0")
         elseif f ==  F_Storage_Buttons[17] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(17), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(17), "0")
         elseif f ==  F_Storage_Buttons[18] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(18), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(18), "0")
         elseif f ==  F_Storage_Buttons[19] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(19), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(19), "0")
         elseif f ==  F_Storage_Buttons[20] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(20), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(20), "0")
         elseif f ==  F_Storage_Buttons[21] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(21), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(21), "0")
         elseif f ==  F_Storage_Buttons[22] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(22), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(22), "0")
         elseif f ==  F_Storage_Buttons[23] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(23), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(23), "0")
         elseif f ==  F_Storage_Buttons[24] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(24), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(24), "0")
         elseif f ==  F_Storage_Buttons[25] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(25), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(25), "0")
         elseif f ==  F_Storage_Buttons[26] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(26), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(26), "0")
         elseif f ==  F_Storage_Buttons[27] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(27), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(27), "0")
         elseif f ==  F_Storage_Buttons[28] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(28), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(28), "0")
         elseif f ==  F_Storage_Buttons[29] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(29), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(29), "0")
         elseif f ==  F_Storage_Buttons[30] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(30), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(30), "0")
         endif
         if f ==  F_Storage_Buttons[31] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(31), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(31), "0")
         elseif f ==  F_Storage_Buttons[32] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(32), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(32), "0")
         elseif f ==  F_Storage_Buttons[33] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(33), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(33), "0")
         elseif f ==  F_Storage_Buttons[34] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(34), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(34), "0")
         elseif f ==  F_Storage_Buttons[35] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(35), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(35), "0")
         elseif f ==  F_Storage_Buttons[36] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(36), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(36), "0")
         elseif f ==  F_Storage_Buttons[37] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(37), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(37), "0")
         elseif f ==  F_Storage_Buttons[38] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(38), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(38), "0")
         elseif f ==  F_Storage_Buttons[39] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(39), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(39), "0")
         elseif f ==  F_Storage_Buttons[40] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(40), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(40), "0")
         elseif f ==  F_Storage_Buttons[41] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(41), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(41), "0")
         elseif f ==  F_Storage_Buttons[42] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(42), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(42), "0")
         elseif f ==  F_Storage_Buttons[43] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(43), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(43), "0")
         elseif f ==  F_Storage_Buttons[44] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(44), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(44), "0")
         elseif f ==  F_Storage_Buttons[45] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(45), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(45), "0")
         elseif f ==  F_Storage_Buttons[46] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(46), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(46), "0")
         elseif f ==  F_Storage_Buttons[47] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(47), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(47), "0")
         elseif f ==  F_Storage_Buttons[48] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(48), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(48), "0")
         elseif f ==  F_Storage_Buttons[49] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(49), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(49), "0")
         endif
         
         set itemid = GetItemIDs(items)
@@ -338,106 +338,106 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local integer i = 0
         
         if f ==  F_Storage_Buttons[50] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(50), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(50), "0")
         elseif f ==  F_Storage_Buttons[51] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(51), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(51), "0")
         elseif f ==  F_Storage_Buttons[52] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(52), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(52), "0")
         elseif f ==  F_Storage_Buttons[53] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(53), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(53), "0")
         elseif f ==  F_Storage_Buttons[54] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(54), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(54), "0")
         elseif f ==  F_Storage_Buttons[55] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(55), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(55), "0")
         elseif f ==  F_Storage_Buttons[56] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(56), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(56), "0")
         elseif f ==  F_Storage_Buttons[57] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(57), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(57), "0")
         elseif f ==  F_Storage_Buttons[58] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(58), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(58), "0")
         elseif f ==  F_Storage_Buttons[59] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(59), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(59), "0")
         elseif f ==  F_Storage_Buttons[60] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(60), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(60), "0")
         elseif f ==  F_Storage_Buttons[61] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(61), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(61), "0")
         elseif f ==  F_Storage_Buttons[62] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(62), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(62), "0")
         elseif f ==  F_Storage_Buttons[63] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(63), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(63), "0")
         elseif f ==  F_Storage_Buttons[64] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(64), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(64), "0")
         elseif f ==  F_Storage_Buttons[65] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(65), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(65), "0")
         elseif f ==  F_Storage_Buttons[66] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(66), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(66), "0")
         elseif f ==  F_Storage_Buttons[67] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(67), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(67), "0")
         elseif f ==  F_Storage_Buttons[68] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(68), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(68), "0")
         elseif f ==  F_Storage_Buttons[69] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(69), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(69), "0")
         elseif f ==  F_Storage_Buttons[70] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(70), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(70), "0")
         elseif f ==  F_Storage_Buttons[71] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(71), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(71), "0")
         elseif f ==  F_Storage_Buttons[72] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(72), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(72), "0")
         elseif f ==  F_Storage_Buttons[73] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(73), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(73), "0")
         elseif f ==  F_Storage_Buttons[74] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(74), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(74), "0")
         elseif f ==  F_Storage_Buttons[75] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(75), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(75), "0")
         elseif f ==  F_Storage_Buttons[76] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(76), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(76), "0")
         elseif f ==  F_Storage_Buttons[77] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(77), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(77), "0")
         elseif f ==  F_Storage_Buttons[78] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(78), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(78), "0")
         elseif f ==  F_Storage_Buttons[79] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(79), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(79), "0")
         elseif f ==  F_Storage_Buttons[80] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(80), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(80), "0")
         endif
         if f ==  F_Storage_Buttons[81] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(81), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(81), "0")
         elseif f ==  F_Storage_Buttons[82] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(82), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(82), "0")
         elseif f ==  F_Storage_Buttons[83] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(83), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(83), "0")
         elseif f ==  F_Storage_Buttons[84] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(84), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(84), "0")
         elseif f ==  F_Storage_Buttons[85] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(85), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(85), "0")
         elseif f ==  F_Storage_Buttons[86] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(86), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(86), "0")
         elseif f ==  F_Storage_Buttons[87] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(87), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(87), "0")
         elseif f ==  F_Storage_Buttons[88] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(88), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(88), "0")
         elseif f ==  F_Storage_Buttons[89] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(89), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(89), "0")
         elseif f ==  F_Storage_Buttons[90] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(90), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(90), "0")
         elseif f ==  F_Storage_Buttons[91] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(91), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(91), "0")
         elseif f ==  F_Storage_Buttons[92] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(92), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(92), "0")
         elseif f ==  F_Storage_Buttons[93] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(93), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(93), "0")
         elseif f ==  F_Storage_Buttons[94] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(94), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(94), "0")
         elseif f ==  F_Storage_Buttons[95] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(95), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(95), "0")
         elseif f ==  F_Storage_Buttons[96] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(96), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(96), "0")
         elseif f ==  F_Storage_Buttons[97] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(97), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(97), "0")
         elseif f ==  F_Storage_Buttons[98] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(98), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(98), "0")
         elseif f ==  F_Storage_Buttons[99] then
-            set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(99), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(99), "0")
         endif
         
         set itemid = GetItemIDs(items)
@@ -466,117 +466,117 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if f ==  F_ItemButtons[50] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(50), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(50), "0")
         elseif f ==  F_ItemButtons[51] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(51), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(51), "0")
         elseif f ==  F_ItemButtons[52] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(52), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(52), "0")
         elseif f ==  F_ItemButtons[53] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(53), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(53), "0")
         elseif f ==  F_ItemButtons[54] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(54), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(54), "0")
         elseif f ==  F_ItemButtons[55] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(55), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(55), "0")
         elseif f ==  F_ItemButtons[56] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(56), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(56), "0")
         elseif f ==  F_ItemButtons[57] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(57), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(57), "0")
         elseif f ==  F_ItemButtons[58] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(58), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(58), "0")
         elseif f ==  F_ItemButtons[59] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(59), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(59), "0")
         elseif f ==  F_ItemButtons[60] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(60), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(60), "0")
         elseif f ==  F_ItemButtons[61] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(61), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(61), "0")
         elseif f ==  F_ItemButtons[62] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(62), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(62), "0")
         elseif f ==  F_ItemButtons[63] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(63), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(63), "0")
         elseif f ==  F_ItemButtons[64] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(64), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(64), "0")
         elseif f ==  F_ItemButtons[65] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(65), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(65), "0")
         elseif f ==  F_ItemButtons[66] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(66), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(66), "0")
         elseif f ==  F_ItemButtons[67] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(67), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(67), "0")
         elseif f ==  F_ItemButtons[68] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(68), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(68), "0")
         elseif f ==  F_ItemButtons[69] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(69), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(69), "0")
         elseif f ==  F_ItemButtons[70] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(70), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(70), "0")
         elseif f ==  F_ItemButtons[71] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(71), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(71), "0")
         elseif f ==  F_ItemButtons[72] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(72), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(72), "0")
         elseif f ==  F_ItemButtons[73] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(73), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(73), "0")
         elseif f ==  F_ItemButtons[74] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(74), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(74), "0")
         elseif f ==  F_ItemButtons[75] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(75), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(75), "0")
         elseif f ==  F_ItemButtons[76] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(76), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(76), "0")
         elseif f ==  F_ItemButtons[77] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(77), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(77), "0")
         elseif f ==  F_ItemButtons[78] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(78), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(78), "0")
         elseif f ==  F_ItemButtons[79] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(79), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(79), "0")
         elseif f ==  F_ItemButtons[80] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(80), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(80), "0")
         endif
         if f ==  F_ItemButtons[81] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(81), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(81), "0")
         elseif f ==  F_ItemButtons[82] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(82), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(82), "0")
         elseif f ==  F_ItemButtons[83] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(83), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(83), "0")
         elseif f ==  F_ItemButtons[84] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(84), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(84), "0")
         elseif f ==  F_ItemButtons[85] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(85), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(85), "0")
         elseif f ==  F_ItemButtons[86] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(86), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(86), "0")
         elseif f ==  F_ItemButtons[87] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(87), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(87), "0")
         elseif f ==  F_ItemButtons[88] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(88), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(88), "0")
         elseif f ==  F_ItemButtons[89] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(89), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(89), "0")
         elseif f ==  F_ItemButtons[90] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(90), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(90), "0")
         elseif f ==  F_ItemButtons[91] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(91), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(91), "0")
         elseif f ==  F_ItemButtons[92] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(92), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(92), "0")
         elseif f ==  F_ItemButtons[93] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(93), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(93), "0")
         elseif f ==  F_ItemButtons[94] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(94), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(94), "0")
         elseif f ==  F_ItemButtons[95] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(95), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(95), "0")
         elseif f ==  F_ItemButtons[96] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(96), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(96), "0")
         elseif f ==  F_ItemButtons[97] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(97), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(97), "0")
         elseif f ==  F_ItemButtons[98] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(98), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(98), "0")
         elseif f ==  F_ItemButtons[99] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(99), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(99), "0")
         elseif f ==  F_ItemButtons[100] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션1", "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션1", "0")
             set i = 1
         elseif f ==  F_ItemButtons[101] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션2", "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0")
             set i = 1
         elseif f ==  F_ItemButtons[102] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션3", "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0")
             set i = 1
         elseif f ==  F_ItemButtons[103] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션4", "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0")
             set i = 1
         endif
         
@@ -611,106 +611,106 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if f ==  F_ItemButtons[0] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(0), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(0), "0")
         elseif f ==  F_ItemButtons[1] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(1), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(1), "0")
         elseif f ==  F_ItemButtons[2] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(2), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(2), "0")
         elseif f ==  F_ItemButtons[3] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(3), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(3), "0")
         elseif f ==  F_ItemButtons[4] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(4), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(4), "0")
         elseif f ==  F_ItemButtons[5] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(5), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(5), "0")
         elseif f ==  F_ItemButtons[6] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(6), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(6), "0")
         elseif f ==  F_ItemButtons[7] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(7), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(7), "0")
         elseif f ==  F_ItemButtons[8] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(8), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(8), "0")
         elseif f ==  F_ItemButtons[9] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(9), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(9), "0")
         elseif f ==  F_ItemButtons[10] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(10), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(10), "0")
         elseif f ==  F_ItemButtons[11] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(11), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(11), "0")
         elseif f ==  F_ItemButtons[12] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(12), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(12), "0")
         elseif f ==  F_ItemButtons[13] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(13), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(13), "0")
         elseif f ==  F_ItemButtons[14] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(14), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(14), "0")
         elseif f ==  F_ItemButtons[15] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(15), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(15), "0")
         elseif f ==  F_ItemButtons[16] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(16), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(16), "0")
         elseif f ==  F_ItemButtons[17] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(17), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(17), "0")
         elseif f ==  F_ItemButtons[18] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(18), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(18), "0")
         elseif f ==  F_ItemButtons[19] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(19), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(19), "0")
         elseif f ==  F_ItemButtons[20] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(20), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(20), "0")
         elseif f ==  F_ItemButtons[21] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(21), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(21), "0")
         elseif f ==  F_ItemButtons[22] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(22), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(22), "0")
         elseif f ==  F_ItemButtons[23] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(23), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(23), "0")
         elseif f ==  F_ItemButtons[24] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(24), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(24), "0")
         elseif f ==  F_ItemButtons[25] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(25), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(25), "0")
         elseif f ==  F_ItemButtons[26] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(26), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(26), "0")
         elseif f ==  F_ItemButtons[27] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(27), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(27), "0")
         elseif f ==  F_ItemButtons[28] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(28), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(28), "0")
         elseif f ==  F_ItemButtons[29] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(29), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(29), "0")
         elseif f ==  F_ItemButtons[30] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(30), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(30), "0")
         endif
         if f ==  F_ItemButtons[31] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(31), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(31), "0")
         elseif f ==  F_ItemButtons[32] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(32), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(32), "0")
         elseif f ==  F_ItemButtons[33] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(33), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(33), "0")
         elseif f ==  F_ItemButtons[34] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(34), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(34), "0")
         elseif f ==  F_ItemButtons[35] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(35), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(35), "0")
         elseif f ==  F_ItemButtons[36] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(36), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(36), "0")
         elseif f ==  F_ItemButtons[37] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(37), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(37), "0")
         elseif f ==  F_ItemButtons[38] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(38), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(38), "0")
         elseif f ==  F_ItemButtons[39] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(39), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(39), "0")
         elseif f ==  F_ItemButtons[40] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(40), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(40), "0")
         elseif f ==  F_ItemButtons[41] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(41), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(41), "0")
         elseif f ==  F_ItemButtons[42] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(42), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(42), "0")
         elseif f ==  F_ItemButtons[43] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(43), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(43), "0")
         elseif f ==  F_ItemButtons[44] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(44), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(44), "0")
         elseif f ==  F_ItemButtons[45] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(45), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(45), "0")
         elseif f ==  F_ItemButtons[46] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(46), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(46), "0")
         elseif f ==  F_ItemButtons[47] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(47), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(47), "0")
         elseif f ==  F_ItemButtons[48] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(48), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(48), "0")
         elseif f ==  F_ItemButtons[49] then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(49), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(49), "0")
         endif
         
         set itemid = GetItemIDs(items)
@@ -951,10 +951,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         
         if i != 200 then
             if i < 50 then
-                if GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
+                if GetItemLock(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
                     set F_ItemClickDelNumber[pid] = i
                     
-                    call DzFrameSetText(F_DELText, GetItemNames(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0"))+"을 분해하시겠습니까?")
+                    call DzFrameSetText(F_DELText, GetItemNames(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0"))+"을 분해하시겠습니까?")
                     call DzFrameShow(F_ItemDelBackDrop, true)
                 else
                     set F_ItemClickNumber[pid] = 200
@@ -978,17 +978,17 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
 
         if i != 200 then
             set F_ItemClickNumber[pid] = 200
-            set j = GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0"))
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0")
+            set j = GetItemLock(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0")
             if j == 0 then
                 set items = SetItemLock(items, 1)
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), items)
+                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), items)
                 call DzFrameShow(F_ItemButtonLock[i], true)
             elseif j == 1 then
                 set itemty = GetItemTypes(items)
                 if itemty == 6 or itemty == 7 or itemty == 8 then
                     set items = SetItemLock(items, 0)
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), items)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), items)
                     call DzFrameShow(F_ItemButtonLock[i], false)
                 endif
             endif
@@ -1005,12 +1005,12 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if i != 200 then
-            if StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]), "0") != "0" and GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]), "0")) == 0 then
+            if StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]), "0") != "0" and GetItemLock(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]), "0")) == 0 then
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickDelNumber[pid]], "UI_Inventory.blp", 0)
                 call DzFrameShow(UI_Tip, false)
                 call DzDestroyFrame(F_ItemButtons[F_ItemClickDelNumber[pid]])
                 set F_ItemButtons[F_ItemClickDelNumber[pid]] = 0
-                call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]))
+                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickDelNumber[pid]))
             endif
         endif
         
@@ -1029,12 +1029,12 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string sn = I2S(PlayerSlotNumber[pid])
         
         loop
-            if StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0") != "" and GetItemLock(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
+            if StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0") != "" and GetItemLock(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[i], "UI_Inventory.blp", 0)
                 call DzFrameShow(UI_Tip, false)
                 call DzDestroyFrame(F_ItemButtons[i])
                 set F_ItemButtons[i] = 0
-                call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i))
+                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i))
             endif
             set i = i + 1
             exitwhen i == 50
@@ -1071,7 +1071,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
     private function ClickStItemButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        local string items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(F_Storage_ClickNumber[pid]), "0")
+        local string items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(F_Storage_ClickNumber[pid]), "0")
         local integer itemty = GetItemTypes(items)
         local integer i = 0
         local integer length
@@ -1688,7 +1688,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             loop        
                 exitwhen i == 50
                 //비어있는 공간이 있음
-                if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
+                if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(i), "0")) == 0 then
                     set j = i
                     set i = 49
                 endif
@@ -1700,10 +1700,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 call DzFrameShow(UI_Tip, false)
                 call DzDestroyFrame(f)
                 set F_Storage_Buttons[F_Storage_ClickNumber[pid]] = 0
-                call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_Storage_ClickNumber[pid]))
+                call StashRemove(PLAYER_DATA[pid], "창고"+I2S(F_Storage_ClickNumber[pid]))
                 call DzFrameShow(F_Storage_ButtonLock[F_Storage_ClickNumber[pid]], false)
                 //인벤에 추가
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(j), items)
+                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(j), items)
                 call AddIvItem.evaluate(pid,j,items)
                 set F_Storage_ClickNumber[pid] = 200
             endif
@@ -1715,19 +1715,19 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             loop
                 exitwhen i == 100
                 //보유중
-                if GetItemIDs2(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(i), "0")) == GetItemIDs2(items) then
+                if GetItemIDs2(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(i), "0")) == GetItemIDs2(items) then
                     set k = GetItemCharge(items)
-                    set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(i), "0"))
-                    set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(i), "0")
+                    set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(i), "0"))
+                    set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(i), "0")
                     set items = SetItemCharge(items, j+k)
                     //중첩변경
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(i), items)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(i), items)
                     //제거
                     call DzFrameSetTexture(F_Storage_ButtonsBackDrop[F_Storage_ClickNumber[pid]], "UI_Inventory.blp", 0)
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_Storage_Buttons[F_Storage_ClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_Storage_ClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "창고"+I2S(F_Storage_ClickNumber[pid]))
                     call DzFrameShow(F_Storage_ButtonLock[F_Storage_ClickNumber[pid]], false)
                     
                     set F_Storage_ClickNumber[pid] = 200
@@ -1746,7 +1746,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 loop        
                     exitwhen i == 100
                     //비어있는 공간이 있음
-                    if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(i), "0")) == 0 then
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(i), "0")) == 0 then
                         set j = i
                         set i = 99
                     endif
@@ -1758,10 +1758,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_Storage_Buttons[F_Storage_ClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "창고"+I2S(F_Storage_ClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "창고"+I2S(F_Storage_ClickNumber[pid]))
                     call DzFrameShow(F_Storage_ButtonLock[F_Storage_ClickNumber[pid]], false)
                     //인벤에 추가
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(j), items)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(j), items)
                     call AddIvItem.evaluate(pid,j,items)
                     set F_Storage_ClickNumber[pid] = 200
                 endif
@@ -1776,7 +1776,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string sn = I2S(PlayerSlotNumber[pid])
-        local string  items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), "0")
+        local string  items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), "0")
         local string items2
         local integer length
         local integer itemty = GetItemTypes(items)
@@ -2585,7 +2585,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(F_ItemButtons[F_ItemClickNumber[pid]])
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
@@ -2601,7 +2601,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+"8"+"\t"+items)
@@ -2613,7 +2613,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     //교체
                     set j = GetItemIDs(items2)
                     call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber[pid]], GetItemArt(items2), 0)
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
                     if GetItemLock(items2) == 0 then
                         call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     else
@@ -2635,7 +2635,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
@@ -2648,7 +2648,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+"10"+"\t"+items)
@@ -2660,7 +2660,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     //교체
                     set j = GetItemIDs(items2)
                     call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber[pid]], GetItemArt(items2), 0)
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
                     if GetItemLock(items2) == 0 then
                         call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     else
@@ -2680,7 +2680,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+I2S(12)+"\t"+items)
@@ -2693,7 +2693,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     //교체
                     set j = GetItemIDs(items2)
                     call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber[pid]], GetItemArt(items2), 0)
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
                     if GetItemLock(items2) == 0 then
                         call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     else
@@ -2713,7 +2713,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     set F_ItemClickNumber[pid] = 200
                     call DzSyncData("장착",I2S(pid)+"\t"+I2S(itemty)+"\t"+items)
@@ -2726,7 +2726,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     //교체
                     set j = GetItemIDs(items2)
                     call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber[pid]], GetItemArt(items2), 0)
-                    call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
+                    call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]), items2)
                     if GetItemLock(items2) == 0 then
                         call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     else
@@ -2746,7 +2746,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             loop        
                 exitwhen i == 50
                 //비어있는 공간이 있음
-                if GetItemIDs(StashLoad(pid:PLAYER_DATA, "창고"+I2S(i), "0")) == 0 then
+                if GetItemIDs(StashLoad(PLAYER_DATA[pid], "창고"+I2S(i), "0")) == 0 then
                     set j = i
                     set i = 49
                 endif
@@ -2758,34 +2758,34 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 call DzFrameShow(UI_Tip, false)
                 call DzDestroyFrame(f)
                 set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
+                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(F_ItemClickNumber[pid]))
                 call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                 //창고에 추가
-                call StashSave(pid:PLAYER_DATA, "창고"+I2S(j), items)
+                call StashSave(PLAYER_DATA[pid], "창고"+I2S(j), items)
                 call AddStItem.evaluate(pid,j,items)
                 set F_ItemClickNumber[pid] = 200
             endif
         //기타템 창고로 이동
         elseif i == 4 then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
             set i = 50
             set j = 0
             loop
                 exitwhen i == 100
                 //보유중
-                if GetItemIDs2(StashLoad(pid:PLAYER_DATA, "창고"+I2S(i), "0")) == GetItemIDs2(items) then
+                if GetItemIDs2(StashLoad(PLAYER_DATA[pid], "창고"+I2S(i), "0")) == GetItemIDs2(items) then
                     set k = GetItemCharge(items)
-                    set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "창고"+I2S(i), "0"))
-                    set items = StashLoad(pid:PLAYER_DATA, "창고"+I2S(i), "0")
+                    set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "창고"+I2S(i), "0"))
+                    set items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(i), "0")
                     //중첩변경
                     set items = SetItemCharge(items, j+k)
-                    call StashSave(pid:PLAYER_DATA, "창고"+I2S(i), items)
+                    call StashSave(PLAYER_DATA[pid], "창고"+I2S(i), items)
                     //제거
                     call DzFrameSetTexture(F_ItemButtonsBackDrop[F_ItemClickNumber[pid]], "UI_Inventory.blp", 0)
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     
                     set F_ItemClickNumber[pid] = 200
@@ -2803,7 +2803,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 loop        
                     exitwhen i == 100
                     //비어있는 공간이 있음
-                    if GetItemIDs(StashLoad(pid:PLAYER_DATA, "창고"+I2S(i), "0")) == 0 then
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "창고"+I2S(i), "0")) == 0 then
                         set j = i
                         set i = 99
                     endif
@@ -2815,10 +2815,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     call DzFrameShow(UI_Tip, false)
                     call DzDestroyFrame(f)
                     set F_ItemButtons[F_ItemClickNumber[pid]] = 0
-                    call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]))
+                    call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]))
                     call DzFrameShow(F_ItemButtonLock[F_ItemClickNumber[pid]], false)
                     //창고에 추가
-                    call StashSave(pid:PLAYER_DATA, "창고"+ I2S(j), items)
+                    call StashSave(PLAYER_DATA[pid], "창고"+ I2S(j), items)
                     call AddStItem.evaluate(pid,j,items)
                     set F_ItemClickNumber[pid] = 200
                 endif
@@ -2826,7 +2826,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         endif
         
         if i == 5 then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
             if GetItemIDs2(items) == "73" then
                 set SHOP_Select = items
                 call DzFrameSetTexture(SHOP_ButtonBackDrop[5],"ReplaceableTextures\\CommandButtons\\BTNArcana19.blp", 0)
@@ -2860,7 +2860,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         endif
         
         if i == 6 then
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(F_ItemClickNumber[pid]), "0")
             if GetItemIDs2(items) == "73" then
                 set SHOP2_Select = items
                 call DzFrameSetTexture(SHOP_ButtonBackDrop[5],"ReplaceableTextures\\CommandButtons\\BTNArcana19.blp", 0)
@@ -2982,13 +2982,13 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         if GetLocalPlayer() == Player(pid) then
             set s = GetItemArt(items)
             if number > 49 then
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".기타"+I2S(number), items)
+                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".기타"+I2S(number), items)
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[number], s, 0)
                 set F_ItemButtons[number]=DzCreateFrameByTagName("BUTTON", "", F_ETCButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
                 call DzFrameSetScriptByCode(F_ItemButtons[number], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions2, false)
                 call DzFrameSetScriptByCode(F_ItemButtons[number], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
             else
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".장비"+I2S(number), items)
+                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".장비"+I2S(number), items)
                 call DzFrameSetTexture(F_ItemButtonsBackDrop[number], s, 0)
                 set F_ItemButtons[number]=DzCreateFrameByTagName("BUTTON", "", F_EQButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())
                 call DzFrameSetScriptByCode(F_ItemButtons[number], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
@@ -3011,7 +3011,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string s
         if GetLocalPlayer() == Player(pid) then
             set s = GetItemArt(items)
-            call StashSave(pid:PLAYER_DATA, "창고"+I2S(number), items)
+            call StashSave(PLAYER_DATA[pid], "창고"+I2S(number), items)
             call DzFrameSetTexture(F_Storage_ButtonsBackDrop[number], s, 0)
             if number > 49 then
                 set F_Storage_Buttons[number]=DzCreateFrameByTagName("BUTTON", "", F_Storage_ETCButtonsShow, "ScoreScreenTabButtonTemplate",  FrameCount())

@@ -66,12 +66,10 @@ scope Potion
             call SetUnitState(caster, UNIT_STATE_LIFE, GetUnitState(caster,UNIT_STATE_LIFE) + ( GetUnitState(caster,UNIT_STATE_MAX_LIFE) * 0.6 ) )
             call RefreshHP(caster)
 
-            set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션1", "0"))
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션1", "0")
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션1", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션1", "0")
             set items = SetItemCharge(items, j-1)
-            if GetLocalPlayer() == GetOwningPlayer(caster) then
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션1", items)
-            endif
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션1", items)
             
             set caster = null
         endif
@@ -87,12 +85,10 @@ scope Potion
             call DummyMagicleash3(caster,0.3)
             call AnimationStringStart(caster,"Attack")
             
-            set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션2", "0"))
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션2", "0")
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0")
             set items = SetItemCharge(items, j-1)
-            if GetLocalPlayer() == GetOwningPlayer(caster) then
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션2", items)
-            endif
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션2", items)
             set caster = null
         endif
         
@@ -113,13 +109,10 @@ scope Potion
             call t.start( 3.5, false, function EffectFunction2 ) 
             
             
-            set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션3", "0"))
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션3", "0")
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0")
             set items = SetItemCharge(items, j-1)
-
-            if GetLocalPlayer() == GetOwningPlayer(caster) then
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션3", items)
-            endif
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션3", items)
             set caster = null
         endif
         
@@ -151,13 +144,10 @@ scope Potion
             call t.start( 10, false, function EffectFunction ) 
             
             
-            set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션4", "0"))
-            set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".포션4", "0")
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0")
             set items = SetItemCharge(items, j-1)
-            
-            if GetLocalPlayer() == GetOwningPlayer(caster) then
-                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".포션4", items)
-            endif
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션4", items)
             set caster = null
         endif
         

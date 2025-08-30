@@ -18,27 +18,27 @@ scope Load initializer onInit
             if JNStashNetGetResult( ) then
                 //call BJDebugMsg( JNStashNetGetMessage( ) )
                 set pid = GetPlayerId(user)
-                set pid:PLAYER_DATA = JNStashNetGetStash( )
-                call JNObjectMapInit(MapName,MapApi)
+                set PLAYER_DATA[pid] = JNStashNetGetStash( )
+                //call JNObjectMapInit(MapName,MapApi)
                 
                 //슬롯 이미지 세팅
-                set str = StashLoad(pid:PLAYER_DATA, "슬롯1", "없음")
+                set str = StashLoad(PLAYER_DATA[pid], "슬롯1", "없음")
                 if str != "없음" and str != null then
                     call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
-                set str = StashLoad(pid:PLAYER_DATA, "슬롯2", "없음")
+                set str = StashLoad(PLAYER_DATA[pid], "슬롯2", "없음")
                 if str != "없음" and str != null then
                     call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
-                set str = StashLoad(pid:PLAYER_DATA, "슬롯3", "없음")
+                set str = StashLoad(PLAYER_DATA[pid], "슬롯3", "없음")
                 if str != "없음" and str != null then
                     call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
                 /*
-                set str = StashLoad(pid:PLAYER_DATA, "슬롯4", "없음")
+                set str = StashLoad(PLAYER_DATA[pid], "슬롯4", "없음")
                 if str != "없음" and str != null then
                     call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
@@ -46,7 +46,7 @@ scope Load initializer onInit
                 */
                 set j = 0
                 loop
-                    set str = StashLoad(pid:PLAYER_DATA, "창고"+I2S(j), "없음")
+                    set str = StashLoad(PLAYER_DATA[pid], "창고"+I2S(j), "없음")
                     if str != "없음" and str != null then
                         call AddStItem(pid,j, str)
                         set str = null
@@ -60,13 +60,13 @@ scope Load initializer onInit
             else
                 call BJDebugMsg( JNStashNetGetMessage( ) )
                 set pid = 0
-                set pid:PLAYER_DATA = CreateStash()
+                set PLAYER_DATA[pid] = CreateStash()
                 set pid = 1
-                set pid:PLAYER_DATA = CreateStash()
+                set PLAYER_DATA[pid] = CreateStash()
                 set pid = 2
-                set pid:PLAYER_DATA = CreateStash()
+                set PLAYER_DATA[pid] = CreateStash()
                 set pid = 3
-                set pid:PLAYER_DATA = CreateStash()
+                set PLAYER_DATA[pid] = CreateStash()
             endif
         else
             //call BJDebugMsg( "로드 중 : " + I2S(JNStashNetGetProgress()) + "/" + I2S(JNStashNetGetMaximum()) )
@@ -89,35 +89,35 @@ scope Load initializer onInit
         local integer pid = GetPlayerId(GetTriggerPlayer())
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E0", Eitem[pid][0])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E1", Eitem[pid][1])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E2", Eitem[pid][2])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E3", Eitem[pid][3])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E4", Eitem[pid][4])
-        call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E5", Eitem[pid][5])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
+        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
         if Eitem[pid][6] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E6", Eitem[pid][6])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
         endif
         if Eitem[pid][7] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E7", Eitem[pid][7])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E7", Eitem[pid][7])
         endif
         if Eitem[pid][8] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E8", Eitem[pid][8])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E8", Eitem[pid][8])
         endif
         if Eitem[pid][9] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E9", Eitem[pid][9])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E9", Eitem[pid][9])
         endif
         if Eitem[pid][10] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E10", Eitem[pid][10])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E10", Eitem[pid][10])
         endif
         if Eitem[pid][11] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E11", Eitem[pid][11])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E11", Eitem[pid][11])
         endif
         if Eitem[pid][12] != null then
-            call StashSave(pid:PLAYER_DATA, "슬롯"+ str + ".E12", Eitem[pid][12])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E12", Eitem[pid][12])
         endif
         
-        call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, pid:PLAYER_DATA, UPLOAD_CALLBACK )
+        call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
     endfunction
 
     private function download takes nothing returns nothing

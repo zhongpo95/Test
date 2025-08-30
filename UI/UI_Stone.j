@@ -290,7 +290,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                 return
             endif
             
-            //if JNUse( ) then
+            //if JNObjectCharacterServerConnectCheck( ) then
             if true then
                 if f == F_ArcanaButton[1] then
                     if loopA != 10 then
@@ -546,7 +546,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                     loop
                         exitwhen i == 50
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
                             set items = "ID"+I2S(11)+";"
                             if A >= 10 then
                                 set A = 4

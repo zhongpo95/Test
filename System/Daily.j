@@ -16,7 +16,9 @@ library Daily initializer init requires Stash, UIQuest
         //출석 오늘처음
         if data == "데이터 없음" then
             /*출석 일수 저장*/
-            call StashSave(pid:PLAYER_DATA, "Totaldaily", StashLoad(pid:PLAYER_DATA,"Totaldaily","0"))
+            if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
+                call StashSave(PLAYER_DATA[pid], "Totaldaily", I2S(S2I(StashLoad(PLAYER_DATA[pid],"Totaldaily","0")) + 1 ) )
+            endif
             //출석 보상
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
                 call BJDebugMsg("출석 보상!")
@@ -29,12 +31,10 @@ library Daily initializer init requires Stash, UIQuest
                 //call TodayReset(pid)
             endif
         else
-            if JNUse( ) then
-                if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
+            if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
+                if JNObjectCharacterServerConnectCheck() then
                     call BJDebugMsg("이미 출석함")
-                endif
-            else
-                if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
+                else
                     call BJDebugMsg("서버에 연결되지 않았습니다.")
                 endif
             endif

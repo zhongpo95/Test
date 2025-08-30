@@ -12,6 +12,8 @@ library SkillButton requires DataUnit
         integer pid
         integer i
         integer j
+        integer k
+        integer l
         integer st
         real r
         real r2
@@ -30,6 +32,8 @@ library SkillButton requires DataUnit
             set pid = 0
             set i = 0
             set j = 0
+            set k = 0
+            set l = 0
             set st = 0
             set r = 0
             set r2 = 0

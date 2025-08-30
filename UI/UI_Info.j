@@ -496,7 +496,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                     loop        
                         exitwhen i == 50
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
                             set j = i
                             set i = 49
                         endif

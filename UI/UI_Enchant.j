@@ -293,7 +293,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         
         if Player(pid) == GetLocalPlayer() then
             if true then
-            //if JNUse( ) then
+            //if JNObjectCharacterServerConnectCheck( ) then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 set quality = GetItemQuality(items)
@@ -323,31 +323,31 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 loop
                     exitwhen loopA == 100
                     //보유중
-                    if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
-                        set j = GetItemCharge(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0"))
-                        set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0")
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
+                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                        set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
                         if l <= j then
                             if (j-l) == 0 then
                                 //아이템지우기
                                 call DzFrameSetTexture(F_ItemButtonsBackDrop[loopA], "UI_Inventory.blp", 0)
                                 call DzFrameShow(UI_Tip, false)
-                                call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA))
+                                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA))
                             else
                                 if j >= 1000 then
-                                    set length = JNStringLength(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-4) + I2S(j-l)
                                 elseif j >= 100 then
-                                    set length = JNStringLength(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-3) + I2S(j-l)
                                 elseif j >= 10 then
-                                    set length = JNStringLength(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-2) + I2S(j-l)
                                 else
-                                    set length = JNStringLength(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-1) + I2S(j-l)
                                 endif
                                 set items = SetItemCharge(items, j-l)
-                                call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), items)
+                                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
                             endif
                             
                             if i == 2 then
@@ -524,7 +524,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         set A = GetRandomInt(1,10000)
         
         if Player(pid) == GetLocalPlayer() then
-            if JNUse( ) then
+            if JNObjectCharacterServerConnectCheck( ) then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemArt(items), 0)
@@ -559,11 +559,11 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                     set l = l * 2
                 endif
                 
-                if m <= S2I(StashLoad(pid:PLAYER_DATA, "골드", "0")) then
+                if m <= S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) then
                     set j = 0
                     if l == 0 then
-                        call StashSave(pid:PLAYER_DATA, "골드", I2S(S2I(StashLoad(pid:PLAYER_DATA, "골드", "0")) - m) )
-                        call DzFrameSetText(F_GoldText, StashLoad(pid:PLAYER_DATA, "골드", "0"))
+                        call StashSave(PLAYER_DATA[pid], "골드", I2S(S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) - m) )
+                        call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
                         if trycount > 10 then
                             set trycount2 = 10
                         else
@@ -625,22 +625,22 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                         loop
                             exitwhen loopA == 100
                             //보유중
-                            if GetItemIDs(StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
-                                set items = StashLoad(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), "0")
+                            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
+                                set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
                                 set j = GetItemCharge(items)
                                 if l <= j then
                                     if (j-l) == 0 then
                                         //아이템지우기
                                         call DzFrameSetTexture(F_ItemButtonsBackDrop[loopA], "UI_Inventory.blp", 0)
                                         call DzFrameShow(UI_Tip, false)
-                                        call StashRemove(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA))
+                                        call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA))
                                     else
                                         set items = SetItemCharge(items, j-l)
-                                        call StashSave(pid:PLAYER_DATA, "슬롯"+sn+".아이템"+I2S(loopA), items)
+                                        call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
                                     endif
                                     
-                                    call StashSave(pid:PLAYER_DATA, "골드", I2S(S2I(StashLoad(pid:PLAYER_DATA, "골드", "0")) - m) )
-                                    call DzFrameSetText(F_GoldText, StashLoad(pid:PLAYER_DATA, "골드", "0"))
+                                    call StashSave(PLAYER_DATA[pid], "골드", I2S(S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) - m) )
+                                    call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
                                     
                                     if trycount > 10 then
                                         set trycount2 = 10

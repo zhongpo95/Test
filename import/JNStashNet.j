@@ -254,7 +254,7 @@ library JNStashNet initializer onInit requires Stash
         endif
 
         if GetLocalPlayer( ) == user then
-            if JNUse( ) then
+            if JNObjectCharacterServerConnectCheck( ) then
                 call DzSyncData( TASK_SYNC_KEY, jnOk )
             else
                 call DzSyncData( TASK_SYNC_KEY, jnNo )
@@ -581,7 +581,7 @@ library JNStashNet initializer onInit requires Stash
         endif
 
         if GetLocalPlayer() == user then
-            if JNUse() then
+            if JNObjectCharacterServerConnectCheck() then
                 set localResult = JNObjectUserSave( mapId, userId, secretKey, charId )
                 call DzSyncData( TASK_SYNC_KEY, I2S(task) + "|UP_US_SAVE|" + localResult )
             else
