@@ -87,35 +87,6 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         return 0
     endfunction
 
-    private function Command222 takes nothing returns nothing
-        local integer winnings = 0
-        local integer spin_index
-        local integer spin_value
-        
-        // -------------------------------------------------------------
-        // 베팅할 발판을 여기서 선택하세요.-
-        // 베팅할 배당값을 직접 입력합니다. (20, 51, 52, 53, 2, 0)
-        // -------------------------------------------------------------
-        
-        set BW_Money = BW_Money - 100
-        set spin_index = GetSpinResult()
-        set spin_value = Wheel_Layout[spin_index]
-        
-        //call BJDebugMsg("--- 시뮬레이션 결과 ---")
-        call BJDebugMsg("내가 베팅한 발판: " + GetValueName(BW_NowValue) + " / 이번 당첨 발판 위치: " + I2S(spin_index) + "번" + " / 이번 당첨 발판: " + GetValueName(spin_value))
-        
-        if spin_value == BW_NowValue then
-            set winnings = BW_NowBetAmount * GetPayout(spin_value)
-            call BJDebugMsg("당첨! 돌려받은 금액: " + I2S(winnings))
-            set BW_Money = BW_Money + winnings
-            call BJDebugMsg("보유금액: " + I2S(BW_Money))
-        else
-            call BJDebugMsg("아쉽지만 꽝입니다. 돌려받은 금액: 0")
-            call BJDebugMsg("보유금액: " + I2S(BW_Money))
-        endif
-        //call BJDebugMsg("-----------------------")
-    endfunction
-
     //20배 마리 ReplaceableTextures\\CommandButtons\\BTNArcana19.blp
     //5배A 아루 ReplaceableTextures\\CommandButtons\\BTNArcana04.blp
     //5배B 히나 ReplaceableTextures\\CommandButtons\\BTNArcana15.blp
@@ -152,7 +123,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         
         set st.SpinCount = st.SpinCount + 1
 
-        call BJDebugMsg( I2S(st.SpinCount)+ ":" + I2S(st.MaxSpins))
+        debug call VJDebugMsg( I2S(st.SpinCount)+ ":" + I2S(st.MaxSpins))
         if st.SpinCount >= st.MaxSpins then
             set currentSpin = ModuloInteger(st.SpinCount, 32)
             if currentSpin == 0 then
@@ -160,9 +131,9 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
             endif
             if st.Value == Wheel_Layout[currentSpin] then
                 set BW_MySeed[st.pid] = BW_MySeed[st.pid] + st.BetAmount * GetPayout(st.Value)
-                call BJDebugMsg("당첨! 돌려받은 금액: " + I2S(st.BetAmount * GetPayout(st.Value)))
+                debug call VJDebugMsg("당첨! 돌려받은 금액: " + I2S(st.BetAmount * GetPayout(st.Value)))
             else
-                call BJDebugMsg("아쉽지만 꽝입니다. 돌려받은 금액: 0")
+                debug call VJDebugMsg("아쉽지만 꽝입니다. 돌려받은 금액: 0")
             endif
             if GetLocalPlayer() == Player(st.pid) then
                 set BW_NowBetAmount = 0
@@ -170,7 +141,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
                 call DzFrameSetText(BW_Seed,I2S(BW_MySeed[st.pid]))
                 call DzFrameSetPoint(BW_Sprite, JN_FRAMEPOINT_BOTTOMLEFT, BW_Icon[currentSpin] , JN_FRAMEPOINT_BOTTOMLEFT, -0.005 , -0.005 )
             endif
-            //call BJDebugMsg(I2S(currentSpin) + "번 발판인 " + GetValueName(Wheel_Layout[currentSpin]) + " 입니다!")
+            //call VJDebugMsg(I2S(currentSpin) + "번 발판인 " + GetValueName(Wheel_Layout[currentSpin]) + " 입니다!")
             set BW_PlayerStart[st.pid] = false
             set st.Speed = 0
             set st.pid = 0
@@ -233,7 +204,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
             if GetLocalPlayer() == Player(st.pid) then
                 call DzFrameSetText(BW_Seed, I2S(BW_MySeed[st.pid]))
             endif
-            //call BJDebugMsg("랜덤값 : " + I2S(st.Spinindex) +" 베팅액 : " + I2S(BetAmount) +" 남은돈 : " + I2S(BW_MySeed[pid]) )
+            //call VJDebugMsg("랜덤값 : " + I2S(st.Spinindex) +" 베팅액 : " + I2S(BetAmount) +" 남은돈 : " + I2S(BW_MySeed[pid]) )
         else
         endif
     endfunction

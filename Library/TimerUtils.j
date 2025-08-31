@@ -53,14 +53,14 @@ library_once TimerUtils
     
     function SetTimerData takes timer t, integer value returns nothing
         debug if (Timer[GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS] != t) then
-        debug     call BJDebugMsg("SetTimerData: Wrong handle id, only use SetTimerData on timers created by NewTimer")
+        debug     call VJDebugMsg("SetTimerData: Wrong handle id, only use SetTimerData on timers created by NewTimer")
         debug endif
         set Data[GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS] = value
     endfunction
  
     function GetTimerData takes timer t returns integer
         debug if (Timer[GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS] != t) then
-        debug     call BJDebugMsg("GetTimerData: Wrong handle id, only use GetTimerData on timers created by NewTimer")
+        debug     call VJDebugMsg("GetTimerData: Wrong handle id, only use GetTimerData on timers created by NewTimer")
         debug endif
         return Data[GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS]
     endfunction
@@ -93,16 +93,16 @@ library_once TimerUtils
     //==========================================================================================
     function ReleaseTimer takes timer t returns nothing
         if (t == null) then
-            debug call BJDebugMsg("Warning: attempt to release a null timer")
+            debug call VJDebugMsg("Warning: attempt to release a null timer")
             return
         endif
         debug if (Timer[GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS] != t) then
-        debug     call BJDebugMsg("ReleaseTimer: Wrong handle id, only use ReleaseTimer on timers created by NewTimer")
+        debug     call VJDebugMsg("ReleaseTimer: Wrong handle id, only use ReleaseTimer on timers created by NewTimer")
         debug endif
         call PauseTimer(t)
         set tH[tN] = GetHandleId(t) * HASH_UP / HASH_DOWN + HASH_BIAS
         if (Data[tH[tN]] == HELD) then
-            debug call BJDebugMsg("Warning: ReleaseTimer: Double free!")
+            debug call VJDebugMsg("Warning: ReleaseTimer: Double free!")
             return
         endif
         set Data[tH[tN]] = HELD

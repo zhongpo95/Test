@@ -192,7 +192,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         local integer tier = 0
         local integer length = 0
         local integer l = 1
-        local integer tip = 0
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if Player(pid) == GetLocalPlayer() then
@@ -202,10 +201,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set i = GetItemIDs(items)
                 set quality = GetItemQuality(items)
                 set tier = GetItemTier(items)
-                set tip = GetItemTypes(items)
-                if tip == 5 then
-                    set l = 2
-                endif
                 if tier == 1 then
                     set k = 32
                 elseif tier == 2 then
@@ -309,14 +304,14 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                             call DzFrameShow(F_EnchantUpText, false)
                             call DzFrameShow(F_EnchantButton2, false)
-                            //call CharacterSave(true , SLNumber)
+                            call CharacterSave(true , SLNumber)
                         endif
                         set loopA = 99
                     endif
                     set loopA = loopA + 1
                 endloop
             else
-                call BJDebugMsg("서버에 연결되지 않았습니다.")
+                call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
         endif
     endfunction
@@ -340,14 +335,13 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         local integer length = 0
         local integer l = 1
         local integer m = 0
-        local integer tip = 0
         local string sn = I2S(PlayerSlotNumber[pid])
         
         set A = GetRandomInt(1,10000)
         
         if Player(pid) == GetLocalPlayer() then
-            //if JNObjectCharacterServerConnectCheck( ) then
-            if true then
+            //if JNObjectCharacterServerConnectCheck() then
+            if JNObjectCharacterServerConnectCheck() then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemArt(items), 0)
@@ -363,23 +357,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set m = EnchantMaterial2[tier][up+1]
                     
                 if tier == 2 then
-                    set k = 31
+                    set k = 32
                 elseif tier == 3 then
-                    set k = 34
+                    set k = 35
                 elseif tier == 4 then
-                    set k = 37
+                    set k = 38
                 elseif tier == 5 then
-                    set k = 39
+                    set k = 40
                 elseif tier == 6 then
-                    set k = 41
+                    set k = 42
                 elseif tier == 7 then
-                    set k = 43
+                    set k = 44
                 elseif tier == 8 then
-                    set k = 45
-                endif
-                
-                if tip == 5 then
-                    set l = l * 2
+                    set k = 46
                 endif
                 
                 if m <= S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) then
@@ -413,7 +403,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                             call DzFrameShow(F_EnchantUpText, false)
                             call DzFrameShow(F_EnchantButton, false)
-                            //call CharacterSave(true , SLNumber)
+                            call CharacterSave(true , SLNumber)
                         else
                             //실패
                             set trycount = trycount + 1
@@ -441,7 +431,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
                                 call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
                             endif
-                            //call CharacterSave(true , SLNumber)
+                            call CharacterSave(true , SLNumber)
                         endif
                     else
                         set loopA = 50
@@ -491,7 +481,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                                         call DzFrameShow(F_EnchantUpText, false)
                                         call DzFrameShow(F_EnchantButton, false)
-                                        //call CharacterSave(true , SLNumber)
+                                        call CharacterSave(true , SLNumber)
                                     else
                                         //실패
                                         set trycount = trycount + 1
@@ -519,7 +509,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                             call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
                                             call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
                                         endif
-                                        //call CharacterSave(true , SLNumber)
+                                        call CharacterSave(true , SLNumber)
                                     endif
                                 endif
                                 set loopA = 99
@@ -528,7 +518,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                         endloop
                     endif
                 else
-                    call BJDebugMsg("서버에 연결되지 않았습니다.")
+                    call VJDebugMsg("서버에 연결되지 않았습니다.")
                 endif
             endif
         endif
@@ -592,7 +582,15 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set tier = GetItemTier(items)
             set trycount = GetItemTrycount(items)
             set fate = GetItemFate(items)
-            if EnchantMax[tier] != up then
+
+            if tier == 1 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
+                call DzFrameSetText(F_EnchantText[7], "x 1" )
+                call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+                call DzFrameShow(F_EnchantButton, false)
+                call DzFrameShow(F_EnchantButton2, true)
+                call DzFrameShow(F_EnchantUpText, true)
+            elseif EnchantMax[tier] != up then
                 call DzFrameSetText(F_EnchantUpText, I2S(up) + "  >>  " + I2S(up+1))
                 if trycount > 10 then
                     set trycount2 = 10
@@ -616,33 +614,28 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 call DzFrameSetText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
                 
                 if tier == 2 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(66), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(32), 0)
                 elseif tier == 3 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(67), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(35), 0)
                 elseif tier == 4 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(68), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(38), 0)
                 elseif tier == 5 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(69), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(40), 0)
                 elseif tier == 6 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(70), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(42), 0)
                 elseif tier == 7 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(71), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(44), 0)
                 elseif tier == 8 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(72), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(46), 0)
                 endif
+
                 call DzFrameSetText(F_EnchantText[2], str)
                 call DzFrameShow(F_EnchantButton, true)
                 call DzFrameShow(F_EnchantButton2, false)
             else
-                //call BJDebugMsg("오류")
+                call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
             endif
             call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[6] then
-            //set F_EnchantSelectNumber = 6
-            //call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-            //call DzFrameShow(F_EnchantUpText, false)
-            //call DzFrameShow(F_EnchantButton, false)
-            //call DzFrameShow(F_EnchantButton2, true)
         endif
         
         //모자
@@ -712,36 +705,50 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         set F_EnchantSelectNumber = 6
         
         //메뉴 배경
-        set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
-        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.320)
-        call DzFrameSetSize(F_EnchantBackDrop, 0.40, 0.26)
+        //set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        //call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
+        //call DzFrameSetSize(F_EnchantBackDrop, 0.45, 0.30)
+
+        set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        call DzFrameSetTexture(F_EnchantBackDrop, "Filenemo.blp", 0)
+        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
+        call DzFrameSetSize(F_EnchantBackDrop, 0.45, 0.30)
+        call DzFrameSetAlpha(F_EnchantBackDrop, 225)
+        //call DzFrameSetPriority(F_EnchantBackDrop, 5)
+
         
+        set i=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
+        call DzFrameSetTexture(i, "textures\\white.blp", 0)
+        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, -0.15, 0 )
+        call DzFrameSetSize(i, 0.0010, 0.250)
+
         //메뉴 취소 버튼
         set F_EnchantCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_EnchantBackDrop, "ScriptDialogButton", 0)
-        call DzFrameSetPoint(F_EnchantCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_EnchantBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.010, -0.010)
+        call DzFrameSetPoint(F_EnchantCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_EnchantBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.030, -0.030)
         call DzFrameSetText(F_EnchantCancelButton, "X")
         call DzFrameSetSize(F_EnchantCancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(F_EnchantCancelButton, JN_FRAMEEVENT_MOUSE_UP, function EnchantOpen, false)
         
-        call CreateEItemButton(0 , 0.040 , - 0.070)
-        call CreateEItemButton(1 , 0.040 , - 0.100)
-        call CreateEItemButton(2 , 0.040 , - 0.130)
-        call CreateEItemButton(3 , 0.040 , - 0.160)
-        call CreateEItemButton(4 , 0.040 , - 0.190)
-        call CreateEItemButton(5 , 0.040 , - 0.220)
+        call CreateEItemButton(0 , 0.040 , - 0.050)
+        //call CreateEItemButton(1 , 0.040 , - 0.100)
+        //call CreateEItemButton(2 , 0.040 , - 0.130)
+        //call CreateEItemButton(3 , 0.040 , - 0.160)
+        //call CreateEItemButton(4 , 0.040 , - 0.190)
+        call CreateEItemButton(5 , 0.040 , - 0.100)
         
-        call CreateEItemButton(6 , 0.220 , - 0.040)
+        call CreateEItemButton(6 , 0.240 , - 0.040)
+        call DzFrameSetSize(F_EEItemButtons[6], 0.040, 0.040)
         
         
         set F_EnchantButton2=DzCreateFrameByTagName("BUTTON", "", F_EnchantBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EnchantButton2, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.175 )
+        call DzFrameSetPoint(F_EnchantButton2, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.200 )
         call DzFrameSetSize(F_EnchantButton2, 0.060 , 0.040)
         call DzFrameSetScriptByCode(F_EnchantButton2, JN_FRAMEEVENT_MOUSE_UP, function ClickButton3, false)
         set F_EnchantButtonBD2=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton2, "", FrameCount())
         call DzFrameSetAllPoints(F_EnchantButtonBD2, F_EnchantButton2)
         call DzFrameSetTexture(F_EnchantButtonBD2,"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
         set F_EEItemButtons[7]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton2, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EEItemButtons[7], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.070 , - 0.080 )
+        call DzFrameSetPoint(F_EEItemButtons[7], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.070 , - 0.100 )
         call DzFrameSetSize(F_EEItemButtons[7], 0.025, 0.025)
         set F_EEItemButtonsBackDrop[7]=DzCreateFrameByTagName("BACKDROP", "", F_EEItemButtons[7], "", FrameCount())
         call DzFrameSetAllPoints(F_EEItemButtonsBackDrop[7], F_EEItemButtons[7])
@@ -749,7 +756,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetScriptByCode(F_EEItemButtons[7], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_EEItemButtons[7], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         set F_EEItemButtons[8]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton2, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EEItemButtons[8], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.070 , - 0.080 )
+        call DzFrameSetPoint(F_EEItemButtons[8], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.070 , - 0.100 )
         call DzFrameSetSize(F_EEItemButtons[8], 0.025, 0.025)
         set F_EEItemButtonsBackDrop[8]=DzCreateFrameByTagName("BACKDROP", "", F_EEItemButtons[8], "", FrameCount())
         call DzFrameSetAllPoints(F_EEItemButtonsBackDrop[8], F_EEItemButtons[8])
@@ -758,7 +765,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetScriptByCode(F_EEItemButtons[8], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_EEItemButtons[11]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton2, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EEItemButtons[11], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.020 , - 0.125 )
+        call DzFrameSetPoint(F_EEItemButtons[11], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.020 , - 0.155 )
         call DzFrameSetSize(F_EEItemButtons[11], 0.015, 0.015)
         set F_EEItemButtonsBackDrop[11]=DzCreateFrameByTagName("BACKDROP", "", F_EEItemButtons[11], "", FrameCount())
         call DzFrameSetAllPoints(F_EEItemButtonsBackDrop[11], F_EEItemButtons[11])
@@ -767,24 +774,22 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetScriptByCode(F_EEItemButtons[11], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_EnchantText[7]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[7], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.010 , - 0.125 )
+        call DzFrameSetPoint(F_EnchantText[7], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.010 , - 0.155 )
         call DzFrameSetText(F_EnchantText[7], "x "+"000")
         call DzFrameSetFont(F_EnchantText[7], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         
         set F_EnchantText[4]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[4], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.080 )
+        call DzFrameSetPoint(F_EnchantText[4], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.100 )
         call DzFrameSetText(F_EnchantText[4], "  >>  ")
         call DzFrameSetFont(F_EnchantText[4], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         
-        
-        
         set F_EnchantUpText=DzCreateFrameByTagName("TEXT", "", F_EnchantBackDrop, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantUpText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.025 )
+        call DzFrameSetPoint(F_EnchantUpText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.040 )
         call DzFrameSetText(F_EnchantUpText, "00" + "  >>  " + "00")
         call DzFrameSetFont(F_EnchantUpText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         
         set F_EnchantButton=DzCreateFrameByTagName("BUTTON", "", F_EnchantBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EnchantButton, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.175 )
+        call DzFrameSetPoint(F_EnchantButton, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.200 )
         call DzFrameSetSize(F_EnchantButton, 0.060 , 0.040)
         call DzFrameSetScriptByCode(F_EnchantButton, JN_FRAMEEVENT_MOUSE_UP, function ClickButton2, false)
         set F_EnchantButtonBD=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton, "", FrameCount())
@@ -792,30 +797,30 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetTexture(F_EnchantButtonBD,"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
         
         set F_EnchantRateText=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantRateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.040 )
+        call DzFrameSetPoint(F_EnchantRateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.055 )
         call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW(I2R(10000)/100,1,2) + "%|r")
         call DzFrameSetFont(F_EnchantRateText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         set F_EnchantFateText=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantFateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.055 )
+        call DzFrameSetPoint(F_EnchantFateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.070 )
         call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(10000)/100,1,2) + "%|r")
         call DzFrameSetFont(F_EnchantFateText, "Fonts\\DFHeiMd.ttf", 0.008, 0)
         
         set F_EnchantText[0]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[0], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.070 , - 0.080 )
+        call DzFrameSetPoint(F_EnchantText[0], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.070 , - 0.100 )
         call DzFrameSetText(F_EnchantText[0], "")
         call DzFrameSetFont(F_EnchantText[0], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         set F_EnchantText[1]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[1], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.080 )
+        call DzFrameSetPoint(F_EnchantText[1], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.100 )
         call DzFrameSetText(F_EnchantText[1], "  >>  ")
         call DzFrameSetFont(F_EnchantText[1], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         set F_EnchantText[2]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[2], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.070 , - 0.080 )
+        call DzFrameSetPoint(F_EnchantText[2], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.070 , - 0.100 )
         call DzFrameSetText(F_EnchantText[2], "")
         call DzFrameSetFont(F_EnchantText[2], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         
         
         set F_EEItemButtons[9]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EEItemButtons[9], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.050 , - 0.125 )
+        call DzFrameSetPoint(F_EEItemButtons[9], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.050 , - 0.155 )
         call DzFrameSetSize(F_EEItemButtons[9], 0.015, 0.015)
         set F_EEItemButtonsBackDrop[9]=DzCreateFrameByTagName("BACKDROP", "", F_EEItemButtons[9], "", FrameCount())
         call DzFrameSetAllPoints(F_EEItemButtonsBackDrop[9], F_EEItemButtons[9])
@@ -824,7 +829,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetScriptByCode(F_EEItemButtons[9], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_EEItemButtons[10]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EEItemButtons[10], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.010 , - 0.125 )
+        call DzFrameSetPoint(F_EEItemButtons[10], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.010 , - 0.155 )
         call DzFrameSetSize(F_EEItemButtons[10], 0.015, 0.015)
         set F_EEItemButtonsBackDrop[10]=DzCreateFrameByTagName("BACKDROP", "", F_EEItemButtons[10], "", FrameCount())
         call DzFrameSetAllPoints(F_EEItemButtonsBackDrop[10], F_EEItemButtons[10])
@@ -833,11 +838,11 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetScriptByCode(F_EEItemButtons[10], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_EnchantText[5]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[5], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.020 , - 0.125 )
+        call DzFrameSetPoint(F_EnchantText[5], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.020 , - 0.155 )
         call DzFrameSetText(F_EnchantText[5], "x "+"000")
         call DzFrameSetFont(F_EnchantText[5], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         set F_EnchantText[6]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
-        call DzFrameSetPoint(F_EnchantText[6], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.040 , - 0.125 )
+        call DzFrameSetPoint(F_EnchantText[6], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0.040 , - 0.155 )
         call DzFrameSetText(F_EnchantText[6], "x "+"000")
         call DzFrameSetFont(F_EnchantText[6], "Fonts\\DFHeiMd.ttf", 0.010, 0)
         

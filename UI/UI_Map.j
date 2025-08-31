@@ -578,7 +578,7 @@ library UIMap initializer init requires DataUnit, FrameCount
         local player p=(DzGetTriggerSyncPlayer())
         local integer LineNumber = S2I(DzGetTriggerSyncData())
         
-        //call BJDebugMsg(I2S(LineNumber)+"번 입장")
+        //debug call VJDebugMsg(I2S(LineNumber)+"번 입장")
 
         set p = null
     endfunction
@@ -813,190 +813,190 @@ library UIMap initializer init requires DataUnit, FrameCount
         local integer i = 0
         
         if f == FMap_Button[1][0] and Myroom == 0 then
-            call BJDebugMsg("1-1")
+            debug call VJDebugMsg("1-1")
             set ClickRoom = 1
         elseif f == FMap_Button[1][1] and Myroom == 0 then
-            call BJDebugMsg("1-2")
+            debug call VJDebugMsg("1-2")
             set ClickRoom = 2
         elseif f == FMap_Button[1][2] and Myroom == 0  then
-            call BJDebugMsg("1-3")
+            debug call VJDebugMsg("1-3")
             set ClickRoom = 3
         elseif f == FMap_Button[1][3] and Myroom == 0 then
-            call BJDebugMsg("1-4")
+            debug call VJDebugMsg("1-4")
             set ClickRoom = 4
         endif
         
         if f == FMap_Button[2][0] and Myroom == 1 then
-            call BJDebugMsg("2-1")
+            debug call VJDebugMsg("2-1")
             set ClickRoom = 5
         elseif f == FMap_Button[2][1] and Myroom == 2 then
-            call BJDebugMsg("2-2")
+            debug call VJDebugMsg("2-2")
             set ClickRoom = 6
         elseif f == FMap_Button[2][2] and Myroom == 3 then
-            call BJDebugMsg("2-3")
+            debug call VJDebugMsg("2-3")
             set ClickRoom = 7
         elseif f == FMap_Button[2][3] and Myroom == 4 then
-            call BJDebugMsg("2-4")
+            debug call VJDebugMsg("2-4")
             set ClickRoom = 8
         endif
 
         if f == FMap_Button[3][0] and Myroom == 5 then
-            call BJDebugMsg("3-1")
+            debug call VJDebugMsg("3-1")
             set ClickRoom = 9
         elseif f == FMap_Button[3][1] and Myroom == 6 then
-            call BJDebugMsg("3-2")
+            debug call VJDebugMsg("3-2")
             set ClickRoom = 10
         elseif f == FMap_Button[3][2] and Myroom == 7 then
-            call BJDebugMsg("3-3")
+            debug call VJDebugMsg("3-3")
             set ClickRoom = 11
         elseif f == FMap_Button[3][3] and Myroom == 8 then
-            call BJDebugMsg("3-4")
+            debug call VJDebugMsg("3-4")
             set ClickRoom = 12
         endif
 
         if f == FMap_Button[4][0] and Myroom == 9 then
-            call BJDebugMsg("4-1")
+            debug call VJDebugMsg("4-1")
             set ClickRoom = 13
         elseif f == FMap_Button[4][1] and Myroom == 10 then
-            call BJDebugMsg("4-2")
+            debug call VJDebugMsg("4-2")
             set ClickRoom = 14
         elseif f == FMap_Button[4][2] and Myroom == 11 then
-            call BJDebugMsg("4-3")
+            debug call VJDebugMsg("4-3")
             set ClickRoom = 15
         elseif f == FMap_Button[4][3] and Myroom == 12 then
-            call BJDebugMsg("4-4")
+            debug call VJDebugMsg("4-4")
             set ClickRoom = 16
         endif
         
         if f == FMap_Button[5][0] and ( Myroom == 13 or Myroom == 14 or Myroom == 15 or Myroom == 16 ) then
-            call BJDebugMsg("5")
+            debug call VJDebugMsg("5")
             set ClickRoom = 17
         endif
 
         if f == FMap_Button[6][0] and Myroom == 17 then
-            call BJDebugMsg("6-1")
+            debug call VJDebugMsg("6-1")
             set ClickRoom = 18
         elseif f == FMap_Button[6][1] and Myroom == 17 then
-            call BJDebugMsg("6-2")
+            debug call VJDebugMsg("6-2")
             set ClickRoom = 19
         elseif f == FMap_Button[6][2] and Myroom == 17 then
-            call BJDebugMsg("6-3")
+            debug call VJDebugMsg("6-3")
             set ClickRoom = 20
         elseif f == FMap_Button[6][3] and Myroom == 17 then
-            call BJDebugMsg("6-4")
+            debug call VJDebugMsg("6-4")
             set ClickRoom = 21
         endif
 
         if f == FMap_Button[7][0] and Myroom == 18 then
-            call BJDebugMsg("7-1")
+            debug call VJDebugMsg("7-1")
             set ClickRoom = 22
         elseif f == FMap_Button[7][1] and Myroom == 19 then
-            call BJDebugMsg("7-2")
+            debug call VJDebugMsg("7-2")
             set ClickRoom = 23
         elseif f == FMap_Button[7][2] and Myroom == 20 then
-            call BJDebugMsg("7-3")
+            debug call VJDebugMsg("7-3")
             set ClickRoom = 24
         elseif f == FMap_Button[7][3] and Myroom == 21 then
-            call BJDebugMsg("7-4")
+            debug call VJDebugMsg("7-4")
             set ClickRoom = 25
         endif
 
         if f == FMap_Button[8][0] and Myroom == 22 then
-            call BJDebugMsg("8-1")
+            debug call VJDebugMsg("8-1")
             set ClickRoom = 26
         elseif f == FMap_Button[8][1] and Myroom == 23 then
-            call BJDebugMsg("8-2")
+            debug call VJDebugMsg("8-2")
             set ClickRoom = 27
         elseif f == FMap_Button[8][2] and Myroom == 24 then
-            call BJDebugMsg("8-3")
+            debug call VJDebugMsg("8-3")
             set ClickRoom = 28
         elseif f == FMap_Button[8][3] and Myroom == 25 then
-            call BJDebugMsg("8-4")
+            debug call VJDebugMsg("8-4")
             set ClickRoom = 29
         endif
 
         if f == FMap_Button[9][0] and Myroom == 26 then
-            call BJDebugMsg("9-1")
+            debug call VJDebugMsg("9-1")
             set ClickRoom = 30
         elseif f == FMap_Button[9][1] and Myroom == 27 then
-            call BJDebugMsg("9-2")
+            debug call VJDebugMsg("9-2")
             set ClickRoom = 31
         elseif f == FMap_Button[9][2] and Myroom == 28 then
-            call BJDebugMsg("9-3")
+            debug call VJDebugMsg("9-3")
             set ClickRoom = 32
         elseif f == FMap_Button[9][3] and Myroom == 29 then
-            call BJDebugMsg("9-4")
+            debug call VJDebugMsg("9-4")
             set ClickRoom = 33
         endif
 
         if f == FMap_Button[10][0] and ( Myroom == 30 or Myroom == 31 or Myroom == 32 or Myroom == 33 ) then
-            call BJDebugMsg("10")
+            debug call VJDebugMsg("10")
             set ClickRoom = 34
         endif
 
         if f == FMap_Button[11][0] and Myroom == 34 then
-            call BJDebugMsg("11-1")
+            debug call VJDebugMsg("11-1")
             set ClickRoom = 35
         elseif f == FMap_Button[11][1] and Myroom == 34 then
-            call BJDebugMsg("11-2")
+            debug call VJDebugMsg("11-2")
             set ClickRoom = 36
         elseif f == FMap_Button[11][2] and Myroom == 34 then
-            call BJDebugMsg("11-3")
+            debug call VJDebugMsg("11-3")
             set ClickRoom = 37
         elseif f == FMap_Button[11][3] and Myroom == 34 then
-            call BJDebugMsg("11-4")
+            debug call VJDebugMsg("11-4")
             set ClickRoom = 38
         endif
 
         if f == FMap_Button[12][0] and Myroom == 35 then
-            call BJDebugMsg("12-1")
+            debug call VJDebugMsg("12-1")
             set ClickRoom = 39
         elseif f == FMap_Button[12][1] and Myroom == 36 then
-            call BJDebugMsg("12-2")
+            debug call VJDebugMsg("12-2")
             set ClickRoom = 40
         elseif f == FMap_Button[12][2] and Myroom == 37 then
-            call BJDebugMsg("12-3")
+            debug call VJDebugMsg("12-3")
             set ClickRoom = 41
         elseif f == FMap_Button[12][3] and Myroom == 38 then
-            call BJDebugMsg("12-4")
+            debug call VJDebugMsg("12-4")
             set ClickRoom = 42
         endif
 
         if f == FMap_Button[13][0] and Myroom == 39 then
-            call BJDebugMsg("13-1")
+            debug call VJDebugMsg("13-1")
             set ClickRoom = 43
         elseif f == FMap_Button[13][1] and Myroom == 40 then
-            call BJDebugMsg("13-2")
+            debug call VJDebugMsg("13-2")
             set ClickRoom = 44
         elseif f == FMap_Button[13][2] and Myroom == 41 then
-            call BJDebugMsg("13-3")
+            debug call VJDebugMsg("13-3")
             set ClickRoom = 45
         elseif f == FMap_Button[13][3] and Myroom == 42 then
-            call BJDebugMsg("13-4")
+            debug call VJDebugMsg("13-4")
             set ClickRoom = 46
         endif
 
         if f == FMap_Button[14][0] and Myroom == 43 then
-            call BJDebugMsg("14-1")
+            debug call VJDebugMsg("14-1")
             set ClickRoom = 47
         elseif f == FMap_Button[14][1] and Myroom == 44 then
-            call BJDebugMsg("14-2")
+            debug call VJDebugMsg("14-2")
             set ClickRoom = 48
         elseif f == FMap_Button[14][2] and Myroom == 45 then
-            call BJDebugMsg("14-3")
+            debug call VJDebugMsg("14-3")
             set ClickRoom = 49
         elseif f == FMap_Button[14][3] and Myroom == 46 then
-            call BJDebugMsg("14-4")
+            debug call VJDebugMsg("14-4")
             set ClickRoom = 50
         endif
 
         if f == FMap_Button[15][0] and ( Myroom == 47 or Myroom == 48 or Myroom == 49 or Myroom == 50 ) then
-            call BJDebugMsg("15")
+            debug call VJDebugMsg("15")
             set ClickRoom = 51
         endif
 
         if f == FMap_Button[16][0] and Myroom == 51 then
-            call BJDebugMsg("16")
+            debug call VJDebugMsg("16")
             set ClickRoom = 52
         endif
         

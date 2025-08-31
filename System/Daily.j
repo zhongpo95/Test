@@ -21,8 +21,11 @@ library Daily initializer init requires Stash, UIQuest
             endif
             //출석 보상
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
-                call BJDebugMsg("출석 보상!")
+                call VJDebugMsg("출석 보상!")
+                call StashSave(PLAYER_DATA[pid], "BigWheelCount", "3" )
             endif
+
+
             /* 출석보상라인 */
 
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
@@ -33,9 +36,9 @@ library Daily initializer init requires Stash, UIQuest
         else
             if GetLocalPlayer() == DzGetTriggerSyncPlayer() then
                 if JNObjectCharacterServerConnectCheck() then
-                    call BJDebugMsg("이미 출석함")
+                    call VJDebugMsg("이미 출석함")
                 else
-                    call BJDebugMsg("서버에 연결되지 않았습니다.")
+                    call VJDebugMsg("서버에 연결되지 않았습니다.")
                 endif
             endif
         endif

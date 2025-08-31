@@ -19,7 +19,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set t.data = IndexUnit(target)
         set TestUnit[t.data] = target
         call SetUnitVertexColorBJ( target, 50, 50, 100, 0 )
-        //call BJDebugMsg("맞음")
+        //call VJDebugMsg("맞음")
         call t.start(1.0, false, function Reset)
     endfunction
 
@@ -326,7 +326,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             call Overlay2(pid, SkillCode,(dmg * HPvalue), CriBoolean)
         endif
 
-        //call BJDebugMsg(R2S(dmg))
+        //call VJDebugMsg(R2S(dmg))
         if UnitCasting[UnitIndex] == true then
             //게이지깎
             if ( UnitCastingSD[UnitIndex] - SD ) <= 0 then

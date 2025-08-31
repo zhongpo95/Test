@@ -38,7 +38,7 @@ library DataItem
         call SaveInteger(ItemData, StringHash("ITEMID"), 24, 'I00A')
         call SaveInteger(ItemData, StringHash("ITEMID"), 25, 'I00I')
         call SaveInteger(ItemData, StringHash("ITEMID"), 26, 'I00J')
-        call SaveInteger(ItemData, StringHash("ITEMID"), 27, 'I008')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 27, 'I009')
         call SaveInteger(ItemData, StringHash("ITEMID"), 28, 'I025')
         call SaveInteger(ItemData, StringHash("ITEMID"), 29, 'I026')
         call SaveInteger(ItemData, StringHash("ITEMID"), 30, 'I027')
@@ -59,6 +59,7 @@ library DataItem
         call SaveInteger(ItemData, StringHash("ITEMID"), 45, 'I024')
         call SaveInteger(ItemData, StringHash("ITEMID"), 46, 'I01X')
         call SaveInteger(ItemData, StringHash("ITEMID"), 47, 'I000')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 48, 'I008')
 
 
         //0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
@@ -145,16 +146,16 @@ library DataItem
         set EnchantRate[2][9] = 2000
         set EnchantRate[2][10] = 1000
         
-        set EnchantMaterial1[2][1] = 0
-        set EnchantMaterial1[2][2] = 0
-        set EnchantMaterial1[2][3] = 0
-        set EnchantMaterial1[2][4] = 0
-        set EnchantMaterial1[2][5] = 0
-        set EnchantMaterial1[2][6] = 0
-        set EnchantMaterial1[2][7] = 0
-        set EnchantMaterial1[2][8] = 0
-        set EnchantMaterial1[2][9] = 0
-        set EnchantMaterial1[2][10] = 0
+        set EnchantMaterial1[2][1] = 2
+        set EnchantMaterial1[2][2] = 2
+        set EnchantMaterial1[2][3] = 2
+        set EnchantMaterial1[2][4] = 2
+        set EnchantMaterial1[2][5] = 2
+        set EnchantMaterial1[2][6] = 2
+        set EnchantMaterial1[2][7] = 2
+        set EnchantMaterial1[2][8] = 2
+        set EnchantMaterial1[2][9] = 2
+        set EnchantMaterial1[2][10] = 2
         set EnchantMaterial2[2][1] = 0
         set EnchantMaterial2[2][2] = 0
         set EnchantMaterial2[2][3] = 0
@@ -167,16 +168,16 @@ library DataItem
         set EnchantMaterial2[2][10] = 0
         
         //2티어
-        set EnchantRate[3][1] = 5000
-        set EnchantRate[3][2] = 5000
-        set EnchantRate[3][3] = 5000
-        set EnchantRate[3][4] = 4000
-        set EnchantRate[3][5] = 2000
-        set EnchantRate[3][6] = 2000
-        set EnchantRate[3][7] = 1000
-        set EnchantRate[3][8] = 1000
-        set EnchantRate[3][9] = 600
-        set EnchantRate[3][10] = 600
+        set EnchantRate[3][1] = 10000
+        set EnchantRate[3][2] = 9000
+        set EnchantRate[3][3] = 8000
+        set EnchantRate[3][4] = 7000
+        set EnchantRate[3][5] = 6000
+        set EnchantRate[3][6] = 5000
+        set EnchantRate[3][7] = 4000
+        set EnchantRate[3][8] = 3000
+        set EnchantRate[3][9] = 2000
+        set EnchantRate[3][10] = 1000
         
         set EnchantMaterial1[3][1] = 0
         set EnchantMaterial1[3][2] = 0
@@ -200,16 +201,16 @@ library DataItem
         set EnchantMaterial2[3][10] = 0
         
         //3티어
-        set EnchantRate[4][1] = 5000
-        set EnchantRate[4][2] = 3500
-        set EnchantRate[4][3] = 3500
-        set EnchantRate[4][4] = 3500
-        set EnchantRate[4][5] = 3000
-        set EnchantRate[4][6] = 2000
-        set EnchantRate[4][7] = 2000
-        set EnchantRate[4][8] = 1000
-        set EnchantRate[4][9] = 500
-        set EnchantRate[4][10] = 300
+        set EnchantRate[4][1] = 10000
+        set EnchantRate[4][2] = 9000
+        set EnchantRate[4][3] = 8000
+        set EnchantRate[4][4] = 7000
+        set EnchantRate[4][5] = 6000
+        set EnchantRate[4][6] = 5000
+        set EnchantRate[4][7] = 4000
+        set EnchantRate[4][8] = 3000
+        set EnchantRate[4][9] = 2000
+        set EnchantRate[4][10] = 1000
         
         set EnchantMaterial1[4][1] = 0
         set EnchantMaterial1[4][2] = 0
@@ -227,21 +228,21 @@ library DataItem
         set EnchantMaterial2[4][4] = 0
         set EnchantMaterial2[4][5] = 0
         set EnchantMaterial2[4][6] = 0
-        set EnchantMaterial2[4][7] = 0//110
-        set EnchantMaterial2[4][8] = 0//110
-        set EnchantMaterial2[4][9] = 0//110
-        set EnchantMaterial2[4][10] = 0//110
+        set EnchantMaterial2[4][7] = 0
+        set EnchantMaterial2[4][8] = 0
+        set EnchantMaterial2[4][9] = 0
+        set EnchantMaterial2[4][10] = 0
         
-        set EnchantRate[5][1] = 5000
-        set EnchantRate[5][2] = 3500
-        set EnchantRate[5][3] = 3500
-        set EnchantRate[5][4] = 3500
-        set EnchantRate[5][5] = 3000
-        set EnchantRate[5][6] = 2000
-        set EnchantRate[5][7] = 2000
-        set EnchantRate[5][8] = 1000
-        set EnchantRate[5][9] = 500
-        set EnchantRate[5][10] = 300
+        set EnchantRate[5][1] = 10000
+        set EnchantRate[5][2] = 9000
+        set EnchantRate[5][3] = 8000
+        set EnchantRate[5][4] = 7000
+        set EnchantRate[5][5] = 6000
+        set EnchantRate[5][6] = 5000
+        set EnchantRate[5][7] = 4000
+        set EnchantRate[5][8] = 3000
+        set EnchantRate[5][9] = 2000
+        set EnchantRate[5][10] = 1000
         
         set EnchantMaterial1[5][1] = 0
         set EnchantMaterial1[5][2] = 0
@@ -253,37 +254,28 @@ library DataItem
         set EnchantMaterial1[5][8] = 0
         set EnchantMaterial1[5][9] = 0
         set EnchantMaterial1[5][10] = 0
-        set EnchantMaterial1[5][11] = 0
-        set EnchantMaterial1[5][12] = 0
-        set EnchantMaterial1[5][13] = 0
-        set EnchantMaterial1[5][14] = 0
-        set EnchantMaterial1[5][15] = 0
-        set EnchantMaterial2[5][1] = 0 //132
-        set EnchantMaterial2[5][2] = 0 //132
-        set EnchantMaterial2[5][3] = 0 //132
-        set EnchantMaterial2[5][4] = 0 //132
-        set EnchantMaterial2[5][5] = 0 //132
-        set EnchantMaterial2[5][6] = 0 //132
-        set EnchantMaterial2[5][7] = 0 //132
-        set EnchantMaterial2[5][8] = 0 //132
-        set EnchantMaterial2[5][9] = 0 //132
-        set EnchantMaterial2[5][10] = 0 //350
-        set EnchantMaterial2[5][11] = 0 //350
-        set EnchantMaterial2[5][12] = 0 //350
-        set EnchantMaterial2[5][13] = 0 //350
-        set EnchantMaterial2[5][14] = 0 //350
-        set EnchantMaterial2[5][15] = 0 //350
+
+        set EnchantMaterial2[5][1] = 0
+        set EnchantMaterial2[5][2] = 0
+        set EnchantMaterial2[5][3] = 0
+        set EnchantMaterial2[5][4] = 0
+        set EnchantMaterial2[5][5] = 0
+        set EnchantMaterial2[5][6] = 0
+        set EnchantMaterial2[5][7] = 0
+        set EnchantMaterial2[5][8] = 0
+        set EnchantMaterial2[5][9] = 0
+        set EnchantMaterial2[5][10] = 0
         
-        set EnchantRate[6][1] = 5000
-        set EnchantRate[6][2] = 3500
-        set EnchantRate[6][3] = 3500
-        set EnchantRate[6][4] = 3500
-        set EnchantRate[6][5] = 3000
-        set EnchantRate[6][6] = 2000
-        set EnchantRate[6][7] = 2000
-        set EnchantRate[6][8] = 1000
-        set EnchantRate[6][9] = 500
-        set EnchantRate[6][10] = 300
+        set EnchantRate[6][1] = 10000
+        set EnchantRate[6][2] = 9000
+        set EnchantRate[6][3] = 8000
+        set EnchantRate[6][4] = 7000
+        set EnchantRate[6][5] = 6000
+        set EnchantRate[6][6] = 5000
+        set EnchantRate[6][7] = 4000
+        set EnchantRate[6][8] = 3000
+        set EnchantRate[6][9] = 2000
+        set EnchantRate[6][10] = 1000
         
         set EnchantMaterial1[6][1] = 0
         set EnchantMaterial1[6][2] = 0
@@ -294,26 +286,26 @@ library DataItem
         set EnchantMaterial1[6][7] = 0
         set EnchantMaterial1[6][8] = 0
         set EnchantMaterial1[6][9] = 0
-        set EnchantMaterial2[6][1] = 0 //480
-        set EnchantMaterial2[6][2] = 0 //480
-        set EnchantMaterial2[6][3] = 0 //520
-        set EnchantMaterial2[6][4] = 0 //560
-        set EnchantMaterial2[6][5] = 0 //670
-        set EnchantMaterial2[6][6] = 0 //720
-        set EnchantMaterial2[6][7] = 0 //810
-        set EnchantMaterial2[6][8] = 0 //860
-        set EnchantMaterial2[6][9] = 0 //960
+        set EnchantMaterial2[6][1] = 0
+        set EnchantMaterial2[6][2] = 0
+        set EnchantMaterial2[6][3] = 0
+        set EnchantMaterial2[6][4] = 0
+        set EnchantMaterial2[6][5] = 0
+        set EnchantMaterial2[6][6] = 0
+        set EnchantMaterial2[6][7] = 0
+        set EnchantMaterial2[6][8] = 0
+        set EnchantMaterial2[6][9] = 0
         
-        set EnchantRate[7][1] = 5000
-        set EnchantRate[7][2] = 3500
-        set EnchantRate[7][3] = 3500
-        set EnchantRate[7][4] = 3500
-        set EnchantRate[7][5] = 3000
-        set EnchantRate[7][6] = 2000
-        set EnchantRate[7][7] = 2000
-        set EnchantRate[7][8] = 1000
-        set EnchantRate[7][9] = 500
-        set EnchantRate[7][10] = 300
+        set EnchantRate[7][1] = 10000
+        set EnchantRate[7][2] = 9000
+        set EnchantRate[7][3] = 8000
+        set EnchantRate[7][4] = 7000
+        set EnchantRate[7][5] = 6000
+        set EnchantRate[7][6] = 5000
+        set EnchantRate[7][7] = 4000
+        set EnchantRate[7][8] = 3000
+        set EnchantRate[7][9] = 2000
+        set EnchantRate[7][10] = 1000
         
         set EnchantMaterial1[7][1] = 0
         set EnchantMaterial1[7][2] = 0
@@ -337,16 +329,16 @@ library DataItem
         set EnchantMaterial2[7][9] = 0
         set EnchantMaterial2[7][10] = 0
 
-        set EnchantRate[8][1] = 5000
-        set EnchantRate[8][2] = 3500
-        set EnchantRate[8][3] = 3500
-        set EnchantRate[8][4] = 3500
-        set EnchantRate[8][5] = 3000
-        set EnchantRate[8][6] = 2000
-        set EnchantRate[8][7] = 2000
-        set EnchantRate[8][8] = 1000
-        set EnchantRate[8][9] = 500
-        set EnchantRate[8][10] = 300
+        set EnchantRate[8][1] = 10000
+        set EnchantRate[8][2] = 9000
+        set EnchantRate[8][3] = 8000
+        set EnchantRate[8][4] = 7000
+        set EnchantRate[8][5] = 6000
+        set EnchantRate[8][6] = 5000
+        set EnchantRate[8][7] = 4000
+        set EnchantRate[8][8] = 3000
+        set EnchantRate[8][9] = 2000
+        set EnchantRate[8][10] = 1000
         
         set EnchantMaterial1[8][1] = 0
         set EnchantMaterial1[8][2] = 0

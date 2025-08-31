@@ -16,7 +16,6 @@ scope Load initializer onInit
         
         if JNStashNetGetFinished( ) then
             if JNStashNetGetResult( ) then
-                call BJDebugMsg( JNStashNetGetMessage( ) )
                 set pid = GetPlayerId(user)
                 set PLAYER_DATA[pid] = JNStashNetGetStash( )
                 call JNObjectMapInit(MapName,MapApi)
@@ -37,6 +36,9 @@ scope Load initializer onInit
                     call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+str+".blp", 0)
                     set str = null
                 endif
+                //빅휠 카운트
+                set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
+
                 /*
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯4", "없음")
                 if str != "없음" and str != null then
@@ -58,7 +60,9 @@ scope Load initializer onInit
                 
                 
             else
-                call BJDebugMsg( JNStashNetGetMessage( ) )
+                set pid =GetPlayerId(user)
+                set PLAYER_DATA[pid] = CreateStash()
+            /*
                 set pid = 0
                 set PLAYER_DATA[pid] = CreateStash()
                 set pid = 1
@@ -67,21 +71,22 @@ scope Load initializer onInit
                 set PLAYER_DATA[pid] = CreateStash()
                 set pid = 3
                 set PLAYER_DATA[pid] = CreateStash()
+                */
             endif
         else
-            //call BJDebugMsg( "로드 중 : " + I2S(JNStashNetGetProgress()) + "/" + I2S(JNStashNetGetMaximum()) )
+            //call VJDebugMsg( "로드 중 : " + I2S(JNStashNetGetProgress()) + "/" + I2S(JNStashNetGetMaximum()) )
         endif
     endfunction
     
     private function uploadCallback takes nothing returns nothing
         if JNStashNetGetFinished( ) then
             if JNStashNetGetResult( ) then
-                call BJDebugMsg( "저장 성공!" )
+                call VJDebugMsg( "저장 성공!" )
             else
-                call BJDebugMsg( "저장 실패! 이유 : " + JNStashNetGetMessage( ) )
+                call VJDebugMsg( "저장 실패! 이유 : " + JNStashNetGetMessage( ) )
             endif
         else
-            //call BJDebugMsg( JNStashNetGetMessage( ) )
+            //call VJDebugMsg( JNStashNetGetMessage( ) )
         endif
     endfunction
 
@@ -96,7 +101,9 @@ scope Load initializer onInit
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
         */
         //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
+
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
+        
         if Eitem[pid][6] != null then
             call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
         endif

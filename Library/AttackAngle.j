@@ -16,17 +16,17 @@ library AttackAngle
             endif
        endif
        
-       //call BJDebugMsg( "A : " + R2S( A ) )
-       //call BJDebugMsg( "A2 : " + R2S( A2 ) )
+       //call VJDebugMsg( "A : " + R2S( A ) )
+       //call VJDebugMsg( "A2 : " + R2S( A2 ) )
        if A - A2 >= R*-1 then
-            //call BJDebugMsg("A-A2 >= R*-1 = true")
+            //call VJDebugMsg("A-A2 >= R*-1 = true")
         else
-            //call BJDebugMsg("A-A2 >= R*-1 = false")
+            //call VJDebugMsg("A-A2 >= R*-1 = false")
        endif
        if A-A2 <= R*1 then
-        //call BJDebugMsg("A-A2 <= R*1 = true")
+        //call VJDebugMsg("A-A2 <= R*1 = true")
         else
-        //call BJDebugMsg("A-A2 <= R*1 = false")
+        //call VJDebugMsg("A-A2 <= R*1 = false")
        endif
 
        if A - A2 >= R*-1 and A-A2 <= R*1 then

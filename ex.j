@@ -291,7 +291,7 @@ endscope
       local integer I = 1
      
       if x == 0.0 then
-        call BJDebugMsg("Cannot calculate the logarithm of 0.0!")
+        call VJDebugMsg("Cannot calculate the logarithm of 0.0!")
         return -inf
       endif
     

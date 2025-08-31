@@ -466,14 +466,14 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                         endif
                     endif
                 elseif fx.i == Pattern6Time + Pattern6Time2 then
-                    //call BJDebugMsg("전환")
+                    //call VJDebugMsg("전환")
                     //대기상태로 전환
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
-                    //call BJDebugMsg("전환2")
+                    //call VJDebugMsg("전환2")
                     call fx.Stop()
-                    //call BJDebugMsg("전환3")
+                    //call VJDebugMsg("전환3")
                 endif
             //주금
             else
@@ -512,7 +512,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 if Unitstate[IndexUnit(fx.caster)] == 3 then
                     //거리로 인한 종료
                     if r <= Pattern1Distance then
-                        //call BJDebugMsg("정지")
+                        //call VJDebugMsg("정지")
                         call AnimationStart4(fx.caster, 7, 0.02)
                         set Unitstate[IndexUnit(fx.caster)] = 0
                         call fx.Stop()
@@ -524,11 +524,11 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     endif
                 //이동 강제 종료
                 elseif Unitstate[IndexUnit(fx.caster)] != 3 then
-                    //call BJDebugMsg("정지")
+                    //call VJDebugMsg("정지")
                     call fx.Stop()
                 //거리로 인한 종료
                 elseif r <= Pattern1Distance then
-                    //call BJDebugMsg("정지")
+                    //call VJDebugMsg("정지")
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 0
                     call fx.Stop()
@@ -928,9 +928,9 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     set st.pattern3 = st.pattern3 - 1
                     set st.pattern2 = st.pattern2 - 1
 
-                    //call BJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편: "+I2S(st.pattern4))
-                    //call BJDebugMsg("마력포격: "+I2S(st.pattern6)+", 파이어볼: "+I2S(st.pattern7)+", 지뢰: "+I2S(st.pattern8))
-                    //call BJDebugMsg("마력충전: "+I2S(st.pattern5)+", 대기: " + I2S(st.j))
+                    //call VJDebugMsg("3장판: "+I2S(st.pattern2)+", 카운터: "+I2S(st.pattern3)+", 파편: "+I2S(st.pattern4))
+                    //call VJDebugMsg("마력포격: "+I2S(st.pattern6)+", 파이어볼: "+I2S(st.pattern7)+", 지뢰: "+I2S(st.pattern8))
+                    //call VJDebugMsg("마력충전: "+I2S(st.pattern5)+", 대기: " + I2S(st.j))
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
@@ -945,7 +945,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
                         //3장판
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
-                            //call BJDebugMsg("3장판")
+                            //call VJDebugMsg("3장판")
                             set fx2 = FxEffect2.Create()
                             set fx2.caster = st.caster
                             set fx2.i = 0
@@ -956,7 +956,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
                         //얼음파편
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
-                            //call BJDebugMsg("파편")
+                            //call VJDebugMsg("파편")
                             set fx3 = FxEffect3.Create()
                             set fx3.caster = st.caster
                             set fx3.i = 0
@@ -967,7 +967,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
-                            //call BJDebugMsg("마력충전")
+                            //call VJDebugMsg("마력충전")
                             set fx7 = FxEffect7.Create()
                             set fx7.caster = st.caster
                             set fx7.i = 0
@@ -986,7 +986,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             call fx7.Start()
                         //마력포격
                         elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
-                            //call BJDebugMsg("마력포격")
+                            //call VJDebugMsg("마력포격")
                             set fx4 = FxEffect4.Create()
                             set fx4.caster = st.caster
                             set fx4.i = 0
@@ -997,7 +997,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
                         //파이어볼
                         elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
-                            //call BJDebugMsg("파이어볼")
+                            //call VJDebugMsg("파이어볼")
                             set fx5 = FxEffect5.Create()
                             set fx5.caster = st.caster
                             set fx5.i = 0
@@ -1008,7 +1008,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
                         //지뢰마법
                         elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
-                            //call BJDebugMsg("지뢰마법")
+                            //call VJDebugMsg("지뢰마법")
                             set fx6 = FxEffect6.Create()
                             set fx6.caster = st.caster
                             set fx6.i = 0
@@ -1024,7 +1024,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                                 set s = BossStruct[IndexUnit(st.caster)]
                                 set r = DistanceWBW( st.caster, MainUnit[s.NowAggro])
                                 if r > Pattern1Distance2 then
-                                    //call BJDebugMsg("이동")
+                                    //call VJDebugMsg("이동")
                                     set fx1 = FxEffect1.Create()
                                     set fx1.caster = st.caster
                                     set fx1.i = 0
@@ -1136,7 +1136,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         set st = MapSt[GetMap(2)]
         
         if st.caster == null then
-            //call BJDebugMsg(GetUnitName(source))
+            //call VJDebugMsg(GetUnitName(source))
             set t = tick.create(0)
             set st.rectnumber = GetMap(2)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)

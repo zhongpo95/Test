@@ -81,7 +81,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         //메뉴 배경
         set F_StoneBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.320)
-        call DzFrameSetTexture(F_StoneBackDrop, "Stonebackdrop.blp", 0)
+        call DzFrameSetTexture(F_StoneBackDrop, "Filenemo.blp", 0)
         call DzFrameSetSize(F_StoneBackDrop, 0.40, 0.30)
 
         //메뉴 취소 버튼
@@ -291,7 +291,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
             endif
             
             //if JNObjectCharacterServerConnectCheck( ) then
-            if true then
+            if JNObjectCharacterServerConnectCheck() then
                 if f == F_ArcanaButton[1] then
                     if loopA != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
@@ -547,7 +547,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                         exitwhen i == 50
                         //비어있는 공간이 있음
                         if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
-                            set items = "ID"+I2S(11)+";"
+                            set items = "ID21;"
                             if A >= 10 then
                                 set A = 4
                             elseif A >= 9 then
@@ -594,7 +594,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                     //set F_StoneOnOff[pid] = false
                 endif
             else
-                call BJDebugMsg("서버에 연결되지 않았습니다.")
+                call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
         endif
         set p=null

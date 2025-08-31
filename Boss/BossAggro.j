@@ -67,7 +67,7 @@ library BossAggro requires Tick, UnitIndexer
                 
                 set index = index + 1
             endloop
-            //call BJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro)  )
+            //call VJDebugMsg( "현재 어그로 번호 : " + I2S(this.NowAggro)  )
         endmethod
         
         method onDestroy takes nothing returns nothing

@@ -69,7 +69,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
                 exitwhen i > 14 or bool == true
                 if Overlay2Velue_SkillName[i] == SkillCode then
                     set Overlay2Velue_SkillName[i] = SkillCode
-                    call BJDebugMsg("있음 "+"i : "+  I2S(SkillCode) + " /ID : "+ I2S(i))
+                    debug call VJDebugMsg("있음 "+"i : "+  I2S(SkillCode) + " /ID : "+ I2S(i))
                     set id = i
                     set bool = true
                 endif
@@ -82,7 +82,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
                     exitwhen i > 14 or bool == true
                     if SkillCode != 0 and Overlay2Velue_SkillName[i] == 0 then
                         set Overlay2Velue_SkillName[i] = SkillCode
-                        call BJDebugMsg("없음 "+"i : "+  I2S(SkillCode) + " /ID : "+ I2S(i))
+                        debug call VJDebugMsg("없음 "+"i : "+  I2S(SkillCode) + " /ID : "+ I2S(i))
                         set id = i
                         set bool = true
                     endif
@@ -90,15 +90,15 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
                 endloop
             endif
             
-            call BJDebugMsg( I2S(Overlay2Velue_SkillName[0])+"/"+I2S(Overlay2Velue_SkillName[1])+"/"+I2S(Overlay2Velue_SkillName[2])+"/"+I2S(Overlay2Velue_SkillName[3]) )
+            debug call VJDebugMsg( I2S(Overlay2Velue_SkillName[0])+"/"+I2S(Overlay2Velue_SkillName[1])+"/"+I2S(Overlay2Velue_SkillName[2])+"/"+I2S(Overlay2Velue_SkillName[3]) )
 
             set Overlay2Velue_Damage[id] = Overlay2Velue_Damage[id] + damage
             set Overlay2Velue_HitCount[id] = Overlay2Velue_HitCount[id] + 1
             if Cri == true then
                 set Overlay2Velue_Cri[id] = Overlay2Velue_Cri[id] + 1
             endif
-            call BJDebugMsg("오버레이2 대미지값: "+ R2S(Overlay2Velue_Damage[id]))
-            call BJDebugMsg("오버레이2 I 값: "+ I2S(id))
+            debug call VJDebugMsg("오버레이2 대미지값: "+ R2S(Overlay2Velue_Damage[id]))
+            debug call VJDebugMsg("오버레이2 I 값: "+ I2S(id))
         endif
     endfunction
     function Overlay2Count takes integer pid, integer SkillCode returns nothing
@@ -509,7 +509,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         //local string temp = JNStringSplit(s, " ", 1)
         //local real a = S2R(JNStringSplit(temp, "/", 0))
         //local real b = S2R(JNStringSplit(temp, "/", 1))
-        //call BJDebugMsg(R2S(a) + " " + R2S(b))
+        //debug call VJDebugMsg(R2S(a) + " " + R2S(b))
         //call DzFrameSetAbsolutePoint(Overlay_BackDrop, JN_FRAMEPOINT_CENTER, a, b)
     //endfunction
 
@@ -1426,7 +1426,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         local integer a = S2I(JNStringSplit(temp, "/", 0))
         local real b = S2R(JNStringSplit(temp, "/", 1))
         local integer i = 0
-        //call BJDebugMsg(R2S(a) + " " + R2S(b))
+        //debug call VJDebugMsg(R2S(a) + " " + R2S(b))
         loop
             exitwhen i > 3
             if a == OverlayPlayerID[i] then

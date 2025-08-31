@@ -128,7 +128,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
                 elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
                     //체력감소
                     call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
-                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 30000000
+                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
     
 
                     call Sound3D(fx.caster,'A00U')
@@ -192,16 +192,18 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
         call SuccessStart(GetEnumUnit())
         call RewardStart(GetEnumUnit())
         //확정드랍
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID14"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
+
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID27"+";"+"중첩수10;")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID23"+";"+"중첩수10;")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"중첩수10;")
         //확률드랍
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 

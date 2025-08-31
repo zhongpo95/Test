@@ -1,8 +1,6 @@
 library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana, FrameCount
 
 
-
-
     private function ESCAction takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
         if GetTriggerPlayer() == GetLocalPlayer() then
@@ -21,8 +19,21 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
             set SHOP2_OnOff[pid] = false
             call DzFrameShow(F_ArcanaBackDrop, false)
             set F_ArcanaOnOff[pid] = false
+            call DzFrameShow(F_InfoBackDrop2, false)
+            set F_Info2OnOff[pid] = false
+            call DzFrameShow(Overlay2_BackDrop, false)
+            set Overlay2_InfoOnOff[pid] = false
+            call DzFrameShow(FBS_BD, false)
+            set FBS_OnOff[pid] = false
+            call DzFrameShow(F_EnchantBackDrop, false)
+            set F_EnchantOnOff[pid] = false
+            
         endif
+
+
     endfunction
+
+
 
     function ShopShow takes integer pid returns nothing
         call DzFrameShow(F_Storage_BackDrop, false)

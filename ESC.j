@@ -10,18 +10,18 @@ scope ESC initializer init
 
     private function ESCAction2 takes nothing returns nothing
         /*
-        call BJDebugMsg("ESC")
+        call VJDebugMsg("ESC")
 
         set i = i + 1
 
         if i == 1 then
-            call BJDebugMsg("이전가격 : "+I2S(Price[1]))
+            call VJDebugMsg("이전가격 : "+I2S(Price[1]))
             call MarketDataDownload(GetPlayerId(GetTriggerPlayer()))
-            call BJDebugMsg(I2S(Price[1]))
+            call VJDebugMsg(I2S(Price[1]))
         elseif i == 2 then
             set Price[1] = Price[1] + 1
             call MarketDataUpload(GetPlayerId(GetTriggerPlayer()),1,Price[1])
-            call BJDebugMsg("Price[1] : "+I2S(Price[1]))
+            call VJDebugMsg("Price[1] : "+I2S(Price[1]))
             set i = 0
         endif
         */
@@ -48,13 +48,13 @@ scope ESC initializer init
         call additem(Player(0), s)
         */
 
-        //call BJDebugMsg(JNStringRegex(s, "품질\\d+;", 0))
+        //call VJDebugMsg(JNStringRegex(s, "품질\\d+;", 0))
         //set s = JNStringReplace(s, JNStringRegex(s, "품질\\d+;", 0), "품질22;")
         
 
         /*
-        //call BJDebugMsg("바꾼후 : "+s)
-        //call BJDebugMsg("ESC")
+        //call VJDebugMsg("바꾼후 : "+s)
+        //call VJDebugMsg("ESC")
         //call TodayQuestPlus(0)
         */
 
@@ -63,27 +63,27 @@ scope ESC initializer init
         if AAA == 0 then
             set Equip_Swiftness[0] = 600
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속600")
+            call VJDebugMsg("신속600")
             set AAA = 1
         elseif AAA == 1 then
             set Equip_Swiftness[0] = 1200
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속1200")
+            call VJDebugMsg("신속1200")
             set AAA = 2
         elseif AAA == 2 then
             set Equip_Swiftness[0] = 1800
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속1800")
+            call VJDebugMsg("신속1800")
             set AAA = 3
         elseif AAA == 3 then
             set Equip_Swiftness[0] = 2200
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속2200")
+            call VJDebugMsg("신속2200")
             set AAA = 4
         elseif AAA == 4 then
             set Equip_Swiftness[0] = 0
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속0")
+            call VJDebugMsg("신속0")
             set AAA = 0
         endif
     endfunction
@@ -94,7 +94,7 @@ scope ESC initializer init
         //set s = R2SW(AAA,1,0)
         //set s = SubString(s,0,StringLength(s)-2)
         //call DzFrameSetText(F_EnchantUpText, s )
-        //call BJDebugMsg(s) 
+        //call VJDebugMsg(s) 
     endfunction
 
     private function EffectFunction takes nothing returns nothing
@@ -103,7 +103,7 @@ scope ESC initializer init
         //set s = R2SW(AAA,1,0)
         //set s = SubString(s,0,StringLength(s)-2)
         //call DzFrameSetText(F_EnchantUpText, s )
-        //call BJDebugMsg(s) 
+        //call VJDebugMsg(s) 
         //레이지소리
         call Sound3D(MainUnit[0],'A02B')
     endfunction
@@ -245,55 +245,55 @@ scope ESC initializer init
         if AAA == 0 then
             set Equip_Swiftness[0] = 600
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속600")
+            call VJDebugMsg("신속600")
             set AAA = 1
         elseif AAA == 1 then
             set Equip_Swiftness[0] = 1200
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속1200")
+            call VJDebugMsg("신속1200")
             set AAA = 2
         elseif AAA == 2 then
             set Equip_Swiftness[0] = 1800
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속1800")
+            call VJDebugMsg("신속1800")
             set AAA = 3
         elseif AAA == 3 then
             set Equip_Swiftness[0] = 2200
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속2200")
+            call VJDebugMsg("신속2200")
             set AAA = 4
         elseif AAA == 4 then
             set Equip_Swiftness[0] = 0
             call ItemUIStatsSet(0)
-            call BJDebugMsg("신속0")
+            call VJDebugMsg("신속0")
             set AAA = 0
         endif
         */
         /*
-        call BJDebugMsg("전투력 : 1000 , 명성 : "+ I2S(TrailblazePower(1000)))
-        call BJDebugMsg("전투력 : 1100 , 명성 : "+ I2S(TrailblazePower(1100)))
-        call BJDebugMsg("전투력 : 1210 , 명성 : "+ I2S(TrailblazePower(1210)))
-        call BJDebugMsg("전투력 : 1331 , 명성 : "+ I2S(TrailblazePower(1331)))
-        call BJDebugMsg("전투력 : 1464 , 명성 : "+ I2S(TrailblazePower(1464)))
-        call BJDebugMsg("전투력 : 1610 , 명성 : "+ I2S(TrailblazePower(1610)))
-        call BJDebugMsg("전투력 : 1771 , 명성 : "+ I2S(TrailblazePower(1771)))
-        call BJDebugMsg("전투력 : 1948 , 명성 : "+ I2S(TrailblazePower(1948)))
+        call VJDebugMsg("전투력 : 1000 , 명성 : "+ I2S(TrailblazePower(1000)))
+        call VJDebugMsg("전투력 : 1100 , 명성 : "+ I2S(TrailblazePower(1100)))
+        call VJDebugMsg("전투력 : 1210 , 명성 : "+ I2S(TrailblazePower(1210)))
+        call VJDebugMsg("전투력 : 1331 , 명성 : "+ I2S(TrailblazePower(1331)))
+        call VJDebugMsg("전투력 : 1464 , 명성 : "+ I2S(TrailblazePower(1464)))
+        call VJDebugMsg("전투력 : 1610 , 명성 : "+ I2S(TrailblazePower(1610)))
+        call VJDebugMsg("전투력 : 1771 , 명성 : "+ I2S(TrailblazePower(1771)))
+        call VJDebugMsg("전투력 : 1948 , 명성 : "+ I2S(TrailblazePower(1948)))
         
-        call BJDebugMsg("전투력 : 5000 , 명성 : "+ I2S(TrailblazePower(5000)))
-        call BJDebugMsg("전투력 : 6666 , 명성 : "+ I2S(TrailblazePower(6666)))
-        call BJDebugMsg("전투력 : 7241 , 명성 : "+ I2S(TrailblazePower(7241)))
-        call BJDebugMsg("전투력 : 10000 , 명성 : "+ I2S(TrailblazePower(10000)))
-        call BJDebugMsg("전투력 : 11000 , 명성 : "+ I2S(TrailblazePower(11000)))
-        call BJDebugMsg("전투력 : 30000 , 명성 : "+ I2S(TrailblazePower(30000)))
+        call VJDebugMsg("전투력 : 5000 , 명성 : "+ I2S(TrailblazePower(5000)))
+        call VJDebugMsg("전투력 : 6666 , 명성 : "+ I2S(TrailblazePower(6666)))
+        call VJDebugMsg("전투력 : 7241 , 명성 : "+ I2S(TrailblazePower(7241)))
+        call VJDebugMsg("전투력 : 10000 , 명성 : "+ I2S(TrailblazePower(10000)))
+        call VJDebugMsg("전투력 : 11000 , 명성 : "+ I2S(TrailblazePower(11000)))
+        call VJDebugMsg("전투력 : 30000 , 명성 : "+ I2S(TrailblazePower(30000)))
 
-        call BJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
-        call BJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
-        call BJDebugMsg("전투력 : 129129 , 명성 : "+ I2S(TrailblazePower(129129)))
-        call BJDebugMsg("전투력 : 142042 , 명성 : "+ I2S(TrailblazePower(142042)))
-        call BJDebugMsg("전투력 : 1000000 , 명성 : "+ I2S(TrailblazePower(1000000)))
-        call BJDebugMsg("전투력 : 2000000 , 명성 : "+ I2S(TrailblazePower(2000000)))
-        call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
-        call BJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        call VJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call VJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call VJDebugMsg("전투력 : 129129 , 명성 : "+ I2S(TrailblazePower(129129)))
+        call VJDebugMsg("전투력 : 142042 , 명성 : "+ I2S(TrailblazePower(142042)))
+        call VJDebugMsg("전투력 : 1000000 , 명성 : "+ I2S(TrailblazePower(1000000)))
+        call VJDebugMsg("전투력 : 2000000 , 명성 : "+ I2S(TrailblazePower(2000000)))
+        call VJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        call VJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
         */
         
     endfunction
@@ -302,7 +302,7 @@ scope ESC initializer init
         local integer i = 0
         local integer j = 0
         local unit u
-        call BJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+        call VJDebugMsg("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         if AAA == 0 then
             set i = 0
             loop

@@ -543,7 +543,6 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call StartSound(gg_snd_MouseClick1)
     endfunction
     
-    
     //장비 빈 버튼 아이콘 생성 함수
     private function CreateEItemButton takes integer types, real x, real y returns nothing
         set F_EItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_InfoBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -618,9 +617,9 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call CreateEItemButton(5 , 0.040 , 0.320)
         call CreateEItemButton(0 , 0.080 , 0.320)
-        call CreateEItemButton(1 , 0.120 , 0.320)
-        call CreateEItemButton(2 , 0.160 , 0.320)
-        call CreateEItemButton(3 , 0.200 , 0.320)
+        //call CreateEItemButton(1 , 0.120 , 0.320)
+        //call CreateEItemButton(2 , 0.160 , 0.320)
+        //call CreateEItemButton(3 , 0.200 , 0.320)
 
         //call CreateEItemButton(4 , 0.310 , 0.320)
         
@@ -811,9 +810,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetPoint(F_ItemStatsText[16], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.400)
         call DzFrameSetText(F_ItemStatsText[16], "아이디는가나다라마바사아")
 
+        //vip네임
         set F_ItemStatsText[17]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[17], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.380)
-        call DzFrameSetText(F_ItemStatsText[17], "킹갓제")
+        call DzFrameSetText(F_ItemStatsText[17], "")
 
         set F_ItemStatsIcon=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsIcon, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.070, 0.380)

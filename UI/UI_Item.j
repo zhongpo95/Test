@@ -1466,13 +1466,13 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
     private function CreateItemButton2 takes integer types, real x, real y returns nothing
         set F_ItemButtonsBackDrop[types+100]=DzCreateFrameByTagName("BACKDROP", "", F_ETC2emplateBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemButtonsBackDrop[types+100], JN_FRAMEPOINT_CENTER, F_ETC2emplateBackDrop , JN_FRAMEPOINT_TOPLEFT, x, y)
-        call DzFrameSetSize(F_ItemButtonsBackDrop[types+100], 0.025, 0.025)
+        call DzFrameSetSize(F_ItemButtonsBackDrop[types+100], 0.020, 0.020)
         call DzFrameSetTexture(F_ItemButtonsBackDrop[types+100], "UI_Inventory.blp", 0)
         set F_ItemButtons[types+100]=DzCreateFrameByTagName("BUTTON", "", F_ETC2emplateBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetScriptByCode(F_ItemButtons[types+100], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions2, false)
         call DzFrameSetScriptByCode(F_ItemButtons[types+100], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         call DzFrameSetAllPoints(F_ItemButtons[types+100], F_ItemButtonsBackDrop[types+100])
-        call DzFrameSetSize(F_ItemButtons[types+100], 0.025, 0.025)
+        call DzFrameSetSize(F_ItemButtons[types+100], 0.020, 0.020)
         call DzFrameSetScriptByCode(F_ItemButtons[types+100], JN_FRAMEEVENT_MOUSE_UP, function ClickItemButton, false)
         call SaveInteger(Hash, F_ItemButtons[types+100], StringHash("number"), types+100)
     endfunction
@@ -1549,7 +1549,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameShow(F_ItemOpenButton, false)
         
         //메뉴 배경
-        set F_ItemBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_ItemBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        call DzFrameSetTexture(F_ItemBackDrop, "Filenemo.blp", 0)
         call DzFrameSetAbsolutePoint(F_ItemBackDrop, JN_FRAMEPOINT_CENTER, 0.60, 0.30)
         call DzFrameSetSize(F_ItemBackDrop, 0.35, 0.30)
         
@@ -1648,20 +1649,22 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call CreateItemButton(49, 0.295, -0.1475)
         
         //소모품
-        set F_ETC2emplateBackDrop=DzCreateFrameByTagName("BACKDROP", "", F_ItemBackDrop, "StandardEditBoxBackdropTemplate", 0)
-        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_TOPLEFT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.015, 0.070)
-        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_TOPRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.155, 0.070)
-        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.015, 0.015)
-        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_BOTTOMRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.155, 0.015)
+        set F_ETC2emplateBackDrop=DzCreateFrameByTagName("BACKDROP", "", F_ItemBackDrop, "template", FrameCount())
+        call DzFrameSetTexture(F_ETC2emplateBackDrop, "File02005275.blp", 0)
+        //set F_ETC2emplateBackDrop=DzCreateFrameByTagName("BACKDROP", "", F_ItemBackDrop, "StandardEditBoxBackdropTemplate", 0)
+        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_TOPLEFT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.020, 0.070)
+        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_TOPRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.160, 0.070)
+        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.020, 0.015)
+        call DzFrameSetPoint(F_ETC2emplateBackDrop, JN_FRAMEPOINT_BOTTOMRIGHT, F_ItemBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.160, 0.015)
 
-        call CreateItemButton2(0, 0.025, -0.0275)
-        call DzFrameSetTexture(F_ItemButtonsBackDrop[100], GetItemNumberArt(13), 0)
-        call CreateItemButton2(1, 0.055, -0.0275)
-        call DzFrameSetTexture(F_ItemButtonsBackDrop[101], GetItemNumberArt(14), 0)
-        call CreateItemButton2(2, 0.085, -0.0275)
-        call DzFrameSetTexture(F_ItemButtonsBackDrop[102], GetItemNumberArt(15), 0)
-        call CreateItemButton2(3, 0.115, -0.0275)
-        call DzFrameSetTexture(F_ItemButtonsBackDrop[103], GetItemNumberArt(16), 0)
+        call CreateItemButton2(0, 0.0360, -0.0275)
+        call DzFrameSetTexture(F_ItemButtonsBackDrop[100], GetItemNumberArt(26), 0)
+        call CreateItemButton2(1, 0.0740, -0.0275)
+        call DzFrameSetTexture(F_ItemButtonsBackDrop[101], GetItemNumberArt(22), 0)
+        call CreateItemButton2(2, 0.1120, -0.0275)
+        call DzFrameSetTexture(F_ItemButtonsBackDrop[102], GetItemNumberArt(25), 0)
+        //call CreateItemButton2(3, 0.115, -0.0275)
+        //call DzFrameSetTexture(F_ItemButtonsBackDrop[103], GetItemNumberArt(16), 0)
         
         
         //메뉴 취소 버튼

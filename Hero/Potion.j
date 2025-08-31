@@ -74,6 +74,7 @@ scope Potion
             set caster = null
         endif
         
+        /*
         if GetSpellAbilityId() == 'A01S' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
@@ -91,31 +92,8 @@ scope Potion
             call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션2", items)
             set caster = null
         endif
-        
-        if GetSpellAbilityId() == 'A01T' then
-            set caster = GetTriggerUnit()
-            set pid = GetPlayerId(GetOwningPlayer(caster))
-            set sn = I2S(PlayerSlotNumber[pid])
-            
-            set t = tick.create(0) 
-            set fx = FxEffect.Create()
-            set fx.caster = GetTriggerUnit()
-            set fx.e = AddSpecialEffectTarget("Abilities\\Spells\\Human\\DivineShield\\DivineShieldTarget.mdl",fx.caster,"origin")
-            set t.data = fx
-            call BuffNoDM.Apply( fx.caster,3.5, 0 )
-            call DummyMagicleash3(fx.caster,3.5)
-            call SetUnitVertexColorBJ( fx.caster, 33, 33, 33, 0 )
-            
-            call t.start( 3.5, false, function EffectFunction2 ) 
-            
-            
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0")
-            set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션3", items)
-            set caster = null
-        endif
-        
+        */
+
         if GetSpellAbilityId() == 'A01U' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
@@ -144,12 +122,38 @@ scope Potion
             call t.start( 10, false, function EffectFunction ) 
             
             
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션4", "0")
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0")
             set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션4", items)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션2", items)
             set caster = null
         endif
+
+
+        if GetSpellAbilityId() == 'A01T' then
+            set caster = GetTriggerUnit()
+            set pid = GetPlayerId(GetOwningPlayer(caster))
+            set sn = I2S(PlayerSlotNumber[pid])
+            
+            set t = tick.create(0) 
+            set fx = FxEffect.Create()
+            set fx.caster = GetTriggerUnit()
+            set fx.e = AddSpecialEffectTarget("Abilities\\Spells\\Human\\DivineShield\\DivineShieldTarget.mdl",fx.caster,"origin")
+            set t.data = fx
+            call BuffNoDM.Apply( fx.caster,3.5, 0 )
+            call DummyMagicleash3(fx.caster,3.5)
+            call SetUnitVertexColorBJ( fx.caster, 33, 33, 33, 0 )
+            
+            call t.start( 3.5, false, function EffectFunction2 ) 
+            
+            
+            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0"))
+            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0")
+            set items = SetItemCharge(items, j-1)
+            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션3", items)
+            set caster = null
+        endif
+        
         
     endfunction
     
@@ -176,39 +180,6 @@ scope Potion
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
             call UnitUseItemPoint( MainUnit[pid], PlayerItem1[pid], x, y )
-        endif
-        
-        set p=null
-    endfunction
-    private function PS2Data takes nothing returns nothing
-        local player p=(DzGetTriggerSyncPlayer())
-        local string data=(DzGetTriggerSyncData())
-        local integer pid
-        local integer dataLen=StringLength(data)
-        local integer valueLen
-        local real x
-        local real y
-        local real angle
-        
-        set pid=GetPlayerId(p)
-            
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], potion[2]), ABILITY_STATE_COOLDOWN) == 0 and GetItemCharges(PlayerItem2[pid]) > 0 then
-            set x=S2R(data)
-            set valueLen=StringLength(R2S(x))
-            set data=SubString(data,valueLen+1,dataLen)
-            set dataLen=dataLen-(valueLen+1)
-            set y=S2R(data)
-            set pid=GetPlayerId(p)
-            set angle = AngleWBP(MainUnit[pid],x,y)
-            call SetUnitFacing(MainUnit[pid],angle)
-            call EXSetUnitFacing(MainUnit[pid],angle)
-            
-            if DistanceWBP(MainUnit[pid],x,y) <= MaxRange then
-                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], x, y )
-            else
-                call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
-            endif
-            
         endif
         
         set p=null
@@ -240,7 +211,7 @@ scope Potion
         
         set p=null
     endfunction
-    private function PS4Data takes nothing returns nothing
+    private function PS2Data takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
         local integer pid
@@ -252,7 +223,7 @@ scope Potion
         
         set pid=GetPlayerId(p)
             
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], potion[4]), ABILITY_STATE_COOLDOWN) == 0 and GetItemCharges(PlayerItem4[pid]) > 0 then
+        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], potion[2]), ABILITY_STATE_COOLDOWN) == 0 and GetItemCharges(PlayerItem2[pid]) > 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
             set data=SubString(data,valueLen+1,dataLen)
@@ -262,7 +233,7 @@ scope Potion
             set angle = AngleWBP(MainUnit[pid],x,y)
             call SetUnitFacing(MainUnit[pid],angle)
             call EXSetUnitFacing(MainUnit[pid],angle)
-            call UnitUseItemPoint( MainUnit[pid], PlayerItem4[pid], x, y )
+            call UnitUseItemPoint( MainUnit[pid], PlayerItem2[pid], x, y )
         endif
         
         set p=null
@@ -286,8 +257,6 @@ scope Potion
     call DzTriggerRegisterSyncData(t,("PS3"),(false))
     call TriggerAddAction(t,function PS3Data)
     set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("PS4"),(false))
-    call TriggerAddAction(t,function PS4Data)
 
     set t = null
 //! runtextmacro 이벤트_끝()

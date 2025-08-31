@@ -192,9 +192,8 @@ private function init takes nothing returns nothing
     
     //포션
     set potion[1] = 'A01R'
-    set potion[2] = 'A01S'
+    set potion[2] = 'A01U'
     set potion[3] = 'A01T'
-    set potion[4] = 'A01U'
 
     //잭
     set UnitAbilityIndex[1] = 'H000'

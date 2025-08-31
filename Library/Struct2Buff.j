@@ -85,11 +85,11 @@
     4. 과부하 확인하는 방법
         
         local integer 버프총량 = Struct2Buff.Count
-        call BJDebugMsg( "현존하는 버프 총량 : " + I2S(버프총량) )
+        call VJDebugMsg( "현존하는 버프 총량 : " + I2S(버프총량) )
         
         ** 특정 버프가 과부하 의심될 때 **
             local integer 특정버프총량 = 버프이름.Count
-            call BJDebugMsg( "[버프이름] 총량 : " + I2S(특정버프총량) )
+            call VJDebugMsg( "[버프이름] 총량 : " + I2S(특정버프총량) )
             
             
 */
@@ -289,11 +289,11 @@ native UnitAlive takes unit id returns boolean
         return true
     endmethod
     static method create takes nothing returns thistype
-        call BJDebugMsg("<Buff>: " + create.name + " 사용 금지!")
+        call VJDebugMsg("<Buff>: " + create.name + " 사용 금지!")
         return 0
     endmethod
     method destroy takes nothing returns nothing
-        call BJDebugMsg("<Buff>: " + destroy.name + " 사용 금지!")
+        call VJDebugMsg("<Buff>: " + destroy.name + " 사용 금지!")
     endmethod
     private static method onInit takes nothing returns nothing
         call TriggerAddCondition(BUFF_ALLOC,Condition(function thistype.AtAlloc))

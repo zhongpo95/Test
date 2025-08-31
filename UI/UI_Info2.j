@@ -540,9 +540,11 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         call CreateEItemButton(5 , 0.040 , 0.320)
         call CreateEItemButton(0 , 0.080 , 0.320)
+        /*
         call CreateEItemButton(1 , 0.120 , 0.320)
         call CreateEItemButton(2 , 0.160 , 0.320)
         call CreateEItemButton(3 , 0.200 , 0.320)
+        */
 
         //call CreateEItemButton(4 , 0.310 , 0.320)
         
@@ -733,9 +735,10 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         call DzFrameSetPoint(F_ItemStatsText2[16], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.400)
         call DzFrameSetText(F_ItemStatsText2[16], "아이디는가나다라마바사아")
 
+        //vip이름
         set F_ItemStatsText2[17]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText2[17], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.380)
-        call DzFrameSetText(F_ItemStatsText2[17], "킹갓제")
+        call DzFrameSetText(F_ItemStatsText2[17], "")
 
         set F_ItemStatsIcon2=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsIcon2, JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.070, 0.380)
@@ -797,6 +800,10 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
             if ( GetTriggerPlayer() == GetLocalPlayer() ) then
                 //클릭한 플레이어 저장
                 set ClickPlayer = pid
+
+                //플레이어아이디
+                call DzFrameSetText(F_ItemStatsText2[16], GetPlayerName(Player(pid)) )
+
                 //공격력
                 call DzFrameSetText(F_ItemStatsText2[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
                 //방어등급

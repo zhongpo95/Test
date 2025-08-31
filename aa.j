@@ -490,7 +490,7 @@ function Trig_J_Firefly____________001jn2 takes nothing returns nothing
     call EXSetEffectZ(tstx[0] , ( EXGetEffectZ(tstx[0]) - sjss )) //高度
     call EXSetEffectXY(tstx[10] , x3 , y3)
     call EXSetEffectZ(tstx[10] , ( EXGetEffectZ(tstx[10]) - sjss )) //高度
-    // call BJDebugMsg("高度" + R2S(gd))
+    // call VJDebugMsg("高度" + R2S(gd))
     if time >= 5.5 and time <= 5.7 then
     set sz=( time - 5.5 ) * 10
     else

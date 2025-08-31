@@ -83,7 +83,7 @@ library UIQuest initializer init requires Stash, FrameCount
                 endif
                 set Quest_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
             else
-                call BJDebugMsg("서버에 연결되어 있지 않아 퀘스트를 갱신할 수 없습니다.")
+                call VJDebugMsg("서버에 연결되어 있지 않아 퀘스트를 갱신할 수 없습니다.")
             endif
         endif
     endfunction
@@ -103,13 +103,13 @@ library UIQuest initializer init requires Stash, FrameCount
         local integer q
         if GetLocalPlayer() == Player(pid) then
             set q = S2I(StashLoad(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", "0")) + 1
-            call BJDebugMsg(I2S(q))
+            call VJDebugMsg(I2S(q))
             call StashSave(PLAYER_DATA[pid], "슬롯"+ I2S(PlayerSlotNumber[pid]) + ".TQuest", I2S(q))
 
             if q >= 7 then
                 if q == 7 then
                     call QuestRemove(pid)
-                    call BJDebugMsg("7킬 보상주셈")
+                    call VJDebugMsg("7킬 보상주셈")
                 endif
             elseif q >= 5 then
                 call DzFrameSetText( QuestText[0], "일일 보스 처치" )
@@ -117,7 +117,7 @@ library UIQuest initializer init requires Stash, FrameCount
                 call DzFrameShow(Quest[0], true)
                 if q == 5 then
                     call QuestRemove(pid)
-                    call BJDebugMsg("5킬 보상주셈")
+                    call VJDebugMsg("5킬 보상주셈")
                 endif
             elseif q >= 3 then
                 call DzFrameSetText( QuestText[0], "일일 보스 처치" )
@@ -128,7 +128,7 @@ library UIQuest initializer init requires Stash, FrameCount
                 call DzFrameShow(Quest[1], true)
                 if q == 3 then
                     call QuestRemove(pid)
-                    call BJDebugMsg("3킬 보상주셈")
+                    call VJDebugMsg("3킬 보상주셈")
                 endif
             else
                 call DzFrameSetText( QuestText[0], "일일 보스 처치" )

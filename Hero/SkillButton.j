@@ -69,12 +69,6 @@ library SkillButton requires DataUnit
                     call DzSyncData(("PS3"),data)
                 endif
             endif
-            if key == JN_OSKEY_4 then
-                if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], potion[4]), ABILITY_STATE_COOLDOWN) == 0 then
-                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                    call DzSyncData(("PS4"),data)
-                endif
-            endif
         endif
                 
         if DataUnitIndex(MainUnit[i]) == 3 then

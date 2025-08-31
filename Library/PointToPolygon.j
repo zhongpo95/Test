@@ -107,9 +107,9 @@ endlibrary
     call p.AddPoint(100.0, 100.0)
     call p.AddPoint(0.0, 100.0)
     if p.IsPointInside(50.0, 50.0) then
-        call BJDebugMsg("포함")
+        call VJDebugMsg("포함")
     else
-        call BJDebugMsg("미포함")
+        call VJDebugMsg("미포함")
     endif
     call p.destroy()
 */

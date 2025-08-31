@@ -128,6 +128,7 @@ library StatsSet initializer init requires UIHP, ITEM
             set speed = 140
         endif
         if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(F_ItemStatsText[16], GetPlayerName(Player(pid)) )
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
             //방어등급

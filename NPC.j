@@ -48,7 +48,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                     loop
                                         exitwhen loopA == 100
                                         //보유중
-                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == 12 then
+                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == 47 then
                                             set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
                                             set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
                                             if (j-1) == 0 then
@@ -129,10 +129,10 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                     endloop
                                 else
                                     //템창에 빈공간이 없음
-                                    call BJDebugMsg("장비 창에 빈 공간이 없습니다.")
+                                    call VJDebugMsg("장비 창에 빈 공간이 없습니다.")
                                 endif
                             else
-                                call BJDebugMsg("서버에 연결되지 않았습니다.")
+                                call VJDebugMsg("서버에 연결되지 않았습니다.")
                             endif
                         endif
                     //세레스티아 루덴베르크
