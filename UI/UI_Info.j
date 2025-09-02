@@ -587,7 +587,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         local integer i
         call DzLoadToc("war3mapImported\\Templates.toc")
         
-        //가방 버튼 생성
+        /*가방 버튼 생성
         set F_InfoOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_InfoOpenButton, JN_FRAMEPOINT_CENTER, 0.750, 0.020)
         call DzFrameSetSize(F_InfoOpenButton, 0.020, 0.020)
@@ -597,7 +597,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetSize(F_InfoOpenButtonBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(F_InfoOpenButtonBD, JN_FRAMEPOINT_CENTER, 0.750, 0.020)
         call DzFrameShow(F_InfoOpenButton, false)
-        
+        */
+
         //메뉴 배경
         set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_InfoBackDrop, "File00005255.blp", 0)

@@ -1537,7 +1537,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
         set t = null
 
-        //가방 버튼 생성
+        /*/가방 버튼 생성
         set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_ItemOpenButton, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
         call DzFrameSetSize(F_ItemOpenButton, 0.020, 0.020)
@@ -1547,7 +1547,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameSetSize(F_ItemOpenButtonBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(F_ItemOpenButtonBD, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
         call DzFrameShow(F_ItemOpenButton, false)
-        
+        */
         //메뉴 배경
         set F_ItemBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_ItemBackDrop, "Filenemo.blp", 0)

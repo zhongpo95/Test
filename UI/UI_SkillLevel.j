@@ -472,7 +472,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         local string s
         local integer i
         
-        /********************************** 스킬 버튼 생성 **********************************************/
+        /********************************** 스킬 버튼 생성 **********************************************
         set FS_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(FS_OpenButton, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
         call DzFrameSetSize(FS_OpenButton, 0.020, 0.020)
@@ -482,9 +482,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         call DzFrameSetSize(FS_OpenButtonBD, 0.020, 0.020)
         call DzFrameSetAbsolutePoint(FS_OpenButtonBD, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
         call DzFrameShow(FS_OpenButton, false)
-        
-        /********************************** 메뉴 배경 생성 **********************************************/
+        */
+
+        /********************************** 메뉴 배경 생성 **********************************************
         set FS_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        call DzFrameSetAbsolutePoint(FS_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
+        call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
+        */
+        set FS_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        call DzFrameSetTexture(FS_BackDrop, "Filenemo.blp", 0)
         call DzFrameSetAbsolutePoint(FS_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
         call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
         

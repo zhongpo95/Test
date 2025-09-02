@@ -694,10 +694,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameShow(HPBarBorder,false)
             //call DzFrameShow(MPBarBorder,false)
             call DzFrameShow(HPTextFrame,false)
-            call DzFrameShow(F_InfoOpenButton, true)
+            //call DzFrameShow(F_InfoOpenButton, true)
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), true)
-            call DzFrameShow(F_ItemOpenButton, true)
-            call DzFrameShow(FS_OpenButton, true)
+            //call DzFrameShow(F_ItemOpenButton, true)
+            //call DzFrameShow(FS_OpenButton, true)
         endif
         
         call SkillSetting(MainUnit[pid])
@@ -852,10 +852,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameShow(HPBarBorder,false)
             //call DzFrameShow(MPBarBorder,false)
             call DzFrameShow(HPTextFrame,false)
-            call DzFrameShow(F_InfoOpenButton, true)
+            //call DzFrameShow(F_InfoOpenButton, true)
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), true)
-            call DzFrameShow(F_ItemOpenButton, true)
-            call DzFrameShow(FS_OpenButton, true)
+            //call DzFrameShow(F_ItemOpenButton, true)
+            //call DzFrameShow(FS_OpenButton, true)
         endif
         
         call SkillSetting(MainUnit[pid])

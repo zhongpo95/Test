@@ -64,6 +64,7 @@ function Trig_J_Firefly____________000_fzFunc013Func006T takes nothing returns n
     else
     call DzSetUnitModel(LoadUnitHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x911D5DC2), "[Hero]\\mh_Firefly.mdl")
     endif
+    ConvertSubAnimType
     call SetUnitPortrait(LoadUnitHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x911D5DC2) , "[Hero]\\mh_Firefly_portrait.mdx")
     call SetUnitScale(LoadUnitHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x911D5DC2), 1.10, 1.10, 1.10)
     if ( ( LoadInteger(YDHT, GetHandleId(LoadPlayerHandle(YDLOC, GetHandleId(GetExpiredTimer()), 0x48656946)), 0x0BEC2D78) == 1 ) ) then
