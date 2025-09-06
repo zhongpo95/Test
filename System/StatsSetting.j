@@ -132,7 +132,7 @@ library StatsSet initializer init requires UIHP, ITEM
             //공격력
             call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
             //방어등급
-            call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
+            //call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
             call DzFrameSetText(F_ItemStatsText[2], I2S(R2I( Equip_Crit[pid] )) )
             //신속
@@ -184,7 +184,7 @@ library StatsSet initializer init requires UIHP, ITEM
         local real b = 0
         
         call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, 10000 )
-        set Equip_Defense[pid] = 0
+        //set Equip_Defense[pid] = 0
         set Equip_Damage[pid] = 0
         set Equip_Crit[pid] = 0
         set Equip_Swiftness[pid] = 0
@@ -268,7 +268,8 @@ library StatsSet initializer init requires UIHP, ITEM
                     set Equip_WDP[pid] = ItemWeaponQuality[quality]
                 //0모자, 1상의, 2하의, 3장갑
                 elseif itemty >= 0 and itemty <= 3 then
-                    set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
+                    set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
+                    //set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                 //목걸이
                 elseif itemty == 6 then
                 //목걸이 0품0, 1품질 5당 추가량

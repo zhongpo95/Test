@@ -33,7 +33,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "방어 등급" )
-        set str = "|cFFA5FA7D ◎ |r" + "방어 등급 " + "|cFFA5FA7D" + I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) + "|r |n"
+        //set str = "|cFFA5FA7D ◎ |r" + "방어 등급 " + "|cFFA5FA7D" + I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) + "|r |n"
         set str = str + "|cFFA5FA7D ◎ |r" + "방어 등급 1 차이당 20%의 추가 데미지를 입습니다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -354,8 +354,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
             // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드, 11보석, 12보석2
             if i == 0 then
                 set str = str + "모자|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                //set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                /*
             elseif i == 1 then
                 set str = str + "상의|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
@@ -372,6 +374,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 set str = str + "견갑|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                */
             elseif i == 5 then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
@@ -652,6 +655,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetScriptByCode(F_ItemStatsText[0], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions1, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[0], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
+        /*
         set F_ItemStatsText[1]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[1], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.195)
         call DzFrameSetText(F_ItemStatsText[1], "|cFFFFE400방어 등급")
@@ -661,7 +665,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzFrameSetText(F_ItemStatsText[1], "0")
         call DzFrameSetScriptByCode(F_ItemStatsText[1], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions2, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[1], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
-        
+        */
         
         set F_ItemStatsText[2]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[2], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.085, 0.175)

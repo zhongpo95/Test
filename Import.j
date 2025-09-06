@@ -25,6 +25,7 @@
 //! import "C:\Users\123\Desktop\JN\Test\UI\UI_Info2.j"
 //! import "C:\Users\123\Desktop\JN\Test\UI\UI_Overlay.j"
 //! import "C:\Users\123\Desktop\JN\Test\UI\UI_BigWheel.j"
+//! import "C:\Users\123\Desktop\JN\Test\UI\UI_Elixir.j"
 
 //! import "C:\Users\123\Desktop\JN\Test\content\TimeOfDay.j"
 

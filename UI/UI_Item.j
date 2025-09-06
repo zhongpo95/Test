@@ -188,7 +188,8 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
                 set str = str + "모자|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                //set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 5 then
                 set str = str + "무기|n|n"
@@ -393,8 +394,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
                 set str = str + "모자|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                //set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                /*
             elseif i == 1 then
                 set str = str + "상의|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
@@ -411,6 +414,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 set str = str + "견갑|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                */
             elseif i == 5 then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"

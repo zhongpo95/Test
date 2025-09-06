@@ -77,8 +77,8 @@ endfunction
     //몬스터에게 주는 피해가 15/18/21% 증가하지만, 방어등급이 1단계 감소한다.
     set Arcanablp[9] = "ReplaceableTextures\\CommandButtons\\BTNArcana06.blp"
     set ArcanaText[9] = "원한"
-    set ArcanaText2[9] = "몬스터에게 주는 피해가 15/18/21% 증가하지만, 방어등급이 1단계 감소한다."
-    set ArcanaPower[9] = "15.00;18.00;21.00;"
+    set ArcanaText2[9] = "몬스터에게 주는 피해가 8/11/14% 증가한다."
+    set ArcanaPower[9] = "8.00;11.00;14.00;"
     //예둔
     //치명타 피해량이 36/44/52% 증가하지만, 공격 시 10% 확률로 20% 감소된 피해를 준다.
     set Arcanablp[10] = "ReplaceableTextures\\CommandButtons\\BTNArcana06.blp"

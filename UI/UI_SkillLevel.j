@@ -203,7 +203,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             call DzFrameShow(UI_Tip, true)
             set i = 7
         endif
-                
+           /*     
         if itemid != 0 then
             call DzFrameShow(UI_Tip, true)
             set i = GetItemTypes(items)
@@ -231,9 +231,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = str + "  |cFFB9E2FA추가 피해|r +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
             endif
-            
             call DzFrameSetText(UI_Tip_Text[2], str)
         endif
+        */
     endfunction
 
     function SkillSetting takes unit u returns nothing

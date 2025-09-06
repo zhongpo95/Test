@@ -181,7 +181,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzLoadToc("war3mapImported\\Templates.toc")
         
         set FBS_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FBS_BD, "UI_Pick.blp", 0)
+        call DzFrameSetTexture(FBS_BD, "ys_shuye.tga", 0)
         call DzFrameSetSize(FBS_BD, 0.80, 0.40)
         call DzFrameSetAbsolutePoint(FBS_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3500)
         

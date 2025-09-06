@@ -20,7 +20,7 @@ library Native initializer init
         real array Hero_BuffAttackSpeed
         
         //장비 방어등급, 장비공격력, 무기추피, 치명, 치피, 신속, 드랍률
-        real array Equip_Defense
+        //real array Equip_Defense
         real array Equip_Damage
         real array Equip_WDP
         real array Equip_Crit
@@ -39,7 +39,7 @@ library Native initializer init
         real array Equip_CardDamage2
         
         //각인 각인방어등급, 각인추뎀, 각인공속, 치확, 치피, 체력, 이속, 공속
-        real array Arcana_Defense
+        //real array Arcana_Defense
         real array Arcana_DP
         real array Arcana_SkillSpeed
         real array Arcana_ChargeSpeed
@@ -98,7 +98,7 @@ private function init takes nothing returns nothing
         set Hero_BuffAttackSpeed[pid] = 0
         set Penetration[pid] = 0
         
-        set Equip_Defense[pid] = 0
+        //set Equip_Defense[pid] = 0
         set Equip_Damage[pid] = 0
         set Equip_WDP[pid] = 0
         set Equip_Crit[pid] = 0
@@ -113,7 +113,7 @@ private function init takes nothing returns nothing
         set Equip_CardDamage1[pid] = 0
         set Equip_CardDamage2[pid] = 0
 
-        set Arcana_Defense[pid] = 0
+        //set Arcana_Defense[pid] = 0
         set Arcana_DP[pid] = 0
         set Arcana_SkillSpeed[pid] = 0
         set Arcana_ChargeSpeed[pid] = 1

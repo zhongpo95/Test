@@ -151,21 +151,21 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         if f == FP_SLB[1] then
             if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1.blp", 0)
+                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
             else
                 call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[2] then
             if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1.blp", 0)
+                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
             else
                 call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[3] then
             if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1.blp", 0)
+                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
             else
                 call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
             endif
@@ -173,7 +173,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         /*
         if f == FP_SLB[4] then
             if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1.blp", 0)
+                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2.blp", 0)
             else
                 call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
             endif
@@ -187,21 +187,22 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
                 call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
             endif
         endif
         if f == FP_SLB[2] then
             if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
                 call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
             endif
+            
         endif
         if f == FP_SLB[3] then
             if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
                 call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
             endif
         endif
         /*
@@ -209,7 +210,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
                 call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2.blp", 0)
             else
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
+                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
             endif
         endif
         */
@@ -336,43 +337,43 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
         
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "UI_Pick.blp", 0)
-        call DzFrameSetSize(FP_BD, 0.80, 0.40)
-        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3500)
+        call DzFrameSetTexture(FP_BD, "ys_shuye.tga", 0)
+        call DzFrameSetSize(FP_BD, 0.72, 0.42)
+        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3600)
         call DzFrameShow(FP_BD, false)
         
+        set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
+        call DzFrameSetSize(FP_SL[1], 0.20, 0.10)
+        call DzFrameSetAbsolutePoint(FP_SL[1], JN_FRAMEPOINT_CENTER, 0.2300, 0.4800)
         set FP_SLB[1] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4800)
+        call DzFrameSetAbsolutePoint(FP_SLB[1], JN_FRAMEPOINT_CENTER, 0.2300, 0.4800)
         call DzFrameSetSize(FP_SLB[1], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2.blp", 0)
-        call DzFrameSetSize(FP_SL[1], 0.20, 0.10)
-        call DzFrameSetAbsolutePoint(FP_SL[1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4800)
         
+        set FP_SL[2]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
+        call DzFrameSetSize(FP_SL[2], 0.20, 0.10)
+        call DzFrameSetAbsolutePoint(FP_SL[2], JN_FRAMEPOINT_CENTER, 0.2300, 0.3700)
         set FP_SLB[2] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3700)
+        call DzFrameSetAbsolutePoint(FP_SLB[2], JN_FRAMEPOINT_CENTER, 0.2300, 0.3700)
         call DzFrameSetSize(FP_SLB[2], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[2]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2.blp", 0)
-        call DzFrameSetSize(FP_SL[2], 0.20, 0.10)
-        call DzFrameSetAbsolutePoint(FP_SL[2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3700)
         
+        set FP_SL[3]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
+        call DzFrameSetSize(FP_SL[3], 0.20, 0.10)
+        call DzFrameSetAbsolutePoint(FP_SL[3], JN_FRAMEPOINT_CENTER, 0.2300, 0.2600)
         set FP_SLB[3] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2600)
+        call DzFrameSetAbsolutePoint(FP_SLB[3], JN_FRAMEPOINT_CENTER, 0.2300, 0.2600)
         call DzFrameSetSize(FP_SLB[3], 0.20, 0.10)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
         call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[3]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2.blp", 0)
-        call DzFrameSetSize(FP_SL[3], 0.20, 0.10)
-        call DzFrameSetAbsolutePoint(FP_SL[3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2600)
         
         /*
         set FP_SLB[4] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -394,7 +395,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set i = 1
             loop
                 set FP_HeroBBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "", FrameCount())
-                call DzFrameSetAbsolutePoint(FP_HeroBBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.4500+(0.035*(i-1))+(0.0100*j), 0.5100-(0.035*j))
+                call DzFrameSetAbsolutePoint(FP_HeroBBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.4800+(0.035*(i-1))+(0.0100*j), 0.5200-(0.035*j))
                 call DzFrameSetSize(FP_HeroBBD[i+(j*6)], 0.035, 0.035)
                 if i+(j*6) <= MaxHero then
                     call DzFrameSetTexture(FP_HeroBBD[i+(j*6)], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon"+I2S(i+(j*6))+".blp", 0)
@@ -406,7 +407,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                     set FP_PotBD[i+(j*6)]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i+(j*6)], "template", FrameCount())
                     call DzFrameSetTexture(FP_PotBD[i+(j*6)], "UI_HeroPot"+I2S(i+(j*6))+".blp", 0)
                     call DzFrameSetSize(FP_PotBD[i+(j*6)], 0.22, 0.22)
-                    call DzFrameSetAbsolutePoint(FP_PotBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.5700, 0.3300)
+                    call DzFrameSetAbsolutePoint(FP_PotBD[i+(j*6)], JN_FRAMEPOINT_CENTER, 0.5800, 0.3400)
                     call DzFrameShow(FP_PotBD[i+(j*6)], false)
                 else
                     call DzFrameSetTexture(FP_HeroBBD[i+(j*6)], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
@@ -429,10 +430,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.06, 0.03)
-        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.6700, 0.2250)
+        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.7000, 0.2200)
         
         set FP_SelectBT=DzCreateFrameByTagName("TEXT","",FP_SelectBBD,"",0)
-        call DzFrameSetAbsolutePoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, 0.6700, 0.2250)
+        call DzFrameSetAbsolutePoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, 0.7000, 0.2200)
         call DzFrameSetText(FP_SelectBT,"결정")
         
         set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -446,11 +447,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_LoadBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_LoadBBD, 0.06, 0.03)
-        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.6700, 0.2250)
+        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.7000, 0.2200)
         call DzFrameShow(FP_LoadBBD, false)
         
         set FP_LoadBT=DzCreateFrameByTagName("TEXT","",FP_LoadBBD,"",0)
-        call DzFrameSetAbsolutePoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, 0.6700, 0.2250)
+        call DzFrameSetAbsolutePoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, 0.7000, 0.2200)
         call DzFrameSetText(FP_LoadBT,"결정")
         
         set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -888,7 +889,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )
-        call TriggerAddAction( t, function Main2 )
+        //call TriggerAddAction( t, function Main2 )
         
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NewPick"),(false))

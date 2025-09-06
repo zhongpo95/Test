@@ -23,17 +23,17 @@ scope Load initializer onInit
                 //슬롯 이미지 세팅
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯1", "없음")
                 if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[1], "UI_PickSelect2Hero"+str+".blp", 0)
+                    call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+str+".blp", 0)
                     set str = null
                 endif
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯2", "없음")
                 if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[2], "UI_PickSelect2Hero"+str+".blp", 0)
+                    call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+str+".blp", 0)
                     set str = null
                 endif
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯3", "없음")
                 if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[3], "UI_PickSelect2Hero"+str+".blp", 0)
+                    call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+str+".blp", 0)
                     set str = null
                 endif
                 //빅휠 카운트
@@ -42,7 +42,7 @@ scope Load initializer onInit
                 /*
                 set str = StashLoad(PLAYER_DATA[pid], "슬롯4", "없음")
                 if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[4], "UI_PickSelect2Hero"+str+".blp", 0)
+                    call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+str+".blp", 0)
                     set str = null
                 endif
                 */

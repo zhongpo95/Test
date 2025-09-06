@@ -193,8 +193,8 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
             set st.pid = pid
             set st.Spinindex = GetRandomInt(1,32)
             set st.SpinCount = 0
-            set st.BetAmount = S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0))
-            set st.Value = S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 1))
+            set st.BetAmount = S2I(JNStringSplit(s, "\t", 0))
+            set st.Value = S2I(JNStringSplit(s, "\t", 1))
             set st.Speed = 0.015
             set t.data = st
             set randomFullSpins = GetRandomInt(3, 4) * 32

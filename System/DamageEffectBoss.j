@@ -12,8 +12,9 @@ library DamageEffect2 requires DataUnit,UIBossHP,AttackAngle,BuffData
         local integer pid = GetPlayerId(GetOwningPlayer(target))
         local integer UnitIndex = IndexUnit(target)
         local real ut = UnitTier[DataUnitIndex(source)]
-        local real put = Equip_Defense[pid] + Arcana_Defense[pid]
-        local real rateut = (ut - put) * 2
+        //local real put = Equip_Defense[pid] + Arcana_Defense[pid]
+        //local real rateut = (ut - put) * 2
+        local real rateut = (ut) * 2
         
         if rateut > 0 then
             set rate = rate * ( 1 + ( rateut / 10 ) )

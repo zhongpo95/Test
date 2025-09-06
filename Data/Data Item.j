@@ -69,14 +69,15 @@ library DataItem
         //기타 0아이템아이디, 1중첩수
         
         //모자
-        set ItemStats[0][1] = "1"
-        set ItemStats[0][2] = "2"
-        set ItemStats[0][3] = "3"
-        set ItemStats[0][4] = "4"
-        set ItemStats[0][5] = "5"
-        set ItemStats[0][6] = "6"
-        set ItemStats[0][7] = "7"
-        set ItemStats[0][8] = "8"
+        //보조무기
+        set ItemStats[0][1] = "10"
+        set ItemStats[0][2] = "100"
+        set ItemStats[0][3] = "285"
+        set ItemStats[0][4] = "487"
+        set ItemStats[0][5] = "833"
+        set ItemStats[0][6] = "1154"
+        set ItemStats[0][7] = "1597"
+        set ItemStats[0][8] = "2211"
         
         //무기 공격력
         set ItemStats[5][1] = "10"

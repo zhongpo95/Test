@@ -146,7 +146,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             if i == 0 then
                 set str = str + "모자|n"
                 set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
+                //set str = str + "  |cFFB9E2FA방어 등급|r +"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 5 then
                 set str = str + "무기|n"
