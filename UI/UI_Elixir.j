@@ -74,11 +74,11 @@ library UIElixir initializer init requires DataUnit, FrameCount
         //각번호 프레임
         integer array ElF_Level[6][11]
         //각 번호 레벨 정수, 연성가중치, 임시추가 연성확률, 대성공확률, 임시추가 대성공확률
-        integer array El_Level[4][6]
+        integer array El_Level[5][6]
 
-        real array El_RateLucky[4][6]
+        real array El_RateLucky[5][6]
 
-        integer array El_Lock
+        integer array El_Lock[5][6]
 
         integer El_Roll
         integer El_RollT
@@ -87,6 +87,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         boolean array ElShow
         string array ElixirText
         string array Elixir2Text
+        integer array ElixirEffect[6][11]
 
         private integer NowMainSelect = 0
         private integer NowSelect = 0
@@ -100,6 +101,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         private integer array NowCount
         private integer array NowRollCount
         private real array Elixirweight
+        private real array Elixir2weight
 
         private integer array i1
         private integer array i2
@@ -117,34 +119,25 @@ library UIElixir initializer init requires DataUnit, FrameCount
         IntegerPool ElixirSelect5
         */
 
-        private integer array path_ids[4][6]
-        private real array path_weights[4][6]
-        private integer array path_count[4]
+        private integer array path_ids[5][6]
+        private real array path_weights[5][6]
+        private boolean array path_active[5][6]
+        private integer array path_count[5]
         //선택한 그룹
         private string array SelectString
     endglobals
-
-    private function SetupPaths takes integer pid returns nothing
-        local integer i = 1
-        local integer j = 1
-        
-        set path_count[pid] = 5
-        loop
-            exitwhen i > 5
-            set path_ids[pid][i] = i
-            set path_weights[pid][i] = 1.0
-            set i = i + 1
-        endloop
-    endfunction
     
     // 확률을 정규화하여 총합이 1.0이 되도록 함
     private function NormalizeWeights takes integer pid returns nothing
         local real total_weight = 0.0
         local integer i = 1
         
+        // 활성화된 길들의 가중치만 합산
         loop
             exitwhen i > path_count[pid]
-            set total_weight = total_weight + path_weights[pid][path_ids[pid][i]]
+            if path_active[pid][path_ids[pid][i]] then
+                set total_weight = total_weight + path_weights[pid][path_ids[pid][i]]
+            endif
             set i = i + 1
         endloop
         
@@ -152,35 +145,69 @@ library UIElixir initializer init requires DataUnit, FrameCount
             return
         endif
         
+        // 활성화된 길들의 가중치만 재분배
         set i = 1
         loop
             exitwhen i > path_count[pid]
-            set path_weights[pid][path_ids[pid][i]] = path_weights[pid][path_ids[pid][i]] / total_weight
+            if path_active[pid][path_ids[pid][i]] then
+                set path_weights[pid][path_ids[pid][i]] = path_weights[pid][path_ids[pid][i]] / total_weight
+            endif
             set i = i + 1
         endloop
     endfunction
-    
-    // 특정 길의 확률을 원하는 값으로 고정시키는 함수
+
+    //---------------------------------------------------------------------------------------
+    // 특정 플레이어의 길을 설정하는 함수
+    //---------------------------------------------------------------------------------------
+    private function SetupPaths takes integer pid returns nothing
+        local integer i = 1
+        
+        set path_count[pid] = 5
+        loop
+            exitwhen i > 5
+            set path_ids[pid][i] = i
+            set path_weights[pid][i] = 1.0
+            set path_active[pid][i] = true 
+            // 모든 길을 활성화 상태로 초기화
+            set i = i + 1
+        endloop
+        call NormalizeWeights(pid)
+    endfunction
+    //---------------------------------------------------------------------------------------
+    // 특정 플레이어의 길 확률을 원하는 값으로 고정시키는 함수
+    //---------------------------------------------------------------------------------------
     public function SetPathChance takes integer pid, integer path_id, real target_probability_percent returns nothing
-        local real target_weight = target_probability_percent / 100.0
+        local real target_weight
         local real remaining_total_weight = 0.0
         local integer i = 1
         
+        // 1. 입력된 확률값이 0~100 사이가 되도록 강제함 (중요!)
+        if target_probability_percent < 0.0 then
+            set target_probability_percent = 0.0
+        elseif target_probability_percent > 100.0 then
+            set target_probability_percent = 100.0
+        endif
+        set target_weight = target_probability_percent / 100.0
+        
+        // 2. 목표 길을 제외한 '활성화된' 길들의 가중치 총합을 구함
         loop
             exitwhen i > path_count[pid]
-            if path_ids[pid][i] != path_id then
+            if path_ids[pid][i] != path_id and path_active[pid][path_ids[pid][i]] then
                 set remaining_total_weight = remaining_total_weight + path_weights[pid][path_ids[pid][i]]
             endif
             set i = i + 1
         endloop
         
+        // 3. 목표 길의 새로운 가중치를 계산
         set path_weights[pid][path_id] = target_weight * 100.0
         
+        // 4. 목표 길을 제외한 '활성화된' 길들의 가중치를 재분배
         set i = 1
         loop
             exitwhen i > path_count[pid]
-            if path_ids[pid][i] != path_id then
-                if remaining_total_weight != 0.0 then
+            if path_ids[pid][i] != path_id and path_active[pid][path_ids[pid][i]] then
+                if remaining_total_weight != 0.0 then 
+                    // 0으로 나누는 오류 방지
                     set path_weights[pid][path_ids[pid][i]] = (path_weights[pid][path_ids[pid][i]] / remaining_total_weight) * (100.0 - target_probability_percent)
                 else
                     set path_weights[pid][path_ids[pid][i]] = 0.0
@@ -191,11 +218,25 @@ library UIElixir initializer init requires DataUnit, FrameCount
         
         call NormalizeWeights(pid)
     endfunction
-    
-    // 특정 길을 영구적으로 제거하는 함수
+    //---------------------------------------------------------------------------------------
+    // 특정 플레이어의 길 확률을 0%로 만드는 함수 (길은 제거되지 않음)
+    //---------------------------------------------------------------------------------------
+    public function ZeroPathChance takes integer pid, integer path_id returns nothing
+        // 해당 길의 활성화 상태를 비활성으로 변경하고
+        set path_active[pid][path_id] = false
+        // 확률을 0으로 고정
+        set path_weights[pid][path_id] = 0.0
+        // 나머지 활성화된 길들의 확률을 재정규화
+        call NormalizeWeights(pid)
+    endfunction
+    //---------------------------------------------------------------------------------------
+    // 특정 플레이어의 길을 영구적으로 제거하는 함수
+    //---------------------------------------------------------------------------------------
     public function RemovePath takes integer pid, integer path_id returns nothing
         local integer i = 1
         local integer found_index = -1
+
+        set path_weights[pid][path_id] = 0.0
         
         loop
             exitwhen i > path_count[pid]
@@ -235,6 +276,23 @@ library UIElixir initializer init requires DataUnit, FrameCount
         endloop
         
         return path_ids[pid][1]
+    endfunction
+
+    public function GetRandomPath2 takes integer pid returns integer
+        local integer available_paths = path_count[pid]
+        local integer random_index
+        
+        // 사용 가능한 길이 없으면 0을 반환 (에러 방지)
+        if available_paths == 0 then
+            return 0
+        endif
+        
+        // 1부터 현재 등록된 길의 개수(available_paths)까지 무작위 정수 생성
+        // GetRandomInt는 대부분의 환경에서 동기화되므로 안전합니다.
+        set random_index = GetRandomInt(1, available_paths)
+        
+        // 무작위로 선택된 인덱스에 해당하는 길의 ID를 반환
+        return path_ids[pid][random_index]
     endfunction
     
     /*
@@ -298,3373 +356,112 @@ library UIElixir initializer init requires DataUnit, FrameCount
         endif
 
         if f == El_RollB then
-            call VJDebugMsg("리롤")
-            if NowRollCount[pid] >= 1 then
-                set NowRollCount[pid] = NowRollCount[pid] - 1
-                call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
-                call DzSyncData(("ElRoll"), I2S(El_Level[pid][1])+"\t"+I2S(El_Level[pid][2])+"\t"+I2S(El_Level[pid][3])+"\t"+I2S(El_Level[pid][4])+"\t"+I2S(El_Level[pid][5])+"\t"+SelectString[pid]+"\t"+I2S(El_Lock[1])+";"+I2S(El_Lock[2])+";"+I2S(El_Lock[3])+";"+I2S(El_Lock[4])+";"+I2S(El_Lock[5])+";"+"\t"+I2S(NowCount[pid]) )
+            if NowCount[pid] != 0 then
+                //봉인턴
+                if NowCount[pid] <= 3 then
+                    call DzSyncData(("ElRoll2"), SelectString[pid]+"\t" )
+                else
+                    if NowRollCount[pid] >= 1 then
+                        call DzSyncData(("ElRoll"), SelectString[pid]+"\t" )
+                    endif
+                endif
             endif
         endif
 
         if f == El_B then
             if NowSelectNumber != 0 then
-                if LoadInteger(ElixirGroupData, StringHash("Elixir2"), NowSelectNumber) == 1 then
-                    //if NowMainSelect != 0 and NowCount[pid] != 0 then
-                    if NowMainSelect != 0 then
-                        set NowCount[pid] = NowCount[pid] - 1
-                        call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
-                        set s = SelectString[pid]
-                        set i[0] = S2I(JNStringSplit(SelectString[pid], ";", 0))
-                        set i[1] = S2I(JNStringSplit(SelectString[pid], ";", 1))
-                        set i[2] = S2I(JNStringSplit(SelectString[pid], ";", 2))
-                        set i[3] = S2I(JNStringSplit(SelectString[pid], ";", 3))
-                        set i[4] = S2I(JNStringSplit(SelectString[pid], ";", 4))
-                        set i[5] = S2I(JNStringSplit(SelectString[pid], ";", 5))
-                        set i[6] = S2I(JNStringSplit(SelectString[pid], ";", 6))
-                        set i[7] = S2I(JNStringSplit(SelectString[pid], ";", 7))
-                        if i[0] == 0 then
-                            set i[0] = NowSelectNumber
-                        elseif i[1] == 0 then
-                            set i[1] = NowSelectNumber
-                        elseif i[2] == 0 then
-                            set i[2] = NowSelectNumber
-                        elseif i[3] == 0 then
-                            set i[3] = NowSelectNumber
-                        elseif i[4] == 0 then
-                            set i[4] = NowSelectNumber
-                        elseif i[5] == 0 then
-                            set i[5] = NowSelectNumber
-                        elseif i[6] == 0 then
-                            set i[6] = NowSelectNumber
-                        elseif i[7] == 0 then
-                            set i[7] = NowSelectNumber
+                //봉인턴
+                if NowCount[pid] <= 3 then
+                    //선택가능한 선택지를 골랐나?
+                    if LoadInteger(ElixirGroupData, StringHash("Elixir3"), NowSelectNumber) == 1 then
+                        if NowMainSelect != 0 and NowCount[pid] != 0 and El_Lock[pid][NowMainSelect] == 0 then
+                            call DzSyncData(("ElSelect2"), I2S(NowSelectNumber)+"\t"+I2S(NowMainSelect))
                         endif
-                        set SelectString[pid] = I2S(i[0])+";"+I2S(i[1])+";"+I2S(i[2])+";"+I2S(i[3])+";"+I2S(i[4])+";"+I2S(i[5])+";"+I2S(i[6])+";"+I2S(i[7])+";"
-                        //call VJDebugMsg(SelectString[pid])
-                        call DzSyncData(("ElSelect"), I2S(NowSelectNumber)+"\t"+SelectString[pid]+"\t"+I2S(NowMainSelect))
-                        set NowMainSelect = 0
+                    else
+                        if NowCount[pid] != 0 then
+                            call DzSyncData(("ElSelect2"), I2S(NowSelectNumber)+"\t"+I2S(NowMainSelect))
+                        endif
                     endif
                 else
-                    //if NowCount[pid] != 0 then
-                        //call VJDebugMsg("결정2")
-                        set NowCount[pid] = NowCount[pid] - 1
-                        call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
-                        set s = SelectString[pid]
-                        set i[0] = S2I(JNStringSplit(SelectString[pid], ";", 0))
-                        set i[1] = S2I(JNStringSplit(SelectString[pid], ";", 1))
-                        set i[2] = S2I(JNStringSplit(SelectString[pid], ";", 2))
-                        set i[3] = S2I(JNStringSplit(SelectString[pid], ";", 3))
-                        set i[4] = S2I(JNStringSplit(SelectString[pid], ";", 4))
-                        set i[5] = S2I(JNStringSplit(SelectString[pid], ";", 5))
-                        set i[6] = S2I(JNStringSplit(SelectString[pid], ";", 6))
-                        set i[7] = S2I(JNStringSplit(SelectString[pid], ";", 7))
-                        if i[0] == 0 then
-                            set i[0] = NowSelectNumber
-                        elseif i[1] == 0 then
-                            set i[1] = NowSelectNumber
-                        elseif i[2] == 0 then
-                            set i[2] = NowSelectNumber
-                        elseif i[3] == 0 then
-                            set i[3] = NowSelectNumber
-                        elseif i[4] == 0 then
-                            set i[4] = NowSelectNumber
-                        elseif i[5] == 0 then
-                            set i[5] = NowSelectNumber
-                        elseif i[6] == 0 then
-                            set i[6] = NowSelectNumber
-                        elseif i[7] == 0 then
-                            set i[7] = NowSelectNumber
+                    //선택가능한 선택지를 골랐나?
+                    if LoadInteger(ElixirGroupData, StringHash("Elixir2"), NowSelectNumber) == 1 then
+                        if NowMainSelect != 0 and NowCount[pid] != 0 then
+                            set s = SelectString[pid]
+                            set i[0] = S2I(JNStringSplit(SelectString[pid], ";", 0))
+                            set i[1] = S2I(JNStringSplit(SelectString[pid], ";", 1))
+                            set i[2] = S2I(JNStringSplit(SelectString[pid], ";", 2))
+                            set i[3] = S2I(JNStringSplit(SelectString[pid], ";", 3))
+                            set i[4] = S2I(JNStringSplit(SelectString[pid], ";", 4))
+                            set i[5] = S2I(JNStringSplit(SelectString[pid], ";", 5))
+                            set i[6] = S2I(JNStringSplit(SelectString[pid], ";", 6))
+                            set i[7] = S2I(JNStringSplit(SelectString[pid], ";", 7))
+                            if i[0] == 0 then
+                                set i[0] = NowSelectNumber
+                            elseif i[1] == 0 then
+                                set i[1] = NowSelectNumber
+                            elseif i[2] == 0 then
+                                set i[2] = NowSelectNumber
+                            elseif i[3] == 0 then
+                                set i[3] = NowSelectNumber
+                            elseif i[4] == 0 then
+                                set i[4] = NowSelectNumber
+                            elseif i[5] == 0 then
+                                set i[5] = NowSelectNumber
+                            elseif i[6] == 0 then
+                                set i[6] = NowSelectNumber
+                            elseif i[7] == 0 then
+                                set i[7] = NowSelectNumber
+                            endif
+                            set SelectString[pid] = I2S(i[0])+";"+I2S(i[1])+";"+I2S(i[2])+";"+I2S(i[3])+";"+I2S(i[4])+";"+I2S(i[5])+";"+I2S(i[6])+";"+I2S(i[7])+";"
+                            //call VJDebugMsg(SelectString[pid])
+                            call DzSyncData(("ElSelect"), I2S(NowSelectNumber)+"\t"+SelectString[pid]+"\t"+I2S(NowMainSelect))
                         endif
-                        set SelectString[pid] = I2S(i[0])+";"+I2S(i[1])+";"+I2S(i[2])+";"+I2S(i[3])+";"+I2S(i[4])+";"+I2S(i[5])+";"+I2S(i[6])+";"+I2S(i[7])+";"
-                        //call VJDebugMsg(SelectString[pid])
+                    else
+                        if NowCount[pid] != 0 then
+                            //call VJDebugMsg("결정2")
+                            set s = SelectString[pid]
+                            set i[0] = S2I(JNStringSplit(SelectString[pid], ";", 0))
+                            set i[1] = S2I(JNStringSplit(SelectString[pid], ";", 1))
+                            set i[2] = S2I(JNStringSplit(SelectString[pid], ";", 2))
+                            set i[3] = S2I(JNStringSplit(SelectString[pid], ";", 3))
+                            set i[4] = S2I(JNStringSplit(SelectString[pid], ";", 4))
+                            set i[5] = S2I(JNStringSplit(SelectString[pid], ";", 5))
+                            set i[6] = S2I(JNStringSplit(SelectString[pid], ";", 6))
+                            set i[7] = S2I(JNStringSplit(SelectString[pid], ";", 7))
+                            if i[0] == 0 then
+                                set i[0] = NowSelectNumber
+                            elseif i[1] == 0 then
+                                set i[1] = NowSelectNumber
+                            elseif i[2] == 0 then
+                                set i[2] = NowSelectNumber
+                            elseif i[3] == 0 then
+                                set i[3] = NowSelectNumber
+                            elseif i[4] == 0 then
+                                set i[4] = NowSelectNumber
+                            elseif i[5] == 0 then
+                                set i[5] = NowSelectNumber
+                            elseif i[6] == 0 then
+                                set i[6] = NowSelectNumber
+                            elseif i[7] == 0 then
+                                set i[7] = NowSelectNumber
+                            endif
+                            set SelectString[pid] = I2S(i[0])+";"+I2S(i[1])+";"+I2S(i[2])+";"+I2S(i[3])+";"+I2S(i[4])+";"+I2S(i[5])+";"+I2S(i[6])+";"+I2S(i[7])+";"
+                            //call VJDebugMsg(SelectString[pid])
 
-                        call DzSyncData(("ElSelect"), I2S(NowSelectNumber)+"\t"+SelectString[pid]+"\t"+I2S(NowMainSelect))
-                    //endif
+                            call DzSyncData(("ElSelect"), I2S(NowSelectNumber)+"\t"+SelectString[pid]+"\t"+I2S(NowMainSelect))
+                        endif
+                    endif
                 endif
             endif
         endif
     endfunction
 
-    private function Select takes nothing returns nothing
+    private function Roll3 takes nothing returns nothing
         local string s = DzGetTriggerSyncData()
         local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
-        local integer path = 0
-        local real r = GetRandomReal(0.0, 100.0)
-        local integer ri1 = GetRandomInt(0,2)
-        local integer ri2 = GetRandomInt(0,3)
-        local integer ri3 = GetRandomInt(0,4)
-        local integer i = 0
-        //조언번호
-        local integer SelectAdvice = S2I(JNStringSplit(s, "\t", 0))
-        //몇번째 버튼
-        local integer SelectNumber = S2I(JNStringSplit(s, "\t", 2))
-        //지금까지 고른 조언 갱신
-        set SelectString[pid] = JNStringSplit(s, "\t", 1)
-        
-        if SelectAdvice == 1 then
-            call SetPathChance(pid, 1, GetPathChance(pid,1) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, 1, GetPathChance(pid,1) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 2 then
-            call SetPathChance(pid, 2, GetPathChance(pid,2) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, 2, GetPathChance(pid,2) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 3 then
-            call SetPathChance(pid, 3, GetPathChance(pid,3) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, 3, GetPathChance(pid,3) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 4 then
-            call SetPathChance(pid, 4, GetPathChance(pid,4) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, 4, GetPathChance(pid,4) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 5 then
-            call SetPathChance(pid, 5, GetPathChance(pid,5) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, 5, GetPathChance(pid,5) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 6 then
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 50.0 )
-            set path = GetRandomPath(pid)
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 50.0 )
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 7 then
-            call SetPathChance(pid, 1, GetPathChance(pid,1) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 8 then
-            call SetPathChance(pid, 2, GetPathChance(pid,2) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 9 then
-            call SetPathChance(pid, 3, GetPathChance(pid,3) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 10 then
-            call SetPathChance(pid, 4, GetPathChance(pid,4) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 11 then
-            call SetPathChance(pid, 5, GetPathChance(pid,5) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 12 then
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[SelectNumber], R2SW(GetPathChance(pid,SelectNumber),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 13 then
-            call SetPathChance(pid, 1, GetPathChance(pid,1) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 14 then
-            call SetPathChance(pid, 2, GetPathChance(pid,2) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 15 then
-            call SetPathChance(pid, 3, GetPathChance(pid,3) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 16 then
-            call SetPathChance(pid, 4, GetPathChance(pid,4) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 17 then
-            call SetPathChance(pid, 5, GetPathChance(pid,5) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 18 then
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[SelectNumber], R2SW(GetPathChance(pid,SelectNumber),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 19 then
-            call SetPathChance(pid, 1, GetPathChance(pid,1) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 20 then
-            call SetPathChance(pid, 2, GetPathChance(pid,2) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 21 then
-            call SetPathChance(pid, 3, GetPathChance(pid,3) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 22 then
-            call SetPathChance(pid, 4, GetPathChance(pid,4) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 23 then
-            call SetPathChance(pid, 5, GetPathChance(pid,5) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 24 then
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 10.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[SelectNumber], R2SW(GetPathChance(pid,SelectNumber),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 25 then
-            call SetPathChance(pid, 1, GetPathChance(pid,1) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 26 then
-            call SetPathChance(pid, 2, GetPathChance(pid,2) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 27 then
-            call SetPathChance(pid, 3, GetPathChance(pid,3) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 28 then
-            call SetPathChance(pid, 4, GetPathChance(pid,4) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 29 then
-            call SetPathChance(pid, 5, GetPathChance(pid,5) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 30 then
-            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 20.0 )
-            set path = GetRandomPath(pid)
-            call DzFrameSetText(El_MainR[SelectNumber], R2SW(GetPathChance(pid,SelectNumber),1,1)+"%")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        endif
-
-        if SelectAdvice == 31 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 32 then
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 33 then
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 34 then
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 35 then
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 36 then
-            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 15
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 37 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 38 then
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 39 then
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 40 then
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 41 then
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 42 then
-            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 43 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 44 then
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 45 then
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 46 then
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 47 then
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 48 then
-            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 45
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 49 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 10
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 10
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 10
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 10
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 10
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 50 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 20
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 20
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 20
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 20
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 20
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 51 then
-            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 30
-            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 30
-            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 30
-            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 30
-            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 30
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 52 then
-            set path = 1
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 53 then
-            set path = 2
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 54 then
-            set path = 3
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 55 then
-            set path = 4
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 56 then
-            set path = 5
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 57 then
-            set path = SelectNumber
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 58 then
-            set path = 1
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 59 then
-            set path = 2
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 60 then
-            set path = 3
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 61 then
-            set path = 4
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 62 then
-            set path = 5
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 63 then
-            set path = SelectNumber
-            set El_Level[pid][path] = El_Level[pid][path] + 2
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        //기회소모X
-        elseif SelectAdvice == 64 then
-            set path = GetRandomPath(pid)
-            set NowCount[pid] = NowCount[pid] + 1
-            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        endif
-        if SelectAdvice == 65 then
-            set path = 1
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 66 then
-            set path = 2
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 67 then
-            set path = 3
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 68 then
-            set path = 4
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 69 then
-            set path = 5
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 70 then
-            set path = SelectNumber
-            if ri1 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri1 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 71 then
-            set path = 1
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 72 then
-            set path = 2
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 73 then
-            set path = 3
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 74 then
-            set path = 4
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 75 then
-            set path = 5
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 76 then
-            set path = SelectNumber
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        endif
-        //0~4
-        if SelectAdvice == 77 then
-            set path = 1
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 78 then
-            set path = 2
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 79 then
-            set path = 3
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 80 then
-            set path = 4
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 81 then
-            set path = 5
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 82 then
-            set path = SelectNumber
-            if ri3 == 4 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            elseif ri3 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        //
-        elseif SelectAdvice == 83 then
-            set path = 1
-            //0123중에 3 25%
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 84 then
-            set path = 2
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 85 then
-            set path = 3
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 86 then
-            set path = 4
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 87 then
-            set path = 5
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 88 then
-            set path = SelectNumber
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 89 then
-            set path = 1
-            //0123중에 3 25%
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 90 then
-            set path = 2
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 91 then
-            set path = 3
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 92 then
-            set path = 4
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 93 then
-            set path = 5
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 94 then
-            set path = SelectNumber
-            if ri2 == 3 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 95 then
-            set path = 1
-            //0123중에 3 25%
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 96 then
-            set path = 2
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 97 then
-            set path = 3
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 98 then
-            set path = 4
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 99 then
-            set path = 5
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 100 then
-            set path = SelectNumber
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 101 then
-            set path = 1
-            //0123중에 3 25%
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 102 then
-            set path = 2
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 103 then
-            set path = 3
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 104 then
-            set path = 4
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 105 then
-            set path = 5
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 106 then
-            set path = SelectNumber
-            if ri2 == 0 or ri2 == 1 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 107 then
-            set path = 1
-            //0123중에 3 25%
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
-            endif
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if El_Level[pid][path] == 11 then
-                        set El_Level[pid][path] = 10
-                    endif
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 108 then
-            set path = 2
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 109 then
-            set path = 3
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 110 then
-            set path = 4
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 111 then
-            set path = 5
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        elseif SelectAdvice == 112 then
-            set path = SelectNumber
-            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
-                set El_Level[pid][path] = El_Level[pid][path] + 1
-                if El_Level[pid][path] == 11 then
-                    set El_Level[pid][path] = 10
-                endif
-                if GetLocalPlayer() == Player(pid) then
-                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                endif
-            endif
-            set path = GetRandomPath(pid)
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-            endif
-            if El_RateLucky[pid][path] >= r then
-                if El_Level[pid][path] != 10 then
-                    set El_Level[pid][path] = El_Level[pid][path] + 1
-                    if GetLocalPlayer() == Player(pid) then
-                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
-                    endif
-                endif
-            endif
-        endif
-
-
-        /*
-            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
-            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
-            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
-            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
-            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            call DzFrameSetText(El_MainR2[1], "대성공 "+R2SW(El_RateLucky[1],1,1)+"%")
-            call DzFrameSetText(El_MainR2[2], "대성공 "+R2SW(El_RateLucky[2],1,1)+"%")
-            call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[3],1,1)+"%")
-            call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[4],1,1)+"%")
-            call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[5],1,1)+"%")
-        */
-
-        
-        
-        set ElixirText[113]="1번 단계 75% 확률로 2 상승"
-        set ElixirText[114]="2번 단계 75% 확률로 2 상승"
-        set ElixirText[115]="3번 단계 75% 확률로 2 상승"
-        set ElixirText[116]="4번 단계 75% 확률로 2 상승"
-        set ElixirText[117]="5번 단계 75% 확률로 2 상승"
-        set ElixirText[118]="선택한 대상 단계 75% 확률로 2 상승"
-
-        set ElixirText[119]="임의의 대상 1개의 단계 1 상승"
-        set ElixirText[120]="임의의 대상 1개의 단계 2 상승"
-        set ElixirText[121]="임의의 대상 1개의 단계 3 상승"
-
-        set ElixirText[122]="최하 단계 대상 1개의 단계 1 상승"
-        set ElixirText[123]="최하 단계 대상 1개의 단계 2 상승"
-        set ElixirText[124]="최하 단계 대상 1개의 단계 3 상승"
-
-        set ElixirText[125]="최고 단계 대상 1개의 단계 1 상승"
-        set ElixirText[126]="최고 단계 대상 1개의 단계 2 상승"
-        set ElixirText[127]="최고 단계 대상 1개의 단계 3 상승"
-
-        set ElixirText[128]="모든 단계 재분배"
-
-        set ElixirText[129]="이번 연성은 2단계 상승"
-        set ElixirText[130]="이번 연성은 3단계 상승"
-        set ElixirText[131]="이번 연성은 4단계 상승"
-
-        set ElixirText[132]="이번 연성에 한해 2개 동시에 연성"
-        set ElixirText[133]="이번 연성에 한해 3개 동시에 연성"
-        set ElixirText[134]="이번 연성에 한해 4개 동시에 연성"
-
-        set ElixirText[135]="리롤 횟수 1회 증가"
-        set ElixirText[136]="리롤 횟수 2회 증가"
-
-
-    endfunction
-
-    private function Roll takes nothing returns nothing
-        local string s = DzGetTriggerSyncData()
-        local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
-        local integer level1 = S2I(JNStringSplit(s, "\t", 0))
-        local integer level2 = S2I(JNStringSplit(s, "\t", 1))
-        local integer level3 = S2I(JNStringSplit(s, "\t", 2))
-        local integer level4 = S2I(JNStringSplit(s, "\t", 3))
-        local integer level5 = S2I(JNStringSplit(s, "\t", 4))
         local IntegerPool ElixirSelect = IntegerPool.Create()
-        local string LockCheck = JNStringSplit(s, "\t", 6)
-        //local string LuckCheck2 = JNStringSplit(s, "\t", 7)
         local integer array i
         local integer array l
-        local integer array LockCheck2
         local real array m
         local integer j
         local integer k
@@ -3678,13 +475,190 @@ library UIElixir initializer init requires DataUnit, FrameCount
         local integer LuckCheck = 0
         local integer highlevel = 0
 
-        set NowCount[pid] = S2I(JNStringSplit(s, "\t", 7))
+        set NowRollCount[pid] = NowRollCount[pid] - 1
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
+        endif
 
-        set LockCheck2[1] = S2I(JNStringSplit(LockCheck, ";", 0))
-        set LockCheck2[2] = S2I(JNStringSplit(LockCheck, ";", 1))
-        set LockCheck2[3] = S2I(JNStringSplit(LockCheck, ";", 2))
-        set LockCheck2[4] = S2I(JNStringSplit(LockCheck, ";", 3))
-        set LockCheck2[5] = S2I(JNStringSplit(LockCheck, ";", 4))
+        //그룹 논리값 설정
+        //봉인됨
+        set nonlockcount = 5
+        //그룹 논리값 설정
+        //봉인됨
+        if El_Lock[pid][1] == 1 then
+            set ElixirGroup[1] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][2] == 1 then
+            set ElixirGroup[2] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][3] == 1 then
+            set ElixirGroup[3] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][4] == 1 then
+            set ElixirGroup[4] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][5] == 1 then
+            set ElixirGroup[5] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        //연성가능한 슬롯 갯수
+        if nonlockcount-Maxcount <= 1 then
+            set ElixirGroup[21] = true
+        endif
+
+        if ElixirGroup[1] == false then
+            call ElixirSelect.add(1, Elixir2weight[1])
+        endif
+        if ElixirGroup[2] == false then
+            call ElixirSelect.add(2, Elixir2weight[2])
+        endif
+        if ElixirGroup[3] == false then
+            call ElixirSelect.add(3, Elixir2weight[3])
+        endif
+        if ElixirGroup[4] == false then
+            call ElixirSelect.add(4, Elixir2weight[4])
+        endif
+        if ElixirGroup[5] == false then
+            call ElixirSelect.add(5, Elixir2weight[5])
+        endif
+        if ElixirGroup[21] == false then
+            call ElixirSelect.add(6, Elixir2weight[6])
+        endif
+        call ElixirSelect.add(7, Elixir2weight[7])
+        call ElixirSelect.add(8, Elixir2weight[8])
+        
+        set a = ElixirSelect.pick(true)
+        set b = ElixirSelect.pick(true)
+        set c = ElixirSelect.pick(true)
+        call ElixirSelect.clear()
+        
+        if GetLocalPlayer() == Player(pid) then
+            set NowSelectNumber2[1] = a
+            call DzFrameSetText(El_SelectText[1], Elixir2Text[NowSelectNumber2[1]])
+            set NowSelectNumber2[2] = b
+            call DzFrameSetText(El_SelectText[2], Elixir2Text[NowSelectNumber2[2]])
+            set NowSelectNumber2[3] = c
+            call DzFrameSetText(El_SelectText[3], Elixir2Text[NowSelectNumber2[3]])
+            
+            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
+            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
+            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
+            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
+            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+        endif
+    endfunction
+
+    private function Roll4 takes integer pid returns nothing
+        local IntegerPool ElixirSelect = IntegerPool.Create()
+        local integer array i
+        local integer array l
+        local real array m
+        local integer j
+        local integer k
+        local boolean found
+        local integer a
+        local integer b
+        local integer c
+        local boolean array ElixirGroup
+        local integer Maxcount = 0
+        local integer LuckCheck = 0
+        local integer highlevel = 0
+        local integer nonlockcount
+
+        //그룹 논리값 설정
+        //봉인됨
+        set nonlockcount = 5
+        //그룹 논리값 설정
+        //봉인됨
+        if El_Lock[pid][1] == 1 then
+            set ElixirGroup[1] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][2] == 1 then
+            set ElixirGroup[2] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][3] == 1 then
+            set ElixirGroup[3] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][4] == 1 then
+            set ElixirGroup[4] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][5] == 1 then
+            set ElixirGroup[5] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        //연성가능한 슬롯 갯수
+        if nonlockcount-Maxcount <= 1 then
+            set ElixirGroup[21] = true
+        endif
+
+        if ElixirGroup[1] == false then
+            call ElixirSelect.add(1, Elixir2weight[1])
+        endif
+        if ElixirGroup[2] == false then
+            call ElixirSelect.add(2, Elixir2weight[2])
+        endif
+        if ElixirGroup[3] == false then
+            call ElixirSelect.add(3, Elixir2weight[3])
+        endif
+        if ElixirGroup[4] == false then
+            call ElixirSelect.add(4, Elixir2weight[4])
+        endif
+        if ElixirGroup[5] == false then
+            call ElixirSelect.add(5, Elixir2weight[5])
+        endif
+        if ElixirGroup[21] == false then
+            call ElixirSelect.add(6, Elixir2weight[6])
+        endif
+        call ElixirSelect.add(7, Elixir2weight[7])
+        call ElixirSelect.add(8, Elixir2weight[8])
+        
+        set a = ElixirSelect.pick(true)
+        set b = ElixirSelect.pick(true)
+        set c = ElixirSelect.pick(true)
+        call ElixirSelect.clear()
+        
+        if GetLocalPlayer() == Player(pid) then
+            set NowSelectNumber2[1] = a
+            call DzFrameSetText(El_SelectText[1], Elixir2Text[NowSelectNumber2[1]])
+            set NowSelectNumber2[2] = b
+            call DzFrameSetText(El_SelectText[2], Elixir2Text[NowSelectNumber2[2]])
+            set NowSelectNumber2[3] = c
+            call DzFrameSetText(El_SelectText[3], Elixir2Text[NowSelectNumber2[3]])
+            
+            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
+            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
+            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
+            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
+            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+        endif
+    endfunction
+
+    private function Roll2 takes integer pid returns nothing
+        local IntegerPool ElixirSelect = IntegerPool.Create()
+        local integer array i
+        local integer array l
+        local real array m
+        local integer j
+        local integer k
+        local boolean found
+        local integer a
+        local integer b
+        local integer c
+        local boolean array ElixirGroup
+        local integer nonlockcount
+        local integer Maxcount = 0
+        local integer LuckCheck = 0
+        local integer highlevel = 0
 
         set m[1] = El_RateLucky[pid][1]
         set m[2] = El_RateLucky[pid][2]
@@ -3692,7 +666,6 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set m[4] = El_RateLucky[pid][4]
         set m[5] = El_RateLucky[pid][5]
 
-        set SelectString[pid] = JNStringSplit(s, "\t", 5)
         ///*
         set i1[pid] = S2I(JNStringSplit(SelectString[pid], ";", 0))
         set i2[pid] = S2I(JNStringSplit(SelectString[pid], ";", 1))
@@ -3716,23 +689,23 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set nonlockcount = 5
         //그룹 논리값 설정
         //봉인됨
-        if LockCheck2[1] == 1 then
+        if El_Lock[pid][1] == 1 then
             set ElixirGroup[1] = true
             set nonlockcount = nonlockcount - 1
         endif
-        if LockCheck2[2] == 1 then
+        if El_Lock[pid][2] == 1 then
             set ElixirGroup[2] = true
             set nonlockcount = nonlockcount - 1
         endif
-        if LockCheck2[3] == 1 then
+        if El_Lock[pid][3] == 1 then
             set ElixirGroup[3] = true
             set nonlockcount = nonlockcount - 1
         endif
-        if LockCheck2[4] == 1 then
+        if El_Lock[pid][4] == 1 then
             set ElixirGroup[4] = true
             set nonlockcount = nonlockcount - 1
         endif
-        if LockCheck2[5] == 1 then
+        if El_Lock[pid][5] == 1 then
             set ElixirGroup[5] = true
             set nonlockcount = nonlockcount - 1
         endif
@@ -3769,35 +742,35 @@ library UIElixir initializer init requires DataUnit, FrameCount
             set ElixirGroup[15] = true
         endif
         //연성단계가 최대치
-        if level1 == 10 then
+        if El_Level[pid][1] == 10 then
             set ElixirGroup[16] = true
             //최대치면서 봉인되지않음
-            if LockCheck2[1] != 1 then
+            if El_Lock[pid][1] != 1 then
                 set Maxcount = Maxcount + 1
             endif
         endif
-        if level2 == 10 then
+        if El_Level[pid][2] == 10 then
             set ElixirGroup[17] = true
             //최대치면서 봉인되지않음
-            if LockCheck2[2] != 1 then
+            if El_Lock[pid][2] != 1 then
                 set Maxcount = Maxcount + 1
             endif
         endif
-        if level3 == 10 then
+        if El_Level[pid][3] == 10 then
             set ElixirGroup[18] = true
-            if LockCheck2[3] != 1 then
+            if El_Lock[pid][3] != 1 then
                 set Maxcount = Maxcount + 1
             endif
         endif
-        if level4 == 10 then
+        if El_Level[pid][4] == 10 then
             set ElixirGroup[19] = true
-            if LockCheck2[4] != 1 then
+            if El_Lock[pid][4] != 1 then
                 set Maxcount = Maxcount + 1
             endif
         endif
-        if level5 == 10 then
+        if El_Level[pid][5] == 10 then
             set ElixirGroup[20] = true
-            if LockCheck2[5] != 1 then
+            if El_Lock[pid][5] != 1 then
                 set Maxcount = Maxcount + 1
             endif
         endif
@@ -3837,28 +810,28 @@ library UIElixir initializer init requires DataUnit, FrameCount
             set ElixirGroup[29] = true
         endif
         //모든 번호의 연성 단계가 동일한 경우
-        if level1 == level2 and level2 == level3 and level3 == level4 and level4 == level5 then
+        if El_Level[pid][1] == El_Level[pid][2] and El_Level[pid][2] == El_Level[pid][3] and El_Level[pid][3] == El_Level[pid][4] and El_Level[pid][4] == El_Level[pid][5] then
             set ElixirGroup[30] = true
         endif
         //최고 연성 단계가 연성 가능한 최대 단계
-        set highlevel = level1
-        if level2 > highlevel then
-            set highlevel = level2
+        set highlevel = El_Level[pid][1]
+        if El_Level[pid][2] > highlevel then
+            set highlevel = El_Level[pid][2]
         endif
-        if level3 > highlevel then
-            set highlevel = level3
+        if El_Level[pid][3] > highlevel then
+            set highlevel = El_Level[pid][3]
         endif
-        if level4 > highlevel then
-            set highlevel = level4
+        if El_Level[pid][4] > highlevel then
+            set highlevel = El_Level[pid][4]
         endif
-        if level5 > highlevel then
-            set highlevel = level5
+        if El_Level[pid][5] > highlevel then
+            set highlevel = El_Level[pid][5]
         endif
         if highlevel != 10 then
             set ElixirGroup[31] = true
         endif
         //모든 연성 단계의 합이 0
-        if level1 + level2 + level3 + level4 + level5 == 0 then
+        if El_Level[pid][1] + El_Level[pid][2] + El_Level[pid][3] + El_Level[pid][4] + El_Level[pid][5] == 0 then
             set ElixirGroup[32] = true
         endif
 
@@ -4258,7 +1231,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
                     call ElixirSelect.add(136, Elixirweight[136])
                 elseif j == 56 then
                     if ElixirGroup[32] == false then
-                        call ElixirSelect.add(128, Elixirweight[128])
+                        //call ElixirSelect.add(128, Elixirweight[128])
                     endif
                 elseif j == 57 then
                     call ElixirSelect.add(64, Elixirweight[64])
@@ -4270,17 +1243,9 @@ library UIElixir initializer init requires DataUnit, FrameCount
 ///*
         //set NowCount[pid] = 10
 
-        set a = ElixirSelect.pick(false)
-        set b = ElixirSelect.pick(false)
-        loop
-        exitwhen a != b
-            set b = ElixirSelect.pick(false)
-        endloop
-        set c = ElixirSelect.pick(false)
-        loop
-        exitwhen a != c and b != c
-            set c = ElixirSelect.pick(false)
-        endloop
+        set a = ElixirSelect.pick(true)
+        set b = ElixirSelect.pick(true)
+        set c = ElixirSelect.pick(true)
         call ElixirSelect.clear()
         
         if GetLocalPlayer() == Player(pid) then
@@ -4296,14 +1261,5487 @@ library UIElixir initializer init requires DataUnit, FrameCount
             call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
             call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
             call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
-            call DzFrameSetText(El_MainR2[1], "대성공 "+R2SW(El_RateLucky[1],1,1)+"%")
-            call DzFrameSetText(El_MainR2[2], "대성공 "+R2SW(El_RateLucky[2],1,1)+"%")
-            call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[3],1,1)+"%")
-            call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[4],1,1)+"%")
-            call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[5],1,1)+"%")
+            call DzFrameSetText(El_MainR2[1], "대성공 "+R2SW(El_RateLucky[pid][1],1,1)+"%")
+            call DzFrameSetText(El_MainR2[2], "대성공 "+R2SW(El_RateLucky[pid][2],1,1)+"%")
+            call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[pid][3],1,1)+"%")
+            call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[pid][4],1,1)+"%")
+            call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[pid][5],1,1)+"%")
             call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
         endif
-//*/
+    endfunction
+
+    
+    private function Select2 takes nothing returns nothing
+        local string s = DzGetTriggerSyncData()
+        local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
+        local integer path = 0
+        local real r = GetRandomReal(0.0, 100.0)
+        local integer i = 0
+        local integer j = 0
+        local integer k = 0
+        //조언번호
+        local integer SelectAdvice = S2I(JNStringSplit(s, "\t", 0))
+        //몇번째 버튼
+        local integer SelectNumber = S2I(JNStringSplit(s, "\t", 1))
+
+        //두번클릭방지
+        if GetLocalPlayer() == Player(pid) then
+            set NowSelectNumber = 0 
+            set NowMainSelect = 0
+        endif
+
+        //카운트감소
+        set NowCount[pid] = NowCount[pid] - 1
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+        endif
+
+        if SelectAdvice == 1 then
+            call RemovePath(pid, 1)
+            set El_Lock[pid][1] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 2 then
+            call RemovePath(pid, 2)
+            set El_Lock[pid][2] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 3 then
+            call RemovePath(pid, 3)
+            set El_Lock[pid][3] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 4 then
+            call RemovePath(pid, 4)
+            set El_Lock[pid][4] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 5 then
+            call RemovePath(pid, 5)
+            set El_Lock[pid][5] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 6 then
+            call RemovePath(pid, SelectNumber)
+            set El_Lock[pid][SelectNumber] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 7 then
+            call RemovePath(pid, SelectNumber)
+            set El_Lock[pid][SelectNumber] = 1
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 8 then
+            call RemovePath(pid, SelectNumber)
+            set El_Lock[pid][SelectNumber] = 1
+
+            set i = 1
+            set j = -1
+            set k = 0
+        
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j and El_Lock[pid][i] == 0 then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        endif
+        call Roll4(pid)
+    endfunction
+
+    private function Select takes nothing returns nothing
+        local string s = DzGetTriggerSyncData()
+        local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
+        local integer path = 0
+        local real r = GetRandomReal(0.0, 100.0)
+        local integer ri1 = GetRandomInt(0,2)
+        local integer ri2 = GetRandomInt(0,3)
+        local integer ri3 = GetRandomInt(0,4)
+        local integer ri4 = GetRandomInt(1,5)
+        local integer i = 0
+        local integer j = 0
+        local integer k = 0
+        //조언번호
+        local integer SelectAdvice = S2I(JNStringSplit(s, "\t", 0))
+        //몇번째 버튼
+        local integer SelectNumber = S2I(JNStringSplit(s, "\t", 2))
+        //지금까지 고른 조언 갱신
+        set SelectString[pid] = JNStringSplit(s, "\t", 1)
+
+        //두번클릭방지
+        if GetLocalPlayer() == Player(pid) then
+            set NowSelectNumber = 0 
+            set NowMainSelect = 0
+        endif
+
+        //카운트감소
+        set NowCount[pid] = NowCount[pid] - 1
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+        endif
+
+        if SelectAdvice == 1 then
+            call SetPathChance(pid, 1, GetPathChance(pid,1) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, 1, GetPathChance(pid,1) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 2 then
+            call SetPathChance(pid, 2, GetPathChance(pid,2) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, 2, GetPathChance(pid,2) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 3 then
+            call SetPathChance(pid, 3, GetPathChance(pid,3) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, 3, GetPathChance(pid,3) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 4 then
+            call SetPathChance(pid, 4, GetPathChance(pid,4) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, 4, GetPathChance(pid,4) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 5 then
+            call SetPathChance(pid, 5, GetPathChance(pid,5) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, 5, GetPathChance(pid,5) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 6 then
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 50.0 )
+            set path = GetRandomPath(pid)
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 50.0 )
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 7 then
+            call SetPathChance(pid, 1, GetPathChance(pid,1) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 8 then
+            call SetPathChance(pid, 2, GetPathChance(pid,2) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 9 then
+            call SetPathChance(pid, 3, GetPathChance(pid,3) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 10 then
+            call SetPathChance(pid, 4, GetPathChance(pid,4) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 11 then
+            call SetPathChance(pid, 5, GetPathChance(pid,5) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 12 then
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 13 then
+            call SetPathChance(pid, 1, GetPathChance(pid,1) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 14 then
+            call SetPathChance(pid, 2, GetPathChance(pid,2) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 15 then
+            call SetPathChance(pid, 3, GetPathChance(pid,3) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 16 then
+            call SetPathChance(pid, 4, GetPathChance(pid,4) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 17 then
+            call SetPathChance(pid, 5, GetPathChance(pid,5) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 18 then
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) + 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 19 then
+            call SetPathChance(pid, 1, GetPathChance(pid,1) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 20 then
+            call SetPathChance(pid, 2, GetPathChance(pid,2) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 21 then
+            call SetPathChance(pid, 3, GetPathChance(pid,3) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 22 then
+            call SetPathChance(pid, 4, GetPathChance(pid,4) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 23 then
+            call SetPathChance(pid, 5, GetPathChance(pid,5) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 24 then
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 10.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 25 then
+            call SetPathChance(pid, 1, GetPathChance(pid,1) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 26 then
+            call SetPathChance(pid, 2, GetPathChance(pid,2) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 27 then
+            call SetPathChance(pid, 3, GetPathChance(pid,3) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 28 then
+            call SetPathChance(pid, 4, GetPathChance(pid,4) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 29 then
+            call SetPathChance(pid, 5, GetPathChance(pid,5) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 30 then
+            call SetPathChance(pid, SelectNumber, GetPathChance(pid,SelectNumber) - 20.0 )
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        endif
+
+        if SelectAdvice == 31 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 32 then
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 33 then
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 34 then
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 35 then
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 36 then
+            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 15
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 37 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 38 then
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 39 then
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 40 then
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 41 then
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 42 then
+            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 43 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 44 then
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 45 then
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 46 then
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 47 then
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 48 then
+            set El_RateLucky[pid][SelectNumber] = El_RateLucky[pid][SelectNumber] + 45
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 49 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 10
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 10
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 10
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 10
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 10
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 50 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 20
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 20
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 20
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 20
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 20
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 51 then
+            set El_RateLucky[pid][1] = El_RateLucky[pid][1] + 30
+            set El_RateLucky[pid][2] = El_RateLucky[pid][2] + 30
+            set El_RateLucky[pid][3] = El_RateLucky[pid][3] + 30
+            set El_RateLucky[pid][4] = El_RateLucky[pid][4] + 30
+            set El_RateLucky[pid][5] = El_RateLucky[pid][5] + 30
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 52 then
+            set path = 1
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 53 then
+            set path = 2
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 54 then
+            set path = 3
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 55 then
+            set path = 4
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 56 then
+            set path = 5
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 57 then
+            set path = SelectNumber
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 58 then
+            set path = 1
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 59 then
+            set path = 2
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 60 then
+            set path = 3
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 61 then
+            set path = 4
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 62 then
+            set path = 5
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 63 then
+            set path = SelectNumber
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        //기회소모X
+        elseif SelectAdvice == 64 then
+            set path = GetRandomPath(pid)
+            set NowCount[pid] = NowCount[pid] + 1
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        endif
+        if SelectAdvice == 65 then
+            set path = 1
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 66 then
+            set path = 2
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 67 then
+            set path = 3
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 68 then
+            set path = 4
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 69 then
+            set path = 5
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 70 then
+            set path = SelectNumber
+            if ri1 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri1 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 71 then
+            set path = 1
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 72 then
+            set path = 2
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 73 then
+            set path = 3
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 74 then
+            set path = 4
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 75 then
+            set path = 5
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 76 then
+            set path = SelectNumber
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        endif
+        //0~4
+        if SelectAdvice == 77 then
+            set path = 1
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 78 then
+            set path = 2
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 79 then
+            set path = 3
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 80 then
+            set path = 4
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 81 then
+            set path = 5
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 82 then
+            set path = SelectNumber
+            if ri3 == 4 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            elseif ri3 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        //
+        elseif SelectAdvice == 83 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 84 then
+            set path = 2
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 85 then
+            set path = 3
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 86 then
+            set path = 4
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 87 then
+            set path = 5
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 88 then
+            set path = SelectNumber
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 89 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 90 then
+            set path = 2
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 91 then
+            set path = 3
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 92 then
+            set path = 4
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 93 then
+            set path = 5
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 94 then
+            set path = SelectNumber
+            if ri2 == 3 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 95 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 96 then
+            set path = 2
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 97 then
+            set path = 3
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 98 then
+            set path = 4
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 99 then
+            set path = 5
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 100 then
+            set path = SelectNumber
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 101 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 102 then
+            set path = 2
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 103 then
+            set path = 3
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 104 then
+            set path = 4
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 105 then
+            set path = 5
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 106 then
+            set path = SelectNumber
+            if ri2 == 0 or ri2 == 1 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 107 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 108 then
+            set path = 2
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 109 then
+            set path = 3
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 110 then
+            set path = 4
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 111 then
+            set path = 5
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 112 then
+            set path = SelectNumber
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 113 then
+            set path = 1
+            //0123중에 3 25%
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if El_Level[pid][path] == 11 then
+                        set El_Level[pid][path] = 10
+                    endif
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 114 then
+            set path = 2
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 115 then
+            set path = 3
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 116 then
+            set path = 4
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 117 then
+            set path = 5
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 118 then
+            set path = SelectNumber
+            if ri2 == 0 or ri2 == 1 or ri2 == 2 then
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+                set El_Level[pid][path] = El_Level[pid][path] + 1
+                if El_Level[pid][path] == 11 then
+                    set El_Level[pid][path] = 10
+                endif
+                if GetLocalPlayer() == Player(pid) then
+                    call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                    call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+                endif
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 119 then
+            set path = GetRandomPath2(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 120 then
+            set path = GetRandomPath2(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 121 then
+            set path = GetRandomPath2(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        //최하
+        elseif SelectAdvice == 122 then
+            set i = 1
+            set j = -1
+            set k = 0
+        
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 123 then
+            set i = 1
+            set j = -1
+            set k = 0
+        
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 124 then
+            set i = 1
+            set j = -1
+            set k = 0
+        
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        //최고
+        elseif SelectAdvice == 125 then
+            set i = 1
+            set j = -1
+            set k = 0
+        
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j and El_Level[pid][i] != 10 then
+                    // 현재 값이 가장 높으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+    
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+    
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 126 then
+            set i = 1
+            set j = -1
+            set k = 0
+            
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j and El_Level[pid][i] != 10 then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+    
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+         elseif SelectAdvice == 127 then
+            set i = 1
+            set j = -1
+            set k = 0
+            
+            loop 
+                // i는 1부터 5까지 반복
+                exitwhen i > 5
+                if El_Level[pid][i] < j and El_Level[pid][i] != 10 then
+                    // 현재 값이 가장 낮으면 값과 인덱스를 갱신
+                    set j = El_Level[pid][i]
+                    set k = i
+                endif
+                set i = i + 1
+            endloop
+    
+            set path = k
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 129 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 130 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 131 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+            endif
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if El_Level[pid][path] == 11 then
+                set El_Level[pid][path] = 10
+            endif
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 132 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            if El_Level[pid][path] == 10 then
+                call ZeroPathChance(pid,path)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 133 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            if El_Level[pid][path] == 10 then
+                call ZeroPathChance(pid,path)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            if El_Level[pid][path] == 10 then
+                call ZeroPathChance(pid,path)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 134 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            if El_Level[pid][path] == 10 then
+                call ZeroPathChance(pid,path)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            if El_Level[pid][path] == 10 then
+                call ZeroPathChance(pid,path)
+            endif
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            set NowRollCount[pid] = NowRollCount[pid] + 1
+            call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
+        endif
+
+        if SelectAdvice == 135 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+        elseif SelectAdvice == 136 then
+            set path = GetRandomPath(pid)
+            set El_Level[pid][path] = El_Level[pid][path] + 1
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
+            endif
+            if El_RateLucky[pid][path] >= r then
+                if El_Level[pid][path] != 10 then
+                    set El_Level[pid][path] = El_Level[pid][path] + 1
+                    if GetLocalPlayer() == Player(pid) then
+                        call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                        call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew18002.mdx", 0, 0)
+                    endif
+                endif
+            endif
+            set NowRollCount[pid] = NowRollCount[pid] + 2
+            call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
+        endif
+
+
+        //10이면 확률0으로 세팅
+
+        if El_Level[pid][1] == 10 then
+            call ZeroPathChance(pid,1)
+        endif
+        if El_Level[pid][2] == 10 then
+            call ZeroPathChance(pid,2)
+        endif
+        if El_Level[pid][3] == 10 then
+            call ZeroPathChance(pid,3)
+        endif
+        if El_Level[pid][4] == 10 then
+            call ZeroPathChance(pid,4)
+        endif
+        if El_Level[pid][5] == 10 then
+            call ZeroPathChance(pid,5)
+        endif
+        
+        //갱신
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
+            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
+            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
+            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
+            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
+            call DzFrameSetText(El_MainR2[1], "대성공 "+R2SW(El_RateLucky[pid][1],1,1)+"%")
+            call DzFrameSetText(El_MainR2[2], "대성공 "+R2SW(El_RateLucky[pid][2],1,1)+"%")
+            call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[pid][3],1,1)+"%")
+            call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[pid][4],1,1)+"%")
+            call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[pid][5],1,1)+"%")
+        endif
+        if NowCount[pid] <= 3 then
+            call Roll4(pid)
+        else
+            call Roll2(pid)
+        endif
+    endfunction
+
+    private function Roll takes nothing returns nothing
+        local string s = DzGetTriggerSyncData()
+        local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
+        local IntegerPool ElixirSelect = IntegerPool.Create()
+        local integer array i
+        local integer array l
+        local real array m
+        local integer j
+        local integer k
+        local boolean found
+        local integer a
+        local integer b
+        local integer c
+        local boolean array ElixirGroup
+        local integer nonlockcount
+        local integer Maxcount = 0
+        local integer LuckCheck = 0
+        local integer highlevel = 0
+
+        set NowRollCount[pid] = NowRollCount[pid] - 1
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
+        endif
+
+        set m[1] = El_RateLucky[pid][1]
+        set m[2] = El_RateLucky[pid][2]
+        set m[3] = El_RateLucky[pid][3]
+        set m[4] = El_RateLucky[pid][4]
+        set m[5] = El_RateLucky[pid][5]
+
+        set SelectString[pid] = JNStringSplit(s, "\t", 0)
+        ///*
+        set i1[pid] = S2I(JNStringSplit(SelectString[pid], ";", 0))
+        set i2[pid] = S2I(JNStringSplit(SelectString[pid], ";", 1))
+        set i3[pid] = S2I(JNStringSplit(SelectString[pid], ";", 2))
+        set i4[pid] = S2I(JNStringSplit(SelectString[pid], ";", 3))
+        set i5[pid] = S2I(JNStringSplit(SelectString[pid], ";", 4))
+        set i6[pid] = S2I(JNStringSplit(SelectString[pid], ";", 5))
+        set i7[pid] = S2I(JNStringSplit(SelectString[pid], ";", 6))
+        set i8[pid] = S2I(JNStringSplit(SelectString[pid], ";", 7))
+        //*/
+
+        set i[0] = i1[pid]
+        set i[1] = i2[pid]
+        set i[2] = i3[pid]
+        set i[3] = i4[pid]
+        set i[4] = i5[pid]
+        set i[5] = i6[pid]
+        set i[6] = i7[pid]
+        set i[7] = i8[pid]
+
+        set nonlockcount = 5
+        //그룹 논리값 설정
+        //봉인됨
+        if El_Lock[pid][1] == 1 then
+            set ElixirGroup[1] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][2] == 1 then
+            set ElixirGroup[2] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][3] == 1 then
+            set ElixirGroup[3] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][4] == 1 then
+            set ElixirGroup[4] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        if El_Lock[pid][5] == 1 then
+            set ElixirGroup[5] = true
+            set nonlockcount = nonlockcount - 1
+        endif
+        //확률이100퍼
+        if GetPathChance(pid,1) >= 100 then
+            set ElixirGroup[6] = true
+        endif
+        if GetPathChance(pid,2) >= 100 then
+            set ElixirGroup[7] = true
+        endif
+        if GetPathChance(pid,3) >= 100 then
+            set ElixirGroup[8] = true
+        endif
+        if GetPathChance(pid,4) >= 100 then
+            set ElixirGroup[9] = true
+        endif
+        if GetPathChance(pid,5) >= 100 then
+            set ElixirGroup[10] = true
+        endif
+        //확률이0퍼
+        if GetPathChance(pid,1) == 0 then
+            set ElixirGroup[11] = true
+        endif
+        if GetPathChance(pid,2) == 0 then
+            set ElixirGroup[12] = true
+        endif
+        if GetPathChance(pid,3) == 0 then
+            set ElixirGroup[13] = true
+        endif
+        if GetPathChance(pid,4) == 0 then
+            set ElixirGroup[14] = true
+        endif
+        if GetPathChance(pid,5) == 0 then
+            set ElixirGroup[15] = true
+        endif
+        //연성단계가 최대치
+        if El_Level[pid][1] == 10 then
+            set ElixirGroup[16] = true
+            //최대치면서 봉인되지않음
+            if El_Lock[pid][1] != 1 then
+                set Maxcount = Maxcount + 1
+            endif
+        endif
+        if El_Level[pid][2] == 10 then
+            set ElixirGroup[17] = true
+            //최대치면서 봉인되지않음
+            if El_Lock[pid][2] != 1 then
+                set Maxcount = Maxcount + 1
+            endif
+        endif
+        if El_Level[pid][3] == 10 then
+            set ElixirGroup[18] = true
+            if El_Lock[pid][3] != 1 then
+                set Maxcount = Maxcount + 1
+            endif
+        endif
+        if El_Level[pid][4] == 10 then
+            set ElixirGroup[19] = true
+            if El_Lock[pid][4] != 1 then
+                set Maxcount = Maxcount + 1
+            endif
+        endif
+        if El_Level[pid][5] == 10 then
+            set ElixirGroup[20] = true
+            if El_Lock[pid][5] != 1 then
+                set Maxcount = Maxcount + 1
+            endif
+        endif
+        //연성가능한 슬롯 갯수
+        if nonlockcount-Maxcount <= 1 then
+            set ElixirGroup[21] = true
+        endif
+        if nonlockcount-Maxcount <= 2 then
+            set ElixirGroup[22] = true
+        endif
+        if nonlockcount-Maxcount <= 3 then
+            set ElixirGroup[23] = true
+        endif
+        //대성공 확률 100%
+        if m[1] >= 100.0 then
+            set ElixirGroup[24] = true
+            set LuckCheck = LuckCheck + 1
+        endif
+        if m[2] >= 100.0 then
+            set ElixirGroup[25] = true
+            set LuckCheck = LuckCheck + 1
+        endif
+        if m[3] >= 100.0 then
+            set ElixirGroup[26] = true
+            set LuckCheck = LuckCheck + 1
+        endif
+        if m[4] >= 100.0 then
+            set ElixirGroup[27] = true
+            set LuckCheck = LuckCheck + 1
+        endif
+        if m[5] >= 100.0 then
+            set ElixirGroup[28] = true
+            set LuckCheck = LuckCheck + 1
+        endif
+        //모든 번호의 연성 대성공 확률이 100%
+        if LuckCheck == 5 then
+            set ElixirGroup[29] = true
+        endif
+        //모든 번호의 연성 단계가 동일한 경우
+        if El_Level[pid][1] == El_Level[pid][2] and El_Level[pid][2] == El_Level[pid][3] and El_Level[pid][3] == El_Level[pid][4] and El_Level[pid][4] == El_Level[pid][5] then
+            set ElixirGroup[30] = true
+        endif
+        //최고 연성 단계가 연성 가능한 최대 단계
+        set highlevel = El_Level[pid][1]
+        if El_Level[pid][2] > highlevel then
+            set highlevel = El_Level[pid][2]
+        endif
+        if El_Level[pid][3] > highlevel then
+            set highlevel = El_Level[pid][3]
+        endif
+        if El_Level[pid][4] > highlevel then
+            set highlevel = El_Level[pid][4]
+        endif
+        if El_Level[pid][5] > highlevel then
+            set highlevel = El_Level[pid][5]
+        endif
+        if highlevel != 10 then
+            set ElixirGroup[31] = true
+        endif
+        //모든 연성 단계의 합이 0
+        if El_Level[pid][1] + El_Level[pid][2] + El_Level[pid][3] + El_Level[pid][4] + El_Level[pid][5] == 0 then
+            set ElixirGroup[32] = true
+        endif
+
+
+        if i[0] != 1 and i[1] != 1 then 
+            if i[2] != 1 and i[3] != 1 then
+                if i[4] != 1 and i[5] != 1 then 
+                    if i[6] != 1 and i[7] != 1 then
+                        if ElixirGroup[1] == false and ElixirGroup[6] == false and ElixirGroup[16] == false and ElixirGroup[21] == false then
+                            call ElixirSelect.add(1, Elixirweight[1])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+        
+        if i[0] != 2 and i[1] != 2 then 
+            if i[2] != 2 and i[3] != 2 then
+                if i[4] != 2 and i[5] != 2 then 
+                    if i[6] != 2 and i[7] != 2 then
+                        if ElixirGroup[2] == false and ElixirGroup[7] == false and ElixirGroup[17] == false and ElixirGroup[21] == false then
+                            call ElixirSelect.add(2, Elixirweight[2])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+        
+        if i[0] != 3 and i[1] != 3 then 
+            if i[2] != 3 and i[3] != 3 then
+                if i[4] != 3 and i[5] != 3 then 
+                    if i[6] != 3 and i[7] != 3 then
+                        if ElixirGroup[3] == false and ElixirGroup[8] == false and ElixirGroup[18] == false and ElixirGroup[21] == false then
+                            call ElixirSelect.add(3, Elixirweight[3])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+        
+        if i[0] != 4 and i[1] != 4 then 
+            if i[2] != 4 and i[3] != 4 then
+                if i[4] != 4 and i[5] != 4 then 
+                    if i[6] != 4 and i[7] != 4 then
+                        if ElixirGroup[4] == false and ElixirGroup[9] == false and ElixirGroup[19] == false and ElixirGroup[21] == false then
+                            call ElixirSelect.add(4, Elixirweight[4])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+        
+        if i[0] != 5 and i[1] != 5 then 
+            if i[2] != 5 and i[3] != 5 then
+                if i[4] != 5 and i[5] != 5 then 
+                    if i[6] != 5 and i[7] != 5 then
+                        if ElixirGroup[5] == false and ElixirGroup[10] == false and ElixirGroup[20] == false and ElixirGroup[21] == false then
+                            call ElixirSelect.add(5, Elixirweight[5])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+        
+        if i[0] != 6 and i[1] != 6 then
+            if i[2] != 6 and i[3] != 6 then
+                if i[4] != 6 and i[5] != 6 then
+                    if i[6] != 6 and i[7] != 6 then
+                        if ElixirGroup[21] == false then
+                            call ElixirSelect.add(6, Elixirweight[6])
+                        endif
+                    endif
+                endif
+            endif
+        endif
+
+        set i[0] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[0])
+        set i[1] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[1])
+        set i[2] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[2])
+        set i[3] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[3])
+        set i[4] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[4])
+        set i[5] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[5])
+        set i[6] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[6])
+        set i[7] = LoadInteger(ElixirGroupData, StringHash("Elixir"), i[7])
+
+        
+        // 1부터 6까지의 값(체크할 값)에 대해 반복합니다.
+        set j = 1
+        loop
+            exitwhen j > 56
+            
+            // 해당 값이 발견되었는지 여부를 체크하는 변수입니다.
+            set found = false
+            
+            // 배열 i를 순회하며 j의 값이 있는지 확인합니다.
+            set k = 0
+            loop
+                exitwhen k > 7
+                if i[k] == j then
+                    set found = true
+                    // 값을 찾았으므로 내부 루프를 종료합니다.
+                    exitwhen true
+                endif
+                set k = k + 1
+            endloop
+            
+            // 만약 해당 값(j)이 배열 i에 없었다면, ElixirSelect에 추가합니다.
+            if found == false then
+                if j == 1 then
+                    if ElixirGroup[1] == false and ElixirGroup[6] == false and ElixirGroup[16] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(7, Elixirweight[7])
+                        call ElixirSelect.add(13, Elixirweight[13])
+                    endif
+                elseif j == 2 then
+                    if ElixirGroup[2] == false and ElixirGroup[7] == false and ElixirGroup[17] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(8, Elixirweight[8])
+                        call ElixirSelect.add(14, Elixirweight[14])
+                    endif
+                elseif j == 3 then
+                    if ElixirGroup[3] == false and ElixirGroup[8] == false and ElixirGroup[18] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(9, Elixirweight[9])
+                        call ElixirSelect.add(15, Elixirweight[15])
+                    endif
+                elseif j == 4 then
+                    if ElixirGroup[4] == false and ElixirGroup[9] == false and ElixirGroup[19] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(10, Elixirweight[10])
+                        call ElixirSelect.add(17, Elixirweight[17])
+                    endif
+                elseif j == 5 then
+                    if ElixirGroup[5] == false and ElixirGroup[10] == false and ElixirGroup[20] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(11, Elixirweight[11])
+                        call ElixirSelect.add(18, Elixirweight[18])
+                    endif
+                elseif j == 6 then
+                    if ElixirGroup[21] == false then
+                        call ElixirSelect.add(12, Elixirweight[12])
+                        call ElixirSelect.add(18, Elixirweight[18])
+                    endif
+                elseif j == 7 then
+                    if ElixirGroup[1] == false and ElixirGroup[11] == false and ElixirGroup[16] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(19, Elixirweight[19])
+                        call ElixirSelect.add(25, Elixirweight[25])
+                    endif
+                elseif j == 8 then
+                    if ElixirGroup[2] == false and ElixirGroup[12] == false and ElixirGroup[17] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(20, Elixirweight[20])
+                        call ElixirSelect.add(26, Elixirweight[26])
+                    endif
+                elseif j == 9 then
+                    if ElixirGroup[3] == false and ElixirGroup[13] == false and ElixirGroup[18] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(21, Elixirweight[21])
+                        call ElixirSelect.add(27, Elixirweight[27])
+                    endif
+                elseif j == 10 then
+                    if ElixirGroup[4] == false and ElixirGroup[14] == false and ElixirGroup[19] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(22, Elixirweight[22])
+                        call ElixirSelect.add(28, Elixirweight[28])
+                    endif
+                elseif j == 11 then
+                    if ElixirGroup[5] == false and ElixirGroup[15] == false and ElixirGroup[20] == false and ElixirGroup[21] == false then
+                        call ElixirSelect.add(23, Elixirweight[23])
+                        call ElixirSelect.add(29, Elixirweight[29])
+                    endif
+                elseif j == 12 then
+                    if ElixirGroup[21] == false then
+                        call ElixirSelect.add(24, Elixirweight[24])
+                        call ElixirSelect.add(30, Elixirweight[30])
+                    endif
+                elseif j == 13 then
+                    if ElixirGroup[1] == false and ElixirGroup[11] == false and ElixirGroup[16] == false and ElixirGroup[24] == false then
+                        call ElixirSelect.add(31, Elixirweight[31])
+                        call ElixirSelect.add(37, Elixirweight[37])
+                        call ElixirSelect.add(43, Elixirweight[43])
+                    endif
+                elseif j == 14 then
+                    if ElixirGroup[2] == false and ElixirGroup[12] == false and ElixirGroup[17] == false and ElixirGroup[25] == false then
+                        call ElixirSelect.add(32, Elixirweight[32])
+                        call ElixirSelect.add(38, Elixirweight[38])
+                        call ElixirSelect.add(44, Elixirweight[44])
+                    endif
+                elseif j == 15 then
+                    if ElixirGroup[3] == false and ElixirGroup[13] == false and ElixirGroup[18] == false and ElixirGroup[26] == false then
+                        call ElixirSelect.add(33, Elixirweight[33])
+                        call ElixirSelect.add(39, Elixirweight[39])
+                        call ElixirSelect.add(45, Elixirweight[45])
+                    endif
+                elseif j == 16 then
+                    if ElixirGroup[4] == false and ElixirGroup[14] == false and ElixirGroup[19] == false and ElixirGroup[27] == false then
+                        call ElixirSelect.add(34, Elixirweight[34])
+                        call ElixirSelect.add(40, Elixirweight[40])
+                        call ElixirSelect.add(46, Elixirweight[46])
+                    endif
+                elseif j == 17 then
+                    if ElixirGroup[5] == false and ElixirGroup[15] == false and ElixirGroup[20] == false and ElixirGroup[28] == false then
+                        call ElixirSelect.add(35, Elixirweight[35])
+                        call ElixirSelect.add(41, Elixirweight[41])
+                        call ElixirSelect.add(47, Elixirweight[47])
+                    endif
+                elseif j == 18 then
+                    if ElixirGroup[29] == false then
+                        call ElixirSelect.add(36, Elixirweight[36])
+                        call ElixirSelect.add(42, Elixirweight[42])
+                        call ElixirSelect.add(48, Elixirweight[48])
+                    endif
+                elseif j == 19 then
+                    if ElixirGroup[29] == false then
+                        call ElixirSelect.add(49, Elixirweight[49])
+                        call ElixirSelect.add(50, Elixirweight[50])
+                        call ElixirSelect.add(51, Elixirweight[51])
+                    endif
+                elseif j == 20 then
+                    if ElixirGroup[1] == false and ElixirGroup[6] == false and ElixirGroup[16] == false then
+                        call ElixirSelect.add(52, Elixirweight[52])
+                        call ElixirSelect.add(58, Elixirweight[58])
+                    endif
+                elseif j == 21 then
+                    if ElixirGroup[2] == false and ElixirGroup[7] == false and ElixirGroup[17] == false then
+                        call ElixirSelect.add(53, Elixirweight[53])
+                        call ElixirSelect.add(59, Elixirweight[59])
+                    endif
+                elseif j == 22 then
+                    if ElixirGroup[3] == false and ElixirGroup[8] == false and ElixirGroup[18] == false then
+                        call ElixirSelect.add(54, Elixirweight[54])
+                        call ElixirSelect.add(60, Elixirweight[60])
+                    endif
+                elseif j == 23 then
+                    if ElixirGroup[4] == false and ElixirGroup[9] == false and ElixirGroup[19] == false then
+                        call ElixirSelect.add(55, Elixirweight[55])
+                        call ElixirSelect.add(61, Elixirweight[61])
+                    endif
+                elseif j == 24 then
+                    if ElixirGroup[5] == false and ElixirGroup[10] == false and ElixirGroup[20] == false then
+                        call ElixirSelect.add(56, Elixirweight[56])
+                        call ElixirSelect.add(62, Elixirweight[62])
+                    endif
+                elseif j == 25 then
+                    //선택연성
+                    call ElixirSelect.add(57, Elixirweight[57])
+                    call ElixirSelect.add(63, Elixirweight[63])
+                elseif j == 26 then
+                    if ElixirGroup[1] == false and ElixirGroup[16] == false then
+                        call ElixirSelect.add(65, Elixirweight[65])
+                        call ElixirSelect.add(71, Elixirweight[71])
+                        call ElixirSelect.add(77, Elixirweight[77])
+                    endif
+                elseif j == 27 then
+                    if ElixirGroup[2] == false and ElixirGroup[17] == false then
+                        call ElixirSelect.add(66, Elixirweight[66])
+                        call ElixirSelect.add(72, Elixirweight[72])
+                        call ElixirSelect.add(78, Elixirweight[78])
+                    endif
+                elseif j == 28 then
+                    if ElixirGroup[3] == false and ElixirGroup[18] == false then
+                        call ElixirSelect.add(67, Elixirweight[67])
+                        call ElixirSelect.add(73, Elixirweight[73])
+                        call ElixirSelect.add(79, Elixirweight[79])
+                    endif
+                elseif j == 29 then
+                    if ElixirGroup[4] == false and ElixirGroup[19] == false then
+                        call ElixirSelect.add(68, Elixirweight[68])
+                        call ElixirSelect.add(74, Elixirweight[74])
+                        call ElixirSelect.add(80, Elixirweight[80])
+                    endif
+                elseif j == 30 then
+                    if ElixirGroup[5] == false and ElixirGroup[20] == false then
+                        call ElixirSelect.add(69, Elixirweight[69])
+                        call ElixirSelect.add(75, Elixirweight[75])
+                        call ElixirSelect.add(81, Elixirweight[81])
+                    endif
+                elseif j == 31 then
+                    //선택 단계 상승
+                    call ElixirSelect.add(70, Elixirweight[70])
+                    call ElixirSelect.add(76, Elixirweight[76])
+                    call ElixirSelect.add(82, Elixirweight[82])
+                elseif j == 32 then
+                    if ElixirGroup[1] == false and ElixirGroup[16] == false then
+                        call ElixirSelect.add(83, Elixirweight[83])
+                        call ElixirSelect.add(89, Elixirweight[89])
+                    endif
+                elseif j == 33 then
+                    if ElixirGroup[2] == false and ElixirGroup[17] == false then
+                        call ElixirSelect.add(84, Elixirweight[84])
+                        call ElixirSelect.add(90, Elixirweight[90])
+                    endif
+                elseif j == 34 then
+                    if ElixirGroup[3] == false and ElixirGroup[18] == false then
+                        call ElixirSelect.add(85, Elixirweight[85])
+                        call ElixirSelect.add(91, Elixirweight[91])
+                    endif
+                elseif j == 35 then
+                    if ElixirGroup[4] == false and ElixirGroup[19] == false then
+                        call ElixirSelect.add(86, Elixirweight[86])
+                        call ElixirSelect.add(92, Elixirweight[92])
+                    endif
+                elseif j == 36 then
+                    if ElixirGroup[5] == false and ElixirGroup[20] == false then
+                        call ElixirSelect.add(87, Elixirweight[87])
+                        call ElixirSelect.add(93, Elixirweight[93])
+                    endif
+                elseif j == 37 then
+                    //선택효과 단계확률상승
+                    call ElixirSelect.add(88, Elixirweight[88])
+                    call ElixirSelect.add(94, Elixirweight[94])
+                elseif j == 38 then
+                    if ElixirGroup[1] == false and ElixirGroup[16] == false then
+                        call ElixirSelect.add(95, Elixirweight[95])
+                        call ElixirSelect.add(101, Elixirweight[101])
+                    endif
+                elseif j == 39 then
+                    if ElixirGroup[2] == false and ElixirGroup[17] == false then
+                        call ElixirSelect.add(96, Elixirweight[96])
+                        call ElixirSelect.add(102, Elixirweight[102])
+                    endif
+                elseif j == 40 then
+                    if ElixirGroup[3] == false and ElixirGroup[18] == false then
+                        call ElixirSelect.add(97, Elixirweight[97])
+                        call ElixirSelect.add(103, Elixirweight[103])
+                    endif
+                elseif j == 41 then
+                    if ElixirGroup[4] == false and ElixirGroup[19] == false then
+                        call ElixirSelect.add(98, Elixirweight[98])
+                        call ElixirSelect.add(104, Elixirweight[104])
+                    endif
+                elseif j == 42 then
+                    if ElixirGroup[5] == false and ElixirGroup[20] == false then
+                        call ElixirSelect.add(99, Elixirweight[99])
+                        call ElixirSelect.add(105, Elixirweight[105])
+                    endif
+                elseif j == 43 then
+                    //선택효과 단계확률상승
+                    call ElixirSelect.add(100, Elixirweight[100])
+                    call ElixirSelect.add(106, Elixirweight[106])
+                elseif j == 44 then
+                    if ElixirGroup[1] == false and ElixirGroup[16] == false then
+                        call ElixirSelect.add(107, Elixirweight[107])
+                        call ElixirSelect.add(113, Elixirweight[113])
+                    endif
+                elseif j == 45 then
+                    if ElixirGroup[2] == false and ElixirGroup[17] == false then
+                        call ElixirSelect.add(108, Elixirweight[108])
+                        call ElixirSelect.add(114, Elixirweight[114])
+                    endif
+                elseif j == 46 then
+                    if ElixirGroup[3] == false and ElixirGroup[18] == false then
+                        call ElixirSelect.add(109, Elixirweight[109])
+                        call ElixirSelect.add(115, Elixirweight[115])
+                    endif
+                elseif j == 47 then
+                    if ElixirGroup[4] == false and ElixirGroup[19] == false then
+                        call ElixirSelect.add(110, Elixirweight[110])
+                        call ElixirSelect.add(116, Elixirweight[116])
+                    endif
+                elseif j == 48 then
+                    if ElixirGroup[5] == false and ElixirGroup[20] == false then
+                        call ElixirSelect.add(111, Elixirweight[111])
+                        call ElixirSelect.add(117, Elixirweight[117])
+                    endif
+                elseif j == 49 then
+                    //선택효과 단계확률상승
+                    call ElixirSelect.add(112, Elixirweight[112])
+                    call ElixirSelect.add(118, Elixirweight[118])
+                elseif j == 50 then
+                    //임의 1개 단계 상승
+                    call ElixirSelect.add(119, Elixirweight[119])
+                    call ElixirSelect.add(120, Elixirweight[120])
+                    call ElixirSelect.add(121, Elixirweight[121])
+                elseif j == 51 then
+                    //최하 단계 효과 1개의 단계 상승
+                    if ElixirGroup[30] == false then
+                        call ElixirSelect.add(122, Elixirweight[122])
+                        call ElixirSelect.add(123, Elixirweight[123])
+                        call ElixirSelect.add(124, Elixirweight[124])
+                    endif
+                elseif j == 52 then
+                    //최고 단계 효과 1개의 단계 상승
+                    if ElixirGroup[30] == false and ElixirGroup[31] == false then
+                        call ElixirSelect.add(125, Elixirweight[125])
+                        call ElixirSelect.add(126, Elixirweight[126])
+                        call ElixirSelect.add(127, Elixirweight[127])
+                    endif
+                elseif j == 53 then
+                    call ElixirSelect.add(129, Elixirweight[129])
+                    call ElixirSelect.add(130, Elixirweight[130])
+                    call ElixirSelect.add(131, Elixirweight[131])
+                elseif j == 54 then
+                    if ElixirGroup[21] == false then
+                        call ElixirSelect.add(132, Elixirweight[132])
+                    endif
+                    if ElixirGroup[22] == false then
+                        call ElixirSelect.add(133, Elixirweight[133])
+                    endif
+                    if ElixirGroup[23] == false then
+                        call ElixirSelect.add(134, Elixirweight[134])
+                    endif
+                elseif j == 55 then
+                    call ElixirSelect.add(135, Elixirweight[135])
+                    call ElixirSelect.add(136, Elixirweight[136])
+                elseif j == 56 then
+                    if ElixirGroup[32] == false then
+                        //call ElixirSelect.add(128, Elixirweight[128])
+                    endif
+                elseif j == 57 then
+                    call ElixirSelect.add(64, Elixirweight[64])
+                endif
+            endif
+            
+            set j = j + 1
+        endloop
+
+        set a = ElixirSelect.pick(true)
+        set b = ElixirSelect.pick(true)
+        set c = ElixirSelect.pick(true)
+        call ElixirSelect.clear()
+        
+        if GetLocalPlayer() == Player(pid) then
+            set NowSelectNumber2[1] = a
+            call DzFrameSetText(El_SelectText[1], ElixirText[NowSelectNumber2[1]])
+            set NowSelectNumber2[2] = b
+            call DzFrameSetText(El_SelectText[2], ElixirText[NowSelectNumber2[2]])
+            set NowSelectNumber2[3] = c
+            call DzFrameSetText(El_SelectText[3], ElixirText[NowSelectNumber2[3]])
+            
+            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
+            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
+            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
+            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
+            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
+            call DzFrameSetText(El_MainR2[1], "대성공 "+R2SW(El_RateLucky[pid][1],1,1)+"%")
+            call DzFrameSetText(El_MainR2[2], "대성공 "+R2SW(El_RateLucky[pid][2],1,1)+"%")
+            call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[pid][3],1,1)+"%")
+            call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[pid][4],1,1)+"%")
+            call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[pid][5],1,1)+"%")
+            call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
+        endif
     endfunction
 
     private function Main takes nothing returns nothing
@@ -4467,28 +6905,39 @@ library UIElixir initializer init requires DataUnit, FrameCount
         call DzFrameSetSize(El_MainB[5], 0.40, 0.05)
         call DzFrameSetScriptByCode(El_MainB[5], JN_FRAMEEVENT_MOUSE_UP, function ClickLButton, false)
 
+
         set i = 1
         loop
             set ElF_Level[1][i]=DzCreateFrameByTagName("BACKDROP", "", El_Main[1], "StandardEditBoxBackdropTemplate", FrameCount())
             call DzFrameSetAbsolutePoint(ElF_Level[1][i], JN_FRAMEPOINT_CENTER, (0.026 * i) + 0.3000 - 0.026 , 0.4750 )
             call DzFrameSetSize(ElF_Level[1][i], 0.025 , 0.025)
             call DzFrameSetTexture(ElF_Level[1][i], "UI_Arcana_Work1.blp", 0)
+            set ElixirEffect[1][i]=DzCreateFrameByTagName("SPRITE", "", El_Main[1], "", FrameCount())
+            call DzFrameSetPoint(ElixirEffect[1][i],JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[1][i], JN_FRAMEPOINT_CENTER ,0,0)
             set ElF_Level[2][i]=DzCreateFrameByTagName("BACKDROP", "", El_Main[2], "StandardEditBoxBackdropTemplate", FrameCount())
             call DzFrameSetAbsolutePoint(ElF_Level[2][i], JN_FRAMEPOINT_CENTER, (0.026 * i) + 0.3000 - 0.026, 0.4200 )
             call DzFrameSetSize(ElF_Level[2][i], 0.025 , 0.025)
             call DzFrameSetTexture(ElF_Level[2][i], "UI_Arcana_Work1.blp", 0)
+            set ElixirEffect[2][i]=DzCreateFrameByTagName("SPRITE", "", El_Main[2], "", FrameCount())
+            call DzFrameSetPoint(ElixirEffect[2][i],JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[2][i], JN_FRAMEPOINT_CENTER ,0,0)
             set ElF_Level[3][i]=DzCreateFrameByTagName("BACKDROP", "", El_Main[3], "StandardEditBoxBackdropTemplate", FrameCount())
             call DzFrameSetAbsolutePoint(ElF_Level[3][i], JN_FRAMEPOINT_CENTER, (0.026 * i) + 0.3000 - 0.026, 0.3650 )
             call DzFrameSetSize(ElF_Level[3][i], 0.025 , 0.025)
             call DzFrameSetTexture(ElF_Level[3][i], "UI_Arcana_Work1.blp", 0)
+            set ElixirEffect[3][i]=DzCreateFrameByTagName("SPRITE", "", El_Main[3], "", FrameCount())
+            call DzFrameSetPoint(ElixirEffect[3][i],JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[3][i], JN_FRAMEPOINT_CENTER ,0,0)
             set ElF_Level[4][i]=DzCreateFrameByTagName("BACKDROP", "", El_Main[4], "StandardEditBoxBackdropTemplate", FrameCount())
             call DzFrameSetAbsolutePoint(ElF_Level[4][i], JN_FRAMEPOINT_CENTER, (0.026 * i) + 0.3000 - 0.026, 0.3100 )
             call DzFrameSetSize(ElF_Level[4][i], 0.025 , 0.025)
             call DzFrameSetTexture(ElF_Level[4][i], "UI_Arcana_Work1.blp", 0)
+            set ElixirEffect[4][i]=DzCreateFrameByTagName("SPRITE", "", El_Main[4], "", FrameCount())
+            call DzFrameSetPoint(ElixirEffect[4][i],JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[4][i], JN_FRAMEPOINT_CENTER ,0,0)
             set ElF_Level[5][i]=DzCreateFrameByTagName("BACKDROP", "", El_Main[5], "StandardEditBoxBackdropTemplate", FrameCount())
             call DzFrameSetAbsolutePoint(ElF_Level[5][i], JN_FRAMEPOINT_CENTER, (0.026 * i) + 0.3000 - 0.026, 0.2550 )
             call DzFrameSetSize(ElF_Level[5][i], 0.025 , 0.025)
             call DzFrameSetTexture(ElF_Level[5][i], "UI_Arcana_Work1.blp", 0)
+            set ElixirEffect[5][i]=DzCreateFrameByTagName("SPRITE", "", El_Main[5], "", FrameCount())
+            call DzFrameSetPoint(ElixirEffect[5][i],JN_FRAMEPOINT_BOTTOMLEFT, ElF_Level[5][i], JN_FRAMEPOINT_CENTER ,0,0)
         exitwhen i == 10
             set i = i + 1
         endloop
@@ -4628,17 +7077,9 @@ library UIElixir initializer init requires DataUnit, FrameCount
             exitwhen i == 136
             endloop
 
-            set a = ElixirSelect.pick(false)
-            set b = ElixirSelect.pick(false)
-            loop
-            exitwhen a != b
-                set b = ElixirSelect.pick(false)
-            endloop
-            set c = ElixirSelect.pick(false)
-            loop
-            exitwhen a != c and b != c
-                set c = ElixirSelect.pick(false)
-            endloop
+            set a = ElixirSelect.pick(true)
+            set b = ElixirSelect.pick(true)
+            set c = ElixirSelect.pick(true)
             call ElixirSelect.clear()
             set j = 1
         endif
@@ -4646,6 +7087,11 @@ library UIElixir initializer init requires DataUnit, FrameCount
         //길초기화
         call SetupPaths(pid)
         set SelectString[pid] = "0;0;0;0;0;0;0;0;0;"
+        set El_Lock[pid][1] = 0
+        set El_Lock[pid][2] = 0
+        set El_Lock[pid][3] = 0
+        set El_Lock[pid][4] = 0
+        set El_Lock[pid][5] = 0
         set El_RateLucky[pid][1] = 40.00
         set El_RateLucky[pid][2] = 40.00
         set El_RateLucky[pid][3] = 40.00
@@ -4671,12 +7117,6 @@ library UIElixir initializer init requires DataUnit, FrameCount
                 call DzFrameSetText(El_SelectText[2], ElixirText[NowSelectNumber2[2]])
                 set NowSelectNumber2[3] = c
                 call DzFrameSetText(El_SelectText[3], ElixirText[NowSelectNumber2[3]])
-
-                set El_Lock[1] = 0
-                set El_Lock[2] = 0
-                set El_Lock[3] = 0
-                set El_Lock[4] = 0
-                set El_Lock[5] = 0
                 
                 call NormalizeWeights(pid)
                 
@@ -4690,6 +7130,8 @@ library UIElixir initializer init requires DataUnit, FrameCount
                 call DzFrameSetText(El_MainR2[3], "대성공 "+R2SW(El_RateLucky[pid][3],1,1)+"%")
                 call DzFrameSetText(El_MainR2[4], "대성공 "+R2SW(El_RateLucky[pid][4],1,1)+"%")
                 call DzFrameSetText(El_MainR2[5], "대성공 "+R2SW(El_RateLucky[pid][5],1,1)+"%")
+                call DzFrameSetText(El_RollT,"리롤("+I2S(NowRollCount[pid])+"회 남음)")
+                call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
                 set i = 0
                 loop
                     set i = i + 1
@@ -4733,19 +7175,21 @@ library UIElixir initializer init requires DataUnit, FrameCount
         call DzTriggerRegisterSyncData(t,("ElSelect"),(false))
         call TriggerAddAction(t,function Select)
         set t = null
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("ElSelect2"),(false))
+        call TriggerAddAction(t,function Select2)
+        set t = null
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("ElRoll2"),(false))
+        call TriggerAddAction(t,function Roll3)
+        set t = null
     endfunction
 
     //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
-        set El_Lock[1] = 0
-        set El_Lock[2] = 0
-        set El_Lock[3] = 0
-        set El_Lock[4] = 0
-        set El_Lock[5] = 0
+        set SelectString[0] = "0;0;0;0;0;0;0;0;0;"
         set SelectString[1] = "0;0;0;0;0;0;0;0;0;"
         set SelectString[2] = "0;0;0;0;0;0;0;0;0;"
         set SelectString[3] = "0;0;0;0;0;0;0;0;0;"
-        set SelectString[4] = "0;0;0;0;0;0;0;0;0;"
-        set SelectString[5] = "0;0;0;0;0;0;0;0;0;"
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 7, 1)
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 13, 1)
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 8, 2)
@@ -4874,7 +7318,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 134, 54)
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 135, 55)
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 136, 55)
-        call SaveInteger(ElixirGroupData, StringHash("Elixir"), 128, 56)
+        //call SaveInteger(ElixirGroupData, StringHash("Elixir"), 128, 56)
         call SaveInteger(ElixirGroupData, StringHash("Elixir"), 64, 57)
         
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 1, 0)
@@ -5004,7 +7448,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 125, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 126, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 127, 0)
-        call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 128, 0)
+        //call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 128, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 129, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 130, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 131, 0)
@@ -5013,6 +7457,16 @@ library UIElixir initializer init requires DataUnit, FrameCount
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 134, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 135, 0)
         call SaveInteger(ElixirGroupData, StringHash("Elixir2"), 136, 0)
+
+        
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 1, 0)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 2, 0)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 3, 0)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 4, 0)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 5, 0)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 6, 1)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 7, 1)
+        call SaveInteger(ElixirGroupData, StringHash("Elixir3"), 8, 1)
 
         set ElixirText[1]="이번 연성에서 1번 연성 확률 50% 상승"
         set ElixirText[2]="이번 연성에서 2번 연성 확률 50% 상승"
@@ -5165,15 +7619,15 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set ElixirText[126]="최고 단계 대상 1개의 단계 2 상승"
         set ElixirText[127]="최고 단계 대상 1개의 단계 3 상승"
 
-        set ElixirText[128]="모든 단계 재분배"
+        //set ElixirText[128]="모든 단계 재분배"
 
         set ElixirText[129]="이번 연성은 2단계 상승"
         set ElixirText[130]="이번 연성은 3단계 상승"
         set ElixirText[131]="이번 연성은 4단계 상승"
 
-        set ElixirText[132]="이번 연성에 한해 2개 동시에 연성"
-        set ElixirText[133]="이번 연성에 한해 3개 동시에 연성"
-        set ElixirText[134]="이번 연성에 한해 4개 동시에 연성"
+        set ElixirText[132]="이번 연성에 한해 2회 연성"
+        set ElixirText[133]="이번 연성에 한해 3회 연성"
+        set ElixirText[134]="이번 연성에 한해 4회 연성"
 
         set ElixirText[135]="리롤 횟수 1회 증가"
         set ElixirText[136]="리롤 횟수 2회 증가"
@@ -5330,7 +7784,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set Elixirweight[126]=0.49
         set Elixirweight[127]=0.21
         
-        set Elixirweight[128]=1.20
+        //set Elixirweight[128]=1.20
         
         set Elixirweight[129]=0.85
         set Elixirweight[130]=0.60
@@ -5350,8 +7804,18 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set Elixir2Text[3]="3번 봉인"
         set Elixir2Text[4]="4번 봉인"
         set Elixir2Text[5]="5번 봉인"
-        set Elixir2Text[6]="선택한 대상 봉인 후, 이번 연성에 한해 2개 동시 연성"
-        set Elixir2Text[7]="선택한 대상 봉인 후, 다른 1개의 단계를 1 상승"
+        set Elixir2Text[6]="선택한 대상 봉인 후, 이번 연성에 한해 2회 연성"
+        set Elixir2Text[7]="선택한 대상 봉인 후, 1개의 단계를 1 상승"
         set Elixir2Text[8]="선택한 대상 봉인 후, 최하 단계 1개의 단계를 1 상승"
+        
+        set Elixir2weight[1]=18.60
+        set Elixir2weight[2]=18.60
+        set Elixir2weight[3]=18.60
+        set Elixir2weight[4]=18.60
+        set Elixir2weight[5]=18.60
+        set Elixir2weight[6]=2.333
+        set Elixir2weight[7]=2.333
+        set Elixir2weight[8]=2.333
+
     //! runtextmacro 이벤트_끝()
 endlibrary
