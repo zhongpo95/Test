@@ -1,4 +1,4 @@
-library UIElixir initializer init requires DataUnit, FrameCount
+library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
     /*
         1
             1	1번이 봉인된 경우
@@ -58,6 +58,20 @@ library UIElixir initializer init requires DataUnit, FrameCount
     */
     globals
         hashtable ElixirGroupData = InitHashtable()
+        
+        integer El_BackDrop2
+        integer EL_LevelA
+        integer EL_LevelB
+        integer EL_LevelTextA
+        integer EL_LevelTextB
+        integer EL_LevelTextC
+        integer EL_LevelEffect1
+        integer EL_LevelEffect2
+
+        integer El_LB
+        integer El_LBBD
+        integer El_LBT
+
         integer El_BackDrop
         integer array El_Select
         integer array El_Button
@@ -71,6 +85,8 @@ library UIElixir initializer init requires DataUnit, FrameCount
         integer array El_MainR
         integer array El_MainR2
 
+        integer array ResultLevel[5][3]
+
         //각번호 프레임
         integer array ElF_Level[6][11]
         //각 번호 레벨 정수, 연성가중치, 임시추가 연성확률, 대성공확률, 임시추가 대성공확률
@@ -79,6 +95,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         real array El_RateLucky[5][6]
 
         integer array El_Lock[5][6]
+        integer array ElF_Lock
 
         integer El_Roll
         integer El_RollT
@@ -125,8 +142,15 @@ library UIElixir initializer init requires DataUnit, FrameCount
         private integer array path_count[5]
         //선택한 그룹
         private string array SelectString
+        private integer si2 = 0
     endglobals
     
+    private struct ElixirSt
+        integer pid = 0
+        integer i = 0
+        integer j = 0
+    endstruct
+
     // 확률을 정규화하여 총합이 1.0이 되도록 함
     private function NormalizeWeights takes integer pid returns nothing
         local real total_weight = 0.0
@@ -260,7 +284,6 @@ library UIElixir initializer init requires DataUnit, FrameCount
     endfunction
     
     // 확률에 따라 길을 선택하는 함수
-    
     public function GetRandomPath takes integer pid returns integer
         local real random_number = GetRandomReal(0.0, 1.0)
         local real cumulative_weight = 0.0
@@ -296,13 +319,13 @@ library UIElixir initializer init requires DataUnit, FrameCount
     endfunction
     
     /*
-    ---
-    
-    ### **새로 추가된 함수**
-    
-    **`GetPathChance`**: 길의 ID를 입력받아 현재 확률(%)을 반환합니다.
-    
-    ```vjass
+        ---
+        
+        ### **새로 추가된 함수**
+        
+        **`GetPathChance`**: 길의 ID를 입력받아 현재 확률(%)을 반환합니다.
+        
+        ```vjass
     */
     // 특정 길의 현재 확률을 가져오는 함수
     // path_id: 확률을 가져올 길의 ID (1~5)
@@ -311,23 +334,38 @@ library UIElixir initializer init requires DataUnit, FrameCount
         return path_weights[pid][path_id] * 100.0
     endfunction
     
+    private function ClickLButton3 takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local string s = ""
+
+        if true then
+            set s = "ID49;"
+            set s = SetItemElixirLevel1(s, ResultLevel[pid][1])
+            set s = SetItemElixirLevel2(s, ResultLevel[pid][2])
+            call additem(Player(pid), s)
+            call DzFrameShow(El_BackDrop2,false)
+        endif
+
+    endfunction
+
     private function ClickLButton2 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         if f == El_Button[1] then
             set NowSelect = 1
             set NowSelectNumber = NowSelectNumber2[1]
-            call VJDebugMsg("첫번째 버튼 클릭")
+            //call VJDebugMsg("첫번째 버튼 클릭")
             
         elseif f == El_Button[2] then
             set NowSelect = 2
             set NowSelectNumber = NowSelectNumber2[2]
-            call VJDebugMsg("두번째 버튼 클릭")
+            //call VJDebugMsg("두번째 버튼 클릭")
 
         elseif f == El_Button[3] then
             set NowSelect = 3
             set NowSelectNumber = NowSelectNumber2[3]
-            call VJDebugMsg("세번째 버튼 클릭")
+            //call VJDebugMsg("세번째 버튼 클릭")
         endif
     endfunction
 
@@ -340,19 +378,19 @@ library UIElixir initializer init requires DataUnit, FrameCount
         
         if f == El_MainB[1] then
             set NowMainSelect = 1
-            call VJDebugMsg("1번 클릭")
+            //call VJDebugMsg("1번 클릭")
         elseif f == El_MainB[2] then
             set NowMainSelect = 2
-            call VJDebugMsg("2번 클릭")
+            //call VJDebugMsg("2번 클릭")
         elseif f == El_MainB[3] then
             set NowMainSelect = 3
-            call VJDebugMsg("3번 클릭")
+            //call VJDebugMsg("3번 클릭")
         elseif f == El_MainB[4] then
             set NowMainSelect = 4
-            call VJDebugMsg("4번 클릭")
+            //call VJDebugMsg("4번 클릭")
         elseif f == El_MainB[5] then
             set NowMainSelect = 5
-            call VJDebugMsg("5번 클릭")
+            //call VJDebugMsg("5번 클릭")
         endif
 
         if f == El_RollB then
@@ -1270,6 +1308,58 @@ library UIElixir initializer init requires DataUnit, FrameCount
         endif
     endfunction
 
+    private function GetMappedValue takes integer input returns integer
+        if input <= 2 then
+            return 0
+        elseif input <= 5 then
+            return 1
+        elseif input <= 7 then
+            return 2
+        elseif input == 8 then
+            return 3
+        elseif input == 9 then
+            return 4
+        elseif input == 10 then
+            return 5
+        else
+            // 정의되지 않은 입력값에 대한 기본값
+            return 0
+        endif
+    endfunction
+
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local ElixirSt st = t.data
+
+        if GetLocalPlayer() == Player(st.pid) then
+            call DzFrameShow(El_BackDrop, false)
+            call DzFrameShow(El_BackDrop2, true)
+
+            call DzFrameSetText(EL_LevelTextA, I2S(GetMappedValue(st.i)) + " + " + I2S(GetMappedValue(st.j)))
+            call DzFrameSetText(EL_LevelTextB, I2S(GetMappedValue(st.i)) + " + " + I2S(GetMappedValue(st.j)))
+            set ResultLevel[st.pid][1] = GetMappedValue(st.i)
+            set ResultLevel[st.pid][2] = GetMappedValue(st.j)
+
+            set si2 = si2 + 1
+            if si2 == 1 then
+                call StartSound(gg_snd_ElEffectSound00)
+                call DzFrameSetModel(EL_LevelEffect1, "blinknew180.mdx", 0, 0)
+                call DzFrameSetModel(EL_LevelEffect2, "blinknew180.mdx", 0, 0)
+            elseif si2 == 2 then
+                call StartSound(gg_snd_ElEffectSound01)
+                call DzFrameSetModel(EL_LevelEffect1, "blinknew180.mdx", 0, 0)
+                call DzFrameSetModel(EL_LevelEffect2, "blinknew180.mdx", 0, 0)
+            elseif si2 == 3 then
+                call StartSound(gg_snd_ElEffectSound02)
+                call DzFrameSetModel(EL_LevelEffect1, "blinknew180.mdx", 0, 0)
+                call DzFrameSetModel(EL_LevelEffect2, "blinknew180.mdx", 0, 0)
+                set si2 = 0
+            endif
+        endif
+
+        call t.destroy()
+        call st.destroy()
+    endfunction
     
     private function Select2 takes nothing returns nothing
         local string s = DzGetTriggerSyncData()
@@ -1283,6 +1373,8 @@ library UIElixir initializer init requires DataUnit, FrameCount
         local integer SelectAdvice = S2I(JNStringSplit(s, "\t", 0))
         //몇번째 버튼
         local integer SelectNumber = S2I(JNStringSplit(s, "\t", 1))
+        local tick t
+        local ElixirSt st
 
         //두번클릭방지
         if GetLocalPlayer() == Player(pid) then
@@ -1293,11 +1385,22 @@ library UIElixir initializer init requires DataUnit, FrameCount
         //카운트감소
         set NowCount[pid] = NowCount[pid] - 1
         if GetLocalPlayer() == Player(pid) then
+            //사운드재생
+            set si2 = si2 + 1
+            if si2 == 1 then
+                call StartSound(gg_snd_ElEffectSound00)
+            elseif si2 == 2 then
+                call StartSound(gg_snd_ElEffectSound01)
+            elseif si2 == 3 then
+                call StartSound(gg_snd_ElEffectSound02)
+                set si2 = 0
+            endif
             call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
         endif
 
         if SelectAdvice == 1 then
             call RemovePath(pid, 1)
+            call DzFrameShow(ElF_Lock[1], true)
             set El_Lock[pid][1] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1316,6 +1419,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 2 then
             call RemovePath(pid, 2)
+            call DzFrameShow(ElF_Lock[2], true)
             set El_Lock[pid][2] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1334,6 +1438,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 3 then
             call RemovePath(pid, 3)
+            call DzFrameShow(ElF_Lock[3], true)
             set El_Lock[pid][3] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1352,6 +1457,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 4 then
             call RemovePath(pid, 4)
+            call DzFrameShow(ElF_Lock[4], true)
             set El_Lock[pid][4] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1370,6 +1476,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 5 then
             call RemovePath(pid, 5)
+            call DzFrameShow(ElF_Lock[5], true)
             set El_Lock[pid][5] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1388,6 +1495,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 6 then
             call RemovePath(pid, SelectNumber)
+            call DzFrameShow(ElF_Lock[SelectNumber], true)
             set El_Lock[pid][SelectNumber] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1421,6 +1529,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 7 then
             call RemovePath(pid, SelectNumber)
+            call DzFrameShow(ElF_Lock[SelectNumber], true)
             set El_Lock[pid][SelectNumber] = 1
             set path = GetRandomPath(pid)
             set El_Level[pid][path] = El_Level[pid][path] + 1
@@ -1444,6 +1553,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
                 endif
             endif
             set path = GetRandomPath(pid)
+            call DzFrameShow(ElF_Lock[SelectNumber], true)
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
@@ -1460,10 +1570,11 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 8 then
             call RemovePath(pid, SelectNumber)
+            call DzFrameShow(ElF_Lock[SelectNumber], true)
             set El_Lock[pid][SelectNumber] = 1
 
             set i = 1
-            set j = -1
+            set j = 100
             set k = 0
         
             loop 
@@ -1503,7 +1614,46 @@ library UIElixir initializer init requires DataUnit, FrameCount
                 endif
             endif
         endif
-        call Roll4(pid)
+        //갱신
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
+            call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
+            call DzFrameSetText(El_MainR[3], R2SW(GetPathChance(pid,3),1,1)+"%")
+            call DzFrameSetText(El_MainR[4], R2SW(GetPathChance(pid,4),1,1)+"%")
+            call DzFrameSetText(El_MainR[5], R2SW(GetPathChance(pid,5),1,1)+"%")
+        endif
+        if NowCount[pid] != 0 then
+            call Roll4(pid)
+        else
+            if El_Level[pid][1] > 10 then
+                set El_Level[pid][1] = 10
+            endif
+            if El_Level[pid][2] > 10 then
+                set El_Level[pid][2] = 10
+            endif
+            if El_Level[pid][3] > 10 then
+                set El_Level[pid][3] = 10
+            endif
+            if El_Level[pid][4] > 10 then
+                set El_Level[pid][4] = 10
+            endif
+            if El_Level[pid][5] > 10 then
+                set El_Level[pid][5] = 10
+            endif
+
+            set t = tick.create(0)
+            set st = ElixirSt.create()
+            set st.i = GetRandomPath(pid)
+            call RemovePath(pid, st.i)
+            set st.i = El_Level[pid][st.i]
+
+            set st.j = GetRandomPath(pid)
+            call RemovePath(pid, st.j)
+            set st.j = El_Level[pid][st.j]
+
+            set t.data = st
+            call t.start( 2.0, false, function EffectFunction )
+        endif
     endfunction
 
     private function Select takes nothing returns nothing
@@ -1534,6 +1684,16 @@ library UIElixir initializer init requires DataUnit, FrameCount
         //카운트감소
         set NowCount[pid] = NowCount[pid] - 1
         if GetLocalPlayer() == Player(pid) then
+            //사운드재생
+            set si2 = si2 + 1
+            if si2 == 1 then
+                call StartSound(gg_snd_ElEffectSound00)
+            elseif si2 == 2 then
+                call StartSound(gg_snd_ElEffectSound01)
+            elseif si2 == 3 then
+                call StartSound(gg_snd_ElEffectSound02)
+                set si2 = 0
+            endif
             call DzFrameSetText(CountText, I2S(NowCount[pid])+"회 연성가능")
         endif
 
@@ -5497,7 +5657,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         //최하
         elseif SelectAdvice == 122 then
             set i = 1
-            set j = -1
+            set j = 100
             set k = 0
         
             loop 
@@ -5538,7 +5698,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 123 then
             set i = 1
-            set j = -1
+            set j = 100
             set k = 0
         
             loop 
@@ -5586,7 +5746,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
             endif
         elseif SelectAdvice == 124 then
             set i = 1
-            set j = -1
+            set j = 100
             set k = 0
         
             loop 
@@ -5803,10 +5963,6 @@ library UIElixir initializer init requires DataUnit, FrameCount
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
                 call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
-            endif
-            set El_Level[pid][path] = El_Level[pid][path] + 1
-            if El_Level[pid][path] == 11 then
-                set El_Level[pid][path] = 10
             endif
             if El_RateLucky[pid][path] >= r then
                 if El_Level[pid][path] != 10 then
@@ -6142,6 +6298,7 @@ library UIElixir initializer init requires DataUnit, FrameCount
         set m[5] = El_RateLucky[pid][5]
 
         set SelectString[pid] = JNStringSplit(s, "\t", 0)
+
         ///*
         set i1[pid] = S2I(JNStringSplit(SelectString[pid], ";", 0))
         set i2[pid] = S2I(JNStringSplit(SelectString[pid], ";", 1))
@@ -6748,6 +6905,69 @@ library UIElixir initializer init requires DataUnit, FrameCount
         local string s
         local integer i
         
+        //메뉴 배경2
+        set El_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        call DzFrameSetTexture(El_BackDrop2, "Filenemo.blp", 0)
+        call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
+        call DzFrameSetSize(El_BackDrop2, 0.700, 0.450)
+        call DzFrameSetPriority(El_BackDrop2, 5)
+        call DzFrameShow(El_BackDrop2, false)
+
+        set EL_LevelTextC=DzCreateFrameByTagName("TEXT","",El_BackDrop2,"",FrameCount())
+        call DzFrameSetAbsolutePoint(EL_LevelTextC, JN_FRAMEPOINT_CENTER, 0.400, 0.4500)
+        call DzFrameSetText(EL_LevelTextC,"연성 결과")
+        call DzFrameSetFont(EL_LevelTextC, "Fonts\\DFHeiMd.ttf", 0.012, 0)
+        
+        //가능텍스트
+        set EL_LevelA=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
+        call DzFrameSetTexture(EL_LevelA, "File00004591.blp", 0)
+        call DzFrameSetSize(EL_LevelA, 0.300, 0.05)
+        call DzFrameSetAbsolutePoint(EL_LevelA, JN_FRAMEPOINT_CENTER, 0.400, 0.3700)
+        
+        set EL_LevelTextA=DzCreateFrameByTagName("TEXT","",EL_LevelA,"",FrameCount())
+        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.400, 0.3700)
+        call DzFrameSetText(EL_LevelTextA,"공격력")
+        set EL_LevelTextA=DzCreateFrameByTagName("TEXT","",EL_LevelA,"",FrameCount())
+        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.400, 0.3200)
+        call DzFrameSetText(EL_LevelTextA,"10000")
+
+        //가능텍스트
+        set EL_LevelB=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
+        call DzFrameSetTexture(EL_LevelB, "File00004591.blp", 0)
+        call DzFrameSetSize(EL_LevelB, 0.300, 0.05)
+        call DzFrameSetAbsolutePoint(EL_LevelB, JN_FRAMEPOINT_CENTER, 0.400, 0.2500)
+        
+        set EL_LevelTextB=DzCreateFrameByTagName("TEXT","",EL_LevelB,"",FrameCount())
+        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.400, 0.2500)
+        call DzFrameSetText(EL_LevelTextB,"공격력 %")
+        set EL_LevelTextB=DzCreateFrameByTagName("TEXT","",EL_LevelB,"",FrameCount())
+        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.400, 0.2000)
+        call DzFrameSetText(EL_LevelTextB,"10 %")
+
+        
+        //결정
+        set El_LBBD=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
+        call DzFrameSetTexture(El_LBBD, "UI_PickSelectButton.tga", 0)
+        call DzFrameSetSize(El_LBBD, 0.06, 0.03)
+        call DzFrameSetAbsolutePoint(El_LBBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.1400)
+        
+        set El_LBT=DzCreateFrameByTagName("TEXT","",El_LBBD,"",0)
+        call DzFrameSetAbsolutePoint(El_LBT, JN_FRAMEPOINT_CENTER, 0.4000, 0.1400)
+        call DzFrameSetText(El_LBT,"확인")
+        
+        set El_LB=DzCreateFrameByTagName("BUTTON", "", El_LBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
+        call DzFrameSetAllPoints(El_LB, El_LBBD)
+        call DzFrameSetSize(El_LB, 0.06, 0.03)
+        call DzFrameSetScriptByCode(El_LB, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton3, false)
+
+        set EL_LevelEffect1=DzCreateFrameByTagName("SPRITE", "", El_BackDrop2, "", FrameCount())
+        call DzFrameSetPoint(EL_LevelEffect1, JN_FRAMEPOINT_BOTTOMLEFT, EL_LevelTextB, JN_FRAMEPOINT_CENTER ,0, 0.0)
+        set EL_LevelEffect2=DzCreateFrameByTagName("SPRITE", "", El_BackDrop2, "", FrameCount())
+        call DzFrameSetPoint(EL_LevelEffect2, JN_FRAMEPOINT_BOTTOMLEFT, EL_LevelTextA, JN_FRAMEPOINT_CENTER ,0, 0.0)
+        
+        
+        
+
         //메뉴 배경
         set El_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(El_BackDrop, "Filenemo.blp", 0)
@@ -6941,7 +7161,34 @@ library UIElixir initializer init requires DataUnit, FrameCount
         exitwhen i == 10
             set i = i + 1
         endloop
+//
+        set ElF_Lock[1]=DzCreateFrameByTagName("BACKDROP", "", El_Main[1], "template", FrameCount())
+        call DzFrameSetSize(ElF_Lock[1], 0.04, (19.0/ 16.0) * 0.04 )
+        call DzFrameSetAbsolutePoint(ElF_Lock[1], JN_FRAMEPOINT_CENTER, 0.400, 0.4750)
+        call DzFrameSetTexture(ElF_Lock[1], "UI_EL_Lock.blp", 0)
+        call DzFrameShow(ElF_Lock[1], false)
+        set ElF_Lock[2]=DzCreateFrameByTagName("BACKDROP", "", El_Main[2], "template", FrameCount())
+        call DzFrameSetSize(ElF_Lock[2], 0.04, (19.0/ 16.0) * 0.04 )
+        call DzFrameSetAbsolutePoint(ElF_Lock[2], JN_FRAMEPOINT_CENTER, 0.400, 0.4200)
+        call DzFrameSetTexture(ElF_Lock[2], "UI_EL_Lock.blp", 0)
+        call DzFrameShow(ElF_Lock[2], false)
+        set ElF_Lock[3]=DzCreateFrameByTagName("BACKDROP", "", El_Main[3], "template", FrameCount())
+        call DzFrameSetSize(ElF_Lock[3], 0.04, (19.0/ 16.0) * 0.04 )
+        call DzFrameSetAbsolutePoint(ElF_Lock[3], JN_FRAMEPOINT_CENTER, 0.400, 0.3650)
+        call DzFrameSetTexture(ElF_Lock[3], "UI_EL_Lock.blp", 0)
+        call DzFrameShow(ElF_Lock[3], false)
+        set ElF_Lock[4]=DzCreateFrameByTagName("BACKDROP", "", El_Main[4], "template", FrameCount())
+        call DzFrameSetSize(ElF_Lock[4], 0.04, (19.0/ 16.0) * 0.04 )
+        call DzFrameSetAbsolutePoint(ElF_Lock[4], JN_FRAMEPOINT_CENTER, 0.400, 0.3100)
+        call DzFrameSetTexture(ElF_Lock[4], "UI_EL_Lock.blp", 0)
+        call DzFrameShow(ElF_Lock[4], false)
+        set ElF_Lock[5]=DzCreateFrameByTagName("BACKDROP", "", El_Main[5], "template", FrameCount())
+        call DzFrameSetSize(ElF_Lock[5], 0.04, (19.0/ 16.0) * 0.04 )
+        call DzFrameSetAbsolutePoint(ElF_Lock[5], JN_FRAMEPOINT_CENTER, 0.400, 0.2550)
+        call DzFrameSetTexture(ElF_Lock[5], "UI_EL_Lock.blp", 0)
+        call DzFrameShow(ElF_Lock[5], false)
 
+        
 
         set El_Select[1]=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop, "template", FrameCount())
         call DzFrameSetTexture(El_Select[1], "UI_PickSelect2.blp", 0)
@@ -7110,6 +7357,11 @@ library UIElixir initializer init requires DataUnit, FrameCount
                 set NowSelectNumber2[1] = 0
                 set NowSelectNumber2[2] = 0
                 set NowSelectNumber2[3] = 0
+                call DzFrameShow(ElF_Lock[1], false)
+                call DzFrameShow(ElF_Lock[2], false)
+                call DzFrameShow(ElF_Lock[3], false)
+                call DzFrameShow(ElF_Lock[4], false)
+                call DzFrameShow(ElF_Lock[5], false)
 
                 set NowSelectNumber2[1] = a
                 call DzFrameSetText(El_SelectText[1], ElixirText[NowSelectNumber2[1]])
