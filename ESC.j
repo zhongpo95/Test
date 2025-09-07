@@ -5,6 +5,7 @@ scope ESC initializer init
         real AAA = 0
         integer BBB = 0
         integer BBBF
+        private integer si2 = 0
         string s = "1"
     endglobals
 
@@ -195,7 +196,6 @@ scope ESC initializer init
 
         set AAA = AAA - 0.1
         
-
         //set SelectString[pid] = JNStringReplace(s, JNStringRegex(s, "0\\d+;", 0), I2S(NowSelectNumber)+";")
 
         //set frame3 = DzFrameGetCommandBarButton(2,0)

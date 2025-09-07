@@ -2,7 +2,7 @@ library ITEM requires DataItem
     globals
     endglobals
 
-        //0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+        //0보조무기무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
@@ -289,5 +289,38 @@ library ITEM requires DataItem
         return JNStringReplace(items, JNStringRegex(items, "C\\d+;", 0), "C"+I2S(i)+";")
     endfunction
 
+
+    
+    //엘릭서1 수치
+    function GetItemElixirLevel1 takes string items returns integer
+        local string s = JNStringRegex(items, "엘릭서A\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
+    endfunction
+
+    //엘릭서1 수치 변경 set items = SetItemElixirLevel1(items, 변경할수치(정수))
+    function SetItemElixirLevel1 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "엘릭서A\\d+;", 0)
+        if s == "" then
+            return items + "엘릭서A"+I2S(i)+";"
+        endif
+        return JNStringReplace(items, JNStringRegex(items, "엘릭서A\\d+;", 0), "엘릭서A"+I2S(i)+";")
+    endfunction
+
+    //엘릭서2 수치
+    function GetItemElixirLevel2 takes string items returns integer
+        local string s = JNStringRegex(items, "엘릭서B\\d+;", 0)
+        set s = JNStringRegex(s, "\\d+", 0)
+        return S2I(s)
+    endfunction
+
+    //엘릭서2 수치 변경 set items = SetItemElixirLevel2(items, 변경할수치(정수))
+    function SetItemElixirLevel2 takes string items, integer i returns string
+        local string s = JNStringRegex(items, "엘릭서B\\d+;", 0)
+        if s == "" then
+            return items + "엘릭서B"+I2S(i)+";"
+        endif
+        return JNStringReplace(items, JNStringRegex(items, "엘릭서B\\d+;", 0), "엘릭서B"+I2S(i)+";")
+    endfunction
 
 endlibrary

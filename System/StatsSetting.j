@@ -256,7 +256,7 @@ library StatsSet initializer init requires UIHP, ITEM
                 set tier = GetItemTier(items)
                 set up = GetItemUp(items)
                 
-                // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지
+                // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지
                 //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인2, 6각인P
                 //목걸이 0품0, 1품질 5당 추가량
                 //기타 0아이템아이디, 1중첩수
@@ -266,7 +266,7 @@ library StatsSet initializer init requires UIHP, ITEM
                     set quality = GetItemQuality(items)
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     set Equip_WDP[pid] = ItemWeaponQuality[quality]
-                //0모자, 1상의, 2하의, 3장갑
+                //0보조무기, 1상의, 2하의, 3장갑
                 elseif itemty >= 0 and itemty <= 3 then
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     //set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))

@@ -220,7 +220,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set str = "|cFFA5FA7D[ 종류 ]|r "
 
             if i == 0 then
-                set str = str + "모자|n|n"
+                set str = str + "보조무기|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             elseif i == 5 then

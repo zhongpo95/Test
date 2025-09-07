@@ -66,7 +66,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set itemid = GetItemIDs(items)
 
 
-            //모자
+            //보조무기
             if itemid == 9 then
                 set items = "ID2;"
                 set itemid = 2
@@ -119,7 +119,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             
         endif
         
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
@@ -142,9 +142,9 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
             if i == 0 then
-                set str = str + "모자|n"
+                set str = str + "보조무기|n"
                 set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 //set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
@@ -250,7 +250,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
                             endif
 
-                            //모자
+                            //보조무기
                             if i == 9 then
                                 set items = "ID2;"
                                 set items = SetItemQuality(items, quality)
@@ -639,7 +639,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             call DzFrameShow(F_EnchantUpText, true)
         endif
         
-        //모자
+        //보조무기
         if itemid == 9 then
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
         elseif itemid == 2 then

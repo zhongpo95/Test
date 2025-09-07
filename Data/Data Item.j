@@ -60,15 +60,16 @@ library DataItem
         call SaveInteger(ItemData, StringHash("ITEMID"), 46, 'I01X')
         call SaveInteger(ItemData, StringHash("ITEMID"), 47, 'I000')
         call SaveInteger(ItemData, StringHash("ITEMID"), 48, 'I008')
+        call SaveInteger(ItemData, StringHash("ITEMID"), 49, 'I003')
 
 
-        //0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+        //0보조무기, 1엘릭서, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
         
-        //모자
+        //보조무기
         //보조무기
         set ItemStats[0][1] = "10"
         set ItemStats[0][2] = "100"

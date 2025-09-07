@@ -832,7 +832,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set Eitem[pid][14] = "0"
         set Eitem[pid][15] = "0"
 
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
         if GetLocalPlayer() == Player(pid) then
             call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
             call DzFrameSetTexture(F_EItemButtonsBackDrop[0], GetItemArt(Eitem[pid][0]), 0)
@@ -889,7 +889,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )
-        //call TriggerAddAction( t, function Main2 )
+        call TriggerAddAction( t, function Main2 )
         
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NewPick"),(false))

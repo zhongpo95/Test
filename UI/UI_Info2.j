@@ -212,13 +212,13 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         local integer tier = 0
         local item tem
         
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
+        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
         if f ==  F_EItemButtons2[0] then
             set items = Eitem[pid][0]
             set itemid = GetItemIDs(Eitem[pid][0])
             if itemid == 0 then
                 call DzFrameShow(UI_Tip, true)
-                call DzFrameSetText(UI_Tip_Text[1], "모자" )
+                call DzFrameSetText(UI_Tip_Text[1], "보조무기" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
             /*
@@ -351,12 +351,16 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드, 11보석, 12보석2
+            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드, 11보석, 12보석2
             if i == 0 then
-                set str = str + "모자|n|n"
+                set str = str + "보조무기|n|n"
                 //set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 1 then
+                set str = str + "엘릭서|n|n"
+                set str = str + "  |cFFB9E2FA공격력|r +"
+                set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
                 /*
             elseif i == 1 then
                 set str = str + "상의|n|n"
@@ -539,7 +543,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         //call DzFrameSetScriptByCode(F_InfoCancelButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
         
         
-        // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
+        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
         
         call CreateEItemButton(5 , 0.040 , 0.320)
         call CreateEItemButton(0 , 0.080 , 0.320)

@@ -182,15 +182,19 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
             //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
-                set str = str + "모자|n|n"
+                set str = str + "보조무기|n|n"
                 //set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            elseif i == 1 then
+                set str = str + "엘릭서|n|n"
+                set str = str + "  |cFFB9E2FA공격력|r +"
+                set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
             elseif i == 5 then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
@@ -388,20 +392,20 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
             //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
             if i == 0 then
-                set str = str + "모자|n|n"
+                set str = str + "보조무기|n|n"
                 //set str = str + "  |cFFB9E2FA방어 등급|r +"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                /*
             elseif i == 1 then
-                set str = str + "상의|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+                set str = str + "엘릭서|n|n"
+                set str = str + "  |cFFB9E2FA공격력|r +"
+                set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
+                /*
             elseif i == 2 then
                 set str = str + "하의|n|n"
                 set str = str + "  |cFFB9E2FA방어 등급|r +"
@@ -1025,9 +1029,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 endif
             endif
 
-            // 0무기, 1모자, 2상의, 3하의, 4장갑, 5견갑, 6목걸이, 7귀걸이, 8반지
+            // 0무기, 1보조무기, 2상의, 3하의, 4장갑, 5견갑, 6목걸이, 7귀걸이, 8반지
             
-            // 0모자, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드
+            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드
             
             //장착
             if i == 1 then
