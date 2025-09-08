@@ -267,9 +267,12 @@ library StatsSet initializer init requires UIHP, ITEM
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     set Equip_WDP[pid] = ItemWeaponQuality[quality]
                 //0보조무기, 1상의, 2하의, 3장갑
-                elseif itemty >= 0 and itemty <= 3 then
+                elseif itemty == 0  then
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     //set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
+                //엘릭서
+                elseif itemty == 1  then
+                    set Equip_Damage[pid] = Equip_Damage[pid] + GetItemElixirLevel1(items) + GetItemElixirLevel2(items)
                 //목걸이
                 elseif itemty == 6 then
                 //목걸이 0품0, 1품질 5당 추가량

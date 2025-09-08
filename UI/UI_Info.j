@@ -221,15 +221,15 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                 call DzFrameSetText(UI_Tip_Text[1], "보조무기" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
-        /*
         elseif f ==  F_EItemButtons[1] then
             set items = Eitem[pid][1]
             set itemid = GetItemIDs(Eitem[pid][1])
             if itemid == 0 then
                 call DzFrameShow(UI_Tip, true)
-                call DzFrameSetText(UI_Tip_Text[1], "상의" )
+                call DzFrameSetText(UI_Tip_Text[1], "엘릭서" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
+        /*
         elseif f ==  F_EItemButtons[2] then
             set items = Eitem[pid][2]
             set itemid = GetItemIDs(Eitem[pid][2])
@@ -621,11 +621,11 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         //call DzFrameSetScriptByCode(F_InfoCancelButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
         
         
-        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
+        // 0보조무기, 1엘릭서, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드, 13보석, 14보석, 15??
         
         call CreateEItemButton(5 , 0.040 , 0.320)
         call CreateEItemButton(0 , 0.080 , 0.320)
-        //call CreateEItemButton(1 , 0.120 , 0.320)
+        call CreateEItemButton(1 , 0.350 , 0.280)
         //call CreateEItemButton(2 , 0.160 , 0.320)
         //call CreateEItemButton(3 , 0.200 , 0.320)
 
@@ -643,7 +643,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
 
         call CreateEItemButton(13 , 0.255 , 0.280)
         call CreateEItemButton(14 , 0.295 , 0.280)
-        call CreateEItemButton(15 , 0.350 , 0.280)
+        //call CreateEItemButton(15 , 0.350 , 0.280)
         
         set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)

@@ -264,13 +264,17 @@ private function EffectFunction4 takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale2, function splashD5 )
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                //call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
         elseif Stack[fx.pid] == 13 then
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)), scale2, function splashD6 )
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                //call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
         elseif Stack[fx.pid] == 14 then
             if fx.j == 0 then
@@ -285,7 +289,9 @@ private function EffectFunction4 takes nothing returns nothing
             set StackChecker = false
             if fx.i == 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
-                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                //call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e02C',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
+                call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
             if HeroSkillLevel[fx.pid][1] >= 1 then
                 call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )

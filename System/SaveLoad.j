@@ -95,8 +95,10 @@ scope Load initializer onInit
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
+        if Eitem[pid][1] != null then
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
+        endif
         /*
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
         call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
         */

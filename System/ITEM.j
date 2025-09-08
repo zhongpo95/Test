@@ -293,34 +293,34 @@ library ITEM requires DataItem
     
     //엘릭서1 수치
     function GetItemElixirLevel1 takes string items returns integer
-        local string s = JNStringRegex(items, "엘릭서A\\d+;", 0)
+        local string s = JNStringRegex(items, "A\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
     //엘릭서1 수치 변경 set items = SetItemElixirLevel1(items, 변경할수치(정수))
     function SetItemElixirLevel1 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "엘릭서A\\d+;", 0)
+        local string s = JNStringRegex(items, "A\\d+;", 0)
         if s == "" then
-            return items + "엘릭서A"+I2S(i)+";"
+            return items + "A"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "엘릭서A\\d+;", 0), "엘릭서A"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "A\\d+;", 0), "A"+I2S(i)+";")
     endfunction
 
     //엘릭서2 수치
     function GetItemElixirLevel2 takes string items returns integer
-        local string s = JNStringRegex(items, "엘릭서B\\d+;", 0)
+        local string s = JNStringRegex(items, "B\\d+;", 0)
         set s = JNStringRegex(s, "\\d+", 0)
         return S2I(s)
     endfunction
 
     //엘릭서2 수치 변경 set items = SetItemElixirLevel2(items, 변경할수치(정수))
     function SetItemElixirLevel2 takes string items, integer i returns string
-        local string s = JNStringRegex(items, "엘릭서B\\d+;", 0)
+        local string s = JNStringRegex(items, "B\\d+;", 0)
         if s == "" then
-            return items + "엘릭서B"+I2S(i)+";"
+            return items + "B"+I2S(i)+";"
         endif
-        return JNStringReplace(items, JNStringRegex(items, "엘릭서B\\d+;", 0), "엘릭서B"+I2S(i)+";")
+        return JNStringReplace(items, JNStringRegex(items, "B\\d+;", 0), "B"+I2S(i)+";")
     endfunction
 
 endlibrary

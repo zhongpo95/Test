@@ -221,15 +221,15 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 call DzFrameSetText(UI_Tip_Text[1], "보조무기" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
-            /*
         elseif f ==  F_EItemButtons2[1] then
             set items = Eitem[pid][1]
             set itemid = GetItemIDs(Eitem[pid][1])
             if itemid == 0 then
                 call DzFrameShow(UI_Tip, true)
-                call DzFrameSetText(UI_Tip_Text[1], "상의" )
+                call DzFrameSetText(UI_Tip_Text[1], "엘릭서" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
+            /*
         elseif f ==  F_EItemButtons2[2] then
             set items = Eitem[pid][2]
             set itemid = GetItemIDs(Eitem[pid][2])
@@ -547,8 +547,8 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         call CreateEItemButton(5 , 0.040 , 0.320)
         call CreateEItemButton(0 , 0.080 , 0.320)
+        call CreateEItemButton(1 , 0.350 , 0.280)
         /*
-        call CreateEItemButton(1 , 0.120 , 0.320)
         call CreateEItemButton(2 , 0.160 , 0.320)
         call CreateEItemButton(3 , 0.200 , 0.320)
         */
@@ -567,7 +567,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
 
         call CreateEItemButton(13 , 0.255 , 0.280)
         call CreateEItemButton(14 , 0.295 , 0.280)
-        call CreateEItemButton(15 , 0.350 , 0.280)
+        //call CreateEItemButton(15 , 0.350 , 0.280)
         
         set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)
@@ -853,12 +853,12 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 else
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[0], "UI_Inventory.blp", 0)
                 endif
-                /*
                 if Eitem[pid][1] != "0" and Eitem[pid][1] != "" and Eitem[pid][1] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetItemArt(Eitem[pid][1]), 0)
                 else
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[1], "UI_Inventory.blp", 0)
                 endif
+                /*
                 if Eitem[pid][2] != "0" and Eitem[pid][2] != "" and Eitem[pid][2] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[2], GetItemArt(Eitem[pid][2]), 0)
                 else

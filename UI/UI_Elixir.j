@@ -339,7 +339,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string s = ""
 
-        if true then
+        if GetLocalPlayer() == Player(pid) then
             set s = "ID49;"
             set s = SetItemElixirLevel1(s, ResultLevel[pid][1])
             set s = SetItemElixirLevel2(s, ResultLevel[pid][2])
@@ -1652,6 +1652,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             set st.j = El_Level[pid][st.j]
 
             set t.data = st
+            set st.pid = pid
             call t.start( 2.0, false, function EffectFunction )
         endif
     endfunction
@@ -6032,6 +6033,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             endif
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(ElF_Level[path][El_Level[pid][path]], "UI_Arcana_Work2.blp", 0)
+                call DzFrameSetModel(ElixirEffect[path][El_Level[pid][path]], "blinknew1800.mdx", 0, 0)
             endif
             set El_Level[pid][path] = El_Level[pid][path] + 1
             if El_Level[pid][path] == 11 then
