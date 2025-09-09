@@ -59,16 +59,12 @@ private function EffectFunction2 takes nothing returns nothing
     else
         if HeroSkillLevel[fx.pid][4] >= 2 then
             if HeroSkillLevel[fx.pid][4] >= 3 then
-                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4] + 0.25)
+                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4] + 0.25))
             else
                 call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
             endif
         else
-            if HeroSkillLevel[fx.pid][4] >= 3 then
-                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4] + 0.25)
-            else
-                call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
-            endif
+            call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
         endif
         call fx.Stop()
         call t.destroy()

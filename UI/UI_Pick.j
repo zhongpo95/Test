@@ -323,7 +323,19 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     endfunction
     
     private function Main2 takes nothing returns nothing
-        call DzFrameShow(FP_BD, true)
+        if true then
+            call DzFrameShow(FP_BD, true)
+        endif
+        /*
+        if JNGetConnectionState() == 1280266064 then
+            call BJDebugMsg("현재 싱글 플레이중입니다.")
+        elseif JNGetConnectionState() == 1413697614 then
+            call BJDebugMsg("현재 LAN에서 중입니다.")
+        elseif JNGetConnectionState() == 1112425812 then
+            call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
+            call DzFrameShow(FP_BD, true)
+        endif
+        */
     endfunction
     
     private function Main takes nothing returns nothing

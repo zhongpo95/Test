@@ -94,41 +94,51 @@ scope Load initializer onInit
         local integer pid = GetPlayerId(GetTriggerPlayer())
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
-        if Eitem[pid][1] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
-        endif
         /*
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
+        if JNGetConnectionState() == 1280266064 then
+            call BJDebugMsg("현재 싱글 플레이중입니다.")
+        elseif JNGetConnectionState() == 1413697614 then
+            call BJDebugMsg("현재 LAN에서 중입니다.")
+        elseif JNGetConnectionState() == 1112425812 then
+            call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
         */
-        //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
+        if true then
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
+            if Eitem[pid][1] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
+            endif
+            /*
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
+            */
+            //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
 
-        call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
-        
-        if Eitem[pid][6] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
+            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
+            
+            if Eitem[pid][6] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
+            endif
+            if Eitem[pid][7] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E7", Eitem[pid][7])
+            endif
+            if Eitem[pid][8] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E8", Eitem[pid][8])
+            endif
+            if Eitem[pid][9] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E9", Eitem[pid][9])
+            endif
+            if Eitem[pid][10] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E10", Eitem[pid][10])
+            endif
+            if Eitem[pid][11] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E11", Eitem[pid][11])
+            endif
+            if Eitem[pid][12] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E12", Eitem[pid][12])
+            endif
+            
+            call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
         endif
-        if Eitem[pid][7] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E7", Eitem[pid][7])
-        endif
-        if Eitem[pid][8] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E8", Eitem[pid][8])
-        endif
-        if Eitem[pid][9] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E9", Eitem[pid][9])
-        endif
-        if Eitem[pid][10] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E10", Eitem[pid][10])
-        endif
-        if Eitem[pid][11] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E11", Eitem[pid][11])
-        endif
-        if Eitem[pid][12] != null then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E12", Eitem[pid][12])
-        endif
-        
-        call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
     endfunction
 
     private function download takes nothing returns nothing

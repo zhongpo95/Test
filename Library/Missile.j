@@ -16,7 +16,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
 
         //나비
         if id == 1 then
-            call BossDeal( caster, target, 50 , false)
+            call BossDeal( caster, target, 10 , false)
         endif
 
         //세리아 얼음파편 기절
