@@ -320,6 +320,15 @@ endfunction
                     call UnitRemoveAbility( MainUnit[pid], 'B000' )
                 endif
             endif
+
+            //캐스팅중일시 캔슬
+            //반디(차지중엔 캔슬불가)
+            if DataUnitIndex(MainUnit[pid]) == 15 then
+                if IsCastingBandiS[pid] == true then
+                    set IsCastingBandiS[pid] = false
+                    call UnitRemoveAbility( MainUnit[pid], 'B000' )
+                endif
+            endif
         endif
 
         //반디비술중

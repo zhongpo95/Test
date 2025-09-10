@@ -27,13 +27,14 @@ scope HeroBandiZ
         real speed
         effect e
         integer i
+        integer pid
         private method OnStop takes nothing returns nothing
             set caster = null
             set dummy = null
             set i = 0
-               set speed = 0
-               set TargetX = 0
-                set TargetY = 0
+            set speed = 0
+            set TargetX = 0
+            set TargetY = 0
             endmethod
             //! runtextmacro 연출()
         endstruct
@@ -77,16 +78,28 @@ scope HeroBandiZ
                 call t.start( 1.35, false, function EffectFunction ) 
             elseif fx.i+29 == 87 then
                 call AnimationStart3(fx.caster,4, 1.00)
-                set fx.e = AddSpecialEffectTarget("tx-LiuYing17.mdl",fx.caster,"chest")
+                if fx.pid != GetPlayerId(GetLocalPlayer()) then
+                    set fx.e = AddSpecialEffectTarget(".mdl", fx.caster,"chest")
+                else
+                    set fx.e = AddSpecialEffectTarget("tx-LiuYing17.mdl",fx.caster,"chest")
+                endif
                 call t.start( 0.05, false, function EffectFunction ) 
             elseif fx.i+29 == 88 then
-                set e = AddSpecialEffect("tx-LiuYing15.mdl", GetUnitX(fx.caster), GetUnitY(fx.caster))
+                if fx.pid != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffect("tx-LiuYing15.mdl", GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                endif
                 call EXSetEffectZ(e, 200)
                 call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
                 call EXSetEffectSize(e,2.0)
                 call DestroyEffect(e)
                 set e = null
-                set e = AddSpecialEffect("Suzakuin-17-Y.mdl", GetUnitX(fx.caster), GetUnitY(fx.caster))
+                if fx.pid != GetPlayerId(GetLocalPlayer()) then
+                    set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                else
+                    set e = AddSpecialEffect("Suzakuin-17-Y.mdl", GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                endif
                 call EXSetEffectZ(e, 200)
                 call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
                 call DestroyEffect(e)
@@ -109,21 +122,22 @@ scope HeroBandiZ
         local SkillFx fx
         
         if GetSpellAbilityId() == 'A06M' then
+            set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
             set t = tick.create(0) 
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()
             set fx.i = 0
-            set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
+            set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 
             call CooldownFIX(fx.caster,'A06M', 4.0)
             //call DummyMagicleash(fx.caster, Time)
             //call AnimationStart3(fx.caster,17, 1.00)
-            call BanBisul2Use(pid)
+            call BanBisul2Use(fx.pid)
 
             call DzSetUnitModel(fx.caster, "[AWF]FireFlySam2.mdx")
 
             //form 완전연소
-            set BandiState[pid] = 2
+            set BandiState[fx.pid] = 2
 
             call EXPauseUnit(fx.caster,true)
 
