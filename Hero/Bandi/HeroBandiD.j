@@ -3,12 +3,14 @@ scope HeroBandiD
         private constant real SD = 0.00
         //쉐클시간
         private constant real Time = 2.0
-        private constant real MoveD = 1000
+        private constant real MoveD = 600
     
         private constant real TICK = 20
     
-        private constant real scale = 600
-        private constant real distance = 450
+        private constant real scale = 150
+        private constant real distance = 300
+        private constant real scale2 = 150
+        private constant real distance2 = 300
         //범위체크
         private group CheckG
         //더미 유닛
@@ -16,66 +18,51 @@ scope HeroBandiD
         private integer Nabi
     endglobals
     
-    private function splashD takes nothing returns nothing
+    private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         //local integer level = HeroSkillLevel[pid][6]
         local real velue = 1.0
         local integer random
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
-                //뒤는안떄림
-                if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
-                    
-                    call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
-                    call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-    
-                    loop
-                    exitwhen Nabi == 0
-                        set Nabi = Nabi - 1
-                        call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
-                        call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-                    endloop
-    
-                    set random = GetRandomInt(0,2)
-                    if random == 0 then
-                        call Sound3D(GetEnumUnit(),'A03X')
+            call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
+            call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
+                /*
+                set random = GetRandomInt(0,2)
+                if random == 0 then
+                    call Sound3D(GetEnumUnit(),'A03X')
                     elseif random == 1 then
-                        call Sound3D(GetEnumUnit(),'A03Y')
-                    elseif random == 2 then
-                        call Sound3D(GetEnumUnit(),'A05N')
-                    endif
-                    call GroupAddUnit(CheckG,GetEnumUnit())
+                    call Sound3D(GetEnumUnit(),'A03Y')
+                elseif random == 2 then
+                    call Sound3D(GetEnumUnit(),'A05N')
                 endif
-            endif
+                */
         endif
     endfunction
-    
-    private function EffectFunction2 takes nothing returns nothing
-        local tick t = tick.getExpired()
-        local SkillFx fx = t.data
-        local real X
-        local real Y
+
+    private function splashD takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
+        //local integer level = HeroSkillLevel[pid][6]
+        local real velue = 1.0
+        local integer random
         
-        set fx.i = fx.i + 1
-        
-        if fx.i != (TICK+1) then
-            set X = GetWidgetX(fx.dummy)
-            set Y = GetWidgetY(fx.dummy)
-            call SetUnitX(fx.dummy, X + PolarX( 60, fx.r ))
-            call SetUnitY(fx.dummy, Y + PolarY( 60, fx.r ))
-            set CheckG = fx.ul.super
-            set CheckU = fx.dummy
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.dummy), GetWidgetY(fx.dummy), scale, function splashD )
-            set CheckU = null
-            set CheckG = null
-            call t.start( 0.02, false, function EffectFunction2 )
-        else
-            call fx.ul.destroy()
-            call fx.Stop()
-            call t.destroy()
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
+            if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
+                call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
+                call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
+                /*
+                set random = GetRandomInt(0,2)
+                if random == 0 then
+                    call Sound3D(GetEnumUnit(),'A03X')
+                    elseif random == 1 then
+                    call Sound3D(GetEnumUnit(),'A03Y')
+                elseif random == 2 then
+                    call Sound3D(GetEnumUnit(),'A05N')
+                endif
+                */
+                call GroupAddUnit(CheckG,GetEnumUnit())
+            endif
         endif
-    
     endfunction
     
     private function EffectFunction3 takes nothing returns nothing
@@ -91,31 +78,29 @@ scope HeroBandiD
             else
                 call Sound3D(fx.caster,'A061')
             endif
-            call SetUnitGravity(fx.caster,1.2)
+            set fx.ul = party.create()
+            call SetUnitGravity(fx.caster,2.3)
+            call UnitEffectTime2('e03W',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
         endif
 
-        if fx.i == R2I(40/fx.speed) then
-            set t2 = tick.create(0)
-            set fx2 = SkillFx.Create()
-            set fx2.ul = party.create()
-            set fx2.caster = fx.caster
-            set fx2.r = fx.r2
-            set fx2.pid = GetPlayerId(GetOwningPlayer(fx2.caster))
-            set fx2.i = 0
-            set fx2.j = 0
-            set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
-            set fx2.st = fx.st
-            set t2.data = fx2
-            call t2.start( 0.02, false, function EffectFunction2 ) 
+        if fx.i == R2I(18/fx.speed) then
         endif
     
     
-        if fx.i >= R2I(40/fx.speed) then
+        if fx.i >= R2I(18/fx.speed) then
             call SetUnitGravity(fx.caster,0.6)
+            call UnitEffectTime2('e03Z',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+            call fx.ul.destroy()
             call fx.Stop()
             call t.destroy()
         else
-            call SetUnitSafePolarUTA(fx.caster,fx.r/R2I(40/fx.speed), fx.r2 )
+            set CheckG = fx.ul.super
+            set CheckU = fx.caster
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+            set CheckU = null
+            set CheckG = null
+            call SetUnitSafePolarUTA(fx.caster,fx.r/R2I(18/fx.speed), fx.r2 )
             call t.start( 0.02, false, function EffectFunction3 ) 
         endif
     endfunction
@@ -124,8 +109,12 @@ scope HeroBandiD
         local SkillFx fx = t.data
 
         call SetUnitZVeloP( fx.caster, 20)
+        call Sound3D(fx.caster,'A05X')
+        call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
+        call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
+        call UnitEffectTime2('e03X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),2.0,0,fx.pid)
 
-        call t.start( 0.586 * (1 - (fx.speed/(100+fx.speed))), false, function EffectFunction3 )
+        call t.start( 0.586 / fx.speed , false, function EffectFunction3 )
     endfunction
     
     private function Main takes nothing returns nothing
@@ -153,17 +142,9 @@ scope HeroBandiD
             //유닛애니메이션속도
             call DummyMagicleash(fx.caster, Time /fx.speed)
             call AnimationStart3(fx.caster, 2, fx.speed)
-            
-            if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
-                set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-            else
-                set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-            endif
-            
-            call EXEffectMatRotateZ(e,AnglePBW(fx.TargetX,fx.TargetY,fx.caster))
-            call DestroyEffect(e)
-            set e = null
     
+            call Sound3D(fx.caster,'A05W')
+
             set fx.r2 = AngleWBP(fx.caster,fx.TargetX,fx.TargetY)
     
             if fx.j == 0 then
@@ -179,9 +160,10 @@ scope HeroBandiD
                 call BuffNoST.Apply( fx.caster, Time, 0 )
             endif
     
-            call t.start( 0.439 * (1 - (fx.speed/(100+fx.speed))), false, function EffectFunction )
-    
-            call CooldownFIX(fx.caster,'A06E',HeroSkillCD5[14])
+            call t.start( 0.439 / fx.speed, false, function EffectFunction )
+
+            //call CooldownFIX(fx.caster,'A06E',HeroSkillCD5[14])
+            call CooldownFIX(fx.caster,'A06E',5.0)
         endif
     endfunction
         

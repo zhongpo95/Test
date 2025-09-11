@@ -328,7 +328,6 @@ private function Main takes nothing returns nothing
 
         //유닛애니메이션속도
         call AnimationStart3(fx.caster, 14, fx.Aspeed)
-        
         if Player(fx.pid) == GetLocalPlayer() then
             call DzFrameSetText(CastingTextFrame,"찰 나")
             call DzFrameSetValue(CastingBar,0)

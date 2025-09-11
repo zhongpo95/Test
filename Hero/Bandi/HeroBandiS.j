@@ -38,7 +38,7 @@ scope HeroBandiS
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
     
-            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
+            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
             
             if level >= 1 then
                 //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
@@ -53,7 +53,7 @@ scope HeroBandiS
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
     
-            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
+            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
             
             if level >= 1 then
                 //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
@@ -90,12 +90,11 @@ scope HeroBandiS
         if IsCastingBandiS[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
-                //call Sound3DT(fx.caster,'A06X',0.05 * (1 - (fx.speed/(100+fx.speed)) ) )
                 call Sound3D(fx.caster,'A06X')
                 call UnitEffectTime2('e03U',GetWidgetX(fx.caster)+PolarX( 125, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 125, GetUnitFacing(fx.caster)-15 ),GetUnitFacing(fx.caster),2.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
                 if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 125, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 125, GetUnitFacing(fx.caster)-15 ), scale, function splashD ) != 0 then
                 endif
-                call t.start( 0.336 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction2 ) 
+                call t.start( 0.336 /fx.speed, false, function EffectFunction2 ) 
             else
                 call fx.Stop()
                 call t.destroy()
@@ -119,16 +118,19 @@ scope HeroBandiS
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()
             set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-            set fx.speed = SkillSpeed(fx.pid)
+            //set fx.speed = SkillSpeed(fx.pid)
+            set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set IsCastingBandiS[fx.pid] = true
             
             call Sound3D(fx.caster,'A06W')
-            call CooldownFIX(fx.caster,'A06J',HeroSkillCD5[4])
-            call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
-            call AnimationStart3(fx.caster,3, (100+fx.speed)/100)
+            call DummyMagicleash(fx.caster,Time / fx.speed )
+            call AnimationStart3(fx.caster,3, fx.speed)
+
+            call Overlay2Count(fx.pid,'A06J')
             
             set t.data = fx
-            call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+            call t.start( Time2 / fx.speed, false, function EffectFunction ) 
+            call CooldownFIX(fx.caster,'A06J',HeroSkillCD5[4])
         endif
     endfunction
         

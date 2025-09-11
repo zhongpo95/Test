@@ -84,6 +84,8 @@ private function Main takes nothing returns nothing
             call Sound3D(fx.caster,'A06S')
         endif
 
+        call Overlay2Count(fx.pid,'A06H')
+
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
         call AnimationStart3(fx.caster, 2, fx.speed)

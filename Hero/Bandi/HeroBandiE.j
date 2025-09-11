@@ -50,10 +50,10 @@ private function EffectFunction2 takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
         endif
 
-        if not IsUnitDeadVJ(BandiForm1[fx.pid]) then
-            call KillUnit(BandiForm1[fx.pid])
+        if not IsUnitDeadVJ(BandiForm[fx.pid]) then
+            call KillUnit(BandiForm[fx.pid])
         endif
-        set BandiForm2[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e03B',0,0,0)
+        set BandiForm[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e03B',0,0,0)
 
         //form 샘
         set BandiState[fx.pid] = 2
@@ -120,11 +120,11 @@ private function Main takes nothing returns nothing
         set caster = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(caster))
 
-        if not IsUnitDeadVJ(BandiForm2[pid]) then
-            call KillUnit(BandiForm2[pid])
+        if not IsUnitDeadVJ(BandiForm[pid]) then
+            call KillUnit(BandiForm[pid])
         endif
 
-        set BandiForm1[pid] = CreateUnit(GetOwningPlayer(caster),'e03A',0,0,0)
+        set BandiForm[pid] = CreateUnit(GetOwningPlayer(caster),'e03A',0,0,0)
         //form 반디
         set BandiState[pid] = 1
 
@@ -153,6 +153,8 @@ private function Main takes nothing returns nothing
         call BanBisulUse(fx.pid)
 
         call DzSetUnitModel(fx.caster, "tx-LiuYing05.mdx")
+
+        call Overlay2Count(fx.pid,'A06F')
 
         set t.data = fx
         set Stack[fx.pid] = 1

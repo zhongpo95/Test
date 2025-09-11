@@ -201,7 +201,7 @@ scope ESC initializer init
         //set frame3 = DzFrameGetCommandBarButton(2,0)
         //call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
 
-        /*
+        //*
         
         //목
         set s = "ID10;"
@@ -231,7 +231,7 @@ scope ESC initializer init
         set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
         set s = SetItemCombatPenalty2(s,1)
         call additem(Player(0), s)
-        */
+        //*/
         //call additem(Player(0),"ID12"+";"+"0")
 
         /*

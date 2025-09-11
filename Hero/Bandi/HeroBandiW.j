@@ -91,6 +91,8 @@ private function Main takes nothing returns nothing
         set e = null
  
         call Sound3D(fx.caster,'A06T')
+        
+        call Overlay2Count(fx.pid,'A06L')
 
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)

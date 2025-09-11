@@ -37,7 +37,7 @@ scope HeroBandiA
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call UnitEffectTime2('e03G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-                call BanBisul2Plus( fx.pid,1)
+                call BanBisul2Plus( fx.pid,4)
             endif
             call fx.Stop()
             call t.destroy()
@@ -85,6 +85,8 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A05U')
         call Sound3D(fx.caster,'A05V')
         call Sound3D(fx.caster,'A06V')
+
+        call Overlay2Count(fx.pid,'A06C')
 
         call DummyMagicleash(fx.caster, Time3/fx.speed)
         call AnimationStart3(fx.caster, 0, fx.speed)

@@ -520,7 +520,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameShow(BanAdens2[4], true)
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
-            set BandiForm1[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
+            set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
             //form 반디
             set BandiState[pid] = 1
         endif
@@ -782,7 +782,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameShow(BanAdens2[4], true)
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
-            set BandiForm1[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
+            set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
             //form 반디
             set BandiState[pid] = 1
         endif

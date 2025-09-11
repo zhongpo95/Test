@@ -14,9 +14,9 @@ scope HeroBandiZ
         private constant real scale = 500
         private constant real distance = 200
 
-        unit array BandiForm1
-        unit array BandiForm2
-        unit array BandiForm3
+        unit array BandiForm
+        //unit array BandiForm2
+        //unit array BandiForm3
     endglobals
         
     private struct SkillFx
@@ -129,7 +129,6 @@ scope HeroBandiZ
             set fx.i = 0
             set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 
-            call CooldownFIX(fx.caster,'A06M', 4.0)
             //call DummyMagicleash(fx.caster, Time)
             //call AnimationStart3(fx.caster,17, 1.00)
             call BanBisul2Use(fx.pid)
@@ -143,6 +142,7 @@ scope HeroBandiZ
 
             set t.data = fx
             call t.start( Time2, false, function EffectFunction ) 
+            call CooldownFIX(fx.caster,'A06M', 4.0)
          endif
     endfunction
 
@@ -310,24 +310,64 @@ scope HeroBandiZ
         endif
     endfunction
     
+
+    private struct Adenst
+        integer i
+        integer pid
+    endstruct
+
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
-    
-        if GetLocalPlayer() == Player(t.data) then
-            call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
+        local Adenst st = t.data
+
+        set st.i = st.i + 1
+        if st.i == 1 then
+            if not IsUnitDeadVJ(BandiForm[st.pid]) then
+                call KillUnit(BandiForm[st.pid])
+            endif
+            set BandiForm[st.pid] = CreateUnit(Player(st.pid),'e03C',0,0,0)
         endif
 
-        if BandiState[t.data] != 2 then
+        if GetLocalPlayer() == Player(st.pid) then
+            call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
+        endif
+        
+        if st.i == 22 then
+            if not IsUnitDeadVJ(BandiForm[st.pid]) then
+                call KillUnit(BandiForm[st.pid])
+            endif
+    
+            set BandiForm[st.pid] = CreateUnit(Player(st.pid),'e03A',0,0,0)
+            //form 반디
+            set BandiState[st.pid] = 1
+    
+            call DzSetUnitModel(MainUnit[st.pid], "FireFly_V1.mdx")
+    
+            if GetUnitAbilityLevel(MainUnit[st.pid],'A06Q') >= 1 then
+                call UnitRemoveAbility(MainUnit[st.pid],'A06Q')
+                call UnitAddAbility(MainUnit[st.pid],'A06F')
+            endif
+    
+            if GetLocalPlayer() == Player(st.pid) then
+                call DzFrameShow(BanAdens[0],true)
+                call DzFrameSetTexture(BanAdens[1],"Bandi_Aden2_0.blp",0)
+                call DzFrameShow(BanAdens[1],false)
+                call DzFrameShow(BanAdens[2],false)
+            endif
             call t.destroy()
+            call st.destroy()
         endif
     endfunction
     
     function BanBisul2Use takes integer pid returns nothing
         local tick t = tick.create(pid)
+        local Adenst st = Adenst.create()
+        set st.i = 0
+        set st.pid = pid
+        set t.data = st
 
         if GetLocalPlayer() == Player(pid) then
             call DzFrameSetTexture(BanAdens[1],"Bandi_Aden3_0.blp",0)
-            call DzFrameSetModel(BanAdens[2], "Bandi_Aden3.mdx", 0, 0)
         endif
         
         if not IsUnitDeadVJ(BanBisul2U[pid]) then
@@ -335,6 +375,7 @@ scope HeroBandiZ
         endif
         
         set BanBisul2[pid] = 0
+        set BandiState[pid] = 3
 
         call t.start( 1.0, true, function EffectFunction )
     endfunction
