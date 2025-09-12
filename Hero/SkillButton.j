@@ -21,6 +21,8 @@ library SkillButton requires DataUnit
         real speed
         real Aspeed
         real A2speed
+        effect e
+        effect e2
         party ul
         private method OnStop takes nothing returns nothing
             set caster = null
@@ -41,6 +43,8 @@ library SkillButton requires DataUnit
             set speed = 0
             set Aspeed = 0
             set A2speed = 0
+            set e = null
+            set e2 = null
         endmethod
         //! runtextmacro 연출()
     endstruct

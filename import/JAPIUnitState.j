@@ -140,7 +140,7 @@ else
     native EXGetUnitArrayString takes integer unitcode, integer data_type, integer index returns string
     native EXSetUnitArrayString takes integer unitcode, integer data_type, integer index, string value returns boolean
 
-    native EXPauseUnit takes unit u, boolean flag returns nothing
+    native PauseUnitEx takes unit u, boolean flag returns nothing
     native EXSetUnitCollisionType takes boolean enable, unit u, integer t returns nothing
     native EXSetUnitMoveType takes unit u, integer t returns nothing
     native EXSetUnitFacing takes unit u, real angle returns nothing
@@ -214,7 +214,7 @@ function JNPauseUnit takes unit whichUnit, boolean flag returns nothing
 static if REFORGED_MODE then
     call BlzPauseUnitEx(whichUnit, flag)
 else
-    call EXPauseUnit(whichUnit, flag)
+    call PauseUnitEx(whichUnit, flag)
 endif
 endfunction
 

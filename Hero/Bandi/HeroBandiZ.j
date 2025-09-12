@@ -19,30 +19,43 @@ scope HeroBandiZ
         //unit array BandiForm3
     endglobals
         
-    private struct SkillFx
-        unit caster
-        unit dummy
-        real TargetX
-        real TargetY
-        real speed
-        effect e
-        integer i
-        integer pid
-        private method OnStop takes nothing returns nothing
-            set caster = null
-            set dummy = null
-            set i = 0
-            set speed = 0
-            set TargetX = 0
-            set TargetY = 0
-            endmethod
-            //! runtextmacro 연출()
-        endstruct
+    private function EffectFunctionZ takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local SkillFx fx = t.data
+        local real r
         
+        call UnitAddAbility(fx.caster,'Arav')
+        call UnitRemoveAbility(fx.caster,'Arav')
+
+        set fx.r = fx.r + 0.04
+
+        if fx.r <= 1.300 then
+            set r = RMaxBJ(( 5.00 - ( fx.r - 1.700 ) * 5.00 ), 2.00)
+        elseif fx.r <= 1.800 then
+            set r = 0
+        else
+            set r = GetUnitFlyHeight(fx.caster) / 7.5
+        endif
+
+        if GetUnitFlyHeight(fx.caster) >= 0 and fx.r <= 2.00 then
+            if fx.r <= 1.700 then
+                call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) + r, r / 0.04)
+            else
+                call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) - r, r / 0.04)
+            endif
+        else
+            call SetUnitFlyHeight(fx.caster, 0, 0.00)
+            call fx.Stop()
+            call t.destroy()
+        endif
+    endfunction
+
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
         local effect e
+        local tick t2
+        local SkillFx fx2
        
         //반디필터
         set fx.i = fx.i + 1
@@ -67,6 +80,13 @@ scope HeroBandiZ
         elseif fx.i+29 == 85 then
             call AnimationStart3(fx.caster,3, 1.00)
             call Sound3D(MainUnit[0],'A068')
+            set fx2 = SkillFx.Create()
+            set t2 = tick.create(fx2)
+            set fx2.pid = fx.pid
+            set fx2.caster = fx.caster
+            set fx2.r = 0
+
+            call t2.start( 0.04, true, function EffectFunctionZ )
         endif
 
 
@@ -90,7 +110,9 @@ scope HeroBandiZ
                 else
                     set e = AddSpecialEffect("tx-LiuYing15.mdl", GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                 endif
-                call EXSetEffectZ(e, 200)
+                call UnitAddAbility(fx.caster,'Arav')
+                call UnitRemoveAbility(fx.caster,'Arav')
+                call EXSetEffectZ(e, GetUnitFlyHeight(fx.caster)+100)
                 call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
                 call EXSetEffectSize(e,2.0)
                 call DestroyEffect(e)
@@ -100,15 +122,18 @@ scope HeroBandiZ
                 else
                     set e = AddSpecialEffect("Suzakuin-17-Y.mdl", GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                 endif
-                call EXSetEffectZ(e, 200)
+                call UnitAddAbility(fx.caster,'Arav')
+                call UnitRemoveAbility(fx.caster,'Arav')
+                call EXSetEffectZ(e, GetUnitFlyHeight(fx.caster)+100)
                 call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster)+90)
                 call DestroyEffect(e)
                 set e = null
                 call t.start( 0.60, false, function EffectFunction ) 
             else
                 call DestroyEffect(fx.e)
-                call EXPauseUnit(fx.caster,false)
+                call PauseUnitEx(fx.caster,false)
                 set fx.e = null
+                call fx.Stop()
                 call t.destroy()
             endif
         endif
@@ -116,6 +141,7 @@ scope HeroBandiZ
 
     endfunction
         
+
     private function Main takes nothing returns nothing
         local integer pid
         local tick t
@@ -131,6 +157,7 @@ scope HeroBandiZ
                 
             //call DummyMagicleash(fx.caster, Time)
             //call AnimationStart3(fx.caster,17, 1.00)
+            
             call BanBisul2Use(fx.pid)
 
             call DzSetUnitModel(fx.caster, "[AWF]FireFlySam2.mdx")
@@ -138,7 +165,7 @@ scope HeroBandiZ
             //form 완전연소
             set BandiState[fx.pid] = 2
 
-            call EXPauseUnit(fx.caster,true)
+            call PauseUnitEx(fx.caster,true)
 
             set t.data = fx
             call t.start( Time2, false, function EffectFunction ) 
@@ -158,7 +185,7 @@ scope HeroBandiZ
     
         set pid=GetPlayerId(p)
             
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
                 set valueLen=StringLength(R2S(x))

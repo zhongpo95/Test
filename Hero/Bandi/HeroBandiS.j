@@ -146,7 +146,7 @@ scope HeroBandiS
         
         set pid=GetPlayerId(p)
         
-        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID5[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
+        if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID5[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
                 set valueLen=StringLength(R2S(x))
