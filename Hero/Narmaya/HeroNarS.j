@@ -182,6 +182,8 @@ private function Main takes nothing returns nothing
     local effect e
 
     if GetSpellAbilityId() == 'A02N' then
+        call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.caster = GetTriggerUnit()

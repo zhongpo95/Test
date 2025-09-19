@@ -37,7 +37,7 @@ scope HeroBandiA
             if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                 call UnitEffectTime2('e03G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-                call BanBisul2Plus( fx.pid,4)
+                //call BanBisul2Plus( fx.pid,4)
             endif
             call fx.Stop()
             call t.destroy()
@@ -55,6 +55,8 @@ private function Main takes nothing returns nothing
     local effect e
 
     if GetSpellAbilityId() == 'A06C' then
+        call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.caster = GetTriggerUnit()

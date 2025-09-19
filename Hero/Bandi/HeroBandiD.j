@@ -80,7 +80,6 @@ scope HeroBandiD
             //call SetUnitGravity(fx.caster,2.3)
             call UnitEffectTime2('e03W',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
             call UnitEffectTime2('e04G',GetWidgetX(fx.caster)+PolarX(50,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(50,GetUnitFacing(fx.caster)),fx.r2-180,2.0,0,fx.pid)
-            call BJDebugMsg(R2S(GetUnitFlyHeight(fx.caster)))
         endif
 
         if fx.i == R2I(18/fx.speed) then
@@ -173,6 +172,8 @@ scope HeroBandiD
         local effect e
     
         if GetSpellAbilityId() == 'A06E' then
+            call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+            call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()
@@ -201,12 +202,13 @@ scope HeroBandiD
             endif
     
             set t.data = fx
+            
+            call BanBisul2Plus( fx.pid,1)
     
             if HeroSkillLevel[fx.pid][5] >= 2 then
                 call BuffNoNB.Apply( fx.caster, Time, 0 )
                 call BuffNoST.Apply( fx.caster, Time, 0 )
             endif
-    
             call t.start( 0.439 / fx.speed, false, function EffectFunction )
 
             //call CooldownFIX(fx.caster,'A06E',HeroSkillCD5[14])

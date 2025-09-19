@@ -32,7 +32,7 @@ private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        call HeroDeal('A028',splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
+        call HeroDeal(2,splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
     endif
 endfunction
 
@@ -60,6 +60,8 @@ private function Main takes nothing returns nothing
     local real random
          
     if GetSpellAbilityId() == 'A028' then
+        call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0) 
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
@@ -72,7 +74,7 @@ private function Main takes nothing returns nothing
         call CooldownFIX(fx.caster,'A028', CoolTime)
 
         call DummyMagicleash(fx.caster,Time /speed)
-        call AnimationStart3(fx.caster, 18, (100+speed)/100)
+        call AnimationStart3(fx.caster, 18, speed)
         
         set t.data = fx
         call t.start( Time2 /speed, false, function EffectFunction ) 

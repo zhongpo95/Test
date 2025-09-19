@@ -190,12 +190,10 @@ scope HeroBandiF
 
         if fx.r <= 1.300 then
             set r = RMaxBJ(( 10.00 - ( fx.r - 1.700 ) * 10.00 ), 2.00)
-            call BJDebugMsg("time : "+R2S(fx.r)+ " r : "+ R2S(r)+ " 높이 : "+ R2S(GetUnitFlyHeight(fx.caster)) )
         elseif fx.r <= 1.800 then
             set r = 0
         else
             set r = GetUnitFlyHeight(fx.caster) / 8.0
-            call BJDebugMsg("time : "+R2S(fx.r)+ " r : "+ R2S(r)+ " 높이 : "+ R2S(GetUnitFlyHeight(fx.caster)) )
         endif
 
         if GetUnitFlyHeight(fx.caster) >= 0 and fx.r <= 2.20 then
@@ -219,6 +217,8 @@ scope HeroBandiF
         local SkillFx fx2
         
         if GetSpellAbilityId() == 'A06G' then
+            call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+            call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0) 
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()

@@ -324,6 +324,8 @@ private function Main takes nothing returns nothing
     local tick t
     local FxEffect fx
     if GetSpellAbilityId() == 'A01C' then
+        call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0) 
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()

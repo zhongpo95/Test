@@ -106,8 +106,17 @@ private function F_A006 takes nothing returns nothing
         call st.Start()
         call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
-            call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            if DataUnitIndex(caster) == 17 then
+                if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+                elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
+                endif
+            else
+                call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            endif
         endif
         call UnitRemoveAbility(caster,'A006')
         call UnitAddAbility(caster,'A005')
@@ -156,8 +165,17 @@ private function F_A005 takes nothing returns nothing
         call st.Start()
         call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
+        
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
-            call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            if DataUnitIndex(caster) == 17 then
+                if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+                elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
+                endif
+            else
+                call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            endif
         endif
         call UnitRemoveAbility(caster,'A005')
         call UnitAddAbility(caster,'A004')
@@ -207,7 +225,15 @@ private function F_A004 takes nothing returns nothing
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
-            call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            if DataUnitIndex(caster) == 17 then
+                if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+                elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
+                    call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
+                endif
+            else
+                call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
+            endif
         endif
         call UnitRemoveAbility(caster,'A004')
         call UnitAddAbility(caster,'A002')
@@ -340,7 +366,7 @@ endfunction
             endif
         endif
         
-    set p=null
+        set p=null
     endfunction
 
 //! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")

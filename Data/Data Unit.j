@@ -14,15 +14,6 @@ globals
     string array UnitCutString
     //컷인사운드
     sound array UnitCutSound
-    //스킬blp
-    string array HeroSkillBlp0
-    string array HeroSkillBlp1
-    string array HeroSkillBlp2
-    string array HeroSkillBlp3
-    string array HeroSkillBlp4
-    string array HeroSkillBlp5
-    string array HeroSkillBlp6
-    string array HeroSkillBlp7
     //스킬타입
     string array HeroSkillTpye0
     string array HeroSkillTpye1
@@ -179,6 +170,8 @@ function DataUnitIndex takes unit u returns integer
         return 15
     elseif i == 'h00L' then
         return 16
+    elseif i == 'H00P' then
+        return 17
     endif
     return 0
 endfunction
@@ -199,13 +192,6 @@ private function init takes nothing returns nothing
     set UnitAbilityIndex[1] = 'H000'
     set UnitHeroCheck[1] = true
     set UnitDashCode[1] = 6
-    set HeroSkillBlp0[1] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
-    set HeroSkillBlp1[1] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
-    set HeroSkillBlp2[1] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
-    set HeroSkillBlp3[1] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
-    set HeroSkillBlp4[1] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp5[1] = ""
-    set HeroSkillBlp6[1] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     
     //샌드백
     set UnitAbilityIndex[2] = 'h002'
@@ -222,14 +208,6 @@ private function init takes nothing returns nothing
     set UnitCutSound[3]= gg_snd_Momi8
     set UnitHeroCheck[3] = true
     set UnitDashCode[3] = 3
-    set HeroSkillBlp0[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
-    set HeroSkillBlp1[3] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
-    set HeroSkillBlp2[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
-    set HeroSkillBlp3[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
-    set HeroSkillBlp4[3] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp5[3] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp6[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
-    set HeroSkillBlp7[3] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     set HeroSkillID0[3] = 'A00Y'
     set HeroSkillID1[3] = 'A00Z'
     set HeroSkillID2[3] = 'A010'
@@ -318,14 +296,6 @@ private function init takes nothing returns nothing
     set UnitCutSound[4]= gg_snd_ChenCut
     set UnitHeroCheck[4] = true
     set UnitDashCode[4] = 9
-    set HeroSkillBlp0[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
-    set HeroSkillBlp1[4] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
-    set HeroSkillBlp2[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
-    set HeroSkillBlp3[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
-    set HeroSkillBlp4[4] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp5[4] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp6[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
-    set HeroSkillBlp7[4] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     set HeroSkillID0[4] = 'A01A'
     set HeroSkillID1[4] = 'A017'
     set HeroSkillID2[4] = 'A019'
@@ -481,14 +451,6 @@ private function init takes nothing returns nothing
     set UnitCutSound[14]= gg_snd_Narmaya_Cut1
     set UnitHeroCheck[14] = true
     set UnitDashCode[14] = 9
-    set HeroSkillBlp0[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
-    set HeroSkillBlp1[14] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
-    set HeroSkillBlp2[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
-    set HeroSkillBlp3[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
-    set HeroSkillBlp4[14] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp5[14] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp6[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
-    set HeroSkillBlp7[14] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     set HeroSkillID0[14] = 'A02I'
     set HeroSkillID1[14] = 'A02J'
     set HeroSkillID2[14] = 'A02K'
@@ -584,14 +546,6 @@ private function init takes nothing returns nothing
     set UnitCutSound[15]= gg_snd_Narmaya_Cut1
     set UnitHeroCheck[15] = true
     set UnitDashCode[15] = 6
-    set HeroSkillBlp0[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack2.blp"
-    set HeroSkillBlp1[15] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
-    set HeroSkillBlp2[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack.blp"
-    set HeroSkillBlp3[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack3.blp"
-    set HeroSkillBlp4[15] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp5[15] = "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp"
-    set HeroSkillBlp6[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
-    set HeroSkillBlp7[15] = "ReplaceableTextures\\CommandButtons\\BTNHero_Jack4.blp"
     set HeroSkillID0[15] = 'A06H'
     set HeroSkillID1[15] = 'A06L'
     set HeroSkillID2[15] = 'A06F'
@@ -612,9 +566,9 @@ private function init takes nothing returns nothing
     set HeroSkillCD0[15] = 6.00
     set HeroSkillVCount0[15] = 1
     set HeroSkillVelue0[15] = 1.00
-    set HeroSkill0Text1[15] = "총 피해량이 66.0% 증가"
-    set HeroSkill0Text2[15] = "적중시 비술 1 을 추가 획득"
-    set HeroSkill0Text3[15] = "카운터 적중시 비술게이지 5개 획득"
+    set HeroSkill0Text1[15] = ""
+    set HeroSkill0Text2[15] = ""
+    set HeroSkill0Text3[15] = ""
 
     set HeroSkillTpye1[15] = "일반"
     set HeroSkillStr1[15] = "지정 방향으로 관통하며 5번의 피해를 입히며 돌진합니다. 각 적중시 비술을 1 획득합니다."
@@ -630,13 +584,13 @@ private function init takes nothing returns nothing
     set HeroSkillCD2[15] = 10.00
     set HeroSkillVCount2[15] = 1
     set HeroSkillVelue2[15] = 5.0
-    set HeroSkill2Text1[15] = "공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시킵니다."
-    set HeroSkill2Text2[15] = "입히는 피해가 총 100% 증가합니다."
-    set HeroSkill2Text3[15] = "비술 적중시 완전연소 게이지를 50% 회복합니다."
+    set HeroSkill2Text1[15] = ""
+    set HeroSkill2Text2[15] = ""
+    set HeroSkill2Text3[15] = "비술 적중시 완전연소 게이지를 50% 회복합니다.(미구현)"
 
-    set HeroSkillTpye3[15] = "일반"
-    set HeroSkillStr3[15] = "짧게 지정 방향으로 이동하며 3회 공격합니다."
-    set HeroSkillCD3[15] = 8.00
+    set HeroSkillTpye3[15] = "일반, 카운터"
+    set HeroSkillStr3[15] = "지정 방향으로 총 6회 공격합니다."
+    set HeroSkillCD3[15] = 2.75
     set HeroSkillVCount3[15] = 2
     set HeroSkillVelue3[15] = 1.00
     set HeroSkillVelue23[15] = 1.00
@@ -649,16 +603,16 @@ private function init takes nothing returns nothing
     set HeroSkillCD4[15] = 8.00
     set HeroSkillVCount4[15] = 1
     set HeroSkillVelue4[15] = 0.35
-    set HeroSkill4Text1[15] = "시전도중 CC면역"
-    set HeroSkill4Text2[15] = "적중시 최대체력의 20%를 회복합니다."
-    set HeroSkill4Text3[15] = "카운터 적중시 완전연소 게이지를 100% 회복합니다."
+    set HeroSkill4Text1[15] = "시전도중 CC면역(미구현)"
+    set HeroSkill4Text2[15] = "적중시 최대체력의 20%를 회복합니다.(미구현)"
+    set HeroSkill4Text3[15] = "카운터 적중시 완전연소 게이지를 100% 회복합니다.(미구현)"
 
     set HeroSkillTpye5[15] = "일반"
     set HeroSkillStr5[15] = "바닥을 발로 찍어 범위 피해를 입힙니다."
     set HeroSkillCD5[15] = 10.00
     set HeroSkillVCount5[15] = 1
     set HeroSkillVelue5[15] = 1.00
-    set HeroSkill5Text1[15] = "시전도중 CC면역"
+    set HeroSkill5Text1[15] = "시전도중 CC면역(미구현)"
     set HeroSkill5Text2[15] = ""
     set HeroSkill5Text3[15] = ""
 
@@ -667,18 +621,18 @@ private function init takes nothing returns nothing
     set HeroSkillCD6[15] = 10.00
     set HeroSkillVCount6[15] = 1
     set HeroSkillVelue6[15] = 1.00
-    set HeroSkill6Text1[15] = "시전도중 CC면역"
-    set HeroSkill6Text2[15] = "소모한 체력과 최대체력과 비례하여 소모한 체력이 높을 수록 피해가 최대 500% 까지 증가합니다."
-    set HeroSkill6Text3[15] = "완전연소 게이지를 25%가 아닌 50%를 회복합니다."
+    set HeroSkill6Text1[15] = "시전도중 CC면역(미구현)"
+    set HeroSkill6Text2[15] = "자신의 현재 체력이 낮을 수록 피해가 최대 500% 까지 증가합니다.(미구현)"
+    set HeroSkill6Text3[15] = "완전연소 게이지를 25%가 아닌 50%를 회복합니다.(미구현)"
 
     set HeroSkillTpye7[15] = "일반"
-    set HeroSkillStr7[15] = "시전도중 무적 상태가 되며 지정 방향에 범위 입힙니다. 3번 사용하면 완전연소가 해제됩니다."
+    set HeroSkillStr7[15] = "시전도중 무적 상태가 되며 지정 방향에 범위 입힙니다. 3번 사용하면 완전연소가 해제됩니다.(미구현)"
     set HeroSkillCD7[15] = 10.00
     set HeroSkillVCount7[15] = 1
     set HeroSkillVelue7[15] = 1.00
     set HeroSkill7Text1[15] = ""
     set HeroSkill7Text2[15] = ""
-    set HeroSkill7Text3[15] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다."
+    set HeroSkill7Text3[15] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다.(미구현)"
 
     //테스트
     set UnitAbilityIndex[16] = 'h00L'
@@ -689,6 +643,103 @@ private function init takes nothing returns nothing
     set UnitSetArm[16] = 10000
     set UnitSetHPx[16] = 10
     set UnitTier[16] = 5
+
+    //루시아
+    set UnitAbilityIndex[17] = 'H00P'
+    //추가해야됨
+    set UnitCutString[17] = "Mika_Cut"
+    //추가해야됨
+    set UnitCutSound[17]= gg_snd_Narmaya_Cut1
+    set UnitHeroCheck[17] = true
+    set UnitDashCode[17] = 34
+    set HeroSkillID0[17] = 'A06H'
+    set HeroSkillID1[17] = 'A07A'
+    set HeroSkillID2[17] = 'A06F'
+    set HeroSkillID3[17] = 'A06I'
+    set HeroSkillID4[17] = 'A06C'
+    set HeroSkillID5[17] = 'A06J'
+    set HeroSkillID6[17] = 'A06E'
+    set HeroSkillID7[17] = 'A06G'
+    //V
+    set HeroSkillID8[17] = 'A06K'
+    //C
+    set HeroSkillID9[17] = 'A06D'
+    //Z
+    set HeroSkillID10[17] = 'A06M'
+
+    set HeroSkillTpye0[17] = "일반, 카운터"
+    set HeroSkillStr0[17] = "지정 방향으로 짧게 돌진하며 피해를 입힙니다. 적중시 비술을 1 획득합니다."
+    set HeroSkillCD0[17] = 6.00
+    set HeroSkillVCount0[17] = 1
+    set HeroSkillVelue0[17] = 1.00
+    set HeroSkill0Text1[17] = ""
+    set HeroSkill0Text2[17] = ""
+    set HeroSkill0Text3[17] = ""
+
+    set HeroSkillTpye1[17] = "일반"
+    set HeroSkillStr1[17] = "지정 방향으로 관통하며 5번의 피해를 입히며 돌진합니다. 각 적중시 비술을 1 획득합니다."
+    set HeroSkillCD1[17] = 8.00
+    set HeroSkillVCount1[17] = 1
+    set HeroSkillVelue1[17] = 0.66
+    set HeroSkill1Text1[17] = ""
+    set HeroSkill1Text2[17] = ""
+    set HeroSkill1Text3[17] = ""
+
+    set HeroSkillTpye2[17] = "일반, 키다운"
+    set HeroSkillStr2[17] = "비술이 5일 경우에만 사용 가능하며 누르고 있으면 비술 사용중 이동할 수 있습니다."
+    set HeroSkillCD2[17] = 10.00
+    set HeroSkillVCount2[17] = 1
+    set HeroSkillVelue2[17] = 5.0
+    set HeroSkill2Text1[17] = ""
+    set HeroSkill2Text2[17] = ""
+    set HeroSkill2Text3[17] = "비술 적중시 완전연소 게이지를 50% 회복합니다.(미구현)"
+
+    set HeroSkillTpye3[17] = "일반, 카운터"
+    set HeroSkillStr3[17] = "지정 방향으로 총 6회 공격합니다."
+    set HeroSkillCD3[17] = 2.75
+    set HeroSkillVCount3[17] = 2
+    set HeroSkillVelue3[17] = 1.00
+    set HeroSkillVelue23[17] = 1.00
+    set HeroSkill3Text1[17] = ""
+    set HeroSkill3Text2[17] = ""
+    set HeroSkill3Text3[17] = ""
+    
+    set HeroSkillTpye4[17] = "일반, 카운터"
+    set HeroSkillStr4[17] = "지정 지점으로 짧게 돌진하며 피해를 입힙니다."
+    set HeroSkillCD4[17] = 8.00
+    set HeroSkillVCount4[17] = 1
+    set HeroSkillVelue4[17] = 0.35
+    set HeroSkill4Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill4Text2[17] = "적중시 최대체력의 20%를 회복합니다.(미구현)"
+    set HeroSkill4Text3[17] = "카운터 적중시 완전연소 게이지를 100% 회복합니다.(미구현)"
+
+    set HeroSkillTpye5[17] = "일반"
+    set HeroSkillStr5[17] = "바닥을 발로 찍어 범위 피해를 입힙니다."
+    set HeroSkillCD5[17] = 10.00
+    set HeroSkillVCount5[17] = 1
+    set HeroSkillVelue5[17] = 1.00
+    set HeroSkill5Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill5Text2[17] = ""
+    set HeroSkill5Text3[17] = ""
+
+    set HeroSkillTpye6[17] = "일반"
+    set HeroSkillStr6[17] = "자신의 현재체력의 20%를 소모하여 점프해서 발로 내려찍고 피해를 입히며 완전연소 게이지를 25% 회복합니다."
+    set HeroSkillCD6[17] = 10.00
+    set HeroSkillVCount6[17] = 1
+    set HeroSkillVelue6[17] = 1.00
+    set HeroSkill6Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill6Text2[17] = "자신의 현재 체력이 낮을 수록 피해가 최대 500% 까지 증가합니다.(미구현)"
+    set HeroSkill6Text3[17] = "완전연소 게이지를 25%가 아닌 50%를 회복합니다.(미구현)"
+
+    set HeroSkillTpye7[17] = "일반"
+    set HeroSkillStr7[17] = "시전도중 무적 상태가 되며 지정 방향에 범위 입힙니다. 3번 사용하면 완전연소가 해제됩니다.(미구현)"
+    set HeroSkillCD7[17] = 10.00
+    set HeroSkillVCount7[17] = 1
+    set HeroSkillVelue7[17] = 1.00
+    set HeroSkill7Text1[17] = ""
+    set HeroSkill7Text2[17] = ""
+    set HeroSkill7Text3[17] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다.(미구현)"
+    
 endfunction
 
 endlibrary

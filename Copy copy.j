@@ -1,183 +1,97 @@
-/*
- * ControlGroup v2021.08.14
- *
- * 주의사항:
- *   게임 시작 후에 정상 작동 합니다.
- *
- * 함수:
- *   function SelectControlGroupBJ takes player whichPlayer, integer convertedControlGroupId returns nothing
- *     특정 플레이어에게 지정된 부대를 선택합니다.
- *     whichPlayer: 선택할 플레이어
- *     convertedControlGroupId: 선택할 부대 번호 (1~10)
- *   function AssignControlGroupBySelectionBJ takes player whichPlayer, integer convertedControlGroupId returns nothing
- *     특정 플레이어에게 선택된 유닛에 부대를 지정합니다.
- *     whichPlayer: 지정할 플레이어
- *     convertedControlGroupId: 지정할 부대 번호 (1~10)
- *   function AssignControlGroupByGroupBJ takes player whichPlayer, integer convertedControlGroupId, group whichGroup returns nothing
- *     특정 플레이어에게 특정 유닛 그룹의 유닛들로 부대를 지정합니다.
- *     whichPlayer: 지정할 플레이어
- *     convertedControlGroupId: 지정할 부대 번호 (1~10)
- *     whichGroup: 부대 지정할 유닛 그룹
- *   function AssignControlGroupByUnitBJ takes player whichPlayer, integer convertedControlGroupId, unit whichUnit returns nothing
- *     특정 플레이어에게 단일 유닛으로 부대를 지정합니다.
- *     whichPlayer: 지정할 플레이어
- *     convertedControlGroupId: 지정할 부대 번호 (1~10)
- *     whichUnit: 부대 지정할 유닛
- */
 
- //! import "DzAPIHardware.j"
+    
+    //반디
+    set UnitAbilityIndex[17] = 'H00K'
+    //추가해야됨
+    set UnitCutString[17] = "Mika_Cut"
+    //추가해야됨
+    set UnitCutSound[17]= gg_snd_Narmaya_Cut1
+    set UnitHeroCheck[17] = true
+    set UnitDashCode[17] = 6
+    set HeroSkillID0[17] = 'A06H'
+    set HeroSkillID1[17] = 'A06L'
+    set HeroSkillID2[17] = 'A06F'
+    set HeroSkillID3[17] = 'A06I'
+    set HeroSkillID4[17] = 'A06C'
+    set HeroSkillID5[17] = 'A06J'
+    set HeroSkillID6[17] = 'A06E'
+    set HeroSkillID7[17] = 'A06G'
+    //V
+    set HeroSkillID8[17] = 'A06K'
+    //C
+    set HeroSkillID9[17] = 'A06D'
+    //Z
+    set HeroSkillID10[17] = 'A06M'
 
- library ControlGroup requires DzAPIHardware, MemoryLib
-     globals
-         private constant integer CONTROL_MODE_NONE = 0
-         private constant integer CONTROL_MODE_SELECT = 1
-         private constant integer CONTROL_MODE_ASSIGN = 2
- 
-         private group tempGroup = CreateGroup()
-     endglobals
- 
-     //! runtextmacro MemoryLib_DefineMemoryBlock("private", "MemoryBlock", "ControlGroup__MemoryBlock", "4 * 20")
- 
-     private function HotkeyOfControlGroup takes integer controlGroupId returns integer
-         if ((controlGroupId >= 0) or (controlGroupId <= 9)) then
-             if (controlGroupId == 9) then
-                 return JN_OSKEY_0
-             else
-                 return JN_OSKEY_1 + controlGroupId
-             endif
-         endif
-         return 0
-     endfunction
- 
-     private function ConvertedControlGroupId takes integer convertedControlGroupId returns integer
-         if ((convertedControlGroupId >= 1) or (convertedControlGroupId <= 10)) then
-             return convertedControlGroupId - 1
-         endif
-         return 0
-     endfunction
- 
-     private function ForceControlMode takes integer mode returns nothing
-         local BytePtr statement = BytePtr(pGameDll + 0x3C7D39)
-         if (mode == CONTROL_MODE_SELECT) then
-             // Game.dll+3C7D39 - E9 22010000           - jmp Game.dll+3C7E60
-             set statement[0] = 0xE9
-             set statement[1] = 0x22
-             set statement[2] = 0x01
-             set statement[3] = 0x00
-             set statement[4] = 0x00
-             set statement[5] = 0x90  // nop
-         elseif (mode == CONTROL_MODE_ASSIGN) then
-             // nop
-             set statement[0] = 0x90
-             set statement[1] = 0x90
-             set statement[2] = 0x90
-             set statement[3] = 0x90
-             set statement[4] = 0x90
-             set statement[5] = 0x90
-         else
-             // Game.dll+3C7D39 - 0F84 21010000         - je Game.dll+3C7E60
-             set statement[0] = 0x0F
-             set statement[1] = 0x84
-             set statement[2] = 0x21
-             set statement[3] = 0x01
-             set statement[4] = 0x00
-             set statement[5] = 0x00
-         endif
-     endfunction
- 
-     private function KeyDownEvent takes integer keycode returns Ptr
-         local Ptr pBlock = MemoryBlock.pHead
-         set IntPtr(pBlock)[0] = pGameDll + 0xA73538
-         set IntPtr(pBlock)[1] = 0
-         set IntPtr(pBlock)[2] = 0x40060064
-         set IntPtr(pBlock)[3] = 0
-         set IntPtr(pBlock)[4] = keycode
-         set IntPtr(pBlock)[10] = 0
-         return pBlock
-     endfunction
- 
-     function SelectControlGroup takes integer controlGroupId returns nothing
-         local GameUI gameUI = GameUI.getInstance()
-         local integer numkey = HotkeyOfControlGroup(controlGroupId)
- 
-         call ForceControlMode(CONTROL_MODE_SELECT)
-         call gameUI.handleEvent(KeyDownEvent(numkey))
-         call ForceControlMode(CONTROL_MODE_NONE)
-     endfunction
- 
-     function GroupEnumUnitsLocalControlGroup takes group whichGroup, integer controlGroupId, boolexpr filter  returns nothing
-         local group oldSelection = tempGroup
-         call GroupEnumUnitsSelected(oldSelection, GetLocalPlayer(), null)
- 
-         call SelectControlGroup(controlGroupId)
-         call GroupEnumUnitsSelected(whichGroup, GetLocalPlayer(), filter)
- 
-         call SelectGroupBJ(oldSelection)
-         set oldSelection = null
-     endfunction
- 
-     function AssignControlGroupBySelection takes integer controlGroupId returns nothing
-         local GameUI gameUI = GameUI.getInstance()
-         local integer numkey = HotkeyOfControlGroup(controlGroupId)
- 
-         call ForceControlMode(CONTROL_MODE_ASSIGN)
-         call gameUI.handleEvent(KeyDownEvent(numkey))
-         call ForceControlMode(CONTROL_MODE_NONE)
-     endfunction
- 
-     function AssignControlGroupByGroup takes integer controlGroupId, group whichGroup returns nothing
-         local group oldSelection = tempGroup
- 
-         if (whichGroup == null) then
-             return
-         endif
- 
-         call GroupEnumUnitsSelected(oldSelection, GetLocalPlayer(), null)
- 
-         call SelectGroupBJ(whichGroup)
-         call AssignControlGroupBySelection(controlGroupId)
- 
-         call SelectGroupBJ(oldSelection)
-         set oldSelection = null
-     endfunction
- 
-     function AssignControlGroupByUnit takes integer controlGroupId, unit whichUnit returns nothing
-         local group oldSelection = tempGroup
- 
-         if (whichUnit == null) then
-             return
-         endif
- 
-         call GroupEnumUnitsSelected(oldSelection, GetLocalPlayer(), null)
- 
-         call SelectUnitSingle(whichUnit)
-         call AssignControlGroupBySelection(controlGroupId)
- 
-         call SelectGroupBJ(oldSelection)
-         set oldSelection = null
-     endfunction
- 
-     function SelectControlGroupBJ takes player whichPlayer, integer convertedControlGroupId returns nothing
-         if (GetLocalPlayer() == whichPlayer) then
-             call SelectControlGroup(ConvertedControlGroupId(convertedControlGroupId))
-         endif
-     endfunction
- 
-     function AssignControlGroupBySelectionBJ takes player whichPlayer, integer convertedControlGroupId returns nothing
-         if (GetLocalPlayer() == whichPlayer) then
-             call AssignControlGroupBySelection(ConvertedControlGroupId(convertedControlGroupId))
-         endif
-     endfunction
- 
-     function AssignControlGroupByGroupBJ takes player whichPlayer, integer convertedControlGroupId, group whichGroup returns nothing
-         if (GetLocalPlayer() == whichPlayer) then
-             call AssignControlGroupByGroup(ConvertedControlGroupId(convertedControlGroupId), whichGroup)
-         endif
-     endfunction
- 
-     function AssignControlGroupByUnitBJ takes player whichPlayer, integer convertedControlGroupId, unit whichUnit returns nothing
-         if (GetLocalPlayer() == whichPlayer) then
-             call AssignControlGroupByUnit(ConvertedControlGroupId(convertedControlGroupId), whichUnit)
-         endif
-     endfunction
- endlibrary
+    set HeroSkillTpye0[17] = "일반, 카운터"
+    set HeroSkillStr0[17] = "지정 방향으로 짧게 돌진하며 피해를 입힙니다. 적중시 비술을 1 획득합니다."
+    set HeroSkillCD0[17] = 6.00
+    set HeroSkillVCount0[17] = 1
+    set HeroSkillVelue0[17] = 1.00
+    set HeroSkill0Text1[17] = ""
+    set HeroSkill0Text2[17] = ""
+    set HeroSkill0Text3[17] = ""
+
+    set HeroSkillTpye1[17] = "일반"
+    set HeroSkillStr1[17] = "지정 방향으로 관통하며 5번의 피해를 입히며 돌진합니다. 각 적중시 비술을 1 획득합니다."
+    set HeroSkillCD1[17] = 8.00
+    set HeroSkillVCount1[17] = 1
+    set HeroSkillVelue1[17] = 0.66
+    set HeroSkill1Text1[17] = ""
+    set HeroSkill1Text2[17] = ""
+    set HeroSkill1Text3[17] = ""
+
+    set HeroSkillTpye2[17] = "일반, 키다운"
+    set HeroSkillStr2[17] = "비술이 5일 경우에만 사용 가능하며 누르고 있으면 비술 사용중 이동할 수 있습니다."
+    set HeroSkillCD2[17] = 10.00
+    set HeroSkillVCount2[17] = 1
+    set HeroSkillVelue2[17] = 5.0
+    set HeroSkill2Text1[17] = ""
+    set HeroSkill2Text2[17] = ""
+    set HeroSkill2Text3[17] = "비술 적중시 완전연소 게이지를 50% 회복합니다.(미구현)"
+
+    set HeroSkillTpye3[17] = "일반, 카운터"
+    set HeroSkillStr3[17] = "지정 방향으로 총 6회 공격합니다."
+    set HeroSkillCD3[17] = 2.75
+    set HeroSkillVCount3[17] = 2
+    set HeroSkillVelue3[17] = 1.00
+    set HeroSkillVelue23[17] = 1.00
+    set HeroSkill3Text1[17] = ""
+    set HeroSkill3Text2[17] = ""
+    set HeroSkill3Text3[17] = ""
+    
+    set HeroSkillTpye4[17] = "일반, 카운터"
+    set HeroSkillStr4[17] = "지정 지점으로 짧게 돌진하며 피해를 입힙니다."
+    set HeroSkillCD4[17] = 8.00
+    set HeroSkillVCount4[17] = 1
+    set HeroSkillVelue4[17] = 0.35
+    set HeroSkill4Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill4Text2[17] = "적중시 최대체력의 20%를 회복합니다.(미구현)"
+    set HeroSkill4Text3[17] = "카운터 적중시 완전연소 게이지를 100% 회복합니다.(미구현)"
+
+    set HeroSkillTpye5[17] = "일반"
+    set HeroSkillStr5[17] = "바닥을 발로 찍어 범위 피해를 입힙니다."
+    set HeroSkillCD5[17] = 10.00
+    set HeroSkillVCount5[17] = 1
+    set HeroSkillVelue5[17] = 1.00
+    set HeroSkill5Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill5Text2[17] = ""
+    set HeroSkill5Text3[17] = ""
+
+    set HeroSkillTpye6[17] = "일반"
+    set HeroSkillStr6[17] = "자신의 현재체력의 20%를 소모하여 점프해서 발로 내려찍고 피해를 입히며 완전연소 게이지를 25% 회복합니다."
+    set HeroSkillCD6[17] = 10.00
+    set HeroSkillVCount6[17] = 1
+    set HeroSkillVelue6[17] = 1.00
+    set HeroSkill6Text1[17] = "시전도중 CC면역(미구현)"
+    set HeroSkill6Text2[17] = "자신의 현재 체력이 낮을 수록 피해가 최대 500% 까지 증가합니다.(미구현)"
+    set HeroSkill6Text3[17] = "완전연소 게이지를 25%가 아닌 50%를 회복합니다.(미구현)"
+
+    set HeroSkillTpye7[17] = "일반"
+    set HeroSkillStr7[17] = "시전도중 무적 상태가 되며 지정 방향에 범위 입힙니다. 3번 사용하면 완전연소가 해제됩니다.(미구현)"
+    set HeroSkillCD7[17] = 10.00
+    set HeroSkillVCount7[17] = 1
+    set HeroSkillVelue7[17] = 1.00
+    set HeroSkill7Text1[17] = ""
+    set HeroSkill7Text2[17] = ""
+    set HeroSkill7Text3[17] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다.(미구현)"

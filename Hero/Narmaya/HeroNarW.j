@@ -278,12 +278,12 @@ private function EffectFunction2 takes nothing returns nothing
     endif
 endfunction
 
+
 private function Main takes nothing returns nothing
     local unit caster
     local integer pid
     local tick t
     local SkillRarW fx
-    
 
     if GetSpellAbilityId() == 'A02J' then
         set caster = GetTriggerUnit()

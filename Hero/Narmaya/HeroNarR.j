@@ -9,6 +9,8 @@ private function Main takes nothing returns nothing
     local real r
     local integer i 
     if GetSpellAbilityId() == 'A02L' then
+        call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+        call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set NarStack[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
         call CooldownFIX(GetTriggerUnit(),'A02L',HeroSkillCD3[14])
         

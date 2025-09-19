@@ -6,6 +6,8 @@ endglobals
 
     private function Main takes nothing returns nothing
         if GetSpellAbilityId() == 'A02Q' then
+            call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
+            call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
 
             set PlayerVCount[GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] = 1
 

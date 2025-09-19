@@ -113,6 +113,9 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoF.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoV.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaW.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaZ.j"
+
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarQ.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarW.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarE.j"
