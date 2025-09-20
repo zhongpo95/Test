@@ -652,14 +652,14 @@ private function init takes nothing returns nothing
     set UnitCutSound[17]= gg_snd_Narmaya_Cut1
     set UnitHeroCheck[17] = true
     set UnitDashCode[17] = 34
-    set HeroSkillID0[17] = 'A06H'
+    set HeroSkillID0[17] = 'A07B'
     set HeroSkillID1[17] = 'A07A'
-    set HeroSkillID2[17] = 'A06F'
-    set HeroSkillID3[17] = 'A06I'
-    set HeroSkillID4[17] = 'A06C'
-    set HeroSkillID5[17] = 'A06J'
-    set HeroSkillID6[17] = 'A06E'
-    set HeroSkillID7[17] = 'A06G'
+    set HeroSkillID2[17] = 'A07C'
+    set HeroSkillID3[17] = 'A07D'
+    set HeroSkillID4[17] = 'A07E'
+    set HeroSkillID5[17] = 'A07F'
+    set HeroSkillID6[17] = 'A07G'
+    set HeroSkillID7[17] = 'A07H'
     //V
     set HeroSkillID8[17] = 'A06K'
     //C

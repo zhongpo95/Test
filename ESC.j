@@ -201,8 +201,22 @@ scope ESC initializer init
         //set frame3 = DzFrameGetCommandBarButton(2,0)
         //call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
 
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ZOFFSET,0,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ROTATION,90,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_TARGET_DISTANCE,1650,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ANGLE_OF_ATTACK,304,0)
+
         //*
-        
+        if i == 4 then
+            set i = 0
+            call DzFrameSetValue(LuciaAden, i * 25)
+            call DzFrameSetValue(LuciaAden2, i * 25)
+        else
+            set i = i + 1
+            call DzFrameSetValue(LuciaAden, i * 25)
+            call DzFrameSetValue(LuciaAden2, i * 25)
+        endif
+
         //목
         set s = "ID10;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))

@@ -7,6 +7,7 @@ globals
     private integer array UT
     private trigger array TrgRemove
     private triggeraction array ActRemove
+    unit array LuciaCheckUnit
 endglobals
 
 //! runtextmacro 틱("DashTimer")
@@ -114,6 +115,8 @@ private function F_A006 takes nothing returns nothing
                 elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
                     call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
                 endif
+                set LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))] = CreateUnit(GetOwningPlayer(caster),'e04Y',0,0,0)
+                call DelayKill(LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))], 1.0)
             else
                 call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
             endif
@@ -173,6 +176,8 @@ private function F_A005 takes nothing returns nothing
                 elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
                     call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
                 endif
+                set LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))] = CreateUnit(GetOwningPlayer(caster),'e04Y',0,0,0)
+                call DelayKill(LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))], 1.0)
             else
                 call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
             endif
@@ -231,6 +236,8 @@ private function F_A004 takes nothing returns nothing
                 elseif LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 1 then
                     call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)]+1,2.0)
                 endif
+                set LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))] = CreateUnit(GetOwningPlayer(caster),'e04Y',0,0,0)
+                call DelayKill(LuciaCheckUnit[GetPlayerId(GetOwningPlayer(caster))], 1.0)
             else
                 call AnimationStart3(caster,UnitDashCode[DataUnitIndex(caster)],2.0)
             endif

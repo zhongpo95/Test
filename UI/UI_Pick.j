@@ -490,6 +490,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
             set HeroTypeId = 'H00P'
             set LuciaForm[pid] = 0
+            call LuciaAdenShow(p,1,true)
         elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then
@@ -753,6 +754,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         elseif SlotHero == 2 then
             set HeroTypeId = 'H00P'
             set LuciaForm[pid] = 0
+            call LuciaAdenShow(p,1,true)
         elseif SlotHero == 3 then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then

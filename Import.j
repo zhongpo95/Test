@@ -113,7 +113,15 @@
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoF.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Momizi\HeroMoV.j"
 
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaQ.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaW.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaE.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaR.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaA.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaS.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaD.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaF.j"
+//! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaV.j"
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Lucia\HeroLuciaZ.j"
 
 //! import "C:\Users\123\Desktop\JN\Test\Hero\Narmaya\HeroNarQ.j"

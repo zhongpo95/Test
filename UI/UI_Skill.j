@@ -7,6 +7,9 @@ library UISkill initializer init requires MemUI
         integer BanAden
         integer array BanAdens
         integer array BanAdens2
+        //integer LuciaAden
+        integer array LuciaAdens
+        integer array LuciaAdens2
         integer heroStatusUI
     endglobals
     

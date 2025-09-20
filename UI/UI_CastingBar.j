@@ -39,7 +39,7 @@ library UICastingBar initializer init requires UnitIndexer, DataUnit, FrameCount
         set CastingTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", FrameCount())
         call DzFrameSetAbsolutePoint(CastingTextFrame,JN_FRAMEPOINT_CENTER,.400,.1750)
         call DzFrameSetFont(CastingTextFrame, "Fonts\\DFHeiMd.ttf", 0.009, 0)
-        call DzFrameSetText(CastingTextFrame,"버스트 캐논")
+        call DzFrameSetText(CastingTextFrame,"캐스팅바")
         
         call CastingBarShow(GetLocalPlayer(),false)
     endfunction

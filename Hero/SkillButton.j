@@ -348,7 +348,7 @@ library SkillButton requires DataUnit
                 if key == JN_OSKEY_Q then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID0[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiQ"),data)
+                        call DzSyncData(("LuciaQ"),data)
                     endif
                 endif
                 if key == JN_OSKEY_W then
@@ -360,56 +360,56 @@ library SkillButton requires DataUnit
                 if key == JN_OSKEY_E then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID2[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiE"),data)
+                        call DzSyncData(("LuciaE"),data)
                     endif
                 endif
                 if key == JN_OSKEY_R then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID3[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiR"),data)
+                        call DzSyncData(("LuciaR"),data)
                     endif
                 endif
                 if key == JN_OSKEY_A then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID4[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiA"),data)
+                        call DzSyncData(("LuciaA"),data)
                     endif
                 endif
                 if key == JN_OSKEY_S then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID5[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiS"),data)
+                        call DzSyncData(("LuciaS"),data)
                     endif
                 endif
                 if key == JN_OSKEY_D then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID6[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiD"),data)
+                        call DzSyncData(("LuciaD"),data)
                     endif
                 endif
                 if key == JN_OSKEY_F then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID7[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiF"),data)
+                        call DzSyncData(("LuciaF"),data)
                     endif
                 endif
                 if key == JN_OSKEY_V then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID8[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiV"),data)
+                        call DzSyncData(("LuciaV"),data)
                     endif
                 endif
                 if key == JN_OSKEY_C then
                     if GetUnitAbilityLevel(MainUnit[i],'B000') < 1 and IsUnitPausedEx(MainUnit[i]) == false then
                     //if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID9[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiC"),data)
+                        call DzSyncData(("LuciaC"),data)
                     endif
                 endif
                 if key == JN_OSKEY_Z then
                     if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], HeroSkillID10[DataUnitIndex(MainUnit[i])]), ABILITY_STATE_COOLDOWN) == 0 then
                         set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
-                        call DzSyncData(("BandiZ"),data)
+                        call DzSyncData(("LuciaZ"),data)
                     endif
                 endif
             endif
@@ -585,6 +585,51 @@ library SkillButton requires DataUnit
                 if key == JN_OSKEY_Z then
                     set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
                     call DzSyncData(("BandiZ2"),data)
+                endif
+            endif
+        endif
+
+        if DataUnitIndex(MainUnit[i]) == 17 then
+            if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
+                if key == JN_OSKEY_Q then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaQ2"),data)
+                endif
+                if key == JN_OSKEY_W then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaW2"),data)
+                endif
+                if key == JN_OSKEY_E then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaE2"),data)
+                endif
+                if key == JN_OSKEY_R then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaR2"),data)
+                endif
+                if key == JN_OSKEY_A then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaA2"),data)
+                endif
+                if key == JN_OSKEY_S then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaS2"),data)
+                endif
+                if key == JN_OSKEY_D then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaD2"),data)
+                endif
+                if key == JN_OSKEY_F then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaF2"),data)
+                endif
+                if key == JN_OSKEY_V then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaV2"),data)
+                endif
+                if key == JN_OSKEY_Z then
+                    set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                    call DzSyncData(("LuciaZ2"),data)
                 endif
             endif
         endif
