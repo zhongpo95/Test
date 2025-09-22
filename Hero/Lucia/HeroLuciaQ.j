@@ -46,6 +46,7 @@ private function EffectFunction takes nothing returns nothing
 
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.r >= Time1/fx.speed and fx.i == 0 then
+            call Sound3D(fx.caster,'A07M')
             set fx.i = 1
             call UnitEffectTimeEX2('e04S',GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster))+PolarX( 50, GetUnitFacing(fx.caster) - 90 ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) - 90 )+PolarY( 25, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.2,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster))+PolarX( 50, GetUnitFacing(fx.caster) - 90 ), GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) - 90 )+PolarY( 25, GetUnitFacing(fx.caster)), scale, function splashD )
@@ -99,8 +100,6 @@ private function Main takes nothing returns nothing
         call EXEffectMatRotateZ(e,AngleWBP(fx.caster,fx.TargetX,fx.TargetY))
         call DestroyEffect(e)
         set e = null
-
-        //call Sound3D(fx.caster,'A03V')
 
         call DummyMagicleash(fx.caster, StopTime/fx.speed)
         call AnimationStart3(fx.caster, 5, fx.speed)

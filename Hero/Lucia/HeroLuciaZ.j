@@ -14,6 +14,7 @@ endglobals
         integer LuciaAdenBorder2
         integer LuciaAden2
         integer LuciaAdenTextFrame
+        integer array LuciaVelue
     endglobals
     
 
@@ -27,12 +28,20 @@ endglobals
                     call DzFrameSetAbsolutePoint(LuciaAdenBorder,JN_FRAMEPOINT_BOTTOMRIGHT,.470,.0800)
                     call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_TOPLEFT,.330,.1000)
                     call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_BOTTOMRIGHT,.470,.0800)
+                    call DzFrameSetAbsolutePoint(LuciaAdenBorder2,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAdenBorder2,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
                 elseif state == 2 then
                     call DzFrameShow(LuciaAdenTextFrame,true)
                     call DzFrameSetAbsolutePoint(LuciaAdenBorder2,JN_FRAMEPOINT_TOPLEFT,.300,.1080)
                     call DzFrameSetAbsolutePoint(LuciaAdenBorder2,JN_FRAMEPOINT_BOTTOMRIGHT,.500,.0720)
                     call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_TOPLEFT,.300,.1080)
                     call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_BOTTOMRIGHT,.500,.0720)
+                    call DzFrameSetAbsolutePoint(LuciaAdenBorder,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAdenBorder,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+                    call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
                 endif
             else
                 call DzFrameShow(LuciaAdenTextFrame,false)
@@ -60,7 +69,7 @@ endglobals
         call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_TOPLEFT,.320,.1800)
         call DzFrameSetAbsolutePoint(LuciaAden,JN_FRAMEPOINT_BOTTOMRIGHT,.480,.1700)
         call DzFrameSetTexture(LuciaAden,"LuciaAden1.blp",0)
-        call DzFrameSetMinMaxValue(LuciaAden,0, 100.00)
+        call DzFrameSetMinMaxValue(LuciaAden,0, 25.00)
         call DzFrameSetValue(LuciaAden,0)
 
         //대태도
@@ -74,7 +83,7 @@ endglobals
         call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_TOPLEFT,.320,.1800)
         call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_BOTTOMRIGHT,.480,.1700)
         call DzFrameSetTexture(LuciaAden2,"LuciaAden3.blp",0)
-        call DzFrameSetMinMaxValue(LuciaAden2,0, 100.00)
+        call DzFrameSetMinMaxValue(LuciaAden2,0, 25.00)
         call DzFrameSetValue(LuciaAden2,0)
 
         set LuciaAdenTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", FrameCount())
@@ -92,7 +101,13 @@ endglobals
         call DzFrameSetAbsolutePoint(LuciaAdenBorder2,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
         call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_TOPLEFT,-1,-1)
         call DzFrameSetAbsolutePoint(LuciaAden2,JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
-        
+        set LuciaVelue[0] = 0
+        set LuciaVelue[1] = 0
+        set LuciaVelue[2] = 0
+        set LuciaVelue[3] = 0
+        set LuciaVelue[4] = 0
+        set LuciaVelue[5] = 0
+        set LuciaVelue[6] = 0
     endfunction
 
     

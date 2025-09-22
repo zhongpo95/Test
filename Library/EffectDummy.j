@@ -113,6 +113,16 @@ library EffectDummy initializer init
         set t.unit = u
         call t.Start(time,false)
     endfunction
+    //투명적용안됨
+
+    function OnlyDelayKill takes unit u, real time, integer pid returns nothing
+        local EffectDummy t = EffectDummy.Create()
+        set t.unit = u
+        if pid != GetPlayerId(GetLocalPlayer()) then
+            call DzSetUnitModel(t.unit,".mdl")
+        endif
+        call t.Start(time,false)
+    endfunction
     
     //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy3")
         local EffectDummy t = EffectDummy.Create()

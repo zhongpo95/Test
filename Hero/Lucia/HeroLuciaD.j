@@ -2,8 +2,12 @@ scope HeroLuciaD
 globals
     private constant real SD = 0.00
 
-    //전진시간
-    private constant real Time3 = 0.40
+    private constant real Time1 = 0.8
+    private constant real Time2 = 0.6
+    private constant real Time3 = 1.0
+    private constant real Time4 = 3.0
+
+    private constant real Time5 = 0.6
     //최대 전진거리
     private constant real MoveD = 1000
     
@@ -40,44 +44,57 @@ private function EffectFunction takes nothing returns nothing
     local SkillFx fx = t.data
     local real random
     local integer i
+    local effect e
     
     set fx.i = fx.i + 1
-    
-    if fx.i == 1 then
-        set random = GetRandomInt(0,3)
-        if random == 0 then
-            call Sound3D(fx.caster,'A05O')
-        elseif random == 1 then
-            call Sound3D(fx.caster,'A05P')
-        elseif random == 2 then
-            call Sound3D(fx.caster,'A05Q')
-        elseif random == 3 then
-            call Sound3D(fx.caster,'A05R')
-        endif
-    endif
 
-    if fx.i >= 20/fx.speed then
-        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-            if NarForm[fx.pid] == 0 then
-                //파랑
-                call UnitEffectTime2('e02R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
+    if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+        if fx.i == 1 then
+            call UnitAddAbility(fx.caster,'Arav')
+            call UnitRemoveAbility(fx.caster,'Arav')
+            call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) + 500, 0)
+
+            call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 450, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 450, GetUnitFacing(fx.caster) ) )
+
+            call SetUnitFacing(fx.caster, fx.r - 180)
+            call EXSetUnitFacing(fx.caster, fx.r - 180)
+
+            call AnimationStart2(fx.caster, 22, Time1 / fx.speed, 0.1)
+            call Sound3D(fx.caster,'A07L')
+            call t.start( Time1 / fx.speed, false, function EffectFunction )
+        elseif fx.i == 2 then
+            call UnitEffectTime2('e057',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.5,0,fx.pid)
+            call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 300, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 300, GetUnitFacing(fx.caster) ) )
+
+            call UnitAddAbility(fx.caster,'Arav')
+            call UnitRemoveAbility(fx.caster,'Arav')
+            call SetUnitFlyHeight(fx.caster, GetUnitFlyHeight(fx.caster) - 500, 0)
+
+            if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                set e = AddSpecialEffect(".mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster) )
             else
-                //빨강
-                call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
+                set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster))
             endif
-            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-            loop
-            exitwhen fx.st == 0
-                set fx.st = fx.st - 1
-                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-            endloop
+            call EXSetEffectSize(e,0.5)
+            call DestroyEffect(e)
+
+            call AnimationStart3(fx.caster, 22, fx.speed)
+            call t.start( Time2 / fx.speed, false, function EffectFunction )
+        elseif fx.i == 3 then
+            if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                set e = AddSpecialEffect(".mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster) )
+            else
+                set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster))
+            endif
+            call EXEffectMatRotateZ(e,GetRandomReal(0,360))
+            call DestroyEffect(e)
+
+            call fx.Stop()
+            call t.destroy()
         endif
-        call Sound3D(fx.caster,'A03W')
+    else
         call fx.Stop()
         call t.destroy()
-    else
-        call SetUnitSafePolarUTA(fx.caster,fx.r/(20/fx.speed),GetUnitFacing(fx.caster))
-        call t.start( 0.02, false, function EffectFunction ) 
     endif
 endfunction
 
@@ -88,7 +105,7 @@ private function Main takes nothing returns nothing
     local real r
     local effect e
          
-    if GetSpellAbilityId() == 'A02I' then
+    if GetSpellAbilityId() == 'A07G' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
@@ -100,40 +117,11 @@ private function Main takes nothing returns nothing
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         set fx.index = IndexUnit(MainUnit[fx.pid])
         set fx.i = 0
+        set fx.r = GetUnitFacing(fx.caster)
 
-        call Overlay2Count(fx.pid,'A02I')
+        call Overlay2Count(fx.pid,'A07G')
 
-        set r = DistanceWBP(fx.caster, fx.TargetX, fx.TargetY )
-        if r >= MoveD then
-            set fx.r = MoveD
-        else
-            set fx.r = r
-        endif
-        
-        //카구라
-        if NarForm[fx.pid] == 0 then
-            //강화평타추가
-            if HeroSkillLevel[fx.pid][3] >= 3 then
-                set NarStack[fx.pid] = 1
-            endif
-        //겐지
-        elseif NarForm[fx.pid] == 1 then
-            //나루메아 E 시전속도증가
-            if HeroSkillLevel[fx.pid][2] >= 1 then
-                set NarStack[fx.pid] = 3
-            endif
-        endif
-        
-        if HeroSkillLevel[fx.pid][0] >= 1 then
-            if HeroSkillLevel[fx.pid][0] >= 3 then
-                set fx.st = NarNabiUse(fx.pid,true)
-            else
-                set fx.st = NarNabiUse(fx.pid,false)
-            endif
-        else
-            set fx.st = 0
-        endif
-
+        /*
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         else
@@ -143,15 +131,17 @@ private function Main takes nothing returns nothing
         call EXEffectMatRotateZ(e,AngleWBP(fx.caster,fx.TargetX,fx.TargetY))
         call DestroyEffect(e)
         set e = null
-
         call Sound3D(fx.caster,'A03V')
+        */
 
-        call CooldownFIX(fx.caster, 'A02I', HeroSkillCD0[14])
+        call Sound3D(fx.caster,'A07K')
 
-        call DummyMagicleash(fx.caster, Time3/fx.speed)
-        call AnimationStart3(fx.caster, 11, fx.speed)
+        call DummyMagicleash(fx.caster, Time4 / fx.speed)
+        call AnimationStart3(fx.caster, 6, fx.speed)
         set t.data = fx
-        call t.start( 0.02, false, function EffectFunction )
+        call t.start( Time3 / fx.speed, false, function EffectFunction )
+
+        call CooldownFIX(fx.caster, 'A07G', 4)
     endif
 endfunction
 

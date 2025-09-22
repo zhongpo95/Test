@@ -198,6 +198,7 @@ library StatsSet initializer init requires UIHP, ITEM
         set Arcana_Cri[pid] = 0
         set Arcana_SkillSpeed[pid] = 0
         set Arcana_CriDeal[pid] = 0
+        set Arcana_ChargeSpeed[pid] = 1
 
         call SaveInteger(ArcanaData, 0, pid, 0)
         call SaveInteger(ArcanaData, 1, pid, 0)
@@ -404,6 +405,16 @@ library StatsSet initializer init requires UIHP, ITEM
                         set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 44
                     elseif k == 3 then
                         set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 52
+                    endif
+                endif
+                //슈차
+                if i == 10 then
+                    if k == 1 then
+                        set Arcana_ChargeSpeed[pid] = 1.32
+                    elseif k == 2 then
+                        set Arcana_ChargeSpeed[pid] = 1.40
+                    elseif k == 3 then
+                        set Arcana_ChargeSpeed[pid] = 1.48
                     endif
                 endif
                 if GetLocalPlayer() == Player(pid) then

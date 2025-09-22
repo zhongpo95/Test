@@ -123,7 +123,9 @@ library SafePos
         real Speed
         /*========================================================================*/
         private method OnStop takes nothing returns nothing
-            call UnitRemoveAbility( this.Owner, 'B000' )
+            //call UnitRemoveAbility( this.Owner, 'B000' )
+            
+            call PauseUnitEx(this.Owner,false)
             //call SetUnitVertexColorBJ( this.Owner, 100, 100, 100, 0 )
             set this.Owner = null
         endmethod

@@ -268,7 +268,7 @@ private function EffectFunction takes nothing returns nothing
                     call DzFrameSetValue(CastingBar, fx.i - 25)
                 endif
                 call DummyMagicleash(fx.caster,0.3)
-                call BuffNoST.Apply( fx.caster, 0.03, 0 )
+                call BuffNoST.Apply( fx.caster, 0.3, 0 )
                 call t.start( 0.3, false, function EffectFunction )
             elseif fx.i == 51 then
                 if Stack[fx.pid] == 3 then

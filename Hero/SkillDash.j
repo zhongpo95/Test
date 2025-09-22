@@ -134,7 +134,8 @@ private function F_A006 takes nothing returns nothing
         set UT[i] = t2
         call t.Start(0.02,false)
         call t2.Start(CoolTime,false)
-        call DummyMagicleash(t.caster,Time)
+        //call DummyMagicleash(t.caster,Time)
+        call PauseUnitEx(t.caster,true)
         call BuffNoNB.Apply( t.caster, Time, 0 )
         call BuffNoST.Apply( t.caster, Time, 0 )
         call TriggerSleepActionByTimer(0)
@@ -192,7 +193,8 @@ private function F_A005 takes nothing returns nothing
         set t2.ab = EXGetUnitAbility(caster,'A004')
         set t2.stack = 1
         call t.Start(0.02,false)
-        call DummyMagicleash(t.caster,Time)
+        //call DummyMagicleash(t.caster,Time)
+        call PauseUnitEx(t.caster,true)
         call BuffNoNB.Apply( t.caster, Time, 0 )
         call BuffNoST.Apply( t.caster, Time, 0 )
         call SetUnitVertexColorBJ( caster, 80, 80, 100, 0 )
@@ -252,7 +254,8 @@ private function F_A004 takes nothing returns nothing
         set t2.ab = EXGetUnitAbility(caster,'A002')
         set t2.stack = 0
         call t.Start(0.02,false)
-        call DummyMagicleash(t.caster, Time)
+        //call DummyMagicleash(t.caster, Time)
+        call PauseUnitEx(t.caster,true)
         call BuffNoNB.Apply( t.caster, Time, 0 )
         call BuffNoST.Apply( t.caster, Time, 0 )
         call SetUnitVertexColorBJ( caster, 80, 80, 100, 0 )
