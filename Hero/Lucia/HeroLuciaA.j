@@ -26,7 +26,6 @@ private function splashD takes nothing returns nothing
     endif
 endfunction
 
-//대태도 돌진
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
