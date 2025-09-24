@@ -91,6 +91,17 @@ private function Main takes nothing returns nothing
 
         call LuciaAdenShow(Player(fx.pid),2,true)
 
+        //대태도스킬 사용가능
+        if not IsUnitDeadVJ(LuciaFormUnit[fx.pid]) then
+            call KillUnit(LuciaFormUnit[fx.pid])
+        endif
+        set LuciaFormUnit[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e05I',0,0,0)
+        
+        //R사용불가
+        if not IsUnitDeadVJ(LuciaR[fx.pid]) then
+            call KillUnit(LuciaR[fx.pid])
+        endif
+
         //카메라 변경
         set arrayPlayerCameraBoolean[fx.pid] = true
         if GetLocalPlayer() == Player(pid) then

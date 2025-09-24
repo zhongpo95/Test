@@ -166,6 +166,17 @@ private function Main takes nothing returns nothing
         call AddUnitAnimationProperties(fx.caster, "Alternate", false)
 
         call LuciaAdenShow(Player(fx.pid),1,true)
+
+        //소태도스킬 사용가능
+        if not IsUnitDeadVJ(LuciaFormUnit[fx.pid]) then
+            call KillUnit(LuciaFormUnit[fx.pid])
+        endif
+        set LuciaFormUnit[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e05H',0,0,0)
+        
+        //F사용불가
+        if not IsUnitDeadVJ(LuciaF[fx.pid]) then
+            call KillUnit(LuciaF[fx.pid])
+        endif
         
         //카메라 변경
         set arrayPlayerCameraBoolean[fx.pid] = true

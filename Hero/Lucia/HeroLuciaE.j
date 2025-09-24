@@ -108,6 +108,12 @@ private function EffectFunction7 takes nothing returns nothing
         call EXSetEffectSize(e, 1.75)
         call DestroyEffect(e)
 
+        //D사용가능
+        if not IsUnitDeadVJ(LuciaD[fx.pid]) then
+            call KillUnit(LuciaD[fx.pid])
+        endif
+        set LuciaD[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e05L',0,0,0)
+
         set Stack[fx.pid] = 0
         call fx.Stop()
         call t.destroy()
@@ -276,6 +282,12 @@ private function EffectFunction6 takes nothing returns nothing
     if fx.i != 5 then
         call t.start( EffectTime4/fx.speed, false, function EffectFunction6 )
     else
+        //R사용가능
+        if not IsUnitDeadVJ(LuciaR[fx.pid]) then
+            call KillUnit(LuciaR[fx.pid])
+        endif
+        set LuciaR[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e05J',0,0,0)
+
         set Stack[fx.pid] = 0
         call fx.Stop()
         call t.destroy()
@@ -517,6 +529,36 @@ private function EffectFunction takes nothing returns nothing
     if fx.i == fx.j then
         call AnimationStart3(fx.caster, 14, fx.speed)
         set Stack[fx.pid] = 1
+        if fx.i == 25 then
+            call Sound3D(fx.caster,'A07N')
+
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
+            set Stack[fx.pid] = 2
+            if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+            else
+                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Blue2.mdl",fx.caster,"hand left")
+            endif
+            call DestroyEffect(e)
+            if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+                set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+            else
+                set e = AddSpecialEffectTarget("Effect_Invisibility_Target_Wave_Blue2.mdl",fx.caster,"hand left")
+            endif
+            call DestroyEffect(e)
+            set e = null
+            set LuciaVelue[fx.pid] = fx.i
+            if Player(fx.pid) == GetLocalPlayer() then
+                if LuciaForm[fx.pid] == 1 then
+                    call DzFrameSetValue(LuciaAden2, fx.i)
+                else
+                    call DzFrameSetValue(LuciaAden, fx.i)
+                endif
+            endif
+            //call DummyMagicleash(fx.caster, 0.3)
+            call BuffNoST.Apply( fx.caster, 0.3, 0 )
+            call t.start( 0.3, false, function EffectFunction )
+        endif
     endif
 
     set fx.i = fx.i + 1

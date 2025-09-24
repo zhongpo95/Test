@@ -91,6 +91,16 @@ private function Main takes nothing returns nothing
         call Overlay2Count(fx.pid,'A07B')
         call LuciaMuPlus(fx.pid, 40)
         
+        set LuciaVelue[fx.pid] = LuciaVelue[fx.pid] + 8
+        if LuciaVelue[fx.pid] >= 25 then
+            set LuciaVelue[fx.pid] = 25
+        endif
+        if Player(fx.pid) == GetLocalPlayer() then
+            if LuciaForm[fx.pid] == 0 then
+                call DzFrameSetValue(LuciaAden, LuciaVelue[fx.pid])
+            endif
+        endif
+
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         else

@@ -2,6 +2,11 @@ library HeroLuciaZ initializer init requires FrameCount
 
 globals
     integer array LuciaForm
+    boolean array LuciaBooleanD
+    unit array LuciaFormUnit
+    unit array LuciaD
+    unit array LuciaR
+    unit array LuciaF
     integer array LuciaStack
     unit array LuciaFormG
     unit array LuciaFormC

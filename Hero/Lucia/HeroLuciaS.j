@@ -151,16 +151,6 @@ private function EffectFunction2 takes nothing returns nothing
                 endif
 
                 set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
-                
-                set LuciaVelue[fx.pid] = LuciaVelue[fx.pid] + 8
-                if LuciaVelue[fx.pid] >= 25 then
-                    set LuciaVelue[fx.pid] = 25
-                endif
-                if Player(fx.pid) == GetLocalPlayer() then
-                    if LuciaForm[fx.pid] == 1 then
-                        call DzFrameSetValue(LuciaAden2, LuciaVelue[fx.pid])
-                    endif
-                endif
 
                 call fx.Stop()
                 call t.destroy()
@@ -202,6 +192,16 @@ private function Main takes nothing returns nothing
         call Overlay2Count(fx.pid,'A07F')
         set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = true
 
+        set LuciaVelue[fx.pid] = LuciaVelue[fx.pid] + 8
+        if LuciaVelue[fx.pid] >= 25 then
+            set LuciaVelue[fx.pid] = 25
+        endif
+        if Player(fx.pid) == GetLocalPlayer() then
+            if LuciaForm[fx.pid] == 1 then
+                call DzFrameSetValue(LuciaAden2, LuciaVelue[fx.pid])
+            endif
+        endif
+        
         /*
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))

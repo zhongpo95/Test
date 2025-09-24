@@ -122,10 +122,10 @@ private function EffectFunction takes nothing returns nothing
                 call EXSetEffectSize(e,0.4)
                 call DestroyEffect(e)
                 if LuciaForm[fx.pid] == 0 then
-                    set LuciaForm[fx.pid] = 1
+                    //set LuciaForm[fx.pid] = 1
                     call AnimationStart3(fx.caster,27, fx.speed)
                 else
-                    set LuciaForm[fx.pid] = 0
+                    //set LuciaForm[fx.pid] = 0
                     call AnimationStart3(fx.caster,4, fx.speed)
                 endif
                 set t2 = tick.create(0)
@@ -182,10 +182,10 @@ private function EffectFunction takes nothing returns nothing
                 set t2.data = fx2
                 call t2.start( 0.03125, false, function EffectFunction2 ) 
                 if LuciaForm[fx.pid] == 0 then
-                    set LuciaForm[fx.pid] = 1
+                    //set LuciaForm[fx.pid] = 1
                     call AnimationStart3(fx.caster,27, fx.speed)
                 else
-                    set LuciaForm[fx.pid] = 0
+                    //set LuciaForm[fx.pid] = 0
                     call AnimationStart3(fx.caster,3, fx.speed)
                 endif
                 call DummyMagicleash(fx.caster, (EffectTime /fx.speed))
@@ -231,10 +231,10 @@ private function EffectFunction takes nothing returns nothing
                 set t2.data = fx2
                 call t2.start( 0.03125, false, function EffectFunction2 ) 
                 if LuciaForm[fx.pid] == 0 then
-                    set LuciaForm[fx.pid] = 1
+                    //set LuciaForm[fx.pid] = 1
                     call AnimationStart3(fx.caster,27, fx.speed)
                 else
-                    set LuciaForm[fx.pid] = 0
+                    //set LuciaForm[fx.pid] = 0
                     call AnimationStart3(fx.caster,4, fx.speed)
                 endif
                 call DummyMagicleash(fx.caster, (EffectTime /fx.speed))
@@ -280,10 +280,10 @@ private function EffectFunction takes nothing returns nothing
                 set t2.data = fx2
                 call t2.start( 0.03125, false, function EffectFunction2 ) 
                 if LuciaForm[fx.pid] == 0 then
-                    set LuciaForm[fx.pid] = 1
+                    //set LuciaForm[fx.pid] = 1
                     call AnimationStart3(fx.caster,27, fx.speed)
                 else
-                    set LuciaForm[fx.pid] = 0
+                    //set LuciaForm[fx.pid] = 0
                     call AnimationStart3(fx.caster,3, fx.speed)
                 endif
                 call DummyMagicleash(fx.caster, (EffectTime /fx.speed))
@@ -329,10 +329,10 @@ private function EffectFunction takes nothing returns nothing
                 set t2.data = fx2
                 call t2.start( 0.03125, false, function EffectFunction2 ) 
                 if LuciaForm[fx.pid] == 0 then
-                    set LuciaForm[fx.pid] = 1
+                    //set LuciaForm[fx.pid] = 1
                     call AnimationStart3(fx.caster,27, fx.speed)
                 else
-                    set LuciaForm[fx.pid] = 0
+                    //set LuciaForm[fx.pid] = 0
                     call AnimationStart3(fx.caster,4, fx.speed)
                 endif
                 call DummyMagicleash(fx.caster, (EffectTime /fx.speed))
@@ -379,10 +379,10 @@ private function Main takes nothing returns nothing
         //set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
         
         if LuciaForm[fx.pid] == 0 then
-            set LuciaForm[fx.pid] = 1
+            //set LuciaForm[fx.pid] = 1
             call AnimationStart3(fx.caster,27, fx.speed)
         else
-            set LuciaForm[fx.pid] = 0
+            //set LuciaForm[fx.pid] = 0
             call AnimationStart3(fx.caster,3, fx.speed)
         endif
         call LuciaMuPlus(fx.pid, 20)

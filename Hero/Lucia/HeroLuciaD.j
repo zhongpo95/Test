@@ -64,7 +64,7 @@ private function EffectFunction takes nothing returns nothing
             call t.start( Time1 / fx.speed, false, function EffectFunction )
         elseif fx.i == 2 then
             call UnitEffectTime2('e057',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.5,0,fx.pid)
-            call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 300, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 300, GetUnitFacing(fx.caster) ) )
+            //call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 300, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 300, GetUnitFacing(fx.caster) ) )
 
             call UnitAddAbility(fx.caster,'Arav')
             call UnitRemoveAbility(fx.caster,'Arav')
@@ -73,7 +73,7 @@ private function EffectFunction takes nothing returns nothing
             if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
                 set e = AddSpecialEffect(".mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster) )
             else
-                set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster))
+                set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", GetWidgetX(fx.caster)+ PolarX( -50, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster)+ PolarY( -50, GetUnitFacing(fx.caster) ))
             endif
             call EXSetEffectSize(e,0.5)
             call DestroyEffect(e)
@@ -133,6 +133,16 @@ private function Main takes nothing returns nothing
         set e = null
         call Sound3D(fx.caster,'A03V')
         */
+
+        if not IsUnitDeadVJ(LuciaD[fx.pid]) then
+            call KillUnit(LuciaD[fx.pid])
+        endif
+
+        //F사용가능
+        if not IsUnitDeadVJ(LuciaF[fx.pid]) then
+            call KillUnit(LuciaF[fx.pid])
+        endif
+        set LuciaF[fx.pid] = CreateUnit(GetOwningPlayer(fx.caster),'e05K',0,0,0)
 
         call Sound3D(fx.caster,'A07K')
 
