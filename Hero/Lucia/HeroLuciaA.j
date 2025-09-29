@@ -140,6 +140,8 @@ private function Main takes nothing returns nothing
             set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         endif
 
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
+        
         call EXEffectMatRotateZ(e,AngleWBP(fx.caster,fx.TargetX,fx.TargetY))
         call DestroyEffect(e)
         set e = null

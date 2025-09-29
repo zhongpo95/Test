@@ -63,6 +63,7 @@ private function EffectFunction takes nothing returns nothing
             call Sound3D(fx.caster,'A07L')
             call t.start( Time1 / fx.speed, false, function EffectFunction )
         elseif fx.i == 2 then
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTime2('e057',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.5,0,fx.pid)
             //call SetUnitSafeXY(fx.caster, GetWidgetX(fx.caster) + PolarX( 300, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) + PolarY( 300, GetUnitFacing(fx.caster) ) )
 
@@ -81,6 +82,7 @@ private function EffectFunction takes nothing returns nothing
             call AnimationStart3(fx.caster, 22, fx.speed)
             call t.start( Time2 / fx.speed, false, function EffectFunction )
         elseif fx.i == 3 then
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
             if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
                 set e = AddSpecialEffect(".mdl", GetWidgetX(fx.caster), GetWidgetY(fx.caster) )
             else

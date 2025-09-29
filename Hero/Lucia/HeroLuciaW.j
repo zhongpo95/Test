@@ -58,7 +58,7 @@ private function EffectFunction2 takes nothing returns nothing
             set fx.dummy = UnitEffectTimeEX2('e04X', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
             set fx.r =  GetUnitFacing(fx.caster)
         endif
-        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 2 )
     endif
     
     if fx.i != (TICK+1) then

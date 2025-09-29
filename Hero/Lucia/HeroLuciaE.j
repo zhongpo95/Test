@@ -93,6 +93,9 @@ private function EffectFunction7 takes nothing returns nothing
         call SetUnitVertexColorBJ( UnitEffectTime2('e05D',x+PolarX( 150, fx.r +45), y+PolarY( 150, fx.r + 45), (fx.r + 45), 0.7, 23, fx.pid) , 100, 100, 100, 50 )
     endif
     //call EXSetEffectSize(e, 1.25)
+
+    call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
+
     call DestroyEffect(e)
 
     if fx.i != 5 then
@@ -164,6 +167,8 @@ private function EffectFunction8 takes nothing returns nothing
         endif
         //call EXSetEffectSize(e, 1.25)
         call DestroyEffect(e)
+
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
         
         call t.start( EffectTime5/fx.speed , false, function EffectFunction7 ) 
     else
@@ -200,6 +205,7 @@ private function EffectFunction4 takes nothing returns nothing
             call EXSetEffectSize(e, 1.75)
             call DestroyEffect(e)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
         endif
         set Stack[fx.pid] = 0
         call fx.Stop()
@@ -238,6 +244,7 @@ private function EffectFunction3 takes nothing returns nothing
             call EXSetEffectSize(e, 1.25)
             call DestroyEffect(e)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
         endif
         set Stack[fx.pid] = 0
         call fx.Stop()
@@ -277,6 +284,9 @@ private function EffectFunction6 takes nothing returns nothing
         call SetUnitVertexColorBJ( UnitEffectTime2('e05D',x+PolarX( 285, fx.r +60), y+PolarY( 285, fx.r + 60), (fx.r + 60), 0.7, 4, fx.pid) , 100, 100, 100, 50 )
     endif
     //call EXSetEffectSize(e, 1.25)
+    
+    call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
+
     call DestroyEffect(e)
 
     if fx.i != 5 then

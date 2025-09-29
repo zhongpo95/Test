@@ -48,11 +48,13 @@ private function EffectFunction takes nothing returns nothing
         if fx.r >= Time1/fx.speed and fx.i == 0 then
             call Sound3D(fx.caster,'A07M')
             set fx.i = 1
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTimeEX2('e04S',GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster))+PolarX( 50, GetUnitFacing(fx.caster) - 90 ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) - 90 )+PolarY( 25, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.2,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster))+PolarX( 50, GetUnitFacing(fx.caster) - 90 ), GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) - 90 )+PolarY( 25, GetUnitFacing(fx.caster)), scale, function splashD )
             call t.start( 0.03125, false, function EffectFunction ) 
         elseif fx.r >= Time2/fx.speed and fx.i == 1 then
             set fx.i = 2
+            call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTimeEX2('e04T',GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.2,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)), scale, function splashD2 )
             call fx.Stop()

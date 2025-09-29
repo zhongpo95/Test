@@ -74,8 +74,10 @@ library SafePos
         local item tem
         
         set tem = CreateItem('cnob', TPX, TPY)
-        call SetUnitX(u, GetItemX(tem))
-        call SetUnitY(u, GetItemY(tem))
+        if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
+            call SetUnitX(u, GetItemX(tem))
+            call SetUnitY(u, GetItemY(tem))
+        endif
         call RemoveItem(tem)
         set tem = null
     endfunction
@@ -86,8 +88,10 @@ library SafePos
         local item tem
         
         set tem = CreateItem('cnob', TPX, TPY)
-        call SetUnitX(u, GetItemX(tem))
-        call SetUnitY(u, GetItemY(tem))
+        if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
+            call SetUnitX(u, GetItemX(tem))
+            call SetUnitY(u, GetItemY(tem))
+        endif
         call RemoveItem(tem)
         set tem = null
     endfunction
@@ -97,8 +101,10 @@ library SafePos
         local item tem
         
         set tem = CreateItem('cnob', X, Y)
-        call SetUnitX(u, GetItemX(tem))
-        call SetUnitY(u, GetItemY(tem))
+        if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
+            call SetUnitX(u, GetItemX(tem))
+            call SetUnitY(u, GetItemY(tem))
+        endif
         call RemoveItem(tem)
         set tem = null
     endfunction

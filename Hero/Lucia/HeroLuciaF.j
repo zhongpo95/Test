@@ -114,6 +114,7 @@ private function EffectFunction takes nothing returns nothing
         else
             set e = AddSpecialEffect("ZK_BM_Mine blasting.mdl", fx.TargetX, fx.TargetY)
         endif
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
         call EXSetEffectSize(e, 1.5)
         call DestroyEffect(e)
         call fx.Stop()
@@ -217,6 +218,7 @@ private function Main takes nothing returns nothing
         endif
         call DestroyEffect(e)
     
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
 
         //애니
         call AnimationStart3(fx.caster, 18, 1.0)

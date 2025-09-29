@@ -47,6 +47,7 @@ private function EffectFunction takes nothing returns nothing
         call SetCameraFieldForPlayer(Player(fx.pid),CAMERA_FIELD_TARGET_DISTANCE,3500,0.5)
         call SetCameraFieldForPlayer(Player(fx.pid),CAMERA_FIELD_ANGLE_OF_ATTACK,304,0.5)
 
+        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
         set arrayPlayerCameraBoolean[fx.pid] = false
 
         call fx.Stop()

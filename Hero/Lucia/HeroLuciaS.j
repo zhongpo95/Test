@@ -151,6 +151,8 @@ private function EffectFunction2 takes nothing returns nothing
                 endif
 
                 set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
+                
+                call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
 
                 call fx.Stop()
                 call t.destroy()
