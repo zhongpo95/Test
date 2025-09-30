@@ -49237,11 +49237,7 @@ globals
     call JNWriteLog("error, boss is null : "+sG+Oh)
     return
     endif
-    call mTe(Q5v,1.0,(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03C')),j2))))),(H2))),
-    (LoadInteger(o3,StringHash((((LoadStr(o3,(('I03E')),j2))))),(H2))),
-    (LoadInteger(o3,StringHash((((LoadStr(o3,(('I03J')),j2))))),(H2))),
-    (LoadInteger(o3,StringHash((((LoadStr(o3,(('I03K')),j2))))),(H2))),
-    (LoadInteger(o3,StringHash((((LoadStr(o3,(('I03L')),j2))))),(H2))))
+    call mTe(Q5v,1.0,(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03C')),j2))))),(H2))),(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03E')),j2))))),(H2))),(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03J')),j2))))),(H2))),(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03K')),j2))))),(H2))),(LoadInteger(o3,StringHash((((LoadStr(o3,(('I03L')),j2))))),(H2))))
     call mQe(Q5v,(LoadInteger(o3,StringHash((((LoadStr(o3,(('I04O')),j2))))),(H2))),2.0)
     set Q5v=(LoadInteger(o3,StringHash(((sG+Rh))),(m2)))
     if Q5v==0 then
