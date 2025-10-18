@@ -1,4 +1,4 @@
-library FrameCount requires Party
+library FrameCount
     globals
         integer FrameNum = 0
     endglobals
