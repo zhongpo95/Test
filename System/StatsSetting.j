@@ -1,4 +1,4 @@
-library StatsSet initializer init requires UIHP, ITEM
+library StatsSet initializer init requires UIHP, ITEM, DataArcana
     function SkillSpeed takes integer pid returns real
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
