@@ -39,8 +39,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern6Time2 = 100
         private constant integer Pattern6Distance = 2000
         //파이어볼 거리보다 멀면 사용안함 5~10초
-        private constant integer Pattern7Cool = 0//250
-        private constant integer Pattern7RandomCool = 0//250
+        private constant integer Pattern7Cool = 250//250
+        private constant integer Pattern7RandomCool = 250//250
         private constant integer Pattern7Time = 150
         private constant integer Pattern7Time2 = 175
         private constant integer Pattern7Range = 125
@@ -230,16 +230,18 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)
                 //방향회전
                 elseif fx.i <= Pattern7Time then
-                    set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
-                    call SetUnitFacing(fx.caster,fx.lockangle)
-                    call EXSetUnitFacing(fx.caster, fx.lockangle)
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    set r = GetUnitFacing(fx.caster)
-                    call SetUnitPosition(fx.dummy,GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r))
-                    call SetUnitFacing(fx.dummy,fx.lockangle)
-                    call EXSetUnitFacing(fx.dummy, fx.lockangle)
-                    call SetUnitFacing(fx.effectdummy,fx.lockangle)
-                    call EXSetUnitFacing(fx.effectdummy, fx.lockangle)
+                    if fx.i == Pattern7Time then
+                        set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
+                        call SetUnitFacing(fx.caster,fx.lockangle)
+                        call EXSetUnitFacing(fx.caster, fx.lockangle)
+                        call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
+                        set r = GetUnitFacing(fx.caster)
+                        call SetUnitPosition(fx.dummy,GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r))
+                        call SetUnitFacing(fx.dummy,fx.lockangle)
+                        call EXSetUnitFacing(fx.dummy, fx.lockangle)
+                        call SetUnitFacing(fx.effectdummy,fx.lockangle)
+                        call EXSetUnitFacing(fx.effectdummy, fx.lockangle)
+                    endif
                 //발사 및 종료
                 elseif fx.i == Pattern7Time2 then
                     call AnimationStart4(fx.caster, 0, 0.02)
