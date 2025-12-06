@@ -58,7 +58,7 @@ scope HeroBandiF
     
         set fx.i = fx.i + 1
 
-        if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
+        //if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
             if fx.i == 1 then
                 call AnimationStart3(fx.caster, 4, 1.00)
                 if fx.pid != GetPlayerId(GetLocalPlayer()) then
@@ -165,17 +165,22 @@ scope HeroBandiF
                 call t.start( 0.24 / fx.speed, false, function EffectFunction )
             elseif fx.i == 44 then
                 call PauseUnitEx(fx.caster,false)
+                call BuffNoNB.Stop( fx.caster )
+                call BuffNoST.Stop( fx.caster )
                 call fx.Stop()
                 call t.destroy()
             endif
+            /*
         else
             if fx.e != null then
                 call DestroyEffect(fx.e)
                 set fx.e = null
             endif
+            call PauseUnitEx(fx.caster,false)
             call fx.Stop()
             call t.destroy()
         endif
+            */
     endfunction
 
     private function EffectFunctionZ takes nothing returns nothing
@@ -230,6 +235,9 @@ scope HeroBandiF
             //call BanBisul2Use(pid)
             call Overlay2Count(fx.pid,'A06G')
 
+            call BuffNoNB.Apply( fx.caster, Time, 0 )
+            call BuffNoST.Apply( fx.caster, Time, 0 )
+            
             //공격속도가 40퍼 도달시, 이스킬의 공격속도가 40퍼가 아닌 100퍼로 적용
             if SkillSpeed(fx.pid) != 40 then
                 call DummyMagicleash(fx.caster, Time / fx.speed )
@@ -249,6 +257,8 @@ scope HeroBandiF
                 endif
 
                 call AnimationStart3(fx.caster, 3, 1.50 * fx.speed)
+                call BuffNoNB.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
+                call BuffNoST.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
 
                 set fx2 = SkillFx.Create()
                 set t2 = tick.create(fx2)
@@ -276,6 +286,8 @@ scope HeroBandiF
                 endif
 
                 call AnimationStart3(fx.caster, 3, 1.50 * fx.speed)
+                call BuffNoNB.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
+                call BuffNoST.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
 
                 set fx2 = SkillFx.Create()
                 set t2 = tick.create(fx2)

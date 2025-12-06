@@ -17,7 +17,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadBBD          //로드결정
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
-        constant integer MaxHero = 4
+        constant integer MaxHero = 3
     endglobals
     
     function StringNullCheck2 takes string s returns boolean
@@ -488,11 +488,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
             set HeroTypeId = 'H004'
         elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
-            set HeroTypeId = 'H00P'
-            set LuciaForm[pid] = 0
-            call LuciaAdenShow(p,1,true)
-            set LuciaFormUnit[pid] = CreateUnit(Player(pid),'e05H',0,0,0)
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then
                 call DzFrameShow(NarAden, true)
@@ -510,21 +505,19 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(NarAdens2[5], true)
             endif
             set NarNabi[pid] = 0
-            //call DzFrameShow(skillbuttonframe[8],true)
-            //call DzFrameShow(NarAden2, true)
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "4" then
+        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set HeroTypeId = 'H00K'
-            //call DzFrameShow(BanAden, true)
-            call DzFrameShow(BanAdens[0], true)
-            call DzFrameShow(BanAdens2[0], true)
-            call DzFrameShow(BanAdens2[1], true)
-            call DzFrameShow(BanAdens2[2], true)
-            call DzFrameShow(BanAdens2[3], true)
-            call DzFrameShow(BanAdens2[4], true)
+            if p == GetLocalPlayer() then
+                call DzFrameShow(BanAdens[0], true)
+                call DzFrameShow(BanAdens2[0], true)
+                call DzFrameShow(BanAdens2[1], true)
+                call DzFrameShow(BanAdens2[2], true)
+                call DzFrameShow(BanAdens2[3], true)
+                call DzFrameShow(BanAdens2[4], true)
+            endif
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
             set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
-            //form 반디
             set BandiState[pid] = 1
         endif
         
@@ -534,8 +527,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
 
         elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
-
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
             set NarFormG[pid] = CreateUnit(Player(pid),'e027',0,0,0)
         endif
 
@@ -753,11 +744,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if SlotHero == 1 then
             set HeroTypeId = 'H004'
         elseif SlotHero == 2 then
-            set HeroTypeId = 'H00P'
-            set LuciaForm[pid] = 0
-            call LuciaAdenShow(p,1,true)
-            set LuciaFormUnit[pid] = CreateUnit(Player(pid),'e05H',0,0,0)
-        elseif SlotHero == 3 then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then
                 call DzFrameShow(NarAden, true)
@@ -775,21 +761,19 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(NarAdens2[5], true)
             endif
             set NarNabi[pid] = 0
-            //call DzFrameShow(skillbuttonframe[8],true)
-            //call DzFrameShow(NarAden2, true)
-        elseif SlotHero == 4 then
+        elseif SlotHero == 3 then
             set HeroTypeId = 'H00K'
-            //call DzFrameShow(BanAden, true)
-            call DzFrameShow(BanAdens[0], true)
-            call DzFrameShow(BanAdens2[0], true)
-            call DzFrameShow(BanAdens2[1], true)
-            call DzFrameShow(BanAdens2[2], true)
-            call DzFrameShow(BanAdens2[3], true)
-            call DzFrameShow(BanAdens2[4], true)
+            if p == GetLocalPlayer() then
+                call DzFrameShow(BanAdens[0], true)
+                call DzFrameShow(BanAdens2[0], true)
+                call DzFrameShow(BanAdens2[1], true)
+                call DzFrameShow(BanAdens2[2], true)
+                call DzFrameShow(BanAdens2[3], true)
+                call DzFrameShow(BanAdens2[4], true)
+            endif
             set BanBisul[pid] = 0
             set BanBisul2[pid] = 0
             set BandiForm[pid] = CreateUnit(Player(pid),'e03A',0,0,0)
-            //form 반디
             set BandiState[pid] = 1
         endif
         
@@ -801,7 +785,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         
         if SlotHero == 1 then
         elseif SlotHero == 2 then
-        elseif SlotHero == 3 then
             set NarFormC[pid] = CreateUnit(Player(pid),'e028',0,0,0)
         endif
 
@@ -817,7 +800,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")) > 0 then
             set PlayerItem2[pid] = CreateItem('I00C',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")))
+            call SetItemCharges(PlayerItem2[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션2", "0")))
         else
             set PlayerItem2[pid] = CreateItem('I00G',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
@@ -826,7 +809,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")) > 0 then
             set PlayerItem3[pid] = CreateItem('I00A',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
-            call SetItemCharges(PlayerItem1[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")))
+            call SetItemCharges(PlayerItem3[pid], GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber)+".포션3", "0")))
         else
             set PlayerItem3[pid] = CreateItem('I00I',0,0)
             call UnitAddItem(MainUnit[pid],PlayerItem3[pid])

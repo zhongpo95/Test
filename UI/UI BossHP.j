@@ -1,50 +1,44 @@
-library UIBossHP initializer init requires FrameCount, DataUnit
+library UIBossHP initializer init requires FrameCount, DataUnit, FX
     globals
-        private integer BHPBarBorder
-        private integer BSDBarBorder
+        // UI 프레임 배열 (최대 9개)
         private integer array BHPBar
-        private integer BSDBar
-        private integer BHPTextFrame
-        private integer BSDTextFrame
+        // 보스 UI 업데이트 용 임시 변수
         private unit MyBossUnit
-        private real BossHP
-        private real BossSD
-        private boolean array BHPxVshow
+        // 모니터링할 플레이어 ID
+        private integer g_PlayerId = -1
     endglobals
         
     private struct FxEffect
         unit caster
         integer index
-        integer BHPx //체력바줄수 BHPx i
-        real BHPxV //한줄당체력 BHPxV r
-        integer BHPxN //체력바갯수 BHPxN i
-        real BHPxNN //나머지퍼센트 BHPxNN r
-        real BHPxNNP //갱신체력바퍼샌트
-        integer BHPxN2
-        integer BHPxL
-        integer id //플레이어 아이디
+        integer BHPx         // 체력바 줄 수
+        real BHPxV           // 한 줄당 체력량
+        integer BHPxN        // 현재 체력바 개수
+        real BHPxNN          // 현재 줄의 나머지 퍼센트 (0~100)
+        real BHPxNNP         // 이전 퍼센트 (애니메이션용)
+        integer BHPxN2       // 이전 체력바 개수
+        integer BHPxL        // 마지막 자리 수 (0~9)
+        integer playerId     // 플레이어 ID
         
         method OnStop takes nothing returns nothing
             set caster = null
-            set index = 0
-            set BHPx = 0
-            set BHPxV = 0
-            set BHPxN = 0
-            set BHPxNN = 0
-            set BHPxNNP = 0
-            set BHPxN2 = 0
-            set BHPxL = 0
-            set id = 0
         endmethod
         //! runtextmacro 연출()
     endstruct
 
-    function PlayersBossBarShow takes player p , boolean state returns nothing
+    function PlayersBossBarShow takes player p, boolean state returns nothing
+        if state then
+            set g_PlayerId = GetPlayerId(p)
+        else
+            set g_PlayerId = -1
+        endif
     endfunction
-    
+    /*
     function SELECTEDBOSS takes player p, unit u returns nothing
+        set MyBossUnit = u
+        call BOSSHPSTART(u, GetPlayerId(p))
     endfunction
-
+    */
     private function MyBarCreate takes nothing returns nothing
         set BHPBar[0]=DzCreateFrameByTagName("BACKDROP", "frame00", DzGetGameUI(), "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[0], 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 730.00 / 1280.00 ))
@@ -81,22 +75,24 @@ library UIBossHP initializer init requires FrameCount, DataUnit
         call DzFrameSetPoint(BHPBar[7], 0, DzGetGameUI(), 6, ( 487.50 / 1280.00 ), ( 655.00 / 1280.00 ))
     endfunction
 
-    function yaojingGN24 takes string f1,string f2,integer z1 returns string
-        local integer x1= 1
-        local integer x2= StringLength(f1)
+    function yaojingGN24 takes string f1, string f2, integer z1 returns string
+        local integer x1 = 1
+        local integer x2 = StringLength(f1)
+        local integer f2Len = StringLength(f2)
+        
         loop
             exitwhen x1 > x2
-            if ( ( SubStringBJ(f1, x1, ( ( x1 - 1 ) + StringLength(f2) )) == f2 ) ) then
+            if SubStringBJ(f1, x1, x1 + f2Len - 1) == f2 then
                 exitwhen true
             endif
-            set x1=x1 + 1
+            set x1 = x1 + 1
         endloop
-        if z1 == 1 then
-         return SubStringBJ(f1, 1, ( x1 - 1 ))
-        else
-         return SubStringBJ(f1, ( x1 + StringLength(f2) ), x2)
-        endif
         
+        if z1 == 1 then
+            return SubStringBJ(f1, 1, x1 - 1)
+        else
+            return SubStringBJ(f1, x1 + f2Len, x2)
+        endif
     endfunction
 
     //0x57D9DCA8 체력바줄수 BHPx i
@@ -104,172 +100,187 @@ library UIBossHP initializer init requires FrameCount, DataUnit
     //0x6729787C 체력바갯수 BHPxN i
     //0xE5B3307E 나머지퍼센트 BHPxNN r
     //0x749BAE3E 갱신체력바퍼샌트 BHPxNNP r
+    
+    // 프레임 표시 헬퍼 함수
+    private function ShowFrames takes player p, boolean state returns nothing
+        if GetLocalPlayer() == p then
+            call DzFrameShow(BHPBar[0], state)
+            call DzFrameShow(BHPBar[8], state)
+        endif
+    endfunction
+    
+    // 텍스처 업데이트 헬퍼 함수
+    private function UpdateTexture takes player p, integer frameIndex, string texturePath returns nothing
+        if GetLocalPlayer() == p then
+            call DzFrameSetTexture(frameIndex, texturePath, 0)
+        endif
+    endfunction
+    
+    // 프레임 위치 업데이트 헬퍼 함수
+    private function UpdateFramePosition takes player p, integer frameIndex, integer anchorPoint, integer anchorFrame, real offsetX, real offsetY returns nothing
+        if GetLocalPlayer() == p then
+            call DzFrameSetPoint(frameIndex, anchorPoint, anchorFrame, anchorPoint, offsetX, offsetY)
+        endif
+    endfunction
 
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local FxEffect fx = t.data
         local real r
+        local real shieldPercent
+        local real hpPercent
+        local string texturePath
+        local player p
+        local boolean isLocalPlayer
         
-        if  UnitAlive(fx.caster) and (fx.BHPxNNP > 0.00 ) then
-            if GetLocalPlayer() == Player(fx.id) then
+        if not UnitAlive(fx.caster) or fx.BHPxNNP <= 0.00 then
+            if not UnitAlive(fx.caster) then
+                set p = Player(fx.playerId)
+                if GetLocalPlayer() == p then
+                    call DzFrameShow(BHPBar[0], false)
+                    call DzFrameShow(BHPBar[8], false)
+                endif
+            endif
+            call fx.Stop()
+            call t.destroy()
+            return
+        endif
+        
+        set p = Player(fx.playerId)
+        set isLocalPlayer = (GetLocalPlayer() == p)
+        
+        // 보스 이름 업데이트
+        if isLocalPlayer then
             call DzFrameShow(BHPBar[0], true)
-            endif
-            //보스이름
-            if GetLocalPlayer() == Player(fx.id) then
-            call DzFrameSetText( BHPBar[7], GetUnitName(fx.caster) )
-            endif
-            set fx.BHPxN = R2I( UnitHP[fx.index] / fx.BHPxV )
-            set r = ModuloReal( UnitHP[fx.index], fx.BHPxV )
-            if r == 0 then
-                set fx.BHPxNN = 0
-            else
-                set fx.BHPxNN = 100 / (fx.BHPxV / r)
-            endif
-            
-            //나머지보정
-            if 1.00 > fx.BHPxNN and fx.BHPxNN > 0 then
-                set fx.BHPxNN = 1.00
-            endif
-            
-            //체력바 갯수
-            if GetLocalPlayer() == Player(fx.id) then
-            call DzFrameSetText(BHPBar[4], ( "×" + I2S(fx.BHPxN) ))
-            endif
-            
-            //체력바 갯수 마지막자리 표시
-            set fx.BHPxL = S2I( SubString( I2S(fx.BHPxN), StringLength(I2S(fx.BHPxN)) - 1, StringLength(I2S(fx.BHPxN)) ) )
-            
-            //지금체력바
-            if GetLocalPlayer() == Player(fx.id) then
-            call DzFrameSetTexture(BHPBar[2], ( ( "war3mapImported\\ZT-[BOSS]-B" ) + ( I2S(fx.BHPxL) ) + ( ".blp" ) ), 0)
-            endif
-            
-            //빨간체력바 쉴드게이지
-            if ((3.00 * (UnitSD[fx.index] / UnitSDMAX[fx.index]) * 100) / 1280.00) == 0 then
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetSize(BHPBar[6],  (1.00) / 1280.00 , 5.00 / 1280.00 )
-                endif
-            else
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetSize(BHPBar[6],  (3.00 * (UnitSD[fx.index] / UnitSDMAX[fx.index]) * 100) / 1280.00 , 5.00 / 1280.00 )
-                endif
-            endif
+            call DzFrameSetText(BHPBar[7], GetUnitName(fx.caster))
+        endif
         
-            //체력바 갯수가 0개
-            if fx.BHPxN > 0  then
-                //5보이게
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameShow(BHPBar[5], true)
-                endif
-                //5 다음체력바 설정
-                if fx.BHPxL == 0 then
-                    if GetLocalPlayer() == Player(fx.id) then
-                    call DzFrameSetTexture(BHPBar[5], ( "war3mapImported\\ZT-[BOSS]-B" ) + I2S( 9 ) + ( ".blp" ), 0)
-                    endif
-                else
-                    if GetLocalPlayer() == Player(fx.id) then
-                    call DzFrameSetTexture(BHPBar[5], ( "war3mapImported\\ZT-[BOSS]-B" ) + I2S( fx.BHPxL - 1 ) + ( ".blp" ), 0)
-                    endif
-                endif
-            else
-                //5안보이게
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameShow(BHPBar[5], false)
-                endif
-            endif
-            
-            //보스의 체력바갯수가 , 갱신된 체력바갯수보다 많음 = 1줄이상 깎았음
-            if fx.BHPxN2 > fx.BHPxN then
-                //갱신체력바퍼샌트
-                set fx.BHPxNNP = 100.00
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * (fx.BHPxNNP * ( 0.01 )), 0)
-                endif
-            else
-            endif
-            
-            if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameShow(BHPBar[0], true)
-                call DzFrameShow(BHPBar[8], true)
-            endif
-            
-            //보스의 체력바갯수가 , 갱신된 체력바갯수보다 많음 = ??회복된건가??
-            if fx.BHPxN2 < fx.BHPxN then
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * (fx.BHPxNN * ( 0.01 )), 0)
-                endif
-                set fx.BHPxNNP = fx.BHPxNN
-            else
-            endif
-            
-            //보스의 체력바갯수 갱신
-            set fx.BHPxN2 = fx.BHPxN
-            
-            //나머지가 없음 = 한줄을 다깎음 0=100
-            if 0.00 == fx.BHPxNN then
-                set fx.BHPxNN = 100.00
-            endif
-                
-            //보스의 갱신되기전 체력바의 퍼센트(현재체력바퍼센트) > 나머지퍼센트(현재체력바퍼센트)  =  피가까였음
-            //0.03초마다 -1로 피까임 표시
-            if fx.BHPxNNP > fx.BHPxNN then
-                //보스의 갱신되기전 체력바의 퍼센트(현재체력바퍼센트) - 1
-                set fx.BHPxNNP = fx.BHPxNNP - 1.00
-                if GetLocalPlayer() == Player(fx.id) then
-                    call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * (fx.BHPxNNP * ( 0.01 )), 0)
-                endif
-            else
-            endif
-            //지금체력바 길이조정
-            if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameSetSize(BHPBar[2], ( 3.8 * fx.BHPxNN ) / 1280.00, 35.00 / 1280.00 )
-            endif
-            
-            
-            //빨간체력바 체력퍼센트
-            if ((3.00 * (UnitHP[fx.index] / UnitHPMAX[fx.index]) * 100) / 1280.00) == 0 then
-                call DzFrameSetSize(BHPBar[6],  (1.00) / 1280.00 , 5.00 / 1280.00 )
-            else
-                call DzFrameSetSize(BHPBar[6],  (3.00 * (UnitHP[fx.index] / UnitHPMAX[fx.index]) * 100) / 1280.00 , 5.00 / 1280.00 )
-            endif
-            
+        // 현재 체력바 개수 계산
+        set fx.BHPxN = R2I(UnitHP[fx.index] / fx.BHPxV)
+        set r = ModuloReal(UnitHP[fx.index], fx.BHPxV)
+        
+        // 나머지 퍼센트 계산
+        if r == 0.00 then
+            set fx.BHPxNN = 0.00
         else
-            //죽으면 UI숨김
-            if UnitAlive(fx.caster) == false then
-                if GetLocalPlayer() == Player(fx.id) then
-                call DzFrameShow(BHPBar[0], false)
-                call DzFrameShow(BHPBar[8], false)
-                endif
-                call fx.Stop()
-                call t.destroy()
+            set fx.BHPxNN = 100.00 * r / fx.BHPxV
+        endif
+        
+        // 최소값 보정 (1% 이상)
+        if fx.BHPxNN > 0.00 and fx.BHPxNN < 1.00 then
+            set fx.BHPxNN = 1.00
+        endif
+        
+        // 마지막 자리 수 추출
+        set fx.BHPxL = fx.BHPxN - (fx.BHPxN / 10) * 10
+        
+        // 체력바 개수 텍스트 업데이트
+        if isLocalPlayer then
+            call DzFrameSetText(BHPBar[4], "×" + I2S(fx.BHPxN))
+        endif
+        
+        // 현재 체력바 텍스처 업데이트
+        if isLocalPlayer then
+            set texturePath = "war3mapImported\\ZT-[BOSS]-B" + I2S(fx.BHPxL) + ".blp"
+            call DzFrameSetTexture(BHPBar[2], texturePath, 0)
+        endif
+        
+        // 보호막 게이지 업데이트
+        set shieldPercent = 3.00 * UnitSD[fx.index] / UnitSDMAX[fx.index] * 100 / 1280.00
+        if shieldPercent < 0.001 then
+            set shieldPercent = 1.00 / 1280.00
+        endif
+        call DzFrameSetSize(BHPBar[6], shieldPercent, 5.00 / 1280.00)
+        
+        // 다음 체력바 표시
+        if fx.BHPxN > 0 then
+            if isLocalPlayer then
+                call DzFrameShow(BHPBar[5], true)
+            endif
+            
+            if fx.BHPxL == 0 then
+                set texturePath = "war3mapImported\\ZT-[BOSS]-B9.blp"
             else
+                set texturePath = "war3mapImported\\ZT-[BOSS]-B" + I2S(fx.BHPxL - 1) + ".blp"
+            endif
+            if isLocalPlayer then
+                call DzFrameSetTexture(BHPBar[5], texturePath, 0)
+            endif
+        else
+            if isLocalPlayer then
+                call DzFrameShow(BHPBar[5], false)
             endif
         endif
+        
+        // 체력바 줄 수 변경 감지
+        if fx.BHPxN2 > fx.BHPxN then
+            // 한 줄 이상 깎임 - 새로운 애니메이션 시작
+            set fx.BHPxNNP = 100.00
+            if isLocalPlayer then
+                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * fx.BHPxNNP * 0.01, 0)
+            endif
+        elseif fx.BHPxN2 < fx.BHPxN then
+            // 회복됨 - 즉시 업데이트
+            set fx.BHPxNNP = fx.BHPxNN
+            if isLocalPlayer then
+                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * fx.BHPxNN * 0.01, 0)
+            endif
+        endif
+        
+        set fx.BHPxN2 = fx.BHPxN
+        
+        // 나머지가 없으면 100으로 설정
+        if fx.BHPxNN == 0.00 then
+            set fx.BHPxNN = 100.00
+        endif
+        
+        // 부드러운 감소 애니메이션
+        if fx.BHPxNNP > fx.BHPxNN then
+            set fx.BHPxNNP = fx.BHPxNNP - 1.00
+            if isLocalPlayer then
+                call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * fx.BHPxNNP * 0.01, 0)
+            endif
+        endif
+        
+        // 현재 체력바 길이 조정
+        if isLocalPlayer then
+            call DzFrameSetSize(BHPBar[2], 3.8 * fx.BHPxNN / 1280.00, 35.00 / 1280.00)
+            call DzFrameShow(BHPBar[8], true)
+        endif
+        
+        // HP 퍼센트 기반 게이지
+        set hpPercent = 3.00 * UnitHP[fx.index] / UnitHPMAX[fx.index] * 100 / 1280.00
+        if hpPercent < 0.001 then
+            set hpPercent = 1.00 / 1280.00
+        endif
+        call DzFrameSetSize(BHPBar[6], hpPercent, 5.00 / 1280.00)
     endfunction
     
     function BOSSHPSTART takes unit u, integer id returns nothing
         local tick t
         local FxEffect fx
-        local integer Index = DataUnitIndex(u)
+        local integer index = GetUnitIndex(u)
+        
+        if index == 0 then
+            call VJDebugMsg("BOSSHPSTART 인덱싱 오류")
+            return
+        endif
         
         set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = u
-        set fx.index = GetUnitIndex(u)
-        set fx.BHPx = UnitSetHPx[Index]
-        set fx.BHPxV = I2R(R2I(UnitHPMAX[fx.index]/fx.BHPx))
+        set fx.index = index
+        set fx.BHPx = UnitSetHPx[DataUnitIndex(u)]
+        set fx.BHPxV = I2R(R2I(UnitHPMAX[index] / fx.BHPx))
         set fx.BHPxN = fx.BHPx
-        set fx.BHPxN2 = fx.BHPxN
+        set fx.BHPxN2 = fx.BHPx
         set fx.BHPxNN = 100
         set fx.BHPxNNP = 100
         set fx.BHPxL = 0
+        set fx.playerId = id
         set t.data = fx
-        set fx.id = id
-        if fx.index != 0 then
-            call t.start( 0.03, true, function EffectFunction )
-        else
-            call VJDebugMsg("이 메세지가 보이면 BOSSHPSTART 인덱싱 오류")
-        endif
+        
+        call t.start(0.03, true, function EffectFunction)
     endfunction
     
     private function init takes nothing returns nothing

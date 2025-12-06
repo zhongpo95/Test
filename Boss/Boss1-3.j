@@ -14,7 +14,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         private constant integer Pattern2Time = 100
         private constant integer Pattern2Distance = 1500
         //카운터 밀치기 30~40초
-        private constant integer Pattern3Cool = 1500 //1500
+        private constant integer Pattern3Cool = 1500
         private constant integer Pattern3RandomCool = 500
         private constant integer Pattern3CounterTime = 125
         private constant integer Pattern3Distance = 600
@@ -70,7 +70,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     endfunction
 
     //마력충전
-    private struct FxEffect7
+    private struct FxEffect5
         unit caster
         unit dummy1
         unit dummy2
@@ -87,8 +87,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출()
     endstruct
     
-    private struct FxEffect7_Timer extends array
-        private method OnAction takes FxEffect7 fx returns nothing
+    private struct FxEffect5_Timer extends array
+        private method OnAction takes FxEffect5 fx returns nothing
             local effect e
             local real r
             local integer i
@@ -109,13 +109,20 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart(fx.caster,6)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime + CounterTime
+                    set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
                     call fx.Stop()
                 //무력화를 못함
                 elseif fx.i == Pattern5Time then
                     call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
                     call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
                     call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
-                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3)
+
+                    if UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3) < UnitHPMAX[IndexUnit(fx.caster)] then
+                        set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3)
+                    else
+                        set UnitHP[IndexUnit(fx.caster)] = UnitHPMAX[IndexUnit(fx.caster)]
+                    endif
+
                     call AnimationStart2(fx.caster, 0, 0.6, 3.0)
                     call AnimationStart4(fx.caster, 7, 0.6)
                     set UnitCastingSD[index] = 0
@@ -126,6 +133,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -134,7 +142,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect7", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect5", "0.02", "true")
     endstruct
 
     //지뢰마법
@@ -142,7 +150,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call AOE(splash.source, GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()), 350, 2.0, 'e03J', 3, 0)
     endfunction
 
-    private struct FxEffect6
+    private struct FxEffect8
         unit caster
         unit dummy1
         unit dummy2
@@ -159,22 +167,29 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출()
     endstruct
     
-    private struct FxEffect6_Timer extends array
-        private method OnAction takes FxEffect6 fx returns nothing
+    private struct FxEffect8_Timer extends array
+        private method OnAction takes FxEffect8 fx returns nothing
             local effect e
             local real r
             local integer i
             local tick t
             local MapStruct st = fx.st
+            local AggroSystem s
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])
+                    call SetUnitFacing(fx.caster, r)
+                    call EXSetUnitFacing(fx.caster, r)
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 3000, function splashF3 )
                 elseif fx.i == Pattern8Time then
                     //대기상태로 전환
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -183,11 +198,11 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect6", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect8", "0.02", "true")
     endstruct
 
     //파이어볼
-    private struct FxEffect5
+    private struct FxEffect7
         unit caster
         unit dummy
         unit targetUnit
@@ -208,8 +223,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출()
     endstruct
     
-    private struct FxEffect5_Timer extends array
-        private method OnAction takes FxEffect5 fx returns nothing
+    private struct FxEffect7_Timer extends array
+        private method OnAction takes FxEffect7 fx returns nothing
             local effect e
             local real r
             local integer i
@@ -228,8 +243,11 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r),r)
                     set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)
+                    set fx.lockangle = r
+
                 //방향회전
                 elseif fx.i <= Pattern7Time then
+                    /*
                     if fx.i == Pattern7Time then
                         set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
                         call SetUnitFacing(fx.caster,fx.lockangle)
@@ -242,6 +260,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                         call SetUnitFacing(fx.effectdummy,fx.lockangle)
                         call EXSetUnitFacing(fx.effectdummy, fx.lockangle)
                     endif
+                    */
                 //발사 및 종료
                 elseif fx.i == Pattern7Time2 then
                     call AnimationStart4(fx.caster, 0, 0.02)
@@ -252,6 +271,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart4(fx.caster, 7, 2.00)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -260,11 +280,11 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect5", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect7", "0.02", "true")
     endstruct
 
     //마력 포격
-    private struct FxEffect4
+    private struct FxEffect6
         unit caster
         unit array dummy[5]
         unit array targetUnit[5]
@@ -410,8 +430,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call p2.destroy()
     endfunction
 
-    private struct FxEffect4_Timer extends array
-        private method OnAction takes FxEffect4 fx returns nothing
+    private struct FxEffect6_Timer extends array
+        private method OnAction takes FxEffect6 fx returns nothing
             local effect e
             local real r
             local real x
@@ -419,10 +439,16 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             local integer i
             local tick t
             local MapStruct st = fx.st
+            local AggroSystem s
 
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])
+                    call SetUnitFacing(fx.caster, r)
+                    call EXSetUnitFacing(fx.caster, r)
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set r = GetUnitFacing(fx.caster)
                     set x = GetWidgetX(fx.caster)+PolarX(-500,r)
                     set y = GetWidgetY(fx.caster)+PolarY(-500,r)
@@ -473,6 +499,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
                     //call VJDebugMsg("전환2")
                     call fx.Stop()
                     //call VJDebugMsg("전환3")
@@ -483,7 +510,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect4", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect6", "0.02", "true")
     endstruct
 
     //이동
@@ -546,7 +573,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     endstruct
 
     //얼음파편
-    private struct FxEffect3
+    private struct FxEffect4
         unit caster
         unit array dummy[7]
         unit array targetUnit[7]
@@ -599,17 +626,22 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출()
     endstruct
     
-    private struct FxEffect3_Timer extends array
-        private method OnAction takes FxEffect3 fx returns nothing
+    private struct FxEffect4_Timer extends array
+        private method OnAction takes FxEffect4 fx returns nothing
             local effect e
             local real r
             local integer i
             local tick t
             local MapStruct st = fx.st
+            local AggroSystem s
 
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set NoDieCheck = 0
                     call ForGroup(st.ul.super,function NoDie)
                     set fx.targetcount = NoDieCheck - 1
@@ -719,6 +751,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -727,7 +760,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect3", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect4", "0.02", "true")
     endstruct
 
     //3장판
@@ -758,9 +791,14 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             local integer i
             local tick t
             local MapStruct st = fx.st
+            local AggroSystem s
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set i = GetRandomInt(0,3)
                     set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)),270)
                     call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)), 500, 2.0, 0, 2, 2)
@@ -789,6 +827,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -800,8 +839,8 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출효과_타이머("FxEffect2", "0.02", "true")
     endstruct
     
-    //넉백 카운터
-    private struct FxEffect
+    //카운터
+    private struct FxEffect3
         unit caster
         unit dummy
         integer i
@@ -816,17 +855,22 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         //! runtextmacro 연출()
     endstruct
     
-    private struct FxEffect_Timer extends array
-        private method OnAction takes FxEffect fx returns nothing
+    private struct FxEffect3_Timer extends array
+        private method OnAction takes FxEffect3 fx returns nothing
             local effect e
             local real r
             local integer i
             local tick t
             local MapStruct st = fx.st
             local AOESt ast
+            local AggroSystem s
             set fx.i = fx.i + 1
             if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
                 if fx.i == 1 then
+                    set s = BossStruct[IndexUnit(fx.caster)]
+                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
+                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
                     call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                     call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
@@ -842,6 +886,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     set fx.ast.stop = true
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime + CounterTime
+                    set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
                     call fx.Stop()
                 //카운터를 못침
                 elseif fx.i == Pattern3CounterTime then
@@ -856,6 +901,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
+                    set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
                     call fx.Stop()
                 endif
             //주금
@@ -865,7 +911,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                 call fx.Stop()
             endif
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect", "0.02", "true")
+        //! runtextmacro 연출효과_타이머("FxEffect3", "0.02", "true")
     endstruct
     
     private function AllDie takes nothing returns nothing
@@ -885,7 +931,6 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
     private function Function2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        local FxEffect fx
         local FxEffect1 fx1
         local FxEffect2 fx2
         local FxEffect3 fx3
@@ -893,6 +938,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         local FxEffect5 fx5
         local FxEffect6 fx6
         local FxEffect7 fx7
+        local FxEffect8 fx8
         local integer index
         local AggroSystem s
         local real r
@@ -937,17 +983,16 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
                         if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
-                            set fx = FxEffect.Create()
-                            set fx.caster = st.caster
-                            set fx.i = 0
-                            set fx.st = st
-                            call AnimationStart(fx.caster, 5)
-                            call fx.Start()
-                            set Unitstate[IndexUnit(fx.caster)] = 1
-                            set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
+                            set fx3 = FxEffect3.Create()
+                            set fx3.caster = st.caster
+                            set fx3.i = 0
+                            set fx3.st = st
+                            call AnimationStart(fx3.caster, 5)
+                            call fx3.Start()
+                            set Unitstate[IndexUnit(fx3.caster)] = 1
                         //3장판
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
-                            //call VJDebugMsg("3장판")
+                            //call VJDebugMsg("동근 공격")
                             set fx2 = FxEffect2.Create()
                             set fx2.caster = st.caster
                             set fx2.i = 0
@@ -955,7 +1000,6 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             call AnimationStart(fx2.caster, 3)
                             call fx2.Start()
                             set Unitstate[IndexUnit(fx2.caster)] = 1
-                            set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
                         //얼음파편
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("파편")
@@ -966,59 +1010,54 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
                             call AnimationStart(fx3.caster, 4)
                             call fx3.Start()
                             set Unitstate[IndexUnit(fx3.caster)] = 1
-                            set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
                             //call VJDebugMsg("마력충전")
-                            set fx7 = FxEffect7.Create()
-                            set fx7.caster = st.caster
-                            set fx7.i = 0
-                            set fx7.st = st
-                            call AnimationStart(fx7.caster, 4)
-                            set Unitstate[IndexUnit(fx7.caster)] = 1
-                            set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                                
-                            set index = IndexUnit(st.caster)
-                            call Sound3D(fx7.caster,'A026')
-                            set UnitCasting[index] = true
-                            set UnitCastingSDMAX[index] = 5
-                            set UnitCastingSD[index] = UnitCastingSDMAX[index]
-                            set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx7.caster), GetWidgetY(fx7.caster), 270 )
-                            call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
-                            call fx7.Start()
-                        //마력포격
-                        elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
-                            //call VJDebugMsg("마력포격")
-                            set fx4 = FxEffect4.Create()
-                            set fx4.caster = st.caster
-                            set fx4.i = 0
-                            set fx4.st = st
-                            call AnimationStart(fx4.caster, 4)
-                            call fx4.Start()
-                            set Unitstate[IndexUnit(fx4.caster)] = 1
-                            set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
-                        //파이어볼
-                        elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
-                            //call VJDebugMsg("파이어볼")
                             set fx5 = FxEffect5.Create()
                             set fx5.caster = st.caster
                             set fx5.i = 0
                             set fx5.st = st
                             call AnimationStart(fx5.caster, 4)
-                            call fx5.Start()
                             set Unitstate[IndexUnit(fx5.caster)] = 1
-                            set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
-                        //지뢰마법
-                        elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
-                            //call VJDebugMsg("지뢰마법")
+                                
+                            set index = IndexUnit(st.caster)
+                            call Sound3D(fx5.caster,'A026')
+                            set UnitCasting[index] = true
+                            set UnitCastingSDMAX[index] = 5
+                            set UnitCastingSD[index] = UnitCastingSDMAX[index]
+                            set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx5.caster), GetWidgetY(fx5.caster), 270 )
+                            call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
+                            call fx5.Start()
+                        //마력포격
+                        elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
+                            //call VJDebugMsg("마력포격")
                             set fx6 = FxEffect6.Create()
                             set fx6.caster = st.caster
                             set fx6.i = 0
                             set fx6.st = st
-                            call AnimationStart(fx6.caster, 3)
+                            call AnimationStart(fx6.caster, 4)
                             call fx6.Start()
                             set Unitstate[IndexUnit(fx6.caster)] = 1
-                            set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)
+                        //파이어볼
+                        elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
+                            //call VJDebugMsg("파이어볼")
+                            set fx7 = FxEffect7.Create()
+                            set fx7.caster = st.caster
+                            set fx7.i = 0
+                            set fx7.st = st
+                            call AnimationStart(fx7.caster, 4)
+                            call fx7.Start()
+                            set Unitstate[IndexUnit(fx7.caster)] = 1
+                        //지뢰마법
+                        elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
+                            //call VJDebugMsg("지뢰마법")
+                            set fx8 = FxEffect8.Create()
+                            set fx8.caster = st.caster
+                            set fx8.i = 0
+                            set fx8.st = st
+                            call AnimationStart(fx8.caster, 3)
+                            call fx8.Start()
+                            set Unitstate[IndexUnit(fx8.caster)] = 1
                         //이동
                         else
                             //이동중이 아님
@@ -1112,7 +1151,7 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
             //어그로시스템설정
-            set BossStruct[UnitIndex] = AggroSystem.create()
+            set BossStruct[UnitIndex] = AggroSystem.create(st.ul.super)
             
             //call SaveBoolean(Unithash,GetHandleId(fx.caster),0,false)
             

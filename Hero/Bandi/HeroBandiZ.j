@@ -169,6 +169,10 @@ scope HeroBandiZ
 
             call PauseUnitEx(fx.caster,true)
 
+            call BuffNoDM.Apply( fx.caster, 3.34, 0 )
+            call BuffNoNB.Apply( fx.caster, 3.34, 0 )
+            call BuffNoST.Apply( fx.caster, 3.34, 0 )
+
             set t.data = fx
             call t.start( Time2, false, function EffectFunction ) 
             call CooldownFIX(fx.caster,'A06M', 4.0)
@@ -195,8 +199,8 @@ scope HeroBandiZ
                 set dataLen=dataLen-(valueLen+1)
                 set y=S2R(data)
                 set pid=GetPlayerId(p)
-                set angle = AngleWBP(MainUnit[pid],x,y)
-                call SetUnitFacing(MainUnit[pid],angle)
+                set angle = AngleWBP( MainUnit[pid],x,y)
+                call SetUnitFacing (MainUnit[pid],angle)
                 call EXSetUnitFacing(MainUnit[pid],angle)
                 call IssuePointOrder( MainUnit[pid], "autodispel", x, y )
             endif

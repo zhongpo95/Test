@@ -162,6 +162,8 @@ scope HeroBandiR
                     call UnitEffectTime2('e044',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call UnitEffectTime2('e045',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale2, function splashD2 )
+                    call BuffNoNB.Stop( fx.caster )
+                    call BuffNoST.Stop( fx.caster )
                     call fx.Stop()
                     call t.destroy()
                 endif
@@ -195,6 +197,8 @@ scope HeroBandiR
             if SkillSpeed(fx.pid) != 40 then
                 call DummyMagicleash(fx.caster, Time / fx.speed )
                 call AnimationStart3(fx.caster, 2, fx.speed)
+                call BuffNoNB.Apply( fx.caster, Time / fx.speed, 0 )
+                call BuffNoST.Apply( fx.caster, Time / fx.speed, 0 )
 
                 //if GetRandomInt(0,1) == 1 then
                     call Sound3D(fx.caster,'A06A')
@@ -209,6 +213,8 @@ scope HeroBandiR
                 set fx.speed = ((100+SkillSpeed2(fx.pid,60))/100)
                 call DummyMagicleash(fx.caster, Time / fx.speed )
                 call AnimationStart3(fx.caster, 2, fx.speed)
+                call BuffNoNB.Apply( fx.caster, Time / fx.speed, 0 )
+                call BuffNoST.Apply( fx.caster, Time / fx.speed, 0 )
 
                 //if GetRandomInt(0,1) == 1 then
                     call Sound3D(fx.caster,'A06B')

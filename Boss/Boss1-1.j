@@ -324,7 +324,7 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             call SetUnitPathing(st.caster,false)
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
-            set BossStruct[UnitIndex] = AggroSystem.create()
+            set BossStruct[UnitIndex] = AggroSystem.create(st.ul.super)
             
             //call SaveBoolean(Unithash,GetHandleId(st.caster),0,false)
             
@@ -334,9 +334,6 @@ library Boss1 initializer init requires FX,DataUnit,UIBossHP,DamageEffect2,UIBos
             call ForGroup( st.ul.super, function NoRemove)
             set CheckUnit = null
 
-            //미터기 시작
-
-            
             call Boss1Start2(st)
 
             set Unit = null
