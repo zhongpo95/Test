@@ -4,10 +4,10 @@ globals
     integer array Mapthema
     integer array MapSt
     boolean array MapRectCheck
-    //기본휴식타임 6.0초
-    constant integer StandTime = 300
-    //카운터 그로기 10초
-    constant integer CounterTime = 500
+    //기본휴식타임 3.0초
+    constant integer StandTime = 150
+    //카운터 그로기 7.5초
+    constant integer CounterTime = 375
 endglobals
 
 struct MapStruct
