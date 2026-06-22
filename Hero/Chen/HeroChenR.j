@@ -341,7 +341,9 @@ private function Main takes nothing returns nothing
         call AnimationStart3(fx.caster,3, fx.speed)
         
         set t.data = fx
+        
         set Stack[fx.pid] = 1
+
         call Sound3D(fx.caster,'A01O')
         if Player(fx.pid) == GetLocalPlayer() then
             call DzFrameSetText(CastingTextFrame,"적소·발도")
