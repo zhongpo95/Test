@@ -46,7 +46,6 @@
 //! import "C:\Users\123\Desktop\JN\Test\Library\IntegerPool.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\AngleDistancePolar.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\Struct2Buff.j"
-//! import "C:\Users\123\Desktop\JN\Test\Library\FX.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\CFX.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\UnitIndexer.j"
 //! import "C:\Users\123\Desktop\JN\Test\Library\Tick.j"

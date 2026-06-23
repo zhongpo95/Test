@@ -1,4 +1,4 @@
-library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
+library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
     globals
         //2분30초 7500
         //test1500
@@ -19,7 +19,104 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set caster = null
             set dummy = null
         endmethod
-        //! runtextmacro 연출()
+
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 75 then            
+                                set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))            
+                                call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )            
+                                call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitAddAbility(fx.caster,'A00V')            
+                            //카운터침            
+                            elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then            
+                                call Sound3D(fx.caster,'A00U')            
+                                call AnimationStart(fx.caster,11)            
+                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                                call DelayKill(fx.caster,1.5)            
+                                call KillUnit(fx.dummy)            
+                                call fx.Stop()            
+                            //카운터를 못침            
+                            elseif fx.i == 150 then            
+                                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )            
+                                call UnitRemoveAbility(fx.caster,'A00V')            
+                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                                //call AnimationStart2(fx.caster, 0, 0.6, 3.0)            
+                                call AnimationStart4(fx.caster, 36, 0.02)            
+                                call DelayKill(fx.caster,2.2)            
+                                call KillUnit(fx.dummy)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                            call fx.Stop()            
+                        endif
+    endmethod
+
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
+            endif
+
+            return this
+        endmethod
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
     
     private function splashD2 takes nothing returns nothing
@@ -29,48 +126,6 @@ library Boss4 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             call BossDeal( splash.source, GetEnumUnit(), 100 , false)
         endif
     endfunction
-    
-    private struct FxEffect_Timer extends array
-        private method OnAction takes FxEffect fx returns nothing
-            local effect e
-            local real r
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 75 then
-                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))
-                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitAddAbility(fx.caster,'A00V')
-                //카운터침
-                elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,11)
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    call DelayKill(fx.caster,1.5)
-                    call KillUnit(fx.dummy)
-                    call fx.Stop()
-                //카운터를 못침
-                elseif fx.i == 150 then
-                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
-                    call UnitRemoveAbility(fx.caster,'A00V')
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 36, 0.02)
-                    call DelayKill(fx.caster,2.2)
-                    call KillUnit(fx.dummy)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
-            endif
-        endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect", "0.02", "true")
-    endstruct
 
     private function NoDie takes nothing returns nothing
         set NoDieCheck = NoDieCheck + 1

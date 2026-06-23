@@ -1,4 +1,4 @@
-library DataMap requires FX
+library DataMap 
 globals
     rect array MapRect
     integer array Mapthema
@@ -126,12 +126,12 @@ endfunction
     set MapRectCheck[4] = true
     //set MapRectCheck[5] = true
     //set MapRectCheck[6] = true
-    set MapSt[1] = MapStruct.Create()
-    set MapSt[2] = MapStruct.Create()
-    set MapSt[3] = MapStruct.Create()
-    set MapSt[4] = MapStruct.Create()
-    //set MapSt[5] = MapStruct.Create()
-    //set MapSt[6] = MapStruct.Create()
+    set MapSt[1] = MapStruct.create()
+    set MapSt[2] = MapStruct.create()
+    set MapSt[3] = MapStruct.create()
+    set MapSt[4] = MapStruct.create()
+    //set MapSt[5] = MapStruct.create()
+    //set MapSt[6] = MapStruct.create()
     set MapRect[1] = gg_rct_MapRect01
     set MapRect[2] = gg_rct_MapRect02
     set MapRect[3] = gg_rct_MapRect03

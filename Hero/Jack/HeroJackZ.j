@@ -33,30 +33,85 @@ private struct FxEffect
         set e2 = null
         set e3 = null
     endmethod
-    //! runtextmacro 연출()
-endstruct
 
-private struct FxEffect_Timer extends array
-    private method OnAction takes FxEffect fx returns nothing
-        local effect e
-        local real r
-        set fx.i = fx.i + 1
-        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-            if fx.i == 5 then
-                call SetUnitX(fx.caster,fx.TargetX)
-                call SetUnitY(fx.caster,fx.TargetY)
-                call AnimationStart(fx.caster,10)
-                call UnitEffectTimeEX2('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2,GetPlayerId(GetOwningPlayer(fx.caster)))
-                call Sound3D(fx.caster,'A00F')
-            elseif fx.i == 50 then
-                call fx.Stop()
-            endif
-        else
-            call fx.Stop()
-        endif
+    private static method OnTimer takes nothing returns nothing
+        local tick expiredTick = tick.getExpired()
+        local thistype fx = expiredTick.data
+                local effect e        
+                local real r        
+                set fx.i = fx.i + 1        
+                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then        
+                    if fx.i == 5 then        
+                        call SetUnitX(fx.caster,fx.TargetX)        
+                        call SetUnitY(fx.caster,fx.TargetY)        
+                        call AnimationStart(fx.caster,10)        
+                        call UnitEffectTimeEX2('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2,GetPlayerId(GetOwningPlayer(fx.caster)))        
+                        call Sound3D(fx.caster,'A00F')        
+                    elseif fx.i == 50 then        
+                        call fx.Stop()        
+                    endif        
+                else        
+                    call fx.Stop()        
+                endif        
     endmethod
-    //! runtextmacro 연출효과_타이머("FxEffect", "0.02", "true")
-endstruct
+
+    private tick __lifeTick
+    private boolean __lifeStarted
+    private boolean __lifeStopping
+
+    static method Create takes nothing returns thistype
+        local thistype this = allocate()
+
+        set __lifeStarted = false
+        set __lifeStopping = false
+        set __lifeTick = 0
+
+        static if thistype.OnCreate.exists then
+            call this.OnCreate()
+        endif
+
+        return this
+    endmethod
+
+    method Start takes nothing returns nothing
+        if __lifeStarted then
+            return
+        endif
+
+        set __lifeStarted = true
+
+        static if thistype.OnStart.exists then
+            call this.OnStart()
+        endif
+
+        if __lifeTick != 0 then
+            return
+        endif
+
+        set __lifeTick = tick.create(0)
+        set __lifeTick.data = this
+        call __lifeTick.start(0.02, true, function thistype.OnTimer)
+    endmethod
+
+    method Stop takes nothing returns nothing
+        if __lifeStopping then
+            return
+        endif
+
+        set __lifeStopping = true
+
+        static if thistype.OnStop.exists then
+            call this.OnStop()
+        endif
+
+        if __lifeTick != 0 then
+            call __lifeTick.destroy()
+            set __lifeTick = 0
+        endif
+
+        call deallocate()
+    endmethod
+endstruct
     
 private function F_A00D takes nothing returns nothing
     local FxEffect fx

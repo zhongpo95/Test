@@ -1,400 +1,227 @@
-# Test - vJass Game Project
+# Warcraft III vJass RPG 제작 규칙
 
-게임 개발을 위한 vJass 언어 기반 프로젝트입니다. 캐릭터, 보스, UI, 게임 시스템 등 다양한 게임 요소를 모듈식으로 구성하고 있습니다.
+이 프로젝트는 Warcraft III 유즈맵 RPG의 vJass 스크립트 프로젝트이다.
+기존 코드 스타일과 제작 방식은 최대한 유지하되, 새 코드와 수정 코드는 아래 규칙을 기준으로 작성한다.
 
-## 📁 프로젝트 구조
+## 프로젝트 목표
 
-### 🎮 핵심 모듈
+- 기존 맵의 코딩 방식을 크게 바꾸지 않고 정리한다.
+- 영웅 스킬, 보스 패턴, UI, 시스템 스크립트의 작성 방식을 통일한다.
+- 새 기능을 추가할 때 어디에 무엇을 작성해야 하는지 명확하게 만든다.
+- 큰 리팩터링보다 안정적인 정리와 일관성 확보를 우선한다.
 
-#### **Boss/** - 보스 AI 및 전투 시스템
-- `Boss1-1.j` ~ `Boss1-4.j`: 보스 1의 단계별 전투 AI
-- `BossAggro.j`: 보스 어그로(적대도) 관리 시스템
+## 폴더 역할
 
-#### **Hero/** - 캐릭터 및 스킬 시스템
-- `Potion.j`: 포션 관리 및 소비 시스템
-- `SkillButton.j`: 스킬 버튼 UI 관리
-- `SkillDash.j`: 대시 스킬 구현
-- **캐릭터별 폴더**: Bandi, Chen, Jack, Lucia, Momizi, Narmaya (각 캐릭터의 고유 능력 및 스킬)
+- `Hero/`: 플레이어블 영웅, 공통 스킬 입력, 대시, 포션 로직.
+- `Hero/<HeroName>/`: 영웅별 스킬 파일. 예: `Hero/Chen/HeroChenS.j`.
+- `Boss/`: 보스 AI, 패턴, 어그로, 보스 전투 흐름.
+- `Data/`: 유닛, 아이템, 버프, 아르카나, 맵 데이터 같은 전역 데이터 정의.
+- `System/`: 게임 규칙 시스템. 피해, 쿨다운, 스탯, 저장/로드, 아이템 획득 등.
+- `UI/`: DzFrame 기반 UI 생성, 표시, 갱신 로직.
+- `Library/`: 여러 시스템에서 재사용하는 범용 유틸리티.
+- `content/`: 맵 환경, 시간, 콘텐츠 설정.
+- `import/`: 외부 API, JN/Dz/JAPI/CommonAPI 계열 의존성.
+- `vJDK/`: vJDK 프레임워크와 플러그인.
 
-#### **Data/** - 게임 데이터 및 설정
-- `Data Unit.j`: 유닛(캐릭터, 몬스터) 데이터 정의
-- `Data Item.j`: 아이템 데이터 및 속성
-- `Data Buff.j`: 버프/디버프 데이터
-- `Data Arcana.j`: 아르카나(특수 능력) 데이터
-- `Data Map.j`: 맵 관련 설정
-- `Native.j`: 네이티브 함수 정의
+## 기본 작성 원칙
 
-#### **UI/** - 사용자 인터페이스
-- `UI_HP.j`: 체력 표시 바
-- `UI_Skill.j`: 스킬 UI
-- `UI_Item.j`: 인벤토리 UI
-- `UI_Map.j`: 맵 미니맵 UI
-- `UI_Quest.j`: 퀘스트 UI
-- `UI_Shop.j`: 상점 UI
-- `UI_Msg.j`: 메시지/채팅 UI
-- `UI_BossHP.j`: 보스 체력 표시
-- `UI_FPS.j`: FPS 표시
-- `UI_Achievement.j`: 업적 시스템
-- 기타 UI 모듈들
+- 기존 vJass 문법과 매크로 사용 방식을 유지한다.
+- 단, `Library/FX.j`, `연출()`, `연출효과_타이머()`는 사용하지 않는다.
+- 지연 실행과 반복 실행은 `Library/Tick.j`의 `tick`으로 처리한다.
+- 수정 범위는 요청받은 기능과 직접 관련된 파일로 제한한다.
+- 작동 중인 시스템을 대규모로 갈아엎지 않는다.
+- 새 코드가 기존 전역 배열, 스킬 ID, 쿨다운, 피해 계산 계약을 깨지 않게 한다.
+- 인코딩은 UTF-8을 기준으로 관리한다.
+- 주석은 필요한 곳에만 짧게 작성한다.
 
-#### **System/** - 게임 시스템
-- `AOEHit.j`: 범위 공격 시스템
-- `Cooldown.j`: 스킬 쿨다운 관리
-- `DamageEffect.j`: 일반 피해 효과
-- `DamageEffectBoss.j`: 보스 전용 피해 효과
-- `ItemPickUp.j`: 아이템 습득 시스템
-- `Shield.j`: 보호막 시스템
-- `StatsSetting.j`: 능력치 설정
-- `SaveLoad.j`: 게임 저장/로드
-- `Market.j`: 마켓 시스템
-- `Daily.j`: 일일 시스템
+## Import 규칙
 
-#### **Library/** - 재사용 가능한 라이브러리
-- `Knockback.j`: 넉백 효과
-- `Missile.j`: 미사일 시스템
-- `Splash.j`: 스플래시 효과
-- `Stun.j`: 스턴 상태 관리
-- `UnitIndexer.j`: 유닛 인덱싱
-- `Tick.j`: 틱 기반 시간 관리
-- `TimerUtils.j`: 타이머 유틸리티
-- `Sort.j`: 정렬 알고리즘
-- `ArrayEx.j`: 배열 확장
+- `Import.j`는 전체 스크립트의 포함 순서를 관리하는 진입 파일이다.
+- 가능하면 절대 경로 대신 프로젝트 기준 상대 경로를 사용한다.
+- 의존성이 있는 파일은 의존 대상보다 뒤에 import한다.
+- 새 영웅 스킬 파일을 추가하면 `Data/`, 공통 `Hero/`, 개별 영웅 파일 순서를 고려해 `Import.j`에 등록한다.
 
-#### **import/** - 외부 API 및 프레임워크
-- `JNCommon.j`: 공통 함수 모음
-- `JNMemory.j`: 메모리 관리
-- `JNString.j`: 문자열 처리
-- `JAPI*.j`: JAPI 플러그인 모음
-- `DzAPI*.j`: DzAPI 플러그인 모음
+권장 순서:
 
-#### **vJDK/** - vJDK 프레임워크
-게임 플러그인 및 애드온 시스템
+1. 외부 API와 vJDK
+2. `Data/`
+3. `Library/`
+4. `System/`
+5. `UI/`
+6. `Hero/` 공통 파일
+7. `Hero/<HeroName>/` 스킬 파일
+8. `Boss/`
+9. 기타 콘텐츠와 맵 초기화
 
----
+## 파일 명명 규칙
 
-## 🛠️ 함수 작성 가이드
+- 영웅 스킬: `Hero/<HeroName>/Hero<HeroShortName><Key>.j`
+- 예: `Hero/Chen/HeroChenS.j`, `Hero/Narmaya/HeroNarQ.j`
+- 시스템: 기능 이름 중심으로 작성한다. 예: `Cooldown.j`, `DamageEffect.j`.
+- UI: `UI_<Name>.j` 또는 기존 파일명 규칙을 따른다.
+- 임시 파일, 복사본 파일은 실제 빌드 기준으로 사용하지 않는다.
 
-### 1. 기본 함수 구조
+## 영웅 스킬 작성 규칙
 
-```vjass
-// 함수 선언
-function FunctionName takes unit u, integer value returns nothing
-    // 함수 본문
-endfunction
+영웅 스킬 파일은 기본적으로 `scope` 하나로 구성한다.
 
-// 리턴값이 있는 함수
-function GetDamage takes unit attacker, unit target returns real
-    local real damage = 10.0
-    return damage
-endfunction
-```
+권장 구성 순서:
 
-### 2. 모듈별 함수 작성 가이드
+1. `scope Hero<Name><Key>`
+2. `globals`
+3. private constants
+4. 스킬 상태 배열
+5. private struct `FxEffect`
+6. 피해 또는 범위 판정 함수
+7. tick 콜백 함수
+8. 주문 발동 함수 `Main`
+9. sync 수신 함수
+10. 트리거 등록 매크로
+11. `endscope`
 
-#### **System/ 시스템 함수**
-- 전역 게임 시스템 함수들
-- 명명 규칙: `System_*` 또는 `Init*`
-- 예: `function InitDamageSystem takes nothing returns nothing`
+## struct 생명주기 규칙
 
-#### **Library/ 라이브러리 함수**
-- 재사용 가능한 유틸리티 함수
-- 명명 규칙: `Lib_*` 또는 모듈명으로 시작
-- 예: `function Knockback_Apply takes unit u, real distance returns nothing`
+`연출()` 매크로는 사용하지 않는다.
+struct가 필요하면 `Create`, `Start`, `Stop`을 직접 작성한다.
 
-#### **Hero/ 캐릭터 함수**
-- 캐릭터별 스킬 및 능력
-- 명명 규칙: `Character_SkillName` 또는 `SkillName_*`
-- 예: `function Lucia_DashSkill takes unit caster returns nothing`
-
-#### **Boss/ 보스 함수**
-- 보스 AI 및 공격 패턴
-- 명명 규칙: `Boss_*` 또는 `BossAction_*`
-- 예: `function Boss1_AttackPattern takes unit boss returns nothing`
-
-#### **UI/ UI 함수**
-- 화면 표시 및 업데이트
-- 명명 규칙: `UI_*`
-- 예: `function UI_UpdateHP takes unit u, real hp, real maxhp returns nothing`
-
-### 3. 일반적인 작성 패턴
-
-#### 초기화 함수
-```vjass
-function InitSystem takes nothing returns nothing
-    // 초기 설정
-    set udg_GlobalVariable = 0
-    // 타이머 시작
-    call TimerStart(CreateTimer(), 0.03, true, function OnTick)
-endfunction
-```
-
-#### 주기적 업데이트 함수
-```vjass
-function OnTick takes nothing returns nothing
-    local unit u = null
-    // 모든 유닛 순회
-    // 로직 처리
-endfunction
-```
-
-#### 이벤트 처리 함수
-```vjass
-function OnUnitDamaged takes nothing returns nothing
-    local unit damaged = GetEventDamageSource()
-    local real damage = GetEventDamage()
-    // 피해 처리 로직
-endfunction
-```
-
-### 4. 변수 명명 규칙
+반복 실행이 필요한 struct는 tick의 `data` 정수 슬롯에 struct id를 저장해서 전달한다.
 
 ```vjass
-// 전역 변수 (udg_로 시작)
-globals
-    unit array udg_HeroUnit
-    real udg_GlobalCooldown = 0.0
-    integer udg_PlayerCount = 0
-endglobals
+private struct FxEffect
+    unit caster
+    integer i
+    private tick lifeTick
+    private boolean stopping
 
-// 지역 변수 (명확한 이름)
-local unit caster = null
-local real damage = 10.0
-local integer count = 0
+    private static method OnTimer takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local thistype fx = t.data
+
+        set fx.i = fx.i + 1
+
+        if fx.caster == null then
+            call fx.Stop()
+            return
+        endif
+
+        // 반복 처리
+    endmethod
+
+    static method Create takes nothing returns thistype
+        local thistype this = allocate()
+        set caster = null
+        set i = 0
+        set lifeTick = 0
+        set stopping = false
+        return this
+    endmethod
+
+    method Start takes nothing returns nothing
+        set lifeTick = tick.create(0)
+        set lifeTick.data = this
+        call lifeTick.start(0.02, true, function thistype.OnTimer)
+    endmethod
+
+    method Stop takes nothing returns nothing
+        if stopping then
+            return
+        endif
+        set stopping = true
+
+        if lifeTick != 0 then
+            call lifeTick.destroy()
+            set lifeTick = 0
+        endif
+
+        set caster = null
+        call deallocate()
+    endmethod
+endstruct
 ```
 
-### 5. ⚠️ 변수 할당 - SET 키워드 필수
+## 스킬 입력 흐름
 
-**vJass에서 변수를 할당할 때는 반드시 `set` 키워드를 사용해야 합니다.**
+현재 프로젝트의 기본 스킬 입력 흐름은 유지한다.
 
-#### ✅ 올바른 사용법
+1. `Hero/SkillButton.j`에서 키 입력을 감지한다.
+2. 마우스 좌표를 문자열로 만들어 `DzSyncData`로 보낸다.
+3. 영웅 스킬 파일의 sync 함수가 좌표를 파싱한다.
+4. `SetUnitFacing`, `EXSetUnitFacing`으로 방향을 맞춘다.
+5. `IssuePointOrder`로 실제 워크래프트 스킬 주문을 발동한다.
+6. `EVENT_PLAYER_UNIT_SPELL_EFFECT`에서 스킬 ID를 확인하고 스킬 로직을 실행한다.
 
-```vjass
-// 지역 변수 할당
-local unit u = null
-set u = GetSpellAbilityUnit()
+## 스킬 데이터 규칙
 
-// 전역 변수 할당
-set udg_GlobalCooldown = 10.0
+- 영웅별 스킬 ID, 쿨다운, 피해 배율은 `Data/Data Unit.j`에서 관리한다.
+- `DataUnitIndex(unit)` 결과가 영웅 데이터의 기준 인덱스이다.
+- Chen은 현재 인덱스 `4`를 사용한다.
+- 스킬 파일에서는 가능하면 `HeroSkillID*`, `HeroSkillCD*`, `HeroSkillVelue*` 배열을 참조한다.
+- 기존 오탈자 이름인 `Velue`는 전역 계약이므로 함부로 변경하지 않는다.
 
-// 구조체 멤버 할당
-set fx.caster = u
-set fx.BHPxN = 100
+## 피해 처리 규칙
 
-// 배열 요소 할당
-set BHPBar[0] = DzCreateFrameByTagName(...)
-set heroes[i] = GetNthPlayerUnitSimple(i + 1, i)
+- 플레이어 영웅의 일반 피해는 기본적으로 `HeroDeal`을 사용한다.
+- 범위 판정은 `splash.range`와 `IsUnitInRangeXY` 패턴을 우선 사용한다.
+- 직접 체력을 깎는 코드는 특별한 시스템 피해가 아니라면 피한다.
+- 헤드, 백어택, 카운터, 차지 여부는 `HeroDeal` 인자로 명확하게 전달한다.
 
-// 조건문 내 할당
-if isAlive then
-    set hp = 100
-else
-    set hp = 0
-endif
+## 쿨다운 규칙
 
-// 조건부 함수 결과 할당
-set p = Player(fx.playerId)
-set isLocalPlayer = GetLocalPlayer() == p
-set texturePath = "war3mapImported\\ZT-[BOSS]-B" + I2S(fx.BHPxL) + ".blp"
-```
+- 일반 스킬 쿨다운은 `CooldownFIX`를 사용한다.
+- 즉시 쿨다운 적용이 필요한 경우에만 `CooldownFIX2`를 사용한다.
+- 고정 쿨다운은 `CooldownSet`을 사용한다.
+- 쿨다운 값은 가능하면 `Data/Data Unit.j`의 `HeroSkillCD*` 배열에서 가져온다.
 
-#### ❌ 잘못된 사용법
+## 변수와 메모리 정리
 
-```vjass
-// ❌ set 키워드 빠뜨림
-local unit u = null
-u = GetSpellAbilityUnit()  // 오류!
+- 지역 handle 변수는 사용 후 `null`로 정리한다.
+- 변수 대입에는 반드시 `set`을 사용한다.
+- 조건문 안의 대입도 반드시 `set`을 사용한다.
+- 불필요한 전역 변수 추가를 피한다.
+- 스킬 내부 상태는 가능하면 해당 `scope`의 private 전역 배열로 제한한다.
 
-// ❌ 전역 변수 할당 시 set 미사용
-udg_GlobalCooldown = 10.0  // 오류!
+## UI 작성 규칙
 
-// ❌ 구조체 할당 시 set 미사용
-fx.caster = u  // 오류!
+- UI 생성과 표시 상태는 `UI/` 폴더 안에서 관리한다.
+- UI 이벤트에서 게임 상태를 바꿀 때는 필요한 경우 `DzSyncData`를 통해 동기화한다.
+- 로컬 플레이어 전용 표시 코드는 `GetLocalPlayer()` 조건을 명확히 둔다.
+- UI 파일은 매우 커지기 쉬우므로 새 UI는 기능 단위로 파일을 분리한다.
 
-// ❌ 조건문 내에서도 필수
-if isAlive then
-    hp = 100  // 오류! set 필수
-endif
+## NPC와 상호작용 규칙
 
-// ❌ 함수 결과도 set으로 할당
-p = Player(fx.playerId)  // 오류!
-```
+- NPC 선택 이벤트는 `NPC.j`에서 관리한다.
+- NPC 종류 판정은 `DataUnitIndex(u)`를 기준으로 한다.
+- 상점, 창고, 강화, 아르카나 같은 UI 열기는 각 UI 시스템 함수로 위임한다.
+- NPC 파일 안에 UI 세부 구현을 과도하게 넣지 않는다.
 
-#### 📋 체크리스트
+## 금지 또는 주의 사항
 
-변수 할당 시 다음을 확인하세요:
-- [ ] 변수 할당 앞에 `set` 키워드가 있는가?
-- [ ] 지역 변수, 전역 변수, 구조체 멤버 모두 `set` 사용?
-- [ ] 배열 요소 할당도 `set` 사용?
-- [ ] 조건문 내 할당에도 `set` 사용?
-- [ ] 함수 반환값 할당에도 `set` 사용?
+- 기존 정상 동작 코드를 이유 없이 전체 리팩터링하지 않는다.
+- 빌드에 쓰는 파일과 백업 파일을 섞지 않는다.
+- `Import.j`에 오래된 개인 PC 절대 경로를 새로 추가하지 않는다.
+- `GetLocalPlayer()` 내부에서 동기화되는 게임 상태를 직접 바꾸지 않는다.
+- 스킬 ID와 데이터 배열 인덱스를 임의로 바꾸지 않는다.
+- 새 코드에서 `FX.j`, `연출()`, `연출효과_타이머()`를 사용하지 않는다.
 
----
+## 새 스킬 추가 체크리스트
 
-### 6. 메모리 관리
+- [ ] `Data/Data Unit.j`에 스킬 ID, 쿨다운, 피해 배율을 등록했다.
+- [ ] `Hero/SkillButton.j`에 키 입력과 sync 이름을 등록했다.
+- [ ] `Hero/<HeroName>/Hero<HeroShortName><Key>.j` 파일을 만들었다.
+- [ ] sync 이름과 `DzTriggerRegisterSyncData` 이름이 일치한다.
+- [ ] `IssuePointOrder`의 주문 문자열이 실제 어빌리티 주문과 일치한다.
+- [ ] `GetSpellAbilityId()`의 스킬 ID가 데이터와 일치한다.
+- [ ] `CooldownFIX`가 정상 적용된다.
+- [ ] 반복 실행 struct는 `tick.data = fx` 방식으로 전달한다.
+- [ ] 종료 경로에서 tick과 handle 변수를 정리했다.
+- [ ] `Import.j`에 파일을 등록했다.
 
-```jass
-// 변수 초기화
-local unit u = null
+## 정리 우선순위
 
-// 사용 후 정리
-set u = null  // 참조 제거
+1. 깨진 문서와 제작 규칙 정리
+2. `Import.j`의 절대 경로 정리
+3. 복사본 파일과 실제 사용 파일 구분
+4. 영웅 스킬 파일 구조 통일
+5. UI 대형 파일 분리
+6. 데이터 테이블 정리
 
-// 배열 초기화
-local unit array heroes
-local integer i = 0
-loop
-    set heroes[i] = null
-    set i = i + 1
-    exitwhen i > 5
-endloop
-```
-
-### 7. 조건문 및 루프
-
-```vjass
-// if-then-else
-if GetUnitState(u, UNIT_STATE_LIFE) > 0 then
-    call SetUnitState(u, UNIT_STATE_LIFE, 100)
-else
-    call UnitRemoveAbility(u, ABILITY_CODE)
-endif
-
-// loop
-local integer i = 0
-loop
-    set udg_HeroUnit[i] = GetNthPlayerUnitSimple(i + 1, i)
-    set i = i + 1
-    exitwhen i >= 6
-endloop
-```
-
-### 7. 스킬/능력 함수 템플릿
-
-```vjass
-function Skill_Activate takes nothing returns nothing
-    local unit caster = GetSpellAbilityUnit()
-    local unit target = GetSpellTargetUnit()
-    local real castX = GetSpellTargetX()
-    local real castY = GetSpellTargetY()
-    local integer level = GetUnitAbilityLevel(caster, ABILITY_CODE)
-    
-    // 스킬 로직
-    
-    set caster = null
-    set target = null
-endfunction
-
-function Skill_Loop takes nothing returns nothing
-    // 주기적 효과 처리
-endfunction
-```
-
-### 8. 데미지 계산 함수 템플릿
-
-```vjass
-function CalculateDamage takes unit attacker, unit target, integer skillLevel returns real
-    local real baseDamage = 10.0
-    local real multiplier = 1.0 + (skillLevel * 0.5)
-    local real finalDamage = baseDamage * multiplier
-    
-    return finalDamage
-endfunction
-
-function ApplyDamage takes unit attacker, unit target, real damage returns nothing
-    local real newHP = GetUnitState(target, UNIT_STATE_LIFE) - damage
-    
-    if newHP <= 0 then
-        call UnitRemoveAbility(target, 'A000')
-    else
-        call SetUnitState(target, UNIT_STATE_LIFE, newHP)
-    endif
-endfunction
-```
-
-### 9. 모범 사례
-
-✅ **해야 할 것:**
-- 함수 끝에 지역 변수 정리
-- 명확한 함수명과 변수명 사용
-- 매직 넘버 대신 상수 정의
-- 주석으로 복잡한 로직 설명
-- 일관된 들여쓰기 사용
-
-❌ **하지 말아야 할 것:**
-- 변수 초기화 없이 사용
-- 과도하게 깊은 중첩 루프
-- 메모리 누수 (변수 정리 누락)
-- 전역 변수 과다 사용
-- 마법 숫자 하드코딩
-
----
-
-## 🚀 주요 기능
-
-- **캐릭터 시스템**: 다중 캐릭터 관리 및 개별 능력 정의
-- **보스 전투**: 다단계 보스 AI 및 전투 시스템
-- **스킬 및 능력**: 캐릭터별 고유 스킬과 버프/디버프 시스템
-- **아이템 및 인벤토리**: 아이템 획득, 인벤토리 관리, 상점 시스템
-- **UI 시스템**: 포괄적인 사용자 인터페이스
-- **게임 시스템**: 쿨다운, 데미지, 범위 공격, 보호막, 저장/로드 등
-
-## 🛠️ 기술 스택
-
-- **언어**: vJass (Warcraft III 확장 스크립팅 언어)
-- **프레임워크**: vJDK, CommonAPI
-- **라이브러리**: 메모리 관리, 타이머, 유틸리티 모음
-
-## 📝 시작하기
-
-1. 프로젝트 폴더 구조 이해하기
-2. `import/` 폴더의 기본 라이브러리 숙지
-3. 해당 모듈(Hero, Boss, System 등)에서 함수 작성
-4. 함수 작성 가이드에 따라 일관된 코드 유지
-
-## 📌 주의사항
-
-- vJDK 및 JAPI 라이브러리는 외부 종속성입니다
-- 메모리 관리는 신중하게 처리해야 합니다
-- 각 모듈의 의존성을 확인한 후 수정하세요
-- 함수는 모듈별로 명확히 분류하여 작성하세요
-
-## ⚙️ 일시정지 상태 유닛의 방향 변경
-
-**vJass에서 일시정지된 유닛(`PauseUnit(unit, true)`)의 방향을 변경해야 할 때 주의사항:**
-
-### 🔧 올바른 방법
-
-```vjass
-// 1단계: 방향 설정
-call SetUnitFacing(caster, angle)
-call EXSetUnitFacing(caster, angle)
-
-// 2단계: 위치 갱신 (필수!)
-// 방향 변경을 즉시 적용하려면 위치를 다시 설정해야 함
-call SetUnitPosition(caster, GetWidgetX(caster), GetWidgetY(caster))
-```
-
-### ✅ 중요 포인트
-
-- **일시정지 상태에서도 방향 설정 가능**: SetUnitFacing(), EXSetUnitFacing(), SetUnitPosition() 순서대로 호출시 정상 작동
-
-### ❌ 잘못된 방법
-
-```vjass
-// 방법 1: 위치 갱신 없이 방향만 설정 (효과 없음)
-call SetUnitFacing(caster, angle)
-call EXSetUnitFacing(caster, angle)
-
-// 방법 2: 일시정지 해제 (일시 정지를 해제하면 안됨)
-call PauseUnit(caster, false)
-call SetUnitFacing(caster, angle)
-call EXSetUnitFacing(caster, angle)
-call PauseUnit(caster, true)
-```
-
-## 🔄 버전 정보
-
-- **저장소**: https://github.com/zhongpo95/Test
-- **분기**: main
-- **언어**: vJass
-- **최종 수정**: 2025년 12월

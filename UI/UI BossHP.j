@@ -1,4 +1,4 @@
-library UIBossHP initializer init requires FrameCount, DataUnit, FX
+library UIBossHP initializer init requires FrameCount, DataUnit
     globals
         // UI 프레임 배열 (최대 9개)
         private integer array BHPBar

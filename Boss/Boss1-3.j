@@ -1,4 +1,4 @@
-library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,PointToPolygon
+library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,PointToPolygon
     globals
         //2분30초 7500
         //50 1초
@@ -84,65 +84,120 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set dummy3 = null
             set st = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect5_Timer extends array
-        private method OnAction takes FxEffect5 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local integer index = IndexUnit(fx.caster)
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                elseif fx.i == 100 then
-                    call AnimationStart(fx.caster, 8)
-                //무력화 성공
-                elseif fx.i >= 1 and UnitCasting[index] == false then
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,6)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime + CounterTime
-                    set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                    call fx.Stop()
-                //무력화를 못함
-                elseif fx.i == Pattern5Time then
-                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)
 
-                    if UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3) < UnitHPMAX[IndexUnit(fx.caster)] then
-                        set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3)
-                    else
-                        set UnitHP[IndexUnit(fx.caster)] = UnitHPMAX[IndexUnit(fx.caster)]
-                    endif
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local integer index = IndexUnit(fx.caster)            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                            elseif fx.i == 100 then            
+                                call AnimationStart(fx.caster, 8)            
+                            //무력화 성공            
+                            elseif fx.i >= 1 and UnitCasting[index] == false then            
+                                call Sound3D(fx.caster,'A00U')            
+                                call AnimationStart(fx.caster,6)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime + CounterTime            
+                                set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)            
+                                call fx.Stop()            
+                            //무력화를 못함            
+                            elseif fx.i == Pattern5Time then            
+                                call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),1.20)            
+                        
+                                if UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3) < UnitHPMAX[IndexUnit(fx.caster)] then            
+                                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] + (UnitSetHP[DataUnitIndex(st.caster)]/3)            
+                                else            
+                                    set UnitHP[IndexUnit(fx.caster)] = UnitHPMAX[IndexUnit(fx.caster)]            
+                                endif            
+                        
+                                call AnimationStart2(fx.caster, 0, 0.6, 3.0)            
+                                call AnimationStart4(fx.caster, 7, 0.6)            
+                                set UnitCastingSD[index] = 0            
+                                set UnitCastingSDMAX[index] = 0            
+                                set UnitCasting[index] = false            
+                                call KillUnit(UnitCastingDummy[index])            
+                                set UnitCastingDummy[index] = null            
+                                            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
 
-                    call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 7, 0.6)
-                    set UnitCastingSD[index] = 0
-                    set UnitCastingSDMAX[index] = 0
-                    set UnitCasting[index] = false
-                    call KillUnit(UnitCastingDummy[index])
-                    set UnitCastingDummy[index] = null
-                    
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect5", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
 
     //지뢰마법
@@ -164,41 +219,96 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set dummy3 = null
             set st = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect8_Timer extends array
-        private method OnAction takes FxEffect8 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local AggroSystem s
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])
-                    call SetUnitFacing(fx.caster, r)
-                    call EXSetUnitFacing(fx.caster, r)
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 3000, function splashF3 )
-                elseif fx.i == Pattern8Time then
-                    //대기상태로 전환
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local AggroSystem s            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])            
+                                call SetUnitFacing(fx.caster, r)            
+                                call EXSetUnitFacing(fx.caster, r)            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 3000, function splashF3 )            
+                            elseif fx.i == Pattern8Time then            
+                                //대기상태로 전환            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
+
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect8", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
 
     //파이어볼
@@ -220,67 +330,122 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set i = 0
             set st = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect7_Timer extends array
-        private method OnAction takes FxEffect7 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local AggroSystem s
-            local MapStruct st = fx.st
 
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    set fx.targetUnit = MainUnit[s.NowAggro]
-                    set r = AngleWBW( fx.caster, fx.targetUnit)
-                    call SetUnitFacing(fx.caster, r)
-                    call EXSetUnitFacing(fx.caster, r)
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r),r)
-                    set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)
-                    set fx.lockangle = r
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local AggroSystem s            
+                        local MapStruct st = fx.st            
+                        
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                set fx.targetUnit = MainUnit[s.NowAggro]            
+                                set r = AngleWBW( fx.caster, fx.targetUnit)            
+                                call SetUnitFacing(fx.caster, r)            
+                                call EXSetUnitFacing(fx.caster, r)            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03Q',GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r),r)            
+                                set fx.effectdummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.caster),GetWidgetY(fx.caster),r)            
+                                set fx.lockangle = r            
+                        
+                            //방향회전            
+                            elseif fx.i <= Pattern7Time then            
+                                /*            
+                                if fx.i == Pattern7Time then            
+                                    set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)            
+                                    call SetUnitFacing(fx.caster,fx.lockangle)            
+                                    call EXSetUnitFacing(fx.caster, fx.lockangle)            
+                                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                    set r = GetUnitFacing(fx.caster)            
+                                    call SetUnitPosition(fx.dummy,GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r))            
+                                    call SetUnitFacing(fx.dummy,fx.lockangle)            
+                                    call EXSetUnitFacing(fx.dummy, fx.lockangle)            
+                                    call SetUnitFacing(fx.effectdummy,fx.lockangle)            
+                                    call EXSetUnitFacing(fx.effectdummy, fx.lockangle)            
+                                endif            
+                                */            
+                            //발사 및 종료            
+                            elseif fx.i == Pattern7Time2 then            
+                                call AnimationStart4(fx.caster, 0, 0.02)            
+                                call Missile2(fx.caster, MakeMissile("AZ_Kaer_D2.mdl",GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),100,fx.lockangle,2.00,null), Pattern7Distance, fx.lockangle, Pattern7Speed, Pattern7Range, 3)            
+                                call KillUnit(fx.dummy)            
+                                call KillUnit(fx.effectdummy)            
+                                //대기상태로 전환            
+                                call AnimationStart4(fx.caster, 7, 2.00)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
 
-                //방향회전
-                elseif fx.i <= Pattern7Time then
-                    /*
-                    if fx.i == Pattern7Time then
-                        set fx.lockangle = AngleWBW(fx.caster, fx.targetUnit)
-                        call SetUnitFacing(fx.caster,fx.lockangle)
-                        call EXSetUnitFacing(fx.caster, fx.lockangle)
-                        call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                        set r = GetUnitFacing(fx.caster)
-                        call SetUnitPosition(fx.dummy,GetWidgetX(fx.caster)+PolarX(175,r),GetWidgetY(fx.caster)+PolarY(175,r))
-                        call SetUnitFacing(fx.dummy,fx.lockangle)
-                        call EXSetUnitFacing(fx.dummy, fx.lockangle)
-                        call SetUnitFacing(fx.effectdummy,fx.lockangle)
-                        call EXSetUnitFacing(fx.effectdummy, fx.lockangle)
-                    endif
-                    */
-                //발사 및 종료
-                elseif fx.i == Pattern7Time2 then
-                    call AnimationStart4(fx.caster, 0, 0.02)
-                    call Missile2(fx.caster, MakeMissile("AZ_Kaer_D2.mdl",GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),100,fx.lockangle,2.00,null), Pattern7Distance, fx.lockangle, Pattern7Speed, Pattern7Range, 3)
-                    call KillUnit(fx.dummy)
-                    call KillUnit(fx.effectdummy)
-                    //대기상태로 전환
-                    call AnimationStart4(fx.caster, 7, 2.00)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect7", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
 
     //마력 포격
@@ -318,7 +483,145 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set fake = 0
             set st = 0
         endmethod
-        //! runtextmacro 연출()
+
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local real x            
+                        local real y            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local AggroSystem s            
+                        
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])            
+                                call SetUnitFacing(fx.caster, r)            
+                                call EXSetUnitFacing(fx.caster, r)            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                set r = GetUnitFacing(fx.caster)            
+                                set x = GetWidgetX(fx.caster)+PolarX(-500,r)            
+                                set y = GetWidgetY(fx.caster)+PolarY(-500,r)            
+                                set fx.fake = GetRandomInt(0,1)            
+                                if fx.fake == 1 then            
+                                    set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x,y,r)            
+                                    set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r-90),y+PolarY(400,r-90),r)            
+                                    set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r-90),y+PolarY(800,r-90),r)            
+                                    set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r+90),y+PolarY(400,r+90),r)            
+                                    set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r+90),y+PolarY(800,r+90),r)            
+                                else            
+                                    set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x,y,r)            
+                                    set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r-90),y+PolarY(400,r-90),r)            
+                                    set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r-90),y+PolarY(800,r-90),r)            
+                                    set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r+90),y+PolarY(400,r+90),r)            
+                                    set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r+90),y+PolarY(800,r+90),r)            
+                                endif            
+                            //발사 및 종료            
+                            elseif fx.i == Pattern6Time then            
+                                set r = GetUnitFacing(fx.dummy[0])            
+                                if fx.fake == 1 then            
+                                    call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[1])+PolarX(-128,r),GetWidgetY(fx.dummy[1])+PolarY(-128,r),r), 'BHwe', 1.5)            
+                                    call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[2])+PolarX(-128,r),GetWidgetY(fx.dummy[2])+PolarY(-128,r),r), 'BHwe', 1.5)            
+                                    call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[3])+PolarX(-128,r),GetWidgetY(fx.dummy[3])+PolarY(-128,r),r), 'BHwe', 1.5)            
+                                    call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[4])+PolarX(-128,r),GetWidgetY(fx.dummy[4])+PolarY(-128,r),r), 'BHwe', 1.5)            
+                                    call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )            
+                                else            
+                                    call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[0])+PolarX(-128,r),GetWidgetY(fx.dummy[0])+PolarY(-128,r),r), 'BHwe', 1.5)            
+                                    call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )            
+                                endif            
+                                call UnitApplyTimedLife(fx.dummy[0], 'BHwe', 1.5)            
+                                call UnitApplyTimedLife(fx.dummy[1], 'BHwe', 1.5)            
+                                call UnitApplyTimedLife(fx.dummy[2], 'BHwe', 1.5)            
+                                call UnitApplyTimedLife(fx.dummy[3], 'BHwe', 1.5)            
+                                call UnitApplyTimedLife(fx.dummy[4], 'BHwe', 1.5)            
+                            elseif fx.i > Pattern6Time and fx.i < Pattern6Time + Pattern6Time2 then            
+                                set i = fx.i-Pattern6Time            
+                                if ModuloInteger(i,15) == 0 then             
+                                    if fx.fake == 1 then            
+                                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )            
+                                    else            
+                                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )            
+                                    endif            
+                                endif            
+                            elseif fx.i == Pattern6Time + Pattern6Time2 then            
+                                //call VJDebugMsg("전환")            
+                                //대기상태로 전환            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)            
+                                //call VJDebugMsg("전환2")            
+                                call fx.Stop()            
+                                //call VJDebugMsg("전환3")            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
+
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
+            endif
+
+            return this
+        endmethod
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
     
     private function splashF takes nothing returns nothing
@@ -430,89 +733,6 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
         call p2.destroy()
     endfunction
 
-    private struct FxEffect6_Timer extends array
-        private method OnAction takes FxEffect6 fx returns nothing
-            local effect e
-            local real r
-            local real x
-            local real y
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local AggroSystem s
-
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    set r = AngleWBW( fx.caster, MainUnit[s.NowAggro])
-                    call SetUnitFacing(fx.caster, r)
-                    call EXSetUnitFacing(fx.caster, r)
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    set r = GetUnitFacing(fx.caster)
-                    set x = GetWidgetX(fx.caster)+PolarX(-500,r)
-                    set y = GetWidgetY(fx.caster)+PolarY(-500,r)
-                    set fx.fake = GetRandomInt(0,1)
-                    if fx.fake == 1 then
-                        set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x,y,r)
-                        set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r-90),y+PolarY(400,r-90),r)
-                        set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r-90),y+PolarY(800,r-90),r)
-                        set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(400,r+90),y+PolarY(400,r+90),r)
-                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x+PolarX(800,r+90),y+PolarY(800,r+90),r)
-                    else
-                        set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03O',x,y,r)
-                        set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r-90),y+PolarY(400,r-90),r)
-                        set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r-90),y+PolarY(800,r-90),r)
-                        set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(400,r+90),y+PolarY(400,r+90),r)
-                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03N',x+PolarX(800,r+90),y+PolarY(800,r+90),r)
-                    endif
-                //발사 및 종료
-                elseif fx.i == Pattern6Time then
-                    set r = GetUnitFacing(fx.dummy[0])
-                    if fx.fake == 1 then
-                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[1])+PolarX(-128,r),GetWidgetY(fx.dummy[1])+PolarY(-128,r),r), 'BHwe', 1.5)
-                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[2])+PolarX(-128,r),GetWidgetY(fx.dummy[2])+PolarY(-128,r),r), 'BHwe', 1.5)
-                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[3])+PolarX(-128,r),GetWidgetY(fx.dummy[3])+PolarY(-128,r),r), 'BHwe', 1.5)
-                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[4])+PolarX(-128,r),GetWidgetY(fx.dummy[4])+PolarY(-128,r),r), 'BHwe', 1.5)
-                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )
-                    else
-                        call UnitApplyTimedLife(CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03P',GetWidgetX(fx.dummy[0])+PolarX(-128,r),GetWidgetY(fx.dummy[0])+PolarY(-128,r),r), 'BHwe', 1.5)
-                        call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )
-                    endif
-                    call UnitApplyTimedLife(fx.dummy[0], 'BHwe', 1.5)
-                    call UnitApplyTimedLife(fx.dummy[1], 'BHwe', 1.5)
-                    call UnitApplyTimedLife(fx.dummy[2], 'BHwe', 1.5)
-                    call UnitApplyTimedLife(fx.dummy[3], 'BHwe', 1.5)
-                    call UnitApplyTimedLife(fx.dummy[4], 'BHwe', 1.5)
-                elseif fx.i > Pattern6Time and fx.i < Pattern6Time + Pattern6Time2 then
-                    set i = fx.i-Pattern6Time
-                    if ModuloInteger(i,15) == 0 then 
-                        if fx.fake == 1 then
-                            call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF2 )
-                        else
-                            call splash.range( splash.ENEMY, fx.dummy[0], GetWidgetX(fx.caster), GetWidgetY(fx.caster), 5000, function splashF )
-                        endif
-                    endif
-                elseif fx.i == Pattern6Time + Pattern6Time2 then
-                    //call VJDebugMsg("전환")
-                    //대기상태로 전환
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
-                    //call VJDebugMsg("전환2")
-                    call fx.Stop()
-                    //call VJDebugMsg("전환3")
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
-            endif
-        endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect6", "0.02", "true")
-    endstruct
-
     //이동
     private struct FxEffect1
         unit caster
@@ -525,51 +745,106 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set i = 0
             set s = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect1_Timer extends array
-        private method OnAction takes FxEffect1 fx returns nothing
-            local effect e
-            local real r
-            local real ang
-            local integer i
-            local tick t
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                set r = DistanceWBW( fx.caster, MainUnit[fx.s.NowAggro])
-                if Unitstate[IndexUnit(fx.caster)] == 3 then
-                    //거리로 인한 종료
-                    if r <= Pattern1Distance then
-                        //call VJDebugMsg("정지")
-                        call AnimationStart4(fx.caster, 7, 0.02)
-                        set Unitstate[IndexUnit(fx.caster)] = 0
-                        call fx.Stop()
-                    else
-                        set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])
-                        call SetUnitFacing(fx.caster,ang)
-                        call EXSetUnitFacing(fx.caster,ang)
-                        call SetUnitPosition(fx.caster, GetWidgetX(fx.caster)+PolarX(8, ang), GetWidgetY(fx.caster)+PolarY(8, ang))
-                    endif
-                //이동 강제 종료
-                elseif Unitstate[IndexUnit(fx.caster)] != 3 then
-                    //call VJDebugMsg("정지")
-                    call fx.Stop()
-                //거리로 인한 종료
-                elseif r <= Pattern1Distance then
-                    //call VJDebugMsg("정지")
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 0
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
+
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local real ang            
+                        local integer i            
+                        local tick t            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            set r = DistanceWBW( fx.caster, MainUnit[fx.s.NowAggro])            
+                            if Unitstate[IndexUnit(fx.caster)] == 3 then            
+                                //거리로 인한 종료            
+                                if r <= Pattern1Distance then            
+                                    //call VJDebugMsg("정지")            
+                                    call AnimationStart4(fx.caster, 7, 0.02)            
+                                    set Unitstate[IndexUnit(fx.caster)] = 0            
+                                    call fx.Stop()            
+                                else            
+                                    set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])            
+                                    call SetUnitFacing(fx.caster,ang)            
+                                    call EXSetUnitFacing(fx.caster,ang)            
+                                    call SetUnitPosition(fx.caster, GetWidgetX(fx.caster)+PolarX(8, ang), GetWidgetY(fx.caster)+PolarY(8, ang))            
+                                endif            
+                            //이동 강제 종료            
+                            elseif Unitstate[IndexUnit(fx.caster)] != 3 then            
+                                //call VJDebugMsg("정지")            
+                                call fx.Stop()            
+                            //거리로 인한 종료            
+                            elseif r <= Pattern1Distance then            
+                                //call VJDebugMsg("정지")            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 0            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                            call fx.Stop()            
+                        endif
+    endmethod
+
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect1", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
 
     //얼음파편
@@ -623,144 +898,199 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set targetcount = 0
             set st = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect4_Timer extends array
-        private method OnAction takes FxEffect4 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local AggroSystem s
 
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    set NoDieCheck = 0
-                    call ForGroup(st.ul.super,function NoDie)
-                    set fx.targetcount = NoDieCheck - 1
-                    //call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1, 0)
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local AggroSystem s            
+                        
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                set NoDieCheck = 0            
+                                call ForGroup(st.ul.super,function NoDie)            
+                                set fx.targetcount = NoDieCheck - 1            
+                                //call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1, 0)            
+                        
+                                set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                set fx.targetUnit[0] = ClosestUnit(fx.dummy[0], 3000)            
+                                set fx.effectdummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),270)            
+                                set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                set fx.targetUnit[1] = ClosestUnit(fx.dummy[1], 3000)            
+                                set fx.effectdummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),270)            
+                                set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                set fx.targetUnit[2] = ClosestUnit(fx.dummy[2], 3000)            
+                                set fx.effectdummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),270)            
+                                set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                set fx.targetUnit[3] = ClosestUnit(fx.dummy[3], 3000)            
+                                set fx.effectdummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),270)            
+                                if fx.targetcount == 1 then            
+                                    set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                    set fx.targetUnit[4] = ClosestUnit(fx.dummy[4], 3000)            
+                                    set fx.effectdummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),270)            
+                                endif            
+                                if fx.targetcount == 2 then            
+                                    set fx.dummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                    set fx.targetUnit[5] = ClosestUnit(fx.dummy[5], 3000)            
+                                    set fx.effectdummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),270)            
+                                endif            
+                                if fx.targetcount == 3 then            
+                                    set fx.dummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)            
+                                    set fx.targetUnit[6] = ClosestUnit(fx.dummy[6], 3000)            
+                                    set fx.effectdummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),270)            
+                                endif            
+                        
+                            //방향회전            
+                            elseif fx.i <= Pattern4Time then            
+                                set fx.lockangle[0] = AngleWBW(fx.dummy[0], fx.targetUnit[0])            
+                                call SetUnitFacing(fx.dummy[0],fx.lockangle[0])            
+                                call EXSetUnitFacing(fx.dummy[0], fx.lockangle[0])            
+                                call SetUnitFacing(fx.effectdummy[0],fx.lockangle[0])            
+                                call EXSetUnitFacing(fx.effectdummy[0], fx.lockangle[0])            
+                                set fx.lockangle[1] = AngleWBW(fx.dummy[1], fx.targetUnit[1])            
+                                call SetUnitFacing(fx.dummy[1],fx.lockangle[1])            
+                                call EXSetUnitFacing(fx.dummy[1], fx.lockangle[1])            
+                                call SetUnitFacing(fx.effectdummy[1],fx.lockangle[1])            
+                                call EXSetUnitFacing(fx.effectdummy[1], fx.lockangle[1])            
+                                set fx.lockangle[2] = AngleWBW(fx.dummy[2], fx.targetUnit[2])            
+                                call SetUnitFacing(fx.dummy[2],fx.lockangle[2])            
+                                call EXSetUnitFacing(fx.dummy[2], fx.lockangle[2])            
+                                call SetUnitFacing(fx.effectdummy[2],fx.lockangle[2])            
+                                call EXSetUnitFacing(fx.effectdummy[2], fx.lockangle[2])            
+                                set fx.lockangle[3] = AngleWBW(fx.dummy[3], fx.targetUnit[3])            
+                                call SetUnitFacing(fx.dummy[3],fx.lockangle[3])            
+                                call EXSetUnitFacing(fx.dummy[3], fx.lockangle[3])            
+                                call SetUnitFacing(fx.effectdummy[3],fx.lockangle[3])            
+                                call EXSetUnitFacing(fx.effectdummy[3], fx.lockangle[3])            
+                                if fx.targetcount == 1 then            
+                                    set fx.lockangle[4] = AngleWBW(fx.dummy[4], fx.targetUnit[4])            
+                                    call SetUnitFacing(fx.dummy[4],fx.lockangle[4])            
+                                    call EXSetUnitFacing(fx.dummy[4], fx.lockangle[4])            
+                                    call SetUnitFacing(fx.effectdummy[4],fx.lockangle[4])            
+                                    call EXSetUnitFacing(fx.effectdummy[4], fx.lockangle[4])            
+                                endif            
+                                if fx.targetcount == 2 then            
+                                    set fx.lockangle[5] = AngleWBW(fx.dummy[5], fx.targetUnit[5])            
+                                    call SetUnitFacing(fx.dummy[5],fx.lockangle[5])            
+                                    call EXSetUnitFacing(fx.dummy[5], fx.lockangle[5])            
+                                    call SetUnitFacing(fx.effectdummy[5],fx.lockangle[5])            
+                                    call EXSetUnitFacing(fx.effectdummy[5], fx.lockangle[5])            
+                                endif            
+                                if fx.targetcount == 3 then            
+                                    set fx.lockangle[6] = AngleWBW(fx.dummy[6], fx.targetUnit[6])            
+                                    call SetUnitFacing(fx.dummy[6],fx.lockangle[6])            
+                                    call EXSetUnitFacing(fx.dummy[6], fx.lockangle[6])            
+                                    call SetUnitFacing(fx.effectdummy[6],fx.lockangle[6])            
+                                    call EXSetUnitFacing(fx.effectdummy[6], fx.lockangle[6])            
+                                endif            
+                            //발사 및 종료            
+                            elseif fx.i == Pattern4Time2 then            
+                                call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),50,fx.lockangle[0],1.00,null), Pattern4Distance, fx.lockangle[0], Pattern4Speed, Pattern4Range, 2)            
+                                call KillUnit(fx.dummy[0])            
+                                call KillUnit(fx.effectdummy[0])            
+                                call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),50,fx.lockangle[1],1.00,null), Pattern4Distance, fx.lockangle[1], Pattern4Speed, Pattern4Range, 2)            
+                                call KillUnit(fx.dummy[1])            
+                                call KillUnit(fx.effectdummy[1])            
+                                call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),50,fx.lockangle[2],1.00,null), Pattern4Distance, fx.lockangle[2], Pattern4Speed, Pattern4Range, 2)            
+                                call KillUnit(fx.dummy[2])            
+                                call KillUnit(fx.effectdummy[2])            
+                                call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),50,fx.lockangle[3],1.00,null), Pattern4Distance, fx.lockangle[3], Pattern4Speed, Pattern4Range, 2)            
+                                call KillUnit(fx.dummy[3])            
+                                call KillUnit(fx.effectdummy[3])            
+                                if fx.targetcount == 1 then            
+                                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),50,fx.lockangle[4],1.00,null), Pattern4Distance, fx.lockangle[4], Pattern4Speed, Pattern4Range, 2)            
+                                    call KillUnit(fx.dummy[4])            
+                                    call KillUnit(fx.effectdummy[4])            
+                                endif            
+                                if fx.targetcount == 2 then            
+                                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),50,fx.lockangle[5],1.00,null), Pattern4Distance, fx.lockangle[5], Pattern4Speed, Pattern4Range, 2)            
+                                    call KillUnit(fx.dummy[5])            
+                                    call KillUnit(fx.effectdummy[5])            
+                                endif            
+                                if fx.targetcount == 3 then            
+                                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),50,fx.lockangle[6],1.00,null), Pattern4Distance, fx.lockangle[6], Pattern4Speed, Pattern4Range, 2)            
+                                    call KillUnit(fx.dummy[6])            
+                                    call KillUnit(fx.effectdummy[6])            
+                                endif            
+                                //대기상태로 전환            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
 
-                    set fx.dummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[0] = ClosestUnit(fx.dummy[0], 3000)
-                    set fx.effectdummy[0] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),270)
-                    set fx.dummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[1] = ClosestUnit(fx.dummy[1], 3000)
-                    set fx.effectdummy[1] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),270)
-                    set fx.dummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[2] = ClosestUnit(fx.dummy[2], 3000)
-                    set fx.effectdummy[2] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),270)
-                    set fx.dummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                    set fx.targetUnit[3] = ClosestUnit(fx.dummy[3], 3000)
-                    set fx.effectdummy[3] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),270)
-                    if fx.targetcount == 1 then
-                        set fx.dummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[4] = ClosestUnit(fx.dummy[4], 3000)
-                        set fx.effectdummy[4] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),270)
-                    endif
-                    if fx.targetcount == 2 then
-                        set fx.dummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[5] = ClosestUnit(fx.dummy[5], 3000)
-                        set fx.effectdummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),270)
-                    endif
-                    if fx.targetcount == 3 then
-                        set fx.dummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03L',GetWidgetX(fx.caster)+PolarX(GetRandomReal(300,750),GetRandomReal(0,360)),GetWidgetY(fx.caster)+PolarY(GetRandomReal(300,750),GetRandomReal(0,360)),270)
-                        set fx.targetUnit[6] = ClosestUnit(fx.dummy[6], 3000)
-                        set fx.effectdummy[6] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03M',GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),270)
-                    endif
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
 
-                //방향회전
-                elseif fx.i <= Pattern4Time then
-                    set fx.lockangle[0] = AngleWBW(fx.dummy[0], fx.targetUnit[0])
-                    call SetUnitFacing(fx.dummy[0],fx.lockangle[0])
-                    call EXSetUnitFacing(fx.dummy[0], fx.lockangle[0])
-                    call SetUnitFacing(fx.effectdummy[0],fx.lockangle[0])
-                    call EXSetUnitFacing(fx.effectdummy[0], fx.lockangle[0])
-                    set fx.lockangle[1] = AngleWBW(fx.dummy[1], fx.targetUnit[1])
-                    call SetUnitFacing(fx.dummy[1],fx.lockangle[1])
-                    call EXSetUnitFacing(fx.dummy[1], fx.lockangle[1])
-                    call SetUnitFacing(fx.effectdummy[1],fx.lockangle[1])
-                    call EXSetUnitFacing(fx.effectdummy[1], fx.lockangle[1])
-                    set fx.lockangle[2] = AngleWBW(fx.dummy[2], fx.targetUnit[2])
-                    call SetUnitFacing(fx.dummy[2],fx.lockangle[2])
-                    call EXSetUnitFacing(fx.dummy[2], fx.lockangle[2])
-                    call SetUnitFacing(fx.effectdummy[2],fx.lockangle[2])
-                    call EXSetUnitFacing(fx.effectdummy[2], fx.lockangle[2])
-                    set fx.lockangle[3] = AngleWBW(fx.dummy[3], fx.targetUnit[3])
-                    call SetUnitFacing(fx.dummy[3],fx.lockangle[3])
-                    call EXSetUnitFacing(fx.dummy[3], fx.lockangle[3])
-                    call SetUnitFacing(fx.effectdummy[3],fx.lockangle[3])
-                    call EXSetUnitFacing(fx.effectdummy[3], fx.lockangle[3])
-                    if fx.targetcount == 1 then
-                        set fx.lockangle[4] = AngleWBW(fx.dummy[4], fx.targetUnit[4])
-                        call SetUnitFacing(fx.dummy[4],fx.lockangle[4])
-                        call EXSetUnitFacing(fx.dummy[4], fx.lockangle[4])
-                        call SetUnitFacing(fx.effectdummy[4],fx.lockangle[4])
-                        call EXSetUnitFacing(fx.effectdummy[4], fx.lockangle[4])
-                    endif
-                    if fx.targetcount == 2 then
-                        set fx.lockangle[5] = AngleWBW(fx.dummy[5], fx.targetUnit[5])
-                        call SetUnitFacing(fx.dummy[5],fx.lockangle[5])
-                        call EXSetUnitFacing(fx.dummy[5], fx.lockangle[5])
-                        call SetUnitFacing(fx.effectdummy[5],fx.lockangle[5])
-                        call EXSetUnitFacing(fx.effectdummy[5], fx.lockangle[5])
-                    endif
-                    if fx.targetcount == 3 then
-                        set fx.lockangle[6] = AngleWBW(fx.dummy[6], fx.targetUnit[6])
-                        call SetUnitFacing(fx.dummy[6],fx.lockangle[6])
-                        call EXSetUnitFacing(fx.dummy[6], fx.lockangle[6])
-                        call SetUnitFacing(fx.effectdummy[6],fx.lockangle[6])
-                        call EXSetUnitFacing(fx.effectdummy[6], fx.lockangle[6])
-                    endif
-                //발사 및 종료
-                elseif fx.i == Pattern4Time2 then
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[0]),GetWidgetY(fx.dummy[0]),50,fx.lockangle[0],1.00,null), Pattern4Distance, fx.lockangle[0], Pattern4Speed, Pattern4Range, 2)
-                    call KillUnit(fx.dummy[0])
-                    call KillUnit(fx.effectdummy[0])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[1]),GetWidgetY(fx.dummy[1]),50,fx.lockangle[1],1.00,null), Pattern4Distance, fx.lockangle[1], Pattern4Speed, Pattern4Range, 2)
-                    call KillUnit(fx.dummy[1])
-                    call KillUnit(fx.effectdummy[1])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[2]),GetWidgetY(fx.dummy[2]),50,fx.lockangle[2],1.00,null), Pattern4Distance, fx.lockangle[2], Pattern4Speed, Pattern4Range, 2)
-                    call KillUnit(fx.dummy[2])
-                    call KillUnit(fx.effectdummy[2])
-                    call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[3]),GetWidgetY(fx.dummy[3]),50,fx.lockangle[3],1.00,null), Pattern4Distance, fx.lockangle[3], Pattern4Speed, Pattern4Range, 2)
-                    call KillUnit(fx.dummy[3])
-                    call KillUnit(fx.effectdummy[3])
-                    if fx.targetcount == 1 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[4]),GetWidgetY(fx.dummy[4]),50,fx.lockangle[4],1.00,null), Pattern4Distance, fx.lockangle[4], Pattern4Speed, Pattern4Range, 2)
-                        call KillUnit(fx.dummy[4])
-                        call KillUnit(fx.effectdummy[4])
-                    endif
-                    if fx.targetcount == 2 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[5]),GetWidgetY(fx.dummy[5]),50,fx.lockangle[5],1.00,null), Pattern4Distance, fx.lockangle[5], Pattern4Speed, Pattern4Range, 2)
-                        call KillUnit(fx.dummy[5])
-                        call KillUnit(fx.effectdummy[5])
-                    endif
-                    if fx.targetcount == 3 then
-                        call Missile(fx.caster, MakeMissile("Freezingsplinter.mdl",GetWidgetX(fx.dummy[6]),GetWidgetY(fx.dummy[6]),50,fx.lockangle[6],1.00,null), Pattern4Distance, fx.lockangle[6], Pattern4Speed, Pattern4Range, 2)
-                        call KillUnit(fx.dummy[6])
-                        call KillUnit(fx.effectdummy[6])
-                    endif
-                    //대기상태로 전환
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect4", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
 
     //3장판
@@ -781,62 +1111,117 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set dummy3 = null
             set st = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect2_Timer extends array
-        private method OnAction takes FxEffect2 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local AggroSystem s
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    set i = GetRandomInt(0,3)
-                    set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)),270)
-                    call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)), 500, 2.0, 0, 2, 2)
-                    set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90),270)
-                    call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90), 500, 2.0, 0, 2, 2)
-                    set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180),270)
-                    call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180), 500, 2.0, 0, 2, 2)
-                elseif fx.i == Pattern2Time then
-                    call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
 
-                    call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local AggroSystem s            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                set i = GetRandomInt(0,3)            
+                                set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)),270)            
+                                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)), 500, 2.0, 0, 2, 2)            
+                                set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90),270)            
+                                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90), 500, 2.0, 0, 2, 2)            
+                                set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180),270)            
+                                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180), 500, 2.0, 0, 2, 2)            
+                            elseif fx.i == Pattern2Time then            
+                                call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)            
+                        
+                                call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy2),GetWidgetY(fx.dummy2),GetRandomReal(0,360),1.20)            
+                        
+                                call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)            
+                                call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)            
+                        
+                                call KillUnit(fx.dummy1)            
+                                call KillUnit(fx.dummy2)            
+                                call KillUnit(fx.dummy3)            
+                        
+                                //대기상태로 전환            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call fx.Stop()            
+                        endif
+    endmethod
 
-                    call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)
-                    call UnitEffectTimeEX('e03J',GetWidgetX(fx.dummy3),GetWidgetY(fx.dummy3),GetRandomReal(0,360),1.20)
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
 
-                    call KillUnit(fx.dummy1)
-                    call KillUnit(fx.dummy2)
-                    call KillUnit(fx.dummy3)
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
 
-                    //대기상태로 전환
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect2", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
     
     //카운터
@@ -852,66 +1237,121 @@ library Boss3 requires FX,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss
             set st = 0
             set ast = 0
         endmethod
-        //! runtextmacro 연출()
-    endstruct
-    
-    private struct FxEffect3_Timer extends array
-        private method OnAction takes FxEffect3 fx returns nothing
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st = fx.st
-            local AOESt ast
-            local AggroSystem s
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    set s = BossStruct[IndexUnit(fx.caster)]
-                    call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
-                    call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
-                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitAddAbility(fx.caster,'A00V')
-                    set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 2)
 
-                //카운터침
-                elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,6)
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    set fx.ast.stop = true
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime + CounterTime
-                    set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
-                    call fx.Stop()
-                //카운터를 못침
-                elseif fx.i == Pattern3CounterTime then
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    set fx.ast.stop = false
-                    call UnitRemoveAbility(fx.caster,'A00V')
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    set Unitstate[IndexUnit(fx.caster)] = 4
-                    set st.j = StandTime
-                    set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
-                    call fx.Stop()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+                        local effect e            
+                        local real r            
+                        local integer i            
+                        local tick t            
+                        local MapStruct st = fx.st            
+                        local AOESt ast            
+                        local AggroSystem s            
+                        set fx.i = fx.i + 1            
+                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
+                            if fx.i == 1 then            
+                                set s = BossStruct[IndexUnit(fx.caster)]            
+                                call SetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))            
+                                call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))            
+                                call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )            
+                                call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
+                                call UnitAddAbility(fx.caster,'A00V')            
+                                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 2)            
+                        
+                            //카운터침            
+                            elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then            
+                                call Sound3D(fx.caster,'A00U')            
+                                call AnimationStart(fx.caster,6)            
+                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                                set fx.ast.stop = true            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime + CounterTime            
+                                set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)            
+                                call fx.Stop()            
+                            //카운터를 못침            
+                            elseif fx.i == Pattern3CounterTime then            
+                                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)            
+                                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)            
+                                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)            
+                                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)            
+                                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)            
+                                set fx.ast.stop = false            
+                                call UnitRemoveAbility(fx.caster,'A00V')            
+                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                                call AnimationStart4(fx.caster, 7, 0.02)            
+                                set Unitstate[IndexUnit(fx.caster)] = 4            
+                                set st.j = StandTime            
+                                set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)            
+                                call fx.Stop()            
+                            endif            
+                        //주금            
+                        else            
+                            call UnitRemoveAbility(fx.caster,'A00V')            
+                            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
+                            call fx.Stop()            
+                        endif
+    endmethod
+
+    private tick __lifeTick
+        private boolean __lifeStarted
+        private boolean __lifeStopping
+
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set __lifeStarted = false
+            set __lifeStopping = false
+            set __lifeTick = 0
+
+            static if thistype.OnCreate.exists then
+                call this.OnCreate()
             endif
+
+            return this
         endmethod
-        //! runtextmacro 연출효과_타이머("FxEffect3", "0.02", "true")
+
+        method Start takes nothing returns nothing
+            if __lifeStarted then
+                return
+            endif
+
+            set __lifeStarted = true
+
+            static if thistype.OnStart.exists then
+                call this.OnStart()
+            endif
+
+            if __lifeTick != 0 then
+                return
+            endif
+
+            set __lifeTick = tick.create(0)
+            set __lifeTick.data = this
+            call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+
+        method Stop takes nothing returns nothing
+            if __lifeStopping then
+                return
+            endif
+
+            set __lifeStopping = true
+
+            static if thistype.OnStop.exists then
+                call this.OnStop()
+            endif
+
+            if __lifeTick != 0 then
+                call __lifeTick.destroy()
+                set __lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
     endstruct
     
     private function AllDie takes nothing returns nothing

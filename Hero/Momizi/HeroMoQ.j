@@ -44,7 +44,47 @@ private struct FxEffect
         set TargetX = 0
         set TargetY = 0
     endmethod
-    //! runtextmacro 연출()
+    private boolean __lifeStarted
+    private boolean __lifeStopping
+
+    static method Create takes nothing returns thistype
+        local thistype this = allocate()
+
+        set __lifeStarted = false
+        set __lifeStopping = false
+
+        static if thistype.OnCreate.exists then
+            call this.OnCreate()
+        endif
+
+        return this
+    endmethod
+
+    method Start takes nothing returns nothing
+        if __lifeStarted then
+            return
+        endif
+
+        set __lifeStarted = true
+
+        static if thistype.OnStart.exists then
+            call this.OnStart()
+        endif
+    endmethod
+
+    method Stop takes nothing returns nothing
+        if __lifeStopping then
+            return
+        endif
+
+        set __lifeStopping = true
+
+        static if thistype.OnStop.exists then
+            call this.OnStop()
+        endif
+
+        call deallocate()
+    endmethod
 endstruct
 
 private function splashD takes nothing returns nothing
