@@ -7,14 +7,14 @@ scope HeroBandiR
         private constant real Time4 = 0.2
         private constant real Time5 = 0.1
         private constant real Time6 = 0.6
-    
+
         private constant real scale = 500
         private constant real scale2 = 600
         private constant real distance = 325
         private constant real distance2 = 450
         //범위체크
         private group CheckG
-        //더미 유닛
+        //범위체크
         private unit CheckU
         boolean array IsCastingBandiR
     endglobals
@@ -30,21 +30,37 @@ scope HeroBandiR
             set speed = 0
             set i = 0
         endmethod
-        //! runtextmacro 연출()
+        static method create takes nothing returns thistype
+            local thistype this = allocate()
+            return this
+        endmethod
+
+        static method Create takes nothing returns thistype
+            return thistype.create()
+        endmethod
+
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
+
+        method Stop takes nothing returns nothing
+            call this.stop()
+        endmethod
     endstruct
 
     private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer level = HeroSkillLevel[pid][5]
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-    
+
             call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
             call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())+90,1.2,pid)
-            
+
             set random = GetRandomInt(0,2)
             if random == 0 then
                 call Sound3D(GetEnumUnit(),'A03X')
@@ -56,7 +72,7 @@ scope HeroBandiR
             if level >= 1 then
                 //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
             endif
-    
+
         endif
     endfunction
 
@@ -64,12 +80,12 @@ scope HeroBandiR
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer level = HeroSkillLevel[pid][5]
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-    
+
             call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-            
+
             set random = GetRandomInt(0,2)
             if random == 0 then
                 call Sound3D(GetEnumUnit(),'A03X')
@@ -81,15 +97,15 @@ scope HeroBandiR
             if level >= 1 then
                 //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
             endif
-    
+
         endif
     endfunction
-    
+
     private function EffectFunctionZ takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
         local real r
-        
+
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
 
@@ -126,7 +142,7 @@ scope HeroBandiR
         local FxEffect fx = t.data
         local tick t2
         local SkillFx fx2
-    
+
         set fx.i = fx.i + 1
 
         if IsCastingBandiR[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
@@ -134,19 +150,19 @@ scope HeroBandiR
                 if fx.i == 1 then
                     call UnitEffectTime2('e040',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                    call t.start( Time3 / fx.speed, false, function EffectFunction ) 
+                    call t.start( Time3 / fx.speed, false, function EffectFunction )
                 elseif fx.i == 2 then
                     call UnitEffectTime2('e041',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                    call t.start( Time4 / fx.speed, false, function EffectFunction ) 
+                    call t.start( Time4 / fx.speed, false, function EffectFunction )
                 elseif fx.i == 3 then
                     call UnitEffectTime2('e042',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                    call t.start( Time5 / fx.speed, false, function EffectFunction ) 
+                    call t.start( Time5 / fx.speed, false, function EffectFunction )
                 elseif fx.i == 4 then
                     call UnitEffectTime2('e043',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
-                    call t.start( Time6 / fx.speed, false, function EffectFunction ) 
+                    call t.start( Time6 / fx.speed, false, function EffectFunction )
                     set fx2 = SkillFx.Create()
                     set t2 = tick.create(fx2)
                     set fx2.pid = fx.pid
@@ -178,22 +194,22 @@ scope HeroBandiR
         local real speed
         local tick t
         local FxEffect fx
-        
+
         if GetSpellAbilityId() == 'A06I' then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-            set t = tick.create(0) 
+            set t = tick.create(0)
             set fx = FxEffect.Create()
             set fx.caster = GetTriggerUnit()
             set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set IsCastingBandiR[fx.pid] = true
             set fx.i = 0
-            
+
             //call BanBisul2Use(pid)
             call Overlay2Count(fx.pid,'A06I')
 
-            //공격속도가 40퍼 도달시, 이스킬의 공격속도가 40퍼가 아닌 100퍼로 적용
+            //더미 유닛
             if SkillSpeed(fx.pid) != 40 then
                 call DummyMagicleash(fx.caster, Time / fx.speed )
                 call AnimationStart3(fx.caster, 2, fx.speed)
@@ -207,7 +223,7 @@ scope HeroBandiR
                 //endif
 
                 set t.data = fx
-                call t.start( Time2 / fx.speed, false, function EffectFunction ) 
+                call t.start( Time2 / fx.speed, false, function EffectFunction )
                 call CooldownFIX(fx.caster,'A06I', HeroSkillCD3[15])
             else
                 set fx.speed = ((100+SkillSpeed2(fx.pid,60))/100)
@@ -223,12 +239,12 @@ scope HeroBandiR
                 //endif
 
                 set t.data = fx
-                call t.start( Time2 / fx.speed, false, function EffectFunction ) 
+                call t.start( Time2 / fx.speed, false, function EffectFunction )
                 call CooldownFIX(fx.caster,'A06I', HeroSkillCD3[15])
             endif
         endif
     endfunction
-        
+
     private function RSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
@@ -238,7 +254,7 @@ scope HeroBandiR
         local real x
         local real y
         local real angle
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
@@ -257,19 +273,27 @@ scope HeroBandiR
         set p=null
     endfunction
 
-            
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    local trigger t
-    
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function Main)
-        
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("BandiR"),(false))
-    call TriggerAddAction(t,function RSyncData)
 
-    set t = null
-//! runtextmacro 이벤트_끝()
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        local trigger t
+
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function Main)
+
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("BandiR"),(false))
+        call TriggerAddAction(t,function RSyncData)
+
+        set t = null
+    endmethod
+endstruct
 endscope
 

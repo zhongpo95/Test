@@ -1,4 +1,4 @@
-library FXKnockback requires SafePos, UnitIndexer
+library FXKnockback requires SafePos, UnitIndexer, Tick
     /*
         사용법
             call Knockback( source, angle, distance, duration )
@@ -11,13 +11,13 @@ library FXKnockback requires SafePos, UnitIndexer
         private constant integer ABID = 'A00S'
         //넉백무시체크
         private constant integer KBImmuneAbility = 'A00R'
-        
+
         private integer array UT
         private trigger array TrgRemove
         private triggeraction array ActRemove
     endglobals
-    
-    //! runtextmacro 틱("KBTimer")
+
+    private struct KBTimer
         unit caster
         real XEND
         real YEND
@@ -25,42 +25,44 @@ library FXKnockback requires SafePos, UnitIndexer
         real RECT
         integer IMAX
         integer ICUR
-    //! runtextmacro 틱_끝()
-        
-        
+    endstruct
+
+    private function KBTimerFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local KBTimer st = t.data
+        local integer i = GetUnitIndex(st.caster)
+        set st.ICUR = st.ICUR + 1
+        call SetUnitSafePolarUTA(st.caster, st.DIST, st.RECT)
+        call IssueImmediateOrder(st.caster, "stop")
+        if st.ICUR == 0 then
+            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(st.caster),GetWidgetY(st.caster)))
+        elseif ModuloInteger(st.ICUR,10) == 0 then
+            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(st.caster),GetWidgetY(st.caster)))
+        endif
+        if st.ICUR < st.IMAX then
+            return
+        endif
+        call UnitRemoveAbility(st.caster, ABID)
+        set UT[i] = 0
+        set st.caster = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
+
     function IsUnitImmune takes unit u returns boolean
         if GetUnitAbilityLevel(u, KBImmuneAbility) == 1 then
             return true
         endif
         return false
     endfunction
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("KBTimer")
-        local integer i = GetUnitIndex(expired.caster)
-        set expired.ICUR = expired.ICUR + 1
-        call SetUnitSafePolarUTA(expired.caster, expired.DIST, expired.RECT )
-        call IssueImmediateOrder( expired.caster, "stop" )
-        if expired.ICUR == 0 then
-            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(expired.caster),GetWidgetY(expired.caster)))
-        elseif ModuloInteger(expired.ICUR,10) == 0 then
-            call DestroyEffect(AddSpecialEffect("Abilities\\Weapons\\AncientProtectorMissile\\AncientProtectorMissile.mdl",GetWidgetX(expired.caster),GetWidgetY(expired.caster)))
-        endif
-        if expired.ICUR < expired.IMAX then
-            return
-        endif
-        call UnitRemoveAbility( expired.caster, ABID )
-        set UT[i] = 0
-        set expired.caster = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-        
     function IsUnitKB takes unit u returns boolean
         if GetUnitAbilityLevel(u, ABID) > 0 then
             return true
         endif
         return false
     endfunction
-        
+
     private function OnRemove takes nothing returns nothing
         local integer i = GetTriggerIndex()
         call TriggerRemoveAction(TrgRemove[i], ActRemove[i])
@@ -68,13 +70,14 @@ library FXKnockback requires SafePos, UnitIndexer
         set TrgRemove[i] = null
         set UT[i] = 0
     endfunction
-    
+
     private function KnockbackTo takes unit caster, real tx, real ty, real dur returns nothing
-        local KBTimer t
+        local tick t
+        local KBTimer st
         local real dist
         local real direct
         local integer i
-        
+
         //소환물
         if IsUnitType(caster,UNIT_TYPE_SUMMONED) then
             return
@@ -83,68 +86,71 @@ library FXKnockback requires SafePos, UnitIndexer
         if IsUnitImmune(caster) then
             return
         endif
-        
+
         //인덱스
         set i = IndexUnit(caster)
         if ActRemove[i] == null then
             set TrgRemove[i] = GetUnitRemoveTrigger(caster)
             set ActRemove[i] = TriggerAddAction(TrgRemove[i],function OnRemove)
         endif
-        
+
         //이미넉백중
         if IsUnitKB(caster) then
             set t = UT[i]
-            call t.Pause()
+            call t.pause()
+            set st = t.data
         //새로운넉백
         else
             call UnitAddAbility(caster,ABID)
-            set t = KBTimer.Create()
+            set t = tick.create(0)
+            set st = KBTimer.create()
+            set t.data = st
         endif
-        
+
         set UT[i] = t
-        
-        set t.caster = caster
-        set t.XEND = tx
-        set t.YEND = ty
-        set dist = DistanceWBP( caster, t.XEND, t.YEND )
-        set direct = AngleWBP( caster, t.XEND, t.YEND )
-        set t.IMAX = IMaxBJ(1,R2I(dur*32))
-        set t.DIST = dist/t.IMAX
-        set t.RECT = direct
-        set t.ICUR = 0
-        call t.Start( 0.03125, true )
+
+        set st.caster = caster
+        set st.XEND = tx
+        set st.YEND = ty
+        set dist = DistanceWBP(caster, st.XEND, st.YEND)
+        set direct = AngleWBP(caster, st.XEND, st.YEND)
+        set st.IMAX = IMaxBJ(1,R2I(dur*32))
+        set st.DIST = dist/st.IMAX
+        set st.RECT = direct
+        set st.ICUR = 0
+        call t.start(0.03125, true, function KBTimerFunction)
     endfunction
-        
+
     function Knockback takes unit caster, real dir, real dist, real dur returns nothing
         local real x = GetWidgetX(caster) + PolarX( dist, dir )
         local real y = GetWidgetY(caster) + PolarY( dist, dir )
         call KnockbackTo( caster, x, y, dur )
     endfunction
-        
+
     function KnockbackFrom takes unit caster, unit ori, real dist, real dur returns nothing
         local real dir = AngleWBW( caster, ori )
         call Knockback( caster, dir, dist, dur )
     endfunction
-        
+
     function KnockbackFromPos takes unit caster, real ox, real oy, real dist, real dur returns nothing
         local real dir = AnglePBW( ox, oy, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
-        
+
     function KnockbackFromTo takes unit caster, unit ori, real dist, real dur returns nothing
         local real dir = AngleWBW( ori, caster )
         set dist = dist - DistanceWBW( ori, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
-        
+
     function KnockbackFromToPos takes unit caster, real ox, real oy, real dist, real dur returns nothing
         local real dir = AnglePBW( ox,oy, caster )
         set dist = dist - DistancePBW( ox,oy, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
-    
+
     function KnockbackInverse takes unit caster, unit ori, real dist, real dur returns nothing
         local real dir = AngleWBW( ori, caster )
         call Knockback( caster, dir, dist, dur )
     endfunction
-    endlibrary
+endlibrary

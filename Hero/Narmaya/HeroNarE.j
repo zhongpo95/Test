@@ -44,14 +44,14 @@ private struct FxEffect
         set Aspeed = 0
         set A2speed = 0
     endmethod
-    private boolean __lifeStarted
-    private boolean __lifeStopping
+    private boolean lifeStarted
+    private boolean lifeStopping
 
     static method Create takes nothing returns thistype
         local thistype this = allocate()
 
-        set __lifeStarted = false
-        set __lifeStopping = false
+        set lifeStarted = false
+        set lifeStopping = false
 
         static if thistype.OnCreate.exists then
             call this.OnCreate()
@@ -61,11 +61,11 @@ private struct FxEffect
     endmethod
 
     method Start takes nothing returns nothing
-        if __lifeStarted then
+        if lifeStarted then
             return
         endif
 
-        set __lifeStarted = true
+        set lifeStarted = true
 
         static if thistype.OnStart.exists then
             call this.OnStart()
@@ -73,11 +73,11 @@ private struct FxEffect
     endmethod
 
     method Stop takes nothing returns nothing
-        if __lifeStopping then
+        if lifeStopping then
             return
         endif
 
-        set __lifeStopping = true
+        set lifeStopping = true
 
         static if thistype.OnStop.exists then
             call this.OnStop()
@@ -840,21 +840,29 @@ private function ESyncData2 takes nothing returns nothing
 endfunction
 
             
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    local trigger t
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        local trigger t
     
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function Main)
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function Main)
         
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarE"),(false))
-    call TriggerAddAction(t,function ESyncData)
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("NarE"),(false))
+        call TriggerAddAction(t,function ESyncData)
     
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("NarE2"),(false))
-    call TriggerAddAction(t,function ESyncData2)
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("NarE2"),(false))
+        call TriggerAddAction(t,function ESyncData2)
 
-    set t = null
-//! runtextmacro 이벤트_끝()
+        set t = null
+    endmethod
+endstruct
 endscope

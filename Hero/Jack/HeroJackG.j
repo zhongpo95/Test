@@ -30,69 +30,120 @@ private struct FxEffect
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
         local thistype fx = expiredTick.data
-                local real x        
-                local real r        
-                local effect e        
-                set fx.i = fx.i + 1        
-                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then        
-                    if fx.i < 12 then        
-                        //call Sound3D(fx.caster,'A00E')        
-                        set fx.angle = AngleWBW(fx.caster,fx.target)        
-                        call SetUnitFacing(fx.caster,fx.angle)        
-                        call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))        
-                        call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))        
-                        if fx.i == 6 then        
-                            call UnitEffectTimeEX2('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                            call Sound3D(fx.caster,'A009')        
-                        endif        
-                    elseif fx.i == 12 then        
-                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),15 )        
-                    elseif fx.i == 45 then        
-                        call Sound3D(fx.caster,'A00M')        
-                    elseif fx.i == 50 then        
-                        set fx.angle = AngleWBW(fx.caster,fx.target)        
-                        call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( 250, fx.angle ))        
-                        call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( 250, fx.angle ))        
-                    elseif fx.i == 60 then        
-                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )        
-                        call Sound3D(fx.caster,'A00I')        
-                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                        call UnitEffectTimeEX2('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                        call UnitEffectTimeEX2('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                        call HeroDeal(fx.caster,fx.target,DR)        
-                    elseif fx.i == 70 then        
-                        call Sound3D(fx.caster,'A00H')        
-                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                        call UnitEffectTimeEX2('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))        
-                        call HeroDeal(fx.caster,fx.target,DR)        
-                                
-                        call Sound3D(fx.caster,'A00L')        
-                    elseif fx.i == 115 then        
-                        call HeroDeal(fx.caster,fx.target,DR2)        
-                        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then        
-                            set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")        
-                        else        
-                            set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")        
-                        endif        
-                        call DestroyEffect(e)        
-                        set e = null        
-                        call fx.Stop()        
-                    endif        
-                else        
-                    call fx.Stop()        
-                endif        
+                local real x
+        
+                local real r
+        
+                local effect e
+        
+                set fx.i = fx.i + 1
+        
+                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+        
+                    if fx.i < 12 then
+        
+                        //call Sound3D(fx.caster,'A00E')
+        
+                        set fx.angle = AngleWBW(fx.caster,fx.target)
+        
+                        call SetUnitFacing(fx.caster,fx.angle)
+        
+                        call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))
+        
+                        call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))
+        
+                        if fx.i == 6 then
+        
+                            call UnitEffectTimeEX2('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                            call Sound3D(fx.caster,'A009')
+        
+                        endif
+        
+                    elseif fx.i == 12 then
+        
+                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),15 )
+        
+                    elseif fx.i == 45 then
+        
+                        call Sound3D(fx.caster,'A00M')
+        
+                    elseif fx.i == 50 then
+        
+                        set fx.angle = AngleWBW(fx.caster,fx.target)
+        
+                        call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( 250, fx.angle ))
+        
+                        call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( 250, fx.angle ))
+        
+                    elseif fx.i == 60 then
+        
+                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
+        
+                        call Sound3D(fx.caster,'A00I')
+        
+                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                        call UnitEffectTimeEX2('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                        call UnitEffectTimeEX2('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                        call HeroDeal(fx.caster,fx.target,DR)
+        
+                    elseif fx.i == 70 then
+        
+                        call Sound3D(fx.caster,'A00H')
+        
+                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                        call UnitEffectTimeEX2('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+        
+                        call HeroDeal(fx.caster,fx.target,DR)
+        
+                        
+        
+                        call Sound3D(fx.caster,'A00L')
+        
+                    elseif fx.i == 115 then
+        
+                        call HeroDeal(fx.caster,fx.target,DR2)
+        
+                        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+        
+                            set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")
+        
+                        else
+        
+                            set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")
+        
+                        endif
+        
+                        call DestroyEffect(e)
+        
+                        set e = null
+        
+                        call fx.Stop()
+        
+                    endif
+        
+                else
+        
+                    call fx.Stop()
+        
+                endif
+        
     endmethod
 
-    private tick __lifeTick
-    private boolean __lifeStarted
-    private boolean __lifeStopping
+    private tick lifeTick
+    private boolean lifeStarted
+    private boolean lifeStopping
 
     static method Create takes nothing returns thistype
         local thistype this = allocate()
 
-        set __lifeStarted = false
-        set __lifeStopping = false
-        set __lifeTick = 0
+        set lifeStarted = false
+        set lifeStopping = false
+        set lifeTick = 0
 
         static if thistype.OnCreate.exists then
             call this.OnCreate()
@@ -102,44 +153,45 @@ private struct FxEffect
     endmethod
 
     method Start takes nothing returns nothing
-        if __lifeStarted then
+        if lifeStarted then
             return
         endif
 
-        set __lifeStarted = true
+        set lifeStarted = true
 
         static if thistype.OnStart.exists then
             call this.OnStart()
         endif
 
-        if __lifeTick != 0 then
+        if lifeTick != 0 then
             return
         endif
 
-        set __lifeTick = tick.create(0)
-        set __lifeTick.data = this
-        call __lifeTick.start(0.02, true, function thistype.OnTimer)
+        set lifeTick = tick.create(0)
+        set lifeTick.data = this
+        call lifeTick.start(0.02, true, function thistype.OnTimer)
     endmethod
 
     method Stop takes nothing returns nothing
-        if __lifeStopping then
+        if lifeStopping then
             return
         endif
 
-        set __lifeStopping = true
+        set lifeStopping = true
 
         static if thistype.OnStop.exists then
             call this.OnStop()
         endif
 
-        if __lifeTick != 0 then
-            call __lifeTick.destroy()
-            set __lifeTick = 0
+        if lifeTick != 0 then
+            call lifeTick.destroy()
+            set lifeTick = 0
         endif
 
         call deallocate()
     endmethod
-endstruct
+endstruct
+
     
 private function F_A00J takes nothing returns nothing
     local FxEffect fx
@@ -164,7 +216,15 @@ private function F_A00J takes nothing returns nothing
     call AnimationStart(fx.caster,14)
 endfunction
     
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    call AbilityEffectEvent.Create( 'A00J', function F_A00J )
-//! runtextmacro 이벤트_끝()
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        call AbilityEffectEvent.Create( 'A00J', function F_A00J )
+    endmethod
+endstruct
 endscope

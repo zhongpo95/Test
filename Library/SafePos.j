@@ -3,7 +3,7 @@ library SafePos
         real SafePosX
         real SafePosY
     endglobals
-        
+
     function SetSafePolar takes unit u, real DIST, real RECT returns nothing
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
@@ -13,7 +13,7 @@ library SafePos
         local real TPY2 = UnitY+PolarY( DIST, RECT )
         local real dis = DIST
         local real dislimit = DIST
-        
+
         loop
         exitwhen IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false or IsTerrainPathable(TPX2, TPY2, PATHING_TYPE_WALKABILITY) == false
             set dis = dis - 4.00
@@ -35,7 +35,7 @@ library SafePos
             set SafePosY = TPY2
         endif
     endfunction
-    
+
     function SetSafePolar2 takes unit u, real DIST, real RECT returns nothing
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
@@ -45,7 +45,7 @@ library SafePos
         local real TPY2 = UnitY+PolarY( DIST, RECT )
         local real dis = DIST
         local real dislimit = DIST
-        
+
         loop
         exitwhen IsTerrainPathable(TPX, TPY, PATHING_TYPE_WALKABILITY) == false or IsTerrainPathable(TPX2, TPY2, PATHING_TYPE_WALKABILITY) == false
             set dis = dis - 4.00
@@ -72,7 +72,7 @@ library SafePos
         local real TPX = UnitX+PolarX( DIST, Ang )
         local real TPY = UnitY+PolarY( DIST, Ang )
         local item tem
-        
+
         set tem = CreateItem('cnob', TPX, TPY)
         if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
             call SetUnitX(u, GetItemX(tem))
@@ -86,7 +86,7 @@ library SafePos
         local real TPX = GetWidgetX(u)+ DIST * Cos(angle)
         local real TPY = GetWidgetY(u)+ DIST * Sin(angle)
         local item tem
-        
+
         set tem = CreateItem('cnob', TPX, TPY)
         if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
             call SetUnitX(u, GetItemX(tem))
@@ -99,7 +99,7 @@ library SafePos
         local real UnitX = GetWidgetX(u)
         local real UnitY = GetWidgetY(u)
         local item tem
-        
+
         set tem = CreateItem('cnob', X, Y)
         if IsTerrainPathable(GetItemX(tem), GetItemY(tem), PATHING_TYPE_WALKABILITY) == false then
             call SetUnitX(u, GetItemX(tem))
@@ -119,7 +119,7 @@ library SafePos
         set tem = null
         return CreateUnit(p,i,temX,temY,r)
     endfunction
-     
+
     struct SkillDash
         /*========================================================================*/
         unit Owner
@@ -130,7 +130,7 @@ library SafePos
         /*========================================================================*/
         private method OnStop takes nothing returns nothing
             //call UnitRemoveAbility( this.Owner, 'B000' )
-            
+
             call PauseUnitEx(this.Owner,false)
             //call SetUnitVertexColorBJ( this.Owner, 100, 100, 100, 0 )
             set this.Owner = null
@@ -139,7 +139,7 @@ library SafePos
             // 최대 거리에 도착하면 멈춤
             if this.Max < this.Speed then
                 call SetUnitSafePolarUTP(this.Owner,this.Speed,this.TargetX,this.TargetY)
-                call this.Stop()
+                call this.stop()
             elseif DistanceWBP(this.Owner,this.TargetX,this.TargetY) > this.Speed then
                 // 속도만큼 이동시켜도 남은 거리가 더 있다면 [비행!]
                 call SetUnitSafePolarUTP(this.Owner,this.Speed,this.TargetX,this.TargetY)
@@ -147,12 +147,56 @@ library SafePos
             else
                 // 남은 거리가 속도보다 짧거나 같다면 [충돌!]
                 call SetUnitSafeXY(this.Owner,this.TargetX,this.TargetY)
-                call this.Stop()
+                call this.stop()
             endif
         endmethod
         /*========================================================================*/
-        //! runtextmacro CFX()
+        private static method OnTimer takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype this = expiredTick.data
+
+            call this.OnTick()
+        endmethod
+        private tick lifeTick
+        private boolean lifeStarted
+        private boolean lifeStopping
+
+        static method create takes nothing returns thistype
+            local thistype this = allocate()
+
+            set this.lifeTick = 0
+            set this.lifeStarted = false
+            set this.lifeStopping = false
+
+            return this
+        endmethod
+        method start takes nothing returns nothing
+            if this.lifeStarted then
+                return
+            endif
+
+            set this.lifeStarted = true
+            set this.lifeTick = tick.create(0)
+            set this.lifeTick.data = this
+            call this.lifeTick.start(0.02, true, function thistype.OnTimer)
+        endmethod
+        method stop takes nothing returns nothing
+            if this.lifeStopping then
+                return
+            endif
+
+            set this.lifeStopping = true
+            call this.OnStop()
+
+            if this.lifeTick != 0 then
+                set this.lifeTick.data = 0
+                call this.lifeTick.destroy()
+                set this.lifeTick = 0
+            endif
+
+            call deallocate()
+        endmethod
         /*========================================================================*/
     endstruct
-    
+
 endlibrary

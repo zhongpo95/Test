@@ -162,22 +162,30 @@ private function QSyncData2 takes nothing returns nothing
 endfunction
 
             
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    local trigger t
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        local trigger t
     
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function Main)
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function Main)
         
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("LuciaQ"),(false))
-    call TriggerAddAction(t,function QSyncData)
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("LuciaQ"),(false))
+        call TriggerAddAction(t,function QSyncData)
     
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("LuciaQ2"),(false))
-    call TriggerAddAction(t,function QSyncData2)
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("LuciaQ2"),(false))
+        call TriggerAddAction(t,function QSyncData2)
 
-    set t = null
-//! runtextmacro 이벤트_끝()
+        set t = null
+    endmethod
+endstruct
 endscope
 

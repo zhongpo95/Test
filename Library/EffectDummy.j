@@ -1,21 +1,16 @@
-library EffectDummy initializer init
+library EffectDummy initializer init requires Tick
     globals
         private constant integer NeutralCode = PLAYER_NEUTRAL_PASSIVE
 
         boolean array EffectOff
     endglobals
 
-    //! runtextmacro 틱("EffectDummy")
+    private struct EffectDummy
         unit unit
         integer pid
-    //! runtextmacro 틱_끝()
-    //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy")
-        call KillUnit(expired.unit)
-        call ShowUnit(expired.unit,false)
-        set expired.unit = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-    //! runtextmacro 틱("EffectDummy2")
+    endstruct
+
+    private struct EffectDummy2
         integer id
         real x
         real y
@@ -23,16 +18,18 @@ library EffectDummy initializer init
         real time
         real time2
         integer i
-    //! runtextmacro 틱_끝()
-    //! runtextmacro 틱("EffectDummy3")
+    endstruct
+
+    private struct EffectDummy3
         integer id
         unit target
         real r
         real time
         real time2
         integer i
-    //! runtextmacro 틱_끝()
-    //! runtextmacro 틱("EffectDummy4")
+    endstruct
+
+    private struct EffectDummy4
         integer id
         unit target
         real r
@@ -40,130 +37,174 @@ library EffectDummy initializer init
         real time2
         integer i
         integer pid
-    //! runtextmacro 틱_끝()
+    endstruct
 
-    //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy2")
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),expired.id,expired.x,expired.y,expired.r)
+    private function EffectDummyFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EffectDummy st = t.data
+        call KillUnit(st.unit)
+        call ShowUnit(st.unit,false)
+        set st.unit = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
+
+    private function EffectDummy2Function takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EffectDummy2 st = t.data
+        local tick t2 = tick.create(0)
+        local EffectDummy st2 = EffectDummy.create()
+        set st2.unit = CreateUnit(Player(NeutralCode),st.id,st.x,st.y,st.r)
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st2.unit,".mdl")
         endif
-        call SetUnitAnimationByIndex(t.unit,expired.i)
-        call t.Start(expired.time,false)
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
+        call SetUnitAnimationByIndex(st2.unit,st.i)
+        set t2.data = st2
+        call t2.start(st.time,false,function EffectDummyFunction)
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
 
-    //투명적용안됨
+    private function EffectDummy3Function takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EffectDummy3 st = t.data
+        local tick t2 = tick.create(0)
+        local EffectDummy st2 = EffectDummy.create()
+        set st2.unit = CreateUnit(Player(NeutralCode),st.id,GetUnitX(st.target),GetUnitY(st.target),st.r)
+        set t2.data = st2
+        call t2.start(st.time2,false,function EffectDummyFunction)
+        set st.target = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
+
+    private function EffectDummy4Function takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local EffectDummy4 st = t.data
+        local tick t2 = tick.create(0)
+        local EffectDummy st2 = EffectDummy.create()
+        set st2.unit = CreateUnit(Player(NeutralCode),st.id,GetUnitX(st.target),GetUnitY(st.target),st.r)
+        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and st.pid != GetPlayerId(GetLocalPlayer()) then
+            call DzSetUnitModel(st2.unit,".mdl")
+        endif
+        set t2.data = st2
+        call t2.start(st.time2,false,function EffectDummyFunction)
+        set st.target = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
+
     function UnitEffectTimeToTime takes integer id, real x, real y, real r, real time, real time2, integer i returns nothing
-        local EffectDummy2 t = EffectDummy2.Create()
-        set t.id = id
-        set t.x = x
-        set t.y = y
-        set t.r = r
-        set t.time = time2
-        set t.i = i
-        call t.Start(time,false)
+        local tick t = tick.create(0)
+        local EffectDummy2 st = EffectDummy2.create()
+        set st.id = id
+        set st.x = x
+        set st.y = y
+        set st.r = r
+        set st.time = time2
+        set st.i = i
+        set t.data = st
+        call t.start(time,false,function EffectDummy2Function)
     endfunction
     //투명적용안됨
     function UnitEffectTimeEX takes integer id, real x, real y, real r, real time returns unit
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st.unit,".mdl")
         endif
-        call t.Start(time,false)
-        return t.unit
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
+        return st.unit
     endfunction
 
     function UnitEffectTimeEX2 takes integer id, real x, real y, real r, real time, integer pid returns unit
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and pid != GetPlayerId(GetLocalPlayer()) then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st.unit,".mdl")
         endif
-        call t.Start(time,false)
-        return t.unit
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
+        return st.unit
     endfunction
 
     function UnitEffectTime takes integer id, real x, real y, real r, real time, string s returns unit
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st.unit,".mdl")
         endif
-        call SetUnitAnimation(t.unit,s)
-        call t.Start(time,false)
-        return t.unit
+        call SetUnitAnimation(st.unit,s)
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
+        return st.unit
     endfunction
 
     function UnitEffectTime2 takes integer id, real x, real y, real r, real time, integer i, integer pid returns unit
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and pid != GetPlayerId(GetLocalPlayer()) then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st.unit,".mdl")
         endif
-        call SetUnitAnimationByIndex(t.unit,i)
-        call t.Start(time,false)
-        return t.unit
+        call SetUnitAnimationByIndex(st.unit,i)
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
+        return st.unit
     endfunction
 
     //투명적용안됨
     function DelayKill takes unit u, real time returns nothing
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = u
-        call t.Start(time,false)
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = u
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
     endfunction
     //투명적용안됨
 
     function OnlyDelayKill takes unit u, real time, integer pid returns nothing
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = u
+        local tick t = tick.create(0)
+        local EffectDummy st = EffectDummy.create()
+        set st.unit = u
         if pid != GetPlayerId(GetLocalPlayer()) then
-            call DzSetUnitModel(t.unit,".mdl")
+            call DzSetUnitModel(st.unit,".mdl")
         endif
-        call t.Start(time,false)
+        set t.data = st
+        call t.start(time,false,function EffectDummyFunction)
     endfunction
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy3")
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),expired.id,GetUnitX(expired.target),GetUnitY(expired.target),expired.r)
-        call t.Start(expired.time2, false)
-        set expired.target = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-
     //투명적용안됨
     function DelayCreate takes unit target, integer id, real r, real time, real time2 returns nothing
-        local EffectDummy3 t = EffectDummy3.Create()
-        set t.id = id
-        set t.target = target
-        set t.r = r
-        set t.time = time2
-        call t.Start(time,false)
+        local tick t = tick.create(0)
+        local EffectDummy3 st = EffectDummy3.create()
+        set st.id = id
+        set st.target = target
+        set st.r = r
+        set st.time2 = time2
+        set t.data = st
+        call t.start(time,false,function EffectDummy3Function)
     endfunction
-
-    //! runtextmacro 이벤트_틱이_종료되면_발동("EffectDummy4")
-        local EffectDummy t = EffectDummy.Create()
-        set t.unit = CreateUnit(Player(NeutralCode),expired.id,GetUnitX(expired.target),GetUnitY(expired.target),expired.r)
-        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and expired.pid != GetPlayerId(GetLocalPlayer()) then
-            call DzSetUnitModel(t.unit,".mdl")
-        endif
-        call t.Start(expired.time2, false)
-        set expired.target = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-
     function DelayCreate2 takes unit target, integer id, real r, real time, real time2, integer pid returns nothing
-        local EffectDummy4 t = EffectDummy4.Create()
-        set t.id = id
-        set t.target = target
-        set t.r = r
-        set t.time = time2
-        set t.pid = pid
-        call t.Start(time,false)
+        local tick t = tick.create(0)
+        local EffectDummy4 st = EffectDummy4.create()
+        set st.id = id
+        set st.target = target
+        set st.r = r
+        set st.time2 = time2
+        set st.pid = pid
+        set t.data = st
+        call t.start(time,false,function EffectDummy4Function)
     endfunction
-    
-    
+
+
     function SetEffectViewON takes nothing returns nothing
         set EffectOff[GetPlayerId(GetTriggerPlayer())] = true
     endfunction

@@ -9,8 +9,8 @@ library BGMSound
     endfunction
 endlibrary
 
-library PSound
-    
+library PSound requires Tick
+
     private struct FxSt
         unit caster
         integer i
@@ -20,7 +20,10 @@ library PSound
             set i = 0
             set r = 0
         endmethod
-        //! runtextmacro 연출()
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
     endstruct
 
     globals
@@ -53,21 +56,21 @@ library PSound
         call IssueImmediateOrder( A, "berserk" )
         call UnitApplyTimedLife(A, 'BHwe', 1)
         set A = null
-        
-        call fx.Stop()
+
+        call fx.stop()
         call t.destroy()
     endfunction
-    
+
     function Sound3DT takes unit u, integer s, real r returns nothing
         local tick t
         local FxSt fx
-             
-        set t = tick.create(0) 
-        set fx = FxSt.Create()
+
+        set t = tick.create(0)
+        set fx = FxSt.create()
         set fx.caster = u
         set fx.i = s
         set t.data = fx
-        
-        call t.start( r, false, function EffectFunction ) 
+
+        call t.start( r, false, function EffectFunction )
     endfunction
 endlibrary

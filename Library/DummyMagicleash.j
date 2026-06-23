@@ -1,64 +1,74 @@
 /*
     시스템 DummyMagicleash
-    
+
     하는 일
-    
+
         - 정지를 사용하지않고 에어리얼 쉐클을 사용하여 소녀의 작동을 동작불가상태로 만듭니다.
 */
-//! runtextmacro 시스템("DummyMagicleash")
+library DummyMagicleash requires Tick
     globals
         private constant integer NeutralCode = PLAYER_NEUTRAL_PASSIVE
         private constant integer DummyCode = 'h001'
         private constant integer BuffCode = 'B000'
         private unit DummyUnit
     endglobals
-    
-    //! runtextmacro 틱("Magicleash")
+
+    private struct Magicleash
         unit unit
         unit dummy
-    //! runtextmacro 틱_끝()
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("Magicleash")
-        call UnitRemoveAbility( expired.unit, BuffCode )
-        call UnitApplyTimedLife(expired.dummy, 'BHwe', 0.1)
-        set expired.unit = null
-        set expired.dummy = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-    
-    //! runtextmacro 틱("Magicleash2")
+    endstruct
+
+    private struct Magicleash2
         unit unit
         unit dummy
         real time
         integer i
-    //! runtextmacro 틱_끝()
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("Magicleash2")
-        if expired.i == 0 then
-            set expired.i = 1
-            call IssueTargetOrder(expired.dummy,"magicleash",expired.unit)
-            call expired.Start(expired.time,false)
-        else
-            call UnitRemoveAbility( expired.unit, BuffCode )
-            call UnitApplyTimedLife( expired.dummy, 'BHwe', 0.1 )
-            set expired.unit = null
-            set expired.dummy = null
-            set expired.time = 0
-            call expired.Destroy()
-        endif
-    //! runtextmacro 이벤트_끝()
-    
-    function DummyMagicleash takes unit u, real time returns nothing
-        local Magicleash t = Magicleash.Create()
-        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
-        set t.unit = u
-        if GetUnitAbilityLevel(t.unit,BuffCode) > 0 then
-            call UnitRemoveAbility( t.unit, BuffCode )
-        endif
-        call IssueTargetOrder(t.dummy,"magicleash",u)
-        call t.Start(time,false)
+    endstruct
+
+    private function MagicleashFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local Magicleash st = t.data
+        call UnitRemoveAbility(st.unit, BuffCode)
+        call UnitApplyTimedLife(st.dummy, 'BHwe', 0.1)
+        set st.unit = null
+        set st.dummy = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
     endfunction
-    
+
+    private function Magicleash2Function takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local Magicleash2 st = t.data
+        if st.i == 0 then
+            set st.i = 1
+            call IssueTargetOrder(st.dummy,"magicleash",st.unit)
+            call t.start(st.time,false,function Magicleash2Function)
+        else
+            call UnitRemoveAbility(st.unit, BuffCode)
+            call UnitApplyTimedLife(st.dummy, 'BHwe', 0.1)
+            set st.unit = null
+            set st.dummy = null
+            set st.time = 0
+            call st.destroy()
+            set t.data = 0
+            call t.destroy()
+        endif
+    endfunction
+
+    function DummyMagicleash takes unit u, real time returns nothing
+        local tick t = tick.create(0)
+        local Magicleash st = Magicleash.create()
+        set st.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
+        set st.unit = u
+        if GetUnitAbilityLevel(st.unit,BuffCode) > 0 then
+            call UnitRemoveAbility(st.unit, BuffCode)
+        endif
+        call IssueTargetOrder(st.dummy,"magicleash",u)
+        set t.data = st
+        call t.start(time,false,function MagicleashFunction)
+    endfunction
+
     function DummyMagicleash2 takes unit target returns unit
         local unit dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(target), GetWidgetY(target), 270)
         call IssueTargetOrder(dummy,"magicleash",target)
@@ -66,13 +76,15 @@
         set dummy = null
         return target
     endfunction
-    
+
     function DummyMagicleash3 takes unit u, real time returns nothing
-        local Magicleash2 t = Magicleash2.Create()
-        set t.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
-        set t.unit = u
-        set t.time = time
-        set t.i = 0
-        call t.Start(0.02,false)
+        local tick t = tick.create(0)
+        local Magicleash2 st = Magicleash2.create()
+        set st.dummy = CreateUnit(Player(NeutralCode), DummyCode, GetWidgetX(u), GetWidgetY(u), 270)
+        set st.unit = u
+        set st.time = time
+        set st.i = 0
+        set t.data = st
+        call t.start(0.02,false,function Magicleash2Function)
     endfunction
-//! runtextmacro 시스템_끝()
+endlibrary

@@ -1,4 +1,4 @@
-library UIV initializer init requires FrameCount,FX,DataUnit
+library UIV initializer init requires FrameCount,DataUnit
     globals
         integer Ogiframe_1 = 0
         integer Ogiframe_2 = 0
@@ -25,7 +25,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
         integer frame19 = 0
     endglobals
 
-    
+
     private function CutinLimit2 takes nothing returns nothing
         local tick t = tick.getExpired()
 
@@ -42,11 +42,11 @@ library UIV initializer init requires FrameCount,FX,DataUnit
     private function limit3 takes nothing returns nothing
         local tick t = tick.create(0)
         set t.data = GetPlayerId(GetOwningPlayer(GetEnumUnit()))
-        
+
         call DelayKill(CreateUnit(GetOwningPlayer(GetEnumUnit()),'e01W',0,0,0), 3.0)
 
         call Sound3D(GetEnumUnit(),'A02B')
-        
+
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call DzFrameSetModel(Ogiframe_1, "VFX_HolyLight.mdx", 0, 0)
             call DzFrameShow(Ogiframe_1, true)
@@ -72,7 +72,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
     function VAction2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        
+
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call DzFrameSetModel(frame1, UnitCutString[st.cut1]+"8.mdx", 0, 0)
             call DzFrameSetModel(frame2, UnitCutString[st.cut2]+"9.mdx", 0, 0)
@@ -86,7 +86,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
     function VAction3 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        
+
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call DzFrameSetModel(frame1, UnitCutString[st.cut1]+"5.mdx", 0, 0)
             call DzFrameSetModel(frame2, UnitCutString[st.cut2]+"6.mdx", 0, 0)
@@ -104,7 +104,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
     function VAction4 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        
+
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call DzFrameSetModel(frame1, UnitCutString[st.cut1]+"1.mdx", 0, 0)
             call DzFrameSetModel(frame2, UnitCutString[st.cut2]+"2.mdx", 0, 0)
@@ -126,7 +126,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
     function VActionSound takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        
+
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) and PlayerVCount[GetPlayerId(GetOwningPlayer(GetEnumUnit()))] == 1 then
             call StartSound(UnitCutSound[DataUnitIndex(GetEnumUnit())])
         endif
@@ -184,14 +184,14 @@ library UIV initializer init requires FrameCount,FX,DataUnit
 
         //call DzFrameSetModel(frame2, "Chen_Cut10.mdx", 0, 0)
 
-        //개인사운드로
-        //첸
+        //4인
+        //3인
         //call Sound3D(MainUnit[0],'A02A')
-        //모미지
+        //2인
         //call Sound3D(MainUnit[0],'A022')
         //미카
         //call Sound3D(MainUnit[0],'A02C')
-        //나루메아
+        //개인사운드로
         //call Sound3D(MainUnit[0],'A02D')
 
         call t2.start( 0.1, false, function EffectFunction )
@@ -256,7 +256,7 @@ library UIV initializer init requires FrameCount,FX,DataUnit
         set frame19=DzCreateFrameByTagName("SPRITE", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetAbsolutePoint(frame19,JN_FRAMEPOINT_BOTTOMLEFT,0.5333,0.1)
     endfunction
-    
+
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         call TriggerRegisterTimerEventSingle(t,5.)

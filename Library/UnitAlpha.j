@@ -1,70 +1,86 @@
-library UnitAlpha
+library UnitAlpha requires Tick
 
-    //! runtextmacro 틱("DAlpha")
-    unit target
-    integer i
-    //! runtextmacro 틱_끝()
+    private struct DAlpha
+        unit target
+        integer i
+    endstruct
 
-    //! runtextmacro 틱("DRAlpha")
-    unit target
-    integer i
-    //! runtextmacro 틱_끝()
-    
-    //! runtextmacro 틱("DRAlpha2")
-    unit target
-    //! runtextmacro 틱_끝()
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("DRAlpha")
-        if expired.i == 0 then
-            call SetUnitVertexColorBJ( expired.target, 100, 100, 100, 0 )
-            set expired.target = null
-            call expired.Pause()
-            call expired.Destroy()
+    private struct DRAlpha
+        unit target
+        integer i
+    endstruct
+
+    private struct DRAlpha2
+        unit target
+    endstruct
+
+    private function DAlphaFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local DAlpha st = t.data
+        if st.i == 0 then
+            call SetUnitVertexColorBJ(st.target, 100, 100, 100, 100)
+            set st.target = null
+            call st.destroy()
+            set t.data = 0
+            call t.destroy()
         else
-            set expired.i = expired.i - 1
-            call SetUnitVertexColorBJ( expired.target, 100, 100, 100, (expired.i*100/60) )
+            set st.i = st.i - 1
+            call SetUnitVertexColorBJ(st.target, 100, 100, 100, 100 - (st.i*100/60))
         endif
-    //! runtextmacro 이벤트_끝()
+    endfunction
 
-    //! runtextmacro 이벤트_틱이_종료되면_발동("DAlpha")
-        if expired.i == 0 then
-            call SetUnitVertexColorBJ( expired.target, 100, 100, 100, 100 )
-            set expired.target = null
-            call expired.Pause()
-            call expired.Destroy()
+    private function DRAlphaFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local DRAlpha st = t.data
+        if st.i == 0 then
+            call SetUnitVertexColorBJ(st.target, 100, 100, 100, 0)
+            set st.target = null
+            call st.destroy()
+            set t.data = 0
+            call t.destroy()
         else
-            set expired.i = expired.i - 1
-            call SetUnitVertexColorBJ( expired.target, 100, 100, 100, 100 - (expired.i*100/60) )
+            set st.i = st.i - 1
+            call SetUnitVertexColorBJ(st.target, 100, 100, 100, (st.i*100/60))
         endif
-    //! runtextmacro 이벤트_끝()
+    endfunction
 
-    //! runtextmacro 이벤트_틱이_종료되면_발동("DRAlpha2")
-        call SetUnitVertexColorBJ( expired.target, 100, 100, 100, 0 )
-        set expired.target = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
+    private function DRAlpha2Function takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local DRAlpha2 st = t.data
+        call SetUnitVertexColorBJ(st.target, 100, 100, 100, 0)
+        set st.target = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
 
     function RemoveAlpha takes unit target returns nothing
         call SetUnitVertexColorBJ( target, 100, 100, 100, 0 )
     endfunction
 
     function DelayRemoveAlpha2 takes unit target, real time returns nothing
-        local DRAlpha2 t = DRAlpha2.Create()
-        set t.target = target
-        call t.Start(time, false)
+        local tick t = tick.create(0)
+        local DRAlpha2 st = DRAlpha2.create()
+        set st.target = target
+        set t.data = st
+        call t.start(time, false, function DRAlpha2Function)
     endfunction
 
     function DelayRemoveAlpha takes unit target, real time returns nothing
-        local DRAlpha t = DRAlpha.Create()
-        set t.i = 60
-        set t.target = target
-        call t.Start(time/60, true)
+        local tick t = tick.create(0)
+        local DRAlpha st = DRAlpha.create()
+        set st.i = 60
+        set st.target = target
+        set t.data = st
+        call t.start(time/60, true, function DRAlphaFunction)
     endfunction
 
     function DelayAlpha takes unit target, real time returns nothing
-        local DAlpha t = DAlpha.Create()
-        set t.i = 60
-        set t.target = target
-        call t.Start(time/60, true)
+        local tick t = tick.create(0)
+        local DAlpha st = DAlpha.create()
+        set st.i = 60
+        set st.target = target
+        set t.data = st
+        call t.start(time/60, true, function DAlphaFunction)
     endfunction
 endlibrary

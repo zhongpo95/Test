@@ -10,115 +10,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         private constant real scale = 3000
         private constant real distance = 2000
     endglobals
-    
-    private struct FxEffect
-        unit caster
-        unit dummy
-        integer i
-        private method OnStop takes nothing returns nothing
-            set caster = null
-            set dummy = null
-        endmethod
 
-        private static method OnTimer takes nothing returns nothing
-            local tick expiredTick = tick.getExpired()
-            local thistype fx = expiredTick.data
-                        local effect e            
-                        local real r            
-                        set fx.i = fx.i + 1            
-                        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then            
-                            if fx.i == 75 then            
-                                set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))            
-                                call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )            
-                                call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
-                                call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
-                                call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)            
-                                call UnitAddAbility(fx.caster,'A00V')            
-                            //카운터침            
-                            elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then            
-                                call Sound3D(fx.caster,'A00U')            
-                                call AnimationStart(fx.caster,11)            
-                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
-                                call DelayKill(fx.caster,1.5)            
-                                call KillUnit(fx.dummy)            
-                                call fx.Stop()            
-                            //카운터를 못침            
-                            elseif fx.i == 150 then            
-                                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )            
-                                call UnitRemoveAbility(fx.caster,'A00V')            
-                                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
-                                //call AnimationStart2(fx.caster, 0, 0.6, 3.0)            
-                                call AnimationStart4(fx.caster, 36, 0.02)            
-                                call DelayKill(fx.caster,2.2)            
-                                call KillUnit(fx.dummy)            
-                                call fx.Stop()            
-                            endif            
-                        //주금            
-                        else            
-                            call UnitRemoveAbility(fx.caster,'A00V')            
-                            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )            
-                            call fx.Stop()            
-                        endif
-    endmethod
-
-    private tick __lifeTick
-        private boolean __lifeStarted
-        private boolean __lifeStopping
-
-        static method Create takes nothing returns thistype
-            local thistype this = allocate()
-
-            set __lifeStarted = false
-            set __lifeStopping = false
-            set __lifeTick = 0
-
-            static if thistype.OnCreate.exists then
-                call this.OnCreate()
-            endif
-
-            return this
-        endmethod
-
-        method Start takes nothing returns nothing
-            if __lifeStarted then
-                return
-            endif
-
-            set __lifeStarted = true
-
-            static if thistype.OnStart.exists then
-                call this.OnStart()
-            endif
-
-            if __lifeTick != 0 then
-                return
-            endif
-
-            set __lifeTick = tick.create(0)
-            set __lifeTick.data = this
-            call __lifeTick.start(0.02, true, function thistype.OnTimer)
-        endmethod
-
-        method Stop takes nothing returns nothing
-            if __lifeStopping then
-                return
-            endif
-
-            set __lifeStopping = true
-
-            static if thistype.OnStop.exists then
-                call this.OnStop()
-            endif
-
-            if __lifeTick != 0 then
-                call __lifeTick.destroy()
-                set __lifeTick = 0
-            endif
-
-            call deallocate()
-        endmethod
-    endstruct
-    
     private function splashD2 takes nothing returns nothing
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call KnockbackInverse( GetEnumUnit(), splash.source, 2000, 2.0)
@@ -127,18 +19,98 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         endif
     endfunction
 
+    private struct FxEffect
+        unit caster
+        unit dummy
+        integer i
+        private method OnStop takes nothing returns nothing
+            set caster = null
+            set dummy = null
+        endmethod
+        private tick lifeTick
+        private boolean lifeStarted
+        private boolean lifeStopping
+        static method Create takes nothing returns thistype
+            local thistype this = allocate()
+            set lifeTick = 0
+            set lifeStarted = false
+            set lifeStopping = false
+            return this
+        endmethod
+        private static method OnTimerExpire takes nothing returns nothing
+            local tick expiredTick = tick.getExpired()
+            local thistype fx = expiredTick.data
+            local effect e
+            local real r
+            set fx.i = fx.i + 1
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+                if fx.i == 75 then
+                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))
+                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
+                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                    call UnitAddAbility(fx.caster,'A00V')
+                //카운터침
+                elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
+                    call Sound3D(fx.caster,'A00U')
+                    call AnimationStart(fx.caster,11)
+                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                    call DelayKill(fx.caster,1.5)
+                    call KillUnit(fx.dummy)
+                    call fx.Stop()
+                //카운터 못침
+                elseif fx.i == 150 then
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+                    call UnitRemoveAbility(fx.caster,'A00V')
+                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                    //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                    call AnimationStart4(fx.caster, 36, 0.02)
+                    call DelayKill(fx.caster,2.2)
+                    call KillUnit(fx.dummy)
+                    call fx.Stop()
+                endif
+            //주금
+            else
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                call fx.Stop()
+            endif
+        endmethod
+        method Start takes nothing returns nothing
+            if lifeStarted then
+                return
+            endif
+            set lifeStarted = true
+            set lifeTick = tick.create(this)
+            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        endmethod
+        method Stop takes nothing returns nothing
+            if lifeStopping then
+                return
+            endif
+            set lifeStopping = true
+            if lifeTick != 0 then
+                call lifeTick.destroy()
+                set lifeTick = 0
+            endif
+            call this.OnStop()
+            call deallocate()
+        endmethod
+    endstruct
+
     private function NoDie takes nothing returns nothing
         set NoDieCheck = NoDieCheck + 1
         if IsUnitDeadVJ(GetEnumUnit()) then
             set NoDieCheck = NoDieCheck - 1
         endif
     endfunction
-    
+
     private function AllDie takes nothing returns nothing
         call FailedStart(GetEnumUnit())
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
-    
+
     private function SuccessF takes nothing returns nothing
         call SuccessStart(GetEnumUnit())
         call RewardStart(GetEnumUnit())
@@ -146,7 +118,8 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID59"+";"+"0")
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID59"+";"+"0")
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID59"+";"+"0")
-        //확률드랍
+        //카운터침
+
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
@@ -159,17 +132,18 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
-    
+
     private function Function2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
         local integer index
-        
+
         set NoDieCheck = 0
         call ForGroup(st.ul.super,function NoDie)
-        
-        //다죽음
+
+        //카운터를 못침
+
         if NoDieCheck == 0 then
             call KillUnit(st.caster)
             call RemoveUnit(st.caster)
@@ -207,18 +181,18 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             endif
         endif
     endfunction
-    
+
     private function Boss4Start2 takes MapStruct str returns nothing
-        local tick t = tick.create(0) 
+        local tick t = tick.create(0)
         local MapStruct st = str
-        
+
         set t.data = st
-        
+
         set MapRectCheck[st.rectnumber] = false
-        
-        call t.start( 0.02 , true, function Function2 ) 
+
+        call t.start( 0.02 , true, function Function2 )
     endfunction
-    
+
     private function NoRemove takes nothing returns nothing
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
@@ -227,14 +201,14 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
         call Overlay(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
-    
+
     private function Function takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local integer Dataindex
         local integer UnitIndex
         local unit Unit
-        
+
         if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
@@ -247,36 +221,37 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set UnitSD[UnitIndex] = UnitSetSD[Dataindex]
             set UnitArm[UnitIndex] = UnitSetArm[Dataindex]
             set UnitCasting[UnitIndex] = false
-            
-            //이동능력제거
+
+            //주금
+
             call UnitRemoveAbility(st.caster,'Amov')
             call SetUnitPathing(st.caster,false)
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
-            
+
             //call SaveBoolean(Unithash,GetHandleId(fx.caster),0,false)
-            
+
             //call SELECTEDBOSS(GetLocalPlayer(),SandBagUnit)
-            
+
             set CheckUnit = st.caster
             call ForGroup(st.ul.super, function NoRemove)
             set CheckUnit = null
-            
+
             call Boss4Start2(st)
-            
+
             set Unit = null
             call t.destroy()
         endif
-        
+
     endfunction
-    
+
     function Boss4Start takes unit source returns nothing
         local tick t
         local MapStruct st
         local integer pid=GetPlayerId(GetOwningPlayer(source))
-        
+
         set st = MapSt[GetMap(2)]
-        
+
         if st.caster == null then
             set t = tick.create(0)
             set st.rectnumber = GetMap(2)
@@ -289,7 +264,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         else
             call GroupAddUnit( st.ul.super, source )
         endif
-        
+
         call SetUnitPosition(source, GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)))
 
         if GetLocalPlayer() == Player(pid) then
@@ -299,9 +274,6 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call DzFrameShow(BossTip, true)
         endif
 
-        
     endfunction
-    
-    endlibrary
-    
-    
+
+endlibrary

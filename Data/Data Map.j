@@ -1,4 +1,4 @@
-library DataMap 
+library DataMap
 globals
     rect array MapRect
     integer array Mapthema
@@ -30,9 +30,6 @@ struct MapStruct
     integer cut2 = 0
     integer cut3 = 0
     integer cut4 = 0
-    private method OnStop takes nothing returns nothing
-    endmethod
-    //! runtextmacro 연출()
 endstruct
 
 function MapRectReturn takes integer mapnumber returns rect
@@ -97,7 +94,7 @@ endfunction
 
 function GetMap takes integer thema returns integer
     local integer i = 0
-    
+
     //테마가 같으면서 입장이 가능
     loop
         set i = i + 1
@@ -115,28 +112,36 @@ function GetMap takes integer thema returns integer
         endif
     exitwhen i == 4
     endloop
-    
+
     return 0
 endfunction
 
-//! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
-    set MapRectCheck[1] = true
-    set MapRectCheck[2] = true
-    set MapRectCheck[3] = true
-    set MapRectCheck[4] = true
-    //set MapRectCheck[5] = true
-    //set MapRectCheck[6] = true
-    set MapSt[1] = MapStruct.create()
-    set MapSt[2] = MapStruct.create()
-    set MapSt[3] = MapStruct.create()
-    set MapSt[4] = MapStruct.create()
-    //set MapSt[5] = MapStruct.create()
-    //set MapSt[6] = MapStruct.create()
-    set MapRect[1] = gg_rct_MapRect01
-    set MapRect[2] = gg_rct_MapRect02
-    set MapRect[3] = gg_rct_MapRect03
-    set MapRect[4] = gg_rct_MapRect04
-    //set MapRect[5] = gg_rct_MapRect05
-    //set MapRect[6] = gg_rct_MapRect06
-//! runtextmacro 이벤트_끝()
+private struct TEvAfterA extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,1.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        set MapRectCheck[1] = true
+        set MapRectCheck[2] = true
+        set MapRectCheck[3] = true
+        set MapRectCheck[4] = true
+        //set MapRectCheck[5] = true
+        //set MapRectCheck[6] = true
+        set MapSt[1] = MapStruct.create()
+        set MapSt[2] = MapStruct.create()
+        set MapSt[3] = MapStruct.create()
+        set MapSt[4] = MapStruct.create()
+        //set MapSt[5] = MapStruct.create()
+        //set MapSt[6] = MapStruct.create()
+        set MapRect[1] = gg_rct_MapRect01
+        set MapRect[2] = gg_rct_MapRect02
+        set MapRect[3] = gg_rct_MapRect03
+        set MapRect[4] = gg_rct_MapRect04
+        //set MapRect[5] = gg_rct_MapRect05
+        //set MapRect[6] = gg_rct_MapRect06
+    endmethod
+endstruct
 endlibrary

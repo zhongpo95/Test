@@ -1,7 +1,7 @@
 scope HeroChenV
 globals
     private constant real CoolTime = 3.0
-    
+
     private player filterP = null
 endglobals
 
@@ -12,7 +12,23 @@ endglobals
             set target = null
             set caster = null
         endmethod
-        //! runtextmacro 연출()
+        static method create takes nothing returns thistype
+            local thistype this = allocate()
+            return this
+        endmethod
+
+        static method Create takes nothing returns thistype
+            return thistype.create()
+        endmethod
+
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
+
+        method Stop takes nothing returns nothing
+            call this.stop()
+        endmethod
     endstruct
 
     private struct EFst
@@ -26,38 +42,37 @@ endglobals
 
 
     private function filterE takes nothing returns boolean
-        //중립아님
         if GetOwningPlayer(GetFilterUnit()) == Player(PLAYER_NEUTRAL_PASSIVE) then
             return false
         endif
-        //트작유 아님
+        //중립아님
         if not IsUnitEnemy( GetFilterUnit(), filterP ) then
             return false
         endif
-        //살아있음
+        //트작유 아님
         if IsUnitType( GetFilterUnit(), UNIT_TYPE_DEAD ) then
             return false
         endif
-        //소환됨아님
+        //살아있음
         if IsUnitType( GetFilterUnit(), UNIT_TYPE_SUMMONED ) then
             return false
         endif
-        //일꾼임
+        //소환됨아님
         if not IsUnitType( GetFilterUnit(), UNIT_TYPE_PEON ) then
             return false
         endif
-        
+
         return true
-    
+
     endfunction
 
-    
+
 
 
     private function Effunction4 takes nothing returns nothing
         local tick t = tick.getExpired()
         local EFst fx = t.data
-        
+
         call SetUnitTimeScale(fx.caster, 100 * 0.01)
         call KillUnit(fx.caster)
         set fx.caster = null
@@ -70,7 +85,7 @@ endglobals
     private function Effunction3 takes nothing returns nothing
         local tick t = tick.getExpired()
         local EFst fx = t.data
-        
+
         call SetUnitTimeScale(fx.caster, 0 * 0.01)
 
         call t.start(fx.time, false, function Effunction4 )
@@ -79,7 +94,7 @@ endglobals
     private function Effunction2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local EFst fx = t.data
-        
+
         set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), fx.id, GetUnitX(fx.target), GetUnitY(fx.target), fx.r)
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
@@ -91,7 +106,7 @@ endglobals
     private function StopEft takes unit target, integer id, real r, real time, real time2 returns nothing
         local tick t = tick.create(0)
         local EFst fx = EFst.create()
-        
+
         set fx.id = id
         set fx.target = target
         set fx.r = r
@@ -116,18 +131,18 @@ endglobals
 
             set PlayerVCount[GetPlayerId(GetOwningPlayer(fx.caster))] = 1
 
-            //쿨타임조정
+            //일꾼임
             call CooldownFIX(GetTriggerUnit(),'A01F',CoolTime)
 
             if GetLocalPlayer() == GetOwningPlayer(GetTriggerUnit()) then
-                //V UI 제거
+                //쿨타임조정
                 call DzFrameShow(Ogiframe_1, false)
                 call DzFrameShow(Ogiframe_2, false)
                 call DzFrameShow(Ogiframe_3, false)
                 call DzFrameShow(Ogiframe_4, false)
             endif
 
-            //4500범위 대상 찾기
+            //V UI 제거
             set ul = party.create()
             set filterP = GetOwningPlayer(fx.caster)
             call GroupEnumUnitsInRange( ul.super, GetUnitX(fx.caster), GetUnitY(fx.caster), 4500, Filter( function filterE ) )
@@ -159,12 +174,12 @@ endglobals
 
             call TriggerSleepActionByTimer(3.0)
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 30 )
-            
-            
+
+
             //t.start()
         endif
     endfunction
-    
+
     private function VSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
@@ -176,7 +191,7 @@ endglobals
         local real angle
 
         set pid=GetPlayerId(p)
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID8[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
@@ -189,22 +204,30 @@ endglobals
             call EXSetUnitFacing(MainUnit[pid],angle)
             call IssuePointOrder( MainUnit[pid], "auraunholy", x, y )
         endif
-        
+
         set p=null
     endfunction
 
 
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    local trigger t
-    
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function Main)
-        
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("ChenV"),(false))
-    call TriggerAddAction(t,function VSyncData)
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        local trigger t
 
-    set t = null
-//! runtextmacro 이벤트_끝()
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function Main)
+
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("ChenV"),(false))
+        call TriggerAddAction(t,function VSyncData)
+
+        set t = null
+    endmethod
+endstruct
 endscope

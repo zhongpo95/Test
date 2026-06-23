@@ -1,4 +1,4 @@
-library AOE initializer Init requires MonoEvent, DamageEffect2
+library AOE initializer Init requires MonoEvent, DamageEffect2, Tick
     globals
         constant key E_AOE
     endglobals
@@ -18,7 +18,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         local real dist = 0
         local integer i = 0
         local real r = 0
-        
+
         //세리아 카운터 넉백
         if id == 1 then
             call BossDeal( caster, target, 100 , false)
@@ -45,7 +45,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         set du = null
         set caster = null
     endfunction
-    
+
     private function Init takes nothing returns nothing
         call MonoEvent.Add(E_AOE, function Act)
     endfunction
@@ -66,7 +66,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         real timenow
         integer eft
         //도중정지
-        boolean stop
+        boolean stopFlag
         //커스텀 이벤트 아이디
         integer id
         private method OnStop takes nothing returns nothing
@@ -77,12 +77,15 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
             set y = 0
             set range = 0
             set safe = 0
-            set time = 0    
+            set time = 0
             set timenow = 0
             set eft = 0
             set id = 0
         endmethod
-        //! runtextmacro 연출()
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
     endstruct
 
     private function AOE_Tick takes nothing returns nothing
@@ -95,18 +98,18 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
 
         set st.timenow = st.timenow + 0.02
 
-        if st.stop != true and st.timenow >= st.time then
+        if st.stopFlag != true and st.timenow >= st.time then
             if st.eft != 0 then
                 set du = CreateUnit(GetOwningPlayer(st.caster), st.eft, st.x, st.y, GetRandomReal(0,360))
                 call UnitApplyTimedLife(du, 'BHwe', r)
                 set du = null
             endif
             set ul = party.create()
-            
+
             call GroupEnumUnitsInRange(ul.super, st.x, st.y, st.range * 1.35, Filter(function filter2)  )
             loop
                 set tu = FirstOfGroup(ul.super)
-                call GroupRemoveUnit(ul.super,tu)  
+                call GroupRemoveUnit(ul.super,tu)
                 exitwhen tu == null
                 if IsUnitInRangeXY(tu, st.x, st.y, st.range * 1.35) then
                     if UnitAlive(tu) and IsUnitInRangeXY(tu,st.x,st.y,st.range) and not IsUnitAlly(tu, GetOwningPlayer(st.caster)) then
@@ -118,12 +121,12 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
 
             call ul.destroy()
             call t.destroy()
-            call st.Stop()
-        elseif st.stop == true then
+            call st.stop()
+        elseif st.stopFlag == true then
             call KillUnit(st.dummy)
             call ShowUnit(st.dummy,false)
             call t.destroy()
-            call st.Stop()
+            call st.stop()
         endif
 
     endfunction
@@ -135,14 +138,14 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
     */
     function AOE takes unit u, real x, real y, real range, real time, integer eft, integer id, integer types returns AOESt
         local tick t = tick.create(0)
-        local AOESt st = AOESt.Create()
+        local AOESt st = AOESt.create()
         set st.caster = u
         set st.x = x
         set st.y = y
         set st.range = range
         set st.eft = eft
         set st.id = id
-        set st.stop = false
+        set st.stopFlag = false
         set t.data = st
         set st.timenow = 0
 
@@ -151,15 +154,15 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         set st.dummy = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(st.dummy,100 * range, 100 * range, 100)
         if types == 0 then
-            call SetUnitVertexColor(st.dummy, 255, 10, 10, 255) 
+            call SetUnitVertexColor(st.dummy, 255, 10, 10, 255)
         elseif types == 1 then
-            call SetUnitVertexColor(st.dummy, 10, 10, 255, 255) 
+            call SetUnitVertexColor(st.dummy, 10, 10, 255, 255)
         elseif types == 2 then
-            call SetUnitVertexColor(st.dummy, 255, 255, 10, 255) 
+            call SetUnitVertexColor(st.dummy, 255, 255, 10, 255)
         elseif types == 3 then
-            call SetUnitVertexColor(st.dummy, 10, 255, 10, 255) 
+            call SetUnitVertexColor(st.dummy, 10, 255, 10, 255)
         endif
-        
+
         set st.time = time
 
         call SetUnitTimeScale( st.dummy, 1 / time)
@@ -180,17 +183,17 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
 
         set st.timenow = st.timenow + 0.02
 
-        if st.stop != true and st.timenow >= st.time then
+        if st.stopFlag != true and st.timenow >= st.time then
 
             if st.eft != 0 then
                 set du = CreateUnit(GetOwningPlayer(st.caster), st.eft, st.x, st.y, GetRandomReal(0,360))
                 call UnitApplyTimedLife(du, 'BHwe', r)
                 set du = null
             endif
-            
+
             set ul = party.create()
             set ul2 = party.create()
-            
+
             call GroupEnumUnitsInRange(ul2.super, st.x, st.y, st.safe, Filter(function filter2)  ) /*안전범위safe 안의 유닛들을 그룹에 넣고*/
 
             call GroupEnumUnitsInRange(ul.super, st.x, st.y, st.range * 1.5, Filter(function filter2)  )
@@ -208,21 +211,21 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
             call ul.destroy()
             call ul2.destroy()
             call t.destroy()
-            call st.Stop()
-        elseif st.stop == true then
+            call st.stop()
+        elseif st.stopFlag == true then
             call KillUnit(st.dummy)
             call ShowUnit(st.dummy,false)
             call KillUnit(st.dummy2)
             call ShowUnit(st.dummy2,false)
             call t.destroy()
-            call st.Stop()
+            call st.stop()
         endif
     endfunction
 
-    //u = 유닛, x = x좌표, y = y좌표, safe = range보다 큰범위, range = 실제범위, time = 효과적용시간, eft 이펙트, id 효과아이디
+    //추가해야함
     function AOE2 takes unit u, real x, real y, real safe, real range, real time, integer eft, integer id returns AOESt
         local tick t = tick.create(0)
-        local AOESt st = AOESt.Create()
+        local AOESt st = AOESt.create()
         set st.caster = u
         set st.x = x
         set st.y = y
@@ -230,21 +233,21 @@ library AOE initializer Init requires MonoEvent, DamageEffect2
         set st.range = range
         set st.eft = eft
         set st.id = id
-        set st.stop = false
+        set st.stopFlag = false
         set t.data = st
-        
+
         set range = range * 0.01
 
         set st.dummy = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(st.dummy, 100 * range, 100 * range, 100)
-        call SetUnitVertexColor(st.dummy, 255, 10, 10, 255) 
+        call SetUnitVertexColor(st.dummy, 255, 10, 10, 255)
         call SetUnitTimeScale(st.dummy, 1 / time)
         call UnitApplyTimedLife(st.dummy, 'BHwe', 1 * time)
 
         set safe = safe * 0.01
         set st.dummy2 = CreateUnit(GetOwningPlayer(u), 'h00H', x, y, 270)
         call SetUnitScalePercent(st.dummy2,93 * safe, 93 * safe, 100)
-        call SetUnitVertexColor(st.dummy2, 10, 255, 10, 255) 
+        call SetUnitVertexColor(st.dummy2, 10, 255, 10, 255)
         call SetUnitTimeScale( st.dummy2, 1 / time)
         call UnitApplyTimedLife(st.dummy2, 'BHwe', 1 * time)
 

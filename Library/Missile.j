@@ -1,4 +1,4 @@
-library Missile initializer Init requires MonoEvent, DamageEffect2
+library Missile initializer Init requires MonoEvent, DamageEffect2, Tick
     globals
         constant key E_Missile
     endglobals
@@ -36,7 +36,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         set du = null
         set caster = null
     endfunction
-        
+
     private function Init takes nothing returns nothing
         call MonoEvent.Add(E_Missile, function Act)
     endfunction
@@ -66,7 +66,10 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             set id = 0
         endmethod
 
-        //! runtextmacro 연출()
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
     endstruct
 
     private function MissileOn takes nothing returns nothing
@@ -83,7 +86,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         call GroupEnumUnitsInRange(ul.super, x, y, st.col * 1.35, Filter(function filter2) )
         loop
             set tu = FirstOfGroup(ul.super)
-            call GroupRemoveUnit(ul.super,tu)  
+            call GroupRemoveUnit(ul.super,tu)
             exitwhen tu == null
             if IsUnitInRangeXY(tu, x, y, st.col * 1.35) then
                 if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) then
@@ -100,7 +103,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         if st.time <= 0 then
             call DestroyEffect(st.ef)
             call t.destroy()
-            call st.Stop()
+            call st.stop()
         endif
 
     endfunction
@@ -120,7 +123,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
         call GroupEnumUnitsInRange(ul.super, x, y, st.col * 1.35, Filter(function filter2) )
         loop
             set tu = FirstOfGroup(ul.super)
-            call GroupRemoveUnit(ul.super,tu)  
+            call GroupRemoveUnit(ul.super,tu)
             exitwhen tu == null
             if IsUnitInRangeXY(tu, x, y, st.col * 1.35) then
                 if UnitAlive(tu) and IsUnitInRangeXY(tu, x, y, st.col) and not IsUnitAlly(tu, GetOwningPlayer(st.u)) and not IsUnitInGroup(tu,st.ul.super) then
@@ -139,7 +142,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
             call st.ul.destroy()
             call DestroyEffect(st.ef)
             call t.destroy()
-            call st.Stop()
+            call st.stop()
         endif
 
     endfunction
@@ -147,7 +150,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
     //Missile(미사일소유주, 이펙트, 날라갈거리, 각도, 도착까지의 시간, 피탄범위, 범위, id)
     function Missile takes unit u, effect ef, real distance, real ang, real time, real collision, integer id returns nothing
         local tick t = tick.create(0)
-        local MissileSt st = MissileSt.Create()
+        local MissileSt st = MissileSt.create()
 
         set st.u = u
         set st.ef = ef
@@ -164,7 +167,7 @@ library Missile initializer Init requires MonoEvent, DamageEffect2
     //Missile관통(미사일소유주, 이펙트, 날라갈거리, 각도, 도착까지의 시간, 피탄범위, 범위, id)
     function Missile2 takes unit u, effect ef, real distance, real ang, real time, real collision, integer id returns nothing
         local tick t = tick.create(0)
-        local MissileSt st = MissileSt.Create()
+        local MissileSt st = MissileSt.create()
 
         set st.u = u
         set st.ef = ef

@@ -7439,7 +7439,14 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set t = null
     endfunction
 
-    //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
+    private struct TEvAfterA extends array
+        private static method onInit takes nothing returns nothing
+            local trigger t = CreateTrigger()
+            call TriggerAddAction(t,function thistype.Action)
+            call TriggerRegisterTimerEvent(t,1.0,false)
+            set t = null
+        endmethod
+        private static method Action takes nothing returns nothing
         set SelectString[0] = "0;0;0;0;0;0;0;0;0;"
         set SelectString[1] = "0;0;0;0;0;0;0;0;0;"
         set SelectString[2] = "0;0;0;0;0;0;0;0;0;"
@@ -8071,5 +8078,6 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set Elixir2weight[7]=2.333
         set Elixir2weight[8]=2.333
 
-    //! runtextmacro 이벤트_끝()
+        endmethod
+    endstruct
 endlibrary

@@ -21,11 +21,19 @@ function FileSave_Actions takes nothing returns nothing
     call t.start( 0.0, false, function EffectFunction ) 
 endfunction
  
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+private struct TEvMapLoadFileSave extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t, function thistype.Action)
+        call TriggerRegisterTimerEvent(t, 0.04, false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
     local trigger t = CreateTrigger()
     set SaveDialog = DialogCreate()
     call TriggerRegisterGameEvent(t, EVENT_GAME_SAVE)
     call TriggerAddAction( t, function FileSave_Actions )
     set t = null
-//! runtextmacro 이벤트_끝()
+    endmethod
+endstruct
 endscope

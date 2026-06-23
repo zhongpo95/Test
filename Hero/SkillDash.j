@@ -10,23 +10,24 @@ globals
     unit array LuciaCheckUnit
 endglobals
 
-//! runtextmacro 틱("DashTimer")
-    ability ab
-    unit caster
-    integer stack
-//! runtextmacro 틱_끝()
+private function DashAbilityByStack takes unit caster, integer stack returns ability
+    if stack == 0 then
+        return EXGetUnitAbility(caster,'A002')
+    elseif stack == 1 then
+        return EXGetUnitAbility(caster,'A004')
+    endif
+    return EXGetUnitAbility(caster,'A005')
+endfunction
 
-//! runtextmacro 틱("DashCool")
-    ability ab
-    unit caster
-    integer stack
-//! runtextmacro 틱_끝()
-    
-//! runtextmacro 이벤트_틱이_종료되면_발동("DashTimer")
+private function OnDashTimerExpired takes nothing returns nothing
+    local tick expiredTick = tick.getExpired()
+    local SkillFx expired = expiredTick.data
     local ability ab
     local real r
-    set expired.stack = expired.stack + 1
-    if expired.stack == 1 then
+    local integer unitIndex = IndexUnit(expired.caster)
+
+    set expired.i = expired.i + 1
+    if expired.i == 1 then
         set ab = EXGetUnitAbility(expired.caster,'A002')
         set r = EXGetAbilityState(ab,1)
         call UnitRemoveAbility(expired.caster,'A002')
@@ -35,8 +36,8 @@ endglobals
         call EXSetAbilityState(ab,1,r)
         set ab = null
         set r = 0
-        call expired.Start(CoolTime,false)
-    elseif expired.stack == 2 then
+        call expiredTick.start(CoolTime,false,function OnDashTimerExpired)
+    elseif expired.i == 2 then
         set ab = EXGetUnitAbility(expired.caster,'A004')
         set r = EXGetAbilityState(ab,1)
         call UnitRemoveAbility(expired.caster,'A004')
@@ -45,30 +46,48 @@ endglobals
         call EXSetAbilityState(ab,1,r)
         set ab = null
         set r = 0
-        call expired.Start(CoolTime,false)
-    elseif expired.stack == 3 then
+        call expiredTick.start(CoolTime,false,function OnDashTimerExpired)
+    elseif expired.i == 3 then
         call UnitRemoveAbility(expired.caster,'A005')
         call UnitAddAbility(expired.caster,'A006')
-        set expired.caster = null
-        set expired.ab = null
-        call expired.Destroy()
+        set UT[unitIndex] = 0
+        call expired.Stop()
+        set expiredTick.data = 0
+        call expiredTick.destroy()
     endif
-//! runtextmacro 이벤트_끝()
 
-//! runtextmacro 이벤트_틱이_종료되면_발동("DashCool")
-    local DashTimer t2 = UT[GetUnitIndex(expired.caster)]
-    if expired.stack == 0 then
-        call EXSetAbilityState(expired.ab,1,t2.Remaining)
+    set ab = null
+endfunction
+
+private function OnDashCoolExpired takes nothing returns nothing
+    local tick expiredTick = tick.getExpired()
+    local SkillFx expired = expiredTick.data
+    local tick dashTimer = UT[GetUnitIndex(expired.caster)]
+    local ability ab = DashAbilityByStack(expired.caster, expired.i)
+
+    if expired.i == 0 and dashTimer != 0 then
+        call EXSetAbilityState(ab,1,dashTimer.remaining)
     else
-        call EXSetAbilityState(expired.ab,1,1)
+        call EXSetAbilityState(ab,1,1)
     endif
-    set expired.ab = null
-    set expired.caster = null
-    call expired.Destroy()
-//! runtextmacro 이벤트_끝()
 
+    set ab = null
+    call expired.Stop()
+    set expiredTick.data = 0
+    call expiredTick.destroy()
+endfunction
 private function OnRemove takes nothing returns nothing
     local integer i = GetTriggerIndex()
+    local tick t = UT[i]
+    local SkillFx fx
+    if t != 0 then
+        set fx = t.data
+        if fx != 0 then
+            call fx.Stop()
+        endif
+        set t.data = 0
+        call t.destroy()
+    endif
     call TriggerRemoveAction(TrgRemove[i], ActRemove[i])
     set ActRemove[i] = null
     set TrgRemove[i] = null
@@ -77,15 +96,17 @@ endfunction
 
 //3개일때
 private function F_A006 takes nothing returns nothing
-    local DashCool t
-    local DashTimer t2
+    local tick t
+    local tick t2
+    local SkillFx fx
+    local SkillFx fx2
     local SkillDash st
     local effect e
     local integer i
     local unit caster
     if GetSpellAbilityId() == 'A006' then
         set caster = GetTriggerUnit()
-        set st = SkillDash.Create()
+        set st = SkillDash.create()
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
         else
@@ -104,10 +125,10 @@ private function F_A006 takes nothing returns nothing
         set st.TargetY = GetSpellTargetY()
         set st.Max = MaxRange
         set st.Speed = 32
-        call st.Start()
+        call st.start()
         call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        
+
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             if DataUnitIndex(caster) == 17 then
                 if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
@@ -123,21 +144,23 @@ private function F_A006 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A006')
         call UnitAddAbility(caster,'A005')
-        set t = DashCool.Create()
-        set t.caster = caster
-        set t.ab = EXGetUnitAbility(caster,'A005')
-        set t.stack = 2
-        set t2 = DashTimer.Create()
-        set t2.caster = caster
-        set t2.ab = EXGetUnitAbility(caster,'A005')
-        set t2.stack = 2
+        set fx = SkillFx.Create()
+        set fx.caster = caster
+        set fx.i = 2
+        set t = tick.create(0)
+        set t.data = fx
+        set fx2 = SkillFx.Create()
+        set fx2.caster = caster
+        set fx2.i = 2
+        set t2 = tick.create(0)
+        set t2.data = fx2
         set UT[i] = t2
-        call t.Start(0.02,false)
-        call t2.Start(CoolTime,false)
-        //call DummyMagicleash(t.caster,Time)
-        call PauseUnitEx(t.caster,true)
-        call BuffNoNB.Apply( t.caster, Time, 0 )
-        call BuffNoST.Apply( t.caster, Time, 0 )
+        call t.start(0.02,false,function OnDashCoolExpired)
+        call t2.start(CoolTime,false,function OnDashTimerExpired)
+        //call DummyMagicleash(fx.caster,Time)
+        call PauseUnitEx(caster,true)
+        call BuffNoNB.Apply( caster, Time, 0 )
+        call BuffNoST.Apply( caster, Time, 0 )
         call TriggerSleepActionByTimer(0)
         call JNStartUnitAbilityCooldown(caster, 'A006', 1)
         set caster = null
@@ -145,14 +168,16 @@ private function F_A006 takes nothing returns nothing
 endfunction
 
 private function F_A005 takes nothing returns nothing
-    local DashCool t
-    local DashTimer t2
+    local tick t
+    local tick t2
+    local SkillFx fx
+    local SkillFx fx2
     local SkillDash st
     local effect e
     local unit caster
     if GetSpellAbilityId() == 'A005' then
         set caster = GetTriggerUnit()
-        set st = SkillDash.Create()
+        set st = SkillDash.create()
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
         else
@@ -166,10 +191,10 @@ private function F_A005 takes nothing returns nothing
         set st.TargetY = GetSpellTargetY()
         set st.Max = MaxRange
         set st.Speed = 32
-        call st.Start()
+        call st.start()
         call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        
+
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             if DataUnitIndex(caster) == 17 then
                 if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
@@ -185,18 +210,19 @@ private function F_A005 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A005')
         call UnitAddAbility(caster,'A004')
-        set t = DashCool.Create()
-        set t.caster = caster
-        set t.stack = 1
-        set t.ab = EXGetUnitAbility(caster,'A004')
+        set fx = SkillFx.Create()
+        set fx.caster = caster
+        set fx.i = 1
+        set t = tick.create(0)
+        set t.data = fx
         set t2 = UT[GetUnitIndex(caster)]
-        set t2.ab = EXGetUnitAbility(caster,'A004')
-        set t2.stack = 1
-        call t.Start(0.02,false)
-        //call DummyMagicleash(t.caster,Time)
-        call PauseUnitEx(t.caster,true)
-        call BuffNoNB.Apply( t.caster, Time, 0 )
-        call BuffNoST.Apply( t.caster, Time, 0 )
+        set fx2 = t2.data
+        set fx2.i = 1
+        call t.start(0.02,false,function OnDashCoolExpired)
+        //call DummyMagicleash(fx.caster,Time)
+        call PauseUnitEx(caster,true)
+        call BuffNoNB.Apply( caster, Time, 0 )
+        call BuffNoST.Apply( caster, Time, 0 )
         call SetUnitVertexColorBJ( caster, 80, 80, 100, 0 )
         call TriggerSleepActionByTimer(0)
         call JNStartUnitAbilityCooldown(caster, 'A005', 1)
@@ -205,15 +231,17 @@ private function F_A005 takes nothing returns nothing
 endfunction
 
 private function F_A004 takes nothing returns nothing
-    local DashCool t
-    local DashTimer t2
+    local tick t
+    local tick t2
+    local SkillFx fx
+    local SkillFx fx2
     local SkillDash st
     local effect e
     local unit caster
-    
+
     if GetSpellAbilityId() == 'A004' then
         set caster = GetTriggerUnit()
-        set st = SkillDash.Create()
+        set st = SkillDash.create()
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(caster)) != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(caster),GetWidgetY(caster))
         else
@@ -227,10 +255,10 @@ private function F_A004 takes nothing returns nothing
         set st.TargetY = GetSpellTargetY()
         set st.Max = MaxRange
         set st.Speed = 32
-        call st.Start()
+        call st.start()
         call SetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
         call EXSetUnitFacing(caster,AngleWBP(caster,GetSpellTargetX(),GetSpellTargetY()))
-        
+
         if GetUnitAbilityLevel(caster, 'B009') < 1 then
             if DataUnitIndex(caster) == 17 then
                 if LuciaForm[GetPlayerId(GetOwningPlayer(caster))] == 0 then
@@ -246,18 +274,19 @@ private function F_A004 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A004')
         call UnitAddAbility(caster,'A002')
-        set t = DashCool.Create()
-        set t.caster = caster
-        set t.stack = 0
-        set t.ab = EXGetUnitAbility(caster,'A002')
+        set fx = SkillFx.Create()
+        set fx.caster = caster
+        set fx.i = 0
+        set t = tick.create(0)
+        set t.data = fx
         set t2 = UT[GetUnitIndex(caster)]
-        set t2.ab = EXGetUnitAbility(caster,'A002')
-        set t2.stack = 0
-        call t.Start(0.02,false)
-        //call DummyMagicleash(t.caster, Time)
-        call PauseUnitEx(t.caster,true)
-        call BuffNoNB.Apply( t.caster, Time, 0 )
-        call BuffNoST.Apply( t.caster, Time, 0 )
+        set fx2 = t2.data
+        set fx2.i = 0
+        call t.start(0.02,false,function OnDashCoolExpired)
+        //call DummyMagicleash(fx.caster, Time)
+        call PauseUnitEx(caster,true)
+        call BuffNoNB.Apply( caster, Time, 0 )
+        call BuffNoST.Apply( caster, Time, 0 )
         call SetUnitVertexColorBJ( caster, 80, 80, 100, 0 )
         call TriggerSleepActionByTimer(0)
         call JNStartUnitAbilityCooldown(caster, 'A004', 1)
@@ -269,7 +298,7 @@ endfunction
         local integer key = DzGetTriggerKey()
         local integer i = GetPlayerId(DzGetTriggerKeyPlayer())
         local string data
-        
+
         if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then /*채팅창 활성화 여부*/
             if key == JN_OSKEY_X then
                 set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
@@ -277,7 +306,7 @@ endfunction
             endif
         endif
     endfunction
-    
+
     function DashSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
@@ -287,9 +316,9 @@ endfunction
         local real x
         local real y
         local real angle
-        
+
         set pid=GetPlayerId(p)
-        
+
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
         set data=SubString(data,valueLen+1,dataLen)
@@ -388,31 +417,46 @@ endfunction
                 call IssuePointOrder( MainUnit[pid], "absorb", GetWidgetX(MainUnit[pid]) + PolarX(MaxRange,angle), GetWidgetY(MainUnit[pid]) + PolarY(MaxRange,angle) )
             endif
         endif
-        
+
         set p=null
     endfunction
 
-//! runtextmacro 이벤트_N초가_지나면_발동("B","2.0")
-    local trigger t
-    
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function F_A004)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function F_A005)
-    set t = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddAction(t, function F_A006)
-    
-    set t=CreateTrigger()
-    call DzTriggerRegisterSyncData(t,("DashSync"),(false))
-    call TriggerAddAction(t,function DashSyncData)
+private struct TEvAfterB extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t,function thistype.Action)
+        call TriggerRegisterTimerEvent(t,2.0,false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
+        local trigger t
 
-    set t = null
-//! runtextmacro 이벤트_끝()
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function F_A004)
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function F_A005)
+        set t = CreateTrigger()
+        call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
+        call TriggerAddAction(t, function F_A006)
 
-    //! runtextmacro 이벤트_맵이_로딩되면_발동()
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("DashSync"),(false))
+        call TriggerAddAction(t,function DashSyncData)
+
+        set t = null
+    endmethod
+endstruct
+    private struct TEvMapLoadSkillDash extends array
+        private static method onInit takes nothing returns nothing
+            local trigger t = CreateTrigger()
+            call TriggerAddAction(t, function thistype.Action)
+            call TriggerRegisterTimerEvent(t, 0.04, false)
+            set t = null
+        endmethod
+        private static method Action takes nothing returns nothing
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_X, 1, false, function XKey)
-    //! runtextmacro 이벤트_끝()
+        endmethod
+    endstruct
 endscope

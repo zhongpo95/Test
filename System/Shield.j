@@ -5,20 +5,24 @@ library Shield requires UIHP,DataUnit
         private trigger array TrgRemove
         private triggeraction array ActRemove
     endglobals
-    
-    //! runtextmacro 틱("ShieldTimer")
+
+    private struct ShieldTimer
         unit caster
-    //! runtextmacro 틱_끝()
-    
-    
-    //! runtextmacro 이벤트_틱이_종료되면_발동("ShieldTimer")
-        set UnitSD[GetUnitIndex(expired.caster)] = 0
-        set USDT[GetUnitIndex(expired.caster)] = 0
-        call RefreshHP(expired.caster)
-        set expired.caster = null
-        call expired.Destroy()
-    //! runtextmacro 이벤트_끝()
-    
+    endstruct
+
+    private function EffectFunction takes nothing returns nothing
+        local tick t = tick.getExpired()
+        local ShieldTimer st = t.data
+
+        set UnitSD[GetUnitIndex(st.caster)] = 0
+        set USDT[GetUnitIndex(st.caster)] = 0
+        call RefreshHP(st.caster)
+        set st.caster = null
+        call st.destroy()
+        set t.data = 0
+        call t.destroy()
+    endfunction
+
     private function OnRemove takes nothing returns nothing
         local integer i = GetTriggerIndex()
         call TriggerRemoveAction(TrgRemove[i], ActRemove[i])
@@ -26,47 +30,51 @@ library Shield requires UIHP,DataUnit
         set TrgRemove[i] = null
         set USDT[i] = 0
     endfunction
-    
+
     function ShieldAdd takes unit caster, real time, real value returns nothing
-        local ShieldTimer t
+        local tick t
+        local ShieldTimer st
         local integer i
         local real ttime
         local real HP
-        
+
         set i = IndexUnit(caster)
         if USDT[i] == 0 then
             if ActRemove[i] == null then
                 set TrgRemove[i] = GetUnitRemoveTrigger(caster)
                 set ActRemove[i] = TriggerAddAction(TrgRemove[i],function OnRemove)
             endif
-            
+
             set UnitSD[i] = value
             set HP = GetUnitState(caster, UNIT_STATE_MAX_LIFE)
             if UnitSD[i] >= HP then
                 set UnitSD[i] = HP
             endif
             set ttime = time
-            
-            set t = ShieldTimer.Create()
-            set t.caster = caster
+
+            set t = tick.create(0)
+            set st = ShieldTimer.create()
+            set st.caster = caster
+            set t.data = st
             set USDT[i] = t
-            call t.Start(ttime,false)
+            call t.start(ttime,false,function EffectFunction)
         else
             set t = USDT[i]
-            set t.caster = caster
-            set ttime = t.Remaining
-            if time < t.Remaining then
-                set ttime = t.Remaining
+            set st = t.data
+            set st.caster = caster
+            set ttime = t.remaining
+            if time < t.remaining then
+                set ttime = t.remaining
             else
                 set ttime = time
             endif
-            
+
             set UnitSD[i] = UnitSD[i] + value
             set HP = GetUnitState(caster, UNIT_STATE_MAX_LIFE)
             if UnitSD[i] >= HP then
                 set UnitSD[i] = HP
             endif
-            call t.Start(ttime,false)
+            call t.start(ttime,false,function EffectFunction)
         endif
         call RefreshHP(caster)
     endfunction

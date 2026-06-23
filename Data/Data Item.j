@@ -11,7 +11,14 @@ library DataItem
         string array itemimage
     endglobals
 
-    //! runtextmacro 이벤트_N초가_지나면_발동("A","1.0")
+    private struct TEvAfterA extends array
+        private static method onInit takes nothing returns nothing
+            local trigger t = CreateTrigger()
+            call TriggerAddAction(t,function thistype.Action)
+            call TriggerRegisterTimerEvent(t,1.0,false)
+            set t = null
+        endmethod
+        private static method Action takes nothing returns nothing
         call SaveInteger(ItemData, StringHash("ITEMID"), 1, 'I007')
         call SaveInteger(ItemData, StringHash("ITEMID"), 2, 'I00M')
         call SaveInteger(ItemData, StringHash("ITEMID"), 3, 'I00S')
@@ -419,5 +426,6 @@ library DataItem
         call Quality.add(19,00.41)
         call Quality.add(20,00.37)
         call Quality.add(21,00.08)
-    //! runtextmacro 이벤트_끝()
+        endmethod
+    endstruct
 endlibrary

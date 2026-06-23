@@ -46,14 +46,30 @@ library SkillButton requires DataUnit
             set e = null
             set e2 = null
         endmethod
-        //! runtextmacro 연출()
+        static method create takes nothing returns thistype
+            local thistype this = allocate()
+            return this
+        endmethod
+
+        static method Create takes nothing returns thistype
+            return thistype.create()
+        endmethod
+
+        method stop takes nothing returns nothing
+            call this.OnStop()
+            call this.destroy()
+        endmethod
+
+        method Stop takes nothing returns nothing
+            call this.stop()
+        endmethod
     endstruct
 
     private function SkillButtonKey takes nothing returns nothing
         local integer key = DzGetTriggerKey()
         local integer i = GetPlayerId(DzGetTriggerKeyPlayer())
         local string data
-        
+
         if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
             if key == JN_OSKEY_1 then
                 if EXGetAbilityState(EXGetUnitAbility(MainUnit[i], potion[1]), ABILITY_STATE_COOLDOWN) == 0 then
@@ -74,7 +90,7 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
-                
+
         if DataUnitIndex(MainUnit[i]) == 3 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -139,7 +155,7 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
-        
+
         if DataUnitIndex(MainUnit[i]) == 4 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -205,7 +221,7 @@ library SkillButton requires DataUnit
             endif
         endif
 
-        
+
         if DataUnitIndex(MainUnit[i]) == 14 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -415,12 +431,12 @@ library SkillButton requires DataUnit
             endif
         endif
     endfunction
-    
+
     private function SkillButtonKey2 takes nothing returns nothing
         local integer key = DzGetTriggerKey()
         local integer i = GetPlayerId(DzGetTriggerKeyPlayer())
         local string data
-        
+
         if DataUnitIndex(MainUnit[i]) == 3 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -461,7 +477,7 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
-        
+
         if DataUnitIndex(MainUnit[i]) == 4 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -502,7 +518,7 @@ library SkillButton requires DataUnit
                 endif
             endif
         endif
-        
+
         if DataUnitIndex(MainUnit[i]) == 14 then
             if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then
                 if key == JN_OSKEY_Q then
@@ -634,8 +650,15 @@ library SkillButton requires DataUnit
             endif
         endif
     endfunction
-    
-//! runtextmacro 이벤트_맵이_로딩되면_발동()
+
+private struct TEvMapLoadSkillButton extends array
+    private static method onInit takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call TriggerAddAction(t, function thistype.Action)
+        call TriggerRegisterTimerEvent(t, 0.04, false)
+        set t = null
+    endmethod
+    private static method Action takes nothing returns nothing
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_Q, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_W, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_E, 1, false, function SkillButtonKey)
@@ -647,14 +670,13 @@ library SkillButton requires DataUnit
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_V, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_C, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_Z, 1, false, function SkillButtonKey)
-    
-    //소모품
+    // item
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_1, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_2, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_3, 1, false, function SkillButtonKey)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_4, 1, false, function SkillButtonKey)
-    
-    
+
+
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_Q, 0, false, function SkillButtonKey2)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_W, 0, false, function SkillButtonKey2)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_E, 0, false, function SkillButtonKey2)
@@ -666,5 +688,6 @@ library SkillButton requires DataUnit
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_V, 0, false, function SkillButtonKey2)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_C, 1, false, function SkillButtonKey2)
     call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_Z, 1, false, function SkillButtonKey2)
-//! runtextmacro 이벤트_끝()
+    endmethod
+endstruct
 endlibrary
