@@ -176,33 +176,28 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             set quality = GetItemQuality(items)
             set cts = GetItemCombatStats(items)
             set tier = GetItemTier(items)
-            if i >= 6 then
+            if i >= ITEM_TYPE_NECKLACE then
                 call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
             //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
-            if i == 0 then
-                set str = str + "보조무기|n|n"
-                //set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + "  |cFFB9E2FA무기 공격력|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 1 then
+            if i == ITEM_TYPE_ELIXIR then
                 set str = str + "엘릭서|n|n"
                 set str = str + "  |cFFB9E2FA공격력|r +"
                 set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
-            elseif i == 5 then
+            elseif i == ITEM_TYPE_WEAPON then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
                 set str = str + "|n|n|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                 set str = str + "  |cFFB9E2FA추가 피해|r +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
-            elseif i == 6 then
+            elseif i == ITEM_TYPE_NECKLACE then
                 set str = str + "목걸이|n|n"
                 //치신
                 if cts == 1 then
@@ -234,7 +229,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 7 then
+            elseif i == ITEM_TYPE_EARRING then
                 set str = str + "귀걸이|n|n"
                 //치
                 if cts == 1 then
@@ -255,7 +250,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 8 then
+            elseif i == ITEM_TYPE_RING then
                 set str = str + "반지|n|n"
                 //치
                 if cts == 1 then
@@ -276,9 +271,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 9 then
+            elseif i == ITEM_TYPE_BRACELET then
                 set str = str + "팔찌|n"
-            elseif i == 10 then
+            elseif i == ITEM_TYPE_CARD then
                 set str = str + "카드|n|n"
                 //아르카나
                 if GetItemCardBonus1(items) + GetItemCardBonus2(items) + GetItemCardBonus3(items) > 0 then
@@ -386,47 +381,28 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
             set quality = GetItemQuality(items)
             set cts = GetItemCombatStats(items)
             set tier = GetItemTier(items)
-            if i >= 6 then
+            if i >= ITEM_TYPE_NECKLACE then
                 call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+            // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
             //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
             //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
             //기타 0아이템아이디, 1중첩수
-            if i == 0 then
-                set str = str + "보조무기|n|n"
-                //set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + "  |cFFB9E2FA무기 공격력|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 1 then
+            if i == ITEM_TYPE_ELIXIR then
                 set str = str + "엘릭서|n|n"
                 set str = str + "  |cFFB9E2FA공격력|r +"
                 set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
-                /*
-            elseif i == 2 then
-                set str = str + "하의|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 3 then
-                set str = str + "장갑|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 4 then
-                set str = str + "견갑|n|n"
-                set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                */
-            elseif i == 5 then
+            elseif i == ITEM_TYPE_WEAPON then
                 set str = str + "무기|n|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
                 set str = str + "|n|n|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
                 set str = str + "  |cFFB9E2FA추가 피해|r +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
-            elseif i == 6 then
+            elseif i == ITEM_TYPE_NECKLACE then
                 set str = str + "목걸이|n|n"
                 //치신
                 if cts == 1 then
@@ -458,7 +434,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 7 then
+            elseif i == ITEM_TYPE_EARRING then
                 set str = str + "귀걸이|n|n"
                 //치
                 if cts == 1 then
@@ -479,7 +455,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 8 then
+            elseif i == ITEM_TYPE_RING then
                 set str = str + "반지|n|n"
                 //치
                 if cts == 1 then
@@ -500,9 +476,9 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 9 then
+            elseif i == ITEM_TYPE_BRACELET then
                 set str = str + "팔찌|n"
-            elseif i == 10 then
+            elseif i == ITEM_TYPE_CARD then
                 set str = str + "카드|n|n"
                 //아르카나
                 if GetItemCardBonus1(items) + GetItemCardBonus2(items) + GetItemCardBonus3(items) > 0 then
@@ -596,7 +572,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 call DzFrameShow(F_ItemButtonLock[i], true)
             elseif j == 1 then
                 set itemty = GetItemTypes(items)
-                if itemty == 6 or itemty == 7 or itemty == 8 then
+                if itemty == ITEM_TYPE_NECKLACE or itemty == ITEM_TYPE_EARRING or itemty == ITEM_TYPE_RING then
                     set items = SetItemLock(items, 0)
                     call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), items)
                     call DzFrameShow(F_ItemButtonLock[i], false)
@@ -730,6 +706,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string items = StashLoad(PLAYER_DATA[pid], "창고"+I2S(selectnumber - 10000), "0")
         local string items2
         local integer itemty = GetItemTypes(items)
+        local integer slot = GetEquipSlotByItemType(itemty)
         local integer i = 0
         local integer length
         local integer j = 0
@@ -927,6 +904,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local string items2
         local integer length
         local integer itemty = GetItemTypes(items)
+        local integer slot = GetEquipSlotByItemType(itemty)
         local integer i = 0
         local integer j = 0
         local integer k = 0
@@ -1029,140 +1007,174 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
                 endif
             endif
 
-            // 0무기, 1보조무기, 2상의, 3하의, 4장갑, 5견갑, 6목걸이, 7귀걸이, 8반지
+            // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
             
-            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8귀걸이, 9반지, 10반지, 11팔찌, 12카드
+            // 장착 슬롯: 0엘릭서, 1무기, 2목걸이, 3귀걸이1, 4귀걸이2, 5반지1, 6반지2, 7팔찌, 8카드, 9보석
             
             //장착
-            if i == 1 then
+            if i == 1 and itemty >= 0 then
                 //귀걸이
-                if itemty == 7 then
-                    set etyid1 = GetItemIDs(Eitem[pid][7])
-                    set etyid2 = GetItemIDs(Eitem[pid][8])
+                if itemty == ITEM_TYPE_EARRING then
+                    set etyid1 = GetItemIDs(Eitem[pid][EQUIP_SLOT_EARRING_1])
+                    set etyid2 = GetItemIDs(Eitem[pid][EQUIP_SLOT_EARRING_2])
                     //set i = GetItemIDs(items)
                     if etyid1 == 0 then
                         //장착
-                        set Eitem[pid][7] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
+                        set Eitem[pid][EQUIP_SLOT_EARRING_1] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_EARRING_1], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], GetItemArt(items), 0)
                         //인벤에서 제거
                         call DzFrameShow(UI_Tip, false)
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_EARRING_1)+"\t"+items)
                     elseif etyid2 == 0 then
                         //장착
-                        set Eitem[pid][8] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[8], GetItemArt(items), 0)
+                        set Eitem[pid][EQUIP_SLOT_EARRING_2] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_EARRING_2], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[2], GetItemArt(items), 0)
                         //인벤에서 제거
                         call DzFrameShow(UI_Tip, false)
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"8"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_EARRING_2)+"\t"+items)
                     else
                         //장착
-                        set items2 = Eitem[pid][7]
-                        set Eitem[pid][7] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[7], GetItemArt(items), 0)
+                        set items2 = Eitem[pid][EQUIP_SLOT_EARRING_1]
+                        set Eitem[pid][EQUIP_SLOT_EARRING_1] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_EARRING_1], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[1], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"7"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_EARRING_1)+"\t"+items)
                     endif
                 //반지
-                elseif itemty == 8 then
-                    set etyid1 = GetItemIDs(Eitem[pid][9])
-                    set etyid2 = GetItemIDs(Eitem[pid][10])
+                elseif itemty == ITEM_TYPE_RING then
+                    set etyid1 = GetItemIDs(Eitem[pid][EQUIP_SLOT_RING_1])
+                    set etyid2 = GetItemIDs(Eitem[pid][EQUIP_SLOT_RING_2])
                     //set i = GetItemIDs(items)
                     if etyid1 == 0 then
                         //장착
-                        set Eitem[pid][9] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
+                        set Eitem[pid][EQUIP_SLOT_RING_1] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_RING_1], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_RING_1)+"\t"+items)
                     elseif etyid2 == 0 then
                         //장착
-                        set Eitem[pid][10] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[10], GetItemArt(items), 0)
+                        set Eitem[pid][EQUIP_SLOT_RING_2] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_RING_2], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[4], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"10"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_RING_2)+"\t"+items)
                     else
                         //장착
-                        set items2 = Eitem[pid][9]
-                        set Eitem[pid][9] = items
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[9], GetItemArt(items), 0)
+                        set items2 = Eitem[pid][EQUIP_SLOT_RING_1]
+                        set Eitem[pid][EQUIP_SLOT_RING_1] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_RING_1], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[3], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+"9"+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_RING_1)+"\t"+items)
                     endif
                 //카드
-                elseif itemty == 10 then
-                    if GetItemIDs(Eitem[pid][12]) == 0 then
+                elseif itemty == ITEM_TYPE_CARD then
+                    if IsEmptyItem(Eitem[pid][EQUIP_SLOT_CARD]) then
                         //장착
-                        set Eitem[pid][12] = items
+                        set Eitem[pid][EQUIP_SLOT_CARD] = items
                         //set i = GetItemIDs(items)
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_CARD], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], GetItemArt(items), 0)
                         //인벤에서 제거
                         call RemoveItem2(pid, F_ItemClickNumber, false)
                         call DzFrameShow(UI_Tip, false)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(12)+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_CARD)+"\t"+items)
                     else
                         //장착
-                        set items2 = Eitem[pid][12]
-                        set Eitem[pid][12] = items
+                        set items2 = Eitem[pid][EQUIP_SLOT_CARD]
+                        set Eitem[pid][EQUIP_SLOT_CARD] = items
                         //set i = GetItemIDs(items)
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[12], GetItemArt(items), 0)
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_CARD], GetItemArt(items), 0)
                         call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], GetItemArt(items), 0)
                         //교체
                         //set j = GetItemIDs(items2)
                         call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
                         set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(12)+"\t"+items)
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_CARD)+"\t"+items)
+                    endif
+                elseif itemty == ITEM_TYPE_BRACELET then
+                    if IsEmptyItem(Eitem[pid][EQUIP_SLOT_BRACELET]) then
+                        set Eitem[pid][EQUIP_SLOT_BRACELET] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_BRACELET], GetItemArt(items), 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call DzFrameShow(UI_Tip, false)
+                        set F_ItemClickNumber = 200
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_BRACELET)+"\t"+items)
+                    else
+                        set items2 = Eitem[pid][EQUIP_SLOT_BRACELET]
+                        set Eitem[pid][EQUIP_SLOT_BRACELET] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_BRACELET], GetItemArt(items), 0)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
+                        set F_ItemClickNumber = 200
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_BRACELET)+"\t"+items)
+                    endif
+                elseif itemty == ITEM_TYPE_GEM then
+                    if IsEmptyItem(Eitem[pid][EQUIP_SLOT_GEM]) then
+                        set Eitem[pid][EQUIP_SLOT_GEM] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_GEM], GetItemArt(items), 0)
+                        call RemoveItem2(pid, F_ItemClickNumber, false)
+                        call DzFrameShow(UI_Tip, false)
+                        set F_ItemClickNumber = 200
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_GEM)+"\t"+items)
+                    else
+                        set items2 = Eitem[pid][EQUIP_SLOT_GEM]
+                        set Eitem[pid][EQUIP_SLOT_GEM] = items
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[EQUIP_SLOT_GEM], GetItemArt(items), 0)
+                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
+                        set F_ItemClickNumber = 200
+                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(EQUIP_SLOT_GEM)+"\t"+items)
                     endif
                 else
-                    if GetItemIDs(Eitem[pid][itemty]) == 0 then
-                        //장착
-                        set Eitem[pid][itemty] = items
-                        //set i = GetItemIDs(items)
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
-                        if itemty == 6 then
-                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
+                    if slot >= 0 then
+                        if IsEmptyItem(Eitem[pid][slot]) then
+                            //장착
+                            set Eitem[pid][slot] = items
+                            //set i = GetItemIDs(items)
+                            call DzFrameSetTexture(F_EItemButtonsBackDrop[slot], GetItemArt(items), 0)
+                            if slot == EQUIP_SLOT_NECKLACE then
+                                call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
+                            endif
+                            //인벤에서 제거
+                            call RemoveItem2(pid, F_ItemClickNumber, false)
+                            call DzFrameShow(UI_Tip, false)
+                            set F_ItemClickNumber = 200
+                            call DzSyncData("장착",I2S(pid)+"\t"+I2S(slot)+"\t"+items)
+                        else
+                            //장착
+                            set items2 = Eitem[pid][slot]
+                            set Eitem[pid][slot] = items
+                            //set i = GetItemIDs(items)
+                            call DzFrameSetTexture(F_EItemButtonsBackDrop[slot], GetItemArt(items), 0)
+                            if slot == EQUIP_SLOT_NECKLACE then
+                                call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
+                            endif
+                            //교체
+                            //set j = GetItemIDs(items2)
+                            call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
+                            set F_ItemClickNumber = 200
+                            call DzSyncData("장착",I2S(pid)+"\t"+I2S(slot)+"\t"+items)
                         endif
-                        //인벤에서 제거
-                        call RemoveItem2(pid, F_ItemClickNumber, false)
-                        call DzFrameShow(UI_Tip, false)
-                        set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(itemty)+"\t"+items)
-                    else
-                        //장착
-                        set items2 = Eitem[pid][itemty]
-                        set Eitem[pid][itemty] = items
-                        //set i = GetItemIDs(items)
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[itemty], GetItemArt(items), 0)
-                        if itemty == 6 then
-                            call DzFrameSetTexture(F_ArcanaButtonsBackDrop[0], GetItemArt(items), 0)
-                        endif
-                        //교체
-                        //set j = GetItemIDs(items2)
-                        call AddIvItem.evaluate(pid, F_ItemClickNumber, items2)
-                        set F_ItemClickNumber = 200
-                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(itemty)+"\t"+items)
                     endif
                 endif
                 call DzFrameShow(F_PickUp, false)

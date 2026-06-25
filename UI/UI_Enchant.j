@@ -35,8 +35,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         local item tem
         local string sn = I2S(PlayerSlotNumber[pid])
         
-        if f ==  F_EEItemButtons[0] then
-            set items = Eitem[pid][0]
+        if f ==  F_EEItemButtons[EQUIP_SLOT_WEAPON] then
+            set items = Eitem[pid][EQUIP_SLOT_WEAPON]
             set itemid = GetItemIDs(items)
         /*
         elseif f ==  F_EEItemButtons[1] then
@@ -52,8 +52,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set items = Eitem[pid][4]
             set itemid = GetItemIDs(items)
         */
-        elseif f ==  F_EEItemButtons[5] then
-            set items = Eitem[pid][5]
+        elseif false then
+            set items = Eitem[pid][EQUIP_SLOT_WEAPON]
             set itemid = GetItemIDs(items)
         elseif f ==  F_EEItemButtons[6] then
             set items = Eitem[pid][F_EnchantSelectNumber]
@@ -66,7 +66,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set itemid = GetItemIDs(items)
 
 
-            //보조무기
+            //구 보조무기 승급 경로 미사용
             if itemid == 9 then
                 set items = "ID2;"
                 set itemid = 2
@@ -119,13 +119,13 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             
         endif
         
-        // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
+        // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         //악세 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인수치, 6각인2, 7각인수치, 8각인P, 9각인P수치, 10잠금
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
                 
-        if F_EnchantSelectNumber == 6 then
+        if F_EnchantSelectNumber == -1 then
             set itemid = 0
         endif
     
@@ -136,20 +136,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set quality = GetItemQuality(items)
             set tier = GetItemTier(items)
                 
-            if tier == 1 or i != 5 then
+            if tier == 1 or i != ITEM_TYPE_WEAPON then
                 call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지, 9팔찌, 10카드
-            if i == 0 then
-                set str = str + "보조무기|n"
+            // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드
+            if i == ITEM_TYPE_ELIXIR then
+                set str = str + "엘릭서|n"
                 set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                //set str = str + "  |cFFB9E2FA방어 등급|r +"
-                set str = str + "  |cFFB9E2FA무기 공격력|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-            elseif i == 5 then
+                set str = str + "  |cFFB9E2FA공격력|r +"
+                set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
+            elseif i == ITEM_TYPE_WEAPON then
                 set str = str + "무기|n"
                 set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
                 set str = str + "  |cFFB9E2FA무기 공격력|r +"
@@ -250,7 +249,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
                             endif
 
-                            //보조무기
+                            //구 보조무기 승급 경로 미사용
                             if i == 9 then
                                 set items = "ID2;"
                                 set items = SetItemQuality(items, quality)
@@ -418,7 +417,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             set items = SetItemTrycount(items, trycount)
                             set items = SetItemFate(items, fate)
                             set Eitem[pid][f] = items
-                            if F_EnchantSelectNumber == 6 then
+                            if F_EnchantSelectNumber == -1 then
                             else
                                 if trycount > 10 then
                                     set trycount2 = 10
@@ -496,7 +495,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         set items = SetItemTrycount(items, trycount)
                                         set items = SetItemFate(items, fate)
                                         set Eitem[pid][f] = items
-                                        if F_EnchantSelectNumber == 6 then
+                                        if F_EnchantSelectNumber == -1 then
                                         else
                                             if trycount > 10 then
                                                 set trycount2 = 10
@@ -544,7 +543,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         
-        if f == F_EEItemButtons[0] then
+        if false then
             set F_EnchantSelectNumber = 0
             set items = Eitem[pid][F_EnchantSelectNumber]
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
@@ -571,8 +570,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             call DzFrameShow(F_EnchantButton, false)
             call DzFrameShow(F_EnchantButton2, true)
             call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[5] then
-            set F_EnchantSelectNumber = 5
+        elseif f == F_EEItemButtons[EQUIP_SLOT_WEAPON] then
+            set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
             set items = Eitem[pid][F_EnchantSelectNumber]
             set itemid = GetItemIDs(items)
             set i = GetItemTypes(items)
@@ -639,7 +638,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             call DzFrameShow(F_EnchantUpText, true)
         endif
         
-        //보조무기
+        //구 보조무기 승급 경로 미사용
         if itemid == 9 then
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
         elseif itemid == 2 then
@@ -730,12 +729,12 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetSize(F_EnchantCancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(F_EnchantCancelButton, JN_FRAMEEVENT_MOUSE_UP, function EnchantOpen, false)
         
-        call CreateEItemButton(0 , 0.040 , - 0.050)
+        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , - 0.050)
+        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , - 0.100)
         //call CreateEItemButton(1 , 0.040 , - 0.100)
         //call CreateEItemButton(2 , 0.040 , - 0.130)
         //call CreateEItemButton(3 , 0.040 , - 0.160)
         //call CreateEItemButton(4 , 0.040 , - 0.190)
-        call CreateEItemButton(5 , 0.040 , - 0.100)
         
         call CreateEItemButton(6 , 0.240 , - 0.040)
         call DzFrameSetSize(F_EEItemButtons[6], 0.040, 0.040)

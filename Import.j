@@ -1,5 +1,5 @@
-//! import "NPC.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI BossHP.j"
+// === UI ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossHP.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossEnd.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossStart.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_CastingBar.j"
@@ -17,7 +17,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_OFF.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Quest.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Arcana.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI V.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_V.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Map.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Emoji.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_FPS.j"
@@ -27,8 +27,11 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BigWheel.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Elixir.j"
 
+// === Content ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\content\NPC.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\content\TimeOfDay.j"
 
+// === Library ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\Stun.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\AttackAngle.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\DummyMagicleash.j"
@@ -63,17 +66,20 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\Sort.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\PauseUnit.j"
 
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Memory\02-APIBasicUtils.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Memory\03-APITypecast.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Memory\MemoryLib.j"
+// === Library: memory ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\Memory\02-APIBasicUtils.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\Memory\03-APITypecast.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\Memory\MemoryLib.j"
 
+// === Data ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Native.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data Arcana.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data Item.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data Unit.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data Map.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data Buff.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Arcana.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Item.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Unit.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Map.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Buff.j"
 
+// === Hero ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\SkillDash.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\SkillButton.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Potion.j"
@@ -87,7 +93,6 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Chen\HeroChenF.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Chen\HeroChenV.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Chen\HeroChenC.j"
-
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoQ.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoW.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoE.j"
@@ -97,7 +102,6 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoD.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoF.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Momizi\HeroMoV.j"
-
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaQ.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaW.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaE.j"
@@ -108,7 +112,6 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaF.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaV.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Lucia\HeroLuciaZ.j"
-
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarQ.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarW.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarE.j"
@@ -120,7 +123,6 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarV.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarC.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Narmaya\HeroNarZ.j"
-
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiA.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiC.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiD.j"
@@ -133,12 +135,14 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiW.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiZ.j"
 
+// === Boss ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-1.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-2.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-3.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-4.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\BossAggro.j"
 
+// === System ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\FileSave.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\Init.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\ItemPickUp.j"
@@ -154,7 +158,8 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\PlayerState.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\Filter.j"
 
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\import\JNStashNet.j"
+// === Library: external API ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Library\JNStashNet.j"
 
-
+// === Root: ESC ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\ESC.j"

@@ -1,4 +1,4 @@
-library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap, FrameCount
+library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap, FrameCount, ItemPickUp
     globals
         private integer Failed
         private integer Success

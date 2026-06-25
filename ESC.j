@@ -196,6 +196,8 @@ scope ESC initializer init
 
         set AAA = AAA - 0.1
         
+        //call DzFrameShow(El_BackDrop, true)
+
         //set SelectString[pid] = JNStringReplace(s, JNStringRegex(s, "0\\d+;", 0), I2S(NowSelectNumber)+";")
 
         //set frame3 = DzFrameGetCommandBarButton(2,0)

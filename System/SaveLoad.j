@@ -103,40 +103,14 @@ scope Load initializer onInit
             call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
         */
         if true then
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E0", Eitem[pid][0])
-            if Eitem[pid][1] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E1", Eitem[pid][1])
+        set i = 0
+        loop
+            if Eitem[pid][i] != null then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E"+I2S(i), Eitem[pid][i])
             endif
-            /*
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E2", Eitem[pid][2])
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E3", Eitem[pid][3])
-            */
-            //call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E4", Eitem[pid][4])
-
-            call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E5", Eitem[pid][5])
-            
-            if Eitem[pid][6] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E6", Eitem[pid][6])
-            endif
-            if Eitem[pid][7] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E7", Eitem[pid][7])
-            endif
-            if Eitem[pid][8] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E8", Eitem[pid][8])
-            endif
-            if Eitem[pid][9] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E9", Eitem[pid][9])
-            endif
-            if Eitem[pid][10] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E10", Eitem[pid][10])
-            endif
-            if Eitem[pid][11] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E11", Eitem[pid][11])
-            endif
-            if Eitem[pid][12] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E12", Eitem[pid][12])
-            endif
-            
+            exitwhen i == EQUIP_SLOT_MAX
+            set i = i + 1
+        endloop
             call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
         endif
     endfunction
@@ -152,7 +126,7 @@ scope Load initializer onInit
                 loop
                     set Eitem[i][j] = null
                     set j = j + 1
-                exitwhen j == 13
+                exitwhen j > EQUIP_SLOT_MAX
                 endloop
             endif
             set i = i + 1

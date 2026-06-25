@@ -1,4 +1,4 @@
-library StatsSet initializer init requires UIHP, ITEM, DataArcana
+library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
     function SkillSpeed takes integer pid returns real
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
@@ -22,7 +22,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
 
     //전투력
     function Power takes integer pid returns real
-        local real cooldownReduction = Equip_Swiftness[pid] / 46.0 / 100.0
+        local real cooldownRate = CooldownRate(pid)
         local real critical = Stats_Crit[pid] / 100.0
         local real defenseRatio = Equip_Penetration[pid] * 10000.0
         local real defenseReductionAmount = defenseRatio / (defenseRatio + 10000.0)
@@ -42,7 +42,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(9,LoadInteger(ArcanaData, 9, pid)) / 100))
         //예둔
         //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(10,LoadInteger(ArcanaData, 10, pid)) / 100))
-        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid]+Arcana_CriDeal[pid]+ 100) / 100.0) * (1.0 / (1.0 - cooldownReduction)) * damageReductionRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) * ArcanaRate
+        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid]+Arcana_CriDeal[pid]+ 100) / 100.0) * (1.0 / cooldownRate) * damageReductionRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) * ArcanaRate
     endfunction
 
 
@@ -145,12 +145,10 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
             call DzFrameSetText(F_ItemStatsText[6], I2S(R2I( 100 + SkillSpeed(pid) )) + "%" )
             //이동속도
             call DzFrameSetText(F_ItemStatsText[7], I2S(speed) + "%" )
-            //드랍률
-            call DzFrameSetText(F_ItemStatsText[8], I2S(R2I(  Equip_Drop[pid] )) + "%" ) 
             //공퍼
             call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_DamageP[pid] )) + "%" ) 
             //쿨감
-            call DzFrameSetText(F_ItemStatsText[10], R2S(  (Equip_Swiftness[pid]/46)  ) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[10], R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%" )
             //방관
             call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(  Equip_Penetration[pid] )) + "%" ) 
             //대미지증가
@@ -182,6 +180,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
         local integer quality = 0
         local real a = 0
         local real b = 0
+        local real gemValue = 0
+        local real GemDamageRate = 1.0
         
         call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, 10000 )
         //set Equip_Defense[pid] = 0
@@ -192,6 +192,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
         set Equip_CardDamage2[pid] = 0
         set Equip_DamageP[pid] = 0
         set Equip_DP[pid] = 1
+        set Equip_GemCooldown[pid] = 0
+        set Equip_GemDamage[pid] = 0
         set Arcana_MoveSpeed[pid] = 0
         set Arcana_SkillSpeed2[pid] = 0
         set Arcana_HP[pid] = 1
@@ -257,25 +259,21 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
                 set tier = GetItemTier(items)
                 set up = GetItemUp(items)
                 
-                // 0보조무기, 1상의, 2하의, 3장갑, 4견갑, 5무기, 6목걸이, 7귀걸이, 8반지
+                // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
                 //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인2, 6각인P
                 //목걸이 0품0, 1품질 5당 추가량
                 //기타 0아이템아이디, 1중첩수
                 
-                //5무기
-                if itemty == 5 then
+                //무기
+                if itemty == ITEM_TYPE_WEAPON then
                     set quality = GetItemQuality(items)
                     set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                     set Equip_WDP[pid] = ItemWeaponQuality[quality]
-                //0보조무기, 1상의, 2하의, 3장갑
-                elseif itemty == 0  then
-                    set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
-                    //set Equip_Defense[pid] = Equip_Defense[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
                 //엘릭서
-                elseif itemty == 1  then
+                elseif itemty == ITEM_TYPE_ELIXIR  then
                     set Equip_Damage[pid] = Equip_Damage[pid] + GetItemElixirLevel1(items) + GetItemElixirLevel2(items)
                 //목걸이
-                elseif itemty == 6 then
+                elseif itemty == ITEM_TYPE_NECKLACE then
                 //목걸이 0품0, 1품질 5당 추가량
                     // j특성
                     set j = GetItemCombatStats(items)
@@ -305,7 +303,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
                     endif
                     set j = 0
                 //귀걸이,반지
-                elseif itemty == 7 or itemty == 8 then
+                elseif itemty == ITEM_TYPE_EARRING or itemty == ITEM_TYPE_RING then
                     // j특성
                     set j = GetItemCombatStats(items)
                     set k = GetItemCombatBonus1(items)
@@ -326,7 +324,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
                         call SaveInteger(ArcanaData, GetItemCombatPenalty(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
                     endif
                     set j = 0
-                elseif itemty == 10 then
+                elseif itemty == ITEM_TYPE_CARD then
                     set j = GetItemCardBonus1(items)
                     set k = GetItemCardBonus2(items)
                     if j == 0 then
@@ -362,13 +360,20 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana
                     call SaveInteger(ArcanaData, 50, pid, LoadInteger(ArcanaData, 50, pid) + GetItemCardBonus3(items) )
                     set j = 0
                     set k = 0
+                elseif itemty == ITEM_TYPE_GEM then
+                    set gemValue = GetItemGemLevel(items) * 2.00
+                    set Equip_GemCooldown[pid] = Equip_GemCooldown[pid] + gemValue
+                    set Equip_GemDamage[pid] = Equip_GemDamage[pid] + gemValue
                 endif
                 //각인추가
             endif
-        exitwhen i == 15
+        exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
         endloop
         
+        //보석 피해증가
+        set GemDamageRate = GemDamageRate * (1.0 + Equip_GemDamage[pid] / 100.0)
+        set Equip_DP[pid] = Equip_DP[pid] * GemDamageRate
 
         //보너스
         set i = 0

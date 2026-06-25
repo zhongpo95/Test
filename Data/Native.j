@@ -37,6 +37,10 @@ library Native initializer init
         //카드 댐증
         real array Equip_CardDamage1
         real array Equip_CardDamage2
+
+        //보석 쿨감, 보석 댐증
+        real array Equip_GemCooldown
+        real array Equip_GemDamage
         
         //각인 각인방어등급, 각인추뎀, 각인공속, 치확, 치피, 체력, 이속, 공속
         //real array Arcana_Defense
@@ -112,6 +116,8 @@ private function init takes nothing returns nothing
         set Equip_LastDamage[pid] = 0
         set Equip_CardDamage1[pid] = 0
         set Equip_CardDamage2[pid] = 0
+        set Equip_GemCooldown[pid] = 0
+        set Equip_GemDamage[pid] = 0
 
         //set Arcana_Defense[pid] = 0
         set Arcana_DP[pid] = 0

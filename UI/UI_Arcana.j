@@ -261,49 +261,49 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local item tem
         
         if f ==  F_ArcanaButtons[0] then
-            set items = Eitem[pid][6]
+            set items = Eitem[pid][EQUIP_SLOT_NECKLACE]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "목걸이" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         elseif f ==  F_ArcanaButtons[1] then
-            set items = Eitem[pid][7]
+            set items = Eitem[pid][EQUIP_SLOT_EARRING_1]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "귀걸이" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         elseif f ==  F_ArcanaButtons[2] then
-            set items = Eitem[pid][8]
+            set items = Eitem[pid][EQUIP_SLOT_EARRING_2]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "귀걸이" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         elseif f ==  F_ArcanaButtons[3] then
-            set items = Eitem[pid][9]
+            set items = Eitem[pid][EQUIP_SLOT_RING_1]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "반지" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         elseif f ==  F_ArcanaButtons[4] then
-            set items = Eitem[pid][10]
+            set items = Eitem[pid][EQUIP_SLOT_RING_2]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "반지" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
             endif
         elseif f ==  F_ArcanaButtons[5] then
-            set items = Eitem[pid][12]
+            set items = Eitem[pid][EQUIP_SLOT_CARD]
             set itemid = GetItemIDs(items)
-            if itemid == 0 then
+            if IsEmptyItem(items) then
                 call DzFrameShow(UI_Tip, true)
                 call DzFrameSetText(UI_Tip_Text[1], "카드" )
                 call DzFrameSetText(UI_Tip_Text[2], "")
@@ -318,13 +318,13 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
             set cts = GetItemCombatStats(items)
             set tier = GetItemTier(items)
                 
-            if i >= 6 or tier == 1 then
+            if i >= ITEM_TYPE_NECKLACE or tier == 1 then
                 call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
             set str = "|cFFA5FA7D[ 종류 ]|r "
-            if i == 6 then
+            if i == ITEM_TYPE_NECKLACE then
                 set str = str + "목걸이|n|n"
                 //치신
                 
@@ -357,7 +357,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 7 then
+            elseif i == ITEM_TYPE_EARRING then
                 set str = str + "귀걸이|n|n"
                 //치
                 if cts == 1 then
@@ -378,7 +378,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 8 then
+            elseif i == ITEM_TYPE_RING then
                 set str = str + "반지|n|n"
                 //치
                 if cts == 1 then
@@ -399,9 +399,9 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
                     set str = str + "|n  [|cFFFF0000 " + ArcanaText[GetItemCombatPenalty(items)] + " |r] Lv "
                     set str = str + I2S(GetItemCombatPenalty2(items))
                 endif
-            elseif i == 9 then
+            elseif i == ITEM_TYPE_BRACELET then
                 set str = str + "팔찌|n|n"
-            elseif i == 10 then
+            elseif i == ITEM_TYPE_CARD then
                 set str = str + "카드|n|n"
                 if GetItemCardBonus1(items) + GetItemCardBonus2(items) + GetItemCardBonus3(items) > 0 then
                     set str = str + "|n|n|cff5AD2FF[ 아르카나 ]|r|n"
