@@ -13,6 +13,20 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         call t.destroy()
     endfunction
 
+    private function FormatDamageText takes real damage returns string
+        local string s = I2S(R2I(damage))
+        local string result = ""
+        local integer sl = JNStringLength(s)
+
+        loop
+            exitwhen sl <= 3
+            set result = "," + JNStringSub(s, sl - 3, 3) + result
+            set sl = sl - 3
+        endloop
+
+        return JNStringSub(s, 0, sl) + result
+    endfunction
+
     //때린유닛,맞은유닛
     function TestDeal takes unit target returns nothing
         local tick t = tick.create(0)
@@ -70,11 +84,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
     //때린유닛,맞은유닛,계수,헤드판정,백판정,카운터,차지
     function HeroDeal takes integer SkillCode, unit source, unit target, real rate, boolean head, boolean back, boolean counter, boolean charge returns boolean
         local integer pid = GetPlayerId(GetOwningPlayer(source))
-        local integer index = DataUnitIndex(target)
         local integer sourceindex = IndexUnit(source)
         local integer UnitIndex = GetUnitIndex(target)
-        local integer HPvalue = UnitHPValue[index]
-        local string HPString = UnitHPString[index]
         local real CriRandom = GetRandomReal(0,100)
         local boolean CriBoolean = false
         local real ad = R2I( Equip_Damage[pid] + Hero_Damage[pid] + (Equip_Damage[pid] * (Equip_DamageP[pid] / 100.0)) )
@@ -89,7 +100,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real DP = Equip_DP[pid]
         local real LastDamage = (1.0 + Equip_LastDamage[pid] / 100.0)
         local string s
-        local integer sl
         local boolean CounterBoolean = false
         local real SD = 1
         local real ArcanaRate = 1
@@ -311,19 +321,19 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set CriBoolean = true
         endif
         
-        set dmg = ad * rate / HPvalue * DMGRate * DP * WDP * LastDamage * ArcanaRate
+        set dmg = ad * rate * DMGRate * DP * WDP * LastDamage * ArcanaRate
 
         //미터기
         loop
             exitwhen i > 3
             if pid == OverlayPlayerID[i] then
-                set OverlayPlayerValue[i] = OverlayPlayerValue[i] + (dmg * HPvalue)
+                set OverlayPlayerValue[i] = OverlayPlayerValue[i] + dmg
             endif
             set i = i + 1
         endloop
         if PlayerOverlayStop[pid] == false then
             //스킬,피해량,크리
-            call Overlay2(pid, SkillCode,(dmg * HPvalue), CriBoolean)
+            call Overlay2(pid, SkillCode, dmg, CriBoolean)
         endif
 
         //call VJDebugMsg(R2S(dmg))
@@ -359,23 +369,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             if CriBoolean then
                 set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
                 set ttag=CreateTextTag()
-                set s = I2S(R2I(dmg)) + HPString
-                set sl = JNStringLength(s)
-                if sl == 10 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)+ "," + JNStringSub(s,8,3)
-                elseif sl == 9 then
-                    set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)+ "," + JNStringSub(s,6,3)
-                elseif sl == 8 then
-                    set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)
-                elseif sl == 7 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)+ "," + JNStringSub(s,4,3)
-                elseif sl == 6 then
-                    set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)
-                elseif sl == 5 then
-                    set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)
-                elseif sl == 4 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)
-                endif
+                set s = FormatDamageText(dmg)
                 call SetTextTagText(ttag, s + " !", 0.024)
                 call SetTextTagPosUnit(ttag, target, 5.00)
                 call SetTextTagColor(ttag, 255, 255, 0, 229)
@@ -390,23 +384,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             else
                 set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
                 set ttag=CreateTextTag()
-                set s = I2S(R2I(dmg)) + HPString
-                set sl = JNStringLength(s)
-                if sl == 10 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)+ "," + JNStringSub(s,8,3)
-                elseif sl == 9 then
-                    set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)+ "," + JNStringSub(s,6,3)
-                elseif sl == 8 then
-                    set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)
-                elseif sl == 7 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)+ "," + JNStringSub(s,4,3)
-                elseif sl == 6 then
-                    set s = JNStringSub(s,0,3) + "," + JNStringSub(s,3,3)
-                elseif sl == 5 then
-                    set s = JNStringSub(s,0,2) + "," + JNStringSub(s,2,3)
-                elseif sl == 4 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,1,3)
-                endif
+                set s = FormatDamageText(dmg)
                 call SetTextTagText(ttag, s, 0.022)
                 call SetTextTagPosUnit(ttag, target, 5.00)
                 call SetTextTagColor(ttag, 255, 255, 255, 229)
@@ -421,25 +399,9 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             endif
         else
             if CriBoolean then
-                set UnitHP[UnitIndex] = UnitHP[UnitIndex] - (1 * HPvalue)
+                set UnitHP[UnitIndex] = UnitHP[UnitIndex] - 1.00
                 set ttag=CreateTextTag()
-                set s = I2S(R2I(1)) + HPString
-                set sl = JNStringLength(s)
-                if sl == 10 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)+ "," + JNStringSub(s,8,3)
-                elseif sl == 9 then
-                    set s = JNStringSub(s,0,3)+ "," + JNStringSub(s,3,3)+ "," + JNStringSub(s,6,3)
-                elseif sl == 8 then
-                    set s = JNStringSub(s,0,2)+ "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)
-                elseif sl == 7 then
-                    set s = JNStringSub(s,0,1)+ "," + JNStringSub(s,1,3)+ "," + JNStringSub(s,4,3)
-                elseif sl == 6 then
-                    set s = JNStringSub(s,0,3)+ "," + JNStringSub(s,3,3)
-                elseif sl == 5 then
-                    set s = JNStringSub(s,0,2)+ "," + JNStringSub(s,2,3)
-                elseif sl == 4 then
-                    set s = JNStringSub(s,0,1)+ "," + JNStringSub(s,1,3)
-                endif
+                set s = FormatDamageText(1.00)
                 call SetTextTagText(ttag, s + " !", 0.024)
                 call SetTextTagPosUnit(ttag, target, 5.00)
                 call SetTextTagColor(ttag, 255, 255, 0, 229)
@@ -452,25 +414,9 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
                 endif
                 set ttag=null
             else
-                set UnitHP[UnitIndex] = UnitHP[UnitIndex] - (1 * HPvalue)
+                set UnitHP[UnitIndex] = UnitHP[UnitIndex] - 1.00
                 set ttag=CreateTextTag()
-                set s = I2S(R2I(1)) + HPString
-                set sl = JNStringLength(s)
-                if sl == 10 then
-                    set s = JNStringSub(s,0,1) + "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)+ "," + JNStringSub(s,8,3)
-                elseif sl == 9 then
-                    set s = JNStringSub(s,0,3)+ "," + JNStringSub(s,3,3)+ "," + JNStringSub(s,6,3)
-                elseif sl == 8 then
-                    set s = JNStringSub(s,0,2)+ "," + JNStringSub(s,2,3)+ "," + JNStringSub(s,5,3)
-                elseif sl == 7 then
-                    set s = JNStringSub(s,0,1)+ "," + JNStringSub(s,1,3)+ "," + JNStringSub(s,4,3)
-                elseif sl == 6 then
-                    set s = JNStringSub(s,0,3)+ "," + JNStringSub(s,3,3)
-                elseif sl == 5 then
-                    set s = JNStringSub(s,0,2)+ "," + JNStringSub(s,2,3)
-                elseif sl == 4 then
-                    set s = JNStringSub(s,0,1)+ "," + JNStringSub(s,1,3)
-                endif
+                set s = FormatDamageText(1.00)
                 call SetTextTagText(ttag, s, 0.022)
                 call SetTextTagPosUnit(ttag, target, 5.00)
                 call SetTextTagColor(ttag, 255, 255, 255, 229)
