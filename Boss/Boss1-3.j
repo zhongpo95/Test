@@ -1,4 +1,4 @@
-library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,PointToPolygon
+library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,PointToPolygon,ItemPickUp
     globals
         //2분30초 7500
         //50 1초
@@ -1346,12 +1346,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
     endfunction
 
     private function NoRemove takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(GetEnumUnit()))
+        call ResetPlayerPotionCharges(pid)
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
             call DzFrameShow(BossTip, false)
         endif
-        call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
-        call Overlay(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
+        call BOSSHPSTART(CheckUnit, pid)
+        call Overlay(pid)
     endfunction
 
     private function Function takes nothing returns nothing

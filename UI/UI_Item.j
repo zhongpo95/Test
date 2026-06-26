@@ -1685,6 +1685,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameSetTexture(F_ItemButtonsBackDrop[102], GetItemNumberArt(25), 0)
         //call CreateItemButton2(3, 0.115, -0.0275)
         //call DzFrameSetTexture(F_ItemButtonsBackDrop[103], GetItemNumberArt(16), 0)
+        call DzFrameShow(F_ETC2emplateBackDrop, false)
         
         
         //메뉴 취소 버튼

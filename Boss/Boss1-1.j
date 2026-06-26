@@ -1,4 +1,4 @@
-library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay
+library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay, ItemPickUp
     globals
         integer BossTip
         //8초
@@ -226,9 +226,6 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
 
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID27"+";"+"중첩??0;")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID23"+";"+"중첩??0;")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"중첩??0;")
         //딜 참가한인원 x3% 체퍼딜
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
@@ -317,6 +314,7 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
 
     private function NoRemove takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(GetEnumUnit()))
+        call ResetPlayerPotionCharges(pid)
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
             call DzFrameShow(BossTip, false)

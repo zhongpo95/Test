@@ -6,6 +6,8 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         integer F_ItemStatsIcon2                  //스텟창 캐릭터 아이콘
         integer array F_EItemButtons2
         integer array F_EItemButtons2BackDrop
+        integer array F_EItemSlotBackDrop2
+        integer array F_EItemSlotText2
         boolean array F_Info2OnOff                //인포 온오프
         integer ClickPlayer = 0
     endglobals
@@ -404,13 +406,21 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
     
     //장비 빈 버튼 아이콘 생성 함수
     private function CreateEItemButton takes integer types, real x, real y returns nothing
-        set F_EItemButtons2[types]=DzCreateFrameByTagName("BUTTON", "", F_InfoBackDrop2, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EItemButtons2[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2 , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
-        call DzFrameSetSize(F_EItemButtons2[types], 0.030, 0.030)
+        set F_EItemSlotBackDrop2[types]=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop2, "StandardEditBoxBackdropTemplate", FrameCount())
+        call DzFrameSetPoint(F_EItemSlotBackDrop2[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop2 , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
+        call DzFrameSetSize(F_EItemSlotBackDrop2[types], 0.034, 0.040)
+
+        set F_EItemButtons2[types]=DzCreateFrameByTagName("BUTTON", "", F_EItemSlotBackDrop2[types], "ScoreScreenTabButtonTemplate",  FrameCount())
+        call DzFrameSetPoint(F_EItemButtons2[types], JN_FRAMEPOINT_TOP, F_EItemSlotBackDrop2[types] , JN_FRAMEPOINT_TOP, 0.000, -0.003)
+        call DzFrameSetSize(F_EItemButtons2[types], 0.025, 0.025)
         
         set F_EItemButtons2BackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_EItemButtons2[types], "", FrameCount())
         call DzFrameSetAllPoints(F_EItemButtons2BackDrop[types], F_EItemButtons2[types])
-        call DzFrameSetTexture(F_EItemButtons2BackDrop[types],"UI_Inventory.blp", 0)
+        call DzFrameSetTexture(F_EItemButtons2BackDrop[types], GetEquipSlotEmptyArt(types), 0)
+
+        set F_EItemSlotText2[types]=DzCreateFrameByTagName("TEXT", "", F_EItemSlotBackDrop2[types], "", FrameCount())
+        call DzFrameSetPoint(F_EItemSlotText2[types], JN_FRAMEPOINT_BOTTOM, F_EItemSlotBackDrop2[types], JN_FRAMEPOINT_BOTTOM, 0.000, 0.004)
+        call DzFrameSetText(F_EItemSlotText2[types], "|cFFB9E2FA" + GetEquipSlotName(types))
         
         call DzFrameSetScriptByCode(F_EItemButtons2[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_EItemButtons2[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
@@ -462,28 +472,16 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         // 장착 슬롯: 0엘릭서, 1무기, 2목걸이, 3귀걸이1, 4귀걸이2, 5반지1, 6반지2, 7팔찌, 8카드, 9보석
         
-        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , 0.320)
-        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.080 , 0.320)
-        call CreateEItemButton(EQUIP_SLOT_CARD , 0.350 , 0.320)
-        /*
-        call CreateEItemButton(2 , 0.160 , 0.320)
-        call CreateEItemButton(3 , 0.200 , 0.320)
-        */
-
-        //call CreateEItemButton(4 , 0.310 , 0.320)
-        
-        call CreateEItemButton(EQUIP_SLOT_NECKLACE , 0.040 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_EARRING_1 , 0.080 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_EARRING_2 , 0.120 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_RING_1 , 0.160 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_RING_2 , 0.200 , 0.280)
-
-
-        call CreateEItemButton(EQUIP_SLOT_BRACELET , 0.275 , 0.320)
-
-        call CreateEItemButton(EQUIP_SLOT_GEM , 0.255 , 0.280)
-        //call CreateEItemButton(15 , 0.350 , 0.280)
-        
+        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_NECKLACE , 0.080 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_EARRING_1 , 0.120 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_EARRING_2 , 0.160 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_RING_1 , 0.200 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_RING_2 , 0.240 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_GEM , 0.040 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.080 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_BRACELET , 0.120 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_CARD , 0.160 , 0.280)
         set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop2, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)
         call DzFrameSetText(i, "기본 정보")
@@ -755,23 +753,23 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 if Eitem[pid][0] != "0" and Eitem[pid][0] != "" and Eitem[pid][0] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[0], GetItemArt(Eitem[pid][0]), 0)
                 else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[0], "UI_Inventory.blp", 0)
+                    call DzFrameSetTexture(F_EItemButtons2BackDrop[0], GetEquipSlotEmptyArt(0), 0)
                 endif
                 if Eitem[pid][1] != "0" and Eitem[pid][1] != "" and Eitem[pid][1] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetItemArt(Eitem[pid][1]), 0)
                 else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[1], "UI_Inventory.blp", 0)
+                    call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetEquipSlotEmptyArt(1), 0)
                 endif
                 /*
                 if Eitem[pid][2] != "0" and Eitem[pid][2] != "" and Eitem[pid][2] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[2], GetItemArt(Eitem[pid][2]), 0)
                 else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[2], "UI_Inventory.blp", 0)
+                    call DzFrameSetTexture(F_EItemButtons2BackDrop[2], GetEquipSlotEmptyArt(2), 0)
                 endif
                 if Eitem[pid][3] != "0" and Eitem[pid][3] != "" and Eitem[pid][3] != null then
                     call DzFrameSetTexture(F_EItemButtons2BackDrop[3], GetItemArt(Eitem[pid][3]), 0)
                 else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[3], "UI_Inventory.blp", 0)
+                    call DzFrameSetTexture(F_EItemButtons2BackDrop[3], GetEquipSlotEmptyArt(3), 0)
                 endif
                 */
                 //if Eitem[pid][4] != "0" then
@@ -782,7 +780,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                     if Eitem[pid][i] != "0" and Eitem[pid][i] != "" and Eitem[pid][i] != null then
                         call DzFrameSetTexture(F_EItemButtons2BackDrop[i], GetItemArt(Eitem[pid][i]), 0)
                     else
-                        call DzFrameSetTexture(F_EItemButtons2BackDrop[i], "UI_Inventory.blp", 0)
+                        call DzFrameSetTexture(F_EItemButtons2BackDrop[i], GetEquipSlotEmptyArt(i), 0)
                     endif
                     exitwhen i == EQUIP_SLOT_MAX
                     set i = i + 1

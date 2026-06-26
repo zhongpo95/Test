@@ -1,4 +1,4 @@
-library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1
+library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,ItemPickUp
     globals
         //무력화시간
         private constant integer Pattern2Time = 500
@@ -203,12 +203,14 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
     endfunction
 
     private function NoRemove takes nothing returns nothing
+        local integer pid = GetPlayerId(GetOwningPlayer(GetEnumUnit()))
+        call ResetPlayerPotionCharges(pid)
         if GetLocalPlayer() == GetOwningPlayer(GetEnumUnit()) then
             call PlayersBossBarShow(GetLocalPlayer(),true)
             call DzFrameShow(BossTip, false)
         endif
-        call BOSSHPSTART(CheckUnit, GetPlayerId(GetOwningPlayer(GetEnumUnit())))
-        call Overlay(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
+        call BOSSHPSTART(CheckUnit, pid)
+        call Overlay(pid)
     endfunction
 
     private function EffectFunction takes nothing returns nothing

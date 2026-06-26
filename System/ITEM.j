@@ -68,6 +68,35 @@ library ITEM requires DataItem
         endif
         return -1
     endfunction
+
+    function GetEquipSlotName takes integer slot returns string
+        if slot == EQUIP_SLOT_ELIXIR then
+            return "엘릭"
+        elseif slot == EQUIP_SLOT_WEAPON then
+            return "무기"
+        elseif slot == EQUIP_SLOT_NECKLACE then
+            return "목걸"
+        elseif slot == EQUIP_SLOT_EARRING_1 then
+            return "귀1"
+        elseif slot == EQUIP_SLOT_EARRING_2 then
+            return "귀2"
+        elseif slot == EQUIP_SLOT_RING_1 then
+            return "반1"
+        elseif slot == EQUIP_SLOT_RING_2 then
+            return "반2"
+        elseif slot == EQUIP_SLOT_BRACELET then
+            return "팔찌"
+        elseif slot == EQUIP_SLOT_CARD then
+            return "카드"
+        elseif slot == EQUIP_SLOT_GEM then
+            return "보석"
+        endif
+        return ""
+    endfunction
+
+    function GetEquipSlotEmptyArt takes integer slot returns string
+        return "UI_Inventory.blp"
+    endfunction
     //아이디
     //function GetItemIDs takes string items returns integer
         //return S2I(JNStringSplit(items, ";", 0))

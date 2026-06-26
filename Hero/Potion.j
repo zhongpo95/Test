@@ -67,25 +67,17 @@ scope Potion
 
     private function Main takes nothing returns nothing
         local unit caster
-        local string items
         local integer pid
-        local integer j
         local tick t
         local FxEffect fx
-        local string sn
 
         if GetSpellAbilityId() == 'A01R' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
-            set sn = I2S(PlayerSlotNumber[pid])
 
             call SetUnitState(caster, UNIT_STATE_LIFE, GetUnitState(caster,UNIT_STATE_LIFE) + ( GetUnitState(caster,UNIT_STATE_MAX_LIFE) * 0.6 ) )
             call RefreshHP(caster)
 
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션1", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션1", "0")
-            set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "?�롯"+sn+".?�션1", items)
 
             set caster = null
         endif
@@ -94,7 +86,6 @@ scope Potion
         if GetSpellAbilityId() == 'A01S' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
-            set sn = I2S(PlayerSlotNumber[pid])
 
             call UnitEffectTimeEX('e00Z',GetSpellTargetX(), GetSpellTargetY(),270,1.00)
             call DestroyEffect( AddSpecialEffect("Abilities\\Spells\\Undead\\ReplenishHealth\\ReplenishHealthCaster.mdl", GetSpellTargetX(), GetSpellTargetY() ) )
@@ -102,10 +93,6 @@ scope Potion
             call DummyMagicleash3(caster,0.3)
             call AnimationStringStart(caster,"Attack")
 
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", "0")
-            set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", items)
             set caster = null
         endif
         */
@@ -113,7 +100,6 @@ scope Potion
         if GetSpellAbilityId() == 'A01U' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
-            set sn = I2S(PlayerSlotNumber[pid])
 
             set t = tick.create(0)
             set fx = FxEffect.Create()
@@ -138,10 +124,6 @@ scope Potion
             call t.start( 10, false, function EffectFunction )
 
 
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", "0")
-            set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "?�롯"+sn+".?�션2", items)
             set caster = null
         endif
 
@@ -149,7 +131,6 @@ scope Potion
         if GetSpellAbilityId() == 'A01T' then
             set caster = GetTriggerUnit()
             set pid = GetPlayerId(GetOwningPlayer(caster))
-            set sn = I2S(PlayerSlotNumber[pid])
 
             set t = tick.create(0)
             set fx = FxEffect.Create()
@@ -163,10 +144,6 @@ scope Potion
             call t.start( 3.5, false, function EffectFunction2 )
 
 
-            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션3", "0"))
-            set items = StashLoad(PLAYER_DATA[pid], "?�롯"+sn+".?�션3", "0")
-            set items = SetItemCharge(items, j-1)
-            call StashSave(PLAYER_DATA[pid], "?�롯"+sn+".?�션3", items)
             set caster = null
         endif
 

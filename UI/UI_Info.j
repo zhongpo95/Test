@@ -6,6 +6,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         //integer F_InfoCancelButton             //X버튼
         integer array F_ItemStatsText            //스텟창 텍스트
         integer F_ItemStatsIcon                  //스텟창 캐릭터 아이콘
+        integer array F_EItemSlotBackDrop
+        integer array F_EItemSlotText
         
         boolean array F_InfoOnOff                //인포 온오프
     endglobals
@@ -432,7 +434,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
                         set items = Eitem[pid][selectnumber2]
                         //장착 해제
                         set Eitem[pid][selectnumber2] = ""
-                        call DzFrameSetTexture(F_EItemButtonsBackDrop[selectnumber2], "UI_Inventory.blp", 0)
+                        call DzFrameSetTexture(F_EItemButtonsBackDrop[selectnumber2], GetEquipSlotEmptyArt(selectnumber2), 0)
 
                         if selectnumber2 == EQUIP_SLOT_CARD then
                             call DzFrameSetTexture(F_ArcanaButtonsBackDrop[5], "UI_Inventory.blp", 0)
@@ -469,13 +471,21 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
     
     //장비 빈 버튼 아이콘 생성 함수
     private function CreateEItemButton takes integer types, real x, real y returns nothing
-        set F_EItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_InfoBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_EItemButtons[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
-        call DzFrameSetSize(F_EItemButtons[types], 0.030, 0.030)
+        set F_EItemSlotBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
+        call DzFrameSetPoint(F_EItemSlotBackDrop[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
+        call DzFrameSetSize(F_EItemSlotBackDrop[types], 0.034, 0.040)
+
+        set F_EItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_EItemSlotBackDrop[types], "ScoreScreenTabButtonTemplate",  FrameCount())
+        call DzFrameSetPoint(F_EItemButtons[types], JN_FRAMEPOINT_TOP, F_EItemSlotBackDrop[types] , JN_FRAMEPOINT_TOP, 0.000, -0.003)
+        call DzFrameSetSize(F_EItemButtons[types], 0.025, 0.025)
         
         set F_EItemButtonsBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_EItemButtons[types], "", FrameCount())
         call DzFrameSetAllPoints(F_EItemButtonsBackDrop[types], F_EItemButtons[types])
-        call DzFrameSetTexture(F_EItemButtonsBackDrop[types],"UI_Inventory.blp", 0)
+        call DzFrameSetTexture(F_EItemButtonsBackDrop[types], GetEquipSlotEmptyArt(types), 0)
+
+        set F_EItemSlotText[types]=DzCreateFrameByTagName("TEXT", "", F_EItemSlotBackDrop[types], "", FrameCount())
+        call DzFrameSetPoint(F_EItemSlotText[types], JN_FRAMEPOINT_BOTTOM, F_EItemSlotBackDrop[types], JN_FRAMEPOINT_BOTTOM, 0.000, 0.004)
+        call DzFrameSetText(F_EItemSlotText[types], "|cFFB9E2FA" + GetEquipSlotName(types))
         
         call DzFrameSetScriptByCode(F_EItemButtons[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_EItemButtons[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
@@ -540,26 +550,16 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         // 장착 슬롯: 0엘릭서, 1무기, 2목걸이, 3귀걸이1, 4귀걸이2, 5반지1, 6반지2, 7팔찌, 8카드, 9보석
         
-        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , 0.320)
-        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.080 , 0.320)
-        call CreateEItemButton(EQUIP_SLOT_CARD , 0.350 , 0.320)
-        //call CreateEItemButton(2 , 0.160 , 0.320)
-        //call CreateEItemButton(3 , 0.200 , 0.320)
-
-        //call CreateEItemButton(4 , 0.310 , 0.320)
-        
-        call CreateEItemButton(EQUIP_SLOT_NECKLACE , 0.040 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_EARRING_1 , 0.080 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_EARRING_2 , 0.120 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_RING_1 , 0.160 , 0.280)
-        call CreateEItemButton(EQUIP_SLOT_RING_2 , 0.200 , 0.280)
-
-
-        call CreateEItemButton(EQUIP_SLOT_BRACELET , 0.275 , 0.320)
-
-        call CreateEItemButton(EQUIP_SLOT_GEM , 0.255 , 0.280)
-        //call CreateEItemButton(15 , 0.350 , 0.280)
-        
+        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_NECKLACE , 0.080 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_EARRING_1 , 0.120 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_EARRING_2 , 0.160 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_RING_1 , 0.200 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_RING_2 , 0.240 , 0.320)
+        call CreateEItemButton(EQUIP_SLOT_GEM , 0.040 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.080 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_BRACELET , 0.120 , 0.280)
+        call CreateEItemButton(EQUIP_SLOT_CARD , 0.160 , 0.280)
         set i=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.055, 0.235)
         call DzFrameSetText(i, "기본 정보")

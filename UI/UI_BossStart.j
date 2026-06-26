@@ -442,6 +442,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         local integer pid = GetPlayerId(p)
         local integer HeroTypeId
         
+
         //튜토 카운터
         if BossNumber == 1 then
             //set HeroTypeId = 'H004'
