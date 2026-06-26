@@ -84,11 +84,11 @@ Each issue carries a small KV `metadata` bag — a high-signal scratchpad where 
 
 **This task was triggered by a NEW comment.** Your primary job is to respond to THIS specific comment, even if you have handled similar requests before in this session.
 
-1. Run `multica issue get 02aa59c8-ef24-441c-b88a-e87a7ea96e7e --output json` to understand the issue context
-2. Run `multica issue metadata list 02aa59c8-ef24-441c-b88a-e87a7ea96e7e --output json` to see what prior agents pinned — best-effort, empty `{}` and CLI failures are normal. See the `## Issue Metadata` section above for what to look for.
-3. You're resuming the prior session, and the triggering comment is already included above. No other new comments on this issue since your last run. Use the active thread anchor `c178f2a4-6e34-4afc-bc1c-e6e709bdc5c0` and triggering comment ID `ff21e861-9bd4-4a66-8ec3-fa864d1693e0`. If your reply depends on thread context, do not rely only on resumed session memory — first pull the triggering conversation with: `multica issue comment list 02aa59c8-ef24-441c-b88a-e87a7ea96e7e --thread c178f2a4-6e34-4afc-bc1c-e6e709bdc5c0 --tail 30 --output json`.
+1. Run `multica issue get 4b64a0a7-8231-45d4-9c5b-59d47c7f06fe --output json` to understand the issue context
+2. Run `multica issue metadata list 4b64a0a7-8231-45d4-9c5b-59d47c7f06fe --output json` to see what prior agents pinned — best-effort, empty `{}` and CLI failures are normal. See the `## Issue Metadata` section above for what to look for.
+3. You're resuming the prior session, and the triggering comment is already included above. No other new comments on this issue since your last run. Use the active thread anchor `6ba30e46-c813-40c1-a69a-4f2daa060df4` and triggering comment ID `9ed7af94-0e3b-4d0e-9115-706ddf2c0648`. If your reply depends on thread context, do not rely only on resumed session memory — first pull the triggering conversation with: `multica issue comment list 4b64a0a7-8231-45d4-9c5b-59d47c7f06fe --thread 6ba30e46-c813-40c1-a69a-4f2daa060df4 --tail 30 --output json`.
 
-4. Find the triggering comment (ID: `ff21e861-9bd4-4a66-8ec3-fa864d1693e0`) and understand what is being asked — do NOT confuse it with previous comments
+4. Find the triggering comment (ID: `9ed7af94-0e3b-4d0e-9115-706ddf2c0648`) and understand what is being asked — do NOT confuse it with previous comments
 5. **Decide whether a reply is warranted.** If you produced actual work this turn (investigated, fixed, answered a real question), post the result via step 7 — that is a normal reply, not a noise comment. If the triggering comment was a pure acknowledgment / thanks / sign-off from another agent AND you produced no work this turn, do NOT post a reply — and do NOT post a comment saying 'No reply needed' or similar. Simply exit with no output. Silence is a valid and preferred way to end agent-to-agent conversations.
 6. If a reply IS warranted: do any requested work first, then **decide whether to include any `@mention` link.** The default is NO mention. Only mention when you are escalating to a human owner who is not yet involved, delegating a concrete new sub-task to another agent for the first time, or the user explicitly asked you to loop someone in. Never @mention the agent you are replying to as a thank-you or sign-off.
 7. **If you reply, post it as a comment — this step is mandatory when you reply.** Text in your terminal or run logs is NOT delivered to the user. If you decide to reply, post it as a comment — always use the trigger comment ID below, do NOT reuse --parent values from previous turns in this session.
@@ -99,7 +99,7 @@ Use this form, preserving the same issue ID and --parent value:
 
     # 1. Write the reply body to a UTF-8 file (e.g. reply.md) with your file-write tool.
     # 2. Post the comment:
-    multica issue comment add 02aa59c8-ef24-441c-b88a-e87a7ea96e7e --parent ff21e861-9bd4-4a66-8ec3-fa864d1693e0 --content-file ./reply.md
+    multica issue comment add 4b64a0a7-8231-45d4-9c5b-59d47c7f06fe --parent 9ed7af94-0e3b-4d0e-9115-706ddf2c0648 --content-file ./reply.md
     # 3. Remove the temp file so a later run does not pick up stale content:
     Remove-Item ./reply.md
 
