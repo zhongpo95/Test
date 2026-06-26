@@ -130,7 +130,7 @@ library DisplayGrid initializer Init
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger(  )
         local integer i = 0
-        call TriggerRegisterTimerEvent(t, 0.00, false)
+        call TriggerRegisterTimerEvent(t, 1.00, false)
         call TriggerAddAction( t, function Main )
         
         set t = CreateTrigger(  )
