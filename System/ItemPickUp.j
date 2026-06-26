@@ -1,4 +1,53 @@
 library ItemPickUp initializer init requires DataItem, UIItem, ITEM
+    globals
+        constant integer POTION_HEAL_DUNGEON_CHARGES = 1
+        constant integer POTION_BUFF_DUNGEON_CHARGES = 1
+        constant integer POTION_INVULNERABLE_DUNGEON_CHARGES = 1
+    endglobals
+
+    function ShowPlayerPotionDisplay takes integer pid returns nothing
+        if PlayerItem1[pid] != null then
+            call RemoveItem(PlayerItem1[pid])
+        endif
+        set PlayerItem1[pid] = CreateItem('I00J',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
+
+        if PlayerItem2[pid] != null then
+            call RemoveItem(PlayerItem2[pid])
+        endif
+        set PlayerItem2[pid] = CreateItem('I00G',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
+
+        if PlayerItem3[pid] != null then
+            call RemoveItem(PlayerItem3[pid])
+        endif
+        set PlayerItem3[pid] = CreateItem('I00I',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
+    endfunction
+
+    function ResetPlayerPotionCharges takes integer pid returns nothing
+        if PlayerItem1[pid] != null then
+            call RemoveItem(PlayerItem1[pid])
+        endif
+        set PlayerItem1[pid] = CreateItem('I009',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
+        call SetItemCharges(PlayerItem1[pid], POTION_HEAL_DUNGEON_CHARGES)
+
+        if PlayerItem2[pid] != null then
+            call RemoveItem(PlayerItem2[pid])
+        endif
+        set PlayerItem2[pid] = CreateItem('I00C',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
+        call SetItemCharges(PlayerItem2[pid], POTION_BUFF_DUNGEON_CHARGES)
+
+        if PlayerItem3[pid] != null then
+            call RemoveItem(PlayerItem3[pid])
+        endif
+        set PlayerItem3[pid] = CreateItem('I00A',0,0)
+        call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
+        call SetItemCharges(PlayerItem3[pid], POTION_INVULNERABLE_DUNGEON_CHARGES)
+    endfunction
+
     function additem takes player p, string items returns nothing
         local integer i = 0
         local integer j = 0
@@ -47,13 +96,13 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
             if class == "Charged" then
                 if LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I009' then
                     set i = 100
-                    call DzSyncData(("ICharge"),I2S(100)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션1", "0") )
+                    call DzSyncData(("ICharge"),I2S(100)+"\t"+I2S(GetItemCharges(PlayerItem1[pid])) )
                 elseif LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I00C' then
                     set i = 101
-                    call DzSyncData(("ICharge"),I2S(101)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션2", "0") )
+                    call DzSyncData(("ICharge"),I2S(101)+"\t"+I2S(GetItemCharges(PlayerItem2[pid])) )
                 elseif LoadInteger(ItemData, StringHash("ITEMID"), itemid ) == 'I00A' then
                     set i = 102
-                    call DzSyncData(("ICharge"),I2S(102)+"\t"+StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".포션3", "0") )
+                    call DzSyncData(("ICharge"),I2S(102)+"\t"+I2S(GetItemCharges(PlayerItem3[pid])) )
                 endif
             endif
             
@@ -79,41 +128,33 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
         local integer i = S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0))
         local integer j
         local integer pid = GetPlayerId(p)
-        local string items = JNStringSplit(DzGetTriggerSyncData(), "\t", 1)
-        local string sn = I2S(PlayerSlotNumber[pid])
+        local integer charges = S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 1))
         
         if i == 100 then
-            set j = GetItemCharge(items)
+            set j = charges
             if j == 0 then
                 call RemoveItem(PlayerItem1[pid])
                 set PlayerItem1[pid] = CreateItem('I009',0,0)
                 call UnitAddItem(MainUnit[pid],PlayerItem1[pid])
             endif
 
-            set items = SetItemCharge(items,j+1)
-
-            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션1", items)
             call SetItemCharges(PlayerItem1[pid],j+1)
         elseif i == 101 then
-            set j = GetItemCharge(items)
+            set j = charges
             if j == 0 then
                 call RemoveItem(PlayerItem2[pid])
                 set PlayerItem2[pid] = CreateItem('I00C',0,0)
                 call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
             endif
-            set items = SetItemCharge(items,j+1)
-            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션2", items)
             call SetItemCharges(PlayerItem2[pid],j+1)
             call SetItemCharges(PlayerItem2[pid],j+1)
         elseif i == 102 then
-            set j = GetItemCharge(items)
+            set j = charges
             if j == 0 then
                 call RemoveItem(PlayerItem3[pid])
                 set PlayerItem3[pid] = CreateItem('I00A',0,0)
                 call UnitAddItem(MainUnit[pid],PlayerItem3[pid])
             endif
-            set items = SetItemCharge(items,j+1)
-            call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".포션3", items)
             call SetItemCharges(PlayerItem3[pid],j+1)
         endif
         

@@ -122,6 +122,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
     function ItemUIStatsSet takes integer pid returns nothing
         local real r =0
         local integer speed = 0
+        local integer i = 0
         set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid] + Arcana_Cri[pid]
         set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] )
         if speed > 140 then
@@ -162,7 +163,17 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             call DzFrameSetText(F_ItemStatsText[14], R2SW(r, 1, 2) ) 
             //개척력
             //call DzFrameSetText(F_ItemStatsText[15], I2S(R2I(  TrailblazePower(r) )) ) 
-            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 2)) 
+            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 2))
+            set i = 0
+            loop
+                if IsEmptyItem(Eitem[pid][i]) then
+                    call DzFrameSetTexture(F_EItemButtonsBackDrop[i], GetEquipSlotEmptyArt(i), 0)
+                else
+                    call DzFrameSetTexture(F_EItemButtonsBackDrop[i], GetItemArt(Eitem[pid][i]), 0)
+                endif
+                exitwhen i == EQUIP_SLOT_MAX
+                set i = i + 1
+            endloop
         endif
         call SetUnitMoveSpeed( MainUnit[pid], 4 * speed )
     endfunction
