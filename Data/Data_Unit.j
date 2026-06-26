@@ -111,9 +111,6 @@ globals
     
     //기초체력
     real array UnitSetHP
-    //체력  체력배율,스트링
-    integer array UnitHPValue
-    string array UnitHPString
     real array UnitHP
     real array UnitHPMAX
     integer array UnitSetHPx
@@ -195,8 +192,6 @@ private function init takes nothing returns nothing
     
     //샌드백
     set UnitAbilityIndex[2] = 'h002'
-    set UnitHPValue[2] = 1
-    set UnitHPString[2] = ""
     set UnitSetHP[2] = 1000000
     set UnitSetSD[2] = 1000
     set UnitSetArm[2] = 10000
@@ -401,8 +396,6 @@ private function init takes nothing returns nothing
     
     //반격
     set UnitAbilityIndex[8] = 'h008'
-    set UnitHPValue[8] = 1
-    set UnitHPString[8] = ""
     set UnitSetHP[8] = 100000000
     set UnitSetSD[8] = 100000000
     set UnitSetArm[8] = 10000
@@ -436,8 +429,6 @@ private function init takes nothing returns nothing
 
     //유유코
     set UnitAbilityIndex[13] = 'h008'
-    set UnitHPValue[13] = 1
-    set UnitHPString[13] = ""
     set UnitSetHP[13] = 100000000
     set UnitSetSD[13] = 100000000
     set UnitSetArm[13] = 10000
@@ -636,8 +627,6 @@ private function init takes nothing returns nothing
 
     //테스트
     set UnitAbilityIndex[16] = 'h00L'
-    set UnitHPValue[16] = 1
-    set UnitHPString[16] = ""
     set UnitSetHP[16] = 10000
     set UnitSetSD[16] = 10000
     set UnitSetArm[16] = 10000

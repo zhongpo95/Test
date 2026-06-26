@@ -58,7 +58,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
     endglobals
 
     //pid,스킬,피해량,크리
-    //call Overlay2(pid, SkillCode,(dmg * HPvalue),CriBoolean)
+    //call Overlay2(pid, SkillCode,dmg,CriBoolean)
     function Overlay2 takes integer pid, integer SkillCode, real damage, boolean Cri returns nothing
         local integer i = 0
         local integer id = 0
