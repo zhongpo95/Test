@@ -71,19 +71,19 @@ library ITEM requires DataItem
 
     function GetEquipSlotName takes integer slot returns string
         if slot == EQUIP_SLOT_ELIXIR then
-            return "엘릭"
+            return "엘릭서"
         elseif slot == EQUIP_SLOT_WEAPON then
             return "무기"
         elseif slot == EQUIP_SLOT_NECKLACE then
-            return "목걸"
+            return "목걸이"
         elseif slot == EQUIP_SLOT_EARRING_1 then
-            return "귀1"
+            return "귀걸이"
         elseif slot == EQUIP_SLOT_EARRING_2 then
-            return "귀2"
+            return "귀걸이"
         elseif slot == EQUIP_SLOT_RING_1 then
-            return "반1"
+            return "반지"
         elseif slot == EQUIP_SLOT_RING_2 then
-            return "반2"
+            return "반지"
         elseif slot == EQUIP_SLOT_BRACELET then
             return "팔찌"
         elseif slot == EQUIP_SLOT_CARD then
