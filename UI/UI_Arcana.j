@@ -44,21 +44,21 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         local integer i = LoadInteger(ArcanaData, 50, pid)
-        
+
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "공격력 감소" )
         if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/4/8/16/32% 감소한다."
         elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 |cffff00000|r/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 |cffff00000|r/4/8/16/32% 감소한다."
         elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/|cffff00002|r/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/|cffff00004|r/8/16/32% 감소한다."
         elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/2/|cffff00004|r/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/4/|cffff00008|r/16/32% 감소한다."
         elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/2/4/|cffff00008|r/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/4/8/|cffff000016|r/32% 감소한다."
         elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/2/4/8/|cffff000016|r% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격력이 0/4/8/16/|cffff000032|r% 감소한다."
         endif
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -68,22 +68,22 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         local integer i = LoadInteger(ArcanaData, 51, pid)
-        
+
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "체력 감소" )
-        set str = "|cFFA5FA7D ◎ |r" + "체력이 0/5/10/15/30% 감소한다"
+        set str = "|cFFA5FA7D ◎ |r" + "체력이 0/10/20/30/60% 감소한다"
         if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/5/10/15/30% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/10/20/30/60% 감소한다."
         elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 |cffff00000|r/5/10/15/30% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 |cffff00000|r/10/20/30/60% 감소한다."
         elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/|cffff00005|r/10/15/30% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/|cffff000010|r/20/30/60% 감소한다."
         elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/5/|cffff000010|r/15/30% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/10/|cffff000020|r/30/60% 감소한다."
         elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/5/10/|cffff000015|r/30% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/10/20/|cffff000030|r/60% 감소한다."
         elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/5/10/15/|cffff000030|r% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "체력이 0/10/20/30/|cffff000060|r% 감소한다."
         endif
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -93,21 +93,21 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         local integer i = LoadInteger(ArcanaData, 52, pid)
-        
+
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "공격속도 감소" )
         if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/4/8/16/32% 감소한다."
         elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 |cffff00000|r/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 |cffff00000|r/4/8/16/32% 감소한다."
         elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/|cffff00002|r/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/|cffff00004|r/8/16/32% 감소한다."
         elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/2/|cffff00004|r/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/4/|cffff00008|r/16/32% 감소한다."
         elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/2/4/|cffff00008|r/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/4/8/|cffff000016|r/32% 감소한다."
         elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "공격속도가 0/4/8/16/|cffff000032|r% 감소한다."
         endif
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
@@ -117,21 +117,21 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local string str = ""
         local integer i = LoadInteger(ArcanaData, 53, pid)
-        
+
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "이동속도 감소" )
         if i == 0 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/4/8/16/32% 감소한다."
         elseif i == 1 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/2/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 |cffff00000|r/4/8/16/32% 감소한다."
         elseif i == 2 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00002|r/4/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/|cffff00004|r/8/16/32% 감소한다."
         elseif i == 3 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/|cffff00004|r/8/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/4/|cffff00008|r/16/32% 감소한다."
         elseif i == 4 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/|cffff00008|r/16% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/4/8/|cffff000016|r/32% 감소한다."
         elseif i == 5 then
-            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/2/4/8/|cffff000016|r% 감소한다." 
+            set str = "|cFFA5FA7D ◎ |r" + "이동속도가 0/4/8/16/|cffff000032|r% 감소한다."
         endif
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction

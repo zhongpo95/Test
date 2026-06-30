@@ -93,7 +93,7 @@ private function init takes nothing returns nothing
     set pid = 0
     loop
         set Hero_Damage[pid] = 0
-        set Hero_CriRate[pid] = 0
+        set Hero_CriRate[pid] = 5
         set Hero_CriDeal[pid] = 100
         //set Hero_Hp[pid] = 10000
         set Hero_Buff[pid] = 0
@@ -128,6 +128,7 @@ private function init takes nothing returns nothing
         set Arcana_HP[pid] = 1
         set Arcana_MoveSpeed[pid] = 0
         set Arcana_SkillSpeed2[pid] = 0
+        set Stats_Crit[pid] = 5
         
         //플레이어 각인 테이블 초기화
         call SaveInteger(ArcanaData, 0, pid, 0)

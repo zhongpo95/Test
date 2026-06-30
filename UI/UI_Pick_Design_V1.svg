@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#05070b"/>
+  <rect x="0" y="0" width="1600" height="900" fill="#111827" opacity="0.18"/>
+  <rect x="0" y="760" width="1600" height="140" fill="#090d18" opacity="0.58"/>
+  <text x="800" y="842" fill="#6d789f" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Lower game interface may be covered during character pick</text>
+
+  <rect x="70" y="60" width="1460" height="760" rx="34" fill="#101a42" opacity="0.9" stroke="#48d7f2" stroke-width="5"/>
+
+  <rect x="115" y="110" width="900" height="670" rx="8" fill="#253478" opacity="0.55" stroke="#a96aff" stroke-width="4"/>
+  <text x="150" y="150" fill="#f8fbff" font-family="Arial, sans-serif" font-size="26" font-weight="700">B Square Card Grid</text>
+
+  <g fill="#314081" stroke="#aeb8ff" stroke-width="3">
+    <rect x="160" y="170" width="240" height="240" rx="6"/>
+    <rect x="445" y="170" width="240" height="240" rx="6"/>
+    <rect x="730" y="170" width="240" height="240" rx="6"/>
+    <rect x="160" y="475" width="240" height="240" rx="6"/>
+    <rect x="445" y="475" width="240" height="240" rx="6"/>
+    <rect x="730" y="475" width="240" height="240" rx="6"/>
+  </g>
+  <rect x="160" y="170" width="240" height="240" rx="6" fill="none" stroke="#f7c84b" stroke-width="5"/>
+
+  <g fill="#93a8ff" opacity="0.28">
+    <rect x="185" y="195" width="190" height="190" rx="4"/>
+    <rect x="470" y="195" width="190" height="190" rx="4"/>
+    <rect x="755" y="195" width="190" height="190" rx="4"/>
+    <rect x="185" y="500" width="190" height="190" rx="4"/>
+    <rect x="470" y="500" width="190" height="190" rx="4"/>
+    <rect x="755" y="500" width="190" height="190" rx="4"/>
+  </g>
+  <g fill="#e8eeff" font-family="Arial, sans-serif" font-size="18">
+    <text x="185" y="398">Hero card</text>
+    <text x="470" y="398">Hero card</text>
+    <text x="755" y="398">Hero card</text>
+    <text x="185" y="703">Locked</text>
+    <text x="470" y="703">Locked</text>
+    <text x="755" y="703">Locked</text>
+  </g>
+
+  <rect x="1035" y="135" width="30" height="610" rx="6" fill="#14234f" opacity="0.85" stroke="#87fff0" stroke-width="3"/>
+  <rect x="1044" y="185" width="12" height="165" rx="5" fill="#9cf5ff" opacity="0.7"/>
+  <text x="1050" y="775" fill="#e8eeff" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">D</text>
+
+  <rect x="1100" y="105" width="390" height="675" rx="8" fill="#13204c" opacity="0.82" stroke="#f6bd44" stroke-width="5"/>
+  <text x="1130" y="150" fill="#f8fbff" font-family="Arial, sans-serif" font-size="25" font-weight="700">C Preview</text>
+  <rect x="1130" y="155" width="330" height="520" rx="6" fill="#314081" opacity="0.62" stroke="#72c7ff" stroke-width="3"/>
+  <text x="1295" y="425" fill="#e8eeff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" opacity="0.78">Clicked card image</text>
+  <rect x="1210" y="715" width="170" height="46" rx="5" fill="#26305f" stroke="#b8c4ff" stroke-width="3"/>
+  <text x="1295" y="745" fill="#ffffff" font-family="Arial, sans-serif" font-size="23" text-anchor="middle">Confirm</text>
+</svg>
+
+
+

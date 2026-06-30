@@ -95,25 +95,25 @@ private struct TEvAfterA extends array
 
     
         //공격력 감소
-        //공격력이 0/2/4/8/16% 감소한다.
+        //공격력이 0/4/8/16/32% 감소한다.
         set Arcanablp[50] = "ReplaceableTextures\\CommandButtons\\BTNArcana21.blp"
         set ArcanaText[50] = "공격력 감소"
-        set ArcanaText2[50] = "공격력이 0/2/4/8/16% 감소한다."
+        set ArcanaText2[50] = "공격력이 0/4/8/16/32% 감소한다."
         //체력 감소
-        //체력이 0/5/10/15/30% 감소한다
+        //체력이 0/10/20/30/60% 감소한다
         set Arcanablp[51] = "ReplaceableTextures\\CommandButtons\\BTNArcana21.blp"
         set ArcanaText[51] = "체력 감소"
-        set ArcanaText2[51] = "체력이 0/5/10/15/30% 감소한다"
+        set ArcanaText2[51] = "체력이 0/10/20/30/60% 감소한다"
         //공격속도 감소
-        //공격속도가 0/2/4/8/16% 감소한다.
+        //공격속도가 0/4/8/16/32% 감소한다.
         set Arcanablp[52] = "ReplaceableTextures\\CommandButtons\\BTNArcana21.blp"
         set ArcanaText[52] = "공격속도 감소"
-        set ArcanaText2[52] = "공격속도가 0/2/4/8/16% 감소한다."
+        set ArcanaText2[52] = "공격속도가 0/4/8/16/32% 감소한다."
         //이동속도 감소
-        //이동속도가 0/2/4/8/16% 감소한다.
+        //이동속도가 0/4/8/16/32% 감소한다.
         set Arcanablp[53] = "ReplaceableTextures\\CommandButtons\\BTNArcana21.blp"
         set ArcanaText[53] = "이동속도 감소"
-        set ArcanaText2[53] = "이동속도가 0/2/4/8/16% 감소한다."
+        set ArcanaText2[53] = "이동속도가 0/4/8/16/32% 감소한다."
     
     
     endmethod

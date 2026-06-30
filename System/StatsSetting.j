@@ -462,26 +462,26 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00002%|r")
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00004%|r")
             endif
-            set Equip_DamageP[pid] = Equip_DamageP[pid] - 2
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 4
         elseif j == 3 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00004%|r")
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00008%|r")
             endif
-            set Equip_DamageP[pid] = Equip_DamageP[pid] - 4
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 8
         elseif j == 4 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00008%|r")
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000016%|r")
             endif
-            set Equip_DamageP[pid] = Equip_DamageP[pid] - 8
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 16
         elseif j == 5 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
@@ -489,9 +489,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
                 call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana1[4], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000016%|r")
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000032%|r")
             endif
-            set Equip_DamageP[pid] = Equip_DamageP[pid] - 16
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 32
         endif
 
         //체깎
@@ -507,18 +507,18 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff00005%|r")
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000010%|r")
             endif
-            set Arcana_HP[pid] = 0.95
+            set Arcana_HP[pid] = 0.90
             call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
         elseif j == 3 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000010%|r")
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000020%|r")
             endif
-            set Arcana_HP[pid] = 0.9
+            set Arcana_HP[pid] = 0.80
             call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
         elseif j == 4 then
             if GetLocalPlayer() == Player(pid) then
@@ -526,9 +526,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
                 call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000015%|r")
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000030%|r")
             endif
-            set Arcana_HP[pid] = 0.85
+            set Arcana_HP[pid] = 0.70
             call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
         elseif j == 5 then
             if GetLocalPlayer() == Player(pid) then
@@ -537,9 +537,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
                 call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana2[4], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000030%|r")
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000060%|r")
             endif
-            set Arcana_HP[pid] = 0.70
+            set Arcana_HP[pid] = 0.40
             call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
         endif
         call RefreshHP(MainUnit[pid])
@@ -557,26 +557,26 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00002%|r")
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00004%|r")
             endif
-            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 2
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 4
         elseif j == 3 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00004%|r")
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00008%|r")
             endif
-            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 4
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 8
         elseif j == 4 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00008%|r")
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff000016%|r")
             endif
-            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 8
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 16
         elseif j == 5 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
@@ -584,9 +584,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
                 call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana3[4], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff000016%|r")
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff000032%|r")
             endif
-            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 16
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 32
         endif
         //이속
         set j = LoadInteger(ArcanaData, 53, pid)
@@ -601,26 +601,26 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00002%|r")
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00004%|r")
             endif
-            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 2
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 4
         elseif j == 3 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00004%|r")
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00008%|r")
             endif
-            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 4
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 8
         elseif j == 4 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[3], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00008%|r")
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff000016%|r")
             endif
-            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 8
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 16
         elseif j == 5 then
             if GetLocalPlayer() == Player(pid) then
                 call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
@@ -628,9 +628,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
                 call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[3], "UI_Arcana_Work4.blp", 0)
                 call DzFrameSetTexture(F_UIArcana4[4], "UI_Arcana_Work4.blp", 0)
-                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff000016%|r")
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff000032%|r")
             endif
-            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 16
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 32
         endif
 
     endfunction

@@ -750,37 +750,12 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 //개척력
                 //call DzFrameSetText(F_ItemStatsText2[15], I2S(R2I(  TrailblazePower(r) )) ) 
                 call DzFrameSetText(F_ItemStatsText2[15], R2SW(TrailblazePower(r), 1, 2)) 
-                if Eitem[pid][0] != "0" and Eitem[pid][0] != "" and Eitem[pid][0] != null then
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[0], GetItemArt(Eitem[pid][0]), 0)
-                else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[0], GetEquipSlotEmptyArt(0), 0)
-                endif
-                if Eitem[pid][1] != "0" and Eitem[pid][1] != "" and Eitem[pid][1] != null then
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetItemArt(Eitem[pid][1]), 0)
-                else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[1], GetEquipSlotEmptyArt(1), 0)
-                endif
-                /*
-                if Eitem[pid][2] != "0" and Eitem[pid][2] != "" and Eitem[pid][2] != null then
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[2], GetItemArt(Eitem[pid][2]), 0)
-                else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[2], GetEquipSlotEmptyArt(2), 0)
-                endif
-                if Eitem[pid][3] != "0" and Eitem[pid][3] != "" and Eitem[pid][3] != null then
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[3], GetItemArt(Eitem[pid][3]), 0)
-                else
-                    call DzFrameSetTexture(F_EItemButtons2BackDrop[3], GetEquipSlotEmptyArt(3), 0)
-                endif
-                */
-                //if Eitem[pid][4] != "0" then
-                    //call DzFrameSetTexture(F_EItemButtons2BackDrop[4], GetItemArt(Eitem[pid][4]), 0)
-                //endif
                 set i = 0
                 loop
-                    if Eitem[pid][i] != "0" and Eitem[pid][i] != "" and Eitem[pid][i] != null then
-                        call DzFrameSetTexture(F_EItemButtons2BackDrop[i], GetItemArt(Eitem[pid][i]), 0)
-                    else
+                    if IsEmptyItem(Eitem[pid][i]) then
                         call DzFrameSetTexture(F_EItemButtons2BackDrop[i], GetEquipSlotEmptyArt(i), 0)
+                    else
+                        call DzFrameSetTexture(F_EItemButtons2BackDrop[i], GetItemArt(Eitem[pid][i]), 0)
                     endif
                     exitwhen i == EQUIP_SLOT_MAX
                     set i = i + 1
