@@ -188,7 +188,136 @@ scope ESC initializer init
 
 
     private function ESCAction takes nothing returns nothing
+        local string s
+        local string s2
+        local string s3
+        local string name
+        local integer frame3
+
         call VJDebugMsg("1")
+        set AAA = AAA - 0.1
+        
+        //call DzFrameShow(El_BackDrop, true)
+
+        //set SelectString[pid] = JNStringReplace(s, JNStringRegex(s, "0\\d+;", 0), I2S(NowSelectNumber)+";")
+
+        //set frame3 = DzFrameGetCommandBarButton(2,0)
+        //call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
+
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ZOFFSET,0,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ROTATION,90,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_TARGET_DISTANCE,1650,0)
+        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ANGLE_OF_ATTACK,304,0)
+
+        //*
+        if i == 4 then
+            set i = 0
+            call DzFrameSetValue(LuciaAden, i * 25)
+            call DzFrameSetValue(LuciaAden2, i * 25)
+        else
+            set i = i + 1
+            call DzFrameSetValue(LuciaAden, i * 25)
+            call DzFrameSetValue(LuciaAden2, i * 25)
+        endif
+
+        //목
+        set s = "ID10;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,3))
+        //set s = SetItemQuality(s, (Quality.pick(false)-1) )
+        set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
+        call additem(Player(0), s)
+        //귀
+        set s = "ID1;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,2))
+        set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
+        call additem(Player(0), s)
+        //반
+        set s = "ID19;"
+        set s = SetItemCombatStats(s, GetRandomInt(1,2))
+        set s = SetItemQuality(s, 20 )
+        set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
+        set s = SetItemCombatBonus2(s,1)
+        set s = SetItemCombatPenalty(s,GetRandomInt(50,53))
+        set s = SetItemCombatPenalty2(s,1)
+        call additem(Player(0), s)
+        //*/
+        //call additem(Player(0),"ID12"+";"+"0")
+
+        /*
+        set i = i + 1
+        //call SaveInteger(ArcanaData, 50, 0, i)
+        //call SaveInteger(ArcanaData, 51, 0, i)
+        //call SaveInteger(ArcanaData, 52, 0, i)
+        //call SaveInteger(ArcanaData, 53, 0, i)
+
+        if i == 5 then
+            set i = 0
+        endif
+        */
+        
+        /*
+        if AAA == 0 then
+            set Equip_Swiftness[0] = 600
+            call ItemUIStatsSet(0)
+            call VJDebugMsg("신속600")
+            set AAA = 1
+        elseif AAA == 1 then
+            set Equip_Swiftness[0] = 1200
+            call ItemUIStatsSet(0)
+            call VJDebugMsg("신속1200")
+            set AAA = 2
+        elseif AAA == 2 then
+            set Equip_Swiftness[0] = 1800
+            call ItemUIStatsSet(0)
+            call VJDebugMsg("신속1800")
+            set AAA = 3
+        elseif AAA == 3 then
+            set Equip_Swiftness[0] = 2200
+            call ItemUIStatsSet(0)
+            call VJDebugMsg("신속2200")
+            set AAA = 4
+        elseif AAA == 4 then
+            set Equip_Swiftness[0] = 0
+            call ItemUIStatsSet(0)
+            call VJDebugMsg("신속0")
+            set AAA = 0
+        endif
+        */
+        /*
+        call VJDebugMsg("전투력 : 1000 , 명성 : "+ I2S(TrailblazePower(1000)))
+        call VJDebugMsg("전투력 : 1100 , 명성 : "+ I2S(TrailblazePower(1100)))
+        call VJDebugMsg("전투력 : 1210 , 명성 : "+ I2S(TrailblazePower(1210)))
+        call VJDebugMsg("전투력 : 1331 , 명성 : "+ I2S(TrailblazePower(1331)))
+        call VJDebugMsg("전투력 : 1464 , 명성 : "+ I2S(TrailblazePower(1464)))
+        call VJDebugMsg("전투력 : 1610 , 명성 : "+ I2S(TrailblazePower(1610)))
+        call VJDebugMsg("전투력 : 1771 , 명성 : "+ I2S(TrailblazePower(1771)))
+        call VJDebugMsg("전투력 : 1948 , 명성 : "+ I2S(TrailblazePower(1948)))
+        
+        call VJDebugMsg("전투력 : 5000 , 명성 : "+ I2S(TrailblazePower(5000)))
+        call VJDebugMsg("전투력 : 6666 , 명성 : "+ I2S(TrailblazePower(6666)))
+        call VJDebugMsg("전투력 : 7241 , 명성 : "+ I2S(TrailblazePower(7241)))
+        call VJDebugMsg("전투력 : 10000 , 명성 : "+ I2S(TrailblazePower(10000)))
+        call VJDebugMsg("전투력 : 11000 , 명성 : "+ I2S(TrailblazePower(11000)))
+        call VJDebugMsg("전투력 : 30000 , 명성 : "+ I2S(TrailblazePower(30000)))
+
+        call VJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call VJDebugMsg("전투력 : 117390 , 명성 : "+ I2S(TrailblazePower(117390)))
+        call VJDebugMsg("전투력 : 129129 , 명성 : "+ I2S(TrailblazePower(129129)))
+        call VJDebugMsg("전투력 : 142042 , 명성 : "+ I2S(TrailblazePower(142042)))
+        call VJDebugMsg("전투력 : 1000000 , 명성 : "+ I2S(TrailblazePower(1000000)))
+        call VJDebugMsg("전투력 : 2000000 , 명성 : "+ I2S(TrailblazePower(2000000)))
+        call VJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        call VJDebugMsg("전투력 : 13780612 , 명성 : "+ I2S(TrailblazePower(13780612)))
+        */
+        
     endfunction
 
     private function ESCAction9999 takes nothing returns nothing
@@ -323,13 +452,9 @@ scope ESC initializer init
 
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
-        local integer index = 0
         //esc버튼
-        loop
-            exitwhen index == bj_MAX_PLAYERS
-            call TriggerRegisterPlayerEvent(t, Player(index), EVENT_PLAYER_END_CINEMATIC)
-            set index = index + 1
-        endloop
+        call TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_END_CINEMATIC)
+        call TriggerRegisterPlayerEvent(t, Player(1), EVENT_PLAYER_END_CINEMATIC)
         call TriggerAddAction( t, function ESCAction )
         set t = null
         set Price[1] = 10000
