@@ -203,7 +203,7 @@ scope ESC initializer init
         //set frame3 = DzFrameGetCommandBarButton(2,0)
         //call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
 
-        //*
+        /*
         if i == 4 then
             set i = 0
             call DzFrameSetValue(LuciaAden, i * 25)
@@ -213,6 +213,7 @@ scope ESC initializer init
             call DzFrameSetValue(LuciaAden, i * 25)
             call DzFrameSetValue(LuciaAden2, i * 25)
         endif
+        */
 
         //목
         set s = "ID10;"
