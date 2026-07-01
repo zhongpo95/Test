@@ -15,6 +15,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_HeroNextBBD      //영웅 다음 페이지 백드롭
         integer FP_HeroNextB        //영웅 다음 페이지 버튼
         integer FP_HeroNextBT       //영웅 다음 페이지 텍스트
+        integer FP_HeroScrollTrack  //영웅 목록 스크롤 자리
         integer FP_PreviewPanel     //미리보기 패널
         integer FP_PreviewBG        //미리보기 배경
         integer array FP_PotBD      //포트레잇 백드롭
@@ -28,7 +29,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
         integer HeroPage = 0
-        constant integer HeroPageSize = 3
+        constant integer HeroPageSize = 9
         constant integer MaxHero = 3
     endglobals
 
@@ -100,6 +101,16 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         return "war3mapImported\\UI_Pick_Button_Disabled.tga"
     endfunction
 
+    private function PickHeroName takes integer heroNumber returns string
+        if heroNumber == 1 then
+            return "영웅 1"
+        elseif heroNumber == 2 then
+            return "영웅 2"
+        elseif heroNumber == 3 then
+            return "영웅 3"
+        endif
+        return "잠금"
+    endfunction
     private function RefreshPickButtons takes nothing returns nothing
         call DzFrameShow(FP_SelectBBD, SHNumber != 0)
         if SHNumber != 0 then
@@ -149,16 +160,21 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                     call DzFrameSetTexture(FP_HeroBBD[i], PickCardFrameTexture(heroNumber), 0)
                     call DzFrameShow(FP_HeroIconBD[i], true)
                     call DzFrameSetTexture(FP_HeroIconBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
+                    call DzFrameShow(FP_HeroT[i], true)
+                    call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
                 else
                     call DzFrameShow(FP_HeroBBD[i], true)
                     call DzFrameShow(FP_HeroB[i], false)
                     call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Pick_Card_Locked.tga", 0)
                     call DzFrameShow(FP_HeroIconBD[i], false)
+                    call DzFrameShow(FP_HeroT[i], true)
+                    call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
                 endif
             else
                 call DzFrameShow(FP_HeroBBD[i], false)
                 call DzFrameShow(FP_HeroB[i], false)
                 call DzFrameShow(FP_HeroIconBD[i], false)
+                call DzFrameShow(FP_HeroT[i], false)
             endif
             set i = i + 1
         endloop
@@ -170,10 +186,22 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call RefreshPickButtons()
     endfunction
 
+    private function ShowHeroPreview takes integer heroNumber returns nothing
+        if heroNumber < 1 or heroNumber > MaxHero then
+            return
+        endif
+        set SHNumber = heroNumber
+        call HideHeroPortraits()
+        call DzFrameShow(FP_PotBD[heroNumber], true)
+        call DzFrameShow(FP_LeftPotBD[heroNumber], false)
+        call RenderHeroCards()
+    endfunction
+
     private function ResetHeroListSelection takes nothing returns nothing
         set SHNumber = 0
         call HideHeroPortraits()
         call ResetPickConfirm()
+        call RenderHeroCards()
     endfunction
 
     private function ClickBBDButton takes nothing returns nothing
@@ -189,10 +217,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if f == FP_HeroB[i] then
                 set heroNumber = HeroPage * HeroPageSize + i
                 if heroNumber <= MaxHero then
-                    set SHNumber = heroNumber
-                    call DzFrameShow(FP_PotBD[heroNumber], true)
-                    call DzFrameShow(FP_LeftPotBD[heroNumber], false)
-                    call RenderHeroCards()
+                    call ShowHeroPreview(heroNumber)
                 endif
             endif
             set i = i + 1
@@ -368,8 +393,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(FP_PotBD[11], false)
                 call DzFrameShow(FP_PotBD[12], false)
                 set HeroPage = 0
-                call ResetPickConfirm()
-                call RenderHeroCards()
+                call ResetHeroListSelection()
             else
                 set SLNumber = 1
                 call DzFrameShow(FP_HeroBBD[0], false)
@@ -398,8 +422,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(FP_PotBD[11], false)
                 call DzFrameShow(FP_PotBD[12], false)
                 set HeroPage = 0
-                call ResetPickConfirm()
-                call RenderHeroCards()
+                call ResetHeroListSelection()
             else
                 set SLNumber = 2
                 call DzFrameShow(FP_HeroBBD[0], false)
@@ -428,8 +451,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(FP_PotBD[11], false)
                 call DzFrameShow(FP_PotBD[12], false)
                 set HeroPage = 0
-                call ResetPickConfirm()
-                call RenderHeroCards()
+                call ResetHeroListSelection()
             else
                 set SLNumber = 3
                 call DzFrameShow(FP_HeroBBD[0], false)
@@ -457,8 +479,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(FP_PotBD[11], false)
                 call DzFrameShow(FP_PotBD[12], false)
                 set HeroPage = 0
-                call ResetPickConfirm()
-                call RenderHeroCards()
+                call ResetHeroListSelection()
             else
                 set SLNumber = 4
                 call DzFrameShow(FP_SelectBBD, false)
@@ -472,13 +493,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set SLNumber = slotNumber
         set SHNumber = 0
         set HeroPage = 0
-        call ResetPickConfirm()
-        call HideHeroPortraits()
         call ShowSlotFrames(false)
         call DzFrameShow(FP_LoadBBD, false)
         call DzFrameShow(FP_HeroBBD[0], true)
         call DzFrameShow(FP_PreviewPanel, true)
-        call RenderHeroCards()
+        call ResetHeroListSelection()
     endfunction
 
     private function Main2 takes nothing returns nothing
@@ -505,6 +524,43 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer k
         local real cardX
         local real cardY
+        local real mainLeft
+        local real mainTop
+        local real mainWidth
+        local real mainHeight
+        local real cardAreaLeft
+        local real cardAreaTop
+        local real cardAreaWidth
+        local real cardAreaHeight
+        local real cardW
+        local real cardH
+        local real cardIcon
+        local real previewPanelLeft
+        local real previewPanelTop
+        local real previewPanelWidth
+        local real previewPanelHeight
+        local real previewInnerWidth
+        local real previewInnerHeight
+        local real previewInnerX
+
+        set mainLeft = 70.0
+        set mainTop = 105.0
+        set mainWidth = 1370.0
+        set mainHeight = 650.0
+        set cardAreaLeft = 130.0
+        set cardAreaTop = 160.0
+        set cardAreaWidth = 835.0
+        set cardAreaHeight = 570.0
+        set cardW = 118.0
+        set cardH = 136.0
+        set cardIcon = 98.0
+        set previewPanelLeft = 1105.0
+        set previewPanelTop = 135.0
+        set previewPanelWidth = 270.0
+        set previewPanelHeight = 560.0
+        set previewInnerWidth = 258.0
+        set previewInnerHeight = 548.0
+        set previewInnerX = 135.0
 
         //카메라
         call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Pick )
@@ -513,9 +569,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Main_Ref.tga", 0)
-        call DzFrameSetSize(FP_BD, PickWidth(1460.0), PickHeight(760.0))
-        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, PickCenterX(70.0, 1460.0), PickCenterY(60.0, 760.0))
+        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Main_Frame.tga", 0)
+        call DzFrameSetSize(FP_BD, PickWidth(mainWidth), PickHeight(mainHeight))
+        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, PickCenterX(mainLeft, mainWidth), PickCenterY(mainTop, mainHeight))
         call DzFrameShow(FP_BD, false)
 
         set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
@@ -566,42 +622,54 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Preview_Panel.tga", 0)
-        call DzFrameSetSize(FP_PreviewPanel, PickWidth(390.0), PickHeight(675.0))
-        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, PickCenterX(1100.0, 390.0), PickCenterY(105.0, 675.0))
+        call DzFrameSetSize(FP_PreviewPanel, PickWidth(previewPanelWidth), PickHeight(previewPanelHeight))
+        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, PickCenterX(previewPanelLeft, previewPanelWidth), PickCenterY(previewPanelTop, previewPanelHeight))
 
         set FP_PreviewBG=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewBG, "war3mapImported\\UI_Pick_Preview_BG.tga", 0)
-        call DzFrameSetSize(FP_PreviewBG, PickWidth(330.0), PickHeight(520.0))
-        call DzFrameSetAbsolutePoint(FP_PreviewBG, JN_FRAMEPOINT_CENTER, PickCenterX(1130.0, 330.0), PickCenterY(155.0, 520.0))
+        call DzFrameSetTexture(FP_PreviewBG, "Transparent.blp", 0)
+        call DzFrameSetSize(FP_PreviewBG, PickWidth(previewInnerWidth), PickHeight(previewInnerHeight))
+        call DzFrameSetPoint(FP_PreviewBG, JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameShow(FP_PreviewPanel, false)
         set FP_HeroBBD[0]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "", FrameCount())
+        call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Card_Panel.tga", 0)
+        call DzFrameSetSize(FP_HeroBBD[0], PickWidth(cardAreaWidth), PickHeight(cardAreaHeight))
+        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, PickCenterX(cardAreaLeft, cardAreaWidth), PickCenterY(cardAreaTop, cardAreaHeight))
+
+        set FP_HeroScrollTrack=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
+        call DzFrameSetTexture(FP_HeroScrollTrack, "war3mapImported\\UI_Pick_Scroll_Track.tga", 0)
+        call DzFrameSetSize(FP_HeroScrollTrack, PickWidth(1.0), PickHeight(1.0))
+        call DzFrameSetPoint(FP_HeroScrollTrack, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(0.0), PickHeight(0.0))
 
         set j = 0
         loop
             set i = 1
             loop
                 set k = i+(j*6)
-                set cardX = PickCenterX(160.0 + (285.0 * I2R(ModuloInteger(k - 1, 3))), 240.0)
-                set cardY = PickCenterY(170.0 + (305.0 * I2R((k - 1) / 3)), 240.0)
+                set cardX = PickWidth(100.0 + (255.0 * I2R(ModuloInteger(k - 1, 3))))
+                set cardY = PickHeight(440.0 - (155.0 * I2R((k - 1) / 3)))
                 set FP_HeroBBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "", FrameCount())
-                call DzFrameSetAbsolutePoint(FP_HeroBBD[k], JN_FRAMEPOINT_CENTER, cardX, cardY)
-                call DzFrameSetSize(FP_HeroBBD[k], PickWidth(240.0), PickHeight(240.0))
+                call DzFrameSetPoint(FP_HeroBBD[k], JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, cardX, cardY)
+                call DzFrameSetSize(FP_HeroBBD[k], PickWidth(cardW), PickHeight(cardH))
                 call DzFrameSetTexture(FP_HeroBBD[k], "war3mapImported\\UI_Pick_Card_Normal.tga", 0)
                 set FP_HeroIconBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[k], "template", FrameCount())
                 call DzFrameSetTexture(FP_HeroIconBD[k], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
-                call DzFrameSetSize(FP_HeroIconBD[k], PickWidth(150.0), PickHeight(150.0))
-                call DzFrameSetAbsolutePoint(FP_HeroIconBD[k], JN_FRAMEPOINT_CENTER, cardX, cardY)
+                call DzFrameSetSize(FP_HeroIconBD[k], PickWidth(cardIcon), PickHeight(cardIcon))
+                call DzFrameSetPoint(FP_HeroIconBD[k], JN_FRAMEPOINT_TOP, FP_HeroBBD[k], JN_FRAMEPOINT_TOP, 0.0, PickHeight(-10.0))
+                set FP_HeroT[k]=DzCreateFrameByTagName("TEXT", "", FP_HeroBBD[k], "", 0)
+                call DzFrameSetPoint(FP_HeroT[k], JN_FRAMEPOINT_CENTER, FP_HeroBBD[k], JN_FRAMEPOINT_BOTTOM, 0.0, PickHeight(14.0))
+                call DzFrameSetText(FP_HeroT[k], "")
+                call DzFrameSetEnable(FP_HeroT[k], false)
                 set FP_HeroB[k]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[k], "ScoreScreenTabButtonTemplate",  FrameCount())
                 call DzFrameSetAllPoints(FP_HeroB[k], FP_HeroBBD[k])
-                call DzFrameSetSize(FP_HeroB[k], PickWidth(240.0), PickHeight(240.0))
+                call DzFrameSetSize(FP_HeroB[k], PickWidth(cardW), PickHeight(cardH))
                 call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_ENTER, function EnterHeroCardButton, false)
                 call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveHeroCardButton, false)
                 call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
                 if k <= MaxHero then
                     set FP_PotBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewBG, "template", FrameCount())
                     call DzFrameSetTexture(FP_PotBD[k], "UI_HeroPot"+I2S(k)+".blp", 0)
-                    call DzFrameSetSize(FP_PotBD[k], PickWidth(250.0), PickHeight(400.0))
-                    call DzFrameSetAbsolutePoint(FP_PotBD[k], JN_FRAMEPOINT_CENTER, PickCenterX(1080.0, 250.0), PickCenterY(255.0, 400.0))
+                    call DzFrameSetSize(FP_PotBD[k], PickWidth(previewInnerWidth), PickHeight(previewInnerHeight))
+                    call DzFrameSetPoint(FP_PotBD[k], JN_FRAMEPOINT_CENTER, FP_PreviewBG, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
                     call DzFrameShow(FP_PotBD[k], false)
                     set FP_LeftPotBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
                     call DzFrameSetTexture(FP_LeftPotBD[k], "UI_HeroPot"+I2S(k)+".blp", 0)
@@ -618,10 +686,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         set FP_HeroPrevBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
         call DzFrameSetTexture(FP_HeroPrevBBD, "war3mapImported\\UI_Pick_Page_Disabled.tga", 0)
-        call DzFrameSetSize(FP_HeroPrevBBD, PickWidth(30.0), PickHeight(72.0))
-        call DzFrameSetAbsolutePoint(FP_HeroPrevBBD, JN_FRAMEPOINT_CENTER, PickCenterX(1035.0, 30.0), PickCenterY(255.0, 72.0))
+        call DzFrameSetSize(FP_HeroPrevBBD, PickWidth(1.0), PickHeight(1.0))
+        call DzFrameSetPoint(FP_HeroPrevBBD, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(530.0), PickHeight(315.0))
         set FP_HeroPrevBT=DzCreateFrameByTagName("TEXT", "", FP_HeroPrevBBD, "", 0)
-        call DzFrameSetAbsolutePoint(FP_HeroPrevBT, JN_FRAMEPOINT_CENTER, PickCenterX(1035.0, 30.0), PickCenterY(255.0, 72.0))
+        call DzFrameSetPoint(FP_HeroPrevBT, JN_FRAMEPOINT_CENTER, FP_HeroPrevBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetText(FP_HeroPrevBT, "<")
         set FP_HeroPrevB=DzCreateFrameByTagName("BUTTON", "", FP_HeroPrevBBD, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAllPoints(FP_HeroPrevB, FP_HeroPrevBBD)
@@ -631,10 +699,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         set FP_HeroNextBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
         call DzFrameSetTexture(FP_HeroNextBBD, "war3mapImported\\UI_Pick_Page_Disabled.tga", 0)
-        call DzFrameSetSize(FP_HeroNextBBD, PickWidth(30.0), PickHeight(72.0))
-        call DzFrameSetAbsolutePoint(FP_HeroNextBBD, JN_FRAMEPOINT_CENTER, PickCenterX(1035.0, 30.0), PickCenterY(490.0, 72.0))
+        call DzFrameSetSize(FP_HeroNextBBD, PickWidth(1.0), PickHeight(1.0))
+        call DzFrameSetPoint(FP_HeroNextBBD, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(530.0), PickHeight(185.0))
         set FP_HeroNextBT=DzCreateFrameByTagName("TEXT", "", FP_HeroNextBBD, "", 0)
-        call DzFrameSetAbsolutePoint(FP_HeroNextBT, JN_FRAMEPOINT_CENTER, PickCenterX(1035.0, 30.0), PickCenterY(490.0, 72.0))
+        call DzFrameSetPoint(FP_HeroNextBT, JN_FRAMEPOINT_CENTER, FP_HeroNextBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetText(FP_HeroNextBT, ">")
         set FP_HeroNextB=DzCreateFrameByTagName("BUTTON", "", FP_HeroNextBBD, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAllPoints(FP_HeroNextB, FP_HeroNextBBD)
@@ -651,19 +719,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameShow(FP_HeroTBD, true)
         */
 
-        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
+        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SelectBBD, PickWidth(170.0), PickHeight(46.0))
-        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
+        call DzFrameSetSize(FP_SelectBBD, PickWidth(136.0), PickHeight(38.0))
+        call DzFrameSetPoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(previewInnerX), PickHeight(54.0))
 
         set FP_SelectBT=DzCreateFrameByTagName("TEXT", "", FP_SelectBBD, "", 0)
-        call DzFrameSetAbsolutePoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
+        call DzFrameSetPoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetText(FP_SelectBT,"결정")
         call DzFrameSetEnable(FP_SelectBT, false)
 
         set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SelectB, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
-        call DzFrameSetSize(FP_SelectB, PickWidth(170.0), PickHeight(46.0))
+        call DzFrameSetAllPoints(FP_SelectB, FP_SelectBBD)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_ENTER, function EnterSelectButton, false)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveSelectButton, false)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickHeroButton, false)
@@ -674,17 +741,16 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_LoadBBD, "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
         call DzFrameSetSize(FP_LoadBBD, PickWidth(170.0), PickHeight(46.0))
-        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
+        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, PickCenterX(805.0, 170.0), PickCenterY(585.0, 46.0))
         call DzFrameShow(FP_LoadBBD, false)
 
         set FP_LoadBT=DzCreateFrameByTagName("TEXT", "", FP_LoadBBD, "", 0)
-        call DzFrameSetAbsolutePoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
+        call DzFrameSetPoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetText(FP_LoadBT,"결정")
         call DzFrameSetEnable(FP_LoadBT, false)
 
         set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAbsolutePoint(FP_LoadB, JN_FRAMEPOINT_CENTER, PickCenterX(1210.0, 170.0), PickCenterY(600.0, 46.0))
-        call DzFrameSetSize(FP_LoadB, PickWidth(170.0), PickHeight(46.0))
+        call DzFrameSetAllPoints(FP_LoadB, FP_LoadBBD)
         call DzFrameSetScriptByCode(FP_LoadB, JN_FRAMEEVENT_MOUSE_UP, function ClickLoadButton, false)
         call RenderHeroCards()
 
