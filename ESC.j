@@ -195,6 +195,7 @@ scope ESC initializer init
         local integer frame3
 
         call VJDebugMsg("1")
+        call VJDebugMsg("2")
         set AAA = AAA - 0.1
         
         //call DzFrameShow(El_BackDrop, true)
