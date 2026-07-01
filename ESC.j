@@ -194,8 +194,6 @@ scope ESC initializer init
         local string name
         local integer frame3
 
-        call VJDebugMsg("1")
-        call VJDebugMsg("2")
         set AAA = AAA - 0.1
         
         //call DzFrameShow(El_BackDrop, true)
@@ -204,11 +202,6 @@ scope ESC initializer init
 
         //set frame3 = DzFrameGetCommandBarButton(2,0)
         //call DzFrameSetAbsolutePoint(frame3,JN_FRAMEPOINT_TOPLEFT,-1,-1)
-
-        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ZOFFSET,0,0)
-        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ROTATION,90,0)
-        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_TARGET_DISTANCE,1650,0)
-        call SetCameraFieldForPlayer(Player(0),CAMERA_FIELD_ANGLE_OF_ATTACK,304,0)
 
         //*
         if i == 4 then
