@@ -417,7 +417,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.080, 0.035)
-        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.1050)
+        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.1050)
         call DzFrameShow(FP_SelectBBD, false)
 
         set FP_SelectBT=DzCreateFrameByTagName("TEXT","",FP_SelectBBD,"",0)
