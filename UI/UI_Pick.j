@@ -284,7 +284,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop2.tga", 0)
         call DzFrameSetVertexColor(FP_BD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_BD, 255)
         call DzFrameSetSize(FP_BD, 0.80, 0.55)

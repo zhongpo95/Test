@@ -1,10 +1,10 @@
 # UI_Pick texture source mapping
 
-This file records the UI_Pick texture files that remain in the repository after the runtime TGA cleanup.
+This file records the UI_Pick texture files referenced by UI/UI_Pick.j after the runtime TGA cleanup.
 
 ## Runtime TGA textures
 
-- war3mapImported/UI_Pick_Backdrop.tga is used by the A backdrop frame in UI/UI_Pick.j.
+- war3mapImported/UI_Pick_Backdrop2.tga is used by the A backdrop frame in UI/UI_Pick.j.
 - war3mapImported/UI_Pick_Panel.tga is used by the I preview panel and J skin panel frames in UI/UI_Pick.j.
 - war3mapImported/UI_Pick_Frame.tga is used by the card-list frame in UI/UI_Pick.j.
 - war3mapImported/UI_Pick_NameBar.tga is used by each hero-name bar in UI/UI_Pick.j.
@@ -20,7 +20,7 @@ Large source TGA files and older source TGA attachments were removed from war3ma
 
 ## Hashes
 
-- war3mapImported\UI_Pick_Backdrop.tga SHA256 a7565685bcdacaeb92b18689ed525e9905fceadcf752aa3aadde365f3814d7c8
+- war3mapImported\UI_Pick_Backdrop2.tga SHA256 aff270109ed36b03b4c32d0122478ce20cc64fdff5bad27d19a43d3b0eb97765
 - war3mapImported\UI_Pick_Panel.tga SHA256 652f94d3f32d2d66dca3a46a5b6f3a757f76981c07806b122bf66a8601de95c5
 - war3mapImported\UI_Pick_Frame.tga SHA256 3850be3348a45a77f09563503cd83309a2e96bb3af9984bc0238603268419cc4
 - war3mapImported\UI_Pick_NameBar.tga SHA256 63738aae711e788abc75b7dd234ef98d022b493d63e98d0124100b554540415a
