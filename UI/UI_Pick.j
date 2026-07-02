@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp, DzAPIHardware
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -29,7 +29,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
         integer PickScrollOffset = 0
-        boolean PickScrollDragging = false
         constant integer MaxHero = 3
         constant integer PickVisibleCardCount = 12
         constant integer PickCardColumnCount = 4
@@ -118,14 +117,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
     private function RefreshPickScroll takes nothing returns nothing
         local integer maxOffset = PickMaxScrollOffset()
-        local real topY = 0.520
-        local real bottomY = 0.205
-        local real knobY = topY
-
-        if maxOffset > 0 then
-            set knobY = topY - ((topY - bottomY) * I2R(PickScrollOffset) / I2R(maxOffset))
-        endif
-        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4700, knobY)
+        call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(maxOffset))
+        call DzFrameSetStepValue(FP_ScrollB, I2R(PickCardColumnCount))
+        call DzFrameSetValue(FP_ScrollB, I2R(PickScrollOffset))
     endfunction
 
     private function HidePickPortraits takes nothing returns nothing
@@ -253,64 +247,29 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
     endfunction
 
-    private function PickScrollOffsetFromMouse takes nothing returns integer
+    private function ChangePickScrollSlider takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer maxOffset = PickMaxScrollOffset()
-        local real topY = 0.520
-        local real bottomY = 0.205
-        local real mouseY = I2R(DzGetWindowHeight() + DzGetWindowY() - DzGetMouseY()) / (I2R(DzGetWindowHeight()) / 0.6) + 0
-        local integer value = 0
+        local integer value = R2I(DzFrameGetValue(FP_ScrollB) + 0.5)
         if maxOffset <= 0 then
-            return 0
+            if PickScrollOffset != 0 then
+                set PickScrollOffset = 0
+                call RefreshPickCards(pid)
+            endif
+            return
         endif
-        if mouseY > topY then
-            set mouseY = topY
-        elseif mouseY < bottomY then
-            set mouseY = bottomY
-        endif
-        set value = R2I((((topY - mouseY) / (topY - bottomY)) * I2R(maxOffset) + I2R(PickCardColumnCount) / 2.0) / I2R(PickCardColumnCount)) * PickCardColumnCount
-        if value < 0 then
-            return 0
-        elseif value > maxOffset then
-            return maxOffset
-        endif
-        return value
-    endfunction
-
-    private function ApplyPickScrollOffset takes integer pid, integer value returns nothing
-        local integer maxOffset = PickMaxScrollOffset()
+        set value = (value / PickCardColumnCount) * PickCardColumnCount
         if value < 0 then
             set value = 0
         elseif value > maxOffset then
             set value = maxOffset
         endif
         if PickScrollOffset == value then
-            call RefreshPickScroll()
             return
         endif
         set PickScrollOffset = value
+        call DzFrameSetValue(FP_ScrollB, I2R(PickScrollOffset))
         call RefreshPickCards(pid)
-    endfunction
-
-    private function StartPickScrollDrag takes nothing returns nothing
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        set PickScrollDragging = true
-        call ApplyPickScrollOffset(pid, PickScrollOffsetFromMouse())
-    endfunction
-
-    private function StopPickScrollDrag takes nothing returns nothing
-        set PickScrollDragging = false
-    endfunction
-
-    private function MovePickScrollDrag takes nothing returns nothing
-        local integer pid = GetPlayerId(DzGetTriggerKeyPlayer())
-        if not PickScrollDragging then
-            return
-        endif
-        if not DzIsKeyDown(JN_OSKEY_LBUTTON) then
-            set PickScrollDragging = false
-            return
-        endif
-        call ApplyPickScrollOffset(pid, PickScrollOffsetFromMouse())
     endfunction
 
     private function Main2 takes nothing returns nothing
@@ -419,15 +378,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetSize(FP_ScrollKnob, 0.012, 0.032)
         call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4700, 0.5200)
 
-        call JNFrameSetLevel(FP_ScrollTrack, 22)
-        call JNFrameSetLevel(FP_ScrollKnob, 23)
+        call DzFrameShow(FP_ScrollTrack, false)
+        call DzFrameShow(FP_ScrollKnob, false)
 
-        set FP_ScrollB=DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetSize(FP_ScrollB, 0.030, 0.315)
+        set FP_ScrollB=DzCreateFrameByTagName("SLIDER", "PickScrollSlider", FP_BD, "QuestMainListScrollBar", FrameCount())
+        call DzFrameClearAllPoints(FP_ScrollB)
+        call DzFrameSetSize(FP_ScrollB, 0.012, 0.315)
         call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4700, 0.3625)
+        call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(PickMaxScrollOffset()))
+        call DzFrameSetStepValue(FP_ScrollB, I2R(PickCardColumnCount))
+        call DzFrameSetValue(FP_ScrollB, 0.0)
         call JNFrameSetLevel(FP_ScrollB, 24)
-        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_DOWN, function StartPickScrollDrag, false)
-        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function StopPickScrollDrag, false)
+        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_SLIDER_VALUE_CHANGED, function ChangePickScrollSlider, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
@@ -774,8 +736,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzTriggerRegisterSyncData(t,("LoadPick"),(false))
         call TriggerAddAction(t,function LoadPickF)
 
-        set t = CreateTrigger()
-        call DzTriggerRegisterMouseMoveEventByCode(t, false, function MovePickScrollDrag)
 
         set t = null
     endfunction
