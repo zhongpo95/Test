@@ -480,9 +480,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAllPoints(FP_SelectB, FP_SelectBBD)
         call DzFrameSetSize(FP_SelectB, 0.080, 0.035)
-        call JNFrameSetLevel(FP_SelectBBD, 20)
-        call JNFrameSetLevel(FP_SelectB, 21)
-        call JNFrameSetLevel(FP_SelectBT, 22)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickHeroButton, false)
 
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())

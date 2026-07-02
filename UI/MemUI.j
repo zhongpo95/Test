@@ -632,6 +632,7 @@ library MemUI initializer Init requires optional Typecast
         //call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
 
+        //미니맵
         set frame=DzFrameGetMinimap()
         call DzFrameClearAllPoints(frame)
         call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
@@ -651,6 +652,7 @@ library MemUI initializer Init requires optional Typecast
         call SetConsoleRaceUI()
     endfunction
     private function Main takes nothing returns nothing
+        //라이자 클릭(인터페이스를 한번 갱신)
         call SelectUnitForPlayerSingle( NPCUnit[7], GetLocalPlayer() )
     endfunction
     //인터페이스를 숨기기전에 인터페이스를 교체해놔야함
