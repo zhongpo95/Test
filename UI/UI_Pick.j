@@ -117,13 +117,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
     private function RefreshPickScroll takes nothing returns nothing
         local integer maxOffset = PickMaxScrollOffset()
-        local real topY = -0.065
-        local real bottomY = -0.415
+        local real topY = 0.540
+        local real bottomY = 0.190
         local real knobY = topY
         if maxOffset > 0 then
             set knobY = topY - ((topY - bottomY) * I2R(PickScrollOffset) / I2R(maxOffset))
         endif
-        call DzFrameSetPoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.4850, knobY)
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, knobY)
     endfunction
 
     private function HidePickPortraits takes nothing returns nothing
@@ -297,11 +297,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set FP_SL[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
             call DzFrameSetTexture(FP_SL[i], "UI_PickSelect2.blp", 0)
             call DzFrameSetSize(FP_SL[i], 0.001, 0.001)
-            call DzFrameSetPoint(FP_SL[i], JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+            call DzFrameSetAbsolutePoint(FP_SL[i], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
             call DzFrameShow(FP_SL[i], false)
             set FP_SLB[i] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetSize(FP_SLB[i], 0.001, 0.001)
-            call DzFrameSetPoint(FP_SLB[i], JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+            call DzFrameSetAbsolutePoint(FP_SLB[i], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
             call DzFrameShow(FP_SLB[i], false)
             set i = i + 1
         endloop
@@ -311,7 +311,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_HeroBBD[0], 255)
         call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.37)
-        call DzFrameSetPoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.2500, -0.2350)
+        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3700)
 
         set i = 1
         loop
@@ -319,12 +319,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set row = (i - 1) / PickCardColumnCount
             set col = ModuloInteger(i - 1, PickCardColumnCount)
             set cardX = 0.088 + (0.105 * I2R(col))
-            set cardY = -0.100 - (0.125 * I2R(row))
+            set cardY = 0.505 - (0.125 * I2R(row))
 
             set FP_HeroBBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
             call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
             call DzFrameSetSize(FP_HeroBBD[i], 0.085, 0.095)
-            call DzFrameSetPoint(FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, cardX, cardY)
+            call DzFrameSetAbsolutePoint(FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, cardX, cardY)
 
             set FP_HeroImgBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
             if i <= MaxHero then
@@ -362,17 +362,17 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetTexture(FP_ScrollTrack, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_ScrollTrack, DzGetColor(230, 214, 122, 54))
         call DzFrameSetSize(FP_ScrollTrack, 0.005, 0.35)
-        call DzFrameSetPoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.4850, -0.2400)
+        call DzFrameSetAbsolutePoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
 
         set FP_ScrollKnob=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_ScrollKnob, "UI_PickSelectButton.tga", 0)
         call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(245, 170, 42, 38))
         call DzFrameSetSize(FP_ScrollKnob, 0.020, 0.026)
-        call DzFrameSetPoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.4850, -0.0650)
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, 0.5400)
 
         set FP_ScrollB=DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetSize(FP_ScrollB, 0.035, 0.35)
-        call DzFrameSetPoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.4850, -0.2400)
+        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
@@ -380,7 +380,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_PreviewPanel, 255)
         call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.230)
-        call DzFrameSetPoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.6300, -0.1950)
+        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.6300, 0.4100)
 
         set i = 1
         loop
@@ -402,7 +402,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_SkinBBD, 255)
         call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
-        call DzFrameSetPoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.6300, -0.3850)
+        call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.2200)
 
         set FP_SkinBT=DzCreateFrameByTagName("TEXT", "", FP_SkinBBD, "", 0)
         call DzFrameSetPoint(FP_SkinBT, JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025)
@@ -417,7 +417,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.080, 0.035)
-        call DzFrameSetPoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_TOPLEFT, 0.6300, -0.5000)
+        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.1050)
         call DzFrameShow(FP_SelectBBD, false)
 
         set FP_SelectBT=DzCreateFrameByTagName("TEXT","",FP_SelectBBD,"",0)
@@ -436,7 +436,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_LoadBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_LoadBBD, 0.001, 0.001)
-        call DzFrameSetPoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, FP_BD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
         call DzFrameShow(FP_LoadBBD, false)
         set FP_LoadBT=DzCreateFrameByTagName("TEXT","",FP_LoadBBD,"",0)
         set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate", FrameCount())
