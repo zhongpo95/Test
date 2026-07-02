@@ -1,25 +1,24 @@
+//1
 library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
         integer array FP_SLB        //세이브 리스트 버튼
         integer array FP_HeroBBD    //버튼백드롭
-        integer array FP_HeroIconBD //영웅 아이콘 백드롭
+        integer array FP_HeroImgBD  //캐릭터 이미지
+        integer array FP_HeroNameBD //캐릭터 이름 배경
+        integer array FP_HeroLockBD //캐릭터 잠금 표시
         integer array FP_HeroB      //버튼
         integer FP_SelectBBD        //셀렉결정
         integer FP_SelectB          //셀렉결정버튼
         integer FP_SelectBT         //셀렉결정텍스트
-        integer FP_HeroPrevBBD      //영웅 이전 페이지 백드롭
-        integer FP_HeroPrevB        //영웅 이전 페이지 버튼
-        integer FP_HeroPrevBT       //영웅 이전 페이지 텍스트
-        integer FP_HeroNextBBD      //영웅 다음 페이지 백드롭
-        integer FP_HeroNextB        //영웅 다음 페이지 버튼
-        integer FP_HeroNextBT       //영웅 다음 페이지 텍스트
-        integer FP_HeroScrollTrack  //영웅 목록 스크롤 자리
-        integer FP_PreviewPanel     //미리보기 패널
-        integer FP_PreviewBG        //미리보기 배경
+        integer FP_PreviewPanel     //선택 캐릭터 미리보기 패널
+        integer FP_SkinBBD          //스킨 선택 배경
+        integer FP_SkinB            //스킨 선택 버튼
+        integer FP_SkinBT           //스킨 선택 텍스트
+        integer FP_ScrollTrack      //캐릭터 목록 스크롤 트랙
+        integer FP_ScrollKnob       //캐릭터 목록 스크롤 노브
         integer array FP_PotBD      //포트레잇 백드롭
-        integer array FP_LeftPotBD  //왼쪽 캐릭터 이미지
         integer FP_HeroTBD          //캐릭터설명 텍스트 백드롭
         integer array FP_HeroT      //캐릭터설명 텍스트
         integer array PlayerSlotNumber     //플레이어 슬롯넘버
@@ -28,9 +27,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadBBD          //로드결정
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
-        integer HeroPage = 0
-        constant integer HeroPageSize = 9
         constant integer MaxHero = 3
+        constant integer PickCardCount = 8
     endglobals
 
     function StringNullCheck2 takes string s returns boolean
@@ -40,21 +38,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         return false
     endfunction
 
-    private function PickWidth takes real px returns real
-        return px / 2000.0
-    endfunction
-
-    private function PickHeight takes real px returns real
-        return px / 1500.0
-    endfunction
-
-    private function PickCenterX takes real x, real w returns real
-        return (x + (w * 0.5)) / 2000.0
-    endfunction
-
-    private function PickCenterY takes real y, real h returns real
-        return (900.0 - y - (h * 0.5)) / 1500.0
-    endfunction
     private function upload2 takes integer pid returns nothing
         local string str = I2S(PlayerSlotNumber[pid])
         local integer i = 0
@@ -69,498 +52,163 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call JNStashNetUploadUser( Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
     endfunction
 
-    private function ClickLoadButton takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-
-        call DzFrameShow(FP_BD, false)
-        call DzSyncData("LoadPick", I2S(SLNumber))
-    endfunction
-
-
-    private function PickCardFrameTexture takes integer heroNumber returns string
-        if heroNumber > MaxHero then
-            return "war3mapImported\\UI_Pick_Card_Locked.tga"
-        elseif heroNumber == SHNumber then
-            return "war3mapImported\\UI_Pick_Card_Selected.tga"
-        endif
-        return "war3mapImported\\UI_Pick_Card_Normal.tga"
-    endfunction
-
-    private function PickPageFrameTexture takes boolean enabled returns string
-        if enabled then
-            return "war3mapImported\\UI_Pick_Page_Normal.tga"
-        endif
-        return "war3mapImported\\UI_Pick_Page_Disabled.tga"
-    endfunction
-
-    private function PickButtonFrameTexture takes boolean enabled returns string
-        if enabled then
-            return "war3mapImported\\UI_Pick_Button_Normal.tga"
-        endif
-        return "war3mapImported\\UI_Pick_Button_Disabled.tga"
-    endfunction
-
     private function PickHeroName takes integer heroNumber returns string
         if heroNumber == 1 then
-            return "영웅 1"
+            return "루시아"
         elseif heroNumber == 2 then
-            return "영웅 2"
+            return "나루메아"
         elseif heroNumber == 3 then
-            return "영웅 3"
+            return "반디"
         endif
         return "잠금"
     endfunction
-    private function RefreshPickButtons takes nothing returns nothing
-        call DzFrameShow(FP_SelectBBD, SHNumber != 0)
-        if SHNumber != 0 then
-            call DzFrameSetTexture(FP_SelectBBD, PickButtonFrameTexture(true), 0)
+
+    private function PickSlotValue takes integer pid, integer slotNumber returns string
+        return StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber), null)
+    endfunction
+
+    private function PickSlotIsEmpty takes integer pid, integer slotNumber returns boolean
+        local string value = PickSlotValue(pid, slotNumber)
+        if value == null or value == "" or value == "없음" then
+            return true
         endif
-        call DzFrameSetText(FP_SelectBT, "결정")
-        call DzFrameSetTexture(FP_HeroPrevBBD, PickPageFrameTexture(HeroPage > 0), 0)
-        call DzFrameSetTexture(FP_HeroNextBBD, PickPageFrameTexture(((HeroPage + 1) * HeroPageSize) < MaxHero), 0)
+        return false
     endfunction
 
-
-        private function HideHeroPortraits takes nothing returns nothing
+    private function PickSavedSlot takes integer pid, integer heroNumber returns integer
         local integer i = 1
         loop
-            exitwhen i > 12
-            call DzFrameShow(FP_PotBD[i], false)
-            call DzFrameShow(FP_LeftPotBD[i], false)
-            set i = i + 1
-        endloop
-    endfunction
-
-    private function ShowSlotFrames takes boolean flag returns nothing
-        call DzFrameShow(FP_SL[1], flag)
-        call DzFrameShow(FP_SLB[1], flag)
-        call DzFrameShow(FP_SL[2], flag)
-        call DzFrameShow(FP_SLB[2], flag)
-        call DzFrameShow(FP_SL[3], flag)
-        call DzFrameShow(FP_SLB[3], flag)
-    endfunction
-
-    private function ResetPickConfirm takes nothing returns nothing
-        call DzFrameShow(FP_SelectBBD, false)
-        call DzFrameSetText(FP_SelectBT, "결정")
-    endfunction
-
-        private function RenderHeroCards takes nothing returns nothing
-        local integer i = 1
-        local integer heroNumber
-
-        loop
-            exitwhen i > 12
-            if i <= HeroPageSize then
-                set heroNumber = HeroPage * HeroPageSize + i
-                if heroNumber <= MaxHero then
-                    call DzFrameShow(FP_HeroBBD[i], true)
-                    call DzFrameShow(FP_HeroB[i], true)
-                    call DzFrameSetTexture(FP_HeroBBD[i], PickCardFrameTexture(heroNumber), 0)
-                    call DzFrameShow(FP_HeroIconBD[i], true)
-                    call DzFrameSetTexture(FP_HeroIconBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
-                    call DzFrameShow(FP_HeroT[i], true)
-                    call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
-                else
-                    call DzFrameShow(FP_HeroBBD[i], true)
-                    call DzFrameShow(FP_HeroB[i], false)
-                    call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Pick_Card_Locked.tga", 0)
-                    call DzFrameShow(FP_HeroIconBD[i], false)
-                    call DzFrameShow(FP_HeroT[i], true)
-                    call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
-                endif
-            else
-                call DzFrameShow(FP_HeroBBD[i], false)
-                call DzFrameShow(FP_HeroB[i], false)
-                call DzFrameShow(FP_HeroIconBD[i], false)
-                call DzFrameShow(FP_HeroT[i], false)
+            exitwhen i > 3
+            if PickSlotValue(pid, i) == I2S(heroNumber) then
+                return i
             endif
             set i = i + 1
         endloop
-
-        call DzFrameShow(FP_HeroPrevBBD, MaxHero > HeroPageSize)
-        call DzFrameShow(FP_HeroPrevBT, MaxHero > HeroPageSize)
-        call DzFrameShow(FP_HeroNextBBD, MaxHero > HeroPageSize)
-        call DzFrameShow(FP_HeroNextBT, MaxHero > HeroPageSize)
-        call RefreshPickButtons()
+        return 0
     endfunction
 
-    private function ShowHeroPreview takes integer heroNumber returns nothing
-        if heroNumber < 1 or heroNumber > MaxHero then
+    private function PickEmptySlot takes integer pid returns integer
+        local integer i = 1
+        loop
+            exitwhen i > 3
+            if PickSlotIsEmpty(pid, i) then
+                return i
+            endif
+            set i = i + 1
+        endloop
+        return 0
+    endfunction
+
+    private function HidePickPortraits takes nothing returns nothing
+        local integer i = 1
+        loop
+            exitwhen i > PickCardCount
+            call DzFrameShow(FP_PotBD[i], false)
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function RefreshPickConfirm takes integer pid returns nothing
+        local integer slotNumber = 0
+        if SHNumber < 1 or SHNumber > MaxHero then
+            call DzFrameShow(FP_SelectBBD, false)
             return
         endif
-        set SHNumber = heroNumber
-        call HideHeroPortraits()
-        call DzFrameShow(FP_PotBD[heroNumber], true)
-        call DzFrameShow(FP_LeftPotBD[heroNumber], false)
-        call RenderHeroCards()
+
+        set slotNumber = PickSavedSlot(pid, SHNumber)
+        if slotNumber != 0 then
+            call DzFrameSetText(FP_SelectBT, "로드")
+            call DzFrameShow(FP_SelectBBD, true)
+            return
+        endif
+
+        set slotNumber = PickEmptySlot(pid)
+        if slotNumber != 0 then
+            call DzFrameSetText(FP_SelectBT, "생성")
+            call DzFrameShow(FP_SelectBBD, true)
+            return
+        endif
+
+        call DzFrameShow(FP_SelectBBD, false)
     endfunction
 
-    private function ResetHeroListSelection takes nothing returns nothing
-        set SHNumber = 0
-        call HideHeroPortraits()
-        call ResetPickConfirm()
-        call RenderHeroCards()
+    private function RefreshPickCards takes integer pid returns nothing
+        local integer i = 1
+        loop
+            exitwhen i > PickCardCount
+            if i == SHNumber then
+                call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelectButton.tga", 0)
+            else
+                call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
+            endif
+            call DzFrameShow(FP_HeroLockBD[i], i > MaxHero)
+            set i = i + 1
+        endloop
+
+        call HidePickPortraits()
+        if SHNumber >= 1 and SHNumber <= MaxHero then
+            call DzFrameShow(FP_PotBD[SHNumber], true)
+        endif
+        call RefreshPickConfirm(pid)
     endfunction
 
     private function ClickBBDButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer i = 1
-        local integer heroNumber
-
-        call ResetHeroListSelection()
-
         loop
-            exitwhen i > HeroPageSize
+            exitwhen i > PickCardCount
             if f == FP_HeroB[i] then
-                set heroNumber = HeroPage * HeroPageSize + i
-                if heroNumber <= MaxHero then
-                    call ShowHeroPreview(heroNumber)
-                endif
+                set SHNumber = i
+                call RefreshPickCards(pid)
+                return
             endif
             set i = i + 1
         endloop
-    endfunction
-
-    private function EnterHeroCardButton takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer i = 1
-        local integer heroNumber
-        loop
-            exitwhen i > HeroPageSize
-            if f == FP_HeroB[i] then
-                set heroNumber = HeroPage * HeroPageSize + i
-                if heroNumber <= MaxHero and heroNumber != SHNumber then
-                    call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Pick_Card_Hover.tga", 0)
-                endif
-            endif
-            set i = i + 1
-        endloop
-    endfunction
-
-    private function LeaveHeroCardButton takes nothing returns nothing
-        call RenderHeroCards()
-    endfunction
-
-    private function EnterSelectButton takes nothing returns nothing
-        if SHNumber != 0 then
-            call DzFrameSetTexture(FP_SelectBBD, "war3mapImported\\UI_Pick_Button_Hover.tga", 0)
-        endif
-    endfunction
-
-    private function LeaveSelectButton takes nothing returns nothing
-        call RefreshPickButtons()
-    endfunction
-
-
-    private function EnterHeroPrevButton takes nothing returns nothing
-        if HeroPage > 0 then
-            call DzFrameSetTexture(FP_HeroPrevBBD, "war3mapImported\\UI_Pick_Page_Normal.tga", 0)
-        endif
-    endfunction
-
-    private function LeaveHeroPrevButton takes nothing returns nothing
-        call RefreshPickButtons()
-    endfunction
-
-    private function EnterHeroNextButton takes nothing returns nothing
-        if ((HeroPage + 1) * HeroPageSize) < MaxHero then
-            call DzFrameSetTexture(FP_HeroNextBBD, "war3mapImported\\UI_Pick_Page_Normal.tga", 0)
-        endif
-    endfunction
-
-    private function LeaveHeroNextButton takes nothing returns nothing
-        call RefreshPickButtons()
     endfunction
 
     private function ClickPickHeroButton takes nothing returns nothing
-        if SHNumber != 0 then
-            call DzFrameShow(FP_BD, false)
-            call DzSyncData("NewPick", I2S(SHNumber) + ";" + I2S(SLNumber))
-        endif
-    endfunction
-
-    private function ClickHeroPrevButton takes nothing returns nothing
-        if HeroPage > 0 then
-            set HeroPage = HeroPage - 1
-            call ResetHeroListSelection()
-            call RenderHeroCards()
-        endif
-    endfunction
-
-    private function ClickHeroNextButton takes nothing returns nothing
-        if ((HeroPage + 1) * HeroPageSize) < MaxHero then
-            set HeroPage = HeroPage + 1
-            call ResetHeroListSelection()
-            call RenderHeroCards()
-        endif
-    endfunction
-
-    private function ClickSLButton1 takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        if f == FP_SLB[1] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
-                call DzFrameSetTexture(FP_SL[1], "war3mapImported\\UI_Pick_Button_Hover.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
-            endif
-        endif
-        if f == FP_SLB[2] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
-                call DzFrameSetTexture(FP_SL[2], "war3mapImported\\UI_Pick_Button_Hover.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
-            endif
-        endif
-        if f == FP_SLB[3] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
-                call DzFrameSetTexture(FP_SL[3], "war3mapImported\\UI_Pick_Button_Hover.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
-            endif
-        endif
-        /*
-        if f == FP_SLB[4] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
-                call DzFrameSetTexture(FP_SL[4], "war3mapImported\\UI_Pick_Button_Hover.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
-            endif
-        endif
-        */
-    endfunction
-    private function ClickSLButton2 takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        if f == FP_SLB[1] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
-                call DzFrameSetTexture(FP_SL[1], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯1", null) +".blp", 0)
-            endif
-        endif
-        if f == FP_SLB[2] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
-                call DzFrameSetTexture(FP_SL[2], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯2", null) +".blp", 0)
+        local integer slotNumber = 0
+
+        if SHNumber >= 1 and SHNumber <= MaxHero then
+            set slotNumber = PickSavedSlot(pid, SHNumber)
+            if slotNumber != 0 then
+                set SLNumber = slotNumber
+                call DzFrameShow(FP_BD, false)
+                call DzSyncData("LoadPick", I2S(SLNumber))
+                return
             endif
 
-        endif
-        if f == FP_SLB[3] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
-                call DzFrameSetTexture(FP_SL[3], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯3", null) +".blp", 0)
+            set slotNumber = PickEmptySlot(pid)
+            if slotNumber != 0 then
+                set SLNumber = slotNumber
+                call DzFrameShow(FP_BD, false)
+                call DzSyncData("NewPick", I2S(SHNumber) + ";" + I2S(SLNumber))
             endif
         endif
-        /*
-        if f == FP_SLB[4] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
-                call DzFrameSetTexture(FP_SL[4], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-            else
-                call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+ StashLoad(PLAYER_DATA[pid], "슬롯4", null) +".blp", 0)
-            endif
-        endif
-        */
     endfunction
 
-    private function ClickSLButton3 takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-
-        if f == FP_SLB[1] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯1", null) == null then
-                call DzFrameShow(FP_HeroBBD[0], true)
-                call DzFrameShow(FP_PreviewPanel, true)
-                call ShowSlotFrames(false)
-                call DzFrameShow(FP_LoadBBD, false)
-                set SLNumber = 1
-                set SHNumber = 0
-                call DzFrameShow(FP_PotBD[1], false)
-                call DzFrameShow(FP_PotBD[2], false)
-                call DzFrameShow(FP_PotBD[3], false)
-                call DzFrameShow(FP_PotBD[4], false)
-                call DzFrameShow(FP_PotBD[5], false)
-                call DzFrameShow(FP_PotBD[6], false)
-                call DzFrameShow(FP_PotBD[7], false)
-                call DzFrameShow(FP_PotBD[8], false)
-                call DzFrameShow(FP_PotBD[9], false)
-                call DzFrameShow(FP_PotBD[10], false)
-                call DzFrameShow(FP_PotBD[11], false)
-                call DzFrameShow(FP_PotBD[12], false)
-                set HeroPage = 0
-                call ResetHeroListSelection()
-            else
-                set SLNumber = 1
-                call DzFrameShow(FP_HeroBBD[0], false)
-                call DzFrameShow(FP_PreviewPanel, false)
-                call DzFrameShow(FP_LoadBBD, true)
-            endif
+    private function ClickSkinButton takes nothing returns nothing
+        if SHNumber >= 1 and SHNumber <= MaxHero then
+            call HidePickPortraits()
+            call DzFrameShow(FP_PotBD[SHNumber], true)
         endif
-        if f == FP_SLB[2] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯2", null) == null then
-                call DzFrameShow(FP_HeroBBD[0], true)
-                call DzFrameShow(FP_PreviewPanel, true)
-                call ShowSlotFrames(false)
-                call DzFrameShow(FP_LoadBBD, false)
-                set SLNumber = 2
-                set SHNumber = 0
-                call DzFrameShow(FP_PotBD[1], false)
-                call DzFrameShow(FP_PotBD[2], false)
-                call DzFrameShow(FP_PotBD[3], false)
-                call DzFrameShow(FP_PotBD[4], false)
-                call DzFrameShow(FP_PotBD[5], false)
-                call DzFrameShow(FP_PotBD[6], false)
-                call DzFrameShow(FP_PotBD[7], false)
-                call DzFrameShow(FP_PotBD[8], false)
-                call DzFrameShow(FP_PotBD[9], false)
-                call DzFrameShow(FP_PotBD[10], false)
-                call DzFrameShow(FP_PotBD[11], false)
-                call DzFrameShow(FP_PotBD[12], false)
-                set HeroPage = 0
-                call ResetHeroListSelection()
-            else
-                set SLNumber = 2
-                call DzFrameShow(FP_HeroBBD[0], false)
-                call DzFrameShow(FP_PreviewPanel, false)
-                call DzFrameShow(FP_LoadBBD, true)
-            endif
-        endif
-        if f == FP_SLB[3] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯3", null) == null then
-                call DzFrameShow(FP_HeroBBD[0], true)
-                call DzFrameShow(FP_PreviewPanel, true)
-                call ShowSlotFrames(false)
-                call DzFrameShow(FP_LoadBBD, false)
-                set SLNumber = 3
-                set SHNumber = 0
-                call DzFrameShow(FP_PotBD[1], false)
-                call DzFrameShow(FP_PotBD[2], false)
-                call DzFrameShow(FP_PotBD[3], false)
-                call DzFrameShow(FP_PotBD[4], false)
-                call DzFrameShow(FP_PotBD[5], false)
-                call DzFrameShow(FP_PotBD[6], false)
-                call DzFrameShow(FP_PotBD[7], false)
-                call DzFrameShow(FP_PotBD[8], false)
-                call DzFrameShow(FP_PotBD[9], false)
-                call DzFrameShow(FP_PotBD[10], false)
-                call DzFrameShow(FP_PotBD[11], false)
-                call DzFrameShow(FP_PotBD[12], false)
-                set HeroPage = 0
-                call ResetHeroListSelection()
-            else
-                set SLNumber = 3
-                call DzFrameShow(FP_HeroBBD[0], false)
-                call DzFrameShow(FP_PreviewPanel, false)
-                call DzFrameShow(FP_LoadBBD, true)
-            endif
-        endif
-        /*
-        if f == FP_SLB[4] then
-            if StashLoad(PLAYER_DATA[pid], "슬롯4", null) == null then
-                call DzFrameShow(FP_SelectBBD, true)
-                call DzFrameShow(FP_LoadBBD, false)
-                set SLNumber = 4
-                set SHNumber = 0
-                call DzFrameShow(FP_PotBD[1], false)
-                call DzFrameShow(FP_PotBD[2], false)
-                call DzFrameShow(FP_PotBD[3], false)
-                call DzFrameShow(FP_PotBD[4], false)
-                call DzFrameShow(FP_PotBD[5], false)
-                call DzFrameShow(FP_PotBD[6], false)
-                call DzFrameShow(FP_PotBD[7], false)
-                call DzFrameShow(FP_PotBD[8], false)
-                call DzFrameShow(FP_PotBD[9], false)
-                call DzFrameShow(FP_PotBD[10], false)
-                call DzFrameShow(FP_PotBD[11], false)
-                call DzFrameShow(FP_PotBD[12], false)
-                set HeroPage = 0
-                call ResetHeroListSelection()
-            else
-                set SLNumber = 4
-                call DzFrameShow(FP_SelectBBD, false)
-                call DzFrameShow(FP_LoadBBD, true)
-            endif
-        endif
-        */
-    endfunction
-
-    private function OpenHeroSelection takes integer slotNumber returns nothing
-        set SLNumber = slotNumber
-        set SHNumber = 0
-        set HeroPage = 0
-        call ShowSlotFrames(false)
-        call DzFrameShow(FP_LoadBBD, false)
-        call DzFrameShow(FP_HeroBBD[0], true)
-        call DzFrameShow(FP_PreviewPanel, true)
-        call ResetHeroListSelection()
     endfunction
 
     private function Main2 takes nothing returns nothing
         if true then
-            call OpenHeroSelection(1)
             call DzFrameShow(FP_BD, true)
         endif
-        /*
-        if JNGetConnectionState() == 1280266064 then
-            call BJDebugMsg("현재 싱글 플레이중입니다.")
-        elseif JNGetConnectionState() == 1413697614 then
-            call BJDebugMsg("현재 LAN에서 중입니다.")
-        elseif JNGetConnectionState() == 1112425812 then
-            call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
-            call DzFrameShow(FP_BD, true)
-        endif
-        */
     endfunction
 
     private function Main takes nothing returns nothing
-        local string s
         local integer i
-        local integer j
-        local integer k
+        local integer row
+        local integer col
         local real cardX
         local real cardY
-        local real mainLeft
-        local real mainTop
-        local real mainWidth
-        local real mainHeight
-        local real cardAreaLeft
-        local real cardAreaTop
-        local real cardAreaWidth
-        local real cardAreaHeight
-        local real cardW
-        local real cardH
-        local real cardIcon
-        local real previewPanelLeft
-        local real previewPanelTop
-        local real previewPanelWidth
-        local real previewPanelHeight
-        local real previewInnerWidth
-        local real previewInnerHeight
-        local real previewInnerX
-
-        set mainLeft = 70.0
-        set mainTop = 105.0
-        set mainWidth = 1370.0
-        set mainHeight = 650.0
-        set cardAreaLeft = 130.0
-        set cardAreaTop = 160.0
-        set cardAreaWidth = 835.0
-        set cardAreaHeight = 570.0
-        set cardW = 118.0
-        set cardH = 136.0
-        set cardIcon = 98.0
-        set previewPanelLeft = 1105.0
-        set previewPanelTop = 135.0
-        set previewPanelWidth = 270.0
-        set previewPanelHeight = 560.0
-        set previewInnerWidth = 258.0
-        set previewInnerHeight = 548.0
-        set previewInnerX = 135.0
 
         //카메라
         call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Pick )
@@ -569,193 +217,156 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Main_Frame.tga", 0)
-        call DzFrameSetSize(FP_BD, PickWidth(mainWidth), PickHeight(mainHeight))
-        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, PickCenterX(mainLeft, mainWidth), PickCenterY(mainTop, mainHeight))
+        call DzFrameSetTexture(FP_BD, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_BD, DzGetColor(218, 150, 220, 235))
+        call DzFrameSetSize(FP_BD, 0.74, 0.50)
+        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3300)
         call DzFrameShow(FP_BD, false)
 
-        set FP_SL[1]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[1], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SL[1], 0.160, 0.040)
-        call DzFrameSetAbsolutePoint(FP_SL[1], JN_FRAMEPOINT_CENTER, 0.2750, 0.4050)
-        set FP_SLB[1] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[1], JN_FRAMEPOINT_CENTER, 0.2750, 0.4050)
-        call DzFrameSetSize(FP_SLB[1], 0.160, 0.040)
-        call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
-        call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
-        call DzFrameSetScriptByCode(FP_SLB[1], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-
-        set FP_SL[2]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[2], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SL[2], 0.160, 0.040)
-        call DzFrameSetAbsolutePoint(FP_SL[2], JN_FRAMEPOINT_CENTER, 0.2750, 0.3450)
-        set FP_SLB[2] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[2], JN_FRAMEPOINT_CENTER, 0.2750, 0.3450)
-        call DzFrameSetSize(FP_SLB[2], 0.160, 0.040)
-        call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
-        call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
-        call DzFrameSetScriptByCode(FP_SLB[2], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-
-        set FP_SL[3]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[3], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SL[3], 0.160, 0.040)
-        call DzFrameSetAbsolutePoint(FP_SL[3], JN_FRAMEPOINT_CENTER, 0.2750, 0.2850)
-        set FP_SLB[3] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[3], JN_FRAMEPOINT_CENTER, 0.2750, 0.2850)
-        call DzFrameSetSize(FP_SLB[3], 0.160, 0.040)
-        call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
-        call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
-        call DzFrameSetScriptByCode(FP_SLB[3], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-
-        /*
-        set FP_SLB[4] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetAbsolutePoint(FP_SLB[4], JN_FRAMEPOINT_CENTER, 0.1750, 0.2150)
-        call DzFrameSetSize(FP_SLB[4], 0.16, 0.055)
-        call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_ENTER, function ClickSLButton1, false)
-        call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_LEAVE, function ClickSLButton2, false)
-        call DzFrameSetScriptByCode(FP_SLB[4], JN_FRAMEEVENT_MOUSE_UP, function ClickSLButton3, false)
-        set FP_SL[4]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SL[4], "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SL[4], 0.16, 0.055)
-        call DzFrameSetAbsolutePoint(FP_SL[4], JN_FRAMEPOINT_CENTER, 0.1750, 0.2150)
-        */
-
-        set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Preview_Panel.tga", 0)
-        call DzFrameSetSize(FP_PreviewPanel, PickWidth(previewPanelWidth), PickHeight(previewPanelHeight))
-        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, PickCenterX(previewPanelLeft, previewPanelWidth), PickCenterY(previewPanelTop, previewPanelHeight))
-
-        set FP_PreviewBG=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewBG, "Transparent.blp", 0)
-        call DzFrameSetSize(FP_PreviewBG, PickWidth(previewInnerWidth), PickHeight(previewInnerHeight))
-        call DzFrameSetPoint(FP_PreviewBG, JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-        call DzFrameShow(FP_PreviewPanel, false)
-        set FP_HeroBBD[0]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "", FrameCount())
-        call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Card_Panel.tga", 0)
-        call DzFrameSetSize(FP_HeroBBD[0], PickWidth(cardAreaWidth), PickHeight(cardAreaHeight))
-        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, PickCenterX(cardAreaLeft, cardAreaWidth), PickCenterY(cardAreaTop, cardAreaHeight))
-
-        set FP_HeroScrollTrack=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroScrollTrack, "war3mapImported\\UI_Pick_Scroll_Track.tga", 0)
-        call DzFrameSetSize(FP_HeroScrollTrack, PickWidth(1.0), PickHeight(1.0))
-        call DzFrameSetPoint(FP_HeroScrollTrack, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(0.0), PickHeight(0.0))
-
-        set j = 0
+        set i = 1
         loop
-            set i = 1
-            loop
-                set k = i+(j*6)
-                set cardX = PickWidth(100.0 + (255.0 * I2R(ModuloInteger(k - 1, 3))))
-                set cardY = PickHeight(440.0 - (155.0 * I2R((k - 1) / 3)))
-                set FP_HeroBBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "", FrameCount())
-                call DzFrameSetPoint(FP_HeroBBD[k], JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, cardX, cardY)
-                call DzFrameSetSize(FP_HeroBBD[k], PickWidth(cardW), PickHeight(cardH))
-                call DzFrameSetTexture(FP_HeroBBD[k], "war3mapImported\\UI_Pick_Card_Normal.tga", 0)
-                set FP_HeroIconBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[k], "template", FrameCount())
-                call DzFrameSetTexture(FP_HeroIconBD[k], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
-                call DzFrameSetSize(FP_HeroIconBD[k], PickWidth(cardIcon), PickHeight(cardIcon))
-                call DzFrameSetPoint(FP_HeroIconBD[k], JN_FRAMEPOINT_TOP, FP_HeroBBD[k], JN_FRAMEPOINT_TOP, 0.0, PickHeight(-10.0))
-                set FP_HeroT[k]=DzCreateFrameByTagName("TEXT", "", FP_HeroBBD[k], "", 0)
-                call DzFrameSetPoint(FP_HeroT[k], JN_FRAMEPOINT_CENTER, FP_HeroBBD[k], JN_FRAMEPOINT_BOTTOM, 0.0, PickHeight(14.0))
-                call DzFrameSetText(FP_HeroT[k], "")
-                call DzFrameSetEnable(FP_HeroT[k], false)
-                set FP_HeroB[k]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[k], "ScoreScreenTabButtonTemplate",  FrameCount())
-                call DzFrameSetAllPoints(FP_HeroB[k], FP_HeroBBD[k])
-                call DzFrameSetSize(FP_HeroB[k], PickWidth(cardW), PickHeight(cardH))
-                call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_ENTER, function EnterHeroCardButton, false)
-                call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveHeroCardButton, false)
-                call DzFrameSetScriptByCode(FP_HeroB[k], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
-                if k <= MaxHero then
-                    set FP_PotBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewBG, "template", FrameCount())
-                    call DzFrameSetTexture(FP_PotBD[k], "UI_HeroPot"+I2S(k)+".blp", 0)
-                    call DzFrameSetSize(FP_PotBD[k], PickWidth(previewInnerWidth), PickHeight(previewInnerHeight))
-                    call DzFrameSetPoint(FP_PotBD[k], JN_FRAMEPOINT_CENTER, FP_PreviewBG, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-                    call DzFrameShow(FP_PotBD[k], false)
-                    set FP_LeftPotBD[k]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-                    call DzFrameSetTexture(FP_LeftPotBD[k], "UI_HeroPot"+I2S(k)+".blp", 0)
-                    call DzFrameSetSize(FP_LeftPotBD[k], 0.001, 0.001)
-                    call DzFrameSetAbsolutePoint(FP_LeftPotBD[k], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
-                    call DzFrameShow(FP_LeftPotBD[k], false)
-                endif
-                set i = i + 1
-                exitwhen i == 7
-            endloop
-            set j = j + 1
-            exitwhen j == 2
+            exitwhen i > 3
+            set FP_SL[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+            call DzFrameSetTexture(FP_SL[i], "UI_PickSelect2.blp", 0)
+            call DzFrameSetSize(FP_SL[i], 0.001, 0.001)
+            call DzFrameSetAbsolutePoint(FP_SL[i], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
+            call DzFrameShow(FP_SL[i], false)
+            set FP_SLB[i] = DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
+            call DzFrameSetSize(FP_SLB[i], 0.001, 0.001)
+            call DzFrameSetAbsolutePoint(FP_SLB[i], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
+            call DzFrameShow(FP_SLB[i], false)
+            set i = i + 1
         endloop
 
-        set FP_HeroPrevBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroPrevBBD, "war3mapImported\\UI_Pick_Page_Disabled.tga", 0)
-        call DzFrameSetSize(FP_HeroPrevBBD, PickWidth(1.0), PickHeight(1.0))
-        call DzFrameSetPoint(FP_HeroPrevBBD, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(530.0), PickHeight(315.0))
-        set FP_HeroPrevBT=DzCreateFrameByTagName("TEXT", "", FP_HeroPrevBBD, "", 0)
-        call DzFrameSetPoint(FP_HeroPrevBT, JN_FRAMEPOINT_CENTER, FP_HeroPrevBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-        call DzFrameSetText(FP_HeroPrevBT, "<")
-        set FP_HeroPrevB=DzCreateFrameByTagName("BUTTON", "", FP_HeroPrevBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAllPoints(FP_HeroPrevB, FP_HeroPrevBBD)
-        call DzFrameSetScriptByCode(FP_HeroPrevB, JN_FRAMEEVENT_MOUSE_ENTER, function EnterHeroPrevButton, false)
-        call DzFrameSetScriptByCode(FP_HeroPrevB, JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveHeroPrevButton, false)
-        call DzFrameSetScriptByCode(FP_HeroPrevB, JN_FRAMEEVENT_MOUSE_UP, function ClickHeroPrevButton, false)
+        set FP_HeroBBD[0]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_HeroBBD[0], "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(30, 255, 255, 255))
+        call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.37)
+        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3700)
 
-        set FP_HeroNextBBD=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[0], "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroNextBBD, "war3mapImported\\UI_Pick_Page_Disabled.tga", 0)
-        call DzFrameSetSize(FP_HeroNextBBD, PickWidth(1.0), PickHeight(1.0))
-        call DzFrameSetPoint(FP_HeroNextBBD, JN_FRAMEPOINT_CENTER, FP_HeroBBD[0], JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(530.0), PickHeight(185.0))
-        set FP_HeroNextBT=DzCreateFrameByTagName("TEXT", "", FP_HeroNextBBD, "", 0)
-        call DzFrameSetPoint(FP_HeroNextBT, JN_FRAMEPOINT_CENTER, FP_HeroNextBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-        call DzFrameSetText(FP_HeroNextBT, ">")
-        set FP_HeroNextB=DzCreateFrameByTagName("BUTTON", "", FP_HeroNextBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAllPoints(FP_HeroNextB, FP_HeroNextBBD)
-        call DzFrameSetScriptByCode(FP_HeroNextB, JN_FRAMEEVENT_MOUSE_ENTER, function EnterHeroNextButton, false)
-        call DzFrameSetScriptByCode(FP_HeroNextB, JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveHeroNextButton, false)
-        call DzFrameSetScriptByCode(FP_HeroNextB, JN_FRAMEEVENT_MOUSE_UP, function ClickHeroNextButton, false)
+        set i = 1
+        loop
+            exitwhen i > PickCardCount
+            set row = (i - 1) / 4
+            set col = ModuloInteger(i - 1, 4)
+            set cardX = 0.088 + (0.105 * I2R(col))
+            set cardY = 0.490 - (0.155 * I2R(row))
 
+            set FP_HeroBBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+            call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
+            call DzFrameSetSize(FP_HeroBBD[i], 0.085, 0.095)
+            call DzFrameSetAbsolutePoint(FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, cardX, cardY)
 
-        /*
-        set FP_HeroTBD=DzCreateFrameByTagName("BACKDROP", "", FP_SelectBBD, "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroTBD, "UI_PickText.tga", 0)
-        call DzFrameSetSize(FP_HeroTBD, 0.22, 0.12)
-        call DzFrameSetAbsolutePoint(FP_HeroTBD, JN_FRAMEPOINT_CENTER, 0.5700, 0.2100)
-        call DzFrameShow(FP_HeroTBD, true)
-        */
+            set FP_HeroImgBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
+            if i <= MaxHero then
+                call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(i)+".blp", 0)
+            else
+                call DzFrameSetTexture(FP_HeroImgBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
+            endif
+            call DzFrameSetSize(FP_HeroImgBD[i], 0.075, 0.075)
+            call DzFrameSetPoint(FP_HeroImgBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.006)
 
-        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
-        call DzFrameSetTexture(FP_SelectBBD, "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_SelectBBD, PickWidth(136.0), PickHeight(38.0))
-        call DzFrameSetPoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_BOTTOMLEFT, PickWidth(previewInnerX), PickHeight(54.0))
+            set FP_HeroNameBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
+            call DzFrameSetTexture(FP_HeroNameBD[i], "Textures\\black32.blp", 0)
+            call DzFrameSetSize(FP_HeroNameBD[i], 0.078, 0.016)
+            call DzFrameSetPoint(FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, 0.010)
 
-        set FP_SelectBT=DzCreateFrameByTagName("TEXT", "", FP_SelectBBD, "", 0)
+            set FP_HeroT[i]=DzCreateFrameByTagName("TEXT", "", FP_HeroNameBD[i], "", 0)
+            call DzFrameSetPoint(FP_HeroT[i], JN_FRAMEPOINT_CENTER, FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+            call DzFrameSetText(FP_HeroT[i], PickHeroName(i))
+            call DzFrameSetEnable(FP_HeroT[i], false)
+
+            set FP_HeroLockBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
+            call DzFrameSetTexture(FP_HeroLockBD[i], "UI_Inventory_Lock2.blp", 0)
+            call DzFrameSetSize(FP_HeroLockBD[i], 0.030, 0.030)
+            call DzFrameSetPoint(FP_HeroLockBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+            call DzFrameShow(FP_HeroLockBD[i], i > MaxHero)
+
+            set FP_HeroB[i]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
+            call DzFrameSetAllPoints(FP_HeroB[i], FP_HeroBBD[i])
+            call DzFrameSetSize(FP_HeroB[i], 0.085, 0.095)
+            call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
+            set i = i + 1
+        endloop
+
+        set FP_ScrollTrack=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_ScrollTrack, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_ScrollTrack, DzGetColor(230, 214, 122, 54))
+        call DzFrameSetSize(FP_ScrollTrack, 0.005, 0.35)
+        call DzFrameSetAbsolutePoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
+
+        set FP_ScrollKnob=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_ScrollKnob, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(245, 170, 42, 38))
+        call DzFrameSetSize(FP_ScrollKnob, 0.020, 0.026)
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, 0.5400)
+
+        set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_PreviewPanel, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(205, 65, 178, 94))
+        call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.230)
+        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.6300, 0.4100)
+
+        set i = 1
+        loop
+            exitwhen i > PickCardCount
+            set FP_PotBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
+            if i <= MaxHero then
+                call DzFrameSetTexture(FP_PotBD[i], "UI_HeroPot"+I2S(i)+".blp", 0)
+            else
+                call DzFrameSetTexture(FP_PotBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
+            endif
+            call DzFrameSetSize(FP_PotBD[i], 0.225, 0.205)
+            call DzFrameSetPoint(FP_PotBD[i], JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+            call DzFrameShow(FP_PotBD[i], false)
+            set i = i + 1
+        endloop
+
+        set FP_SkinBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_SkinBBD, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(205, 236, 147, 184))
+        call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
+        call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.2200)
+
+        set FP_SkinBT=DzCreateFrameByTagName("TEXT", "", FP_SkinBBD, "", 0)
+        call DzFrameSetPoint(FP_SkinBT, JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025)
+        call DzFrameSetText(FP_SkinBT, "기본 스킨")
+        call DzFrameSetEnable(FP_SkinBT, false)
+
+        set FP_SkinB=DzCreateFrameByTagName("BUTTON", "", FP_SkinBBD, "ScoreScreenTabButtonTemplate", FrameCount())
+        call DzFrameSetSize(FP_SkinB, 0.120, 0.030)
+        call DzFrameSetPoint(FP_SkinB, JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025)
+        call DzFrameSetScriptByCode(FP_SkinB, JN_FRAMEEVENT_MOUSE_UP, function ClickSkinButton, false)
+
+        set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
+        call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
+        call DzFrameSetSize(FP_SelectBBD, 0.080, 0.035)
+        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.5650, 0.1150)
+        call DzFrameShow(FP_SelectBBD, false)
+
+        set FP_SelectBT=DzCreateFrameByTagName("TEXT","",FP_SelectBBD,"",0)
         call DzFrameSetPoint(FP_SelectBT, JN_FRAMEPOINT_CENTER, FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetText(FP_SelectBT,"결정")
         call DzFrameSetEnable(FP_SelectBT, false)
 
         set FP_SelectB=DzCreateFrameByTagName("BUTTON", "", FP_SelectBBD, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAllPoints(FP_SelectB, FP_SelectBBD)
-        call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_ENTER, function EnterSelectButton, false)
-        call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveSelectButton, false)
+        call DzFrameSetSize(FP_SelectB, 0.080, 0.035)
+        call JNFrameSetLevel(FP_SelectBBD, 20)
+        call JNFrameSetLevel(FP_SelectB, 21)
+        call JNFrameSetLevel(FP_SelectBT, 22)
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickHeroButton, false)
 
-        call DzFrameShow(FP_HeroBBD[0], false)
-
-        //로드
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_LoadBBD, "war3mapImported\\UI_Pick_Button_Normal.tga", 0)
-        call DzFrameSetSize(FP_LoadBBD, PickWidth(170.0), PickHeight(46.0))
-        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, PickCenterX(805.0, 170.0), PickCenterY(585.0, 46.0))
+        call DzFrameSetTexture(FP_LoadBBD, "UI_PickSelectButton.tga", 0)
+        call DzFrameSetSize(FP_LoadBBD, 0.001, 0.001)
+        call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
         call DzFrameShow(FP_LoadBBD, false)
-
-        set FP_LoadBT=DzCreateFrameByTagName("TEXT", "", FP_LoadBBD, "", 0)
-        call DzFrameSetPoint(FP_LoadBT, JN_FRAMEPOINT_CENTER, FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-        call DzFrameSetText(FP_LoadBT,"결정")
-        call DzFrameSetEnable(FP_LoadBT, false)
-
+        set FP_LoadBT=DzCreateFrameByTagName("TEXT","",FP_LoadBBD,"",0)
         set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAllPoints(FP_LoadB, FP_LoadBBD)
-        call DzFrameSetScriptByCode(FP_LoadB, JN_FRAMEEVENT_MOUSE_UP, function ClickLoadButton, false)
-        call RenderHeroCards()
 
+        set SHNumber = 0
     endfunction
-
     private function LoadPickF takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local integer SlotNumber = S2I(DzGetTriggerSyncData())
