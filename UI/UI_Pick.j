@@ -18,6 +18,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_SkinBT           //스킨 선택 텍스트
         integer FP_ScrollTrack      //캐릭터 목록 스크롤 트랙
         integer FP_ScrollKnob       //캐릭터 목록 스크롤 노브
+        integer FP_ScrollB          //캐릭터 목록 스크롤 버튼
         integer array FP_PotBD      //포트레잇 백드롭
         integer FP_HeroTBD          //캐릭터설명 텍스트 백드롭
         integer array FP_HeroT      //캐릭터설명 텍스트
@@ -27,8 +28,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadBBD          //로드결정
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
+        integer PickScrollOffset = 0
         constant integer MaxHero = 3
-        constant integer PickCardCount = 8
+        constant integer PickVisibleCardCount = 12
+        constant integer PickCardColumnCount = 4
+        constant integer PickCardCount = 16
     endglobals
 
     function StringNullCheck2 takes string s returns boolean
@@ -99,6 +103,29 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         return 0
     endfunction
 
+    private function PickMaxScrollOffset takes nothing returns integer
+        local integer maxOffset = PickCardCount - PickVisibleCardCount
+        if maxOffset < 0 then
+            return 0
+        endif
+        return maxOffset
+    endfunction
+
+    private function PickVisibleHeroNumber takes integer slot returns integer
+        return PickScrollOffset + slot
+    endfunction
+
+    private function RefreshPickScroll takes nothing returns nothing
+        local integer maxOffset = PickMaxScrollOffset()
+        local real topY = 0.540
+        local real bottomY = 0.190
+        local real knobY = topY
+        if maxOffset > 0 then
+            set knobY = topY - ((topY - bottomY) * I2R(PickScrollOffset) / I2R(maxOffset))
+        endif
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, knobY)
+    endfunction
+
     private function HidePickPortraits takes nothing returns nothing
         local integer i = 1
         loop
@@ -134,14 +161,36 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
     private function RefreshPickCards takes integer pid returns nothing
         local integer i = 1
+        local integer heroNumber = 0
         loop
-            exitwhen i > PickCardCount
-            if i == SHNumber then
-                call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelectButton.tga", 0)
+            exitwhen i > PickVisibleCardCount
+            set heroNumber = PickVisibleHeroNumber(i)
+            if heroNumber <= PickCardCount then
+                call DzFrameShow(FP_HeroBBD[i], true)
+                call DzFrameShow(FP_HeroImgBD[i], true)
+                call DzFrameShow(FP_HeroNameBD[i], true)
+                call DzFrameShow(FP_HeroT[i], true)
+                call DzFrameShow(FP_HeroB[i], true)
+                if heroNumber == SHNumber then
+                    call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelectButton.tga", 0)
+                else
+                    call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
+                endif
+                if heroNumber <= MaxHero then
+                    call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
+                else
+                    call DzFrameSetTexture(FP_HeroImgBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
+                endif
+                call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
+                call DzFrameShow(FP_HeroLockBD[i], heroNumber > MaxHero)
             else
-                call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
+                call DzFrameShow(FP_HeroBBD[i], false)
+                call DzFrameShow(FP_HeroImgBD[i], false)
+                call DzFrameShow(FP_HeroNameBD[i], false)
+                call DzFrameShow(FP_HeroLockBD[i], false)
+                call DzFrameShow(FP_HeroT[i], false)
+                call DzFrameShow(FP_HeroB[i], false)
             endif
-            call DzFrameShow(FP_HeroLockBD[i], i > MaxHero)
             set i = i + 1
         endloop
 
@@ -149,6 +198,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if SHNumber >= 1 and SHNumber <= MaxHero then
             call DzFrameShow(FP_PotBD[SHNumber], true)
         endif
+        call RefreshPickScroll()
         call RefreshPickConfirm(pid)
     endfunction
 
@@ -156,11 +206,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer i = 1
+        local integer heroNumber = 0
         loop
-            exitwhen i > PickCardCount
+            exitwhen i > PickVisibleCardCount
             if f == FP_HeroB[i] then
-                set SHNumber = i
-                call RefreshPickCards(pid)
+                set heroNumber = PickVisibleHeroNumber(i)
+                if heroNumber <= PickCardCount then
+                    set SHNumber = heroNumber
+                    call RefreshPickCards(pid)
+                endif
                 return
             endif
             set i = i + 1
@@ -195,6 +249,19 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call HidePickPortraits()
             call DzFrameShow(FP_PotBD[SHNumber], true)
         endif
+    endfunction
+
+    private function ClickPickScrollButton takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer maxOffset = PickMaxScrollOffset()
+        if maxOffset <= 0 then
+            return
+        endif
+        set PickScrollOffset = PickScrollOffset + 1
+        if PickScrollOffset > maxOffset then
+            set PickScrollOffset = 0
+        endif
+        call RefreshPickCards(pid)
     endfunction
 
     private function Main2 takes nothing returns nothing
@@ -246,11 +313,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         set i = 1
         loop
-            exitwhen i > PickCardCount
-            set row = (i - 1) / 4
-            set col = ModuloInteger(i - 1, 4)
+            exitwhen i > PickVisibleCardCount
+            set row = (i - 1) / PickCardColumnCount
+            set col = ModuloInteger(i - 1, PickCardColumnCount)
             set cardX = 0.088 + (0.105 * I2R(col))
-            set cardY = 0.490 - (0.155 * I2R(row))
+            set cardY = 0.505 - (0.125 * I2R(row))
 
             set FP_HeroBBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
             call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
@@ -269,7 +336,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set FP_HeroNameBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
             call DzFrameSetTexture(FP_HeroNameBD[i], "Textures\\black32.blp", 0)
             call DzFrameSetSize(FP_HeroNameBD[i], 0.078, 0.016)
-            call DzFrameSetPoint(FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, 0.010)
+            call DzFrameSetPoint(FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, -0.012)
 
             set FP_HeroT[i]=DzCreateFrameByTagName("TEXT", "", FP_HeroNameBD[i], "", 0)
             call DzFrameSetPoint(FP_HeroT[i], JN_FRAMEPOINT_CENTER, FP_HeroNameBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
@@ -300,6 +367,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(245, 170, 42, 38))
         call DzFrameSetSize(FP_ScrollKnob, 0.020, 0.026)
         call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, 0.5400)
+
+        set FP_ScrollB=DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
+        call DzFrameSetSize(FP_ScrollB, 0.035, 0.35)
+        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
+        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_PreviewPanel, "textures\\white.blp", 0)
@@ -366,6 +438,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_LoadB=DzCreateFrameByTagName("BUTTON", "", FP_LoadBBD, "ScoreScreenTabButtonTemplate", FrameCount())
 
         set SHNumber = 0
+        set PickScrollOffset = 0
+        call RefreshPickScroll()
     endfunction
     private function LoadPickF takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
