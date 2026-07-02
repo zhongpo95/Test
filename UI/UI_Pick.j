@@ -117,13 +117,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
     private function RefreshPickScroll takes nothing returns nothing
         local integer maxOffset = PickMaxScrollOffset()
-        local real topY = 0.540
-        local real bottomY = 0.190
+        local real topY = 0.520
+        local real bottomY = 0.205
         local real knobY = topY
         if maxOffset > 0 then
             set knobY = topY - ((topY - bottomY) * I2R(PickScrollOffset) / I2R(maxOffset))
         endif
-        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, knobY)
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4700, knobY)
     endfunction
 
     private function HidePickPortraits takes nothing returns nothing
@@ -361,18 +361,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_ScrollTrack=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_ScrollTrack, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_ScrollTrack, DzGetColor(230, 214, 122, 54))
-        call DzFrameSetSize(FP_ScrollTrack, 0.005, 0.35)
-        call DzFrameSetAbsolutePoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
+        call DzFrameSetSize(FP_ScrollTrack, 0.004, 0.315)
+        call DzFrameSetAbsolutePoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, 0.4700, 0.3625)
 
         set FP_ScrollKnob=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_ScrollKnob, "UI_PickSelectButton.tga", 0)
-        call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(245, 170, 42, 38))
-        call DzFrameSetSize(FP_ScrollKnob, 0.020, 0.026)
-        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, 0.5400)
+        call DzFrameSetTexture(FP_ScrollKnob, "Textures\\black32.blp", 0)
+        call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(255, 214, 122, 54))
+        call DzFrameSetSize(FP_ScrollKnob, 0.012, 0.032)
+        call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4700, 0.5200)
 
         set FP_ScrollB=DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetSize(FP_ScrollB, 0.035, 0.35)
-        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
+        call DzFrameSetSize(FP_ScrollB, 0.030, 0.315)
+        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4700, 0.3625)
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
