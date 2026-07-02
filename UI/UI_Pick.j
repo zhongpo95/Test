@@ -284,7 +284,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Source_Backdrop_019f20a1-removebg-preview.tga", 0)
         call DzFrameSetVertexColor(FP_BD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_BD, 255)
         call DzFrameSetSize(FP_BD, 0.74, 0.50)
@@ -376,7 +376,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
+        call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Source_Panel_019f20a2.tga", 0)
         call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_PreviewPanel, 255)
         call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.230)
@@ -398,7 +398,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
 
         set FP_SkinBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SkinBBD, "war3mapImported\\UI_Pick_Panel.tga", 0)
+        call DzFrameSetTexture(FP_SkinBBD, "war3mapImported\\UI_Pick_Source_Panel_019f20a2.tga", 0)
         call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_SkinBBD, 255)
         call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
