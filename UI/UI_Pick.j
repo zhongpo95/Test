@@ -105,10 +105,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
     private function PickMaxScrollOffset takes nothing returns integer
         local integer maxOffset = PickCardCount - PickVisibleCardCount
-        if maxOffset < 0 then
+        if maxOffset <= 0 then
             return 0
         endif
-        return maxOffset
+        return ((maxOffset + PickCardColumnCount - 1) / PickCardColumnCount) * PickCardColumnCount
     endfunction
 
     private function PickVisibleHeroNumber takes integer slot returns integer
@@ -257,7 +257,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if maxOffset <= 0 then
             return
         endif
-        set PickScrollOffset = PickScrollOffset + 1
+        set PickScrollOffset = PickScrollOffset + PickCardColumnCount
         if PickScrollOffset > maxOffset then
             set PickScrollOffset = 0
         endif
@@ -284,8 +284,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzLoadToc("war3mapImported\\Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(FP_BD, "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_BD, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_BD, DzGetColor(218, 150, 220, 235))
+        call DzFrameSetAlpha(FP_BD, 215)
         call DzFrameSetSize(FP_BD, 0.74, 0.50)
         call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3300)
         call DzFrameShow(FP_BD, false)
@@ -306,8 +307,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
 
         set FP_HeroBBD[0]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_HeroBBD[0], "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_HeroBBD[0], "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(30, 255, 255, 255))
+        call DzFrameSetAlpha(FP_HeroBBD[0], 35)
         call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.37)
         call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3700)
 
@@ -357,13 +359,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
 
         set FP_ScrollTrack=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_ScrollTrack, "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_ScrollTrack, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_ScrollTrack, DzGetColor(230, 214, 122, 54))
         call DzFrameSetSize(FP_ScrollTrack, 0.005, 0.35)
         call DzFrameSetAbsolutePoint(FP_ScrollTrack, JN_FRAMEPOINT_CENTER, 0.4850, 0.3650)
 
         set FP_ScrollKnob=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_ScrollKnob, "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_ScrollKnob, "UI_PickSelectButton.tga", 0)
         call DzFrameSetVertexColor(FP_ScrollKnob, DzGetColor(245, 170, 42, 38))
         call DzFrameSetSize(FP_ScrollKnob, 0.020, 0.026)
         call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4850, 0.5400)
@@ -374,8 +376,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_PreviewPanel, "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_PreviewPanel, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(205, 65, 178, 94))
+        call DzFrameSetAlpha(FP_PreviewPanel, 160)
         call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.230)
         call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.6300, 0.4100)
 
@@ -395,8 +398,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
 
         set FP_SkinBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_SkinBBD, "textures\\white.blp", 0)
+        call DzFrameSetTexture(FP_SkinBBD, "Textures\\black32.blp", 0)
         call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(205, 236, 147, 184))
+        call DzFrameSetAlpha(FP_SkinBBD, 140)
         call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
         call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.2200)
 
