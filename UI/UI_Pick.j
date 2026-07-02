@@ -122,7 +122,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     private function RefreshPickScroll takes nothing returns nothing
         call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(PickMaxScrollRow()))
         call DzFrameSetStepValue(FP_ScrollB, 1.0)
-        call DzFrameSetValue(FP_ScrollB, I2R(PickScrollOffset / PickCardColumnCount))
+        call DzFrameSetValue(FP_ScrollB, I2R(PickMaxScrollRow() - (PickScrollOffset / PickCardColumnCount)))
     endfunction
 
     private function HidePickPortraits takes nothing returns nothing
@@ -267,7 +267,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     endfunction
 
     private function ChangePickScrollSlider takes nothing returns nothing
-        call SetPickScrollOffset(GetPlayerId(DzGetTriggerUIEventPlayer()), R2I(DzFrameGetValue(FP_ScrollB) + 0.5) * PickCardColumnCount)
+        call SetPickScrollOffset(GetPlayerId(DzGetTriggerUIEventPlayer()), (PickMaxScrollRow() - R2I(DzFrameGetValue(FP_ScrollB) + 0.5)) * PickCardColumnCount)
     endfunction
 
     private function PickScrollAreaHasFocus takes nothing returns boolean
@@ -301,7 +301,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     private function PollPickScrollSlider takes nothing returns nothing
         local integer value = 0
         if FP_ScrollB != 0 then
-            set value = R2I(DzFrameGetValue(FP_ScrollB) + 0.5) * PickCardColumnCount
+            set value = (PickMaxScrollRow() - R2I(DzFrameGetValue(FP_ScrollB) + 0.5)) * PickCardColumnCount
             if value != PickScrollOffset then
                 call SetPickScrollOffset(GetPlayerId(GetLocalPlayer()), value)
             endif
