@@ -7,6 +7,31 @@ scope Load initializer onInit
         stash array PLAYER_DATA
     endglobals
 
+    private function IsValidPickSlotNumber takes integer slotNumber returns boolean
+        return slotNumber >= 1 and slotNumber <= 3
+    endfunction
+
+    private function RefreshPickSlotImage takes integer pid, integer slotNumber returns nothing
+        local string str = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber), "없음")
+        if str != "없음" and str != null and str != "" then
+            call DzFrameSetTexture(FP_SL[slotNumber], "UI_PickSelect2.blp", 0)
+        endif
+        set str = null
+    endfunction
+
+    private function SaveEquippedItems takes integer pid, integer slotNumber returns nothing
+        local integer i = 0
+        loop
+            if Eitem[pid][i] == null or Eitem[pid][i] == "" then
+                call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber)+".E"+I2S(i), "0")
+            else
+                call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber)+".E"+I2S(i), Eitem[pid][i])
+            endif
+            exitwhen i == EQUIP_SLOT_MAX
+            set i = i + 1
+        endloop
+    endfunction
+
     private function downloadCallback takes nothing returns nothing
         local player user = JNStashNetGetPlayer()
         local integer pid
@@ -21,31 +46,14 @@ scope Load initializer onInit
                 call JNObjectMapInit(MapName,MapApi)
                 
                 //슬롯 이미지 세팅
-                set str = StashLoad(PLAYER_DATA[pid], "슬롯1", "없음")
-                if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[1], "UI_PickSelect1Hero"+str+".blp", 0)
-                    set str = null
-                endif
-                set str = StashLoad(PLAYER_DATA[pid], "슬롯2", "없음")
-                if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[2], "UI_PickSelect1Hero"+str+".blp", 0)
-                    set str = null
-                endif
-                set str = StashLoad(PLAYER_DATA[pid], "슬롯3", "없음")
-                if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[3], "UI_PickSelect1Hero"+str+".blp", 0)
-                    set str = null
-                endif
+                set i = 1
+                loop
+                    call RefreshPickSlotImage(pid, i)
+                    set i = i + 1
+                exitwhen i > 3
+                endloop
                 //빅휠 카운트
                 set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
-
-                /*
-                set str = StashLoad(PLAYER_DATA[pid], "슬롯4", "없음")
-                if str != "없음" and str != null then
-                    call DzFrameSetTexture(FP_SL[4], "UI_PickSelect1Hero"+str+".blp", 0)
-                    set str = null
-                endif
-                */
                 set j = 0
                 loop
                     set str = StashLoad(PLAYER_DATA[pid], "창고"+I2S(j), "없음")
@@ -92,8 +100,7 @@ scope Load initializer onInit
 
     private function upload takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
-        local string str = I2S(PlayerSlotNumber[pid])
-        local integer i = 0
+        local integer slotNumber = PlayerSlotNumber[pid]
         /*
         if JNGetConnectionState() == 1280266064 then
             call BJDebugMsg("현재 싱글 플레이중입니다.")
@@ -102,16 +109,11 @@ scope Load initializer onInit
         elseif JNGetConnectionState() == 1112425812 then
             call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
         */
-        if true then
-        set i = 0
-        loop
-            if Eitem[pid][i] != null then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+ str + ".E"+I2S(i), Eitem[pid][i])
-            endif
-            exitwhen i == EQUIP_SLOT_MAX
-            set i = i + 1
-        endloop
+        if IsValidPickSlotNumber(slotNumber) then
+            call SaveEquippedItems(pid, slotNumber)
             call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
+        else
+            call VJDebugMsg("캐릭터 선택 후 저장할 수 있습니다.")
         endif
     endfunction
 
