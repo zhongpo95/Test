@@ -29,7 +29,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
         integer PickScrollOffset = 0
-        boolean array PickScrollMouseInArea
         constant integer MaxHero = 3
         constant integer PickVisibleCardCount = 12
         constant integer PickCardColumnCount = 4
@@ -65,7 +64,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         elseif heroNumber == 3 then
             return "반디"
         endif
-        return "잠금"
+        return "잠금 "+I2S(heroNumber)
     endfunction
 
     private function PickSlotValue takes integer pid, integer slotNumber returns string
@@ -271,22 +270,40 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call SetPickScrollOffset(GetPlayerId(DzGetTriggerUIEventPlayer()), R2I(DzFrameGetValue(FP_ScrollB) + 0.5) * PickCardColumnCount)
     endfunction
 
-    private function EnterPickScrollArea takes nothing returns nothing
-        set PickScrollMouseInArea[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-    endfunction
-
-    private function LeavePickScrollArea takes nothing returns nothing
-        set PickScrollMouseInArea[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
+    private function PickScrollAreaHasFocus takes nothing returns boolean
+        local integer focus = DzGetMouseFocus()
+        local integer i = 1
+        if focus == FP_ScrollB then
+            return true
+        endif
+        loop
+            exitwhen i > PickVisibleCardCount
+            if focus == FP_HeroB[i] then
+                return true
+            endif
+            set i = i + 1
+        endloop
+        return false
     endfunction
 
     private function WheelPickScroll takes nothing returns nothing
         local integer delta = DzGetWheelDelta()
         local integer pid = GetPlayerId(DzGetTriggerKeyPlayer())
-        if PickScrollMouseInArea[pid] then
+        if PickScrollAreaHasFocus() then
             if delta > 0 then
                 call SetPickScrollOffset(pid, PickScrollOffset - PickCardColumnCount)
             elseif delta < 0 then
                 call SetPickScrollOffset(pid, PickScrollOffset + PickCardColumnCount)
+            endif
+        endif
+    endfunction
+
+    private function PollPickScrollSlider takes nothing returns nothing
+        local integer value = 0
+        if FP_ScrollB != 0 then
+            set value = R2I(DzFrameGetValue(FP_ScrollB) + 0.5) * PickCardColumnCount
+            if value != PickScrollOffset then
+                call SetPickScrollOffset(GetPlayerId(GetLocalPlayer()), value)
             endif
         endif
     endfunction
@@ -382,8 +399,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             call DzFrameSetAllPoints(FP_HeroB[i], FP_HeroBBD[i])
             call DzFrameSetSize(FP_HeroB[i], 0.085, 0.095)
             call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
-            call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_ENTER, function EnterPickScrollArea, false)
-            call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_LEAVE, function LeavePickScrollArea, false)
             set i = i + 1
         endloop
 
@@ -411,8 +426,6 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetValue(FP_ScrollB, 0.0)
         call JNFrameSetLevel(FP_ScrollB, 24)
         call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_SLIDER_VALUE_CHANGED, function ChangePickScrollSlider, false)
-        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_ENTER, function EnterPickScrollArea, false)
-        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_LEAVE, function LeavePickScrollArea, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
@@ -762,6 +775,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         set t=CreateTrigger()
         call DzTriggerRegisterMouseWheelEventByCode(t, false, function WheelPickScroll)
+
+        set t=CreateTrigger()
+        call TriggerRegisterTimerEventPeriodic(t, 0.05)
+        call TriggerAddAction(t, function PollPickScrollSlider)
 
         set t = null
     endfunction
