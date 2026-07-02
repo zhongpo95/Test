@@ -18,7 +18,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_SkinBT           //스킨 선택 텍스트
         integer FP_ScrollTrack      //캐릭터 목록 스크롤 트랙
         integer FP_ScrollKnob       //캐릭터 목록 스크롤 노브
-        integer FP_ScrollB          //캐릭터 목록 스크롤 버튼
+        integer FP_ScrollB          //캐릭터 목록 스크롤 슬라이더
         integer array FP_PotBD      //포트레잇 백드롭
         integer FP_HeroTBD          //캐릭터설명 텍스트 백드롭
         integer array FP_HeroT      //캐릭터설명 텍스트
@@ -120,6 +120,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local real topY = 0.520
         local real bottomY = 0.205
         local real knobY = topY
+        call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(maxOffset))
+        call DzFrameSetStepValue(FP_ScrollB, I2R(PickCardColumnCount))
+        call DzFrameSetValue(FP_ScrollB, I2R(PickScrollOffset))
         if maxOffset > 0 then
             set knobY = topY - ((topY - bottomY) * I2R(PickScrollOffset) / I2R(maxOffset))
         endif
@@ -251,16 +254,28 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
     endfunction
 
-    private function ClickPickScrollButton takes nothing returns nothing
+    private function ChangePickScrollSlider takes nothing returns nothing
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer maxOffset = PickMaxScrollOffset()
+        local integer value = R2I(DzFrameGetValue(FP_ScrollB) + 0.5)
         if maxOffset <= 0 then
+            if PickScrollOffset != 0 then
+                set PickScrollOffset = 0
+                call RefreshPickCards(pid)
+            endif
             return
         endif
-        set PickScrollOffset = PickScrollOffset + PickCardColumnCount
-        if PickScrollOffset > maxOffset then
-            set PickScrollOffset = 0
+        set value = (value / PickCardColumnCount) * PickCardColumnCount
+        if value < 0 then
+            set value = 0
+        elseif value > maxOffset then
+            set value = maxOffset
         endif
+        if PickScrollOffset == value then
+            return
+        endif
+        set PickScrollOffset = value
+        call DzFrameSetValue(FP_ScrollB, I2R(PickScrollOffset))
         call RefreshPickCards(pid)
     endfunction
 
@@ -370,10 +385,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetSize(FP_ScrollKnob, 0.012, 0.032)
         call DzFrameSetAbsolutePoint(FP_ScrollKnob, JN_FRAMEPOINT_CENTER, 0.4700, 0.5200)
 
-        set FP_ScrollB=DzCreateFrameByTagName("BUTTON", "", FP_BD, "ScoreScreenTabButtonTemplate", FrameCount())
+        set FP_ScrollB=DzCreateFrameByTagName("SLIDER", "", FP_BD, "template", FrameCount())
         call DzFrameSetSize(FP_ScrollB, 0.030, 0.315)
         call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4700, 0.3625)
-        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickScrollButton, false)
+        call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(PickMaxScrollOffset()))
+        call DzFrameSetStepValue(FP_ScrollB, I2R(PickCardColumnCount))
+        call DzFrameSetValue(FP_ScrollB, 0.0)
+        call DzFrameSetScriptByCode(FP_ScrollB, JN_FRAMEEVENT_SLIDER_VALUE_CHANGED, function ChangePickScrollSlider, false)
 
         set FP_PreviewPanel=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
