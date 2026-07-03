@@ -96,6 +96,18 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
         return "스킨 "+I2S(skinNumber)
     endfunction
+    private function PickSelectedSkinNumber takes integer heroNumber returns integer
+        if heroNumber == 2 then
+            return PickSkinNumber
+        endif
+        return 1
+    endfunction
+
+    private function ApplyPickHeroSkinModel takes integer heroNumber, integer skinNumber, unit target returns nothing
+        if heroNumber == 2 and skinNumber == 2 then
+            call DzSetUnitModel(target, "Narmaya_Swimsuit.mdx")
+        endif
+    endfunction
 
     private function PickSlotValue takes integer pid, integer slotNumber returns string
         return StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber), null)
@@ -301,7 +313,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if slotNumber != 0 then
                 set SLNumber = slotNumber
                 call DzFrameShow(FP_BD, false)
-                call DzSyncData("LoadPick", I2S(SLNumber))
+                call DzSyncData("LoadPick", I2S(SLNumber) + ";" + I2S(PickSelectedSkinNumber(SHNumber)))
                 return
             endif
 
@@ -309,7 +321,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if slotNumber != 0 then
                 set SLNumber = slotNumber
                 call DzFrameShow(FP_BD, false)
-                call DzSyncData("NewPick", I2S(SHNumber) + ";" + I2S(SLNumber))
+                call DzSyncData("NewPick", I2S(SHNumber) + ";" + I2S(SLNumber) + ";" + I2S(PickSelectedSkinNumber(SHNumber)))
             endif
         endif
     endfunction
@@ -559,18 +571,29 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     endfunction
     private function LoadPickF takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
-        local integer SlotNumber = S2I(DzGetTriggerSyncData())
+        local string f = DzGetTriggerSyncData()
+        local integer SlotNumber = S2I(JNStringSplit(f, ";", 0))
+        local integer SkinNumber = S2I(JNStringSplit(f, ";", 1))
         local integer pid=GetPlayerId(p)
         local integer HeroTypeId
+        local integer SlotHero = 0
         local integer i = 0
         local integer j = 0
         local string str = null
 
-        set PlayerSlotNumber[pid] = SlotNumber
+        if SlotNumber == 0 then
+            set SlotNumber = S2I(f)
+        endif
+        if SkinNumber < 1 then
+            set SkinNumber = 1
+        endif
 
-        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
+        set PlayerSlotNumber[pid] = SlotNumber
+        set SlotHero = S2I(StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), "0"))
+
+        if SlotHero == 1 then
             set HeroTypeId = 'H004'
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
+        elseif SlotHero == 2 then
             set HeroTypeId = 'H00I'
             if p == GetLocalPlayer() then
                 call DzFrameShow(NarAden, true)
@@ -588,7 +611,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(NarAdens2[5], true)
             endif
             set NarNabi[pid] = 0
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "3" then
+        elseif SlotHero == 3 then
             set HeroTypeId = 'H00K'
             if p == GetLocalPlayer() then
                 call DzFrameShow(BanAdens[0], true)
@@ -605,12 +628,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
+        call ApplyPickHeroSkinModel(SlotHero, SkinNumber, MainUnit[pid])
         call ShowPlayerPotionDisplay(pid)
 
 
-        if StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "1" then
+        if SlotHero == 1 then
 
-        elseif StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), null) == "2" then
+        elseif SlotHero == 2 then
             set NarFormG[pid] = CreateUnit(Player(pid),'e027',0,0,0)
         endif
 
@@ -715,7 +739,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer SlotHero = S2I(JNStringSplit(f, ";", 0))
         local integer HeroTypeId
         local integer SlotNumber = S2I(JNStringSplit(f, ";", 1))
+        local integer SkinNumber = S2I(JNStringSplit(f, ";", 2))
         local integer i = 0
+
+        if SkinNumber < 1 then
+            set SkinNumber = 1
+        endif
 
         call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(SlotNumber), I2S(SlotHero))
         set PlayerSlotNumber[pid] = SlotNumber
@@ -757,6 +786,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
+        call ApplyPickHeroSkinModel(SlotHero, SkinNumber, MainUnit[pid])
         call ShowPlayerPotionDisplay(pid)
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
         //카메라
