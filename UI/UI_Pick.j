@@ -77,7 +77,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         if heroNumber >= 1 and heroNumber <= PickPreviewHeroCount then
             return "HeroBack"+I2S(heroNumber)+".blp"
         endif
-        return "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp"
+        return "Empty.blp"
     endfunction
 
     private function PickHeroSkinCount takes integer heroNumber returns integer
@@ -235,7 +235,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 if heroNumber <= MaxHero then
                     call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
                 else
-                    call DzFrameSetTexture(FP_HeroImgBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
+                    call DzFrameSetTexture(FP_HeroImgBD[i], "Empty.blp", 0)
                 endif
                 call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
                 call DzFrameShow(FP_HeroLockBD[i], heroNumber > MaxHero)
@@ -435,7 +435,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             if i <= MaxHero then
                 call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(i)+".blp", 0)
             else
-                call DzFrameSetTexture(FP_HeroImgBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
+                call DzFrameSetTexture(FP_HeroImgBD[i], "Empty.blp", 0)
             endif
             call DzFrameSetSize(FP_HeroImgBD[i], 0.075, 0.075)
             call DzFrameSetPoint(FP_HeroImgBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.006)
