@@ -260,9 +260,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 call DzFrameShow(FP_HeroT[i], true)
                 call DzFrameShow(FP_HeroB[i], true)
                 if heroNumber == SHNumber then
-                    call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelectButton.tga", 0)
+                    call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Box2.tga", 0)
                 else
-                    call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
+                    call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Box.tga", 0)
                 endif
                 if heroNumber <= MaxHero then
                     call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
@@ -432,7 +432,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         loop
             exitwhen i > 3
             set FP_SL[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-            call DzFrameSetTexture(FP_SL[i], "UI_PickSelect2.blp", 0)
+            call DzFrameSetTexture(FP_SL[i], "war3mapImported\\UI_Box.tga", 0)
             call DzFrameSetSize(FP_SL[i], 0.001, 0.001)
             call DzFrameSetAbsolutePoint(FP_SL[i], JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
             call DzFrameShow(FP_SL[i], false)
@@ -447,8 +447,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Frame.tga", 0)
         call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_HeroBBD[0], 255)
-        call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.37)
-        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3700)
+        call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.40)
+        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3400)
 
         set i = 1
         loop
@@ -456,11 +456,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set row = (i - 1) / PickCardColumnCount
             set col = ModuloInteger(i - 1, PickCardColumnCount)
             set cardX = 0.088 + (0.105 * I2R(col))
-            set cardY = 0.505 - (0.125 * I2R(row))
+            set cardY = 0.475 - (0.125 * I2R(row))
 
             set FP_HeroBBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-            call DzFrameSetTexture(FP_HeroBBD[i], "UI_PickSelect2.blp", 0)
-            call DzFrameSetSize(FP_HeroBBD[i], 0.085, 0.095)
+            call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Box.tga", 0)
+            call DzFrameSetSize(FP_HeroBBD[i], 0.085, 0.085)
             call DzFrameSetAbsolutePoint(FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, cardX, cardY)
 
             set FP_HeroImgBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
@@ -469,8 +469,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             else
                 call DzFrameSetTexture(FP_HeroImgBD[i], "Empty.blp", 0)
             endif
-            call DzFrameSetSize(FP_HeroImgBD[i], 0.075, 0.075)
-            call DzFrameSetPoint(FP_HeroImgBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.006)
+            call DzFrameSetSize(FP_HeroImgBD[i], 0.080, 0.080)
+            call DzFrameSetPoint(FP_HeroImgBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
 
             set FP_HeroNameBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
             call DzFrameSetTexture(FP_HeroNameBD[i], "war3mapImported\\UI_Pick_NameBar.tga", 0)
@@ -490,7 +490,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
             set FP_HeroB[i]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetAllPoints(FP_HeroB[i], FP_HeroBBD[i])
-            call DzFrameSetSize(FP_HeroB[i], 0.085, 0.095)
+            call DzFrameSetSize(FP_HeroB[i], 0.085, 0.085)
             call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
             set i = i + 1
         endloop
@@ -513,7 +513,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         set FP_ScrollB=DzCreateFrameByTagName("SLIDER", "PickScrollSlider", FP_BD, "QuestMainListScrollBar", FrameCount())
         call DzFrameClearAllPoints(FP_ScrollB)
         call DzFrameSetSize(FP_ScrollB, 0.012, 0.315)
-        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4700, 0.3625)
+        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4900, 0.3400)
         call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(PickMaxScrollRow()))
         call DzFrameSetStepValue(FP_ScrollB, 1.0)
         call DzFrameSetValue(FP_ScrollB, 0.0)
@@ -578,7 +578,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetScriptByCode(FP_SelectB, JN_FRAMEEVENT_MOUSE_UP, function ClickPickHeroButton, false)
 
         set FP_LoadBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
-        call DzFrameSetTexture(FP_LoadBBD, "UI_PickSelectButton.tga", 0)
+        call DzFrameSetTexture(FP_LoadBBD, "war3mapImported\\UI_Box2.tga", 0)
         call DzFrameSetSize(FP_LoadBBD, 0.001, 0.001)
         call DzFrameSetAbsolutePoint(FP_LoadBBD, JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
         call DzFrameShow(FP_LoadBBD, false)
@@ -657,6 +657,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         //카메라
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
+        call SetCameraFieldForPlayer(p,CAMERA_FIELD_ANGLE_OF_ATTACK,304,0)
 
 
         set i = 0
@@ -803,6 +804,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         //카메라
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
         call SetCameraPositionForPlayer(p,GetWidgetX(MainUnit[pid]),GetWidgetY(MainUnit[pid]))
+        call SetCameraFieldForPlayer(p,CAMERA_FIELD_ANGLE_OF_ATTACK,304,0)
 
         if SlotHero == 1 then
         elseif SlotHero == 2 then
