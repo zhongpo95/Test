@@ -11,14 +11,6 @@ scope Load initializer onInit
         return slotNumber >= 1 and slotNumber <= 3
     endfunction
 
-    private function RefreshPickSlotImage takes integer pid, integer slotNumber returns nothing
-        local string str = StashLoad(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber), "없음")
-        if str != "없음" and str != null and str != "" then
-            call DzFrameSetTexture(FP_SL[slotNumber], "UI_PickSelect2.blp", 0)
-        endif
-        set str = null
-    endfunction
-
     private function SaveEquippedItems takes integer pid, integer slotNumber returns nothing
         local integer i = 0
         loop
@@ -35,7 +27,6 @@ scope Load initializer onInit
     private function downloadCallback takes nothing returns nothing
         local player user = JNStashNetGetPlayer()
         local integer pid
-        local integer i = 0
         local integer j = 0
         local string str = null
         
@@ -45,13 +36,6 @@ scope Load initializer onInit
                 set PLAYER_DATA[pid] = JNStashNetGetStash( )
                 call JNObjectMapInit(MapName,MapApi)
                 
-                //슬롯 이미지 세팅
-                set i = 1
-                loop
-                    call RefreshPickSlotImage(pid, i)
-                    set i = i + 1
-                exitwhen i > 3
-                endloop
                 //빅휠 카운트
                 set str = StashLoad(PLAYER_DATA[pid], "BigWheelCount", "0" )
                 set j = 0
