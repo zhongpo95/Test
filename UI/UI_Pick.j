@@ -14,8 +14,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_SelectBT         //셀렉결정텍스트
         integer FP_PreviewPanel     //선택 캐릭터 미리보기 패널
         integer FP_SkinBBD          //스킨 선택 배경
-        integer FP_SkinB            //스킨 선택 버튼
-        integer FP_SkinBT           //스킨 선택 텍스트
+        integer array FP_SkinB      //스킨 선택 버튼
+        integer array FP_SkinBT     //스킨 선택 텍스트
         integer FP_ScrollTrack      //캐릭터 목록 스크롤 트랙
         integer FP_ScrollKnob       //캐릭터 목록 스크롤 노브
         integer FP_ScrollB          //캐릭터 목록 스크롤 슬라이더
@@ -29,7 +29,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         integer FP_LoadB            //로드결정버튼
         integer FP_LoadBT           //로드결정텍스트
         integer PickScrollOffset = 0
+        integer PickSkinNumber = 1
         constant integer MaxHero = 3
+        constant integer PickPreviewHeroCount = 4
+        constant integer PickSkinCount = 2
         constant integer PickVisibleCardCount = 12
         constant integer PickCardColumnCount = 4
         constant integer PickCardCount = 16
@@ -65,6 +68,33 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             return "반디"
         endif
         return "잠금 "+I2S(heroNumber)
+    endfunction
+
+    private function PickPreviewTexture takes integer heroNumber, integer skinNumber returns string
+        if heroNumber == 2 and skinNumber == 2 then
+            return "HeroBack2_2.blp"
+        endif
+        if heroNumber >= 1 and heroNumber <= PickPreviewHeroCount then
+            return "HeroBack"+I2S(heroNumber)+".blp"
+        endif
+        return "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp"
+    endfunction
+
+    private function PickHeroSkinCount takes integer heroNumber returns integer
+        if heroNumber == 2 then
+            return 2
+        endif
+        if heroNumber >= 1 and heroNumber <= MaxHero then
+            return 1
+        endif
+        return 0
+    endfunction
+
+    private function PickSkinName takes integer skinNumber returns string
+        if skinNumber == 1 then
+            return "기본 스킨"
+        endif
+        return "스킨 "+I2S(skinNumber)
     endfunction
 
     private function PickSlotValue takes integer pid, integer slotNumber returns string
@@ -134,6 +164,33 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         endloop
     endfunction
 
+    private function RefreshPickSkinList takes nothing returns nothing
+        local integer i = 1
+        local integer skinCount = PickHeroSkinCount(SHNumber)
+        loop
+            exitwhen i > PickSkinCount
+            call DzFrameSetText(FP_SkinBT[i], PickSkinName(i))
+            call DzFrameShow(FP_SkinBT[i], i <= skinCount)
+            call DzFrameShow(FP_SkinB[i], i <= skinCount)
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function ShowPickPreview takes integer heroNumber, integer skinNumber returns nothing
+        call HidePickPortraits()
+        if heroNumber >= 1 and heroNumber <= PickCardCount then
+            if skinNumber > PickHeroSkinCount(heroNumber) then
+                set skinNumber = 1
+            endif
+            set PickSkinNumber = skinNumber
+            call DzFrameSetTexture(FP_PotBD[heroNumber], PickPreviewTexture(heroNumber, skinNumber), 0)
+            call DzFrameShow(FP_PotBD[heroNumber], true)
+        else
+            set PickSkinNumber = 1
+        endif
+        call RefreshPickSkinList()
+    endfunction
+
     private function RefreshPickConfirm takes integer pid returns nothing
         local integer slotNumber = 0
         if SHNumber < 1 or SHNumber > MaxHero then
@@ -193,10 +250,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set i = i + 1
         endloop
 
-        call HidePickPortraits()
-        if SHNumber >= 1 and SHNumber <= MaxHero then
-            call DzFrameShow(FP_PotBD[SHNumber], true)
-        endif
+        call ShowPickPreview(SHNumber, PickSkinNumber)
         call RefreshPickScroll()
         call RefreshPickConfirm(pid)
     endfunction
@@ -228,6 +282,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
                 set heroNumber = PickVisibleHeroNumber(i)
                 if heroNumber <= PickCardCount then
                     set SHNumber = heroNumber
+                    set PickSkinNumber = 1
                     call RefreshPickCards(pid)
                 endif
                 return
@@ -260,10 +315,16 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     endfunction
 
     private function ClickSkinButton takes nothing returns nothing
-        if SHNumber >= 1 and SHNumber <= MaxHero then
-            call HidePickPortraits()
-            call DzFrameShow(FP_PotBD[SHNumber], true)
-        endif
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer i = 1
+        loop
+            exitwhen i > PickSkinCount
+            if f == FP_SkinB[i] and i <= PickHeroSkinCount(SHNumber) then
+                call ShowPickPreview(SHNumber, i)
+                return
+            endif
+            set i = i + 1
+        endloop
     endfunction
 
     private function ChangePickScrollSlider takes nothing returns nothing
@@ -438,11 +499,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         loop
             exitwhen i > PickCardCount
             set FP_PotBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
-            if i <= MaxHero then
-                call DzFrameSetTexture(FP_PotBD[i], "UI_HeroPot"+I2S(i)+".blp", 0)
-            else
-                call DzFrameSetTexture(FP_PotBD[i], "ReplaceableTextures\\CommandButtons\\BTNHeroIcon0.blp", 0)
-            endif
+            call DzFrameSetTexture(FP_PotBD[i], PickPreviewTexture(i, 1), 0)
             call DzFrameSetSize(FP_PotBD[i], 0.225, 0.205)
             call DzFrameSetPoint(FP_PotBD[i], JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
             call DzFrameShow(FP_PotBD[i], false)
@@ -456,16 +513,22 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
         call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.2200)
 
-        set FP_SkinBT=DzCreateFrameByTagName("TEXT", "", FP_SkinBBD, "", 0)
-        call DzFrameSetPoint(FP_SkinBT, JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025)
-        call DzFrameSetText(FP_SkinBT, "기본 스킨")
-        call DzFrameSetEnable(FP_SkinBT, false)
+        set i = 1
+        loop
+            exitwhen i > PickSkinCount
+            set FP_SkinBT[i]=DzCreateFrameByTagName("TEXT", "", FP_SkinBBD, "", 0)
+            call DzFrameSetPoint(FP_SkinBT[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025 - (0.035 * I2R(i - 1)))
+            call DzFrameSetText(FP_SkinBT[i], PickSkinName(i))
+            call DzFrameSetEnable(FP_SkinBT[i], false)
+            call DzFrameShow(FP_SkinBT[i], false)
 
-        set FP_SkinB=DzCreateFrameByTagName("BUTTON", "", FP_SkinBBD, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetSize(FP_SkinB, 0.120, 0.030)
-        call DzFrameSetPoint(FP_SkinB, JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025)
-        call DzFrameSetScriptByCode(FP_SkinB, JN_FRAMEEVENT_MOUSE_UP, function ClickSkinButton, false)
-
+            set FP_SkinB[i]=DzCreateFrameByTagName("BUTTON", "", FP_SkinBBD, "ScoreScreenTabButtonTemplate", FrameCount())
+            call DzFrameSetSize(FP_SkinB[i], 0.120, 0.030)
+            call DzFrameSetPoint(FP_SkinB[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025 - (0.035 * I2R(i - 1)))
+            call DzFrameSetScriptByCode(FP_SkinB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickSkinButton, false)
+            call DzFrameShow(FP_SkinB[i], false)
+            set i = i + 1
+        endloop
         set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.080, 0.035)
