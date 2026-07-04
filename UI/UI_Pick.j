@@ -113,23 +113,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         return unlocked != null and unlocked != "" and unlocked != "0"
     endfunction
 
-    private function PickAvailableSkinNumber takes integer pid, integer heroNumber, integer skinNumber returns integer
-        set skinNumber = PickValidSkinNumber(heroNumber, skinNumber)
-        if PickSkinUnlocked(pid, heroNumber, skinNumber) then
-            return skinNumber
-        endif
-        return 1
-    endfunction
-
     private function PickSelectedSkinNumber takes integer pid, integer heroNumber returns integer
-        return PickAvailableSkinNumber(pid, heroNumber, PickSkinNumber)
+        return PickValidSkinNumber(heroNumber, PickSkinNumber)
     endfunction
 
     private function PickStoredSkinNumber takes integer pid, integer heroNumber, integer skinNumber returns integer
         if skinNumber < 1 then
             set skinNumber = S2I(StashLoad(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".skin", "1"))
         endif
-        return PickAvailableSkinNumber(pid, heroNumber, skinNumber)
+        return PickValidSkinNumber(heroNumber, skinNumber)
     endfunction
     private function PickHeroTypeId takes integer heroNumber, integer skinNumber returns integer
         if heroNumber == 1 then
@@ -190,20 +182,19 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     private function RefreshPickSkinList takes integer pid returns nothing
         local integer i = 1
         local integer skinCount = PickHeroSkinCount(SHNumber)
-        local boolean isVisible = false
         loop
             exitwhen i > PickSkinCount
-            set isVisible = i <= skinCount and PickSkinUnlocked(pid, SHNumber, i)
             call DzFrameSetText(FP_SkinBT[i], PickSkinName(i))
-            call DzFrameShow(FP_SkinBT[i], isVisible)
-            call DzFrameShow(FP_SkinB[i], isVisible)
+            call DzFrameShow(FP_SkinBT[i], i <= skinCount)
+            call DzFrameShow(FP_SkinB[i], i <= skinCount)
             set i = i + 1
         endloop
     endfunction
+
     private function ShowPickPreview takes integer pid, integer heroNumber, integer skinNumber returns nothing
         call HidePickPortraits()
         if heroNumber >= 1 and heroNumber <= PickCardCount then
-            set skinNumber = PickAvailableSkinNumber(pid, heroNumber, skinNumber)
+            set skinNumber = PickValidSkinNumber(heroNumber, skinNumber)
             set PickSkinNumber = skinNumber
             call DzFrameSetTexture(FP_PotBD[heroNumber], PickPreviewTexture(heroNumber, skinNumber), 0)
             call DzFrameShow(FP_PotBD[heroNumber], true)
@@ -214,6 +205,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
     endfunction
     private function RefreshPickConfirm takes integer pid returns nothing
         if SHNumber < 1 or SHNumber > MaxHero then
+            call DzFrameShow(FP_SelectBBD, false)
+            return
+        endif
+
+        if not PickSkinUnlocked(pid, SHNumber, PickSkinNumber) then
             call DzFrameShow(FP_SelectBBD, false)
             return
         endif
@@ -305,7 +301,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
 
-        if SHNumber >= 1 and SHNumber <= MaxHero then
+        if SHNumber >= 1 and SHNumber <= MaxHero and PickSkinUnlocked(pid, SHNumber, PickSkinNumber) then
             set SLNumber = SHNumber
             call DzFrameShow(FP_BD, false)
             if PickHeroIsSaved(pid, SHNumber) then
@@ -315,13 +311,14 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             endif
         endif
     endfunction
+
     private function ClickSkinButton takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer i = 1
         loop
             exitwhen i > PickSkinCount
-            if f == FP_SkinB[i] and i <= PickHeroSkinCount(SHNumber) and PickSkinUnlocked(pid, SHNumber, i) then
+            if f == FP_SkinB[i] and i <= PickHeroSkinCount(SHNumber) then
                 call ShowPickPreview(pid, SHNumber, i)
                 return
             endif
@@ -573,8 +570,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             set SlotHero = S2I(f)
         endif
 
-        set PlayerSlotNumber[pid] = SlotHero
         set SkinNumber = PickStoredSkinNumber(pid, SlotHero, SkinNumber)
+        if not PickSkinUnlocked(pid, SlotHero, SkinNumber) then
+            set p = null
+            return
+        endif
+
+        set PlayerSlotNumber[pid] = SlotHero
         set HeroTypeId = PickHeroTypeId(SlotHero, SkinNumber)
 
         if SlotHero == 1 then
@@ -718,7 +720,12 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         local integer SkinNumber = S2I(JNStringSplit(f, ";", 1))
         local integer i = 0
 
-        set SkinNumber = PickAvailableSkinNumber(pid, SlotHero, SkinNumber)
+        set SkinNumber = PickValidSkinNumber(SlotHero, SkinNumber)
+
+        if not PickSkinUnlocked(pid, SlotHero, SkinNumber) then
+            set p = null
+            return
+        endif
 
         call StashSave(PLAYER_DATA[pid], "영웅"+I2S(SlotHero), I2S(SlotHero))
         call StashSave(PLAYER_DATA[pid], "영웅"+I2S(SlotHero)+".skin", I2S(SkinNumber))
