@@ -320,6 +320,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             exitwhen i > PickSkinCount
             if f == FP_SkinB[i] and i <= PickHeroSkinCount(SHNumber) then
                 call ShowPickPreview(pid, SHNumber, i)
+                call RefreshPickConfirm(pid)
                 return
             endif
             set i = i + 1
