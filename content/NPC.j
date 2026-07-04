@@ -35,7 +35,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                 loop        
                                     exitwhen loopA == 50
                                     //비어있는 공간이 있음
-                                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == 0 then
+                                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == 0 then
                                         set j = loopA
                                         set loopA = 49
                                     endif
@@ -48,17 +48,17 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                                     loop
                                         exitwhen loopA == 100
                                         //보유중
-                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == 47 then
-                                            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
-                                            set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
+                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == 47 then
+                                            set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
+                                            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")
                                             if (j-1) == 0 then
                                                 //아이템지우기
                                                 call DzFrameSetTexture(F_ItemButtonsBackDrop[loopA], "UI_Inventory.blp", 0)
                                                 call DzFrameShow(UI_Tip, false)
-                                                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA))
+                                                call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA))
                                             else
                                                 set items = SetItemCharge(items, j-1)
-                                                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
+                                                call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), items)
                                             endif
                                             //열기
                                             if F_StoneOnOff[pid] == false then

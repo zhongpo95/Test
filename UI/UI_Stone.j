@@ -546,7 +546,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
                     loop
                         exitwhen i == 50
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
                             set items = "ID21;"
                             if A >= 10 then
                                 set A = 4

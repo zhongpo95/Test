@@ -222,31 +222,31 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 loop
                     exitwhen loopA == 100
                     //보유중
-                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
-                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
-                        set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == k then
+                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
+                        set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")
                         if l <= j then
                             if (j-l) == 0 then
                                 //아이템지우기
                                 call DzFrameSetTexture(F_ItemButtonsBackDrop[loopA], "UI_Inventory.blp", 0)
                                 call DzFrameShow(UI_Tip, false)
-                                call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA))
+                                call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA))
                             else
                                 if j >= 1000 then
-                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-4) + I2S(j-l)
                                 elseif j >= 100 then
-                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-3) + I2S(j-l)
                                 elseif j >= 10 then
-                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-2) + I2S(j-l)
                                 else
-                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0"))
+                                    set length = JNStringLength(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
                                     set items = JNStringSub(items,0,length-1) + I2S(j-l)
                                 endif
                                 set items = SetItemCharge(items, j-l)
-                                call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
+                                call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), items)
                             endif
 
                             //구 보조무기 승급 경로 미사용
@@ -438,18 +438,18 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                         loop
                             exitwhen loopA == 100
                             //보유중
-                            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")) == k then
-                                set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), "0")
+                            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == k then
+                                set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")
                                 set j = GetItemCharge(items)
                                 if l <= j then
                                     if (j-l) == 0 then
                                         //아이템지우기
                                         call DzFrameSetTexture(F_ItemButtonsBackDrop[loopA], "UI_Inventory.blp", 0)
                                         call DzFrameShow(UI_Tip, false)
-                                        call StashRemove(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA))
+                                        call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA))
                                     else
                                         set items = SetItemCharge(items, j-l)
-                                        call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(loopA), items)
+                                        call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), items)
                                     endif
                                     
                                     call StashSave(PLAYER_DATA[pid], "골드", I2S(S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) - m) )

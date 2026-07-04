@@ -7,17 +7,17 @@ scope Load initializer onInit
         stash array PLAYER_DATA
     endglobals
 
-    private function IsValidPickSlotNumber takes integer slotNumber returns boolean
-        return slotNumber >= 1 and slotNumber <= 3
+    private function IsValidPickHeroNumber takes integer heroNumber returns boolean
+        return heroNumber >= 1
     endfunction
 
-    private function SaveEquippedItems takes integer pid, integer slotNumber returns nothing
+    private function SaveEquippedItems takes integer pid, integer heroNumber returns nothing
         local integer i = 0
         loop
             if Eitem[pid][i] == null or Eitem[pid][i] == "" then
-                call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber)+".E"+I2S(i), "0")
+                call StashSave(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".E"+I2S(i), "0")
             else
-                call StashSave(PLAYER_DATA[pid], "슬롯"+I2S(slotNumber)+".E"+I2S(i), Eitem[pid][i])
+                call StashSave(PLAYER_DATA[pid], "영웅"+I2S(heroNumber)+".E"+I2S(i), Eitem[pid][i])
             endif
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
@@ -84,7 +84,7 @@ scope Load initializer onInit
 
     private function upload takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
-        local integer slotNumber = PlayerSlotNumber[pid]
+        local integer heroNumber = PlayerSlotNumber[pid]
         /*
         if JNGetConnectionState() == 1280266064 then
             call BJDebugMsg("현재 싱글 플레이중입니다.")
@@ -93,8 +93,8 @@ scope Load initializer onInit
         elseif JNGetConnectionState() == 1112425812 then
             call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
         */
-        if IsValidPickSlotNumber(slotNumber) then
-            call SaveEquippedItems(pid, slotNumber)
+        if IsValidPickHeroNumber(heroNumber) then
+            call SaveEquippedItems(pid, heroNumber)
             call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
         else
             call VJDebugMsg("캐릭터 선택 후 저장할 수 있습니다.")

@@ -66,11 +66,11 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 loop
                     exitwhen i == 100
                     //보유중
-                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == itemid then
-                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0"))
-                        set items = StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == itemid then
+                        set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0"))
+                        set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
                         set items = SetItemCharge(items,j+1)
-                        call StashSave(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), items)
+                        call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), items)
                         set k = 1
                         set i = 99
                     endif
@@ -82,7 +82,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                     loop
                         exitwhen i == 100
                         //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
                             set items = "ID"+itemidstring + ";"
                             set items = SetItemCharge(items,1)
                             call AddIvItem(pid,i,items)
@@ -112,7 +112,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
                 loop
                     exitwhen i == 50
                     //비어있는 공간이 있음
-                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "슬롯"+sn+".아이템"+I2S(i), "0")) == 0 then
+                    if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
                         call AddIvItem(pid,i,items)
                         set i = 49
                     endif

@@ -79,17 +79,17 @@ library UIShop initializer init requires DataUnit, FrameCount
 
 		if i != 0 then
 			loop
-				if StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
-					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0"))
+				if StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
+					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0"))
 					//1개면 지우기
 					if k == 1 then
 						//아이템 지우기
 						call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 						call DzFrameShow(UI_Tip, false)
-						call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+						call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 					else
 						set SHOP_Select = SetItemCharge(SHOP_Select, k-1)
-						call StashSave(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), SHOP_Select)
+						call StashSave(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), SHOP_Select)
 					endif
 					//i를 사용하여 1개만큼 돈주세요
 					set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + Price[i-1]
@@ -139,18 +139,18 @@ library UIShop initializer init requires DataUnit, FrameCount
 
 		if i != 0 then
 			loop
-				if StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0") == SHOP2_Select then
-					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0"))
+				if StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0") == SHOP2_Select then
+					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0"))
 					if sb == 1 then
 						//1개면 지우기
 						if k == 1 then
 							//아이템 지우기
 							call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 							call DzFrameShow(UI_Tip, false)
-							call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+							call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 						else
 							set SHOP2_Select = SetItemCharge(SHOP2_Select, k-1)
-							call StashSave(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), SHOP2_Select)
+							call StashSave(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), SHOP2_Select)
 						endif
 						//i를 사용하여 1개만큼 돈주세요
 						set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + SHOP2_MuchP[i]
@@ -164,10 +164,10 @@ library UIShop initializer init requires DataUnit, FrameCount
 								//아이템 지우기
 								call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 								call DzFrameShow(UI_Tip, false)
-								call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+								call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 							else
 								set SHOP2_Select = SetItemCharge(SHOP2_Select, k-10)
-								call StashSave(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), SHOP2_Select)
+								call StashSave(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), SHOP2_Select)
 							endif
 							//i를 사용하여 10개만큼 돈주세요
 							set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + ( SHOP2_MuchP[i] * 10 )
@@ -178,7 +178,7 @@ library UIShop initializer init requires DataUnit, FrameCount
 						//아이템 지우기
 						call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 						call DzFrameShow(UI_Tip, false)
-						call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+						call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 						//i를 사용하여 판만큼 돈주세요
 						set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + ( SHOP2_MuchP[i] * k )
 						call StashSave(PLAYER_DATA[pid], "골드", I2S(pri))
@@ -217,8 +217,8 @@ library UIShop initializer init requires DataUnit, FrameCount
 
 		if i != 0 then
 			loop
-				if StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
-					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0"))
+				if StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
+					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0"))
 					if k < 10 then
 					else
 					//1개면 지우기
@@ -226,10 +226,10 @@ library UIShop initializer init requires DataUnit, FrameCount
 							//아이템 지우기
 							call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 							call DzFrameShow(UI_Tip, false)
-							call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+							call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 						else
 							set SHOP_Select = SetItemCharge(SHOP_Select, k-10)
-							call StashSave(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), SHOP_Select)
+							call StashSave(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), SHOP_Select)
 						endif
 						//i를 사용하여 10개만큼 돈주세요
 						set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + ( Price[i-1] * 10 )
@@ -268,12 +268,12 @@ library UIShop initializer init requires DataUnit, FrameCount
 
 		if i != 0 then
 			loop
-				if StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
-					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j), "0"))
+				if StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0") == SHOP_Select then
+					set k = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j), "0"))
 					//아이템 지우기
 					call DzFrameSetTexture(F_ItemButtonsBackDrop[j], "UI_Inventory.blp", 0)
 					call DzFrameShow(UI_Tip, false)
-					call StashRemove(PLAYER_DATA[pid], "슬롯" + sn + ".아이템" + I2S(j))
+					call StashRemove(PLAYER_DATA[pid], "영웅" + sn + ".아이템" + I2S(j))
 					//i를 사용하여 판만큼 돈주세요
 					set pri = S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) + ( Price[i-1] * k )
 					call StashSave(PLAYER_DATA[pid], "골드", I2S(pri))
