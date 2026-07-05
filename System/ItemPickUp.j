@@ -1,3 +1,4 @@
+//! import "JAPIItemState.j"
 library ItemPickUp initializer init requires DataItem, UIItem, ITEM
     globals
         constant integer POTION_HEAL_DUNGEON_CHARGES = 1

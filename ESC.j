@@ -195,7 +195,7 @@ scope ESC initializer init
         local integer frame3
 
         set AAA = AAA - 0.1
-        
+        call JNSetItemExtendedTooltip(PlayerItem1[0], "|cffffa500[UnLank◎Lv200]|r 심연 벨트|n|n|n|cffff8c00◎스킬 데미지 : +130%|r|n|cffff8c00◎체력 : +1100000|r|n|cffff8c00◎올스텟 : +130000|r|n|cffff8c00◎주속성 : +160000|r|n|cffff8c00◎포션회복 : +5%|r|n|cffff8c00◎개인 경험치 흭득 : +45%|r|n|cffff8c00◎치명타 데미지 : +7%|r|n|cffff8c00◎효과 : 최상급 포션회복(Lv.9)|r|n|cffff8c00◎회복량 : 4100.00 + 잃은 체력 22%|r|n|cffff8c00◎사성수 처치시 선미차 추가 획득+1|r|n|cffff8c00◎심연 헬 처치시 영혼석 획득|r"+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         //call DzFrameShow(El_BackDrop, true)
 
         //set SelectString[pid] = JNStringReplace(s, JNStringRegex(s, "0\\d+;", 0), I2S(NowSelectNumber)+";")
