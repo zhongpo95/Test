@@ -29,12 +29,12 @@ library UITIP initializer init
         call DzFrameSetPoint(UI_Tip, 0, UI_Tip_Text[2], 0, - 0.005, 0.023)
         call DzFrameSetPoint(UI_Tip, 8, UI_Tip_Text[2], 8, 0.005, - 0.005)
     endfunction
-    
+
     private function init takes nothing returns nothing
         local trigger t = CreateTrigger()
+        local integer f
         call TriggerRegisterTimerEventSingle( t, 0.00 )
         call TriggerAddAction( t, function Main )
         set t = null
     endfunction
 endlibrary
-
