@@ -279,7 +279,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         
         //메뉴 배경
         set BW_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(BW_BackDrop, "File00005255.blp", 0)
+        call DzFrameSetTexture(BW_BackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(BW_BackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
         call DzFrameSetSize(BW_BackDrop, 0.650, 0.450)
         //call DzFrameSetAlpha(BW_BackDrop, 225)
@@ -455,7 +455,8 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         set BW_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", BW_BackDrop, "template", FrameCount())
         call DzFrameSetPoint(BW_BackDrop2, JN_FRAMEPOINT_CENTER, BW_BackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.310 , 0.2900 )
         call DzFrameSetSize(BW_BackDrop2, 0.12 , 0.12)
-        call DzFrameSetTexture(BW_BackDrop2, "Sannyo.tga", 0)
+        //중앙이미지
+        call DzFrameSetTexture(BW_BackDrop2, "Empty.blp", 0)
 
 
         set BW_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", BW_BackDrop, "template", FrameCount())

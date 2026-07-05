@@ -471,9 +471,10 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
     
     //장비 빈 버튼 아이콘 생성 함수
     private function CreateEItemButton takes integer types, real x, real y returns nothing
-        set F_EItemSlotBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
+        set F_EItemSlotBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_EItemSlotBackDrop[types], JN_FRAMEPOINT_CENTER, F_InfoBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, x, y)
         call DzFrameSetSize(F_EItemSlotBackDrop[types], 0.034, 0.040)
+        call DzFrameSetTexture(F_EItemSlotBackDrop[types], "Empty.blp", 0)
 
         set F_EItemButtons[types]=DzCreateFrameByTagName("BUTTON", "", F_EItemSlotBackDrop[types], "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_EItemButtons[types], JN_FRAMEPOINT_TOP, F_EItemSlotBackDrop[types] , JN_FRAMEPOINT_TOP, 0.000, -0.003)
@@ -535,7 +536,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
 
         //메뉴 배경
         set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(F_InfoBackDrop, "File00005255.blp", 0)
+        call DzFrameSetTexture(F_InfoBackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_InfoBackDrop, 0.40, 0.43)
 
@@ -731,7 +732,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
 
         set F_ItemStatsIcon=DzCreateFrameByTagName("BACKDROP", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsIcon, JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.070, 0.380)
-        call DzFrameSetTexture(F_ItemStatsIcon, "File00005255.blp", 0)
+        call DzFrameSetTexture(F_ItemStatsIcon, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_ItemStatsIcon, 0.06, 0.06)
         
         

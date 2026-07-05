@@ -271,13 +271,13 @@ Remove-Item .\.agent_context\<task-temp-dir> -Recurse
 표시 흐름:
 
 - `Main`에서 `F_ArcanaBackDrop` 생성
-- `File00005255.blp` 적용
+- `UI_Pick_Frame.tga` 적용
 - 초기에는 `DzFrameShow(F_ArcanaBackDrop, false)`
 - O 키 처리에서 다시 `DzFrameShow(F_ArcanaBackDrop, true)`
 
 확인한 주요 텍스처:
 
-- `File00005255.blp`
+- `UI_Pick_Frame.tga`
 - `UI_Inventory.blp`
 - `UI_Arcana_Work3.blp`
 - `Arcana001.blp`
