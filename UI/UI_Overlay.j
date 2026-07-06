@@ -529,7 +529,7 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
     private function Main2 takes nothing returns nothing
         //메뉴 배경
         set Overlay2_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(Overlay2_BackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetTexture(Overlay2_BackDrop, "Filenemo.blp", 0)
         call DzFrameSetAbsolutePoint(Overlay2_BackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
         call DzFrameSetSize(Overlay2_BackDrop, 0.650, 0.450)
         call DzFrameSetAlpha(Overlay2_BackDrop, 225)
