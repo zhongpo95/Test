@@ -48,7 +48,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(2,LoadInteger(ArcanaData, 2, pid)) / 100))
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(3,LoadInteger(ArcanaData, 3, pid)) / 100))
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(4,LoadInteger(ArcanaData, 4, pid)) / 100))
-        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(5,LoadInteger(ArcanaData, 5, pid)) / 100))
+        //슈차는 차지 스킬 전용이라 전투력에서 제외
+        //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(5,LoadInteger(ArcanaData, 5, pid)) / 100))
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(6,LoadInteger(ArcanaData, 6, pid)) / 100))
         //정단
         //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(7,LoadInteger(ArcanaData, 7, pid)) / 100))
