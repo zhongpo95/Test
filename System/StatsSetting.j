@@ -62,12 +62,22 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
 
 
     globals
-        // 전투력 1,173,908에 대한 명성 값 상수
-        private integer FAME_1 = 60000
-        // 전투력 1,173,908에 대한 명성 값 상수
-        private integer FAME_2 = 120000
-        // 전투력 1,173,908에 대한 명성 값 상수
-        private integer FAME_3 = 30000
+        //개척력 10% 성장 구간 기준값
+        private real TRAIL_POWER_0 = 500.00
+        private real TRAIL_POWER_20 = 3363.75
+        private real TRAIL_POWER_40 = 22629.63
+        private real TRAIL_POWER_60 = 152240.82
+        private real TRAIL_POWER_80 = 1024200.11
+        private real TRAIL_POWER_100 = 6890306.17
+        private real TRAIL_POWER_120 = 46354534.41
+
+        private integer TRAIL_FAME_0 = 10000
+        private integer TRAIL_FAME_20 = 30000
+        private integer TRAIL_FAME_40 = 50000
+        private integer TRAIL_FAME_60 = 70000
+        private integer TRAIL_FAME_80 = 90000
+        private integer TRAIL_FAME_100 = 110000
+        private integer TRAIL_FAME_120 = 130000
     endglobals
 
 
@@ -109,27 +119,30 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
     //개척력
     function TrailblazePower takes real x returns integer
         local real log_val
-        local real scaled_val
     
-        if x < 1000 then
+        if x < TRAIL_POWER_0 then
             return 0
-        elseif x >= 13780612.0 then
-            // 전투력 13,780,612 이상일 경우 상수 사용
-            set log_val = log1_1(x / 13780612.0)
-            return FAME_2 + R2I(1000.0 * log_val + 0.5)
-        elseif x >= 117391.0 then
-            // 전투력 117,391 이상일 경우 상수 사용
-            set log_val = log1_1(x / 117391.0)
-            return FAME_1 + R2I(1000.0 * log_val + 0.5)
-        elseif x >= 6727.0 then
-            // 전투력 6,727 이상일 경우 상수 사용
-            set log_val = log1_1(x / 6727.0)
-            return FAME_3 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_120 then
+            set log_val = log1_1(x / TRAIL_POWER_120)
+            return TRAIL_FAME_120 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_100 then
+            set log_val = log1_1(x / TRAIL_POWER_100)
+            return TRAIL_FAME_100 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_80 then
+            set log_val = log1_1(x / TRAIL_POWER_80)
+            return TRAIL_FAME_80 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_60 then
+            set log_val = log1_1(x / TRAIL_POWER_60)
+            return TRAIL_FAME_60 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_40 then
+            set log_val = log1_1(x / TRAIL_POWER_40)
+            return TRAIL_FAME_40 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_20 then
+            set log_val = log1_1(x / TRAIL_POWER_20)
+            return TRAIL_FAME_20 + R2I(1000.0 * log_val + 0.5)
         else
-            // 기존 계산 방식 사용
-            set log_val = log1_1(x / 1000.0)
-            set scaled_val = 10000.0 + 1000.0 * log_val
-            return R2I(scaled_val + 0.5)
+            set log_val = log1_1(x / TRAIL_POWER_0)
+            return TRAIL_FAME_0 + R2I(1000.0 * log_val + 0.5)
         endif
     endfunction
 

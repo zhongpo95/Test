@@ -186,7 +186,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "개척력" )
         set str = "|cFFA5FA7D ◎ |r" + "가상 전투력을 보정한 수치입니다.|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 1000 이상일 경우 표시|n" 
+        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 500 이상일 경우 표시|n"
         set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 약 10% 증가할 때마다 개척력이 약 1000 증가합니다.|n" 
         set str = str + "|cFFA5FA7D ◎ |r" + "아르카나에 의한 피해증가는 조건을 전부 만족한 최대치로 계산한다." 
         call DzFrameSetText(UI_Tip_Text[2], str )
