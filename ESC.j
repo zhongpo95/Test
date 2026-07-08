@@ -27,7 +27,11 @@ scope ESC initializer init
         endif
         */
     endfunction
-    
+
+    private function Test2Action takes nothing returns nothing
+        call VJDebugMsg("테스트 2 성공")
+    endfunction
+
     private function ESCAction4 takes nothing returns nothing
         /*
         local integer i = 0
@@ -447,11 +451,20 @@ scope ESC initializer init
 
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
+        local trigger test2Trigger=CreateTrigger()
+        local integer index = 0
         //esc버튼
         call TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_END_CINEMATIC)
         call TriggerRegisterPlayerEvent(t, Player(1), EVENT_PLAYER_END_CINEMATIC)
         call TriggerAddAction( t, function ESCAction )
+        loop
+            call TriggerRegisterPlayerChatEvent(test2Trigger, Player(index), "-test2", true)
+            set index = index + 1
+            exitwhen index == bj_MAX_PLAYERS
+        endloop
+        call TriggerAddAction( test2Trigger, function Test2Action )
         set t = null
+        set test2Trigger = null
         set Price[1] = 10000
     endfunction
 
