@@ -50,7 +50,6 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 elseif fx.i == 100 then
                     call AnimationStart(fx.caster, 8)
                 //무력화 성공
-
                 elseif fx.i >= 1 and UnitCasting[index] == false then
                     //체력감소
                     set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
@@ -172,7 +171,7 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set index = IndexUnit(st.caster)
                     call Sound3D(fx.caster,'A026')
                     set UnitCasting[index] = true
-                    set UnitCastingSDMAX[index] = 300
+                    set UnitCastingSDMAX[index] = 50
                     set UnitCastingSD[index] = UnitCastingSDMAX[index]
                     set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx.caster), GetWidgetY(fx.caster), 270 )
                     call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
