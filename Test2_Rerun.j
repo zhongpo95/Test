@@ -2,7 +2,7 @@
 scope Test2_Rerun initializer init
 
     private function Test2RerunAction takes nothing returns nothing
-        call VJDebugMsg("테스트2")
+        call VJDebugMsg("ARCANA-55 테스트2 출력 이슈명 변경 / 작업 완료 시간: 2026-07-08 23:40 KST")
     endfunction
 
     private function init takes nothing returns nothing
