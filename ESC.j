@@ -447,8 +447,6 @@ scope ESC initializer init
 
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
-        local trigger test1Trigger=CreateTrigger()
-        local trigger test2Trigger=CreateTrigger()
         local integer index = 0
         //esc버튼
         call TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_END_CINEMATIC)
@@ -459,8 +457,6 @@ scope ESC initializer init
             exitwhen index == bj_MAX_PLAYERS
         endloop
         set t = null
-        set test1Trigger = null
-        set test2Trigger = null
         set Price[1] = 10000
     endfunction
 
