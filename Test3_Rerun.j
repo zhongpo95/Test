@@ -2,7 +2,7 @@
 scope Test3_Rerun initializer init
 
     private function Test3RerunAction takes nothing returns nothing
-        call VJDebugMsg("테스트3")
+        call VJDebugMsg("ARCANA-55 테스트3 출력 이슈명 변경")
     endfunction
 
     private function init takes nothing returns nothing
