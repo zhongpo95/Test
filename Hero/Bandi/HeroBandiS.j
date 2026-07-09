@@ -50,30 +50,24 @@ scope HeroBandiS
 
     private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
             call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
 
-            if level >= 1 then
-                //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
-            endif
+            //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
         endif
     endfunction
 
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
             call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
 
-            if level >= 1 then
-                //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
-            endif
+            //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
         endif
     endfunction

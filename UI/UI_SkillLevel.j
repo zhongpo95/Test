@@ -4,33 +4,22 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         integer FS_OpenButtonBD                     //스킬창 여는 버튼 백드롭
         integer FS_BackDrop                         //스킬창 배경
         integer FS_CombinationText                  //스킬창 텍스트
-        integer FS_SPTEXT                           //스킬포인트 텍스트
-        integer FS_SPTEXTV                          //스킬포인트 텍스트벨류
+        integer FS_SPTEXT                           //구 스킬포인트 텍스트 호환용
+        integer FS_SPTEXTV                          //구 스킬포인트 값 호환용
         integer FS_TemplateBackDrop                 //스킬창 스킬공간
         integer FS_TemplateText                     //스킬창 스킬설명
         integer FS_CancelButton                     //스킬창 취소버튼
         integer array FS_Button                     //스킬버튼
         integer array FS_ButtonBackDrop             //스킬버튼 백드롭
         integer array FS_ButtonTEXT                 //스킬버튼 텍스트
-        integer array FS_ButtonTEXT2                //스킬버튼 텍스트
-        integer array FS_UP                         //업버튼
-        integer array FS_UPBD                       //업버튼 백드롭
-        integer array FS_DOWN                       //다운버튼
-        integer array FS_DOWNBD                     //다운버튼 백드롭
-        integer array FP_SLBD1                       //스킬레벨 백드롭
-        integer array FP_SLTEXT1                       //스킬레벨 텍스트
-        integer array FP_SLBD2                       //스킬레벨 백드롭
-        integer array FP_SLTEXT2                       //스킬레벨 텍스트
-        integer array FP_SLBD3                       //스킬레벨 백드롭
-        integer array FP_SLTEXT3                       //스킬레벨 텍스트
-        
+
         boolean array FS_OnOff                      //플레이어 온오프
-        
+
         //전역변수
         integer array HeroSkillLevel[13][8]
         integer array HeroSkillPoint[13]
     endglobals
-    
+
     private function F_OFF_Actions takes nothing returns nothing
         call DzFrameShow(UI_Tip, false)
     endfunction
@@ -53,15 +42,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         if f ==  FS_Button[0] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye0[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr0[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue0[index]*100))+" %"
             elseif HeroSkillVCount0[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr0[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue0[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount0[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr0[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue0[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue20[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -72,15 +61,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f == FS_Button[1] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID1[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye1[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr1[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue1[index]*100))+" %"
             elseif HeroSkillVCount1[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr1[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue1[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount1[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr1[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue1[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue21[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -91,15 +80,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[2] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID2[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye2[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr2[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue2[index]*100))+" %"
             elseif HeroSkillVCount2[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr2[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue2[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount2[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr2[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue2[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue22[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -110,15 +99,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[3] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID3[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye3[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr3[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue3[index]*100))+" %"
             elseif HeroSkillVCount3[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr3[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue3[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount3[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr3[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue3[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue23[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -129,15 +118,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[4] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID4[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye4[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr4[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue4[index]*100))+" %"
             elseif HeroSkillVCount4[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr1[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue4[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount4[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr4[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue4[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue24[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -148,15 +137,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[5] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID5[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye5[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr5[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue5[index]*100))+" %"
             elseif HeroSkillVCount5[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr5[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue5[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount5[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr5[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue5[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue25[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -167,15 +156,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[6] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID6[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye6[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr6[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue6[index]*100))+" %"
             elseif HeroSkillVCount6[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr6[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue6[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount6[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr6[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue6[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue26[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -186,15 +175,15 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif f ==  FS_Button[7] then
             call DzFrameSetText(UI_Tip_Text[1], EXGetAbilityString(HeroSkillID7[index],1,ABILITY_DATA_TIP) )
             if JNStringContains(HeroSkillTpye7[index], "버프") then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr7[index]
                 set str = str + "|r|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(HeroSkillVelue7[index]*100))+" %"
             elseif HeroSkillVCount7[index] == 1 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr7[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue7[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             elseif HeroSkillVCount7[index] == 2 then
-                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA" 
+                set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr7[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue7[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
                 set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue27[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
@@ -203,7 +192,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             call DzFrameShow(UI_Tip, true)
             set i = 7
         endif
-           /*     
+           /*
         if itemid != 0 then
             call DzFrameShow(UI_Tip, true)
             set i = GetItemTypes(items)
@@ -211,7 +200,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set quality = GetItemQuality(items)
             set cts = GetItemCombatStats(items)
             set tier = GetItemTier(items)
-                
+
             if i >= 6 or tier == 1 then
                 call DzFrameSetText(UI_Tip_Text[1], GetItemNames(items) )
             else
@@ -236,12 +225,92 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         */
     endfunction
 
+    private function SkillFrameAbilityId takes integer index, integer types returns integer
+        if types == 0 then
+            return HeroSkillID0[index]
+        elseif types == 1 then
+            return HeroSkillID1[index]
+        elseif types == 2 then
+            return HeroSkillID2[index]
+        elseif types == 3 then
+            return HeroSkillID3[index]
+        elseif types == 4 then
+            return HeroSkillID4[index]
+        elseif types == 5 then
+            return HeroSkillID5[index]
+        elseif types == 6 then
+            return HeroSkillID6[index]
+        elseif types == 7 then
+            return HeroSkillID7[index]
+        elseif types == 8 then
+            return HeroSkillID10[index]
+        elseif types == 9 then
+            return 'A002'
+        elseif types == 10 then
+            return HeroSkillID9[index]
+        elseif types == 11 then
+            return HeroSkillID8[index]
+        endif
+
+        return 0
+    endfunction
+
+    private function SkillFrameDescription takes integer abilId returns string
+        local string title
+        local string desc
+
+        if abilId == 0 then
+            return ""
+        endif
+
+        set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
+        set desc = EXGetAbilityString(abilId, 1, ABILITY_DATA_UBERTIP)
+
+        if abilId == 'A002' and title == "" then
+            set title = "회피(X)"
+        endif
+        if abilId == 'A002' and desc == "" then
+            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
+        endif
+        if desc == "" then
+            set desc = "등록된 스킬 설명이 없습니다."
+        endif
+        if title == "" then
+            return desc
+        endif
+
+        return title + "|n|n" + desc
+    endfunction
+
+    private function SetSubSkillButton takes integer types, integer abilId, integer pos returns boolean
+        local string title
+
+        if abilId == 0 then
+            call DzFrameShow(FS_Button[types], false)
+            return false
+        endif
+
+        set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
+        if abilId == 'A002' and title == "" then
+            set title = "회피(X)"
+        endif
+
+        call DzFrameClearAllPoints(FS_Button[types])
+        call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.165, -0.080 +(-0.038*pos))
+        call DzFrameSetTexture(FS_ButtonBackDrop[types], EXExecuteScript("(require'jass.slk').ability[" +I2S(abilId)+"].Art"), 0)
+        call DzFrameSetText(FS_ButtonTEXT[types], title)
+        call DzFrameShow(FS_Button[types], true)
+
+        return true
+    endfunction
+
     function SkillSetting takes unit u returns nothing
         local integer index = DataUnitIndex(u)
         local player p = GetOwningPlayer(u)
-        
+        local integer subIndex = 0
+
         if p == GetLocalPlayer() then
-            
+
             call DzFrameSetText(FS_ButtonTEXT[0], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
             call DzFrameSetText(FS_ButtonTEXT[1], EXGetAbilityString(HeroSkillID1[index],1,ABILITY_DATA_TIP) )
             call DzFrameSetText(FS_ButtonTEXT[2], EXGetAbilityString(HeroSkillID2[index],1,ABILITY_DATA_TIP) )
@@ -250,7 +319,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             call DzFrameSetText(FS_ButtonTEXT[5], EXGetAbilityString(HeroSkillID5[index],1,ABILITY_DATA_TIP) )
             call DzFrameSetText(FS_ButtonTEXT[6], EXGetAbilityString(HeroSkillID6[index],1,ABILITY_DATA_TIP) )
             call DzFrameSetText(FS_ButtonTEXT[7], EXGetAbilityString(HeroSkillID7[index],1,ABILITY_DATA_TIP) )
-            
+
             call DzFrameSetTexture(FS_ButtonBackDrop[0], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID0[index])+"].Art"), 0)
             call DzFrameSetTexture(FS_ButtonBackDrop[1], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID1[index])+"].Art"), 0)
             call DzFrameSetTexture(FS_ButtonBackDrop[2], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID2[index])+"].Art"), 0)
@@ -259,39 +328,38 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             call DzFrameSetTexture(FS_ButtonBackDrop[5], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID5[index])+"].Art"), 0)
             call DzFrameSetTexture(FS_ButtonBackDrop[6], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID6[index])+"].Art"), 0)
             call DzFrameSetTexture(FS_ButtonBackDrop[7], EXExecuteScript("(require'jass.slk').ability[" +I2S(HeroSkillID7[index])+"].Art"), 0)
-            
-            call DzFrameSetText(FP_SLTEXT1[0], HeroSkill0Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[0], HeroSkill0Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[0], HeroSkill0Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[1], HeroSkill1Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[1], HeroSkill1Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[1], HeroSkill1Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[2], HeroSkill2Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[2], HeroSkill2Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[2], HeroSkill2Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[3], HeroSkill3Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[3], HeroSkill3Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[3], HeroSkill3Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[4], HeroSkill4Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[4], HeroSkill4Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[4], HeroSkill4Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[5], HeroSkill5Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[5], HeroSkill5Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[5], HeroSkill5Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[6], HeroSkill6Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[6], HeroSkill6Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[6], HeroSkill6Text3[index] )
-            call DzFrameSetText(FP_SLTEXT1[7], HeroSkill7Text1[index] )
-            call DzFrameSetText(FP_SLTEXT2[7], HeroSkill7Text2[index] )
-            call DzFrameSetText(FP_SLTEXT3[7], HeroSkill7Text3[index] )
+
+            call DzFrameShow(FS_Button[0], true)
+            call DzFrameShow(FS_Button[1], true)
+            call DzFrameShow(FS_Button[2], true)
+            call DzFrameShow(FS_Button[3], true)
+            call DzFrameShow(FS_Button[4], true)
+            call DzFrameShow(FS_Button[5], true)
+            call DzFrameShow(FS_Button[6], true)
+            call DzFrameShow(FS_Button[7], true)
+
+            if SetSubSkillButton(8, HeroSkillID10[index], subIndex) then
+                set subIndex = subIndex + 1
+            endif
+            if SetSubSkillButton(9, 'A002', subIndex) then
+                set subIndex = subIndex + 1
+            endif
+            if SetSubSkillButton(10, HeroSkillID9[index], subIndex) then
+                set subIndex = subIndex + 1
+            endif
+            if SetSubSkillButton(11, HeroSkillID8[index], subIndex) then
+                set subIndex = subIndex + 1
+            endif
+
+            call DzFrameSetText(FS_TemplateText, SkillFrameDescription(HeroSkillID0[index]))
 
             if index == 0 then
             endif
         endif
-        
+
         set p = null
     endfunction
-    
+
     private function ShowMenu takes nothing returns nothing
         //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
         //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
@@ -303,175 +371,55 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set FS_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
         endif
     endfunction
-    
+
     private function SelectSkill takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer i = 0
-        
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer index = DataUnitIndex(MainUnit[pid])
+        local integer abilId
+
         set i = 0
         loop
-            call DzFrameShow(FP_SLBD1[i], false)
-            call DzFrameShow(FP_SLBD2[i], false)
-            call DzFrameShow(FP_SLBD3[i], false)
-            exitwhen i == 7
+            if f == FS_Button[i] then
+                set abilId = SkillFrameAbilityId(index, i)
+                if abilId != 0 then
+                    call DzFrameSetText(FS_TemplateText, SkillFrameDescription(abilId))
+                endif
+            endif
+            exitwhen i == 11
             set i = i + 1
         endloop
-        
-        if f == FS_Button[0] then
-            call DzFrameShow(FP_SLBD1[0], true)
-            call DzFrameShow(FP_SLBD2[0], true)
-            call DzFrameShow(FP_SLBD3[0], true)
-        elseif f == FS_Button[1] then
-            call DzFrameShow(FP_SLBD1[1], true)
-            call DzFrameShow(FP_SLBD2[1], true)
-            call DzFrameShow(FP_SLBD3[1], true)
-        elseif f == FS_Button[2] then
-            call DzFrameShow(FP_SLBD1[2], true)
-            call DzFrameShow(FP_SLBD2[2], true)
-            call DzFrameShow(FP_SLBD3[2], true)
-        elseif f == FS_Button[3] then
-            call DzFrameShow(FP_SLBD1[3], true)
-            call DzFrameShow(FP_SLBD2[3], true)
-            call DzFrameShow(FP_SLBD3[3], true)
-        elseif f == FS_Button[4] then
-            call DzFrameShow(FP_SLBD1[4], true)
-            call DzFrameShow(FP_SLBD2[4], true)
-            call DzFrameShow(FP_SLBD3[4], true)
-        elseif f == FS_Button[5] then
-            call DzFrameShow(FP_SLBD1[5], true)
-            call DzFrameShow(FP_SLBD2[5], true)
-            call DzFrameShow(FP_SLBD3[5], true)
-        elseif f == FS_Button[6] then
-            call DzFrameShow(FP_SLBD1[6], true)
-            call DzFrameShow(FP_SLBD2[6], true)
-            call DzFrameShow(FP_SLBD3[6], true)
-        elseif f == FS_Button[7] then
-            call DzFrameShow(FP_SLBD1[7], true)
-            call DzFrameShow(FP_SLBD2[7], true)
-            call DzFrameShow(FP_SLBD3[7], true)
-        endif
-        
     endfunction
-    
-    private function PushUP takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        if FS_UP[0] == f then
-            call DzSyncData(("BTUP"),"0")
-        elseif FS_UP[1] == f then
-            call DzSyncData(("BTUP"),"1")
-        elseif FS_UP[2] == f then
-            call DzSyncData(("BTUP"),"2")
-        elseif FS_UP[3] == f then
-            call DzSyncData(("BTUP"),"3")
-        elseif FS_UP[4] == f then
-            call DzSyncData(("BTUP"),"4")
-        elseif FS_UP[5] == f then
-            call DzSyncData(("BTUP"),"5")
-        elseif FS_UP[6] == f then
-            call DzSyncData(("BTUP"),"6")
-        elseif FS_UP[7] == f then
-            call DzSyncData(("BTUP"),"7")
-        endif
-    endfunction
-    
-    private function PushDOWN takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        if FS_DOWN[0] == f then
-            call DzSyncData(("BTDOWN"),"0")
-        elseif FS_DOWN[1] == f then
-            call DzSyncData(("BTDOWN"),"1")
-        elseif FS_DOWN[2] == f then
-            call DzSyncData(("BTDOWN"),"2")
-        elseif FS_DOWN[3] == f then
-            call DzSyncData(("BTDOWN"),"3")
-        elseif FS_DOWN[4] == f then
-            call DzSyncData(("BTDOWN"),"4")
-        elseif FS_DOWN[5] == f then
-            call DzSyncData(("BTDOWN"),"5")
-        elseif FS_DOWN[6] == f then
-            call DzSyncData(("BTDOWN"),"6")
-        elseif FS_DOWN[7] == f then
-            call DzSyncData(("BTDOWN"),"7")
-        endif
-    endfunction
-    
+
     //
     private function CreateSkillButton takes integer types returns nothing
         set FS_Button[types]=DzCreateFrameByTagName("BUTTON", "", FS_BackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.040, -0.080 +(-0.038*types))
+        if types < 8 then
+            call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.040, -0.080 +(-0.038*types))
+        else
+            call DzFrameSetPoint(FS_Button[types], JN_FRAMEPOINT_CENTER, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.165, -0.080 +(-0.038*(types - 8)))
+        endif
         call DzFrameSetSize(FS_Button[types], 0.030, 0.030)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         call DzFrameSetScriptByCode(FS_Button[types], JN_FRAMEEVENT_MOUSE_UP, function SelectSkill, false)
-        
+
         set FS_ButtonBackDrop[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "", FrameCount())
         call DzFrameSetAllPoints(FS_ButtonBackDrop[types], FS_Button[types])
         call DzFrameSetTexture(FS_ButtonBackDrop[types],"ReplaceableTextures\\CommandButtons\\BTNDeathPact.blp", 0)
-        
+
         set FS_ButtonTEXT[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", FrameCount())
         call DzFrameSetPoint(FS_ButtonTEXT[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.035, -0.010)
         call DzFrameSetText(FS_ButtonTEXT[types], "스킬이름스킬이름스킬이")
-        
-        set FS_DOWN[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(FS_DOWN[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
-        call DzFrameSetSize(FS_DOWN[types], 0.020, 0.020)
-        call DzFrameSetScriptByCode(FS_DOWN[types], JN_FRAMEEVENT_MOUSE_UP, function PushDOWN, false)
-        set FS_DOWNBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_DOWN[types], "template", FrameCount())
-        call DzFrameSetTexture(FS_DOWNBD[types], "UI_M.blp", 0)
-        call DzFrameSetSize(FS_DOWNBD[types], 0.020, 0.020)
-        call DzFrameSetPoint(FS_DOWNBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.170, 0)
-        
-        set FS_ButtonTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FS_Button[types], "", FrameCount())
-        call DzFrameSetPoint(FS_ButtonTEXT2[types], JN_FRAMEPOINT_TOPLEFT, FS_Button[types] , JN_FRAMEPOINT_TOPLEFT, 0.200, -0.010)
-        call DzFrameSetText(FS_ButtonTEXT2[types], "0")
-        
-        set FS_UP[types] = DzCreateFrameByTagName("BUTTON", "", FS_Button[types], "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(FS_UP[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
-        call DzFrameSetSize(FS_UP[types], 0.020, 0.020)
-        call DzFrameSetScriptByCode(FS_UP[types], JN_FRAMEEVENT_MOUSE_UP, function PushUP, false)
-        set FS_UPBD[types]=DzCreateFrameByTagName("BACKDROP", "", FS_UP[types], "template", FrameCount())
-        call DzFrameSetTexture(FS_UPBD[types], "UI_P.blp", 0)
-        call DzFrameSetSize(FS_UPBD[types], 0.020, 0.020)
-        call DzFrameSetPoint(FS_UPBD[types], JN_FRAMEPOINT_CENTER, FS_Button[types] , JN_FRAMEPOINT_CENTER, 0.210, 0)
-        
-        set FP_SLBD1[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
-        call DzFrameSetTexture(FP_SLBD1[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD1[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD1[types], JN_FRAMEPOINT_CENTER, 0.525, 0.38)
-        set FP_SLTEXT1[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD1[types], "", FrameCount())
-        call DzFrameSetPoint(FP_SLTEXT1[types], JN_FRAMEPOINT_CENTER, FP_SLBD1[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT1[types], "0")
-        call DzFrameSetSize(FP_SLTEXT1[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT1[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD1[types], false)
-        
-        set FP_SLBD2[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
-        call DzFrameSetTexture(FP_SLBD2[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD2[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD2[types], JN_FRAMEPOINT_CENTER, 0.525, 0.28)
-        set FP_SLTEXT2[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD2[types], "", FrameCount())
-        call DzFrameSetPoint(FP_SLTEXT2[types], JN_FRAMEPOINT_CENTER, FP_SLBD2[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT2[types], "0")
-        call DzFrameSetSize(FP_SLTEXT2[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT2[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD2[types], false)
-        
-        set FP_SLBD3[types]=DzCreateFrameByTagName("BACKDROP", "", FS_Button[types], "template", FrameCount())
-        call DzFrameSetTexture(FP_SLBD3[types], "UI_PickSelectButton2.tga", 0)
-        call DzFrameSetSize(FP_SLBD3[types], 0.18, 0.08)
-        call DzFrameSetAbsolutePoint(FP_SLBD3[types], JN_FRAMEPOINT_CENTER, 0.525, 0.18)
-        set FP_SLTEXT3[types]=DzCreateFrameByTagName("TEXT", "", FP_SLBD3[types], "", FrameCount())
-        call DzFrameSetPoint(FP_SLTEXT3[types], JN_FRAMEPOINT_CENTER, FP_SLBD3[types] , JN_FRAMEPOINT_CENTER, 0.004,0)
-        call DzFrameSetText(FP_SLTEXT3[types], "0")
-        call DzFrameSetSize(FP_SLTEXT3[types], 0.165, 0.00)
-        call DzFrameSetFont(FP_SLTEXT3[types], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameShow(FP_SLBD3[types], false)
+        call DzFrameSetSize(FS_ButtonTEXT[types], 0.110, 0.00)
+        call DzFrameShow(FS_Button[types], false)
     endfunction
-    
+
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        
+
         /********************************** 스킬 버튼 생성 **********************************************
         set FS_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(FS_OpenButton, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
@@ -493,20 +441,22 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         call DzFrameSetTexture(FS_BackDrop, "Filenemo.blp", 0)
         call DzFrameSetAbsolutePoint(FS_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
         call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
-        
+
         /********************************** 프레임 이름 설명 생성 **********************************************/
         set FS_CombinationText=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_CombinationText, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.025, -0.025)
         call DzFrameSetText(FS_CombinationText, "스킬")
-        
+
         set FS_SPTEXT=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_SPTEXT, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.170, -0.050)
-        call DzFrameSetText(FS_SPTEXT, "스킬포인트")
-        
+        call DzFrameSetText(FS_SPTEXT, "")
+        call DzFrameShow(FS_SPTEXT, false)
+
         set FS_SPTEXTV=DzCreateFrameByTagName("TEXT", "", FS_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FS_SPTEXTV, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.245, -0.050)
         call DzFrameSetText(FS_SPTEXTV, "0")
-        
+        call DzFrameShow(FS_SPTEXTV, false)
+
         call CreateSkillButton(0)
         call CreateSkillButton(1)
         call CreateSkillButton(2)
@@ -515,18 +465,33 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         call CreateSkillButton(5)
         call CreateSkillButton(6)
         call CreateSkillButton(7)
-        
+        call CreateSkillButton(8)
+        call CreateSkillButton(9)
+        call CreateSkillButton(10)
+        call CreateSkillButton(11)
+
+        set FS_TemplateBackDrop=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", FrameCount())
+        call DzFrameSetTexture(FS_TemplateBackDrop, "war3mapImported\\UI_Pick_Panel.tga", 0)
+        call DzFrameSetPoint(FS_TemplateBackDrop, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.275, -0.055)
+        call DzFrameSetSize(FS_TemplateBackDrop, 0.190, 0.300)
+
+        set FS_TemplateText=DzCreateFrameByTagName("TEXT", "", FS_TemplateBackDrop, "", FrameCount())
+        call DzFrameSetPoint(FS_TemplateText, JN_FRAMEPOINT_TOPLEFT, FS_TemplateBackDrop , JN_FRAMEPOINT_TOPLEFT, 0.020, -0.025)
+        call DzFrameSetSize(FS_TemplateText, 0.160, 0.250)
+        call DzFrameSetFont(FS_TemplateText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
+        call DzFrameSetText(FS_TemplateText, "스킬을 선택하면 설명이 표시됩니다.")
+
         /********************************** 메뉴 취소 버튼 **********************************************/
         set FS_CancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", FS_BackDrop, "ScriptDialogButton", 0)
         call DzFrameSetPoint(FS_CancelButton, JN_FRAMEPOINT_TOPRIGHT, FS_BackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.015, -0.015)
         call DzFrameSetText(FS_CancelButton, "X")
         call DzFrameSetSize(FS_CancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(FS_CancelButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
-        
-        
+
+
         call DzFrameShow(FS_BackDrop, false)
     endfunction
-    
+
     private function ESCAction takes nothing returns nothing
         if FS_OnOff[GetPlayerId(GetTriggerPlayer())] == true then
             if ( GetTriggerPlayer() == GetLocalPlayer() ) then
@@ -535,17 +500,17 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set FS_OnOff[GetPlayerId(GetTriggerPlayer())] = false
         endif
     endfunction
-    
-    
+
+
     private function KKey takes nothing returns nothing
         local integer key = DzGetTriggerKey()
         local integer i = 0
         local integer j = GetPlayerId(DzGetTriggerKeyPlayer())
-        
+
         if DzGetTriggerKeyPlayer()==GetLocalPlayer() then
             set i = JNMemoryGetByte(JNGetModuleHandle("Game.dll")+0xD04FEC)
         endif
-        
+
         if i==1 then
         else
             if PickCheck[j] == true then
@@ -561,105 +526,19 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             endif
         endif
     endfunction
-    
-    private function BTUPF takes nothing returns nothing
-        local player p=(DzGetTriggerSyncPlayer())
-        local integer f = S2I(DzGetTriggerSyncData())
-        local integer pid = GetPlayerId(p)
-        local integer i = 0
 
-        
-        if HeroSkillLevel[pid][f] != 3 then
-            if HeroSkillPoint[pid] >= 1 then
-                set HeroSkillPoint[pid] = HeroSkillPoint[pid] - 1
-                set HeroSkillLevel[pid][f] = HeroSkillLevel[pid][f] + 1
-                
-                if p == GetLocalPlayer() then
-                    if HeroSkillLevel[pid][f] == 1 then
-                        call DzFrameSetTexture(FP_SLBD1[f], "UI_PickSelectButton.tga", 0)
-                    elseif HeroSkillLevel[pid][f] == 2 then
-                        call DzFrameSetTexture(FP_SLBD2[f], "UI_PickSelectButton.tga", 0)
-                    elseif HeroSkillLevel[pid][f] == 3 then
-                        call DzFrameSetTexture(FP_SLBD3[f], "UI_PickSelectButton.tga", 0)
-                    endif
-                    call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
-                    call DzFrameSetText(FS_ButtonTEXT2[f], I2S(HeroSkillLevel[pid][f]))
-                    
-                    set i = 0
-                    loop
-                        call DzFrameShow(FP_SLBD1[i], false)
-                        call DzFrameShow(FP_SLBD2[i], false)
-                        call DzFrameShow(FP_SLBD3[i], false)
-                        exitwhen i == 7
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    
-                    call DzFrameShow(FP_SLBD1[f], true)
-                    call DzFrameShow(FP_SLBD2[f], true)
-                    call DzFrameShow(FP_SLBD3[f], true)
-                    
-                endif
-            endif
-        endif
-            
-        set p = null
-    endfunction
-    
-    private function BTDOWNF takes nothing returns nothing
-        local player p=(DzGetTriggerSyncPlayer())
-        local integer f = S2I(DzGetTriggerSyncData())
-        local integer pid = GetPlayerId(p)
-        local integer i = 0
-        
-        if HeroSkillLevel[pid][f] >= 1 then
-            set HeroSkillPoint[pid] = HeroSkillPoint[pid] + 1
-            set HeroSkillLevel[pid][f] = HeroSkillLevel[pid][f] - 1
-            
-            if p == GetLocalPlayer() then
-                if HeroSkillLevel[pid][f] == 0 then
-                    call DzFrameSetTexture(FP_SLBD1[f], "UI_PickSelectButton2.tga", 0)
-                elseif HeroSkillLevel[pid][f] == 1 then
-                    call DzFrameSetTexture(FP_SLBD2[f], "UI_PickSelectButton2.tga", 0)
-                elseif HeroSkillLevel[pid][f] == 2 then
-                    call DzFrameSetTexture(FP_SLBD3[f], "UI_PickSelectButton2.tga", 0)
-                endif
-                call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
-                call DzFrameSetText(FS_ButtonTEXT2[f], I2S(HeroSkillLevel[pid][f]))
-                
-                set i = 0
-                loop
-                    call DzFrameShow(FP_SLBD1[i], false)
-                    call DzFrameShow(FP_SLBD2[i], false)
-                    call DzFrameShow(FP_SLBD3[i], false)
-                    exitwhen i == 7
-                    set i = i + 1
-                endloop
-                set i = 0
-                
-                call DzFrameShow(FP_SLBD1[f], true)
-                call DzFrameShow(FP_SLBD2[f], true)
-                call DzFrameShow(FP_SLBD3[f], true)
-                
-            endif
-        endif
-        
-        set p = null
-    endfunction
-    
-    
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         local integer index
-        
+
         set t = CreateTrigger()
         call TriggerAddAction( t, function Main )
         call TriggerRegisterTimerEventSingle( t, 0.1 )
-        
-        
+
+
         //esc버튼으로 인벤토리 닫기
         set t = CreateTrigger()
-        
+
         set index = 0
         loop
             call TriggerRegisterPlayerEvent(t, Player(index), EVENT_PLAYER_END_CINEMATIC)
@@ -667,7 +546,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             exitwhen index == bj_MAX_PLAYER_SLOTS
         endloop
         call TriggerAddAction( t, function ESCAction )
-        
+
         set index = 0
         loop
             set HeroSkillLevel[index][0] = 0
@@ -682,18 +561,11 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set index = index + 1
             exitwhen index == 13
         endloop
-        
+
         //I버튼으로 인벤토리 열기 및 닫기
         call DzTriggerRegisterKeyEventByCode(null, 'K', 0, false, function KKey)
-        
-        set t=CreateTrigger()
-        call DzTriggerRegisterSyncData(t,("BTUP"),(false))
-        call TriggerAddAction(t,function BTUPF)
-        set t=CreateTrigger()
-        call DzTriggerRegisterSyncData(t,("BTDOWN"),(false))
-        call TriggerAddAction(t,function BTDOWNF)
-        
+
         set t = null
-        
+
     endfunction
 endlibrary

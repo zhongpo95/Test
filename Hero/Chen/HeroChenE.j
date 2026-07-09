@@ -1,7 +1,7 @@
 scope HeroChenE
 globals
     private constant real SD = 109.00
-    
+
     //쉐클시간
     private constant real Time = 0.60
     //스킬이펙트 시간
@@ -77,18 +77,13 @@ endstruct
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
-    
+
     if IsCastingChenE[pid] == true then
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-            if level >= 2 then
-                set Velue = Velue * 1.70
-            endif
-            
-            if level >= 3 then
-                set Velue = Velue * 2.60
-            endif
-            
+            set Velue = Velue * 1.70
+
+            set Velue = Velue * 2.60
+
             call HeroDeal('A019',splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,true,false)
         endif
     endif
@@ -97,9 +92,9 @@ endfunction
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
-    
+
     set fx.i = fx.i + 1
-    
+
     if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) or IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] == false then
         set IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] = false
         call fx.Stop()
@@ -118,25 +113,25 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
-            
+
             set IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] = false
             call fx.Stop()
             call t.destroy()
         endif
     endif
 
-    
+
 endfunction
 
 private function Main takes nothing returns nothing
     local integer pid
     local tick t
     local FxEffect fx
-    
+
     if GetSpellAbilityId() == 'A019' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
@@ -145,18 +140,14 @@ private function Main takes nothing returns nothing
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(pid))/100)
         set IsCastingChenE[pid] = true
-        
+
         call Sound3D(fx.caster,'A01P')
-        if HeroSkillLevel[pid][2] >= 1 then
-            call CooldownFIX(fx.caster,'A019',HeroSkillCD2[4]-5.6)
-        else
-            call CooldownFIX(fx.caster,'A019',HeroSkillCD2[4])
-        endif
+        call CooldownFIX(fx.caster,'A019',HeroSkillCD2[4]-5.6)
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster,17, fx.speed)
-    
+
         set t.data = fx
-        call t.start( Time2 /fx.speed, false, function EffectFunction ) 
+        call t.start( Time2 /fx.speed, false, function EffectFunction )
     endif
 endfunction
 
@@ -171,7 +162,7 @@ private function ESyncData takes nothing returns nothing
     local real angle
 
     set pid=GetPlayerId(p)
-        
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -184,11 +175,11 @@ private function ESyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ambush", x, y )
     endif
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -198,11 +189,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenE"),(false))
         call TriggerAddAction(t,function ESyncData)

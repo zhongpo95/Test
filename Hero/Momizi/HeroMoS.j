@@ -2,7 +2,7 @@ scope HeroMoS
 
 globals
     private constant real SD = 48
-    
+
     //쉐클시간
     private constant real Time = 2.1
     //스킬이펙트 시간
@@ -13,7 +13,7 @@ globals
     private constant real scale = 750
     private constant real distance = 500
 endglobals
-    
+
 private struct FxEffect
     unit caster
     unit dummy
@@ -80,23 +80,16 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][5]
     local real velue = 1.0
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 135 ) then
-            if level >= 3 then
-                set velue = velue * 1.95
-            endif
-                    
-            if level >= 2 then
-                set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 180
-                call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue5[3]*velue,false,false,false,false)
-                set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 180
-            else
-                call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue5[3]*velue,false,false,false,false)
-            endif
+            set velue = velue * 1.95
+
+            set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 180
+            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue5[3]*velue,false,false,false,false)
+            set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 180
         endif
     endif
 endfunction
@@ -110,9 +103,9 @@ private function EffectFunction takes nothing returns nothing
         set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         set fx.dummy = UnitEffectTime2('e01A', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.1,1,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
+
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
-        
+
         call fx.Stop()
         call t.destroy()
     else
@@ -126,31 +119,26 @@ private function Main takes nothing returns nothing
     local tick t
     local FxEffect fx
     if GetSpellAbilityId() == 'A013' then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-        if HeroSkillLevel[fx.pid][5] >= 1 then
-            set fx.speed = SkillSpeed2(fx.pid, 100.0)
-            call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3]-5.0)
-        else
-            set fx.speed = SkillSpeed(fx.pid)
-            call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3])
-        endif
+        set fx.speed = SkillSpeed2(fx.pid, 100.0)
+        call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3]-5.0)
         set fx.i = 0
-        
+
         call Sound3D(fx.caster,'A01W')
-        
+
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call AnimationStart3(fx.caster,13, fx.speed)
-        
+
         set t.data = fx
-        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction )
     endif
 endfunction
-    
+
 private function SSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -160,9 +148,9 @@ private function SSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set pid=GetPlayerId(p)
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID5[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -175,11 +163,11 @@ private function SSyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "animatedead", x, y )
     endif
-        
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -189,11 +177,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("MoS"),(false))
         call TriggerAddAction(t,function SSyncData)

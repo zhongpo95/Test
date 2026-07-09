@@ -14,9 +14,8 @@ endglobals
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue2[15]*Velue,false,false,false,false)
     endif
@@ -28,7 +27,7 @@ private function EffectFunction2 takes nothing returns nothing
     local string data
     local integer random
     local integer i
-        
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
 
         call UnitEffectTime2('e035',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
@@ -36,7 +35,7 @@ private function EffectFunction2 takes nothing returns nothing
         call UnitEffectTime2('e037',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         call UnitEffectTime2('e038',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
         call UnitEffectTime2('e039',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.2,0,fx.pid)
-        
+
         call DzSetUnitModel(fx.caster, "[AWF]FireFlySam1.mdx")
         call AnimationStart3(fx.caster,7, 1.0)
 
@@ -79,7 +78,7 @@ private function EffectFunction takes nothing returns nothing
     local string data
     local effect e
     local integer i
-    
+
     set fx.i = fx.i + 1
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 then
         if Stack[fx.pid] == 1 then
@@ -162,7 +161,7 @@ private function Main takes nothing returns nothing
 
         set t.data = fx
         set Stack[fx.pid] = 1
-    
+
         if Player(fx.pid) == GetLocalPlayer() then
             call DzFrameSetText(CastingTextFrame,"Δ지령-초토화 운석 폭격")
             call DzFrameSetValue(CastingBar,0)
@@ -180,7 +179,7 @@ private function Main takes nothing returns nothing
         //call BanBisul2Plus(pid,1)
     endif
 endfunction
-    
+
 private function ESyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -190,7 +189,7 @@ private function ESyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID2[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
             set x=S2R(data)
@@ -221,7 +220,7 @@ private function ESyncData2 takes nothing returns nothing
     local SkillFx fx
 
     if Stack[pid] == 1 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -243,11 +242,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("BandiE"),(false))
         call TriggerAddAction(t,function ESyncData)

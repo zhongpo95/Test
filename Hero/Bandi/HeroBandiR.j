@@ -51,7 +51,6 @@ scope HeroBandiR
 
     private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
         local integer random
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
@@ -69,16 +68,13 @@ scope HeroBandiR
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
-            if level >= 1 then
-                //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
-            endif
+            //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
         endif
     endfunction
 
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
         local integer random
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -94,9 +90,7 @@ scope HeroBandiR
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
-            if level >= 1 then
-                //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
-            endif
+            //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
         endif
     endfunction

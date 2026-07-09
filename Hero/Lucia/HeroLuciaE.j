@@ -1,11 +1,11 @@
 scope HeroLuciaE
 globals
-    
+
     private constant real SD = 15.00
     private constant real SD2 = 35.00
-    
+
     //private constant real HeroSkillCD7[4] = 30.00 // 30.0
-    
+
     private constant real Time = 0.30
     private constant real MoveTime = 0.20
     private constant real MoveD = 1000
@@ -20,7 +20,7 @@ globals
     private constant real EffectTime5 = 0.16
     //풀차지
     private constant real EffectTime6 = 1.1
-    
+
     private integer array Stack
 
     private constant real scale = 550
@@ -32,13 +32,10 @@ endglobals
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][17]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            set Velue = Velue * 2.00
-        endif
-        
+        set Velue = Velue * 2.00
+
         call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue3[17]*Velue,true,false,false,true)
     endif
 endfunction
@@ -46,13 +43,10 @@ endfunction
 private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][17]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-        if level >= 1 then
-            set Velue = Velue * 2.00
-        endif
-        
+        set Velue = Velue * 2.00
+
         call HeroDeal('A07C',splash.source,GetEnumUnit(),HeroSkillVelue3[17]*Velue,true,false,false,true)
     endif
 endfunction
@@ -139,7 +133,7 @@ private function EffectFunction8 takes nothing returns nothing
     if fx.r >= MoveTime/fx.speed then
         set fx.i = 0
         set fx.r = GetUnitFacing(fx.caster)
-            
+
         set fx.i = fx.i + 1
 
         set x = fx.TargetX+PolarX( (MoveD3/5) * fx.i, fx.r)
@@ -169,13 +163,13 @@ private function EffectFunction8 takes nothing returns nothing
         call DestroyEffect(e)
 
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
-        
-        call t.start( EffectTime5/fx.speed , false, function EffectFunction7 ) 
+
+        call t.start( EffectTime5/fx.speed , false, function EffectFunction7 )
     else
         set distancePerTick = ((MoveD2 * fx.speed) / MoveTime) * 0.03125
         call SetUnitSafePolarUTA(fx.caster, distancePerTick , GetUnitFacing(fx.caster))
         set fx.r2 = fx.r2 + distancePerTick
-        call t.start( 0.03125, false, function EffectFunction8 ) 
+        call t.start( 0.03125, false, function EffectFunction8 )
     endif
 endfunction
 
@@ -214,7 +208,7 @@ private function EffectFunction4 takes nothing returns nothing
         set distancePerTick = ((MoveD2 * fx.speed) / MoveTime) * 0.03125
         call SetUnitSafePolarUTA(fx.caster, distancePerTick , GetUnitFacing(fx.caster))
         set fx.r2 = fx.r2 + distancePerTick
-        call t.start( 0.03125, false, function EffectFunction4 ) 
+        call t.start( 0.03125, false, function EffectFunction4 )
     endif
 endfunction
 
@@ -253,7 +247,7 @@ private function EffectFunction3 takes nothing returns nothing
         set distancePerTick = ((MoveD * fx.speed) / MoveTime) * 0.03125
         call SetUnitSafePolarUTA(fx.caster, distancePerTick , GetUnitFacing(fx.caster))
         set fx.r2 = fx.r2 + distancePerTick
-        call t.start( 0.03125, false, function EffectFunction3 ) 
+        call t.start( 0.03125, false, function EffectFunction3 )
     endif
 endfunction
 
@@ -284,7 +278,7 @@ private function EffectFunction6 takes nothing returns nothing
         call SetUnitVertexColorBJ( UnitEffectTime2('e05D',x+PolarX( 285, fx.r +60), y+PolarY( 285, fx.r + 60), (fx.r + 60), 0.7, 4, fx.pid) , 100, 100, 100, 50 )
     endif
     //call EXSetEffectSize(e, 1.25)
-    
+
     call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
 
     call DestroyEffect(e)
@@ -312,8 +306,8 @@ private function EffectFunction5 takes nothing returns nothing
     local effect e
     local real distancePerTick = 0
     local real remainingDistance = 0
-    local real x 
-    local real y 
+    local real x
+    local real y
 
     set fx.r = fx.r + 0.03125
 
@@ -338,7 +332,7 @@ private function EffectFunction5 takes nothing returns nothing
         */
         set fx.i = 0
         set fx.r = GetUnitFacing(fx.caster)
-            
+
         /*
         set fx.i = fx.i + 1
 
@@ -360,12 +354,12 @@ private function EffectFunction5 takes nothing returns nothing
         //call EXSetEffectSize(e, 1.25)
         call DestroyEffect(e)
         */
-        call t.start( EffectTime4/fx.speed , false, function EffectFunction6 ) 
+        call t.start( EffectTime4/fx.speed , false, function EffectFunction6 )
     else
         set distancePerTick = ((MoveD * fx.speed) / MoveTime) * 0.03125
         call SetUnitSafePolarUTA(fx.caster, distancePerTick , GetUnitFacing(fx.caster))
         set fx.r2 = fx.r2 + distancePerTick
-        call t.start( 0.03125, false, function EffectFunction5 ) 
+        call t.start( 0.03125, false, function EffectFunction5 )
     endif
 endfunction
 
@@ -375,7 +369,7 @@ private function EffectFunction2 takes nothing returns nothing
     local string data
     local integer random
     local effect e
-        
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if Stack[fx.pid] == 10 then
             if fx.i < 25 then
@@ -535,7 +529,7 @@ private function EffectFunction takes nothing returns nothing
     local SkillFx fx = t.data
     local string data
     local effect e
-    
+
     if fx.i == fx.j then
         call AnimationStart3(fx.caster, 14, fx.speed)
         set Stack[fx.pid] = 1
@@ -572,7 +566,7 @@ private function EffectFunction takes nothing returns nothing
     endif
 
     set fx.i = fx.i + 1
-    
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if Stack[fx.pid] == 1 or Stack[fx.pid] == 2 or Stack[fx.pid] == 3 then
             set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
@@ -647,7 +641,7 @@ private function Main takes nothing returns nothing
     if GetSpellAbilityId() == 'A07C' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
@@ -656,11 +650,11 @@ private function Main takes nothing returns nothing
         set fx.i = LuciaVelue[fx.pid]
         set fx.j = LuciaVelue[fx.pid]
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
-        
+
         set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
-        
+
         call AnimationStart3(fx.caster,13, fx.speed)
-        
+
         set t.data = fx
         set Stack[fx.pid] = 0
         /*
@@ -679,7 +673,7 @@ private function Main takes nothing returns nothing
         call CooldownFIX(fx.caster,'A07C', 5)
     endif
 endfunction
-    
+
 private function ESyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -689,7 +683,7 @@ private function ESyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -702,7 +696,7 @@ private function ESyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ambush", x, y )
     endif
-    
+
     set p=null
 endfunction
 
@@ -715,10 +709,10 @@ private function ESyncData2 takes nothing returns nothing
     local real speed
     local tick t
     local SkillFx fx
-    
+
     if Stack[pid] == 0 then
     elseif Stack[pid] == 1 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -728,7 +722,7 @@ private function ESyncData2 takes nothing returns nothing
         set Stack[fx.pid] = 10
         call t.start( 0.02, false, function EffectFunction2 )
     endif
-    
+
     set p=null
 endfunction
 
@@ -741,7 +735,7 @@ private function ESyncData3 takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set x=S2R(data)
     set valueLen=StringLength(R2S(x))
     set data=SubString(data,valueLen+1,dataLen)
@@ -749,15 +743,15 @@ private function ESyncData3 takes nothing returns nothing
     set y=S2R(data)
     set pid=GetPlayerId(p)
     set angle = AngleWBP(MainUnit[pid],x,y)
-        
+
     if Stack[pid] == 1 or Stack[pid] == 2 then
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
     endif
-    
+
     set p=null
 endfunction
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -767,23 +761,23 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("LuciaE"),(false))
         call TriggerAddAction(t,function ESyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("LuciaE2"),(false))
         call TriggerAddAction(t,function ESyncData2)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("LuciaEM"),(false))
         call TriggerAddAction(t,function ESyncData3)
-    
+
         set t = null
     endmethod
 endstruct

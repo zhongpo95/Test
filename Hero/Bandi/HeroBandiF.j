@@ -7,7 +7,7 @@ scope HeroBandiF
         private constant real Time4 = 0.2
         private constant real Time5 = 0.1
         private constant real Time6 = 0.6
-    
+
         private constant real scale = 500
         private constant real scale2 = 600
         private constant real distance = 325
@@ -20,17 +20,16 @@ scope HeroBandiF
         private unit CheckU
         boolean array IsCastingBandiF
     endglobals
-    
+
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-    
+
             call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
-            
+
             set random = GetRandomInt(0,2)
             if random == 0 then
                 call Sound3D(GetEnumUnit(),'A03X')
@@ -39,10 +38,8 @@ scope HeroBandiF
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
-            if level >= 1 then
-                //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
-            endif
-    
+            //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
+
         endif
     endfunction
 
@@ -55,7 +52,7 @@ scope HeroBandiF
         local real r = 0
         local real r2 = 0
         local effect e
-    
+
         set fx.i = fx.i + 1
 
         //if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
@@ -66,7 +63,7 @@ scope HeroBandiF
                 else
                     set fx.e = AddSpecialEffectTarget("tx-LiuYing17.mdl",fx.caster,"chest")
                 endif
-                call t.start( 0.02 / fx.speed, false, function EffectFunction ) 
+                call t.start( 0.02 / fx.speed, false, function EffectFunction )
             elseif fx.i == 2 then
                 if fx.pid != GetPlayerId(GetLocalPlayer()) then
                     set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
@@ -87,7 +84,7 @@ scope HeroBandiF
                 call EXEffectMatRotateZ(e, GetUnitFacing(fx.caster) + 90)
                 call DestroyEffect(e)
                 set e = null
-                call t.start( 0.85 / fx.speed, false, function EffectFunction ) 
+                call t.start( 0.85 / fx.speed, false, function EffectFunction )
             elseif fx.i == 3 then
                 if fx.j == 1 then
                     call Sound3D(fx.caster,'A077')
@@ -98,10 +95,10 @@ scope HeroBandiF
                 set fx.e = null
                 call AnimationStart3(fx.caster, 5, 1.00)
                 call DelayAlpha(fx.caster, 0.5 / fx.speed)
-                call t.start( 0.05 / fx.speed, false, function EffectFunction ) 
+                call t.start( 0.05 / fx.speed, false, function EffectFunction )
             elseif fx.i <= 13 and fx.i >= 4 then
                 call SetUnitSafePolarUTA(fx.caster, MoveD / R2I(10/fx.speed), GetUnitFacing(fx.caster) )
-                call t.start( 0.05 / fx.speed, false, function EffectFunction ) 
+                call t.start( 0.05 / fx.speed, false, function EffectFunction )
             elseif fx.i == 14 then
                 set fx.TargetX = GetUnitX(fx.caster)
                 set fx.TargetY = GetUnitY(fx.caster)
@@ -187,7 +184,7 @@ scope HeroBandiF
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
         local real r
-        
+
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
 
@@ -220,30 +217,30 @@ scope HeroBandiF
         local SkillFx fx
         local tick t2
         local SkillFx fx2
-        
+
         if GetSpellAbilityId() == 'A06G' then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-            set t = tick.create(0) 
+            set t = tick.create(0)
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()
             set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set IsCastingBandiF[fx.pid] = true
             set fx.i = 0
-            
+
             //call BanBisul2Use(pid)
             call Overlay2Count(fx.pid,'A06G')
 
             call BuffNoNB.Apply( fx.caster, Time, 0 )
             call BuffNoST.Apply( fx.caster, Time, 0 )
-            
+
             //공격속도가 40퍼 도달시, 이스킬의 공격속도가 40퍼가 아닌 100퍼로 적용
             if SkillSpeed(fx.pid) != 40 then
                 call DummyMagicleash(fx.caster, Time / fx.speed )
                 call PauseUnitEx(fx.caster,true)
                 call AnimationStart3(fx.caster, 5, fx.speed)
-        
+
 
                 set fx.j = GetRandomInt(0,1)
                 if fx.j == 1 then
@@ -270,13 +267,13 @@ scope HeroBandiF
                 call t2.start( 0.04 / fx.speed , true, function EffectFunctionZ )
 
                 set t.data = fx
-                call t.start( 1.0 / fx.speed, false, function EffectFunction ) 
+                call t.start( 1.0 / fx.speed, false, function EffectFunction )
             else
                 set fx.speed = ((100+SkillSpeed2(fx.pid,60))/100)
                 call DummyMagicleash(fx.caster, Time / fx.speed )
                 call PauseUnitEx(fx.caster,true)
                 call AnimationStart3(fx.caster, 5, fx.speed)
-        
+
 
                 set fx.j = GetRandomInt(2,3)
                 if fx.j == 2 then
@@ -299,13 +296,13 @@ scope HeroBandiF
                 call t2.start( 0.04 / fx.speed , true, function EffectFunctionZ )
 
                 set t.data = fx
-                call t.start( 1.0 / fx.speed, false, function EffectFunction ) 
+                call t.start( 1.0 / fx.speed, false, function EffectFunction )
             endif
             call CooldownFIX(fx.caster,'A06G',5)
         endif
     endfunction
 
-        
+
     private function FSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
@@ -315,7 +312,7 @@ scope HeroBandiF
         local real x
         local real y
         local real angle
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
@@ -330,11 +327,11 @@ scope HeroBandiF
                 call IssuePointOrder( MainUnit[pid], "attributemodskill", x, y )
             endif
         endif
-    
+
         set p=null
     endfunction
-    
-                
+
+
     private struct TEvAfterB extends array
         private static method onInit takes nothing returns nothing
             local trigger t = CreateTrigger()
@@ -344,18 +341,18 @@ scope HeroBandiF
         endmethod
         private static method Action takes nothing returns nothing
         local trigger t
-        
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-            
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("BandiF"),(false))
         call TriggerAddAction(t,function FSyncData)
-    
+
         set t = null
         endmethod
     endstruct
     endscope
-    
-    
+
+

@@ -1,7 +1,7 @@
 scope HeroChenW
 globals
     private constant real SD = 20.00
-    
+
     //쉐클시간
     private constant real Time = 0.50
     //스킬이펙트 시간
@@ -67,17 +67,12 @@ endstruct
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][1]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 2 then
-            set Velue = Velue * 1.5
-        endif
-        
-        if level >= 3 then
-            set Velue = Velue * 2.0
-        endif
-        
+        set Velue = Velue * 1.5
+
+        set Velue = Velue * 2.0
+
         call HeroDeal('A017',splash.source,GetEnumUnit(),(HeroSkillVelue1[4]/2)*Velue,true,false,false,false)
         call HeroDeal('A017',splash.source,GetEnumUnit(),(HeroSkillVelue1[4]/2)*Velue,true,false,false,false)
     endif
@@ -86,7 +81,7 @@ endfunction
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
-     
+
     if IsCastingChenW[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
         set IsCastingChenW[GetPlayerId(GetOwningPlayer(fx.caster))] = false
 
@@ -98,7 +93,7 @@ private function EffectFunction takes nothing returns nothing
         endif
 
     endif
-    
+
     call fx.Stop()
     call t.destroy()
 endfunction
@@ -109,7 +104,7 @@ private function Main takes nothing returns nothing
     local tick t
     local FxEffect fx
     local real random
-         
+
     if GetSpellAbilityId() == 'A017' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
@@ -121,14 +116,10 @@ private function Main takes nothing returns nothing
         set pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set speed = SkillSpeed(pid)
         set IsCastingChenW[pid] = true
-        
+
         call Sound3D(fx.caster,'A01J')
-        if HeroSkillLevel[pid][1] >= 1 then
-            if GetRandomInt(0,1) == 1 then
-                call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4] - 5.00)
-            else
-                call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4])
-            endif
+        if GetRandomInt(0,1) == 1 then
+            call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4] - 5.00)
         else
             call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4])
         endif
@@ -136,10 +127,10 @@ private function Main takes nothing returns nothing
         call AnimationStart3(fx.caster,9, (100+speed)/100)
 
         set t.data = fx
-        call t.start( Time2 * (1 - (speed/(100+speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 * (1 - (speed/(100+speed)) ), false, function EffectFunction )
     endif
 endfunction
-    
+
 private function WSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -149,9 +140,9 @@ private function WSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set pid=GetPlayerId(p)
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID1[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -164,7 +155,7 @@ private function WSyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )
     endif
-    
+
     set p=null
 endfunction
 
@@ -178,11 +169,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenW"),(false))
         call TriggerAddAction(t,function WSyncData)

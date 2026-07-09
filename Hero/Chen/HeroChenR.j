@@ -1,17 +1,17 @@
 scope HeroChenR
 
 globals
-    
+
     private constant real SD = 70
-    
+
     //private constant real HeroSkillCD3[4] = 30.00
-    
+
     //쉐클시간
     private constant real Time = 0.20
     private constant real Time2 = 0.20
     //스킬이펙트 시간
     private constant real EffectTime = 0.50
-    
+
     private constant real scale = 500
     private constant real distance = 150
 
@@ -79,68 +79,48 @@ endstruct
 private function splashD1 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][3]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            set Velue = Velue * 1.50
-        endif
-        
+        set Velue = Velue * 1.50
+
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][3]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            set Velue = Velue * 1.50
-        endif
-        
-        if level >= 2 then
-            set Velue = Velue * 1.30
-        endif
-        
+        set Velue = Velue * 1.50
+
+        set Velue = Velue * 1.30
+
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD3 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][3]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            set Velue = Velue * 1.50
-        endif
-        
-        if level >= 2 then
-            set Velue = Velue * 1.60
-        endif
-        
+        set Velue = Velue * 1.50
+
+        set Velue = Velue * 1.60
+
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
 private function splashD4 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][3]
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            set Velue = Velue * 1.50
-        endif
-        
-        if level >= 2 then
-            set Velue = Velue * 1.90
-        endif
-        
-        if level >= 3 then
-            set Velue = Velue * 2.22
-        endif
-        
+        set Velue = Velue * 1.50
+
+        set Velue = Velue * 1.90
+
+        set Velue = Velue * 2.22
+
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -150,9 +130,9 @@ private function EffectFunction2 takes nothing returns nothing
     local FxEffect fx = t.data
     local string data
     local integer random
-    
+
     set fx.i = fx.i + 1
-        
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
             call AnimationStart3(fx.caster,17, fx.speed)
@@ -241,9 +221,9 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
     local string data
     local effect e
-    
+
     set fx.i = fx.i + 1
-    
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false and GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if Stack[fx.pid] == 1 or Stack[fx.pid] == 2 or Stack[fx.pid] == 3 or Stack[fx.pid] == 4 then
             set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
@@ -366,7 +346,7 @@ private function Main takes nothing returns nothing
     if GetSpellAbilityId() == 'A01C' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
@@ -374,14 +354,14 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
-        
+
         set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
-        
+
         call CooldownFIX(fx.caster,'A01C',HeroSkillCD3[4])
         call AnimationStart3(fx.caster,3, fx.speed)
-        
+
         set t.data = fx
-        
+
         set Stack[fx.pid] = 1
 
         call Sound3D(fx.caster,'A01O')
@@ -395,7 +375,7 @@ private function Main takes nothing returns nothing
         call t.start( (EffectTime /fx.speed )/25, false, function EffectFunction )
     endif
 endfunction
-    
+
 private function RSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -405,7 +385,7 @@ private function RSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -418,7 +398,7 @@ private function RSyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ancestralspirit", x, y )
     endif
-    
+
     set p=null
 endfunction
 
@@ -431,10 +411,10 @@ private function RSyncData2 takes nothing returns nothing
     local real speed
     local tick t
     local FxEffect fx
-    
+
     if Stack[pid] == 0 then
     elseif Stack[pid] == 1 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -444,7 +424,7 @@ private function RSyncData2 takes nothing returns nothing
         set Stack[fx.pid] = 11
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -454,7 +434,7 @@ private function RSyncData2 takes nothing returns nothing
         set Stack[fx.pid] = 12
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -464,7 +444,7 @@ private function RSyncData2 takes nothing returns nothing
         set Stack[fx.pid] = 13
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
@@ -474,7 +454,7 @@ private function RSyncData2 takes nothing returns nothing
         set Stack[fx.pid] = 14
         call t.start( 0.02, false, function EffectFunction2 )
     endif
-    
+
     set p=null
 endfunction
 
@@ -487,7 +467,7 @@ private function RSyncData3 takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set x=S2R(data)
     set valueLen=StringLength(R2S(x))
     set data=SubString(data,valueLen+1,dataLen)
@@ -495,15 +475,15 @@ private function RSyncData3 takes nothing returns nothing
     set y=S2R(data)
     set pid=GetPlayerId(p)
     set angle = AngleWBP(MainUnit[pid],x,y)
-        
+
     if Stack[pid] == 1 or Stack[pid] == 2 or Stack[pid] == 3 then
         call SetUnitFacing(MainUnit[pid],angle)
         call EXSetUnitFacing(MainUnit[pid],angle)
     endif
-    
+
     set p=null
 endfunction
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -513,19 +493,19 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenR"),(false))
         call TriggerAddAction(t,function RSyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenR2"),(false))
         call TriggerAddAction(t,function RSyncData2)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenRM"),(false))
         call TriggerAddAction(t,function RSyncData3)
