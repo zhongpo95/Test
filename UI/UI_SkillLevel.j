@@ -471,7 +471,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         call CreateSkillButton(11)
 
         set FS_TemplateBackDrop=DzCreateFrameByTagName("BACKDROP", "", FS_BackDrop, "template", FrameCount())
-        call DzFrameSetTexture(FS_TemplateBackDrop, "UI_PickSelectButton2.tga", 0)
+        call DzFrameSetTexture(FS_TemplateBackDrop, "war3mapImported\\UI_Pick_Panel.tga", 0)
         call DzFrameSetPoint(FS_TemplateBackDrop, JN_FRAMEPOINT_TOPLEFT, FS_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.275, -0.055)
         call DzFrameSetSize(FS_TemplateBackDrop, 0.190, 0.300)
 
