@@ -26,6 +26,32 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
 
         //call DzFrameSetText(FS_ButtonTEXT[0], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
 
+    private function SkillFrameShowSubTip takes integer abilId returns nothing
+        local string title
+        local string desc = ""
+
+        if abilId == 0 then
+            call DzFrameShow(UI_Tip, false)
+            return
+        endif
+
+        set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
+        if abilId == 'A002' and title == "" then
+            set title = "회피(X)"
+        endif
+        if abilId == 'A002' then
+            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
+        endif
+
+        call DzFrameSetText(UI_Tip_Text[1], title)
+        call DzFrameSetText(UI_Tip_Text[2], desc)
+        if title == "" and desc == "" then
+            call DzFrameShow(UI_Tip, false)
+        else
+            call DzFrameShow(UI_Tip, true)
+        endif
+    endfunction
+
     private function SkillFrameJoinDescription takes string base, string text returns string
         if text == "" then
             return base
@@ -285,6 +311,14 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
             set i = 7
+        elseif f == FS_Button[8] then
+            call SkillFrameShowSubTip(HeroSkillID10[index])
+        elseif f == FS_Button[9] then
+            call SkillFrameShowSubTip('A002')
+        elseif f == FS_Button[10] then
+            call SkillFrameShowSubTip(HeroSkillID9[index])
+        elseif f == FS_Button[11] then
+            call SkillFrameShowSubTip(HeroSkillID8[index])
         endif
         if i != 99999 then
             set str = SkillFrameDataDescription(pid, index, i)
