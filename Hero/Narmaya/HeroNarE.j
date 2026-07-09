@@ -105,7 +105,7 @@ endfunction
 private function splashD1 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -126,7 +126,7 @@ endfunction
 private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -151,7 +151,7 @@ endfunction
 private function splashD3 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -176,7 +176,7 @@ endfunction
 private function splashD4 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -201,7 +201,7 @@ endfunction
 private function splashD5 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
@@ -222,7 +222,7 @@ endfunction
 private function splashD6 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
@@ -243,7 +243,7 @@ endfunction
 private function splashD7 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
@@ -273,7 +273,7 @@ endfunction
 private function splashD8 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][2]
+    local integer level = 3
     local integer random
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
@@ -333,7 +333,7 @@ private function EffectFunction4 takes nothing returns nothing
                 call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
                 call KillUnit(CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e03T',GetWidgetX(fx.caster)+PolarX(150, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(150, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster)))
             endif
-            if HeroSkillLevel[fx.pid][1] >= 1 then
+            if true then
                 call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
             endif
         endif
@@ -556,7 +556,7 @@ private function EffectFunction8 takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD8 )
         endif
         if Size[fx.pid] == 75 then
-            if HeroSkillLevel[fx.pid][1] >= 1 then
+            if true then
                 call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
             endif
         endif
@@ -647,7 +647,7 @@ private function Main takes nothing returns nothing
 
         call Overlay2Count(fx.pid,'A02K')
 
-        if HeroSkillLevel[fx.pid][2] >= 1 then
+        if true then
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         else
             set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
@@ -658,7 +658,7 @@ private function Main takes nothing returns nothing
         set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
         
         if StackDummy[fx.pid] == null then
-            if HeroSkillLevel[fx.pid][2] >= 2 then
+            if true then
                 set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
             else
                 set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e029',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
@@ -666,7 +666,7 @@ private function Main takes nothing returns nothing
         else
             call KillUnit(StackDummy[fx.pid])
             call ShowUnit(StackDummy[fx.pid], false)
-            if HeroSkillLevel[fx.pid][2] >= 2 then
+            if true then
                 set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e026',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
             else
                 set StackDummy[fx.pid] = CreateUnit(Player(fx.pid),'e029',GetUnitX(fx.caster),GetUnitY(fx.caster), AngleWBP(fx.caster,fx.TargetX ,fx.TargetY))
@@ -696,7 +696,7 @@ private function Main takes nothing returns nothing
             call CastingBarShow(Player(fx.pid),true)
         endif
         set SDummy[fx.pid] =  DummyMagicleash2( fx.caster )
-        if HeroSkillLevel[fx.pid][2] >= 2 then
+        if true then
             call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction )
         else
             call t.start( (EffectTime / fx.Aspeed ) / 25, false, function EffectFunction7 )
@@ -744,7 +744,7 @@ private function ESyncData2 takes nothing returns nothing
     local tick t
     local FxEffect fx
 
-    if HeroSkillLevel[pid][2] >= 2 then
+    if true then
         if Stack[pid] == 0 then
             
         elseif Stack[pid] == 1 then
@@ -754,7 +754,7 @@ private function ESyncData2 takes nothing returns nothing
             set fx.caster = MainUnit[fx.pid]
             set fx.i = 0
             set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
@@ -771,7 +771,7 @@ private function ESyncData2 takes nothing returns nothing
             set fx.caster = MainUnit[fx.pid]
             set fx.i = 0
             set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
@@ -788,7 +788,7 @@ private function ESyncData2 takes nothing returns nothing
             set fx.caster = MainUnit[fx.pid]
             set fx.i = 0
             set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
@@ -805,7 +805,7 @@ private function ESyncData2 takes nothing returns nothing
             set fx.caster = MainUnit[fx.pid]
             set fx.i = 0
             set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
@@ -824,7 +824,7 @@ private function ESyncData2 takes nothing returns nothing
             set fx.caster = MainUnit[fx.pid]
             set fx.i = 0
             set fx.r = 1 + ( 0.5 * NarStack[fx.pid] )
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
             else
                 set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)

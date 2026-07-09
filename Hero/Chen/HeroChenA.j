@@ -97,8 +97,8 @@ private function EffectFunction2 takes nothing returns nothing
         set fx.r = fx.r + 0.03
         call t.start( 0.02, false, function EffectFunction2 ) 
     else
-        if HeroSkillLevel[fx.pid][4] >= 2 then
-            if HeroSkillLevel[fx.pid][4] >= 3 then
+        if true then
+            if true then
                 call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4] + 0.25))
             else
                 call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
@@ -174,7 +174,7 @@ private function Main takes nothing returns nothing
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,10, (100+speed)/100)
         set IsCastingChenA[fx.pid] = true
-        if HeroSkillLevel[fx.pid][4] >= 1 then
+        if true then
             call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4]-8.0)
         else
             call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4])

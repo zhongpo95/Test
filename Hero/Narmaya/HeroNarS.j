@@ -215,19 +215,19 @@ private function Main takes nothing returns nothing
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if HeroSkillLevel[fx.pid][3] >= 3 then
+            if true then
                 set NarStack[fx.pid] = 1
             endif
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set NarStack[fx.pid] = 3
             endif
         endif
 
-        if HeroSkillLevel[fx.pid][5] >= 1 then
-            if HeroSkillLevel[fx.pid][5] >= 3 then
+        if true then
+            if true then
                 set fx.st = NarNabiUse(fx.pid,true)
             else
                 set fx.st = NarNabiUse(fx.pid,false)
@@ -251,7 +251,7 @@ private function Main takes nothing returns nothing
         endif
         set t.data = fx
 
-        if HeroSkillLevel[fx.pid][5] >= 2 then
+        if true then
             call BuffNoNB.Apply( fx.caster, Time, 0 )
             call BuffNoST.Apply( fx.caster, Time, 0 )
         endif

@@ -28,7 +28,7 @@ endglobals
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][4]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 1 then

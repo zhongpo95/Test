@@ -67,7 +67,7 @@ endstruct
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][1]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
@@ -123,7 +123,7 @@ private function Main takes nothing returns nothing
         set IsCastingChenW[pid] = true
         
         call Sound3D(fx.caster,'A01J')
-        if HeroSkillLevel[pid][1] >= 1 then
+        if true then
             if GetRandomInt(0,1) == 1 then
                 call CooldownFIX(fx.caster,'A017', HeroSkillCD1[4] - 5.00)
             else

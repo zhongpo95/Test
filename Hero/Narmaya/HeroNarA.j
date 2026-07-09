@@ -16,15 +16,15 @@ private function EffectFunction takes nothing returns nothing
 
     if IsCastingNarA[fx.pid] == true then
         if Hero_Buff[fx.pid] == 0 then
-            if HeroSkillLevel[fx.pid][4] >= 2 then
+            if true then
                 call BuffNar01.Apply( fx.caster, Time3 * 1.5, Velue2 )
             else
                 call BuffNar01.Apply( fx.caster, Time3, Velue2 )
             endif
         endif
 
-        if HeroSkillLevel[fx.pid][4] >= 1 then
-            if HeroSkillLevel[fx.pid][4] >= 3 then
+        if true then
+            if true then
                 if GetRandomInt(0,1) == 1 then
                     call NarNabiPlus(fx.pid,6)
                 endif

@@ -19,7 +19,7 @@ private function splashD takes nothing returns nothing
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if HeroDeal('A02I',splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true,false) then
-            if HeroSkillLevel[pid][0] >= 2 then
+            if true then
                 call NarNabiPlus(pid,6)
             endif
         endif
@@ -113,19 +113,19 @@ private function Main takes nothing returns nothing
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if HeroSkillLevel[fx.pid][3] >= 3 then
+            if true then
                 set NarStack[fx.pid] = 1
             endif
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set NarStack[fx.pid] = 3
             endif
         endif
         
-        if HeroSkillLevel[fx.pid][0] >= 1 then
-            if HeroSkillLevel[fx.pid][0] >= 3 then
+        if true then
+            if true then
                 set fx.st = NarNabiUse(fx.pid,true)
             else
                 set fx.st = NarNabiUse(fx.pid,false)

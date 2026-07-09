@@ -71,7 +71,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][5]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
@@ -95,7 +95,7 @@ private function EffectFunction takes nothing returns nothing
             call UnitEffectTime2('e00B',GetWidgetX(fx.caster)+PolarX( 150, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) + PolarY( 150, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster)+90,0.5,1,GetPlayerId(GetOwningPlayer(fx.caster)))
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 15 )
             
-            if HeroSkillLevel[fx.pid][5] >= 3 then
+            if true then
                 //set DM = 200 * 1.7
             endif
             

@@ -140,7 +140,7 @@ private function EffectFunction3 takes nothing returns nothing
         
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,16, fx.A2speed)
-        if HeroSkillLevel[fx.pid][7] >= 3 and fx.st == 6 then
+        if true and fx.st == 6 then
             call BuffNoDM.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
             call BuffNoNB.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
             call BuffNoST.Apply( fx.caster, (Time2 / fx.A2speed) + 0.4, 0 )
@@ -289,13 +289,13 @@ private function Main takes nothing returns nothing
 
         call Overlay2Count(fx.pid,'A02P')
 
-        if HeroSkillLevel[fx.pid][7] >= 1 then
-            if HeroSkillLevel[fx.pid][7] >= 3 then
+        if true then
+            if true then
                 set fx.st = NarNabiUse(fx.pid,true)
             else
                 set fx.st = NarNabiUse(fx.pid,false)
             endif
-            if HeroSkillLevel[fx.pid][7] >= 2 then
+            if true then
                 set fx.r = 1 + ( 0.5 * fx.st )
             else
                 set fx.r = 1
@@ -313,13 +313,13 @@ private function Main takes nothing returns nothing
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if HeroSkillLevel[fx.pid][3] >= 3 then
+            if true then
                 set NarStack[fx.pid] = 1
             endif
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if HeroSkillLevel[fx.pid][2] >= 1 then
+            if true then
                 set NarStack[fx.pid] = 3
             endif
         endif
@@ -389,9 +389,9 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if HeroSkillLevel[pid][7] >= 1 then
+        if true then
             set fx.st = Nabi[fx.pid]
-            if HeroSkillLevel[pid][7] >= 2 then
+            if true then
                 set fx.r = 1 + ( 0.5 * fx.st )
             else
                 set fx.r = 1
@@ -413,9 +413,9 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if HeroSkillLevel[pid][7] >= 1 then
+        if true then
             set fx.st = Nabi[fx.pid]
-            if HeroSkillLevel[pid][7] >= 2 then
+            if true then
                 set fx.r = 1 + ( 0.5 * fx.st )
             else
                 set fx.r = 1
@@ -437,9 +437,9 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if HeroSkillLevel[pid][7] >= 1 then
+        if true then
             set fx.st = Nabi[fx.pid]
-            if HeroSkillLevel[pid][7] >= 2 then
+            if true then
                 set fx.r = 1 + ( 0.5 * fx.st )
             else
                 set fx.r = 1
@@ -461,9 +461,9 @@ private function FSyncData2 takes nothing returns nothing
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if HeroSkillLevel[pid][7] >= 1 then
+        if true then
             set fx.st = Nabi[fx.pid]
-            if HeroSkillLevel[pid][7] >= 2 then
+            if true then
                 set fx.r = 1 + ( 0.5 * fx.st )
             else
                 set fx.r = 1

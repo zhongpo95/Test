@@ -50,7 +50,7 @@ scope HeroBandiS
 
     private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
+        local integer level = 3
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
@@ -65,7 +65,7 @@ scope HeroBandiS
 
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        local integer level = HeroSkillLevel[pid][5]
+        local integer level = 3
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 

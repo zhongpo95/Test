@@ -89,7 +89,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][0]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 3 then
@@ -122,7 +122,7 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             
             //이속버프
-            if HeroSkillLevel[fx.pid][0] >= 2 then
+            if true then
                 if Hero_Buff[fx.pid] == 0 then
                     call BuffMomiz00.Apply( fx.caster, Time4, 0 )
                 endif
@@ -130,7 +130,7 @@ private function EffectFunction takes nothing returns nothing
                 
             if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
                 //발도버프
-                if HeroSkillLevel[fx.pid][0] >= 1 then
+                if true then
                     call BuffMomiz01.Apply( fx.caster, Time3, 0 )
                 endif
             endif

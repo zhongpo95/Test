@@ -85,7 +85,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][6]
+    local integer level = 3
     local real velue = 1.0
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -165,7 +165,7 @@ private function Main takes nothing returns nothing
         set fx.Velue = 0
         set fx.ul = party.create()
         set fx.Angle = GetUnitFacing(fx.caster)
-        if HeroSkillLevel[fx.pid][6] >= 2 then
+        if true then
             if BuffMomiz01.Exists( fx.caster ) then
                 call BuffMomiz01.Stop( fx.caster )
                 set fx.Velue = 1

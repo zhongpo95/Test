@@ -205,7 +205,7 @@ scope HeroBandiD
             
             call BanBisul2Plus( fx.pid,1)
     
-            if HeroSkillLevel[fx.pid][5] >= 2 then
+            if true then
                 call BuffNoNB.Apply( fx.caster, Time, 0 )
                 call BuffNoST.Apply( fx.caster, Time, 0 )
             endif

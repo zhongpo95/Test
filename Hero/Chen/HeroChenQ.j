@@ -76,7 +76,7 @@ endstruct
 private function splashD1 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][0]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
@@ -96,7 +96,7 @@ endfunction
 private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][0]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
@@ -113,7 +113,7 @@ endfunction
 private function splashD3 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][0]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
@@ -349,14 +349,14 @@ private function Main takes nothing returns nothing
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.i = 0
-        if HeroSkillLevel[fx.pid][0] >= 1 then
+        if true then
             set fx.speed = ((100+SkillSpeed2(fx.pid, 27.0))/100)
         else
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
         endif
         call CooldownFIX(fx.caster,'A01A',HeroSkillCD0[4])
         
-        if HeroSkillLevel[fx.pid][0] >= 3 then
+        if true then
             set fx.speed = fx.speed * Arcana_ChargeSpeed[fx.pid]
             call AnimationStart3(fx.caster,15, fx.speed)
             set t.data = fx

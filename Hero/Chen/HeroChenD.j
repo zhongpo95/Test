@@ -67,7 +67,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][6]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal('A01D', splash.source,GetEnumUnit(),HeroSkillVelue6[4],true,false,false,false)
@@ -89,13 +89,13 @@ private function EffectFunction takes nothing returns nothing
     if IsCastingChenD[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
         set IsCastingChenD[GetPlayerId(GetOwningPlayer(fx.caster))] = false
         if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
-            if HeroSkillLevel[fx.pid][6] >= 2 then
+            if true then
                 call ShieldAdd(fx.caster,4.0,GetUnitMaxLifeVJ(fx.caster)*Value)
             endif
             call UnitEffectTime2('e00V',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.5,1, fx.pid)
             if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD ) != 0 then
                 //공증버프
-                if HeroSkillLevel[fx.pid][6] >= 1 then
+                if true then
                     if Hero_Buff[fx.pid] == 0 then
                         call BuffChen00.Apply( fx.caster, Time3, Velue2 )
                     endif

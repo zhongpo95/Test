@@ -80,7 +80,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][5]
+    local integer level = 3
     local real velue = 1.0
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
@@ -132,7 +132,7 @@ private function Main takes nothing returns nothing
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-        if HeroSkillLevel[fx.pid][5] >= 1 then
+        if true then
             set fx.speed = SkillSpeed2(fx.pid, 100.0)
             call CooldownFIX(fx.caster,'A013',HeroSkillCD5[3]-5.0)
         else

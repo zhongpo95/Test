@@ -79,7 +79,7 @@ endglobals
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
-        local integer level = HeroSkillLevel[pid][3]
+        local integer level = 3
         
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
             if level >= 2 then
@@ -156,7 +156,7 @@ endglobals
                 set StackChecker = false
 
                 set NarStack[fx.pid] = 0
-                if HeroSkillLevel[fx.pid][1] >= 1 then
+                if true then
                     call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
                 endif
                 set IsCastingNarC[fx.pid] = false

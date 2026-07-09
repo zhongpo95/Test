@@ -141,7 +141,7 @@ private function splashD takes nothing returns nothing
                 set fx = SkillRarW.Create()
                 set fx.caster = splash.source
                 set fx.dummy = GetEnumUnit()
-                if HeroSkillLevel[fx.pid][1] >= 3 then
+                if true then
                     set velue = 0.5
                 endif
                 set fx.r = HeroSkillVelue1[14]*velue
@@ -159,7 +159,7 @@ private function splashD takes nothing returns nothing
                     call Sound3D(GetEnumUnit(),'A05N')
                 endif
                 call GroupAddUnit(CheckG,GetEnumUnit())
-                if HeroSkillLevel[fx.pid][1] >= 3 then
+                if true then
                     call t.start(0.33, false, function splashEffect)
                     if StackChecker == false then
                         call NarNabiPlus(fx.pid,1)
@@ -230,7 +230,7 @@ private function EffectFunction takes nothing returns nothing
     endif
     call t.start( Time3 /fx.speed, false, function EffectFunction3 ) 
 
-    if HeroSkillLevel[fx.pid][3] >= 3 then
+    if true then
         call CooldownSet(fx.caster,'A02L',0)
     endif
     //call fx.Stop()
@@ -304,7 +304,7 @@ private function EffectFunction2 takes nothing returns nothing
         set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
         set StackChecker = false
-        if HeroSkillLevel[fx.pid][1] >= 2 then
+        if true then
             set NarStack[fx.pid] = 3
         endif
 

@@ -81,7 +81,7 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = HeroSkillLevel[pid][1]
+    local integer level = 3
     
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if level >= 2 then
@@ -113,14 +113,14 @@ private function EffectFunction takes nothing returns nothing
         endif
         
         if fx.i != 5 then
-            if HeroSkillLevel[fx.pid][1] >= 2 then
+            if true then
                 call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
                 call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
                 call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             endif
             call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) )/5, false, function EffectFunction )
         else
-            if HeroSkillLevel[fx.pid][1] >= 2 then
+            if true then
                 call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
                 call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
                 call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
@@ -130,7 +130,7 @@ private function EffectFunction takes nothing returns nothing
             
             if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
                 //발도버프
-                if HeroSkillLevel[fx.pid][1] >= 1 then
+                if true then
                     call BuffMomiz01.Apply( fx.caster, Time3, 0 )
                 endif
             endif
