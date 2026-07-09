@@ -464,7 +464,7 @@ scope ESC initializer init
         set t = CreateTrigger()
         set index = 0
         loop
-            call TriggerRegisterPlayerChatEvent(t, Player(index), "-테스트", true)
+            call TriggerRegisterPlayerChatEvent(t, Player(index), "-아리스", true)
             set index = index + 1
             exitwhen index == bj_MAX_PLAYERS
         endloop
