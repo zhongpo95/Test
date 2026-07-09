@@ -255,7 +255,71 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         return 0
     endfunction
 
-    private function SkillFrameDescription takes integer abilId returns string
+    private function SkillFrameBaseDescription takes integer pid, string skillType, string skillDesc, integer valueCount, real value1, real value2 returns string
+        local real damage = Equip_Damage[pid] + Hero_Damage[pid]
+        local string str = "|cFFA5FA7D[ 타입 ]|r "+skillType+"|n|n|cff5AD2FF[ 효과 ]|r|n  |cFFB9E2FA"+skillDesc+"|r"
+
+        if JNStringContains(skillType, "버프") then
+            set str = str + "|n|n|n  |cFFB9E2FA수치|r : "+I2S(R2I(value1*100))+" %"
+        elseif valueCount == 1 then
+            set str = str + "|n|n  |cFFB9E2FA피해량|r : "+I2S(R2I(value1 * damage))
+        elseif valueCount == 2 then
+            set str = str + "|n|n  |cFFB9E2FA피해량|r : "+I2S(R2I(value1 * damage))
+            set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S(R2I(value2 * damage))
+        endif
+
+        return str
+    endfunction
+
+    private function SkillFrameExtraDescription takes string text1, string text2, string text3 returns string
+        local string str = ""
+        local boolean added = false
+
+        if text1 != "" then
+            set str = str + "|n|n|cff5AD2FF[ 추가 효과 ]|r|n  |cFFB9E2FA" + text1 + "|r"
+            set added = true
+        endif
+        if text2 != "" then
+            if not added then
+                set str = str + "|n|n|cff5AD2FF[ 추가 효과 ]|r"
+                set added = true
+            endif
+            set str = str + "|n  |cFFB9E2FA" + text2 + "|r"
+        endif
+        if text3 != "" then
+            if not added then
+                set str = str + "|n|n|cff5AD2FF[ 추가 효과 ]|r"
+            endif
+            set str = str + "|n  |cFFB9E2FA" + text3 + "|r"
+        endif
+
+        return str
+    endfunction
+
+    private function SkillFrameDataDescription takes integer pid, integer index, integer types returns string
+        if types == 0 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index]) + SkillFrameExtraDescription(HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index])
+        elseif types == 1 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index]) + SkillFrameExtraDescription(HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index])
+        elseif types == 2 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index]) + SkillFrameExtraDescription(HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index])
+        elseif types == 3 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index]) + SkillFrameExtraDescription(HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index])
+        elseif types == 4 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index]) + SkillFrameExtraDescription(HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index])
+        elseif types == 5 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index]) + SkillFrameExtraDescription(HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index])
+        elseif types == 6 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index]) + SkillFrameExtraDescription(HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index])
+        elseif types == 7 then
+            return SkillFrameBaseDescription(pid, HeroSkillTpye7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index]) + SkillFrameExtraDescription(HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index])
+        endif
+
+        return "Data_Unit.j에 등록된 스킬 설명이 없습니다."
+    endfunction
+
+    private function SkillFrameDescription takes integer pid, integer index, integer types returns string
+        local integer abilId = SkillFrameAbilityId(index, types)
         local string title
         local string desc
 
@@ -264,16 +328,16 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         endif
 
         set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
-        set desc = EXGetAbilityString(abilId, 1, ABILITY_DATA_UBERTIP)
+        if types < 8 then
+            set desc = SkillFrameDataDescription(pid, index, types)
+        elseif abilId == 'A002' then
+            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
+        else
+            set desc = "Data_Unit.j에 등록된 스킬 설명이 없습니다."
+        endif
 
         if abilId == 'A002' and title == "" then
             set title = "회피(X)"
-        endif
-        if abilId == 'A002' and desc == "" then
-            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
-        endif
-        if desc == "" then
-            set desc = "등록된 스킬 설명이 없습니다."
         endif
         if title == "" then
             return desc
@@ -307,6 +371,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
     function SkillSetting takes unit u returns nothing
         local integer index = DataUnitIndex(u)
         local player p = GetOwningPlayer(u)
+        local integer pid = GetPlayerId(p)
         local integer subIndex = 0
 
         if p == GetLocalPlayer() then
@@ -351,7 +416,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set subIndex = subIndex + 1
             endif
 
-            call DzFrameSetText(FS_TemplateText, SkillFrameDescription(HeroSkillID0[index]))
+            call DzFrameSetText(FS_TemplateText, SkillFrameDescription(pid, index, 0))
 
             if index == 0 then
             endif
@@ -384,7 +449,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             if f == FS_Button[i] then
                 set abilId = SkillFrameAbilityId(index, i)
                 if abilId != 0 then
-                    call DzFrameSetText(FS_TemplateText, SkillFrameDescription(abilId))
+                    call DzFrameSetText(FS_TemplateText, SkillFrameDescription(pid, index, i))
                 endif
             endif
             exitwhen i == 11
