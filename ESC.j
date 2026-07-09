@@ -445,6 +445,10 @@ scope ESC initializer init
         endif
     endfunction
 
+    private function TestCommand takes nothing returns nothing
+        call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0.0, 0.0, 5.0, "안녕하세요 아리스 입니다")
+    endfunction
+
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         local integer index = 0
@@ -456,6 +460,15 @@ scope ESC initializer init
             set index = index + 1
             exitwhen index == bj_MAX_PLAYERS
         endloop
+
+        set t = CreateTrigger()
+        set index = 0
+        loop
+            call TriggerRegisterPlayerChatEvent(t, Player(index), "-테스트", true)
+            set index = index + 1
+            exitwhen index == bj_MAX_PLAYERS
+        endloop
+        call TriggerAddAction(t, function TestCommand)
         set t = null
         set Price[1] = 10000
     endfunction
