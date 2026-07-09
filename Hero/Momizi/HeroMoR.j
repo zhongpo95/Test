@@ -10,13 +10,13 @@ globals
     private constant real Time3 = 0.06
     //스킬 틱
     private constant real TICK = 12
-    
+
     private constant real SD = 10
 
     private constant real scale = 500
     private constant real distance = 150
 endglobals
-       
+
 private struct FxEffect
     unit caster
     unit dummy1
@@ -87,22 +87,11 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = 3
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 1 then
-            call DeBuffCri.Apply( GetEnumUnit(), 12.0, 0 )
-        endif
-        
-        if level >= 2 then
-            if level >= 3 then
-                call HeroDeal(1,splash.source,GetEnumUnit(),(HeroSkillVelue3[3]*2.72),false,false,false,false)
-            else
-                call HeroDeal(1,splash.source,GetEnumUnit(),(HeroSkillVelue3[3]*1.60),false,false,false,false)
-            endif
-        else
-            call HeroDeal(1,splash.source,GetEnumUnit(),(HeroSkillVelue3[3]),false,false,false,false)
-        endif
+        call DeBuffCri.Apply( GetEnumUnit(), 12.0, 0 )
+
+        call HeroDeal(1,splash.source,GetEnumUnit(),(HeroSkillVelue3[3]*2.72),false,false,false,false)
     endif
 endfunction
 
@@ -113,7 +102,7 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx2
 
     set fx.i = fx.i + 1
-    
+
     if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 )  then
         call fx.Stop()
         call t.destroy()
@@ -133,13 +122,13 @@ private function EffectFunction takes nothing returns nothing
     endif
 endfunction
 
-    
+
 private function Main takes nothing returns nothing
     local real speed
     local tick t
     local FxEffect fx
     if GetSpellAbilityId() == 'A011' then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.CasterX = GetWidgetX(fx.caster)
@@ -148,13 +137,13 @@ private function Main takes nothing returns nothing
         set fx.speed = SkillSpeed(fx.pid)
         set fx.Angle = AngleWBP(fx.caster, GetSpellTargetX(), GetSpellTargetY())
         set fx.i = 0
-        
+
         call CooldownFIX(fx.caster,'A011',HeroSkillCD3[3])
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call AnimationStart3(fx.caster,5, fx.speed)
-        
+
         set t.data = fx
-        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction )
     endif
 endfunction
 
@@ -167,9 +156,9 @@ endfunction
         local real x
         local real y
         local real angle
-        
+
         set pid=GetPlayerId(p)
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID3[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
@@ -182,11 +171,11 @@ endfunction
             call EXSetUnitFacing(MainUnit[pid],angle)
             call IssuePointOrder( MainUnit[pid], "ancestralspirit", x, y )
         endif
-        
+
         set p=null
     endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -196,11 +185,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("MoR"),(false))
         call TriggerAddAction(t,function RSyncData)

@@ -4,9 +4,9 @@ scope HeroBandiD
         //쉐클시간
         private constant real Time = 1.8
         private constant real MoveD = 750
-    
+
         private constant real TICK = 20
-    
+
         private constant real scale = 150
         private constant real distance = 300
         private constant real scale2 = 300
@@ -17,13 +17,12 @@ scope HeroBandiD
         private unit CheckU
         private integer Nabi
     endglobals
-    
+
     private function splashD2 takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        //local integer level = HeroSkillLevel[pid][6]
         local real velue = 1.0
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
             call UnitEffectTimeEX2('e03Y',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -42,10 +41,9 @@ scope HeroBandiD
 
     private function splashD takes nothing returns nothing
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-        //local integer level = HeroSkillLevel[pid][6]
         local real velue = 1.0
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
             if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
                 call HeroDeal('A06E',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
@@ -64,11 +62,11 @@ scope HeroBandiD
             endif
         endif
     endfunction
-    
+
     private function EffectFunction3 takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
-        
+
         set fx.i = fx.i + 1
         if fx.i == 1 then
             if fx.j == 0 then
@@ -84,8 +82,8 @@ scope HeroBandiD
 
         if fx.i == R2I(18/fx.speed) then
         endif
-    
-    
+
+
         if fx.i >= R2I(18/fx.speed) then
             //call SetUnitGravity(fx.caster,0.6)
             call UnitEffectTime2('e03Z',GetWidgetX(fx.caster)+PolarX(0,GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY(0,GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.5,0,fx.pid)
@@ -101,7 +99,7 @@ scope HeroBandiD
             set CheckU = null
             set CheckG = null
             call SetUnitSafePolarUTA(fx.caster,fx.r/R2I(18/fx.speed), fx.r2 )
-            call t.start( 0.02, false, function EffectFunction3 ) 
+            call t.start( 0.02, false, function EffectFunction3 )
         endif
     endfunction
 
@@ -109,7 +107,7 @@ scope HeroBandiD
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
         local real r
-        
+
         call UnitAddAbility(fx.caster,'Arav')
         call UnitRemoveAbility(fx.caster,'Arav')
 
@@ -162,7 +160,7 @@ scope HeroBandiD
             call t.destroy()
         endif
     endfunction
-    
+
     private function Main takes nothing returns nothing
         local real speed
         local tick t
@@ -170,7 +168,7 @@ scope HeroBandiD
         local real r
         local integer i
         local effect e
-    
+
         if GetSpellAbilityId() == 'A06E' then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
@@ -184,38 +182,36 @@ scope HeroBandiD
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set fx.r = MoveD
             set fx.j = GetRandomInt(0,1)
-    
+
             call Overlay2Count(fx.pid,'A06E')
-    
+
             //유닛애니메이션속도
             call DummyMagicleash(fx.caster, Time /fx.speed)
             call AnimationStart3(fx.caster, 2, fx.speed)
-    
+
             call Sound3D(fx.caster,'A05W')
 
             set fx.r2 = AngleWBP(fx.caster,fx.TargetX,fx.TargetY)
-    
+
             if fx.j == 0 then
                 call Sound3D(fx.caster,'A05Y')
             else
                 call Sound3D(fx.caster,'A05Z')
             endif
-    
+
             set t.data = fx
-            
+
             call BanBisul2Plus( fx.pid,1)
-    
-            if true then
-                call BuffNoNB.Apply( fx.caster, Time, 0 )
-                call BuffNoST.Apply( fx.caster, Time, 0 )
-            endif
+
+            call BuffNoNB.Apply( fx.caster, Time, 0 )
+            call BuffNoST.Apply( fx.caster, Time, 0 )
             call t.start( 0.439 / fx.speed, false, function EffectFunction )
 
             //call CooldownFIX(fx.caster,'A06E',HeroSkillCD5[14])
             call CooldownFIX(fx.caster,'A06E',5.0)
         endif
     endfunction
-        
+
     private function DSyncData takes nothing returns nothing
         local player p=(DzGetTriggerSyncPlayer())
         local string data=(DzGetTriggerSyncData())
@@ -225,7 +221,7 @@ scope HeroBandiD
         local real x
         local real y
         local real angle
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and IsUnitPausedEx(MainUnit[pid]) == false and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID6[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             if GetUnitAbilityLevel(MainUnit[pid],'A06N') < 1 then
                 set x=S2R(data)
@@ -252,11 +248,11 @@ scope HeroBandiD
         local real angle
         local real speed
         local tick t
-        
+
         set p=null
     endfunction
-    
-                
+
+
     private struct TEvAfterB extends array
         private static method onInit takes nothing returns nothing
             local trigger t = CreateTrigger()
@@ -266,11 +262,11 @@ scope HeroBandiD
         endmethod
         private static method Action takes nothing returns nothing
         local trigger t
-        
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-            
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("BandiD"),(false))
         call TriggerAddAction(t,function DSyncData)
@@ -278,10 +274,10 @@ scope HeroBandiD
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("BandiD2"),(false))
         call TriggerAddAction(t,function DSyncData2)
-    
+
         set t = null
         endmethod
     endstruct
     endscope
-    
-    
+
+

@@ -1,7 +1,7 @@
 scope HeroNarF
 globals
     private constant real SD = 70
-    
+
     //모션시간
     private constant real Time1 = 1.0
     private constant real Time2 = 0.60
@@ -22,9 +22,8 @@ endglobals
 private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][2]
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal('A02P',splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -50,9 +49,8 @@ endfunction
 private function splashD takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][2]
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal('A02P',splash.source,GetEnumUnit(),HeroSkillVelue7[14]*Velue,false,false,false,true)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -74,7 +72,7 @@ private function EffectFunction4 takes nothing returns nothing
     local integer i = 0
 
     set fx.i = fx.i + 1
-        
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if Stack[fx.pid] == 11 then
             set Nabi2 = fx.st
@@ -137,7 +135,7 @@ private function EffectFunction3 takes nothing returns nothing
     local tick t = tick.getExpired()
     local SkillFx fx = t.data
 
-        
+
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,16, fx.A2speed)
         if true and fx.st == 6 then
@@ -161,7 +159,7 @@ private function EffectFunction2 takes nothing returns nothing
     local string data
     local integer random
     local integer i
-        
+
     //38 39 54 55
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         call AnimationStart3(fx.caster,15, fx.A2speed)
@@ -190,7 +188,7 @@ private function EffectFunction takes nothing returns nothing
     local string data
     local effect e
     local integer i
-    
+
     set fx.i = fx.i + 1
     set Size[fx.pid] = fx.i
     if Size[fx.pid] == 76 then
@@ -273,7 +271,7 @@ private function Main takes nothing returns nothing
     local SkillFx fx
     local real r
     local integer i
-    
+
     //38 39 54 55
 
     if GetSpellAbilityId() == 'A02P' then
@@ -289,23 +287,9 @@ private function Main takes nothing returns nothing
 
         call Overlay2Count(fx.pid,'A02P')
 
-        if true then
-            if true then
-                set fx.st = NarNabiUse(fx.pid,true)
-            else
-                set fx.st = NarNabiUse(fx.pid,false)
-            endif
-            if true then
-                set fx.r = 1 + ( 0.5 * fx.st )
-            else
-                set fx.r = 1
-            endif
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
-        else
-            set fx.st = 0
-            set fx.r = 1
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
-        endif
+        set fx.st = NarNabiUse(fx.pid,true)
+        set fx.r = 1 + ( 0.5 * fx.st )
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
 
         //슈차
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
@@ -313,15 +297,11 @@ private function Main takes nothing returns nothing
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if true then
-                set NarStack[fx.pid] = 1
-            endif
+            set NarStack[fx.pid] = 1
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if true then
-                set NarStack[fx.pid] = 3
-            endif
+            set NarStack[fx.pid] = 3
         endif
 
         set fx.A2speed = ((100+SkillSpeed(fx.pid))/100)
@@ -344,7 +324,7 @@ private function Main takes nothing returns nothing
     endif
 endfunction
 
-    
+
 private function FSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -354,7 +334,7 @@ private function FSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID7[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -382,98 +362,58 @@ private function FSyncData2 takes nothing returns nothing
     local SkillFx fx
 
     if Stack[pid] == 0 then
-        
+
     elseif Stack[pid] == 1 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if true then
-            set fx.st = Nabi[fx.pid]
-            if true then
-                set fx.r = 1 + ( 0.5 * fx.st )
-            else
-                set fx.r = 1
-            endif
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
-        else
-            set fx.st = 0
-            set fx.r = 1
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
-        endif
+        set fx.st = Nabi[fx.pid]
+        set fx.r = 1 + ( 0.5 * fx.st )
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 11
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if true then
-            set fx.st = Nabi[fx.pid]
-            if true then
-                set fx.r = 1 + ( 0.5 * fx.st )
-            else
-                set fx.r = 1
-            endif
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
-        else
-            set fx.st = 0
-            set fx.r = 1
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
-        endif
+        set fx.st = Nabi[fx.pid]
+        set fx.r = 1 + ( 0.5 * fx.st )
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 12
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if true then
-            set fx.st = Nabi[fx.pid]
-            if true then
-                set fx.r = 1 + ( 0.5 * fx.st )
-            else
-                set fx.r = 1
-            endif
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
-        else
-            set fx.st = 0
-            set fx.r = 1
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
-        endif
+        set fx.st = Nabi[fx.pid]
+        set fx.r = 1 + ( 0.5 * fx.st )
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
         set Stack[fx.pid] = 13
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = SkillFx.Create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
-        if true then
-            set fx.st = Nabi[fx.pid]
-            if true then
-                set fx.r = 1 + ( 0.5 * fx.st )
-            else
-                set fx.r = 1
-            endif
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
-        else
-            set fx.st = 0
-            set fx.r = 1
-            set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100)
-        endif
+        set fx.st = Nabi[fx.pid]
+        set fx.r = 1 + ( 0.5 * fx.st )
+        set fx.Aspeed = ((100+SkillSpeed(fx.pid))/100) * fx.r
         set fx.Aspeed = fx.Aspeed * Arcana_ChargeSpeed[fx.pid]
         set fx.A2speed = ((100+SkillSpeed(pid))/100)
         set t.data = fx
@@ -484,7 +424,7 @@ private function FSyncData2 takes nothing returns nothing
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -494,15 +434,15 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarF"),(false))
         call TriggerAddAction(t,function FSyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarF2"),(false))
         call TriggerAddAction(t,function FSyncData2)

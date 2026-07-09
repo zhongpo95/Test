@@ -16,7 +16,7 @@ globals
     private constant real scale = 500
     private constant real distance = 250
 endglobals
-    
+
 private struct FxEffect
     unit caster
     unit dummy
@@ -81,22 +81,13 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = 3
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        if level >= 2 then
-            if level >= 3 then
-                set Penetration[pid] = 0.8
-                call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false,false)
-                set Penetration[pid] = 0
-            else
-                call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false,false)
-            endif
-        else
-            call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[3],false,false,false,false)
-        endif
+        set Penetration[pid] = 0.8
+        call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue1[3]*1.45,false,false,false,false)
+        set Penetration[pid] = 0
     endif
-    
+
 endfunction
 
 private function EffectFunction takes nothing returns nothing
@@ -106,35 +97,29 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx2
 
     set fx.i = fx.i + 1
-    
+
     if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
         if fx.i == 1 then
             set fx.dummy = UnitEffectTime2('e012',GetWidgetX(fx.caster)+PolarX( -100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( -100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),3.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         endif
-        
+
         if fx.i != 5 then
-            if true then
-                call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-                call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
-                call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
-            endif
+            call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
             call t.start( Time5 * (1 - (fx.speed/(100+fx.speed)) )/5, false, function EffectFunction )
         else
-            if true then
-                call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
-                call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
-                call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
-            endif
-            
+            call SetUnitSafePolarUTA(fx.caster,Dist/5,GetUnitFacing(fx.caster))
+            call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
+            call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+
             call UnitEffectTime2('e011',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),1.5,1,fx.pid)
-            
+
             if splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD ) != 0 then
                 //발도버프
-                if true then
-                    call BuffMomiz01.Apply( fx.caster, Time3, 0 )
-                endif
+                call BuffMomiz01.Apply( fx.caster, Time3, 0 )
             endif
-            
+
             call fx.Stop()
             call t.destroy()
         endif
@@ -149,7 +134,7 @@ private function Main takes nothing returns nothing
     local tick t
     local FxEffect fx
     if GetSpellAbilityId() == 'A00Z' then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
@@ -157,18 +142,18 @@ private function Main takes nothing returns nothing
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = SkillSpeed(fx.pid)
         set fx.i = 0
-        
+
         call Sound3D(fx.caster,'A022')
         call CooldownFIX(fx.caster,'A00Z',HeroSkillCD1[3])
         call DummyMagicleash(fx.caster,Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
         call AnimationStart3(fx.caster,18, fx.speed)
-        
+
         set t.data = fx
-        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction )
     endif
 endfunction
-    
+
 private function WSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -178,9 +163,9 @@ private function WSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set pid=GetPlayerId(p)
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID1[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -193,11 +178,11 @@ private function WSyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "acolyteharvest", x, y )
     endif
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -207,11 +192,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("MoW"),(false))
         call TriggerAddAction(t,function WSyncData)

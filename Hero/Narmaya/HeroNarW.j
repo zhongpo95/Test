@@ -16,7 +16,7 @@ globals
     private constant real distance2 = 900
     private constant real scale3 = 800
     private constant real distance3 = 650
-    
+
     //범위체크
     private group CheckG
     //더미 유닛
@@ -106,7 +106,7 @@ private function splashEffect takes nothing returns nothing
     local integer random
 
     set fx.i = fx.i + 1
-    
+
     if fx.i != (TICK2+1) then
         call HeroDeal('A02J',fx.caster,fx.dummy,fx.r,false,false,false,false)
         call UnitEffectTimeEX2('e02I',GetWidgetX(fx.dummy),GetWidgetY(fx.dummy),GetRandomReal(0,360),1.2,fx.pid)
@@ -127,23 +127,20 @@ endfunction
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
     local tick t
     local SkillRarW fx
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
-                set t = tick.create(0) 
+                set t = tick.create(0)
                 set fx = SkillRarW.Create()
                 set fx.caster = splash.source
                 set fx.dummy = GetEnumUnit()
-                if true then
-                    set velue = 0.5
-                endif
+                set velue = 0.5
                 set fx.r = HeroSkillVelue1[14]*velue
                 set fx.i = 0
                 set fx.pid = pid
@@ -159,15 +156,10 @@ private function splashD takes nothing returns nothing
                     call Sound3D(GetEnumUnit(),'A05N')
                 endif
                 call GroupAddUnit(CheckG,GetEnumUnit())
-                if true then
-                    call t.start(0.33, false, function splashEffect)
-                    if StackChecker == false then
-                        call NarNabiPlus(fx.pid,1)
-                        set StackChecker = true
-                    endif
-                else
-                    call fx.Stop()
-                    call t.destroy()
+                call t.start(0.33, false, function splashEffect)
+                if StackChecker == false then
+                    call NarNabiPlus(fx.pid,1)
+                    set StackChecker = true
                 endif
             endif
         endif
@@ -179,17 +171,17 @@ private function EffectFunction3 takes nothing returns nothing
     local SkillRarW fx = t.data
     local real X
     local real Y
-    
+
     set fx.i = fx.i + 1
-    
+
     if fx.i == 1 then
         set fx.dummy = UnitEffectTimeEX2('e02J', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
-        
+
     endif
-    
+
     if fx.i != (TICK+1) then
         set X = GetWidgetX(fx.dummy)
         set Y = GetWidgetY(fx.dummy)
@@ -228,21 +220,18 @@ private function EffectFunction takes nothing returns nothing
     else
         call Sound3DT(fx.caster,'A03A',(Time3 /fx.speed )/2 )
     endif
-    call t.start( Time3 /fx.speed, false, function EffectFunction3 ) 
+    call t.start( Time3 /fx.speed, false, function EffectFunction3 )
 
-    if true then
-        call CooldownSet(fx.caster,'A02L',0)
-    endif
+    call CooldownSet(fx.caster,'A02L',0)
     //call fx.Stop()
     //call t.destroy()
 endfunction
 
 private function splashD2 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
@@ -262,10 +251,9 @@ endfunction
 
 private function splashD3 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance3) then
         //뒤는안떄림
         if AngleTrue( GetUnitFacing(splash.source), AngleWBW(splash.source,GetEnumUnit()), 90 ) then
@@ -304,9 +292,7 @@ private function EffectFunction2 takes nothing returns nothing
         set StackChecker = false
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale3, function splashD3 )
         set StackChecker = false
-        if true then
-            set NarStack[fx.pid] = 3
-        endif
+        set NarStack[fx.pid] = 3
 
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
@@ -328,14 +314,14 @@ private function Main takes nothing returns nothing
     if GetSpellAbilityId() == 'A02J' then
         set caster = GetTriggerUnit()
         set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
-        
+
         call Overlay2Count(pid,'A02J')
-        
+
         //전환강화버프
         if BuffNar00.Exists( caster ) then
             //카구라
             if NarForm[pid] != 0 then
-                set t = tick.create(0) 
+                set t = tick.create(0)
                 set fx = SkillRarW.Create()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
@@ -363,10 +349,10 @@ private function Main takes nothing returns nothing
                 call DummyMagicleash(fx.caster,Time /fx.speed)
                 call AnimationStart3(fx.caster,17, fx.speed)
                 set t.data = fx
-                call t.start( 0.02, false, function EffectFunction ) 
+                call t.start( 0.02, false, function EffectFunction )
             //겐지
             else
-                set t = tick.create(0) 
+                set t = tick.create(0)
                 set fx = SkillRarW.Create()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
@@ -396,7 +382,7 @@ private function Main takes nothing returns nothing
                 call Sound3D(fx.caster,'A03Q')
                 //다음15
                 set t.data = fx
-                call t.start( 0.2/fx.speed, false, function EffectFunction2 ) 
+                call t.start( 0.2/fx.speed, false, function EffectFunction2 )
             endif
         //그냥전환
         else
@@ -461,7 +447,7 @@ private function Main takes nothing returns nothing
         set caster = null
     endif
 endfunction
-    
+
 private function WSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -497,11 +483,11 @@ private function WSyncData2 takes nothing returns nothing
     local real speed
     local tick t
     //local FxEffect fx
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -511,15 +497,15 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarW"),(false))
         call TriggerAddAction(t,function WSyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarW2"),(false))
         call TriggerAddAction(t,function WSyncData2)

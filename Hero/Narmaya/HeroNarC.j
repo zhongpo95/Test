@@ -2,9 +2,9 @@ scope HeroNarC
 globals
     private constant real DR = 1.00
     private constant real SD = 0.00
-    
+
     private constant real CoolTime = 0.7
-    
+
     //쉐클시간
     private constant real Time = 0.40
     //스킬이펙트 시간
@@ -34,14 +34,14 @@ globals
 
     private boolean StackChecker
     boolean array IsCastingNarC
-    
+
 endglobals
     //카구라 일반공격
     private function splashD takes nothing returns nothing
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call HeroDeal(2,splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -60,7 +60,7 @@ endglobals
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
             call HeroDeal('A02L',splash.source,GetEnumUnit(),HeroSkillVelue3[14]*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -79,12 +79,9 @@ endglobals
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
-        local integer level = 3
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
-            if level >= 2 then
-                set Velue = Velue * 2
-            endif
+            set Velue = Velue * 2
             call HeroDeal('A02L',splash.source, GetEnumUnit(), HeroSkillVelue23[14] * Velue, false, false, false,false)
             call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
@@ -95,11 +92,9 @@ endglobals
             elseif random == 2 then
                 call Sound3D(GetEnumUnit(),'A05N')
             endif
-            if level >= 1 then
-                if StackChecker == false then
-                    call NarNabiPlus(pid,1)
-                    set StackChecker = true
-                endif
+            if StackChecker == false then
+                call NarNabiPlus(pid,1)
+                set StackChecker = true
             endif
         endif
     endfunction
@@ -108,7 +103,7 @@ endglobals
         local real Velue = 1.0
         local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
         local integer random
-        
+
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
             call HeroDeal(2,splash.source,GetEnumUnit(),DR*Velue,false,false,false,false)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -135,9 +130,6 @@ endglobals
         //endif
         if IsCastingNarC[fx.pid] == false then
             set NarStack[fx.pid] = 0
-            //if HeroSkillLevel[fx.pid][1] >= 1 then
-                //call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
-            //endif
             call fx.Stop()
             call t.destroy()
         elseif NarStack[fx.pid] == 1 then
@@ -156,9 +148,7 @@ endglobals
                 set StackChecker = false
 
                 set NarStack[fx.pid] = 0
-                if true then
-                    call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
-                endif
+                call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
                 set IsCastingNarC[fx.pid] = false
                 call fx.Stop()
                 call t.destroy()
@@ -209,7 +199,7 @@ endglobals
     private function EffectFunction2 takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
-    
+
         if NarStack[fx.pid] == 1 then
             if IsCastingNarC[fx.pid] == true then
                 //막타
@@ -230,23 +220,23 @@ endglobals
                 set IsCastingNarC[fx.pid] = false
                 if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
                     call UnitEffectTime2('e02R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
-                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )            
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                 endif
             endif
             call fx.Stop()
             call t.destroy()
         endif
-        
+
     endfunction
 
     //겐지
     private function EffectFunction takes nothing returns nothing
         local tick t = tick.getExpired()
         local SkillFx fx = t.data
-        
+
         set fx.i = fx.i + 1
         //MoveD 전진거리
-        
+
         if IsCastingNarC[fx.pid] == false then
             call fx.Stop()
             call t.destroy()
@@ -261,24 +251,24 @@ endglobals
                 call UnitEffectTime2('e02S',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD3 )
             endif
-            
+
             call fx.Stop()
             call t.destroy()
         else
             call SetUnitSafePolarUTA(fx.caster, MoveD/(20/fx.speed), GetUnitFacing(fx.caster))
-            call t.start( 0.02, false, function EffectFunction ) 
+            call t.start( 0.02, false, function EffectFunction )
         endif
     endfunction
-    
+
     private function Main takes nothing returns nothing
         local tick t
         local SkillFx fx
         local real random
-             
+
         if GetSpellAbilityId() == 'A02R' then
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
-            set t = tick.create(0) 
+            set t = tick.create(0)
             set fx = SkillFx.Create()
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
@@ -286,12 +276,12 @@ endglobals
             set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
             set fx.index = IndexUnit(MainUnit[fx.pid])
-            set fx.i = 0 
+            set fx.i = 0
 
             call Overlay2Count(fx.pid,2)
 
             set IsCastingNarC[fx.pid] = true
-            
+
             call CooldownFIX(fx.caster,'A02R', CoolTime)
 
             //카구라
@@ -303,14 +293,14 @@ endglobals
                     call DummyMagicleash(fx.caster, Time /fx.speed)
                     call AnimationStart3(fx.caster,21, fx.speed)
                     set t.data = fx
-                    call t.start( Time2 /fx.speed, false, function EffectFunction2 ) 
+                    call t.start( Time2 /fx.speed, false, function EffectFunction2 )
                 endif
             //겐지
             elseif NarForm[fx.pid] == 1 then
                 call DummyMagicleash(fx.caster,Time3 /fx.speed)
                 call AnimationStart3(fx.caster,21, fx.speed)
                 set t.data = fx
-                call t.start( 0.02, false, function EffectFunction ) 
+                call t.start( 0.02, false, function EffectFunction )
             endif
 
         endif
@@ -327,7 +317,7 @@ endglobals
         local real angle
 
         set pid=GetPlayerId(p)
-        
+
         if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID9[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
             set x=S2R(data)
             set valueLen=StringLength(R2S(x))
@@ -340,10 +330,10 @@ endglobals
             call EXSetUnitFacing(MainUnit[pid],angle)
             call IssuePointOrder( MainUnit[pid], "auravampiric", x, y )
         endif
-        
+
         set p=null
     endfunction
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -353,11 +343,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarC"),(false))
         call TriggerAddAction(t,function CSyncData)

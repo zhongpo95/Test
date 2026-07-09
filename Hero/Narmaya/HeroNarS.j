@@ -19,15 +19,14 @@ endglobals
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
-                
+
                 call HeroDeal('A02N',splash.source,GetEnumUnit(),HeroSkillVelue5[14]*velue,false,false,false,false)
                 call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
@@ -57,9 +56,9 @@ private function EffectFunction2 takes nothing returns nothing
     local SkillFx fx = t.data
     local real X
     local real Y
-    
+
     set fx.i = fx.i + 1
-    
+
     if fx.i == 1 then
         if fx.j == 0 then
             set fx.dummy = UnitEffectTimeEX2('e02T', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.4,fx.pid)
@@ -70,7 +69,7 @@ private function EffectFunction2 takes nothing returns nothing
         endif
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
     endif
-    
+
     if fx.i != (TICK+1) then
         set X = GetWidgetX(fx.dummy)
         set Y = GetWidgetY(fx.dummy)
@@ -97,7 +96,7 @@ private function EffectFunction takes nothing returns nothing
     local SkillFx fx = t.data
     local tick t2
     local SkillFx fx2
-    
+
     set fx.i = fx.i + 1
 
     if fx.st > 0 then
@@ -115,7 +114,7 @@ private function EffectFunction takes nothing returns nothing
             set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
             set fx2.st = fx.st
             set t2.data = fx2
-            call t2.start( 0.02, false, function EffectFunction2 ) 
+            call t2.start( 0.02, false, function EffectFunction2 )
         elseif fx.i == R2I(18/fx.speed) then
             set t2 = tick.create(0)
             set fx2 = SkillFx.Create()
@@ -128,7 +127,7 @@ private function EffectFunction takes nothing returns nothing
             set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
             set fx2.st = fx.st
             set t2.data = fx2
-            call t2.start( 0.02, false, function EffectFunction2 ) 
+            call t2.start( 0.02, false, function EffectFunction2 )
         elseif fx.i == R2I(40/fx.speed) then
             set t2 = tick.create(0)
             set fx2 = SkillFx.Create()
@@ -141,7 +140,7 @@ private function EffectFunction takes nothing returns nothing
             set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
             set fx2.st = fx.st
             set t2.data = fx2
-            call t2.start( 0.02, false, function EffectFunction2 ) 
+            call t2.start( 0.02, false, function EffectFunction2 )
         endif
     else
         if fx.i == 1 then
@@ -158,7 +157,7 @@ private function EffectFunction takes nothing returns nothing
             set fx2.speed = ((100+SkillSpeed(fx2.pid))/100)
             set fx2.st = fx.st
             set t2.data = fx2
-            call t2.start( 0.02, false, function EffectFunction2 ) 
+            call t2.start( 0.02, false, function EffectFunction2 )
         endif
     endif
 
@@ -168,7 +167,7 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         call SetUnitSafePolarUTA(fx.caster,fx.r/(40/fx.speed), fx.r2 )
-        call t.start( 0.02, false, function EffectFunction ) 
+        call t.start( 0.02, false, function EffectFunction )
     endif
 endfunction
 
@@ -199,13 +198,13 @@ private function Main takes nothing returns nothing
         //유닛애니메이션속도
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster, 12, fx.speed)
-        
+
         if EffectOff[GetPlayerId(GetLocalPlayer())] == false and fx.pid != GetPlayerId(GetLocalPlayer()) then
             set e = AddSpecialEffect(".mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         else
             set e = AddSpecialEffect("nitu.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster))
         endif
-        
+
         call EXEffectMatRotateZ(e,AnglePBW(fx.TargetX,fx.TargetY,fx.caster))
         call DestroyEffect(e)
         set e = null
@@ -215,32 +214,19 @@ private function Main takes nothing returns nothing
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if true then
-                set NarStack[fx.pid] = 1
-            endif
+            set NarStack[fx.pid] = 1
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if true then
-                set NarStack[fx.pid] = 3
-            endif
+            set NarStack[fx.pid] = 3
         endif
 
-        if true then
-            if true then
-                set fx.st = NarNabiUse(fx.pid,true)
-            else
-                set fx.st = NarNabiUse(fx.pid,false)
-            endif
+        set fx.st = NarNabiUse(fx.pid,true)
 
-            if fx.st == 0 then
-                call Sound3D(fx.caster,'A03Z')
-            else
-                call Sound3D(fx.caster,'A040')
-            endif
-        else
-            set fx.st = 0
+        if fx.st == 0 then
             call Sound3D(fx.caster,'A03Z')
+        else
+            call Sound3D(fx.caster,'A040')
         endif
 
         set r = GetRandomInt(0,1)
@@ -251,10 +237,8 @@ private function Main takes nothing returns nothing
         endif
         set t.data = fx
 
-        if true then
-            call BuffNoNB.Apply( fx.caster, Time, 0 )
-            call BuffNoST.Apply( fx.caster, Time, 0 )
-        endif
+        call BuffNoNB.Apply( fx.caster, Time, 0 )
+        call BuffNoST.Apply( fx.caster, Time, 0 )
 
         call t.start( 0.02, false, function EffectFunction )
 
@@ -273,7 +257,7 @@ private function SSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID5[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -298,11 +282,11 @@ private function SSyncData2 takes nothing returns nothing
     local real angle
     local real speed
     local tick t
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -312,15 +296,15 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarS"),(false))
         call TriggerAddAction(t,function SSyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarS2"),(false))
         call TriggerAddAction(t,function SSyncData2)

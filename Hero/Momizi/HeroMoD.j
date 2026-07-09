@@ -1,14 +1,14 @@
 scope HeroMoD
 globals
     private constant real SD = 41
-    
+
     //쉐클시간
     private constant real Time = 1.5
     //스킬이펙트 시간
     private constant real Time2 = 0.50
     //이동거리
     private constant real TICK = 20
-    
+
     //발도 버프 체크
     private real Check = 0
     //범위체크
@@ -85,31 +85,22 @@ endstruct
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    local integer level = 3
     local real velue = 1.0
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if IsUnitInGroup(GetEnumUnit(),CheckG) == false then
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
-            
-                if level >= 1 then
-                    set velue = velue * 1.45
+
+                set velue = velue * 1.45
+
+                if Check == 1 then
+                    set velue = velue * 1.95
                 endif
-                
-                if level >= 2 then
-                    if Check == 1 then
-                        set velue = velue * 1.95
-                    endif
-                endif
-                            
-                if level >= 3 then
-                    set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 210
-                    call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,false,false)
-                    set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 210
-                else
-                    call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,false,false)
-                endif
+
+                set Hero_CriDeal[pid] = Hero_CriDeal[pid] + 210
+                call HeroDeal(1,splash.source,GetEnumUnit(),HeroSkillVelue6[3]*velue,false,false,false,false)
+                set Hero_CriDeal[pid] = Hero_CriDeal[pid] - 210
                 call GroupAddUnit(CheckG,GetEnumUnit())
             endif
         endif
@@ -121,9 +112,9 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
     local real X
     local real Y
-    
+
     set fx.i = fx.i + 1
-    
+
     if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 )  then
         call fx.Stop()
         call t.destroy()
@@ -131,7 +122,7 @@ private function EffectFunction takes nothing returns nothing
         if fx.i == 1 then
             set fx.dummy = UnitEffectTimeEX2('e01B', GetWidgetX(fx.caster), GetWidgetY(fx.caster), GetUnitFacing(fx.caster),0.5,fx.pid)
         endif
-        
+
         if fx.i != (TICK+1) then
             set X = GetWidgetX(fx.dummy)
             set Y = GetWidgetY(fx.dummy)
@@ -157,7 +148,7 @@ private function Main takes nothing returns nothing
     local tick t
     local FxEffect fx
     if GetSpellAbilityId() == 'A014' then
-        set t = tick.create(0) 
+        set t = tick.create(0)
         set fx = FxEffect.Create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
@@ -165,23 +156,21 @@ private function Main takes nothing returns nothing
         set fx.Velue = 0
         set fx.ul = party.create()
         set fx.Angle = GetUnitFacing(fx.caster)
-        if true then
-            if BuffMomiz01.Exists( fx.caster ) then
-                call BuffMomiz01.Stop( fx.caster )
-                set fx.Velue = 1
-            endif
+        if BuffMomiz01.Exists( fx.caster ) then
+            call BuffMomiz01.Stop( fx.caster )
+            set fx.Velue = 1
         endif
-        
+
         call Sound3D(fx.caster,'A023')
         call CooldownFIX(fx.caster,'A014',HeroSkillCD6[3])
         set fx.i = 0
-        
+
         call DummyMagicleash(fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ))
         call BuffNoST.Apply( fx.caster, Time * (1 - (fx.speed/(100+fx.speed)) ), 0 )
         call AnimationStart3(fx.caster, 5, fx.speed)
-        
+
         set t.data = fx
-        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction ) 
+        call t.start( Time2 * (1 - (fx.speed/(100+fx.speed)) ), false, function EffectFunction )
     endif
 endfunction
 
@@ -194,9 +183,9 @@ private function DSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set pid=GetPlayerId(p)
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID6[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -209,11 +198,11 @@ private function DSyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "antimagicshell", x, y )
     endif
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -223,11 +212,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("MoD"),(false))
         call TriggerAddAction(t,function DSyncData)

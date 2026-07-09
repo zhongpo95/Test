@@ -84,7 +84,7 @@ private function EffectFunction2 takes nothing returns nothing
     local FxEffect fx = t.data
     local real x
     local real y
-    
+
     if fx.r <= 1 then
         set x = ((fx.casterX)*(1.00-fx.r)*(1.00-fx.r))
         set x = x + ((GetWidgetX(fx.target))*(fx.r * fx.r))
@@ -95,17 +95,9 @@ private function EffectFunction2 takes nothing returns nothing
         set y = y + (2 * (fx.stopoverY) * (fx.r * (1.00 - fx.r)))
         call SetUnitY(fx.dummy, y)
         set fx.r = fx.r + 0.03
-        call t.start( 0.02, false, function EffectFunction2 ) 
+        call t.start( 0.02, false, function EffectFunction2 )
     else
-        if true then
-            if true then
-                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4] + 0.25))
-            else
-                call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
-            endif
-        else
-            call ShieldAdd(fx.target,6.0,GetUnitMaxLifeVJ(fx.caster)*HeroSkillVelue4[4])
-        endif
+        call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4] + 0.25))
         call fx.Stop()
         call t.destroy()
     endif
@@ -116,7 +108,7 @@ private function splashD takes nothing returns nothing
     local FxEffect fx
     local real random = GetRandomReal(300,700)
     local real random2 = GetRandomReal(120,240)
-    
+
     set t = tick.create(0)
     set fx = FxEffect.Create()
     set fx.caster = splash.source
@@ -132,25 +124,25 @@ private function splashD takes nothing returns nothing
     set fx.stopoverY = fx.casterY + PolarY(random, fx.angle + random2 )
     set fx.r = 0
     set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
-    
+
     set t.data = fx
-    call t.start( 0.02, false, function EffectFunction2 ) 
+    call t.start( 0.02, false, function EffectFunction2 )
 endfunction
 
 private function EffectFunction takes nothing returns nothing
     local tick t = tick.getExpired()
     local FxEffect fx = t.data
-    
+
     if IsCastingChenA[GetPlayerId(GetOwningPlayer(fx.caster))] == true then
         set IsCastingChenA[GetPlayerId(GetOwningPlayer(fx.caster))] = false
-     
+
         if GetUnitAbilityLevel(fx.caster, 'BPSE') < 1 and GetUnitAbilityLevel(fx.caster, 'A024') < 1 then
             call UnitEffectTimeEX2('e00X',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.01,fx.pid)
             call splash.range( splash.ALLY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), Dist, function splashD )
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         endif
     endif
-    
+
     call fx.Stop()
     call t.destroy()
 endfunction
@@ -160,7 +152,7 @@ private function Main takes nothing returns nothing
     local integer pid
     local tick t
     local FxEffect fx
-    
+
     if GetSpellAbilityId() == 'A01E' then
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
@@ -169,19 +161,15 @@ private function Main takes nothing returns nothing
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)
-        
+
         call Sound3D(fx.caster,'A01M')
         call DummyMagicleash(fx.caster,Time * (1 - (speed/(100+speed)) ))
         call AnimationStart3(fx.caster,10, (100+speed)/100)
         set IsCastingChenA[fx.pid] = true
-        if true then
-            call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4]-8.0)
-        else
-            call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4])
-        endif
-        
+        call CooldownFIX(fx.caster,'A01E',HeroSkillCD4[4]-8.0)
+
         set t.data = fx
-        call t.start( Time * (1 - (speed/(100+speed)) ), false, function EffectFunction ) 
+        call t.start( Time * (1 - (speed/(100+speed)) ), false, function EffectFunction )
     endif
 endfunction
 
@@ -194,9 +182,9 @@ private function ASyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     set pid=GetPlayerId(p)
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID4[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -209,11 +197,11 @@ private function ASyncData takes nothing returns nothing
         call EXSetUnitFacing(MainUnit[pid],angle)
         call IssuePointOrder( MainUnit[pid], "ancestralspirittarget", x, y )
     endif
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -223,11 +211,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ChenA"),(false))
         call TriggerAddAction(t,function ASyncData)

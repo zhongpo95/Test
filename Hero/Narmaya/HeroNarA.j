@@ -16,27 +16,17 @@ private function EffectFunction takes nothing returns nothing
 
     if IsCastingNarA[fx.pid] == true then
         if Hero_Buff[fx.pid] == 0 then
-            if true then
-                call BuffNar01.Apply( fx.caster, Time3 * 1.5, Velue2 )
-            else
-                call BuffNar01.Apply( fx.caster, Time3, Velue2 )
-            endif
+            call BuffNar01.Apply( fx.caster, Time3 * 1.5, Velue2 )
         endif
 
-        if true then
-            if true then
-                if GetRandomInt(0,1) == 1 then
-                    call NarNabiPlus(fx.pid,6)
-                endif
-            else
-                call NarNabiPlus(fx.pid,3)
-            endif
+        if GetRandomInt(0,1) == 1 then
+            call NarNabiPlus(fx.pid,6)
         endif
 
         call CooldownFIX2(fx.caster,'A02M',HeroSkillCD4[14])
 
         set IsCastingNarA[fx.pid] = false
-        
+
         call fx.Stop()
         call t.destroy()
     else
@@ -71,7 +61,7 @@ private function Main takes nothing returns nothing
         call t.start( Time2 /fx.speed , false, function EffectFunction )
     endif
 endfunction
-    
+
 private function ASyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -81,7 +71,7 @@ private function ASyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID4[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -98,7 +88,7 @@ private function ASyncData takes nothing returns nothing
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -108,11 +98,11 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarA"),(false))
         call TriggerAddAction(t,function ASyncData)

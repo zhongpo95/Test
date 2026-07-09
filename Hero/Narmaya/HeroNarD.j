@@ -8,17 +8,16 @@ globals
     private constant real distance = 500
     private constant real scale2 = 900
     private constant real distance2 = 650
-    
+
     private integer Nabi
     boolean array IsCastingNarD
 endglobals
 
 private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -40,10 +39,9 @@ endfunction
 
 private function splashD2 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
-    //local integer level = HeroSkillLevel[pid][6]
     local real velue = 1.0
     local integer random
-    
+
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         call HeroDeal('A02O',splash.source,GetEnumUnit(),HeroSkillVelue6[14]*velue,false,false,false,false)
         call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
@@ -210,32 +208,20 @@ private function Main takes nothing returns nothing
         call DummyMagicleash(fx.caster, Time /fx.speed)
         call AnimationStart3(fx.caster, 13, fx.speed)
 
-        if true then
-            set fx.st = NarNabiUse(fx.pid,true)
-        else
-            if true then
-                set fx.st = NarNabiUse(fx.pid,false)
-            else
-                set fx.st = 0
-            endif
-        endif
+        set fx.st = NarNabiUse(fx.pid,true)
 
         set IsCastingNarD[fx.pid] = true
 
         //카구라
         if NarForm[fx.pid] == 0 then
             //강화평타추가
-            if true then
-                set NarStack[fx.pid] = 1
-            endif
+            set NarStack[fx.pid] = 1
         //겐지
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
-            if true then
-                set NarStack[fx.pid] = 3
-            endif
+            set NarStack[fx.pid] = 3
         endif
-        
+
         call Sound3D(fx.caster,'A03J')
 
         set r = GetRandomInt(0,1)
@@ -246,10 +232,8 @@ private function Main takes nothing returns nothing
         endif
         set t.data = fx
 
-        if true then
-            call BuffNoNB.Apply( fx.caster, Time /fx.speed, 0 )
-            call BuffNoST.Apply( fx.caster, Time /fx.speed, 0 )
-        endif
+        call BuffNoNB.Apply( fx.caster, Time /fx.speed, 0 )
+        call BuffNoST.Apply( fx.caster, Time /fx.speed, 0 )
 
         call t.start( 0.20 /fx.speed , false, function EffectFunction )
 
@@ -257,7 +241,7 @@ private function Main takes nothing returns nothing
     endif
 endfunction
 
-    
+
 private function DSyncData takes nothing returns nothing
     local player p=(DzGetTriggerSyncPlayer())
     local string data=(DzGetTriggerSyncData())
@@ -267,7 +251,7 @@ private function DSyncData takes nothing returns nothing
     local real x
     local real y
     local real angle
-    
+
     if GetUnitAbilityLevel(MainUnit[pid],'B000') < 1 and EXGetAbilityState(EXGetUnitAbility(MainUnit[pid], HeroSkillID6[DataUnitIndex(MainUnit[pid])]), ABILITY_STATE_COOLDOWN) == 0 then
         set x=S2R(data)
         set valueLen=StringLength(R2S(x))
@@ -292,11 +276,11 @@ private function DSyncData2 takes nothing returns nothing
     local real angle
     local real speed
     local tick t
-    
+
     set p=null
 endfunction
 
-            
+
 private struct TEvAfterB extends array
     private static method onInit takes nothing returns nothing
         local trigger t = CreateTrigger()
@@ -306,15 +290,15 @@ private struct TEvAfterB extends array
     endmethod
     private static method Action takes nothing returns nothing
         local trigger t
-    
+
         set t = CreateTrigger()
         call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
         call TriggerAddAction(t, function Main)
-        
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarD"),(false))
         call TriggerAddAction(t,function DSyncData)
-    
+
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("NarD2"),(false))
         call TriggerAddAction(t,function DSyncData2)
