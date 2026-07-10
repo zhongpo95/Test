@@ -417,11 +417,11 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         if abilId == 'A002' and title == "" then
             set title = "회피(X)"
         endif
-        if desc == "" then
-            return ""
-        endif
         if title == "" then
             return desc
+        endif
+        if desc == "" then
+            return title
         endif
 
         return title + "|n|n" + desc
