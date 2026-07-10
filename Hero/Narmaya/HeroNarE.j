@@ -235,7 +235,6 @@ private function splashD7 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            set Velue = Velue * 2.00
             call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
