@@ -237,8 +237,9 @@ private function Main takes nothing returns nothing
         endif
         set t.data = fx
 
-        call BuffNoNB.Apply( fx.caster, Time, 0 )
-        call BuffNoST.Apply( fx.caster, Time, 0 )
+        call BuffNoNB.Apply( fx.caster, Time /fx.speed, 0 )
+        call BuffNoST.Apply( fx.caster, Time /fx.speed, 0 )
+        call BuffNoDM.Apply( fx.caster, Time /fx.speed, 0 )
 
         call t.start( 0.02, false, function EffectFunction )
 

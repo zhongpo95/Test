@@ -531,7 +531,7 @@ private function init takes nothing returns nothing
     set HeroSkillVCount5[14] = 1
     set HeroSkillVelue5[14] = 1.00
     set HeroSkill5Text1[14] = "모든 나비를 소모하여 3번의 참격을 날리며 나비 한개당 총 피해량이 100.0% 증가"
-    set HeroSkill5Text2[14] = "시전도중 CC면역"
+    set HeroSkill5Text2[14] = "시전도중 CC면역, 무적"
     set HeroSkill5Text3[14] = "50% 확률로 나비 반환"
 
     set HeroSkillTpye6[14] = "일반"
