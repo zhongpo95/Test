@@ -40,7 +40,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
             set title = "회피(X)"
         endif
         if abilId == 'A002' then
-            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
+            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
+            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
+            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다." + "|r"
         endif
 
         call DzFrameSetText(UI_Tip_Text[1], title)
@@ -84,7 +86,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif valueCount == 1 then
             return "|cFFB9E2FA피해량|r : "+I2S(R2I(value1 * damage))
         elseif valueCount == 2 then
-            return "|cFFB9E2FA피해량|r : "+I2S(R2I(value1 * damage))+"|r|n  |cFFB9E2FA피해량2|r : "+I2S(R2I(value2 * damage))
+            return "|cFFB9E2FA피해량|r : "+I2S(R2I(value1 * damage))+"|r|n|cFFB9E2FA피해량2|r : "+I2S(R2I(value2 * damage))
         endif
 
         return ""
@@ -173,7 +175,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye0[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr0[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue0[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue20[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue20[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -192,7 +194,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye1[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr1[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue1[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue21[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue21[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -211,7 +213,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye2[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr2[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue2[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue22[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue22[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -230,7 +232,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye3[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr3[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue3[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue23[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue23[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -249,7 +251,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye4[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr4[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue4[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue24[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue24[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -268,7 +270,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye5[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr5[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue5[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue25[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue25[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -287,7 +289,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye6[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr6[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue6[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue26[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue26[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -306,7 +308,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
                 set str = "|cFFA5FA7D[ 타입 ]|r "+HeroSkillTpye7[index]+"|n|n|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"
                 set str = str + HeroSkillStr7[index]
                 set str = str + "|r|n|n  |cFFB9E2FA피해량|r : "+I2S( R2I( HeroSkillVelue7[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
-                set str = str + "|r|n  |cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue27[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
+                set str = str + "|r|n|cFFB9E2FA피해량2|r : "+I2S( R2I( HeroSkillVelue27[index] * ( Equip_Damage[pid] + Hero_Damage[pid]  ) ))
             endif
             call DzFrameSetText(UI_Tip_Text[2], str )
             call DzFrameShow(UI_Tip, true)
@@ -405,7 +407,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         if types < 8 then
             set desc = SkillFrameDataDescription(pid, index, types)
         elseif abilId == 'A002' then
-            set desc = "마우스 방향으로 짧게 이동합니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다."
+            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
+            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
+            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n쿨타임 7.0초, 최대 3회까지 충전됩니다." + "|r"
         else
             set desc = ""
         endif
