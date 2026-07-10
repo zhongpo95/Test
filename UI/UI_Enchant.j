@@ -65,7 +65,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set items = Eitem[pid][F_EnchantSelectNumber]
             set itemid = GetItemIDs(items)
 
-
+            /*
             //구 보조무기 승급 경로 미사용
             if itemid == 9 then
                 set items = "ID2;"
@@ -89,29 +89,30 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set items = "ID8;"
                 set itemid = 8
             endif
+            */
 
             //무기
-            if itemid == 18 then
-                set items = "ID11;"
-                set itemid = 11
-            elseif itemid == 11 then
-                set items = "ID12;"
-                set itemid = 12
-            elseif itemid == 12 then
-                set items = "ID13;"
-                set itemid = 13
-            elseif itemid == 13 then
-                set items = "ID14;"
-                set itemid = 14
-            elseif itemid == 14 then
-                set items = "ID15;"
-                set itemid = 15
-            elseif itemid == 15 then
-                set items = "ID16;"
-                set itemid = 16
-            elseif itemid == 16 then
-                set items = "ID17;"
-                set itemid = 17
+            if itemid == 10 then
+                set items = "ID3;"
+                set itemid = 3
+            elseif itemid == 3 then
+                set items = "ID4;"
+                set itemid = 4
+            elseif itemid == 4 then
+                set items = "ID5;"
+                set itemid = 5
+            elseif itemid == 5 then
+                set items = "ID6;"
+                set itemid = 6
+            elseif itemid == 6 then
+                set items = "ID7;"
+                set itemid = 7
+            elseif itemid == 7 then
+                set items = "ID8;"
+                set itemid = 8
+            elseif itemid == 8 then
+                set items = "ID9;"
+                set itemid = 9
             endif
 
         
@@ -202,19 +203,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set quality = GetItemQuality(items)
                 set tier = GetItemTier(items)
                 if tier == 1 then
-                    set k = 32
+                    set k = 24
                 elseif tier == 2 then
-                    set k = 35
+                    set k = 27
                 elseif tier == 3 then
-                    set k = 38
+                    set k = 30
                 elseif tier == 4 then
-                    set k = 40
+                    set k = 32
                 elseif tier == 5 then
-                    set k = 42
+                    set k = 34
                 elseif tier == 6 then
-                    set k = 44
+                    set k = 36
                 elseif tier == 7 then
-                    set k = 46
+                    set k = 38
                 endif
                 
                 set j = 0
@@ -248,7 +249,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 set items = SetItemCharge(items, j-l)
                                 call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), items)
                             endif
-
+                            /*
                             //구 보조무기 승급 경로 미사용
                             if i == 9 then
                                 set items = "ID2;"
@@ -272,31 +273,31 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                 set items = "ID8;"
                                 set items = SetItemQuality(items, quality)
                             endif
-
+                            */
                             //무기
-                            if i == 18 then
-                                set items = "ID11;"
+                            if i == 10 then
+                                set items = "ID3;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 11 then
-                                set items = "ID12;"
+                            elseif i == 3 then
+                                set items = "ID4;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 12 then
-                                set items = "ID13;"
+                            elseif i == 4 then
+                                set items = "ID5;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 13 then
-                                set items = "ID14;"
+                            elseif i == 5 then
+                                set items = "ID6;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 14 then
-                                set items = "ID15;"
+                            elseif i == 6 then
+                                set items = "ID7;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 15 then
-                                set items = "ID16;"
+                            elseif i == 7 then
+                                set items = "ID8;"
                                 set items = SetItemQuality(items, quality)
-                            elseif i == 16 then
-                                set items = "ID17;"
+                            elseif i == 8 then
+                                set items = "ID9;"
                                 set items = SetItemQuality(items, quality)
                             endif
-                            
+
                             set Eitem[pid][f] = items
                             call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
                             
@@ -340,8 +341,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         set A = GetRandomInt(1,10000)
         
         if Player(pid) == GetLocalPlayer() then
+            if true then
             //if JNObjectCharacterServerConnectCheck() then
-            if JNObjectCharacterServerConnectCheck() then
                 set items = Eitem[pid][f]
                 set i = GetItemIDs(items)
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemArt(items), 0)
@@ -357,19 +358,17 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set m = EnchantMaterial2[tier][up+1]
                     
                 if tier == 2 then
-                    set k = 32
+                    set k = 24
                 elseif tier == 3 then
-                    set k = 35
+                    set k = 27
                 elseif tier == 4 then
-                    set k = 38
+                    set k = 30
                 elseif tier == 5 then
-                    set k = 40
+                    set k = 32
                 elseif tier == 6 then
-                    set k = 42
+                    set k = 34
                 elseif tier == 7 then
-                    set k = 44
-                elseif tier == 8 then
-                    set k = 46
+                    set k = 36
                 endif
                 
                 if m <= S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) then
@@ -552,19 +551,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set tier = GetItemTier(items)
             call DzFrameSetText(F_EnchantText[7], "x " + "1" )
             if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
             elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(35), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(27), 0)
             elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(38), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(30), 0)
             elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(40), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
             elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(42), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(34), 0)
             elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(44), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(36), 0)
             elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(46), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(38), 0)
             endif
             call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
             call DzFrameShow(F_EnchantButton, false)
@@ -584,7 +583,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set fate = GetItemFate(items)
 
             if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
                 call DzFrameSetText(F_EnchantText[7], "x 1" )
                 call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
                 call DzFrameShow(F_EnchantButton, false)
@@ -614,19 +613,19 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 call DzFrameSetText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
                 
                 if tier == 2 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(32), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(24), 0)
                 elseif tier == 3 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(35), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(27), 0)
                 elseif tier == 4 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(38), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(30), 0)
                 elseif tier == 5 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(40), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(32), 0)
                 elseif tier == 6 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(42), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(34), 0)
                 elseif tier == 7 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(44), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(36), 0)
                 elseif tier == 8 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(46), 0)
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(38), 0)
                 endif
 
                 call DzFrameSetText(F_EnchantText[2], str)
@@ -637,7 +636,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             endif
             call DzFrameShow(F_EnchantUpText, true)
         endif
-        
+        /*
         //구 보조무기 승급 경로 미사용
         if itemid == 9 then
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
@@ -656,26 +655,24 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         elseif itemid == 8 then
             call DzFrameShow(F_EnchantButton2, false)
         endif
-
+        */
         //무기
-        if itemid == 18 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(11), 0)
-        elseif itemid == 11 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(12), 0)
-        elseif itemid == 12 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(13), 0)
-        elseif itemid == 13 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(14), 0)
-        elseif itemid == 14 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(15), 0)
-        elseif itemid == 15 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(16), 0)
-        elseif itemid == 16 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(17), 0)
-        elseif itemid == 17 then
+        if itemid == 10 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
+        elseif itemid == 3 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
+        elseif itemid == 4 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
+        elseif itemid == 5 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
+        elseif itemid == 6 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
+        elseif itemid == 7 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
+        elseif itemid == 8 then
             call DzFrameShow(F_EnchantButton2, false)
         endif
-        
+
         call StopSound(gg_snd_MouseClick1, false, false)
         call StartSound(gg_snd_MouseClick1)
     endfunction
@@ -729,8 +726,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
         call DzFrameSetSize(F_EnchantCancelButton, 0.03, 0.03)
         call DzFrameSetScriptByCode(F_EnchantCancelButton, JN_FRAMEEVENT_MOUSE_UP, function EnchantOpen, false)
         
-        call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , - 0.050)
-        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , - 0.100)
+        //call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , - 0.050)
+        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , - 0.050)
         //call CreateEItemButton(1 , 0.040 , - 0.100)
         //call CreateEItemButton(2 , 0.040 , - 0.130)
         //call CreateEItemButton(3 , 0.040 , - 0.160)

@@ -223,20 +223,22 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         call RewardStart(GetEnumUnit())
         //주금
 
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
+        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
 
         //딜 참가한인원 x3% 체퍼딜
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 

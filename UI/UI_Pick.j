@@ -782,7 +782,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
             exitwhen i == EQUIP_SLOT_MAX
             set i = i + 1
         endloop
-        set Eitem[pid][EQUIP_SLOT_WEAPON] = "ID18;"
+        set Eitem[pid][EQUIP_SLOT_WEAPON] = "ID10;"
 
         // 장착 슬롯: 0엘릭서, 1무기, 2목걸이, 3귀걸이1, 4귀걸이2, 5반지1, 6반지2, 7팔찌, 8카드
         if GetLocalPlayer() == Player(pid) then

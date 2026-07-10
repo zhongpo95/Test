@@ -340,7 +340,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         local string s = ""
 
         if GetLocalPlayer() == Player(pid) then
-            set s = "ID49;"
+            set s = "ID41;"
             set s = SetItemElixirLevel1(s, ResultLevel[pid][1])
             set s = SetItemElixirLevel2(s, ResultLevel[pid][2])
             call additem(Player(pid), s)
