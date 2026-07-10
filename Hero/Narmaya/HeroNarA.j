@@ -3,7 +3,7 @@ globals
     //쉐클시간
     private constant real Time2 = 1.4
     //버프지속시간,공증량
-    private constant real Time3 = 60
+    private constant real Time3 = 90
     private constant integer Velue2 = 350
     private constant real CancelTime = 1.00
     boolean array IsCastingNarA
@@ -16,7 +16,7 @@ private function EffectFunction takes nothing returns nothing
 
     if IsCastingNarA[fx.pid] == true then
         if Hero_Buff[fx.pid] == 0 then
-            call BuffNar01.Apply( fx.caster, Time3 * 1.5, Velue2 )
+            call BuffNar01.Apply( fx.caster, Time3, Velue2 )
         endif
 
         if GetRandomInt(0,1) == 1 then

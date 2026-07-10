@@ -513,8 +513,8 @@ private function init takes nothing returns nothing
     set HeroSkillVelue3[14] = 1.00
     set HeroSkillVelue23[14] = 1.00
     set HeroSkill3Text1[14] = "강화 평타 적중시 나비 1개 획득"
-    set HeroSkill3Text2[14] = "강화 평타의 피해량이 100.0% 증가"
-    set HeroSkill3Text3[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화, 다른 스킬사용시 사용하지 않아도 강화평타 사용가능"
+    set HeroSkill3Text2[14] = "E풀차지후 전환 추가타격 후 즉시 R쿨타임 초기화, 다른 스킬사용시 사용하지 않아도 강화평타 사용가능"
+    set HeroSkill3Text3[14] = ""
     
     set HeroSkillTpye4[14] = "버프"
     set HeroSkillStr4[14] = "자신의 공격력을 증가시키는 버프를 겁니다."
@@ -522,8 +522,8 @@ private function init takes nothing returns nothing
     set HeroSkillVCount4[14] = 1
     set HeroSkillVelue4[14] = 0.35
     set HeroSkill4Text1[14] = "사용시 나비를 3개 획득"
-    set HeroSkill4Text2[14] = "버프 지속시간 50% 증가"
-    set HeroSkill4Text3[14] = "50% 확률로 나비를 3개가 아닌 6개 획득"
+    set HeroSkill4Text2[14] = "50% 확률로 나비를 3개가 아닌 6개 획득"
+    set HeroSkill4Text3[14] = ""
 
     set HeroSkillTpye5[14] = "일반"
     set HeroSkillStr5[14] = "후방으로 물러나며 충격파를 쏘아 피해를 입힙니다."
