@@ -433,7 +433,7 @@ private function init takes nothing returns nothing
     set UnitHeroCheck[10] = false
     //set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', -27500, 27900, 244)
     set NPCUnit[10]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00C', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
-    set NPCRoleDummy[10] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01P',GetUnitX(NPCUnit[10]), GetUnitY(NPCUnit[10]), 270)
+    //set NPCRoleDummy[10] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01P',GetUnitX(NPCUnit[10]), GetUnitY(NPCUnit[10]), 270)
     
     //하나코
     set UnitAbilityIndex[11] = 'h00D'
@@ -441,7 +441,7 @@ private function init takes nothing returns nothing
     //set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', -25733+1000, 28486-3565, 228)
     //call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',-25733+1000, 28486-3565, 270)
     set NPCUnit[11]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00D', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 228)
-    set NPCRoleDummy[11] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',GetUnitX(NPCUnit[11]), GetUnitY(NPCUnit[11]), 270)
+    //set NPCRoleDummy[11] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01O',GetUnitX(NPCUnit[11]), GetUnitY(NPCUnit[11]), 270)
     
     //미카
     set UnitAbilityIndex[12] = 'h00E'
@@ -449,7 +449,7 @@ private function init takes nothing returns nothing
     //set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', -27500+1000, 27900-3565, 244)
     //call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',-27500+1000, 27900-3565, 270)
     set NPCUnit[12]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
-    set NPCRoleDummy[12] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',GetUnitX(NPCUnit[12]), GetUnitY(NPCUnit[12]), 270)
+    //set NPCRoleDummy[12] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01R',GetUnitX(NPCUnit[12]), GetUnitY(NPCUnit[12]), 270)
 
     //유유코
     set UnitAbilityIndex[13] = 'h008'
@@ -480,7 +480,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye0[14] = "일반, 카운터"
     set HeroSkillStr0[14] = "지정 방향으로 돌진하며 피해를 입힙니다."
-    set HeroSkillCD0[14] = 23.00
+    set HeroSkillCD0[14] = 18.00
     set HeroSkillVCount0[14] = 1
     set HeroSkillVelue0[14] = 1.00
     set HeroSkill0Text1[14] = "모든 나비를 소모하여 나비 한개당 총 피해량이 100.0% 증가"
@@ -496,7 +496,7 @@ private function init takes nothing returns nothing
     set HeroSkill1Text2[14] = "R 평타 강화 타격후 전환 추가타격후 발동하는 E 스킬의 차지속도가 150% 증가" 
     set HeroSkill1Text3[14] = "E풀 차지 후 전환 추가타격후 발동하는 피해가 10회에 걸쳐 피해를 입히게되며 총 피해량이 500% 증가. 또한 전환시 추가타격 명중시 나비 1개 획득"
 
-    set HeroSkillTpye2[14] = "일반, 차지"
+    set HeroSkillTpye2[14] = "일반, 차지, 카운터"
     set HeroSkillStr2[14] = "전방을 발도술로 공격합니다. 버튼을 길게 누르면 범위가 증가합니다."
     set HeroSkillCD2[14] = 5.00
     set HeroSkillVCount2[14] = 2

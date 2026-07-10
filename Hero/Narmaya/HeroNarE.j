@@ -109,7 +109,7 @@ private function splashD1 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -131,7 +131,7 @@ private function splashD2 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             set Velue = Velue * 1.30
 
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -153,7 +153,7 @@ private function splashD3 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             set Velue = Velue * 1.60
 
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -175,7 +175,7 @@ private function splashD4 takes nothing returns nothing
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
             set Velue = Velue * 1.90
 
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -195,7 +195,7 @@ private function splashD5 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -215,7 +215,7 @@ private function splashD6 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -235,7 +235,7 @@ private function splashD7 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then
@@ -259,7 +259,7 @@ private function splashD8 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
         if AngleTrue(AngleWBW(splash.source,GetEnumUnit()), GetUnitFacing(splash.source),  1.8 * I2R(Size[pid]) ) then
-            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,false,true)
+            call HeroDeal('A02K',splash.source,GetEnumUnit(),HeroSkillVelue2[14]*Velue,false,false,true,true)
             call UnitEffectTimeEX2('e02B',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             set random = GetRandomInt(0,2)
             if random == 0 then

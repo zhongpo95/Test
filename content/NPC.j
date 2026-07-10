@@ -156,6 +156,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                     elseif DataUnitIndex(u) == 9 then
                         call StorageShow(pid)
                     //가공품 상점
+                    /*
                     elseif DataUnitIndex(u) == 10 then
                          if SHOP_OnOff[pid] == false then
                             call ShopShow(pid)
@@ -165,6 +166,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                         if SHOP2_OnOff[pid] == false then
                             call Shop2Show(pid)
                         endif
+                    */
                     endif
                 endif
             endif
