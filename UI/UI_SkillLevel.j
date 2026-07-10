@@ -65,11 +65,14 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         return base + "|n|n" + text
     endfunction
 
-    private function SkillFrameBaseDescription takes string skillType, string skillDesc returns string
+    private function SkillFrameBaseDescription takes string skillType, real cooldown, string skillDesc returns string
         local string str = ""
 
         if skillType != "" then
             set str = SkillFrameJoinDescription(str, "|cFFA5FA7D[ 타입 ]|r "+skillType)
+        endif
+        if cooldown > 0.0 then
+            set str = SkillFrameJoinDescription(str, "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(cooldown,1,2)+"초")
         endif
         if skillDesc != "" then
             set str = SkillFrameJoinDescription(str, "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+skillDesc+"|r")
@@ -117,8 +120,8 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         return str
     endfunction
 
-    private function SkillFrameDataDescriptionBuild takes integer pid, string skillType, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3 returns string
-        local string str = SkillFrameBaseDescription(skillType, skillDesc)
+    private function SkillFrameDataDescriptionBuild takes integer pid, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3 returns string
+        local string str = SkillFrameBaseDescription(skillType, cooldown, skillDesc)
 
         set str = SkillFrameJoinDescription(str, SkillFrameExtraDescription(text1, text2, text3))
         set str = SkillFrameJoinDescription(str, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
@@ -128,21 +131,21 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
 
     private function SkillFrameDataDescription takes integer pid, integer index, integer types returns string
         if types == 0 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index])
         elseif types == 1 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index])
         elseif types == 2 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index])
         elseif types == 3 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index])
         elseif types == 4 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index])
         elseif types == 5 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index])
         elseif types == 6 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index])
         elseif types == 7 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index])
         endif
 
         return ""
