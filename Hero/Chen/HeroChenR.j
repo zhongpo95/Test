@@ -92,9 +92,7 @@ private function splashD2 takes nothing returns nothing
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         set Velue = Velue * 1.50
-
         set Velue = Velue * 1.30
-
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction

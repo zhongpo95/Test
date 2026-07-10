@@ -97,7 +97,7 @@ private function EffectFunction2 takes nothing returns nothing
         set fx.r = fx.r + 0.03
         call t.start( 0.02, false, function EffectFunction2 )
     else
-        call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4] + 0.25))
+        call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4]))
         call fx.Stop()
         call t.destroy()
     endif

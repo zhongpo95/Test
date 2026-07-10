@@ -232,6 +232,11 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
         call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
+        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID32"+";"+"0", 5000)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 

@@ -171,7 +171,7 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set index = IndexUnit(st.caster)
                     call Sound3D(fx.caster,'A026')
                     set UnitCasting[index] = true
-                    set UnitCastingSDMAX[index] = 50
+                    set UnitCastingSDMAX[index] = 10
                     set UnitCastingSD[index] = UnitCastingSDMAX[index]
                     set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx.caster), GetWidgetY(fx.caster), 270 )
                     call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )

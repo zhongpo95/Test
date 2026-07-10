@@ -322,14 +322,14 @@ private function init takes nothing returns nothing
     set HeroSkillID8[4] = 'A01F'
     set HeroSkillID9[4] = 'A028'
 
-    set HeroSkillTpye0[4] = "헤드어택"
+    set HeroSkillTpye0[4] = "헤드어택, 차지"
     set HeroSkillStr0[4] = "지정 방향을 빠르게 베어 피해를 입힙니다."
     set HeroSkillCD0[4] = 10.00
     set HeroSkillVCount0[4] = 1
-    set HeroSkillVelue0[4] = 7.12
+    set HeroSkillVelue0[4] = 12
     set HeroSkill0Text1[4] = "공격속도가 27.0% 증가한다."
-    set HeroSkill0Text2[4] = "적에게 주는 피해가 70.0% 증가한다."
-    set HeroSkill0Text3[4] = "차지 조작으로 변경된다.　　　　　　2단계 차지 시 총 52.5%의 증가된 피해를 주며, 풀 차지 시 총 150.0%의 증가된 피해를 주지만, 1단계 차지 시 피해가 20.0% 감소된다."
+    set HeroSkill0Text2[4] = ""
+    set HeroSkill0Text3[4] = "2단계 차지 시 총 52.5%의 증가된 피해를 주며, 풀 차지 시 총 150.0%의 증가된 피해를 주지만, 1단계 차지 시 피해가 20.0% 감소된다."
 
     set HeroSkillTpye1[4] = "헤드어택"
     set HeroSkillStr1[4] = "무기를 교차해 피해를 입힙니다."
@@ -360,12 +360,12 @@ private function init takes nothing returns nothing
     
     set HeroSkillTpye4[4] = "버프"
     set HeroSkillStr4[4] = "주변 아군과 자신에게 최대 생명력에 비례해서 보호막을 씌웁니다."
-    set HeroSkillCD4[4] = 40.0
+    set HeroSkillCD4[4] = 32.0
     set HeroSkillVCount4[4] = 1
-    set HeroSkillVelue4[4] = 0.15
-    set HeroSkill4Text1[4] = "재사용 대기시간이 8.0초 감소한다."
-    set HeroSkill4Text2[4] = "보호막 지속 시간이 6.0초 증가한다."
-    set HeroSkill4Text3[4] = "보호막 수치가 자신의 최대 생명력의 40%로 변경된다."
+    set HeroSkillVelue4[4] = 0.40
+    set HeroSkill4Text1[4] = ""/*"재사용 대기시간이 8.0초 감소한다."*/
+    set HeroSkill4Text2[4] = ""/*"보호막 지속 시간이 6.0초 증가한다."*/
+    set HeroSkill4Text3[4] = ""/*"보호막 수치가 자신의 최대 생명력의 40%로 변경된다."*/
     
     set HeroSkillTpye5[4] = "헤드어택, 카운터"
     set HeroSkillStr5[4] = "지정 방향을 빠르게 베어 피해를 입힙니다."
@@ -381,9 +381,9 @@ private function init takes nothing returns nothing
     set HeroSkillCD6[4] = 24.00
     set HeroSkillVCount6[4] = 1
     set HeroSkillVelue6[4] = 3.39
-    set HeroSkill6Text1[4] = "공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시키고, 공격 적중 시 자신의 공격력이 10.0초간 35% 증가한다."
+    set HeroSkill6Text1[4] = /*"공격에 적중된 적들의 방어력을 10.0초간 12.0% 감소시키고, */"공격 적중 시 자신의 공격력이 10.0초간 35% 증가한다."
     set HeroSkill6Text2[4] = "3.0초간 자신의 최대 생명력의 30.0% 만큼 보호막을 생성한다."
-    set HeroSkill6Text3[4] = "12.0초간 약점을 노출시켜 헤드 어택 및 백 어택의 경우, 받는 피해 효과 12.0% 증가한다."
+    set HeroSkill6Text3[4] = ""/*"12.0초간 약점을 노출시켜 헤드 어택 및 백 어택의 경우, 받는 피해 효과 12.0% 증가한다."*/
     
     set HeroSkillTpye7[4] = "헤드어택, 차지"
     set HeroSkillStr7[4] = "키다운 해제시 연속으로 베어 피해를 입힙니다."

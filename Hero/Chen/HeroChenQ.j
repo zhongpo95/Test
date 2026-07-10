@@ -78,11 +78,8 @@ private function splashD1 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        set Velue = Velue * 1.70
-
         set Velue = Velue * 0.80
-        call HeroDeal('A01A',splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
-
+        call HeroDeal('A01A',splash.source,GetEnumUnit(),HeroSkillVelue0[4]*0.80,true,false,false,true)
     endif
 endfunction
 
@@ -91,10 +88,7 @@ private function splashD2 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        set Velue = Velue * 1.70
-
         set Velue = Velue * 1.525
-
         call HeroDeal('A01A',splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -103,10 +97,7 @@ private function splashD3 takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
-        set Velue = Velue * 1.70
-
         set Velue = Velue * 2.50
-
         call HeroDeal('A01A',splash.source,GetEnumUnit(),HeroSkillVelue0[4]*Velue,true,false,false,true)
     endif
 endfunction
