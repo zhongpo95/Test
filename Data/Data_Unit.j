@@ -480,7 +480,7 @@ private function init takes nothing returns nothing
 
     set HeroSkillTpye0[14] = "일반, 카운터"
     set HeroSkillStr0[14] = "지정 방향으로 돌진하며 피해를 입힙니다."
-    set HeroSkillCD0[14] = 6.00
+    set HeroSkillCD0[14] = 23.00
     set HeroSkillVCount0[14] = 1
     set HeroSkillVelue0[14] = 1.00
     set HeroSkill0Text1[14] = "모든 나비를 소모하여 나비 한개당 총 피해량이 100.0% 증가"
@@ -504,7 +504,7 @@ private function init takes nothing returns nothing
     set HeroSkillVelue22[14] = 0.7
     set HeroSkill2Text1[14] = "겐지 상태로 기본공격시 차지속도가 50%씩(최대 3회) 증가하고, 다른 스킬사용시 차지속도가 150% 증가"
     set HeroSkill2Text2[14] = "차지 단계가 생기며, 납도 동작이 추가되고 풀 차지 납도 적중시 나비 1개 획득, 차지 단계가 올라갈수록 베기 피해량이 30.0% 상승"
-    set HeroSkill2Text3[14] = "풀 차지 시 납도가 적에게 주는 피해가 100.0% 증가"
+    set HeroSkill2Text3[14] = ""
 
     set HeroSkillTpye3[14] = "일반"
     set HeroSkillStr3[14] = "다음 평타 공격을 강화합니다."
