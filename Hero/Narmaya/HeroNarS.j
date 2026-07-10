@@ -219,6 +219,7 @@ private function Main takes nothing returns nothing
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
             set NarStack[fx.pid] = 3
+            call CooldownSet(fx.caster,'A02K',0)
         endif
 
         set fx.st = NarNabiUse(fx.pid,true)
