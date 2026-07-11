@@ -20,6 +20,7 @@ private function splashD takes nothing returns nothing
     if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
         if HeroDeal('A02I',splash.source,GetEnumUnit(),HeroSkillVelue0[14]*Velue,false,false,true,false) then
             call NarNabiPlus(pid,6)
+            call CooldownSet(splash.source,'A02I',0)
         endif
         //call UnitEffectTimeEX2('e02I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
         set random = GetRandomInt(0,2)
@@ -116,6 +117,7 @@ private function Main takes nothing returns nothing
         elseif NarForm[fx.pid] == 1 then
             //나루메아 E 시전속도증가
             set NarStack[fx.pid] = 3
+            call CooldownSet(fx.caster,'A02K',0)
         endif
 
         set fx.st = NarNabiUse(fx.pid,true)
