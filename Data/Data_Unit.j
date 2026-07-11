@@ -484,7 +484,7 @@ private function init takes nothing returns nothing
     set HeroSkillVCount0[14] = 1
     set HeroSkillVelue0[14] = 1.00
     set HeroSkill0Text1[14] = "모든 나비를 소모하여 나비 한개당 총 피해량이 100.0% 증가"
-    set HeroSkill0Text2[14] = "카운터 적중시 나비 6개 획득"
+    set HeroSkill0Text2[14] = "카운터 적중시 나비 6개 획득 및 스킬 쿨타임 초기화"
     set HeroSkill0Text3[14] = "50% 확률로 나비 반환"
 
     set HeroSkillTpye1[14] = "일반"
