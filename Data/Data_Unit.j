@@ -176,6 +176,22 @@ function DataUnitIndex takes unit u returns integer
         return 16
     elseif i == 'H00P' then
         return 17
+    elseif i == 'h00V' then
+        return 18
+    elseif i == 'h00U' then
+        return 19
+    elseif i == 'h00E' then
+        return 20
+    elseif i == 'h00Y' then
+        return 21
+    elseif i == 'h00S' then
+        return 22
+    elseif i == 'h00R' then
+        return 23
+    elseif i == 'h00W' then
+        return 24
+    elseif i == 'h00X' then
+        return 25
     endif
     return 0
 endfunction
@@ -188,7 +204,7 @@ private function NPCRoleDummyFollowPeriodic takes nothing returns nothing
             call SetUnitY(NPCRoleDummy[i], GetUnitY(NPCUnit[i]))
         endif
         set i = i + 1
-        exitwhen i > 17
+        exitwhen i > 18
     endloop
 endfunction
     
@@ -395,14 +411,14 @@ private function init takes nothing returns nothing
     set HeroSkill7Text2[4] = "풀 차지 시 마지막 공격의 피해가 100% 증가한다."
     set HeroSkill7Text3[4] = "풀 차지 시 마지막 공격의 피해가 89.1% 증가한다."
 
-
-    //사신짱
+ 
+    //히마리 카드부여
     set UnitAbilityIndex[5] = 'h005'
     set UnitHeroCheck[5] = false
     set NPCUnit[5]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h005', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 319)
     set NPCRoleDummy[5] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01M',GetUnitX(NPCUnit[5]), GetUnitY(NPCUnit[5]), 270)
     
-    //유즈
+    //유즈 장비강화
     set UnitAbilityIndex[6] = 'h006'
     set UnitHeroCheck[6] = false
     set NPCUnit[6]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h006', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 335)
@@ -753,6 +769,42 @@ private function init takes nothing returns nothing
     set HeroSkill7Text2[17] = ""
     set HeroSkill7Text3[17] = "사용시 완전연소 해제가 3회에서 4회로 증가합니다.(미구현)"
     
+
+    //마리
+    set UnitAbilityIndex[18] = 'h00V'
+    set UnitHeroCheck[18] = false
+    set NPCUnit[18]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00V', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //미유
+    set UnitAbilityIndex[19] = 'h00U'
+    set UnitHeroCheck[19] = false
+    set NPCUnit[19]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00U', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //아리스
+    set UnitAbilityIndex[20] = 'h00E'
+    set UnitHeroCheck[20] = false
+    set NPCUnit[20]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00E', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //아즈사
+    set UnitAbilityIndex[21] = 'h00Y'
+    set UnitHeroCheck[21] = false
+    set NPCUnit[21]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00Y', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //카요코
+    set UnitAbilityIndex[22] = 'h00S'
+    set UnitHeroCheck[22] = false
+    set NPCUnit[22]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00S', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //코코나
+    set UnitAbilityIndex[23] = 'h00R'
+    set UnitHeroCheck[23] = false
+    set NPCUnit[23]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00R', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //호시노
+    set UnitAbilityIndex[24] = 'h00W'
+    set UnitHeroCheck[24] = false
+    set NPCUnit[24]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00W', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    //히나
+    set UnitAbilityIndex[25] = 'h00X'
+    set UnitHeroCheck[25] = false
+    set NPCUnit[25]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00X', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
+    
+
+
     call t.start(0.03, true, function NPCRoleDummyFollowPeriodic)
 endfunction
 
