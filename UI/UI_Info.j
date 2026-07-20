@@ -185,10 +185,9 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "개척력" )
-        set str = "|cFFA5FA7D ◎ |r" + "가상 전투력을 보정한 수치입니다.|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 500 이상일 경우 표시|n"
-        set str = str + "|cFFA5FA7D ◎ |r" + "가상 전투력이 약 10% 증가할 때마다 개척력이 약 1000 증가합니다.|n" 
-        set str = str + "|cFFA5FA7D ◎ |r" + "아르카나에 의한 피해증가는 조건을 전부 만족한 최대치로 계산한다." 
+        set str = "|cFFA5FA7D ◎ |r" + "가상 전투력을 성장 지표로 압축한 수치입니다.|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "전투력 500 미만은 기초 개척력으로 보정됩니다.|n"
+        set str = str + "|cFFA5FA7D ◎ |r" + "전투력 500 이상부터 약 10% 증가할 때마다 개척력이 약 1000 증가합니다."
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
         
@@ -703,23 +702,21 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         set F_ItemStatsText[14]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[14], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.215)
-        call DzFrameSetText(F_ItemStatsText[14], "|cFFFFE400가상 전투력")
+        call DzFrameSetText(F_ItemStatsText[14], "|cFFFFE400개척력")
         
         set F_ItemStatsText[14]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[14], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.195)
         call DzFrameSetText(F_ItemStatsText[14], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[14], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions16, false)
+        call DzFrameSetScriptByCode(F_ItemStatsText[14], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions17, false)
         call DzFrameSetScriptByCode(F_ItemStatsText[14], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
         
         set F_ItemStatsText[15]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[15], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.175)
-        call DzFrameSetText(F_ItemStatsText[15], "|cFFFFE400개척력")
+        call DzFrameSetText(F_ItemStatsText[15], "")
         
         set F_ItemStatsText[15]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[15], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.295, 0.155)
-        call DzFrameSetText(F_ItemStatsText[15], "0")
-        call DzFrameSetScriptByCode(F_ItemStatsText[15], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions17, false)
-        call DzFrameSetScriptByCode(F_ItemStatsText[15], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
+        call DzFrameSetText(F_ItemStatsText[15], "")
         
         set F_ItemStatsText[16]=DzCreateFrameByTagName("TEXT", "", F_InfoBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_ItemStatsText[16], JN_FRAMEPOINT_CENTER, F_InfoBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.200, 0.400)
