@@ -120,8 +120,10 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
     function TrailblazePower takes real x returns integer
         local real log_val
     
-        if x < TRAIL_POWER_0 then
+        if x <= 0.0 then
             return 0
+        elseif x < TRAIL_POWER_0 then
+            return R2I(TRAIL_FAME_0 * x / TRAIL_POWER_0 + 0.5)
         elseif x >= TRAIL_POWER_120 then
             set log_val = log1_1(x / TRAIL_POWER_120)
             return TRAIL_FAME_120 + R2I(1000.0 * log_val + 0.5)
@@ -186,12 +188,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
             call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
             //최종대미지증가
             call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(  Equip_LastDamage[pid] )) + "%" ) 
-            //가상 전투력
-            set r = Power(pid)
-            call DzFrameSetText(F_ItemStatsText[14], R2SW(r, 1, 2) ) 
             //개척력
-            //call DzFrameSetText(F_ItemStatsText[15], I2S(R2I(  TrailblazePower(r) )) ) 
-            call DzFrameSetText(F_ItemStatsText[15], R2SW(TrailblazePower(r), 1, 2))
+            set r = Power(pid)
+            call DzFrameSetText(F_ItemStatsText[14], R2SW(TrailblazePower(r), 1, 2))
             set i = 0
             loop
                 if IsEmptyItem(Eitem[pid][i]) then
