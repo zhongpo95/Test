@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp, DzAPIHardware
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -705,6 +705,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
 
         call Deilycheck(pid)
 
+        call MainQuestLoad(pid, SlotHero, GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON]), GetItemUp(Eitem[pid][EQUIP_SLOT_WEAPON]))
+
         call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", I2S( S2I(StashLoad(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")) + 1 ) )
 
         call upload2(pid)
@@ -812,6 +814,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         call SetMapLine(pid)
 
         call Deilycheck(pid)
+
+        call MainQuestNew(pid, SlotHero)
 
         call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")
 
