@@ -19,6 +19,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Arcana.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_V.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Map.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_PostPickGuide.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Emoji.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_FPS.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\MemUI.j"

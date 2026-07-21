@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp, DzAPIHardware
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIPostPickGuide
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -702,6 +702,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         //call TodaySet(pid)
 
         call SetMapLine(pid)
+        call ShowPostPickGuide(pid)
 
         call Deilycheck(pid)
 
@@ -810,6 +811,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, Daily, Fram
         //call TodaySet(pid)
 
         call SetMapLine(pid)
+        call ShowPostPickGuide(pid)
 
         call Deilycheck(pid)
 

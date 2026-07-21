@@ -1958,6 +1958,77 @@ library UIMap initializer init requires DataUnit, FrameCount
             set FMap_OnOff[GetPlayerId(GetTriggerPlayer())] = false
         endif
     endfunction
+
+    function ShowMapForGuide takes integer pid returns nothing
+        if PickCheck[pid] != true then
+            return
+        endif
+
+        if Player(pid) == GetLocalPlayer() then
+            call DzFrameShow(FMap_BackDrop, true)
+        endif
+        set FMap_OnOff[pid] = true
+
+        if NowList == 0 then
+            call DzFrameSetPoint(FMap_Button[0][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*5), -0.080 - 0.120)
+
+            call DzFrameSetPoint(FMap_Button[1][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[1][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[1][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[1][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[2][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[2][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[2][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[2][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[3][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[3][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[3][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[3][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[4][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[4][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[4][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[4][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[5][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350, -0.080 - 0.120)
+
+            call DzFrameSetPoint(FMap_Button[6][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[6][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[6][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[6][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[7][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[7][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[7][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[7][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[8][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[8][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[8][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[8][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[9][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*0))
+            call DzFrameSetPoint(FMap_Button[9][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*1))
+            call DzFrameSetPoint(FMap_Button[9][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*2))
+            call DzFrameSetPoint(FMap_Button[9][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*3))
+
+            call DzFrameSetPoint(FMap_Button[10][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*5), -0.080 - 0.120)
+
+            call DzFrameShow(FMap_Button[0][0], true)
+            call DzFrameShow(FMap_Button[1][0], true)
+
+            call DzFrameShow(FMap_Button[5][0], true)
+            call DzFrameShow(FMap_Button[6][0], true)
+
+            call DzFrameShow(FMap_Button[10][0], true)
+            call DzFrameShow(FMap_Button[11][0], false)
+
+            call DzFrameShow(FMap_Button[15][0], false)
+            call DzFrameShow(FMap_Button[16][0], false)
+        endif
+    endfunction
     
     
     private function MKey takes nothing returns nothing
@@ -1977,67 +2048,7 @@ library UIMap initializer init requires DataUnit, FrameCount
                         call DzFrameShow(FMap_BackDrop, false)
                         set FMap_OnOff[j] = false
                     else
-                        call DzFrameShow(FMap_BackDrop, true)
-                        set FMap_OnOff[j] = true
-                        if NowList == 0 then
-                            call DzFrameSetPoint(FMap_Button[0][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*5), -0.080 - 0.120)
-
-                            call DzFrameSetPoint(FMap_Button[1][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[1][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[1][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[1][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*4), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[2][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[2][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[2][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[2][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*3), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[3][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[3][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[3][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[3][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*2), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[4][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[4][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[4][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[4][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 - (0.060*1), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[5][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350, -0.080 - 0.120)
-
-                            call DzFrameSetPoint(FMap_Button[6][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[6][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[6][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[6][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*1), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[7][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[7][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[7][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[7][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*2), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[8][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[8][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[8][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[8][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*3), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[9][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*0))
-                            call DzFrameSetPoint(FMap_Button[9][1], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*1))
-                            call DzFrameSetPoint(FMap_Button[9][2], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*2))
-                            call DzFrameSetPoint(FMap_Button[9][3], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*4), -0.080 + (-0.080*3))
-
-                            call DzFrameSetPoint(FMap_Button[10][0], JN_FRAMEPOINT_CENTER, FMap_BackDrop , JN_FRAMEPOINT_TOPLEFT, 0.350 + (0.060*5), -0.080 - 0.120)
-
-                            call DzFrameShow(FMap_Button[0][0], true)
-                            call DzFrameShow(FMap_Button[1][0], true)
-
-                            call DzFrameShow(FMap_Button[5][0], true)
-                            call DzFrameShow(FMap_Button[6][0], true)
-
-                            call DzFrameShow(FMap_Button[10][0], true)
-                            call DzFrameShow(FMap_Button[11][0], false)
-
-                            call DzFrameShow(FMap_Button[15][0], false)
-                            call DzFrameShow(FMap_Button[16][0], false)
-                        endif
+                        call ShowMapForGuide(j)
                     endif
                 endif
             endif
