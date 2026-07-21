@@ -1,10 +1,9 @@
 // 캐릭터 선택 직후 다음 목표 안내 패널
-library UIPostPickGuide initializer Init requires UIMap, FrameCount
+library UIPostPickGuide initializer Init requires FrameCount
     globals
         integer FPostPickGuide_BackDrop
         integer FPostPickGuide_Title
         integer FPostPickGuide_Text
-        integer FPostPickGuide_MapButton
         integer FPostPickGuide_CloseButton
 
         boolean array FPostPickGuide_OnOff
@@ -31,13 +30,6 @@ library UIPostPickGuide initializer Init requires UIMap, FrameCount
         endif
     endfunction
 
-    private function ClickMapButton takes nothing returns nothing
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-
-        call HidePostPickGuide(pid)
-        call ShowMapForGuide(pid)
-    endfunction
-
     private function ClickCloseButton takes nothing returns nothing
         call HidePostPickGuide(GetPlayerId(DzGetTriggerUIEventPlayer()))
     endfunction
@@ -61,16 +53,10 @@ library UIPostPickGuide initializer Init requires UIMap, FrameCount
 
         set FPostPickGuide_Text = DzCreateFrameByTagName("TEXT", "", FPostPickGuide_BackDrop, "", FrameCount())
         call DzFrameSetPoint(FPostPickGuide_Text, JN_FRAMEPOINT_TOPLEFT, FPostPickGuide_BackDrop, JN_FRAMEPOINT_TOPLEFT, 0.018, -0.045)
-        call DzFrameSetText(FPostPickGuide_Text, "M 키로 지도를 열고 첫 경로를 선택하세요.|n전투, 사건, 상점 중 하나를 고르면 진행이 시작됩니다.")
-
-        set FPostPickGuide_MapButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", FPostPickGuide_BackDrop, "ScriptDialogButton", FrameCount())
-        call DzFrameSetPoint(FPostPickGuide_MapButton, JN_FRAMEPOINT_BOTTOMLEFT, FPostPickGuide_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.018, 0.018)
-        call DzFrameSetSize(FPostPickGuide_MapButton, 0.10, 0.03)
-        call DzFrameSetText(FPostPickGuide_MapButton, "지도 열기")
-        call DzFrameSetScriptByCode(FPostPickGuide_MapButton, JN_FRAMEEVENT_MOUSE_UP, function ClickMapButton, false)
+        call DzFrameSetText(FPostPickGuide_Text, "전투를 준비하고 주변 사건과 상점을 확인하세요.|n첫 진행 목표는 다음 안내가 열리면 선택할 수 있습니다.")
 
         set FPostPickGuide_CloseButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", FPostPickGuide_BackDrop, "ScriptDialogButton", FrameCount())
-        call DzFrameSetPoint(FPostPickGuide_CloseButton, JN_FRAMEPOINT_BOTTOMLEFT, FPostPickGuide_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.132, 0.018)
+        call DzFrameSetPoint(FPostPickGuide_CloseButton, JN_FRAMEPOINT_BOTTOMLEFT, FPostPickGuide_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.018, 0.018)
         call DzFrameSetSize(FPostPickGuide_CloseButton, 0.08, 0.03)
         call DzFrameSetText(FPostPickGuide_CloseButton, "닫기")
         call DzFrameSetScriptByCode(FPostPickGuide_CloseButton, JN_FRAMEEVENT_MOUSE_UP, function ClickCloseButton, false)
