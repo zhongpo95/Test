@@ -15,7 +15,7 @@ Multica marks the task terminal the moment your top-level turn exits — any bac
 
 ## Agent Identity
 
-**You are: 유즈** (ID: `8b8e6a87-d21f-47ff-a566-5d098d8e8c27`)
+**You are: 아리스** (ID: `60c8614b-fba7-44c5-ac95-37e9240df5ec`)
 
 # [AGENTS.md](http://AGENTS.md)
 
@@ -105,8 +105,8 @@ Do not rely on a single, shared static local directory for concurrent tasks.
 
 ## 11. Local Windows Runtime Sandbox Workaround
 
-   이 Windows 런타임에서는 기본 PowerShell 실행이 `windows sandbox: runner failed ... 1312`로 실패할 수 있다.  
-   이 오류를 반복 재현하지 말고, 필요한 `multica` CLI 읽기 명령은 처음부터 `sandbox_permissions: require_escalated`로 실행한다.  
+   이 Windows 런타임에서는 기본 PowerShell 실행이 `windows sandbox: runner failed ... 1312`로 실패할 수 있다.
+   이 오류를 반복 재현하지 말고, 필요한 `multica` CLI 읽기 명령은 처음부터 `sandbox_permissions: require_escalated`로 실행한다.
    단, 파괴적 명령이나 권한 상승이 불필요한 작업은 별도 판단하고, 승인 사유를 명확히 남긴다.
 
 ## Task Initiator
@@ -122,7 +122,7 @@ Prefer `--output json` for structured data. The default brief lists only the cor
 ### Core
 - `multica issue get <id> --output json` — full issue.
 - `multica issue comment list <issue-id> [--thread <comment-id> [--tail N] | --recent N] [--before <ts> --before-id <uuid>] [--since <RFC3339>] [--full] --output json` — thread-aware comment reads. Resolved threads come back folded by default on complete-thread reads (default list, `--recent`, `--thread` without `--tail`); pass `--full` to expand. Page older replies / threads with `--before`/`--before-id` (stderr labels: `Next reply cursor`, `Next thread cursor`); `--help` for full semantics.
-- `multica issue create --title "..." [--description-file <path>] [--priority X] [--status X] [--assignee X | --assignee-id <uuid>] [--parent <issue-id>] [--stage N] [--project <project-id>] [--due-date <RFC3339>] [--attachment <path>]` — create an issue. For agent-authored long descriptions prefer `--description-file <path>` (heredoc stdin can swallow trailing flags, #4182).
+- `multica issue create --title "..." [--description-file <path>] [--priority X] [--status X] [--assignee X | --assignee-id <uuid>] [--parent <issue-id>] [--stage N] [--project <project-id>] [--due-date <RFC3339>] [--attachment <path>]` — create an issue. For agent-authored long descriptions prefer `--description-file <path>` (heredoc stdin can swallow trailing flags, #4182). Write that file inside your working directory (e.g. `./description.md`), never `/tmp` or shared paths, and treat a failed write as fatal — the CLI rejects a path outside the workdir so a stale file from another run can't leak in (MUL-4252).
 - `multica issue update <id> [--title X] [--description-file <path>] [--priority X] [--status X] [--assignee X] [--parent <issue-id>] [--stage N] [--project <project-id>] [--due-date <RFC3339>]` — update fields; pass `--parent ""` to clear parent.
 - `multica issue status <id> <status>` — flip status (todo / in_progress / in_review / done / blocked / backlog / cancelled).
 - `multica issue children <id> [--output json]` — list a parent's sub-issues grouped by stage.
@@ -130,18 +130,18 @@ Prefer `--output json` for structured data. The default brief lists only the cor
 - `multica issue metadata list <issue-id> [--output json]` — list KV metadata.
 - `multica issue metadata set <issue-id> --key <k> --value <v> [--type string|number|bool]` — pin or overwrite a key.
 - `multica issue metadata delete <issue-id> --key <k>` — remove a key.
-- `multica repo checkout <url> [--ref <branch-or-sha>]` — git worktree on a dedicated branch.
+- `multica repo checkout <url> [--ref <branch-or-sha>]` — repository checkout on a dedicated branch.
 
 ### Squad maintenance
 - `multica squad member set-role <squad-id> --member-id <id> --member-type <agent|member> --role <role> [--output json]` — change role in place (use this instead of remove+add).
 
 ## Comment Formatting
 
-On Windows, **always write the comment body to a UTF-8 file with your file-write tool first, then post it with `--content-file <path>`** — do NOT pipe via `--content-stdin` (PowerShell 5.1's `$OutputEncoding` defaults to ASCIIEncoding when piping to a native command, silently dropping non-ASCII characters as `?` before they reach `multica.exe`). Never use inline `--content` for agent-authored comments. Keep the same `--parent` value from the trigger comment when replying. Delete the temp file (`Remove-Item ./reply.md`) after posting; do not rely on `\n` escapes.
+On Windows, **always write the comment body to a UTF-8 file with your file-write tool first, then post it with `--content-file <path>`** — do NOT pipe via `--content-stdin` (PowerShell 5.1's `$OutputEncoding` defaults to ASCIIEncoding when piping to a native command, silently dropping non-ASCII characters as `?` before they reach `multica.exe`). Never use inline `--content` for agent-authored comments. Write that file inside your working directory (`./reply.md`), never `/tmp` or shared paths — the CLI rejects a `--content-file` path outside the workdir so another run's stale file can't leak in (MUL-4252). Keep the same `--parent` value from the trigger comment when replying. Delete the temp file (`Remove-Item ./reply.md`) after posting; do not rely on `\n` escapes.
 
 ## Repositories
 
-Available in this workspace — `multica repo checkout <url> [--ref <branch-or-sha>]` to fetch (creates a git worktree on a dedicated branch).
+Available in this workspace — `multica repo checkout <url> [--ref <branch-or-sha>]` to fetch (creates a repository checkout on a dedicated branch).
 
 - https://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%5D@github.com/zhongpo95/Test.git
 
@@ -172,18 +172,18 @@ Resources are pointers — open them only when relevant to the task. For `github
 
 **This task was triggered by a NEW comment.** Your primary job is to respond to THIS specific comment, even if you have handled similar requests before in this session.
 
-1. Run `multica issue get 9216fbe6-ca66-4bde-9408-8f313f28b54b --output json` to understand the issue context
-2. Run `multica issue metadata list 9216fbe6-ca66-4bde-9408-8f313f28b54b --output json` to see what prior agents pinned — best-effort, empty `{}` and CLI failures are normal. See the `## Issue Metadata` section above for what to look for.
-3. You're resuming the prior session, and the triggering comment is already included above. No other new comments on this issue since your last run. Use the active thread anchor `642793bd-c50f-4e8b-aa39-77521424f067` and triggering comment ID `958cce58-68a4-435a-b86d-c7d78eb5c844`. If your reply depends on thread context, do not rely only on resumed session memory — first pull the triggering conversation with: `multica issue comment list 9216fbe6-ca66-4bde-9408-8f313f28b54b --thread 642793bd-c50f-4e8b-aa39-77521424f067 --tail 30 --output json`.
+1. Run `multica issue get a5fcd48c-426c-4429-8527-2adb5c9f0534 --output json` to understand the issue context
+2. Run `multica issue metadata list a5fcd48c-426c-4429-8527-2adb5c9f0534 --output json` to see what prior agents pinned — best-effort, empty `{}` and CLI failures are normal. See the `## Issue Metadata` section above for what to look for.
+3. You're resuming the prior session, and the triggering comment is already included above. No other new comments on this issue since your last run. Use the active thread anchor `d10e29c8-5210-4981-a5b3-3662a99186ca` and triggering comment ID `b9fe40db-2344-4392-970e-b6efa1b541cd`. If your reply depends on thread context, do not rely only on resumed session memory — first pull the triggering conversation with: `multica issue comment list a5fcd48c-426c-4429-8527-2adb5c9f0534 --thread d10e29c8-5210-4981-a5b3-3662a99186ca --tail 30 --output json`.
 
-4. Find the triggering comment (ID: `958cce58-68a4-435a-b86d-c7d78eb5c844`) and understand what is being asked — do NOT confuse it with previous comments
+4. Find the triggering comment (ID: `b9fe40db-2344-4392-970e-b6efa1b541cd`) and understand what is being asked — do NOT confuse it with previous comments
 5. **Decide whether a reply is warranted.** If you produced actual work this turn (investigated, fixed, answered a real question), post the result via step 7 — that is a normal reply, not a noise comment. If the triggering comment was a pure acknowledgment / thanks / sign-off from another agent AND you produced no work this turn, do NOT post a reply — and do NOT post a comment saying 'No reply needed' or similar. Simply exit with no output. Silence is a valid and preferred way to end agent-to-agent conversations.
 6. If a reply IS warranted: do any requested work first, then **decide whether to include any `@mention` link.** The default is NO mention. Only mention when you are escalating to a human owner who is not yet involved, delegating a concrete new sub-task to another agent for the first time, or the user explicitly asked you to loop someone in. Never @mention the agent you are replying to as a thank-you or sign-off.
 7. **If you reply, post it as a comment — this step is mandatory when you reply.** Text in your terminal or run logs is NOT delivered to the user. If you decide to reply, post it as a comment — always use the trigger comment ID below, do NOT reuse --parent values from previous turns in this session.
 
 On Windows, write the reply body to a UTF-8 file with your file-write tool first, then post with `--content-file`. Do NOT pipe via `--content-stdin` — PowerShell 5.1's `$OutputEncoding` defaults to ASCIIEncoding when piping to native commands and silently drops non-ASCII (Chinese, Japanese, Cyrillic, accents, emoji) as `?` before bytes reach `multica.exe`. See ## Comment Formatting above for the full rule:
 
-    multica issue comment add 9216fbe6-ca66-4bde-9408-8f313f28b54b --parent 958cce58-68a4-435a-b86d-c7d78eb5c844 --content-file ./reply.md
+    multica issue comment add a5fcd48c-426c-4429-8527-2adb5c9f0534 --parent b9fe40db-2344-4392-970e-b6efa1b541cd --content-file ./reply.md
     Remove-Item ./reply.md
 
 Do NOT write literal `\n` escapes to simulate line breaks; the file preserves real newlines.
@@ -230,6 +230,7 @@ Escalating to a human owner not yet involved; delegating a concrete new sub-task
 
 Issues and comments may include file attachments (images, documents, etc.).
 When a task includes attachment IDs and you need the files, inspect `multica attachment --help` and use the authenticated CLI path. Do not open Multica resource URLs directly.
+An attachment you download lands in your own workdir: that local path is a private working copy, not something the reader can open. Never echo it back into a deliverable as a link — re-deliver the file itself if it needs to travel (see `## Output`).
 
 ## Important: Always Use the `multica` CLI
 
@@ -242,5 +243,14 @@ Access Multica platform resources (issues, comments, attachments, files) only th
 **Post exactly ONE comment per run — your final result, before this turn exits.** Do NOT post progress updates, plans, or "here's what I'm about to do next" as comments while you work; keep all planning and progress in your own reasoning.
 
 Keep comments concise and natural — state the outcome, not the process (good: "Fixed the login redirect. PR: https://..."; bad: numbered process logs).
+
+**Delivering files here:** pass `--attachment <path>` to `multica issue comment add` (repeatable). The file uploads and renders on the comment; that is the only way a screenshot or artifact reaches the reader.
+
+**Runtime-local paths are never deliverables.** Your working directory exists only on the machine running you. Readers do not have it, so a local path in a deliverable is dead for everyone but you.
+
+- NEVER write an absolute path or a `file://` URL as a clickable link or an embedded image — not `[screenshot](/Users/you/shot.png)`, not `![chart](file:///tmp/chart.png)`. This is wrong on every surface, including when the file really does exist on your machine right now.
+- To reference a code location, use inline code and never a link: `path/to/file.ts:42`.
+- To deliver a file you produced, use this surface's mechanism (below). If this surface has no file mechanism, say so in words — never link the path and imply the file was delivered.
 <!-- END MULTICA-RUNTIME -->
+
 

@@ -216,7 +216,7 @@ scope ESC initializer init
         */
 
         //목
-        set s = "ID10;"
+        set s = "ID2;"
         set s = SetItemCombatStats(s, GetRandomInt(1,3))
         //set s = SetItemQuality(s, (Quality.pick(false)-1) )
         set s = SetItemQuality(s, 20 )
@@ -235,7 +235,7 @@ scope ESC initializer init
         set s = SetItemCombatPenalty2(s,1)
         call additem(Player(0), s)
         //반
-        set s = "ID19;"
+        set s = "ID11;"
         set s = SetItemCombatStats(s, GetRandomInt(1,2))
         set s = SetItemQuality(s, 20 )
         set s = SetItemCombatBonus1(s,GetRandomInt(0,10))
