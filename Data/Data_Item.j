@@ -69,7 +69,7 @@ library DataItem
         //기타 0아이템아이디, 1중첩수
         
 //무기 공격력
-        set ItemStats[1][1] = "10"
+        set ItemStats[1][1] = "1"
         //증10퍼
         set ItemStats[1][2] = "100;110;121;133;146;161;177;194;214;235;259"
         //증5퍼
@@ -148,7 +148,7 @@ library DataItem
         set EnchantRate[2][9] = 2000
         set EnchantRate[2][10] = 1000
         
-        set EnchantMaterial1[2][1] = 2
+        set EnchantMaterial1[2][1] = 0
         set EnchantMaterial1[2][2] = 2
         set EnchantMaterial1[2][3] = 2
         set EnchantMaterial1[2][4] = 2
@@ -158,7 +158,7 @@ library DataItem
         set EnchantMaterial1[2][8] = 2
         set EnchantMaterial1[2][9] = 2
         set EnchantMaterial1[2][10] = 2
-        set EnchantMaterial2[2][1] = 0
+        set EnchantMaterial2[2][1] = 100
         set EnchantMaterial2[2][2] = 0
         set EnchantMaterial2[2][3] = 0
         set EnchantMaterial2[2][4] = 0

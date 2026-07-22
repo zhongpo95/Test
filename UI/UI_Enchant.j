@@ -1,4 +1,4 @@
-library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
+library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM, FrameCount
     globals
         integer F_EnchantBackDrop                   //인포 배경
         integer F_EnchantCancelButton               //X버튼
@@ -202,6 +202,20 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 set i = GetItemIDs(items)
                 set quality = GetItemQuality(items)
                 set tier = GetItemTier(items)
+                if i == 10 then
+                    set items = "ID3;"
+                    set items = SetItemQuality(items, quality)
+                    set Eitem[pid][f] = items
+                    call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
+
+                    set F_EnchantSelectNumber = 6
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
+                    call DzFrameShow(F_EnchantUpText, false)
+                    call DzFrameShow(F_EnchantButton2, false)
+                    call MainQuestAfterFirstSuccess(pid, PlayerSlotNumber[pid])
+                    call CharacterSave(true , SLNumber)
+                    return
+                endif
                 if tier == 1 then
                     set k = 24
                 elseif tier == 2 then
@@ -402,6 +416,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                             call DzFrameShow(F_EnchantUpText, false)
                             call DzFrameShow(F_EnchantButton, false)
+                            call MainQuestAfterGoldEnchant(pid, PlayerSlotNumber[pid], tier, up)
                             call CharacterSave(true , SLNumber)
                         else
                             //실패
@@ -480,6 +495,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                                         call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
                                         call DzFrameShow(F_EnchantUpText, false)
                                         call DzFrameShow(F_EnchantButton, false)
+                                        call MainQuestAfterGoldEnchant(pid, PlayerSlotNumber[pid], tier, up)
                                         call CharacterSave(true , SLNumber)
                                     else
                                         //실패
@@ -517,8 +533,10 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                         endloop
                     endif
                 else
-                    call VJDebugMsg("서버에 연결되지 않았습니다.")
+                    call VJDebugMsg("골드가 부족합니다.")
                 endif
+            else
+                call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
         endif
     endfunction
@@ -583,9 +601,15 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
             set fate = GetItemFate(items)
 
             if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
-                call DzFrameSetText(F_EnchantText[7], "x 1" )
-                call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+                if itemid == 10 then
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
+                    call DzFrameSetText(F_EnchantText[7], "x 0" )
+                    call DzFrameSetText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
+                else
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
+                    call DzFrameSetText(F_EnchantText[7], "x 1" )
+                    call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+                endif
                 call DzFrameShow(F_EnchantButton, false)
                 call DzFrameShow(F_EnchantButton2, true)
                 call DzFrameShow(F_EnchantUpText, true)
@@ -612,7 +636,9 @@ library UIEnchant initializer Init requires DataItem, UIItem, ITEM, FrameCount
                 call DzFrameSetText(F_EnchantText[5], "x " + I2S(EnchantMaterial1[tier][up+1]) )
                 call DzFrameSetText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
                 
-                if tier == 2 then
+                if EnchantMaterial1[tier][up+1] == 0 then
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], "UI_Inventory.blp", 0)
+                elseif tier == 2 then
                     call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(24), 0)
                 elseif tier == 3 then
                     call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(27), 0)

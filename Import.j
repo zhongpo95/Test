@@ -7,6 +7,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_HP.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Info.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Item.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_MainQuest.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Msg.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Pick.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Skill.j"

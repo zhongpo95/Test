@@ -1,4 +1,4 @@
-library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay, ItemPickUp
+library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay, ItemPickUp, UIMainQuest, UIPick
     globals
         integer BossTip
         //8초
@@ -220,25 +220,8 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
     private function SuccessF takes nothing returns nothing
         local real r
         call SuccessStart(GetEnumUnit())
-        call RewardStart(GetEnumUnit())
-        //주금
-
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0")
-
-        //딜 참가한인원 x3% 체퍼딜
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID24"+";"+"0", 5000)
+        call MainQuestAddGold(GetOwningPlayer(GetEnumUnit()), MainQuestBoss1Gold())
+        call MainQuestAfterBoss1(GetOwningPlayer(GetEnumUnit()), PlayerSlotNumber[GetPlayerId(GetOwningPlayer(GetEnumUnit()))])
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 
