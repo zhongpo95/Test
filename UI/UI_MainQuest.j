@@ -37,7 +37,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         if GetLocalPlayer() == Player(pid) then
             if step == MQ_STEP_INHERIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가서 시작 무기를 무료로 계승하세요.")
+                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가서 시작 무기를 계승하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_BOSS1 then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")

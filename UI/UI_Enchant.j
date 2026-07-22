@@ -604,7 +604,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                 if itemid == 10 then
                     call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
                     call DzFrameSetText(F_EnchantText[7], "x 0" )
-                    call DzFrameSetText(F_EnchantUpText, "무료로 시작 무기 계승을 시도하세요")
+                    call DzFrameSetText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
                 else
                     call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
                     call DzFrameSetText(F_EnchantText[7], "x 1" )
