@@ -193,7 +193,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         local integer tier = 0
         local integer length = 0
         local integer l = 1
-        local integer m = MainQuestFirstSuccessGold()
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if Player(pid) == GetLocalPlayer() then
@@ -204,23 +203,17 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                 set quality = GetItemQuality(items)
                 set tier = GetItemTier(items)
                 if i == 10 then
-                    if m <= S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) then
-                        call StashSave(PLAYER_DATA[pid], "골드", I2S(S2I(StashLoad(PLAYER_DATA[pid], "골드", "0")) - m) )
-                        call DzFrameSetText(F_GoldText, StashLoad(PLAYER_DATA[pid], "골드", "0"))
-                        set items = "ID3;"
-                        set items = SetItemQuality(items, quality)
-                        set Eitem[pid][f] = items
-                        call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
+                    set items = "ID3;"
+                    set items = SetItemQuality(items, quality)
+                    set Eitem[pid][f] = items
+                    call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
 
-                        set F_EnchantSelectNumber = 6
-                        call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-                        call DzFrameShow(F_EnchantUpText, false)
-                        call DzFrameShow(F_EnchantButton2, false)
-                        call MainQuestAfterFirstSuccess(pid, PlayerSlotNumber[pid])
-                        call CharacterSave(true , SLNumber)
-                    else
-                        call VJDebugMsg("골드가 부족합니다.")
-                    endif
+                    set F_EnchantSelectNumber = 6
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
+                    call DzFrameShow(F_EnchantUpText, false)
+                    call DzFrameShow(F_EnchantButton2, false)
+                    call MainQuestAfterFirstSuccess(pid, PlayerSlotNumber[pid])
+                    call CharacterSave(true , SLNumber)
                     return
                 endif
                 if tier == 1 then
@@ -609,9 +602,9 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
             if tier == 1 then
                 if itemid == 10 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI\\Feedback\\Resources\\ResourceGold.blp", 0)
-                    call DzFrameSetText(F_EnchantText[7], "x " + I2S(MainQuestFirstSuccessGold()) )
-                    call DzFrameSetText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
+                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
+                    call DzFrameSetText(F_EnchantText[7], "x 0" )
+                    call DzFrameSetText(F_EnchantUpText, "무료로 시작 무기 계승을 시도하세요")
                 else
                     call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
                     call DzFrameSetText(F_EnchantText[7], "x 1" )

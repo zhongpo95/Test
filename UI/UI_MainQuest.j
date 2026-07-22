@@ -8,17 +8,12 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         private constant integer MQ_STEP_BOSS1 = 2
         private constant integer MQ_STEP_ENCHANT = 3
         private constant integer MQ_STEP_WAIT = 4
-        private constant integer MQ_FIRST_SUCCESS_GOLD = 10
         private constant integer MQ_BOSS1_GOLD = 100
     endglobals
 
     // Q = 메인퀘스트 단계, QB = 첫 보스 처치 카운터.
     private function MainQuestKey takes integer heroNumber, string key returns string
         return "영웅"+I2S(heroNumber)+"."+key
-    endfunction
-
-    function MainQuestFirstSuccessGold takes nothing returns integer
-        return MQ_FIRST_SUCCESS_GOLD
     endfunction
 
     function MainQuestBoss1Gold takes nothing returns integer
@@ -42,7 +37,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         if GetLocalPlayer() == Player(pid) then
             if step == MQ_STEP_INHERIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가서 시작 무기를 계승하세요.|n필요 골드 "+I2S(MQ_FIRST_SUCCESS_GOLD))
+                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가서 시작 무기를 무료로 계승하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_BOSS1 then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
@@ -127,17 +122,17 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
     private function Init takes nothing returns nothing
         set F_MQBackDrop = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_MQBackDrop, "Filenemo.blp", 0)
-        call DzFrameSetAbsolutePoint(F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.015, 0.560)
-        call DzFrameSetSize(F_MQBackDrop, 0.235, 0.060)
+        call DzFrameSetAbsolutePoint(F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.000, 0.540)
+        call DzFrameSetSize(F_MQBackDrop, 0.250, 0.060)
         call DzFrameSetAlpha(F_MQBackDrop, 220)
         set F_MQTitleText = DzCreateFrameByTagName("TEXT", "", F_MQBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_MQTitleText, JN_FRAMEPOINT_TOPLEFT, F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.010, -0.008)
-        call DzFrameSetSize(F_MQTitleText, 0.215, 0.014)
+        call DzFrameSetSize(F_MQTitleText, 0.230, 0.014)
         call DzFrameSetFont(F_MQTitleText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
         set F_MQBodyText = DzCreateFrameByTagName("TEXT", "", F_MQBackDrop, "", FrameCount())
         call DzFrameSetPoint(F_MQBodyText, JN_FRAMEPOINT_TOPLEFT, F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.010, -0.024)
-        call DzFrameSetSize(F_MQBodyText, 0.215, 0.030)
+        call DzFrameSetSize(F_MQBodyText, 0.230, 0.030)
         call DzFrameSetFont(F_MQBodyText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
         call DzFrameSetText(F_MQBodyText, "")
         call DzFrameShow(F_MQBackDrop, false)
