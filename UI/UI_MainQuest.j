@@ -24,6 +24,16 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         return S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), "0"))
     endfunction
 
+    function MainQuestCanSelectBoss takes integer pid, integer heroNumber, integer bossOrder returns boolean
+        local integer step = MainQuestGetStep(pid, heroNumber)
+        if step == MQ_STEP_BOSS1 then
+            return bossOrder == 1
+        elseif step == MQ_STEP_WAIT then
+            return true
+        endif
+        return false
+    endfunction
+
     private function MainQuestSetStep takes integer pid, integer heroNumber, integer step returns nothing
         call StashSave(PLAYER_DATA[pid], MainQuestKey(heroNumber, "Q"), I2S(step))
     endfunction
