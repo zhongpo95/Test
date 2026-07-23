@@ -35,7 +35,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         return MainQuestCanSelectBoss(pid, PlayerSlotNumber[pid], BossOrderByNumber(bossNumber))
     endfunction
 
-    private function RefreshBossTextures takes integer pid returns nothing
+    function BossStartRefreshTextures takes integer pid returns nothing
         if CanPickBoss(pid, 2) then
             call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
         else
@@ -71,7 +71,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         else
             call DzFrameShow(FBS_BD, true)
             set FBS_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            call RefreshBossTextures(GetPlayerId(DzGetTriggerUIEventPlayer()))
+            call BossStartRefreshTextures(GetPlayerId(DzGetTriggerUIEventPlayer()))
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), false)
             call PlayersHPBarShow(DzGetTriggerUIEventPlayer(),false)
         endif
@@ -154,7 +154,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         elseif NowList == 4 then
             call DzFrameShow(FBS_BT[4], true)
         endif
-        call RefreshBossTextures(pid)
+        call BossStartRefreshTextures(pid)
         
     endfunction
     
