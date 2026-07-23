@@ -150,12 +150,12 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         
         //1페이지
         if f == FBS_BLB[0][1] then
-            set Selectting = 1
-            call DzFrameShow(FBS_BossTip[0], true)
-            call DzFrameShow(FBS_SelectBBD, true)
-        elseif f == FBS_BLB[0][2] then
             set Selectting = 2
             call DzFrameShow(FBS_BossTip[1], true)
+            call DzFrameShow(FBS_SelectBBD, true)
+        elseif f == FBS_BLB[0][2] then
+            set Selectting = 1
+            call DzFrameShow(FBS_BossTip[0], true)
             call DzFrameShow(FBS_SelectBBD, true)
         elseif f == FBS_BLB[0][3] then
             set Selectting = 3
@@ -236,7 +236,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzFrameSetSize(FBS_BLB[0][1], 0.20, 0.10)
         call DzFrameSetScriptByCode(FBS_BLB[0][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[0][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_1_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][1], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FBS_BL[0][1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4150)
         
@@ -245,7 +245,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzFrameSetSize(FBS_BLB[0][2], 0.20, 0.10)
         call DzFrameSetScriptByCode(FBS_BLB[0][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[0][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_2_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][2], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FBS_BL[0][2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3250)
         
