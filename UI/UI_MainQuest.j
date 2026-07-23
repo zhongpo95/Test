@@ -47,11 +47,11 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         if GetLocalPlayer() == Player(pid) then
             if step == MQ_STEP_INHERIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가서 시작 무기를 계승하세요.")
+                call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가까이 가서 클릭한 후 시작 무기 클릭하고 계승하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_BOSS1 then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가서 골드 파밍 보스를 처치하고 다음 강화에 쓸 골드를 획득하세요.")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 무력화 보스를 처치하고 다음 강화에 쓸 골드를 획득하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_ENCHANT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
@@ -59,7 +59,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_WAIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "초반 강화가 완료되었습니다.|n다음 안내는 이후 보스 보상 작업에서 이어집니다.")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 카운터 보스를 처치하고 다음 강화에 쓸 재료를 획득하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             else
                 call DzFrameShow(F_MQBackDrop, false)
