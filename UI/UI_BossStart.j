@@ -15,7 +15,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         integer array FBS_BT[12]           //보스티어
         integer array FBS_BLB[12][4]       //보스리스트 버튼
         integer array FBS_BL[12][4]        //보스리스트
-        integer array FBS_BLL[12][4]       //보스리스트 잠금
         boolean array FBS_OnOff            //인포 온오프
         
         private integer Selectting = 0     //누른 보스넘버
@@ -36,10 +35,24 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         return MainQuestCanSelectBoss(pid, PlayerSlotNumber[pid], BossOrderByNumber(bossNumber))
     endfunction
 
-    private function RefreshBossLocks takes integer pid returns nothing
-        call DzFrameShow(FBS_BLL[0][1], not CanPickBoss(pid, 2))
-        call DzFrameShow(FBS_BLL[0][2], not CanPickBoss(pid, 1))
-        call DzFrameShow(FBS_BLL[0][3], not CanPickBoss(pid, 3))
+    private function RefreshBossTextures takes integer pid returns nothing
+        if CanPickBoss(pid, 2) then
+            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
+        else
+            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_2.blp", 0)
+        endif
+
+        if CanPickBoss(pid, 1) then
+            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_1.blp", 0)
+        else
+            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_2.blp", 0)
+        endif
+
+        if CanPickBoss(pid, 3) then
+            call DzFrameSetTexture(FBS_BL[0][3], "UI_Boss0_3_1.blp", 0)
+        else
+            call DzFrameSetTexture(FBS_BL[0][3], "UI_Boss0_3_2.blp", 0)
+        endif
     endfunction
     
     private function BSOpen takes nothing returns nothing
@@ -58,7 +71,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         else
             call DzFrameShow(FBS_BD, true)
             set FBS_OnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-            call RefreshBossLocks(GetPlayerId(DzGetTriggerUIEventPlayer()))
+            call RefreshBossTextures(GetPlayerId(DzGetTriggerUIEventPlayer()))
             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), false)
             call PlayersHPBarShow(DzGetTriggerUIEventPlayer(),false)
         endif
@@ -141,7 +154,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         elseif NowList == 4 then
             call DzFrameShow(FBS_BT[4], true)
         endif
-        call RefreshBossLocks(pid)
+        call RefreshBossTextures(pid)
         
     endfunction
     
@@ -261,11 +274,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][1], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FBS_BL[0][1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4150)
-        set FBS_BLL[0][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BLL[0][1], "UI_Inventory_Lock2.blp", 0)
-        call DzFrameSetSize(FBS_BLL[0][1], 0.030, 0.030)
-        call DzFrameSetAbsolutePoint(FBS_BLL[0][1], JN_FRAMEPOINT_CENTER, 0.2600, 0.4150)
-        call DzFrameShow(FBS_BLL[0][1], false)
         
         set FBS_BLB[0][2] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[0], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[0][2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3250)
@@ -275,11 +283,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][2], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FBS_BL[0][2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3250)
-        set FBS_BLL[0][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BLL[0][2], "UI_Inventory_Lock2.blp", 0)
-        call DzFrameSetSize(FBS_BLL[0][2], 0.030, 0.030)
-        call DzFrameSetAbsolutePoint(FBS_BLL[0][2], JN_FRAMEPOINT_CENTER, 0.2650, 0.3250)
-        call DzFrameShow(FBS_BLL[0][2], false)
         
         set FBS_BLB[0][3] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[0], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[0][3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2350)
@@ -289,11 +292,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
         call DzFrameSetTexture(FBS_BL[0][3], "UI_Boss0_3_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][3], 0.20, 0.10)
         call DzFrameSetAbsolutePoint(FBS_BL[0][3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2350)
-        set FBS_BLL[0][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BLL[0][3], "UI_Inventory_Lock2.blp", 0)
-        call DzFrameSetSize(FBS_BLL[0][3], 0.030, 0.030)
-        call DzFrameSetAbsolutePoint(FBS_BLL[0][3], JN_FRAMEPOINT_CENTER, 0.2700, 0.2350)
-        call DzFrameShow(FBS_BLL[0][3], false)
         
         
         set FBS_BossTip[0]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
