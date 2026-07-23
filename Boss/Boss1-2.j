@@ -1,4 +1,4 @@
-library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,ItemPickUp
+library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,ItemPickUp,UIMainQuest,UIPick
     globals
         //무력화시간
         private constant integer Pattern2Time = 500
@@ -120,6 +120,8 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
 
     private function SuccessF takes nothing returns nothing
         call SuccessStart(GetEnumUnit())
+        call MainQuestAddGold(GetOwningPlayer(GetEnumUnit()), MainQuestBoss1Gold())
+        call MainQuestAfterBoss1(GetOwningPlayer(GetEnumUnit()), PlayerSlotNumber[GetPlayerId(GetOwningPlayer(GetEnumUnit()))])
         call RewardStart(GetEnumUnit())
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID39"+";"+"0")
         call AddReward(GetOwningPlayer(GetEnumUnit()), "ID39"+";"+"0")
