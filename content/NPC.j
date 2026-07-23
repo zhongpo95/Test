@@ -1,4 +1,4 @@
-library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
+library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM, UIBossStart
                 
     private function Action takes nothing returns nothing
         local unit u = GetTriggerUnit()
@@ -148,6 +148,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM
                         if FBS_OnOff[pid] == false then
                             call DzFrameShow(FBS_BD, true)
                             set FBS_OnOff[pid] = true
+                            call BossStartRefreshTextures(pid)
                             call SelectUnitForPlayerSingle( GetTriggerUnit(), GetTriggerPlayer() )
                             call DzFrameShow(JNGetFrameByName("heroStatusUI",0), false)
                             call PlayersHPBarShow(GetTriggerPlayer(),false)
