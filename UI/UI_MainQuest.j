@@ -51,7 +51,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_BOSS1 then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "첫 보스를 처치하고 다음 강화에 쓸 골드를 얻으세요.")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가서 골드 파밍 보스를 처치하고 다음 강화에 쓸 골드를 획득하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             elseif step == MQ_STEP_ENCHANT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
