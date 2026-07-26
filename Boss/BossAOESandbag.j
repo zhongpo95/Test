@@ -1,8 +1,8 @@
 // 상태이상과 피해 장판 회피를 점검하는 허수아비 보스
 library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,AOE,ItemPickUp,UIOverlay
     globals
-        private constant integer DAMAGE_AOE_ID = 401
-        private constant integer STATUS_AOE_ID = 402
+        private constant key DAMAGE_AOE_ID
+        private constant key STATUS_AOE_ID
         private constant integer PATTERN_COOL = 300
         private constant real DAMAGE_RANGE = 325
         private constant real STATUS_RANGE = 275
