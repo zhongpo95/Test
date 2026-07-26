@@ -235,20 +235,20 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 
-    private function EffectFunction2 takes nothing returns nothing
+    private function BattleTick takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
-        local AggroSystem s
-
         set NoDieCheck = 0
         call ForGroup(st.ul.super,function NoDie)
 
         //행동불가 해제
         if NoDieCheck == 0 then
+            call BossAggroDestroy(st.caster)
             call KillUnit(st.caster)
             call RemoveUnit(st.caster)
             call ForGroup(st.ul.super,function AllDie)
+            call st.ul.destroy()
             set st.caster = null
             call MapReset(st.rectnumber,2)
             set st.rectnumber = 0
@@ -274,11 +274,10 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             //주금
             else
                 call ForGroup(st.ul.super,function SuccessF)
-                call st.ul.destroy()
                 //그룹 보상
+                call BossAggroDestroy(st.caster)
+                call st.ul.destroy()
                 call KillUnit(st.caster)
-                set s = BossStruct[IndexUnit(st.caster)]
-                call s.destroy()
                 set st.caster = null
                 call BossMapReset(st.rectnumber, 1)
                 set st.rectnumber = 0
@@ -288,16 +287,10 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
 
     endfunction
 
-    private function Boss1Start2 takes integer str returns nothing
-        local tick t = tick.create(0)
-        local MapStruct st = str
-        local FxEffect fx = FxEffect.Create()
-
-        set t.data = st
-
+    private function StartBattle takes MapStruct st returns nothing
+        local tick t = tick.create(st)
         set MapRectCheck[st.rectnumber] = false
-
-        call t.start( 0.02 , true, function EffectFunction2 )
+        call t.start( 0.02 , true, function BattleTick )
     endfunction
 
     private function NoRemove takes nothing returns nothing
@@ -311,13 +304,9 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         call Overlay(pid)
     endfunction
 
-    private function EffectFunction takes nothing returns nothing
+    private function EntranceTick takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        local integer Dataindex
-        local integer UnitIndex
-        local unit Unit
-
         //다죽음
         if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
@@ -326,21 +315,13 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             call KillUnit(st.caster)
             //set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01Q',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h008',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
-            set Dataindex = DataUnitIndex(st.caster)
-            set UnitIndex = IndexUnit(st.caster)
-            set UnitHPMAX[UnitIndex] = UnitSetHP[Dataindex]
-            set UnitHP[UnitIndex] = UnitSetHP[Dataindex]
-            set UnitSDMAX[UnitIndex] = UnitSetSD[Dataindex]
-            set UnitSD[UnitIndex] = UnitSetSD[Dataindex]
-            set UnitArm[UnitIndex] = UnitSetArm[Dataindex]
-            set UnitCasting[UnitIndex] = false
+            call BossAggroInitialize(st.caster, st.ul.super)
 
             //행동불가 상태가 아님
             call UnitRemoveAbility(st.caster,'Amov')
             call SetUnitPathing(st.caster,false)
             call PauseUnit(st.caster,true)
             call SetUnitPosition(st.caster,GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)))
-            set BossStruct[UnitIndex] = AggroSystem.create(st.ul.super)
 
             //call SaveBoolean(Unithash,GetHandleId(st.caster),0,false)
 
@@ -350,9 +331,8 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             call ForGroup( st.ul.super, function NoRemove)
             set CheckUnit = null
 
-            call Boss1Start2(st)
+            call StartBattle(st)
 
-            set Unit = null
             call t.destroy()
         endif
 
@@ -362,18 +342,22 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         local tick t
         local MapStruct st
         local integer pid = GetPlayerId(GetOwningPlayer(source))
+        local integer mapNumber = GetMap(1)
 
-        set st = MapSt[GetMap(1)]
+        if mapNumber == 0 then
+            return
+        endif
 
+        set st = MapSt[mapNumber]
         if st.caster == null then
             set t = tick.create(0)
-            set st.rectnumber = GetMap(1)
+            set st.rectnumber = mapNumber
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
             set st.pattern1 = 100
             call GroupAddUnit( st.ul.super, source )
             set t.data = st
-            call t.start( 0.02 , true, function EffectFunction )
+            call t.start( 0.02 , true, function EntranceTick )
         else
             call GroupAddUnit( st.ul.super, source )
         endif

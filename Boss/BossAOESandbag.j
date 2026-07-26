@@ -1,5 +1,5 @@
 // 상태이상과 피해 장판 회피를 점검하는 허수아비 보스
-library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,AOE,ItemPickUp,UIOverlay
+library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,AOE,ItemPickUp,UIOverlay
     globals
         private constant integer DAMAGE_AOE_ID = 401
         private constant integer STATUS_AOE_ID = 402
@@ -9,7 +9,6 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
 
         private integer AlivePlayerCount
         private unit BossUnit
-        private unit PatternCaster
     endglobals
 
     private function AOEHit takes nothing returns nothing
@@ -28,36 +27,29 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
         set target = null
     endfunction
 
-    private function SpawnDamageAtPlayer takes nothing returns nothing
-        if UnitAlive(GetEnumUnit()) then
-            call AOE(PatternCaster, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
-        endif
-    endfunction
-
-    private function SpawnStatusAtPlayer takes nothing returns nothing
-        if UnitAlive(GetEnumUnit()) then
-            call AOE(PatternCaster, GetWidgetX(GetEnumUnit()), GetWidgetY(GetEnumUnit()), STATUS_RANGE, 2.0, 0, STATUS_AOE_ID, 1)
-        endif
-    endfunction
-
     private function SpawnDamagePattern takes MapStruct st returns nothing
         local real x = GetWidgetX(st.caster)
         local real y = GetWidgetY(st.caster)
+        local unit target = BossAggroTarget(st.caster)
 
-        set PatternCaster = st.caster
-        call ForGroup(st.ul.super, function SpawnDamageAtPlayer)
+        if UnitAlive(target) then
+            call AOE(st.caster, GetWidgetX(target), GetWidgetY(target), DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
+        endif
         call AOE(st.caster, x + 550, y, DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
         call AOE(st.caster, x - 550, y, DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
         call AOE(st.caster, x, y + 550, DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
         call AOE(st.caster, x, y - 550, DAMAGE_RANGE, 1.5, 'e03J', DAMAGE_AOE_ID, 0)
-        set PatternCaster = null
+        set target = null
     endfunction
 
     private function SpawnStatusPattern takes MapStruct st returns nothing
-        set PatternCaster = st.caster
-        call ForGroup(st.ul.super, function SpawnStatusAtPlayer)
+        local unit target = BossAggroTarget(st.caster)
+
+        if UnitAlive(target) then
+            call AOE(st.caster, GetWidgetX(target), GetWidgetY(target), STATUS_RANGE, 2.0, 0, STATUS_AOE_ID, 1)
+        endif
         call AOE2(st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 400, 1000, 2.5, 'e03J', DAMAGE_AOE_ID)
-        set PatternCaster = null
+        set target = null
     endfunction
 
     private function CountAlivePlayer takes nothing returns nothing
@@ -84,6 +76,7 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
         call ForGroup(st.ul.super, function CountAlivePlayer)
 
         if AlivePlayerCount == 0 then
+            call BossAggroDestroy(st.caster)
             call KillUnit(st.caster)
             call RemoveUnit(st.caster)
             call ForGroup(st.ul.super, function PlayerFailed)
@@ -94,6 +87,7 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
             call t.destroy()
         elseif UnitHP[IndexUnit(st.caster)] <= 0 or IsUnitDeadVJ(st.caster) then
             call ForGroup(st.ul.super, function PlayerSucceeded)
+            call BossAggroDestroy(st.caster)
             call st.ul.destroy()
             call KillUnit(st.caster)
             set st.caster = null
@@ -134,20 +128,10 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
     private function EntranceTick takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        local integer dataIndex
-        local integer unitIndex
-
         if splash.range(splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing) == 0 then
             call KillUnit(st.caster)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), 'h00L', GetRectCenterX(MapRectReturn(st.rectnumber)), GetRectCenterY(MapRectReturn(st.rectnumber)), 270)
-            set dataIndex = DataUnitIndex(st.caster)
-            set unitIndex = IndexUnit(st.caster)
-            set UnitHPMAX[unitIndex] = UnitSetHP[dataIndex]
-            set UnitHP[unitIndex] = UnitSetHP[dataIndex]
-            set UnitSDMAX[unitIndex] = UnitSetSD[dataIndex]
-            set UnitSD[unitIndex] = UnitSetSD[dataIndex]
-            set UnitArm[unitIndex] = UnitSetArm[dataIndex]
-            set UnitCasting[unitIndex] = false
+            call BossAggroInitialize(st.caster, st.ul.super)
 
             call UnitRemoveAbility(st.caster, 'Amov')
             call SetUnitPathing(st.caster, false)
