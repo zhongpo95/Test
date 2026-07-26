@@ -1,4 +1,4 @@
-library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCount, UIOverlay, UIMainQuest, UIPick
+library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOESandbag, FrameCount, UIOverlay, UIMainQuest, UIPick
     globals
         integer FBS_BD                     //인포 배경
         integer FBS_CB                     //X버튼
@@ -497,10 +497,10 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, FrameCo
             //set HeroTypeId = 'H003'
             call Boss3Start(MainUnit[pid])
 
-        //유유코
-        //elseif BossNumber == 4 then
+        //장판 회피 허수아비
+        elseif BossNumber == 4 then
             //set HeroTypeId = 'H00F'
-            //call Boss4Start(MainUnit[pid])
+            call AOESandbagStart(MainUnit[pid])
         endif
         
         set p = null
