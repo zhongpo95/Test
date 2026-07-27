@@ -1,4 +1,4 @@
-library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,ItemPickUp
+library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,ItemPickUp
     globals
         //2분30초 7500
         //test1500
@@ -133,7 +133,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 
-    private function Function2 takes nothing returns nothing
+    private function BattleTick takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
@@ -145,9 +145,11 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         //카운터를 못침
 
         if NoDieCheck == 0 then
+            call BossAggroDestroy(st.caster)
             call KillUnit(st.caster)
             call RemoveUnit(st.caster)
             call ForGroup(st.ul.super,function AllDie)
+            call st.ul.destroy()
             set st.caster = null
             call MapReset(st.rectnumber,2)
             set st.rectnumber = 0
@@ -172,6 +174,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             else
                 //그룹 보상
                 call ForGroup(st.ul.super,function SuccessF)
+                call BossAggroDestroy(st.caster)
                 call st.ul.destroy()
                 call KillUnit(st.caster)
                 set st.caster = null
@@ -182,15 +185,10 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         endif
     endfunction
 
-    private function Boss4Start2 takes MapStruct str returns nothing
-        local tick t = tick.create(0)
-        local MapStruct st = str
-
-        set t.data = st
-
+    private function StartBattle takes MapStruct st returns nothing
+        local tick t = tick.create(st)
         set MapRectCheck[st.rectnumber] = false
-
-        call t.start( 0.02 , true, function Function2 )
+        call t.start( 0.02 , true, function BattleTick )
     endfunction
 
     private function NoRemove takes nothing returns nothing
@@ -204,25 +202,14 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         call Overlay(pid)
     endfunction
 
-    private function Function takes nothing returns nothing
+    private function EntranceTick takes nothing returns nothing
         local tick t = tick.getExpired()
         local MapStruct st = t.data
-        local integer Dataindex
-        local integer UnitIndex
-        local unit Unit
-
         if splash.range( splash.ALLY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 500, function SplashNothing ) == 0 then
             //컷신?
             call KillUnit(st.caster)
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00F',GetRectCenterX(MapRectReturn(st.rectnumber)),GetRectCenterY(MapRectReturn(st.rectnumber)),270)
-            set Dataindex = DataUnitIndex(st.caster)
-            set UnitIndex = IndexUnit(st.caster)
-            set UnitHPMAX[UnitIndex] = UnitSetHP[Dataindex]
-            set UnitHP[UnitIndex] = UnitSetHP[Dataindex]
-            set UnitSDMAX[UnitIndex] = UnitSetSD[Dataindex]
-            set UnitSD[UnitIndex] = UnitSetSD[Dataindex]
-            set UnitArm[UnitIndex] = UnitSetArm[Dataindex]
-            set UnitCasting[UnitIndex] = false
+            call BossAggroInitialize(st.caster, st.ul.super)
 
             //주금
 
@@ -239,9 +226,8 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call ForGroup(st.ul.super, function NoRemove)
             set CheckUnit = null
 
-            call Boss4Start2(st)
+            call StartBattle(st)
 
-            set Unit = null
             call t.destroy()
         endif
 
@@ -251,18 +237,22 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         local tick t
         local MapStruct st
         local integer pid=GetPlayerId(GetOwningPlayer(source))
+        local integer mapNumber = GetMap(2)
 
-        set st = MapSt[GetMap(2)]
+        if mapNumber == 0 then
+            return
+        endif
 
+        set st = MapSt[mapNumber]
         if st.caster == null then
             set t = tick.create(0)
-            set st.rectnumber = GetMap(2)
+            set st.rectnumber = mapNumber
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
             set st.pattern1 = 250
             call GroupAddUnit( st.ul.super, source )
             set t.data = st
-            call t.start( 1.00 , true, function Function )
+            call t.start( 1.00 , true, function EntranceTick )
         else
             call GroupAddUnit( st.ul.super, source )
         endif

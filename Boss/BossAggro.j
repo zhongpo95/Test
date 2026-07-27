@@ -1,7 +1,5 @@
-library BossAggro requires Tick, UnitIndexer
+library BossAggro requires Tick, UnitIndexer, DataUnit
     globals
-        private unit Boss
-        private group PlayerGroup
         private constant real AggroCheckInterval = 1.0
         private constant integer AggroCheckCount = 10
         private constant integer MaxPlayer = 6
@@ -27,6 +25,7 @@ library BossAggro requires Tick, UnitIndexer
             local tick t = tick.getExpired()
             local thistype this = t.data
             local integer index = 0
+            local integer historyIndex
             local real maxDamage2 = 0
             local integer playerOffset
             local real playerDamage = 0
@@ -38,29 +37,24 @@ library BossAggro requires Tick, UnitIndexer
                 set this.currentIndex = 0
             endif
 
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 0)] = 0
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 1)] = 0
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 2)] = 0
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 3)] = 0
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 4)] = 0
-            set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * 5)] = 0
+            loop
+                exitwhen index >= MaxPlayer
+                set this.PlayerDamageCount[this.currentIndex + (AggroCheckCount * index)] = 0
+                set index = index + 1
+            endloop
             
             set index = 0
             loop
                 exitwhen index >= MaxPlayer
                 set playerOffset = AggroCheckCount * index
                 set playerDamage = 0
-                
-                set playerDamage = playerDamage + this.PlayerDamageCount[0 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[1 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[2 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[3 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[4 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[5 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[6 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[7 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[8 + (playerOffset)]
-                set playerDamage = playerDamage + this.PlayerDamageCount[9 + (playerOffset)]
+
+                set historyIndex = 0
+                loop
+                    exitwhen historyIndex >= AggroCheckCount
+                    set playerDamage = playerDamage + this.PlayerDamageCount[historyIndex + playerOffset]
+                    set historyIndex = historyIndex + 1
+                endloop
 
                 // 피해를 입힌 플레이어만 어그로 대상 체크
                 if playerDamage > 0 or (maxDamage2 == 0 and validPlayerFound == 0) then
@@ -104,6 +98,56 @@ library BossAggro requires Tick, UnitIndexer
     
     function PlayerBossAttack takes unit damagedUnit, unit damagingUnit, real damage returns nothing
         local AggroSystem s = BossStruct[IndexUnit(damagingUnit)]
-        call s.SetDamage(GetPlayerId(GetOwningPlayer(damagedUnit)), damage)
+        if s != 0 then
+            call s.SetDamage(GetPlayerId(GetOwningPlayer(damagedUnit)), damage)
+        endif
+    endfunction
+
+    function BossAggroInitialize takes unit boss, group participatingUnits returns nothing
+        local integer dataIndex = DataUnitIndex(boss)
+        local integer unitIndex = IndexUnit(boss)
+        local AggroSystem current = BossStruct[unitIndex]
+
+        if current != 0 then
+            call current.destroy()
+        endif
+
+        set UnitHPMAX[unitIndex] = UnitSetHP[dataIndex]
+        set UnitHP[unitIndex] = UnitSetHP[dataIndex]
+        set UnitSDMAX[unitIndex] = UnitSetSD[dataIndex]
+        set UnitSD[unitIndex] = UnitSetSD[dataIndex]
+        set UnitArm[unitIndex] = UnitSetArm[dataIndex]
+        set UnitCasting[unitIndex] = false
+        set BossStruct[unitIndex] = AggroSystem.create(participatingUnits)
+    endfunction
+
+    function BossAggroDestroy takes unit boss returns nothing
+        local integer unitIndex
+        local AggroSystem current
+
+        if boss == null then
+            return
+        endif
+
+        set unitIndex = IndexUnit(boss)
+        set current = BossStruct[unitIndex]
+        if current != 0 then
+            call current.destroy()
+            set BossStruct[unitIndex] = 0
+        endif
+    endfunction
+
+    function BossAggroTarget takes unit boss returns unit
+        local AggroSystem current
+
+        if boss == null then
+            return null
+        endif
+
+        set current = BossStruct[IndexUnit(boss)]
+        if current == 0 then
+            return null
+        endif
+        return MainUnit[current.NowAggro]
     endfunction
 endlibrary
