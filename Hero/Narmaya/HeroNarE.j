@@ -33,7 +33,7 @@ private struct FxEffect
     real r
     real Aspeed
     real A2speed
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set caster = null
         set TargetX = 0
         set TargetY = 0
@@ -44,44 +44,20 @@ private struct FxEffect
         set Aspeed = 0
         set A2speed = 0
     endmethod
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
 
-        set lifeStarted = true
+    method destroy takes nothing returns nothing
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
-    endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
-
-        set lifeStopping = true
-
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -323,7 +299,7 @@ private function EffectFunction4 takes nothing returns nothing
         if fx.i == 3 then
             set NarStack[fx.pid] = 0
             set Stack[fx.pid] = 0
-            call fx.Stop()
+            call fx.destroy()
             call t.destroy()
         elseif fx.i == 2 then
             call UnitRemoveAbility( fx.caster, 'B000' )
@@ -336,7 +312,7 @@ private function EffectFunction4 takes nothing returns nothing
     else
         set NarStack[fx.pid] = 0
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -354,7 +330,7 @@ private function EffectFunction3 takes nothing returns nothing
     else
         set NarStack[fx.pid] = 0
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 
@@ -397,7 +373,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         //set NarStack[fx.pid] = 0
         //set Stack[fx.pid] = 0
-        //call fx.Stop()
+        //call fx.destroy()
         //call t.destroy()
     endif
 endfunction
@@ -478,16 +454,16 @@ private function EffectFunction takes nothing returns nothing
                     set Stack[fx.pid] = 14
                     call t.start( 0.02, false, function EffectFunction2 )
                 else
-                    call fx.Stop()
+                    call fx.destroy()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.destroy()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -503,7 +479,7 @@ private function EffectFunction9 takes nothing returns nothing
         set SDummy[fx.pid] = null
         set NarStack[fx.pid] = 0
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -543,7 +519,7 @@ private function EffectFunction8 takes nothing returns nothing
 
         //set NarStack[fx.pid] = 0
         //set Stack[fx.pid] = 0
-        //call fx.Stop()
+        //call fx.destroy()
         //call t.destroy()
     endif
 endfunction
@@ -590,16 +566,16 @@ private function EffectFunction7 takes nothing returns nothing
                     set Stack[fx.pid] = 11
                     call t.start( 0.02, false, function EffectFunction8 )
                 else
-                    call fx.Stop()
+                    call fx.destroy()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.destroy()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -614,7 +590,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
@@ -709,7 +685,7 @@ private function ESyncData2 takes nothing returns nothing
 
     elseif Stack[pid] == 1 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -722,7 +698,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -735,7 +711,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -748,7 +724,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0

@@ -10,7 +10,7 @@ private function EffectF takes nothing returns nothing
 
     set fx.caster = null
 
-    call fx.Stop()
+    call fx.stop()
     call t.destroy()
 endfunction
 
@@ -50,7 +50,7 @@ private function EffectFunction takes nothing returns nothing
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
         set arrayPlayerCameraBoolean[fx.pid] = false
 
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 
@@ -71,7 +71,7 @@ private function Main takes nothing returns nothing
         
         //포트레잇변경
         set t = tick.create(pid) 
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
@@ -133,7 +133,7 @@ private function Main takes nothing returns nothing
         call Sound3D(fx.caster,'A07I')
 
         set t = tick.create(pid) 
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)

@@ -114,7 +114,7 @@ private function EffectFunction4 takes nothing returns nothing
 
         if fx.i == 3 then
             set Stack[fx.pid] = 0
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         elseif fx.i == 2 then
             call UnitRemoveAbility( fx.caster, 'B000' )
@@ -126,7 +126,7 @@ private function EffectFunction4 takes nothing returns nothing
         endif
     else
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -147,7 +147,7 @@ private function EffectFunction3 takes nothing returns nothing
         call t.start( Time2 / fx.A2speed, false, function EffectFunction4 )
     else
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 
@@ -251,16 +251,16 @@ private function EffectFunction takes nothing returns nothing
                     set Stack[fx.pid] = 14
                     call t.start( 0.02, false, function EffectFunction2 )
                 else
-                    call fx.Stop()
+                    call fx.stop()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -278,7 +278,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
@@ -366,7 +366,7 @@ private function FSyncData2 takes nothing returns nothing
 
     elseif Stack[pid] == 1 then
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -380,7 +380,7 @@ private function FSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -394,7 +394,7 @@ private function FSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -408,7 +408,7 @@ private function FSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0

@@ -43,7 +43,7 @@ private struct SkillRarW
     real Aspeed
     real A2speed
     party ul
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set caster = null
         set dummy = null
         set TargetX = 0
@@ -57,44 +57,20 @@ private struct SkillRarW
         set Aspeed = 0
         set A2speed = 0
     endmethod
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
 
-        set lifeStarted = true
+    method destroy takes nothing returns nothing
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
-    endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
-
-        set lifeStopping = true
-
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -120,7 +96,7 @@ private function splashEffect takes nothing returns nothing
         endif
         call t.start(0.33, false, function splashEffect)
     else
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -137,7 +113,7 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 set t = tick.create(0)
-                set fx = SkillRarW.Create()
+                set fx = SkillRarW.createData()
                 set fx.caster = splash.source
                 set fx.dummy = GetEnumUnit()
                 set velue = 0.5
@@ -197,7 +173,7 @@ private function EffectFunction3 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction3 )
     else
         call fx.ul.destroy()
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 
@@ -223,7 +199,7 @@ private function EffectFunction takes nothing returns nothing
     call t.start( Time3 /fx.speed, false, function EffectFunction3 )
 
     call CooldownSet(fx.caster,'A02L',0)
-    //call fx.Stop()
+    //call fx.destroy()
     //call t.destroy()
 endfunction
 
@@ -296,7 +272,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         //쿨타임조정
         call CooldownFIX2(fx.caster,'A02J',HeroSkillCD1[14])
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     else
         call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX(375, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY(375, GetUnitFacing(fx.caster)), scale2, function splashD2 )
@@ -322,7 +298,7 @@ private function Main takes nothing returns nothing
             //카구라
             if NarForm[pid] != 0 then
                 set t = tick.create(0)
-                set fx = SkillRarW.Create()
+                set fx = SkillRarW.createData()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)
@@ -353,7 +329,7 @@ private function Main takes nothing returns nothing
             //겐지
             else
                 set t = tick.create(0)
-                set fx = SkillRarW.Create()
+                set fx = SkillRarW.createData()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)

@@ -49,7 +49,7 @@ endglobals
             endif
         endif
         */
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endfunction
     
@@ -64,7 +64,7 @@ endglobals
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0) 
-            set fx = SkillFx.Create()
+            set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()

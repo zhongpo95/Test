@@ -39,7 +39,7 @@ scope HeroBandiA
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
                 //call BanBisul2Plus( fx.pid,4)
             endif
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             call SetUnitSafePolarUTA(fx.caster,fx.r/(20/fx.speed),GetUnitFacing(fx.caster))
@@ -58,7 +58,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

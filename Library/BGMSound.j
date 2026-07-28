@@ -15,13 +15,13 @@ library PSound requires Tick
         unit caster
         integer i
         real r
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set i = 0
             set r = 0
         endmethod
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
     endstruct

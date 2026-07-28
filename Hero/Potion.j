@@ -10,7 +10,7 @@ scope Potion
         unit caster
         integer pid
         effect e
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set pid = 0
             set e = null
@@ -20,18 +20,12 @@ scope Potion
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     private function splashD takes nothing returns nothing
@@ -47,7 +41,7 @@ scope Potion
         call DestroyEffect(fx.e)
         call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
 
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endfunction
 
@@ -61,7 +55,7 @@ scope Potion
         set Hero_BuffAttackSpeed[fx.pid] = Hero_BuffAttackSpeed[fx.pid] - 20.00
         call ItemUIStatsSet(fx.pid)
 
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endfunction
 
@@ -102,7 +96,7 @@ scope Potion
             set pid = GetPlayerId(GetOwningPlayer(caster))
 
             set t = tick.create(0)
-            set fx = FxEffect.Create()
+            set fx = FxEffect.create()
             set fx.caster = GetTriggerUnit()
             set fx.pid = pid
 
@@ -133,7 +127,7 @@ scope Potion
             set pid = GetPlayerId(GetOwningPlayer(caster))
 
             set t = tick.create(0)
-            set fx = FxEffect.Create()
+            set fx = FxEffect.create()
             set fx.caster = GetTriggerUnit()
             set fx.e = AddSpecialEffectTarget("Abilities\\Spells\\Human\\DivineShield\\DivineShieldTarget.mdl",fx.caster,"origin")
             set t.data = fx

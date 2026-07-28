@@ -25,7 +25,7 @@ private struct FxEffect
     integer pid
     integer i
     real speed
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set caster = null
         set TargetX = 0
         set TargetY = 0
@@ -33,44 +33,20 @@ private struct FxEffect
         set i = 0
         set speed = 0
     endmethod
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
 
-        set lifeStarted = true
+    method destroy takes nothing returns nothing
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
-    endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
-
-        set lifeStopping = true
-
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -151,7 +127,7 @@ private function EffectFunction2 takes nothing returns nothing
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
-                call fx.Stop()
+                call fx.destroy()
                 call t.destroy()
             endif
         elseif Stack[fx.pid] == 12 then
@@ -168,7 +144,7 @@ private function EffectFunction2 takes nothing returns nothing
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
-                call fx.Stop()
+                call fx.destroy()
                 call t.destroy()
             endif
         elseif Stack[fx.pid] == 13 then
@@ -185,7 +161,7 @@ private function EffectFunction2 takes nothing returns nothing
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
-                call fx.Stop()
+                call fx.destroy()
                 call t.destroy()
             endif
         elseif Stack[fx.pid] == 14 then
@@ -202,14 +178,14 @@ private function EffectFunction2 takes nothing returns nothing
                 call BuffNoST.Apply( fx.caster, Time2 /fx.speed, 0 )
                 call CastingBarShow(Player(fx.pid),false)
                 set Stack[fx.pid] = 0
-                call fx.Stop()
+                call fx.destroy()
                 call t.destroy()
             endif
         endif
     else
         call CastingBarShow(Player(fx.pid),false)
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -323,16 +299,16 @@ private function EffectFunction takes nothing returns nothing
                     call BuffNoST.Apply( fx.caster,0.02, 0 )
                     call t.start( 0.02, false, function EffectFunction2 )
                 else
-                    call fx.Stop()
+                    call fx.destroy()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.destroy()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -345,7 +321,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
@@ -413,7 +389,7 @@ private function RSyncData2 takes nothing returns nothing
     if Stack[pid] == 0 then
     elseif Stack[pid] == 1 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -423,7 +399,7 @@ private function RSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -433,7 +409,7 @@ private function RSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -443,7 +419,7 @@ private function RSyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0

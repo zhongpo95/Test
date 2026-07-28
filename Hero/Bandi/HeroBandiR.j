@@ -24,7 +24,7 @@ scope HeroBandiR
         integer pid
         real speed
         integer i
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set pid = 0
             set speed = 0
@@ -35,18 +35,12 @@ scope HeroBandiR
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     private function splashD2 takes nothing returns nothing
@@ -126,7 +120,7 @@ scope HeroBandiR
             call SetUnitFlyHeight(fx.caster, 0, 0.00)
             call DestroyEffect(fx.e)
             call DestroyEffect(fx.e2)
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -157,7 +151,7 @@ scope HeroBandiR
                     call UnitEffectTime2('e043',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.7,0,fx.pid)
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                     call t.start( Time6 / fx.speed, false, function EffectFunction )
-                    set fx2 = SkillFx.Create()
+                    set fx2 = SkillFx.create()
                     set t2 = tick.create(fx2)
                     set fx2.pid = fx.pid
                     set fx2.caster = fx.caster
@@ -174,12 +168,12 @@ scope HeroBandiR
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale2, function splashD2 )
                     call BuffNoNB.Stop( fx.caster )
                     call BuffNoST.Stop( fx.caster )
-                    call fx.Stop()
+                    call fx.stop()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -193,7 +187,7 @@ scope HeroBandiR
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = FxEffect.Create()
+            set fx = FxEffect.create()
             set fx.caster = GetTriggerUnit()
             set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
