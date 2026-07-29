@@ -69,7 +69,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2, Tick
         boolean stopFlag
         //커스텀 이벤트 아이디
         integer id
-        private method cleanup takes nothing returns nothing
+        method stop takes nothing returns nothing
             set caster = null
             set dummy = null
             set dummy2 = null
@@ -81,9 +81,6 @@ library AOE initializer Init requires MonoEvent, DamageEffect2, Tick
             set timenow = 0
             set eft = 0
             set id = 0
-        endmethod
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
     endstruct

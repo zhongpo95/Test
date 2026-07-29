@@ -30,20 +30,6 @@ private struct FxEffect
     real speed
     integer i
     effect e
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        set dummy = null
-        set pid = 0
-        if e != null then
-            call DestroyEffect(e)
-        endif
-        set e = null
-        set Velue = 0
-        set speed = 0
-        set i = 0
-        set TargetX = 0
-        set TargetY = 0
-    endmethod
 
     static method createData takes nothing returns thistype
         local thistype this = allocate()
@@ -57,7 +43,18 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        set dummy = null
+        set pid = 0
+        if e != null then
+            call DestroyEffect(e)
+        endif
+        set e = null
+        set Velue = 0
+        set speed = 0
+        set i = 0
+        set TargetX = 0
+        set TargetY = 0
 
         call deallocate()
     endmethod

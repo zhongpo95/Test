@@ -20,9 +20,6 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
     private struct FxEffect
         unit caster
         integer i
-        private method cleanup takes nothing returns nothing
-            set caster = null
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -88,7 +85,7 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
             call deallocate()
         endmethod
     endstruct

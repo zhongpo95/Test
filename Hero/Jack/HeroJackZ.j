@@ -26,13 +26,6 @@ private struct FxEffect
     effect e3
     integer i
     integer Lv
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        call DestroyEffect(e)
-        set e = null
-        set e2 = null
-        set e3 = null
-    endmethod
 
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
@@ -93,7 +86,11 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        call DestroyEffect(e)
+        set e = null
+        set e2 = null
+        set e3 = null
 
 
         call deallocate()

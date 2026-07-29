@@ -24,11 +24,6 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         integer rectnumber
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set rectnumber = 0
-            set st = 0
-            set caster = null
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -118,7 +113,9 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set rectnumber = 0
+            set st = 0
+            set caster = null
             call deallocate()
         endmethod
     endstruct

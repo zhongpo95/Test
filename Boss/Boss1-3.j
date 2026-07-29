@@ -77,13 +77,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            set dummy1 = null
-            set dummy2 = null
-            set dummy3 = null
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -153,7 +146,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            set dummy1 = null
+            set dummy2 = null
+            set dummy3 = null
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -170,13 +167,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            set dummy1 = null
-            set dummy2 = null
-            set dummy3 = null
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -221,7 +211,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            set dummy1 = null
+            set dummy2 = null
+            set dummy3 = null
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -235,16 +229,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         real lockangle
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            call KillUnit(dummy)
-            call KillUnit(effectdummy)
-            set dummy = null
-            set targetUnit = null
-            set effectdummy = null
-            set i = 0
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -317,7 +301,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            call KillUnit(dummy)
+            call KillUnit(effectdummy)
+            set dummy = null
+            set targetUnit = null
+            set effectdummy = null
+            set i = 0
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -441,32 +432,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer fake
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            call KillUnit(dummy[0])
-            call KillUnit(dummy[1])
-            call KillUnit(dummy[2])
-            call KillUnit(dummy[3])
-            call KillUnit(dummy[4])
-            set dummy[0] = null
-            set dummy[1] = null
-            set dummy[2] = null
-            set dummy[3] = null
-            set dummy[4] = null
-            set targetUnit[0] = null
-            set targetUnit[1] = null
-            set targetUnit[2] = null
-            set targetUnit[3] = null
-            set targetUnit[4] = null
-            set effectdummy[0] = null
-            set effectdummy[1] = null
-            set effectdummy[2] = null
-            set effectdummy[3] = null
-            set effectdummy[4] = null
-            set i = 0
-            set fake = 0
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -564,7 +529,30 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            call KillUnit(dummy[0])
+            call KillUnit(dummy[1])
+            call KillUnit(dummy[2])
+            call KillUnit(dummy[3])
+            call KillUnit(dummy[4])
+            set dummy[0] = null
+            set dummy[1] = null
+            set dummy[2] = null
+            set dummy[3] = null
+            set dummy[4] = null
+            set targetUnit[0] = null
+            set targetUnit[1] = null
+            set targetUnit[2] = null
+            set targetUnit[3] = null
+            set targetUnit[4] = null
+            set effectdummy[0] = null
+            set effectdummy[1] = null
+            set effectdummy[2] = null
+            set effectdummy[3] = null
+            set effectdummy[4] = null
+            set i = 0
+            set fake = 0
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -576,12 +564,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy
         integer i
         AggroSystem s
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            set dummy = null
-            set i = 0
-            set s = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -643,7 +625,10 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            set dummy = null
+            set i = 0
+            set s = 0
             call deallocate()
         endmethod
     endstruct
@@ -659,47 +644,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer targetcount
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            call KillUnit(dummy[0])
-            call KillUnit(effectdummy[0])
-            call KillUnit(dummy[1])
-            call KillUnit(effectdummy[1])
-            call KillUnit(dummy[2])
-            call KillUnit(effectdummy[2])
-            call KillUnit(dummy[3])
-            call KillUnit(effectdummy[3])
-            call KillUnit(dummy[4])
-            call KillUnit(effectdummy[4])
-            call KillUnit(dummy[5])
-            call KillUnit(effectdummy[5])
-            call KillUnit(dummy[6])
-            call KillUnit(effectdummy[6])
-            set dummy[0] = null
-            set dummy[1] = null
-            set dummy[2] = null
-            set dummy[3] = null
-            set dummy[4] = null
-            set dummy[5] = null
-            set dummy[6] = null
-            set targetUnit[0] = null
-            set targetUnit[1] = null
-            set targetUnit[2] = null
-            set targetUnit[3] = null
-            set targetUnit[4] = null
-            set targetUnit[5] = null
-            set targetUnit[6] = null
-            set effectdummy[0] = null
-            set effectdummy[1] = null
-            set effectdummy[2] = null
-            set effectdummy[3] = null
-            set effectdummy[4] = null
-            set effectdummy[5] = null
-            set effectdummy[6] = null
-            set i = 0
-            set targetcount = 0
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -846,7 +790,45 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            call KillUnit(dummy[0])
+            call KillUnit(effectdummy[0])
+            call KillUnit(dummy[1])
+            call KillUnit(effectdummy[1])
+            call KillUnit(dummy[2])
+            call KillUnit(effectdummy[2])
+            call KillUnit(dummy[3])
+            call KillUnit(effectdummy[3])
+            call KillUnit(dummy[4])
+            call KillUnit(effectdummy[4])
+            call KillUnit(dummy[5])
+            call KillUnit(effectdummy[5])
+            call KillUnit(dummy[6])
+            call KillUnit(effectdummy[6])
+            set dummy[0] = null
+            set dummy[1] = null
+            set dummy[2] = null
+            set dummy[3] = null
+            set dummy[4] = null
+            set dummy[5] = null
+            set dummy[6] = null
+            set targetUnit[0] = null
+            set targetUnit[1] = null
+            set targetUnit[2] = null
+            set targetUnit[3] = null
+            set targetUnit[4] = null
+            set targetUnit[5] = null
+            set targetUnit[6] = null
+            set effectdummy[0] = null
+            set effectdummy[1] = null
+            set effectdummy[2] = null
+            set effectdummy[3] = null
+            set effectdummy[4] = null
+            set effectdummy[5] = null
+            set effectdummy[6] = null
+            set i = 0
+            set targetcount = 0
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -859,16 +841,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            call KillUnit(dummy1)
-            call KillUnit(dummy2)
-            call KillUnit(dummy3)
-            set dummy1 = null
-            set dummy2 = null
-            set dummy3 = null
-            set st = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -933,7 +905,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            call KillUnit(dummy1)
+            call KillUnit(dummy2)
+            call KillUnit(dummy3)
+            set dummy1 = null
+            set dummy2 = null
+            set dummy3 = null
+            set st = 0
             call deallocate()
         endmethod
     endstruct
@@ -945,12 +924,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         MapStruct st
         AOESt ast
-        private method cleanup takes nothing returns nothing
-            set caster = null
-            set dummy = null
-            set st = 0
-            set ast = 0
-        endmethod
         static method createData takes nothing returns thistype
             local thistype this = allocate()
             return this
@@ -1020,7 +993,10 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
+            set dummy = null
+            set st = 0
+            set ast = 0
             call deallocate()
         endmethod
     endstruct

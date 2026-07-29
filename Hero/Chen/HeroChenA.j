@@ -21,21 +21,6 @@ private struct FxEffect
     real angle
     real r
     integer pid
-    private method cleanup takes nothing returns nothing
-        set casterX = 0
-        set casterY = 0
-        set targetX = 0
-        set targetY = 0
-        set stopoverX = 0
-        set stopoverY = 0
-        set angle = 0
-        set r = 0
-        set pid = 0
-        set target = null
-        set caster = null
-        call KillUnit(dummy)
-        set dummy = null
-    endmethod
 
     static method createData takes nothing returns thistype
         local thistype this = allocate()
@@ -49,7 +34,19 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set casterX = 0
+        set casterY = 0
+        set targetX = 0
+        set targetY = 0
+        set stopoverX = 0
+        set stopoverY = 0
+        set angle = 0
+        set r = 0
+        set pid = 0
+        set target = null
+        set caster = null
+        call KillUnit(dummy)
+        set dummy = null
 
         call deallocate()
     endmethod

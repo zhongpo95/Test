@@ -24,7 +24,7 @@ library SkillButton requires DataUnit
         effect e
         effect e2
         party ul
-        private method cleanup takes nothing returns nothing
+        method stop takes nothing returns nothing
             set caster = null
             set dummy = null
             set TargetX = 0
@@ -45,9 +45,6 @@ library SkillButton requires DataUnit
             set A2speed = 0
             set e = null
             set e2 = null
-        endmethod
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
 

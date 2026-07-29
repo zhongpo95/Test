@@ -18,10 +18,6 @@ endglobals
 private struct FxEffect
     unit caster
     integer pid
-    private method cleanup takes nothing returns nothing
-        set pid = 0
-        set caster = null
-    endmethod
 
     static method createData takes nothing returns thistype
         local thistype this = allocate()
@@ -35,7 +31,8 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set pid = 0
+        set caster = null
 
         call deallocate()
     endmethod

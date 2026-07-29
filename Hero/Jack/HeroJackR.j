@@ -12,10 +12,6 @@ private struct FxEffect
     unit target
     real angle
     integer i
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        set target = null
-    endmethod
 
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
@@ -109,7 +105,8 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        set target = null
 
 
         call deallocate()

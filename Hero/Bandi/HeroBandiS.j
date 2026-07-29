@@ -22,15 +22,12 @@ scope HeroBandiS
         real TargetY
         integer pid
         real speed
-        private method cleanup takes nothing returns nothing
+        method stop takes nothing returns nothing
             set caster = null
             set pid = 0
             set TargetX = 0
             set TargetY = 0
             set speed = 0
-        endmethod
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
 

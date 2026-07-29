@@ -38,15 +38,6 @@ private struct FxEffect
     real Velue
     real speed
     integer i
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        set dummy = null
-        set dummy2 = null
-        set pid = 0
-        set Velue = 0
-        set speed = 0
-        set i = 0
-    endmethod
 
     static method createData takes nothing returns thistype
         local thistype this = allocate()
@@ -60,7 +51,13 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        set dummy = null
+        set dummy2 = null
+        set pid = 0
+        set Velue = 0
+        set speed = 0
+        set i = 0
 
         call deallocate()
     endmethod

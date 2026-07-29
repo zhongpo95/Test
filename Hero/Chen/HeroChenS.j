@@ -20,12 +20,6 @@ private struct FxEffect
     real TargetX
     real TargetY
     integer pid
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        set pid = 0
-        set TargetX = 0
-        set TargetY = 0
-    endmethod
 
     static method createData takes nothing returns thistype
         local thistype this = allocate()
@@ -39,7 +33,10 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        set pid = 0
+        set TargetX = 0
+        set TargetY = 0
 
         call deallocate()
     endmethod
