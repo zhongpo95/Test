@@ -31,13 +31,6 @@ private struct FxEffect
     integer i
     party ul
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
 
     method destroy takes nothing returns nothing
@@ -122,7 +115,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A014' then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = SkillSpeed(fx.pid)

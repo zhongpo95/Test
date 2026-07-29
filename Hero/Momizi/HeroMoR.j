@@ -30,13 +30,6 @@ private struct FxEffect
     real speed
     integer i
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
 
     method destroy takes nothing returns nothing
@@ -102,7 +95,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A011' then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.CasterX = GetWidgetX(fx.caster)
         set fx.CasterY = GetWidgetY(fx.caster)

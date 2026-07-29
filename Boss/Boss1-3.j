@@ -77,10 +77,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -167,10 +163,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -229,10 +221,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         real lockangle
         integer i
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -432,10 +420,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer fake
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -564,10 +548,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy
         integer i
         AggroSystem s
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -644,10 +624,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer targetcount
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -841,10 +817,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -924,10 +896,6 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         MapStruct st
         AOESt ast
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -1072,7 +1040,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
                         if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
-                            set fx3 = FxEffect3.createData()
+                            set fx3 = FxEffect3.create()
                             set fx3.caster = st.caster
                             set fx3.i = 0
                             set fx3.st = st
@@ -1082,7 +1050,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //파이어볼
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("파이어볼")
-                            set fx2 = FxEffect2.createData()
+                            set fx2 = FxEffect2.create()
                             set fx2.caster = st.caster
                             set fx2.i = 0
                             set fx2.st = st
@@ -1092,7 +1060,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //지뢰마법
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("지뢰마법")
-                            set fx3 = FxEffect3.createData()
+                            set fx3 = FxEffect3.create()
                             set fx3.caster = st.caster
                             set fx3.i = 0
                             set fx3.st = st
@@ -1102,7 +1070,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
                             //call VJDebugMsg("마력충전")
-                            set fx5 = FxEffect5.createData()
+                            set fx5 = FxEffect5.create()
                             set fx5.caster = st.caster
                             set fx5.i = 0
                             set fx5.st = st
@@ -1120,7 +1088,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //이동
                         elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
                             //이동중이 아님
-                            set fx6 = FxEffect6.createData()
+                            set fx6 = FxEffect6.create()
                             set fx6.caster = st.caster
                             set fx6.i = 0
                             set fx6.st = st
@@ -1130,7 +1098,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //call VJDebugMsg("이동")
                         elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
                             //스킬사용중
-                            set fx7 = FxEffect7.createData()
+                            set fx7 = FxEffect7.create()
                             set fx7.caster = st.caster
                             set fx7.i = 0
                             set fx7.st = st
@@ -1140,7 +1108,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //무력화
                         elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
                             //주금
-                            set fx8 = FxEffect8.createData()
+                            set fx8 = FxEffect8.create()
                             set fx8.caster = st.caster
                             set fx8.i = 0
                             set fx8.st = st
@@ -1155,7 +1123,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                                 set r = DistanceWBW( st.caster, MainUnit[s.NowAggro])
                                 if r > Pattern1Distance2 then
                                     //정비소제거
-                                    set fx1 = FxEffect1.createData()
+                                    set fx1 = FxEffect1.create()
                                     set fx1.caster = st.caster
                                     set fx1.i = 0
                                     set fx1.s = BossStruct[IndexUnit(fx1.caster)]

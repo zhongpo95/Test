@@ -31,13 +31,6 @@ private struct FxEffect
     integer i
     effect e
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
 
     method destroy takes nothing returns nothing
@@ -113,7 +106,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A00Y' then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

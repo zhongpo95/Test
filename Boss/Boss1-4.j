@@ -23,10 +23,6 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit caster
         unit dummy
         integer i
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -140,7 +136,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
                 set st.pattern1 = st.pattern1 - 1
                 if st.pattern1 <= 0 then
-                    set fx = FxEffect.createData()
+                    set fx = FxEffect.create()
                     set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetWidgetX(st.caster)+PolarX(1000, GetUnitFacing(st.caster)),GetWidgetY(st.caster)+PolarY(1000, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
                     call AddSpecialEffectTarget("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl",fx.caster,"origin")
                     call UnitRemoveAbility(fx.caster,'Amov')

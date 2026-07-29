@@ -34,13 +34,6 @@ private struct FxEffect
     real Aspeed
     real A2speed
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
 
     method destroy takes nothing returns nothing
@@ -587,7 +580,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
@@ -682,7 +675,7 @@ private function ESyncData2 takes nothing returns nothing
 
     elseif Stack[pid] == 1 then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -695,7 +688,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 2 then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -708,7 +701,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 3 then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0
@@ -721,7 +714,7 @@ private function ESyncData2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     elseif Stack[pid] == 4 then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0

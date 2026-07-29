@@ -20,13 +20,6 @@ private struct FxEffect
     real TargetX
     real TargetY
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
 
     method destroy takes nothing returns nothing
@@ -75,7 +68,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0) 
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
