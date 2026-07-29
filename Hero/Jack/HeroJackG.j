@@ -17,125 +17,9 @@ private struct FxEffect
     effect e3
     integer i
 
-    private static method OnTimer takes nothing returns nothing
-        local tick expiredTick = tick.getExpired()
-        local thistype fx = expiredTick.data
-                local real x
-        
-                local real r
-        
-                local effect e
-        
-                set fx.i = fx.i + 1
-        
-                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-        
-                    if fx.i < 12 then
-        
-                        //call Sound3D(fx.caster,'A00E')
-        
-                        set fx.angle = AngleWBW(fx.caster,fx.target)
-        
-                        call SetUnitFacing(fx.caster,fx.angle)
-        
-                        call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))
-        
-                        call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))
-        
-                        if fx.i == 6 then
-        
-                            call UnitEffectTimeEX2('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                            call Sound3D(fx.caster,'A009')
-        
-                        endif
-        
-                    elseif fx.i == 12 then
-        
-                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),15 )
-        
-                    elseif fx.i == 45 then
-        
-                        call Sound3D(fx.caster,'A00M')
-        
-                    elseif fx.i == 50 then
-        
-                        set fx.angle = AngleWBW(fx.caster,fx.target)
-        
-                        call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( 250, fx.angle ))
-        
-                        call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( 250, fx.angle ))
-        
-                    elseif fx.i == 60 then
-        
-                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
-        
-                        call Sound3D(fx.caster,'A00I')
-        
-                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call UnitEffectTimeEX2('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call UnitEffectTimeEX2('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call HeroDeal(fx.caster,fx.target,DR)
-        
-                    elseif fx.i == 70 then
-        
-                        call Sound3D(fx.caster,'A00H')
-        
-                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call UnitEffectTimeEX2('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call HeroDeal(fx.caster,fx.target,DR)
-        
-                        
-        
-                        call Sound3D(fx.caster,'A00L')
-        
-                    elseif fx.i == 115 then
-        
-                        call HeroDeal(fx.caster,fx.target,DR2)
-        
-                        if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
-        
-                            set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")
-        
-                        else
-        
-                            set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")
-        
-                        endif
-        
-                        call DestroyEffect(e)
-        
-                        set e = null
-        
-                        call expiredTick.destroy()
-
-                        call fx.destroy()
-                    endif
-        
-                else
-        
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                endif
-        
-    endmethod
 
 
 
-    method launch takes nothing returns nothing
-
-
-
-
-        local tick t = tick.create(this)
-        call t.start(0.02, true, function thistype.OnTimer)
-    endmethod
 
     method destroy takes nothing returns nothing
 
@@ -154,9 +38,119 @@ private struct FxEffect
     endmethod
 endstruct
 
+private function FxEffectOnTimer takes nothing returns nothing
+    local tick expiredTick = tick.getExpired()
+    local FxEffect fx = expiredTick.data
+            local real x
+
+            local real r
+
+            local effect e
+
+            set fx.i = fx.i + 1
+
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+
+                if fx.i < 12 then
+
+                    //call Sound3D(fx.caster,'A00E')
+
+                    set fx.angle = AngleWBW(fx.caster,fx.target)
+
+                    call SetUnitFacing(fx.caster,fx.angle)
+
+                    call SetUnitX(fx.caster,GetWidgetX(fx.target)-PolarX( 650 - (fx.i * 50), fx.angle ))
+
+                    call SetUnitY(fx.caster,GetWidgetY(fx.target)-PolarY( 650 - (fx.i * 50), fx.angle ))
+
+                    if fx.i == 6 then
+
+                        call UnitEffectTimeEX2('e00B',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.angle,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                        call Sound3D(fx.caster,'A009')
+
+                    endif
+
+                elseif fx.i == 12 then
+
+                    call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),15 )
+
+                elseif fx.i == 45 then
+
+                    call Sound3D(fx.caster,'A00M')
+
+                elseif fx.i == 50 then
+
+                    set fx.angle = AngleWBW(fx.caster,fx.target)
+
+                    call SetUnitX(fx.caster,GetWidgetX(fx.target)+PolarX( 250, fx.angle ))
+
+                    call SetUnitY(fx.caster,GetWidgetY(fx.target)+PolarY( 250, fx.angle ))
+
+                elseif fx.i == 60 then
+
+                    call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),50 )
+
+                    call Sound3D(fx.caster,'A00I')
+
+                    call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle+30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call UnitEffectTimeEX2('e00C',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call UnitEffectTimeEX2('e00D',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call HeroDeal(fx.caster,fx.target,DR)
+
+                elseif fx.i == 70 then
+
+                    call Sound3D(fx.caster,'A00H')
+
+                    call UnitEffectTimeEX2('e00B',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call UnitEffectTimeEX2('e00E',GetWidgetX(fx.target),GetWidgetY(fx.target),fx.angle-30,1.0,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call HeroDeal(fx.caster,fx.target,DR)
+
+
+
+                    call Sound3D(fx.caster,'A00L')
+
+                elseif fx.i == 115 then
+
+                    call HeroDeal(fx.caster,fx.target,DR2)
+
+                    if EffectOff[GetPlayerId(GetLocalPlayer())] == false and GetPlayerId(GetOwningPlayer(fx.caster)) != GetPlayerId(GetLocalPlayer()) then
+
+                        set e = AddSpecialEffectTarget(".mdl",fx.target,"chest")
+
+                    else
+
+                        set e = AddSpecialEffectTarget("1!bloodex-special!.mdl",fx.target,"chest")
+
+                    endif
+
+                    call DestroyEffect(e)
+
+                    set e = null
+
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
+                endif
+
+            else
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            endif
+
+endfunction
+
     
 private function F_A00J takes nothing returns nothing
     local FxEffect fx
+    local tick fxTick
     set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
     set fx.target = GetSpellTargetUnit()
@@ -172,7 +166,8 @@ private function F_A00J takes nothing returns nothing
     endif
 
     set fx.i = 0
-    call fx.launch()
+    set fxTick = tick.create(fx)
+    call fxTick.start(0.02, true, function FxEffectOnTimer)
     //call Sound3D(fx.caster,'A00K')
     call DummyMagicleash(fx.caster,Time)
     call AnimationStart(fx.caster,14)

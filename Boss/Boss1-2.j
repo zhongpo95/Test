@@ -20,71 +20,68 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
     private struct FxEffect
         unit caster
         integer i
-        private static method OnTimerExpire takes nothing returns nothing
-            local tick expiredTick = tick.getExpired()
-            local thistype fx = expiredTick.data
-            local effect e
-            local real r
-            local integer index = IndexUnit(fx.caster)
-            local integer frame = 0
-            set fx.i = fx.i + 1
-
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                elseif fx.i == 100 then
-                    call AnimationStart(fx.caster, 8)
-                //무력화 성공
-                elseif fx.i >= 1 and UnitCasting[index] == false then
-                    //체력감소
-                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
-
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,6)
-
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                //체력감소
-
-                elseif fx.i == Pattern2Time then
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
-                    call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 7, 0.6)
-                    set UnitCastingSD[index] = 0
-                    set UnitCastingSDMAX[index] = 0
-                    set UnitCasting[index] = false
-                    call KillUnit(UnitCastingDummy[index])
-                    set UnitCastingDummy[index] = null
-
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call expiredTick.destroy()
-                call fx.destroy()
-            endif
-        endmethod
-        method launch takes nothing returns nothing
-            local tick t = tick.create(this)
-            call t.start(0.02, true, function thistype.OnTimerExpire)
-        endmethod
         method destroy takes nothing returns nothing
             set caster = null
             call deallocate()
         endmethod
     endstruct
+
+    private function FxEffectOnTimerExpire takes nothing returns nothing
+        local tick expiredTick = tick.getExpired()
+        local FxEffect fx = expiredTick.data
+        local effect e
+        local real r
+        local integer index = IndexUnit(fx.caster)
+        local integer frame = 0
+        set fx.i = fx.i + 1
+
+        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+            if fx.i == 1 then
+                //call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                //call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                //call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+            elseif fx.i == 100 then
+                call AnimationStart(fx.caster, 8)
+            //무력화 성공
+            elseif fx.i >= 1 and UnitCasting[index] == false then
+                //체력감소
+                set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
+
+                call Sound3D(fx.caster,'A00U')
+                call AnimationStart(fx.caster,6)
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            //체력감소
+
+            elseif fx.i == Pattern2Time then
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+                call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                call AnimationStart4(fx.caster, 7, 0.6)
+                set UnitCastingSD[index] = 0
+                set UnitCastingSDMAX[index] = 0
+                set UnitCasting[index] = false
+                call KillUnit(UnitCastingDummy[index])
+                set UnitCastingDummy[index] = null
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            endif
+        //주금
+        else
+            call UnitRemoveAbility(fx.caster,'A00V')
+            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+            call expiredTick.destroy()
+            call fx.destroy()
+        endif
+    endfunction
 
     private function NoDie takes nothing returns nothing
         set NoDieCheck = NoDieCheck + 1
@@ -126,6 +123,7 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         local MapStruct st = t.data
         local FxEffect fx
         local integer index
+        local tick fxTick
 
         set NoDieCheck = 0
         call ForGroup(st.ul.super,function NoDie)
@@ -149,7 +147,8 @@ library Boss2 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set fx.caster = st.caster
                     set fx.i = 0
                     call AnimationStart(fx.caster, 4)
-                    call fx.launch()
+                    set fxTick = tick.create(fx)
+                    call fxTick.start(0.02, true, function FxEffectOnTimerExpire)
                     set st.pattern1 = 750
 
                     set index = IndexUnit(st.caster)
