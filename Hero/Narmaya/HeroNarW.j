@@ -43,7 +43,12 @@ private struct SkillRarW
     real Aspeed
     real A2speed
     party ul
-    private method cleanup takes nothing returns nothing
+
+
+
+    method destroy takes nothing returns nothing
+
+
         set caster = null
         set dummy = null
         set TargetX = 0
@@ -56,21 +61,6 @@ private struct SkillRarW
         set speed = 0
         set Aspeed = 0
         set A2speed = 0
-    endmethod
-
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
-
-
-    method destroy takes nothing returns nothing
-
-
-        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -113,7 +103,7 @@ private function splashD takes nothing returns nothing
             //뒤는안떄림
             if AngleTrue( GetUnitFacing(CheckU), AngleWBW(CheckU,GetEnumUnit()), 90 ) then
                 set t = tick.create(0)
-                set fx = SkillRarW.createData()
+                set fx = SkillRarW.create()
                 set fx.caster = splash.source
                 set fx.dummy = GetEnumUnit()
                 set velue = 0.5
@@ -298,7 +288,7 @@ private function Main takes nothing returns nothing
             //카구라
             if NarForm[pid] != 0 then
                 set t = tick.create(0)
-                set fx = SkillRarW.createData()
+                set fx = SkillRarW.create()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)
@@ -329,7 +319,7 @@ private function Main takes nothing returns nothing
             //겐지
             else
                 set t = tick.create(0)
-                set fx = SkillRarW.createData()
+                set fx = SkillRarW.create()
                 set fx.caster = GetTriggerUnit()
                 set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
                 set fx.speed = ((100+SkillSpeed(fx.pid))/100)

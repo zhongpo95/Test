@@ -20,11 +20,8 @@ library UIBossHP initializer init requires FrameCount, DataUnit
         integer BHPxL        // 이전 체력바 개수
         integer playerId     // 마지막 자리 수 (0~9)
 
-        method cleanup takes nothing returns nothing
-            set caster = null
-        endmethod
         method stop takes nothing returns nothing
-            call this.cleanup()
+            set caster = null
             call this.destroy()
         endmethod
 

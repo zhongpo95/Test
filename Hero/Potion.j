@@ -10,13 +10,10 @@ scope Potion
         unit caster
         integer pid
         effect e
-        private method cleanup takes nothing returns nothing
+        method stop takes nothing returns nothing
             set caster = null
             set pid = 0
             set e = null
-        endmethod
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
 

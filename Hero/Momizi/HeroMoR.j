@@ -29,7 +29,12 @@ private struct FxEffect
     real Velue
     real speed
     integer i
-    private method cleanup takes nothing returns nothing
+
+
+
+    method destroy takes nothing returns nothing
+
+
         set caster = null
         set dummy1 = null
         set dummy2 = null
@@ -41,21 +46,6 @@ private struct FxEffect
         set Angle = 0
         set CasterX = 0
         set CasterY = 0
-    endmethod
-
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
-
-
-    method destroy takes nothing returns nothing
-
-
-        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -105,7 +95,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A011' then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.CasterX = GetWidgetX(fx.caster)
         set fx.CasterY = GetWidgetY(fx.caster)

@@ -16,16 +16,6 @@ private struct FxEffect
     effect e2
     effect e3
     integer i
-    private method cleanup takes nothing returns nothing
-        call DestroyEffect(e)
-        call DestroyEffect(e2)
-        call DestroyEffect(e3)
-        set e = null
-        set e3 = null
-        set e2 = null
-        set caster = null
-        set target = null
-    endmethod
 
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
@@ -137,13 +127,6 @@ private struct FxEffect
     endmethod
 
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
     method launch takes nothing returns nothing
 
@@ -157,7 +140,14 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        call DestroyEffect(e)
+        call DestroyEffect(e2)
+        call DestroyEffect(e3)
+        set e = null
+        set e3 = null
+        set e2 = null
+        set caster = null
+        set target = null
 
 
         call deallocate()
@@ -167,7 +157,7 @@ endstruct
     
 private function F_A00J takes nothing returns nothing
     local FxEffect fx
-    set fx = FxEffect.createData()
+    set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
     set fx.target = GetSpellTargetUnit()
 

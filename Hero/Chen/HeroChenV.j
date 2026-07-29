@@ -8,12 +8,9 @@ endglobals
     private struct FxEffect
         unit caster
         unit target
-        private method cleanup takes nothing returns nothing
+        method stop takes nothing returns nothing
             set target = null
             set caster = null
-        endmethod
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
 

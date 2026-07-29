@@ -26,13 +26,6 @@ private struct FxEffect
     effect e3
     integer i
     integer Lv
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        call DestroyEffect(e)
-        set e = null
-        set e2 = null
-        set e3 = null
-    endmethod
 
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
@@ -73,13 +66,6 @@ private struct FxEffect
     endmethod
 
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
     method launch takes nothing returns nothing
 
@@ -93,7 +79,11 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        call DestroyEffect(e)
+        set e = null
+        set e2 = null
+        set e3 = null
 
 
         call deallocate()
@@ -105,7 +95,7 @@ private function F_A00D takes nothing returns nothing
     local FxEffect fx
     local real angle
 
-    set fx = FxEffect.createData()
+    set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
     set fx.TargetX = GetSpellTargetX()
     set fx.TargetY = GetSpellTargetY()

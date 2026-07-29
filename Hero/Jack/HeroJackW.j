@@ -19,11 +19,6 @@ private struct FxEffect
     effect e2
     integer i
     integer Lv
-    private method cleanup takes nothing returns nothing
-        set caster = null
-        set e = null
-        set e2 = null
-    endmethod
 
     private static method OnTimer takes nothing returns nothing
         local tick expiredTick = tick.getExpired()
@@ -77,13 +72,6 @@ private struct FxEffect
     endmethod
 
 
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
 
     method launch takes nothing returns nothing
 
@@ -97,7 +85,9 @@ private struct FxEffect
     method destroy takes nothing returns nothing
 
 
-        call this.cleanup()
+        set caster = null
+        set e = null
+        set e2 = null
 
 
         call deallocate()
@@ -107,7 +97,7 @@ endstruct
     
 private function F_A001 takes nothing returns nothing
     local FxEffect fx
-    set fx = FxEffect.createData()
+    set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
     set fx.i = 0
     set fx.Lv = GetUnitAbilityLevel(fx.caster,'A001')
@@ -117,7 +107,7 @@ private function F_A001 takes nothing returns nothing
 endfunction
 
     //function UnitEffectTimeSpeed2 takes integer id, real x, real y, real r, real time, integer i, real r2 returns unit
-        //local EffectDummy t = EffectDummy.createData()
+        //local EffectDummy t = EffectDummy.create()
         //set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         //call SetUnitAnimationByIndex(t.unit,i)
         //call SetUnitTimeScale(t.unit, r2)

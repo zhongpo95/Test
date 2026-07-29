@@ -55,7 +55,8 @@ library Missile initializer Init requires MonoEvent, DamageEffect2, Tick
         real damage
         integer id
         party ul
-        private method cleanup takes nothing returns nothing
+
+        method stop takes nothing returns nothing
             set u = null
             set ef = null
             set time = 0
@@ -64,10 +65,6 @@ library Missile initializer Init requires MonoEvent, DamageEffect2, Tick
             set col = 0
             set damage = 0
             set id = 0
-        endmethod
-
-        method stop takes nothing returns nothing
-            call this.cleanup()
             call this.destroy()
         endmethod
     endstruct

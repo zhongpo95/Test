@@ -21,7 +21,12 @@ private struct FxEffect
     real angle
     real r
     integer pid
-    private method cleanup takes nothing returns nothing
+
+
+
+    method destroy takes nothing returns nothing
+
+
         set casterX = 0
         set casterY = 0
         set targetX = 0
@@ -35,21 +40,6 @@ private struct FxEffect
         set caster = null
         call KillUnit(dummy)
         set dummy = null
-    endmethod
-
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
-
-
-    method destroy takes nothing returns nothing
-
-
-        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -86,7 +76,7 @@ private function splashD takes nothing returns nothing
     local real random2 = GetRandomReal(120,240)
 
     set t = tick.create(0)
-    set fx = FxEffect.createData()
+    set fx = FxEffect.create()
     set fx.caster = splash.source
     set fx.target = GetEnumUnit()
     set fx.casterX = GetWidgetX(fx.caster)
@@ -132,7 +122,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)

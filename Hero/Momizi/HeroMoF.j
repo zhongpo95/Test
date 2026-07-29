@@ -38,7 +38,12 @@ private struct FxEffect
     real Velue
     real speed
     integer i
-    private method cleanup takes nothing returns nothing
+
+
+
+    method destroy takes nothing returns nothing
+
+
         set caster = null
         set dummy = null
         set dummy2 = null
@@ -46,21 +51,6 @@ private struct FxEffect
         set Velue = 0
         set speed = 0
         set i = 0
-    endmethod
-
-    static method createData takes nothing returns thistype
-        local thistype this = allocate()
-
-
-
-        return this
-    endmethod
-
-
-    method destroy takes nothing returns nothing
-
-
-        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -182,7 +172,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A015' then
         set t = tick.create(0)
-        set fx = FxEffect.createData()
+        set fx = FxEffect.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = SkillSpeed(fx.pid)

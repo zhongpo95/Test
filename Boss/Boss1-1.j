@@ -24,15 +24,6 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         integer rectnumber
         integer i
         MapStruct st
-        private method cleanup takes nothing returns nothing
-            set rectnumber = 0
-            set st = 0
-            set caster = null
-        endmethod
-        static method createData takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
         private static method OnTimerExpire takes nothing returns nothing
             local tick expiredTick = tick.getExpired()
             local thistype fx = expiredTick.data
@@ -118,7 +109,9 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
         method destroy takes nothing returns nothing
-            call this.cleanup()
+            set rectnumber = 0
+            set st = 0
+            set caster = null
             call deallocate()
         endmethod
     endstruct
@@ -248,7 +241,7 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
                     //확률드랍
                     set st.pattern1 = st.pattern1 - 1
                     if st.pattern1 <= 0 then
-                        set fx = FxEffect.createData()
+                        set fx = FxEffect.create()
                         set fx.caster = st.caster
                         set fx.i = 0
                         set fx.st = st
