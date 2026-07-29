@@ -29,12 +29,6 @@ scope HeroBandiS
             set TargetY = 0
             set speed = 0
         endmethod
-        static method create takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
-
-
         method stop takes nothing returns nothing
             call this.cleanup()
             call this.destroy()

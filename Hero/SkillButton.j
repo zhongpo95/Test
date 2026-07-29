@@ -46,12 +46,6 @@ library SkillButton requires DataUnit
             set e = null
             set e2 = null
         endmethod
-        static method create takes nothing returns thistype
-            local thistype this = allocate()
-            return this
-        endmethod
-
-
         method stop takes nothing returns nothing
             call this.cleanup()
             call this.destroy()
