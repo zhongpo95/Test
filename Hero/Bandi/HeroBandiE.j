@@ -67,7 +67,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         call UnitRemoveAbility(fx.caster,'A06N')
         set Stack[fx.pid] = 0
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -94,16 +94,16 @@ private function EffectFunction takes nothing returns nothing
                     set Stack[fx.pid] = 11
                     call t.start( 0.02, false, function EffectFunction2 )
                 else
-                    call fx.Stop()
+                    call fx.stop()
                     call t.destroy()
                 endif
             endif
         else
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -148,7 +148,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.i = 0
@@ -221,7 +221,7 @@ private function ESyncData2 takes nothing returns nothing
 
     if Stack[pid] == 1 then
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.pid = pid
         set fx.caster = MainUnit[fx.pid]
         set fx.i = 0

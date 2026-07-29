@@ -23,18 +23,12 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit caster
         unit dummy
         integer i
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy = null
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -58,7 +52,8 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
                     call DelayKill(fx.caster,1.5)
                     call KillUnit(fx.dummy)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 //카운터 못침
                 elseif fx.i == 150 then
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
@@ -68,33 +63,23 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     call AnimationStart4(fx.caster, 36, 0.02)
                     call DelayKill(fx.caster,2.2)
                     call KillUnit(fx.dummy)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
                 call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -158,7 +143,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             if UnitHP[IndexUnit(st.caster)] > 0 and IsUnitDeadVJ(st.caster) == false then
                 set st.pattern1 = st.pattern1 - 1
                 if st.pattern1 <= 0 then
-                    set fx = FxEffect.Create()
+                    set fx = FxEffect.createData()
                     set fx.caster = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'h00G',GetWidgetX(st.caster)+PolarX(1000, GetUnitFacing(st.caster)),GetWidgetY(st.caster)+PolarY(1000, GetUnitFacing(st.caster)) , GetUnitFacing(st.caster)+180)
                     call AddSpecialEffectTarget("Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl",fx.caster,"origin")
                     call UnitRemoveAbility(fx.caster,'Amov')
@@ -167,7 +152,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set fx.i = 0
                     call AnimationStart(fx.caster, 12)
-                    call fx.Start()
+                    call fx.launch()
                     set st.pattern1 = Pattern1Cool
                 endif
             //주금

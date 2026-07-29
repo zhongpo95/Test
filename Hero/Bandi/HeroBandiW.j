@@ -46,7 +46,7 @@ private function EffectFunction takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, fx.TargetX2 + PolarX( (fx.r+25)/5 * 5 , r) , fx.TargetY2 + PolarY((fx.r+25)/5 * 5, r), scale, function splashD )
         endif
         call Sound3D(fx.caster,'A03W')
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     else
         call SetUnitSafePolarUTA(fx.caster,fx.r/(10/fx.speed),GetUnitFacing(fx.caster))
@@ -65,7 +65,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

@@ -45,7 +45,7 @@ scope HeroBandiZ
             endif
         else
             call SetUnitFlyHeight(fx.caster, 0, 0.00)
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -80,7 +80,7 @@ scope HeroBandiZ
         elseif fx.i+29 == 85 then
             call AnimationStart3(fx.caster,3, 1.00)
             call Sound3D(MainUnit[0],'A068')
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set t2 = tick.create(fx2)
             set fx2.pid = fx.pid
             set fx2.caster = fx.caster
@@ -133,7 +133,7 @@ scope HeroBandiZ
                 call DestroyEffect(fx.e)
                 call PauseUnitEx(fx.caster,false)
                 set fx.e = null
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             endif
         endif
@@ -152,7 +152,7 @@ scope HeroBandiZ
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
             set t = tick.create(0) 
-            set fx = SkillFx.Create()
+            set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
             set fx.i = 0
             set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))

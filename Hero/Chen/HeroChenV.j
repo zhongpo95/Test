@@ -8,7 +8,7 @@ endglobals
     private struct FxEffect
         unit caster
         unit target
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set target = null
             set caster = null
         endmethod
@@ -17,18 +17,12 @@ endglobals
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     private struct EFst
@@ -124,7 +118,7 @@ endglobals
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = FxEffect.Create()
+            set fx = FxEffect.create()
             set fx.caster = GetTriggerUnit()
             set fx.target = null
             set t.data = fx

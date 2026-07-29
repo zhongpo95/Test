@@ -85,7 +85,7 @@ private function EffectFunction2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     else
         call fx.ul.destroy()
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 
@@ -104,7 +104,7 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitZVeloP( fx.caster, 12)
         elseif fx.i == R2I(10/fx.speed) then
             set t2 = tick.create(0)
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set fx2.ul = party.create()
             set fx2.caster = fx.caster
             set fx2.r = fx.r2 + 180
@@ -117,7 +117,7 @@ private function EffectFunction takes nothing returns nothing
             call t2.start( 0.02, false, function EffectFunction2 )
         elseif fx.i == R2I(18/fx.speed) then
             set t2 = tick.create(0)
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set fx2.ul = party.create()
             set fx2.caster = fx.caster
             set fx2.r = fx.r2 + 180
@@ -130,7 +130,7 @@ private function EffectFunction takes nothing returns nothing
             call t2.start( 0.02, false, function EffectFunction2 )
         elseif fx.i == R2I(40/fx.speed) then
             set t2 = tick.create(0)
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set fx2.ul = party.create()
             set fx2.caster = fx.caster
             set fx2.r = fx.r2 + 180
@@ -147,7 +147,7 @@ private function EffectFunction takes nothing returns nothing
             call SetUnitZVeloP( fx.caster, 12)
         elseif fx.i == R2I(10/fx.speed) then
             set t2 = tick.create(0)
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set fx2.ul = party.create()
             set fx2.caster = fx.caster
             set fx2.r = fx.r2 + 180
@@ -163,7 +163,7 @@ private function EffectFunction takes nothing returns nothing
 
 
     if fx.i >= 40/fx.speed then
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     else
         call SetUnitSafePolarUTA(fx.caster,fx.r/(40/fx.speed), fx.r2 )
@@ -184,7 +184,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

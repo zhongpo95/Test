@@ -130,7 +130,7 @@ endglobals
         //endif
         if IsCastingNarC[fx.pid] == false then
             set NarStack[fx.pid] = 0
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         elseif NarStack[fx.pid] == 1 then
             //막타
@@ -150,7 +150,7 @@ endglobals
                 set NarStack[fx.pid] = 0
                 call BuffNar00.Apply( fx.caster, NarChangeTime, 0 )
                 set IsCastingNarC[fx.pid] = false
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             elseif fx.i == 1 or fx.i == 3 or fx.i == 5 then
                 call UnitEffectTime2('e02E',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),0.7,0,fx.pid)
@@ -210,7 +210,7 @@ endglobals
                 call Sound3DT(fx.caster,'A03E',0.02)
                 call t.start( Time9/fx.speed, false, function EffectFunction3 )
             elseif IsCastingNarC[fx.pid] == false then
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             endif
         else
@@ -223,7 +223,7 @@ endglobals
                     call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD )
                 endif
             endif
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
 
@@ -238,7 +238,7 @@ endglobals
         //MoveD 전진거리
 
         if IsCastingNarC[fx.pid] == false then
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         elseif fx.i >= 20/fx.speed then
             //빨간이펙트
@@ -252,7 +252,7 @@ endglobals
                 call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), scale, function splashD3 )
             endif
 
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             call SetUnitSafePolarUTA(fx.caster, MoveD/(20/fx.speed), GetUnitFacing(fx.caster))
@@ -269,7 +269,7 @@ endglobals
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = SkillFx.Create()
+            set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()

@@ -57,7 +57,7 @@ private function EffectFunction takes nothing returns nothing
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
             call UnitEffectTimeEX2('e04T',GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)),GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)),GetUnitFacing(fx.caster),1.2,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 25, GetUnitFacing(fx.caster)), GetWidgetY(fx.caster)+PolarY( 25, GetUnitFacing(fx.caster)), scale, function splashD2 )
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         elseif fx.r <= Time1/fx.speed then
             call SetUnitSafePolarUTA(fx.caster,MoveD/(6/fx.speed),GetUnitFacing(fx.caster))
@@ -80,7 +80,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

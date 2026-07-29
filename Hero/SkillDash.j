@@ -51,7 +51,7 @@ private function OnDashTimerExpired takes nothing returns nothing
         call UnitRemoveAbility(expired.caster,'A005')
         call UnitAddAbility(expired.caster,'A006')
         set UT[unitIndex] = 0
-        call expired.Stop()
+        call expired.stop()
         set expiredTick.data = 0
         call expiredTick.destroy()
     endif
@@ -72,7 +72,7 @@ private function OnDashCoolExpired takes nothing returns nothing
     endif
 
     set ab = null
-    call expired.Stop()
+    call expired.stop()
     set expiredTick.data = 0
     call expiredTick.destroy()
 endfunction
@@ -83,7 +83,7 @@ private function OnRemove takes nothing returns nothing
     if t != 0 then
         set fx = t.data
         if fx != 0 then
-            call fx.Stop()
+            call fx.stop()
         endif
         set t.data = 0
         call t.destroy()
@@ -144,12 +144,12 @@ private function F_A006 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A006')
         call UnitAddAbility(caster,'A005')
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = caster
         set fx.i = 2
         set t = tick.create(0)
         set t.data = fx
-        set fx2 = SkillFx.Create()
+        set fx2 = SkillFx.create()
         set fx2.caster = caster
         set fx2.i = 2
         set t2 = tick.create(0)
@@ -210,7 +210,7 @@ private function F_A005 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A005')
         call UnitAddAbility(caster,'A004')
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = caster
         set fx.i = 1
         set t = tick.create(0)
@@ -274,7 +274,7 @@ private function F_A004 takes nothing returns nothing
         endif
         call UnitRemoveAbility(caster,'A004')
         call UnitAddAbility(caster,'A002')
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = caster
         set fx.i = 0
         set t = tick.create(0)

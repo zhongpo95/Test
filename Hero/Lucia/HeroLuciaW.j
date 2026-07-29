@@ -72,7 +72,7 @@ private function EffectFunction2 takes nothing returns nothing
     else
         call KillUnit(fx.dummy)
         call fx.ul.destroy()
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 
@@ -126,7 +126,7 @@ private function EffectFunction takes nothing returns nothing
                     call AnimationStart3(fx.caster,4, fx.speed)
                 endif
                 set t2 = tick.create(0)
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set fx2.ul = party.create()
                 set fx2.caster = fx.caster
                 set fx2.r =  GetUnitFacing(fx.caster)
@@ -168,7 +168,7 @@ private function EffectFunction takes nothing returns nothing
                 call EXSetEffectSize(e,0.4)
                 call DestroyEffect(e)
                 set t2 = tick.create(0)
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set fx2.ul = party.create()
                 set fx2.caster = fx.caster
                 set fx2.r =  GetUnitFacing(fx.caster)
@@ -217,7 +217,7 @@ private function EffectFunction takes nothing returns nothing
                 call EXSetEffectSize(e,0.4)
                 call DestroyEffect(e)
                 set t2 = tick.create(0)
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set fx2.ul = party.create()
                 set fx2.caster = fx.caster
                 set fx2.r =  GetUnitFacing(fx.caster)
@@ -266,7 +266,7 @@ private function EffectFunction takes nothing returns nothing
                 call EXSetEffectSize(e,0.4)
                 call DestroyEffect(e)
                 set t2 = tick.create(0)
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set fx2.ul = party.create()
                 set fx2.caster = fx.caster
                 set fx2.r =  GetUnitFacing(fx.caster)
@@ -315,7 +315,7 @@ private function EffectFunction takes nothing returns nothing
                 call EXSetEffectSize(e,0.4)
                 call DestroyEffect(e)
                 set t2 = tick.create(0)
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set fx2.ul = party.create()
                 set fx2.caster = fx.caster
                 set fx2.r =  GetUnitFacing(fx.caster)
@@ -338,16 +338,16 @@ private function EffectFunction takes nothing returns nothing
             elseif fx.i == 6 then
                 call DummyMagicleash(fx.caster, (EffectTime /fx.speed))
                 call BuffNoST.Apply( fx.caster, (EffectTime /fx.speed), 0 )
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             endif
         else
 
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -364,7 +364,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()
@@ -396,7 +396,7 @@ private function Main takes nothing returns nothing
         endif
         */
         set t2 = tick.create(0)
-        set fx2 = SkillFx.Create()
+        set fx2 = SkillFx.create()
         set fx2.ul = party.create()
         set fx2.caster = fx.caster
         set fx2.r =  GetUnitFacing(fx.caster)

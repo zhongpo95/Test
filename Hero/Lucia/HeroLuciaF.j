@@ -15,7 +15,7 @@ private function EffectF takes nothing returns nothing
 
     set fx.caster = null
 
-    call fx.Stop()
+    call fx.stop()
     call t.destroy()
 endfunction
 
@@ -29,7 +29,7 @@ private function EffectFunction2 takes nothing returns nothing
     if fx.i == 8 then
         call SetUnitSafeXY(fx.caster, fx.TargetX + PolarX( 600, fx.r - 180 ), fx.TargetY + PolarY( 600, fx.r - 180 ) )
         call UnitEffectTime2('e055',fx.TargetX2,fx.TargetY2,GetUnitFacing(fx.caster),2.4,0,fx.pid)
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     else
         call t.start( 0.03125, false, function EffectFunction2 ) 
@@ -95,7 +95,7 @@ private function EffectFunction takes nothing returns nothing
         set fx.TargetY = GetWidgetY(fx.caster) + PolarY( 600, GetUnitFacing(fx.caster) )
 
         set t2 = tick.create(fx.pid) 
-        set fx2 = SkillFx.Create()
+        set fx2 = SkillFx.create()
         set fx2.caster = fx.caster
         set fx2.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set t2.data = fx2
@@ -117,7 +117,7 @@ private function EffectFunction takes nothing returns nothing
         call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 20 )
         call EXSetEffectSize(e, 1.5)
         call DestroyEffect(e)
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 
@@ -140,7 +140,7 @@ private function Main takes nothing returns nothing
 
         //포트레잇변경
         set t = tick.create(pid) 
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)
@@ -149,7 +149,7 @@ private function Main takes nothing returns nothing
         call ClearSelectionForPlayer(Player(pid))
 
         set t = tick.create(pid) 
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set t.data = fx
@@ -230,7 +230,7 @@ private function Main takes nothing returns nothing
 
 
         set t = tick.create(pid) 
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set t.data = fx

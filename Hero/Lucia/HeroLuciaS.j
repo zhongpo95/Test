@@ -59,7 +59,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) or IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] == false then
             set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             if fx.r >= Time2/fx.speed then
@@ -93,7 +93,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) or IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] == false then
             set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             if fx.r >= Time3/fx.speed then
@@ -131,7 +131,7 @@ private function EffectFunction2 takes nothing returns nothing
 
         if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) or IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] == false then
             set IsCastingLuciaS[GetPlayerId(GetOwningPlayer(fx.caster))] = false
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             if fx.r >= Time4/fx.speed then
@@ -152,7 +152,7 @@ private function EffectFunction2 takes nothing returns nothing
 
                 call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 5 )
 
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             else
                 /*
@@ -177,7 +177,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

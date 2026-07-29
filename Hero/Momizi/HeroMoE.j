@@ -26,7 +26,7 @@ private struct FxEffect
     real Velue
     real speed
     integer i
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set caster = null
         set dummy = null
         set pid = 0
@@ -36,44 +36,20 @@ private struct FxEffect
         set TargetX = 0
         set TargetY = 0
     endmethod
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
 
-        set lifeStarted = true
+    method destroy takes nothing returns nothing
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
-    endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
-
-        set lifeStopping = true
-
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -96,7 +72,7 @@ private function EffectFunction takes nothing returns nothing
 
     set fx.i = fx.i + 1
     if fx.i == 1 and ( GetUnitAbilityLevel(fx.caster, 'BPSE') > 0 or GetUnitAbilityLevel(fx.caster, 'A024') > 0 ) then
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     else
         if fx.i != (TICK+1) then
@@ -108,7 +84,7 @@ private function EffectFunction takes nothing returns nothing
             call splash.range( splash.ENEMY, fx.caster, fx.TargetX, fx.TargetY, scale, function splashD )
             call t.start( Time3 * (1 - (fx.speed/(100+fx.speed)) )/TICK, false, function EffectFunction )
         else
-            call fx.Stop()
+            call fx.destroy()
             call t.destroy()
         endif
     endif
@@ -121,7 +97,7 @@ private function Main takes nothing returns nothing
     local FxEffect fx
     if GetSpellAbilityId() == 'A010' then
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

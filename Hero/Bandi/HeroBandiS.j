@@ -22,7 +22,7 @@ scope HeroBandiS
         real TargetY
         integer pid
         real speed
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set pid = 0
             set TargetX = 0
@@ -34,18 +34,12 @@ scope HeroBandiS
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     private function splashD2 takes nothing returns nothing
@@ -88,7 +82,7 @@ scope HeroBandiS
             endif
         else
         endif
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endfunction
 
@@ -106,11 +100,11 @@ scope HeroBandiS
                 endif
                 call t.start( 0.336 /fx.speed, false, function EffectFunction2 )
             else
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             endif
         else
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
 
@@ -125,7 +119,7 @@ scope HeroBandiS
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = FxEffect.Create()
+            set fx = FxEffect.create()
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()

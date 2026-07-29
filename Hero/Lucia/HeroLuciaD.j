@@ -89,11 +89,11 @@ private function EffectFunction takes nothing returns nothing
             call EXEffectMatRotateZ(e,GetRandomReal(0,360))
             call DestroyEffect(e)
 
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     else
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -109,7 +109,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

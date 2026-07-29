@@ -72,7 +72,7 @@ private function EffectFunction takes nothing returns nothing
     if IsCastingNarD[fx.pid] == false then
         call BuffNoNB.Stop( fx.caster )
         call BuffNoST.Stop( fx.caster )
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     else
         set fx.i = fx.i + 1
@@ -173,7 +173,7 @@ private function EffectFunction takes nothing returns nothing
             call UnitEffectTimeEX2('e030',GetWidgetX(fx.caster),GetWidgetY(fx.caster),fx.r,0.8,fx.pid)
             call t.start( 0.02, false, function EffectFunction )
         elseif fx.i >= R2I(105/fx.speed) then
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             call t.start( 0.02, false, function EffectFunction )
@@ -193,7 +193,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.TargetX = GetSpellTargetX()
         set fx.TargetY = GetSpellTargetY()

@@ -19,7 +19,7 @@ private struct FxEffect
     effect e2
     integer i
     integer Lv
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set caster = null
         set e = null
         set e2 = null
@@ -62,71 +62,43 @@ private struct FxEffect
         
                     elseif fx.i == 35 then
         
-                        call fx.Stop()
-        
+                        call expiredTick.destroy()
+
+                        call fx.destroy()
                     endif
         
                 else
         
-                    call fx.Stop()
-        
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
                 endif
         
     endmethod
 
-    private tick lifeTick
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
-        set lifeTick = 0
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
+    method launch takes nothing returns nothing
 
-        set lifeStarted = true
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
 
-        if lifeTick != 0 then
-            return
-        endif
 
-        set lifeTick = tick.create(0)
-        set lifeTick.data = this
-        call lifeTick.start(0.02, true, function thistype.OnTimer)
+        local tick t = tick.create(this)
+        call t.start(0.02, true, function thistype.OnTimer)
     endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
+    method destroy takes nothing returns nothing
 
-        set lifeStopping = true
 
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
-        if lifeTick != 0 then
-            call lifeTick.destroy()
-            set lifeTick = 0
-        endif
 
         call deallocate()
     endmethod
@@ -135,17 +107,17 @@ endstruct
     
 private function F_A001 takes nothing returns nothing
     local FxEffect fx
-    set fx = FxEffect.Create()
+    set fx = FxEffect.createData()
     set fx.caster = GetTriggerUnit()
     set fx.i = 0
     set fx.Lv = GetUnitAbilityLevel(fx.caster,'A001')
-    call fx.Start()
+    call fx.launch()
     call DummyMagicleash(fx.caster,Time)
     call AnimationStart(fx.caster,9)
 endfunction
 
     //function UnitEffectTimeSpeed2 takes integer id, real x, real y, real r, real time, integer i, real r2 returns unit
-        //local EffectDummy t = EffectDummy.Create()
+        //local EffectDummy t = EffectDummy.createData()
         //set t.unit = CreateUnit(Player(NeutralCode),id,x,y,r)
         //call SetUnitAnimationByIndex(t.unit,i)
         //call SetUnitTimeScale(t.unit, r2)

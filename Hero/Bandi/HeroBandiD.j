@@ -90,7 +90,7 @@ scope HeroBandiD
             call UnitEffectTime2('e04F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2.0,0,fx.pid)
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale2, function splashD2 )
             call fx.ul.destroy()
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         else
             set CheckG = fx.ul.super
@@ -127,7 +127,7 @@ scope HeroBandiD
             endif
         else
             call SetUnitFlyHeight(fx.caster, 0, 0.00)
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -140,7 +140,7 @@ scope HeroBandiD
         local SkillFx fx2
 
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-            set fx2 = SkillFx.Create()
+            set fx2 = SkillFx.create()
             set t2 = tick.create(fx2)
             set fx2.pid = fx.pid
             set fx2.caster = fx.caster
@@ -156,7 +156,7 @@ scope HeroBandiD
             call t.start( 0.586 / fx.speed , false, function EffectFunction3 )
             call t2.start( 0.04 / fx.speed , true, function EffectFunctionZ )
         else
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -173,7 +173,7 @@ scope HeroBandiD
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = SkillFx.Create()
+            set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
             set fx.TargetX = GetSpellTargetX()
             set fx.TargetY = GetSpellTargetY()

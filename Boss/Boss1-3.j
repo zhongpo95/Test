@@ -77,21 +77,15 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy1 = null
             set dummy2 = null
             set dummy3 = null
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -118,7 +112,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime + CounterTime
                     set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 //무력화 성공
 
                 elseif fx.i == Pattern5Time then
@@ -143,32 +138,22 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern5 = Pattern5Cool + GetRandomInt(0,Pattern5RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -185,21 +170,15 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy1 = null
             set dummy2 = null
             set dummy3 = null
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -227,32 +206,22 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern8 = Pattern8Cool + GetRandomInt(0,Pattern8RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -266,7 +235,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         real lockangle
         integer i
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             call KillUnit(dummy)
             call KillUnit(effectdummy)
@@ -276,14 +245,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set i = 0
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -339,32 +302,22 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern7 = Pattern7Cool + GetRandomInt(0,Pattern7RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -488,7 +441,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer fake
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             call KillUnit(dummy[0])
             call KillUnit(dummy[1])
@@ -514,14 +467,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set fake = 0
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -600,33 +547,24 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set st.pattern6 = Pattern6Cool + GetRandomInt(0,Pattern6RandomCool)
                     //주금
 
-                    call fx.Stop()
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
                     //이동
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -638,20 +576,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy
         integer i
         AggroSystem s
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy = null
             set i = 0
             set s = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -672,7 +604,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                         //얼음파편
                         call AnimationStart4(fx.caster, 7, 0.02)
                         set Unitstate[IndexUnit(fx.caster)] = 0
-                        call fx.Stop()
+                        call expiredTick.destroy()
+                        call fx.destroy()
                     else
                         set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])
                         call SetUnitFacing(fx.caster,ang)
@@ -684,7 +617,9 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 elseif Unitstate[IndexUnit(fx.caster)] != 3 then
                     //발사 및 종료
 
-                    call fx.Stop()
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
                 //대기상태로 전환
 
                 elseif r <= Pattern1Distance then
@@ -692,33 +627,23 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
 
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 0
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
                 call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -734,7 +659,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         integer targetcount
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             call KillUnit(dummy[0])
             call KillUnit(effectdummy[0])
@@ -775,14 +700,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set targetcount = 0
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -912,32 +831,22 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -950,7 +859,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy3
         integer i
         MapStruct st
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             call KillUnit(dummy1)
             call KillUnit(dummy2)
@@ -960,14 +869,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set dummy3 = null
             set st = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -1015,32 +918,22 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern2 = Pattern2Cool + GetRandomInt(0,Pattern2RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -1052,20 +945,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         integer i
         MapStruct st
         AOESt ast
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy = null
             set st = 0
             set ast = 0
         endmethod
-        private tick lifeTick
-        private boolean lifeStarted
-        private boolean lifeStopping
-        static method Create takes nothing returns thistype
+        static method createData takes nothing returns thistype
             local thistype this = allocate()
-            set lifeTick = 0
-            set lifeStarted = false
-            set lifeStopping = false
             return this
         endmethod
         private static method OnTimerExpire takes nothing returns nothing
@@ -1101,7 +988,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime + CounterTime
                     set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 //카운터 못침
                 elseif fx.i == Pattern3CounterTime then
                     call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
@@ -1116,33 +1004,23 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set Unitstate[IndexUnit(fx.caster)] = 4
                     set st.j = StandTime
                     set st.pattern4 = Pattern4Cool + GetRandomInt(0,Pattern4RandomCool)
-                    call fx.Stop()
+                    call expiredTick.destroy()
+                    call fx.destroy()
                 endif
             //주금
             else
                 call UnitRemoveAbility(fx.caster,'A00V')
                 call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call fx.Stop()
+                call expiredTick.destroy()
+                call fx.destroy()
             endif
         endmethod
-        method Start takes nothing returns nothing
-            if lifeStarted then
-                return
-            endif
-            set lifeStarted = true
-            set lifeTick = tick.create(this)
-            call lifeTick.start(0.02, true, function thistype.OnTimerExpire)
+        method launch takes nothing returns nothing
+            local tick t = tick.create(this)
+            call t.start(0.02, true, function thistype.OnTimerExpire)
         endmethod
-        method Stop takes nothing returns nothing
-            if lifeStopping then
-                return
-            endif
-            set lifeStopping = true
-            if lifeTick != 0 then
-                call lifeTick.destroy()
-                set lifeTick = 0
-            endif
-            call this.OnStop()
+        method destroy takes nothing returns nothing
+            call this.cleanup()
             call deallocate()
         endmethod
     endstruct
@@ -1218,37 +1096,37 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     if Unitstate[IndexUnit(st.caster)] != 4 then
                         //카운터
                         if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
-                            set fx3 = FxEffect3.Create()
+                            set fx3 = FxEffect3.createData()
                             set fx3.caster = st.caster
                             set fx3.i = 0
                             set fx3.st = st
                             call AnimationStart(fx3.caster, 5)
-                            call fx3.Start()
+                            call fx3.launch()
                             set Unitstate[IndexUnit(fx3.caster)] = 1
                         //파이어볼
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("파이어볼")
-                            set fx2 = FxEffect2.Create()
+                            set fx2 = FxEffect2.createData()
                             set fx2.caster = st.caster
                             set fx2.i = 0
                             set fx2.st = st
                             call AnimationStart(fx2.caster, 3)
-                            call fx2.Start()
+                            call fx2.launch()
                             set Unitstate[IndexUnit(fx2.caster)] = 1
                         //지뢰마법
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("지뢰마법")
-                            set fx3 = FxEffect3.Create()
+                            set fx3 = FxEffect3.createData()
                             set fx3.caster = st.caster
                             set fx3.i = 0
                             set fx3.st = st
                             call AnimationStart(fx3.caster, 4)
-                            call fx3.Start()
+                            call fx3.launch()
                             set Unitstate[IndexUnit(fx3.caster)] = 1
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
                             //call VJDebugMsg("마력충전")
-                            set fx5 = FxEffect5.Create()
+                            set fx5 = FxEffect5.createData()
                             set fx5.caster = st.caster
                             set fx5.i = 0
                             set fx5.st = st
@@ -1262,36 +1140,36 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set UnitCastingSD[index] = UnitCastingSDMAX[index]
                             set UnitCastingDummy[index] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'e01H', GetWidgetX(fx5.caster), GetWidgetY(fx5.caster), 270 )
                             call SetUnitAnimationByIndex(UnitCastingDummy[index], (100-1) )
-                            call fx5.Start()
+                            call fx5.launch()
                         //이동
                         elseif st.pattern6 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern6Distance, function SplashNothing ) > 0 then
                             //이동중이 아님
-                            set fx6 = FxEffect6.Create()
+                            set fx6 = FxEffect6.createData()
                             set fx6.caster = st.caster
                             set fx6.i = 0
                             set fx6.st = st
                             call AnimationStart(fx6.caster, 4)
-                            call fx6.Start()
+                            call fx6.launch()
                             set Unitstate[IndexUnit(fx6.caster)] = 1
                         //call VJDebugMsg("이동")
                         elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
                             //스킬사용중
-                            set fx7 = FxEffect7.Create()
+                            set fx7 = FxEffect7.createData()
                             set fx7.caster = st.caster
                             set fx7.i = 0
                             set fx7.st = st
                             call AnimationStart(fx7.caster, 4)
-                            call fx7.Start()
+                            call fx7.launch()
                             set Unitstate[IndexUnit(fx7.caster)] = 1
                         //무력화
                         elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
                             //주금
-                            set fx8 = FxEffect8.Create()
+                            set fx8 = FxEffect8.createData()
                             set fx8.caster = st.caster
                             set fx8.i = 0
                             set fx8.st = st
                             call AnimationStart(fx8.caster, 3)
-                            call fx8.Start()
+                            call fx8.launch()
                             set Unitstate[IndexUnit(fx8.caster)] = 1
                         //그룹 보상
                         else
@@ -1301,14 +1179,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                                 set r = DistanceWBW( st.caster, MainUnit[s.NowAggro])
                                 if r > Pattern1Distance2 then
                                     //정비소제거
-                                    set fx1 = FxEffect1.Create()
+                                    set fx1 = FxEffect1.createData()
                                     set fx1.caster = st.caster
                                     set fx1.i = 0
                                     set fx1.s = BossStruct[IndexUnit(fx1.caster)]
                                     call SetUnitFacing(fx1.caster,AngleWBW(fx1.caster,MainUnit[s.NowAggro]))
                                     call EXSetUnitFacing(fx1.caster,AngleWBW(fx1.caster,MainUnit[s.NowAggro]))
                                     call AnimationStart(fx1.caster, 2)
-                                    call fx1.Start()
+                                    call fx1.launch()
                                     set Unitstate[IndexUnit(fx1.caster)] = 3
                                 endif
                             endif

@@ -21,7 +21,7 @@ private struct FxEffect
     real angle
     real r
     integer pid
-    private method OnStop takes nothing returns nothing
+    private method cleanup takes nothing returns nothing
         set casterX = 0
         set casterY = 0
         set targetX = 0
@@ -36,44 +36,20 @@ private struct FxEffect
         call KillUnit(dummy)
         set dummy = null
     endmethod
-    private boolean lifeStarted
-    private boolean lifeStopping
 
-    static method Create takes nothing returns thistype
+    static method createData takes nothing returns thistype
         local thistype this = allocate()
 
-        set lifeStarted = false
-        set lifeStopping = false
 
-        static if thistype.OnCreate.exists then
-            call this.OnCreate()
-        endif
 
         return this
     endmethod
 
-    method Start takes nothing returns nothing
-        if lifeStarted then
-            return
-        endif
 
-        set lifeStarted = true
+    method destroy takes nothing returns nothing
 
-        static if thistype.OnStart.exists then
-            call this.OnStart()
-        endif
-    endmethod
 
-    method Stop takes nothing returns nothing
-        if lifeStopping then
-            return
-        endif
-
-        set lifeStopping = true
-
-        static if thistype.OnStop.exists then
-            call this.OnStop()
-        endif
+        call this.cleanup()
 
         call deallocate()
     endmethod
@@ -98,7 +74,7 @@ private function EffectFunction2 takes nothing returns nothing
         call t.start( 0.02, false, function EffectFunction2 )
     else
         call ShieldAdd(fx.target,12.0,GetUnitMaxLifeVJ(fx.caster)*(HeroSkillVelue4[4]))
-        call fx.Stop()
+        call fx.destroy()
         call t.destroy()
     endif
 endfunction
@@ -110,7 +86,7 @@ private function splashD takes nothing returns nothing
     local real random2 = GetRandomReal(120,240)
 
     set t = tick.create(0)
-    set fx = FxEffect.Create()
+    set fx = FxEffect.createData()
     set fx.caster = splash.source
     set fx.target = GetEnumUnit()
     set fx.casterX = GetWidgetX(fx.caster)
@@ -142,8 +118,7 @@ private function EffectFunction takes nothing returns nothing
             call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster), 10 )
         endif
     endif
-
-    call fx.Stop()
+    call fx.destroy()
     call t.destroy()
 endfunction
 
@@ -157,7 +132,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.createData()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
         set speed = SkillSpeed(fx.pid)

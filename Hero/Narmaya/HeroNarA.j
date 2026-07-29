@@ -27,12 +27,12 @@ private function EffectFunction takes nothing returns nothing
 
         set IsCastingNarA[fx.pid] = false
 
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     else
         set IsCastingNarA[fx.pid] = false
         call CooldownSet(fx.caster,'A02M', CancelTime)
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
     endif
 endfunction
@@ -45,7 +45,7 @@ private function Main takes nothing returns nothing
         call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
         set t = tick.create(0)
-        set fx = SkillFx.Create()
+        set fx = SkillFx.create()
         set fx.caster = GetTriggerUnit()
         set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
         set fx.speed = ((100+SkillSpeed(fx.pid))/100)

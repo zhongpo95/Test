@@ -164,7 +164,7 @@ scope HeroBandiF
                 call PauseUnitEx(fx.caster,false)
                 call BuffNoNB.Stop( fx.caster )
                 call BuffNoST.Stop( fx.caster )
-                call fx.Stop()
+                call fx.stop()
                 call t.destroy()
             endif
             /*
@@ -174,7 +174,7 @@ scope HeroBandiF
                 set fx.e = null
             endif
             call PauseUnitEx(fx.caster,false)
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
             */
@@ -206,7 +206,7 @@ scope HeroBandiF
             endif
         else
             call SetUnitFlyHeight(fx.caster, 0, 0.00)
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
         endif
     endfunction
@@ -222,7 +222,7 @@ scope HeroBandiF
             call SetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             call EXSetUnitFacing(GetTriggerUnit(), AngleWBP(GetTriggerUnit(), GetSpellTargetX(), GetSpellTargetY() ))
             set t = tick.create(0)
-            set fx = SkillFx.Create()
+            set fx = SkillFx.create()
             set fx.caster = GetTriggerUnit()
             set fx.pid = GetPlayerId(GetOwningPlayer(fx.caster))
             set fx.speed = ((100+SkillSpeed(fx.pid))/100)
@@ -257,7 +257,7 @@ scope HeroBandiF
                 call BuffNoNB.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
                 call BuffNoST.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
 
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set t2 = tick.create(fx2)
                 set fx2.pid = fx.pid
                 set fx2.caster = fx.caster
@@ -286,7 +286,7 @@ scope HeroBandiF
                 call BuffNoNB.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
                 call BuffNoST.Apply( fx.caster, 4 / (1.50 * fx.speed), 0 )
 
-                set fx2 = SkillFx.Create()
+                set fx2 = SkillFx.create()
                 set t2 = tick.create(fx2)
                 set fx2.pid = fx.pid
                 set fx2.caster = fx.caster

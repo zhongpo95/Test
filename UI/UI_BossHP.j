@@ -20,7 +20,7 @@ library UIBossHP initializer init requires FrameCount, DataUnit
         integer BHPxL        // 이전 체력바 개수
         integer playerId     // 마지막 자리 수 (0~9)
 
-        method OnStop takes nothing returns nothing
+        method cleanup takes nothing returns nothing
             set caster = null
         endmethod
         static method create takes nothing returns thistype
@@ -28,18 +28,12 @@ library UIBossHP initializer init requires FrameCount, DataUnit
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     function PlayersBossBarShow takes player p, boolean state returns nothing
@@ -156,7 +150,7 @@ library UIBossHP initializer init requires FrameCount, DataUnit
                     call DzFrameShow(BHPBar[8], false)
                 endif
             endif
-            call fx.Stop()
+            call fx.stop()
             call t.destroy()
             return
         endif
@@ -282,7 +276,7 @@ library UIBossHP initializer init requires FrameCount, DataUnit
         endif
 
         set t = tick.create(0)
-        set fx = FxEffect.Create()
+        set fx = FxEffect.create()
         set fx.caster = u
         set fx.index = index
         set fx.BHPx = UnitSetHPx[DataUnitIndex(u)]

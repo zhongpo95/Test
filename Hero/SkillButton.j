@@ -24,7 +24,7 @@ library SkillButton requires DataUnit
         effect e
         effect e2
         party ul
-        private method OnStop takes nothing returns nothing
+        private method cleanup takes nothing returns nothing
             set caster = null
             set dummy = null
             set TargetX = 0
@@ -51,18 +51,12 @@ library SkillButton requires DataUnit
             return this
         endmethod
 
-        static method Create takes nothing returns thistype
-            return thistype.create()
-        endmethod
 
         method stop takes nothing returns nothing
-            call this.OnStop()
+            call this.cleanup()
             call this.destroy()
         endmethod
 
-        method Stop takes nothing returns nothing
-            call this.stop()
-        endmethod
     endstruct
 
     private function SkillButtonKey takes nothing returns nothing

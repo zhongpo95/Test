@@ -99,7 +99,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         /*
         //local tick t = tick.getExpired()
         local SkillFx fx = t.data
-        call fx.Stop()
+        call fx.stop()
         call t.destroy()
         call t.start( 0.02, false, function EffectFunction )\
         Wheel_Layout[i]
