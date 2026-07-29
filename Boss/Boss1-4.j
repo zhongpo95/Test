@@ -23,59 +23,56 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit caster
         unit dummy
         integer i
-        private static method OnTimerExpire takes nothing returns nothing
-            local tick expiredTick = tick.getExpired()
-            local thistype fx = expiredTick.data
-            local effect e
-            local real r
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 75 then
-                    set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))
-                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitAddAbility(fx.caster,'A00V')
-                //카운터침
-                elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,11)
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    call DelayKill(fx.caster,1.5)
-                    call KillUnit(fx.dummy)
-                    call expiredTick.destroy()
-                    call fx.destroy()
-                //카운터 못침
-                elseif fx.i == 150 then
-                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
-                    call UnitRemoveAbility(fx.caster,'A00V')
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 36, 0.02)
-                    call DelayKill(fx.caster,2.2)
-                    call KillUnit(fx.dummy)
-                    call expiredTick.destroy()
-                    call fx.destroy()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call expiredTick.destroy()
-                call fx.destroy()
-            endif
-        endmethod
-        method launch takes nothing returns nothing
-            local tick t = tick.create(this)
-            call t.start(0.02, true, function thistype.OnTimerExpire)
-        endmethod
         method destroy takes nothing returns nothing
             set caster = null
             set dummy = null
             call deallocate()
         endmethod
     endstruct
+
+    private function FxEffectOnTimerExpire takes nothing returns nothing
+        local tick expiredTick = tick.getExpired()
+        local FxEffect fx = expiredTick.data
+        local effect e
+        local real r
+        set fx.i = fx.i + 1
+        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+            if fx.i == 75 then
+                set fx.dummy = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e01V',GetWidgetX(fx.caster),GetWidgetY(fx.caster), GetUnitFacing(fx.caster))
+                call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
+                call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitAddAbility(fx.caster,'A00V')
+            //카운터침
+            elseif fx.i != 150 and fx.i >= 75 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
+                call Sound3D(fx.caster,'A00U')
+                call AnimationStart(fx.caster,11)
+                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                call DelayKill(fx.caster,1.5)
+                call KillUnit(fx.dummy)
+                call expiredTick.destroy()
+                call fx.destroy()
+            //카운터 못침
+            elseif fx.i == 150 then
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                call AnimationStart4(fx.caster, 36, 0.02)
+                call DelayKill(fx.caster,2.2)
+                call KillUnit(fx.dummy)
+                call expiredTick.destroy()
+                call fx.destroy()
+            endif
+        //주금
+        else
+            call UnitRemoveAbility(fx.caster,'A00V')
+            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+            call expiredTick.destroy()
+            call fx.destroy()
+        endif
+    endfunction
 
     private function NoDie takes nothing returns nothing
         set NoDieCheck = NoDieCheck + 1
@@ -116,6 +113,7 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         local MapStruct st = t.data
         local FxEffect fx
         local integer index
+        local tick fxTick
 
         set NoDieCheck = 0
         call ForGroup(st.ul.super,function NoDie)
@@ -145,7 +143,8 @@ library Boss4 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                     set fx.i = 0
                     call AnimationStart(fx.caster, 12)
-                    call fx.launch()
+                    set fxTick = tick.create(fx)
+                    call fxTick.start(0.02, true, function FxEffectOnTimerExpire)
                     set st.pattern1 = Pattern1Cool
                 endif
             //주금

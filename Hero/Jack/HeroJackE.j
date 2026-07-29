@@ -59,55 +59,9 @@ private struct FxEffect
     integer i
     integer Lv
 
-    private static method OnTimer takes nothing returns nothing
-        local tick expiredTick = tick.getExpired()
-        local thistype fx = expiredTick.data
-                local effect e
-        
-                local real r
-        
-                set fx.i = fx.i + 1
-        
-                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-        
-                    if fx.i == 15 then
-        
-                        call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
-        
-                        call UnitEffectTimeEX2('e005',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,GetPlayerId(GetOwningPlayer(fx.caster)))
-        
-                        call Sound3D(fx.caster,'A00A')
-        
-                        call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
-        
-                    elseif fx.i == 35 then
-        
-                        //call AnimationStart(fx.caster,4)
-        
-                        call expiredTick.destroy()
-
-                        call fx.destroy()
-                    endif
-        
-                else
-        
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                endif
-        
-    endmethod
 
 
 
-    method launch takes nothing returns nothing
-
-
-
-
-        local tick t = tick.create(this)
-        call t.start(0.02, true, function thistype.OnTimer)
-    endmethod
 
     method destroy takes nothing returns nothing
 
@@ -121,13 +75,54 @@ private struct FxEffect
     endmethod
 endstruct
 
+private function FxEffectOnTimer takes nothing returns nothing
+    local tick expiredTick = tick.getExpired()
+    local FxEffect fx = expiredTick.data
+            local effect e
+
+            local real r
+
+            set fx.i = fx.i + 1
+
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+
+                if fx.i == 15 then
+
+                    call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 75, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 75, GetUnitFacing(fx.caster) ), 300, function splashD )
+
+                    call UnitEffectTimeEX2('e005',GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster)+PolarY( 100, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.5,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call Sound3D(fx.caster,'A00A')
+
+                    call CameraShaker.setShakeForPlayer( GetOwningPlayer(fx.caster),10 )
+
+                elseif fx.i == 35 then
+
+                    //call AnimationStart(fx.caster,4)
+
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
+                endif
+
+            else
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            endif
+
+endfunction
+
     
 private function F_A008 takes nothing returns nothing
     local FxEffect fx
+    local tick fxTick
     set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
     set fx.i = 0
-    call fx.launch()
+    set fxTick = tick.create(fx)
+    call fxTick.start(0.02, true, function FxEffectOnTimer)
     call DummyMagicleash(fx.caster,Time)
     call AnimationStart2(fx.caster,4,0.4,1.5)
 endfunction

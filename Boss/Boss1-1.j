@@ -24,90 +24,6 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         integer rectnumber
         integer i
         MapStruct st
-        private static method OnTimerExpire takes nothing returns nothing
-            local tick expiredTick = tick.getExpired()
-            local thistype fx = expiredTick.data
-            local effect e
-            local real r
-            local integer i
-            local tick t
-            local MapStruct st
-            set fx.i = fx.i + 1
-            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-                if fx.i == 1 then
-                    call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
-                    call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
-                    call UnitAddAbility(fx.caster,'A00V')
-                //카운터침
-                elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
-                    //체력감소
-                    call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
-                    set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
-
-                    call Sound3D(fx.caster,'A00U')
-                    call AnimationStart(fx.caster,6)
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-
-                    //call CutinLimit(fx.st.ul.super)
-
-                    //카운터침
-
-                    //call UnitAddAbility(fx.caster, 'A02F')
-
-                    //컷인
-                    //set t = tick.create(0)
-                    //set t.data = fx.st
-                    //call t.start(5, false, function Cutin)
-
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                //카운터 못침
-                elseif fx.i == Pattern1CounterTime then
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-                    call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
-
-                    //call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
-                    set i = 0
-                    loop
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.5, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 4.0, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 4.5, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 5.0, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 5.5, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 6.0, 75, 1)
-                        call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 6.5, 75, 1)
-                        set i = i + 1
-                    exitwhen i == 36
-                    endloop
-
-                    //call AOE2(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 300, distance, 0.5,  100, 0, 1)
-
-                    call UnitRemoveAbility(fx.caster,'A00V')
-                    call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                    //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
-                    call AnimationStart4(fx.caster, 7, 0.02)
-                    call expiredTick.destroy()
-                    call fx.destroy()
-                endif
-            //주금
-            else
-                call UnitRemoveAbility(fx.caster,'A00V')
-                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                call expiredTick.destroy()
-                call fx.destroy()
-            endif
-        endmethod
-        method launch takes nothing returns nothing
-            local tick t = tick.create(this)
-            call t.start(0.02, true, function thistype.OnTimerExpire)
-        endmethod
         method destroy takes nothing returns nothing
             set rectnumber = 0
             set st = 0
@@ -115,6 +31,87 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
             call deallocate()
         endmethod
     endstruct
+
+    private function FxEffectOnTimerExpire takes nothing returns nothing
+        local tick expiredTick = tick.getExpired()
+        local FxEffect fx = expiredTick.data
+        local effect e
+        local real r
+        local integer i
+        local tick t
+        local MapStruct st
+        set fx.i = fx.i + 1
+        if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+            if fx.i == 1 then
+                call SetUnitVertexColorBJ( fx.caster, 70, 70, 100, 0 )
+                call UnitEffectTimeEX('e00F',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
+                call UnitAddAbility(fx.caster,'A00V')
+            //카운터침
+            elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
+                //체력감소
+                call UnitDamageTarget(fx.caster,fx.caster,200000000,true,true,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNIVERSAL,WEAPON_TYPE_WHOKNOWS)
+                set UnitHP[IndexUnit(fx.caster)] = UnitHP[IndexUnit(fx.caster)] - 100000000
+
+                call Sound3D(fx.caster,'A00U')
+                call AnimationStart(fx.caster,6)
+                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+
+                //call CutinLimit(fx.st.ul.super)
+
+                //카운터침
+
+                //call UnitAddAbility(fx.caster, 'A02F')
+
+                //컷인
+                //set t = tick.create(0)
+                //set t.data = fx.st
+                //call t.start(5, false, function Cutin)
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            //카운터 못침
+            elseif fx.i == Pattern1CounterTime then
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+                call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
+
+                //call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
+                set i = 0
+                loop
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.0, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 3.5, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 4.0, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 4.5, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 5.0, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 5.5, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 6.0, 75, 1)
+                    call Missile(fx.caster, MakeMissile("Butterfly_Pink.mdl",GetWidgetX(fx.caster),GetWidgetY(fx.caster),100,i*10,2.00,null), 1750, i*10, 6.5, 75, 1)
+                    set i = i + 1
+                exitwhen i == 36
+                endloop
+
+                //call AOE2(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), 300, distance, 0.5,  100, 0, 1)
+
+                call UnitRemoveAbility(fx.caster,'A00V')
+                call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+                //call AnimationStart2(fx.caster, 0, 0.6, 3.0)
+                call AnimationStart4(fx.caster, 7, 0.02)
+                call expiredTick.destroy()
+                call fx.destroy()
+            endif
+        //주금
+        else
+            call UnitRemoveAbility(fx.caster,'A00V')
+            call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
+            call expiredTick.destroy()
+            call fx.destroy()
+        endif
+    endfunction
 
     private function CutinFor takes nothing returns nothing
         local tick t = tick.getExpired()
@@ -218,6 +215,7 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
         local tick t = tick.getExpired()
         local MapStruct st = t.data
         local FxEffect fx
+        local tick fxTick
         set NoDieCheck = 0
         call ForGroup(st.ul.super,function NoDie)
 
@@ -246,7 +244,8 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
                         set fx.i = 0
                         set fx.st = st
                         call AnimationStart(fx.caster, 5)
-                        call fx.launch()
+                        set fxTick = tick.create(fx)
+                        call fxTick.start(0.02, true, function FxEffectOnTimerExpire)
                         set st.pattern1 = Pattern1Cool
                     endif
                 endif

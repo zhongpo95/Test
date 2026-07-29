@@ -27,54 +27,9 @@ private struct FxEffect
     integer i
     integer Lv
 
-    private static method OnTimer takes nothing returns nothing
-        local tick expiredTick = tick.getExpired()
-        local thistype fx = expiredTick.data
-                local effect e
-
-                local real r
-
-                set fx.i = fx.i + 1
-
-                if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-
-                    if fx.i == 5 then
-
-                        call SetUnitX(fx.caster,fx.TargetX)
-
-                        call SetUnitY(fx.caster,fx.TargetY)
-
-                        call AnimationStart(fx.caster,10)
-
-                        call UnitEffectTimeEX2('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2,GetPlayerId(GetOwningPlayer(fx.caster)))
-
-                        call Sound3D(fx.caster,'A00F')
-
-                    elseif fx.i == 50 then
-
-                        call expiredTick.destroy()
-
-                        call fx.destroy()
-                    endif
-
-                else
-
-                    call expiredTick.destroy()
-
-                    call fx.destroy()
-                endif
-    endmethod
 
 
 
-    method launch takes nothing returns nothing
-
-
-
-
-        local tick t = tick.create(this)
-        call t.start(0.02, true, function thistype.OnTimer)
-    endmethod
 
     method destroy takes nothing returns nothing
 
@@ -90,10 +45,49 @@ private struct FxEffect
     endmethod
 endstruct
 
+private function FxEffectOnTimer takes nothing returns nothing
+    local tick expiredTick = tick.getExpired()
+    local FxEffect fx = expiredTick.data
+            local effect e
+
+            local real r
+
+            set fx.i = fx.i + 1
+
+            if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
+
+                if fx.i == 5 then
+
+                    call SetUnitX(fx.caster,fx.TargetX)
+
+                    call SetUnitY(fx.caster,fx.TargetY)
+
+                    call AnimationStart(fx.caster,10)
+
+                    call UnitEffectTimeEX2('e00A',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),2,GetPlayerId(GetOwningPlayer(fx.caster)))
+
+                    call Sound3D(fx.caster,'A00F')
+
+                elseif fx.i == 50 then
+
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
+                endif
+
+            else
+
+                call expiredTick.destroy()
+
+                call fx.destroy()
+            endif
+endfunction
+
 
 private function F_A00D takes nothing returns nothing
     local FxEffect fx
     local real angle
+    local tick fxTick
 
     set fx = FxEffect.create()
     set fx.caster = GetTriggerUnit()
@@ -107,7 +101,8 @@ private function F_A00D takes nothing returns nothing
     //set fx.e2 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"left hand")
     //set fx.e3 = AddSpecialEffectTarget("Effect_Ribbon_Black.mdl",fx.caster,"right hand")
     set fx.i = 0
-    call fx.launch()
+    set fxTick = tick.create(fx)
+    call fxTick.start(0.02, true, function FxEffectOnTimer)
     call DummyMagicleash(fx.caster,1)
     call AnimationStart(fx.caster,10)
 endfunction
