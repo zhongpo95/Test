@@ -48,7 +48,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM,
                                     loop
                                         exitwhen loopA == 100
                                         //보유중
-                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == 47 then
+                                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")) == 39 then
                                             set j = GetItemCharge(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0"))
                                             set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(loopA), "0")
                                             if (j-1) == 0 then
