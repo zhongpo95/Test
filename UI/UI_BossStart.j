@@ -203,11 +203,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
             call DzFrameShow(FBS_BossTip[2], true)
             call DzFrameShow(FBS_SelectBBD, true)
         endif
-        if f == FBS_BLB[1][1] then
-            set Selectting = 4
-            call DzFrameShow(FBS_BossTip[3], true)
-            call DzFrameShow(FBS_SelectBBD, true)
-        endif
     endfunction
     
     private function ClickSLButton1 takes nothing returns nothing
@@ -343,9 +338,8 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         set FBS_BLB[1][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[1], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[1][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         call DzFrameSetSize(FBS_BLB[1][1], 0.145, 0.080)
-        call DzFrameSetScriptByCode(FBS_BLB[1][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[1][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[1], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[1][1], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[1][1], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[1][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[1][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
