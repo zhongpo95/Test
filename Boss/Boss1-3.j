@@ -1,4 +1,4 @@
-library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,PointToPolygon,ItemPickUp
+library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,PointToPolygon,ItemPickUp,UIMainQuest,UIPick
     globals
         //2분30초 7500
         //50 1초
@@ -952,10 +952,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
 
     private function SuccessF takes nothing returns nothing
         call SuccessStart(GetEnumUnit())
-        call RewardStart(GetEnumUnit())
-        call AddReward(GetOwningPlayer(GetEnumUnit()), "ID59"+";"+"0")
+        call MainQuestAfterTutorialBoss(GetOwningPlayer(GetEnumUnit()), PlayerSlotNumber[GetPlayerId(GetOwningPlayer(GetEnumUnit()))], 4)
+        //call RewardStart(GetEnumUnit())
+        //call AddReward(GetOwningPlayer(GetEnumUnit()), "ID59"+";"+"0")
         //카운터
-        call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
+        //call AddRandomReward(GetOwningPlayer(GetEnumUnit()), "ID12"+";"+"0", 100)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 

@@ -427,7 +427,7 @@ private function init takes nothing returns nothing
     //라이자 보스이동
     set UnitAbilityIndex[7] = 'h007'
     set UnitHeroCheck[7] = false
-    set NPCUnit[7]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h007', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 270)
+    set NPCUnit[7]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h007', (NPC_TOWN_LEFT + NPC_TOWN_RIGHT) / 2, (NPC_TOWN_BOTTOM + NPC_TOWN_TOP) / 2, 270)
     set NPCRoleDummy[7] = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01L',GetUnitX(NPCUnit[7]), GetUnitY(NPCUnit[7]), 270)
     
     //반격

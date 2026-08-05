@@ -1,5 +1,5 @@
 // 상태이상과 피해 장판 회피를 점검하는 허수아비 보스
-library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,AOE,ItemPickUp,UIOverlay
+library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Boss1,BossAggro,AOE,ItemPickUp,UIOverlay,UIMainQuest,UIPick
     globals
         private constant key DAMAGE_AOE_ID
         private constant key STATUS_AOE_ID
@@ -65,6 +65,7 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
 
     private function PlayerSucceeded takes nothing returns nothing
         call SuccessStart(GetEnumUnit())
+        call MainQuestAfterTutorialBoss(GetOwningPlayer(GetEnumUnit()), PlayerSlotNumber[GetPlayerId(GetOwningPlayer(GetEnumUnit()))], 3)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 

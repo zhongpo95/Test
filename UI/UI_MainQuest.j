@@ -5,19 +5,18 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         private integer F_MQTitleText
         private integer F_MQBodyText
         private constant integer MQ_STEP_INHERIT = 1
-        private constant integer MQ_STEP_BOSS1 = 2
+        private constant integer MQ_STEP_STAGGER = 2
         private constant integer MQ_STEP_ENCHANT = 3
-        private constant integer MQ_STEP_WAIT = 4
-        private constant integer MQ_BOSS1_GOLD = 100
+        private constant integer MQ_STEP_COUNTER = 4
+        private constant integer MQ_STEP_AOE = 5
+        private constant integer MQ_STEP_REAL = 6
+        private constant integer MQ_STEP_DONE = 7
+        private constant integer MQ_STAGGER_GOLD = 100
     endglobals
 
     // Q = 메인퀘스트 단계, QB = 첫 보스 처치 카운터.
     private function MainQuestKey takes integer heroNumber, string key returns string
         return "영웅"+I2S(heroNumber)+"."+key
-    endfunction
-
-    function MainQuestBoss1Gold takes nothing returns integer
-        return MQ_BOSS1_GOLD
     endfunction
 
     function MainQuestGetStep takes integer pid, integer heroNumber returns integer
@@ -26,10 +25,14 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
 
     function MainQuestCanSelectBoss takes integer pid, integer heroNumber, integer bossOrder returns boolean
         local integer step = MainQuestGetStep(pid, heroNumber)
-        if step == MQ_STEP_BOSS1 then
-            return bossOrder == 1
-        elseif step == MQ_STEP_WAIT then
-            return true
+        if step == MQ_STEP_STAGGER or step == MQ_STEP_ENCHANT then
+            return bossOrder <= 1
+        elseif step == MQ_STEP_COUNTER then
+            return bossOrder <= 2
+        elseif step == MQ_STEP_AOE then
+            return bossOrder <= 3
+        elseif step == MQ_STEP_REAL or step == MQ_STEP_DONE then
+            return bossOrder <= 4
         endif
         return false
     endfunction
@@ -49,7 +52,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
                 call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가까이 가서 클릭한 후 시작 무기 클릭하고 계승하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
-            elseif step == MQ_STEP_BOSS1 then
+            elseif step == MQ_STEP_STAGGER then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
                 call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 무력화 보스를 처치하고 다음 강화에 쓸 골드를 획득하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
@@ -57,9 +60,17 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
                 call DzFrameSetText(F_MQBodyText, "첫 보스 보상 골드로 무기를 한 번 강화하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
-            elseif step == MQ_STEP_WAIT then
+            elseif step == MQ_STEP_COUNTER then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
-                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 카운터 보스를 처치하고 다음 강화에 쓸 재료를 획득하세요.")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 카운터 훈련을 완료하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_AOE then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 장판 회피 훈련을 완료하세요.")
+                call DzFrameShow(F_MQBackDrop, true)
+            elseif step == MQ_STEP_REAL then
+                call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
+                call DzFrameSetText(F_MQBodyText, "보스 이동 NPC에게 가까이 가서 클릭한 후 실전 보스를 처치하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
             else
                 call DzFrameShow(F_MQBackDrop, false)
@@ -79,11 +90,11 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
             if weaponId == 10 then
                 set step = MQ_STEP_INHERIT
             elseif weaponId == 3 and weaponUp == 0 then
-                set step = MQ_STEP_BOSS1
+                set step = MQ_STEP_STAGGER
             elseif weaponId == 3 and weaponUp > 0 then
-                set step = MQ_STEP_WAIT
+                set step = MQ_STEP_COUNTER
             else
-                set step = MQ_STEP_BOSS1
+                set step = MQ_STEP_STAGGER
             endif
             call MainQuestSetStep(pid, heroNumber, step)
             call MainQuestSetBossCount(pid, heroNumber, 0)
@@ -93,14 +104,14 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
 
     function MainQuestAfterFirstSuccess takes integer pid, integer heroNumber returns nothing
         if MainQuestGetStep(pid, heroNumber) == MQ_STEP_INHERIT then
-            call MainQuestSetStep(pid, heroNumber, MQ_STEP_BOSS1)
+            call MainQuestSetStep(pid, heroNumber, MQ_STEP_STAGGER)
             call MainQuestRefresh(pid, heroNumber)
         endif
     endfunction
 
     function MainQuestAfterGoldEnchant takes integer pid, integer heroNumber, integer tier, integer up returns nothing
         if MainQuestGetStep(pid, heroNumber) == MQ_STEP_ENCHANT and tier == 2 and up >= 1 then
-            call MainQuestSetStep(pid, heroNumber, MQ_STEP_WAIT)
+            call MainQuestSetStep(pid, heroNumber, MQ_STEP_COUNTER)
             call MainQuestRefresh(pid, heroNumber)
         endif
     endfunction
@@ -116,14 +127,23 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         endif
     endfunction
 
-    function MainQuestAfterBoss1 takes player p, integer heroNumber returns nothing
+    function MainQuestAfterTutorialBoss takes player p, integer heroNumber, integer bossOrder returns nothing
         local integer pid = GetPlayerId(p)
+        local integer step = 0
         local integer count = 0
         if GetLocalPlayer() == p then
+            set step = MainQuestGetStep(pid, heroNumber)
             set count = S2I(StashLoad(PLAYER_DATA[pid], MainQuestKey(heroNumber, "QB"), "0")) + 1
             call MainQuestSetBossCount(pid, heroNumber, count)
-            if MainQuestGetStep(pid, heroNumber) == MQ_STEP_BOSS1 then
+            if bossOrder == 1 and step == MQ_STEP_STAGGER then
+                call MainQuestAddGold(p, MQ_STAGGER_GOLD)
                 call MainQuestSetStep(pid, heroNumber, MQ_STEP_ENCHANT)
+            elseif bossOrder == 2 and step == MQ_STEP_COUNTER then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_AOE)
+            elseif bossOrder == 3 and step == MQ_STEP_AOE then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_REAL)
+            elseif bossOrder == 4 and step == MQ_STEP_REAL then
+                call MainQuestSetStep(pid, heroNumber, MQ_STEP_DONE)
             endif
             call MainQuestRefresh(pid, heroNumber)
         endif
