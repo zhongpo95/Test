@@ -1,4 +1,4 @@
-library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay, ItemPickUp
+library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap, UIBossEnd, BossAggro, Missile, UIV, UIOverlay, ItemPickUp, UIMainQuest, UIPick
     globals
         integer BossTip
         //8초
@@ -196,6 +196,7 @@ library Boss1 initializer init requires Tick,DataUnit,UIBossHP,DamageEffect2,UIB
     private function SuccessF takes nothing returns nothing
         local real r
         call SuccessStart(GetEnumUnit())
+        call MainQuestAfterTutorialBoss(GetOwningPlayer(GetEnumUnit()), PlayerSlotNumber[GetPlayerId(GetOwningPlayer(GetEnumUnit()))], 2)
         call OverlayStop(GetPlayerId(GetOwningPlayer(GetEnumUnit())))
     endfunction
 
