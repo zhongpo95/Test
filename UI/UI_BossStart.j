@@ -50,16 +50,16 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     endfunction
 
     function BossStartRefreshTextures takes integer pid returns nothing
-        if CanPickBoss(pid, 2) then
-            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
+        if CanPickBoss(pid, 1) then
+            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_1_1.blp", 0)
         else
-            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_2.blp", 0)
+            call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_1_2.blp", 0)
         endif
 
-        if CanPickBoss(pid, 1) then
-            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_1.blp", 0)
+        if CanPickBoss(pid, 2) then
+            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_2_1.blp", 0)
         else
-            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_2.blp", 0)
+            call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_2_2.blp", 0)
         endif
 
         if CanPickBoss(pid, 3) then
@@ -190,13 +190,13 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameShow(FBS_SelectBBD, false)
         
         //1페이지
-        if f == FBS_BLB[0][1] and CanPickBoss(pid, 2) then
-            set Selectting = 2
-            call DzFrameShow(FBS_BossTip[1], true)
-            call DzFrameShow(FBS_SelectBBD, true)
-        elseif f == FBS_BLB[0][2] and CanPickBoss(pid, 1) then
+        if f == FBS_BLB[0][1] and CanPickBoss(pid, 1) then
             set Selectting = 1
             call DzFrameShow(FBS_BossTip[0], true)
+            call DzFrameShow(FBS_SelectBBD, true)
+        elseif f == FBS_BLB[0][2] and CanPickBoss(pid, 2) then
+            set Selectting = 2
+            call DzFrameShow(FBS_BossTip[1], true)
             call DzFrameShow(FBS_SelectBBD, true)
         elseif f == FBS_BLB[0][3] and CanPickBoss(pid, 3) then
             set Selectting = 3
@@ -272,7 +272,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[0][1], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[0][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[0][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_2_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[0][1], "UI_Boss0_1_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[0][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
@@ -281,21 +281,22 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[0][2], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[0][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[0][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_1_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[0][2], "UI_Boss0_2_1.blp", 0)
         call DzFrameSetSize(FBS_BL[0][2], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[0][2], JN_FRAMEPOINT_CENTER, 0.2850, 0.4150)
         
         set FBS_BLB[0][3] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[0], "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAbsolutePoint(FBS_BLB[0][3], JN_FRAMEPOINT_CENTER, 0.2050, 0.2350)
-        call DzFrameSetSize(FBS_BLB[0][3], 0.200, 0.100)
+        call DzFrameSetAbsolutePoint(FBS_BLB[0][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
+        call DzFrameSetSize(FBS_BLB[0][3], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[0][3], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[0][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[0], "template", FrameCount())
         call DzFrameSetTexture(FBS_BL[0][3], "UI_Boss0_3_1.blp", 0)
-        call DzFrameSetSize(FBS_BL[0][3], 0.200, 0.100)
-        call DzFrameSetAbsolutePoint(FBS_BL[0][3], JN_FRAMEPOINT_CENTER, 0.2050, 0.2350)
+        call DzFrameSetSize(FBS_BL[0][3], 0.145, 0.080)
+        call DzFrameSetAbsolutePoint(FBS_BL[0][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
 
-        call CreateEmptyBossSlot(0, 4, 0.1250, 0.3250, 0.145, 0.080)
-        call CreateEmptyBossSlot(0, 5, 0.2850, 0.3250, 0.145, 0.080)
+        //장판 회피 훈련은 4번 슬롯에서 비활성 표시
+        call CreateEmptyBossSlot(0, 4, 0.2850, 0.3250, 0.145, 0.080)
+        call CreateEmptyBossSlot(0, 5, 0.2050, 0.2350, 0.200, 0.100)
         
         
         set FBS_BossTip[0]=DzCreateFrameByTagName("TEXT", "", FBS_BD, "", FrameCount())
