@@ -13,6 +13,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         integer FBS_SelectB
         integer array FBS_BossTip
         integer array FBS_BT[12]           //보스티어
+        integer array FBS_PageTitle
         integer array FBS_BLB[12][6]       //보스리스트 버튼
         integer array FBS_BL[12][6]        //보스리스트
         boolean array FBS_OnOff            //인포 온오프
@@ -262,10 +263,15 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     //1페이지
     if true then
         set FBS_BT[0]=DzCreateFrameByTagName("BACKDROP", "", FBS_BD, "template", FrameCount())
-        call DzFrameSetTexture(FBS_BT[0], "UI_BossPage0.blp", 0)
         call DzFrameSetSize(FBS_BT[0], 0.20, 0.08)
         call DzFrameSetAbsolutePoint(FBS_BT[0], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
         call DzFrameShow(FBS_BT[0], true)
+        set FBS_PageTitle[0]=DzCreateFrameByTagName("TEXT", "", FBS_BT[0], "", FrameCount())
+        call DzFrameSetSize(FBS_PageTitle[0], 0.20, 0.08)
+        call DzFrameSetAbsolutePoint(FBS_PageTitle[0], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
+        call DzFrameSetFont(FBS_PageTitle[0], "Fonts\\DFHeiMd.ttf", 0.024, 0)
+        call DzFrameSetText(FBS_PageTitle[0], "|cFF6B3E1E튜토리얼|r")
+        call DzFrameSetEnable(FBS_PageTitle[0], false)
         
         set FBS_BLB[0][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[0], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[0][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
@@ -331,10 +337,15 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     //2페이지
     if true then
         set FBS_BT[1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BD, "template", FrameCount())
-        call DzFrameSetTexture(FBS_BT[1], "UI_BossPage1.blp", 0)
         call DzFrameSetSize(FBS_BT[1], 0.20, 0.08)
         call DzFrameSetAbsolutePoint(FBS_BT[1], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
         call DzFrameShow(FBS_BT[1], false)
+        set FBS_PageTitle[1]=DzCreateFrameByTagName("TEXT", "", FBS_BT[1], "", FrameCount())
+        call DzFrameSetSize(FBS_PageTitle[1], 0.20, 0.08)
+        call DzFrameSetAbsolutePoint(FBS_PageTitle[1], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
+        call DzFrameSetFont(FBS_PageTitle[1], "Fonts\\DFHeiMd.ttf", 0.024, 0)
+        call DzFrameSetText(FBS_PageTitle[1], "|cFF6B3E1E1티어|r")
+        call DzFrameSetEnable(FBS_PageTitle[1], false)
         
         set FBS_BLB[1][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[1], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[1][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
@@ -367,10 +378,15 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     //3페이지
     if true then
         set FBS_BT[2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BD, "template", FrameCount())
-        call DzFrameSetTexture(FBS_BT[2], "UI_BossPage2.blp", 0)
         call DzFrameSetSize(FBS_BT[2], 0.20, 0.08)
         call DzFrameSetAbsolutePoint(FBS_BT[2], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
         call DzFrameShow(FBS_BT[2], false)
+        set FBS_PageTitle[2]=DzCreateFrameByTagName("TEXT", "", FBS_BT[2], "", FrameCount())
+        call DzFrameSetSize(FBS_PageTitle[2], 0.20, 0.08)
+        call DzFrameSetAbsolutePoint(FBS_PageTitle[2], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
+        call DzFrameSetFont(FBS_PageTitle[2], "Fonts\\DFHeiMd.ttf", 0.024, 0)
+        call DzFrameSetText(FBS_PageTitle[2], "|cFF6B3E1E2티어|r")
+        call DzFrameSetEnable(FBS_PageTitle[2], false)
         
         set FBS_BLB[2][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[2], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[2][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
@@ -404,10 +420,15 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     //4페이지
     if true then
         set FBS_BT[3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BD, "template", FrameCount())
-        call DzFrameSetTexture(FBS_BT[3], "UI_BossPage3.blp", 0)
         call DzFrameSetSize(FBS_BT[3], 0.20, 0.08)
         call DzFrameSetAbsolutePoint(FBS_BT[3], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
         call DzFrameShow(FBS_BT[3], false)
+        set FBS_PageTitle[3]=DzCreateFrameByTagName("TEXT", "", FBS_BT[3], "", FrameCount())
+        call DzFrameSetSize(FBS_PageTitle[3], 0.20, 0.08)
+        call DzFrameSetAbsolutePoint(FBS_PageTitle[3], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
+        call DzFrameSetFont(FBS_PageTitle[3], "Fonts\\DFHeiMd.ttf", 0.024, 0)
+        call DzFrameSetText(FBS_PageTitle[3], "|cFF6B3E1E3티어|r")
+        call DzFrameSetEnable(FBS_PageTitle[3], false)
         
         set FBS_BLB[3][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[3], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[3][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
@@ -442,10 +463,15 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     //5페이지
     if true then
         set FBS_BT[4]=DzCreateFrameByTagName("BACKDROP", "", FBS_BD, "template", FrameCount())
-        call DzFrameSetTexture(FBS_BT[4], "UI_BossPage4.blp", 0)
         call DzFrameSetSize(FBS_BT[4], 0.20, 0.08)
         call DzFrameSetAbsolutePoint(FBS_BT[4], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
         call DzFrameShow(FBS_BT[4], false)
+        set FBS_PageTitle[4]=DzCreateFrameByTagName("TEXT", "", FBS_BT[4], "", FrameCount())
+        call DzFrameSetSize(FBS_PageTitle[4], 0.20, 0.08)
+        call DzFrameSetAbsolutePoint(FBS_PageTitle[4], JN_FRAMEPOINT_CENTER, 0.2050, 0.5025)
+        call DzFrameSetFont(FBS_PageTitle[4], "Fonts\\DFHeiMd.ttf", 0.024, 0)
+        call DzFrameSetText(FBS_PageTitle[4], "|cFF6B3E1E4티어|r")
+        call DzFrameSetEnable(FBS_PageTitle[4], false)
         
         set FBS_BLB[4][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[4], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[4][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
