@@ -44,7 +44,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
 
     private function CreateEmptyBossSlot takes integer page, integer slot, real x, real y, real width, real height returns nothing
         set FBS_BL[page][slot]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[page], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[page][slot], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[page][slot], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[page][slot], width, height)
         call DzFrameSetAbsolutePoint(FBS_BL[page][slot], JN_FRAMEPOINT_CENTER, x, y)
     endfunction
@@ -354,7 +354,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[1][2], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[1][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[1][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[1], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[1][2], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[1][2], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[1][2], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[1][2], JN_FRAMEPOINT_CENTER, 0.2850, 0.4150)
         
@@ -363,7 +363,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[1][3], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[1][3], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[1][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[1], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[1][3], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[1][3], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[1][3], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[1][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
         call CreateEmptyBossSlot(1, 4, 0.2850, 0.3250, 0.145, 0.080)
@@ -382,7 +382,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[2][1], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[2][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[2][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[2], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[2][1], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[2][1], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[2][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[2][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
@@ -391,7 +391,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[2][2], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[2][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[2][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[2], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[2][2], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[2][2], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[2][2], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[2][2], JN_FRAMEPOINT_CENTER, 0.2850, 0.4150)
         
@@ -400,7 +400,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[2][3], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[2][3], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[2][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[2], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[2][3], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[2][3], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[2][3], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[2][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
         call CreateEmptyBossSlot(2, 4, 0.2850, 0.3250, 0.145, 0.080)
@@ -419,7 +419,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[3][1], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[3][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[3][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[3], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[3][1], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[3][1], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[3][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[3][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
@@ -428,7 +428,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[3][2], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[3][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[3][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[3], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[3][2], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[3][2], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[3][2], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[3][2], JN_FRAMEPOINT_CENTER, 0.2850, 0.4150)
         
@@ -437,7 +437,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[3][3], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[3][3], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[3][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[3], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[3][3], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[3][3], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[3][3], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[3][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
         call CreateEmptyBossSlot(3, 4, 0.2850, 0.3250, 0.145, 0.080)
@@ -457,7 +457,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[4][1], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[4][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[4][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[4], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[4][1], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[4][1], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[4][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[4][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
@@ -466,7 +466,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[4][2], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[4][2], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[4][2]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[4], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[4][2], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[4][2], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[4][2], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[4][2], JN_FRAMEPOINT_CENTER, 0.2850, 0.4150)
         
@@ -475,7 +475,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetSize(FBS_BLB[4][3], 0.145, 0.080)
         call DzFrameSetScriptByCode(FBS_BLB[4][3], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[4][3]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[4], "template", FrameCount())
-        call DzFrameSetTexture(FBS_BL[4][3], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[4][3], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[4][3], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[4][3], JN_FRAMEPOINT_CENTER, 0.1250, 0.3250)
         call CreateEmptyBossSlot(4, 4, 0.2850, 0.3250, 0.145, 0.080)
