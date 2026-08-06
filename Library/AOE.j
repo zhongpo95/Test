@@ -3,10 +3,7 @@ library AOE initializer Init requires MonoEvent, DamageEffect2, Tick
         constant key E_AOE
     endglobals
 
-    //추가해야함
-    //빨강은 그냥 데미지
-    //파랑은 상태이상
-    //노랑은 피격이나 경직
+    //색상 우선순위는 안전(초록) > 상태이상(파랑) > 넉백·에어본(노랑) > 피해(빨강)
 
     private function Act takes nothing returns nothing
         local unit caster = MonoEvent.Unit
@@ -127,11 +124,11 @@ library AOE initializer Init requires MonoEvent, DamageEffect2, Tick
         endif
 
     endfunction
-    /*types 0=red 1=blue 2=Yellow 3=green
-        빨강은 그냥 데미지
-        파랑은 상태이상(기절,혼란,속박)
-        노랑은 피격이나 경직(넉백,다운)
-        초록은 안전
+    /*types 0=red 1=blue 2=yellow 3=green
+        초록은 안전구역
+        파랑은 상태이상(기절,혼란,속박)이 하나라도 포함된 공격
+        노랑은 상태이상 없이 넉백이나 에어본이 포함된 공격
+        빨강은 안전, 상태이상, 넉백, 에어본이 없는 피해 공격
     */
     function AOE takes unit u, real x, real y, real range, real time, integer eft, integer id, integer types returns AOESt
         local tick t = tick.create(0)
