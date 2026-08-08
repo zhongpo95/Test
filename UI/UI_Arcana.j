@@ -700,7 +700,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         
         call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapimported\\BoxedText.toc")
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
         
         set F_ArcanaOnOff[0] = false
         set F_ArcanaOnOff[1] = false

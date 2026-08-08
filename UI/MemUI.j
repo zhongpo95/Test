@@ -632,6 +632,10 @@ library MemUI initializer Init requires optional Typecast
         //call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
 
+        //투명한 기본 콘솔이 우측 하단의 월드 클릭을 가로채지 않도록 화면 밖으로 이동
+        call ClearFrameAllPoints(GetUISimpleConsole())
+        call SetFramePoint(GetUISimpleConsole(), JN_FRAMEPOINT_TOPLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.0, -0.2)
+
         //미니맵
         set frame=DzFrameGetMinimap()
         call DzFrameClearAllPoints(frame)

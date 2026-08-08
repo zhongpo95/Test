@@ -775,7 +775,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapimported\\BoxedText.toc")
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
         
         set index = 0
         loop

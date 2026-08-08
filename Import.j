@@ -11,6 +11,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Msg.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Pick.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Skill.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_SkillHUD.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_SkillLevel.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Stone.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Tip.j"

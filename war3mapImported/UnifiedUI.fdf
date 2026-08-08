@@ -1,0 +1,163 @@
+// 맵 공용 UI와 스킬 HUD 프레임 템플릿 통합
+
+Frame "BACKDROP" "BoxedTextBackgroundTemplate" {
+    DecorateFileNames,
+    BackdropTileBackground,
+    BackdropBackground "ToolTipBackground",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize 0.008,
+    BackdropBackgroundInsets 0.0022 0.0022 0.0022 0.0022,
+    BackdropEdgeFile "ToolTipBorder",
+    BackdropBlendAll,
+}
+
+Frame "BACKDROP" "BoxedText" INHERITS "BoxedTextBackgroundTemplate" {
+    UseActiveContext,
+    Frame "TEXT" "BoxedTextValue" {
+        UseActiveContext,
+        DecorateFileNames,
+        SetPoint TOPLEFT, "BoxedText", TOPLEFT, 0.005, -0.005,
+        SetPoint BOTTOMRIGHT, "BoxedText", BOTTOMRIGHT, -0.005, 0.005,
+        FontFlags "FIXEDSIZE",
+        FrameFont "MasterFont", 0.010, "",
+        FontColor 1.0 1.0 1.0 1.0,
+        FontShadowColor 0.0 0.0 0.0 0.9,
+        FontShadowOffset 0.001 -0.001,
+    }
+}
+
+Frame "BACKDROP" "BackBase" {
+    UseActiveContext,
+    BackdropBlendAll,
+}
+
+Frame "HIGHLIGHT" "HighBase" {
+    UseActiveContext,
+    HighlightType "FILETEXTURE",
+    HighlightAlphaMode "ADD",
+}
+
+Frame "TEXT" "TextBase" {
+    UseActiveContext,
+    DecorateFileNames,
+    FontFlags "FIXEDSIZE",
+    FontShadowColor 0 0 0,
+    FontShadowOffset 0.001 -0.001,
+}
+
+Frame "BUTTON" "ButtBase" {
+    UseActiveContext,
+    ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+}
+
+Frame "BUTTON" "RightMenu" INHERITS "ButtBase" {
+    Width 0.02,
+    Height 0.01,
+    ControlBackdrop "RightMenuA",
+    Frame "BACKDROP" "RightMenuA" INHERITS "BackBase" {
+        BackdropBackground "UI\Widgets\Glues\GlueScreen-Button-KeyboardHighlight.blp",
+    }
+    ControlPushedBackdrop "RightMenuB",
+    Frame "BACKDROP" "RightMenuB" INHERITS "BackBase" {
+        BackdropBackground "UI\Widgets\Glues\GlueScreen-Button-KeyboardHighlight.blp",
+        BackdropBackgroundInsets 0.0005 0.0005 0.0005 0.0005,
+    }
+}
+
+Frame "BUTTON" "RightMenu1" INHERITS WITHCHILDREN "RightMenu" {
+    Frame "TEXT" "RightMenuText1" INHERITS "TextBase" {
+        FrameFont "MasterFont", 0.0085, "",
+        SetPoint CENTER, "RightMenu1", CENTER, 0, 0,
+    }
+    ControlMouseOverHighlight "RightMenu1High",
+    Frame "HIGHLIGHT" "RightMenu1High" INHERITS "HighBase" {
+        Alpha 32,
+        HighlightAlphaFile "Textures\GenericGlow2_64.blp",
+    }
+    Frame "BUTTON" "RightMenu2" INHERITS WITHCHILDREN "RightMenu" {
+        SetPoint TOP, "RightMenu1", BOTTOM, 0, 0,
+        Frame "TEXT" "RightMenuText2" INHERITS "TextBase" {
+            FrameFont "MasterFont", 0.0085, "",
+            SetPoint CENTER, "RightMenu2", CENTER, 0, 0,
+        }
+        ControlMouseOverHighlight "RightMenu2High",
+        Frame "HIGHLIGHT" "RightMenu2High" INHERITS "HighBase" {
+            Alpha 32,
+            HighlightAlphaFile "Textures\GenericGlow2_64.blp",
+        }
+    }
+}
+
+Frame "BACKDROP" "SkillHUD_CooldownShade" {
+    Width 0.1,
+    Height 0.03,
+    BackdropBackground "Textures\Black32.blp",
+}
+
+Frame "BACKDROP" "SkillHUD_ManaTint" {
+    Width 0.1,
+    Height 0.03,
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
+}
+
+Frame "TEXT" "SkillHUD_CooldownText" {
+    DecorateFileNames,
+    FrameFont "MasterFont", 0.015, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontColor 1.0 1.0 1.0 1.0,
+    FontShadowColor 0.0 0.0 0.0 1.0,
+    FontShadowOffset 0.001 -0.001,
+    Text "",
+}
+
+Frame "TEXT" "SkillHUD_HotkeyText" {
+    DecorateFileNames,
+    FrameFont "MasterFont", 0.010, "",
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontColor 1.0 0.86 0.39 1.0,
+    FontShadowColor 0.0 0.0 0.0 1.0,
+    FontShadowOffset 0.0007 -0.0007,
+    Text "",
+}
+
+Frame "BACKDROP" "SkillHUD_TipBackground" {
+    BackdropTileBackground,
+    BackdropBackground "Textures\Black32.blp",
+    BackdropCornerSize 0.008,
+    BackdropBackgroundSize 0.128,
+    BackdropBackgroundInsets 0.003 0.003 0.003 0.003,
+}
+
+Frame "TEXT" "SkillHUD_TipName" {
+    DecorateFileNames,
+    FrameFont "MasterFont", 0.012, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYTOP,
+    FontShadowColor 0.0 0.0 0.0 1.0,
+    FontShadowOffset 0.001 -0.001,
+    Text "",
+}
+
+Frame "TEXT" "SkillHUD_TipCost" {
+    DecorateFileNames,
+    FrameFont "MasterFont", 0.010, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYTOP,
+    FontShadowColor 0.0 0.0 0.0 1.0,
+    FontShadowOffset 0.001 -0.001,
+    Text "",
+}
+
+Frame "TEXT" "SkillHUD_TipDescription" {
+    DecorateFileNames,
+    Width 0.22,
+    FrameFont "MasterFont", 0.010, "",
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYTOP,
+    FontColor 1.0 1.0 1.0 1.0,
+    FontShadowColor 0.0 0.0 0.0 0.9,
+    FontShadowOffset 0.002 -0.002,
+    Text "",
+}

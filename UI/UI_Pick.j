@@ -829,7 +829,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         call TriggerRegisterTimerEventSingle( t, 1.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapimported\\BoxedText.toc")
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
         ///*
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )
