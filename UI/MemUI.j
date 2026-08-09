@@ -603,8 +603,14 @@ library MemUI initializer Init requires optional Typecast
         call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(3), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(4), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
+        call DzFrameShow(DzFrameGetMinimapButton(0), false)
+        call DzFrameShow(DzFrameGetMinimapButton(1), false)
+        call DzFrameShow(DzFrameGetMinimapButton(2), false)
+        call DzFrameShow(DzFrameGetMinimapButton(3), false)
+        call DzFrameShow(DzFrameGetMinimapButton(4), false)
         
         call DzFrameSetAbsolutePoint(GetIdlePeonButton(), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
+        call DzFrameShow(GetIdlePeonButton(), false)
         call DzFrameSetAbsolutePoint(GetBuffIndicator(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(GetBuffIndicator(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(GetBuffIndicator(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
@@ -635,9 +641,11 @@ library MemUI initializer Init requires optional Typecast
         call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
 
-        //투명한 기본 콘솔이 우측 하단의 월드 클릭을 가로채지 않도록 화면 밖으로 이동
-        call ClearFrameAllPoints(GetUISimpleConsole())
-        call SetFramePoint(GetUISimpleConsole(), JN_FRAMEPOINT_TOPLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.0, -0.2)
+        //참고 맵과 동일하게 기본 콘솔의 레이아웃 자체를 화면 밖으로 이동
+        if GetUISimpleConsole() != 0 then
+            call ClearCLayoutFrameAllPoints(GetFrameLayout(GetUISimpleConsole()))
+            call SetFrameAbsolutePoint(GetUISimpleConsole(), 1, 2.0, 2.0)
+        endif
 
         //미니맵
         set frame=DzFrameGetMinimap()

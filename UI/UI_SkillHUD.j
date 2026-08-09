@@ -266,6 +266,13 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
 
         loop
             exitwhen slot >= SKILL_HUD_COUNT
+            call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
+            set slot = slot + 1
+        endloop
+
+        set slot = 0
+        loop
+            exitwhen slot >= SKILL_HUD_COUNT
             set row = slot / 4
             set column = ModuloInteger(slot, 4)
             set x = 0.6075 + 0.0368 * I2R(column)
