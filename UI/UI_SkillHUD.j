@@ -50,9 +50,24 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         return 0
     endfunction
 
+    private function IsDashAbilityReady takes unit u, integer abilId returns boolean
+        local ability ab
+        local boolean ready
+        if GetUnitAbilityLevel(u, abilId) < 1 then
+            return false
+        endif
+        set ab = EXGetUnitAbility(u, abilId)
+        if ab == null then
+            return false
+        endif
+        set ready = EXGetAbilityState(ab, ABILITY_STATE_COOLDOWN) <= 0.0
+        set ab = null
+        return ready
+    endfunction
+
     private function IsAbilityAvailable takes unit u, integer pid, integer index, integer slot, integer abilId returns boolean
         if slot == 9 then
-            return GetUnitAbilityLevel(u, 'A002') > 0 or GetUnitAbilityLevel(u, 'A004') > 0 or GetUnitAbilityLevel(u, 'A005') > 0
+            return IsDashAbilityReady(u, 'A002') or IsDashAbilityReady(u, 'A004') or IsDashAbilityReady(u, 'A005') or IsDashAbilityReady(u, 'A006')
         endif
         if index == 14 and slot == 2 then
             return GetUnitAbilityLevel(u, abilId) > 0 and NarForm[pid] == 1
@@ -309,6 +324,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
             call DzFrameSetAbsolutePoint(SkillHUDCooldown[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
+            call DzFrameSetVertexColor(SkillHUDCooldown[slot], DzGetColor(255, 0, 0, 0))
             call DzFrameSetAlpha(SkillHUDCooldown[slot], 0)
             call DzFrameSetPriority(SkillHUDCooldown[slot], 22)
 
@@ -333,6 +349,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
             call DzFrameSetAbsolutePoint(SkillHUDDisabledDark[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(SkillHUDDisabledDark[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            call DzFrameSetVertexColor(SkillHUDDisabledDark[slot], DzGetColor(255, 0, 0, 0))
             call DzFrameSetAlpha(SkillHUDDisabledDark[slot], 150)
             call DzFrameSetPriority(SkillHUDDisabledDark[slot], 25)
             call DzFrameShow(SkillHUDDisabledDark[slot], false)
@@ -360,6 +377,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         set SkillHUDTip = DzCreateFrameByTagName("BACKDROP", "SkillHUDTip", parent, "SkillHUD_TipBackground", 0)
         call DzFrameSetSize(SkillHUDTip, 0.24, 0.12)
         call DzFrameSetAbsolutePoint(SkillHUDTip, JN_FRAMEPOINT_BOTTOMRIGHT, 0.59, 0.13)
+        call DzFrameSetVertexColor(SkillHUDTip, DzGetColor(255, 0, 0, 0))
+        call DzFrameSetAlpha(SkillHUDTip, 230)
         call DzFrameSetPriority(SkillHUDTip, 30)
         set SkillHUDTipName = DzCreateFrameByTagName("TEXT", "SkillHUDTipName", SkillHUDTip, "SkillHUD_TipName", 0)
         call DzFrameSetPoint(SkillHUDTipName, JN_FRAMEPOINT_TOPLEFT, SkillHUDTip, JN_FRAMEPOINT_TOPLEFT, 0.01, -0.01)
