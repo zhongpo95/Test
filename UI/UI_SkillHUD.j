@@ -126,6 +126,47 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         endif
     endfunction
 
+    private function HideNativeFrame takes integer frame returns nothing
+        if frame != 0 then
+            call DzFrameClearAllPoints(frame)
+            call DzFrameSetAbsolutePoint(frame, JN_FRAMEPOINT_TOPLEFT, 2.0, 2.0)
+            call DzFrameSetSize(frame, 0.001, 0.001)
+            call DzFrameShow(frame, false)
+        endif
+    endfunction
+
+    private function EnforceNativeHUDHidden takes nothing returns nothing
+        local integer slot = 0
+        local integer frame = GetUISimpleConsole()
+
+        if frame != 0 then
+            call ClearCLayoutFrameAllPoints(GetFrameLayout(frame))
+            call SetFrameAbsolutePoint(frame, 1, 2.0, 2.0)
+        endif
+
+        loop
+            exitwhen slot >= SKILL_HUD_COUNT
+            call HideNativeFrame(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)))
+            set slot = slot + 1
+        endloop
+
+        set slot = 0
+        loop
+            exitwhen slot >= 6
+            call HideNativeFrame(DzFrameGetItemBarButton(slot))
+            set slot = slot + 1
+        endloop
+
+        set slot = 0
+        loop
+            exitwhen slot >= 5
+            call HideNativeFrame(DzFrameGetMinimapButton(slot))
+            set slot = slot + 1
+        endloop
+
+        call HideNativeFrame(GetIdlePeonButton())
+    endfunction
+
     private function Update takes nothing returns nothing
         local integer pid = GetPlayerId(GetLocalPlayer())
         local unit u = MainUnit[pid]
@@ -137,6 +178,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real total
         local real ratio
         local item heldItem
+
+        call EnforceNativeHUDHidden()
 
         if u == null then
             loop
@@ -264,13 +307,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real x
         local real y
 
-        loop
-            exitwhen slot >= SKILL_HUD_COUNT
-            call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
-            set slot = slot + 1
-        endloop
+        call EnforceNativeHUDHidden()
 
-        set slot = 0
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             set row = slot / 4
