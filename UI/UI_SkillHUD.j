@@ -7,6 +7,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         private integer array SkillHUDCooldown
         private integer array SkillHUDCooldownText
         private integer array SkillHUDHotkeyText
+        private integer array SkillHUDDisabledCover
+        private integer array SkillHUDDisabledDark
         private integer array SkillHUDAbility
         private real array SkillHUDCooldownTotal
         private real array SkillHUDCooldownPrevious
@@ -171,9 +173,13 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
                 set level = GetUnitAbilityLevel(u, abilId)
                 if level > 0 then
                     call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameShow(SkillHUDDisabledCover[slot], false)
+                    call DzFrameShow(SkillHUDDisabledDark[slot], false)
                     set remain = EXGetAbilityState(EXGetUnitAbility(u, abilId), ABILITY_STATE_COOLDOWN)
                 else
-                    call DzFrameSetAlpha(SkillHUDIcon[slot], 96)
+                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameShow(SkillHUDDisabledCover[slot], true)
+                    call DzFrameShow(SkillHUDDisabledDark[slot], true)
                     set remain = 0.0
                 endif
                 if remain > 0.0 then
@@ -304,6 +310,20 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             call DzFrameSetText(SkillHUDHotkeyText[slot], Hotkey(slot))
             call DzFrameSetEnable(SkillHUDHotkeyText[slot], false)
             call DzFrameSetPriority(SkillHUDHotkeyText[slot], 23)
+
+            set SkillHUDDisabledCover[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledCover" + I2S(slot), SkillHUDIcon[slot], "", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDDisabledCover[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+            call DzFrameSetSize(SkillHUDDisabledCover[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            call DzFrameSetTexture(SkillHUDDisabledCover[slot], "war3mapImported\\DISBTN.blp", 0)
+            call DzFrameSetPriority(SkillHUDDisabledCover[slot], 24)
+            call DzFrameShow(SkillHUDDisabledCover[slot], false)
+
+            set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
+            call DzFrameSetAbsolutePoint(SkillHUDDisabledDark[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+            call DzFrameSetSize(SkillHUDDisabledDark[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
+            call DzFrameSetAlpha(SkillHUDDisabledDark[slot], 150)
+            call DzFrameSetPriority(SkillHUDDisabledDark[slot], 25)
+            call DzFrameShow(SkillHUDDisabledDark[slot], false)
 
             set slot = slot + 1
         endloop
