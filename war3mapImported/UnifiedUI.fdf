@@ -89,9 +89,10 @@ Frame "BUTTON" "RightMenu1" INHERITS WITHCHILDREN "RightMenu" {
 }
 
 Frame "BACKDROP" "SkillHUD_CooldownShade" {
+    DecorateFileNames,
     Width 0.1,
     Height 0.03,
-    BackdropBackground "Textures\Black32.blp",
+    BackdropBackground "ToolTipBackground",
 }
 
 Frame "BACKDROP" "SkillHUD_ManaTint" {
@@ -122,12 +123,7 @@ Frame "TEXT" "SkillHUD_HotkeyText" {
     Text "",
 }
 
-Frame "BACKDROP" "SkillHUD_TipBackground" {
-    BackdropTileBackground,
-    BackdropBackground "Textures\Black32.blp",
-    BackdropCornerSize 0.008,
-    BackdropBackgroundSize 0.128,
-    BackdropBackgroundInsets 0.003 0.003 0.003 0.003,
+Frame "BACKDROP" "SkillHUD_TipBackground" INHERITS "BoxedTextBackgroundTemplate" {
 }
 
 Frame "TEXT" "SkillHUD_TipName" {
