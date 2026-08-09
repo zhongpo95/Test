@@ -66,6 +66,10 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         return "V"
     endfunction
 
+    private function HideNativeButton takes integer slot returns nothing
+        call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
+    endfunction
+
     private function Update takes nothing returns nothing
         local integer pid = GetPlayerId(GetLocalPlayer())
         local unit u = MainUnit[pid]
@@ -80,6 +84,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         if u == null then
             loop
                 exitwhen slot >= SKILL_HUD_COUNT
+                call HideNativeButton(slot)
                 call DzFrameShow(SkillHUDIcon[slot], false)
                 set slot = slot + 1
             endloop
@@ -90,6 +95,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         set index = DataUnitIndex(u)
         loop
             exitwhen slot >= SKILL_HUD_COUNT
+            call HideNativeButton(slot)
             set abilId = AbilityId(index, slot)
             if abilId == 0 then
                 call DzFrameShow(SkillHUDIcon[slot], false)
