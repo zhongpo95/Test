@@ -6,6 +6,7 @@ library UITIP initializer init
     
     private function Main takes nothing returns nothing
         call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
         set UI_Tip=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "EscMenuEditBoxBackdropTemplate", 0)
         //call DzFrameSetTexture(UI_Tip, "war3mapImported\\UI_Black.blp", 0)
         call DzFrameSetSize(UI_Tip, 0, 0)

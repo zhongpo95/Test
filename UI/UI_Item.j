@@ -1541,8 +1541,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local integer index
 
         call DzLoadToc("war3mapImported\\Templates.toc")
-        call DzLoadToc("FDE Import.toc")
-        call DzLoadToc("war3mapimported\\BoxedText.toc")
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
         
         set index = 0
         loop
