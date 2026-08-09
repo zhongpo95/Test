@@ -67,7 +67,10 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
     endfunction
 
     private function HideNativeButton takes integer slot returns nothing
-        call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
+        local integer nativeButton = DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4))
+        call DzFrameShow(nativeButton, false)
+        call DzFrameClearAllPoints(nativeButton)
+        call DzFrameSetAbsolutePoint(nativeButton, JN_FRAMEPOINT_TOPRIGHT, -1.0, -1.0)
     endfunction
 
     private function Update takes nothing returns nothing
@@ -141,7 +144,6 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local integer slot = 0
         local integer row
         local integer column
-        local integer nativeButton
         local real x
         local real y
 
@@ -154,8 +156,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             set x = 0.6075 + 0.0368 * I2R(column)
             set y = 0.1205 - 0.0365 * I2R(row)
 
-            set nativeButton = DzFrameGetCommandBarButton(row, column)
-            call DzFrameShow(nativeButton, false)
+            call HideNativeButton(slot)
 
             set SkillHUDIcon[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDIcon" + I2S(slot), parent, "", slot)
             call DzFrameSetSize(SkillHUDIcon[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
