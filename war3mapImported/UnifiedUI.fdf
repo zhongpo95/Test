@@ -89,10 +89,9 @@ Frame "BUTTON" "RightMenu1" INHERITS WITHCHILDREN "RightMenu" {
 }
 
 Frame "BACKDROP" "SkillHUD_CooldownShade" {
-    DecorateFileNames,
     Width 0.1,
     Height 0.03,
-    BackdropBackground "ToolTipBackground",
+    BackdropBackground "Textures\Black32.blp",
 }
 
 Frame "BACKDROP" "SkillHUD_ManaTint" {
