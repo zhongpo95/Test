@@ -318,8 +318,6 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real x
         local real y
 
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
-
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
@@ -414,7 +412,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
     private function init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local trigger syncTrigger = CreateTrigger()
-        call TriggerRegisterTimerEventSingle(t, 0.31)
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call TriggerRegisterTimerEventSingle(t, 0.00)
         call TriggerAddAction(t, function Create)
         call DzTriggerRegisterSyncData(syncTrigger, "SkillHUDPing", false)
         call TriggerAddAction(syncTrigger, function SyncPing)
