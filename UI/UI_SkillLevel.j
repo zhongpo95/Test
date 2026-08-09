@@ -152,16 +152,43 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         return ""
     endfunction
 
-    function SkillFrameHUDDescription takes integer pid, integer index, integer types returns string
+    private function SkillFrameHUDDescriptionBuild takes integer pid, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3, boolean detail returns string
         local string desc
 
-        if types < 8 then
-            return SkillFrameDataDescription(pid, index, types)
+        if detail then
+            set desc = SkillFrameExtraDescription(text1, text2, text3)
+            return SkillFrameJoinDescription(desc, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
+        endif
+
+        return SkillFrameBaseDescription(skillType, cooldown, skillDesc)
+    endfunction
+
+    function SkillFrameHUDDescription takes integer pid, integer index, integer types, boolean detail returns string
+        local string desc
+
+        if types == 0 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index], detail)
+        elseif types == 1 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index], detail)
+        elseif types == 2 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index], detail)
+        elseif types == 3 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index], detail)
+        elseif types == 4 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index], detail)
+        elseif types == 5 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index], detail)
+        elseif types == 6 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index], detail)
+        elseif types == 7 then
+            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index], detail)
         elseif types == 9 then
-            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
+            if detail then
+                return "|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA이동중 CC면역 상태가 됩니다.|n  최대 3회까지 충전됩니다.|r"
+            endif
+            set desc = "|cFFA5FA7D[ 타입 ]|r 일반|n|n"
             set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
-            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
-            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA"+"이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다."+"|r"
+            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA마우스 방향으로 짧게 이동합니다.|r"
             return desc
         endif
 
