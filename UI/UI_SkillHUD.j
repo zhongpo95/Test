@@ -212,16 +212,22 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
                 endif
 
                 set level = GetUnitAbilityLevel(u, abilId)
+                set remain = 0.0
+                if GetUnitAbilityLevel(u, stateAbilId) > 0 then
+                    set remain = EXGetAbilityState(EXGetUnitAbility(u, stateAbilId), ABILITY_STATE_COOLDOWN)
+                endif
                 if IsAbilityAvailable(u, pid, index, slot, abilId) then
                     call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], false)
                     call DzFrameShow(SkillHUDDisabledDark[slot], false)
-                    set remain = EXGetAbilityState(EXGetUnitAbility(u, stateAbilId), ABILITY_STATE_COOLDOWN)
+                elseif slot == 9 and remain > 0.0 then
+                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    call DzFrameShow(SkillHUDDisabledCover[slot], false)
+                    call DzFrameShow(SkillHUDDisabledDark[slot], false)
                 else
                     call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], true)
                     call DzFrameShow(SkillHUDDisabledDark[slot], true)
-                    set remain = 0.0
                 endif
                 if remain > 0.0 then
                     if SkillHUDCooldownTotal[slot] <= 0.0 or remain > SkillHUDCooldownPrevious[slot] + 0.10 then
