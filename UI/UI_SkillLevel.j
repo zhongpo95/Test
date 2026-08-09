@@ -152,6 +152,22 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         return ""
     endfunction
 
+    function SkillFrameHUDDescription takes integer pid, integer index, integer types returns string
+        local string desc
+
+        if types < 8 then
+            return SkillFrameDataDescription(pid, index, types)
+        elseif types == 9 then
+            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
+            set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
+            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
+            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA"+"이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다."+"|r"
+            return desc
+        endif
+
+        return ""
+    endfunction
+
     private function F_ON_Actions takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())

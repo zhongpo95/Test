@@ -1,5 +1,5 @@
 // 참고 맵 방식의 좌표 기반 스킬 HUD 및 Alt 정보 관리
-library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ
+library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ
     globals
         private constant integer SKILL_HUD_COUNT = 12
         private constant real SKILL_HUD_SIZE = 0.0275
@@ -19,6 +19,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         private integer SkillHUDTipCost
         private integer SkillHUDTipDescription
         private integer SkillHUDHover = -1
+        private boolean SkillHUDAltShown = false
     endglobals
 
     private function AbilityId takes integer index, integer slot returns integer
@@ -123,18 +124,30 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
 
     private function HideTip takes nothing returns nothing
         set SkillHUDHover = -1
+        set SkillHUDAltShown = false
         call DzFrameShow(SkillHUDTip, false)
     endfunction
 
     private function ShowTip takes unit u, integer slot returns nothing
-        local integer abilId = AbilityId(DataUnitIndex(u), slot)
+        local integer pid = GetPlayerId(GetLocalPlayer())
+        local integer index = DataUnitIndex(u)
+        local integer abilId = AbilityId(index, slot)
         local integer level = GetUnitAbilityLevel(u, abilId)
+        local string desc
         if level < 1 then
             set level = 1
         endif
+        if SkillHUDAltShown then
+            set desc = EXGetAbilityString(abilId, level, ABILITY_DATA_UBERTIP)
+        else
+            set desc = SkillFrameHUDDescription(pid, index, slot)
+            if desc == "" then
+                set desc = EXGetAbilityString(abilId, level, ABILITY_DATA_UBERTIP)
+            endif
+        endif
         call DzFrameSetText(SkillHUDTipName, EXGetAbilityString(abilId, level, ABILITY_DATA_TIP))
         call DzFrameSetText(SkillHUDTipCost, "마나 " + I2S(JNGetUnitAbilityManaCost(u, abilId, level)))
-        call DzFrameSetText(SkillHUDTipDescription, EXGetAbilityString(abilId, level, ABILITY_DATA_UBERTIP))
+        call DzFrameSetText(SkillHUDTipDescription, desc)
         call DzFrameShow(SkillHUDTip, true)
     endfunction
 
@@ -143,6 +156,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real my = I2R(DzGetWindowHeight() - 42 - DzGetMouseYRelative()) / I2R(DzGetWindowHeight() - 42) * 0.6
         local integer slot = 0
         local integer hover = -1
+        local boolean altShown = DzIsKeyDown(JN_OSKEY_ALT)
         local real x
         local real y
         loop
@@ -156,8 +170,9 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         endloop
         if hover < 0 then
             call HideTip()
-        elseif hover != SkillHUDHover then
+        elseif hover != SkillHUDHover or altShown != SkillHUDAltShown then
             set SkillHUDHover = hover
+            set SkillHUDAltShown = altShown
             call ShowTip(u, hover)
         endif
     endfunction
