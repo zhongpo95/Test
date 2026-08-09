@@ -1,9 +1,9 @@
 // 맵 공용 UI와 스킬 HUD 프레임 템플릿 통합
 
-Frame "BACKDROP" "HPBarBGFrame" {
+Frame "BACKDROP" "SkillHUD_CooldownShade" {
     Width 0.1,
     Height 0.03,
-    BackdropBackground "Textures\Black32.blp",
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
 }
 
 Frame "BACKDROP" "BoxedTextBackgroundTemplate" {
@@ -97,6 +97,10 @@ Frame "BUTTON" "RightMenu1" INHERITS WITHCHILDREN "RightMenu" {
 Frame "BACKDROP" "SkillHUD_ManaTint" {
     Width 0.1,
     Height 0.03,
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
+}
+
+Frame "BACKDROP" "SkillHUD_TipBackground" {
     BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
 }
 

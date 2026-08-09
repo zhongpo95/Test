@@ -340,7 +340,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             call DzFrameSetPriority(SkillHUDIcon[slot], 21)
             call DzFrameShow(SkillHUDIcon[slot], false)
 
-            set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDIcon[slot], "HPBarBGFrame", slot)
+            set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
             call DzFrameSetAbsolutePoint(SkillHUDCooldown[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
             call DzFrameSetVertexColor(SkillHUDCooldown[slot], DzGetColor(255, 0, 0, 0))
@@ -365,7 +365,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             call DzFrameSetPriority(SkillHUDDisabledCover[slot], 24)
             call DzFrameShow(SkillHUDDisabledCover[slot], false)
 
-            set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDIcon[slot], "HPBarBGFrame", slot)
+            set SkillHUDDisabledDark[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDDisabledDark" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
             call DzFrameSetAbsolutePoint(SkillHUDDisabledDark[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(SkillHUDDisabledDark[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
             call DzFrameSetVertexColor(SkillHUDDisabledDark[slot], DzGetColor(255, 0, 0, 0))
@@ -393,7 +393,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             set slot = slot + 1
         endloop
 
-        set SkillHUDTip = DzCreateFrameByTagName("BACKDROP", "SkillHUDTip", parent, "HPBarBGFrame", 0)
+        set SkillHUDTip = DzCreateFrameByTagName("BACKDROP", "SkillHUDTip", parent, "SkillHUD_TipBackground", 0)
         call DzFrameSetSize(SkillHUDTip, 0.24, 0.12)
         call DzFrameSetAbsolutePoint(SkillHUDTip, JN_FRAMEPOINT_BOTTOMRIGHT, 0.59, 0.13)
         call DzFrameSetVertexColor(SkillHUDTip, DzGetColor(255, 0, 0, 0))
