@@ -1,5 +1,5 @@
 // 참고 맵 방식의 좌표 기반 스킬 HUD 및 Alt 정보 관리
-library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState, JAPIItemState
+library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ
     globals
         private constant integer SKILL_HUD_COUNT = 12
         private constant real SKILL_HUD_SIZE = 0.0275
@@ -48,6 +48,16 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             return HeroSkillID8[index]
         endif
         return 0
+    endfunction
+
+    private function IsAbilityAvailable takes unit u, integer pid, integer index, integer slot, integer abilId returns boolean
+        if slot == 9 then
+            return GetUnitAbilityLevel(u, 'A002') > 0 or GetUnitAbilityLevel(u, 'A004') > 0 or GetUnitAbilityLevel(u, 'A005') > 0
+        endif
+        if index == 14 and slot == 2 then
+            return GetUnitAbilityLevel(u, abilId) > 0 and NarForm[pid] == 1
+        endif
+        return GetUnitAbilityLevel(u, abilId) > 0
     endfunction
 
     private function Hotkey takes integer slot returns string
@@ -171,7 +181,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
                 endif
 
                 set level = GetUnitAbilityLevel(u, abilId)
-                if level > 0 then
+                if IsAbilityAvailable(u, pid, index, slot, abilId) then
                     call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
                     call DzFrameShow(SkillHUDDisabledCover[slot], false)
                     call DzFrameShow(SkillHUDDisabledDark[slot], false)
