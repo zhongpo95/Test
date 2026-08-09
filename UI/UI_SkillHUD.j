@@ -274,6 +274,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real x
         local real y
 
+        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
