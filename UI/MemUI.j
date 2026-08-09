@@ -558,9 +558,9 @@ library MemUI initializer Init requires optional Typecast
     endfunction
     
     function SetConsoleRaceUI takes nothing returns nothing
-        local string ConsoleTexture01 = "MyUITile01.blp"//"UI\\Console\\" + name + "\\" + name + "UITile01.blp"
-        local string ConsoleTexture02 = "MyUITile02.blp"//"UI\\Console\\" + name + "\\" + name + "UITile02.blp"
-        local string ConsoleTexture03 = "MyUITile03.blp" //"File00005271.blp" //"UI\\Console\\" + name + "\\" + name + "UITile03.blp"
+        local string ConsoleTexture01 = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile01.blp"
+        local string ConsoleTexture02 = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile02.blp"
+        local string ConsoleTexture03 = "Empty.blp" //"File00005271.blp" //"UI\\Console\\" + name + "\\" + name + "UITile03.blp"
         local string ConsoleTexture04 = "Empty.blp"  //"UI\\Console\\" + name + "\\" + name + "UITile04.blp"
         local string InventoryCoverFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile-InventoryCover.blp"
         local string TimeOfDayIndicatorFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UI-TimeIndicator.mdl"
