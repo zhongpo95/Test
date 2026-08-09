@@ -100,10 +100,6 @@ Frame "BACKDROP" "SkillHUD_ManaTint" {
     BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
 }
 
-Frame "BACKDROP" "SkillHUD_TipBackground" {
-    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
-}
-
 Frame "TEXT" "SkillHUD_CooldownText" {
     DecorateFileNames,
     FrameFont "MasterFont", 0.015, "",
@@ -124,6 +120,10 @@ Frame "TEXT" "SkillHUD_HotkeyText" {
     FontShadowColor 0.0 0.0 0.0 1.0,
     FontShadowOffset 0.0007 -0.0007,
     Text "",
+}
+
+Frame "BACKDROP" "SkillHUD_TipBackground" {
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor01.blp",
 }
 
 Frame "TEXT" "SkillHUD_TipName" {
