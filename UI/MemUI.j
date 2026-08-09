@@ -581,12 +581,14 @@ library MemUI initializer Init requires optional Typecast
         call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(8), ConsoleTexture04, false)
         call SetTimeOfDayIndicatorModel(TimeOfDayIndicatorFile)
         call SetCSimpleTextureTexture(GetInventoryCoverTexture(), InventoryCoverFile, false)
-        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(5))
-        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(6))
-        call ClearFrameAllPoints(GetSimpleConsoleTextureByIndex(7))
-        call DzFrameShow(GetSimpleConsoleTextureByIndex(5),true)
-        call DzFrameShow(GetSimpleConsoleTextureByIndex(6),true)
-        call DzFrameShow(GetSimpleConsoleTextureByIndex(7),true)
+        //기존 콘솔 배경 9장을 모두 숨겨 새 HUD와 월드 화면을 가리지 않게 함
+        set frame = 0
+        loop
+            exitwhen frame > 8
+            call DzFrameShow(GetSimpleConsoleTextureByIndex(frame), false)
+            set frame = frame + 1
+        endloop
+        call DzFrameShow(GetInventoryCoverTexture(), false)
         call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
         call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)

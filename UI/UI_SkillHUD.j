@@ -139,6 +139,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local real x
         local real y
 
+        call DzFrameSetPriority(parent, 20)
+
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             set row = slot / 4
@@ -152,21 +154,25 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
             set SkillHUDIcon[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDIcon" + I2S(slot), parent, "", slot)
             call DzFrameSetSize(SkillHUDIcon[slot], SKILL_HUD_SIZE, SKILL_HUD_SIZE)
             call DzFrameSetAbsolutePoint(SkillHUDIcon[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
+            call DzFrameSetPriority(SkillHUDIcon[slot], 21)
             call DzFrameShow(SkillHUDIcon[slot], false)
 
             set SkillHUDCooldown[slot] = DzCreateFrameByTagName("BACKDROP", "SkillHUDCooldown" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownShade", slot)
             call DzFrameSetAbsolutePoint(SkillHUDCooldown[slot], JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
             call DzFrameSetAlpha(SkillHUDCooldown[slot], 0)
+            call DzFrameSetPriority(SkillHUDCooldown[slot], 22)
 
             set SkillHUDCooldownText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDCooldownText" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_CooldownText", slot)
             call DzFrameSetAbsolutePoint(SkillHUDCooldownText[slot], JN_FRAMEPOINT_CENTER, x + SKILL_HUD_SIZE * 0.5, y - SKILL_HUD_SIZE * 0.5)
             call DzFrameSetEnable(SkillHUDCooldownText[slot], false)
+            call DzFrameSetPriority(SkillHUDCooldownText[slot], 23)
 
             set SkillHUDHotkeyText[slot] = DzCreateFrameByTagName("TEXT", "SkillHUDHotkeyText" + I2S(slot), SkillHUDIcon[slot], "SkillHUD_HotkeyText", slot)
             call DzFrameSetAbsolutePoint(SkillHUDHotkeyText[slot], JN_FRAMEPOINT_BOTTOMLEFT, x + 0.0015, y - SKILL_HUD_SIZE + 0.0015)
             call DzFrameSetText(SkillHUDHotkeyText[slot], Hotkey(slot))
             call DzFrameSetEnable(SkillHUDHotkeyText[slot], false)
+            call DzFrameSetPriority(SkillHUDHotkeyText[slot], 23)
 
             set slot = slot + 1
         endloop
