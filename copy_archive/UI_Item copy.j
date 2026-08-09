@@ -3037,7 +3037,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
         
         //가방 버튼 생성
         set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())

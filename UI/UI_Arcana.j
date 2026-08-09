@@ -440,7 +440,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
 
         //메뉴 배경
         set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
@@ -700,7 +700,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         
         call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call DzLoadToc("UnifiedUI.toc")
         
         set F_ArcanaOnOff[0] = false
         set F_ArcanaOnOff[1] = false

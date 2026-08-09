@@ -453,7 +453,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
         
         //메뉴 배경
         set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
@@ -766,7 +766,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call DzLoadToc("UnifiedUI.toc")
         
         set index = 0
         loop

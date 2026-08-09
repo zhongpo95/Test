@@ -385,7 +385,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call SetCameraBoundsToRectForPlayerBJ( GetLocalPlayer(), gg_rct_Pick )
         call SetCameraPositionForPlayer(GetLocalPlayer(),GetRectCenterX(gg_rct_Pick),GetRectCenterY(gg_rct_Pick))
 
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
 
         set FP_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop2.tga", 0)
@@ -829,7 +829,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         call TriggerRegisterTimerEventSingle( t, 1.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call DzLoadToc("UnifiedUI.toc")
         ///*
         set t = CreateTrigger()
         call TriggerRegisterTimerEventSingle( t, 5.0 )

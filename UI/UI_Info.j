@@ -519,7 +519,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
         
         /*가방 버튼 생성
         set F_InfoOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
@@ -775,7 +775,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call TriggerRegisterTimerEventSingle( t, 3.0 )
         call TriggerAddAction( t, function Main )
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call DzLoadToc("UnifiedUI.toc")
         
         set index = 0
         loop

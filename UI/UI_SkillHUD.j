@@ -412,7 +412,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
     private function init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local trigger syncTrigger = CreateTrigger()
-        call DzLoadToc("war3mapImported\\UnifiedUI.toc")
+        call DzLoadToc("UnifiedUI.toc")
         call TriggerRegisterTimerEventSingle(t, 0.00)
         call TriggerAddAction(t, function Create)
         call DzTriggerRegisterSyncData(syncTrigger, "SkillHUDPing", false)

@@ -722,7 +722,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
         
         //초기값
         set F_EnchantSelectNumber = 6

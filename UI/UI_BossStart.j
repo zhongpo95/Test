@@ -228,7 +228,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     private function Main takes nothing returns nothing
         local string s
         local integer i
-        call DzLoadToc("war3mapImported\\Templates.toc")
+        call DzLoadToc("Templates.toc")
         
         set FBS_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(FBS_BD, "ys_shuye.tga", 0)
