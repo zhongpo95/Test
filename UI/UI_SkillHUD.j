@@ -8,6 +8,8 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         private integer array SkillHUDCooldownText
         private integer array SkillHUDHotkeyText
         private integer array SkillHUDAbility
+        private real array SkillHUDCooldownTotal
+        private real array SkillHUDCooldownPrevious
         private integer array ItemHUDIcon
         private integer array ItemHUDCharges
         private integer SkillHUDTip
@@ -105,10 +107,6 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         local integer hover = -1
         local real x
         local real y
-        if not DzIsKeyDown(JN_OSKEY_ALT) then
-            call HideTip()
-            return
-        endif
         loop
             exitwhen slot >= SKILL_HUD_COUNT
             set x = SlotX(slot)
@@ -165,20 +163,24 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
                 call DzFrameShow(SkillHUDIcon[slot], true)
                 if SkillHUDAbility[slot] != abilId then
                     set SkillHUDAbility[slot] = abilId
+                    set SkillHUDCooldownTotal[slot] = 0.0
+                    set SkillHUDCooldownPrevious[slot] = 0.0
                     call DzFrameSetTexture(SkillHUDIcon[slot], EXExecuteScript("(require'jass.slk').ability[" + I2S(abilId) + "].Art"), 0)
                 endif
 
                 set level = GetUnitAbilityLevel(u, abilId)
                 if level > 0 then
-                    set remain = JNGetUnitAbilityCooldownRemaining(u, abilId)
+                    call DzFrameSetAlpha(SkillHUDIcon[slot], 255)
+                    set remain = EXGetAbilityState(EXGetUnitAbility(u, abilId), ABILITY_STATE_COOLDOWN)
                 else
+                    call DzFrameSetAlpha(SkillHUDIcon[slot], 96)
                     set remain = 0.0
                 endif
                 if remain > 0.0 then
-                    set total = JNGetUnitAbilityCooldown(u, abilId, level)
-                    if total < remain then
-                        set total = remain
+                    if SkillHUDCooldownTotal[slot] <= 0.0 or remain > SkillHUDCooldownPrevious[slot] + 0.10 then
+                        set SkillHUDCooldownTotal[slot] = remain
                     endif
+                    set total = SkillHUDCooldownTotal[slot]
                     if total > 0.0 then
                         set ratio = remain / total
                     else
@@ -188,10 +190,12 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
                     call DzFrameSetAlpha(SkillHUDCooldown[slot], 150)
                     call DzFrameSetText(SkillHUDCooldownText[slot], I2S(R2I(remain + 0.99)))
                 else
+                    set SkillHUDCooldownTotal[slot] = 0.0
                     call DzFrameSetSize(SkillHUDCooldown[slot], SKILL_HUD_SIZE, 0.0)
                     call DzFrameSetAlpha(SkillHUDCooldown[slot], 0)
                     call DzFrameSetText(SkillHUDCooldownText[slot], "")
                 endif
+                set SkillHUDCooldownPrevious[slot] = remain
             endif
             set slot = slot + 1
         endloop
@@ -233,7 +237,7 @@ library UISkillHUD initializer init requires UISkill, DataUnit, JAPIAbilityState
         if level < 1 then
             set level = 1
         endif
-        set remain = JNGetUnitAbilityCooldownRemaining(u, abilId)
+        set remain = EXGetAbilityState(EXGetUnitAbility(u, abilId), ABILITY_STATE_COOLDOWN)
         if remain > 0.0 then
             set state = I2S(R2I(remain + 0.99)) + "초"
         else
