@@ -88,12 +88,6 @@ Frame "BUTTON" "RightMenu1" INHERITS WITHCHILDREN "RightMenu" {
     }
 }
 
-Frame "BACKDROP" "SkillHUD_CooldownShade" {
-    Width 0.1,
-    Height 0.03,
-    BackdropBackground "Textures\White.blp",
-}
-
 Frame "BACKDROP" "SkillHUD_ManaTint" {
     Width 0.1,
     Height 0.03,
@@ -120,10 +114,6 @@ Frame "TEXT" "SkillHUD_HotkeyText" {
     FontShadowColor 0.0 0.0 0.0 1.0,
     FontShadowOffset 0.0007 -0.0007,
     Text "",
-}
-
-Frame "BACKDROP" "SkillHUD_TipBackground" {
-    BackdropBackground "Textures\White.blp",
 }
 
 Frame "TEXT" "SkillHUD_TipName" {
