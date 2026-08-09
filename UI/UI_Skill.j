@@ -15,7 +15,6 @@ library UISkill initializer init requires MemUI
     
     private function Action takes nothing returns nothing
         local integer frame
-        local integer frame2
         local real x
         local real x2
         local real y
@@ -31,65 +30,41 @@ library UISkill initializer init requires MemUI
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6075, 0.1205)
-        set frame2 = DzFrameGetCommandBarButton(0,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command02",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6443, 0.1205)
-        set frame2 = DzFrameGetCommandBarButton(0,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command03",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6811, 0.1205)
-        set frame2 = DzFrameGetCommandBarButton(0,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command04",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.7179, 0.1205)
-        set frame2 = DzFrameGetCommandBarButton(0,3)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command05",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6075, 0.0840)
-        set frame2 = DzFrameGetCommandBarButton(1,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command06",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6443, 0.0840)
-        set frame2 = DzFrameGetCommandBarButton(1,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command07",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6811, 0.0840)
-        set frame2 = DzFrameGetCommandBarButton(1,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         set frame=JNCreateFrameByType("BACKDROP","Command08",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.7179, 0.0840)
-        set frame2 = DzFrameGetCommandBarButton(1,3)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
 
         //set frame=JNCreateFrameByType("BACKDROP","Command09",heroStatusUI,"",0)
         //call DzFrameSetTexture(frame,"Transparent.blp",0)
@@ -116,58 +91,37 @@ library UISkill initializer init requires MemUI
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6075, 0.0475)
-        set frame2 = DzFrameGetCommandBarButton(2,0)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         //x
         set frame=JNCreateFrameByType("BACKDROP","Command11",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6443, 0.0475)
-        set frame2 = DzFrameGetCommandBarButton(2,1)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         //c
         set frame=JNCreateFrameByType("BACKDROP","Command12",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.6811, 0.0475)
-        set frame2 = DzFrameGetCommandBarButton(2,2)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         //v
         set frame=JNCreateFrameByType("BACKDROP","Command13",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.7179, 0.0475)
-        set frame2 = DzFrameGetCommandBarButton(2,3)
-        call DzFrameSetSize(frame2,.0275,.0275)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         
         //소모품
         set frame=JNCreateFrameByType("BACKDROP","Command14",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.5475,0.1185)
-        set frame2 = DzFrameGetItemBarButton(0)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         
         set frame=JNCreateFrameByType("BACKDROP","Command15",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.5475,0.08175)
-        set frame2 = DzFrameGetItemBarButton(1)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         
         set frame=JNCreateFrameByType("BACKDROP","Command16",heroStatusUI,"",0)
         call DzFrameSetTexture(frame,"Transparent.blp",0)
         call DzFrameSetSize(frame,0.02,0.02)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPLEFT,0.5475,0.0440)
-        set frame2 = DzFrameGetItemBarButton(2)
-        call DzFrameSetSize(frame2,.0225,.0225)
-        call DzFrameSetPoint(frame2,JN_FRAMEPOINT_TOPLEFT,frame,JN_FRAMEPOINT_TOPLEFT,0.0,0.0)
         
         //set frame=JNCreateFrameByType("BACKDROP","Command15",heroStatusUI,"",0)
         //call DzFrameSetTexture(frame,"Transparent.blp",0)
