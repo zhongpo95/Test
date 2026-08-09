@@ -280,6 +280,7 @@ library UISkill initializer init requires MemUI
         call DzFrameClearAllPoints(frame)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_BOTTOMLEFT,.180, .040)
         call DzFrameSetAbsolutePoint(frame,JN_FRAMEPOINT_TOPRIGHT,.275, .15)
+        call DzFrameShow(frame, true)
 
         call DzFrameShow(heroStatusUI, false)
     endfunction

@@ -631,7 +631,8 @@ library MemUI initializer Init requires optional Typecast
         //call DzSetMousePos(R2I(DzGetWindowWidth() * 0.60), R2I(DzGetWindowHeight()* 0.07))
         //call PolledWait(0.15)
 
-        //call DzFrameHideInterface()
+        //참고 맵과 같이 네이티브 인터페이스의 렌더링과 입력 영역을 루트에서 제거
+        call DzFrameHideInterface()
         call DzFrameEditBlackBorders(0, 0)
 
         //투명한 기본 콘솔이 우측 하단의 월드 클릭을 가로채지 않도록 화면 밖으로 이동
