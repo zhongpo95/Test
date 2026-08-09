@@ -153,14 +153,14 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
     endfunction
 
     private function SkillFrameHUDDescriptionBuild takes integer pid, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3, boolean detail returns string
-        local string desc
+        local string desc = SkillFrameBaseDescription(skillType, cooldown, skillDesc)
 
         if detail then
-            set desc = SkillFrameExtraDescription(text1, text2, text3)
-            return SkillFrameJoinDescription(desc, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
+            set desc = SkillFrameJoinDescription(desc, SkillFrameExtraDescription(text1, text2, text3))
+            set desc = SkillFrameJoinDescription(desc, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
         endif
 
-        return SkillFrameBaseDescription(skillType, cooldown, skillDesc)
+        return desc
     endfunction
 
     function SkillFrameHUDDescription takes integer pid, integer index, integer types, boolean detail returns string
@@ -183,12 +183,12 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         elseif types == 7 then
             return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index], detail)
         elseif types == 9 then
-            if detail then
-                return "|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA이동중 CC면역 상태가 됩니다.|n  최대 3회까지 충전됩니다.|r"
-            endif
             set desc = "|cFFA5FA7D[ 타입 ]|r 일반|n|n"
             set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
             set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA마우스 방향으로 짧게 이동합니다.|r"
+            if detail then
+                set desc = SkillFrameJoinDescription(desc, "|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA이동중 CC면역 상태가 됩니다.|n  최대 3회까지 충전됩니다.|r")
+            endif
             return desc
         endif
 
