@@ -137,13 +137,9 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         if level < 1 then
             set level = 1
         endif
-        if SkillHUDAltShown then
+        set desc = SkillFrameHUDDescription(pid, index, slot, SkillHUDAltShown)
+        if desc == "" then
             set desc = EXGetAbilityString(abilId, level, ABILITY_DATA_UBERTIP)
-        else
-            set desc = SkillFrameHUDDescription(pid, index, slot)
-            if desc == "" then
-                set desc = EXGetAbilityString(abilId, level, ABILITY_DATA_UBERTIP)
-            endif
         endif
         call DzFrameSetText(SkillHUDTipName, EXGetAbilityString(abilId, level, ABILITY_DATA_TIP))
         call DzFrameSetText(SkillHUDTipCost, "마나 " + I2S(JNGetUnitAbilityManaCost(u, abilId, level)))
@@ -411,8 +407,6 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         endloop
 
         set SkillHUDTip = DzCreateFrameByTagName("BACKDROP", "SkillHUDTip", parent, "SkillHUD_TipBackground", 0)
-        call DzFrameSetSize(SkillHUDTip, 0.24, 0.12)
-        call DzFrameSetAbsolutePoint(SkillHUDTip, JN_FRAMEPOINT_BOTTOMRIGHT, 0.59, 0.13)
         call DzFrameSetAlpha(SkillHUDTip, 230)
         call DzFrameSetPriority(SkillHUDTip, 30)
         set SkillHUDTipName = DzCreateFrameByTagName("TEXT", "SkillHUDTipName", SkillHUDTip, "SkillHUD_TipName", 0)
@@ -420,7 +414,10 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         set SkillHUDTipCost = DzCreateFrameByTagName("TEXT", "SkillHUDTipCost", SkillHUDTip, "SkillHUD_TipCost", 0)
         call DzFrameSetPoint(SkillHUDTipCost, JN_FRAMEPOINT_TOPLEFT, SkillHUDTipName, JN_FRAMEPOINT_BOTTOMLEFT, 0.0, -0.008)
         set SkillHUDTipDescription = DzCreateFrameByTagName("TEXT", "SkillHUDTipDescription", SkillHUDTip, "SkillHUD_TipDescription", 0)
-        call DzFrameSetPoint(SkillHUDTipDescription, JN_FRAMEPOINT_TOPLEFT, SkillHUDTipCost, JN_FRAMEPOINT_BOTTOMLEFT, 0.0, -0.008)
+        call DzFrameSetAbsolutePoint(SkillHUDTipDescription, JN_FRAMEPOINT_BOTTOMRIGHT, 0.795, 0.165)
+        call DzFrameSetSize(SkillHUDTipDescription, 0.21, 0.0)
+        call DzFrameSetPoint(SkillHUDTip, JN_FRAMEPOINT_TOPLEFT, SkillHUDTipDescription, JN_FRAMEPOINT_TOPLEFT, -0.005, 0.043)
+        call DzFrameSetPoint(SkillHUDTip, JN_FRAMEPOINT_BOTTOMRIGHT, SkillHUDTipDescription, JN_FRAMEPOINT_BOTTOMRIGHT, 0.005, -0.005)
         call DzFrameSetEnable(SkillHUDTipName, false)
         call DzFrameSetEnable(SkillHUDTipCost, false)
         call DzFrameSetEnable(SkillHUDTipDescription, false)
