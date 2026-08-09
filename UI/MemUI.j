@@ -553,140 +553,46 @@ library MemUI initializer Init requires optional Typecast
     function ClearFrameAllPoints takes integer pFrame returns integer
         return ClearCLayoutFrameAllPoints( GetFrameLayout(pFrame) )
     endfunction
-    function SetFrameSize takes integer pFrame, real width, real height returns integer
-        return SetCLayoutFrameSize( GetFrameLayout(pFrame), width, height )
+    private function HideNativeFrame takes integer frame returns nothing
+        if frame != 0 then
+            call DzFrameClearAllPoints(frame)
+            call DzFrameSetAbsolutePoint(frame, JN_FRAMEPOINT_TOPLEFT, 2.0, 2.0)
+            call DzFrameSetSize(frame, 0.001, 0.001)
+            call DzFrameShow(frame, false)
+        endif
     endfunction
-    
-    function SetConsoleRaceUI takes nothing returns nothing
-        local string ConsoleTexture01 = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile01.blp"
-        local string ConsoleTexture02 = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile02.blp"
-        local string ConsoleTexture03 = "Empty.blp" //"File00005271.blp" //"UI\\Console\\" + name + "\\" + name + "UITile03.blp"
-        local string ConsoleTexture04 = "Empty.blp"  //"UI\\Console\\" + name + "\\" + name + "UITile04.blp"
-        local string InventoryCoverFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UITile-InventoryCover.blp"
-        local string TimeOfDayIndicatorFile = "Empty.blp"//"UI\\Console\\" + name + "\\" + name + "UI-TimeIndicator.mdl"
-        local string UpperMenuButtonTexture = "Empty.blp"//"UI\\Widgets\\Console\\" + name + "\\" + name + "-console-buttonstates2.blp"
-        local string CursorFile = "Empty.blp"//"UI\\Cursor\\" + name + "Cursor.mdl"
-        local integer frame
-        local integer frame2
-        
 
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(0), ConsoleTexture01, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(1), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(2), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(3), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(4), ConsoleTexture04, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(5), ConsoleTexture01, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(6), ConsoleTexture02, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(7), ConsoleTexture03, false)
-        call SetCSimpleTextureTexture(GetSimpleConsoleTextureByIndex(8), ConsoleTexture04, false)
-        call SetTimeOfDayIndicatorModel(TimeOfDayIndicatorFile)
-        call SetCSimpleTextureTexture(GetInventoryCoverTexture(), InventoryCoverFile, false)
-        //기존 콘솔 배경 9장을 모두 숨겨 새 HUD와 월드 화면을 가리지 않게 함
-        set frame = 0
-        loop
-            exitwhen frame > 8
-            call DzFrameShow(GetSimpleConsoleTextureByIndex(frame), false)
-            set frame = frame + 1
-        endloop
-        call DzFrameShow(GetInventoryCoverTexture(), false)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroBarButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroHPBar(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetHeroManaBar(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(3), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(DzFrameGetMinimapButton(4), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameShow(DzFrameGetMinimapButton(0), false)
-        call DzFrameShow(DzFrameGetMinimapButton(1), false)
-        call DzFrameShow(DzFrameGetMinimapButton(2), false)
-        call DzFrameShow(DzFrameGetMinimapButton(3), false)
-        call DzFrameShow(DzFrameGetMinimapButton(4), false)
-        
-        call DzFrameSetAbsolutePoint(GetIdlePeonButton(), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameShow(GetIdlePeonButton(), false)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(1), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(2), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(3), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(4), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(5), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(6), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameSetAbsolutePoint(GetBuffIndicator(7), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call ClearFrameAllPoints(GetPortraitButtonHPText())
-        call DzFrameSetAbsolutePoint(GetPortraitButtonHPText(), JN_FRAMEPOINT_TOPRIGHT,-1,-1)
-        call DzFrameSetAbsolutePoint(GetPortraitButtonHPText(),JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
-        call DzFrameShow(GetPortraitButtonHPText(),false)
-        call ClearFrameAllPoints(GetPortraitButtonManaText())
-        call DzFrameSetAbsolutePoint(GetPortraitButtonManaText(), JN_FRAMEPOINT_TOPRIGHT,-1,-1)
-        call DzFrameSetAbsolutePoint(GetPortraitButtonManaText(), JN_FRAMEPOINT_BOTTOMRIGHT,-1,-1)
-        call DzFrameShow(GetPortraitButtonManaText(),false)
-        call DzFrameShow(GetUITimeOfDayIndicator(),false)
-        call DzFrameClearAllPoints(DzSimpleFrameFindByName("ResourceBarFrame", 0))
-        call DzFrameSetAbsolutePoint(DzSimpleFrameFindByName("ResourceBarFrame", 0), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameClearAllPoints(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)))
-        call DzFrameSetAbsolutePoint(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)), JN_FRAMEPOINT_TOPRIGHT, 0, 0)
-        call DzFrameShow(DzFrameGetParent(DzSimpleFrameFindByName("SimpleInfoPanelUnitDetail", 0)),false)
+    private function ConfigureHUD takes nothing returns nothing
+        local integer frame = GetUISimpleConsole()
+        local integer index = 0
+        call DestroyTimer(GetExpiredTimer())
 
-        //call DzSetMousePos(R2I(DzGetWindowWidth() * 0.60), R2I(DzGetWindowHeight()* 0.07))
-        //call PolledWait(0.15)
-
-        //참고 맵과 같이 네이티브 인터페이스의 렌더링과 입력 영역을 루트에서 제거
-        call DzFrameHideInterface()
-        call DzFrameEditBlackBorders(0, 0)
-
-        //참고 맵과 동일하게 기본 콘솔의 레이아웃 자체를 화면 밖으로 이동
-        if GetUISimpleConsole() != 0 then
-            call ClearCLayoutFrameAllPoints(GetFrameLayout(GetUISimpleConsole()))
-            call SetFrameAbsolutePoint(GetUISimpleConsole(), 1, 2.0, 2.0)
+        if frame != 0 then
+            call ClearCLayoutFrameAllPoints(GetFrameLayout(frame))
+            call SetFrameAbsolutePoint(frame, 1, 2.0, 2.0)
         endif
 
-        //미니맵
-        set frame=DzFrameGetMinimap()
-        call DzFrameClearAllPoints(frame)
-        call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
-        call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
-        call DzFrameShow(frame,true)
-    endfunction
-    
-    private function BtnIconConversionDisabledIcon takes string s returns string
-        return "ReplaceableTextures\\CommandButtonsDisabled\\DIS" + SubString(s, 35, StringLength(s))
-    endfunction
-    function SetIdlePeonButtonTexture takes string peonIconFile returns nothing
-        call SetCSimpleButtonStateTexture(GetIdlePeonButton(), 1, peonIconFile)
-        call SetCSimpleButtonStateTexture(GetIdlePeonButton(), 0, BtnIconConversionDisabledIcon(peonIconFile))
+        loop
+            exitwhen index >= 5
+            call HideNativeFrame(DzFrameGetMinimapButton(index))
+            set index = index + 1
+        endloop
+        call HideNativeFrame(GetIdlePeonButton())
+
+        set frame = DzFrameGetMinimap()
+        if frame != 0 then
+            call DzFrameShow(frame, true)
+            call DzFrameClearAllPoints(frame)
+            call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015, 0.015)
+            call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145, 0.140)
+        endif
     endfunction
 
-    private function Main2 takes nothing returns nothing
-        call SetConsoleRaceUI()
-    endfunction
-    private function Main takes nothing returns nothing
-        //라이자 클릭(인터페이스를 한번 갱신)
-        call SelectUnitForPlayerSingle( NPCUnit[7], GetLocalPlayer() )
-    endfunction
-    //인터페이스를 숨기기전에 인터페이스를 교체해놔야함
-    //스킬아이콘 위치이동은 DzFrameEditBlackBorders(0,0) 이후에 세션에서 해야함
     private function Init takes nothing returns nothing
-        local integer frame
-        local trigger t = CreateTrigger()
         set pGameDll = JNGetModuleHandle("Game.dll")
-        set pGameUI  = GetGameUI2(0, 0)
-        //set frame = DzFrameGetMinimap()
-        //call DzFrameClearAllPoints(frame)
-        //call DzFrameSetPoint(frame, JN_FRAMEPOINT_BOTTOMLEFT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.015,0.015)
-        //call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPRIGHT, DzGetGameUI(), JN_FRAMEPOINT_BOTTOMLEFT, 0.145,0.14)
-
-        call TriggerRegisterTimerEventSingle( t, 0.10 )
-        call TriggerAddAction( t, function Main )
-        set t = CreateTrigger()
-        call TriggerRegisterTimerEventSingle( t, 0.20 )
-        call TriggerAddAction( t, function Main2 )
-        set t = null
+        set pGameUI = GetGameUI2(0, 0)
+        call DzFrameHideInterface()
+        call DzFrameEditBlackBorders(0.0, 0.0)
+        call TimerStart(CreateTimer(), 0.0, false, function ConfigureHUD)
     endfunction
 endlibrary
