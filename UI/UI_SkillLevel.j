@@ -83,7 +83,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
     endfunction
 
     private function SkillFrameValueDescription takes integer pid, string skillType, integer valueCount, real value1, real value2 returns string
-        local real damage = Equip_Damage[pid] + Hero_Damage[pid]
+        local real damage = R2I(Equip_Damage[pid] + Hero_Damage[pid] + (Equip_Damage[pid] * (Equip_DamageP[pid] / 100.0)))
 
         if JNStringContains(skillType, "버프") then
             return "|cFFB9E2FA수치|r : "+I2S(R2I(value1*100))+" %"
