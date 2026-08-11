@@ -5,8 +5,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         //test1500
 
         //이동 Distance멈추는거리 Distance2이동최소거리
-        private constant integer Pattern1Cool = 400
-        private constant integer Pattern1RandomCool = 200
+        private constant integer Pattern1MinCount = 2
+        private constant integer Pattern1MaxCount = 3
         private constant integer Pattern1Distance = 500
         private constant integer Pattern1Distance2 = 750
         private constant integer Pattern1MoveDistance = 500
@@ -578,7 +578,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 if fx.movedDistance >= Pattern1MoveDistance then
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 0
-                    set fx.st.pattern1 = Pattern1Cool + GetRandomInt(0,Pattern1RandomCool)
+                    set fx.st.pattern1 = GetRandomInt(Pattern1MinCount,Pattern1MaxCount)
                     call expiredTick.destroy()
                     call fx.destroy()
                 endif
@@ -1056,25 +1056,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     set st.pattern4 = st.pattern4 - 1
                     set st.pattern3 = st.pattern3 - 1
                     set st.pattern2 = st.pattern2 - 1
-                    set st.pattern1 = st.pattern1 - 1
 
                     //call VJDebugMsg("마력충전")
                     //마력포격
                     //call VJDebugMsg("마력포격")
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
-                        //카운터
-                        if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
-                            set fx3 = FxEffect3.create()
-                            set fx3.caster = st.caster
-                            set fx3.i = 0
-                            set fx3.st = st
-                            call AnimationStart(fx3.caster, 5)
-                            set fx3Tick = tick.create(fx3)
-                            call fx3Tick.start(0.02, true, function FxEffect3OnTimerExpire)
-                            set Unitstate[IndexUnit(fx3.caster)] = 1
-                        //주기적으로 플레이어에게서 거리를 벌리고, 외곽에서는 중앙에 가까워지는 옆 방향으로 이동
-                        elseif st.pattern1 <= 0 then
+                        //공격 패턴을 2~3회 사용하면 거리를 벌리고, 외곽에서는 중앙에 가까워지는 옆 방향으로 이동
+                        if st.pattern1 <= 0 then
                             set s = BossStruct[IndexUnit(st.caster)]
                             set ang = AngleWBW(st.caster,MainUnit[s.NowAggro])
                             set centerX = GetRectCenterX(MapRectReturn(st.rectnumber))
@@ -1103,6 +1092,17 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx1Tick = tick.create(fx1)
                             call fx1Tick.start(0.02, true, function FxEffect1OnTimerExpire)
                             set Unitstate[IndexUnit(fx1.caster)] = 1
+                        //카운터
+                        elseif st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
+                            set fx3 = FxEffect3.create()
+                            set fx3.caster = st.caster
+                            set fx3.i = 0
+                            set fx3.st = st
+                            call AnimationStart(fx3.caster, 5)
+                            set fx3Tick = tick.create(fx3)
+                            call fx3Tick.start(0.02, true, function FxEffect3OnTimerExpire)
+                            set Unitstate[IndexUnit(fx3.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //파이어볼
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("파이어볼")
@@ -1114,6 +1114,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx2Tick = tick.create(fx2)
                             call fx2Tick.start(0.02, true, function FxEffect2OnTimerExpire)
                             set Unitstate[IndexUnit(fx2.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //지뢰마법
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("지뢰마법")
@@ -1125,6 +1126,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx3Tick = tick.create(fx3)
                             call fx3Tick.start(0.02, true, function FxEffect3OnTimerExpire)
                             set Unitstate[IndexUnit(fx3.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
                             //call VJDebugMsg("마력충전")
@@ -1134,6 +1136,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx5.st = st
                             call AnimationStart(fx5.caster, 4)
                             set Unitstate[IndexUnit(fx5.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
 
                             set index = IndexUnit(st.caster)
                             call Sound3D(fx5.caster,'A026')
@@ -1155,6 +1158,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx6Tick = tick.create(fx6)
                             call fx6Tick.start(0.02, true, function FxEffect6OnTimerExpire)
                             set Unitstate[IndexUnit(fx6.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //call VJDebugMsg("이동")
                         elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
                             //스킬사용중
@@ -1166,6 +1170,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx7Tick = tick.create(fx7)
                             call fx7Tick.start(0.02, true, function FxEffect7OnTimerExpire)
                             set Unitstate[IndexUnit(fx7.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //무력화
                         elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
                             //주금
@@ -1177,6 +1182,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx8Tick = tick.create(fx8)
                             call fx8Tick.start(0.02, true, function FxEffect8OnTimerExpire)
                             set Unitstate[IndexUnit(fx8.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //그룹 보상
                         else
                             //컷신?
@@ -1294,7 +1300,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set st.rectnumber = mapNumber
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
-            set st.pattern1 = Pattern1Cool
+            set st.pattern1 = GetRandomInt(Pattern1MinCount,Pattern1MaxCount)
             set st.pattern2 = Pattern2RandomCool
             set st.pattern3 = Pattern3RandomCool
             set st.pattern4 = Pattern4RandomCool
