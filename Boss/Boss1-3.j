@@ -5,14 +5,19 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         //test1500
 
         //이동 Distance멈추는거리 Distance2이동최소거리
-        private constant integer Pattern1Cool = 0
+        private constant integer Pattern1MinCount = 2
+        private constant integer Pattern1MaxCount = 3
         private constant integer Pattern1Distance = 500
         private constant integer Pattern1Distance2 = 750
+        private constant integer Pattern1MoveDistance = 500
+        private constant integer Pattern1CenterDistance = 1000
+        private constant real Pattern1MoveSpeed = 8.0
         //3장판 거리보다 멀면 사용안함 15~20초
         private constant integer Pattern2Cool = 750
         private constant integer Pattern2RandomCool = 250
         private constant integer Pattern2Time = 100
         private constant integer Pattern2Distance = 1500
+        private constant integer Pattern2SideBack = 100
         //카운터 밀치기 30~40초
         private constant integer Pattern3Cool = 1500
         private constant integer Pattern3RandomCool = 500
@@ -536,11 +541,19 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         unit dummy
         integer i
         AggroSystem s
+        MapStruct st
+        real moveAngle
+        real movedDistance
+        boolean reposition
         method destroy takes nothing returns nothing
             set caster = null
             set dummy = null
             set i = 0
             set s = 0
+            set st = 0
+            set moveAngle = 0
+            set movedDistance = 0
+            set reposition = false
             call deallocate()
         endmethod
     endstruct
@@ -555,39 +568,58 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         local tick t
         set fx.i = fx.i + 1
         if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
-            set r = DistanceWBW( fx.caster, MainUnit[fx.s.NowAggro])
-            if Unitstate[IndexUnit(fx.caster)] == 3 then
+            if fx.reposition and Unitstate[IndexUnit(fx.caster)] == 1 then
+                //플레이어를 바라본 채 뒤나 옆으로 이동해 전투 위치를 재배치
+                set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])
+                call SetUnitFacing(fx.caster,ang)
+                call EXSetUnitFacing(fx.caster,ang)
+                call SetUnitPosition(fx.caster, GetWidgetX(fx.caster)+PolarX(Pattern1MoveSpeed,fx.moveAngle), GetWidgetY(fx.caster)+PolarY(Pattern1MoveSpeed,fx.moveAngle))
+                set fx.movedDistance = fx.movedDistance + Pattern1MoveSpeed
+                if fx.movedDistance >= Pattern1MoveDistance then
+                    call AnimationStart4(fx.caster, 7, 0.02)
+                    set Unitstate[IndexUnit(fx.caster)] = 0
+                    set fx.st.pattern1 = GetRandomInt(Pattern1MinCount,Pattern1MaxCount)
+                    call expiredTick.destroy()
+                    call fx.destroy()
+                endif
+            elseif fx.reposition then
+                call expiredTick.destroy()
+                call fx.destroy()
+            else
+                set r = DistanceWBW( fx.caster, MainUnit[fx.s.NowAggro])
+                if Unitstate[IndexUnit(fx.caster)] == 3 then
                 //주금
 
-                if r <= Pattern1Distance then
-                    //얼음파편
+                    if r <= Pattern1Distance then
+                        //얼음파편
+                        call AnimationStart4(fx.caster, 7, 0.02)
+                        set Unitstate[IndexUnit(fx.caster)] = 0
+                        call expiredTick.destroy()
+                        call fx.destroy()
+                    else
+                        set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])
+                        call SetUnitFacing(fx.caster,ang)
+                        call EXSetUnitFacing(fx.caster,ang)
+                        call SetUnitPosition(fx.caster, GetWidgetX(fx.caster)+PolarX(8, ang), GetWidgetY(fx.caster)+PolarY(8, ang))
+                    endif
+                //방향회전
+
+                elseif Unitstate[IndexUnit(fx.caster)] != 3 then
+                    //발사 및 종료
+
+                    call expiredTick.destroy()
+
+                    call fx.destroy()
+                //대기상태로 전환
+
+                elseif r <= Pattern1Distance then
+                    //주금
+
                     call AnimationStart4(fx.caster, 7, 0.02)
                     set Unitstate[IndexUnit(fx.caster)] = 0
                     call expiredTick.destroy()
                     call fx.destroy()
-                else
-                    set ang = AngleWBW(fx.caster,MainUnit[fx.s.NowAggro])
-                    call SetUnitFacing(fx.caster,ang)
-                    call EXSetUnitFacing(fx.caster,ang)
-                    call SetUnitPosition(fx.caster, GetWidgetX(fx.caster)+PolarX(8, ang), GetWidgetY(fx.caster)+PolarY(8, ang))
                 endif
-            //방향회전
-
-            elseif Unitstate[IndexUnit(fx.caster)] != 3 then
-                //발사 및 종료
-
-                call expiredTick.destroy()
-
-                call fx.destroy()
-            //대기상태로 전환
-
-            elseif r <= Pattern1Distance then
-                //주금
-
-                call AnimationStart4(fx.caster, 7, 0.02)
-                set Unitstate[IndexUnit(fx.caster)] = 0
-                call expiredTick.destroy()
-                call fx.destroy()
             endif
         //주금
         else
@@ -829,12 +861,14 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 call EXSetUnitFacing(fx.caster, AngleWBW(fx.caster, MainUnit[s.NowAggro]))
                 call SetUnitPosition(fx.caster,GetWidgetX(fx.caster),GetWidgetY(fx.caster))
                 set i = GetRandomInt(0,3)
-                set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)), 500, 2.0, 0, 2, 2)
-                set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+90),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+90), 500, 2.0, 0, 2, 2)
-                set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,GetUnitFacing(fx.caster)+(i*90)+180),GetWidgetY(fx.caster)+PolarY(500,GetUnitFacing(fx.caster)+(i*90)+180), 500, 2.0, 0, 2, 2)
+                set r = GetUnitFacing(fx.caster)+(i*90)+90
+                //양옆 장판을 안전 방향 반대쪽으로 밀어 전방 안전구역을 넓힘
+                set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r),270)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r), 500, 2.0, 0, 2, 1)
+                set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r),270)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r), 500, 2.0, 0, 2, 1)
+                set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r),270)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r), 500, 2.0, 0, 2, 1)
             elseif fx.i == Pattern2Time then
                 call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
                 call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
@@ -906,7 +940,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitAddAbility(fx.caster,'A00V')
-                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 2)
+                //스턴이 포함되므로 넉백과 에어본보다 우선하여 파란색으로 표시
+                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 1)
 
             //카운터침
             elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
@@ -974,6 +1009,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         local integer index
         local AggroSystem s
         local real r
+        local real ang
+        local real centerX
+        local real centerY
+        local real leftDistance
+        local real rightDistance
         local tick fx3Tick
         local tick fx2Tick
         local tick fx5Tick
@@ -1022,8 +1062,38 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                     //call VJDebugMsg("마력포격")
 
                     if Unitstate[IndexUnit(st.caster)] != 4 then
+                        //공격 패턴을 2~3회 사용하면 거리를 벌리고, 외곽에서는 중앙에 가까워지는 옆 방향으로 이동
+                        if st.pattern1 <= 0 then
+                            set s = BossStruct[IndexUnit(st.caster)]
+                            set ang = AngleWBW(st.caster,MainUnit[s.NowAggro])
+                            set centerX = GetRectCenterX(MapRectReturn(st.rectnumber))
+                            set centerY = GetRectCenterY(MapRectReturn(st.rectnumber))
+                            set fx1 = FxEffect1.create()
+                            set fx1.caster = st.caster
+                            set fx1.i = 0
+                            set fx1.s = s
+                            set fx1.st = st
+                            set fx1.movedDistance = 0
+                            set fx1.reposition = true
+                            if DistancePBP(GetWidgetX(st.caster)+PolarX(Pattern1MoveDistance,ang+180),GetWidgetY(st.caster)+PolarY(Pattern1MoveDistance,ang+180),centerX,centerY) > Pattern1CenterDistance then
+                                set leftDistance = DistancePBP(GetWidgetX(st.caster)+PolarX(Pattern1MoveDistance,ang+90),GetWidgetY(st.caster)+PolarY(Pattern1MoveDistance,ang+90),centerX,centerY)
+                                set rightDistance = DistancePBP(GetWidgetX(st.caster)+PolarX(Pattern1MoveDistance,ang-90),GetWidgetY(st.caster)+PolarY(Pattern1MoveDistance,ang-90),centerX,centerY)
+                                if leftDistance <= rightDistance then
+                                    set fx1.moveAngle = ang+90
+                                else
+                                    set fx1.moveAngle = ang-90
+                                endif
+                            else
+                                set fx1.moveAngle = ang+180
+                            endif
+                            call SetUnitFacing(fx1.caster,ang)
+                            call EXSetUnitFacing(fx1.caster,ang)
+                            call AnimationStart(fx1.caster, 2)
+                            set fx1Tick = tick.create(fx1)
+                            call fx1Tick.start(0.02, true, function FxEffect1OnTimerExpire)
+                            set Unitstate[IndexUnit(fx1.caster)] = 1
                         //카운터
-                        if st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
+                        elseif st.pattern3 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern3Distance, function SplashNothing ) > 0 then
                             set fx3 = FxEffect3.create()
                             set fx3.caster = st.caster
                             set fx3.i = 0
@@ -1032,6 +1102,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx3Tick = tick.create(fx3)
                             call fx3Tick.start(0.02, true, function FxEffect3OnTimerExpire)
                             set Unitstate[IndexUnit(fx3.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //파이어볼
                         elseif st.pattern2 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern2Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("파이어볼")
@@ -1043,6 +1114,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx2Tick = tick.create(fx2)
                             call fx2Tick.start(0.02, true, function FxEffect2OnTimerExpire)
                             set Unitstate[IndexUnit(fx2.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //지뢰마법
                         elseif st.pattern4 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern4Distance, function SplashNothing ) > 0 then
                             //call VJDebugMsg("지뢰마법")
@@ -1054,6 +1126,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx3Tick = tick.create(fx3)
                             call fx3Tick.start(0.02, true, function FxEffect3OnTimerExpire)
                             set Unitstate[IndexUnit(fx3.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //마력충전
                         elseif st.pattern5 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern5Distance, function SplashNothing ) == 0 then
                             //call VJDebugMsg("마력충전")
@@ -1063,6 +1136,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx5.st = st
                             call AnimationStart(fx5.caster, 4)
                             set Unitstate[IndexUnit(fx5.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
 
                             set index = IndexUnit(st.caster)
                             call Sound3D(fx5.caster,'A026')
@@ -1084,6 +1158,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx6Tick = tick.create(fx6)
                             call fx6Tick.start(0.02, true, function FxEffect6OnTimerExpire)
                             set Unitstate[IndexUnit(fx6.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //call VJDebugMsg("이동")
                         elseif st.pattern7 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern7Distance, function SplashNothing ) > 0 then
                             //스킬사용중
@@ -1095,6 +1170,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx7Tick = tick.create(fx7)
                             call fx7Tick.start(0.02, true, function FxEffect7OnTimerExpire)
                             set Unitstate[IndexUnit(fx7.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //무력화
                         elseif st.pattern8 <= 0 and splash.range( splash.ENEMY, st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), Pattern8Distance, function SplashNothing ) > 0 then
                             //주금
@@ -1106,6 +1182,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                             set fx8Tick = tick.create(fx8)
                             call fx8Tick.start(0.02, true, function FxEffect8OnTimerExpire)
                             set Unitstate[IndexUnit(fx8.caster)] = 1
+                            set st.pattern1 = st.pattern1 - 1
                         //그룹 보상
                         else
                             //컷신?
@@ -1118,6 +1195,9 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                                     set fx1.caster = st.caster
                                     set fx1.i = 0
                                     set fx1.s = BossStruct[IndexUnit(fx1.caster)]
+                                    set fx1.st = 0
+                                    set fx1.movedDistance = 0
+                                    set fx1.reposition = false
                                     call SetUnitFacing(fx1.caster,AngleWBW(fx1.caster,MainUnit[s.NowAggro]))
                                     call EXSetUnitFacing(fx1.caster,AngleWBW(fx1.caster,MainUnit[s.NowAggro]))
                                     call AnimationStart(fx1.caster, 2)
@@ -1220,7 +1300,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
             set st.rectnumber = mapNumber
             set st.caster = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01I', GetRectCenterX(MapRectReturn2(st.rectnumber)),GetRectCenterY(MapRectReturn2(st.rectnumber)), 270)
             set st.ul = party.create()
-            set st.pattern1 = Pattern1Cool
+            set st.pattern1 = GetRandomInt(Pattern1MinCount,Pattern1MaxCount)
             set st.pattern2 = Pattern2RandomCool
             set st.pattern3 = Pattern3RandomCool
             set st.pattern4 = Pattern4RandomCool
