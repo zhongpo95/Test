@@ -83,6 +83,9 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         if index == 14 and slot == 2 then
             return GetUnitAbilityLevel(u, abilId) > 0 and NarForm[pid] == 1
         endif
+        if index == 14 and slot == 3 then
+            return GetUnitAbilityLevel(u, abilId) > 0 and NarForm[pid] == 0
+        endif
         return GetUnitAbilityLevel(u, abilId) > 0
     endfunction
 
