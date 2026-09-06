@@ -867,11 +867,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 set r = GetUnitFacing(fx.caster)+(i*90)+90
                 //양옆 장판을 안전 방향 반대쪽으로 밀어 전방 안전구역을 넓힘
                 set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 2)
                 set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r), 500, Pattern2Time * 0.02, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r), 500, Pattern2Time * 0.02, 0, 2, 2)
                 set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 2)
             elseif fx.i == Pattern2Time then
                 call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
                 call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
@@ -943,8 +943,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitAddAbility(fx.caster,'A00V')
-                //스턴이 포함되므로 넉백과 에어본보다 우선하여 파란색으로 표시
-                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 1)
+                //넉백, 에어본, 스턴이 포함되므로 노란색으로 표시
+                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 2)
 
             //카운터침
             elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
