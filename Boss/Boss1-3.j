@@ -24,6 +24,9 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         private constant integer Pattern3RandomCool = 500
         private constant integer Pattern3CounterTime = 125
         private constant integer Pattern3Distance = 600
+        //전체 3초는 유지하고 마지막 1.5초 동안만 장판을 표시
+        private constant integer Pattern3AOEStartTime = 75
+        private constant real Pattern3AOETime = 1.5
         //얼음파편 20~30초 거리보다 멀면 사용안함
         private constant integer Pattern4Cool = 1000
         private constant integer Pattern4RandomCool = 500
@@ -943,20 +946,24 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 call UnitEffectTimeEX('e00G',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitEffectTimeEX('e01S',GetWidgetX(fx.caster),GetWidgetY(fx.caster),0,3)
                 call UnitAddAbility(fx.caster,'A00V')
-                //넉백, 에어본, 스턴이 포함되므로 노란색으로 표시
-                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, 0.5 + (Pattern3CounterTime * 0.02) , 0, 1, 2)
 
             //카운터침
             elseif fx.i >= 1 and GetUnitAbilityLevel(fx.caster,'A00V') == 0 then
                 call Sound3D(fx.caster,'A00U')
                 call AnimationStart(fx.caster,6)
                 call SetUnitVertexColorBJ( fx.caster, 100, 100, 100, 0 )
-                set fx.ast.stopFlag = true
+                if fx.ast != 0 then
+                    set fx.ast.stopFlag = true
+                endif
                 set Unitstate[IndexUnit(fx.caster)] = 4
                 set st.j = StandTime + CounterTime
                 set st.pattern3 = Pattern3Cool + GetRandomInt(0,Pattern3RandomCool)
                 call expiredTick.destroy()
                 call fx.destroy()
+            //전체 전조의 마지막 1.5초에 장판 표시
+            elseif fx.i == Pattern3AOEStartTime then
+                //넉백, 에어본, 스턴이 포함되므로 노란색으로 표시
+                set fx.ast = AOE(fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), distance, Pattern3AOETime, 0, 1, 2)
             //카운터 못침
             elseif fx.i == Pattern3CounterTime then
                 call UnitEffectTimeEX('e01J',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetRandomReal(0,360),0.90)
