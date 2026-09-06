@@ -46,7 +46,7 @@ library BossAOESandbag initializer Init requires Tick,DataUnit,UIBossHP,DamageEf
         local unit target = BossAggroTarget(st.caster)
 
         if UnitAlive(target) then
-            call AOE(st.caster, GetWidgetX(target), GetWidgetY(target), STATUS_RANGE, 2.0, 0, STATUS_AOE_ID, 1)
+            call AOE(st.caster, GetWidgetX(target), GetWidgetY(target), STATUS_RANGE, 2.0, 0, STATUS_AOE_ID, 2)
         endif
         call AOE2(st.caster, GetWidgetX(st.caster), GetWidgetY(st.caster), 400, 1000, 2.5, 'e03J', DAMAGE_AOE_ID)
         set target = null
