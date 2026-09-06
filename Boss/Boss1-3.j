@@ -15,7 +15,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         //3장판 거리보다 멀면 사용안함 15~20초
         private constant integer Pattern2Cool = 750
         private constant integer Pattern2RandomCool = 250
-        private constant integer Pattern2Time = 100
+        //넓게 이동해야 하는 3장판은 1.5초 동안 예고
+        private constant integer Pattern2Time = 75
         private constant integer Pattern2Distance = 1500
         private constant integer Pattern2SideBack = 100
         //카운터 밀치기 30~40초
@@ -57,6 +58,8 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
         private constant integer Pattern8Distance = 2000
         private constant integer Pattern8Time = 150
         private constant integer Pattern8Range = 250
+        //보스 전조 뒤 추적 지뢰 장판은 0.75초 동안 예고
+        private constant real Pattern8AOETime = 0.75
 
         //타임리미트
 
@@ -155,7 +158,7 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
 
     //지뢰마법
     private function splashF3 takes nothing returns nothing
-        call AOE(splash.source, GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()), 350, 2.0, 'e03J', 3, 0)
+        call AOE(splash.source, GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()), 350, Pattern8AOETime, 'e03J', 3, 0)
     endfunction
 
     private struct FxEffect8
@@ -864,11 +867,11 @@ library Boss3 requires Tick,DataUnit,UIBossHP,DamageEffect2,UIBossEnd,DataMap,Bo
                 set r = GetUnitFacing(fx.caster)+(i*90)+90
                 //양옆 장판을 안전 방향 반대쪽으로 밀어 전방 안전구역을 넓힘
                 set fx.dummy1 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r), 500, 2.0, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r-90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r-90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 1)
                 set fx.dummy2 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r), 500, 2.0, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r),GetWidgetY(fx.caster)+PolarY(500,r), 500, Pattern2Time * 0.02, 0, 2, 1)
                 set fx.dummy3 = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e03K',GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r),270)
-                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r), 500, 2.0, 0, 2, 1)
+                call AOE(fx.caster, GetWidgetX(fx.caster)+PolarX(500,r+90)+PolarX(Pattern2SideBack,r),GetWidgetY(fx.caster)+PolarY(500,r+90)+PolarY(Pattern2SideBack,r), 500, Pattern2Time * 0.02, 0, 2, 1)
             elseif fx.i == Pattern2Time then
                 call UnitEffectTimeEX('e03H',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
                 call UnitEffectTimeEX('e03I',GetWidgetX(fx.dummy1),GetWidgetY(fx.dummy1),GetRandomReal(0,360),1.20)
