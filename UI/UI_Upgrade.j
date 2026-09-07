@@ -125,8 +125,8 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
 
         set F_UpgradeRoot=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeRoot, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
-        call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.600)
-        call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.3000)
+        call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.580)
+        call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.2800)
         call DzFrameSetPriority(F_UpgradeRoot, 100)
 
         call DzFrameSetParent(F_EnchantBackDrop, F_UpgradeRoot)
@@ -154,7 +154,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetEnable(F_UpgradeTitle, false)
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNpcPanel, "BANDI.blp", 0)
+        call DzFrameSetTexture(F_UpgradeNpcPanel, "HeroBack2_2.blp", 0)
         call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
         call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.3000)
         call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
