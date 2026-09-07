@@ -1,4 +1,4 @@
-library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
+library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount
     globals
         integer F_StoneBackDrop                 //인포 배경
         integer array F_StoneBackDrop2          //인포 배경
@@ -29,6 +29,121 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         private integer si = 0
         private integer si2 = 0
     endglobals
+
+    function StoneSetOpen takes integer pid, boolean show returns nothing
+        call DzFrameShow(F_StoneBackDrop, show)
+        if not show then
+            call DzFrameShow(UI_Tip, false)
+        endif
+        set F_StoneOnOff[pid] = show
+    endfunction
+
+    function StoneStart takes integer pid returns boolean
+        local integer i = 0
+        local integer emptySlot = 50
+        local integer cardSlot = 100
+        local integer charge = 0
+        local string items = ""
+        local string sn = I2S(PlayerSlotNumber[pid])
+
+        loop
+            exitwhen i == 50
+            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
+                set emptySlot = i
+                set i = 49
+            endif
+            set i = i + 1
+        endloop
+        if emptySlot == 50 then
+            call VJDebugMsg("장비 창에 빈 공간이 없습니다.")
+            return false
+        endif
+
+        set i = 50
+        loop
+            exitwhen i == 100
+            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
+            if GetItemIDs(items) == 39 then
+                set cardSlot = i
+                set i = 99
+            endif
+            set i = i + 1
+        endloop
+        if cardSlot == 100 then
+            call VJDebugMsg("카드 부여 재료가 없습니다.")
+            return false
+        endif
+
+        set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
+        set charge = GetItemCharge(items)
+        if charge <= 1 then
+            call DzFrameSetTexture(F_ItemButtonsBackDrop[cardSlot], "UI_Inventory.blp", 0)
+            call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot))
+        else
+            call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
+        endif
+
+        set i = 0
+        loop
+            set Arcana1[i] = 0
+            set Arcana2[i] = 0
+            set Arcana3[i] = 0
+            call DzFrameSetTexture(F_Arcana1[i], "UI_Arcana_Work1.blp", 0)
+            call DzFrameSetTexture(F_Arcana2[i], "UI_Arcana_Work1.blp", 0)
+            call DzFrameSetTexture(F_Arcana3[i], "UI_Arcana_Work3.blp", 0)
+            exitwhen i == 9
+            set i = i + 1
+        endloop
+
+        set ArcanaA = 0
+        set ArcanaB = 0
+        set ArcanaC = 0
+        set ArcanaProbability = 0
+        set loopASC = 0
+        set loopBSC = 0
+        set loopCSC = 0
+        call DzFrameSetText(F_ArcanaText[6], "|cff5AD2FFX 0|r")
+        call DzFrameSetText(F_ArcanaText[7], "|cff5AD2FFX 0|r")
+        call DzFrameSetText(F_ArcanaText[8], "|cffFF0000X 0|r")
+        call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE40075%|r")
+        call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE40075%|r")
+
+        call DzFrameShow(F_ArcanaTextA[0], true)
+        call DzFrameShow(F_ArcanaTextA[1], true)
+        call DzFrameShow(F_ArcanaTextA[2], true)
+        call DzFrameShow(F_ArcanaTextA[3], true)
+        call DzFrameShow(F_ArcanaTextB[0], true)
+        call DzFrameShow(F_ArcanaTextB[1], true)
+        call DzFrameShow(F_ArcanaTextB[2], true)
+        call DzFrameShow(F_ArcanaTextB[3], true)
+        call DzFrameShow(F_ArcanaTextC[0], true)
+        call DzFrameShow(F_ArcanaTextC[1], true)
+        call DzFrameShow(F_ArcanaTextC[2], true)
+        call DzFrameSetText(F_ArcanaTextA[0], "Lv 1")
+        call DzFrameSetText(F_ArcanaTextA[1], "Lv 2")
+        call DzFrameSetText(F_ArcanaTextA[2], "Lv 3")
+        call DzFrameSetText(F_ArcanaTextA[3], "Lv 4")
+        call DzFrameSetText(F_ArcanaTextB[0], "Lv 1")
+        call DzFrameSetText(F_ArcanaTextB[1], "Lv 2")
+        call DzFrameSetText(F_ArcanaTextB[2], "Lv 3")
+        call DzFrameSetText(F_ArcanaTextB[3], "Lv 4")
+        call DzFrameSetText(F_ArcanaTextC[0], "Lv 1")
+        call DzFrameSetText(F_ArcanaTextC[1], "Lv 2")
+        call DzFrameSetText(F_ArcanaTextC[2], "Lv 3")
+        call DzFrameSetPoint(F_ArcanaTextA[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.180, 0.2175)
+        call DzFrameSetPoint(F_ArcanaTextA[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.2175)
+        call DzFrameSetPoint(F_ArcanaTextA[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.255, 0.2175)
+        call DzFrameSetPoint(F_ArcanaTextA[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.2175)
+        call DzFrameSetPoint(F_ArcanaTextB[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.180, 0.1575)
+        call DzFrameSetPoint(F_ArcanaTextB[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.1575)
+        call DzFrameSetPoint(F_ArcanaTextB[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.255, 0.1575)
+        call DzFrameSetPoint(F_ArcanaTextB[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.1575)
+        call DzFrameSetPoint(F_ArcanaTextC[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.155, 0.0400)
+        call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.0400)
+        call DzFrameSetPoint(F_ArcanaTextC[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.0400)
+        call StoneSetOpen(pid, true)
+        return true
+    endfunction
     
     private function F_OFF_Actions takes nothing returns nothing
         call DzFrameShow(UI_Tip, false)
@@ -62,15 +177,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
     endfunction
     
     private function StoneOpen takes nothing returns nothing
-        //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
-        //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
-        if F_StoneOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
-            call DzFrameShow(F_StoneBackDrop, false)
-            set F_StoneOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
-        else
-            call DzFrameShow(F_StoneBackDrop, true)
-            set F_StoneOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
-        endif
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        call StoneSetOpen(pid, not F_StoneOnOff[pid])
     endfunction
     
     private function Main takes nothing returns nothing
@@ -80,7 +188,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, FrameCount
         
         //메뉴 배경
         set F_StoneBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.320)
+        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
         call DzFrameSetTexture(F_StoneBackDrop, "Filenemo.blp", 0)
         call DzFrameSetSize(F_StoneBackDrop, 0.40, 0.30)
 

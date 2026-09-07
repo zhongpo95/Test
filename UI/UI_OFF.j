@@ -1,4 +1,4 @@
-library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana, FrameCount
+library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UITIP, UIArcana, UIUpgrade, FrameCount
 
 
     private function ESCAction takes nothing returns nothing
@@ -27,6 +27,9 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
             set FBS_OnOff[pid] = false
             call DzFrameShow(F_EnchantBackDrop, false)
             set F_EnchantOnOff[pid] = false
+            if F_UpgradeOnOff[pid] then
+                call UpgradeHubClose(pid)
+            endif
             
         endif
 
