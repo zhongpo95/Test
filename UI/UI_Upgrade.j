@@ -29,9 +29,9 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         loop
             exitwhen i > 3
             if i == selectedTab then
-                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(235, 151, 70, 190))
+                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(245, 255, 255, 255))
             else
-                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(210, 84, 132, 150))
+                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(225, 122, 174, 197))
             endif
             set i = i + 1
         endloop
@@ -116,45 +116,47 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetAlpha(F_UpgradeRoot, 255)
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNav, "Textures\\black32.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(210, 73, 42, 91))
-        call DzFrameSetSize(F_UpgradeNav, 0.115, 0.300)
-        call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0750, 0.3150)
+        call DzFrameSetTexture(F_UpgradeNav, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(235, 223, 240, 246))
+        call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
+        call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.3000)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeTitleBD, "Textures\\black32.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(220, 46, 139, 87))
-        call DzFrameSetSize(F_UpgradeTitleBD, 0.450, 0.042)
-        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.5200)
+        call DzFrameSetTexture(F_UpgradeTitleBD, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(245, 232, 249, 253))
+        call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.052)
+        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5650)
 
         set F_UpgradeTitle=DzCreateFrameByTagName("TEXT", "", F_UpgradeTitleBD, "", FrameCount())
         call DzFrameSetPoint(F_UpgradeTitle, JN_FRAMEPOINT_CENTER, F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetFont(F_UpgradeTitle, "Fonts\\DFHeiMd.ttf", 0.014, 0)
         call DzFrameSetText(F_UpgradeTitle, "장비강화")
+        call DzFrameSetTextColor(F_UpgradeTitle, JNConvertColor(255, 28, 55, 72))
         call DzFrameSetEnable(F_UpgradeTitle, false)
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNpcPanel, "Textures\\black32.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNpcPanel, DzGetColor(135, 225, 194, 42))
-        call DzFrameSetSize(F_UpgradeNpcPanel, 0.105, 0.440)
-        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.7350, 0.2900)
+        call DzFrameSetTexture(F_UpgradeNpcPanel, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(F_UpgradeNpcPanel, DzGetColor(245, 202, 228, 241))
+        call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
+        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.3000)
 
         loop
             exitwhen i > 3
             set F_UpgradeTabBD[i]=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeNav, "template", FrameCount())
-            call DzFrameSetTexture(F_UpgradeTabBD[i], "Textures\\black32.blp", 0)
-            call DzFrameSetSize(F_UpgradeTabBD[i], 0.095, 0.050)
-            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0750, 0.4000 - (0.070 * I2R(i - 1)))
+            call DzFrameSetTexture(F_UpgradeTabBD[i], "textures\\white.blp", 0)
+            call DzFrameSetSize(F_UpgradeTabBD[i], 0.085, 0.045)
+            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.4100 - (0.070 * I2R(i - 1)))
 
             set F_UpgradeTabText[i]=DzCreateFrameByTagName("TEXT", "", F_UpgradeTabBD[i], "", FrameCount())
             call DzFrameSetPoint(F_UpgradeTabText[i], JN_FRAMEPOINT_CENTER, F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
             call DzFrameSetFont(F_UpgradeTabText[i], "Fonts\\DFHeiMd.ttf", 0.011, 0)
             call DzFrameSetText(F_UpgradeTabText[i], UpgradeTabName(i))
+            call DzFrameSetTextColor(F_UpgradeTabText[i], JNConvertColor(255, 28, 55, 72))
             call DzFrameSetEnable(F_UpgradeTabText[i], false)
 
             set F_UpgradeTab[i]=DzCreateFrameByTagName("BUTTON", "", F_UpgradeTabBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetAllPoints(F_UpgradeTab[i], F_UpgradeTabBD[i])
-            call DzFrameSetSize(F_UpgradeTab[i], 0.095, 0.050)
+            call DzFrameSetSize(F_UpgradeTab[i], 0.085, 0.045)
             call DzFrameSetScriptByCode(F_UpgradeTab[i], JN_FRAMEEVENT_MOUSE_UP, function ClickUpgradeTab, false)
             set i = i + 1
         endloop

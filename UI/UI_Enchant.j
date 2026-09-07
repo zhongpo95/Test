@@ -170,6 +170,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
             call JNFrameClick(F_EEItemButtons[EQUIP_SLOT_WEAPON])
             call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], false)
+            call DzFrameShow(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], false)
         else
             call DzFrameShow(F_EnchantBackDrop, false)
             call DzFrameShow(UI_Tip, false)
@@ -742,10 +743,10 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         //call DzFrameSetSize(F_EnchantBackDrop, 0.45, 0.30)
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(F_EnchantBackDrop, "Filenemo.blp", 0)
-        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
-        call DzFrameSetSize(F_EnchantBackDrop, 0.45, 0.30)
-        call DzFrameSetAlpha(F_EnchantBackDrop, 225)
+        call DzFrameSetTexture(F_EnchantBackDrop, "textures\\white.blp", 0)
+        call DzFrameSetVertexColor(F_EnchantBackDrop, DzGetColor(235, 218, 239, 248))
+        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
         //call DzFrameSetPriority(F_EnchantBackDrop, 5)
 
         
@@ -770,7 +771,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         //call CreateEItemButton(3 , 0.040 , - 0.160)
         //call CreateEItemButton(4 , 0.040 , - 0.190)
         
-        call CreateEItemButton(6 , 0.240 , - 0.040)
+        call CreateEItemButton(6 , 0.2025 , - 0.090)
         call DzFrameSetSize(F_EEItemButtons[6], 0.040, 0.040)
         
         
