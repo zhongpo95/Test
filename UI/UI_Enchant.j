@@ -176,6 +176,137 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         call DzSyncData(("Success"),I2S(F_EnchantSelectNumber))
     endfunction
     
+    //장착 무기의 강화 및 계승 정보 갱신
+    function RefreshEnchantInfo takes integer pid returns nothing
+        local string items
+        local integer itemid = 0
+        local integer i = 0
+        local integer quality = 0
+        local integer up = 0
+        local integer tier = 0
+        local integer trycount = 0
+        local integer trycount2 = 0
+        local integer fate = 0
+        local real rate
+        local string str = ""
+
+        //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
+
+        set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
+        set items = Eitem[pid][F_EnchantSelectNumber]
+        call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(items)), 0)
+        set itemid = GetItemIDs(items)
+        set i = GetItemTypes(items)
+        call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
+        call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
+        set up = GetItemUp(items)
+        set quality = GetItemQuality(items)
+        set tier = GetItemTier(items)
+        set trycount = GetItemTrycount(items)
+        set fate = GetItemFate(items)
+
+        if tier == 1 then
+            if itemid == 10 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
+                call DzFrameSetText(F_EnchantText[7], "x 0" )
+                call DzFrameSetText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
+            else
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
+                call DzFrameSetText(F_EnchantText[7], "x 1" )
+                call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+            endif
+            call DzFrameShow(F_EnchantButton, false)
+            call DzFrameShow(F_EnchantButton2, true)
+            call DzFrameShow(F_EnchantUpText, true)
+        elseif EnchantMax[tier] != up then
+            call DzFrameSetText(F_EnchantUpText, I2S(up) + "  >>  " + I2S(up+1))
+            if trycount > 10 then
+                set trycount2 = 10
+            else
+                set trycount2 = trycount
+            endif
+            set rate = (I2R(EnchantRate[tier][up+1])/100) + ((I2R(EnchantRate[tier][up+1])*5/10000) * trycount2)
+            if rate >= 100 then
+                set rate = 100
+            endif
+            call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
+            call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
+            set str = str + "|cFFB9E2FA무기 공격력|r +"
+            set str = str + JNStringSplit(ItemStats[i][tier],";", up )
+            call DzFrameSetText(F_EnchantText[0], str)
+            set str = ""
+            set str = str + "|cFFB9E2FA무기 공격력|r +"
+            set str = str + JNStringSplit(ItemStats[i][tier],";", (up+1) )
+
+            call DzFrameSetText(F_EnchantText[5], "x " + I2S(EnchantMaterial1[tier][up+1]) )
+            call DzFrameSetText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
+
+            if EnchantMaterial1[tier][up+1] == 0 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], "UI_Inventory.blp", 0)
+            elseif tier == 2 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(24), 0)
+            elseif tier == 3 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(27), 0)
+            elseif tier == 4 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(30), 0)
+            elseif tier == 5 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(32), 0)
+            elseif tier == 6 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(34), 0)
+            elseif tier == 7 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(36), 0)
+            elseif tier == 8 then
+                call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(38), 0)
+            endif
+
+            call DzFrameSetText(F_EnchantText[2], str)
+            call DzFrameShow(F_EnchantButton, true)
+            call DzFrameShow(F_EnchantButton2, false)
+        else
+            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+            call DzFrameShow(F_EnchantButton, false)
+            call DzFrameShow(F_EnchantButton2, true)
+        endif
+        call DzFrameShow(F_EnchantUpText, true)
+        /*
+        //구 보조무기 승급 경로 미사용
+        if itemid == 9 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
+        elseif itemid == 2 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
+        elseif itemid == 3 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
+        elseif itemid == 4 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
+        elseif itemid == 5 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
+        elseif itemid == 6 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
+        elseif itemid == 7 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
+        elseif itemid == 8 then
+            call DzFrameShow(F_EnchantButton2, false)
+        endif
+        */
+        //무기
+        if itemid == 10 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
+        elseif itemid == 3 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
+        elseif itemid == 4 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
+        elseif itemid == 5 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
+        elseif itemid == 6 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
+        elseif itemid == 7 then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
+        elseif itemid == 8 then
+            call DzFrameShow(F_EnchantButton2, false)
+        endif
+
+    endfunction
+
     private function ButtonSuccess takes nothing returns nothing
         local integer f = S2I(DzGetTriggerSyncData())
         local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
@@ -523,136 +654,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         endif
     endfunction
         
-    //장착 무기의 강화 및 계승 정보 갱신
-    function RefreshEnchantInfo takes integer pid returns nothing
-        local string items
-        local integer itemid = 0
-        local integer i = 0
-        local integer quality = 0
-        local integer up = 0
-        local integer tier = 0
-        local integer trycount = 0
-        local integer trycount2 = 0
-        local integer fate = 0
-        local real rate
-        local string str = ""
-        
-        //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
-        
-        set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
-        set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set i = GetItemTypes(items)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set up = GetItemUp(items)
-            set quality = GetItemQuality(items)
-            set tier = GetItemTier(items)
-            set trycount = GetItemTrycount(items)
-            set fate = GetItemFate(items)
-
-            if tier == 1 then
-                if itemid == 10 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
-                    call DzFrameSetText(F_EnchantText[7], "x 0" )
-                    call DzFrameSetText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
-                else
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
-                    call DzFrameSetText(F_EnchantText[7], "x 1" )
-                    call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
-                endif
-                call DzFrameShow(F_EnchantButton, false)
-                call DzFrameShow(F_EnchantButton2, true)
-                call DzFrameShow(F_EnchantUpText, true)
-            elseif EnchantMax[tier] != up then
-                call DzFrameSetText(F_EnchantUpText, I2S(up) + "  >>  " + I2S(up+1))
-                if trycount > 10 then
-                    set trycount2 = 10
-                else
-                    set trycount2 = trycount
-                endif
-                set rate = (I2R(EnchantRate[tier][up+1])/100) + ((I2R(EnchantRate[tier][up+1])*5/10000) * trycount2)
-                if rate >= 100 then
-                    set rate = 100
-                endif
-                call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFFFFE400" + R2SW( rate ,1,2) + "%|r")
-                call DzFrameSetText(F_EnchantFateText, "운명 |cFFFFE400" + R2SW(I2R(fate)/100,1,2) + "%|r")
-                set str = str + "|cFFB9E2FA무기 공격력|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                call DzFrameSetText(F_EnchantText[0], str)
-                set str = ""
-                set str = str + "|cFFB9E2FA무기 공격력|r +"
-                set str = str + JNStringSplit(ItemStats[i][tier],";", (up+1) )
-                
-                call DzFrameSetText(F_EnchantText[5], "x " + I2S(EnchantMaterial1[tier][up+1]) )
-                call DzFrameSetText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
-                
-                if EnchantMaterial1[tier][up+1] == 0 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], "UI_Inventory.blp", 0)
-                elseif tier == 2 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(24), 0)
-                elseif tier == 3 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(27), 0)
-                elseif tier == 4 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(30), 0)
-                elseif tier == 5 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(32), 0)
-                elseif tier == 6 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(34), 0)
-                elseif tier == 7 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(36), 0)
-                elseif tier == 8 then
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], GetItemNumberArt(38), 0)
-                endif
-
-                call DzFrameSetText(F_EnchantText[2], str)
-                call DzFrameShow(F_EnchantButton, true)
-                call DzFrameShow(F_EnchantButton2, false)
-            else
-                call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
-                call DzFrameShow(F_EnchantButton, false)
-                call DzFrameShow(F_EnchantButton2, true)
-            endif
-            call DzFrameShow(F_EnchantUpText, true)
-        /*
-        //구 보조무기 승급 경로 미사용
-        if itemid == 9 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(2), 0)
-        elseif itemid == 2 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
-        elseif itemid == 3 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
-        elseif itemid == 4 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
-        elseif itemid == 5 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
-        elseif itemid == 6 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
-        elseif itemid == 7 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
-        elseif itemid == 8 then
-            call DzFrameShow(F_EnchantButton2, false)
-        endif
-        */
-        //무기
-        if itemid == 10 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
-        elseif itemid == 3 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
-        elseif itemid == 4 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
-        elseif itemid == 5 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
-        elseif itemid == 6 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
-        elseif itemid == 7 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
-        elseif itemid == 8 then
-            call DzFrameShow(F_EnchantButton2, false)
-        endif
-
-    endfunction
 
     function EnchantSetOpen takes integer pid, boolean show returns nothing
         if show then
