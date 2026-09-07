@@ -2,7 +2,6 @@
 library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP, UIHP, UISkillHUD, FrameCount
     globals
         integer F_UpgradeRoot
-        integer F_UpgradeScreenBlock
         integer F_UpgradeNav
         integer F_UpgradeTitleBD
         integer F_UpgradeTitle
@@ -134,10 +133,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetParent(F_StoneBackDrop, F_UpgradeRoot)
         call DzFrameSetParent(El_BackDrop, F_UpgradeRoot)
         call DzFrameSetParent(El_BackDrop2, F_UpgradeRoot)
-
-        set F_UpgradeScreenBlock=DzCreateFrameByTagName("BUTTON", "", F_UpgradeRoot, "ScoreScreenTabButtonTemplate", FrameCount())
-        call DzFrameSetAllPoints(F_UpgradeScreenBlock, F_UpgradeRoot)
-        call DzFrameSetSize(F_UpgradeScreenBlock, 0.800, 0.600)
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNav, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
