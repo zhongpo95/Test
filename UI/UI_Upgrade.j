@@ -155,7 +155,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNpcPanel, "HeroBack2_2.blp", 0)
-        call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
+        call DzFrameSetSize(F_UpgradeNpcPanel, 0.250, 0.560)
         call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.2800)
         call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
 
