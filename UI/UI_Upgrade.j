@@ -74,7 +74,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set F_UpgradeStonePrepared[pid] = false
         set F_UpgradeCurrentTab[pid] = 0
         if Player(pid) == GetLocalPlayer() then
-            call BlzHideOriginFrames(false)
+            call DzFrameShow(DzFrameGetMinimap(), true)
             call DzFrameShow(heroStatusUI, true)
             call SkillHUDSetVisible(true)
         endif
@@ -87,7 +87,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         endif
         set F_UpgradeHPWasShown[pid] = HPBshow[pid]
         if Player(pid) == GetLocalPlayer() then
-            call BlzHideOriginFrames(true)
+            call DzFrameShow(DzFrameGetMinimap(), false)
             call DzFrameShow(heroStatusUI, false)
             call SkillHUDSetVisible(false)
         endif
