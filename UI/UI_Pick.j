@@ -414,8 +414,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzFrameSetTexture(FP_HeroBBD[0], "war3mapImported\\UI_Pick_Frame.tga", 0)
         call DzFrameSetVertexColor(FP_HeroBBD[0], DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_HeroBBD[0], 255)
-        call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.40)
-        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3400)
+        call DzFrameSetSize(FP_HeroBBD[0], 0.45, 0.48)
+        call DzFrameSetAbsolutePoint(FP_HeroBBD[0], JN_FRAMEPOINT_CENTER, 0.2500, 0.3100)
 
         set i = 1
         loop
@@ -423,7 +423,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set row = (i - 1) / PickCardColumnCount
             set col = ModuloInteger(i - 1, PickCardColumnCount)
             set cardX = 0.088 + (0.105 * I2R(col))
-            set cardY = 0.475 - (0.125 * I2R(row))
+            set cardY = 0.475 - (0.160 * I2R(row))
 
             set FP_HeroBBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
             call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Box.tga", 0)
@@ -479,8 +479,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         set FP_ScrollB=DzCreateFrameByTagName("SLIDER", "PickScrollSlider", FP_BD, "QuestMainListScrollBar", FrameCount())
         call DzFrameClearAllPoints(FP_ScrollB)
-        call DzFrameSetSize(FP_ScrollB, 0.012, 0.315)
-        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4900, 0.3400)
+        call DzFrameSetSize(FP_ScrollB, 0.012, 0.400)
+        call DzFrameSetAbsolutePoint(FP_ScrollB, JN_FRAMEPOINT_CENTER, 0.4900, 0.3150)
         call DzFrameSetMinMaxValue(FP_ScrollB, 0.0, I2R(PickMaxScrollRow()))
         call DzFrameSetStepValue(FP_ScrollB, 1.0)
         call DzFrameSetValue(FP_ScrollB, 0.0)
@@ -491,15 +491,15 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzFrameSetTexture(FP_PreviewPanel, "war3mapImported\\UI_Pick_Panel.tga", 0)
         call DzFrameSetVertexColor(FP_PreviewPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_PreviewPanel, 255)
-        call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.230)
-        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.6300, 0.4100)
+        call DzFrameSetSize(FP_PreviewPanel, 0.245, 0.270)
+        call DzFrameSetAbsolutePoint(FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.6300, 0.4150)
 
         set i = 1
         loop
             exitwhen i > PickCardCount
             set FP_PotBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_PreviewPanel, "template", FrameCount())
             call DzFrameSetTexture(FP_PotBD[i], PickPreviewTexture(i, 1), 0)
-            call DzFrameSetSize(FP_PotBD[i], 0.225, 0.205)
+            call DzFrameSetSize(FP_PotBD[i], 0.225, 0.245)
             call DzFrameSetPoint(FP_PotBD[i], JN_FRAMEPOINT_CENTER, FP_PreviewPanel, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
             call DzFrameShow(FP_PotBD[i], false)
             set i = i + 1
@@ -509,21 +509,21 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzFrameSetTexture(FP_SkinBBD, "war3mapImported\\UI_Pick_Panel.tga", 0)
         call DzFrameSetVertexColor(FP_SkinBBD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_SkinBBD, 255)
-        call DzFrameSetSize(FP_SkinBBD, 0.245, 0.120)
-        call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.2200)
+        call DzFrameSetSize(FP_SkinBBD, 0.245, 0.190)
+        call DzFrameSetAbsolutePoint(FP_SkinBBD, JN_FRAMEPOINT_CENTER, 0.6300, 0.1800)
 
         set i = 1
         loop
             exitwhen i > PickSkinCount
             set FP_SkinBT[i]=DzCreateFrameByTagName("TEXT", "", FP_SkinBBD, "", 0)
-            call DzFrameSetPoint(FP_SkinBT[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025 - (0.035 * I2R(i - 1)))
+            call DzFrameSetPoint(FP_SkinBT[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.045 - (0.060 * I2R(i - 1)))
             call DzFrameSetText(FP_SkinBT[i], PickSkinName(i))
             call DzFrameSetEnable(FP_SkinBT[i], false)
             call DzFrameShow(FP_SkinBT[i], false)
 
             set FP_SkinB[i]=DzCreateFrameByTagName("BUTTON", "", FP_SkinBBD, "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetSize(FP_SkinB[i], 0.120, 0.030)
-            call DzFrameSetPoint(FP_SkinB[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.025 - (0.035 * I2R(i - 1)))
+            call DzFrameSetPoint(FP_SkinB[i], JN_FRAMEPOINT_CENTER, FP_SkinBBD, JN_FRAMEPOINT_TOP, 0.0, -0.045 - (0.060 * I2R(i - 1)))
             call DzFrameSetScriptByCode(FP_SkinB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickSkinButton, false)
             call DzFrameShow(FP_SkinB[i], false)
             set i = i + 1
@@ -531,7 +531,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         set FP_SelectBBD=DzCreateFrameByTagName("BACKDROP", "", FP_BD, "template", FrameCount())
         call DzFrameSetTexture(FP_SelectBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(FP_SelectBBD, 0.080, 0.035)
-        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.1050)
+        call DzFrameSetAbsolutePoint(FP_SelectBBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.0500)
         call DzFrameShow(FP_SelectBBD, false)
 
         set FP_SelectBT=DzCreateFrameByTagName("TEXT","",FP_SelectBBD,"",0)
