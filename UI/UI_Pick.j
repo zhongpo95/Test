@@ -391,8 +391,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call DzFrameSetTexture(FP_BD, "war3mapImported\\UI_Pick_Backdrop2.tga", 0)
         call DzFrameSetVertexColor(FP_BD, DzGetColor(255, 255, 255, 255))
         call DzFrameSetAlpha(FP_BD, 255)
-        call DzFrameSetSize(FP_BD, 0.80, 0.55)
-        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3300)
+        call DzFrameSetSize(FP_BD, 0.80, 0.60)
+        call DzFrameSetAbsolutePoint(FP_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3000)
         call DzFrameShow(FP_BD, false)
 
         set i = 1
