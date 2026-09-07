@@ -2,6 +2,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
     globals
         integer F_EnchantBackDrop                   //인포 배경
         integer F_EnchantCancelButton               //X버튼
+        integer F_EnchantSelectDivider              //기존 장비 선택 영역 구분선
         integer array F_EEItemButtons               //장비아이템 버튼들
         integer array F_EEItemButtonsBackDrop       //장비 아이템 버튼 배경 아이콘들
         boolean array F_EnchantOnOff                //인포 온오프
@@ -163,14 +164,22 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         endif
     endfunction
     
-    private function EnchantOpen takes nothing returns nothing
-        if F_EnchantOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
-            call DzFrameShow(F_EnchantBackDrop, false)
-            set F_EnchantOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = false
-        else
+    function EnchantSetOpen takes integer pid, boolean show returns nothing
+        if show then
             call DzFrameShow(F_EnchantBackDrop, true)
-            set F_EnchantOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] = true
+            call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
+            call JNFrameClick(F_EEItemButtons[EQUIP_SLOT_WEAPON])
+            call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], false)
+        else
+            call DzFrameShow(F_EnchantBackDrop, false)
+            call DzFrameShow(UI_Tip, false)
         endif
+        set F_EnchantOnOff[pid] = show
+    endfunction
+
+    private function EnchantOpen takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        call EnchantSetOpen(pid, not F_EnchantOnOff[pid])
     endfunction
     
     private function ClickButton2 takes nothing returns nothing
@@ -740,10 +749,11 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         //call DzFrameSetPriority(F_EnchantBackDrop, 5)
 
         
-        set i=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
-        call DzFrameSetTexture(i, "textures\\white.blp", 0)
-        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, -0.15, 0 )
-        call DzFrameSetSize(i, 0.0010, 0.250)
+        set F_EnchantSelectDivider=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
+        call DzFrameSetTexture(F_EnchantSelectDivider, "textures\\white.blp", 0)
+        call DzFrameSetPoint(F_EnchantSelectDivider, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, -0.15, 0 )
+        call DzFrameSetSize(F_EnchantSelectDivider, 0.0010, 0.250)
+        call DzFrameShow(F_EnchantSelectDivider, false)
 
         //메뉴 취소 버튼
         set F_EnchantCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_EnchantBackDrop, "ScriptDialogButton", 0)
@@ -754,6 +764,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         
         //call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , - 0.050)
         call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , - 0.050)
+        call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], false)
         //call CreateEItemButton(1 , 0.040 , - 0.100)
         //call CreateEItemButton(2 , 0.040 , - 0.130)
         //call CreateEItemButton(3 , 0.040 , - 0.160)

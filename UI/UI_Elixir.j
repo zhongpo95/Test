@@ -7265,10 +7265,10 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_Roll=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop, "template", FrameCount())
         call DzFrameSetTexture(El_Roll, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(El_Roll, 0.09, 0.03)
-        call DzFrameSetAbsolutePoint(El_Roll, JN_FRAMEPOINT_CENTER, 0.6750, 0.1800)
+        call DzFrameSetAbsolutePoint(El_Roll, JN_FRAMEPOINT_CENTER, 0.6200, 0.1800)
         
         set El_RollT=DzCreateFrameByTagName("TEXT","",El_Roll,"",0)
-        call DzFrameSetAbsolutePoint(El_RollT, JN_FRAMEPOINT_CENTER, 0.6750, 0.1800)
+        call DzFrameSetAbsolutePoint(El_RollT, JN_FRAMEPOINT_CENTER, 0.6200, 0.1800)
         call DzFrameSetText(El_RollT,"리롤(1회 남음)")
         
         set El_RollB=DzCreateFrameByTagName("BUTTON", "", El_Roll, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -7290,8 +7290,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         call DzFrameShow(El_BackDrop, false)
     endfunction
     
-    private function Command takes nothing returns nothing
-        local integer pid = GetPlayerId(GetTriggerPlayer())
+    function ElixirSetOpen takes integer pid, boolean show returns nothing
         local integer i = 0
         local integer j = 0
         local integer a = 0
@@ -7299,16 +7298,18 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         local integer c = 0
         local IntegerPool ElixirSelect
 
-        if ElShow[pid] == false then
-            if GetLocalPlayer() == GetTriggerPlayer() then
+        if show then
+            if GetLocalPlayer() == Player(pid) then
                 call DzFrameShow(El_BackDrop,true)
             endif
             set ElShow[pid] = true
-        elseif ElShow[pid] == true then
-            if GetLocalPlayer() == GetTriggerPlayer() then
+        else
+            if GetLocalPlayer() == Player(pid) then
                 call DzFrameShow(El_BackDrop,false)
+                call DzFrameShow(El_BackDrop2,false)
             endif
             set ElShow[pid] = false
+            return
         endif
         
         //엘릭서 세팅
@@ -7353,7 +7354,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_Level[pid][5] = 0
 
         if j == 1 then
-            if GetLocalPlayer() == GetTriggerPlayer() then
+            if GetLocalPlayer() == Player(pid) then
                 set NowMainSelect = 0
                 set NowSelectNumber= 0
                 set NowSelectNumber2[1] = 0
@@ -7400,6 +7401,11 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             endif
         endif
 
+    endfunction
+
+    private function Command takes nothing returns nothing
+        local integer pid = GetPlayerId(GetTriggerPlayer())
+        call ElixirSetOpen(pid, not ElShow[pid])
     endfunction
     
 

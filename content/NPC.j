@@ -1,4 +1,4 @@
-library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM, UIBossStart
+library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIUpgrade, UIOFF, ITEM, UIBossStart
                 
     private function Action takes nothing returns nothing
         local unit u = GetTriggerUnit()
@@ -120,8 +120,7 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM,
                                                 call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.0400 )
                                                 call DzFrameSetPoint(F_ArcanaTextC[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.0400 )
 
-                                                call DzFrameShow(F_StoneBackDrop, true)
-                                                set F_StoneOnOff[pid] = true
+                                                call UpgradeHubOpenPreparedStone(pid)
                                             endif
                                             set loopA = 99
                                         endif
@@ -138,9 +137,8 @@ library NPC initializer init requires DataUnit, UIStone, UIEnchant, UIOFF, ITEM,
                     //세레스티아 루덴베르크
                     elseif DataUnitIndex(u) == 6 then
                         //이미 열려있음
-                        if F_EnchantOnOff[pid] == false then
-                            call DzFrameShow(F_EnchantBackDrop, true)
-                            set F_EnchantOnOff[pid] = true
+                        if F_UpgradeOnOff[pid] == false then
+                            call UpgradeHubOpen(pid, 1)
                         endif
                     //라이자
                     elseif DataUnitIndex(u) == 7 then

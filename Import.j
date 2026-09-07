@@ -28,6 +28,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Overlay.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BigWheel.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Elixir.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_Upgrade.j"
 
 // === Content ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\content\NPC.j"
