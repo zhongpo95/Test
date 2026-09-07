@@ -188,7 +188,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         
         //메뉴 배경
         set F_StoneBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetTexture(F_StoneBackDrop, "textures\\white.blp", 0)
         call DzFrameSetVertexColor(F_StoneBackDrop, DzGetColor(90, 218, 239, 248))
         call DzFrameSetSize(F_StoneBackDrop, 0.405, 0.475)

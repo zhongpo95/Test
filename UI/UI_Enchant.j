@@ -748,7 +748,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_EnchantBackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
-        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
         call DzFrameSetPriority(F_EnchantBackDrop, 110)
 
