@@ -16,6 +16,9 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         integer F_EnchantButtonBD                   //강화버튼
         integer F_EnchantButton2                    //승급버튼
         integer F_EnchantButtonBD2                  //승급버튼
+        integer F_EnchantWeaponPanel                //장착 무기 영역
+        integer F_EnchantInfoPanel                  //강화 정보 영역
+        integer F_EnchantWeaponLabel                //장착 무기 제목
         
     endglobals
     
@@ -167,10 +170,9 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
     function EnchantSetOpen takes integer pid, boolean show returns nothing
         if show then
             call DzFrameShow(F_EnchantBackDrop, true)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON])), 0)
             call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
             call JNFrameClick(F_EEItemButtons[EQUIP_SLOT_WEAPON])
-            call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], false)
-            call DzFrameShow(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], false)
         else
             call DzFrameShow(F_EnchantBackDrop, false)
             call DzFrameShow(UI_Tip, false)
@@ -744,10 +746,23 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_EnchantBackDrop, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantBackDrop, DzGetColor(235, 218, 239, 248))
+        call DzFrameSetVertexColor(F_EnchantBackDrop, DzGetColor(90, 218, 239, 248))
         call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
         call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
-        //call DzFrameSetPriority(F_EnchantBackDrop, 5)
+        call DzFrameSetPriority(F_EnchantBackDrop, 110)
+
+        set F_EnchantWeaponPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
+        call DzFrameSetPoint(F_EnchantWeaponPanel, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.2025, -0.105)
+        call DzFrameSetSize(F_EnchantWeaponPanel, 0.140, 0.130)
+
+        set F_EnchantWeaponLabel=DzCreateFrameByTagName("TEXT", "", F_EnchantWeaponPanel, "", FrameCount())
+        call DzFrameSetPoint(F_EnchantWeaponLabel, JN_FRAMEPOINT_TOP, F_EnchantWeaponPanel, JN_FRAMEPOINT_TOP, 0.0, -0.012)
+        call DzFrameSetFont(F_EnchantWeaponLabel, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+        call DzFrameSetText(F_EnchantWeaponLabel, "장착 무기")
+
+        set F_EnchantInfoPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
+        call DzFrameSetPoint(F_EnchantInfoPanel, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.2025, -0.300)
+        call DzFrameSetSize(F_EnchantInfoPanel, 0.300, 0.220)
 
         
         set F_EnchantSelectDivider=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
@@ -764,24 +779,29 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         call DzFrameSetScriptByCode(F_EnchantCancelButton, JN_FRAMEEVENT_MOUSE_UP, function EnchantOpen, false)
         
         //call CreateEItemButton(EQUIP_SLOT_ELIXIR , 0.040 , - 0.050)
-        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.040 , - 0.050)
-        call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], false)
+        call CreateEItemButton(EQUIP_SLOT_WEAPON , 0.2025 , - 0.105)
+        call DzFrameSetSize(F_EEItemButtons[EQUIP_SLOT_WEAPON], 0.055, 0.055)
         //call CreateEItemButton(1 , 0.040 , - 0.100)
         //call CreateEItemButton(2 , 0.040 , - 0.130)
         //call CreateEItemButton(3 , 0.040 , - 0.160)
         //call CreateEItemButton(4 , 0.040 , - 0.190)
         
-        call CreateEItemButton(6 , 0.2025 , - 0.090)
-        call DzFrameSetSize(F_EEItemButtons[6], 0.040, 0.040)
+        call CreateEItemButton(6 , 0.2025 , - 0.185)
+        call DzFrameSetSize(F_EEItemButtons[6], 0.055, 0.055)
         
         
         set F_EnchantButton2=DzCreateFrameByTagName("BUTTON", "", F_EnchantBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_EnchantButton2, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.200 )
-        call DzFrameSetSize(F_EnchantButton2, 0.060 , 0.040)
+        call DzFrameSetSize(F_EnchantButton2, 0.080 , 0.035)
         call DzFrameSetScriptByCode(F_EnchantButton2, JN_FRAMEEVENT_MOUSE_UP, function ClickButton3, false)
         set F_EnchantButtonBD2=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton2, "", FrameCount())
         call DzFrameSetAllPoints(F_EnchantButtonBD2, F_EnchantButton2)
-        call DzFrameSetTexture(F_EnchantButtonBD2,"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
+        call DzFrameSetTexture(F_EnchantButtonBD2,"UI_PickSelectButton.tga", 0)
+        set i=DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
+        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantButton2, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+        call DzFrameSetFont(i, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+        call DzFrameSetText(i, "계승")
+        call DzFrameSetEnable(i, false)
         set F_EEItemButtons[7]=DzCreateFrameByTagName("BUTTON", "", F_EnchantButton2, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_EEItemButtons[7], JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, -0.070 , - 0.100 )
         call DzFrameSetSize(F_EEItemButtons[7], 0.025, 0.025)
@@ -825,11 +845,16 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         
         set F_EnchantButton=DzCreateFrameByTagName("BUTTON", "", F_EnchantBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
         call DzFrameSetPoint(F_EnchantButton, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0, -0.200 )
-        call DzFrameSetSize(F_EnchantButton, 0.060 , 0.040)
+        call DzFrameSetSize(F_EnchantButton, 0.080 , 0.035)
         call DzFrameSetScriptByCode(F_EnchantButton, JN_FRAMEEVENT_MOUSE_UP, function ClickButton2, false)
         set F_EnchantButtonBD=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetAllPoints(F_EnchantButtonBD, F_EnchantButton)
-        call DzFrameSetTexture(F_EnchantButtonBD,"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
+        call DzFrameSetTexture(F_EnchantButtonBD,"UI_PickSelectButton.tga", 0)
+        set i=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
+        call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantButton, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
+        call DzFrameSetFont(i, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+        call DzFrameSetText(i, "강화")
+        call DzFrameSetEnable(i, false)
         
         set F_EnchantRateText=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetPoint(F_EnchantRateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.055 )

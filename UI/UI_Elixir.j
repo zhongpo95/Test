@@ -6910,10 +6910,10 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         //메뉴 배경2
         set El_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(El_BackDrop2, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(El_BackDrop2, DzGetColor(235, 218, 239, 248))
+        call DzFrameSetVertexColor(El_BackDrop2, DzGetColor(90, 218, 239, 248))
         call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
         call DzFrameSetSize(El_BackDrop2, 0.405, 0.475)
-        call DzFrameSetPriority(El_BackDrop2, 5)
+        call DzFrameSetPriority(El_BackDrop2, 110)
         call DzFrameShow(El_BackDrop2, false)
 
         set EL_LevelTextC=DzCreateFrameByTagName("TEXT","",El_BackDrop2,"",FrameCount())
@@ -6974,10 +6974,10 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         //메뉴 배경
         set El_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(El_BackDrop, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(El_BackDrop, DzGetColor(235, 218, 239, 248))
+        call DzFrameSetVertexColor(El_BackDrop, DzGetColor(90, 218, 239, 248))
         call DzFrameSetAbsolutePoint(El_BackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
         call DzFrameSetSize(El_BackDrop, 0.405, 0.475)
-        call DzFrameSetPriority(El_BackDrop, 5)
+        call DzFrameSetPriority(El_BackDrop, 110)
 
         set El_Main[1]=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop, "template", FrameCount())
         call DzFrameSetTexture(El_Main[1], "File00005254.blp", 0)
