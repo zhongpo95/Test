@@ -1,5 +1,5 @@
 // 영구 강화 기능 통합 탭 UI 관리
-library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP, FrameCount
+library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP, UIHP, UISkillHUD, FrameCount
     globals
         integer F_UpgradeRoot
         integer F_UpgradeScreenBlock
@@ -14,6 +14,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         boolean array F_UpgradeOnOff
         boolean array F_UpgradeStonePrepared
         integer array F_UpgradeCurrentTab
+        boolean array F_UpgradeHPWasShown
     endglobals
 
     private function UpgradeTabName takes integer tab returns string
@@ -72,12 +73,25 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set F_UpgradeOnOff[pid] = false
         set F_UpgradeStonePrepared[pid] = false
         set F_UpgradeCurrentTab[pid] = 0
+        if Player(pid) == GetLocalPlayer() then
+            call BlzHideOriginFrames(false)
+            call DzFrameShow(heroStatusUI, true)
+            call SkillHUDSetVisible(true)
+        endif
+        call PlayersHPBarShow(Player(pid), F_UpgradeHPWasShown[pid])
     endfunction
 
     function UpgradeHubOpen takes integer pid, integer tab returns nothing
         if tab < 1 or tab > 3 then
             set tab = 1
         endif
+        set F_UpgradeHPWasShown[pid] = HPBshow[pid]
+        if Player(pid) == GetLocalPlayer() then
+            call BlzHideOriginFrames(true)
+            call DzFrameShow(heroStatusUI, false)
+            call SkillHUDSetVisible(false)
+        endif
+        call PlayersHPBarShow(Player(pid), false)
         call DzFrameShow(F_UpgradeRoot, true)
         set F_UpgradeOnOff[pid] = true
         call UpgradeHubSetTab(pid, tab)
@@ -116,20 +130,23 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.3000)
         call DzFrameSetPriority(F_UpgradeRoot, 100)
 
+        call DzFrameSetParent(F_EnchantBackDrop, F_UpgradeRoot)
+        call DzFrameSetParent(F_StoneBackDrop, F_UpgradeRoot)
+        call DzFrameSetParent(El_BackDrop, F_UpgradeRoot)
+        call DzFrameSetParent(El_BackDrop2, F_UpgradeRoot)
+
         set F_UpgradeScreenBlock=DzCreateFrameByTagName("BUTTON", "", F_UpgradeRoot, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAllPoints(F_UpgradeScreenBlock, F_UpgradeRoot)
         call DzFrameSetSize(F_UpgradeScreenBlock, 0.800, 0.600)
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNav, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(115, 223, 240, 246))
+        call DzFrameSetTexture(F_UpgradeNav, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
         call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.3000)
         call DzFrameSetPriority(F_UpgradeNav, 120)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeTitleBD, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(180, 232, 249, 253))
+        call DzFrameSetTexture(F_UpgradeTitleBD, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.052)
         call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5650)
         call DzFrameSetPriority(F_UpgradeTitleBD, 120)
@@ -142,8 +159,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetEnable(F_UpgradeTitle, false)
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNpcPanel, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNpcPanel, DzGetColor(35, 202, 228, 241))
+        call DzFrameSetTexture(F_UpgradeNpcPanel, "BANDI.blp", 0)
         call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
         call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.3000)
         call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
@@ -183,6 +199,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
             set F_UpgradeOnOff[index] = false
             set F_UpgradeStonePrepared[index] = false
             set F_UpgradeCurrentTab[index] = 0
+            set F_UpgradeHPWasShown[index] = false
             set index = index + 1
         endloop
     endfunction
