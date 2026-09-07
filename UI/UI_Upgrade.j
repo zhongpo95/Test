@@ -2,6 +2,7 @@
 library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP, FrameCount
     globals
         integer F_UpgradeRoot
+        integer F_UpgradeScreenBlock
         integer F_UpgradeNav
         integer F_UpgradeTitleBD
         integer F_UpgradeTitle
@@ -110,22 +111,28 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         local integer index = 0
 
         set F_UpgradeRoot=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeRoot, "Textures\\black32.blp", 0)
-        call DzFrameSetSize(F_UpgradeRoot, 0.001, 0.001)
-        call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.0000, 0.0000)
-        call DzFrameSetAlpha(F_UpgradeRoot, 255)
+        call DzFrameSetTexture(F_UpgradeRoot, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.600)
+        call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.3000)
+        call DzFrameSetPriority(F_UpgradeRoot, 100)
+
+        set F_UpgradeScreenBlock=DzCreateFrameByTagName("BUTTON", "", F_UpgradeRoot, "ScoreScreenTabButtonTemplate", FrameCount())
+        call DzFrameSetAllPoints(F_UpgradeScreenBlock, F_UpgradeRoot)
+        call DzFrameSetSize(F_UpgradeScreenBlock, 0.800, 0.600)
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNav, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(235, 223, 240, 246))
+        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(115, 223, 240, 246))
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
         call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.3000)
+        call DzFrameSetPriority(F_UpgradeNav, 120)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeTitleBD, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(245, 232, 249, 253))
+        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(180, 232, 249, 253))
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.052)
         call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5650)
+        call DzFrameSetPriority(F_UpgradeTitleBD, 120)
 
         set F_UpgradeTitle=DzCreateFrameByTagName("TEXT", "", F_UpgradeTitleBD, "", FrameCount())
         call DzFrameSetPoint(F_UpgradeTitle, JN_FRAMEPOINT_CENTER, F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
@@ -136,9 +143,10 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNpcPanel, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNpcPanel, DzGetColor(245, 202, 228, 241))
+        call DzFrameSetVertexColor(F_UpgradeNpcPanel, DzGetColor(35, 202, 228, 241))
         call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
         call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.3000)
+        call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
 
         loop
             exitwhen i > 3
@@ -146,6 +154,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
             call DzFrameSetTexture(F_UpgradeTabBD[i], "textures\\white.blp", 0)
             call DzFrameSetSize(F_UpgradeTabBD[i], 0.085, 0.045)
             call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.4100 - (0.070 * I2R(i - 1)))
+            call DzFrameSetPriority(F_UpgradeTabBD[i], 121)
 
             set F_UpgradeTabText[i]=DzCreateFrameByTagName("TEXT", "", F_UpgradeTabBD[i], "", FrameCount())
             call DzFrameSetPoint(F_UpgradeTabText[i], JN_FRAMEPOINT_CENTER, F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
