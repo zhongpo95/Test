@@ -15,7 +15,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         integer F_EnchantButton                     //강화버튼
         integer F_EnchantButtonBD                   //강화버튼
         integer F_EnchantButton2                    //승급버튼
-        integer F_EnchantRefreshPid = -1            //UI를 열 때 자동 선택할 플레이어
         integer F_EnchantButtonBD2                  //승급버튼
         integer F_EnchantWeaponPanel                //장착 무기 영역
         integer F_EnchantInfoPanel                  //강화 정보 영역
@@ -204,10 +203,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                     set Eitem[pid][f] = items
                     call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
 
-                    set F_EnchantSelectNumber = 6
-                    call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-                    call DzFrameShow(F_EnchantUpText, false)
-                    call DzFrameShow(F_EnchantButton2, false)
+                    call RefreshEnchantInfo(pid)
                     call MainQuestAfterFirstSuccess(pid, PlayerSlotNumber[pid])
                     call CharacterSave(true , SLNumber)
                     return
@@ -311,10 +307,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                             set Eitem[pid][f] = items
                             call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
                             
-                            set F_EnchantSelectNumber = 6
-                            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-                            call DzFrameShow(F_EnchantUpText, false)
-                            call DzFrameShow(F_EnchantButton2, false)
                             call CharacterSave(true , SLNumber)
                         endif
                         set loopA = 99
@@ -324,6 +316,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             else
                 call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
+            call RefreshEnchantInfo(pid)
         endif
     endfunction
     
@@ -408,10 +401,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                             set items = SetItemFate(items, fate)
                             set Eitem[pid][f] = items
                             call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
-                            set F_EnchantSelectNumber = 6
-                            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-                            call DzFrameShow(F_EnchantUpText, false)
-                            call DzFrameShow(F_EnchantButton, false)
                             call MainQuestAfterGoldEnchant(pid, PlayerSlotNumber[pid], tier, up)
                             call CharacterSave(true , SLNumber)
                         else
@@ -487,10 +476,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                                         set items = SetItemFate(items, fate)
                                         set Eitem[pid][f] = items
                                         call DzSyncData("장착",I2S(pid)+"\t"+I2S(f)+"\t"+Eitem[pid][f])
-                                        set F_EnchantSelectNumber = 6
-                                        call DzFrameSetTexture(F_EEItemButtonsBackDrop[6],"UI_Inventory.blp", 0)
-                                        call DzFrameShow(F_EnchantUpText, false)
-                                        call DzFrameShow(F_EnchantButton, false)
                                         call MainQuestAfterGoldEnchant(pid, PlayerSlotNumber[pid], tier, up)
                                         call CharacterSave(true , SLNumber)
                                     else
@@ -534,13 +519,12 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             else
                 call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
+            call RefreshEnchantInfo(pid)
         endif
     endfunction
         
-    //장착중인 아이템 버튼 클릭
-    private function ClickButton takes nothing returns nothing
-        local integer f
-        local integer pid
+    //장착 무기의 강화 및 계승 정보 갱신
+    function RefreshEnchantInfo takes integer pid returns nothing
         local string items
         local integer itemid = 0
         local integer i = 0
@@ -552,49 +536,12 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         local integer fate = 0
         local real rate
         local string str = ""
-        local string sn
-
-        if F_EnchantRefreshPid >= 0 then
-            set f = F_EEItemButtons[EQUIP_SLOT_WEAPON]
-            set pid = F_EnchantRefreshPid
-        else
-            set f = DzGetTriggerUIEventFrame()
-            set pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        endif
-        set sn = I2S(PlayerSlotNumber[pid])
         
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         
-        if false then
-            set F_EnchantSelectNumber = 0
-            set items = Eitem[pid][F_EnchantSelectNumber]
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
-            set itemid = GetItemIDs(items)
-            set tier = GetItemTier(items)
-            call DzFrameSetText(F_EnchantText[7], "x " + "1" )
-            if tier == 1 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
-            elseif tier == 2 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(27), 0)
-            elseif tier == 3 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(30), 0)
-            elseif tier == 4 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(32), 0)
-            elseif tier == 5 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(34), 0)
-            elseif tier == 6 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(36), 0)
-            elseif tier == 7 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(38), 0)
-            endif
-            call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
-            call DzFrameShow(F_EnchantButton, false)
-            call DzFrameShow(F_EnchantButton2, true)
-            call DzFrameShow(F_EnchantUpText, true)
-        elseif f == F_EEItemButtons[EQUIP_SLOT_WEAPON] then
-            set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
-            set items = Eitem[pid][F_EnchantSelectNumber]
+        set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
+        set items = Eitem[pid][F_EnchantSelectNumber]
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(items)), 0)
             set itemid = GetItemIDs(items)
             set i = GetItemTypes(items)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
@@ -664,9 +611,10 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                 call DzFrameShow(F_EnchantButton2, false)
             else
                 call DzFrameSetText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
+                call DzFrameShow(F_EnchantButton, false)
+                call DzFrameShow(F_EnchantButton2, true)
             endif
             call DzFrameShow(F_EnchantUpText, true)
-        endif
         /*
         //구 보조무기 승급 경로 미사용
         if itemid == 9 then
@@ -704,8 +652,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             call DzFrameShow(F_EnchantButton2, false)
         endif
 
-        call StopSound(gg_snd_MouseClick1, false, false)
-        call StartSound(gg_snd_MouseClick1)
     endfunction
 
     function EnchantSetOpen takes integer pid, boolean show returns nothing
@@ -713,9 +659,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             call DzFrameShow(F_EnchantBackDrop, true)
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON])), 0)
             call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
-            set F_EnchantRefreshPid = pid
-            call ClickButton()
-            set F_EnchantRefreshPid = -1
+            call RefreshEnchantInfo(pid)
             call DzFrameShow(F_EEItemButtons[6], false)
         else
             call DzFrameShow(F_EnchantBackDrop, false)
@@ -742,7 +686,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         
         call DzFrameSetScriptByCode(F_EEItemButtons[types], JN_FRAMEEVENT_MOUSE_ENTER, function F_ON_Actions, false)
         call DzFrameSetScriptByCode(F_EEItemButtons[types], JN_FRAMEEVENT_MOUSE_LEAVE, function F_OFF_Actions, false)
-        call DzFrameSetScriptByCode(F_EEItemButtons[types], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
     endfunction
     
     private function Main takes nothing returns nothing
@@ -751,7 +694,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         call DzLoadToc("Templates.toc")
         
         //초기값
-        set F_EnchantSelectNumber = 6
+        set F_EnchantSelectNumber = EQUIP_SLOT_WEAPON
         
         //메뉴 배경
         //set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
