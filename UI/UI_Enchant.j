@@ -15,6 +15,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         integer F_EnchantButton                     //강화버튼
         integer F_EnchantButtonBD                   //강화버튼
         integer F_EnchantButton2                    //승급버튼
+        integer F_EnchantRefreshPid = -1            //UI를 열 때 자동 선택할 플레이어
         integer F_EnchantButtonBD2                  //승급버튼
         integer F_EnchantWeaponPanel                //장착 무기 영역
         integer F_EnchantInfoPanel                  //강화 정보 영역
@@ -166,25 +167,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             
             call DzFrameSetText(UI_Tip_Text[2], str)
         endif
-    endfunction
-    
-    function EnchantSetOpen takes integer pid, boolean show returns nothing
-        if show then
-            call DzFrameShow(F_EnchantBackDrop, true)
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON])), 0)
-            call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
-            call JNFrameClick(F_EEItemButtons[EQUIP_SLOT_WEAPON])
-            call DzFrameShow(F_EEItemButtons[6], false)
-        else
-            call DzFrameShow(F_EnchantBackDrop, false)
-            call DzFrameShow(UI_Tip, false)
-        endif
-        set F_EnchantOnOff[pid] = show
-    endfunction
-
-    private function EnchantOpen takes nothing returns nothing
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
-        call EnchantSetOpen(pid, not F_EnchantOnOff[pid])
     endfunction
     
     private function ClickButton2 takes nothing returns nothing
@@ -557,8 +539,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         
     //장착중인 아이템 버튼 클릭
     private function ClickButton takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer f
+        local integer pid
         local string items
         local integer itemid = 0
         local integer i = 0
@@ -570,7 +552,16 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         local integer fate = 0
         local real rate
         local string str = ""
-        local string sn = I2S(PlayerSlotNumber[pid])
+        local string sn
+
+        if F_EnchantRefreshPid >= 0 then
+            set f = F_EEItemButtons[EQUIP_SLOT_WEAPON]
+            set pid = F_EnchantRefreshPid
+        else
+            set f = DzGetTriggerUIEventFrame()
+            set pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        endif
+        set sn = I2S(PlayerSlotNumber[pid])
         
         //장비 0아이템아이디, 1강화수치, 2품질, 3트라이횟수, 4장인의기운
         
@@ -715,6 +706,27 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         call StopSound(gg_snd_MouseClick1, false, false)
         call StartSound(gg_snd_MouseClick1)
+    endfunction
+
+    function EnchantSetOpen takes integer pid, boolean show returns nothing
+        if show then
+            call DzFrameShow(F_EnchantBackDrop, true)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON])), 0)
+            call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
+            set F_EnchantRefreshPid = pid
+            call ClickButton()
+            set F_EnchantRefreshPid = -1
+            call DzFrameShow(F_EEItemButtons[6], false)
+        else
+            call DzFrameShow(F_EnchantBackDrop, false)
+            call DzFrameShow(UI_Tip, false)
+        endif
+        set F_EnchantOnOff[pid] = show
+    endfunction
+
+    private function EnchantOpen takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        call EnchantSetOpen(pid, not F_EnchantOnOff[pid])
     endfunction
     
     
