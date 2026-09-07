@@ -19,6 +19,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         private integer SkillHUDTipDescription
         private integer SkillHUDHover = -1
         private boolean SkillHUDAltShown = false
+        private boolean SkillHUDSuppressed = false
     endglobals
 
     private function AbilityId takes integer index, integer slot returns integer
@@ -130,6 +131,31 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call DzFrameShow(SkillHUDTip, false)
     endfunction
 
+    function SkillHUDSetVisible takes boolean show returns nothing
+        local integer slot = 0
+        set SkillHUDSuppressed = not show
+        if show then
+            loop
+                exitwhen slot >= SKILL_HUD_COUNT
+                call DzFrameShow(DzFrameGetCommandBarButton(slot / 4, ModuloInteger(slot, 4)), false)
+                set slot = slot + 1
+            endloop
+        else
+            loop
+                exitwhen slot >= SKILL_HUD_COUNT
+                call DzFrameShow(SkillHUDIcon[slot], false)
+                set slot = slot + 1
+            endloop
+            set slot = 0
+            loop
+                exitwhen slot >= 3
+                call DzFrameShow(ItemHUDIcon[slot], false)
+                set slot = slot + 1
+            endloop
+            call HideTip()
+        endif
+    endfunction
+
     private function ShowTip takes unit u, integer slot returns nothing
         local integer pid = GetPlayerId(GetLocalPlayer())
         local integer index = DataUnitIndex(u)
@@ -186,6 +212,11 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         local real total
         local real ratio
         local item heldItem
+
+        if SkillHUDSuppressed then
+            set u = null
+            return
+        endif
 
         if u == null then
             loop

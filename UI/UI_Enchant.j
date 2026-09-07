@@ -19,6 +19,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         integer F_EnchantWeaponPanel                //장착 무기 영역
         integer F_EnchantInfoPanel                  //강화 정보 영역
         integer F_EnchantWeaponLabel                //장착 무기 제목
+        integer F_EnchantInfoLabel                  //강화 정보 제목
         
     endglobals
     
@@ -173,6 +174,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             call DzFrameSetTexture(F_EEItemButtonsBackDrop[EQUIP_SLOT_WEAPON], GetItemNumberArt(GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON])), 0)
             call DzFrameShow(F_EEItemButtons[EQUIP_SLOT_WEAPON], true)
             call JNFrameClick(F_EEItemButtons[EQUIP_SLOT_WEAPON])
+            call DzFrameShow(F_EEItemButtons[6], false)
         else
             call DzFrameShow(F_EnchantBackDrop, false)
             call DzFrameShow(UI_Tip, false)
@@ -745,8 +747,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         //call DzFrameSetSize(F_EnchantBackDrop, 0.45, 0.30)
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(F_EnchantBackDrop, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantBackDrop, DzGetColor(90, 218, 239, 248))
+        call DzFrameSetTexture(F_EnchantBackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
         call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
         call DzFrameSetPriority(F_EnchantBackDrop, 110)
@@ -763,6 +764,12 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         set F_EnchantInfoPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
         call DzFrameSetPoint(F_EnchantInfoPanel, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.2025, -0.300)
         call DzFrameSetSize(F_EnchantInfoPanel, 0.300, 0.220)
+
+        set F_EnchantInfoLabel=DzCreateFrameByTagName("TEXT", "", F_EnchantInfoPanel, "", FrameCount())
+        call DzFrameSetPoint(F_EnchantInfoLabel, JN_FRAMEPOINT_TOP, F_EnchantInfoPanel, JN_FRAMEPOINT_TOP, 0.0, -0.012)
+        call DzFrameSetFont(F_EnchantInfoLabel, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+        call DzFrameSetText(F_EnchantInfoLabel, "강화 정보")
+        call DzFrameSetEnable(F_EnchantInfoLabel, false)
 
         
         set F_EnchantSelectDivider=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
