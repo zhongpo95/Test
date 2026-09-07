@@ -137,13 +137,13 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNav, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
-        call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.3000)
+        call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.2800)
         call DzFrameSetPriority(F_UpgradeNav, 120)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeTitleBD, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.052)
-        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5650)
+        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5450)
         call DzFrameSetPriority(F_UpgradeTitleBD, 120)
 
         set F_UpgradeTitle=DzCreateFrameByTagName("TEXT", "", F_UpgradeTitleBD, "", FrameCount())
@@ -156,7 +156,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNpcPanel, "HeroBack2_2.blp", 0)
         call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
-        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.3000)
+        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.2800)
         call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
 
         loop
@@ -164,7 +164,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
             set F_UpgradeTabBD[i]=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeNav, "template", FrameCount())
             call DzFrameSetTexture(F_UpgradeTabBD[i], "textures\\white.blp", 0)
             call DzFrameSetSize(F_UpgradeTabBD[i], 0.085, 0.045)
-            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.4100 - (0.070 * I2R(i - 1)))
+            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.3900 - (0.070 * I2R(i - 1)))
             call DzFrameSetPriority(F_UpgradeTabBD[i], 121)
 
             set F_UpgradeTabText[i]=DzCreateFrameByTagName("TEXT", "", F_UpgradeTabBD[i], "", FrameCount())

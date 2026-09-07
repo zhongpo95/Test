@@ -6911,7 +6911,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(El_BackDrop2, "textures\\white.blp", 0)
         call DzFrameSetVertexColor(El_BackDrop2, DzGetColor(90, 218, 239, 248))
-        call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop2, 0.405, 0.475)
         call DzFrameSetPriority(El_BackDrop2, 110)
         call DzFrameShow(El_BackDrop2, false)
@@ -6975,7 +6975,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(El_BackDrop, "textures\\white.blp", 0)
         call DzFrameSetVertexColor(El_BackDrop, DzGetColor(90, 218, 239, 248))
-        call DzFrameSetAbsolutePoint(El_BackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetAbsolutePoint(El_BackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop, 0.405, 0.475)
         call DzFrameSetPriority(El_BackDrop, 110)
 
