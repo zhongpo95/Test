@@ -10,7 +10,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         integer array F_UpgradeTabBD
         integer array F_UpgradeTab
         integer array F_UpgradeTabText
-        integer array F_UpgradeTabAccent
         boolean array F_UpgradeOnOff
         boolean array F_UpgradeStonePrepared
         integer array F_UpgradeCurrentTab
@@ -30,7 +29,11 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         local integer i = 1
         loop
             exitwhen i > 3
-            call DzFrameShow(F_UpgradeTabAccent[i], i == selectedTab)
+            if i == selectedTab then
+                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(245, 255, 255, 255))
+            else
+                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(225, 122, 174, 197))
+            endif
             set i = i + 1
         endloop
     endfunction
@@ -116,24 +119,13 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call UpgradeHubClose(GetPlayerId(DzGetTriggerUIEventPlayer()))
     endfunction
 
-    private function CommandUpgrade takes nothing returns nothing
-        local integer pid = GetPlayerId(GetTriggerPlayer())
-        if GetTriggerPlayer() == GetLocalPlayer() then
-            if not F_UpgradeOnOff[pid] then
-                call UpgradeHubOpen(pid, 1)
-            endif
-        endif
-    endfunction
-
     private function Main takes nothing returns nothing
         local integer i = 1
         local integer index = 0
-        local trigger t = CreateTrigger()
 
         set F_UpgradeRoot=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        // 상단 기본 메뉴 영역은 비우고 게임 화면만 불투명하게 가린다.
-        call DzFrameSetTexture(F_UpgradeRoot, "textures\\white.blp", 0)
-        call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.560)
+        call DzFrameSetTexture(F_UpgradeRoot, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.580)
         call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.2800)
         call DzFrameSetPriority(F_UpgradeRoot, 100)
 
@@ -143,52 +135,48 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetParent(El_BackDrop2, F_UpgradeRoot)
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeNav, "textures\\white.blp", 0)
+        call DzFrameSetTexture(F_UpgradeNav, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
         call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.2800)
         call DzFrameSetPriority(F_UpgradeNav, 120)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
-        call DzFrameSetTexture(F_UpgradeTitleBD, "textures\\white.blp", 0)
-        call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.060)
-        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5250)
+        call DzFrameSetTexture(F_UpgradeTitleBD, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
+        call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.052)
+        call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5450)
         call DzFrameSetPriority(F_UpgradeTitleBD, 120)
 
         set F_UpgradeTitle=DzCreateFrameByTagName("TEXT", "", F_UpgradeTitleBD, "", FrameCount())
-        call DzFrameSetPoint(F_UpgradeTitle, JN_FRAMEPOINT_LEFT, F_UpgradeTitleBD, JN_FRAMEPOINT_LEFT, 0.018, 0.0)
+        call DzFrameSetPoint(F_UpgradeTitle, JN_FRAMEPOINT_CENTER, F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetFont(F_UpgradeTitle, "Fonts\\DFHeiMd.ttf", 0.014, 0)
         call DzFrameSetText(F_UpgradeTitle, "장비강화")
+        call DzFrameSetTextColor(F_UpgradeTitle, JNConvertColor(255, 28, 55, 72))
         call DzFrameSetEnable(F_UpgradeTitle, false)
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNpcPanel, "HeroBack2_2.blp", 0)
-        call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.550)
-        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6675, 0.2800)
+        call DzFrameSetSize(F_UpgradeNpcPanel, 0.265, 0.590)
+        call DzFrameSetAbsolutePoint(F_UpgradeNpcPanel, JN_FRAMEPOINT_CENTER, 0.6625, 0.2800)
         call DzFrameSetPriority(F_UpgradeNpcPanel, 120)
 
         loop
             exitwhen i > 3
             set F_UpgradeTabBD[i]=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeNav, "template", FrameCount())
             call DzFrameSetTexture(F_UpgradeTabBD[i], "textures\\white.blp", 0)
-            call DzFrameSetSize(F_UpgradeTabBD[i], 0.085, 0.030)
-            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.4200 - (0.048 * I2R(i - 1)))
+            call DzFrameSetSize(F_UpgradeTabBD[i], 0.085, 0.045)
+            call DzFrameSetAbsolutePoint(F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0600, 0.3900 - (0.070 * I2R(i - 1)))
             call DzFrameSetPriority(F_UpgradeTabBD[i], 121)
-
-            set F_UpgradeTabAccent[i]=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeTabBD[i], "template", FrameCount())
-            call DzFrameSetTexture(F_UpgradeTabAccent[i], "textures\\white.blp", 0)
-            call DzFrameSetSize(F_UpgradeTabAccent[i], 0.085, 0.003)
-            call DzFrameSetPoint(F_UpgradeTabAccent[i], JN_FRAMEPOINT_BOTTOM, F_UpgradeTabBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, 0.0)
-            call DzFrameSetEnable(F_UpgradeTabAccent[i], false)
 
             set F_UpgradeTabText[i]=DzCreateFrameByTagName("TEXT", "", F_UpgradeTabBD[i], "", FrameCount())
             call DzFrameSetPoint(F_UpgradeTabText[i], JN_FRAMEPOINT_CENTER, F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
             call DzFrameSetFont(F_UpgradeTabText[i], "Fonts\\DFHeiMd.ttf", 0.011, 0)
             call DzFrameSetText(F_UpgradeTabText[i], UpgradeTabName(i))
+            call DzFrameSetTextColor(F_UpgradeTabText[i], JNConvertColor(255, 28, 55, 72))
             call DzFrameSetEnable(F_UpgradeTabText[i], false)
 
             set F_UpgradeTab[i]=DzCreateFrameByTagName("BUTTON", "", F_UpgradeTabBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetAllPoints(F_UpgradeTab[i], F_UpgradeTabBD[i])
-            call DzFrameSetSize(F_UpgradeTab[i], 0.085, 0.030)
+            call DzFrameSetSize(F_UpgradeTab[i], 0.085, 0.045)
             call DzFrameSetScriptByCode(F_UpgradeTab[i], JN_FRAMEEVENT_MOUSE_UP, function ClickUpgradeTab, false)
             set i = i + 1
         endloop
@@ -203,16 +191,12 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameShow(F_UpgradeRoot, false)
         loop
             exitwhen index == bj_MAX_PLAYER_SLOTS
-            call TriggerRegisterPlayerChatEvent(t, Player(index), "-강화", true)
-            call TriggerRegisterPlayerChatEvent(t, Player(index), "-upgrade", true)
             set F_UpgradeOnOff[index] = false
             set F_UpgradeStonePrepared[index] = false
             set F_UpgradeCurrentTab[index] = 0
             set F_UpgradeHPWasShown[index] = false
             set index = index + 1
         endloop
-        call TriggerAddAction(t, function CommandUpgrade)
-        set t = null
     endfunction
 
     private function Init takes nothing returns nothing
