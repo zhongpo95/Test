@@ -119,9 +119,19 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call UpgradeHubClose(GetPlayerId(DzGetTriggerUIEventPlayer()))
     endfunction
 
+    private function CommandUpgrade takes nothing returns nothing
+        local integer pid = GetPlayerId(GetTriggerPlayer())
+        if GetTriggerPlayer() == GetLocalPlayer() then
+            if not F_UpgradeOnOff[pid] then
+                call UpgradeHubOpen(pid, 1)
+            endif
+        endif
+    endfunction
+
     private function Main takes nothing returns nothing
         local integer i = 1
         local integer index = 0
+        local trigger t = CreateTrigger()
 
         set F_UpgradeRoot=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeRoot, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
@@ -191,12 +201,16 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameShow(F_UpgradeRoot, false)
         loop
             exitwhen index == bj_MAX_PLAYER_SLOTS
+            call TriggerRegisterPlayerChatEvent(t, Player(index), "-강화", true)
+            call TriggerRegisterPlayerChatEvent(t, Player(index), "-upgrade", true)
             set F_UpgradeOnOff[index] = false
             set F_UpgradeStonePrepared[index] = false
             set F_UpgradeCurrentTab[index] = 0
             set F_UpgradeHPWasShown[index] = false
             set index = index + 1
         endloop
+        call TriggerAddAction(t, function CommandUpgrade)
+        set t = null
     endfunction
 
     private function Init takes nothing returns nothing
