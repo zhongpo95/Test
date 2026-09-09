@@ -147,20 +147,20 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
-            set str = "|cFFA5FA7D[ 종류 ]|r "
+            set str = "[ 종류 ] "
             // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드
             if i == ITEM_TYPE_ELIXIR then
                 set str = str + "엘릭서|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA공격력|r +"
+                set str = str + "|n[ 효과 ]|n"
+                set str = str + "  공격력 +"
                 set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
             elseif i == ITEM_TYPE_WEAPON then
                 set str = str + "무기|n"
-                set str = str + "|n|cff5AD2FF[ 효과 ]|r|n"
-                set str = str + "  |cFFB9E2FA무기 공격력|r +"
+                set str = str + "|n[ 효과 ]|n"
+                set str = str + "  무기 공격력 +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                set str = str + "|n|n|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
-                set str = str + "  |cFFB9E2FA추가 피해|r +"
+                set str = str + "|n|n[ 품질 "+ I2S(quality*5) + "% ]|n"
+                set str = str + "  추가 피해 +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
             endif
             
@@ -229,13 +229,13 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             if rate >= 100 then
                 set rate = 100
             endif
-            call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFF167DA6" + R2SW( rate ,1,2) + "%|r")
-            call DzFrameSetText(F_EnchantFateText, "운명 |cFF167DA6" + R2SW(I2R(fate)/100,1,2) + "%|r")
-            set str = str + "|cFFB9E2FA무기 공격력|r +"
+            call DzFrameSetText(F_EnchantRateText, "강화 확률 " + R2SW( rate ,1,2) + "%")
+            call DzFrameSetText(F_EnchantFateText, "운명 " + R2SW(I2R(fate)/100,1,2) + "%")
+            set str = str + "무기 공격력 +"
             set str = str + JNStringSplit(ItemStats[i][tier],";", up )
             call DzFrameSetText(F_EnchantText[0], str)
             set str = ""
-            set str = str + "|cFFB9E2FA무기 공격력|r +"
+            set str = str + "무기 공격력 +"
             set str = str + JNStringSplit(ItemStats[i][tier],";", (up+1) )
 
             call DzFrameSetText(F_EnchantText[5], "x " + I2S(EnchantMaterial1[tier][up+1]) )
@@ -558,8 +558,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                                 if rate >= 100 then
                                     set rate = 100
                                 endif
-                                call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFF167DA6" + R2SW( rate ,1,2) + "%|r")
-                                call DzFrameSetText(F_EnchantFateText, "운명 |cFF167DA6" + R2SW(I2R(fate)/100,1,2) + "%|r")
+                                call DzFrameSetText(F_EnchantRateText, "강화 확률 " + R2SW( rate ,1,2) + "%")
+                                call DzFrameSetText(F_EnchantFateText, "운명 " + R2SW(I2R(fate)/100,1,2) + "%")
                             endif
                             call CharacterSave(true , SLNumber)
                         endif
@@ -633,8 +633,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
                                             if rate >= 100 then
                                                 set rate = 100
                                             endif
-                                            call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFF167DA6" + R2SW( rate ,1,2) + "%|r")
-                                            call DzFrameSetText(F_EnchantFateText, "운명 |cFF167DA6" + R2SW(I2R(fate)/100,1,2) + "%|r")
+                                            call DzFrameSetText(F_EnchantRateText, "강화 확률 " + R2SW( rate ,1,2) + "%")
+                                            call DzFrameSetText(F_EnchantFateText, "운명 " + R2SW(I2R(fate)/100,1,2) + "%")
                                         endif
                                         call CharacterSave(true , SLNumber)
                                     endif
@@ -704,14 +704,12 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         call DzFrameSetTexture(F_EnchantBackDrop, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantBackDrop, DzGetColor(255, 234, 248, 253))
         call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
         call DzFrameSetPriority(F_EnchantBackDrop, 110)
 
         set F_EnchantWeaponPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_EnchantWeaponPanel, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantWeaponPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetPoint(F_EnchantWeaponPanel, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.2025, -0.105)
         call DzFrameSetSize(F_EnchantWeaponPanel, 0.140, 0.130)
 
@@ -722,7 +720,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         set F_EnchantInfoPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
         call DzFrameSetTexture(F_EnchantInfoPanel, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantInfoPanel, DzGetColor(255, 255, 255, 255))
         call DzFrameSetPoint(F_EnchantInfoPanel, JN_FRAMEPOINT_CENTER, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.2025, -0.300)
         call DzFrameSetSize(F_EnchantInfoPanel, 0.300, 0.220)
 
@@ -765,7 +762,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         set F_EnchantButtonBD2=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton2, "", FrameCount())
         call DzFrameSetAllPoints(F_EnchantButtonBD2, F_EnchantButton2)
         call DzFrameSetTexture(F_EnchantButtonBD2, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantButtonBD2, DzGetColor(255, 24, 133, 173))
         set i=DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantButton2, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetFont(i, "Fonts\\DFHeiMd.ttf", 0.011, 0)
@@ -819,7 +815,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         set F_EnchantButtonBD=DzCreateFrameByTagName("BACKDROP", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetAllPoints(F_EnchantButtonBD, F_EnchantButton)
         call DzFrameSetTexture(F_EnchantButtonBD, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_EnchantButtonBD, DzGetColor(255, 24, 133, 173))
         set i=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetPoint(i, JN_FRAMEPOINT_CENTER, F_EnchantButton, JN_FRAMEPOINT_CENTER, 0.0, 0.0)
         call DzFrameSetFont(i, "Fonts\\DFHeiMd.ttf", 0.011, 0)
@@ -828,11 +823,11 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         
         set F_EnchantRateText=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetPoint(F_EnchantRateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.055 )
-        call DzFrameSetText(F_EnchantRateText, "강화 확률 |cFF167DA6" + R2SW(I2R(10000)/100,1,2) + "%|r")
+        call DzFrameSetText(F_EnchantRateText, "강화 확률 " + R2SW(I2R(10000)/100,1,2) + "%")
         call DzFrameSetFont(F_EnchantRateText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
         set F_EnchantFateText=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
         call DzFrameSetPoint(F_EnchantFateText, JN_FRAMEPOINT_CENTER, F_EEItemButtons[6] ,  JN_FRAMEPOINT_CENTER, 0 , - 0.070 )
-        call DzFrameSetText(F_EnchantFateText, "운명 |cFF167DA6" + R2SW(I2R(10000)/100,1,2) + "%|r")
+        call DzFrameSetText(F_EnchantFateText, "운명 " + R2SW(I2R(10000)/100,1,2) + "%")
         call DzFrameSetFont(F_EnchantFateText, "Fonts\\DFHeiMd.ttf", 0.008, 0)
         
         set F_EnchantText[0]=DzCreateFrameByTagName("TEXT", "", F_EnchantButton, "", FrameCount())
@@ -880,21 +875,6 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         //call DzFrameSetText(F_EnchantText[5], "x "+"000")
         //call DzFrameSetText(F_EnchantText[6], "x "+"000")
         
-        // 밝은 강화 패널에서 제목과 수치가 읽히도록 본문 색상을 통일한다.
-        call DzFrameSetTextColor(F_EnchantWeaponLabel, JNConvertColor(255, 28, 55, 72))
-        call DzFrameSetTextColor(F_EnchantInfoLabel, JNConvertColor(255, 28, 55, 72))
-        call DzFrameSetTextColor(F_EnchantUpText, JNConvertColor(255, 28, 55, 72))
-        call DzFrameSetTextColor(F_EnchantRateText, JNConvertColor(255, 28, 55, 72))
-        call DzFrameSetTextColor(F_EnchantFateText, JNConvertColor(255, 28, 55, 72))
-        set i = 0
-        loop
-            exitwhen i > 7
-            if F_EnchantText[i] != 0 then
-                call DzFrameSetTextColor(F_EnchantText[i], JNConvertColor(255, 28, 55, 72))
-            endif
-            set i = i + 1
-        endloop
-
         call DzFrameShow(F_EnchantUpText, false)
         call DzFrameShow(F_EnchantButton, false)
         call DzFrameShow(F_EnchantButton2, false)

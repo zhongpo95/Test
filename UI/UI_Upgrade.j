@@ -30,13 +30,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         local integer i = 1
         loop
             exitwhen i > 3
-            if i == selectedTab then
-                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(255, 255, 255, 255))
-                call DzFrameSetTextColor(F_UpgradeTabText[i], JNConvertColor(255, 24, 91, 121))
-            else
-                call DzFrameSetVertexColor(F_UpgradeTabBD[i], DzGetColor(255, 151, 194, 211))
-                call DzFrameSetTextColor(F_UpgradeTabText[i], JNConvertColor(255, 34, 67, 83))
-            endif
             call DzFrameShow(F_UpgradeTabAccent[i], i == selectedTab)
             set i = i + 1
         endloop
@@ -140,7 +133,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         set F_UpgradeRoot=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
         // 상단 기본 메뉴 영역은 비우고 게임 화면만 불투명하게 가린다.
         call DzFrameSetTexture(F_UpgradeRoot, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeRoot, DzGetColor(255, 210, 237, 248))
         call DzFrameSetSize(F_UpgradeRoot, 0.800, 0.560)
         call DzFrameSetAbsolutePoint(F_UpgradeRoot, JN_FRAMEPOINT_CENTER, 0.4000, 0.2800)
         call DzFrameSetPriority(F_UpgradeRoot, 100)
@@ -152,14 +144,12 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
 
         set F_UpgradeNav=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeNav, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeNav, DzGetColor(255, 210, 237, 248))
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.400)
         call DzFrameSetAbsolutePoint(F_UpgradeNav, JN_FRAMEPOINT_CENTER, 0.0600, 0.2800)
         call DzFrameSetPriority(F_UpgradeNav, 120)
 
         set F_UpgradeTitleBD=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
         call DzFrameSetTexture(F_UpgradeTitleBD, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(F_UpgradeTitleBD, DzGetColor(255, 234, 248, 253))
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.060)
         call DzFrameSetAbsolutePoint(F_UpgradeTitleBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.5250)
         call DzFrameSetPriority(F_UpgradeTitleBD, 120)
@@ -168,7 +158,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetPoint(F_UpgradeTitle, JN_FRAMEPOINT_LEFT, F_UpgradeTitleBD, JN_FRAMEPOINT_LEFT, 0.018, 0.0)
         call DzFrameSetFont(F_UpgradeTitle, "Fonts\\DFHeiMd.ttf", 0.014, 0)
         call DzFrameSetText(F_UpgradeTitle, "장비강화")
-        call DzFrameSetTextColor(F_UpgradeTitle, JNConvertColor(255, 28, 55, 72))
         call DzFrameSetEnable(F_UpgradeTitle, false)
 
         set F_UpgradeNpcPanel=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "template", FrameCount())
@@ -187,7 +176,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
 
             set F_UpgradeTabAccent[i]=DzCreateFrameByTagName("BACKDROP", "", F_UpgradeTabBD[i], "template", FrameCount())
             call DzFrameSetTexture(F_UpgradeTabAccent[i], "textures\\white.blp", 0)
-            call DzFrameSetVertexColor(F_UpgradeTabAccent[i], DzGetColor(255, 40, 189, 232))
             call DzFrameSetSize(F_UpgradeTabAccent[i], 0.085, 0.003)
             call DzFrameSetPoint(F_UpgradeTabAccent[i], JN_FRAMEPOINT_BOTTOM, F_UpgradeTabBD[i], JN_FRAMEPOINT_BOTTOM, 0.0, 0.0)
             call DzFrameSetEnable(F_UpgradeTabAccent[i], false)
@@ -196,7 +184,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
             call DzFrameSetPoint(F_UpgradeTabText[i], JN_FRAMEPOINT_CENTER, F_UpgradeTabBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
             call DzFrameSetFont(F_UpgradeTabText[i], "Fonts\\DFHeiMd.ttf", 0.011, 0)
             call DzFrameSetText(F_UpgradeTabText[i], UpgradeTabName(i))
-            call DzFrameSetTextColor(F_UpgradeTabText[i], JNConvertColor(255, 28, 55, 72))
             call DzFrameSetEnable(F_UpgradeTabText[i], false)
 
             set F_UpgradeTab[i]=DzCreateFrameByTagName("BUTTON", "", F_UpgradeTabBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
