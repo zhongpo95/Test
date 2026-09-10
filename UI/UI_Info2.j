@@ -456,7 +456,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         call DzLoadToc("Templates.toc")
         
         //메뉴 배경
-        set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_InfoBackDrop2, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop2, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_InfoBackDrop2, 0.40, 0.43)

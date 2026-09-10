@@ -522,7 +522,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         call DzLoadToc("Templates.toc")
         
         /*가방 버튼 생성
-        set F_InfoOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
+        set F_InfoOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_InfoOpenButton, JN_FRAMEPOINT_CENTER, 0.750, 0.020)
         call DzFrameSetSize(F_InfoOpenButton, 0.020, 0.020)
         call DzFrameSetScriptByCode(F_InfoOpenButton, JN_FRAMEEVENT_MOUSE_UP, function InfoOpen, false)
@@ -534,7 +534,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         */
 
         //메뉴 배경
-        set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_InfoBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_InfoBackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_InfoBackDrop, 0.40, 0.43)

@@ -150,7 +150,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
     endfunction
 
     private function Init takes nothing returns nothing
-        set F_MQBackDrop = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_MQBackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_MQBackDrop, "QuestT.blp", 0)
         call DzFrameSetAbsolutePoint(F_MQBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.000, 0.540)
         call DzFrameSetSize(F_MQBackDrop, 0.200, 0.060)

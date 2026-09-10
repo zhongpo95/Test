@@ -201,17 +201,17 @@ library UIBossEnd initializer init requires TriggerSleepActionByTimer, DataMap, 
 
     private function Main takes nothing returns nothing
         local integer i = 0
-        set Failed=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set Failed=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetPoint(Failed, 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 480.00 / 1280.00 ))
         call DzFrameSetSize(Failed, ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(Failed, "UI_Failed.blp", 0)
         call DzFrameShow(Failed, false)
-        set Success=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set Success=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetPoint(Success, 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 480.00 / 1280.00 ))
         call DzFrameSetSize(Success, ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(Success, "UI_Success.blp", 0)
         call DzFrameShow(Success, false)
-        set RewardBD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set RewardBD=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(RewardBD, JN_FRAMEPOINT_CENTER, 0.4, 0.3)
         call DzFrameSetSize(RewardBD, 0.25, 0.25)
         call DzFrameSetTexture(RewardBD, "UI_PickSelectButton.tga", 0)

@@ -5,12 +5,12 @@ library UIAchievement initializer init requires DataUnit, FrameCount
         local string s
         local integer i
         
-        set FS_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set FS_BackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(FS_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
         call DzFrameSetSize(FS_BackDrop, 0.50, 0.39)
         
         //메뉴 배경
-        set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_InfoBackDrop2=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_InfoBackDrop2, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_InfoBackDrop2, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_InfoBackDrop2, 0.40, 0.43)

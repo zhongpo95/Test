@@ -91,7 +91,7 @@ endglobals
         call DzFrameSetMinMaxValue(LuciaAden2,0, 25.00)
         call DzFrameSetValue(LuciaAden2,0)
 
-        set LuciaAdenTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", FrameCount())
+        set LuciaAdenTextFrame=DzCreateFrameByTagName("TEXT","",GetGameplayUI(),"", FrameCount())
         call DzFrameSetAbsolutePoint(LuciaAdenTextFrame,JN_FRAMEPOINT_CENTER,.400,.1200)
         call DzFrameSetFont(LuciaAdenTextFrame, "Fonts\\DFHeiMd.ttf", 0.012, 0)
         call DzFrameSetText(LuciaAdenTextFrame,"0")

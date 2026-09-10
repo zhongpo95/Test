@@ -1557,7 +1557,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         set t = null
 
         /*/가방 버튼 생성
-        set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
+        set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(F_ItemOpenButton, JN_FRAMEPOINT_CENTER, 0.775, 0.020)
         call DzFrameSetSize(F_ItemOpenButton, 0.020, 0.020)
         call DzFrameSetScriptByCode(F_ItemOpenButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
@@ -1568,7 +1568,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameShow(F_ItemOpenButton, false)
         */
         //메뉴 배경
-        set F_ItemBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_ItemBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_ItemBackDrop, "Filenemo.blp", 0)
         call DzFrameSetAbsolutePoint(F_ItemBackDrop, JN_FRAMEPOINT_CENTER, 0.60, 0.30)
         call DzFrameSetSize(F_ItemBackDrop, 0.35, 0.30)
@@ -1698,7 +1698,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         
         //창고
         //메뉴 배경
-        set F_Storage_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_Storage_BackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(F_Storage_BackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.325)
         call DzFrameSetSize(F_Storage_BackDrop, 0.35, 0.25)
         
@@ -1796,7 +1796,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameShow(F_Storage_BackDrop, false)
 
         //집은 아이템
-        set F_PickUp = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_PickUp = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetSize(F_PickUp, 0.025, 0.025)
         call DzFrameShow(F_PickUp, false)
 
@@ -1823,7 +1823,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameSetScriptByCode(F_ALLDLEButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickALLDELButton, false)
         
         //일괄분해
-        set F_ItemALLDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_ItemALLDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(F_ItemALLDelBackDrop, JN_FRAMEPOINT_CENTER, 0.4, 0.325)
         call DzFrameSetSize(F_ItemALLDelBackDrop, 0.25, 0.10)
         call DzFrameShow(F_ItemALLDelBackDrop, false)
@@ -1846,7 +1846,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call DzFrameSetScriptByCode(F_CLButtons, JN_FRAMEEVENT_MOUSE_UP, function ClickDELButton4, false)
 
         //분해
-        set F_ItemDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set F_ItemDelBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(F_ItemDelBackDrop, JN_FRAMEPOINT_CENTER, 0.4, 0.325)
         call DzFrameSetSize(F_ItemDelBackDrop, 0.25, 0.10)
         call DzFrameShow(F_ItemDelBackDrop, false)

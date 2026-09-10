@@ -36,7 +36,7 @@ library UICastingBar initializer init requires UnitIndexer, DataUnit, FrameCount
         call DzFrameSetTexture(CastingBar,"war3mapImported\\CastingBar.tga",0)
         call DzFrameSetMinMaxValue(CastingBar,0,25.00)
         call DzFrameSetValue(CastingBar,0)
-        set CastingTextFrame=DzCreateFrameByTagName("TEXT","",DzGetGameUI(),"", FrameCount())
+        set CastingTextFrame=DzCreateFrameByTagName("TEXT","",GetGameplayUI(),"", FrameCount())
         call DzFrameSetAbsolutePoint(CastingTextFrame,JN_FRAMEPOINT_CENTER,.400,.1750)
         call DzFrameSetFont(CastingTextFrame, "Fonts\\DFHeiMd.ttf", 0.009, 0)
         call DzFrameSetText(CastingTextFrame,"캐스팅바")

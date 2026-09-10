@@ -1,4 +1,4 @@
-library UISkill initializer init requires MemUI
+library UISkill initializer init requires MemUI, FrameCount
     globals
         integer NarAden
         integer array NarAdens
@@ -12,7 +12,7 @@ library UISkill initializer init requires MemUI
     private function Action takes nothing returns nothing
         local integer frame
 
-        set heroStatusUI=JNCreateFrameByType("FRAME","heroStatusUI",DzGetGameUI(),"",0)
+        set heroStatusUI=JNCreateFrameByType("FRAME","heroStatusUI",GetGameplayUI(),"",0)
 
         //반디 아덴
         set BanAdens[0] = DzCreateFrameByTagName("BACKDROP", "", heroStatusUI, "", 0)

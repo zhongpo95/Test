@@ -278,7 +278,7 @@ library UIBigWheel initializer init requires DataUnit, FrameCount
         local integer i
         
         //메뉴 배경
-        set BW_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set BW_BackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(BW_BackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(BW_BackDrop, JN_FRAMEPOINT_CENTER, 0.400, 0.300)
         call DzFrameSetSize(BW_BackDrop, 0.650, 0.450)

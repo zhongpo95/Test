@@ -313,7 +313,7 @@ library UIShop initializer init requires DataUnit, FrameCount
 		local string s
 		local integer i
 		
-		set SHOP_BackDrop = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+		set SHOP_BackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
 		call DzFrameSetAbsolutePoint(SHOP_BackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.300)
 		call DzFrameSetSize(SHOP_BackDrop, 0.40, 0.30)
 		
@@ -395,7 +395,7 @@ library UIShop initializer init requires DataUnit, FrameCount
 		call DzFrameShow(SHOP_BackDrop, false)
 
 		
-		set SHOP2_BackDrop = DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+		set SHOP2_BackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
 		call DzFrameSetAbsolutePoint(SHOP2_BackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.300)
 		call DzFrameSetSize(SHOP2_BackDrop, 0.40, 0.30)
 		

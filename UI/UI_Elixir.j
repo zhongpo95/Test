@@ -6908,16 +6908,16 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         local integer i
         
         //메뉴 배경2
-        set El_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(El_BackDrop2, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(El_BackDrop2, DzGetColor(90, 218, 239, 248))
+        set El_BackDrop2=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
+        call DzFrameSetTexture(El_BackDrop2, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetAbsolutePoint(El_BackDrop2, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop2, 0.405, 0.475)
         call DzFrameSetPriority(El_BackDrop2, 110)
         call DzFrameShow(El_BackDrop2, false)
 
         set EL_LevelTextC=DzCreateFrameByTagName("TEXT","",El_BackDrop2,"",FrameCount())
-        call DzFrameSetAbsolutePoint(EL_LevelTextC, JN_FRAMEPOINT_CENTER, 0.400, 0.4500)
+        call DzFrameSetTextColor(EL_LevelTextC, JNConvertColor(255, 49, 90, 112))
+        call DzFrameSetAbsolutePoint(EL_LevelTextC, JN_FRAMEPOINT_CENTER, 0.3225, 0.4500)
         call DzFrameSetText(EL_LevelTextC,"연성 결과")
         call DzFrameSetFont(EL_LevelTextC, "Fonts\\DFHeiMd.ttf", 0.012, 0)
         
@@ -6925,26 +6925,26 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set EL_LevelA=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
         call DzFrameSetTexture(EL_LevelA, "File00004591.blp", 0)
         call DzFrameSetSize(EL_LevelA, 0.300, 0.05)
-        call DzFrameSetAbsolutePoint(EL_LevelA, JN_FRAMEPOINT_CENTER, 0.400, 0.3700)
+        call DzFrameSetAbsolutePoint(EL_LevelA, JN_FRAMEPOINT_CENTER, 0.3225, 0.3700)
         
         set EL_LevelTextA=DzCreateFrameByTagName("TEXT","",EL_LevelA,"",FrameCount())
-        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.400, 0.3700)
+        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.3225, 0.3700)
         call DzFrameSetText(EL_LevelTextA,"공격력")
         set EL_LevelTextA=DzCreateFrameByTagName("TEXT","",EL_LevelA,"",FrameCount())
-        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.400, 0.3200)
+        call DzFrameSetAbsolutePoint(EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0.3225, 0.3200)
         call DzFrameSetText(EL_LevelTextA,"10000")
 
         //가능텍스트
         set EL_LevelB=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
         call DzFrameSetTexture(EL_LevelB, "File00004591.blp", 0)
         call DzFrameSetSize(EL_LevelB, 0.300, 0.05)
-        call DzFrameSetAbsolutePoint(EL_LevelB, JN_FRAMEPOINT_CENTER, 0.400, 0.2500)
+        call DzFrameSetAbsolutePoint(EL_LevelB, JN_FRAMEPOINT_CENTER, 0.3225, 0.2500)
         
         set EL_LevelTextB=DzCreateFrameByTagName("TEXT","",EL_LevelB,"",FrameCount())
-        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.400, 0.2500)
+        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.3225, 0.2500)
         call DzFrameSetText(EL_LevelTextB,"공격력 %")
         set EL_LevelTextB=DzCreateFrameByTagName("TEXT","",EL_LevelB,"",FrameCount())
-        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.400, 0.2000)
+        call DzFrameSetAbsolutePoint(EL_LevelTextB, JN_FRAMEPOINT_CENTER, 0.3225, 0.2000)
         call DzFrameSetText(EL_LevelTextB,"10 %")
 
         
@@ -6952,10 +6952,10 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_LBBD=DzCreateFrameByTagName("BACKDROP", "", El_BackDrop2, "template", FrameCount())
         call DzFrameSetTexture(El_LBBD, "UI_PickSelectButton.tga", 0)
         call DzFrameSetSize(El_LBBD, 0.06, 0.03)
-        call DzFrameSetAbsolutePoint(El_LBBD, JN_FRAMEPOINT_CENTER, 0.4000, 0.1400)
+        call DzFrameSetAbsolutePoint(El_LBBD, JN_FRAMEPOINT_CENTER, 0.3225, 0.1400)
         
         set El_LBT=DzCreateFrameByTagName("TEXT","",El_LBBD,"",0)
-        call DzFrameSetAbsolutePoint(El_LBT, JN_FRAMEPOINT_CENTER, 0.4000, 0.1400)
+        call DzFrameSetAbsolutePoint(El_LBT, JN_FRAMEPOINT_CENTER, 0.3225, 0.1400)
         call DzFrameSetText(El_LBT,"확인")
         
         set El_LB=DzCreateFrameByTagName("BUTTON", "", El_LBBD, "ScoreScreenTabButtonTemplate",  FrameCount())
@@ -6972,9 +6972,8 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         
 
         //메뉴 배경
-        set El_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
-        call DzFrameSetTexture(El_BackDrop, "textures\\white.blp", 0)
-        call DzFrameSetVertexColor(El_BackDrop, DzGetColor(90, 218, 239, 248))
+        set El_BackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
+        call DzFrameSetTexture(El_BackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetAbsolutePoint(El_BackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
         call DzFrameSetSize(El_BackDrop, 0.405, 0.475)
         call DzFrameSetPriority(El_BackDrop, 110)

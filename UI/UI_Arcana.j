@@ -443,7 +443,7 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         call DzLoadToc("Templates.toc")
 
         //메뉴 배경
-        set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set F_ArcanaBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_ArcanaBackDrop, "war3mapImported\\UI_Pick_Backdrop.tga", 0)
         call DzFrameSetAbsolutePoint(F_ArcanaBackDrop, JN_FRAMEPOINT_CENTER, 0.225, 0.315)
         call DzFrameSetSize(F_ArcanaBackDrop, 0.40, 0.43)

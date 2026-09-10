@@ -1,5 +1,5 @@
 // 참고 맵 방식의 좌표 기반 스킬 HUD 및 Alt 정보 관리
-library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ
+library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount
     globals
         private constant integer SKILL_HUD_COUNT = 12
         private constant real SKILL_HUD_SIZE = 0.0275
@@ -360,7 +360,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
     endfunction
 
     private function Create takes nothing returns nothing
-        local integer parent = DzGetGameUI()
+        local integer parent = GetGameplayUI()
         local integer slot = 0
         local integer row
         local integer column
