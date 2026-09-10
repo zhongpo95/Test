@@ -41,7 +41,7 @@ library UIBossHP initializer init requires FrameCount, DataUnit
     endfunction
     */
     private function MyBarCreate takes nothing returns nothing
-        set BHPBar[0]=DzCreateFrameByTagName("BACKDROP", "frame00", DzGetGameUI(), "frame", FrameCount())
+        set BHPBar[0]=DzCreateFrameByTagName("BACKDROP", "frame00", GetGameplayUI(), "frame", FrameCount())
         call DzFrameSetPoint(BHPBar[0], 0, DzGetGameUI(), 6, ( 318.00 / 1280.00 ), ( 730.00 / 1280.00 ))
         call DzFrameSetSize(BHPBar[0], ( 388.00 / 1280.00 ), ( 100.00 / 1280.00 ))
         call DzFrameSetTexture(BHPBar[0], "war3mapImported\\DGXT.tga", 0)

@@ -230,7 +230,7 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         local integer i
         call DzLoadToc("Templates.toc")
         
-        set FBS_BD=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "template", FrameCount())
+        set FBS_BD=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(FBS_BD, "ys_shuye.tga", 0)
         call DzFrameSetSize(FBS_BD, 0.80, 0.40)
         call DzFrameSetAbsolutePoint(FBS_BD, JN_FRAMEPOINT_CENTER, 0.4000, 0.3500)

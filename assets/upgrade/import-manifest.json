@@ -1,0 +1,68 @@
+[
+  {
+    "path": "war3mapImported\\UI_Upgrade_Background.tga",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 4194322
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Panel.tga",
+    "width": 512,
+    "height": 512,
+    "bytes": 1048594
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Header.tga",
+    "width": 512,
+    "height": 128,
+    "bytes": 262162
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Card.tga",
+    "width": 512,
+    "height": 256,
+    "bytes": 524306
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_TabIdle.tga",
+    "width": 256,
+    "height": 64,
+    "bytes": 65554
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_TabActive.tga",
+    "width": 256,
+    "height": 64,
+    "bytes": 65554
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_TabHover.tga",
+    "width": 256,
+    "height": 64,
+    "bytes": 65554
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Action.tga",
+    "width": 256,
+    "height": 64,
+    "bytes": 65554
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_ActionHover.tga",
+    "width": 256,
+    "height": 64,
+    "bytes": 65554
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Close.tga",
+    "width": 64,
+    "height": 64,
+    "bytes": 16402
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Portrait.tga",
+    "width": 512,
+    "height": 1024,
+    "bytes": 2097170
+  }
+]

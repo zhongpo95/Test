@@ -1,4 +1,4 @@
-library UIQuest initializer init requires Stash
+library UIQuest initializer init requires Stash, FrameCount
 
     globals
         integer QuestMain
@@ -176,7 +176,7 @@ library UIQuest initializer init requires Stash
         local real x = 0.70
         local real y = 0.37
         
-        set QuestMain = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", 0)
+        set QuestMain = DzCreateFrameByTagName("GLUETEXTBUTTON", "", GetGameplayUI(), "template", 0)
         call DzFrameSetAbsolutePoint(QuestMain, 4, 0.78, 0.405)
         call DzFrameSetSize(QuestMain, 0.020, 0.020)
         call DzFrameSetScriptByCode(QuestMain, JN_FRAMEEVENT_MOUSE_UP, function Show, false)

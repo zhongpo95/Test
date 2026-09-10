@@ -1838,7 +1838,7 @@ library UIMap initializer init requires DataUnit, FrameCount
         local integer i
         
         /********************************** 스킬 버튼 생성 **********************************************/
-        set FMap_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", DzGetGameUI(), "template", FrameCount())
+        set FMap_OpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetAbsolutePoint(FMap_OpenButton, JN_FRAMEPOINT_CENTER, 0.700, 0.020)
         call DzFrameSetSize(FMap_OpenButton, 0.020, 0.020)
         call DzFrameSetScriptByCode(FMap_OpenButton, JN_FRAMEEVENT_MOUSE_UP, function ShowMenu, false)
@@ -1849,7 +1849,7 @@ library UIMap initializer init requires DataUnit, FrameCount
         call DzFrameShow(FMap_OpenButton, false)
         
         /********************************** 메뉴 배경 생성 **********************************************/
-        set FMap_BackDrop=DzCreateFrameByTagName("BACKDROP", "", DzGetGameUI(), "StandardEditBoxBackdropTemplate", 0)
+        set FMap_BackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "StandardEditBoxBackdropTemplate", 0)
         call DzFrameSetAbsolutePoint(FMap_BackDrop, JN_FRAMEPOINT_CENTER, 0.40, 0.30)
         call DzFrameSetSize(FMap_BackDrop, 0.75, 0.39)
         

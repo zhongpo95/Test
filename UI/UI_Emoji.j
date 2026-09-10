@@ -98,7 +98,7 @@ library Emoji initializer init requires FrameCount
 
     private function Main takes nothing returns nothing
         local trigger t
-        set EmojiFrameMain = DzCreateFrameByTagName("BACKDROP","name",DzGetGameUI(),"template", FrameCount())
+        set EmojiFrameMain = DzCreateFrameByTagName("BACKDROP","name",GetGameplayUI(),"template", FrameCount())
         call DzFrameSetTexture(EmojiFrameMain,"Expression_Point.blp",0)
         call DzFrameSetSize(EmojiFrameMain,0.065,0.065)
         call DzFrameShow(EmojiFrameMain,false)
