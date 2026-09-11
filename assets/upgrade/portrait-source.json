@@ -1,0 +1,22 @@
+{
+  "character": "하나오카 유즈 (임전)",
+  "page": "https://game8.jp/blue-archive/760857",
+  "image": "https://img.game8.jp/12308176/5b16e686da12e50d3601574d7c074919.webp/original",
+  "retrieved": "2026-09-11",
+  "file": "portrait-source.webp",
+  "sha256": "834c45dc4df7341e5b54ad26eedb2df78e32dadd9175536e86b1b285fdda8072",
+  "width": 1920,
+  "height": 1080,
+  "crop": {
+    "left": 800,
+    "top": 70,
+    "width": 622,
+    "height": 1000
+  },
+  "texture": {
+    "path": "war3mapImported\\UI_Upgrade_Portrait.tga",
+    "width": 1024,
+    "height": 1024
+  },
+  "processing": "Source crop and deterministic resize only; no generative edits or AI upscaling."
+}
