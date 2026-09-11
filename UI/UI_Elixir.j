@@ -58,6 +58,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
     */
     globals
         hashtable ElixirGroupData = InitHashtable()
+        private integer array ElOpenRequest
         
         integer El_BackDrop2
         integer EL_LevelA
@@ -7292,6 +7293,25 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
     endfunction
     
     function ElixirSetOpen takes integer pid, boolean show returns nothing
+        if GetLocalPlayer() != Player(pid) then
+            return
+        endif
+        if show and ElShow[pid] then
+            return
+        endif
+        set ElShow[pid] = show
+        call DzFrameShow(El_BackDrop, false)
+        call DzFrameShow(El_BackDrop2, false)
+        if show then
+            // 로컬 탭 이벤트에서는 추첨하지 않고 모든 클라이언트에 초기화를 요청합니다.
+            set ElOpenRequest[pid] = ElOpenRequest[pid] + 1
+            call DzSyncData("ElOpen", I2S(ElOpenRequest[pid]))
+        endif
+    endfunction
+
+    private function SyncElixirOpen takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
+        local integer request = S2I(DzGetTriggerSyncData())
         local integer i = 0
         local integer j = 0
         local integer a = 0
@@ -7299,41 +7319,25 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         local integer c = 0
         local IntegerPool ElixirSelect
 
-        if show then
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(El_BackDrop,true)
+        // 화면 열림 여부는 로컬 상태이므로 공용 난수와 데이터 초기화의 분기 조건으로 쓰지 않습니다.
+        set NowCount[pid] = 10
+        set NowRollCount[pid] = 1
+        set ElixirSelect = IntegerPool.Create()
+        set i = 0
+        loop
+            set i = i + 1
+            if i == 122 or i == 123 or i == 124 or i == 125 or i == 126 or i == 127 or i == 128 then
+            else
+                call ElixirSelect.add(i,Elixirweight[i])
             endif
-            set ElShow[pid] = true
-        else
-            if GetLocalPlayer() == Player(pid) then
-                call DzFrameShow(El_BackDrop,false)
-                call DzFrameShow(El_BackDrop2,false)
-            endif
-            set ElShow[pid] = false
-            return
-        endif
-        
-        //엘릭서 세팅
-        if ElShow[pid] == true then
-            set NowCount[pid] = 10
-            set NowRollCount[pid] = 1
-            set ElixirSelect = IntegerPool.Create()
-            set i = 0
-            loop
-                set i = i + 1
-                if i == 122 or i == 123 or i == 124 or i == 125 or i == 126 or i == 127 or i == 128 then
-                else
-                    call ElixirSelect.add(i,Elixirweight[i])
-                endif
-            exitwhen i == 136
-            endloop
+        exitwhen i == 136
+        endloop
 
-            set a = ElixirSelect.pick(true)
-            set b = ElixirSelect.pick(true)
-            set c = ElixirSelect.pick(true)
-            call ElixirSelect.clear()
-            set j = 1
-        endif
+        set a = ElixirSelect.pick(true)
+        set b = ElixirSelect.pick(true)
+        set c = ElixirSelect.pick(true)
+        call ElixirSelect.destroy()
+        set j = 1
 
         //길초기화
         call SetupPaths(pid)
@@ -7355,7 +7359,9 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set El_Level[pid][5] = 0
 
         if j == 1 then
-            if GetLocalPlayer() == Player(pid) then
+            if GetLocalPlayer() == Player(pid) and ElShow[pid] and ElOpenRequest[pid] == request then
+                // 탭을 떠났거나 새 요청이 있으면 이전 응답은 화면에 반영하지 않습니다.
+                call DzFrameShow(El_BackDrop, true)
                 set NowMainSelect = 0
                 set NowSelectNumber= 0
                 set NowSelectNumber2[1] = 0
@@ -7373,8 +7379,6 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
                 call DzFrameSetText(El_SelectText[2], ElixirText[NowSelectNumber2[2]])
                 set NowSelectNumber2[3] = c
                 call DzFrameSetText(El_SelectText[3], ElixirText[NowSelectNumber2[3]])
-                
-                call NormalizeWeights(pid)
                 
                 call DzFrameSetText(El_MainR[1], R2SW(GetPathChance(pid,1),1,1)+"%")
                 call DzFrameSetText(El_MainR[2], R2SW(GetPathChance(pid,2),1,1)+"%")
@@ -7428,6 +7432,9 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         endloop
         call TriggerAddAction( t, function Command )
 
+        set t=CreateTrigger()
+        call DzTriggerRegisterSyncData(t,("ElOpen"),(false))
+        call TriggerAddAction(t,function SyncElixirOpen)
         set t=CreateTrigger()
         call DzTriggerRegisterSyncData(t,("ElRoll"),(false))
         call TriggerAddAction(t,function Roll)
