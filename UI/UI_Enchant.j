@@ -154,20 +154,18 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             else
                 call DzFrameSetText(UI_Tip_Text[1], "+" + I2S(up) + " " + GetItemNames(items) )
             endif
-            set str = "[ 종류 ] "
+            set str = "|cFFA5FA7D[ 종류 ]|r "
             // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드
             if i == ITEM_TYPE_ELIXIR then
-                set str = str + "엘릭서|n"
-                set str = str + "|n[ 효과 ]|n"
-                set str = str + "  공격력 +"
+                set str = str + "엘릭서|n|n"
+                set str = str + "  |cFFB9E2FA공격력|r +"
                 set str = str + I2S(GetItemElixirLevel1(items)) + " + " + I2S(GetItemElixirLevel2(items))
             elseif i == ITEM_TYPE_WEAPON then
-                set str = str + "무기|n"
-                set str = str + "|n[ 효과 ]|n"
-                set str = str + "  무기 공격력 +"
+                set str = str + "무기|n|n"
+                set str = str + "  |cFFB9E2FA무기 공격력|r +"
                 set str = str + JNStringSplit(ItemStats[i][tier],";", up )
-                set str = str + "|n|n[ 품질 "+ I2S(quality*5) + "% ]|n"
-                set str = str + "  추가 피해 +"
+                set str = str + "|n|n|cff5AD2FF[ 품질 "+ I2S(quality*5) + "% ]|r|n"
+                set str = str + "  |cFFB9E2FA추가 피해|r +"
                 set str = str + R2S(ItemWeaponQuality[quality]) + "%"
             endif
             
