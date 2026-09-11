@@ -205,7 +205,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetSize(F_UpgradeNav, 0.105, 0.568)
         call DzFrameSetPoint(F_UpgradeNav, JN_FRAMEPOINT_TOPLEFT, F_UpgradeRoot, JN_FRAMEPOINT_TOPLEFT, 0.008, 0.0)
         set label = UpgradeLabel(F_UpgradeNav, "|cff2eb9dfARCANA|r", 0.005, -0.034, 0.016)
-        set label = UpgradeLabel(F_UpgradeNav, "|cff709db1UPGRADE|r", 0.006, -0.057, 0.008)
         set label = UpgradeLabel(F_UpgradeNav, "|cff709db1ESC  닫기|r", 0.006, -0.538, 0.008)
 
         set F_UpgradeTitleBD = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "", FrameCount())
@@ -213,7 +212,6 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
         call DzFrameSetSize(F_UpgradeTitleBD, 0.405, 0.060)
         call DzFrameSetPoint(F_UpgradeTitleBD, JN_FRAMEPOINT_TOPLEFT, F_UpgradeRoot, JN_FRAMEPOINT_TOPLEFT, 0.120, -0.010)
         set F_UpgradeTitle = UpgradeLabel(F_UpgradeTitleBD, "|cff244f65장비강화|r", 0.016, -0.025, 0.016)
-        set label = UpgradeLabel(F_UpgradeTitleBD, "|cff6792a6EQUIPMENT  /  CARD  /  ELIXIR|r", 0.017, -0.047, 0.007)
 
         set F_UpgradeNpcPanel = DzCreateFrameByTagName("BACKDROP", "", F_UpgradeRoot, "", FrameCount())
         call DzFrameSetTexture(F_UpgradeNpcPanel, "war3mapImported\\UI_Upgrade_Portrait.tga", 0)
