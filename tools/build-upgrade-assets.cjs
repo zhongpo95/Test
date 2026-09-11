@@ -39,12 +39,12 @@ async function saveTga(name, input, w, h) {
     manifest.push(await saveTga(name,vector,w,h));
   }
   // 16:9 게임 화면의 실제 인물 영역 비율에 맞춘 뒤 POT 텍스처로 저장합니다.
-  const portraitPath=path.join(source,'portrait-source.jpg');
+  const portraitPath=path.join(source,'portrait-source.webp');
   const visualAspect=(0.265 / 0.800 * 1600) / (0.568 / 0.600 * 900);
-  const cropHeight=560;
+  const cropHeight=1000;
   const cropWidth=Math.round(cropHeight*visualAspect);
-  const portrait=await sharp(portraitPath).extract({left:535,top:235,width:cropWidth,height:cropHeight}).png().toBuffer();
-  manifest.push(await saveTga('Portrait',portrait,512,1024));
+  const portrait=await sharp(portraitPath).extract({left:800,top:70,width:cropWidth,height:cropHeight}).png().toBuffer();
+  manifest.push(await saveTga('Portrait',portrait,1024,1024));
   fs.writeFileSync(path.join(source,'import-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   console.log(`Created ${manifest.length} uncompressed BGRA TGA textures.`);
 })().catch(e=>{console.error(e);process.exit(1)});
