@@ -18,8 +18,8 @@ async function texture(name) {
  text('상단 기본 메뉴 영역 · 퀘스트 / 메뉴(F10) / 동맹 / 로그(F12)',0.020,0.584,0.010,'#d6edf8','start');
  rect('Background',0,0,.8,.568);rect('Portrait',.535,0,.265,.568);
  rect('Header',.12,.498,.405,.06);rect('Close',.489,.515,.026,.026);
- text('ARCANA',.013,.534,.016,'#2eb9df','start');text('UPGRADE',.014,.511,.008,'#709db1','start');
- text('장비강화',.136,.533,.016,'#244f65','start');text('EQUIPMENT  /  CARD  /  ELIXIR',.137,.511,.007,'#6792a6','start');
+ text('ARCANA',.013,.534,.016,'#2eb9df','start');
+ text('장비강화',.136,.533,.016,'#244f65','start');
  ['장비강화','카드부여','엘릭서'].forEach((v,i)=>{rect(i?'TabIdle':'TabActive',.01,.399-.048*i,.09,.032);text(v,.022,.417-.048*i,.011,i?'#fff':'#2699be','start');});
  text('ESC  닫기',.014,.030,.008,'#709db1','start');
  rect('Panel',.12,.0575,.405,.435);rect('Card',.14,.3545,.365,.120);rect('Card',.14,.0875,.365,.244);
@@ -30,7 +30,7 @@ async function texture(name) {
  const commonLength=parts.length;
  for(const inherit of [false,true]) {
   parts.length=commonLength;
-  text('장착한 무기 이름',.232,.4165,.012,'#315a70','start');text(inherit?'T1   /   +0   /   품질 85%':'T3   /   +12   /   품질 85%',.232,.3885,.009,'#315a70','start');
+  text('장착한 무기 이름',.232,.4165,.012,'#315a70','start');text(inherit?'T1   /   +0   /   품질 0%   /   추가 피해 +10.00%':'T3   /   +12   /   품질 0%   /   추가 피해 +10.00%',.232,.3885,.009,'#315a70','start');
   if(inherit) {
    text('시작 무기 계승을 시도하세요',.3225,.2905,.012);
    for(const x of [.235,.410]) parts.push(`<rect x="${(x-.0125)*2000}" y="${(.6-.2445-.0125)*1500}" width="50" height="37.5" fill="#d0eaf5" stroke="#6daec8"/>`);

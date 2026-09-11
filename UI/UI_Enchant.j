@@ -219,7 +219,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             return
         endif
         call EnchantText(F_EnchantWeaponName, GetItemNames(items))
-        call EnchantText(F_EnchantWeaponDetail, "T" + I2S(GetItemTier(items)) + "   /   +" + I2S(GetItemUp(items)) + "   /   품질 " + I2S(GetItemQuality(items)*5) + "%")
+        call EnchantText(F_EnchantWeaponDetail, "T" + I2S(GetItemTier(items)) + "   /   +" + I2S(GetItemUp(items)) + "   /   품질 " + I2S(GetItemQuality(items)*5) + "%   /   추가 피해 +" + R2SW(ItemWeaponQuality[GetItemQuality(items)],1,2) + "%")
         set i = GetItemTypes(items)
         call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
         call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
