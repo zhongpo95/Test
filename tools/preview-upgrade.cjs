@@ -22,17 +22,30 @@ async function texture(name) {
  text('장비강화',.136,.533,.016,'#244f65','start');text('EQUIPMENT  /  CARD  /  ELIXIR',.137,.511,.007,'#6792a6','start');
  ['장비강화','카드부여','엘릭서'].forEach((v,i)=>{rect(i?'TabIdle':'TabActive',.01,.399-.048*i,.09,.032);text(v,.022,.417-.048*i,.011,i?'#fff':'#2699be','start');});
  text('ESC  닫기',.014,.030,.008,'#709db1','start');
- rect('Panel',.12,.0175,.405,.475);rect('Card',.14,.3545,.365,.120);rect('Card',.14,.0415,.365,.290);
+ rect('Panel',.12,.0575,.405,.435);rect('Card',.14,.3545,.365,.120);rect('Card',.14,.0875,.365,.244);
  text('장착 무기',.3225,.4545,.011);text('강화 정보',.3225,.3115,.011);
  // 무기/재료 아이콘과 수치는 실제 게임 데이터 대신 설명용 표시를 사용합니다.
  parts.push('<rect x="318" y="251.25" width="104" height="78" rx="3" fill="#d0eaf5" stroke="#6daec8"/>');
  text('무기',.185,.4065,.012,'#367e9b');
- text('장착한 무기 이름',.232,.4165,.012,'#315a70','start');text('T3   /   +12   /   품질 85',.232,.3885,.009,'#315a70','start');
- text('12  &gt;&gt;  13',.3225,.2825,.012);text('강화 확률  65.00%',.3225,.2475,.010);text('운명  12.50%',.3225,.2265,.008);
- text('무기 공격력 +1,240',.235,.1855,.009);text('&gt;&gt;',.3225,.1855,.010);text('무기 공격력 +1,380',.410,.1855,.009);
- text('재료',.210,.1405,.008);text('× 12',.259,.1405,.010);text('골드',.350,.1405,.008);text('× 2,500',.405,.1405,.010);
- rect('Action',.2375,.0605,.170,.036);text('강화',.3225,.0785,.011,'#fff');
- const svg=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><style>text{font-family:'Malgun Gothic',sans-serif}</style>${parts.join('')}</svg>`);
- await sharp(svg).png().toFile(path.join(root,'assets/upgrade/preview.png'));
+ const commonLength=parts.length;
+ for(const inherit of [false,true]) {
+  parts.length=commonLength;
+  text('장착한 무기 이름',.232,.4165,.012,'#315a70','start');text(inherit?'T1   /   +0   /   품질 85%':'T3   /   +12   /   품질 85%',.232,.3885,.009,'#315a70','start');
+  if(inherit) {
+   text('시작 무기 계승을 시도하세요',.3225,.2905,.012);
+   for(const x of [.235,.410]) parts.push(`<rect x="${(x-.0125)*2000}" y="${(.6-.2445-.0125)*1500}" width="50" height="37.5" fill="#d0eaf5" stroke="#6daec8"/>`);
+   text('&gt;&gt;',.3225,.2445,.010);
+   text('현재',.235,.220,.009);text('장착한 무기 이름',.235,.2065,.009);text('T1  /  +0',.235,.193,.009);
+   text('계승 후',.410,.220,.009);text('계승할 무기 이름',.410,.2065,.009);text('T2  /  +0',.410,.193,.009);
+   text('재료 소모 없음',.3225,.1635,.010);
+  } else {
+   text('12  &gt;&gt;  13',.3225,.2905,.012);text('강화 확률  65.00%',.3225,.2585,.010);text('운명  12.50%',.3225,.2385,.008);
+   text('무기 공격력 +1,240',.235,.2075,.009);text('&gt;&gt;',.3225,.2075,.010);text('무기 공격력 +1,380',.410,.2075,.009);
+   text('재료',.180,.1635,.008);text('× 12',.235,.1635,.010);text('골드',.355,.1635,.008);text('× 2,500',.410,.1635,.010);
+  }
+  rect('Action',.2375,.1025,.170,.036);text(inherit?'계승':'강화',.3225,.1205,.011,'#fff');
+  const svg=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><style>text{font-family:'Malgun Gothic',sans-serif}</style>${parts.join('')}</svg>`);
+  await sharp(svg).png().toFile(path.join(root,`assets/upgrade/${inherit?'preview-inherit':'preview'}.png`));
+ }
  console.log('Preview rendered. Values and icon labels are illustrative; not a game screenshot.');
 })().catch(e=>{console.error(e);process.exit(1)});

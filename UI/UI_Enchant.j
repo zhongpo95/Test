@@ -23,6 +23,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         integer F_EnchantWeaponName
         integer F_EnchantWeaponDetail
         integer F_EnchantInfoLabel                  //강화 정보 제목
+        integer F_EnchantBeforeText                 //계승 전 무기 정보
+        integer F_EnchantAfterText                  //계승 후 무기 정보
         
     endglobals
     
@@ -188,6 +190,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
     //장착 무기의 강화 및 계승 정보 갱신
     function RefreshEnchantInfo takes integer pid returns nothing
         local string items
+        local string nextItems = ""
+        local integer materialid = 0
         local integer itemid = 0
         local integer i = 0
         local integer quality = 0
@@ -215,7 +219,7 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
             return
         endif
         call EnchantText(F_EnchantWeaponName, GetItemNames(items))
-        call EnchantText(F_EnchantWeaponDetail, "T" + I2S(GetItemTier(items)) + "   /   +" + I2S(GetItemUp(items)) + "   /   품질 " + I2S(GetItemQuality(items)))
+        call EnchantText(F_EnchantWeaponDetail, "T" + I2S(GetItemTier(items)) + "   /   +" + I2S(GetItemUp(items)) + "   /   품질 " + I2S(GetItemQuality(items)*5) + "%")
         set i = GetItemTypes(items)
         call DzFrameSetTexture(F_EEItemButtonsBackDrop[6], GetItemNumberArt(GetItemIDs(items)), 0)
         call DzFrameSetTexture(F_EEItemButtonsBackDrop[7], GetItemNumberArt(GetItemIDs(items)), 0)
@@ -227,12 +231,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         if tier == 1 then
             if itemid == 10 then
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], "UI_Inventory.blp", 0)
-                call EnchantText(F_EnchantText[7], "x 0" )
                 call EnchantText(F_EnchantUpText, "시작 무기 계승을 시도하세요")
             else
-                call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(24), 0)
-                call EnchantText(F_EnchantText[7], "x 1" )
                 call EnchantText(F_EnchantUpText, "더이상 강화 할 수 없습니다. |n승급을 시도하세요")
             endif
             call DzFrameShow(F_EnchantButton, false)
@@ -260,6 +260,14 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
             call EnchantText(F_EnchantText[5], "x " + I2S(EnchantMaterial1[tier][up+1]) )
             call EnchantText(F_EnchantText[6], "x " + I2S(EnchantMaterial2[tier][up+1]) )
+            call DzFrameShow(F_EEItemButtons[9], EnchantMaterial1[tier][up+1] > 0)
+            call DzFrameShow(F_EEItemButtons[10], EnchantMaterial2[tier][up+1] > 0)
+            if EnchantMaterial1[tier][up+1] == 0 then
+                call EnchantText(F_EnchantText[5], "재료 소모 없음")
+            endif
+            if EnchantMaterial2[tier][up+1] == 0 then
+                call EnchantText(F_EnchantText[6], "골드 소모 없음")
+            endif
 
             if EnchantMaterial1[tier][up+1] == 0 then
                 call DzFrameSetTexture(F_EEItemButtonsBackDrop[9], "UI_Inventory.blp", 0)
@@ -310,19 +318,49 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         */
         //무기
         if itemid == 10 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(3), 0)
+            set nextItems = "ID3;"
         elseif itemid == 3 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(4), 0)
+            set nextItems = "ID4;"
         elseif itemid == 4 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(5), 0)
+            set nextItems = "ID5;"
         elseif itemid == 5 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(6), 0)
+            set nextItems = "ID6;"
         elseif itemid == 6 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(7), 0)
+            set nextItems = "ID7;"
         elseif itemid == 7 then
-            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemNumberArt(8), 0)
+            set nextItems = "ID8;"
         elseif itemid == 8 then
             call DzFrameShow(F_EnchantButton2, false)
+        endif
+
+        if nextItems != "" then
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[8], GetItemArt(nextItems), 0)
+            call EnchantText(F_EnchantBeforeText, "현재|n" + GetItemNames(items) + "|n|cff315a70T" + I2S(tier) + "  /  +" + I2S(up))
+            call EnchantText(F_EnchantAfterText, "계승 후|n" + GetItemNames(nextItems) + "|n|cff315a70T" + I2S(GetItemTier(nextItems)) + "  /  +0")
+        endif
+        // 계승 재료는 실제 소모 처리와 같은 티어를 사용하고 매번 표시 상태를 갱신합니다.
+        if itemid == 10 then
+            call DzFrameShow(F_EEItemButtons[11], false)
+            call EnchantText(F_EnchantText[7], "재료 소모 없음")
+        else
+            if tier == 1 then
+                set materialid = 24
+            elseif tier == 2 then
+                set materialid = 27
+            elseif tier == 3 then
+                set materialid = 30
+            elseif tier == 4 then
+                set materialid = 32
+            elseif tier == 5 then
+                set materialid = 34
+            elseif tier == 6 then
+                set materialid = 36
+            elseif tier == 7 then
+                set materialid = 38
+            endif
+            call DzFrameShow(F_EEItemButtons[11], materialid != 0)
+            call DzFrameSetTexture(F_EEItemButtonsBackDrop[11], GetItemNumberArt(materialid), 0)
+            call EnchantText(F_EnchantText[7], "x 1")
         endif
 
     endfunction
@@ -736,8 +774,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         call EnchantPlace(F_EnchantWeaponPanel, 0.2025, -0.078)
         call DzFrameSetSize(F_EnchantWeaponPanel, 0.365, 0.120)
         call DzFrameSetTexture(F_EnchantInfoPanel, "war3mapImported\\UI_Upgrade_Card.tga", 0)
-        call EnchantPlace(F_EnchantInfoPanel, 0.2025, -0.306)
-        call DzFrameSetSize(F_EnchantInfoPanel, 0.365, 0.290)
+        call EnchantPlace(F_EnchantInfoPanel, 0.2025, -0.283)
+        call DzFrameSetSize(F_EnchantInfoPanel, 0.365, 0.244)
         call EnchantPlace(F_EEItemButtons[EQUIP_SLOT_WEAPON], 0.065, -0.086)
         call DzFrameSetSize(F_EEItemButtons[EQUIP_SLOT_WEAPON], 0.052, 0.052)
         set F_EnchantWeaponName = DzCreateFrameByTagName("TEXT", "", F_EnchantBackDrop, "", FrameCount())
@@ -749,26 +787,38 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
         call DzFrameSetPoint(F_EnchantWeaponDetail, JN_FRAMEPOINT_LEFT, F_EnchantBackDrop, JN_FRAMEPOINT_TOPLEFT, 0.112, -0.104)
         call DzFrameSetFont(F_EnchantWeaponDetail, "Fonts\\DFHeiMd.ttf", 0.009, 0)
         call DzFrameSetEnable(F_EnchantWeaponDetail, false)
-        call EnchantPlace(F_EnchantUpText, 0.2025, -0.210)
+        call EnchantPlace(F_EnchantUpText, 0.2025, -0.202)
         call DzFrameSetFont(F_EnchantUpText, "Fonts\\DFHeiMd.ttf", 0.012, 0)
-        call EnchantPlace(F_EnchantRateText, 0.2025, -0.245)
-        call EnchantPlace(F_EnchantFateText, 0.2025, -0.266)
-        call EnchantPlace(F_EnchantText[0], 0.115, -0.307)
-        call EnchantPlace(F_EnchantText[1], 0.2025, -0.307)
-        call EnchantPlace(F_EnchantText[2], 0.290, -0.307)
+        call EnchantPlace(F_EnchantRateText, 0.2025, -0.234)
+        call EnchantPlace(F_EnchantFateText, 0.2025, -0.254)
+        call EnchantPlace(F_EnchantText[0], 0.115, -0.285)
+        call EnchantPlace(F_EnchantText[1], 0.2025, -0.285)
+        call EnchantPlace(F_EnchantText[2], 0.290, -0.285)
         call DzFrameSetFont(F_EnchantText[0], "Fonts\\DFHeiMd.ttf", 0.009, 0)
         call DzFrameSetFont(F_EnchantText[2], "Fonts\\DFHeiMd.ttf", 0.009, 0)
-        call EnchantPlace(F_EEItemButtons[7], 0.115, -0.290)
-        call EnchantPlace(F_EnchantText[4], 0.2025, -0.290)
-        call EnchantPlace(F_EEItemButtons[8], 0.290, -0.290)
-        call EnchantPlace(F_EEItemButtons[9], 0.090, -0.352)
-        call EnchantPlace(F_EnchantText[5], 0.139, -0.352)
-        call EnchantPlace(F_EEItemButtons[10], 0.230, -0.352)
-        call EnchantPlace(F_EnchantText[6], 0.285, -0.352)
-        call EnchantPlace(F_EEItemButtons[11], 0.1775, -0.352)
-        call EnchantPlace(F_EnchantText[7], 0.2175, -0.352)
-        call EnchantPlace(F_EnchantButton, 0.2025, -0.414)
-        call EnchantPlace(F_EnchantButton2, 0.2025, -0.414)
+        call EnchantPlace(F_EEItemButtons[7], 0.115, -0.248)
+        call EnchantPlace(F_EnchantText[4], 0.2025, -0.248)
+        call EnchantPlace(F_EEItemButtons[8], 0.290, -0.248)
+        set F_EnchantBeforeText = DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
+        call EnchantPlace(F_EnchantBeforeText, 0.115, -0.286)
+        call DzFrameSetSize(F_EnchantBeforeText, 0.145, 0.048)
+        call DzFrameSetFont(F_EnchantBeforeText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
+        call JNFrameSetTextAlignment(F_EnchantBeforeText, JN_TEXT_JUSTIFY_MIDDLE, JN_TEXT_JUSTIFY_CENTER)
+        call DzFrameSetEnable(F_EnchantBeforeText, false)
+        set F_EnchantAfterText = DzCreateFrameByTagName("TEXT", "", F_EnchantButton2, "", FrameCount())
+        call EnchantPlace(F_EnchantAfterText, 0.290, -0.286)
+        call DzFrameSetSize(F_EnchantAfterText, 0.145, 0.048)
+        call DzFrameSetFont(F_EnchantAfterText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
+        call JNFrameSetTextAlignment(F_EnchantAfterText, JN_TEXT_JUSTIFY_MIDDLE, JN_TEXT_JUSTIFY_CENTER)
+        call DzFrameSetEnable(F_EnchantAfterText, false)
+        call EnchantPlace(F_EEItemButtons[9], 0.060, -0.329)
+        call EnchantPlace(F_EnchantText[5], 0.115, -0.329)
+        call EnchantPlace(F_EEItemButtons[10], 0.235, -0.329)
+        call EnchantPlace(F_EnchantText[6], 0.290, -0.329)
+        call EnchantPlace(F_EEItemButtons[11], 0.155, -0.329)
+        call EnchantPlace(F_EnchantText[7], 0.2025, -0.329)
+        call EnchantPlace(F_EnchantButton, 0.2025, -0.372)
+        call EnchantPlace(F_EnchantButton2, 0.2025, -0.372)
         call DzFrameSetSize(F_EnchantButton, 0.170, 0.036)
         call DzFrameSetSize(F_EnchantButton2, 0.170, 0.036)
         call EnchantActionLeave()
@@ -793,8 +843,8 @@ library UIEnchant initializer Init requires DataItem, UIItem, UIMainQuest, ITEM,
 
         set F_EnchantBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
         call DzFrameSetTexture(F_EnchantBackDrop, "textures\\white.blp", 0)
-        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
-        call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.475)
+        call DzFrameSetAbsolutePoint(F_EnchantBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2750)
+        call DzFrameSetSize(F_EnchantBackDrop, 0.405, 0.435)
         call DzFrameSetPriority(F_EnchantBackDrop, 110)
 
         set F_EnchantWeaponPanel=DzCreateFrameByTagName("BACKDROP", "", F_EnchantBackDrop, "template", FrameCount())
