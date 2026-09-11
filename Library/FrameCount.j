@@ -13,7 +13,9 @@ library FrameCount requires DzAPIFrameHandle
     function GetGameplayUI takes nothing returns integer
         if GameplayUIRoot == 0 then
             set GameplayUIRoot = DzCreateFrameByTagName("FRAME", "GameplayUI", DzGetGameUI(), "", FrameCount())
-            call DzFrameSetAllPoints(GameplayUIRoot, DzGetGameUI())
+            // 표시 상태만 묶는 부모에는 게임 클릭을 가로채는 화면 영역을 만들지 않습니다.
+            call DzFrameSetAbsolutePoint(GameplayUIRoot, JN_FRAMEPOINT_BOTTOMLEFT, 0.0, 0.0)
+            call DzFrameSetSize(GameplayUIRoot, 0.0, 0.0)
         endif
         return GameplayUIRoot
     endfunction
