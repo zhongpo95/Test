@@ -69,14 +69,7 @@ library UIUpgrade initializer Init requires UIEnchant, UIStone, UIElixir, UITIP,
             call EnchantSetOpen(pid, true)
             call DzFrameShow(F_EnchantCancelButton, false)
         elseif tab == 2 then
-            if F_UpgradeStonePrepared[pid] then
-                call StoneSetOpen(pid, true)
-            elseif StoneStart(pid) then
-                set F_UpgradeStonePrepared[pid] = true
-            else
-                call DzFrameSetText(F_UpgradeHint, "|cff426f83카드 부여 재료와 장비 창의 빈 공간이 필요합니다.|r")
-                call DzFrameShow(F_UpgradeHint, true)
-            endif
+            call StoneSetOpen(pid, true)
             call DzFrameShow(F_StoneCancelButton, false)
         else
             call ElixirSetOpen(pid, true)

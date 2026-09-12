@@ -1,0 +1,47 @@
+[
+  {
+    "path": "war3mapImported\\UI_Upgrade_Row.tga",
+    "width": 512,
+    "height": 128
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Selected.tga",
+    "width": 512,
+    "height": 128
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Disabled.tga",
+    "width": 256,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_StepEmpty.tga",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_StepSuccess.tga",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_StepFail.tga",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_StepRisk.tga",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_StepPenalty.tga",
+    "width": 64,
+    "height": 64
+  },
+  {
+    "path": "war3mapImported\\UI_Upgrade_Lock.tga",
+    "width": 64,
+    "height": 64
+  }
+]
