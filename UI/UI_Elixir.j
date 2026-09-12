@@ -7065,6 +7065,8 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
 
     private function ElText takes integer parent, string value, real x, real y, real size returns integer
         local integer f = DzCreateFrameByTagName("TEXT", "", parent, "", FrameCount())
+        // 표시용 글자가 아래 버튼의 마우스 입력을 가로채지 않도록 합니다.
+        call DzFrameSetEnable(f, false)
         call DzFrameSetPoint(f, JN_FRAMEPOINT_CENTER, parent, JN_FRAMEPOINT_BOTTOMLEFT, x, y)
         call DzFrameSetText(f, value)
         call DzFrameSetFont(f, "Fonts\\DFHeiMd.ttf", size, 0)
