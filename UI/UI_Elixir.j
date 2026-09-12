@@ -443,7 +443,7 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         endif
         loop
             exitwhen slot >= 50
-            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")) == 0 then
+            if IsEmptyItem(StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")) then
                 set value = SetItemElixirLevel1("ID41;", ResultLevel[pid][1])
                 set value = SetItemElixirLevel2(value, ResultLevel[pid][2])
                 // 수령 상태를 먼저 닫아 중복 입력에 의한 중복 지급을 막습니다.

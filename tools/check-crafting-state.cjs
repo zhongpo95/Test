@@ -22,9 +22,13 @@ function model(file,names,localPlayer=0){
     JNObjectCharacterServerConnectCheck:()=>env.connected,
     PLAYER_DATA:[0,1,2,3,4],PlayerSlotNumber:[1,1,1,1,1],F_ItemButtonsBackDrop:[],UI_Tip:999,
     I2S:String,S2I:x=>parseInt(x)||0,R2SW:(x,w,p)=>Number(x).toFixed(p),
-    StashLoad:(p,k,d)=>items.get(p+':'+k)??d,
+    StashLoad:(p,k,d)=>items.has(p+':'+k)?items.get(p+':'+k):d,
     StashSave:(p,k,v)=>items.set(p+':'+k,v),StashRemove:(p,k)=>items.delete(p+':'+k),
-    GetItemIDs:s=>Number(String(s).match(/ID(\d+)/)?.[1]||0),
+    GetItemIDs:s=>{
+      assert(s != null && s !== '' && s !== '0', 'Empty slot reached JN item parser');
+      return Number(String(s).match(/ID(\d+)/)?.[1]||0);
+    },
+    IsEmptyItem:s=>s == null || s === '' || s === '0' || env.GetItemIDs(s) === 0,
     GetItemCharge:s=>Number(String(s).match(/C(\d+)/)?.[1]||0),
     SetItemCharge:(s,n)=>`ID39;C${n};`,
     AddIvItem:(pid,slot,s)=>{items.set(pid+':영웅1.아이템'+slot,s);awards++;},
@@ -69,6 +73,9 @@ const cardNames=['StoneSlot','StoneRefresh','StoneStart','StoneBegin','StoneSetO
 const card=model('UI/UI_Stone.j',cardNames),c=card.env;
 c.F_StoneBackDrop=100;c.F_ArcanaButton[1]=101;c.F_ArcanaButton[2]=102;c.F_ArcanaButton[3]=103;
 card.items.set('0:영웅1.아이템50','ID39;C2;');
+// 기본값, 빈 문자열, null을 반환하는 슬롯이 있어도 파서에 넘기면 안 됩니다.
+card.items.set('0:영웅1.아이템51','');
+card.items.set('0:영웅1.아이템52',null);
 c.connected=false;c.StoneSetOpen(0,true);
 assert.equal(card.ui.get(100),true);assert.equal(card.rng(),0);assert.equal(card.items.get('0:영웅1.아이템50'),'ID39;C2;');
 c.StoneBegin();assert.equal(c.StoneActive[0],false);

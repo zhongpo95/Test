@@ -54,10 +54,12 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             exitwhen i >= limit
             set value = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
             if material then
-                if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
-                    return i
+                if not IsEmptyItem(value) then
+                    if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
+                        return i
+                    endif
                 endif
-            elseif GetItemIDs(value) == 0 then
+            elseif IsEmptyItem(value) then
                 return i
             endif
             set i = i + 1
@@ -80,8 +82,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         loop
             exitwhen slot >= 100
             set value = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")
-            if GetItemIDs(value) == 39 then
-                set count = count + GetItemCharge(value)
+            // 빈 슬롯은 JN 정규식 기반 아이템 파서에 넘기지 않습니다.
+            if not IsEmptyItem(value) then
+                if GetItemIDs(value) == 39 then
+                    set count = count + GetItemCharge(value)
+                endif
             endif
             set slot = slot + 1
         endloop
