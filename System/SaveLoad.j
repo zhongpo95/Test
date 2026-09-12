@@ -5,6 +5,7 @@ scope Load initializer onInit
         trigger UPLOAD_CALLBACK = CreateTrigger( )
         
         stash array PLAYER_DATA
+        boolean array PLAYER_DATA_SERVER_READY
     endglobals
 
     private function IsValidPickHeroNumber takes integer heroNumber returns boolean
@@ -34,6 +35,7 @@ scope Load initializer onInit
             if JNStashNetGetResult( ) then
                 set pid = GetPlayerId(user)
                 set PLAYER_DATA[pid] = JNStashNetGetStash( )
+                set PLAYER_DATA_SERVER_READY[pid] = true
                 call JNObjectMapInit(MapName,MapApi)
                 
                 //빅휠 카운트
@@ -53,6 +55,7 @@ scope Load initializer onInit
                 
             else
                 set pid =GetPlayerId(user)
+                set PLAYER_DATA_SERVER_READY[pid] = false
                 set PLAYER_DATA[pid] = CreateStash()
             /*
                 set pid = 0

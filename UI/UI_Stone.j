@@ -67,6 +67,14 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         return -1
     endfunction
 
+    private function StoneServerReady takes integer pid returns boolean
+        // 서버 초기화에 실패한 테스트 세션에서는 연결 검사 네이티브를 호출하지 않습니다.
+        if not PLAYER_DATA_SERVER_READY[pid] then
+            return false
+        endif
+        return JNObjectCharacterServerConnectCheck()
+    endfunction
+
     private function StoneRefresh takes integer pid returns nothing
         local integer i = 1
         local integer threshold
@@ -91,8 +99,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set slot = slot + 1
         endloop
         call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
-        if not JNObjectCharacterServerConnectCheck() then
-            set reason = "서버 연결이 필요합니다. 연결 후 시작을 눌러 주세요."
+        // 화면 갱신에서는 서버를 조회하지 않고 완료된 데이터 수신 상태만 표시합니다.
+        if not PLAYER_DATA_SERVER_READY[pid] then
+            set reason = "서버 데이터를 불러온 후 카드 부여를 시작할 수 있습니다."
             set ready = false
         elseif StoneSlot(pid, false) == -1 then
             set reason = "장비 창에 빈 공간이 필요합니다."
@@ -108,7 +117,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
         elseif StoneActive[pid] then
             call DzFrameSetText(StoneStartText, "부여 진행 중")
-            if JNObjectCharacterServerConnectCheck() then
+            if PLAYER_DATA_SERVER_READY[pid] then
                 set reason = "탭을 이동하거나 닫아도 현재 부여는 유지됩니다."
             endif
             set ready = false
@@ -124,7 +133,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         // 조건이 바뀐 뒤에도 클릭으로 재검사할 수 있으며 차감은 StoneStart에서만 수행합니다.
         loop
             exitwhen i > 3
-            call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and JNObjectCharacterServerConnectCheck())
+            call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and PLAYER_DATA_SERVER_READY[pid])
             if not StoneActive[pid] or StonePending[pid] or (i == 1 and Arcana1[9] != 0) or (i == 2 and Arcana2[9] != 0) or (i == 3 and Arcana3[9] != 0) then
                 call DzFrameSetEnable(F_ArcanaButton[i], false)
                 call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
@@ -199,7 +208,12 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         if StoneResult[pid] != null and StoneResult[pid] != "" then
             return false
         endif
-        if not JNObjectCharacterServerConnectCheck() or StoneSlot(pid, false) == -1 or StoneSlot(pid, true) == -1 then
+        if not StoneServerReady(pid) then
+            call StoneRefresh(pid)
+            call DzFrameSetText(StoneStatus, "서버 연결을 확인할 수 없어 시작하지 않았습니다.")
+            return false
+        endif
+        if StoneSlot(pid, false) == -1 or StoneSlot(pid, true) == -1 then
             call StoneRefresh(pid)
             return false
         endif
@@ -300,7 +314,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         endif
         if StoneResult[pid] != null and StoneResult[pid] != "" then
             set slot = StoneSlot(pid, false)
-            if JNObjectCharacterServerConnectCheck() and slot != -1 then
+            if StoneServerReady(pid) and slot != -1 then
                 call AddIvItem(pid, slot, StoneResult[pid])
                 set StoneResult[pid] = ""
                 set StoneActive[pid] = false
@@ -471,8 +485,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 return
             endif
             
-            //if JNObjectCharacterServerConnectCheck( ) then
-            if JNObjectCharacterServerConnectCheck() then
+            if StoneServerReady(pid) then
                 if f == 1 then
                     if loopA != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then

@@ -15,11 +15,16 @@ function model(file,names,localPlayer=0){
   }
   const no=()=>{};
   Object.assign(env,{
-    connected:true,eventPlayer:0,eventFrame:0,syncData:'1',
+    connected:true,eventPlayer:0,eventFrame:0,syncData:'1',serverChecks:0,
     Player:x=>x,GetPlayerId:x=>x,GetLocalPlayer:()=>localPlayer,
     DzGetTriggerUIEventPlayer:()=>env.eventPlayer,DzGetTriggerSyncPlayer:()=>env.eventPlayer,
     DzGetTriggerUIEventFrame:()=>env.eventFrame,DzGetTriggerSyncData:()=>env.syncData,
-    JNObjectCharacterServerConnectCheck:()=>env.connected,
+    JNObjectCharacterServerConnectCheck:()=>{
+      assert(env.PLAYER_DATA_SERVER_READY[env.eventPlayer], 'Server native called before successful download');
+      env.serverChecks++;
+      return env.connected;
+    },
+    PLAYER_DATA_SERVER_READY:[false,false,false,false,false],
     PLAYER_DATA:[0,1,2,3,4],PlayerSlotNumber:[1,1,1,1,1],F_ItemButtonsBackDrop:[],UI_Tip:999,
     I2S:String,S2I:x=>parseInt(x)||0,R2SW:(x,w,p)=>Number(x).toFixed(p),
     StashLoad:(p,k,d)=>items.has(p+':'+k)?items.get(p+':'+k):d,
@@ -69,7 +74,7 @@ function model(file,names,localPlayer=0){
   }
   return {env,items,ui,sent,rng:()=>rng,awards:()=>awards};
 }
-const cardNames=['StoneSlot','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
+const cardNames=['StoneSlot','StoneServerReady','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
 const card=model('UI/UI_Stone.j',cardNames),c=card.env;
 c.F_StoneBackDrop=100;c.F_ArcanaButton[1]=101;c.F_ArcanaButton[2]=102;c.F_ArcanaButton[3]=103;
 card.items.set('0:영웅1.아이템50','ID39;C2;');
@@ -78,7 +83,10 @@ card.items.set('0:영웅1.아이템51','');
 card.items.set('0:영웅1.아이템52',null);
 c.connected=false;c.StoneSetOpen(0,true);
 assert.equal(card.ui.get(100),true);assert.equal(card.rng(),0);assert.equal(card.items.get('0:영웅1.아이템50'),'ID39;C2;');
-c.StoneBegin();assert.equal(c.StoneActive[0],false);
+c.StoneBegin();assert.equal(c.StoneActive[0],false);assert.equal(c.serverChecks,0);
+c.PLAYER_DATA_SERVER_READY[0]=true;
+c.StoneSetOpen(0,false);c.StoneSetOpen(0,true);assert.equal(c.serverChecks,0);
+c.StoneBegin();assert.equal(c.StoneActive[0],false);assert.equal(c.serverChecks,1);
 c.connected=true;c.StoneBegin();assert.equal(c.StoneActive[0],true);assert.equal(card.items.get('0:영웅1.아이템50'),'ID39;C1;');
 c.StoneBegin();assert.equal(card.items.get('0:영웅1.아이템50'),'ID39;C1;');
 c.eventFrame=101;c.ClickButton();c.ClickButton();assert.equal(card.sent.length,1);assert.equal(card.sent[0].data,'1');
