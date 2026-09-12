@@ -41,6 +41,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
     endglobals
 
 
+    // 종료 위치 확인용 임시 진단입니다. 아이템 내용과 계정 정보는 기록하지 않습니다.
+    private function StoneTrace takes string stage returns nothing
+        call JNWriteLog("[ARCANA CARD TRACE v1] "+stage)
+    endfunction
+
     private function StoneSlot takes integer pid, boolean material returns integer
         local integer i = 0
         local integer limit = 50
@@ -52,7 +57,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         endif
         loop
             exitwhen i >= limit
+            call StoneTrace("StoneSlot before stash read")
             set value = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
+            call StoneTrace("StoneSlot after stash read")
             if material then
                 if not IsEmptyItem(value) then
                     if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
@@ -89,7 +96,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set slot = 50
         loop
             exitwhen slot >= 100
+            call StoneTrace("StoneRefresh before stash read")
             set value = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")
+            call StoneTrace("StoneRefresh after stash read")
             // 빈 슬롯은 JN 정규식 기반 아이템 파서에 넘기지 않습니다.
             if not IsEmptyItem(value) then
                 if GetItemIDs(value) == 39 then
@@ -98,7 +107,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             set slot = slot + 1
         endloop
+        call StoneTrace("StoneRefresh/1 before DzFrameSetText frame="+I2S(StoneMaterial)+"")
         call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
+        call StoneTrace("StoneRefresh/1 after DzFrameSetText")
         // 화면 갱신에서는 서버를 조회하지 않고 완료된 데이터 수신 상태만 표시합니다.
         if not PLAYER_DATA_SERVER_READY[pid] then
             set reason = "서버 데이터를 불러온 후 카드 부여를 시작할 수 있습니다."
@@ -111,40 +122,66 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set ready = false
         endif
         if StoneResult[pid] != null and StoneResult[pid] != "" then
+            call StoneTrace("StoneRefresh/2 before DzFrameSetText frame="+I2S(StoneStartText)+"")
             call DzFrameSetText(StoneStartText, "결과 받기")
+            call StoneTrace("StoneRefresh/2 after DzFrameSetText")
             if ready then
                 set reason = "부여 완료. 결과 카드를 받아 주세요."
             endif
         elseif StoneActive[pid] then
+            call StoneTrace("StoneRefresh/3 before DzFrameSetText frame="+I2S(StoneStartText)+"")
             call DzFrameSetText(StoneStartText, "부여 진행 중")
+            call StoneTrace("StoneRefresh/3 after DzFrameSetText")
             if PLAYER_DATA_SERVER_READY[pid] then
                 set reason = "탭을 이동하거나 닫아도 현재 부여는 유지됩니다."
             endif
             set ready = false
         else
+            call StoneTrace("StoneRefresh/4 before DzFrameSetText frame="+I2S(StoneStartText)+"")
             call DzFrameSetText(StoneStartText, "부여 시작")
+            call StoneTrace("StoneRefresh/4 after DzFrameSetText")
         endif
+        call StoneTrace("StoneRefresh/5 before DzFrameSetText frame="+I2S(StoneStatus)+"")
         call DzFrameSetText(StoneStatus, reason)
+        call StoneTrace("StoneRefresh/5 after DzFrameSetText")
         if ready then
+            call StoneTrace("StoneRefresh/6 before DzFrameSetTexture frame="+I2S(StoneStartBD)+"")
             call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            call StoneTrace("StoneRefresh/6 after DzFrameSetTexture")
         else
+            call StoneTrace("StoneRefresh/7 before DzFrameSetTexture frame="+I2S(StoneStartBD)+"")
             call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            call StoneTrace("StoneRefresh/7 after DzFrameSetTexture")
         endif
         // 조건이 바뀐 뒤에도 클릭으로 재검사할 수 있으며 차감은 StoneStart에서만 수행합니다.
         loop
             exitwhen i > 3
+            call StoneTrace("StoneRefresh/8 before DzFrameSetEnable frame="+I2S(F_ArcanaButton[i])+"")
             call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and PLAYER_DATA_SERVER_READY[pid])
+            call StoneTrace("StoneRefresh/8 after DzFrameSetEnable")
             if not StoneActive[pid] or StonePending[pid] or (i == 1 and Arcana1[9] != 0) or (i == 2 and Arcana2[9] != 0) or (i == 3 and Arcana3[9] != 0) then
+                call StoneTrace("StoneRefresh/9 before DzFrameSetEnable frame="+I2S(F_ArcanaButton[i])+"")
                 call DzFrameSetEnable(F_ArcanaButton[i], false)
+                call StoneTrace("StoneRefresh/9 after DzFrameSetEnable")
+                call StoneTrace("StoneRefresh/10 before DzFrameSetTexture frame="+I2S(F_ArcanaButton2BackDrop[i+3])+"")
                 call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+                call StoneTrace("StoneRefresh/10 after DzFrameSetTexture")
             else
+                call StoneTrace("StoneRefresh/11 before DzFrameSetTexture frame="+I2S(F_ArcanaButton2BackDrop[i+3])+"")
                 call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Action.tga", 0)
+                call StoneTrace("StoneRefresh/11 after DzFrameSetTexture")
             endif
             set i = i + 1
         endloop
+        call StoneTrace("StoneRefresh/12 before DzFrameSetText frame="+I2S(F_ArcanaText[6])+"")
         call DzFrameSetText(F_ArcanaText[6], I2S(ArcanaA)+"회 성공")
+        call StoneTrace("StoneRefresh/12 after DzFrameSetText")
+        call StoneTrace("StoneRefresh/13 before DzFrameSetText frame="+I2S(F_ArcanaText[7])+"")
         call DzFrameSetText(F_ArcanaText[7], I2S(ArcanaB)+"회 성공")
+        call StoneTrace("StoneRefresh/13 after DzFrameSetText")
+        call StoneTrace("StoneRefresh/14 before DzFrameSetText frame="+I2S(F_ArcanaText[8])+"")
         call DzFrameSetText(F_ArcanaText[8], I2S(ArcanaC)+"회 균열")
+        call StoneTrace("StoneRefresh/14 after DzFrameSetText")
         set i = 0
         loop
             exitwhen i > 3
@@ -152,34 +189,62 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             if i > 1 then
                 set threshold = threshold + 1
             endif
+            call StoneTrace("StoneRefresh/15 before DzFrameShow frame="+I2S(F_ArcanaTextA[i])+"")
             call DzFrameShow(F_ArcanaTextA[i], true)
+            call StoneTrace("StoneRefresh/15 after DzFrameShow")
+            call StoneTrace("StoneRefresh/16 before DzFrameShow frame="+I2S(F_ArcanaTextB[i])+"")
             call DzFrameShow(F_ArcanaTextB[i], true)
+            call StoneTrace("StoneRefresh/16 after DzFrameShow")
+            call StoneTrace("StoneRefresh/17 before DzFrameSetText frame="+I2S(F_ArcanaTextA[i])+"")
             call DzFrameSetText(F_ArcanaTextA[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+            call StoneTrace("StoneRefresh/17 after DzFrameSetText")
+            call StoneTrace("StoneRefresh/18 before DzFrameSetText frame="+I2S(F_ArcanaTextB[i])+"")
             call DzFrameSetText(F_ArcanaTextB[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+            call StoneTrace("StoneRefresh/18 after DzFrameSetText")
+            call StoneTrace("StoneRefresh/19 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextA[i])+"")
             call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 120, 150, 166))
+            call StoneTrace("StoneRefresh/19 after DzFrameSetTextColor")
+            call StoneTrace("StoneRefresh/20 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextB[i])+"")
             call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 120, 150, 166))
+            call StoneTrace("StoneRefresh/20 after DzFrameSetTextColor")
             if ArcanaA >= threshold then
+                call StoneTrace("StoneRefresh/21 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextA[i])+"")
                 call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 22, 142, 174))
+                call StoneTrace("StoneRefresh/21 after DzFrameSetTextColor")
             endif
             if ArcanaB >= threshold then
+                call StoneTrace("StoneRefresh/22 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextB[i])+"")
                 call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 22, 142, 174))
+                call StoneTrace("StoneRefresh/22 after DzFrameSetTextColor")
             endif
             if i < 3 then
                 set threshold = 5 + i * 2
                 if i == 2 then
                     set threshold = 10
                 endif
+                call StoneTrace("StoneRefresh/23 before DzFrameShow frame="+I2S(F_ArcanaTextC[i])+"")
                 call DzFrameShow(F_ArcanaTextC[i], true)
+                call StoneTrace("StoneRefresh/23 after DzFrameShow")
+                call StoneTrace("StoneRefresh/24 before DzFrameSetText frame="+I2S(F_ArcanaTextC[i])+"")
                 call DzFrameSetText(F_ArcanaTextC[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+                call StoneTrace("StoneRefresh/24 after DzFrameSetText")
+                call StoneTrace("StoneRefresh/25 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextC[i])+"")
                 call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 120, 150, 166))
+                call StoneTrace("StoneRefresh/25 after DzFrameSetTextColor")
                 if ArcanaC >= threshold then
+                    call StoneTrace("StoneRefresh/26 before DzFrameSetTextColor frame="+I2S(F_ArcanaTextC[i])+"")
                     call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 200, 94, 123))
+                    call StoneTrace("StoneRefresh/26 after DzFrameSetTextColor")
                 endif
             endif
             set i = i + 1
         endloop
+        call StoneTrace("StoneRefresh/27 before DzFrameSetText frame="+I2S(F_ArcanaText[0])+"")
         call DzFrameSetText(F_ArcanaText[0], "부여 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
+        call StoneTrace("StoneRefresh/27 after DzFrameSetText")
+        call StoneTrace("StoneRefresh/28 before DzFrameSetText frame="+I2S(F_ArcanaText[1])+"")
         call DzFrameSetText(F_ArcanaText[1], "균열 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
+        call StoneTrace("StoneRefresh/28 after DzFrameSetText")
     endfunction
 
     function StoneSetOpen takes integer pid, boolean show returns nothing
@@ -187,11 +252,17 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             return
         endif
         if show then
+            call StoneTrace("StoneSetOpen/1 before StoneRefresh")
             call StoneRefresh(pid)
+            call StoneTrace("StoneSetOpen/1 after StoneRefresh")
         endif
+        call StoneTrace("StoneSetOpen/2 before DzFrameShow frame="+I2S(F_StoneBackDrop)+"")
         call DzFrameShow(F_StoneBackDrop, show)
+        call StoneTrace("StoneSetOpen/2 after DzFrameShow")
         if not show then
+            call StoneTrace("StoneSetOpen/3 before DzFrameShow frame="+I2S(UI_Tip)+"")
             call DzFrameShow(UI_Tip, false)
+            call StoneTrace("StoneSetOpen/3 after DzFrameShow")
         endif
         set F_StoneOnOff[pid] = show
     endfunction

@@ -40,7 +40,7 @@ function model(file,names,localPlayer=0){
     GetRandomInt:()=>{rng++;return 1;},
     StringHash:x=>x,LoadInteger:()=>0,
     JNStringSplit:(s,sep,i)=>String(s).split(sep)[i]||'',
-    JNConvertColor:()=>0,
+    JNConvertColor:()=>0,JNWriteLog:no,
     DzFrameShow:(f,show)=>ui.set(f,show),
     DzSyncData:(event,data)=>sent.push({event,data}),
     IntegerPool:{Create:()=>({add:no,pick:()=>{rng++;return rng;},destroy:no})},
@@ -74,7 +74,7 @@ function model(file,names,localPlayer=0){
   }
   return {env,items,ui,sent,rng:()=>rng,awards:()=>awards};
 }
-const cardNames=['StoneSlot','StoneServerReady','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
+const cardNames=['StoneTrace','StoneSlot','StoneServerReady','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
 const card=model('UI/UI_Stone.j',cardNames),c=card.env;
 c.F_StoneBackDrop=100;c.F_ArcanaButton[1]=101;c.F_ArcanaButton[2]=102;c.F_ArcanaButton[3]=103;
 card.items.set('0:영웅1.아이템50','ID39;C2;');
