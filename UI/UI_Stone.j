@@ -14,7 +14,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer array F_ArcanaTextA              //스킬버튼 백드롭
         integer array F_ArcanaTextB              //스킬버튼 백드롭
         integer array F_ArcanaTextC              //스킬버튼 백드롭
-        integer ArcanaProbability               //확률
+        integer ArcanaProbability = 0           //시작 전 화면에서도 사용하는 확률 보정값
         boolean array F_StoneOnOff              //인포 온오프
         
         integer array Arcana1
@@ -23,9 +23,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer loopASC
         integer loopBSC
         integer loopCSC
-        integer ArcanaA
-        integer ArcanaB
-        integer ArcanaC
+        integer ArcanaA = 0
+        integer ArcanaB = 0
+        integer ArcanaC = 0
         
         private boolean array StoneActive
         private boolean array StonePending
