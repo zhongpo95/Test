@@ -1,3 +1,4 @@
+// 카드부여 화면과 재료 확인 및 부여 진행을 관리합니다.
 library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, FrameCount
     globals
         integer F_StoneBackDrop                 //인포 배경
@@ -26,11 +27,154 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer ArcanaB
         integer ArcanaC
         
+        private boolean array StoneActive
+        private boolean array StonePending
+        private string array StoneResult
+        private integer StoneStatus
+        private integer StoneMaterial
+        private integer StoneStartButton
+        private integer StoneStartBD
+        private integer StoneStartText
+        private integer array StoneButtonText
         private integer si = 0
         private integer si2 = 0
     endglobals
 
+
+    private function StoneSlot takes integer pid, boolean material returns integer
+        local integer i = 0
+        local integer limit = 50
+        local string value
+        local string sn = I2S(PlayerSlotNumber[pid])
+        if material then
+            set i = 50
+            set limit = 100
+        endif
+        loop
+            exitwhen i >= limit
+            set value = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
+            if material then
+                if GetItemIDs(value) == 39 and GetItemCharge(value) > 0 then
+                    return i
+                endif
+            elseif GetItemIDs(value) == 0 then
+                return i
+            endif
+            set i = i + 1
+        endloop
+        return -1
+    endfunction
+
+    private function StoneRefresh takes integer pid returns nothing
+        local integer i = 1
+        local integer threshold
+        local integer slot
+        local integer count = 0
+        local string value
+        local string reason = "시작할 때 카드 부여 재료 1개를 사용합니다."
+        local boolean ready = true
+        if GetLocalPlayer() != Player(pid) then
+            return
+        endif
+        set slot = 50
+        loop
+            exitwhen slot >= 100
+            set value = StashLoad(PLAYER_DATA[pid], "영웅"+I2S(PlayerSlotNumber[pid])+".아이템"+I2S(slot), "0")
+            if GetItemIDs(value) == 39 then
+                set count = count + GetItemCharge(value)
+            endif
+            set slot = slot + 1
+        endloop
+        call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
+        if not JNObjectCharacterServerConnectCheck() then
+            set reason = "서버 연결이 필요합니다. 연결 후 시작을 눌러 주세요."
+            set ready = false
+        elseif StoneSlot(pid, false) == -1 then
+            set reason = "장비 창에 빈 공간이 필요합니다."
+            set ready = false
+        elseif count < 1 and not StoneActive[pid] and (StoneResult[pid] == null or StoneResult[pid] == "") then
+            set reason = "카드 부여 재료가 부족합니다."
+            set ready = false
+        endif
+        if StoneResult[pid] != null and StoneResult[pid] != "" then
+            call DzFrameSetText(StoneStartText, "결과 받기")
+            if ready then
+                set reason = "부여 완료. 결과 카드를 받아 주세요."
+            endif
+        elseif StoneActive[pid] then
+            call DzFrameSetText(StoneStartText, "부여 진행 중")
+            if JNObjectCharacterServerConnectCheck() then
+                set reason = "탭을 이동하거나 닫아도 현재 부여는 유지됩니다."
+            endif
+            set ready = false
+        else
+            call DzFrameSetText(StoneStartText, "부여 시작")
+        endif
+        call DzFrameSetText(StoneStatus, reason)
+        if ready then
+            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
+        else
+            call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+        endif
+        // 조건이 바뀐 뒤에도 클릭으로 재검사할 수 있으며 차감은 StoneStart에서만 수행합니다.
+        loop
+            exitwhen i > 3
+            call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and JNObjectCharacterServerConnectCheck())
+            if not StoneActive[pid] or StonePending[pid] or (i == 1 and Arcana1[9] != 0) or (i == 2 and Arcana2[9] != 0) or (i == 3 and Arcana3[9] != 0) then
+                call DzFrameSetEnable(F_ArcanaButton[i], false)
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
+            else
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Action.tga", 0)
+            endif
+            set i = i + 1
+        endloop
+        call DzFrameSetText(F_ArcanaText[6], I2S(ArcanaA)+"회 성공")
+        call DzFrameSetText(F_ArcanaText[7], I2S(ArcanaB)+"회 성공")
+        call DzFrameSetText(F_ArcanaText[8], I2S(ArcanaC)+"회 균열")
+        set i = 0
+        loop
+            exitwhen i > 3
+            set threshold = 6 + i
+            if i > 1 then
+                set threshold = threshold + 1
+            endif
+            call DzFrameShow(F_ArcanaTextA[i], true)
+            call DzFrameShow(F_ArcanaTextB[i], true)
+            call DzFrameSetText(F_ArcanaTextA[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+            call DzFrameSetText(F_ArcanaTextB[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+            call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 120, 150, 166))
+            call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 120, 150, 166))
+            if ArcanaA >= threshold then
+                call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 22, 142, 174))
+            endif
+            if ArcanaB >= threshold then
+                call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 22, 142, 174))
+            endif
+            if i < 3 then
+                set threshold = 5 + i * 2
+                if i == 2 then
+                    set threshold = 10
+                endif
+                call DzFrameShow(F_ArcanaTextC[i], true)
+                call DzFrameSetText(F_ArcanaTextC[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+                call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 120, 150, 166))
+                if ArcanaC >= threshold then
+                    call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 200, 94, 123))
+                endif
+            endif
+            set i = i + 1
+        endloop
+        call DzFrameSetText(F_ArcanaText[0], "부여 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
+        call DzFrameSetText(F_ArcanaText[1], "균열 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
+    endfunction
+
     function StoneSetOpen takes integer pid, boolean show returns nothing
+        if GetLocalPlayer() != Player(pid) then
+            return
+        endif
+        if show then
+            call StoneRefresh(pid)
+        endif
         call DzFrameShow(F_StoneBackDrop, show)
         if not show then
             call DzFrameShow(UI_Tip, false)
@@ -40,40 +184,21 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
 
     function StoneStart takes integer pid returns boolean
         local integer i = 0
-        local integer emptySlot = 50
-        local integer cardSlot = 100
-        local integer charge = 0
-        local string items = ""
+        local integer cardSlot
+        local integer charge
+        local string items
         local string sn = I2S(PlayerSlotNumber[pid])
-
-        loop
-            exitwhen i == 50
-            if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
-                set emptySlot = i
-                set i = 49
-            endif
-            set i = i + 1
-        endloop
-        if emptySlot == 50 then
-            call VJDebugMsg("장비 창에 빈 공간이 없습니다.")
+        if GetLocalPlayer() != Player(pid) or StoneActive[pid] then
             return false
         endif
-
-        set i = 50
-        loop
-            exitwhen i == 100
-            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")
-            if GetItemIDs(items) == 39 then
-                set cardSlot = i
-                set i = 99
-            endif
-            set i = i + 1
-        endloop
-        if cardSlot == 100 then
-            call VJDebugMsg("카드 부여 재료가 없습니다.")
+        if StoneResult[pid] != null and StoneResult[pid] != "" then
             return false
         endif
-
+        if not JNObjectCharacterServerConnectCheck() or StoneSlot(pid, false) == -1 or StoneSlot(pid, true) == -1 then
+            call StoneRefresh(pid)
+            return false
+        endif
+        set cardSlot = StoneSlot(pid, true)
         set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
         set charge = GetItemCharge(items)
         if charge <= 1 then
@@ -82,15 +207,17 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         else
             call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
         endif
-
+        set StoneActive[pid] = true
+        set StonePending[pid] = false
+        set StoneResult[pid] = ""
         set i = 0
         loop
             set Arcana1[i] = 0
             set Arcana2[i] = 0
             set Arcana3[i] = 0
-            call DzFrameSetTexture(F_Arcana1[i], "UI_Arcana_Work1.blp", 0)
-            call DzFrameSetTexture(F_Arcana2[i], "UI_Arcana_Work1.blp", 0)
-            call DzFrameSetTexture(F_Arcana3[i], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_Arcana1[i], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0)
+            call DzFrameSetTexture(F_Arcana2[i], "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0)
+            call DzFrameSetTexture(F_Arcana3[i], "war3mapImported\\UI_Upgrade_StepRisk.tga", 0)
             exitwhen i == 9
             set i = i + 1
         endloop
@@ -102,11 +229,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set loopASC = 0
         set loopBSC = 0
         set loopCSC = 0
-        call DzFrameSetText(F_ArcanaText[6], "|cff5AD2FFX 0|r")
-        call DzFrameSetText(F_ArcanaText[7], "|cff5AD2FFX 0|r")
-        call DzFrameSetText(F_ArcanaText[8], "|cffFF0000X 0|r")
-        call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE40075%|r")
-        call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE40075%|r")
+        call DzFrameSetText(F_ArcanaText[6], "|cff168eaeX 0|r")
+        call DzFrameSetText(F_ArcanaText[7], "|cff168eaeX 0|r")
+        call DzFrameSetText(F_ArcanaText[8], "|cffc85e7bX 0|r")
+        call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae75%|r")
+        call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae75%|r")
 
         call DzFrameShow(F_ArcanaTextA[0], true)
         call DzFrameShow(F_ArcanaTextA[1], true)
@@ -130,17 +257,6 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetText(F_ArcanaTextC[0], "Lv 1")
         call DzFrameSetText(F_ArcanaTextC[1], "Lv 2")
         call DzFrameSetText(F_ArcanaTextC[2], "Lv 3")
-        call DzFrameSetPoint(F_ArcanaTextA[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.180, 0.2175)
-        call DzFrameSetPoint(F_ArcanaTextA[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.2175)
-        call DzFrameSetPoint(F_ArcanaTextA[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.255, 0.2175)
-        call DzFrameSetPoint(F_ArcanaTextA[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.2175)
-        call DzFrameSetPoint(F_ArcanaTextB[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.180, 0.1575)
-        call DzFrameSetPoint(F_ArcanaTextB[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.1575)
-        call DzFrameSetPoint(F_ArcanaTextB[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.255, 0.1575)
-        call DzFrameSetPoint(F_ArcanaTextB[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.1575)
-        call DzFrameSetPoint(F_ArcanaTextC[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.155, 0.0400)
-        call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.205, 0.0400)
-        call DzFrameSetPoint(F_ArcanaTextC[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.280, 0.0400)
         call StoneSetOpen(pid, true)
         return true
     endfunction
@@ -155,10 +271,10 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         
         call DzFrameShow(UI_Tip, true)
         if f == F_ArcanaButton2[1] then
-            //call DzFrameSetText(UI_Tip_Text[1], "|cFFFFE400"+ArcanaText[ArcanaOption[1]]+"|r")
+            //call DzFrameSetText(UI_Tip_Text[1], "|cff168eae"+ArcanaText[ArcanaOption[1]]+"|r")
             //call DzFrameSetText(UI_Tip_Text[2], " " + ArcanaText2[ArcanaOption[1]])
         elseif f == F_ArcanaButton2[2] then
-            //call DzFrameSetText(UI_Tip_Text[1], "|cFFFFE400"+ArcanaText[ArcanaOption[2]]+"|r")
+            //call DzFrameSetText(UI_Tip_Text[1], "|cff168eae"+ArcanaText[ArcanaOption[2]]+"|r")
             //call DzFrameSetText(UI_Tip_Text[2], " " + ArcanaText2[ArcanaOption[2]])
         elseif f == F_ArcanaButton2[3] then
             //call DzFrameSetText(UI_Tip_Text[1], "|cFFFF0000"+ArcanaText[ArcanaOption[3]]+"|r")
@@ -171,9 +287,42 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         //목걸이 0스탯, 1체력, 2품0, 3품질 5당 추가량
         //기타 0아이템아이디, 1중첩수
             
+    private function StoneBegin takes nothing returns nothing
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer slot
+        if GetLocalPlayer() != Player(pid) then
+            return
+        endif
+        if StoneResult[pid] != null and StoneResult[pid] != "" then
+            set slot = StoneSlot(pid, false)
+            if JNObjectCharacterServerConnectCheck() and slot != -1 then
+                call AddIvItem(pid, slot, StoneResult[pid])
+                set StoneResult[pid] = ""
+                set StoneActive[pid] = false
+            endif
+            call StoneRefresh(pid)
+        elseif not StoneActive[pid] then
+            call StoneStart(pid)
+        endif
+        call StoneRefresh(pid)
+    endfunction
+
     private function ClickButton takes nothing returns nothing
-        local integer f = DzGetTriggerUIEventFrame()
-        call DzSyncData(("Work"),I2S(f))
+        local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
+        local integer i = 1
+        if not StoneActive[pid] or StonePending[pid] then
+            return
+        endif
+        loop
+            exitwhen i > 3
+            if DzGetTriggerUIEventFrame() == F_ArcanaButton[i] then
+                set StonePending[pid] = true
+                call StoneRefresh(pid)
+                call DzSyncData("Work", I2S(i))
+                return
+            endif
+            set i = i + 1
+        endloop
     endfunction
     
     private function StoneOpen takes nothing returns nothing
@@ -181,196 +330,90 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call StoneSetOpen(pid, not F_StoneOnOff[pid])
     endfunction
     
-    private function Main takes nothing returns nothing
-        local string s
-        local integer i
-        call DzLoadToc("Templates.toc")
-        
-        //메뉴 배경
-        set F_StoneBackDrop=DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "template", FrameCount())
-        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
-        call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
-        call DzFrameSetSize(F_StoneBackDrop, 0.405, 0.475)
-        call DzFrameSetPriority(F_StoneBackDrop, 110)
 
-        //메뉴 취소 버튼
-        set F_StoneCancelButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", F_StoneBackDrop, "ScriptDialogButton", FrameCount())
-        call DzFrameSetPoint(F_StoneCancelButton, JN_FRAMEPOINT_TOPRIGHT, F_StoneBackDrop , JN_FRAMEPOINT_TOPRIGHT, -0.010, -0.010)
-        call DzFrameSetText(F_StoneCancelButton, "X")
-        call DzFrameSetSize(F_StoneCancelButton, 0.03, 0.03)
-        call DzFrameSetScriptByCode(F_StoneCancelButton, JN_FRAMEEVENT_MOUSE_UP, function StoneOpen, false)
-        
-        set F_StoneBackDrop2[1]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_StoneBackDrop2[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.225 )
-        call DzFrameSetSize(F_StoneBackDrop2[1], 0.270, 0.046)
-        set F_StoneBackDrop2[2]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_StoneBackDrop2[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.165)
-        call DzFrameSetSize(F_StoneBackDrop2[2], 0.270, 0.046)
-        set F_StoneBackDrop2[3]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_StoneBackDrop2[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.165, 0.050)
-        call DzFrameSetSize(F_StoneBackDrop2[3], 0.270, 0.046)
-        
-        set i = 0
+    private function StonePanel takes integer parent, string texture, real x, real y, real w, real h returns integer
+        local integer f = DzCreateFrameByTagName("BACKDROP", "", parent, "", FrameCount())
+        call DzFrameSetPoint(f, JN_FRAMEPOINT_CENTER, parent, JN_FRAMEPOINT_BOTTOMLEFT, x, y)
+        call DzFrameSetSize(f, w, h)
+        call DzFrameSetTexture(f, texture, 0)
+        return f
+    endfunction
+
+    private function StoneText takes integer parent, string value, real x, real y, real size returns integer
+        local integer f = DzCreateFrameByTagName("TEXT", "", parent, "", FrameCount())
+        call DzFrameSetPoint(f, JN_FRAMEPOINT_CENTER, parent, JN_FRAMEPOINT_BOTTOMLEFT, x, y)
+        call DzFrameSetText(f, value)
+        call DzFrameSetFont(f, "Fonts\\DFHeiMd.ttf", size, 0)
+        call DzFrameSetTextColor(f, JNConvertColor(255, 49, 90, 112))
+        return f
+    endfunction
+
+    private function Main takes nothing returns nothing
+        local integer i = 0
+        local integer row = 1
+        local integer label
+        local real y
+        call DzLoadToc("Templates.toc")
+        set F_StoneBackDrop = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
+        call DzFrameSetAbsolutePoint(F_StoneBackDrop, JN_FRAMEPOINT_CENTER, 0.3225, 0.2550)
+        call DzFrameSetSize(F_StoneBackDrop, 0.405, 0.475)
+        call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
+        call DzFrameSetPriority(F_StoneBackDrop, 110)
+        set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
+        set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.429, 0.010)
+        set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "부여 확률 75%", 0.110, 0.402, 0.010)
+        set F_ArcanaText[1] = StoneText(F_StoneBackDrop, "균열 확률 75%", 0.295, 0.402, 0.010)
+        set F_StoneCancelButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
+        call DzFrameSetSize(F_StoneCancelButton, 0.020, 0.020)
+        call DzFrameShow(F_StoneCancelButton, false)
         loop
-            set F_Arcana1[i]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-            call DzFrameSetPoint(F_Arcana1[i], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, (0.025 * i) + 0.053 , 0.230 )
-            call DzFrameSetSize(F_Arcana1[i], 0.02125 , 0.02125)
-            call DzFrameSetTexture(F_Arcana1[i], "UI_Arcana_Work1.blp", 0)
-            set F_Arcana2[i]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-            call DzFrameSetPoint(F_Arcana2[i], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, (0.025 * i) + 0.053 , 0.170 )
-            call DzFrameSetSize(F_Arcana2[i], 0.02125 , 0.02125)
-            call DzFrameSetTexture(F_Arcana2[i], "UI_Arcana_Work1.blp", 0)
-            set F_Arcana3[i]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-            call DzFrameSetPoint(F_Arcana3[i], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, (0.025 * i) + 0.053 , 0.055 )
-            call DzFrameSetSize(F_Arcana3[i], 0.02125 , 0.02125)
-            call DzFrameSetTexture(F_Arcana3[i], "UI_Arcana_Work3.blp", 0)
-        exitwhen i == 9
+            exitwhen row > 3
+            set y = 0.325 - (row - 1) * 0.092
+            set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.080)
+            if row < 3 then
+                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  단계별 3 / 3.75 / 5.25 / 6%", 0.180, y+0.025, 0.008)
+            else
+                set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "균열  ·  공격력 감소", 0.180, y+0.025, 0.009)
+            endif
+            set F_ArcanaText[row+5] = StoneText(F_StoneBackDrop, "0회 성공", 0.338, y+0.025, 0.008)
+            set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
+            call DzFrameSetPoint(F_ArcanaButton[row], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.340, y-0.008)
+            call DzFrameSetSize(F_ArcanaButton[row], 0.065, 0.029)
+            set F_ArcanaButton2BackDrop[row+3] = StonePanel(F_ArcanaButton[row], "war3mapImported\\UI_Upgrade_Action.tga", 0.0325, 0.0145, 0.065, 0.029)
+            set StoneButtonText[row] = StoneText(F_ArcanaButton[row], "부여", 0.0325, 0.0145, 0.009)
+            call DzFrameSetTextColor(StoneButtonText[row], JNConvertColor(255,255,255,255))
+            call DzFrameSetScriptByCode(F_ArcanaButton[row], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
+            call DzFrameSetEnable(F_ArcanaButton[row], false)
+            set row = row + 1
+        endloop
+        call DzFrameSetText(StoneButtonText[3], "균열")
+        loop
+            exitwhen i > 9
+            set F_Arcana1[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0.045+i*0.025, 0.320, 0.019, 0.020)
+            set F_Arcana2[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepEmpty.tga", 0.045+i*0.025, 0.228, 0.019, 0.020)
+            set F_Arcana3[i] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_StepRisk.tga", 0.045+i*0.025, 0.136, 0.019, 0.020)
             set i = i + 1
         endloop
-        
-        set F_ArcanaButton[1]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_ArcanaButton[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.330, 0.225 )
-        call DzFrameSetSize(F_ArcanaButton[1], 0.060 , 0.040)
-        call DzFrameSetScriptByCode(F_ArcanaButton[1], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
-        set F_ArcanaButton2BackDrop[4]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaButton[1], "", FrameCount())
-        call DzFrameSetAllPoints(F_ArcanaButton2BackDrop[4], F_ArcanaButton[1])
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[4],"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
-        set F_ArcanaButton[2]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_ArcanaButton[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.330, 0.165 )
-        call DzFrameSetSize(F_ArcanaButton[2], 0.060 , 0.040)
-        call DzFrameSetScriptByCode(F_ArcanaButton[2], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
-        set F_ArcanaButton2BackDrop[5]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaButton[2], "", FrameCount())
-        call DzFrameSetAllPoints(F_ArcanaButton2BackDrop[5], F_ArcanaButton[2])
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[5],"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
-        set F_ArcanaButton[3]=DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate",  FrameCount())
-        call DzFrameSetPoint(F_ArcanaButton[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.330, 0.05)
-        call DzFrameSetSize(F_ArcanaButton[3], 0.060 , 0.040)
-        call DzFrameSetScriptByCode(F_ArcanaButton[3], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
-        set F_ArcanaButton2BackDrop[6]=DzCreateFrameByTagName("BACKDROP", "", F_ArcanaButton[3], "", FrameCount())
-        call DzFrameSetAllPoints(F_ArcanaButton2BackDrop[6], F_ArcanaButton[3])
-        call DzFrameSetTexture(F_ArcanaButton2BackDrop[6],"ReplaceableTextures\\CommandButtons\\BTNAnvil.blp", 0)
-        
-        set F_ArcanaText[0]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[0], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.330, 0.255 )
-        call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75) + "%|r")
-        call DzFrameSetFont(F_ArcanaText[0], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaText[1]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[1], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.330, 0.080 )
-        call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75) + "%|r")
-        call DzFrameSetFont(F_ArcanaText[1], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        
-        set F_ArcanaText[3]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[3], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.135, 0.255 )
-        call DzFrameSetText(F_ArcanaText[3], "|cff5AD2FF" + "Lv 마다 3/3.75/5.25/6% 대미지 증가|r")
-        call DzFrameSetFont(F_ArcanaText[3], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[3], JN_TEXT_JUSTIFY_MIDDLE)
-        set F_ArcanaText[4]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[4], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[4], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.135, 0.195 )
-        call DzFrameSetText(F_ArcanaText[4], "|cff5AD2FF" + "Lv 마다 3/3.75/5.25/6% 대미지 증가|r")
-        call DzFrameSetFont(F_ArcanaText[4], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[4], JN_TEXT_JUSTIFY_MIDDLE)
-        set F_ArcanaText[5]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[5], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[5], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.065, 0.080 )
-        call DzFrameSetText(F_ArcanaText[5], "|cffFF0000" + "공격력 감소|r")
-        call DzFrameSetFont(F_ArcanaText[5], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[5], JN_TEXT_JUSTIFY_MIDDLE)
-        
-        set F_ArcanaText[6]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[6], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[6], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.275, 0.255 )
-        call DzFrameSetText(F_ArcanaText[6], "|cff5AD2FFX " + "0" + "|r")
-        call DzFrameSetFont(F_ArcanaText[6], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[6], JN_TEXT_JUSTIFY_MIDDLE)
-        set F_ArcanaText[7]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[7], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[7], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.275, 0.195)
-        call DzFrameSetText(F_ArcanaText[7], "|cff5AD2FFX " + "0" + "|r")
-        call DzFrameSetFont(F_ArcanaText[7], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[7], JN_TEXT_JUSTIFY_MIDDLE)
-        set F_ArcanaText[8]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaText[8], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaText[8], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.275, 0.080 )
-        call DzFrameSetText(F_ArcanaText[8], "|cffFF0000X " + "0" + "|r")
-        call DzFrameSetFont(F_ArcanaText[8], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaText[8], JN_TEXT_JUSTIFY_MIDDLE)
-        
-        set F_Arcana1[10]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_Arcana1[10], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.255, 0.255)
-        call DzFrameSetSize(F_Arcana1[10], 0.02125 , 0.02125)
-        call DzFrameSetTexture(F_Arcana1[10], "UI_Arcana_Work2.blp", 0)
-        set F_Arcana2[11]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_Arcana2[11], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.255 , 0.195)
-        call DzFrameSetSize(F_Arcana2[11], 0.02125 , 0.02125)
-        call DzFrameSetTexture(F_Arcana2[11], "UI_Arcana_Work2.blp", 0)
-        set F_Arcana3[12]=DzCreateFrameByTagName("BACKDROP", "", F_StoneBackDrop, "StandardEditBoxBackdropTemplate", FrameCount())
-        call DzFrameSetPoint(F_Arcana3[12], JN_FRAMEPOINT_CENTER, F_StoneBackDrop , JN_FRAMEPOINT_BOTTOMLEFT, 0.255 , 0.080)
-        call DzFrameSetSize(F_Arcana3[12], 0.02125 , 0.02125)
-        call DzFrameSetTexture(F_Arcana3[12], "UI_Arcana_Work4.blp", 0)
-        
-        set F_ArcanaTextA[0]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextA[0], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextA[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( 0 * 0.025), 0.2175 )
-        call DzFrameSetText(F_ArcanaTextA[0], "Lv 1")
-        call DzFrameSetFont(F_ArcanaTextA[0], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextA[1]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextA[1], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextA[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.2175 )
-        call DzFrameSetText(F_ArcanaTextA[1], "Lv 2")
-        call DzFrameSetFont(F_ArcanaTextA[1], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextA[2]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextA[2], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextA[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( 0 * 0.025), 0.2175 )
-        call DzFrameSetText(F_ArcanaTextA[2], "Lv 3")
-        call DzFrameSetFont(F_ArcanaTextA[2], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextA[3]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextA[3], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextA[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.2175 )
-        call DzFrameSetText(F_ArcanaTextA[3], "Lv 4")
-        call DzFrameSetFont(F_ArcanaTextA[3], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-
-        set F_ArcanaTextB[0]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextB[0], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextB[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( 0 * 0.025), 0.1575 )
-        call DzFrameSetText(F_ArcanaTextB[0], "Lv 1")
-        call DzFrameSetFont(F_ArcanaTextB[0], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextB[1]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextB[1], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextB[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.1575 )
-        call DzFrameSetText(F_ArcanaTextB[1], "Lv 2")
-        call DzFrameSetFont(F_ArcanaTextB[1], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextB[2]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextB[2], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextB[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( 0 * 0.025), 0.1575 )
-        call DzFrameSetText(F_ArcanaTextB[2], "Lv 3")
-        call DzFrameSetFont(F_ArcanaTextB[2], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextB[3]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextB[3], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextB[3], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.1575 )
-        call DzFrameSetText(F_ArcanaTextB[3], "Lv 4")
-        call DzFrameSetFont(F_ArcanaTextB[3], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-
-        set F_ArcanaTextC[0]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextC[0], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextC[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.155 + ( 0 * 0.025), 0.0400 )
-        call DzFrameSetText(F_ArcanaTextC[0], "Lv 1")
-        call DzFrameSetFont(F_ArcanaTextC[0], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        call DzFrameSetTextAlignment(F_ArcanaTextC[0], JN_TEXT_JUSTIFY_MIDDLE)
-        set F_ArcanaTextC[1]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextC[1], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( 0 * 0.025), 0.0400 )
-        call DzFrameSetText(F_ArcanaTextC[1], "Lv 2")
-        call DzFrameSetFont(F_ArcanaTextC[1], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        set F_ArcanaTextC[2]=DzCreateFrameByTagName("TEXT", "", F_StoneBackDrop, "", FrameCount())
-        call DzFrameSetTextColor(F_ArcanaTextC[2], JNConvertColor(255, 49, 90, 112))
-        call DzFrameSetPoint(F_ArcanaTextC[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.280 + ( 0 * 0.025), 0.0400 )
-        call DzFrameSetText(F_ArcanaTextC[2], "Lv 3")
-        call DzFrameSetFont(F_ArcanaTextC[2], "Fonts\\DFHeiMd.ttf", 0.010, 0)
-        
+        set i = 0
+        loop
+            exitwhen i > 3
+            set F_ArcanaTextA[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.296, 0.008)
+            set F_ArcanaTextB[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.204, 0.008)
+            if i < 3 then
+                set F_ArcanaTextC[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.080+i*0.080, 0.112, 0.008)
+            endif
+            set i = i + 1
+        endloop
+        set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.072, 0.009)
+        call DzFrameSetSize(StoneStatus, 0.355, 0.028)
+        call DzFrameSetTextAlignment(StoneStatus, JN_TEXT_JUSTIFY_CENTER)
+        set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
+        call DzFrameSetPoint(StoneStartButton, JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.035)
+        call DzFrameSetSize(StoneStartButton, 0.170, 0.036)
+        set StoneStartBD = StonePanel(StoneStartButton, "war3mapImported\\UI_Upgrade_Action.tga", 0.085, 0.018, 0.170, 0.036)
+        set StoneStartText = StoneText(StoneStartButton, "부여 시작", 0.085, 0.018, 0.011)
+        call DzFrameSetTextColor(StoneStartText, JNConvertColor(255,255,255,255))
+        call DzFrameSetScriptByCode(StoneStartButton, JN_FRAMEEVENT_MOUSE_UP, function StoneBegin, false)
         call DzFrameShow(F_StoneBackDrop, false)
     endfunction
     
@@ -398,6 +441,11 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         local string sn = I2S(PlayerSlotNumber[pid])
         
         if p == GetLocalPlayer() then
+            set StonePending[pid] = false
+            if not StoneActive[pid] or f < 1 or f > 3 or (StoneResult[pid] != null and StoneResult[pid] != "") then
+                set p = null
+                return
+            endif
             set loopA = 0
             loop
                 exitwhen Arcana1[loopA] == 0 or loopA == 10
@@ -420,32 +468,32 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             
             //if JNObjectCharacterServerConnectCheck( ) then
             if JNObjectCharacterServerConnectCheck() then
-                if f == F_ArcanaButton[1] then
+                if f == 1 then
                     if loopA != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana1[loopA], "UI_Arcana_Work2.blp", 0)
+                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
                             set Arcana1[loopA] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaA = ArcanaA + 1
                             if ArcanaA == 6 then
-                                call DzFrameSetText(F_ArcanaTextA[0], "|cff5AD2FF"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextA[0], "|cff168eae"+ "Lv 1|r")
                             endif
                             if ArcanaA == 7 then
-                                call DzFrameSetText(F_ArcanaTextA[1], "|cff5AD2FF"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextA[1], "|cff168eae"+ "Lv 2|r")
                             endif
                             if ArcanaA == 9 then
-                                call DzFrameSetText(F_ArcanaTextA[2], "|cff5AD2FF"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextA[2], "|cff168eae"+ "Lv 3|r")
                             endif
                             if ArcanaA == 10 then
-                                call DzFrameSetText(F_ArcanaTextA[3], "|cff5AD2FF"+ "Lv 4|r")
+                                call DzFrameSetText(F_ArcanaTextA[3], "|cff168eae"+ "Lv 4|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[6], "|cff5AD2FFX " + I2S(ArcanaA) + "|r")
+                            call DzFrameSetText(F_ArcanaText[6], "|cff168eaeX " + I2S(ArcanaA) + "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -457,27 +505,24 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana1[loopA], "UI_Arcana_Work0.blp", 0)
+                            call DzFrameSetTexture(F_Arcana1[loopA], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
                             set Arcana1[loopA] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopASC = loopASC + 1
                             if loopASC < 5 then
-                                call DzFrameSetPoint(F_ArcanaTextA[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( loopASC * 0.025), 0.2175 )
                             elseif loopASC == 5 then
                                 call DzFrameShow(F_ArcanaTextA[0],false)
                             endif
                             if loopASC < 4 then
-                                call DzFrameSetPoint(F_ArcanaTextA[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( loopASC * 0.025), 0.2175 )
                             elseif loopASC == 4 then
                                 call DzFrameShow(F_ArcanaTextA[1],false)
                             endif
                             if loopASC < 2 then
-                                call DzFrameSetPoint(F_ArcanaTextA[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( loopASC * 0.025), 0.2175 )
                             elseif loopASC == 2 then
                                 call DzFrameShow(F_ArcanaTextA[2],false)
                             endif
@@ -496,32 +541,32 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                         endif
                         set loopA = loopA + 1
                     endif
-                elseif f == F_ArcanaButton[2] then
+                elseif f == 2 then
                     if loopB != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana2[loopB], "UI_Arcana_Work2.blp", 0)
+                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepSuccess.tga", 0)
                             set Arcana2[loopB] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaB = ArcanaB + 1
                             if ArcanaB == 6 then
-                                call DzFrameSetText(F_ArcanaTextB[0], "|cff5AD2FF"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextB[0], "|cff168eae"+ "Lv 1|r")
                             endif
                             if ArcanaB == 7 then
-                                call DzFrameSetText(F_ArcanaTextB[1], "|cff5AD2FF"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextB[1], "|cff168eae"+ "Lv 2|r")
                             endif
                             if ArcanaB == 9 then
-                                call DzFrameSetText(F_ArcanaTextB[2], "|cff5AD2FF"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextB[2], "|cff168eae"+ "Lv 3|r")
                             endif
                             if ArcanaB == 10 then
-                                call DzFrameSetText(F_ArcanaTextB[3], "|cff5AD2FF"+ "Lv 4|r")
+                                call DzFrameSetText(F_ArcanaTextB[3], "|cff168eae"+ "Lv 4|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[7], "|cff5AD2FFX " + I2S(ArcanaB) + "|r")
+                            call DzFrameSetText(F_ArcanaText[7], "|cff168eaeX " + I2S(ArcanaB) + "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -533,27 +578,24 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana2[loopB], "UI_Arcana_Work0.blp", 0)
+                            call DzFrameSetTexture(F_Arcana2[loopB], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
                             set Arcana2[loopB] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopBSC = loopBSC + 1
                             if loopBSC < 5 then
-                                call DzFrameSetPoint(F_ArcanaTextB[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.180 + ( loopBSC * 0.025), 0.1575 )
                             elseif loopBSC == 5 then
                                 call DzFrameShow(F_ArcanaTextB[0],false)
                             endif
                             if loopBSC < 4 then
-                                call DzFrameSetPoint(F_ArcanaTextB[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( loopBSC * 0.025), 0.1575 )
                             elseif loopBSC == 4 then
                                 call DzFrameShow(F_ArcanaTextB[1],false)
                             endif
                             if loopBSC < 2 then
-                                call DzFrameSetPoint(F_ArcanaTextB[2], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.255 + ( loopBSC * 0.025), 0.1575 )
                             elseif loopBSC == 2 then
                                 call DzFrameShow(F_ArcanaTextB[2],false)
                             endif
@@ -581,29 +623,29 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                         endif
                         set loopB = loopB + 1
                     endif
-                elseif f == F_ArcanaButton[3] then
+                elseif f == 3 then
                     if loopC != 10 then
                         if (75 - (ArcanaProbability * 10 )) >= i then
                             //성공
-                            call DzFrameSetTexture(F_Arcana3[loopC], "UI_Arcana_Work4.blp", 0)
+                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepPenalty.tga", 0)
                             set Arcana3[loopC] = 1
                             set ArcanaProbability = ArcanaProbability + 1
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaC = ArcanaC + 1
                             if ArcanaC == 5 then
-                                call DzFrameSetText(F_ArcanaTextC[0], "|cffFF0000"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextC[0], "|cffc85e7b"+ "Lv 1|r")
                             endif
                             if ArcanaC == 7 then
-                                call DzFrameSetText(F_ArcanaTextC[1], "|cffFF0000"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextC[1], "|cffc85e7b"+ "Lv 2|r")
                             endif
                             if ArcanaC == 10 then
-                                call DzFrameSetText(F_ArcanaTextC[2], "|cffFF0000"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextC[2], "|cffc85e7b"+ "Lv 3|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[8], "|cffFF0000X " + I2S(ArcanaC)+ "|r")
+                            call DzFrameSetText(F_ArcanaText[8], "|cffc85e7bX " + I2S(ArcanaC)+ "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -615,22 +657,20 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             endif
                         else
                             //실패
-                            call DzFrameSetTexture(F_Arcana3[loopC], "UI_Arcana_Work0.blp", 0)
+                            call DzFrameSetTexture(F_Arcana3[loopC], "war3mapImported\\UI_Upgrade_StepFail.tga", 0)
                             set Arcana3[loopC] = 2
                             set ArcanaProbability = ArcanaProbability - 1
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cFFFFE400" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopCSC = loopCSC + 1
                             if loopCSC < 6 then
-                                call DzFrameSetPoint(F_ArcanaTextC[0], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.155 + ( loopCSC * 0.025), 0.0400 )
                             elseif loopCSC == 6 then
                                 call DzFrameShow(F_ArcanaTextC[0],false)
                             endif
                             if loopCSC < 4 then
-                                call DzFrameSetPoint(F_ArcanaTextC[1], JN_FRAMEPOINT_CENTER, F_StoneBackDrop ,  JN_FRAMEPOINT_BOTTOMLEFT, 0.205 + ( loopCSC * 0.025), 0.0400 )
                             elseif loopCSC == 4 then
                                 call DzFrameShow(F_ArcanaTextC[1],false)
                             endif
@@ -652,79 +692,52 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 endif
                 
                 if loopA == 10 and loopB == 10 and loopC == 10 then
-                    set i = 0
-                    set A = 0
-                    set B = 0
-                    set C = 0
-                    loop
-                        if Arcana1[i] == 1 then
-                            set A = A + 1
-                        endif
-                        if Arcana2[i] == 1 then
-                            set B = B + 1
-                        endif
-                        if Arcana3[i] == 1 then
-                            set C = C + 1
-                        endif
-                    exitwhen i == 9
-                        set i = i + 1
-                    endloop
-                    
-                    set i = 0
-                    loop
-                        exitwhen i == 50
-                        //비어있는 공간이 있음
-                        if GetItemIDs(StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(i), "0")) == 0 then
-                            set items = "ID13;"
-                            if A >= 10 then
-                                set A = 4
-                            elseif A >= 9 then
-                                set A = 3
-                            elseif A >= 7 then
-                                set A = 2
-                            elseif A >= 6 then
-                                set A = 1
-                            else
-                                set A = 0
-                            endif
-                            set items = SetItemCardBonus1(items,A)
-                            if B >= 10 then
-                                set B = 4
-                            elseif B >= 9 then
-                                set B = 3
-                            elseif B >= 7 then
-                                set B = 2
-                            elseif B >= 6 then
-                                set B = 1
-                            else
-                                set B = 0
-                            endif
-                            set items = SetItemCardBonus2(items,B)
-                            if C >= 10 then
-                                set C = 3
-                            elseif C >= 7 then
-                                set C = 2
-                            elseif C >= 5 then
-                                set C = 1
-                            else
-                                set C = 0
-                            endif
-                            set items = SetItemCardBonus3(items,C)
-                            call AddIvItem(pid,i,items)
-                            set items = ""
-                            set i = 49
-                            //저장
-                            //call CharacterSave(true , SLNumber)
-                        endif
-                        set i = i + 1
-                    endloop
-                    //call DzFrameShow(F_StoneBackDrop, false)
-                    //set F_StoneOnOff[pid] = false
+                    set A = ArcanaA
+                    set B = ArcanaB
+                    set C = ArcanaC
+                    set items = "ID13;"
+                    if A >= 10 then
+                        set A = 4
+                    elseif A >= 9 then
+                        set A = 3
+                    elseif A >= 7 then
+                        set A = 2
+                    elseif A >= 6 then
+                        set A = 1
+                    else
+                        set A = 0
+                    endif
+                    set items = SetItemCardBonus1(items,A)
+                    if B >= 10 then
+                        set B = 4
+                    elseif B >= 9 then
+                        set B = 3
+                    elseif B >= 7 then
+                        set B = 2
+                    elseif B >= 6 then
+                        set B = 1
+                    else
+                        set B = 0
+                    endif
+                    set items = SetItemCardBonus2(items,B)
+                    if C >= 10 then
+                        set C = 3
+                    elseif C >= 7 then
+                        set C = 2
+                    elseif C >= 5 then
+                        set C = 1
+                    else
+                        set C = 0
+                    endif
+                    set items = SetItemCardBonus3(items,C)
+                    set StoneResult[pid] = items
+                    set StoneActive[pid] = false
                 endif
             else
                 call VJDebugMsg("서버에 연결되지 않았습니다.")
             endif
         endif
+        call StoneRefresh(pid)
         set p=null
     endfunction
         
