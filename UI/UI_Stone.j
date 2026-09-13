@@ -430,9 +430,14 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetPriority(F_StoneBackDrop, 110)
         set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
+<<<<<<< Updated upstream
         set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.429, 0.010)
         set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "부여 확률 75%", 0.110, 0.402, 0.010)
         set F_ArcanaText[1] = StoneText(F_StoneBackDrop, "균열 확률 75%", 0.295, 0.402, 0.010)
+=======
+        set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.072, 0.010)
+        set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "세공 확률 75%", 0.2025, 0.421, 0.014)
+>>>>>>> Stashed changes
         set F_StoneCancelButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetSize(F_StoneCancelButton, 0.020, 0.020)
         call DzFrameShow(F_StoneCancelButton, false)
@@ -476,8 +481,13 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             set i = i + 1
         endloop
+<<<<<<< Updated upstream
         set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.072, 0.009)
         call DzFrameSetSize(StoneStatus, 0.355, 0.028)
+=======
+        set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.008, 0.008)
+        call DzFrameSetSize(StoneStatus, 0.355, 0.014)
+>>>>>>> Stashed changes
         call DzFrameSetTextAlignment(StoneStatus, JN_TEXT_JUSTIFY_CENTER)
         set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(StoneStartButton, JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.035)
