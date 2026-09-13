@@ -79,6 +79,8 @@ function model(file,names,localPlayer=0){
 }
 const cardNames=['StoneSlot','StoneServerReady','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
 const card=model('UI/UI_Stone.j',cardNames),c=card.env;
+assert.equal(c.StoneTemporaryMode,true);
+c.StoneTemporaryMode=false;
 c.F_StoneBackDrop=100;c.F_ArcanaButton[1]=101;c.F_ArcanaButton[2]=102;c.F_ArcanaButton[3]=103;
 card.items.set('0:영웅1.아이템50','ID39;C2;');
 // 기본값, 빈 문자열, null을 반환하는 슬롯이 있어도 파서에 넘기면 안 됩니다.
@@ -101,6 +103,21 @@ for(let i=0;i<50;i++)card.items.set('0:영웅1.아이템'+i,'ID1;');
 c.StoneBegin();assert.equal(card.awards(),0);assert(c.StoneResult[0]);
 card.items.delete('0:영웅1.아이템2');c.StoneBegin();assert.equal(card.awards(),1);assert.equal(c.StoneResult[0],'');
 console.log('Card: preview without consumption, prerequisites, single start charge, pending click, tab persistence, completed result retention/claim passed.');
+// 임시 모드는 서버와 재료 없이 시작/진행/수령하며 기존 재료를 차감하지 않습니다.
+const temporary=model('UI/UI_Stone.j',cardNames),tc=temporary.env;
+tc.connected=false;tc.F_ArcanaButton[1]=101;
+tc.StoneSetOpen(0,true);tc.StoneBegin();assert.equal(tc.StoneActive[0],true);
+assert.equal(tc.serverChecks,0);
+temporary.items.set('0:영웅1.아이템50','ID39;C2;');
+tc.StoneBegin();assert.equal(temporary.items.get('0:영웅1.아이템50'),'ID39;C2;');
+for(let row=1;row<=3;row++)for(let step=0;step<10;step++){tc.syncData=String(row);tc.ButtonWork();}
+assert(tc.StoneResult[0]);
+for(let i=0;i<50;i++)temporary.items.set('0:영웅1.아이템'+i,'ID1;');
+tc.StoneBegin();assert.equal(temporary.awards(),0);assert(tc.StoneResult[0]);
+temporary.items.delete('0:영웅1.아이템2');tc.StoneBegin();tc.StoneBegin();
+assert.equal(temporary.awards(),1);assert.equal(tc.serverChecks,0);
+assert.equal(temporary.items.get('0:영웅1.아이템50'),'ID39;C2;');
+console.log('Temporary card: offline start, no material consumption, complete progression and inventory-gated claim passed.');
 const elNames=['NormalizeWeights','SetupPaths','GetPathChance','ElRefresh','ElSend','ElixirSetOpen','ClickLButton','ClickLButton2','ClickLButton3','SyncElixirOpen'];
 for(const localPlayer of [0,1]){
   const el=model('UI/UI_Elixir.j',elNames,localPlayer),e=el.env;
