@@ -27,6 +27,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer ArcanaB = 0
         integer ArcanaC = 0
         
+        // 임시 구현 동안 엘릭서처럼 서버/재료 없이 진행합니다. 정식 적용 시 false로 변경합니다.
+        private boolean StoneTemporaryMode = true
         private boolean array StoneActive
         private boolean array StonePending
         private string array StoneResult
@@ -69,6 +71,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
     endfunction
 
     private function StoneServerReady takes integer pid returns boolean
+        if StoneTemporaryMode then
+            return true
+        endif
         // 서버 초기화에 실패한 테스트 세션에서는 연결 검사 네이티브를 호출하지 않습니다.
         if not PLAYER_DATA_SERVER_READY[pid] then
             return false
@@ -101,7 +106,16 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         endloop
         call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
         // 화면 갱신에서는 서버를 조회하지 않고 완료된 데이터 수신 상태만 표시합니다.
-        if not PLAYER_DATA_SERVER_READY[pid] then
+        if StoneTemporaryMode then
+            call DzFrameSetText(StoneMaterial, "임시 진행  /  재료 소모 없음")
+            set reason = "재료 없이 카드 부여를 시작할 수 있습니다."
+            if StoneSlot(pid, false) == -1 then
+                set reason = "결과 수령 시 장비 창에 빈 공간이 필요합니다."
+                if StoneResult[pid] != null and StoneResult[pid] != "" then
+                    set ready = false
+                endif
+            endif
+        elseif not PLAYER_DATA_SERVER_READY[pid] then
             set reason = "서버 데이터를 불러온 후 카드 부여를 시작할 수 있습니다."
             set ready = false
         elseif StoneSlot(pid, false) == -1 then
@@ -118,7 +132,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
         elseif StoneActive[pid] then
             call DzFrameSetText(StoneStartText, "부여 진행 중")
-            if PLAYER_DATA_SERVER_READY[pid] then
+            if StoneTemporaryMode or PLAYER_DATA_SERVER_READY[pid] then
                 set reason = "탭을 이동하거나 닫아도 현재 부여는 유지됩니다."
             endif
             set ready = false
@@ -135,7 +149,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         // 조건이 바뀐 뒤에도 클릭으로 재검사할 수 있으며 차감은 StoneStart에서만 수행합니다.
         loop
             exitwhen i > 3
-            call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and PLAYER_DATA_SERVER_READY[pid])
+            call DzFrameSetEnable(F_ArcanaButton[i], StoneActive[pid] and not StonePending[pid] and (StoneTemporaryMode or PLAYER_DATA_SERVER_READY[pid]))
             if not StoneActive[pid] or StonePending[pid] or (i == 1 and Arcana1[9] != 0) or (i == 2 and Arcana2[9] != 0) or (i == 3 and Arcana3[9] != 0) then
                 call DzFrameSetEnable(F_ArcanaButton[i], false)
                 call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
@@ -210,23 +224,25 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         if StoneResult[pid] != null and StoneResult[pid] != "" then
             return false
         endif
-        if not StoneServerReady(pid) then
-            call StoneRefresh(pid)
-            call DzFrameSetText(StoneStatus, "서버 연결을 확인할 수 없어 시작하지 않았습니다.")
-            return false
-        endif
-        if StoneSlot(pid, false) == -1 or StoneSlot(pid, true) == -1 then
-            call StoneRefresh(pid)
-            return false
-        endif
-        set cardSlot = StoneSlot(pid, true)
-        set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
-        set charge = GetItemCharge(items)
-        if charge <= 1 then
-            call DzFrameSetTexture(F_ItemButtonsBackDrop[cardSlot], "UI_Inventory.blp", 0)
-            call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot))
-        else
-            call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
+        if not StoneTemporaryMode then
+            if not StoneServerReady(pid) then
+                call StoneRefresh(pid)
+                call DzFrameSetText(StoneStatus, "서버 연결을 확인할 수 없어 시작하지 않았습니다.")
+                return false
+            endif
+            if StoneSlot(pid, false) == -1 or StoneSlot(pid, true) == -1 then
+                call StoneRefresh(pid)
+                return false
+            endif
+            set cardSlot = StoneSlot(pid, true)
+            set items = StashLoad(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), "0")
+            set charge = GetItemCharge(items)
+            if charge <= 1 then
+                call DzFrameSetTexture(F_ItemButtonsBackDrop[cardSlot], "UI_Inventory.blp", 0)
+                call StashRemove(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot))
+            else
+                call StashSave(PLAYER_DATA[pid], "영웅"+sn+".아이템"+I2S(cardSlot), SetItemCharge(items, charge-1))
+            endif
         endif
         set StoneActive[pid] = true
         set StonePending[pid] = false
