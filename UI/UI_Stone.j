@@ -415,7 +415,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set y = 0.325 - (row - 1) * 0.092
             set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.080)
             if row < 3 then
-                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  단계별 3 / 3.75 / 5.25 / 6%", 0.180, y+0.025, 0.008)
+                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  단계별 6 / 7.5 / 10.5 / 12%", 0.180, y+0.025, 0.008)
             else
                 set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "균열  ·  공격력 감소", 0.180, y+0.025, 0.009)
             endif
