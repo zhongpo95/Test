@@ -83,9 +83,32 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
 
     private function StoneStageText takes integer count, integer threshold, string value, string color returns string
         if count >= threshold then
-            return color + value + "|r"
+            return color + "✓ " + value + "|r"
         endif
         return "|cff7896a6" + value + "|r"
+    endfunction
+
+    private function StoneCurrentText takes integer count, boolean penalty returns string
+        if penalty then
+            if count >= 10 then
+                return "현재 공격력 감소 Lv 3"
+            elseif count >= 7 then
+                return "현재 공격력 감소 Lv 2"
+            elseif count >= 5 then
+                return "현재 공격력 감소 Lv 1"
+            endif
+            return "현재 공격력 감소 Lv 0 · 효과 없음"
+        endif
+        if count >= 10 then
+            return "현재 Lv 4 · 12%"
+        elseif count >= 9 then
+            return "현재 Lv 3 · 10.5%"
+        elseif count >= 7 then
+            return "현재 Lv 2 · 7.5%"
+        elseif count >= 6 then
+            return "현재 Lv 1 · 6%"
+        endif
+        return "현재 Lv 0 · 효과 없음"
     endfunction
 
     private function StoneRefresh takes integer pid returns nothing
@@ -165,9 +188,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             set i = i + 1
         endloop
-        call DzFrameSetText(F_ArcanaText[3], "대미지 증가 1  ·  " + StoneStageText(ArcanaA, 6, "6", "|cff168eae") + " / " + StoneStageText(ArcanaA, 7, "7.5", "|cff168eae") + " / " + StoneStageText(ArcanaA, 9, "10.5", "|cff168eae") + " / " + StoneStageText(ArcanaA, 10, "12", "|cff168eae") + "%")
-        call DzFrameSetText(F_ArcanaText[4], "대미지 증가 2  ·  " + StoneStageText(ArcanaB, 6, "6", "|cff168eae") + " / " + StoneStageText(ArcanaB, 7, "7.5", "|cff168eae") + " / " + StoneStageText(ArcanaB, 9, "10.5", "|cff168eae") + " / " + StoneStageText(ArcanaB, 10, "12", "|cff168eae") + "%")
-        call DzFrameSetText(F_ArcanaText[5], "공격력 감소(카드 단독)  ·  " + StoneStageText(ArcanaC, 5, "0", "|cffc85e7b") + " / " + StoneStageText(ArcanaC, 7, "4", "|cffc85e7b") + " / " + StoneStageText(ArcanaC, 10, "8", "|cffc85e7b") + "%")
+        call DzFrameSetText(F_ArcanaText[3], "대미지 증가 1 · " + StoneCurrentText(ArcanaA, false))
+        call DzFrameSetText(F_ArcanaText[4], "대미지 증가 2 · " + StoneCurrentText(ArcanaB, false))
+        call DzFrameSetText(F_ArcanaText[5], StoneCurrentText(ArcanaC, true))
         call DzFrameSetText(F_ArcanaText[6], I2S(ArcanaA)+"회 성공")
         call DzFrameSetText(F_ArcanaText[7], I2S(ArcanaB)+"회 성공")
         call DzFrameSetText(F_ArcanaText[8], I2S(ArcanaC)+"회 균열")
@@ -180,8 +203,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             call DzFrameShow(F_ArcanaTextA[i], true)
             call DzFrameShow(F_ArcanaTextB[i], true)
-            call DzFrameSetText(F_ArcanaTextA[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
-            call DzFrameSetText(F_ArcanaTextB[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+            call DzFrameSetText(F_ArcanaTextA[i], StoneStageText(ArcanaA, threshold, I2S(threshold)+"회 · Lv "+I2S(i+1), "|cff168eae"))
+            call DzFrameSetText(F_ArcanaTextB[i], StoneStageText(ArcanaB, threshold, I2S(threshold)+"회 · Lv "+I2S(i+1), "|cff168eae"))
             call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 120, 150, 166))
             call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 120, 150, 166))
             if ArcanaA >= threshold then
@@ -196,7 +219,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                     set threshold = 10
                 endif
                 call DzFrameShow(F_ArcanaTextC[i], true)
-                call DzFrameSetText(F_ArcanaTextC[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
+                call DzFrameSetText(F_ArcanaTextC[i], StoneStageText(ArcanaC, threshold, I2S(threshold)+"회 · Lv "+I2S(i+1), "|cffc85e7b"))
                 call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 120, 150, 166))
                 if ArcanaC >= threshold then
                     call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 200, 94, 123))
@@ -430,6 +453,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetPriority(F_StoneBackDrop, 110)
         set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
+        set label = StoneText(F_StoneBackDrop, "공격력 감소 레벨은 다른 장비와 합산됩니다.", 0.2025, 0.451, 0.008)
         set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.429, 0.010)
         set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "부여 확률 75%", 0.110, 0.402, 0.010)
         set F_ArcanaText[1] = StoneText(F_StoneBackDrop, "균열 확률 75%", 0.295, 0.402, 0.010)
@@ -441,10 +465,14 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set y = 0.325 - (row - 1) * 0.092
             set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.080)
             if row < 3 then
-                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  단계별 6 / 7.5 / 10.5 / 12%", 0.180, y+0.025, 0.008)
+                set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_BadgeGain.tga", 0.175, y+0.025, 0.265, 0.022)
+                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+" · 현재 Lv 0 · 효과 없음", 0.175, y+0.025, 0.008)
             else
-                set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "공격력 감소(카드 단독)  ·  0 / 4 / 8%", 0.180, y+0.025, 0.008)
+                set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_BadgePenalty.tga", 0.175, y+0.025, 0.265, 0.022)
+                set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "현재 공격력 감소 Lv 0 · 효과 없음", 0.175, y+0.025, 0.008)
             endif
+            call DzFrameSetEnable(label, false)
+            call DzFrameSetTextColor(F_ArcanaText[row+2], JNConvertColor(255, 255, 255, 255))
             set F_ArcanaText[row+5] = StoneText(F_StoneBackDrop, "0회 성공", 0.338, y+0.025, 0.008)
             set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetPoint(F_ArcanaButton[row], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.340, y-0.008)
