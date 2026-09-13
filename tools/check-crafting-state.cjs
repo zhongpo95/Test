@@ -79,17 +79,14 @@ function model(file,names,localPlayer=0){
 }
 const cardNames=['StoneStageText','StoneSlot','StoneServerReady','StoneRefresh','StoneStart','StoneBegin','StoneSetOpen','ClickButton','ButtonWork'];
 const card=model('UI/UI_Stone.j',cardNames),c=card.env;
-<<<<<<< HEAD
 assert.equal(c.StoneTemporaryMode,true);
 c.StoneTemporaryMode=false;
-=======
 // 달성 경계와 새 세션의 미달성 색상 복원을 확인합니다.
 for(const threshold of [5,6,7,9,10]){
   assert.equal(c.StoneStageText(threshold-1,threshold,'6','|cff168eae'),'|cff7896a66|r');
   assert.equal(c.StoneStageText(threshold,threshold,'6','|cff168eae'),'|cff168eae6|r');
 }
 assert.equal(c.StoneStageText(7,7,'4','|cffc85e7b'),'|cffc85e7b4|r');
->>>>>>> 6d12df3102206dcc53f3894413e1e04fdbb72ec5
 c.F_StoneBackDrop=100;c.F_ArcanaButton[1]=101;c.F_ArcanaButton[2]=102;c.F_ArcanaButton[3]=103;
 card.items.set('0:영웅1.아이템50','ID39;C2;');
 // 기본값, 빈 문자열, null을 반환하는 슬롯이 있어도 파서에 넘기면 안 됩니다.

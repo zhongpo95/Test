@@ -114,7 +114,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
         // 화면 갱신에서는 서버를 조회하지 않고 완료된 데이터 수신 상태만 표시합니다.
         if StoneTemporaryMode then
-            call DzFrameSetText(StoneMaterial, "임시 진행  /  재료 소모 없음")
+            call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 0개 필요")
             set reason = "재료 없이 카드 부여를 시작할 수 있습니다."
             if StoneSlot(pid, false) == -1 then
                 set reason = "결과 수령 시 장비 창에 빈 공간이 필요합니다."
@@ -165,9 +165,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             set i = i + 1
         endloop
-        call DzFrameSetText(F_ArcanaText[3], "대미지 증가 1  ·  " + StoneStageText(ArcanaA, 6, "6", "|cff168eae") + " / " + StoneStageText(ArcanaA, 7, "7.5", "|cff168eae") + " / " + StoneStageText(ArcanaA, 9, "10.5", "|cff168eae") + " / " + StoneStageText(ArcanaA, 10, "12", "|cff168eae") + "%")
-        call DzFrameSetText(F_ArcanaText[4], "대미지 증가 2  ·  " + StoneStageText(ArcanaB, 6, "6", "|cff168eae") + " / " + StoneStageText(ArcanaB, 7, "7.5", "|cff168eae") + " / " + StoneStageText(ArcanaB, 9, "10.5", "|cff168eae") + " / " + StoneStageText(ArcanaB, 10, "12", "|cff168eae") + "%")
-        call DzFrameSetText(F_ArcanaText[5], "공격력 감소(카드 단독)  ·  " + StoneStageText(ArcanaC, 5, "0", "|cffc85e7b") + " / " + StoneStageText(ArcanaC, 7, "4", "|cffc85e7b") + " / " + StoneStageText(ArcanaC, 10, "8", "|cffc85e7b") + "%")
+        call DzFrameSetText(F_ArcanaText[3], "대미지 증가 1  ·  " + StoneStageText(ArcanaA, 6, "6", "|cff07516b") + " / " + StoneStageText(ArcanaA, 7, "7.5", "|cff07516b") + " / " + StoneStageText(ArcanaA, 9, "10.5", "|cff07516b") + " / " + StoneStageText(ArcanaA, 10, "12", "|cff07516b") + "%")
+        call DzFrameSetText(F_ArcanaText[4], "대미지 증가 2  ·  " + StoneStageText(ArcanaB, 6, "6", "|cff07516b") + " / " + StoneStageText(ArcanaB, 7, "7.5", "|cff07516b") + " / " + StoneStageText(ArcanaB, 9, "10.5", "|cff07516b") + " / " + StoneStageText(ArcanaB, 10, "12", "|cff07516b") + "%")
+        call DzFrameSetText(F_ArcanaText[5], "공격력 감소  ·  " + StoneStageText(ArcanaC, 5, "Lv 1", "|cff98284d") + " / " + StoneStageText(ArcanaC, 7, "Lv 2", "|cff98284d") + " / " + StoneStageText(ArcanaC, 10, "Lv 3", "|cff98284d"))
         call DzFrameSetText(F_ArcanaText[6], I2S(ArcanaA)+"회 성공")
         call DzFrameSetText(F_ArcanaText[7], I2S(ArcanaB)+"회 성공")
         call DzFrameSetText(F_ArcanaText[8], I2S(ArcanaC)+"회 균열")
@@ -185,10 +185,10 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 120, 150, 166))
             call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 120, 150, 166))
             if ArcanaA >= threshold then
-                call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 22, 142, 174))
+                call DzFrameSetTextColor(F_ArcanaTextA[i], JNConvertColor(255, 7, 81, 107))
             endif
             if ArcanaB >= threshold then
-                call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 22, 142, 174))
+                call DzFrameSetTextColor(F_ArcanaTextB[i], JNConvertColor(255, 7, 81, 107))
             endif
             if i < 3 then
                 set threshold = 5 + i * 2
@@ -199,13 +199,12 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 call DzFrameSetText(F_ArcanaTextC[i], I2S(threshold)+"회 · Lv "+I2S(i+1))
                 call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 120, 150, 166))
                 if ArcanaC >= threshold then
-                    call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 200, 94, 123))
+                    call DzFrameSetTextColor(F_ArcanaTextC[i], JNConvertColor(255, 152, 40, 77))
                 endif
             endif
             set i = i + 1
         endloop
-        call DzFrameSetText(F_ArcanaText[0], "부여 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
-        call DzFrameSetText(F_ArcanaText[1], "균열 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
+        call DzFrameSetText(F_ArcanaText[0], "세공 확률 "+I2S(75 - ArcanaProbability * 10)+"%")
     endfunction
 
     function StoneSetOpen takes integer pid, boolean show returns nothing
@@ -276,11 +275,10 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set loopASC = 0
         set loopBSC = 0
         set loopCSC = 0
-        call DzFrameSetText(F_ArcanaText[6], "|cff168eaeX 0|r")
-        call DzFrameSetText(F_ArcanaText[7], "|cff168eaeX 0|r")
-        call DzFrameSetText(F_ArcanaText[8], "|cffc85e7bX 0|r")
-        call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae75%|r")
-        call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae75%|r")
+        call DzFrameSetText(F_ArcanaText[6], "|cff07516bX 0|r")
+        call DzFrameSetText(F_ArcanaText[7], "|cff07516bX 0|r")
+        call DzFrameSetText(F_ArcanaText[8], "|cff98284dX 0|r")
+        call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b75%|r")
 
         call DzFrameShow(F_ArcanaTextA[0], true)
         call DzFrameShow(F_ArcanaTextA[1], true)
@@ -318,10 +316,10 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         
         call DzFrameShow(UI_Tip, true)
         if f == F_ArcanaButton2[1] then
-            //call DzFrameSetText(UI_Tip_Text[1], "|cff168eae"+ArcanaText[ArcanaOption[1]]+"|r")
+            //call DzFrameSetText(UI_Tip_Text[1], "|cff07516b"+ArcanaText[ArcanaOption[1]]+"|r")
             //call DzFrameSetText(UI_Tip_Text[2], " " + ArcanaText2[ArcanaOption[1]])
         elseif f == F_ArcanaButton2[2] then
-            //call DzFrameSetText(UI_Tip_Text[1], "|cff168eae"+ArcanaText[ArcanaOption[2]]+"|r")
+            //call DzFrameSetText(UI_Tip_Text[1], "|cff07516b"+ArcanaText[ArcanaOption[2]]+"|r")
             //call DzFrameSetText(UI_Tip_Text[2], " " + ArcanaText2[ArcanaOption[2]])
         elseif f == F_ArcanaButton2[3] then
             //call DzFrameSetText(UI_Tip_Text[1], "|cFFFF0000"+ArcanaText[ArcanaOption[3]]+"|r")
@@ -430,14 +428,8 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetPriority(F_StoneBackDrop, 110)
         set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
-<<<<<<< Updated upstream
-        set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.429, 0.010)
-        set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "부여 확률 75%", 0.110, 0.402, 0.010)
-        set F_ArcanaText[1] = StoneText(F_StoneBackDrop, "균열 확률 75%", 0.295, 0.402, 0.010)
-=======
         set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.072, 0.010)
         set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "세공 확률 75%", 0.2025, 0.421, 0.014)
->>>>>>> Stashed changes
         set F_StoneCancelButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetSize(F_StoneCancelButton, 0.020, 0.020)
         call DzFrameShow(F_StoneCancelButton, false)
@@ -446,9 +438,9 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             set y = 0.325 - (row - 1) * 0.092
             set F_StoneBackDrop2[row] = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Row.tga", 0.2025, y, 0.365, 0.080)
             if row < 3 then
-                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  단계별 6 / 7.5 / 10.5 / 12%", 0.180, y+0.025, 0.008)
+                set F_ArcanaText[row+2] = StoneText(F_StoneBackDrop, "대미지 증가 "+I2S(row)+"  ·  6 / 7.5 / 10.5 / 12%", 0.170, y+0.025, 0.010)
             else
-                set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "공격력 감소(카드 단독)  ·  0 / 4 / 8%", 0.180, y+0.025, 0.008)
+                set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "공격력 감소  ·  Lv 1 / Lv 2 / Lv 3", 0.170, y+0.025, 0.010)
             endif
             set F_ArcanaText[row+5] = StoneText(F_StoneBackDrop, "0회 성공", 0.338, y+0.025, 0.008)
             set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
@@ -474,20 +466,15 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set i = 0
         loop
             exitwhen i > 3
-            set F_ArcanaTextA[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.296, 0.008)
-            set F_ArcanaTextB[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.204, 0.008)
+            set F_ArcanaTextA[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.296, 0.009)
+            set F_ArcanaTextB[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.070+i*0.064, 0.204, 0.009)
             if i < 3 then
-                set F_ArcanaTextC[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.080+i*0.080, 0.112, 0.008)
+                set F_ArcanaTextC[i] = StoneText(F_StoneBackDrop, "Lv "+I2S(i+1), 0.080+i*0.080, 0.112, 0.009)
             endif
             set i = i + 1
         endloop
-<<<<<<< Updated upstream
-        set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.072, 0.009)
-        call DzFrameSetSize(StoneStatus, 0.355, 0.028)
-=======
         set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.008, 0.008)
         call DzFrameSetSize(StoneStatus, 0.355, 0.014)
->>>>>>> Stashed changes
         call DzFrameSetTextAlignment(StoneStatus, JN_TEXT_JUSTIFY_CENTER)
         set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(StoneStartButton, JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.035)
@@ -561,22 +548,21 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaA = ArcanaA + 1
                             if ArcanaA == 6 then
-                                call DzFrameSetText(F_ArcanaTextA[0], "|cff168eae"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextA[0], "|cff07516b"+ "Lv 1|r")
                             endif
                             if ArcanaA == 7 then
-                                call DzFrameSetText(F_ArcanaTextA[1], "|cff168eae"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextA[1], "|cff07516b"+ "Lv 2|r")
                             endif
                             if ArcanaA == 9 then
-                                call DzFrameSetText(F_ArcanaTextA[2], "|cff168eae"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextA[2], "|cff07516b"+ "Lv 3|r")
                             endif
                             if ArcanaA == 10 then
-                                call DzFrameSetText(F_ArcanaTextA[3], "|cff168eae"+ "Lv 4|r")
+                                call DzFrameSetText(F_ArcanaTextA[3], "|cff07516b"+ "Lv 4|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[6], "|cff168eaeX " + I2S(ArcanaA) + "|r")
+                            call DzFrameSetText(F_ArcanaText[6], "|cff07516bX " + I2S(ArcanaA) + "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -594,8 +580,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopASC = loopASC + 1
                             if loopASC < 5 then
                             elseif loopASC == 5 then
@@ -634,22 +619,21 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaB = ArcanaB + 1
                             if ArcanaB == 6 then
-                                call DzFrameSetText(F_ArcanaTextB[0], "|cff168eae"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextB[0], "|cff07516b"+ "Lv 1|r")
                             endif
                             if ArcanaB == 7 then
-                                call DzFrameSetText(F_ArcanaTextB[1], "|cff168eae"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextB[1], "|cff07516b"+ "Lv 2|r")
                             endif
                             if ArcanaB == 9 then
-                                call DzFrameSetText(F_ArcanaTextB[2], "|cff168eae"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextB[2], "|cff07516b"+ "Lv 3|r")
                             endif
                             if ArcanaB == 10 then
-                                call DzFrameSetText(F_ArcanaTextB[3], "|cff168eae"+ "Lv 4|r")
+                                call DzFrameSetText(F_ArcanaTextB[3], "|cff07516b"+ "Lv 4|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[7], "|cff168eaeX " + I2S(ArcanaB) + "|r")
+                            call DzFrameSetText(F_ArcanaText[7], "|cff07516bX " + I2S(ArcanaB) + "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -667,8 +651,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopBSC = loopBSC + 1
                             if loopBSC < 5 then
                             elseif loopBSC == 5 then
@@ -716,19 +699,18 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability > 5 then
                                 set ArcanaProbability = 5
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set ArcanaC = ArcanaC + 1
                             if ArcanaC == 5 then
-                                call DzFrameSetText(F_ArcanaTextC[0], "|cffc85e7b"+ "Lv 1|r")
+                                call DzFrameSetText(F_ArcanaTextC[0], "|cff98284d"+ "Lv 1|r")
                             endif
                             if ArcanaC == 7 then
-                                call DzFrameSetText(F_ArcanaTextC[1], "|cffc85e7b"+ "Lv 2|r")
+                                call DzFrameSetText(F_ArcanaTextC[1], "|cff98284d"+ "Lv 2|r")
                             endif
                             if ArcanaC == 10 then
-                                call DzFrameSetText(F_ArcanaTextC[2], "|cffc85e7b"+ "Lv 3|r")
+                                call DzFrameSetText(F_ArcanaTextC[2], "|cff98284d"+ "Lv 3|r")
                             endif
-                            call DzFrameSetText(F_ArcanaText[8], "|cffc85e7bX " + I2S(ArcanaC)+ "|r")
+                            call DzFrameSetText(F_ArcanaText[8], "|cff98284dX " + I2S(ArcanaC)+ "|r")
                             set si = si + 1
                             if si == 1 then
                                 call StartSound(gg_snd_StoneEffectSound7)
@@ -746,8 +728,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                             if ArcanaProbability < 0 then
                                 set ArcanaProbability = 0
                             endif
-                            call DzFrameSetText(F_ArcanaText[0], "부여 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
-                            call DzFrameSetText(F_ArcanaText[1], "균열 확률 |cff168eae" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
+                            call DzFrameSetText(F_ArcanaText[0], "세공 확률 |cff07516b" + I2S(75 - (ArcanaProbability * 10 )) + "%|r")
                             set loopCSC = loopCSC + 1
                             if loopCSC < 6 then
                             elseif loopCSC == 6 then
