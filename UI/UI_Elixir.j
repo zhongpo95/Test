@@ -7065,11 +7065,29 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
 
     private function ElText takes integer parent, string value, real x, real y, real size returns integer
         local integer f = DzCreateFrameByTagName("TEXT", "", parent, "", FrameCount())
+        // 표시용 글자가 아래 버튼의 마우스 입력을 가로채지 않도록 합니다.
+        call DzFrameSetEnable(f, false)
         call DzFrameSetPoint(f, JN_FRAMEPOINT_CENTER, parent, JN_FRAMEPOINT_BOTTOMLEFT, x, y)
         call DzFrameSetText(f, value)
         call DzFrameSetFont(f, "Fonts\\DFHeiMd.ttf", size, 0)
         call DzFrameSetTextColor(f, JNConvertColor(255, 49, 90, 112))
         return f
+    endfunction
+
+    private function ElActionHover takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        if f == El_B then
+            call DzFrameSetTexture(El_BBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+        elseif f == El_RollB then
+            call DzFrameSetTexture(El_Roll, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+        elseif f == El_LB then
+            call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+        endif
+    endfunction
+
+    private function ElActionLeave takes nothing returns nothing
+        call ElRefresh(GetPlayerId(DzGetTriggerUIEventPlayer()))
+        call DzFrameSetTexture(El_LBBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
     endfunction
 
     private function Main takes nothing returns nothing
@@ -7121,20 +7139,24 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
             call DzFrameSetScriptByCode(El_Button[i], JN_FRAMEEVENT_MOUSE_UP, function ClickLButton2, false)
             set i = i + 1
         endloop
-        set El_B = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "", FrameCount())
+        set El_B = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_B, JN_FRAMEPOINT_CENTER, El_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.124, 0.026)
         call DzFrameSetSize(El_B, 0.155, 0.034)
         set El_BBD = ElPanel(El_B, "war3mapImported\\UI_Upgrade_Action.tga", 0.0775, 0.017, 0.155, 0.034)
         set El_BT = ElText(El_B, "연성 시작", 0.0775, 0.017, 0.011)
         call DzFrameSetTextColor(El_BT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_B, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton, false)
-        set El_RollB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "", FrameCount())
+        call DzFrameSetScriptByCode(El_B, JN_FRAMEEVENT_MOUSE_ENTER, function ElActionHover, false)
+        call DzFrameSetScriptByCode(El_B, JN_FRAMEEVENT_MOUSE_LEAVE, function ElActionLeave, false)
+        set El_RollB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_RollB, JN_FRAMEPOINT_CENTER, El_BackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.296, 0.026)
         call DzFrameSetSize(El_RollB, 0.145, 0.034)
         set El_Roll = ElPanel(El_RollB, "war3mapImported\\UI_Upgrade_Action.tga", 0.0725, 0.017, 0.145, 0.034)
         set El_RollT = ElText(El_RollB, "재선택", 0.0725, 0.017, 0.010)
         call DzFrameSetTextColor(El_RollT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_RollB, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton, false)
+        call DzFrameSetScriptByCode(El_RollB, JN_FRAMEEVENT_MOUSE_ENTER, function ElActionHover, false)
+        call DzFrameSetScriptByCode(El_RollB, JN_FRAMEEVENT_MOUSE_LEAVE, function ElActionLeave, false)
         call DzFrameShow(El_BackDrop, false)
 
         set El_BackDrop2 = DzCreateFrameByTagName("BACKDROP", "", GetGameplayUI(), "", FrameCount())
@@ -7149,13 +7171,15 @@ library UIElixir initializer init requires DataUnit, FrameCount, ItemPickUp
         set EL_LevelB = ElPanel(El_BackDrop2, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.205, 0.365, 0.100)
         set label = ElText(EL_LevelB, "두 번째 효과", 0.1825, 0.075, 0.010)
         set EL_LevelTextB = ElText(EL_LevelB, "", 0.1825, 0.036, 0.020)
-        set El_LB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop2, "", FrameCount())
+        set El_LB = DzCreateFrameByTagName("BUTTON", "", El_BackDrop2, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(El_LB, JN_FRAMEPOINT_CENTER, El_BackDrop2, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.090)
         call DzFrameSetSize(El_LB, 0.170, 0.036)
         set El_LBBD = ElPanel(El_LB, "war3mapImported\\UI_Upgrade_Action.tga", 0.085, 0.018, 0.170, 0.036)
         set El_LBT = ElText(El_LB, "결과 받기", 0.085, 0.018, 0.011)
         call DzFrameSetTextColor(El_LBT, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(El_LB, JN_FRAMEEVENT_MOUSE_UP, function ClickLButton3, false)
+        call DzFrameSetScriptByCode(El_LB, JN_FRAMEEVENT_MOUSE_ENTER, function ElActionHover, false)
+        call DzFrameSetScriptByCode(El_LB, JN_FRAMEEVENT_MOUSE_LEAVE, function ElActionLeave, false)
         set EL_LevelEffect1 = DzCreateFrameByTagName("SPRITE", "", El_BackDrop2, "", FrameCount())
         call DzFrameSetPoint(EL_LevelEffect1, JN_FRAMEPOINT_BOTTOMLEFT, EL_LevelTextA, JN_FRAMEPOINT_CENTER, 0, 0)
         set EL_LevelEffect2 = DzCreateFrameByTagName("SPRITE", "", El_BackDrop2, "", FrameCount())

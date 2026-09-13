@@ -14,7 +14,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer array F_ArcanaTextA              //스킬버튼 백드롭
         integer array F_ArcanaTextB              //스킬버튼 백드롭
         integer array F_ArcanaTextC              //스킬버튼 백드롭
-        integer ArcanaProbability               //확률
+        integer ArcanaProbability = 0           //시작 전 화면에서도 사용하는 확률 보정값
         boolean array F_StoneOnOff              //인포 온오프
         
         integer array Arcana1
@@ -23,15 +23,16 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         integer loopASC
         integer loopBSC
         integer loopCSC
-        integer ArcanaA
-        integer ArcanaB
-        integer ArcanaC
+        integer ArcanaA = 0
+        integer ArcanaB = 0
+        integer ArcanaC = 0
         
         private boolean array StoneActive
         private boolean array StonePending
         private string array StoneResult
         private integer StoneStatus
         private integer StoneMaterial
+        private boolean StoneStartReady = false
         private integer StoneStartButton
         private integer StoneStartBD
         private integer StoneStartText
@@ -124,6 +125,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         else
             call DzFrameSetText(StoneStartText, "부여 시작")
         endif
+        set StoneStartReady = ready
         call DzFrameSetText(StoneStatus, reason)
         if ready then
             call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_Action.tga", 0)
@@ -360,11 +362,34 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
 
     private function StoneText takes integer parent, string value, real x, real y, real size returns integer
         local integer f = DzCreateFrameByTagName("TEXT", "", parent, "", FrameCount())
+        call DzFrameSetEnable(f, false)
         call DzFrameSetPoint(f, JN_FRAMEPOINT_CENTER, parent, JN_FRAMEPOINT_BOTTOMLEFT, x, y)
         call DzFrameSetText(f, value)
         call DzFrameSetFont(f, "Fonts\\DFHeiMd.ttf", size, 0)
         call DzFrameSetTextColor(f, JNConvertColor(255, 49, 90, 112))
         return f
+    endfunction
+
+    private function StoneActionHover takes nothing returns nothing
+        local integer f = DzGetTriggerUIEventFrame()
+        local integer i = 1
+        if f == StoneStartButton then
+            if StoneStartReady then
+                call DzFrameSetTexture(StoneStartBD, "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            endif
+            return
+        endif
+        loop
+            exitwhen i > 3
+            if f == F_ArcanaButton[i] then
+                call DzFrameSetTexture(F_ArcanaButton2BackDrop[i+3], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
+            endif
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function StoneActionLeave takes nothing returns nothing
+        call StoneRefresh(GetPlayerId(DzGetTriggerUIEventPlayer()))
     endfunction
 
     private function Main takes nothing returns nothing
@@ -395,13 +420,15 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
                 set F_ArcanaText[5] = StoneText(F_StoneBackDrop, "균열  ·  공격력 감소", 0.180, y+0.025, 0.009)
             endif
             set F_ArcanaText[row+5] = StoneText(F_StoneBackDrop, "0회 성공", 0.338, y+0.025, 0.008)
-            set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
+            set F_ArcanaButton[row] = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetPoint(F_ArcanaButton[row], JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.340, y-0.008)
             call DzFrameSetSize(F_ArcanaButton[row], 0.065, 0.029)
             set F_ArcanaButton2BackDrop[row+3] = StonePanel(F_ArcanaButton[row], "war3mapImported\\UI_Upgrade_Action.tga", 0.0325, 0.0145, 0.065, 0.029)
             set StoneButtonText[row] = StoneText(F_ArcanaButton[row], "부여", 0.0325, 0.0145, 0.009)
             call DzFrameSetTextColor(StoneButtonText[row], JNConvertColor(255,255,255,255))
             call DzFrameSetScriptByCode(F_ArcanaButton[row], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
+            call DzFrameSetScriptByCode(F_ArcanaButton[row], JN_FRAMEEVENT_MOUSE_ENTER, function StoneActionHover, false)
+            call DzFrameSetScriptByCode(F_ArcanaButton[row], JN_FRAMEEVENT_MOUSE_LEAVE, function StoneActionLeave, false)
             call DzFrameSetEnable(F_ArcanaButton[row], false)
             set row = row + 1
         endloop
@@ -426,13 +453,15 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.072, 0.009)
         call DzFrameSetSize(StoneStatus, 0.355, 0.028)
         call DzFrameSetTextAlignment(StoneStatus, JN_TEXT_JUSTIFY_CENTER)
-        set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
+        set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetPoint(StoneStartButton, JN_FRAMEPOINT_CENTER, F_StoneBackDrop, JN_FRAMEPOINT_BOTTOMLEFT, 0.2025, 0.035)
         call DzFrameSetSize(StoneStartButton, 0.170, 0.036)
         set StoneStartBD = StonePanel(StoneStartButton, "war3mapImported\\UI_Upgrade_Action.tga", 0.085, 0.018, 0.170, 0.036)
         set StoneStartText = StoneText(StoneStartButton, "부여 시작", 0.085, 0.018, 0.011)
         call DzFrameSetTextColor(StoneStartText, JNConvertColor(255,255,255,255))
         call DzFrameSetScriptByCode(StoneStartButton, JN_FRAMEEVENT_MOUSE_UP, function StoneBegin, false)
+        call DzFrameSetScriptByCode(StoneStartButton, JN_FRAMEEVENT_MOUSE_ENTER, function StoneActionHover, false)
+        call DzFrameSetScriptByCode(StoneStartButton, JN_FRAMEEVENT_MOUSE_LEAVE, function StoneActionLeave, false)
         call DzFrameShow(F_StoneBackDrop, false)
     endfunction
     

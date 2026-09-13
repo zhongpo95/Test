@@ -11,7 +11,10 @@ function model(file,names,localPlayer=0){
     const m=line.trim().match(/^(?:private )?(integer|boolean|string|real|hashtable) (array )?(\w+)(\[[^\n]+\])?/);
     if(!m)continue;
     const zero=m[1]==='string'?null:m[1]==='boolean'?false:0;
-    env[m[3]]=m[2]?(m[4]?Array.from({length:64},()=>Array(256).fill(zero)):Array(8192).fill(zero)):zero;
+    const initializer=line.match(/=\s*(-?\d+(?:\.\d+)?|true|false)\b/);
+    const initial=initializer?(initializer[1]==='true'?true:initializer[1]==='false'?false:Number(initializer[1])):undefined;
+    // 미초기화 스칼라를 0으로 가정하면 시작 전 UI의 잘못된 읽기를 놓칩니다.
+    env[m[3]]=m[2]?(m[4]?Array.from({length:64},()=>Array(256).fill(zero)):Array(8192).fill(zero)):initial;
   }
   const no=()=>{};
   Object.assign(env,{
@@ -26,7 +29,7 @@ function model(file,names,localPlayer=0){
     },
     PLAYER_DATA_SERVER_READY:[false,false,false,false,false],
     PLAYER_DATA:[0,1,2,3,4],PlayerSlotNumber:[1,1,1,1,1],F_ItemButtonsBackDrop:[],UI_Tip:999,
-    I2S:String,S2I:x=>parseInt(x)||0,R2SW:(x,w,p)=>Number(x).toFixed(p),
+    I2S:x=>{assert(Number.isInteger(x),'Uninitialized/non-integer value passed to I2S');return String(x);},S2I:x=>parseInt(x)||0,R2SW:(x,w,p)=>Number(x).toFixed(p),
     StashLoad:(p,k,d)=>items.has(p+':'+k)?items.get(p+':'+k):d,
     StashSave:(p,k,v)=>items.set(p+':'+k,v),StashRemove:(p,k)=>items.delete(p+':'+k),
     GetItemIDs:s=>{
