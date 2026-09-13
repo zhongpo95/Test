@@ -114,7 +114,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 1개 필요")
         // 화면 갱신에서는 서버를 조회하지 않고 완료된 데이터 수신 상태만 표시합니다.
         if StoneTemporaryMode then
-            call DzFrameSetText(StoneMaterial, "임시 진행  /  재료 소모 없음")
+            call DzFrameSetText(StoneMaterial, "카드 부여 재료   "+I2S(count)+"개 보유  /  시작 시 0개 필요")
             set reason = "재료 없이 카드 부여를 시작할 수 있습니다."
             if StoneSlot(pid, false) == -1 then
                 set reason = "결과 수령 시 장비 창에 빈 공간이 필요합니다."
@@ -428,8 +428,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
         call DzFrameSetTexture(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Panel.tga", 0)
         call DzFrameSetPriority(F_StoneBackDrop, 110)
         set label = StonePanel(F_StoneBackDrop, "war3mapImported\\UI_Upgrade_Card.tga", 0.2025, 0.421, 0.365, 0.073)
-        set label = StoneText(F_StoneBackDrop, "공격력 감소 레벨은 다른 장비와 합산됩니다.", 0.2025, 0.451, 0.008)
-        set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.429, 0.010)
+        set StoneMaterial = StoneText(F_StoneBackDrop, "카드 부여 재료  /  시작 시 1개 필요", 0.2025, 0.072, 0.010)
         set F_ArcanaText[0] = StoneText(F_StoneBackDrop, "세공 확률 75%", 0.2025, 0.402, 0.014)
         set F_StoneCancelButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "", FrameCount())
         call DzFrameSetSize(F_StoneCancelButton, 0.020, 0.020)
@@ -474,7 +473,7 @@ library UIStone initializer Init requires DataItem, StatsSet, UIItem, UIPick, Fr
             endif
             set i = i + 1
         endloop
-        set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.072, 0.009)
+        set StoneStatus = StoneText(F_StoneBackDrop, "시작할 때 재료 1개를 사용합니다.", 0.2025, 0.429, 0.009)
         call DzFrameSetSize(StoneStatus, 0.355, 0.028)
         call DzFrameSetTextAlignment(StoneStatus, JN_TEXT_JUSTIFY_CENTER)
         set StoneStartButton = DzCreateFrameByTagName("BUTTON", "", F_StoneBackDrop, "ScoreScreenTabButtonTemplate", FrameCount())
