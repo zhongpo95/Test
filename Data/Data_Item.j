@@ -137,16 +137,16 @@ library DataItem
         //0티어
         
         //1티어
-        set EnchantRate[2][1] = 5000
-        set EnchantRate[2][2] = 4500
-        set EnchantRate[2][3] = 4000
-        set EnchantRate[2][4] = 3500
-        set EnchantRate[2][5] = 3000
-        set EnchantRate[2][6] = 2500
-        set EnchantRate[2][7] = 2000
-        set EnchantRate[2][8] = 1500
-        set EnchantRate[2][9] = 1000
-        set EnchantRate[2][10] = 500
+        set EnchantRate[2][1] = 10000
+        set EnchantRate[2][2] = 9000
+        set EnchantRate[2][3] = 8000
+        set EnchantRate[2][4] = 7000
+        set EnchantRate[2][5] = 6000
+        set EnchantRate[2][6] = 5000
+        set EnchantRate[2][7] = 4000
+        set EnchantRate[2][8] = 3000
+        set EnchantRate[2][9] = 2000
+        set EnchantRate[2][10] = 1000
         
         set EnchantMaterial1[2][1] = 0
         set EnchantMaterial1[2][2] = 2
