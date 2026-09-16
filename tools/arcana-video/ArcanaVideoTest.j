@@ -23,7 +23,7 @@ endfunction
 
 function ArcanaVideoTest_Ready takes nothing returns nothing
     call DestroyTimer(GetExpiredTimer())
-    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.00, 0.00, 45.00, "|cff80d8ff[VIDEO TEST]|r -video 재생 / -videoclose 닫기 / -videostatus 상태. 맵에 포함된 무음 영상을 재생합니다.")
+    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.00, 0.00, 45.00, "|cff80d8ff[VIDEO TEST]|r -video 재생 / -videoclose 닫기 / -videostatus 상태. 영상에 소리가 있으면 함께 재생합니다.")
     call ArcanaVideoTest_Report()
 endfunction
 

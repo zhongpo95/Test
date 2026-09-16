@@ -54,7 +54,7 @@ namespace Arcana.Video
         {
             try
             {
-                if (args.Length < 3 || args.Length > 4) throw new ArgumentException("decoder.exe clip.mp4 output-folder [aspect-fixtures-folder]");
+                if (args.Length < 3 || args.Length > 5) throw new ArgumentException("decoder.exe clip.mp4 output-folder [aspect-fixtures-folder] [audio-fixtures-folder]");
                 output = args[2];
                 Directory.CreateDirectory(output);
                 TestFrameReader();
@@ -96,7 +96,8 @@ namespace Arcana.Video
                             Stopwatch deadline = Stopwatch.StartNew();
                             while (player.Session != null && deadline.ElapsedMilliseconds < 12000) { Pump(dc); Thread.Sleep(12); }
                             Require(player.Session == null && replay.FrameNumber == 240, "Replay and automatic close after 240 frames");
-                            if (args.Length == 4)
+                            Require(replay.Audio.SubmittedBytes == 0 && replay.Audio.Completed, "Silent video needs no audio output");
+                            if (args.Length >= 4)
                             {
                                 TestAspect(dc, player, args[3], "square", 360, 360, 30, true);
                                 TestAspect(dc, player, args[3], "portrait", 203, 360, 30, true);
@@ -104,6 +105,7 @@ namespace Arcana.Video
                                 TestAspect(dc, player, args[3], "anamorphic", 640, 240, 30, true);
                                 TestAspect(dc, player, args[3], "user", 203, 360, 356, false);
                             }
+                            if (args.Length == 5) TestAudio(dc, player, args[4]);
                             for (int i = 0; i < 8; i++) { player.Open(args[1], false); Thread.Sleep(15); player.Close(); Pump(dc); }
                             Require(player.Session == null, "Repeated open and close");
                             string corrupt = Path.Combine(output, "invalid.mp4");
@@ -120,6 +122,7 @@ namespace Arcana.Video
                         }
                         RunFor(dc, 1000);
                         Require(callbackError == null, "Graphics state restored on every observed swap");
+                        Require(WaveOutput.OpenDevicesForTest == 0, "All waveOut devices closed after playback and errors");
                     }
                     finally
                     {
@@ -232,6 +235,81 @@ namespace Arcana.Video
             captureNext = true;
             Pump(dc);
             Require(IsBackground(capturedScreen, 400, 300), name + " game background restored after playback");
+            if (name == "user")
+                Require(current.Audio.SubmittedBytes > 2200000 && current.Audio.Completed && current.Audio.Status == "오디오 완료",
+                    "User AAC audio completely submitted and drained through Windows waveOut");
+        }
+
+        private static void TestAudio(IntPtr dc, VideoPlayer player, string folder)
+        {
+            TestAudioClip(dc, player, Path.Combine(folder, "together.mp4"), 60, 2000, 2000);
+            TestAudioClip(dc, player, Path.Combine(folder, "short-audio.mp4"), 90, 1000, 3000);
+            TestAudioClip(dc, player, Path.Combine(folder, "long-audio.mp4"), 30, 3000, 3000);
+            TestAudioClip(dc, player, Path.Combine(folder, "delayed-audio.mp4"), 120, 3000, 4000);
+            TestAudioClip(dc, player, Path.Combine(folder, "opus.webm"), 60, 2000, 2000);
+            List<DecodeSession> stopped = new List<DecodeSession>();
+            for (int i = 0; i < 3; i++)
+            {
+                player.Open(Path.Combine(folder, "together.mp4"), false);
+                DecodeSession current = player.Session;
+                stopped.Add(current);
+                RunFor(dc, 700);
+                Require(current.Audio.SubmittedBytes > 0, "Audio starts on replay " + i);
+                player.Close();
+                long position;
+                Require(!current.Audio.TryGetMilliseconds(out position) && player.Session == null, "Close stops audio clock and video immediately " + i);
+                RunFor(dc, 250);
+                Require(current.Audio.Completed && WaveOutput.OpenDevicesForTest == 0, "Close drains owned worker and releases device " + i);
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                player.Open(Path.Combine(folder, "together.mp4"), false);
+                stopped.Add(player.Session);
+                Thread.Sleep(15);
+                player.Close();
+            }
+            RunFor(dc, 1000);
+            Require(stopped.TrueForAll(delegate(DecodeSession value) { return value.Audio.Completed; }) && WaveOutput.OpenDevicesForTest == 0,
+                "Rapid audio open and close leaves no active devices or workers");
+            WaveOutput.FailOpenForTest = true;
+            try
+            {
+                player.Open(Path.Combine(folder, "together.mp4"), false);
+                DecodeSession current = player.Session;
+                RunFor(dc, 3000);
+                Require(player.Session == null && current.FrameNumber == 60 && current.Audio.Status == "오디오 오류",
+                    "Unavailable audio device falls back to complete silent video");
+            }
+            finally { WaveOutput.FailOpenForTest = false; player.Close(); }
+        }
+
+        private static void TestAudioClip(IntPtr dc, VideoPlayer player, string clip, int frames, int audioMilliseconds, int durationMilliseconds)
+        {
+            player.Open(clip, false);
+            DecodeSession current = player.Session;
+            Stopwatch deadline = Stopwatch.StartNew(), playback = new Stopwatch();
+            int samples = 0;
+            long maximumDifference = 0;
+            while (player.Session != null && deadline.ElapsedMilliseconds < durationMilliseconds + 6000)
+            {
+                Pump(dc);
+                if (current.FrameNumber > 0 && !playback.IsRunning) playback.Start();
+                long audioTime;
+                if (current.FrameNumber > 1 && current.FrameNumber < frames && current.Audio.TryGetMilliseconds(out audioTime))
+                {
+                    maximumDifference = Math.Max(maximumDifference, Math.Abs((current.FrameNumber - 1) * 1000L / 30 - audioTime));
+                    samples++;
+                }
+                Thread.Sleep(12);
+            }
+            string name = Path.GetFileName(clip);
+            Require(player.Session == null && current.FrameNumber == frames && current.Audio.Status == "오디오 완료", name + " complete A/V playback");
+            Require(Math.Abs(current.Audio.SubmittedBytes * 1000 / WaveOutput.BytesPerSecond - audioMilliseconds) < 70,
+                name + " decoded audio duration including timestamp offset");
+            Require(samples >= 10 && maximumDifference < 150, name + " video follows audio device clock within 150 ms (observed " + maximumDifference + " ms)");
+            Require(playback.ElapsedMilliseconds >= durationMilliseconds - 100 && playback.ElapsedMilliseconds < durationMilliseconds + 1000,
+                name + " automatic close waits for both streams");
+            Require(WaveOutput.OpenDevicesForTest == 0, name + " output device released");
         }
 
         private static bool IsBackground(byte[] pixels, int x, int y)

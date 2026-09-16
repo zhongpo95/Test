@@ -1,4 +1,4 @@
-// FFmpeg가 읽은 영상 프레임을 제한된 버퍼로 전달하고 재생 종료를 관리한다.
+// FFmpeg의 영상 프레임과 오디오 재생 시계를 맞추고 함께 종료한다.
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -72,12 +72,13 @@ namespace Arcana.Video
         private readonly byte[] published = new byte[VideoPlayer.FrameBytes];
         private readonly ManualResetEvent cancel = new ManualResetEvent(false);
         private readonly Stopwatch clock = new Stopwatch();
+        private readonly AudioPlayback audio;
         private Process process;
         private bool cancelDisposed;
         private volatile bool cancelled, finished;
         private volatile string status = "영상 읽는 중";
         private int frameNumber, frameWidth, frameHeight;
-        private long finishedAt;
+        private long finishedAt, clockOffset;
 
         internal DecodeSession(string exe, string path, bool temporary, Action<string> logger)
         {
@@ -85,14 +86,17 @@ namespace Arcana.Video
             filename = path;
             deleteFile = temporary;
             log = logger;
+            audio = new AudioPlayback(exe, path, logger);
         }
 
-        public string Status { get { return status; } }
+        public string Status { get { return status + " / " + audio.Status; } }
         public int FrameNumber { get { return Volatile.Read(ref frameNumber); } }
         public bool Finished { get { return finished && clock.ElapsedMilliseconds - Interlocked.Read(ref finishedAt) >= 100; } }
+        internal AudioPlayback Audio { get { return audio; } }
 
         internal void Start()
         {
+            audio.Start();
             Thread worker = new Thread(Decode);
             worker.Name = "Arcana video decoder";
             worker.IsBackground = true;
@@ -114,6 +118,7 @@ namespace Arcana.Video
 
         internal void Stop()
         {
+            audio.Stop();
             lock (processLock)
             {
                 cancelled = true;
@@ -138,8 +143,8 @@ namespace Arcana.Video
                     if (cancelled) return;
                     child = new Process();
                     child.StartInfo = new ProcessStartInfo(decoder,
-                        "-hide_banner -loglevel error -nostdin -threads 2 -protocol_whitelist file,pipe -i \"" + filename +
-                        "\" -map 0:v:0 -an -sn -dn -vf \"fps=30,scale=640:360:force_original_aspect_ratio=decrease:reset_sar=1\"" +
+                        "-hide_banner -loglevel error -nostdin -threads 2 -copyts -start_at_zero -protocol_whitelist file,pipe -i \"" + filename +
+                        "\" -map 0:v:0 -an -sn -dn -vf \"fps=30:start_time=0,scale=640:360:force_original_aspect_ratio=decrease:reset_sar=1\"" +
                         " -c:v pam -pix_fmt rgba -f image2pipe pipe:1");
                     child.StartInfo.UseShellExecute = false;
                     child.StartInfo.CreateNoWindow = true;
@@ -161,9 +166,10 @@ namespace Arcana.Video
                     {
                         int width, height;
                         if (!ReadPamFrame(output, buffer, out width, out height) || cancelled) break;
+                        if (index == 0) audio.WaitUntilReady(cancel);
+                        if (cancelled) break;
                         if (!clock.IsRunning) clock.Start();
-                        int delay = (int)Math.Max(0, index * 1000L / VideoPlayer.FramesPerSecond - clock.ElapsedMilliseconds);
-                        if (cancel.WaitOne(delay)) break;
+                        if (!WaitForPlaybackTime(index * 1000L / VideoPlayer.FramesPerSecond)) break;
                         lock (frameLock)
                         {
                             Buffer.BlockCopy(buffer, 0, published, 0, width * height * 4);
@@ -171,7 +177,11 @@ namespace Arcana.Video
                             frameHeight = height;
                             frameNumber++;
                         }
-                        if (index == 0) log("영상 출력 크기. " + width + "x" + height);
+                        if (index == 0)
+                        {
+                            audio.BeginPlayback();
+                            log("영상 출력 크기. " + width + "x" + height);
+                        }
                         status = "재생 중 / 프레임 " + frameNumber;
                         index++;
                     }
@@ -182,8 +192,14 @@ namespace Arcana.Video
                     child.WaitForExit();
                     if (child.ExitCode != 0 || frameNumber == 0)
                         throw new IOException("영상 디코딩 실패. " + error.Trim());
-                    status = "재생 완료 / " + frameNumber + " 프레임";
-                    log(status);
+                    // 마지막 프레임의 표시 시간과 남은 오디오가 끝난 뒤 함께 닫는다.
+                    WaitForPlaybackTime(frameNumber * 1000L / VideoPlayer.FramesPerSecond);
+                    while (!cancelled && !audio.Completed) cancel.WaitOne(10);
+                    if (!cancelled)
+                    {
+                        status = "재생 완료 / " + frameNumber + " 프레임";
+                        log(Status);
+                    }
                 }
             }
             catch (Exception e)
@@ -196,6 +212,7 @@ namespace Arcana.Video
             }
             finally
             {
+                audio.Dispose();
                 lock (processLock)
                 {
                     if (child != null)
@@ -219,6 +236,19 @@ namespace Arcana.Video
                 Interlocked.Exchange(ref finishedAt, clock.ElapsedMilliseconds);
                 finished = true;
             }
+        }
+
+        private bool WaitForPlaybackTime(long target)
+        {
+            while (!cancelled)
+            {
+                long audioTime;
+                if (audio.TryGetMilliseconds(out audioTime)) clockOffset = audioTime - clock.ElapsedMilliseconds;
+                long remaining = target - (clock.ElapsedMilliseconds + clockOffset);
+                if (remaining <= 0) return true;
+                if (cancel.WaitOne((int)Math.Min(remaining, 10))) break;
+            }
+            return false;
         }
 
         // FFmpeg가 보낸 RGBA PAM 헤더에서 크기를 읽고 고정 최대 버퍼 안에서만 수신한다.
