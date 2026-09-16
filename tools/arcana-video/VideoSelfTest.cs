@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -43,6 +44,8 @@ namespace Arcana.Video
         private static long previousHash;
         private static Exception callbackError;
         private static bool useLayers;
+        private static bool captureNext;
+        private static byte[] capturedScreen;
         private static string output;
         private static readonly List<string> results = new List<string>();
 
@@ -51,9 +54,10 @@ namespace Arcana.Video
         {
             try
             {
-                if (args.Length != 3) throw new ArgumentException("decoder.exe clip.mp4 output-folder");
+                if (args.Length < 3 || args.Length > 4) throw new ArgumentException("decoder.exe clip.mp4 output-folder [aspect-fixtures-folder]");
                 output = args[2];
                 Directory.CreateDirectory(output);
+                TestFrameReader();
                 using (Form form = new Form())
                 {
                     form.ClientSize = new Size(800, 600);
@@ -92,6 +96,14 @@ namespace Arcana.Video
                             Stopwatch deadline = Stopwatch.StartNew();
                             while (player.Session != null && deadline.ElapsedMilliseconds < 12000) { Pump(dc); Thread.Sleep(12); }
                             Require(player.Session == null && replay.FrameNumber == 240, "Replay and automatic close after 240 frames");
+                            if (args.Length == 4)
+                            {
+                                TestAspect(dc, player, args[3], "square", 360, 360, 30, true);
+                                TestAspect(dc, player, args[3], "portrait", 203, 360, 30, true);
+                                TestAspect(dc, player, args[3], "wide", 640, 213, 30, true);
+                                TestAspect(dc, player, args[3], "anamorphic", 640, 240, 30, true);
+                                TestAspect(dc, player, args[3], "user", 203, 360, 356, false);
+                            }
                             for (int i = 0; i < 8; i++) { player.Open(args[1], false); Thread.Sleep(15); player.Close(); Pump(dc); }
                             Require(player.Session == null, "Repeated open and close");
                             string corrupt = Path.Combine(output, "invalid.mp4");
@@ -134,6 +146,110 @@ namespace Arcana.Video
             results.Add("PASS. " + message);
         }
 
+        private static void TestFrameReader()
+        {
+            byte[] pixels = new byte[VideoPlayer.FrameBytes];
+            string header = "P7\nWIDTH 1\nHEIGHT 1\nDEPTH 4\nMAXVAL 255\nTUPLTYPE RGB_ALPHA\nENDHDR\n";
+            using (MemoryStream data = new MemoryStream())
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    byte[] bytes = Encoding.ASCII.GetBytes(header);
+                    data.Write(bytes, 0, bytes.Length);
+                    // 헤더 구분 문자와 같은 값도 픽셀로 보존해야 한다.
+                    data.Write(new byte[] { 10, 13, 32, 255 }, 0, 4);
+                }
+                data.Position = 0;
+                int width, height;
+                for (int i = 0; i < 2; i++)
+                    Require(DecodeSession.ReadPamFrame(data, pixels, out width, out height) && width == 1 && height == 1 &&
+                        pixels[0] == 10 && pixels[1] == 13 && pixels[2] == 32 && pixels[3] == 255, "PAM frame boundary " + i);
+                Require(!DecodeSession.ReadPamFrame(data, pixels, out width, out height), "PAM clean end of stream");
+            }
+            foreach (string invalid in new string[] { header, header.Replace("WIDTH 1", "WIDTH 999999999"),
+                header.Replace("DEPTH 4", "DEPTH 3"), "P7\n" + new string('X', 129), "P7\nWIDTH 1" })
+            {
+                bool rejected = false;
+                using (MemoryStream data = new MemoryStream(Encoding.ASCII.GetBytes(invalid)))
+                {
+                    int width, height;
+                    try { DecodeSession.ReadPamFrame(data, pixels, out width, out height); }
+                    catch (InvalidDataException) { rejected = true; }
+                }
+                Require(rejected, "Invalid or truncated PAM frame rejected");
+            }
+        }
+
+        private static void TestAspect(IntPtr dc, VideoPlayer player, string folder, string name,
+            int expectedWidth, int expectedHeight, int expectedFrames, bool colorFixture)
+        {
+            player.Open(Path.Combine(folder, name + ".mp4"), false);
+            DecodeSession current = player.Session;
+            Stopwatch deadline = Stopwatch.StartNew();
+            bool sampled = false;
+            while (player.Session != null && deadline.ElapsedMilliseconds < 16000)
+            {
+                Pump(dc);
+                if (!sampled && current.FrameNumber >= 5 && player.Session != null)
+                {
+                    byte[] frame = new byte[VideoPlayer.FrameBytes];
+                    int number, width, height;
+                    current.CopyFrame(frame, 0, out number, out width, out height);
+                    Require(width == expectedWidth && height == expectedHeight, name + " decoded dimensions");
+                    captureNext = true;
+                    Pump(dc);
+                    byte[] screen = capturedScreen;
+                    double ratio = (double)expectedWidth / expectedHeight;
+                    double w = Math.Min(560, 360 * ratio), h = w / ratio;
+                    int left = (int)Math.Round((800 - w) / 2), top = (int)Math.Round((600 - h) / 2);
+                    Require(IsBackground(screen, left - 10, 300) && IsBackground(screen, 800 - left + 10, 300),
+                        name + " game background remains beside video");
+                    if (colorFixture)
+                    {
+                        int minX = 800, minY = 600, maxX = -1, maxY = -1;
+                        for (int y = 0; y < 600; y++)
+                            for (int x = 0; x < 800; x++)
+                                if (!IsBackground(screen, x, y))
+                                {
+                                    minX = Math.Min(minX, x); maxX = Math.Max(maxX, x);
+                                    minY = Math.Min(minY, y); maxY = Math.Max(maxY, y);
+                                }
+                        Require(Math.Abs(minX - left) <= 1 && Math.Abs(minY - top) <= 1 &&
+                            Math.Abs((maxX - minX + 1) - w) <= 1 && Math.Abs((maxY - minY + 1) - h) <= 1,
+                            name + " rendered bounds preserve aspect without padding");
+                        int upper = ((599 - (top + (int)(h / 4))) * 800 + 400) * 4;
+                        int lower = ((599 - (top + (int)(h * 3 / 4))) * 800 + 400) * 4;
+                        Require(screen[upper + 2] > 220 && screen[upper] < 25 && screen[lower] > 220 && screen[lower + 2] < 25,
+                            name + " color channels and vertical orientation");
+                    }
+                    SaveFrame(screen, name + ".png");
+                    sampled = true;
+                }
+                Thread.Sleep(12);
+            }
+            Require(sampled && player.Session == null && current.FrameNumber == expectedFrames,
+                name + " complete playback and automatic close");
+            captureNext = true;
+            Pump(dc);
+            Require(IsBackground(capturedScreen, 400, 300), name + " game background restored after playback");
+        }
+
+        private static bool IsBackground(byte[] pixels, int x, int y)
+        {
+            int index = ((599 - y) * 800 + x) * 4;
+            return Math.Abs(pixels[index] - 33) <= 2 && Math.Abs(pixels[index + 1] - 18) <= 2 && Math.Abs(pixels[index + 2] - 8) <= 2;
+        }
+
+        private static byte[] ReadScreen()
+        {
+            byte[] pixels = new byte[800 * 600 * 4];
+            int oldReadBuffer = GL.Integer(0x0C02);
+            glReadBuffer(0x0405);
+            glReadPixels(0, 0, 800, 600, 0x80E1, 0x1401, pixels);
+            glReadBuffer((uint)oldReadBuffer);
+            return pixels;
+        }
+
         private static void RunFor(IntPtr dc, int milliseconds)
         {
             Stopwatch timer = Stopwatch.StartNew();
@@ -171,6 +287,7 @@ namespace Arcana.Video
                 uint error = glGetError();
                 if (error != 0) throw new InvalidOperationException("OpenGL error 0x" + error.ToString("X"));
                 checkedFrames++;
+                if (captureNext) { capturedScreen = ReadScreen(); captureNext = false; }
                 if (checkedFrames % 4 != 0) return;
                 byte[] pixels = new byte[800 * 600 * 4];
                 int oldReadBuffer = GL.Integer(0x0C02);
@@ -182,14 +299,14 @@ namespace Arcana.Video
                 if (previousHash != 0 && hash != previousHash)
                 {
                     changedFrames++;
-                    if (changedFrames == 5) SaveFrame(pixels);
+                    if (changedFrames == 5) SaveFrame(pixels, "opengl-video.png");
                 }
                 previousHash = hash;
             }
             catch (Exception e) { callbackError = e; }
         }
 
-        private static void SaveFrame(byte[] pixels)
+        private static void SaveFrame(byte[] pixels, string name)
         {
             using (Bitmap bitmap = new Bitmap(800, 600, PixelFormat32))
             {
@@ -197,7 +314,7 @@ namespace Arcana.Video
                 try { Marshal.Copy(pixels, 0, data.Scan0, pixels.Length); }
                 finally { bitmap.UnlockBits(data); }
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
-                bitmap.Save(Path.Combine(output, "opengl-video.png"), ImageFormat.Png);
+                bitmap.Save(Path.Combine(output, name), ImageFormat.Png);
             }
         }
         private const System.Drawing.Imaging.PixelFormat PixelFormat32 = System.Drawing.Imaging.PixelFormat.Format32bppRgb;

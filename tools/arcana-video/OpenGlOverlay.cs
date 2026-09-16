@@ -187,8 +187,8 @@ namespace Arcana.Video
                 return;
             }
             if (renderedSession != current) { renderedSession = current; renderedFrame = 0; }
-            int number;
-            bool upload = current.CopyFrame(pixels, renderedFrame, out number);
+            int number, frameWidth, frameHeight;
+            bool upload = current.CopyFrame(pixels, renderedFrame, out number, out frameWidth, out frameHeight);
             if (number == 0) return;
 
             // 스택이 가득 찬 호스트에서는 기존 상태를 손상시키지 않고 이번 프레임을 건너뛴다.
@@ -249,18 +249,17 @@ namespace Arcana.Video
                 if (upload)
                 {
                     GCHandle pinned = GCHandle.Alloc(pixels, GCHandleType.Pinned);
-                    try { GL.glTexSubImage2D(0x0DE1, 0, 0, 0, VideoPlayer.Width, VideoPlayer.Height, 0x80E1, 0x1401, pinned.AddrOfPinnedObject()); }
+                    try { GL.glTexSubImage2D(0x0DE1, 0, 0, 0, frameWidth, frameHeight, 0x1908, 0x1401, pinned.AddrOfPinnedObject()); }
                     finally { pinned.Free(); }
                     renderedFrame = number;
                 }
-                float w = Math.Min(width * 0.70f, height * 0.60f * 16 / 9);
-                float h = w * 9 / 16, left = (width - w) / 2, top = (height - h) / 2;
-                GL.glColor4f(0, 0, 0, 1);
-                Quad(left - 3, top - 3, w + 6, h + 6, false);
+                float ratio = (float)frameWidth / frameHeight;
+                float w = Math.Min(width * 0.70f, height * 0.60f * ratio);
+                float h = w / ratio, left = (width - w) / 2, top = (height - h) / 2;
                 GL.glEnable(0x0DE1);
                 GL.glTexEnvi(0x2300, 0x2200, 0x1E01);
                 GL.glColor4f(1, 1, 1, 1);
-                Quad(left, top, w, h, true);
+                Quad(left, top, w, h, frameWidth, frameHeight);
             }
             finally
             {
@@ -288,15 +287,15 @@ namespace Arcana.Video
             }
         }
 
-        private static void Quad(float x, float y, float width, float height, bool textured)
+        private static void Quad(float x, float y, float width, float height, int frameWidth, int frameHeight)
         {
             float u0 = .5f / 1024, v0 = .5f / 512;
-            float u1 = (VideoPlayer.Width - .5f) / 1024, v1 = (VideoPlayer.Height - .5f) / 512;
+            float u1 = (frameWidth - .5f) / 1024, v1 = (frameHeight - .5f) / 512;
             GL.glBegin(0x0007);
-            if (textured) GL.glTexCoord2f(u0, v0); GL.glVertex2f(x, y);
-            if (textured) GL.glTexCoord2f(u1, v0); GL.glVertex2f(x + width, y);
-            if (textured) GL.glTexCoord2f(u1, v1); GL.glVertex2f(x + width, y + height);
-            if (textured) GL.glTexCoord2f(u0, v1); GL.glVertex2f(x, y + height);
+            GL.glTexCoord2f(u0, v0); GL.glVertex2f(x, y);
+            GL.glTexCoord2f(u1, v0); GL.glVertex2f(x + width, y);
+            GL.glTexCoord2f(u1, v1); GL.glVertex2f(x + width, y + height);
+            GL.glTexCoord2f(u0, v1); GL.glVertex2f(x, y + height);
             GL.glEnd();
         }
 

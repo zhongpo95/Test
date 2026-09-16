@@ -1,15 +1,17 @@
 // FFmpeg가 읽은 영상 프레임을 제한된 버퍼로 전달하고 재생 종료를 관리한다.
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Threading;
 
 namespace Arcana.Video
 {
     public sealed class VideoPlayer : IDisposable
     {
-        public const int Width = 640, Height = 360, FramesPerSecond = 30;
-        public const int FrameBytes = Width * Height * 4;
+        public const int MaxWidth = 640, MaxHeight = 360, FramesPerSecond = 30;
+        public const int FrameBytes = MaxWidth * MaxHeight * 4;
         private readonly string decoder;
         private readonly Action<string> log;
         private DecodeSession session;
@@ -74,7 +76,7 @@ namespace Arcana.Video
         private bool cancelDisposed;
         private volatile bool cancelled, finished;
         private volatile string status = "영상 읽는 중";
-        private int frameNumber;
+        private int frameNumber, frameWidth, frameHeight;
         private long finishedAt;
 
         internal DecodeSession(string exe, string path, bool temporary, Action<string> logger)
@@ -97,13 +99,15 @@ namespace Arcana.Video
             worker.Start();
         }
 
-        public bool CopyFrame(byte[] destination, int previous, out int number)
+        public bool CopyFrame(byte[] destination, int previous, out int number, out int width, out int height)
         {
             lock (frameLock)
             {
                 number = frameNumber;
+                width = frameWidth;
+                height = frameHeight;
                 if (number == 0 || number == previous) return false;
-                Buffer.BlockCopy(published, 0, destination, 0, published.Length);
+                Buffer.BlockCopy(published, 0, destination, 0, width * height * 4);
                 return true;
             }
         }
@@ -135,8 +139,8 @@ namespace Arcana.Video
                     child = new Process();
                     child.StartInfo = new ProcessStartInfo(decoder,
                         "-hide_banner -loglevel error -nostdin -threads 2 -protocol_whitelist file,pipe -i \"" + filename +
-                        "\" -map 0:v:0 -an -sn -dn -vf \"fps=30,scale=640:360:force_original_aspect_ratio=decrease," +
-                        "pad=640:360:(ow-iw)/2:(oh-ih)/2\" -pix_fmt bgra -f rawvideo pipe:1");
+                        "\" -map 0:v:0 -an -sn -dn -vf \"fps=30,scale=640:360:force_original_aspect_ratio=decrease:reset_sar=1\"" +
+                        " -c:v pam -pix_fmt rgba -f image2pipe pipe:1");
                     child.StartInfo.UseShellExecute = false;
                     child.StartInfo.CreateNoWindow = true;
                     child.StartInfo.RedirectStandardOutput = true;
@@ -150,29 +154,27 @@ namespace Arcana.Video
                     child.BeginErrorReadLine();
                 }
                 byte[] buffer = new byte[VideoPlayer.FrameBytes];
-                Stream output = child.StandardOutput.BaseStream;
-                int index = 0;
-                while (!cancelled)
+                using (Stream output = new BufferedStream(child.StandardOutput.BaseStream, 65536))
                 {
-                    int used = 0;
-                    while (used < buffer.Length && !cancelled)
+                    int index = 0;
+                    while (!cancelled)
                     {
-                        int count = output.Read(buffer, used, buffer.Length - used);
-                        if (count == 0) break;
-                        used += count;
+                        int width, height;
+                        if (!ReadPamFrame(output, buffer, out width, out height) || cancelled) break;
+                        if (!clock.IsRunning) clock.Start();
+                        int delay = (int)Math.Max(0, index * 1000L / VideoPlayer.FramesPerSecond - clock.ElapsedMilliseconds);
+                        if (cancel.WaitOne(delay)) break;
+                        lock (frameLock)
+                        {
+                            Buffer.BlockCopy(buffer, 0, published, 0, width * height * 4);
+                            frameWidth = width;
+                            frameHeight = height;
+                            frameNumber++;
+                        }
+                        if (index == 0) log("영상 출력 크기. " + width + "x" + height);
+                        status = "재생 중 / 프레임 " + frameNumber;
+                        index++;
                     }
-                    if (cancelled || used == 0) break;
-                    if (used != buffer.Length) throw new InvalidDataException("영상 프레임이 잘렸습니다.");
-                    if (!clock.IsRunning) clock.Start();
-                    int delay = (int)Math.Max(0, index * 1000L / VideoPlayer.FramesPerSecond - clock.ElapsedMilliseconds);
-                    if (cancel.WaitOne(delay)) break;
-                    lock (frameLock)
-                    {
-                        Buffer.BlockCopy(buffer, 0, published, 0, buffer.Length);
-                        frameNumber++;
-                    }
-                    status = "재생 중 / 프레임 " + frameNumber;
-                    index++;
                 }
                 if (!cancelled)
                 {
@@ -217,6 +219,63 @@ namespace Arcana.Video
                 Interlocked.Exchange(ref finishedAt, clock.ElapsedMilliseconds);
                 finished = true;
             }
+        }
+
+        // FFmpeg가 보낸 RGBA PAM 헤더에서 크기를 읽고 고정 최대 버퍼 안에서만 수신한다.
+        internal static bool ReadPamFrame(Stream input, byte[] pixels, out int width, out int height)
+        {
+            width = height = 0;
+            string magic = ReadHeaderLine(input, true);
+            if (magic == null) return false;
+            if (magic != "P7") throw new InvalidDataException("영상 프레임 헤더가 잘못되었습니다.");
+            int fields = 0;
+            bool ended = false;
+            for (int lineIndex = 0; lineIndex < 16; lineIndex++)
+            {
+                string line = ReadHeaderLine(input, false);
+                if (line == "ENDHDR") { ended = true; break; }
+                int field;
+                if (line.StartsWith("WIDTH ", StringComparison.Ordinal) &&
+                    Int32.TryParse(line.Substring(6), NumberStyles.None, CultureInfo.InvariantCulture, out width)) field = 1;
+                else if (line.StartsWith("HEIGHT ", StringComparison.Ordinal) &&
+                    Int32.TryParse(line.Substring(7), NumberStyles.None, CultureInfo.InvariantCulture, out height)) field = 2;
+                else if (line == "DEPTH 4") field = 4;
+                else if (line == "MAXVAL 255") field = 8;
+                else if (line == "TUPLTYPE RGB_ALPHA") field = 16;
+                else throw new InvalidDataException("지원하지 않는 영상 프레임 형식입니다.");
+                if ((fields & field) != 0) throw new InvalidDataException("영상 프레임 헤더가 중복되었습니다.");
+                fields |= field;
+            }
+            if (!ended || fields != 31 || width < 1 || width > VideoPlayer.MaxWidth ||
+                height < 1 || height > VideoPlayer.MaxHeight)
+                throw new InvalidDataException("영상 프레임 크기가 허용 범위를 벗어났습니다.");
+            int bytes = width * height * 4, used = 0;
+            if (pixels.Length < bytes) throw new InvalidDataException("영상 프레임 버퍼가 부족합니다.");
+            while (used < bytes)
+            {
+                int count = input.Read(pixels, used, bytes - used);
+                if (count == 0) throw new InvalidDataException("영상 프레임이 잘렸습니다.");
+                used += count;
+            }
+            return true;
+        }
+
+        private static string ReadHeaderLine(Stream input, bool allowEnd)
+        {
+            StringBuilder line = new StringBuilder();
+            for (int i = 0; i < 128; i++)
+            {
+                int value = input.ReadByte();
+                if (value < 0)
+                {
+                    if (allowEnd && i == 0) return null;
+                    throw new InvalidDataException("영상 프레임 헤더가 잘렸습니다.");
+                }
+                if (value == '\n') return line.ToString();
+                if (value < 32 || value > 126) throw new InvalidDataException("영상 프레임 헤더가 잘못되었습니다.");
+                line.Append((char)value);
+            }
+            throw new InvalidDataException("영상 프레임 헤더가 너무 깁니다.");
         }
     }
 }
