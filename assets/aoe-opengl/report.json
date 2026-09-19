@@ -1,0 +1,80 @@
+{
+  "source_map": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG_RL_04.w3x",
+  "source_map_sha256": "d61974fab2b67086802098bc60c62acd8093cd78847914d014dc2c53a5ed0161",
+  "output_map": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG_RL_04_AOE_GL_TGA.w3x",
+  "output_map_sha256": "6794493442e63bd57368536e7a4ef0146db73e452c94731c70cd58b529958f0a",
+  "original_model_sha256": "7d0ddd46de94ad5d6f2b3a2c62961008747b0443cecf5a3deb2460367b8b4e2e",
+  "original_blp_sha256": "364116b9a1cd7c83855405cb492a59ccdc936125bebd2210865baf96e762612c",
+  "model_sha256": "0f947a8745e0157330ab3ce57035e8c6660c03d86150b92e62a660e4ab8306da",
+  "texture_sha256": "7836975ad39ac0cbd38b073ee9c9a98d59b358354e6fcb2638b64a63d05a3656",
+  "model_changed_field": "TEXS texture path only",
+  "model_path_byte_range": [
+    864,
+    1124
+  ],
+  "material_filter_mode": "Additive (unchanged)",
+  "texture": {
+    "size": [
+      512,
+      512
+    ],
+    "validated_source_mips": [
+      [
+        512,
+        512
+      ],
+      [
+        256,
+        256
+      ],
+      [
+        128,
+        128
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        32,
+        32
+      ],
+      [
+        16,
+        16
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "alpha_range": [
+      0,
+      235
+    ],
+    "all_bgra_components_preserved": true
+  },
+  "unchanged_map_members": 2385,
+  "replaced_map_members": [
+    "Etc Boss AOE2.mdx",
+    "war3map.imp"
+  ],
+  "added_map_members": [
+    "Etc Boss AOE2_OpenGL.tga"
+  ],
+  "script_sha256": "897d139ba1cfdef64af7014184085226117fb2786aa837793b6dcd71b01e4847",
+  "compiler_rerun": false,
+  "runtime_tested": false
+}
