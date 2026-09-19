@@ -1,5 +1,4 @@
-// 서버 저장 요청과 완료 상태 및 재시도 대기열을 관리한다.
-library PlayerSave initializer onInit requires UIItem, JNStashNet
+scope Load initializer onInit
 
     globals
         trigger DOWNLOAD_CALLBACK = CreateTrigger( )
@@ -7,11 +6,6 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         
         stash array PLAYER_DATA
         boolean array PLAYER_DATA_SERVER_READY
-        boolean array PLAYER_DATA_UPLOAD_BUSY
-        private boolean array SaveQueued
-        // 0 미요청, 1 저장 중, 2 저장 완료, 3 실패, 4 서버 로드 미완료.
-        integer array PlayerSaveStatus
-        private trigger SAVE_REQUEST_CALLBACK = CreateTrigger()
     endglobals
 
     private function IsValidPickHeroNumber takes integer heroNumber returns boolean
@@ -91,28 +85,6 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         endif
     endfunction
 
-
-    function RequestPlayerSave takes integer pid returns boolean
-        if not PLAYER_DATA_SERVER_READY[pid] or not IsValidPickHeroNumber(PlayerSlotNumber[pid]) then
-            set PlayerSaveStatus[pid] = 4
-            return false
-        endif
-        if PLAYER_DATA_UPLOAD_BUSY[pid] then
-            set SaveQueued[pid] = true
-            return true
-        endif
-        call SaveEquippedItems(pid, PlayerSlotNumber[pid])
-        set SaveQueued[pid] = false
-        set PLAYER_DATA_UPLOAD_BUSY[pid] = true
-        set PlayerSaveStatus[pid] = 1
-        if not JNStashNetUploadUser(Player(pid), MapName, GetPlayerName(Player(pid)), MapApi, PLAYER_DATA[pid], SAVE_REQUEST_CALLBACK) then
-            set PLAYER_DATA_UPLOAD_BUSY[pid] = false
-            set PlayerSaveStatus[pid] = 3
-            return false
-        endif
-        return true
-    endfunction
-
     private function upload takes nothing returns nothing
         local integer pid = GetPlayerId(GetTriggerPlayer())
         local integer heroNumber = PlayerSlotNumber[pid]
@@ -124,23 +96,11 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         elseif JNGetConnectionState() == 1112425812 then
             call BJDebugMsg("현재 배틀넷에서 플레이중입니다.")
         */
-        call RequestPlayerSave(pid)
-    endfunction
-
-    private function requestedSaveFinished takes nothing returns nothing
-        local integer pid = GetPlayerId(JNStashNetGetPlayer())
-        if not JNStashNetGetFinished() then
-            return
-        endif
-        set PLAYER_DATA_UPLOAD_BUSY[pid] = false
-        if JNStashNetGetResult() then
-            set PlayerSaveStatus[pid] = 2
-            if SaveQueued[pid] then
-                call RequestPlayerSave(pid)
-            endif
+        if IsValidPickHeroNumber(heroNumber) then
+            call SaveEquippedItems(pid, heroNumber)
+            call JNStashNetUploadUser( GetTriggerPlayer(), MapName, GetPlayerName(GetTriggerPlayer()), MapApi, PLAYER_DATA[pid], UPLOAD_CALLBACK )
         else
-            set PlayerSaveStatus[pid] = 3
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "저장 실패. -save로 같은 데이터를 다시 저장할 수 있습니다.")
+            call VJDebugMsg("캐릭터 선택 후 저장할 수 있습니다.")
         endif
     endfunction
 
@@ -182,9 +142,8 @@ library PlayerSave initializer onInit requires UIItem, JNStashNet
         
         call TriggerAddAction( DOWNLOAD_CALLBACK, function downloadCallback )
         call TriggerAddAction( UPLOAD_CALLBACK, function uploadCallback )
-        call TriggerAddAction(SAVE_REQUEST_CALLBACK, function requestedSaveFinished)
         
         set t = null
     endfunction
 
-endlibrary
+endscope
