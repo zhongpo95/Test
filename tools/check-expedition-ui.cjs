@@ -23,7 +23,8 @@ function fresh() {
     DzFrameSetSize: (id,w,h) => Object.assign(frame(id),{w,h}),
     DzFrameSetFont: (id,font,size,flags) => Object.assign(frame(id),{font,size}),
     DzFrameSetText: (id,text) => {frame(id).text=text;}, DzFrameSetTexture: (id,texture) => {frame(id).texture=texture;},
-    DzFrameSetEnable: (id,enabled) => {frame(id).enabled=enabled;}, DzFrameShow: (id,shown) => {frame(id).shown=shown;},
+    // 설치된 Dz 구현은 CControl::Enable을 호출하므로 BACKDROP에는 사용할 수 없다.
+    DzFrameSetEnable: (id,enabled) => {assert.notEqual(frame(id).type,'BACKDROP','DzFrameSetEnable cannot target a BACKDROP');frame(id).enabled=enabled;}, DzFrameShow: (id,shown) => {frame(id).shown=shown;},
     DzFrameSetAlpha: (id,alpha) => {frame(id).alpha=alpha;}, DzFrameSetPriority: (id,priority) => {frame(id).priority=priority;},
     DzFrameSetScriptByCode: (id,event,callback) => {frame(id).scripts[event]=callback;},
     DzGetTriggerUIEventFrame: () => eventFrame, DzGetTriggerUIEventPlayer: () => eventPlayer,
@@ -65,7 +66,7 @@ check('원정 중 마을 안내 갱신이 선택창에 겹치지 않고 마을�
 });
 check('카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와 복원',()=>{
   const t=fresh(),e=t.e;t.start();const id=t.card('Choice',1),index=e.UIExpeditionChoice_ChoiceCards[1];
-  for(const f of t.frames.values())if(f.parent===id)assert.equal(f.enabled,false);
+  for(const f of t.frames.values())if(f.parent===id){if(f.type==='TEXT')assert.equal(f.enabled,false);else assert.equal(f.type,'BACKDROP');}
   const bg=t.frame(e.UIExpeditionChoice_CardActionBackground[index]);
   t.event(id,2);assert(bg.texture.endsWith('ActionHover.tga'));
   assert(t.frame(e.UIExpeditionChoice_CardBorder[index]).texture.endsWith('Blue.blp'));

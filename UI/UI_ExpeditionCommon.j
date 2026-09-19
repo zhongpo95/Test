@@ -47,7 +47,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetPoint(f, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(f, width, height)
         call DzFrameSetTexture(f, texture, 0)
-        call DzFrameSetEnable(f, false)
+        // BACKDROP은 CControl이 아니므로 DzFrameSetEnable을 호출하지 않는다.
         return f
     endfunction
 
