@@ -3,7 +3,7 @@ const fs = require('fs'), path = require('path'), assert = require('node:assert/
 const root = path.resolve(__dirname, '..');
 let checks = 0;
 function check(name, test) { test(); checks++; console.log('PASS ' + name); }
-function environment(files) {
+function environment(files, extras = {}) {
   const env = {}, records = new Map(), saves = [], pauses = new Map();
   let seed = 41, unitId = 100;
   const no = () => {};
@@ -46,6 +46,7 @@ function environment(files) {
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
     MapRectReturn: x => x, MapResetAll: no, MapReset: (x) => {env.MapRectCheck[x] = true;},
+    MapSet: (x, theme) => {env.Mapthema[x] = theme; env.MapRectCheck[x] = true; return x;},
     Rect: (x,y,w,h) => ({x,y,w,h}), RemoveRect: no,
     SetUnitState: no, SetUnitPosition: no, SetUnitInvulnerable: no, ReviveHero: no,
     PlayerStatsSet: no, ItemUIStatsSet: no, RefreshHP: no, ShowPlayerPotionDisplay: no,
@@ -63,8 +64,19 @@ function environment(files) {
     JNStashNetGetResult: () => env.uploadSuccess,
     JNStashNetUploadUser: p => {saves.push({p, snapshot: new Map(records)});return env.uploadAccepted;},
   });
+  Object.assign(env, extras);
   const expr = s => s.split(/("(?:\\.|[^"\\])*")/g).map((p, i) => i % 2 ? p : p.replace(/\band\b/g, '&&').replace(/\bor\b/g, '||').replace(/\bnot\b/g, '!').replace(/\bfunction (\w+)/g, '$1')).join('');
-  const sources = files.map(f => fs.readFileSync(path.join(root, f), 'utf8'));
+  const sources = files.map(f => {
+    let source = fs.readFileSync(path.join(root, f), 'utf8');
+    // UI 검사는 서로 다른 library의 private 이름을 구분해 실제 창과 콜백을 함께 실행한다.
+    if (!f.startsWith('UI/')) return source;
+    const prefix = source.match(/\blibrary (\w+)/)[1] + '_';
+    const names = [...source.matchAll(/private (?:constant )?(?:function|integer|real|boolean|string|trigger|timer)(?: array)? (\w+)/g)].map(m => m[1]);
+    for (const name of new Set(names)) {
+      source = source.split(/("(?:\\.|[^"\\])*")/g).map((part, i) => i % 2 ? part : part.replace(new RegExp('\\b' + name + '\\b', 'g'), prefix + name)).join('');
+    }
+    return source;
+  });
   for (const s of sources) for (const block of s.matchAll(/\bglobals\b([\s\S]*?)\bendglobals\b/g)) {
     for (const line of block[1].split(/\r?\n/)) {
       const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect) (array )?(\w+)(?:\s*=\s*(.*))?/);
@@ -101,6 +113,8 @@ function environment(files) {
   }
   return {env, records, saves, pauses};
 }
+module.exports = {environment};
+if (require.main === module) {
 const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j'];
 const fresh = () => environment(files);
 check('라이프 손실의 모든 구간과 반올림 경계', () => {
@@ -131,7 +145,7 @@ check('준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약', () 
   e.ExpReady[1]=true;e.PickCheck[1]=false;e.TryStart();assert.equal(e.ExpState,0);
   e.PickCheck[1]=true;e.home=false;e.TryStart();assert.equal(e.ExpState,0);
   e.home=true;e.TryStart();assert.equal(e.ExpState,e.EXP_START);assert.equal(e.ExpPlayers,2);assert.equal(e.ExpPoints[0],5);
-  assert.equal(e.MapRectCheck[e.ExpArena],false);assert.equal(pauses.get(0),true);
+  assert.equal(e.MapRectCheck[e.ExpArena],false);assert.equal(e.Mapthema[e.ExpArena],1);assert.equal(pauses.get(0),true);
 });
 check('오래된 원정/화면/후보 요청과 시작 보상 중복 거부', () => {
   const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;e.ExpRun=2;e.ExpRevision=3;e.ExpOfferVersion[0]=4;
@@ -267,3 +281,4 @@ check('2인 원정 전체 진행 후 새 원정에 임시 성장 미이월', () 
   e.ExpAction(0,1);e.ExpAction(1,1);assert.equal(e.ExpState,e.EXP_START);assert.equal(e.ExpGold[0],0);assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpFixedCrit[1],0);
 });
 console.log(`${checks} scenario groups passed. JASS natives, real multiplayer, game rendering and server persistence remain untested.`);
+}

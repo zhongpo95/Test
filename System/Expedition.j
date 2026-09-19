@@ -312,9 +312,9 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
         loop
             exitwhen pid == 4
             if ExpMember[pid] then
-                set ExpResultText[pid] = "시험 원정 종료 · 확정 승리 " + I2S(ExpConfirmedBattles[pid]) + "회"
+                set ExpResultText[pid] = "원정 종료 · 전투 승리 " + I2S(ExpConfirmedBattles[pid]) + "회"
                 if clear then
-                    set ExpResultText[pid] = "시험 원정 완주 · 확정 승리 " + I2S(ExpConfirmedBattles[pid]) + "회"
+                    set ExpResultText[pid] = "원정 완주 · 전투 승리 " + I2S(ExpConfirmedBattles[pid]) + "회"
                 endif
                 call ReleaseEvent(pid)
                 set ExpMember[pid] = false
@@ -502,6 +502,8 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
             return
         endif
         call MapResetAll(ExpArena)
+        // 초기화로 숨겨진 전장 장식을 기존 기본 테마로 복구한다.
+        call MapSet(ExpArena, 1)
         set MapRectCheck[ExpArena] = false
         set ExpRun = ExpRun + 1
         set ExpStep = 1

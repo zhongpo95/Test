@@ -116,6 +116,25 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def import_table(data, names):
+    version, count = struct.unpack_from('<II', data)
+    if version != 1:
+        raise ValueError('Only import table version 1 is supported')
+    pos, existing = 8, set()
+    for _ in range(count):
+        flag = data[pos]
+        end = data.index(b'\0', pos + 1)
+        name = data[pos + 1:end].decode('utf8').replace('/', '\\')
+        if flag in (5, 8):
+            name = 'war3mapImported\\' + name
+        existing.add(name.lower())
+        pos = end + 1
+    if pos != len(data):
+        raise ValueError('Unexpected import table tail')
+    added = [name for name in names if name.lower() not in existing]
+    return struct.pack('<II', version, count + len(added)) + data[8:] + b''.join(b'\x0d' + name.encode('utf8') + b'\0' for name in added)
+
+
 def run(args):
     root = Path(__file__).resolve().parents[1]
     source, output, build = args.source.resolve(), args.output.resolve(), args.build_dir.resolve()
@@ -126,12 +145,22 @@ def run(args):
     (build / 'pjass').mkdir(exist_ok=True)
     (build / 'logs').mkdir(exist_ok=True)
     original_hash = sha(source.read_bytes())
+    manifest = root / 'assets/expedition/import-manifest.json'
+    assets = []
+    if manifest.exists():
+        for asset in json.loads(manifest.read_text(encoding='utf8')):
+            path = (root / asset['source']).resolve()
+            path.relative_to(root)
+            if sha(path.read_bytes()) != asset['sha256']:
+                raise ValueError('UI asset hash mismatch: ' + asset['source'])
+            assets.append((asset['target'], path, asset['sha256']))
     dll = load_dll(args.stormlib)
     archive = Archive(dll, source)
     try:
         text, names = scaffold(archive, root)
         members = sorted(set(archive.read('(listfile)').decode('utf-8-sig').splitlines()))
         hashes = {name: sha(archive.read(name)) for name in members if name and name not in ('(listfile)', '(attributes)', 'war3map.j')}
+        imports = import_table(archive.read('war3map.imp'), [name for name, _, _ in assets])
     finally:
         archive.close()
     (build / 'input.j').write_text(text, encoding='utf8')
@@ -151,17 +180,25 @@ def run(args):
         raise RuntimeError(check.stdout + check.stderr)
     output.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, output)
+    (build / 'war3map.imp').write_bytes(imports)
     archive = Archive(dll, output, write=True)
     try:
         if not dll.SFileAddFileEx(archive.handle, str(compiled), b'war3map.j', 0x80000200, 2, 2):
             raise OSError('Cannot replace war3map.j')
+        for name, path, _ in assets:
+            if not dll.SFileAddFileEx(archive.handle, str(path), name.encode('utf8'), 0x80000200, 2, 2):
+                raise OSError('Cannot import UI asset: ' + name)
+        if not dll.SFileAddFileEx(archive.handle, str(build / 'war3map.imp'), b'war3map.imp', 0x80000200, 2, 2):
+            raise OSError('Cannot update UI import table')
     finally:
         archive.close()
     archive = Archive(dll, output)
     try:
         if archive.read('war3map.j') != compiled.read_bytes():
             raise AssertionError('Packaged script mismatch')
-        for name, digest in hashes.items():
+        replacements = {'war3map.imp': sha(imports), **{name: digest for name, _, digest in assets}}
+        changed = [name for name, digest in hashes.items() if name in replacements and replacements[name] != digest]
+        for name, digest in {**hashes, **replacements}.items():
             if sha(archive.read(name)) != digest:
                 raise AssertionError('Unexpected member change: ' + name)
     finally:
@@ -170,7 +207,9 @@ def run(args):
         raise AssertionError('Original map changed')
     report = {'source': str(source), 'source_sha256': original_hash, 'output': str(output),
               'output_sha256': sha(output.read_bytes()), 'script_sha256': sha(compiled.read_bytes()),
-              'preserved_members': len(hashes), 'preserved_generated_functions': names,
+              'preserved_members': len(hashes) - len(changed), 'updated_members': changed,
+              'ui_assets': [{'name': name, 'sha256': digest} for name, _, digest in assets],
+              'preserved_generated_functions': names,
               'compiler_exit': proc.returncode, 'pjass_exit': check.returncode,
               'pjass_output': check.stdout + check.stderr, 'runtime_tested': False}
     (build / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
