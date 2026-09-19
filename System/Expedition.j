@@ -638,6 +638,10 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
         set potion = null
     endfunction
 
+    function ExpCanAllocate takes integer pid returns boolean
+        return ExpMember[pid] and not ExpLeft[pid] and (ExpState == EXP_START or ExpState == EXP_VOTE or ExpState == EXP_REWARD or ExpState == EXP_SHOP or ExpState == EXP_MOVE)
+    endfunction
+
     function ExpAction takes integer pid, integer action returns nothing
         local integer kind
         if pid < 0 or pid > 3 or ExpLeft[pid] or not PickCheck[pid] then
@@ -657,7 +661,7 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
             endif
         elseif not ExpMember[pid] then
             return
-        elseif action >= 101 and action <= 103 and (ExpState == EXP_START or ExpState == EXP_REWARD or ExpState == EXP_SHOP) then
+        elseif action >= 101 and action <= 103 and ExpCanAllocate(pid) then
             if action == 103 then
                 set ExpCritPoints[pid] = 0
                 set ExpSwiftPoints[pid] = 0
@@ -671,27 +675,29 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
             call RefreshStats(pid)
         elseif ExpDone[pid] then
             return
-        elseif ExpState == EXP_START and action >= 1 and action <= 7 then
+        elseif ExpState == EXP_START and action >= 1 and action <= 6 then
             if action == 1 then
                 call GrantPoints(pid, 10)
             elseif action == 2 then
-                set ExpFixedCrit[pid] = ExpFixedCrit[pid] + 200
+                if GetRandomInt(1, 2) == 1 then
+                    set ExpFixedCrit[pid] = ExpFixedCrit[pid] + 200
+                else
+                    set ExpFixedSwift[pid] = ExpFixedSwift[pid] + 200
+                endif
             elseif action == 3 then
-                set ExpFixedSwift[pid] = ExpFixedSwift[pid] + 200
-            elseif action == 4 then
-                set ExpGold[pid] = ExpGold[pid] + 200
-            elseif action == 5 then
                 set kind = ExpKey(pid, GetRandomInt(0, 10))
                 set ExpArcana[kind] = ExpArcana[kind] + 2
-            elseif action == 6 then
+            elseif action == 4 then
                 if ExpStartTwoCards[pid] then
                     call GrantCard(pid, DrawCard(pid, 1), 1)
                     call GrantCard(pid, DrawCard(pid, 1), 1)
                 else
                     call GrantCard(pid, ExpStartCard[pid], 1)
                 endif
-            else
+            elseif action == 5 then
                 call GrantCard(pid, DrawCard(pid, 2), 2)
+            else
+                set ExpGold[pid] = ExpGold[pid] + 200
             endif
             set ExpDone[pid] = true
             call RefreshStats(pid)

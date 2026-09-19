@@ -23,17 +23,33 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon
             return
         endif
         set remaining = ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]
-        set editable = ExpMember[pid] and (ExpState == EXP_START or ExpState == EXP_REWARD or ExpState == EXP_SHOP)
+        set editable = ExpCanAllocate(pid)
         call ExpUIText(Points, "남은 포인트  |cff07516b" + I2S(remaining) + "|r    획득 " + I2S(ExpPoints[pid]) + "/40")
         call ExpUIText(Crit, "치명    " + I2S(ExpCritPoints[pid]) + "/30|n원정 추가 치명  +" + I2S(ExpCritPoints[pid] * 60 + ExpFixedCrit[pid]))
         call ExpUIText(Swift, "신속    " + I2S(ExpSwiftPoints[pid]) + "/30|n원정 추가 신속  +" + I2S(ExpSwiftPoints[pid] * 60 + ExpFixedSwift[pid]))
         call ExpUISetButton(AddCrit, "+1 포인트", editable and remaining > 0 and ExpCritPoints[pid] < 30)
         call ExpUISetButton(AddSwift, "+1 포인트", editable and remaining > 0 and ExpSwiftPoints[pid] < 30)
         call ExpUISetButton(Reset, "배분 초기화", editable and ExpCritPoints[pid] + ExpSwiftPoints[pid] > 0)
-        if editable then
-            call ExpUIText(Hint, "1포인트당 해당 능력치 +60")
+        if not editable then
+            call ExpUISetButton(AddCrit, "배분 불가", false)
+            call ExpUISetButton(AddSwift, "배분 불가", false)
+        elseif remaining <= 0 then
+            call ExpUISetButton(AddCrit, "포인트 없음", false)
+            call ExpUISetButton(AddSwift, "포인트 없음", false)
         else
-            call ExpUIText(Hint, "보상 선택·상점에서 배분할 수 있습니다.")
+            if ExpCritPoints[pid] >= 30 then
+                call ExpUISetButton(AddCrit, "최대 30포인트", false)
+            endif
+            if ExpSwiftPoints[pid] >= 30 then
+                call ExpUISetButton(AddSwift, "최대 30포인트", false)
+            endif
+        endif
+        if ExpState == EXP_BATTLE then
+            call ExpUIText(Hint, "전투 중에는 배분할 수 없습니다.")
+        elseif editable then
+            call ExpUIText(Hint, "1포인트당 +60 · 비전투 중 배분 가능")
+        else
+            call ExpUIText(Hint, "원정을 시작하면 배분할 수 있습니다.")
         endif
         loop
             exitwhen i > 12

@@ -149,8 +149,20 @@ check('준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약', () 
 });
 check('오래된 원정/화면/후보 요청과 시작 보상 중복 거부', () => {
   const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;e.ExpRun=2;e.ExpRevision=3;e.ExpOfferVersion[0]=4;
-  for(const packet of ['1|3|4|4','2|2|4|4','2|3|3|4']){e.syncData=packet;e.OnSync();assert.equal(e.ExpGold[0],0);}
-  e.syncData='2|3|4|4';e.OnSync();e.OnSync();assert.equal(e.ExpGold[0],200);
+  for(const packet of ['1|3|4|6','2|2|4|6','2|3|3|6']){e.syncData=packet;e.OnSync();assert.equal(e.ExpGold[0],0);}
+  e.syncData='2|3|4|6';e.OnSync();e.OnSync();assert.equal(e.ExpGold[0],200);
+});
+check('시작 무작위 능력치는 한 종류만 200 증가하고 마지막 선택은 골드', () => {
+  for(const roll of [1,2]){
+    const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;e.ExpPoints[0]=5;
+    e.GetRandomInt=(min,max)=>{assert.equal(min,1);assert.equal(max,2);return roll;};
+    e.ExpAction(0,2);e.ExpAction(0,2);
+    assert.equal(e.ExpFixedCrit[0],roll===1?200:0);assert.equal(e.ExpFixedSwift[0],roll===2?200:0);
+    assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpGold[0],0);assert(e.ExpDone[0]);
+  }
+  const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;
+  e.ExpAction(0,7);assert.equal(e.ExpDone[0],false);
+  e.ExpAction(0,6);assert.equal(e.ExpGold[0],200);assert(e.ExpDone[0]);
 });
 check('리롤 비용 증가, 시간 유지, 확정 후 차단', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.ExpGold[0]=600;
@@ -230,8 +242,8 @@ check('카드 조건부 피해와 골드 기반 관통값', () => {
   assert.equal(e.ExpCardDamage(0,0,1),90);e.UnitHP[1]=500;assert.equal(e.ExpCardDamage(0,0,1),50);
   e.ExpCardOwned[7]=e.ExpCardOwned[8]=true;e.ExpGold[0]=1000;assert.equal(e.ExpCardPenetration(0),.5);
 });
-check('카드 재고 부족 사건 제외와 투표 중 스탯 변경 차단', () => {
-  const {env:e}=fresh();e.ExpMember[0]=true;e.ExpPoints[0]=10;e.ExpState=e.EXP_VOTE;e.ExpAction(0,101);assert.equal(e.ExpCritPoints[0],0);
+check('카드 재고 부족 사건 제외와 투표 중 스탯 배분', () => {
+  const {env:e}=fresh();e.ExpMember[0]=true;e.ExpPoints[0]=10;e.ExpState=e.EXP_VOTE;e.ExpAction(0,101);assert.equal(e.ExpCritPoints[0],1);
   for(let i=1;i<=6;i++)e.ExpCardSeen[i]=true;
   assert.equal(e.EventValid(0,4),false);assert.equal(e.EventValid(0,8),false);assert.equal(e.EventValid(0,6),true);
 });
