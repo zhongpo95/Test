@@ -1,3 +1,12 @@
+// === Expedition ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Expedition.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\ExpeditionEffects.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\ExpeditionCombat.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\Expedition.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionCommon.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionChoice.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionStats.j"
+
 // === UI ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossHP.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossEnd.j"

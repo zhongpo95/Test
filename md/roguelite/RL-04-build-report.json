@@ -1,0 +1,92 @@
+{
+  "source": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG.w3x",
+  "source_sha256": "ea7c886e08b69c1f03314f5cadbb45747ded6494581da74ba66f7bef60a29ea0",
+  "output": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG_RL_04.w3x",
+  "output_sha256": "d61974fab2b67086802098bc60c62acd8093cd78847914d014dc2c53a5ed0161",
+  "script_sha256": "897d139ba1cfdef64af7014184085226117fb2786aa837793b6dcd71b01e4847",
+  "preserved_members": 2380,
+  "updated_members": [
+    "war3map.imp"
+  ],
+  "ui_assets": [
+    {
+      "name": "war3mapImported\\UI_Expedition_White.blp",
+      "sha256": "75081564306d7b51d0f05521db3f22c4b91b2de8eb0b12dd9d673f5272e0c27c"
+    },
+    {
+      "name": "war3mapImported\\UI_Expedition_Blue.blp",
+      "sha256": "a5a3ceace91d9ad897515f9fcb273faaa1a18c1317823937087a280ece682778"
+    },
+    {
+      "name": "war3mapImported\\UI_Expedition_Purple.blp",
+      "sha256": "7d1974bcd47bb3f3ffcff140ce3b420c8a866d33fbf82854c745db000c8193cd"
+    },
+    {
+      "name": "war3mapImported\\UI_Expedition_Orange.blp",
+      "sha256": "1c59a3192f31347490909244b819ef507a4d7e84e4903e245deb24e636ab57de"
+    },
+    {
+      "name": "war3mapImported\\UI_Expedition_Colorful.blp",
+      "sha256": "dddf81eb05dc5c09883412fb74f9c74138e56b68e56941ae86586db3c409bbae"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Panel.tga",
+      "sha256": "030d72db2cb60d1833567c82c419d21b4adced1841ad26c7982c49980513549d"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Card.tga",
+      "sha256": "ea9e99be37fd1516b9fe672fe97e7227d6119189d71bdf065029e1b27e0ac18a"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Header.tga",
+      "sha256": "c68bf0b88a30075b151f640eb9948c2f4072910f8f9ede300a75860dbdcda942"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Row.tga",
+      "sha256": "046212a0ee6ddbd7fc5ee45fa74a2adee66f720a28989a08e6b99b8246461b01"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Selected.tga",
+      "sha256": "c2f156680a73630db8af3994d9e6f8283442d7eb1f0796d5c65eb542c7e12b21"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Action.tga",
+      "sha256": "abde5c36da28c79a751086c1b45244a6d45cdcfaf7c6867a07afb1d2783521bc"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_ActionHover.tga",
+      "sha256": "3ef84768c5926e390ed1a2dfa89d74a94ba8f495fbc2e4a20fc74c46c10ec961"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Disabled.tga",
+      "sha256": "c73fe89645ddb327dca04297077e93c4174a5db3a30bb199e68f44ea27ce3c08"
+    },
+    {
+      "name": "war3mapImported\\UI_Upgrade_Close.tga",
+      "sha256": "8e6e26d17e0dd2456dd3cf09b33c9b3fc3c471ac8f90d0f1e22d1567fb2f82f7"
+    }
+  ],
+  "preserved_generated_functions": [
+    "InitGlobals",
+    "InitSounds",
+    "CreateUnitsForPlayer0",
+    "CreateUnitsForPlayer1",
+    "CreateUnitsForPlayer2",
+    "CreateUnitsForPlayer3",
+    "CreateNeutralPassive",
+    "CreatePlayerBuildings",
+    "CreatePlayerUnits",
+    "CreateAllUnits",
+    "CreateRegions",
+    "CreateCameras",
+    "InitCustomTriggers",
+    "InitCustomPlayerSlots",
+    "InitCustomTeams",
+    "InitAllyPriorities",
+    "config"
+  ],
+  "compiler_exit": 0,
+  "pjass_exit": 0,
+  "pjass_output": "Parse successful:     1679 lines: common.j\nParse successful:    10230 lines: Blizzard.j\nParse successful:    69595 lines: war3map.j\nParse successful:    81504 lines: <total>\n24 errors ignored\n",
+  "runtime_tested": false
+}

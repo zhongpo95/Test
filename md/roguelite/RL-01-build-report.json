@@ -1,0 +1,31 @@
+{
+  "source": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG.w3x",
+  "source_sha256": "ea7c886e08b69c1f03314f5cadbb45747ded6494581da74ba66f7bef60a29ea0",
+  "output": "C:\\Users\\ctqho\\OneDrive\\Documents\\Warcraft III\\Maps\\mm\\2\\ARCRPG_RL_01.w3x",
+  "output_sha256": "cb917ac4b2156fe9f3a40826bed9c0b5ca615c7c0a9e3945c36943c474dbba5a",
+  "script_sha256": "5989fb1af8f7aa0fe50bcc3c8a43978539b3dbea8fe197d76bd165c69f9a94f4",
+  "preserved_members": 2381,
+  "preserved_generated_functions": [
+    "InitGlobals",
+    "InitSounds",
+    "CreateUnitsForPlayer0",
+    "CreateUnitsForPlayer1",
+    "CreateUnitsForPlayer2",
+    "CreateUnitsForPlayer3",
+    "CreateNeutralPassive",
+    "CreatePlayerBuildings",
+    "CreatePlayerUnits",
+    "CreateAllUnits",
+    "CreateRegions",
+    "CreateCameras",
+    "InitCustomTriggers",
+    "InitCustomPlayerSlots",
+    "InitCustomTeams",
+    "InitAllyPriorities",
+    "config"
+  ],
+  "compiler_exit": 0,
+  "pjass_exit": 0,
+  "pjass_output": "Parse successful:     1679 lines: common.j\nParse successful:    10230 lines: Blizzard.j\nParse successful:    69055 lines: war3map.j\nParse successful:    80964 lines: <total>\n24 errors ignored\n",
+  "runtime_tested": false
+}

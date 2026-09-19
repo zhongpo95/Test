@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIMap
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
