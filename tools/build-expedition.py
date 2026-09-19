@@ -182,4 +182,3 @@ if __name__ == '__main__':
     for name in ('source', 'output', 'build-dir', 'jn-root', 'compiler-data', 'stormlib'):
         parser.add_argument('--' + name, required=True, type=Path)
     run(parser.parse_args())
-
