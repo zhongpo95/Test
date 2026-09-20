@@ -165,7 +165,7 @@ library DataExpedition
 
     function ExpCardText takes integer id returns string
         if id == 1 then
-            return "피해량 +20%"
+            return "공격력 +20%|n무기와 엘릭서의 고정 공격력 기준"
         elseif id == 2 then
             return "체력 80% 이상인 적에게 피해량 +40%"
         elseif id == 3 then

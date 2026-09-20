@@ -289,7 +289,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
                     set price = 75
                 endif
                 set price = ExpShopPrice(pid, price)
-                set name = JNStringSplit("회복|공격|무적", "|", i - 6) + " 물약 " + I2S(ExpPotionBought[ExpKey(pid, i - 5)]) + "/2|n"
+                set name = JNStringSplit("회복|최종 대미지|무적", "|", i - 6) + " 물약 " + I2S(ExpPotionBought[ExpKey(pid, i - 5)]) + "/2|n"
                 if ExpPotionBought[ExpKey(pid, i - 5)] >= 2 then
                     set name = name + "구매 한도 도달"
                 else

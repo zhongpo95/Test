@@ -6,6 +6,12 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
         constant integer POTION_INVULNERABLE_DUNGEON_CHARGES = 1
     endglobals
 
+    private function DamagePotionText takes item potionItem returns nothing
+        call JNSetItemName(potionItem, "최종 대미지 증가 물약")
+        call JNSetItemTooltip(potionItem, "최종 대미지 증가 물약")
+        call JNSetItemExtendedTooltip(potionItem, "최대 체력의 25%를 소모하여 10초 동안 최종 대미지 +30%, 공격속도와 이동속도 +20%를 얻습니다.|n재사용 시 효과는 중첩되지 않고 지속시간이 갱신됩니다.")
+    endfunction
+
     function ShowPlayerPotionDisplay takes integer pid returns nothing
         if PlayerItem1[pid] != null then
             call RemoveItem(PlayerItem1[pid])
@@ -17,6 +23,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
             call RemoveItem(PlayerItem2[pid])
         endif
         set PlayerItem2[pid] = CreateItem('I00G',0,0)
+        call DamagePotionText(PlayerItem2[pid])
         call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
 
         if PlayerItem3[pid] != null then
@@ -38,6 +45,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
             call RemoveItem(PlayerItem2[pid])
         endif
         set PlayerItem2[pid] = CreateItem('I00C',0,0)
+        call DamagePotionText(PlayerItem2[pid])
         call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
         call SetItemCharges(PlayerItem2[pid], POTION_BUFF_DUNGEON_CHARGES)
 
@@ -145,6 +153,7 @@ library ItemPickUp initializer init requires DataItem, UIItem, ITEM
             if j == 0 then
                 call RemoveItem(PlayerItem2[pid])
                 set PlayerItem2[pid] = CreateItem('I00C',0,0)
+                call DamagePotionText(PlayerItem2[pid])
                 call UnitAddItem(MainUnit[pid],PlayerItem2[pid])
             endif
             call SetItemCharges(PlayerItem2[pid],j+1)

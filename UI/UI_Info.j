@@ -162,7 +162,7 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "최종 대미지 증가" )
-        set str = "|cFFA5FA7D ◎ |r" + "최종적으로 가하는 피해가 " + "|cFFA5FA7D" + R2SW( (Equip_LastDamage[pid]) * 100 , 1,2) + "%|r 증가합니다."
+        set str = "|cFFA5FA7D ◎ |r" + "최종적으로 가하는 피해가 " + "|cFFA5FA7D" + R2SW(FinalDamageBonus(pid), 1, 2) + "%|r 증가합니다."
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     

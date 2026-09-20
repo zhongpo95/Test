@@ -3,7 +3,7 @@ const fs = require('fs'), path = require('path'), assert = require('node:assert/
 const root = path.resolve(__dirname, '..');
 let checks = 0;
 function check(name, test) { test(); checks++; console.log('PASS ' + name); }
-function environment(files, extras = {}) {
+function environment(files, extras = {}, onlyFunctions = null) {
   const env = {}, records = new Map(), saves = [], pauses = new Map();
   let seed = 41, unitId = 100;
   const no = () => {};
@@ -71,7 +71,7 @@ function environment(files, extras = {}) {
   Object.assign(env, extras);
   const expr = s => s.split(/("(?:\\.|[^"\\])*")/g).map((p, i) => i % 2 ? p : p.replace(/\band\b/g, '&&').replace(/\bor\b/g, '||').replace(/\bnot\b/g, '!').replace(/\bfunction (\w+)/g, '$1')).join('');
   const sources = files.map(f => {
-    let source = fs.readFileSync(path.join(root, f), 'utf8');
+    let source = fs.readFileSync(path.join(root, f), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
     // UI 검사는 서로 다른 library의 private 이름을 구분해 실제 창과 콜백을 함께 실행한다.
     if (!f.startsWith('UI/')) return source;
     const prefix = source.match(/\blibrary (\w+)/)[1] + '_';
@@ -93,6 +93,7 @@ function environment(files, extras = {}) {
   for (const s of sources) for (const m of s.matchAll(/(?:private )?function (\w+) takes (.*?) returns (\w+)([\s\S]*?)endfunction/g)) {
     const [, name, args, returns, body] = m;
     if (skip.has(name)) continue;
+    if (onlyFunctions && !onlyFunctions.includes(name)) continue;
     const params = args === 'nothing' ? '' : args.split(',').map(p => p.trim().split(/\s+/)[1]).join(',');
     const js = [];
     for (let line of body.split(/\r?\n/)) {
@@ -252,7 +253,7 @@ check('이탈 인원은 대기에서 제외, 마지막 이탈은 정리', () => 
 });
 check('카드 조건부 피해와 골드 기반 관통값', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.ExpCardOwned[1]=e.ExpCardOwned[2]=e.ExpCardOwned[3]=true;
-  assert.equal(e.ExpCardDamage(0,0,1),90);e.UnitHP[1]=500;assert.equal(e.ExpCardDamage(0,0,1),50);
+  assert.equal(e.ExpCardDamage(0,0,1),70);e.UnitHP[1]=500;assert.equal(e.ExpCardDamage(0,0,1),30);
   e.ExpCardOwned[7]=e.ExpCardOwned[8]=true;e.ExpGold[0]=1000;assert.equal(e.ExpCardPenetration(0),.5);
 });
 check('카드 재고 부족 사건 제외와 투표 중 스탯 배분', () => {

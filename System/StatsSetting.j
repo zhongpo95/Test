@@ -161,7 +161,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         if GetLocalPlayer() == Player(pid) then
             call DzFrameSetText(F_ItemStatsText[16], GetPlayerName(Player(pid)) )
             //공격력
-            call DzFrameSetText(F_ItemStatsText[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
+            call DzFrameSetText(F_ItemStatsText[0], I2S(R2I(AttackPower(pid))))
             //방어등급
             //call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
             //치명
@@ -187,7 +187,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             //카드댐증
             call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
             //최종대미지증가
-            call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(  Equip_LastDamage[pid] )) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(FinalDamageBonus(pid))) + "%" )
             //개척력
             set r = Power(pid)
             call DzFrameSetText(F_ItemStatsText[14], R2SW(TrailblazePower(r), 1, 2))
@@ -413,6 +413,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         if ExpMember[pid] then
             set Equip_Crit[pid] = Equip_Crit[pid] + ExpCritPoints[pid] * 60 + ExpFixedCrit[pid]
             set Equip_Swiftness[pid] = Equip_Swiftness[pid] + ExpSwiftPoints[pid] * 60 + ExpFixedSwift[pid]
+            if ExpCardOwned[ExpKey(pid, 1)] then
+                set Equip_DamageP[pid] = Equip_DamageP[pid] + 20.0
+            endif
             set i = 0
             loop
                 exitwhen i > 53
