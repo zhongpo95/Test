@@ -756,8 +756,10 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             set pid = Order[i]
             if ExpMember[pid] then
                 if state == EXP_START then
-                    set ExpStartTwoCards[pid] = GetRandomInt(1, 2) == 1
-                    if not ExpStartTwoCards[pid] then
+                    // 1. 무작위 노말 2장, 2. 공개 노말 1장, 3. 무작위 레어 1장. 각각 1/3이다.
+                    set ExpStartCardKind[pid] = GetRandomInt(1, 3)
+                    set ExpStartCard[pid] = 0
+                    if ExpStartCardKind[pid] == 2 then
                         set ExpStartCard[pid] = DrawCard(pid, 1)
                     endif
                 elseif state == EXP_REWARD then
@@ -1042,7 +1044,7 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             call RefreshStats(pid)
         elseif ExpDone[pid] then
             return
-        elseif ExpState == EXP_START and action >= 1 and action <= 6 then
+        elseif ExpState == EXP_START and action >= 1 and action <= 5 then
             if action == 1 then
                 call GrantPoints(pid, 10)
             elseif action == 2 then
@@ -1055,14 +1057,16 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 set kind = ExpKey(pid, GetRandomInt(0, 10))
                 set ExpArcana[kind] = ExpArcana[kind] + 2
             elseif action == 4 then
-                if ExpStartTwoCards[pid] then
+                if ExpStartCardKind[pid] == 1 then
                     call GrantCard(pid, DrawCard(pid, 1), 1)
                     call GrantCard(pid, DrawCard(pid, 1), 1)
-                else
+                elseif ExpStartCardKind[pid] == 2 then
                     call GrantCard(pid, ExpStartCard[pid], 1)
+                elseif ExpStartCardKind[pid] == 3 then
+                    call GrantCard(pid, DrawCard(pid, 2), 2)
+                else
+                    return
                 endif
-            elseif action == 5 then
-                call GrantCard(pid, DrawCard(pid, 2), 2)
             else
                 set ExpGold[pid] = ExpGold[pid] + 200
             endif

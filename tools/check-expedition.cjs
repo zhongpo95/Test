@@ -154,8 +154,8 @@ check('준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약', () 
 });
 check('오래된 원정/화면/후보 요청과 시작 보상 중복 거부', () => {
   const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;e.ExpRun=2;e.ExpRevision=3;e.ExpOfferVersion[0]=4;
-  for(const packet of ['1|3|4|6','2|2|4|6','2|3|3|6']){e.syncData=packet;e.OnSync();assert.equal(e.ExpGold[0],0);}
-  e.syncData='2|3|4|6';e.OnSync();e.OnSync();assert.equal(e.ExpGold[0],200);
+  for(const packet of ['1|3|4|5','2|2|4|5','2|3|3|5']){e.syncData=packet;e.OnSync();assert.equal(e.ExpGold[0],0);}
+  e.syncData='2|3|4|5';e.OnSync();e.OnSync();assert.equal(e.ExpGold[0],200);
 });
 check('시작 무작위 능력치는 한 종류만 200 증가하고 마지막 선택은 골드', () => {
   for(const roll of [1,2]){
@@ -166,8 +166,29 @@ check('시작 무작위 능력치는 한 종류만 200 증가하고 마지막 �
     assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpGold[0],0);assert(e.ExpDone[0]);
   }
   const {env:e}=fresh();e.ExpState=e.EXP_START;e.ExpMember[0]=true;
-  e.ExpAction(0,7);assert.equal(e.ExpDone[0],false);
-  e.ExpAction(0,6);assert.equal(e.ExpGold[0],200);assert(e.ExpDone[0]);
+  e.ExpAction(0,6);assert.equal(e.ExpDone[0],false);assert.equal(e.ExpGold[0],0);
+  e.ExpAction(0,5);assert.equal(e.ExpGold[0],200);assert(e.ExpDone[0]);
+});
+check('시작 카드 세 형태를 1/3 추첨하고 해당 장수·등급만 한 번 지급',()=>{
+  for(const kind of [1,2,3]){
+    const {env:e}=fresh();e.ExpMember[0]=true;const calls=[];
+    e.GetRandomInt=(a,b)=>{calls.push([a,b]);return a===1&&b===3?kind:a;};e.Enter(e.EXP_START);
+    assert.deepEqual(calls[3],[1,3]);assert.equal(e.ExpStartCardKind[0],kind);assert.equal(e.ExpSeconds,60);
+    const shown=e.ExpStartCard[0];assert.equal(e.ExpCardSeen.filter(Boolean).length,kind===2?1:0);
+    assert.equal(shown>0,kind===2);e.ExpAction(0,4);e.ExpAction(0,4);
+    assert.equal(e.ExpCardOwned.slice(1,7).filter(Boolean).length,kind===1?2:kind===2?1:0);
+    assert.equal(e.ExpCardOwned.slice(7,11).filter(Boolean).length,kind===3?1:0);
+    if(kind===2)assert(e.ExpCardOwned[shown]);assert(e.ExpDone[0]);assert.equal(e.ExpGold[0],0);
+  }
+});
+check('시작 카드 미선택은 공개형만 등장 기록 유지, 숨긴 카드와 재추첨은 없음',()=>{
+  for(const kind of [1,2,3]){
+    const {env:e}=fresh();e.ExpMember[0]=true;e.GetRandomInt=(a,b)=>a===1&&b===3?kind:a;e.Enter(e.EXP_START);
+    const version=e.ExpOfferVersion[0],shown=e.ExpStartCard[0];e.ExpGold[0]=1000;e.ExpAction(0,100);
+    assert.equal(e.ExpOfferVersion[0],version);assert.equal(e.ExpStartCard[0],shown);assert.equal(e.ExpStartCardKind[0],kind);
+    e.ExpAction(0,5);assert.equal(e.ExpGold[0],1200);assert(!e.ExpCardOwned.some(Boolean));
+    assert.equal(e.ExpCardSeen.filter(Boolean).length,kind===2?1:0);assert(!e.ExpCardReserved.some(Boolean));
+  }
 });
 check('리롤 비용 증가, 시간 유지, 확정 후 차단', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.ExpGold[0]=600;

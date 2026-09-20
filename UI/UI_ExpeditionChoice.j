@@ -156,13 +156,14 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
             call SetCard(ChoiceCards[1], "스탯 10포인트", "원하는 능력치에 배분할 포인트를 얻습니다.", "스탯", "BTNManual", 1, "선택", true)
             call SetCard(ChoiceCards[2], "무작위 능력치 +200", "치명 또는 신속 중 하나가 같은 확률로 200 증가합니다.|n포인트 소모 없음", "고정 능력치", "BTNClawsOfAttack", 1, "선택", true)
             call SetCard(ChoiceCards[3], "일반 각인 +2", "무작위 일반 각인을 2레벨 얻습니다.|n패널티 없음", "각인", "BTNPeriapt", 1, "선택", true)
-            if ExpStartTwoCards[pid] then
-                call SetCard(ChoiceCards[4], "일반 카드 2장", "무작위 일반 카드를 2장 얻습니다.", "일반 카드", "BTNTome", 1, "선택", true)
+            if ExpStartCardKind[pid] == 1 then
+                call SetCard(ChoiceCards[4], "노말 카드 2장", "선택 시 무작위 노말 카드 2장을 얻습니다.|n카드 이름은 획득 후 공개됩니다.", "카드 · 제시 확률 33%", "BTNTome", 1, "선택", true)
+            elseif ExpStartCardKind[pid] == 3 then
+                call SetCard(ChoiceCards[4], "레어 카드 1장", "선택 시 무작위 레어 카드 1장을 얻습니다.|n카드 이름은 획득 후 공개됩니다.", "카드 · 제시 확률 33%", "BTNTomeOfRetraining", 2, "선택", true)
             else
-                call SetCard(ChoiceCards[4], ExpCardName(ExpStartCard[pid]), ExpCardText(ExpStartCard[pid]), "일반 카드", "BTNTome", 1, "선택", true)
+                call SetCard(ChoiceCards[4], ExpCardName(ExpStartCard[pid]), ExpCardText(ExpStartCard[pid]), "공개 노말 1장 · 33%", "BTNTome", 1, "선택", true)
             endif
-            call SetCard(ChoiceCards[5], "레어 카드 1장", "무작위 레어 카드를 1장 얻습니다.", "레어 카드", "BTNTomeOfRetraining", 2, "선택", true)
-            call SetCard(ChoiceCards[6], "골드 +200", "이번 원정의 상점에서 사용할 골드를 얻습니다.", "골드", "BTNChestOfGold", 1, "선택", true)
+            call SetCard(ChoiceCards[5], "골드 +200", "이번 원정의 상점에서 사용할 골드를 얻습니다.", "골드", "BTNChestOfGold", 1, "선택", true)
         endif
     endfunction
 
@@ -228,7 +229,9 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set i = 1
         loop
             exitwhen i > 9
-            call DzFrameShow(CardButton[ChoiceCards[i]], (ExpState == EXP_START and i <= 6) or (ExpState == EXP_REWARD and i >= 7))
+            if ChoiceCards[i] != 0 then
+                call DzFrameShow(CardButton[ChoiceCards[i]], (ExpState == EXP_START and i <= 5) or (ExpState == EXP_REWARD and i >= 7))
+            endif
             set i = i + 1
         endloop
         if ExpState == EXP_VOTE then
@@ -343,8 +346,8 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set ChoiceGold = ExpUILabel(ChoiceRoot, 0.27, 0.347, 0.12, 0.022, 0.011, "")
         set Reroll = ExpUIButton(ChoiceRoot, 0.43, 0.340, 0.210, 0.030, "다시 뽑기", 100)
         loop
-            exitwhen i > 6
-            set ChoiceCards[i] = MakeCard(ChoiceRoot, i, 0.017 + (i - 1) * 0.126, 0.038, 0.116, 0.292)
+            exitwhen i > 5
+            set ChoiceCards[i] = MakeCard(ChoiceRoot, i, 0.017 + (i - 1) * 0.151, 0.038, 0.141, 0.292)
             set i = i + 1
         endloop
         set i = 1

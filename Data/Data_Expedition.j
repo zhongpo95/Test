@@ -69,7 +69,7 @@ library DataExpedition
         integer array ExpEventReservation
         boolean array ExpEventUsed
         integer array ExpStartCard
-        boolean array ExpStartTwoCards
+        integer array ExpStartCardKind
         boolean array ExpEnemy
         integer array ExpConfirmedBattles
         string array ExpResultText
