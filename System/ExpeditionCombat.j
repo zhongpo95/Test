@@ -228,6 +228,11 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set EnemyPhase[i] = 0
         set EnemyDead[i] = false
         if EnemyKind[i] == 4 then
+            // 기존 보스와 같은 생성 순서로 로커스트를 유지하면서 범위 검색에 잡히게 한다.
+            call UnitRemoveAbility(Enemies[i], 'Amov')
+            call SetUnitPathing(Enemies[i], false)
+            call PauseUnit(Enemies[i], true)
+            call SetUnitPosition(Enemies[i], x, y)
             loop
                 exitwhen pid == 4
                 if ExpMember[pid] then
