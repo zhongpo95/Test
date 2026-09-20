@@ -1,7 +1,7 @@
 // 실제 원정 UI의 프레임과 콜백을 모의 실행하여 창 분리 및 선택 요청을 검증한다.
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
-const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
+const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
   'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
@@ -77,9 +77,9 @@ check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 �
   assert(clients.every(t=>t.executions.length===0));
   assert(clients.every(t=>t.packets.length===0),'로컬 창 조작에 네트워크 요청이 추가됨');
 });
-check('영웅 선택 후 준비창, 시작 보상 6개, M 지도와 스탯창의 독립 전환',()=>{
+check('영웅 선택 후 준비창, 시작 보상 5개, M 지도와 스탯창의 독립 전환',()=>{
   const t=fresh(),e=t.e;t.start();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
-  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(t.visible).length,6);
+  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,5);
   e.UIMap_Toggle();t.render();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
   assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]));
   t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
@@ -103,8 +103,8 @@ check('카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와
   assert(t.frame(e.UIExpeditionChoice_CardBorder[index]).texture.endsWith('White.blp'));
   const points=e.ExpPoints[0];t.click(id);assert.equal(e.ExpPoints[0],points+10);assert.equal(e.ExpDone[0],true);assert.deepEqual(t.roots(),[]);
 });
-check('시작 후보 6개의 실제 동기화 요청, 타인 UI 이벤트 차단 및 중복 확정 거부',()=>{
-  for(let action=1;action<=6;action++){
+check('시작 후보 5개의 실제 동기화 요청, 타인 UI 이벤트 차단 및 중복 확정 거부',()=>{
+  for(let action=1;action<=5;action++){
     const t=fresh(),e=t.e;t.start();const id=t.card('Choice',action);
     t.event(id,4,1);assert.equal(t.packets.length,0);
     t.event(id,4);assert.equal(t.packets[0].channel,'ExpCmd');assert.equal(t.packets[0].data,`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|${action}`);
@@ -148,8 +148,8 @@ check('보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사
   const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ExpGold[0]=500;t.render();
   const old=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|1`;
   t.click(t.common(100));assert.equal(e.ExpGold[0],400);e.syncData=old;e.OnSync();assert.equal(e.ExpDone[0],false);
-  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(t.visible).length,3);
-  assert(e.ExpEventCandidate[0]>0);t.click(t.card('Choice',9));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,3);
+  assert.equal(e.ExpEventCandidate[0],0);t.click(t.card('Choice',9));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
   assert(e.ExpEventDeadline[0]>0);t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
 });
 check('상점의 가격 표시, 돈 부족/구매 완료 비활성화 및 정비 완료 처리',()=>{
@@ -196,7 +196,7 @@ check('상점 잔액과 불가 사유 갱신, 일반 구매 버튼의 강조 및
 check('선택 창의 클릭 영역이 분리되고 화면 및 기본 HUD 영역을 침범하지 않음',()=>{
   for(const state of ['start','reward','shop']){
     const t=fresh(),e=t.e;t.start();if(state!=='start')e.Enter(state==='reward'?e.EXP_REWARD:e.EXP_SHOP);
-    const group=state==='shop'?'Shop':'Choice',ids=(state==='start'?[1,2,3,4,5,6]:state==='reward'?[7,8,9]:[1,2,3]).map(i=>t.card(group,i));
+    const group=state==='shop'?'Shop':'Choice',ids=(state==='start'?[1,2,3,4,5]:state==='reward'?[7,8,9]:[1,2,3]).map(i=>t.card(group,i));
     const rectangles=ids.map(id=>t.frame(id));
     for(const f of rectangles){const p=t.frame(f.parent);assert(p.x+f.x>=0&&p.x+f.x+f.w<=.8);assert(p.y+f.y-f.h>=.12);}
     for(let i=1;i<rectangles.length;i++)assert(rectangles[i-1].x+rectangles[i-1].w<rectangles[i].x);
@@ -205,6 +205,55 @@ check('선택 창의 클릭 영역이 분리되고 화면 및 기본 HUD 영역�
 check('다른 플레이어의 확정이 내 창을 닫지 않음',()=>{
   const t=fresh(),e=t.e;t.start();e.ExpMember[1]=true;e.ExpDone[1]=true;t.render();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   e.localPlayer=1;e.UIExpeditionCommon_SeenRevision=-1;t.render();assert.deepEqual(t.roots(),[]);
+});
+check('사건의 비용 부족과 결과 카드, 확인 버튼 및 다음 조우의 카드 복원',()=>{
+  const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ReleaseEvent(0);
+  e.GetRandomInt=(a,b)=>a;t.click(t.card('Choice',7));e.ReleaseEvent(0);e.ExpEventCandidate[0]=2;e.ExpEventReservation[2]=1;e.PrepareEvent(0);e.ExpGold[0]=0;t.render();
+  assert(!t.frame(t.card('Event',1)).enabled);assert(!t.frame(t.card('Event',2)).enabled);
+  const desc=i=>t.frame(e.UIExpeditionChoice_CardDescription[e.UIExpeditionChoice_EventCards[i]]).text;
+  assert(desc(1).includes('100골드가 필요'));assert(t.frame(e.UIExpeditionChoice_EventClock).text.includes('0 G'));
+  e.ExpGold[0]=100;t.render();assert(t.frame(t.card('Event',1)).enabled);
+  t.click(t.card('Event',1));assert(e.ExpEventResolved[0]);assert(!e.ExpDone[0]);assert.equal(e.ExpGold[0],0);
+  assert(desc(1).includes('획득'));assert(!t.frame(t.card('Event',1)).enabled);assert.equal(t.frame(t.card('Event',1)).alpha,255);
+  assert(!t.visible(t.card('Event',2)));assert(t.visible(t.card('Event',3)));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+  t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
+  e.Enter(e.EXP_VOTE);e.ExpEncounter=3;t.render();assert(t.visible(t.card('Event',2)));assert(!t.visible(t.card('Event',3)));
+  assert(desc(1).includes('90초'));assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('결투자'));
+});
+check('기본 보상 세 버튼 모두 지급 후 사건 UI로 전환하며 사건 내용은 미리 노출하지 않음',()=>{
+  for(const action of [1,2,3]){
+    const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);
+    assert.equal(e.ExpEventCandidate[0],0);assert.equal(e.ExpEventGrade[0],0);
+    const rewardIndex=e.UIExpeditionChoice_ChoiceCards[9];
+    assert(t.frame(e.UIExpeditionChoice_CardTag[rewardIndex]).text.includes('즉시 보상'));
+    const before=e.ExpPoints[0];e.GetRandomInt=(a,b)=>a;
+    t.click(t.card('Choice',action+6));assert(e.ExpRewardTaken[0]);assert(!e.ExpDone[0]);assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+    assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('추가 사건'));assert.equal(e.ExpChoiceSeconds(0),40);
+    if(action===1)assert.equal(e.ExpPoints[0],before+5);
+    t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
+  }
+});
+check('사건 부족 지원금의 표시·확인과 스탯 한도 대체',()=>{
+  const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ExpPoints[0]=40;t.render();
+  const index=e.UIExpeditionChoice_ChoiceCards[7];assert(t.frame(e.UIExpeditionChoice_CardTitle[index]).text.includes('100골드'));
+  e.GetRandomInt=(a,b)=>b===10000?9951:a;t.click(t.card('Choice',7));
+  assert.equal(e.ExpGold[0],1300);assert(e.ExpEventResolved[0]);assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('사건 부족'));
+  assert(t.frame(e.UIExpeditionChoice_CardDescription[e.UIExpeditionChoice_EventCards[1]]).text.includes('기본 보상은 유지'));
+  t.click(t.card('Event',3));assert(e.ExpDone[0]);assert(!e.ExpEventUsed[0]);
+});
+check('시작 카드 한 자리의 세 형태·33% 표시와 마지막 골드, 접기 후 후보 유지',()=>{
+  for(const kind of [1,2,3]){
+    const t=fresh(),e=t.e;e.GetRandomInt=(a,b)=>a===1&&b===3?kind:a;t.start();
+    const index=e.UIExpeditionChoice_ChoiceCards[4],gold=e.UIExpeditionChoice_ChoiceCards[5];
+    const title=t.frame(e.UIExpeditionChoice_CardTitle[index]).text,tag=t.frame(e.UIExpeditionChoice_CardTag[index]).text;
+    assert(tag.includes('33%'));assert.equal(e.UIExpeditionChoice_ChoiceCards[6],0);
+    assert(t.frame(e.UIExpeditionChoice_CardTitle[gold]).text.includes('골드 +200'));
+    assert(title.includes(kind===1?'노말 카드 2장':kind===3?'레어 카드 1장':e.ExpCardName(e.ExpStartCard[0])));
+    const toggle=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_CHOICE]],version=e.ExpOfferVersion[0];
+    e.GetRandomInt=()=>{throw Error('시작 UI 표시에서 공유 난수 호출');};t.click(toggle);t.click(toggle);
+    assert.equal(e.ExpOfferVersion[0],version);assert.equal(e.ExpStartCardKind[0],kind);assert.equal(t.frame(e.UIExpeditionChoice_CardTitle[index]).text,title);
+    assert.equal(t.frame(0).shown,true);
+  }
 });
 if(process.argv[2]){
   const t=fresh(),e=t.e,out=[];

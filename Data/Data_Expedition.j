@@ -39,6 +39,13 @@ library DataExpedition
         integer array ExpLuck
         integer array ExpRolls
         integer array ExpOfferVersion
+        boolean array ExpRewardTaken
+        integer array ExpRewardGrade
+        integer array ExpRewardKind
+        integer array ExpRewardPotion
+        integer array ExpRewardCardA
+        integer array ExpRewardCardB
+        boolean array ExpCardReserved
         integer array ExpArcana
         boolean array ExpCardOwned
         boolean array ExpCardSeen
@@ -53,10 +60,16 @@ library DataExpedition
         integer array ExpEventCandidate
         integer array ExpEventGrade
         integer array ExpEventDeadline
+        integer array ExpEventTargetCard
+        integer array ExpEventTargetArcana
+        integer array ExpEventTargetPenalty
+        boolean array ExpEventResolved
+        string array ExpEventOutcome
+        integer ExpEncounter = 1
         integer array ExpEventReservation
         boolean array ExpEventUsed
         integer array ExpStartCard
-        boolean array ExpStartTwoCards
+        integer array ExpStartCardKind
         boolean array ExpEnemy
         integer array ExpConfirmedBattles
         string array ExpResultText
@@ -210,5 +223,9 @@ library DataExpedition
             return EXP_EVENT
         endif
         return EXP_VOTE
+    endfunction
+
+    function ExpHasTeamRewardEvent takes integer node returns boolean
+        return node == 6 or node == 8 or node == 13 or node == 15 or node == 20
     endfunction
 endlibrary
