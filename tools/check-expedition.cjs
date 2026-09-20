@@ -45,7 +45,7 @@ function environment(files, extras = {}) {
     UnitAddAbility: (u,a) => u.abilities.add(a), UnitRemoveAbility: (u,a) => u.abilities.delete(a), GetUnitAbilityLevel: (u,a) => u.abilities.has(a) ? 1 : 0,
     IsUnitInRange: (u,v,r) => Math.hypot(env.GetUnitX(u)-env.GetUnitX(v),env.GetUnitY(u)-env.GetUnitY(v))<=r,
     SetUnitX: (u,x) => {u.x=x;}, SetUnitY: (u,y) => {u.y=y;}, Atan2: Math.atan2,
-    SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no, SetUnitPathing: no,
+    SetUnitAnimation: no, SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no, SetUnitPathing: no,
     IssuePointOrder: no, IssueImmediateOrder: no, SetUnitFacing: no, SelectUnit: no, TimerStart: no, PauseTimer: no, BossDeal: no,
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
@@ -313,9 +313,26 @@ check('원정 보스는 로커스트를 유지하고 기존 보스 생성 순서
   assert.equal(boss.raw,'h002');assert(!boss.abilities.has('Aatk'));
   assert.deepEqual(setup,[['remove',boss,'Amov'],['pathing',boss,false],['pause',boss,true],['position',boss,e.SpawnX[1],e.SpawnY[1]]]);
   assert.equal(e.UnitHP[boss.id],12000000);assert.equal(e.UnitHPMAX[boss.id],12000000);
-  e.EnemyClock[1]=0;e.ActEnemy(1);const warning=e.Warnings[1];
+  boss.x=100;boss.y=0;e.EnemyClock[1]=0;e.ActEnemy(1);const warning=e.Warnings[1];
   assert.equal(warning.raw,'h00H');assert(warning.abilities.has('Aloc'));assert(warning.abilities.has('Avul'));
   assert.equal(setup.length,4);assert(boss.abilities.has('A00V'));
+});
+check('보스 좌표 추적은 로커스트와 정지를 유지하고 사거리·예고·회복 중 이동을 멈춤',()=>{
+  const moves=[],animations=[];
+  const {env:e}=environment([...files,'System/ExpeditionCombat.j'],{
+    SetUnitPosition:(u,x,y)=>{if(typeof u==='object'){u.x=x;u.y=y;moves.push([x,y]);}},
+    SetUnitAnimation:(u,name)=>animations.push(name),
+  });
+  e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;e.ExpCombatStart(true);
+  const boss=e.Enemies[1];boss.x=1000;boss.y=0;boss.abilities.add('Aloc');
+  e.EnemyClock[1]=0;moves.length=0;e.ActEnemy(1);assert.equal(boss.x,960);assert.equal(boss.y,0);assert.deepEqual(animations,['walk']);
+  for(let i=0;i<30 && e.EnemyPhase[1]===0;i++)e.ActEnemy(1);
+  assert.equal(boss.x,320);assert.equal(e.EnemyPhase[1],1);assert.deepEqual(animations,['walk','stand']);
+  const count=moves.length,aim=[e.AimX[1],e.AimY[1]];
+  for(let i=0;i<3;i++)e.ActEnemy(1);assert.equal(moves.length,count);assert.deepEqual([e.AimX[1],e.AimY[1]],aim);
+  e.EnemyClock[1]=0;e.ActEnemy(1);assert.equal(e.EnemyPhase[1],2);
+  for(let i=0;i<3;i++)e.ActEnemy(1);assert.equal(moves.length,count);assert(boss.abilities.has('Aloc'));
+  e.EnemyPhase[1]=0;e.EnemyClock[1]=0;boss.x=320;boss.y=0;e.ActEnemy(1);assert.equal(moves.length,count);
 });
 check('보호막이 없는 보스도 체력 UI 크기 계산을 끝까지 수행', () => {
   let update;const sizes=[],texts=[],timer={start:(seconds,repeat,fn)=>{update=fn;}};

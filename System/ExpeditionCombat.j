@@ -15,6 +15,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         private integer array EnemyKind
         private integer array EnemyPhase
         private boolean array EnemyDead
+        private boolean array EnemyMoving
         private real array ReviveAt
         private real array ProtectUntil
         private boolean array WasDead
@@ -227,6 +228,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set EnemyClock[i] = 0.5 + 0.1 * i
         set EnemyPhase[i] = 0
         set EnemyDead[i] = false
+        set EnemyMoving[i] = false
         if EnemyKind[i] == 4 then
             // 기존 보스와 같은 생성 순서로 로커스트를 유지하면서 범위 검색에 잡히게 한다.
             call UnitRemoveAbility(Enemies[i], 'Amov')
@@ -291,6 +293,10 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         local unit target = NearestHero(Enemies[i])
         local real radius = 180.0
         local real delay = 0.7
+        local real dx
+        local real dy
+        local real distance
+        local real step
         if target == null then
             return
         endif
@@ -344,7 +350,24 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         elseif EnemyKind[i] == 3 and not IsUnitInRange(Enemies[i], target, 650.0) then
             call IssuePointOrder(Enemies[i], "move", GetUnitX(target), GetUnitY(target))
             set EnemyClock[i] = 0.25
+        elseif EnemyKind[i] == 4 and not IsUnitInRange(Enemies[i], target, 320.0) then
+            // 로커스트/정지 상태를 유지하고 기존 보스처럼 좌표로 이동한다.
+            set dx = GetUnitX(target) - GetUnitX(Enemies[i])
+            set dy = GetUnitY(target) - GetUnitY(Enemies[i])
+            set distance = SquareRoot(dx * dx + dy * dy)
+            set step = RMinBJ(GetUnitMoveSpeed(Enemies[i]) * 0.1, distance - 320.0)
+            call SetUnitPosition(Enemies[i], RMaxBJ(CenterX - 1240.0, RMinBJ(CenterX + 1240.0, GetUnitX(Enemies[i]) + dx * step / distance)), RMaxBJ(CenterY - 1240.0, RMinBJ(CenterY + 1240.0, GetUnitY(Enemies[i]) + dy * step / distance)))
+            call SetUnitFacing(Enemies[i], Atan2(dy, dx) * bj_RADTODEG)
+            if not EnemyMoving[i] then
+                call SetUnitAnimation(Enemies[i], "walk")
+                set EnemyMoving[i] = true
+            endif
+            set EnemyClock[i] = 0.1
         else
+            if EnemyMoving[i] then
+                call SetUnitAnimation(Enemies[i], "stand")
+                set EnemyMoving[i] = false
+            endif
             set AimX[i] = GetUnitX(target)
             set AimY[i] = GetUnitY(target)
             if EnemyKind[i] == 3 then
