@@ -8,6 +8,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionStats.j"
 
 // === UI ===
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_InputGate.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossHP.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossEnd.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_BossStart.j"

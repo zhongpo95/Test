@@ -1,5 +1,5 @@
 // M 키로 원정의 경로와 현재 위치만 확인하는 지도를 표시한다.
-library UIMap initializer Init requires UIExpeditionCommon
+library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
     globals
         private integer Root
         private integer Status
@@ -82,8 +82,15 @@ library UIMap initializer Init requires UIExpeditionCommon
             endif
             set i = i + 1
         endloop
-        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_M, 1, false, function Toggle)
         call TriggerAddAction(ExpRefresh, function Render)
+    endfunction
+
+    private function BindInput takes nothing returns boolean
+        if Root == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_M, 1, false, function Toggle)
+        return true
     endfunction
 
     private function Init takes nothing returns nothing
@@ -91,5 +98,6 @@ library UIMap initializer Init requires UIExpeditionCommon
         call TriggerRegisterTimerEventSingle(t, 0.03)
         call TriggerAddAction(t, function Build)
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

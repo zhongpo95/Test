@@ -6,6 +6,10 @@ function FPS takes nothing returns nothing
     local integer NE
     local real X
     local real Y
+
+    if not PickCheck[GetPlayerId(GetLocalPlayer())] or F_PickUp == 0 or DzGetWindowWidth() <= 0 or DzGetWindowHeight() <= 42 then
+        return
+    endif
     
     if F_ItemClickNumber != 200 and PickUpOn == true then
         set r1 = I2R(DzGetMouseXRelative()) / I2R(DzGetWindowWidth()) * 0.8 + 0.0025
@@ -52,9 +56,8 @@ function FPS takes nothing returns nothing
 endfunction
 
 private function Main takes nothing returns nothing
-    if GetLocalPlayer()==GetLocalPlayer() then
-        call DzFrameSetUpdateCallbackByCode(function FPS)
-    endif
+    // 화면 갱신 훅에서 JASS로 재진입하지 않고 게임 타이머에서만 UI를 갱신한다.
+    call TimerStart(CreateTimer(), 0.03, true, function FPS)
 endfunction
 
 private function Init takes nothing returns nothing

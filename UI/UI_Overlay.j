@@ -1,4 +1,4 @@
-library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, Sort
+library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, Sort, UIInputGate
     globals
         boolean array OverlayShow
         integer Overlay_BackDrop
@@ -1436,6 +1436,14 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         endloop
     endfunction
 
+    private function BindInput takes nothing returns boolean
+        if Overlay2_BackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_OEM_PERIOD, 0, false, function Key)
+        return true
+    endfunction
+
     private function init takes nothing returns nothing
         local trigger t = CreateTrigger(  )
         local integer i = 0
@@ -1485,7 +1493,6 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         endloop
 
         //.버튼으로 인포창 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_OEM_PERIOD, 0, false, function Key)
 
         set t = CreateTrigger(  )
         set i = 0
@@ -1497,5 +1504,6 @@ library UIOverlay initializer init requires UnitIndexer, DataUnit, FrameCount, S
         call TriggerAddAction( t, function Command2 )
         
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

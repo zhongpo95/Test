@@ -1,4 +1,4 @@
-library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, FrameCount
+library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, FrameCount, UIInputGate
     globals
         hashtable Hash = InitHashtable()
         //아이템창 여는 버튼 백드롭
@@ -1552,9 +1552,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         endloop
         
         // 우클릭
-        set t = CreateTrigger()
-        call DzTriggerRegisterMouseEventByCode(t, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
-        set t = null
 
         /*/가방 버튼 생성
         set F_ItemOpenButton = DzCreateFrameByTagName("GLUETEXTBUTTON", "", GetGameplayUI(), "template", FrameCount())
@@ -1899,6 +1896,15 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         endif
     endfunction
     
+    private function BindInput takes nothing returns boolean
+        if F_ItemBackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, 'I', 0, false, function IKey)
+        call DzTriggerRegisterMouseEventByCode(null, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
+        return true
+    endfunction
+
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index
@@ -1907,7 +1913,7 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         call TriggerAddAction( t, function Main )
         
         //I버튼으로 인벤토리 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, 'I', 0, false, function IKey)
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

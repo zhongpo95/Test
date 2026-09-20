@@ -1,4 +1,4 @@
-library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount
+library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount, UIInputGate
     globals
         integer F_InfoOpenButton                 //아이템창 여는 버튼
         integer F_InfoOpenButtonBD               //아이템창 여는 버튼 백드롭
@@ -769,6 +769,14 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         endif
     endfunction
     
+    private function BindInput takes nothing returns boolean
+        if F_InfoBackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, 'P', 0, false, function PKey)
+        return true
+    endfunction
+
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index
@@ -785,8 +793,8 @@ library UIInfo initializer Init requires DataItem, StatsSet, UIItem, ITEM, Frame
         endloop
         
         //P버튼으로 인포창 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, 'P', 0, false, function PKey)
         
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary
