@@ -1,0 +1,31 @@
+# 원정의 동기화 경계와 UI 회귀 검사를 모든 PR에서 실행한다.
+name: Expedition checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  expedition:
+    name: Expedition sync and regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Local UI call paths and negative controls
+        run: node tools/check-expedition-sync.cjs
+      - name: Expedition state transitions
+        run: node tools/check-expedition.cjs
+      - name: UI callbacks and synchronized requests
+        run: node tools/check-expedition-ui.cjs
+      - name: Startup input registration across players
+        run: node tools/check-ui-input-startup.cjs
+      - name: Bounded character selection diagnostics
+        run: node tools/check-pick-trace.cjs
