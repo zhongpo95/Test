@@ -89,7 +89,7 @@ library DataExpeditionEvents requires DataExpedition, DataArcana, Native
             return "80골드를 얻습니다."
         elseif id == 5 then
             if choice == 1 then
-                return "반납  " + ExpCardName(ExpEventTargetCard[pid]) + "|n미등장 희귀 카드 1장 획득"
+                return "반납  " + ExpCardName(ExpEventTargetCard[pid]) + "|n미등장 레어 카드 1장 획득"
             endif
             return "반납  " + ExpCardName(ExpEventTargetCard[pid]) + "|n250골드를 얻습니다."
         elseif id == 6 then
@@ -112,7 +112,7 @@ library DataExpeditionEvents requires DataExpedition, DataArcana, Native
             return "100골드를 얻습니다."
         endif
         if choice == 1 then
-            return "미등장 희귀 카드 2장 획득"
+            return "미등장 레어 카드 2장 획득"
         endif
         return "500골드를 얻습니다.|n모든 물약 +1회 충전"
     endfunction

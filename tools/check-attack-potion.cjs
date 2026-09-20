@@ -6,7 +6,7 @@ const check = (name, fn) => {fn();checks++;console.log('PASS ' + name);};
 function fresh() {
   const no = () => {}, arcana = new Map(), timers = [], labels = new Map();
   let e, expired, now = 0;
-  const {env} = environment(['Data/Native.j','Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','System/StatsSetting.j',
+  const {env} = environment(['Data/Native.j','Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j','System/StatsSetting.j',
     'System/ExpeditionEffects.j','System/Expedition.j','System/DamageEffect.j','Hero/Potion.j','System/ItemPickUp.j'], {
     InitHashtable: () => arcana,
     SaveInteger: (table,a,b,n) => arcana.set(a+':'+b,n), LoadInteger: (table,a,b) => arcana.get(a+':'+b) || 0,
@@ -31,7 +31,7 @@ function fresh() {
   }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ExpKey','ExpHasCard','ExpCardDamage','ExpArcanaDamage',
     'HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
     'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent','ApplyEvent','ExpEventUnavailable','CardsLeft',
-    'PrepareEvent','OwnedEventCard','OwnedEventPenalty']);
+    'PrepareEvent','OwnedEventCard','OwnedEventPenalty','SelectCard','ReleaseReward']);
   e=env;
   e.Eitem[0][0]='ID3;';e.Eitem[0][1]='ID41;';
   e.Eitem[1][0]='ID3;';e.Eitem[1][1]='ID41;';

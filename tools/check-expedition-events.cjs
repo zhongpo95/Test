@@ -1,7 +1,7 @@
 // 사건의 거래·정산·중복 입력과 조우의 전투 조건을 실제 JASS 함수로 모의 검증한다.
 const assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
-const files = ['Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','System/ExpeditionEffects.j','System/SaveLoad.j','System/Expedition.j'];
+const files = ['Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j','System/ExpeditionEffects.j','System/SaveLoad.j','System/Expedition.j'];
 let checks = 0;
 const check = (name, fn) => {fn();checks++;console.log('PASS ' + name);};
 function fresh(id, combat = false) {
@@ -73,10 +73,12 @@ check('중복·오래된 동기화 요청과 결과 확인 12초 만료',()=>{
   e.syncData='2|3|5|2';e.OnSync();assert.equal(snapshot(e),after);
   for(let i=0;i<11;i++)e.Tick();assert(!e.ExpDone[0]);e.Tick();assert(e.ExpDone[0]);assert.equal(e.NextState,e.EXP_SHOP);
 });
-check('아무 선택도 하지 않은 사건 만료는 무료 떠나기',()=>{
+check('사건 만료는 무료 무위험 보상 우선, 비용 있는 거래는 떠나기',()=>{
   for(let id=1;id<=9;id++){
-    const e=fresh(id),before=snapshot(e);e.ExpEventDeadline[0]=1;e.Tick();
-    assert.equal(snapshot(e),before);assert(e.ExpDone[0]);assert.equal(e.ExpEventCandidate[0],0);
+    const e=fresh(id);e.ExpEventDeadline[0]=1;e.Tick();
+    if(id===2||id===5){assert(e.ExpDone[0]);assert.equal(e.ExpGold[0],500);}
+    else {assert(e.ExpEventResolved[0]);assert(!e.ExpDone[0]);assert(e.ExpGold[0]>=500);assert.equal(e.ExpArcana.slice(50,54).reduce((a,b)=>a+b),0);e.ExpAction(0,3);assert(e.ExpDone[0]);}
+    assert.equal(e.ExpEventCandidate[0],0);
   }
 });
 check('작업대는 표시된 각인 +1만 지급하고 감소 각인과 타인 자원은 유지',()=>{

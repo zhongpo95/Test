@@ -120,7 +120,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
 }
 module.exports = {environment};
 if (require.main === module) {
-const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j'];
+const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j'];
 const fresh = () => environment(files);
 check('라이프 손실의 모든 구간과 반올림 경계', () => {
   const {env:e} = fresh();
@@ -140,10 +140,10 @@ check('개인 카드 공개 중복 방지와 소진 대체 보상', () => {
 });
 check('사건 예약 중복 방지, 미선택 해제, 거절 소모', () => {
   const {env:e} = fresh();e.ExpMember[0]=true;e.ExpMember[1]=true;
-  e.RollOffers(0);const a=e.ExpEventCandidate[0];assert(a>0);e.RollOffers(1);assert.notEqual(e.ExpEventCandidate[1],a);
+  e.RollEvent(0);const a=e.ExpEventCandidate[0];assert(a>0);e.RollEvent(1);assert.notEqual(e.ExpEventCandidate[1],a);
   e.ReleaseEvent(0);assert.equal(e.ExpEventReservation[a],0);assert.equal(e.ExpEventUsed[a],false);
   e.ExpEventCandidate[0]=4;e.ExpEventReservation[4]=1;e.ApplyEvent(0,3);assert.equal(e.ExpEventUsed[4],true);
-  e.GetRandomInt=(a,b)=>a;e.RollOffers(0);assert.notEqual(e.ExpEventCandidate[0],4);
+  e.GetRandomInt=(a,b)=>a;e.RollEvent(0);assert.notEqual(e.ExpEventCandidate[0],4);
 });
 check('준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약', () => {
   const {env:e,pauses} = fresh();e.online[1]=true;e.ExpReady[0]=true;e.TryStart();assert.equal(e.ExpState,0);
@@ -181,23 +181,25 @@ check('스탯 배분 한도, 초기화, 전투 중 변경 차단', () => {
   e.ExpState=e.EXP_BATTLE;e.ExpAction(0,103);assert.equal(e.ExpCritPoints[0],30);
   e.ExpState=e.EXP_SHOP;e.ExpAction(0,103);assert.equal(e.ExpCritPoints[0]+e.ExpSwiftPoints[0],0);
 });
-check('보상 시간 초과는 비용이나 패널티 없이 5포인트', () => {
-  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.ExpSeconds=1;e.Tick();
-  assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpGold[0],0);assert.equal(e.ExpState,e.EXP_MOVE);assert.equal(e.NextState,e.EXP_SHOP);
+check('보상 시간 초과는 5포인트 지급 뒤 독립된 추가 사건 시작', () => {
+  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.GetRandomInt=(a,b)=>a;e.ExpSeconds=1;e.Tick();
+  assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpGold[0],0);assert.equal(e.ExpState,e.EXP_REWARD);assert(e.ExpRewardTaken[0]);
+  assert.equal(e.ExpChoiceSeconds(0),40);assert(!e.ExpDone[0]);
 });
-check('마지막 순간 사건 진입 후 40초, 내부 시간 초과는 거절', () => {
-  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.Elapsed=59;e.ExpSeconds=1;
-  e.ExpEventCandidate[0]=1;e.ExpEventReservation[1]=1;e.ExpAction(0,3);assert.equal(e.ExpEventDeadline[0],99);
-  for(let i=0;i<39;i++)e.Tick();assert.equal(e.ExpDone[0],false);
-  e.Tick();assert.equal(e.ExpDone[0],true);assert.equal(e.ExpFixedCrit[0],0);assert.equal(e.ExpEventUsed[1],true);
+check('마지막 순간 기본 보상 후 사건 40초, 무료 결과 확인 후 이동', () => {
+  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.Elapsed=59;e.ExpSeconds=1;e.GetRandomInt=(a,b)=>a;
+  e.ExpAction(0,1);assert.equal(e.ExpEventDeadline[0],99);assert.equal(e.ExpEventCandidate[0],4);
+  for(let i=0;i<39;i++)e.Tick();assert(!e.ExpEventResolved[0]);
+  e.Tick();assert(e.ExpEventResolved[0]);assert(!e.ExpDone[0]);assert.equal(e.ExpGold[0],80);assert.equal(e.ExpPoints[0],5);
+  for(let i=0;i<12;i++)e.Tick();assert(e.ExpDone[0]);assert.equal(e.NextState,e.EXP_SHOP);
 });
-check('사건 진입 후 이탈해도 만난 사건은 다시 나오지 않음', () => {
-  const {env:e}=fresh();e.ExpMember[0]=e.ExpMember[1]=true;e.ExpPlayers=2;e.Enter(e.EXP_REWARD);
-  e.ReleaseEvent(0);e.ExpEventCandidate[0]=4;e.ExpEventReservation[4]=1;e.ExpAction(0,3);
-  assert.equal(e.ExpEventUsed[4],true);assert.equal(e.ExpChoiceSeconds(0),40);e.Leave();assert.equal(e.ExpEventReservation[4],0);assert.equal(e.ExpEventUsed[4],true);
+check('추가 사건 진입 후 이탈해도 만난 사건은 다시 나오지 않음', () => {
+  const {env:e}=fresh();e.ExpMember[0]=e.ExpMember[1]=true;e.ExpPlayers=2;e.Enter(e.EXP_REWARD);e.GetRandomInt=(a,b)=>a;e.ExpAction(0,1);
+  const id=e.ExpEventCandidate[0];assert(id>0);assert(e.ExpEventUsed[id]);assert.equal(e.ExpChoiceSeconds(0),40);
+  e.Leave();assert.equal(e.ExpEventReservation[id],0);assert(e.ExpEventUsed[id]);
 });
 check('비전투 대기 두 배와 시간 초과 경계, 이동 대기 6초', () => {
-  for(const [state,seconds] of [['EXP_START',60],['EXP_REWARD',60],['EXP_VOTE',40],['EXP_SHOP',120]]){
+  for(const [state,seconds] of [['EXP_START',60],['EXP_VOTE',40],['EXP_SHOP',120]]){
     const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e[state]);assert.equal(e.ExpSeconds,seconds);
     for(let i=0;i<seconds-1;i++)e.Tick();assert.equal(e.ExpState,e[state]);assert.equal(e.ExpDone[0],false);
     e.Tick();assert.equal(e.ExpState,e.EXP_MOVE);assert.equal(e.ExpSeconds,6);
@@ -377,7 +379,7 @@ check('2인 원정 전체 진행 후 새 원정에 임시 성장 미이월', () 
   for(let i=1;i<=8;i++)e.UnitHP[e.IndexUnit(e.Enemies[i])]=0;
   for(let i=0;i<13;i++)e.Update();assert.equal(e.Spawned,16);
   for(let i=9;i<=16;i++)e.UnitHP[e.IndexUnit(e.Enemies[i])]=0;e.Update();assert.equal(e.ExpState,e.EXP_REWARD);
-  e.ExpAction(0,1);e.ExpAction(1,2);move();assert.equal(e.ExpState,e.EXP_SHOP);
+  e.ExpAction(0,1);e.ExpAction(1,2);assert(e.ExpEventDeadline[0]>0);assert(e.ExpEventDeadline[1]>0);e.ExpAction(0,3);e.ExpAction(1,3);move();assert.equal(e.ExpState,e.EXP_SHOP);
   e.ExpAction(0,1);e.ExpAction(1,6);e.ExpAction(0,10);e.ExpAction(1,10);move();assert.equal(e.ExpBossBattle,true);
   e.UnitHP[e.IndexUnit(e.Enemies[1])]=0;e.Update();assert.equal(e.ExpState,e.EXP_RESULT);assert.equal(e.ExpConfirmedBattles[0],2);
   assert.equal(e.ExpMember[0],false);assert.equal(e.ExpMember[1],false);assert.equal(e.ExpArena,0);

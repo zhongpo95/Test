@@ -1,7 +1,7 @@
 // 실제 원정 UI의 프레임과 콜백을 모의 실행하여 창 분리 및 선택 요청을 검증한다.
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
-const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
+const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
   'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
@@ -149,7 +149,7 @@ check('보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사
   const old=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|1`;
   t.click(t.common(100));assert.equal(e.ExpGold[0],400);e.syncData=old;e.OnSync();assert.equal(e.ExpDone[0],false);
   assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(t.visible).length,3);
-  assert(e.ExpEventCandidate[0]>0);t.click(t.card('Choice',9));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+  assert.equal(e.ExpEventCandidate[0],0);t.click(t.card('Choice',9));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
   assert(e.ExpEventDeadline[0]>0);t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
 });
 check('상점의 가격 표시, 돈 부족/구매 완료 비활성화 및 정비 완료 처리',()=>{
@@ -208,7 +208,7 @@ check('다른 플레이어의 확정이 내 창을 닫지 않음',()=>{
 });
 check('사건의 비용 부족과 결과 카드, 확인 버튼 및 다음 조우의 카드 복원',()=>{
   const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ReleaseEvent(0);
-  e.ExpEventCandidate[0]=2;e.ExpEventReservation[2]=1;e.ExpGold[0]=0;t.render();t.click(t.card('Choice',9));
+  e.GetRandomInt=(a,b)=>a;t.click(t.card('Choice',7));e.ReleaseEvent(0);e.ExpEventCandidate[0]=2;e.ExpEventReservation[2]=1;e.PrepareEvent(0);e.ExpGold[0]=0;t.render();
   assert(!t.frame(t.card('Event',1)).enabled);assert(!t.frame(t.card('Event',2)).enabled);
   const desc=i=>t.frame(e.UIExpeditionChoice_CardDescription[e.UIExpeditionChoice_EventCards[i]]).text;
   assert(desc(1).includes('100골드가 필요'));assert(t.frame(e.UIExpeditionChoice_EventClock).text.includes('0 G'));
@@ -219,6 +219,27 @@ check('사건의 비용 부족과 결과 카드, 확인 버튼 및 다음 조우
   t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
   e.Enter(e.EXP_VOTE);e.ExpEncounter=3;t.render();assert(t.visible(t.card('Event',2)));assert(!t.visible(t.card('Event',3)));
   assert(desc(1).includes('90초'));assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('결투자'));
+});
+check('기본 보상 세 버튼 모두 지급 후 사건 UI로 전환하며 사건 내용은 미리 노출하지 않음',()=>{
+  for(const action of [1,2,3]){
+    const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);
+    assert.equal(e.ExpEventCandidate[0],0);assert.equal(e.ExpEventGrade[0],0);
+    const rewardIndex=e.UIExpeditionChoice_ChoiceCards[9];
+    assert(t.frame(e.UIExpeditionChoice_CardTag[rewardIndex]).text.includes('즉시 보상'));
+    const before=e.ExpPoints[0];e.GetRandomInt=(a,b)=>a;
+    t.click(t.card('Choice',action+6));assert(e.ExpRewardTaken[0]);assert(!e.ExpDone[0]);assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+    assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('추가 사건'));assert.equal(e.ExpChoiceSeconds(0),40);
+    if(action===1)assert.equal(e.ExpPoints[0],before+5);
+    t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
+  }
+});
+check('사건 부족 지원금의 표시·확인과 스탯 한도 대체',()=>{
+  const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ExpPoints[0]=40;t.render();
+  const index=e.UIExpeditionChoice_ChoiceCards[7];assert(t.frame(e.UIExpeditionChoice_CardTitle[index]).text.includes('100골드'));
+  e.GetRandomInt=(a,b)=>b===10000?9951:a;t.click(t.card('Choice',7));
+  assert.equal(e.ExpGold[0],1300);assert(e.ExpEventResolved[0]);assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('사건 부족'));
+  assert(t.frame(e.UIExpeditionChoice_CardDescription[e.UIExpeditionChoice_EventCards[1]]).text.includes('기본 보상은 유지'));
+  t.click(t.card('Event',3));assert(e.ExpDone[0]);assert(!e.ExpEventUsed[0]);
 });
 if(process.argv[2]){
   const t=fresh(),e=t.e,out=[];

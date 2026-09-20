@@ -1,6 +1,7 @@
 // === Expedition ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_Expedition.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_ExpeditionEvents.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Data\Data_ExpeditionRewards.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\ExpeditionEffects.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\ExpeditionCombat.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\Expedition.j"
