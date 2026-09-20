@@ -45,7 +45,7 @@ function environment(files, extras = {}) {
     UnitAddAbility: (u,a) => u.abilities.add(a), UnitRemoveAbility: (u,a) => u.abilities.delete(a), GetUnitAbilityLevel: (u,a) => u.abilities.has(a) ? 1 : 0,
     IsUnitInRange: (u,v,r) => Math.hypot(env.GetUnitX(u)-env.GetUnitX(v),env.GetUnitY(u)-env.GetUnitY(v))<=r,
     SetUnitX: (u,x) => {u.x=x;}, SetUnitY: (u,y) => {u.y=y;}, Atan2: Math.atan2,
-    SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no,
+    SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no, SetUnitPathing: no,
     IssuePointOrder: no, IssueImmediateOrder: no, SetUnitFacing: no, SelectUnit: no, TimerStart: no, PauseTimer: no, BossDeal: no,
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
@@ -288,6 +288,34 @@ check('일반 적 체력 추적·가시성·사망/전투 종료 정리와 참�
   assert(e.EnemyHealth.slice(1,17).every(t=>t===null));
   e.ExpCombatStart(true);assert.equal(e.ExpSeconds,360);assert.deepEqual(calls.map(c=>c.pid),[0,2]);
   assert(calls.every(c=>c.unit===e.Enemies[1]));assert.equal(e.EnemyHealth[1],null);
+});
+check('원정 보스는 로커스트를 유지하고 기존 보스 생성 순서를 적용, 일반 적과 예고는 유지', () => {
+  const setup=[],units=[];
+  const {env:e}=environment([...files,'System/ExpeditionCombat.j'],{
+    CreateUnit:(p,raw,x,y)=>{
+      // 실제 시험 맵의 h002는 A00X,Aloc, h00H는 Avul,Aloc를 기본 보유한다.
+      const inherited=raw==='h002'?['A00X','Aloc']:raw==='h00H'?['Avul','Aloc']:[];
+      const u={id:100+units.length,p,raw,x,y,abilities:new Set([...inherited,'Aatk','Amov'])};
+      units.push(u);return u;
+    },
+    UnitRemoveAbility:(u,a)=>{u.abilities.delete(a);if(a!=='Aatk')setup.push(['remove',u,a]);},
+    SetUnitPathing:(u,state)=>{u.pathing=state;setup.push(['pathing',u,state]);},
+    PauseUnit:(u,state)=>{u.paused=state;setup.push(['pause',u,state]);},
+    SetUnitPosition:(u,x,y)=>{if(typeof u==='object'){u.x=x;u.y=y;setup.push(['position',u,x,y]);}},
+    BOSSHPSTART:(u)=>{
+      assert(u.abilities.has('Aloc'));assert(u.abilities.has('A00X'));assert(!u.abilities.has('Amov'));
+      assert.equal(u.paused,true);assert.equal(u.pathing,false);assert.equal(setup.at(-1)[0],'position');
+    },
+  });
+  e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;
+  e.ExpCombatStart(false);assert.equal(setup.length,0);e.ExpCombatStop();
+  e.ExpCombatStart(true);const boss=e.Enemies[1];
+  assert.equal(boss.raw,'h002');assert(!boss.abilities.has('Aatk'));
+  assert.deepEqual(setup,[['remove',boss,'Amov'],['pathing',boss,false],['pause',boss,true],['position',boss,e.SpawnX[1],e.SpawnY[1]]]);
+  assert.equal(e.UnitHP[boss.id],12000000);assert.equal(e.UnitHPMAX[boss.id],12000000);
+  e.EnemyClock[1]=0;e.ActEnemy(1);const warning=e.Warnings[1];
+  assert.equal(warning.raw,'h00H');assert(warning.abilities.has('Aloc'));assert(warning.abilities.has('Avul'));
+  assert.equal(setup.length,4);assert(boss.abilities.has('A00V'));
 });
 check('보호막이 없는 보스도 체력 UI 크기 계산을 끝까지 수행', () => {
   let update;const sizes=[],texts=[],timer={start:(seconds,repeat,fn)=>{update=fn;}};
