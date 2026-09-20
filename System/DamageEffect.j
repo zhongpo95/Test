@@ -68,7 +68,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local integer UnitIndex = GetUnitIndex(target)
         local real CriRandom = GetRandomReal(0,100)
         local boolean CriBoolean = false
-        local real ad = R2I( Equip_Damage[pid] + Hero_Damage[pid] + (Equip_Damage[pid] * (Equip_DamageP[pid] / 100.0)) )
+        local real ad = AttackPower(pid)
         local real cri = Stats_Crit[pid]
         local texttag ttag
         local real dmg
@@ -78,7 +78,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real Arm
         local real WDP = (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0))
         local real DP = Equip_DP[pid]
-        local real LastDamage = (1.0 + Equip_LastDamage[pid] / 100.0)
+        local real LastDamage = (1.0 + FinalDamageBonus(pid) / 100.0)
         local string s
         local boolean CounterBoolean = false
         local real SD = 1

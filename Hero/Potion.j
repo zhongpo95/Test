@@ -4,11 +4,13 @@ scope Potion
 
         private constant real scale = 450
         private constant real distance = 300
+        private integer array BuffSequence
     endglobals
 
     private struct FxEffect
         unit caster
         integer pid
+        integer sequence
         effect e
         method stop takes nothing returns nothing
             set caster = null
@@ -40,11 +42,13 @@ scope Potion
         local tick t = tick.getExpired()
         local FxEffect fx = t.data
 
-        set Hero_Damage[fx.pid] = Hero_Damage[fx.pid] - Hero_Buff2[fx.pid]
-        set Hero_Buff2[fx.pid] = 0
-        set Hero_BuffMoveSpeed[fx.pid] = Hero_BuffMoveSpeed[fx.pid] - 20.00
-        set Hero_BuffAttackSpeed[fx.pid] = Hero_BuffAttackSpeed[fx.pid] - 20.00
-        call ItemUIStatsSet(fx.pid)
+        // 재사용으로 갱신한 효과를 이전 타이머가 지우지 않도록 한다.
+        if fx.sequence == BuffSequence[fx.pid] then
+            set Hero_Buff2[fx.pid] = 0
+            set Hero_BuffMoveSpeed[fx.pid] = Hero_BuffMoveSpeed[fx.pid] - 20.00
+            set Hero_BuffAttackSpeed[fx.pid] = Hero_BuffAttackSpeed[fx.pid] - 20.00
+            call ItemUIStatsSet(fx.pid)
+        endif
 
         call fx.stop()
         call t.destroy()
@@ -99,10 +103,13 @@ scope Potion
 
             call RefreshHP(caster)
 
-            set Hero_Buff2[pid] = R2I( Equip_Damage[pid] ) * 0.30
-            set Hero_Damage[pid] = Hero_Damage[pid] + Hero_Buff2[pid]
-            set Hero_BuffMoveSpeed[pid] = Hero_BuffMoveSpeed[pid] + 20.00
-            set Hero_BuffAttackSpeed[pid] = Hero_BuffAttackSpeed[pid] + 20.00
+            if Hero_Buff2[pid] == 0 then
+                set Hero_BuffMoveSpeed[pid] = Hero_BuffMoveSpeed[pid] + 20.00
+                set Hero_BuffAttackSpeed[pid] = Hero_BuffAttackSpeed[pid] + 20.00
+            endif
+            set Hero_Buff2[pid] = 30.00
+            set BuffSequence[pid] = BuffSequence[pid] + 1
+            set fx.sequence = BuffSequence[pid]
             call ItemUIStatsSet(fx.pid)
 
             set t.data = fx

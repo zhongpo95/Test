@@ -26,9 +26,6 @@ library ExpeditionEffects requires DataExpedition, DataUnit, AttackAngle
         if UnitHPMAX[index] > 0 then
             set health = UnitHP[index] / UnitHPMAX[index]
         endif
-        if ExpHasCard(pid, 1) then
-            set value = value + 20.0
-        endif
         if ExpHasCard(pid, 2) and health >= 0.80 then
             set value = value + 40.0
         endif

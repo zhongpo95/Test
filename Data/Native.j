@@ -15,7 +15,7 @@ library Native initializer init
         real array Hero_CriDeal
         //real array Hero_Hp
         real array Hero_Buff
-        real array Hero_Buff2
+        real array Hero_Buff2 // 물약의 최종 대미지 증가율(%).
         real array Hero_BuffMoveSpeed
         real array Hero_BuffAttackSpeed
         
@@ -83,6 +83,15 @@ library Native initializer init
         //픽체크
         boolean array PickCheck
     endglobals
+
+    // 전투와 능력치/스킬 설명에서 같은 공격력 계산을 사용한다.
+    function AttackPower takes integer pid returns real
+        return I2R(R2I(Equip_Damage[pid] + Hero_Damage[pid] + Equip_Damage[pid] * Equip_DamageP[pid] / 100.0))
+    endfunction
+
+    function FinalDamageBonus takes integer pid returns real
+        return Equip_LastDamage[pid] + Hero_Buff2[pid]
+    endfunction
 
 private function init takes nothing returns nothing
     local integer pid

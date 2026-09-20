@@ -162,7 +162,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         
         call DzFrameShow(UI_Tip, true)
         call DzFrameSetText(UI_Tip_Text[1], "최종 대미지 증가" )
-        set str = "|cFFA5FA7D ◎ |r" + "최종적으로 가하는 피해가 " + "|cFFA5FA7D" + R2SW( (Equip_LastDamage[pid]) * 100 , 1,2) + "%|r 증가합니다."
+        set str = "|cFFA5FA7D ◎ |r" + "최종적으로 가하는 피해가 " + "|cFFA5FA7D" + R2SW(FinalDamageBonus(pid), 1, 2) + "%|r 증가합니다."
         call DzFrameSetText(UI_Tip_Text[2], str )
     endfunction
     
@@ -715,7 +715,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 call DzFrameSetText(F_ItemStatsText2[16], GetPlayerName(Player(pid)) )
 
                 //공격력
-                call DzFrameSetText(F_ItemStatsText2[0], I2S(R2I( Equip_Damage[pid] + Hero_Damage[pid]  ) ) )
+                call DzFrameSetText(F_ItemStatsText2[0], I2S(R2I(AttackPower(pid))) )
                 //방어등급
                 //call DzFrameSetText(F_ItemStatsText2[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
                 //치명
@@ -741,7 +741,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 //카드댐증
                 call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
                 //최종대미지증가
-                call DzFrameSetText(F_ItemStatsText2[13], I2S(R2I(  Equip_LastDamage[pid] )) + "%" ) 
+                call DzFrameSetText(F_ItemStatsText2[13], I2S(R2I(FinalDamageBonus(pid))) + "%" )
                 //개척력
                 set r = Power(pid)
                 call DzFrameSetText(F_ItemStatsText2[14], R2SW(TrailblazePower(r), 1, 2))
