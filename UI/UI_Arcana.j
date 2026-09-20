@@ -1,4 +1,4 @@
-library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount
+library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount, UIInputGate
     globals
         integer F_ArcanaBackDrop                        //각인 배경
         integer array F_ArcanaButtons               
@@ -694,6 +694,14 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         endif
     endfunction
 
+    private function BindInput takes nothing returns boolean
+        if F_ArcanaBackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, 'O', 0, false, function OKey)
+        return true
+    endfunction
+
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index
@@ -710,8 +718,8 @@ library UIArcana initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fra
         set F_ArcanaOnOff[5] = false
         
         //P버튼으로 인포창 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, 'O', 0, false, function OKey)
         
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

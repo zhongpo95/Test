@@ -1,4 +1,4 @@
-library Emoji initializer init requires FrameCount
+library Emoji initializer init requires FrameCount, UIInputGate
 
     globals
         integer array EmojiNumber
@@ -127,10 +127,6 @@ library Emoji initializer init requires FrameCount
         call DzFrameSetSize(EmojiFrame[8],.05,.05)
         call DzFrameSetPoint(EmojiFrame[8],3,EmojiFrameMain,5,-.015,0.)
 
-        if GetLocalPlayer()==GetLocalPlayer() then
-            call DzTriggerRegisterKeyEventByCode(null,JN_OSKEY_T,1,false,function TKey)
-            call DzTriggerRegisterKeyEventByCode(null,JN_OSKEY_T,0,false,function TKey2)
-        endif
         
         set EmojiBlpStr[1] = "ExpressionPic_Miku1_Up.blp"
         set EmojiBlpStr[2] = "ExpressionPic_Miku1_Left.blp"
@@ -149,6 +145,15 @@ library Emoji initializer init requires FrameCount
         set EmojiLocation = Location(0.,0.)
     endfunction
     
+    private function BindInput takes nothing returns boolean
+        if EmojiFrameMain == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null,JN_OSKEY_T,1,false,function TKey)
+        call DzTriggerRegisterKeyEventByCode(null,JN_OSKEY_T,0,false,function TKey2)
+        return true
+    endfunction
+
     private function init takes nothing returns nothing
         local trigger t
 
@@ -156,5 +161,6 @@ library Emoji initializer init requires FrameCount
         call TriggerRegisterTimerEventSingle(t, 0.02)
         call TriggerAddAction(t, function Main)
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

@@ -1,5 +1,5 @@
 // 참고 맵 방식의 좌표 기반 스킬 HUD 및 Alt 정보 관리
-library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount
+library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount, UIInputGate
     globals
         private constant integer SKILL_HUD_COUNT = 12
         private constant real SKILL_HUD_SIZE = 0.0275
@@ -453,7 +453,14 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call DzFrameShow(SkillHUDTip, false)
 
         call TimerStart(CreateTimer(), 0.05, true, function Update)
+    endfunction
+
+    private function BindInput takes nothing returns boolean
+        if SkillHUDIcon[0] == 0 then
+            return false
+        endif
         call DzTriggerRegisterMouseEventByCode(null, JN_MOUSE_BUTTON_TYPE_LEFT, 0, false, function AltClick)
+        return true
     endfunction
 
     private function init takes nothing returns nothing
@@ -466,5 +473,6 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         call TriggerAddAction(syncTrigger, function SyncPing)
         set t = null
         set syncTrigger = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

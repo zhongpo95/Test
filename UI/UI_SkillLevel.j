@@ -1,4 +1,4 @@
-library UISkillLevel initializer init requires DataUnit, FrameCount
+library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
     globals
         integer FS_OpenButton                       //스킬창 여는 버튼
         integer FS_OpenButtonBD                     //스킬창 여는 버튼 백드롭
@@ -721,6 +721,14 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         endif
     endfunction
 
+    private function BindInput takes nothing returns boolean
+        if FS_BackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, 'K', 0, false, function KKey)
+        return true
+    endfunction
+
     private function init takes nothing returns nothing
         local trigger t=CreateTrigger()
         local integer index
@@ -757,9 +765,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount
         endloop
 
         //I버튼으로 인벤토리 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, 'K', 0, false, function KKey)
 
         set t = null
 
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

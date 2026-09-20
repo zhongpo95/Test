@@ -2,7 +2,7 @@
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
 const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
-  'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
+  'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 function fresh() {
@@ -14,6 +14,7 @@ function fresh() {
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
     CreateTrigger: () => ({actions:[]}), TriggerAddAction: (t,fn) => t.actions.push(fn),
+    Condition: fn => fn, TriggerAddCondition: (t,fn) => t.actions.push(fn),
     TriggerExecute: t => t.actions.forEach(fn=>fn()), TriggerRegisterPlayerEvent: no,
     TriggerRegisterTimerEventSingle: no, DzTriggerRegisterKeyEventByCode: no,
     FrameCount: () => count + 1, DzGetGameUI: () => 0, GetGameplayUI: () => 0,

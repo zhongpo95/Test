@@ -1,4 +1,4 @@
-library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount
+library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount, UIInputGate
     globals
         integer F_InfoBackDrop2                   //인포 배경
         //integer F_InfoCancelButton             //X버튼
@@ -760,6 +760,14 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         set u = null
     endfunction
 
+    private function BindInput takes nothing returns boolean
+        if F_InfoBackDrop2 == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_TAB, 0, false, function TABKey)
+        return true
+    endfunction
+
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index
@@ -776,7 +784,6 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         endloop
         
         //P버튼으로 인포창 열기 및 닫기
-        call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_TAB, 0, false, function TABKey)
         
         set t = CreateTrigger()
         set index = 0
@@ -788,5 +795,6 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         call TriggerAddAction( t, function SELECTEDAction )
 
         set t = null
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary
