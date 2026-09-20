@@ -20,6 +20,8 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         private integer Navigation
         private integer ActivityButton
         private integer StatsButton
+        private integer array PanelToggles
+        private integer FoldedPanel = 0
         private integer SeenRevision = -1
         private integer SeenOffer = -1
         private boolean SeenDone = false
@@ -91,6 +93,11 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
 
     function ExpUIOpen takes integer panel returns nothing
         if not F_UpgradeOnOff[GetPlayerId(GetLocalPlayer())] then
+            if panel == 0 and ExpUIPanel != 0 then
+                set FoldedPanel = ExpUIPanel
+            elseif panel != 0 then
+                set FoldedPanel = 0
+            endif
             set ExpUIPanel = panel
             call TriggerExecute(ExpRefresh)
         endif
@@ -180,9 +187,29 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         return i
     endfunction
 
+    function ExpUIPanelToggle takes integer parent, real x, real y, real width, real height returns integer
+        local integer panel = 1
+        local integer i
+        loop
+            exitwhen panel > 7 or ExpUIRoots[panel] == parent
+            set panel = panel + 1
+        endloop
+        if panel > 7 then
+            return 0
+        endif
+        // 창을 숨겨도 버튼은 같은 위치에서 입력을 받도록 별도 부모에 둔다.
+        set i = ExpUIButton(DzGetGameUI(), x, y, width, height, "접기", -panel)
+        call DzFrameClearAllPoints(ExpUIButtons[i])
+        call DzFrameSetPoint(ExpUIButtons[i], JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
+        call DzFrameSetPriority(ExpUIButtons[i], 95)
+        call DzFrameShow(ExpUIButtons[i], false)
+        set PanelToggles[panel] = i
+        return i
+    endfunction
+
     function ExpUIHeader takes integer parent, real width, string title returns integer
         local integer f = ExpUITexture(parent, 0, 0, width, 0.044, "war3mapImported\\UI_Upgrade_Header.tga")
-        local integer close = ExpUIButton(parent, width - 0.048, 0.008, 0.033, 0.026, "닫기", -99)
+        local integer close = ExpUIPanelToggle(parent, width - 0.048, 0.008, 0.033, 0.026)
         return ExpUILabel(parent, 0.018, 0.013, width - 0.082, 0.026, 0.014, title)
     endfunction
 
@@ -198,11 +225,16 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set activity = ExpUIActivity(pid)
         if SeenRevision != ExpRevision then
             set ExpUIPanel = activity
+            set FoldedPanel = 0
             set SeenRevision = ExpRevision
         elseif SeenOffer != ExpOfferVersion[pid] and ExpState == EXP_REWARD and ExpEventDeadline[pid] > 0 then
             set ExpUIPanel = activity
+            set FoldedPanel = 0
         elseif not SeenDone and ExpDone[pid] and (ExpUIPanel == EXP_UI_CHOICE or ExpUIPanel == EXP_UI_EVENT or ExpUIPanel == EXP_UI_SHOP) then
             set ExpUIPanel = 0
+        endif
+        if ExpDone[pid] and (FoldedPanel == EXP_UI_CHOICE or FoldedPanel == EXP_UI_EVENT or FoldedPanel == EXP_UI_SHOP) then
+            set FoldedPanel = 0
         endif
         set SeenDone = ExpDone[pid]
         set SeenOffer = ExpOfferVersion[pid]
@@ -212,6 +244,13 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameShow(Navigation, visible)
         call DzFrameShow(ExpUIButtons[ActivityButton], activity != 0)
         call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid])
+        // 선택 버튼이 없는 전투 중에는 스탯 버튼을 당겨 보스 체력바 자리를 비운다.
+        call DzFrameClearAllPoints(ExpUIButtons[StatsButton])
+        if activity == 0 then
+            call DzFrameSetPoint(ExpUIButtons[StatsButton], JN_FRAMEPOINT_TOPLEFT, Navigation, JN_FRAMEPOINT_TOPLEFT, 0.090, 0)
+        else
+            call DzFrameSetPoint(ExpUIButtons[StatsButton], JN_FRAMEPOINT_TOPLEFT, Navigation, JN_FRAMEPOINT_TOPLEFT, 0.180, 0)
+        endif
         if activity == EXP_UI_LOBBY then
             call ExpUISetButton(ActivityButton, "출발 준비", true)
         elseif activity == EXP_UI_RESULT then
@@ -226,6 +265,14 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
             exitwhen i > 7
             if ExpUIRoots[i] != 0 then
                 call DzFrameShow(ExpUIRoots[i], visible and ExpUIPanel == i)
+            endif
+            if PanelToggles[i] != 0 then
+                call DzFrameShow(ExpUIButtons[PanelToggles[i]], visible and (ExpUIPanel == i or (ExpUIPanel == 0 and FoldedPanel == i)))
+                if ExpUIPanel == i then
+                    call ExpUISetButton(PanelToggles[i], "접기", true)
+                else
+                    call ExpUISetButton(PanelToggles[i], "열기", true)
+                endif
             endif
             set i = i + 1
         endloop

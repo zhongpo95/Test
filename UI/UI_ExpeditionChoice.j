@@ -313,7 +313,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set ChoiceRoot = ExpUIRoot(EXP_UI_CHOICE, 0.78, 0.375, 0.523, false)
         set f = ExpUITexture(ChoiceRoot, 0.625, 0, 0.079, 0.028, "war3mapImported\\UI_Upgrade_Header.tga")
         set ChoiceClock = ExpUILabel(ChoiceRoot, 0.643, 0.007, 0.06, 0.020, 0.011, "")
-        set f = ExpUIButton(ChoiceRoot, 0.710, 0, 0.053, 0.028, "접기", -99)
+        set f = ExpUIPanelToggle(ChoiceRoot, 0.710, 0, 0.053, 0.028)
         set ChoiceGoldBackground = ExpUITexture(ChoiceRoot, 0.255, 0.340, 0.14, 0.030, "war3mapImported\\UI_Upgrade_Header.tga")
         set ChoiceGold = ExpUILabel(ChoiceRoot, 0.27, 0.347, 0.12, 0.022, 0.011, "")
         set Reroll = ExpUIButton(ChoiceRoot, 0.43, 0.340, 0.210, 0.030, "다시 뽑기", 100)

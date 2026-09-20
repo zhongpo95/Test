@@ -1,9 +1,10 @@
 // 통합 시험 원정의 일반 적 두 무리와 대표 보스 전투를 진행한다.
-library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffect2, UIHP
+library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffect2, UIHP, UIBossHP
     globals
         private timer CombatTimer = CreateTimer()
         private unit array Enemies
         private unit array Warnings
+        private texttag array EnemyHealth
         private real array EnemyMaximum
         private real array EnemyClock
         private real array SpawnX
@@ -56,6 +57,23 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         endif
     endfunction
 
+    private function ClearHealth takes integer i returns nothing
+        if EnemyHealth[i] != null then
+            call DestroyTextTag(EnemyHealth[i])
+            set EnemyHealth[i] = null
+        endif
+    endfunction
+
+    private function UpdateHealth takes integer i returns nothing
+        local real percent
+        if EnemyHealth[i] != null then
+            set percent = RMaxBJ(0.0, RMinBJ(100.0, 100.0 * UnitHP[IndexUnit(Enemies[i])] / EnemyMaximum[i]))
+            call SetTextTagText(EnemyHealth[i], R2SW(percent, 0, 1) + "%", 0.019)
+            call SetTextTagPosUnit(EnemyHealth[i], Enemies[i], 120.0)
+            call SetTextTagVisibility(EnemyHealth[i], ExpMember[GetPlayerId(GetLocalPlayer())] and IsUnitVisible(Enemies[i], GetLocalPlayer()))
+        endif
+    endfunction
+
     function ExpCombatStop takes nothing returns nothing
         local integer i = 1
         local integer index
@@ -68,6 +86,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         loop
             exitwhen i > 16
             call ClearWarning(i)
+            call ClearHealth(i)
             if Enemies[i] != null then
                 set index = IndexUnit(Enemies[i])
                 set ExpEnemy[index] = false
@@ -167,6 +186,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
     private function SpawnEnemy takes integer i returns nothing
         local integer raw = 'hfoo'
         local integer index
+        local integer pid = 0
         local real x
         local real y
         if not Planned[i] and not PlanEnemy(i) then
@@ -191,6 +211,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set UnitHPMAX[index] = EnemyMaximum[i]
         set UnitArm[index] = 2000.0
         set UnitSD[index] = 0.0
+        set UnitSDMAX[index] = 0.0
         set UnitCasting[index] = false
         call SetUnitState(Enemies[i], UNIT_STATE_MAX_LIFE, 1000000.0)
         call SetUnitState(Enemies[i], UNIT_STATE_LIFE, 1000000.0)
@@ -206,6 +227,21 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set EnemyClock[i] = 0.5 + 0.1 * i
         set EnemyPhase[i] = 0
         set EnemyDead[i] = false
+        if EnemyKind[i] == 4 then
+            loop
+                exitwhen pid == 4
+                if ExpMember[pid] then
+                    call BOSSHPSTART(Enemies[i], pid)
+                endif
+                set pid = pid + 1
+            endloop
+        else
+            // 기본 체력바 표시 설정과 무관하게 실제 전투 체력 비율을 머리 위에 표시한다.
+            set EnemyHealth[i] = CreateTextTag()
+            call SetTextTagPermanent(EnemyHealth[i], true)
+            call SetTextTagColor(EnemyHealth[i], 255, 100, 100, 255)
+            call UpdateHealth(i)
+        endif
     endfunction
 
     private function PreviewWave takes nothing returns boolean
@@ -343,10 +379,12 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
                 if UnitHP[IndexUnit(Enemies[i])] <= 0 or not UnitAlive(Enemies[i]) then
                     set EnemyDead[i] = true
                     call ClearWarning(i)
+                    call ClearHealth(i)
                     call KillUnit(Enemies[i])
                 else
                     set alive = alive + 1
                     call SetUnitState(Enemies[i], UNIT_STATE_LIFE, RMaxBJ(1.0, 1000000.0 * UnitHP[IndexUnit(Enemies[i])] / EnemyMaximum[i]))
+                    call UpdateHealth(i)
                     call ActEnemy(i)
                 endif
             endif

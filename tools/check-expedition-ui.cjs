@@ -19,6 +19,7 @@ function fresh() {
     FrameCount: () => count + 1, DzGetGameUI: () => 0, GetGameplayUI: () => 0,
     DzCreateFrameByTagName: (type,name,parent) => {const id=++count;frames.set(id,{id,type,parent,shown:true,enabled:true,scripts:{}});return id;},
     DzFrameSetPoint: (id,point,relative,relativePoint,x,y) => Object.assign(frame(id),{relative,x,y,absolute:false}),
+    DzFrameClearAllPoints: no,
     DzFrameSetAbsolutePoint: (id,point,x,y) => Object.assign(frame(id),{x,y,absolute:true}),
     DzFrameSetSize: (id,w,h) => Object.assign(frame(id),{w,h}),
     DzFrameSetFont: (id,font,size,flags) => Object.assign(frame(id),{font,size}),
@@ -52,7 +53,7 @@ check('영웅 선택 후 준비창, 시작 보상 6개, M 지도와 스탯창의
   const t=fresh(),e=t.e;t.start();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(t.visible).length,6);
   e.UIMap_Toggle();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
-  assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]&&f.id!==t.common(-99)));
+  assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]));
   t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
   t.click(t.common(-98));assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   assert(e.UIMainQuest_OverlayHidden);
@@ -89,6 +90,7 @@ check('배분은 보상 확정과 분리되고 전투 중에는 수정할 수 �
   assert.equal(e.ExpCritPoints[0],1);assert.equal(e.ExpDone[0],false);assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
   t.click(t.common(103));assert.equal(e.ExpCritPoints[0],0);
   e.ExpState=e.EXP_BATTLE;e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);
+  assert.equal(t.frame(e.ExpUIButtons[e.UIExpeditionCommon_StatsButton]).x,.090);
   assert.equal(t.frame(t.common(101)).enabled,false);assert.equal(t.frame(t.common(102)).enabled,false);
 });
 check('이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한도·전투 제한 표시',()=>{
@@ -107,7 +109,8 @@ check('이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한
 });
 check('접기와 ESC 후 후보 유지, 상태 변경 시 자동 표시, 강화창과 겹침 차단',()=>{
   const t=fresh(),e=t.e;t.start();const offered=e.ExpStartCard[0],version=e.ExpOfferVersion[0];
-  t.click(t.common(-99));assert.deepEqual(t.roots(),[]);t.click(t.common(-98));assert.equal(e.ExpStartCard[0],offered);assert.equal(e.ExpOfferVersion[0],version);
+  const toggle=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_CHOICE]];
+  t.click(toggle);assert.deepEqual(t.roots(),[]);t.click(toggle);assert.equal(e.ExpStartCard[0],offered);assert.equal(e.ExpOfferVersion[0],version);
   e.UIExpeditionCommon_Escape();assert.deepEqual(t.roots(),[]);
   e.Enter(e.EXP_REWARD);assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   e.F_UpgradeOnOff[0]=true;t.render();assert.deepEqual(t.roots(),[]);e.UIMap_Toggle();assert.equal(e.ExpUIPanel,e.EXP_UI_CHOICE);
@@ -127,6 +130,25 @@ check('상점의 가격 표시, 돈 부족/구매 완료 비활성화 및 정비
   t.click(t.card('Shop',1));assert.equal(e.ExpShopSold[e.ExpKey(0,1)],true);assert.equal(t.frame(t.card('Shop',1)).enabled,false);
   const index=e.UIExpeditionChoice_ShopCards[1];assert(t.frame(e.UIExpeditionChoice_CardActionText[index]).text.includes('구매 완료'));
   t.click(t.common(10));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
+});
+check('선택·투표·사건·상점의 같은 버튼으로 접기/열기, 전환·확정 시 잔여 버튼 제거',()=>{
+  for(const state of ['EXP_START','EXP_VOTE','EXP_REWARD','EXP_SHOP','event']){
+    const t=fresh(),e=t.e;t.start();
+    if(state==='event'){e.Enter(e.EXP_REWARD);t.click(t.card('Choice',9));}else e.Enter(e[state]);
+    const panel=e.ExpUIPanel,index=e.UIExpeditionCommon_PanelToggles[panel],button=e.ExpUIButtons[index],f=t.frame(button);
+    const geometry=[f.parent,f.relative,f.x,f.y,f.w,f.h];assert.equal(f.parent,0);
+    for(let repeat=0;repeat<2;repeat++){
+      t.click(button);assert.deepEqual(t.roots(),[]);assert(t.visible(button));assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('열기'));
+      t.render();assert(t.visible(button));assert.deepEqual([f.parent,f.relative,f.x,f.y,f.w,f.h],geometry);
+      t.click(button);assert.deepEqual(t.roots(),[panel]);assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('접기'));
+    }
+    t.click(button);e.F_UpgradeOnOff[0]=true;t.render();assert(!t.visible(button));
+    e.F_UpgradeOnOff[0]=false;t.render();assert(t.visible(button));
+    e.ExpDone[0]=true;t.render();assert(!t.visible(button));
+    e.Enter(e.EXP_SHOP);assert.deepEqual(t.roots(),[e.EXP_UI_SHOP]);
+    e.QueueNext(e.EXP_BATTLE);assert.equal(e.UIExpeditionCommon_FoldedPanel,0);
+    assert(e.UIExpeditionCommon_PanelToggles.slice(1,8).every(i=>!t.visible(e.ExpUIButtons[i])));
+  }
 });
 check('상점 잔액과 불가 사유 갱신, 일반 구매 버튼의 강조 및 동기화',()=>{
   const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_SHOP);e.ExpGold[0]=0;t.render();

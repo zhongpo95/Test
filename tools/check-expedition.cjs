@@ -22,7 +22,7 @@ function environment(files, extras = {}) {
     bj_FORCE_ALL_PLAYERS: 0, gg_rct_Home: 0, Eitem: Array.from({length: 4}, () => Array(20).fill('0')),
     EQUIP_SLOT_MAX: 7, MapName: '', MapApi: '', ArcanaData: 0,
     ArcanaText: Array.from({length: 64}, (_, i) => '각인' + i),
-    UnitHP: Array(8192).fill(1000), UnitHPMAX: Array(8192).fill(1000), UnitSD: Array(8192).fill(0),
+    UnitHP: Array(8192).fill(1000), UnitHPMAX: Array(8192).fill(1000), UnitSD: Array(8192).fill(0), UnitSDMAX: Array(8192).fill(0),
     UnitArm: Array(8192).fill(0), UnitCasting: Array(8192).fill(false),
     Player: x => x, GetPlayerId: x => x, GetLocalPlayer: () => env.localPlayer,
     GetPlayerSlotState: p => env.online[p] ? 1 : 0, GetPlayerController: () => 1,
@@ -38,6 +38,10 @@ function environment(files, extras = {}) {
     GetRandomReal: (a,b) => a + env.GetRandomInt(0,10000) / 10000 * (b-a),
     IsTerrainPathable: () => false, CreateUnit: (p,raw,x,y) => ({id:unitId++,p,raw,x,y,abilities:new Set()}),
     KillUnit: u => {u.dead=true;}, RemoveUnit: u => {u.removed=true;},
+    CreateTextTag: () => ({}), DestroyTextTag: t => {t.destroyed=true;}, SetTextTagPermanent: no, SetTextTagColor: no,
+    SetTextTagText: (t,text) => {t.text=text;}, SetTextTagPosUnit: (t,u,height) => {t.unit=u;t.height=height;},
+    SetTextTagVisibility: (t,visible) => {t.visible=visible;}, IsUnitVisible: () => true,
+    R2SW: (value,width,precision) => value.toFixed(precision), BOSSHPSTART: no,
     UnitAddAbility: (u,a) => u.abilities.add(a), UnitRemoveAbility: (u,a) => u.abilities.delete(a), GetUnitAbilityLevel: (u,a) => u.abilities.has(a) ? 1 : 0,
     IsUnitInRange: (u,v,r) => Math.hypot(env.GetUnitX(u)-env.GetUnitX(v),env.GetUnitY(u)-env.GetUnitY(v))<=r,
     SetUnitX: (u,x) => {u.x=x;}, SetUnitY: (u,y) => {u.y=y;}, Atan2: Math.atan2,
@@ -79,9 +83,9 @@ function environment(files, extras = {}) {
   });
   for (const s of sources) for (const block of s.matchAll(/\bglobals\b([\s\S]*?)\bendglobals\b/g)) {
     for (const line of block[1].split(/\r?\n/)) {
-      const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect) (array )?(\w+)(?:\s*=\s*(.*))?/);
+      const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect|texttag) (array )?(\w+)(?:\s*=\s*(.*))?/);
       if (!m) continue;
-      const initial = m[1] === 'boolean' ? false : m[1] === 'string' ? '' : m[1] === 'unit' ? null : 0;
+      const initial = m[1] === 'boolean' ? false : m[1] === 'string' ? '' : ['unit','texttag'].includes(m[1]) ? null : 0;
       env[m[3]] = m[2] ? Array(8192).fill(initial) : m[4] ? Function('env', 'with(env){return ' + expr(m[4]) + '}')(env) : initial;
     }
   }
@@ -166,7 +170,7 @@ check('시작 무작위 능력치는 한 종류만 200 증가하고 마지막 �
 });
 check('리롤 비용 증가, 시간 유지, 확정 후 차단', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.ExpGold[0]=600;
-  e.ExpAction(0,100);e.ExpAction(0,100);assert.equal(e.ExpGold[0],300);assert.equal(e.ExpSeconds,30);
+  e.ExpAction(0,100);e.ExpAction(0,100);assert.equal(e.ExpGold[0],300);assert.equal(e.ExpSeconds,60);
   e.ExpAction(0,1);e.ExpAction(0,100);assert.equal(e.ExpGold[0],300);assert.equal(e.ExpPoints[0],5);
 });
 check('스탯 배분 한도, 초기화, 전투 중 변경 차단', () => {
@@ -180,16 +184,25 @@ check('보상 시간 초과는 비용이나 패널티 없이 5포인트', () => 
   const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.ExpSeconds=1;e.Tick();
   assert.equal(e.ExpPoints[0],5);assert.equal(e.ExpGold[0],0);assert.equal(e.ExpState,e.EXP_MOVE);assert.equal(e.NextState,e.EXP_SHOP);
 });
-check('마지막 순간 사건 진입 후 20초, 내부 시간 초과는 거절', () => {
-  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.Elapsed=29;e.ExpSeconds=1;
-  e.ExpEventCandidate[0]=1;e.ExpEventReservation[1]=1;e.ExpAction(0,3);assert.equal(e.ExpEventDeadline[0],49);
-  for(let i=0;i<19;i++)e.Tick();assert.equal(e.ExpDone[0],false);
+check('마지막 순간 사건 진입 후 40초, 내부 시간 초과는 거절', () => {
+  const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e.EXP_REWARD);e.Elapsed=59;e.ExpSeconds=1;
+  e.ExpEventCandidate[0]=1;e.ExpEventReservation[1]=1;e.ExpAction(0,3);assert.equal(e.ExpEventDeadline[0],99);
+  for(let i=0;i<39;i++)e.Tick();assert.equal(e.ExpDone[0],false);
   e.Tick();assert.equal(e.ExpDone[0],true);assert.equal(e.ExpFixedCrit[0],0);assert.equal(e.ExpEventUsed[1],true);
 });
 check('사건 진입 후 이탈해도 만난 사건은 다시 나오지 않음', () => {
   const {env:e}=fresh();e.ExpMember[0]=e.ExpMember[1]=true;e.ExpPlayers=2;e.Enter(e.EXP_REWARD);
   e.ReleaseEvent(0);e.ExpEventCandidate[0]=4;e.ExpEventReservation[4]=1;e.ExpAction(0,3);
-  assert.equal(e.ExpEventUsed[4],true);assert.equal(e.ExpChoiceSeconds(0),20);e.Leave();assert.equal(e.ExpEventReservation[4],0);assert.equal(e.ExpEventUsed[4],true);
+  assert.equal(e.ExpEventUsed[4],true);assert.equal(e.ExpChoiceSeconds(0),40);e.Leave();assert.equal(e.ExpEventReservation[4],0);assert.equal(e.ExpEventUsed[4],true);
+});
+check('비전투 대기 두 배와 시간 초과 경계, 이동 대기 6초', () => {
+  for(const [state,seconds] of [['EXP_START',60],['EXP_REWARD',60],['EXP_VOTE',40],['EXP_SHOP',120]]){
+    const {env:e}=fresh();e.ExpMember[0]=true;e.Enter(e[state]);assert.equal(e.ExpSeconds,seconds);
+    for(let i=0;i<seconds-1;i++)e.Tick();assert.equal(e.ExpState,e[state]);assert.equal(e.ExpDone[0],false);
+    e.Tick();assert.equal(e.ExpState,e.EXP_MOVE);assert.equal(e.ExpSeconds,6);
+    for(let i=0;i<5;i++)e.Tick();assert.equal(e.ExpState,e.EXP_MOVE);
+    e.Tick();assert.notEqual(e.ExpState,e.EXP_MOVE);
+  }
 });
 check('상점 단일 구매와 물약 종류별 2회 및 할인 올림', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.ExpState=e.EXP_SHOP;e.ExpGold[0]=2000;
@@ -260,6 +273,36 @@ check('전투 제한시간 실패와 정산 한 번, 생존 적/예고 정리', 
   const enemy=e.Enemies[1];let ended=0;e.TriggerExecute=()=>{ended++;};e.ExpSeconds=0;e.Update();e.Update();e.Conclude(false);
   assert.equal(ended,1);assert.equal(e.ExpWon,false);assert.equal(e.ExpProgress,0);assert.equal(enemy.removed,true);assert.equal(e.ExpEnemy[enemy.id],false);
 });
+check('일반 적 체력 추적·가시성·사망/전투 종료 정리와 참여자 보스바 연결', () => {
+  const calls=[];
+  const {env:e}=environment([...files,'System/ExpeditionCombat.j'],{BOSSHPSTART:(unit,pid)=>calls.push({unit,pid})});
+  e.ExpMember[0]=e.ExpMember[2]=true;e.ExpPlayers=2;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;e.ExpCombatStart(false);
+  assert.equal(e.ExpSeconds,120);assert.equal(calls.length,0);
+  const tag=e.EnemyHealth[1],enemy=e.Enemies[1];assert.equal(tag.text,'100.0%');assert(tag.visible);assert.equal(tag.unit,enemy);
+  e.UnitHP[enemy.id]=e.EnemyMaximum[1]/2;e.Update();assert.equal(tag.text,'50.0%');
+  e.localPlayer=1;e.Update();assert.equal(tag.visible,false);
+  e.localPlayer=0;e.IsUnitVisible=()=>false;e.Update();assert.equal(tag.visible,false);
+  e.IsUnitVisible=()=>true;e.Update();assert.equal(tag.visible,true);
+  e.UnitHP[enemy.id]=0;e.Update();assert(tag.destroyed);assert.equal(e.EnemyHealth[1],null);
+  const remaining=e.EnemyHealth.slice(2,9);e.ExpCombatStop();assert(remaining.every(t=>t.destroyed));
+  assert(e.EnemyHealth.slice(1,17).every(t=>t===null));
+  e.ExpCombatStart(true);assert.equal(e.ExpSeconds,360);assert.deepEqual(calls.map(c=>c.pid),[0,2]);
+  assert(calls.every(c=>c.unit===e.Enemies[1]));assert.equal(e.EnemyHealth[1],null);
+});
+check('보호막이 없는 보스도 체력 UI 크기 계산을 끝까지 수행', () => {
+  let update;const sizes=[],texts=[],timer={start:(seconds,repeat,fn)=>{update=fn;}};
+  const {env:e}=environment(['UI/UI_BossHP.j'],{
+    tick:{create:()=>timer,getExpired:()=>timer},FxEffect:{create:()=>({})},
+    GetUnitIndex:()=>1,DataUnitIndex:()=>2,UnitSetHPx:[0,0,200],GetUnitName:()=>'원정 보스',
+    ModuloReal:(a,b)=>a%b,DzFrameShow:()=>{},DzFrameSetText:(f,text)=>texts.push(text),
+    DzFrameSetTexture:()=>{},DzFrameSetPoint:()=>{},
+    DzFrameSetSize:(f,w,h)=>{assert(Number.isFinite(w)&&Number.isFinite(h));sizes.push([w,h]);},
+  });
+  e.UnitHP[1]=e.UnitHPMAX[1]=12000000;e.BOSSHPSTART(1,0);update();
+  assert(texts.includes('원정 보스'));assert.equal(sizes.length,3);assert.equal(sizes.at(-1)[0],300/1280);
+  e.UnitHP[1]=6000000;update();assert.equal(sizes.at(-1)[0],150/1280);
+  e.UnitSDMAX[1]=1000;e.UnitSD[1]=500;update();assert.equal(sizes.at(-3)[0],150/1280);
+});
 check('보스 사망은 60초 한 번 차감, 15초 부활과 2초 무적', () => {
   const {env:e}=environment([...files,'System/ExpeditionCombat.j']);e.ExpMember[0]=e.ExpMember[1]=true;e.ExpPlayers=2;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;
   const alive=[true,true], protectedNow=[false,false];
@@ -279,7 +322,7 @@ check('일반 전투 사망은 30초 한 번 차감, 이탈은 현재 적 체력
 check('2인 원정 전체 진행 후 새 원정에 임시 성장 미이월', () => {
   const {env:e}=environment([...files,'System/ExpeditionCombat.j']);e.online[1]=true;
   e.TriggerExecute=t=>{if(t===e.ExpBattleFinished)e.BattleFinished();};
-  const move=()=>{e.Tick();assert.equal(e.ExpState,e.EXP_MOVE);e.Tick();e.Tick();e.Tick();};
+  const move=()=>{e.Tick();assert.equal(e.ExpState,e.EXP_MOVE);for(let i=0;i<6;i++)e.Tick();};
   e.ExpAction(0,1);e.ExpAction(1,1);assert.equal(e.ExpState,e.EXP_START);
   e.ExpAction(0,4);e.ExpAction(1,2);move();assert.equal(e.ExpState,e.EXP_VOTE);
   e.ExpAction(0,1);e.ExpAction(1,1);move();assert.equal(e.ExpState,e.EXP_BATTLE);

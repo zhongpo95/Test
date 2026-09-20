@@ -352,13 +352,13 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
         set ExpState = state
         set ExpRevision = ExpRevision + 1
         set Elapsed = 0
-        set ExpSeconds = 30
+        set ExpSeconds = 60
         if state == EXP_VOTE then
             set ExpNode = 2
-            set ExpSeconds = 20
+            set ExpSeconds = 40
         elseif state == EXP_SHOP then
             set ExpNode = 4
-            set ExpSeconds = 60
+            set ExpSeconds = 120
             // RL-01은 이 상점 뒤의 대표 보스로 끝나므로 라이프 회복을 판매하지 않는다.
             set ExpLifeUseful = false
         elseif state == EXP_BATTLE then
@@ -436,7 +436,7 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
         set NextState = state
         set ExpState = EXP_MOVE
         set ExpRevision = ExpRevision + 1
-        set ExpSeconds = 3
+        set ExpSeconds = 6
         call TriggerExecute(ExpRefresh)
     endfunction
 
@@ -730,7 +730,7 @@ library Expedition initializer Init requires DataExpedition, ExpeditionCombat, E
                     set ExpGold[pid] = ExpGold[pid] + ExpGradeGold(ExpEventGrade[pid])
                 else
                     set ExpEventUsed[ExpEventCandidate[pid]] = true
-                    set ExpEventDeadline[pid] = Elapsed + 20
+                    set ExpEventDeadline[pid] = Elapsed + 40
                     set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
                     call TriggerExecute(ExpRefresh)
                     return
