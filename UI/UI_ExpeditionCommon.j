@@ -99,7 +99,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                 set FoldedPanel = 0
             endif
             set ExpUIPanel = panel
-            call TriggerExecute(ExpRefresh)
+            // 로컬 입력에서는 표시 상태만 바꾼다. TriggerExecute는 여기서 호출하지 않는다.
         endif
     endfunction
 
@@ -303,6 +303,8 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endloop
         call TriggerAddAction(t, function Escape)
         call TriggerAddAction(ExpRefresh, function Render)
+        // 미선택자와 관전자도 같은 타이머 이벤트로 갱신한다. 로컬 창 상태로 실행을 분기하지 않는다.
+        call TriggerRegisterTimerEvent(ExpRefresh, 0.10, true)
         call DzFrameShow(Navigation, false)
         set t = null
     endfunction

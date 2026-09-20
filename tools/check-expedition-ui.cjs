@@ -5,8 +5,8 @@ const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/S
   'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
-function fresh() {
-  const frames = new Map([[0, {id:0,type:'GAME',parent:null,shown:true,enabled:true,x:0,y:.6}]]), packets = [];
+function fresh(localPlayer = 0) {
+  const frames = new Map([[0, {id:0,type:'GAME',parent:null,shown:true,enabled:true,x:0,y:.6}]]), packets = [], timers = [], executions = [];
   let e, count = 0, eventFrame = 0, eventPlayer = 0;
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(files, {
@@ -15,7 +15,8 @@ function fresh() {
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
     CreateTrigger: () => ({actions:[]}), TriggerAddAction: (t,fn) => t.actions.push(fn),
     Condition: fn => fn, TriggerAddCondition: (t,fn) => t.actions.push(fn),
-    TriggerExecute: t => t.actions.forEach(fn=>fn()), TriggerRegisterPlayerEvent: no,
+    TriggerExecute: t => {executions.push(t);t.actions.forEach(fn=>fn());}, TriggerRegisterPlayerEvent: no,
+    TriggerRegisterTimerEvent: (trigger,seconds,periodic) => timers.push({trigger,seconds,periodic}),
     TriggerRegisterTimerEventSingle: no, DzTriggerRegisterKeyEventByCode: no,
     FrameCount: () => count + 1, DzGetGameUI: () => 0, GetGameplayUI: () => 0,
     DzCreateFrameByTagName: (type,name,parent) => {const id=++count;frames.set(id,{id,type,parent,shown:true,enabled:true,scripts:{}});return id;},
@@ -33,13 +34,19 @@ function fresh() {
     DzSyncData: (channel,data) => packets.push({channel,data,player:e.localPlayer}),
   });
   e = env;
+  e.localPlayer = localPlayer;
   e.UIMainQuest_Init();
   for(const lib of ['UIExpeditionCommon','UIExpeditionChoice','UIExpeditionStats','UIMap'])e[lib+'_Build']();
   const visible = id => id===0 || frame(id).shown && visible(frame(id).parent);
-  const render = () => e.TriggerExecute(e.ExpRefresh);
+  // 게임의 공통 타이머 이벤트를 한 번 진행한다. 로컬 UI 입력 자체는 트리거를 실행하지 않는다.
+  const render = () => {
+    assert.equal(timers.length,1);assert.equal(timers[0].trigger,e.ExpRefresh);
+    assert.equal(timers[0].seconds,.10);assert.equal(timers[0].periodic,true);
+    timers[0].trigger.actions.forEach(fn=>fn());
+  };
   const event = (id,kind,player=e.localPlayer) => {assert(visible(id),'Hidden frame event');assert(frame(id).enabled,'Disabled frame event');eventFrame=id;eventPlayer=player;frame(id).scripts[kind]();};
   const flush = () => {for(const p of packets.splice(0)){e.eventPlayer=p.player;e.syncData=p.data;e.OnSync();}};
-  const click = id => {event(id,4);flush();};
+  const click = id => {event(id,4);flush();render();};
   const common = action => {
     for(let i=1;i<=e.UIExpeditionCommon_ButtonCount;i++)if(e.UIExpeditionCommon_ButtonActions[i]===action && visible(e.ExpUIButtons[i]))return e.ExpUIButtons[i];
     throw Error('No visible button for action '+action);
@@ -48,12 +55,32 @@ function fresh() {
   const start = () => {render();click(common(1));assert.equal(e.ExpState,e.EXP_START);};
   const roots = () => Array.from({length:7},(_,i)=>i+1).filter(i=>visible(e.ExpUIRoots[i]));
   render();
-  return {e,frames,frame,visible,render,event,packets,flush,click,common,card,start,roots};
+  return {e,frames,frame,visible,render,event,packets,flush,click,common,card,start,roots,timers,executions};
 }
+check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 않고 전원 같은 타이머로 갱신',()=>{
+  const clients=[0,1,4].map(pid=>{
+    const t=fresh(pid);t.e.online=[true,true,false,false];
+    t.e.PickCheck=[false,false,false,false];t.render();t.executions.length=0;
+    return t;
+  });
+  for(const t of clients){t.e.PickCheck[0]=true;t.e.SetMapLine(0);}
+  assert(clients.every(t=>t.executions.length===0),'선택자의 SetMapLine이 로컬 TriggerExecute를 호출함');
+  for(let tick=0;tick<5;tick++)for(const t of clients)t.render();
+  assert.deepEqual(clients[0].roots(),[clients[0].e.EXP_UI_LOBBY]);
+  assert.deepEqual(clients[1].roots(),[]);assert.deepEqual(clients[2].roots(),[]);
+  for(const t of clients){t.e.ExpMember[0]=true;t.render();}
+  const owner=clients[0],e=owner.e;
+  e.ExpUIOpen(0);owner.render();assert.deepEqual(owner.roots(),[]);
+  e.UIMap_Toggle();owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_MAP]);
+  owner.event(owner.common(-e.EXP_UI_STATS),4);owner.render();assert.deepEqual(owner.roots(),[e.EXP_UI_STATS]);
+  e.eventPlayer=0;e.UIExpeditionCommon_Escape();owner.render();assert.deepEqual(owner.roots(),[]);
+  assert(clients.every(t=>t.executions.length===0));
+  assert(clients.every(t=>t.packets.length===0),'로컬 창 조작에 네트워크 요청이 추가됨');
+});
 check('영웅 선택 후 준비창, 시작 보상 6개, M 지도와 스탯창의 독립 전환',()=>{
   const t=fresh(),e=t.e;t.start();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(t.visible).length,6);
-  e.UIMap_Toggle();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
+  e.UIMap_Toggle();t.render();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
   assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]));
   t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
   t.click(t.common(-98));assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
@@ -61,9 +88,9 @@ check('영웅 선택 후 준비창, 시작 보상 6개, M 지도와 스탯창의
 });
 check('원정 중 마을 안내 갱신이 선택창에 겹치지 않고 마을에서 다시 표시됨',()=>{
   const t=fresh(),e=t.e;e.MainQuestNew(0,1);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
-  e.ExpUIOpen(0);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
-  e.ExpUIOpen(e.EXP_UI_LOBBY);t.start();e.MainQuestRefresh(0,1);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
-  e.ExpMember[0]=false;e.ExpState=e.EXP_LOBBY;e.ExpRevision++;t.render();e.ExpUIOpen(0);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
+  e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
+  e.ExpUIOpen(e.EXP_UI_LOBBY);t.render();t.start();e.MainQuestRefresh(0,1);assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,false);
+  e.ExpMember[0]=false;e.ExpState=e.EXP_LOBBY;e.ExpRevision++;t.render();e.ExpUIOpen(0);t.render();assert.equal(t.frame(e.UIMainQuest_F_MQBackDrop).shown,true);
   assert.equal(e.MainQuestGetStep(0,1),1);
 });
 check('카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와 복원',()=>{
@@ -90,13 +117,13 @@ check('배분은 보상 확정과 분리되고 전투 중에는 수정할 수 �
   const t=fresh(),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));t.click(t.common(101));
   assert.equal(e.ExpCritPoints[0],1);assert.equal(e.ExpDone[0],false);assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
   t.click(t.common(103));assert.equal(e.ExpCritPoints[0],0);
-  e.ExpState=e.EXP_BATTLE;e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);
+  e.ExpState=e.EXP_BATTLE;e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
   assert.equal(t.frame(e.ExpUIButtons[e.UIExpeditionCommon_StatsButton]).x,.090);
   assert.equal(t.frame(t.common(101)).enabled,false);assert.equal(t.frame(t.common(102)).enabled,false);
 });
 check('이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한도·전투 제한 표시',()=>{
   for(const state of ['EXP_START','EXP_MOVE','EXP_VOTE','EXP_REWARD','EXP_SHOP']){
-    const t=fresh(),e=t.e;t.start();e.ExpState=e[state];e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);
+    const t=fresh(),e=t.e;t.start();e.ExpState=e[state];e.ExpRevision++;t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
     t.event(t.common(101),2);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[e.UIExpeditionStats_AddCrit]).texture.endsWith('ActionHover.tga'));
     t.click(t.common(101));t.click(t.common(102));assert.equal(e.ExpCritPoints[0],1);assert.equal(e.ExpSwiftPoints[0],1);
     assert.equal(e.ExpDone[0],false);t.click(t.common(103));assert.equal(e.ExpCritPoints[0]+e.ExpSwiftPoints[0],0);
@@ -105,16 +132,16 @@ check('이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한
     e.ExpPoints[0]=40;e.ExpCritPoints[0]=30;t.render();assert.equal(t.frame(t.common(101)).enabled,false);
     assert(t.frame(e.ExpUIButtonLabels[e.UIExpeditionStats_AddCrit]).text.includes('최대 30포인트'));assert(t.frame(t.common(102)).enabled);
   }
-  const t=fresh(),e=t.e;t.start();e.ExpState=e.EXP_BATTLE;t.render();e.ExpUIOpen(e.EXP_UI_STATS);
+  const t=fresh(),e=t.e;t.start();e.ExpState=e.EXP_BATTLE;t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
   e.ExpAction(0,101);assert.equal(e.ExpCritPoints[0],0);assert(t.frame(e.UIExpeditionStats_Hint).text.includes('전투 중'));
 });
 check('접기와 ESC 후 후보 유지, 상태 변경 시 자동 표시, 강화창과 겹침 차단',()=>{
   const t=fresh(),e=t.e;t.start();const offered=e.ExpStartCard[0],version=e.ExpOfferVersion[0];
   const toggle=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_CHOICE]];
   t.click(toggle);assert.deepEqual(t.roots(),[]);t.click(toggle);assert.equal(e.ExpStartCard[0],offered);assert.equal(e.ExpOfferVersion[0],version);
-  e.UIExpeditionCommon_Escape();assert.deepEqual(t.roots(),[]);
+  e.UIExpeditionCommon_Escape();t.render();assert.deepEqual(t.roots(),[]);
   e.Enter(e.EXP_REWARD);assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
-  e.F_UpgradeOnOff[0]=true;t.render();assert.deepEqual(t.roots(),[]);e.UIMap_Toggle();assert.equal(e.ExpUIPanel,e.EXP_UI_CHOICE);
+  e.F_UpgradeOnOff[0]=true;t.render();assert.deepEqual(t.roots(),[]);e.UIMap_Toggle();t.render();assert.equal(e.ExpUIPanel,e.EXP_UI_CHOICE);
   e.F_UpgradeOnOff[0]=false;t.render();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
 });
 check('보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사건 선택 화면 전환',()=>{
@@ -182,7 +209,7 @@ check('다른 플레이어의 확정이 내 창을 닫지 않음',()=>{
 if(process.argv[2]){
   const t=fresh(),e=t.e,out=[];
   const snapshot=name=>out.push({name,frames:[...t.frames.values()].filter(f=>f.id!==0&&t.visible(f.id)).map(({scripts,...f})=>f)});
-  t.start();snapshot('start');e.ExpUIOpen(e.EXP_UI_STATS);snapshot('stats');e.Enter(e.EXP_REWARD);snapshot('reward');e.Enter(e.EXP_SHOP);e.ExpGold[0]=500;t.render();snapshot('shop');e.ExpUIOpen(e.EXP_UI_MAP);snapshot('map');
+  t.start();snapshot('start');e.ExpUIOpen(e.EXP_UI_STATS);t.render();snapshot('stats');e.Enter(e.EXP_REWARD);snapshot('reward');e.Enter(e.EXP_SHOP);e.ExpGold[0]=500;t.render();snapshot('shop');e.ExpUIOpen(e.EXP_UI_MAP);t.render();snapshot('map');
   fs.writeFileSync(process.argv[2],JSON.stringify(out,null,2));
 }
 console.log(`${checks} UI scenario groups passed. Mock frame/native execution only; real game rendering and input remain untested.`);
