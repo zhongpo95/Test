@@ -1,4 +1,4 @@
-library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataExpedition
+library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataExpedition, JNCommon
     function SkillSpeed takes integer pid returns real
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
@@ -692,8 +692,10 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
     endfunction
     
     private function EquipReset takes nothing returns nothing
+        call JNWriteLog("[ARC-PICK-v1] client=" + I2S(GetPlayerId(GetLocalPlayer())) + " pid=" + I2S(GetPlayerId(DzGetTriggerSyncPlayer())) + " phase=reset-begin target=" + I2S(S2I(DzGetTriggerSyncData())))
         call PlayerStatsSet( S2I(DzGetTriggerSyncData()) )
         call ItemUIStatsSet(GetPlayerId(DzGetTriggerSyncPlayer()))
+        call JNWriteLog("[ARC-PICK-v1] client=" + I2S(GetPlayerId(GetLocalPlayer())) + " phase=reset-end")
     endfunction
     
     
