@@ -68,6 +68,9 @@ library Emoji initializer init requires FrameCount, UIInputGate
 
     //t를 땜
     function TKey2 takes nothing returns nothing
+        if not PickCheck[GetPlayerId(GetLocalPlayer())] then
+            return
+        endif
         call DzFrameShow(EmojiFrameMain,false)
         set EmojiOn = false
 
@@ -78,6 +81,9 @@ library Emoji initializer init requires FrameCount, UIInputGate
 
     //t를 누름
     function TKey takes nothing returns nothing
+        if not PickCheck[GetPlayerId(GetLocalPlayer())] then
+            return
+        endif
         if not EmojiOn then
             set EmojiOn = true
             set NowX = I2R(DzGetMouseX()-DzGetWindowX())/(I2R(DzGetWindowWidth())/.8)+0

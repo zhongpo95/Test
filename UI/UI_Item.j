@@ -125,6 +125,10 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         local integer pid = GetPlayerId(DzGetTriggerKeyPlayer())
         local string sn = I2S(PlayerSlotNumber[pid])
         local integer i
+
+        if not PickCheck[pid] then
+            return
+        endif
         
         call DzFrameShow(F_ItemDelBackDrop, false)
 

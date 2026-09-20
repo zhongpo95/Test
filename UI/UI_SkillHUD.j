@@ -354,6 +354,9 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
     endfunction
 
     private function AltClick takes nothing returns nothing
+        if not PickCheck[GetPlayerId(GetLocalPlayer())] then
+            return
+        endif
         if DzGetTriggerKeyPlayer() == GetLocalPlayer() and DzIsKeyDown(JN_OSKEY_ALT) and SkillHUDHover >= 0 then
             call DzSyncData("SkillHUDPing", I2S(SkillHUDHover))
         endif
