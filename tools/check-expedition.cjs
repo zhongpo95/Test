@@ -120,7 +120,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
 }
 module.exports = {environment};
 if (require.main === module) {
-const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j'];
+const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j'];
 const fresh = () => environment(files);
 check('라이프 손실의 모든 구간과 반올림 경계', () => {
   const {env:e} = fresh();
@@ -138,12 +138,12 @@ check('개인 카드 공개 중복 방지와 소진 대체 보상', () => {
   assert.equal(new Set(drawn).size,6);assert.equal(e.DrawCard(0,1),0);assert(e.DrawCard(1,1)>0);
   e.GrantCard(0,0,1);assert.equal(e.ExpGold[0],150);
 });
-check('사건 예약, 계열 공유, 미선택 해제, 거절 소모', () => {
+check('사건 예약 중복 방지, 미선택 해제, 거절 소모', () => {
   const {env:e} = fresh();e.ExpMember[0]=true;e.ExpMember[1]=true;
   e.RollOffers(0);const a=e.ExpEventCandidate[0];assert(a>0);e.RollOffers(1);assert.notEqual(e.ExpEventCandidate[1],a);
   e.ReleaseEvent(0);assert.equal(e.ExpEventReservation[a],0);assert.equal(e.ExpEventUsed[a],false);
   e.ExpEventCandidate[0]=4;e.ExpEventReservation[4]=1;e.ApplyEvent(0,3);assert.equal(e.ExpEventUsed[4],true);
-  e.GetRandomInt=(a,b)=>b;e.RollOffers(0);assert.notEqual(e.ExpEventCandidate[0],7);
+  e.GetRandomInt=(a,b)=>a;e.RollOffers(0);assert.notEqual(e.ExpEventCandidate[0],4);
 });
 check('준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약', () => {
   const {env:e,pauses} = fresh();e.online[1]=true;e.ExpReady[0]=true;e.TryStart();assert.equal(e.ExpState,0);
@@ -256,10 +256,12 @@ check('카드 조건부 피해와 골드 기반 관통값', () => {
   assert.equal(e.ExpCardDamage(0,0,1),70);e.UnitHP[1]=500;assert.equal(e.ExpCardDamage(0,0,1),30);
   e.ExpCardOwned[7]=e.ExpCardOwned[8]=true;e.ExpGold[0]=1000;assert.equal(e.ExpCardPenetration(0),.5);
 });
-check('카드 재고 부족 사건 제외와 투표 중 스탯 배분', () => {
+check('개인 상태에 따른 사건 제외와 투표 중 스탯 배분', () => {
   const {env:e}=fresh();e.ExpMember[0]=true;e.ExpPoints[0]=10;e.ExpState=e.EXP_VOTE;e.ExpAction(0,101);assert.equal(e.ExpCritPoints[0],1);
-  for(let i=1;i<=6;i++)e.ExpCardSeen[i]=true;
-  assert.equal(e.EventValid(0,4),false);assert.equal(e.EventValid(0,8),false);assert.equal(e.EventValid(0,6),true);
+  assert.equal(e.EventValid(0,5),false);assert.equal(e.EventValid(0,7),false);assert.equal(e.EventValid(0,6),true);
+  e.ExpCardOwned[1]=true;e.ExpArcana[50]=1;
+  assert(e.EventValid(0,5));assert(e.EventValid(0,7));
+  assert(e.EventValid(0,8));
 });
 check('일반 적 구성, 2마리 이하 두 번째 무리 예고, 미등장 체력 포함', () => {
   const {env:e}=environment([...files,'System/ExpeditionCombat.j']);e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;

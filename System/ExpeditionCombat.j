@@ -515,6 +515,9 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set ArenaBounds = Rect(CenterX - 1280, CenterY - 1280, CenterX + 1280, CenterY + 1280)
         set ExpBossBattle = boss
         set ExpBattleLimit = 120
+        if not boss and ExpEncounter == 3 then
+            set ExpBattleLimit = 90
+        endif
         set EnemyCount = 16
         if boss then
             set EnemyCount = 1
@@ -551,8 +554,11 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
             if ModuloInteger(i, 8) == 0 then
                 set EnemyKind[i] = 3
             endif
-            // T23 우솝의 위치 정보에 따른 일반 적 체력 10% 감소.
+            // 조우의 위험 조건은 일반 전투에만 적용한다.
             set EnemyMaximum[i] = 450000.0 * ExpPlayers
+            if not boss and ExpEncounter == 2 then
+                set EnemyMaximum[i] = 550000.0 * ExpPlayers
+            endif
             if boss then
                 set EnemyKind[i] = 4
                 set EnemyMaximum[i] = 12000000.0 * ExpPlayers

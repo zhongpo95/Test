@@ -6,7 +6,7 @@ const check = (name, fn) => {fn();checks++;console.log('PASS ' + name);};
 function fresh() {
   const no = () => {}, arcana = new Map(), timers = [], labels = new Map();
   let e, expired, now = 0;
-  const {env} = environment(['Data/Native.j','Data/Data_Expedition.j','System/StatsSetting.j',
+  const {env} = environment(['Data/Native.j','Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','System/StatsSetting.j',
     'System/ExpeditionEffects.j','System/Expedition.j','System/DamageEffect.j','Hero/Potion.j','System/ItemPickUp.j'], {
     InitHashtable: () => arcana,
     SaveInteger: (table,a,b,n) => arcana.set(a+':'+b,n), LoadInteger: (table,a,b) => arcana.get(a+':'+b) || 0,
@@ -30,7 +30,8 @@ function fresh() {
     JNSetItemExtendedTooltip: (item,text) => {item.description=text;},
   }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ExpKey','ExpHasCard','ExpCardDamage','ExpArcanaDamage',
     'HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
-    'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent']);
+    'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent','ApplyEvent','ExpEventUnavailable','CardsLeft',
+    'PrepareEvent','OwnedEventCard','OwnedEventPenalty']);
   e=env;
   e.Eitem[0][0]='ID3;';e.Eitem[0][1]='ID41;';
   e.Eitem[1][0]='ID3;';e.Eitem[1][1]='ID41;';
@@ -68,6 +69,20 @@ check('원정 종료 시 공격력 카드 해제, 기존 스킬 버프와 장비
   const {e}=fresh();e.ExpMember[0]=true;e.ExpCardOwned[1]=true;e.Hero_Damage[0]=42;e.PlayerStatsSet(0);
   e.Finish(false);assert.equal(e.ExpMember[0],false);assert.equal(e.Equip_DamageP[0],0);
   assert.equal(e.AttackPower(0),162);assert.equal(e.Equip_Damage[0],120);
+});
+check('수집가에게 공격력 카드 반납 시 실제 공격력 회수와 등장 기록 유지',()=>{
+  const {e}=fresh();e.ExpMember[0]=true;e.ExpCardOwned[1]=e.ExpCardSeen[1]=true;e.PlayerStatsSet(0);
+  assert.equal(e.AttackPower(0),144);e.ExpEventCandidate[0]=5;e.PrepareEvent(0);e.ApplyEvent(0,2);
+  assert.equal(e.AttackPower(0),120);assert.equal(e.ExpGold[0],250);assert(!e.ExpCardOwned[1]);assert(e.ExpCardSeen[1]);
+});
+check('정화는 원정 감소 각인만 없애고 장비 각인과 타인 능력치를 보존',()=>{
+  const {e}=fresh();e.ExpMember[0]=true;e.ExpGold[0]=500;
+  const types=e.GetItemTypes;e.GetItemTypes=s=>s==='ID99;'?6:types(s);
+  e.GetItemCardBonus1=()=>0;e.GetItemCardBonus2=()=>0;e.GetItemCardBonus3=()=>2;e.Eitem[0][6]='ID99;';
+  e.ExpArcana[50]=3;e.PlayerStatsSet(0);assert.equal(e.LoadInteger(e.ArcanaData,50,0),5);assert.equal(e.Equip_DamageP[0],-32);
+  e.ExpEventCandidate[0]=7;e.PrepareEvent(0);e.ApplyEvent(0,1);
+  assert.equal(e.ExpGold[0],350);assert.equal(e.ExpArcana[50],0);assert.equal(e.LoadInteger(e.ArcanaData,50,0),2);
+  assert.equal(e.Equip_DamageP[0],-4);assert.equal(e.Eitem[0][6],'ID99;');assert.equal(e.AttackPower(1),120);
 });
 check('물약은 공격력을 바꾸지 않고 최종 대미지 증가, 카드 및 기존 최종 대미지 합산',()=>{
   const {e,use,damage}=fresh();e.ExpMember[0]=true;e.ExpState=e.EXP_BATTLE;e.ExpCardOwned[1]=true;e.PlayerStatsSet(0);

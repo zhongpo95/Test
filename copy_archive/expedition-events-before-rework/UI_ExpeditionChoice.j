@@ -222,8 +222,8 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
             if ExpEventCandidate[pid] == 0 then
                 call SetCard(ChoiceCards[9], "골드 획득", I2S(ExpGradeGold(ExpEventGrade[pid])) + "골드를 얻습니다.", ExpEventGradeName(ExpEventGrade[pid]), "BTNChestOfGold", ExpEventGrade[pid], "선택", true)
             else
-                set name = ExpEventTitle(ExpEventCandidate[pid])
-                call SetCard(ChoiceCards[9], name, ExpEventScene(ExpEventCandidate[pid]), ExpEventGradeName(ExpEventGrade[pid]) + " 사건", "BTNScroll", ExpEventGrade[pid], "진입", true)
+                set name = JNStringSplit(ExpEventText(ExpEventCandidate[pid], 1), " · ", 0)
+                call SetCard(ChoiceCards[9], name, "사건에 진입한 뒤 제시되는 보상 중 하나를 선택합니다.", ExpEventGradeName(ExpEventGrade[pid]) + " 사건", "BTNScroll", ExpEventGrade[pid], "진입", true)
             endif
         endif
         set i = 1
@@ -233,40 +233,19 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
             set i = i + 1
         endloop
         if ExpState == EXP_VOTE then
-            call ExpUIText(EventTitle, ExpEncounterTitle(ExpEncounter))
-            call ExpUIText(EventDescription, ExpEncounterScene(ExpEncounter) + "|n전투는 과반수 찬성으로 진행합니다. 동률·미응답은 우회합니다.")
+            call ExpUIText(EventTitle, "우솝의 정찰")
+            call ExpUIText(EventDescription, "우솝이 앞길의 적 위치를 알려주었습니다. 파티가 이동할 길을 고릅니다.")
             call ExpUIText(EventClock, I2S(ExpSeconds) + "초")
-            call SetCard(EventCards[1], ExpEncounterOptionTitle(ExpEncounter, 1), ExpEncounterOptionText(ExpEncounter, 1), "팀 투표", "BTNSteelMelee", 2, "투표", true)
-            call SetCard(EventCards[2], ExpEncounterOptionTitle(ExpEncounter, 2), ExpEncounterOptionText(ExpEncounter, 2), "팀 투표", "BTNBootsOfSpeed", 1, "투표", true)
-            call DzFrameShow(CardButton[EventCards[1]], true)
-            call DzFrameShow(CardButton[EventCards[2]], true)
+            call SetCard(EventCards[1], "정면 돌파", "적 체력 10% 감소|n승리 시 전투 보상 획득", "팀 투표", "BTNSteelMelee", 2, "투표", true)
+            call SetCard(EventCards[2], "우회", "전투 없이 성장 보상 획득|n무작위 물약 1회 충전", "팀 투표", "BTNBootsOfSpeed", 1, "투표", true)
             call DzFrameShow(CardButton[EventCards[3]], false)
         elseif ExpState == EXP_REWARD and ExpEventDeadline[pid] > 0 then
-            call ExpUIText(EventTitle, ExpEventTitle(ExpEventCandidate[pid]))
-            call ExpUIText(EventDescription, ExpEventScene(ExpEventCandidate[pid]))
-            call ExpUIText(EventClock, I2S(ExpGold[pid]) + " G  ·  " + I2S(ExpChoiceSeconds(pid)) + "초")
-            if ExpEventResolved[pid] then
-                call SetCard(EventCards[1], "선택 결과", ExpEventOutcome[pid], "결과", "BTNScroll", ExpEventGrade[pid], "처리 완료", false)
-                // 결과 카드는 조작할 수 없지만 본문은 흐리게 하지 않는다.
-                call DzFrameSetAlpha(CardButton[EventCards[1]], 255)
-                call SetCard(EventCards[3], "계속", "결과를 확인하고 원정으로 돌아갑니다.", "확인", "BTNBootsOfSpeed", 1, "계속", true)
-                call DzFrameShow(CardButton[EventCards[2]], false)
-            else
-                set i = 1
-                loop
-                    exitwhen i > 2
-                    set name = ExpEventUnavailable(pid, i)
-                    set summary = ExpEventOptionText(pid, i)
-                    if name != "" then
-                        set summary = summary + "|n|n|cff98284d" + name + "|r"
-                    endif
-                    call SetCard(EventCards[i], ExpEventOptionTitle(ExpEventCandidate[pid], i), summary, "사건", "BTNTome", ExpEventGrade[pid], "선택", name == "")
-                    set i = i + 1
-                endloop
-                call SetCard(EventCards[3], "떠나기", ExpEventOptionText(pid, 3), "이동", "BTNBootsOfSpeed", 1, "떠나기", true)
-                call DzFrameShow(CardButton[EventCards[2]], true)
-            endif
-            call DzFrameShow(CardButton[EventCards[1]], true)
+            call ExpUIText(EventTitle, JNStringSplit(ExpEventText(ExpEventCandidate[pid], 1), " · ", 0))
+            call ExpUIText(EventDescription, "받을 보상을 선택합니다. 거절하면 이번 사건을 떠납니다.")
+            call ExpUIText(EventClock, I2S(ExpChoiceSeconds(pid)) + "초")
+            call SetCard(EventCards[1], "첫 번째 보상", ExpEventText(ExpEventCandidate[pid], 1), "사건", "BTNTome", ExpEventGrade[pid], "선택", true)
+            call SetCard(EventCards[2], "두 번째 보상", ExpEventText(ExpEventCandidate[pid], 2), "사건", "BTNTome", ExpEventGrade[pid], "선택", true)
+            call SetCard(EventCards[3], "떠나기", "보상을 받지 않고 떠납니다.|n이 사건은 다시 등장하지 않습니다.", "거절", "BTNBootsOfSpeed", 1, "거절", true)
             call DzFrameShow(CardButton[EventCards[3]], true)
         endif
         if ExpState == EXP_SHOP then
@@ -352,7 +331,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set EventRoot = ExpUIRoot(EXP_UI_EVENT, 0.70, 0.375, 0.523, true)
         set EventTitle = ExpUIHeader(EventRoot, 0.70, "")
         set EventDescription = ExpUILabel(EventRoot, 0.018, 0.055, 0.65, 0.040, 0.010, "")
-        set EventClock = ExpUILabel(EventRoot, 0.485, 0.349, 0.20, 0.023, 0.011, "")
+        set EventClock = ExpUILabel(EventRoot, 0.615, 0.349, 0.07, 0.023, 0.011, "")
         set i = 1
         loop
             exitwhen i > 3

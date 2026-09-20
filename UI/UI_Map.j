@@ -27,7 +27,7 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
         endif
         loop
             exitwhen i > 4
-            set name = JNStringSplit("출발|정찰 · 전투|상점|보스", "|", i - 1)
+            set name = JNStringSplit("출발|조우 · 전투|상점|보스", "|", i - 1)
             if ExpMember[pid] and i == current then
                 call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
                 set name = "|cff07516b현재 위치|r|n" + name

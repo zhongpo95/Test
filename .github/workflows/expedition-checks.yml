@@ -25,6 +25,8 @@ jobs:
         run: node tools/check-expedition.cjs
       - name: Attack cards and final damage potion
         run: node tools/check-attack-potion.cjs
+      - name: Event transactions and party encounters
+        run: node tools/check-expedition-events.cjs
       - name: UI callbacks and synchronized requests
         run: node tools/check-expedition-ui.cjs
       - name: Startup input registration across players

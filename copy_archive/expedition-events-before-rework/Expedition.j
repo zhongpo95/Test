@@ -1,5 +1,5 @@
 // 짧은 시험 원정의 동기화된 진행과 개인 보상 및 확정 결과 저장을 담당한다.
-library Expedition initializer Init requires DataExpedition, DataExpeditionEvents, ExpeditionCombat, ExpeditionEffects, StatsSet, ItemPickUp, PlayerSave
+library Expedition initializer Init requires DataExpedition, ExpeditionCombat, ExpeditionEffects, StatsSet, ItemPickUp, PlayerSave
     globals
         private timer Clock = CreateTimer()
         private integer NextState = 0
@@ -79,155 +79,15 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         return count
     endfunction
 
-    private function OwnedEventCard takes integer pid returns integer
-        local integer i = 1
-        loop
-            exitwhen i > 6
-            if ExpCardOwned[ExpKey(pid, i)] then
-                return i
-            endif
-            set i = i + 1
-        endloop
-        return 0
-    endfunction
-
-    private function OwnedEventPenalty takes integer pid returns integer
-        local integer i = 50
-        local integer selected = 0
-        local integer largest = 0
-        loop
-            exitwhen i > 53
-            if ExpArcana[ExpKey(pid, i)] > largest then
-                set selected = i
-                set largest = ExpArcana[ExpKey(pid, i)]
-            endif
-            set i = i + 1
-        endloop
-        return selected
-    endfunction
-
     private function EventValid takes integer pid, integer id returns boolean
-        if id == 5 then
-            return OwnedEventCard(pid) != 0
-        elseif id == 7 then
-            return OwnedEventPenalty(pid) != 0
+        if id == 4 then
+            return CardsLeft(pid, 1, 6) >= 1
+        elseif id == 6 or id == 7 then
+            return CardsLeft(pid, 7, 10) >= 1
+        elseif id == 8 then
+            return CardsLeft(pid, 7, 10) >= 1 and CardsLeft(pid, 1, 6) >= 2
         endif
         return true
-    endfunction
-
-    private function PrepareEvent takes integer pid returns nothing
-        local integer i = 0
-        local integer count = 0
-        set ExpEventTargetCard[pid] = OwnedEventCard(pid)
-        set ExpEventTargetPenalty[pid] = OwnedEventPenalty(pid)
-        set ExpEventTargetArcana[pid] = -1
-        set ExpEventResolved[pid] = false
-        set ExpEventOutcome[pid] = ""
-        if ExpEventCandidate[pid] == 4 or ExpEventCandidate[pid] == 8 then
-            loop
-                exitwhen i > 10
-                if LoadInteger(ArcanaData, i, pid) < 3 then
-                    set count = count + 1
-                    if GetRandomInt(1, count) == 1 then
-                        set ExpEventTargetArcana[pid] = i
-                    endif
-                endif
-                set i = i + 1
-            endloop
-            if ExpEventCandidate[pid] == 8 then
-                return
-            endif
-            set i = 50
-            set count = 0
-            set ExpEventTargetPenalty[pid] = 0
-            loop
-                exitwhen i > 53
-                if LoadInteger(ArcanaData, i, pid) < 5 then
-                    set count = count + 1
-                    if GetRandomInt(1, count) == 1 then
-                        set ExpEventTargetPenalty[pid] = i
-                    endif
-                endif
-                set i = i + 1
-            endloop
-        endif
-    endfunction
-
-    function ExpEventUnavailable takes integer pid, integer choice returns string
-        local integer id = ExpEventCandidate[pid]
-        local integer price = 0
-        if id < 1 or id > 9 or choice < 1 or choice > 3 then
-            return "사건이 없습니다."
-        endif
-        if ExpEventResolved[pid] then
-            if choice == 3 then
-                return ""
-            endif
-            return "이미 선택했습니다."
-        endif
-        if choice == 3 then
-            return ""
-        endif
-        if id == 2 then
-            set price = 100
-            if choice == 2 then
-                set price = 50
-            elseif CardsLeft(pid, 1, 6) == 0 then
-                return "미등장 일반 카드가 없습니다."
-            endif
-        elseif id == 3 and choice == 1 then
-            if PlayerItem1[pid] == null then
-                return "회복 물약이 없습니다."
-            elseif GetItemCharges(PlayerItem1[pid]) < 1 then
-                return "회복 물약 1회가 필요합니다."
-            endif
-        elseif id == 4 and choice == 1 then
-            if ExpEventArcanaGain(pid) <= 0 or ExpEventTargetPenalty[pid] == 0 then
-                return "받아들일 수 있는 각인 조합이 없습니다."
-            elseif LoadInteger(ArcanaData, ExpEventTargetPenalty[pid], pid) >= 5 then
-                return "감소 각인이 이미 최대입니다."
-            endif
-        elseif id == 5 then
-            if ExpEventTargetCard[pid] == 0 or not ExpCardOwned[ExpKey(pid, ExpEventTargetCard[pid])] then
-                return "반납할 일반 카드가 없습니다."
-            elseif choice == 1 and CardsLeft(pid, 7, 10) == 0 then
-                return "미등장 희귀 카드가 없습니다."
-            endif
-        elseif id == 6 and choice == 2 then
-            set price = 100
-        elseif id == 7 and choice == 1 then
-            set price = 150
-            if ExpEventTargetPenalty[pid] == 0 or ExpArcana[ExpKey(pid, ExpEventTargetPenalty[pid])] <= 0 then
-                return "원정에서 얻은 감소 각인이 없습니다."
-            endif
-        elseif id == 8 and choice == 1 then
-            set price = 150
-            if ExpEventArcanaGain(pid) <= 0 then
-                return "새길 수 있는 각인이 없습니다."
-            endif
-        elseif id == 9 and choice == 1 and CardsLeft(pid, 7, 10) < 2 then
-            return "미등장 희귀 카드 2장이 필요합니다."
-        endif
-        if ExpGold[pid] < price then
-            return I2S(price) + "골드가 필요합니다."
-        endif
-        return ""
-    endfunction
-
-    private function GrantEventPotion takes integer pid, integer kind, integer amount returns nothing
-        local item target = PlayerItem1[pid]
-        if kind == 2 then
-            set target = PlayerItem2[pid]
-        elseif kind == 3 then
-            set target = PlayerItem3[pid]
-        endif
-        if target != null then
-            if ExpHasCard(pid, 12) then
-                set amount = amount + 1
-            endif
-            call SetItemCharges(target, GetItemCharges(target) + amount)
-        endif
-        set target = null
     endfunction
 
     private function ReleaseEvent takes integer pid returns nothing
@@ -267,7 +127,8 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         endif
         loop
             exitwhen first > last
-            if EventValid(pid, first) and not ExpEventUsed[first] and ExpEventReservation[first] == 0 then
+            // 프리렌의 일반/희귀 변형은 같은 계열로 취급한다.
+            if EventValid(pid, first) and not ExpEventUsed[first] and ExpEventReservation[first] == 0 and not ((first == 4 and (ExpEventUsed[7] or ExpEventReservation[7] != 0)) or (first == 7 and (ExpEventUsed[4] or ExpEventReservation[4] != 0))) then
                 set count = count + 1
                 if GetRandomInt(1, count) == 1 then
                     set ExpEventCandidate[pid] = first
@@ -288,129 +149,115 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
     endfunction
 
-    private function CompleteEvent takes integer pid returns nothing
-        call ReleaseEvent(pid)
-        set ExpEventDeadline[pid] = 0
-        set ExpDone[pid] = true
+    function ExpEventText takes integer id, integer choice returns string
+        if id == 1 then
+            if choice == 1 then
+                return "탄지로 · 고정 치명 +75"
+            endif
+            return "탄지로 · 고정 신속 +75"
+        elseif id == 2 then
+            if choice == 1 then
+                return "켄신 · 고정 치명 +100"
+            endif
+            return "켄신 · 스탯 5포인트"
+        elseif id == 3 then
+            if choice == 1 then
+                return "이타도리 · 골드 +150"
+            endif
+            return "이타도리 · 스탯 5포인트"
+        elseif id == 4 then
+            if choice == 1 then
+                return "프리렌 · 일반 카드 1장"
+            endif
+            return "프리렌 · 고정 치명 +75"
+        elseif id == 5 then
+            if choice == 1 then
+                return "에드워드 · 고정 치명 +150"
+            endif
+            return "에드워드 · 고정 신속 +150"
+        elseif id == 6 then
+            if choice == 1 then
+                return "스피드왜건 · 골드 +300"
+            endif
+            return "스피드왜건 · 희귀 카드 1장"
+        elseif id == 7 then
+            if choice == 1 then
+                return "프리렌 · 희귀 카드 1장"
+            endif
+            return "프리렌 · 고정 치명 +150"
+        elseif id == 8 then
+            if choice == 1 then
+                return "카카시 · 희귀 카드 1장"
+            endif
+            return "카카시 · 일반 카드 2장"
+        elseif id == 9 then
+            if choice == 1 then
+                return "린 · 고정 치명 +250"
+            endif
+            return "린 · 고정 신속 +250"
+        endif
+        return ""
     endfunction
 
     private function ApplyEvent takes integer pid, integer choice returns nothing
         local integer id = ExpEventCandidate[pid]
-        local integer card
-        local integer second
-        local integer amount
-        local string result = ""
-        if ExpEventUnavailable(pid, choice) != "" then
-            return
-        endif
+        local integer amount = 75
         if choice == 3 then
-            set ExpEventUsed[id] = true
-            call CompleteEvent(pid)
-            return
-        endif
-        if id == 1 then
+            // 거절해도 해당 계열은 소모된다.
+        elseif id == 1 or id == 5 or id == 9 then
+            if id == 5 then
+                set amount = 150
+            elseif id == 9 then
+                set amount = 250
+            endif
             if choice == 1 then
-                call GrantEventPotion(pid, 1, 1)
-                set result = "약상자에서 쓸 만한 약을 찾았습니다.|n회복 물약 +1회 충전"
+                set ExpFixedCrit[pid] = ExpFixedCrit[pid] + amount
             else
-                set ExpGold[pid] = ExpGold[pid] + 80
-                set result = "흩어진 귀중품을 모아 짐에 넣었습니다.|n80골드 획득"
+                set ExpFixedSwift[pid] = ExpFixedSwift[pid] + amount
             endif
         elseif id == 2 then
             if choice == 1 then
-                set card = DrawCard(pid, 1)
-                set ExpGold[pid] = ExpGold[pid] - 100
-                call GrantCard(pid, card, 1)
-                set result = "밀봉 상자에서 전투 기록을 꺼냈습니다.|n100골드 지불|n획득  " + ExpCardName(card)
+                set ExpFixedCrit[pid] = ExpFixedCrit[pid] + 100
             else
-                set ExpGold[pid] = ExpGold[pid] - 50
-                call GrantEventPotion(pid, 2, 1)
-                set result = "상인이 전투 물약 한 병을 건넸습니다.|n50골드 지불|n최종 대미지 물약 +1회 충전"
+                call GrantPoints(pid, 5)
             endif
         elseif id == 3 then
             if choice == 1 then
-                call SetItemCharges(PlayerItem1[pid], GetItemCharges(PlayerItem1[pid]) - 1)
-                set ExpGold[pid] = ExpGold[pid] + 200
-                set result = "약을 받은 상인이 보답으로 주머니를 내밀었습니다.|n회복 물약 1회 반납 · 200골드 획득"
+                set ExpGold[pid] = ExpGold[pid] + 150
             else
-                set ExpGold[pid] = ExpGold[pid] + 60
-                set result = "수레를 안전한 곳으로 옮겼습니다.|n60골드 획득"
+                call GrantPoints(pid, 5)
             endif
-        elseif id == 4 then
+        elseif id == 4 or id == 7 then
             if choice == 1 then
-                set amount = ExpEventArcanaGain(pid)
-                set ExpArcana[ExpKey(pid, ExpEventTargetArcana[pid])] = ExpArcana[ExpKey(pid, ExpEventTargetArcana[pid])] + amount
-                set ExpArcana[ExpKey(pid, ExpEventTargetPenalty[pid])] = ExpArcana[ExpKey(pid, ExpEventTargetPenalty[pid])] + 1
-                set result = "돌은 부서지고 힘과 저주가 몸에 남았습니다.|n" + ArcanaText[ExpEventTargetArcana[pid]] + " +" + I2S(amount) + "|n" + ArcanaText[ExpEventTargetPenalty[pid]] + " +1"
+                set amount = 1
+                if id == 7 then
+                    set amount = 2
+                endif
+                call GrantCard(pid, DrawCard(pid, amount), amount)
             else
-                set ExpGold[pid] = ExpGold[pid] + 80
-                set result = "힘을 건드리지 않고 파편만 팔았습니다.|n80골드 획득"
-            endif
-        elseif id == 5 then
-            set card = ExpEventTargetCard[pid]
-            set ExpCardOwned[ExpKey(pid, card)] = false
-            if choice == 1 then
-                set second = DrawCard(pid, 2)
-                call GrantCard(pid, second, 2)
-                set result = "수집가와 기록을 교환했습니다.|n반납  " + ExpCardName(card) + "|n획득  " + ExpCardName(second)
-            else
-                set ExpGold[pid] = ExpGold[pid] + 250
-                set result = "기록을 판 대금을 받았습니다.|n반납  " + ExpCardName(card) + "|n250골드 획득"
+                if id == 7 then
+                    set amount = 150
+                endif
+                set ExpFixedCrit[pid] = ExpFixedCrit[pid] + amount
             endif
         elseif id == 6 then
             if choice == 1 then
-                set ExpGold[pid] = ExpGold[pid] + 100
-                set result = "금고는 그대로 두고 주머니를 챙겼습니다.|n100골드 획득"
+                set ExpGold[pid] = ExpGold[pid] + 300
             else
-                set ExpGold[pid] = ExpGold[pid] - 100
-                if GetRandomInt(1, 100) <= 50 then
-                    set ExpGold[pid] = ExpGold[pid] + 400
-                    set result = "금고 안에는 금화가 가득했습니다.|n100골드 지불 · 400골드 획득"
-                else
-                    set result = "문은 열렸지만 금고는 비어 있었습니다.|n100골드 지불 · 획득 없음"
-                endif
-            endif
-        elseif id == 7 then
-            if choice == 1 then
-                set ExpGold[pid] = ExpGold[pid] - 150
-                set ExpArcana[ExpKey(pid, ExpEventTargetPenalty[pid])] = 0
-                set result = "샘물이 원정에서 얻은 저주를 씻어 냈습니다.|n150골드 지불|n" + ArcanaText[ExpEventTargetPenalty[pid]] + "의 원정 획득분 제거"
-            else
-                call GrantEventPotion(pid, 1, 2)
-                set result = "빈 병에 약수를 나누어 담았습니다.|n회복 물약 +2회 충전"
+                call GrantCard(pid, DrawCard(pid, 2), 2)
             endif
         elseif id == 8 then
             if choice == 1 then
-                set ExpGold[pid] = ExpGold[pid] - 150
-                set ExpArcana[ExpKey(pid, ExpEventTargetArcana[pid])] = ExpArcana[ExpKey(pid, ExpEventTargetArcana[pid])] + 1
-                set result = "각인사가 흠집 없는 문양을 새겼습니다.|n150골드 지불|n" + ArcanaText[ExpEventTargetArcana[pid]] + " +1 · 감소 각인 없음"
+                call GrantCard(pid, DrawCard(pid, 2), 2)
             else
-                set ExpGold[pid] = ExpGold[pid] + 100
-                set result = "작업대를 정리하고 품삯을 받았습니다.|n100골드 획득"
+                call GrantCard(pid, DrawCard(pid, 1), 1)
+                call GrantCard(pid, DrawCard(pid, 1), 1)
             endif
-        elseif id == 9 then
-            if choice == 1 then
-                set card = DrawCard(pid, 2)
-                set second = DrawCard(pid, 2)
-                call GrantCard(pid, card, 2)
-                call GrantCard(pid, second, 2)
-                set result = "온전한 기록 두 개를 챙겼습니다.|n" + ExpCardName(card) + "|n" + ExpCardName(second)
-            else
-                set ExpGold[pid] = ExpGold[pid] + 500
-                call GrantEventPotion(pid, 1, 1)
-                call GrantEventPotion(pid, 2, 1)
-                call GrantEventPotion(pid, 3, 1)
-                set result = "보급품을 나누어 짐에 실었습니다.|n500골드 획득 · 모든 물약 +1회 충전"
-            endif
-        endif
-        if ExpHasCard(pid, 12) and ((id == 1 and choice == 1) or (id == 2 and choice == 2) or (id == 7 and choice == 2) or (id == 9 and choice == 2)) then
-            set result = result + "|n바이바인으로 각 충전 종류 +1회 추가"
         endif
         set ExpEventUsed[id] = true
-        set ExpEventResolved[pid] = true
-        set ExpEventOutcome[pid] = result
-        set ExpEventDeadline[pid] = Elapsed + 12
-        set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
+        call ReleaseEvent(pid)
+        set ExpEventDeadline[pid] = 0
+        set ExpDone[pid] = true
         call RefreshStats(pid)
     endfunction
 
@@ -508,7 +355,6 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         set ExpSeconds = 60
         if state == EXP_VOTE then
             set ExpNode = 2
-            set ExpEncounter = GetRandomInt(1, 3)
             set ExpSeconds = 40
         elseif state == EXP_SHOP then
             set ExpNode = 4
@@ -525,8 +371,6 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             exitwhen pid == 4
             set ExpDone[pid] = false
             set ExpEventDeadline[pid] = 0
-            set ExpEventResolved[pid] = false
-            set ExpEventOutcome[pid] = ""
             set ExpRolls[pid] = 0
             set ExpVote[pid] = 0
             set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
@@ -609,12 +453,6 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
             if ExpMember[pid] then
                 if ExpWon then
                     set ExpGold[pid] = ExpGold[pid] + 100
-                    if ExpStep != 4 and ExpEncounter == 2 then
-                        set ExpGold[pid] = ExpGold[pid] + 100
-                    elseif ExpStep != 4 and ExpEncounter == 3 then
-                        call GrantCard(pid, DrawCard(pid, 1), 1)
-                        call RefreshStats(pid)
-                    endif
                     call ConfirmVictory(pid, ExpStep == 4)
                 endif
                 if not UnitAlive(MainUnit[pid]) then
@@ -892,7 +730,6 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                     set ExpGold[pid] = ExpGold[pid] + ExpGradeGold(ExpEventGrade[pid])
                 else
                     set ExpEventUsed[ExpEventCandidate[pid]] = true
-                    call PrepareEvent(pid)
                     set ExpEventDeadline[pid] = Elapsed + 40
                     set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
                     call TriggerExecute(ExpRefresh)
@@ -921,6 +758,8 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         local boolean allDone = true
         local integer fight = 0
         local integer avoid = 0
+        local integer potion
+        local integer charges
         if ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
             call TriggerExecute(ExpRefresh)
             return
@@ -967,19 +806,25 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                     set ExpStep = 2
                     call QueueNext(EXP_VOTE)
                 elseif ExpState == EXP_VOTE then
-                    if fight > avoid then
+                    if fight > avoid or (fight == avoid and GetRandomInt(1, 2) == 1) then
                         call QueueNext(EXP_BATTLE)
                     else
+                        // T23 우솝의 우회 선택. 각자 기존 물약 중 무작위 1종 충전.
                         set pid = 0
                         loop
                             exitwhen pid == 4
                             if ExpMember[pid] then
-                                if ExpEncounter == 1 then
-                                    call GrantEventPotion(pid, GetRandomInt(1, 3), 1)
-                                elseif ExpEncounter == 2 then
-                                    set ExpGold[pid] = ExpGold[pid] + 50
+                                set potion = GetRandomInt(1, 3)
+                                set charges = 1
+                                if ExpHasCard(pid, 12) then
+                                    set charges = 2
+                                endif
+                                if potion == 1 then
+                                    call SetItemCharges(PlayerItem1[pid], GetItemCharges(PlayerItem1[pid]) + charges)
+                                elseif potion == 2 then
+                                    call SetItemCharges(PlayerItem2[pid], GetItemCharges(PlayerItem2[pid]) + charges)
                                 else
-                                    set ExpGold[pid] = ExpGold[pid] + 60
+                                    call SetItemCharges(PlayerItem3[pid], GetItemCharges(PlayerItem3[pid]) + charges)
                                 endif
                             endif
                             set pid = pid + 1

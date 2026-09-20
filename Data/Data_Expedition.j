@@ -53,6 +53,12 @@ library DataExpedition
         integer array ExpEventCandidate
         integer array ExpEventGrade
         integer array ExpEventDeadline
+        integer array ExpEventTargetCard
+        integer array ExpEventTargetArcana
+        integer array ExpEventTargetPenalty
+        boolean array ExpEventResolved
+        string array ExpEventOutcome
+        integer ExpEncounter = 1
         integer array ExpEventReservation
         boolean array ExpEventUsed
         integer array ExpStartCard

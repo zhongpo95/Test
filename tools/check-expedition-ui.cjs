@@ -1,7 +1,7 @@
 // 실제 원정 UI의 프레임과 콜백을 모의 실행하여 창 분리 및 선택 요청을 검증한다.
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
-const files = ['Data/Data_Expedition.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
+const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
   'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
@@ -205,6 +205,20 @@ check('선택 창의 클릭 영역이 분리되고 화면 및 기본 HUD 영역�
 check('다른 플레이어의 확정이 내 창을 닫지 않음',()=>{
   const t=fresh(),e=t.e;t.start();e.ExpMember[1]=true;e.ExpDone[1]=true;t.render();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
   e.localPlayer=1;e.UIExpeditionCommon_SeenRevision=-1;t.render();assert.deepEqual(t.roots(),[]);
+});
+check('사건의 비용 부족과 결과 카드, 확인 버튼 및 다음 조우의 카드 복원',()=>{
+  const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ReleaseEvent(0);
+  e.ExpEventCandidate[0]=2;e.ExpEventReservation[2]=1;e.ExpGold[0]=0;t.render();t.click(t.card('Choice',9));
+  assert(!t.frame(t.card('Event',1)).enabled);assert(!t.frame(t.card('Event',2)).enabled);
+  const desc=i=>t.frame(e.UIExpeditionChoice_CardDescription[e.UIExpeditionChoice_EventCards[i]]).text;
+  assert(desc(1).includes('100골드가 필요'));assert(t.frame(e.UIExpeditionChoice_EventClock).text.includes('0 G'));
+  e.ExpGold[0]=100;t.render();assert(t.frame(t.card('Event',1)).enabled);
+  t.click(t.card('Event',1));assert(e.ExpEventResolved[0]);assert(!e.ExpDone[0]);assert.equal(e.ExpGold[0],0);
+  assert(desc(1).includes('획득'));assert(!t.frame(t.card('Event',1)).enabled);assert.equal(t.frame(t.card('Event',1)).alpha,255);
+  assert(!t.visible(t.card('Event',2)));assert(t.visible(t.card('Event',3)));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
+  t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
+  e.Enter(e.EXP_VOTE);e.ExpEncounter=3;t.render();assert(t.visible(t.card('Event',2)));assert(!t.visible(t.card('Event',3)));
+  assert(desc(1).includes('90초'));assert(t.frame(e.UIExpeditionChoice_EventTitle).text.includes('결투자'));
 });
 if(process.argv[2]){
   const t=fresh(),e=t.e,out=[];

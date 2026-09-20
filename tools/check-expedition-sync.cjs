@@ -7,7 +7,7 @@ const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/
 // 이 검사로 증명하지 않는다. 저장/업로드 API는 허용하지 않는다.
 const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController
-  I2S S2I R2I I2R IMaxBJ JNStringSplit StashLoad
+  I2S S2I R2I I2R IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
   DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha
 `.trim().split(/\s+/));
