@@ -1,5 +1,5 @@
 //1
-library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIMap
+library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest, Daily, FrameCount, ItemPickUp, DzAPIHardware, UIMap, JNCommon
     globals
         integer FP_BD               //픽 백드롭
         integer array FP_SL         //세이브 리스트 프레임
@@ -36,7 +36,53 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         constant integer PickVisibleCardCount = 12
         constant integer PickCardColumnCount = 4
         constant integer PickCardCount = 16
+        private timer PickTraceTimer = CreateTimer()
+        private integer PickTraceSequence = 0
+        private integer PickTraceSeconds = 0
     endglobals
+
+    // 양쪽 클라이언트의 선택 경로를 대조한다. 계정명과 저장 데이터 원문은 기록하지 않는다.
+    private function TracePick takes integer pid, string phase returns nothing
+        call JNWriteLog("[ARC-PICK-v1] client=" + I2S(GetPlayerId(GetLocalPlayer())) + " seq=" + I2S(PickTraceSequence) + " second=" + I2S(PickTraceSeconds) + " pid=" + I2S(pid) + " phase=" + phase)
+    endfunction
+
+    private function TracePickState takes nothing returns nothing
+        local integer pid = 0
+        local integer picked
+        local integer ready
+        local unit u
+        set PickTraceSeconds = PickTraceSeconds + 1
+        loop
+            exitwhen pid == 4
+            set u = MainUnit[pid]
+            set picked = 0
+            set ready = 0
+            if PickCheck[pid] then
+                set picked = 1
+            endif
+            if PLAYER_DATA_SERVER_READY[pid] then
+                set ready = 1
+            endif
+            call TracePick(pid, "state picked=" + I2S(picked) + " server=" + I2S(ready) + " unit=" + I2S(GetHandleId(u)) + " type=" + I2S(GetUnitTypeId(u)))
+            if u != null then
+                call TracePick(pid, "hero x=" + R2S(GetUnitX(u)) + " y=" + R2S(GetUnitY(u)) + " hp=" + R2S(GetUnitState(u, UNIT_STATE_LIFE)) + " max=" + R2S(GetUnitState(u, UNIT_STATE_MAX_LIFE)) + " speed=" + R2S(GetUnitMoveSpeed(u)) + " crit=" + R2S(Equip_Crit[pid]) + " swift=" + R2S(Equip_Swiftness[pid]))
+            endif
+            set pid = pid + 1
+        endloop
+        // 선택 후 지연된 끊김만 추적하고 정상 플레이 중에는 로그를 계속 쓰지 않는다.
+        if PickTraceSeconds >= 20 then
+            call PauseTimer(PickTraceTimer)
+        endif
+        set u = null
+    endfunction
+
+    private function BeginPickTrace takes integer pid, integer hero, integer skin, string mode returns nothing
+        set PickTraceSequence = PickTraceSequence + 1
+        set PickTraceSeconds = 0
+        call TracePick(pid, mode + " hero=" + I2S(hero) + " skin=" + I2S(skin) + " timer=" + I2S(GetHandleId(PickTraceTimer)))
+        // 동기화 수신부에서 모든 클라이언트가 같은 타이머를 시작한다.
+        call TimerStart(PickTraceTimer, 1.0, true, function TracePickState)
+    endfunction
 
     function StringNullCheck2 takes string s returns boolean
         if s == "" or s == null then
@@ -571,8 +617,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set SlotHero = S2I(f)
         endif
 
+        call BeginPickTrace(pid, SlotHero, SkinNumber, "load")
         set SkinNumber = PickStoredSkinNumber(pid, SlotHero, SkinNumber)
         if not PickSkinUnlocked(pid, SlotHero, SkinNumber) then
+            call TracePick(pid, "reject-skin")
             set p = null
             return
         endif
@@ -615,7 +663,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
+        call TracePick(pid, "hero-created id=" + I2S(GetHandleId(MainUnit[pid])) + " type=" + I2S(GetUnitTypeId(MainUnit[pid])))
         call ShowPlayerPotionDisplay(pid)
+        call TracePick(pid, "potions-ready")
 
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
         //카메라
@@ -691,7 +741,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             //call DzFrameShow(FS_OpenButton, true)
         endif
 
+        call TracePick(pid, "before-skill-ui")
         call SkillSetting(MainUnit[pid])
+        call TracePick(pid, "after-skill-ui")
 
         set HeroSkillPoint[pid] = 999
         call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
@@ -701,15 +753,21 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         //call TodaySet(pid)
 
+        call TracePick(pid, "before-lobby-ui")
         call SetMapLine(pid)
+        call TracePick(pid, "after-lobby-ui")
 
+        call TracePick(pid, "before-daily")
         call Deilycheck(pid)
+        call TracePick(pid, "after-daily")
 
         call MainQuestLoad(pid, SlotHero, GetItemIDs(Eitem[pid][EQUIP_SLOT_WEAPON]), GetItemUp(Eitem[pid][EQUIP_SLOT_WEAPON]))
 
         call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", I2S( S2I(StashLoad(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")) + 1 ) )
 
+        call TracePick(pid, "before-upload")
         call upload2(pid)
+        call TracePick(pid, "complete")
 
         set p = null
     endfunction
@@ -723,9 +781,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         local integer SkinNumber = S2I(JNStringSplit(f, ";", 1))
         local integer i = 0
 
+        call BeginPickTrace(pid, SlotHero, SkinNumber, "new")
         set SkinNumber = PickValidSkinNumber(SlotHero, SkinNumber)
 
         if not PickSkinUnlocked(pid, SlotHero, SkinNumber) then
+            call TracePick(pid, "reject-skin")
             set p = null
             return
         endif
@@ -770,7 +830,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         endif
 
         set MainUnit[pid] = CreateUnit(Player(pid), HeroTypeId, GetRectCenterX(gg_rct_Home),GetRectCenterY(gg_rct_Home), 0)
+        call TracePick(pid, "hero-created id=" + I2S(GetHandleId(MainUnit[pid])) + " type=" + I2S(GetUnitTypeId(MainUnit[pid])))
         call ShowPlayerPotionDisplay(pid)
+        call TracePick(pid, "potions-ready")
         call SelectUnitForPlayerSingle( MainUnit[pid], Player(pid) )
         //카메라
         call SetCameraBoundsToRectForPlayerBJ( p, gg_rct_Home )
@@ -801,7 +863,9 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             //call DzFrameShow(FS_OpenButton, true)
         endif
 
+        call TracePick(pid, "before-skill-ui")
         call SkillSetting(MainUnit[pid])
+        call TracePick(pid, "after-skill-ui")
 
         set HeroSkillPoint[pid] = 999
         call DzFrameSetText(FS_SPTEXTV, I2S(HeroSkillPoint[pid]))
@@ -811,15 +875,21 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
 
         //call TodaySet(pid)
 
+        call TracePick(pid, "before-lobby-ui")
         call SetMapLine(pid)
+        call TracePick(pid, "after-lobby-ui")
 
+        call TracePick(pid, "before-daily")
         call Deilycheck(pid)
+        call TracePick(pid, "after-daily")
 
         call MainQuestNew(pid, SlotHero)
 
         call StashSave(PLAYER_DATA[pid], "영웅"+ I2S(PlayerSlotNumber[pid]) + ".logins", "0")
 
+        call TracePick(pid, "before-upload")
         call upload2(pid)
+        call TracePick(pid, "complete")
 
         set p = null
     endfunction

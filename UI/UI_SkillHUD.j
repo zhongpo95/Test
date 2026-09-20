@@ -1,5 +1,5 @@
 // 참고 맵 방식의 좌표 기반 스킬 HUD 및 Alt 정보 관리
-library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount, UIInputGate
+library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JAPIAbilityState, JAPIItemState, HeroNarZ, FrameCount, UIInputGate, JNCommon
     globals
         private constant integer SKILL_HUD_COUNT = 12
         private constant real SKILL_HUD_SIZE = 0.0275
@@ -20,6 +20,7 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
         private integer SkillHUDHover = -1
         private boolean SkillHUDAltShown = false
         private boolean SkillHUDSuppressed = false
+        private boolean FirstHeroUpdateLogged = false
     endglobals
 
     private function AbilityId takes integer index, integer slot returns integer
@@ -235,6 +236,9 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             return
         endif
 
+        if not FirstHeroUpdateLogged then
+            call JNWriteLog("[ARC-PICK-v1] client=" + I2S(pid) + " phase=hud-first-begin")
+        endif
         set index = DataUnitIndex(u)
         loop
             exitwhen slot >= SKILL_HUD_COUNT
@@ -310,6 +314,10 @@ library UISkillHUD initializer init requires UISkill, UISkillLevel, DataUnit, JA
             set slot = slot + 1
         endloop
         set heldItem = null
+        if not FirstHeroUpdateLogged then
+            call JNWriteLog("[ARC-PICK-v1] client=" + I2S(pid) + " phase=hud-first-end")
+            set FirstHeroUpdateLogged = true
+        endif
         set u = null
     endfunction
 
