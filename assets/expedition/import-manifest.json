@@ -1,0 +1,77 @@
+[
+  {
+    "source": "war3mapImported/UI_Expedition_White.blp",
+    "target": "war3mapImported\\UI_Expedition_White.blp",
+    "sha256": "75081564306d7b51d0f05521db3f22c4b91b2de8eb0b12dd9d673f5272e0c27c",
+    "original": "UI_Select_White.blp"
+  },
+  {
+    "source": "war3mapImported/UI_Expedition_Blue.blp",
+    "target": "war3mapImported\\UI_Expedition_Blue.blp",
+    "sha256": "a5a3ceace91d9ad897515f9fcb273faaa1a18c1317823937087a280ece682778",
+    "original": "UI_Select_Blue.blp"
+  },
+  {
+    "source": "war3mapImported/UI_Expedition_Purple.blp",
+    "target": "war3mapImported\\UI_Expedition_Purple.blp",
+    "sha256": "7d1974bcd47bb3f3ffcff140ce3b420c8a866d33fbf82854c745db000c8193cd",
+    "original": "UI_Select_Purple.blp"
+  },
+  {
+    "source": "war3mapImported/UI_Expedition_Orange.blp",
+    "target": "war3mapImported\\UI_Expedition_Orange.blp",
+    "sha256": "1c59a3192f31347490909244b819ef507a4d7e84e4903e245deb24e636ab57de",
+    "original": "UI_Select_Orange.blp"
+  },
+  {
+    "source": "war3mapImported/UI_Expedition_Colorful.blp",
+    "target": "war3mapImported\\UI_Expedition_Colorful.blp",
+    "sha256": "dddf81eb05dc5c09883412fb74f9c74138e56b68e56941ae86586db3c409bbae",
+    "original": "UI_Select_Colorful.blp"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Panel.tga",
+    "target": "war3mapImported\\UI_Upgrade_Panel.tga",
+    "sha256": "030d72db2cb60d1833567c82c419d21b4adced1841ad26c7982c49980513549d"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Card.tga",
+    "target": "war3mapImported\\UI_Upgrade_Card.tga",
+    "sha256": "ea9e99be37fd1516b9fe672fe97e7227d6119189d71bdf065029e1b27e0ac18a"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Header.tga",
+    "target": "war3mapImported\\UI_Upgrade_Header.tga",
+    "sha256": "c68bf0b88a30075b151f640eb9948c2f4072910f8f9ede300a75860dbdcda942"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Row.tga",
+    "target": "war3mapImported\\UI_Upgrade_Row.tga",
+    "sha256": "046212a0ee6ddbd7fc5ee45fa74a2adee66f720a28989a08e6b99b8246461b01"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Selected.tga",
+    "target": "war3mapImported\\UI_Upgrade_Selected.tga",
+    "sha256": "c2f156680a73630db8af3994d9e6f8283442d7eb1f0796d5c65eb542c7e12b21"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Action.tga",
+    "target": "war3mapImported\\UI_Upgrade_Action.tga",
+    "sha256": "abde5c36da28c79a751086c1b45244a6d45cdcfaf7c6867a07afb1d2783521bc"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_ActionHover.tga",
+    "target": "war3mapImported\\UI_Upgrade_ActionHover.tga",
+    "sha256": "3ef84768c5926e390ed1a2dfa89d74a94ba8f495fbc2e4a20fc74c46c10ec961"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Disabled.tga",
+    "target": "war3mapImported\\UI_Upgrade_Disabled.tga",
+    "sha256": "c73fe89645ddb327dca04297077e93c4174a5db3a30bb199e68f44ea27ce3c08"
+  },
+  {
+    "source": "war3mapImported/UI_Upgrade_Close.tga",
+    "target": "war3mapImported\\UI_Upgrade_Close.tga",
+    "sha256": "8e6e26d17e0dd2456dd3cf09b33c9b3fc3c471ac8f90d0f1e22d1567fb2f82f7"
+  }
+]

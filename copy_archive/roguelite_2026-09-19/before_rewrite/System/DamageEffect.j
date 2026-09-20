@@ -1,4 +1,4 @@
-library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro,ExpeditionEffects
+library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro
     globals
         constant real HeadBounsDamage = 1.20
         constant real BackBounsDamage = 1.20
@@ -86,10 +86,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local integer ArcanaLv = 0
         local integer i = 0
     
-        if ExpEnemy[UnitIndex] and (ExpState != EXP_BATTLE or UnitHP[UnitIndex] <= 0.0) then
-            return false
-        endif
-
         //방어력10000
         set ArmVelue = UnitArm[UnitIndex]
 
@@ -98,14 +94,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set ArmVelue = UnitArm[UnitIndex] * 0.88
         endif
         //관통
-        if ExpMember[pid] then
-            if ArmVelue > 0.0 then
-                set ArmVelue = ArmVelue * (1.0 - RMinBJ(0.60, RMaxBJ(0.0, Penetration[pid] + Equip_Penetration[pid] + ExpCardPenetration(pid))))
-            endif
-        else
-            set ArmVelue = (ArmVelue * (1 - Penetration[pid]))
-            set ArmVelue = (ArmVelue * (1 - Equip_Penetration[pid]))
-        endif
+        set ArmVelue = (ArmVelue * (1 - Penetration[pid]))
+        set ArmVelue = (ArmVelue * (1 - Equip_Penetration[pid]))
 
         set Arm = ArmVelue / (ArmVelue + 10000)
         set DMGRate = DMGRate * (1-Arm)
@@ -311,10 +301,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set CriBoolean = true
         endif
         
-        if ExpMember[pid] then
-            set WDP = WDP + (ExpCardDamage(pid, source, target) + ExpArcanaDamage(pid, source, target, head, back, charge)) / 100.0
-            set ArcanaRate = 1.0
-        endif
         set dmg = ad * rate * DMGRate * DP * WDP * LastDamage * ArcanaRate
 
         //미터기

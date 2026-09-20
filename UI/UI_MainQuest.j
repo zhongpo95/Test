@@ -4,6 +4,7 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
         private integer F_MQBackDrop
         private integer F_MQTitleText
         private integer F_MQBodyText
+        private boolean OverlayHidden = false
         private constant integer MQ_STEP_INHERIT = 1
         private constant integer MQ_STEP_STAGGER = 2
         private constant integer MQ_STEP_ENCHANT = 3
@@ -48,7 +49,9 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
     function MainQuestRefresh takes integer pid, integer heroNumber returns nothing
         local integer step = MainQuestGetStep(pid, heroNumber)
         if GetLocalPlayer() == Player(pid) then
-            if step == MQ_STEP_INHERIT then
+            if OverlayHidden then
+                call DzFrameShow(F_MQBackDrop, false)
+            elseif step == MQ_STEP_INHERIT then
                 call DzFrameSetText(F_MQTitleText, "|cFFFFE400목표|r")
                 call DzFrameSetText(F_MQBodyText, "강화 NPC에게 가까이 가서 클릭한 후 시작 무기 클릭하고 계승하세요.")
                 call DzFrameShow(F_MQBackDrop, true)
@@ -75,6 +78,13 @@ library UIMainQuest initializer Init requires FrameCount, UIItem
             else
                 call DzFrameShow(F_MQBackDrop, false)
             endif
+        endif
+    endfunction
+
+    function MainQuestSetOverlayHidden takes integer pid, boolean hidden returns nothing
+        if GetLocalPlayer() == Player(pid) and OverlayHidden != hidden then
+            set OverlayHidden = hidden
+            call MainQuestRefresh(pid, PlayerSlotNumber[pid])
         endif
     endfunction
 

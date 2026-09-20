@@ -1,4 +1,4 @@
-library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataExpedition
+library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown
     function SkillSpeed takes integer pid returns real
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
@@ -409,22 +409,6 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             set i = i + 1
         endloop
         
-        // 원정 임시 성장은 장비 저장 문자열에 기록하지 않고 재계산 때 합산한다.
-        if ExpMember[pid] then
-            set Equip_Crit[pid] = Equip_Crit[pid] + ExpCritPoints[pid] * 60 + ExpFixedCrit[pid]
-            set Equip_Swiftness[pid] = Equip_Swiftness[pid] + ExpSwiftPoints[pid] * 60 + ExpFixedSwift[pid]
-            set i = 0
-            loop
-                exitwhen i > 53
-                set k = LoadInteger(ArcanaData, i, pid) + ExpArcana[ExpKey(pid, i)]
-                if i >= 50 then
-                    set k = IMinBJ(5, k)
-                endif
-                call SaveInteger(ArcanaData, i, pid, k)
-                set i = i + 1
-            endloop
-        endif
-
         //보석 피해증가
         set GemDamageRate = GemDamageRate * (1.0 + Equip_GemDamage[pid] / 100.0)
         set Equip_DP[pid] = Equip_DP[pid] * GemDamageRate
@@ -466,8 +450,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
                         set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 52
                     endif
                 endif
-                // 원정 슈퍼 차지는 실제 각인 번호 5를 사용한다.
-                if (ExpMember[pid] and i == 5) or (not ExpMember[pid] and i == 10) then
+                //슈차
+                if i == 10 then
                     if k == 1 then
                         set Arcana_ChargeSpeed[pid] = 1.32
                     elseif k == 2 then
@@ -476,7 +460,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
                         set Arcana_ChargeSpeed[pid] = 1.48
                     endif
                 endif
-                if GetLocalPlayer() == Player(pid) and j < 5 then
+                if GetLocalPlayer() == Player(pid) then
                     if i < 9 then
                         call DzFrameSetTexture(F_ArcanaBD[j], "Arcana00"+I2S(i+1)+".blp", 0)
                     elseif i >= 9 then

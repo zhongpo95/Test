@@ -186,7 +186,10 @@ library UIBossHP initializer init requires FrameCount, DataUnit
         endif
 
         // 최소값 보정 (1% 이상)
-        set shieldPercent = 3.00 * UnitSD[fx.index] / UnitSDMAX[fx.index] * 100 / 1280.00
+        set shieldPercent = 0.0
+        if UnitSDMAX[fx.index] > 0.0 then
+            set shieldPercent = 3.00 * UnitSD[fx.index] / UnitSDMAX[fx.index] * 100 / 1280.00
+        endif
         if shieldPercent < 0.001 then
             set shieldPercent = 1.00 / 1280.00
         endif
