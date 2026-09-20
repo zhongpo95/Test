@@ -20,26 +20,53 @@ check('로딩 대기가 길어져도 게임 전역 입력을 등록하지 않음
   for(let i=0;i<2000;i++)e.UIInputGate_Tick();
   assert.deepEqual(calls,[]);assert.equal(created(),2);
 });
-check('다른 플레이어의 선택은 내 입력을 활성화하지 않고, 내 선택 후 한 번만 연결',()=>{
-  for(let pid=0;pid<4;pid++){
-    const {e,created}=gate(),calls=[];e.localPlayer=pid;
+check('선택 순서가 달라도 모든 클라이언트와 관전자의 등록·평가 순서가 같음',()=>{
+  const clients=[0,1,4].map(pid=>{
+    const {e}=gate(),calls=[];e.localPlayer=pid;e.online=[true,true,false,false];
+    const evaluate=e.TriggerEvaluate;e.TriggerEvaluate=t=>{calls.push('evaluate');return evaluate(t);};
     e.UIInputAfterPick(()=>{calls.push('keys');return true;});e.UIInputAfterPick(()=>{calls.push('mouse');return true;});
-    e.PickCheck[(pid+1)%4]=true;e.UIInputGate_Tick();assert.deepEqual(calls,[]);
-    e.PickCheck[pid]=true;for(let i=0;i<50;i++)e.UIInputGate_Tick();
-    assert.deepEqual(calls,['keys','mouse']);assert.equal(created(),2);
+    return {e,calls};
+  });
+  for(const {e,calls} of clients){
+    e.PickCheck[1]=true;for(let i=0;i<30;i++)e.UIInputGate_Tick();assert.deepEqual(calls,[]);
+    e.PickCheck[0]=true;for(let i=0;i<30;i++)e.UIInputGate_Tick();
+    assert.deepEqual(calls,['evaluate','keys','evaluate','mouse']);
     e.UIInputAfterPick(()=>{calls.push('late');return true;});e.UIInputGate_Tick();e.UIInputGate_Tick();
-    assert.deepEqual(calls,['keys','mouse','late']);assert.equal(created(),3);
+    assert.deepEqual(calls,['evaluate','keys','evaluate','mouse','evaluate','late']);
   }
+  assert.deepEqual(clients[0].calls,clients[1].calls);assert.deepEqual(clients[0].calls,clients[2].calls);
 });
-check('영웅을 선택했어도 창 생성 전이면 대기하고 생성 후 한 번 등록',()=>{
+check('전원 선택 후에도 프레임 생성 전이면 대기하고 준비 후 한 번 등록',()=>{
   const {e}=gate();let ready=false,called=0;e.PickCheck[0]=true;
   e.UIInputAfterPick(()=>{if(!ready)return false;called++;return true;});
   for(let i=0;i<20;i++)e.UIInputGate_Tick();assert.equal(called,0);
   ready=true;e.UIInputGate_Tick();e.UIInputGate_Tick();assert.equal(called,1);
 });
-check('관전자 슬롯에는 게임 단축키를 등록하지 않음',()=>{
-  const {e}=gate();let called=false;e.localPlayer=4;e.PickCheck[4]=true;
-  e.UIInputAfterPick(()=>{called=true;});e.UIInputGate_Tick();assert.equal(called,false);
+check('미선택 참가자 이탈 후 남은 참가자 선택으로 등록, 빈 방은 미등록',()=>{
+  const {e}=gate();let called=0;e.online=[true,true,false,false];e.PickCheck[0]=true;
+  e.UIInputAfterPick(()=>{called++;return true;});e.UIInputGate_Tick();assert.equal(called,0);
+  e.online[1]=false;e.UIInputGate_Tick();assert.equal(called,1);
+  const empty=gate().e;empty.online=[false,false,false,false];empty.UIInputAfterPick(()=>{throw Error('empty');});empty.UIInputGate_Tick();
+});
+check('컴퓨터 슬롯은 선택을 기다리지 않음',()=>{
+  const {e}=gate();let called=0;e.online=[true,true,false,false];e.PickCheck[0]=true;
+  e.GetPlayerController=p=>p===0?e.MAP_CONTROL_USER:99;
+  e.UIInputAfterPick(()=>{called++;return true;});e.UIInputGate_Tick();assert.equal(called,1);
+});
+check('미선택자와 관전자의 이모지·HUD·인벤토리 클릭은 처리하지 않음',()=>{
+  const {env:e}=environment(['UI/UI_Emoji.j','UI/UI_SkillHUD.j'],{
+    DzFrameShow:()=>{throw Error('unpicked UI access');},DzSyncData:()=>{throw Error('unpicked sync');},
+    DzGetTriggerKeyPlayer:()=>e.localPlayer,
+  });
+  for(const pid of [0,4]){
+    e.localPlayer=pid;e.PickCheck[pid]=false;
+    e.TKey();e.TKey2();e.UISkillHUD_AltClick();
+  }
+});
+check('인벤토리 가운데 클릭도 미선택 상태에서 UI 접근 전에 반환',()=>{
+  const source=fs.readFileSync(path.join(root,'UI/UI_Item.j'),'utf8');
+  const body=source.match(/private function MouseRightClick takes nothing returns nothing([\s\S]*?)endfunction/)[1];
+  assert(body.indexOf('if not PickCheck[pid] then')<body.indexOf('call DzFrameShow'));
 });
 check('키·클릭 등록은 모두 지연 함수 내부에 있고 기존 선택창 휠은 유지',()=>{
   const names=['UI_Info','UI_Info2','UI_SkillLevel','UI_Arcana','UI_Overlay','UI_SkillHUD','UI_Map','UI_Emoji','UI_Item'];
