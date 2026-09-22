@@ -360,7 +360,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v3: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v4: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -371,7 +371,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v3: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v4: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)

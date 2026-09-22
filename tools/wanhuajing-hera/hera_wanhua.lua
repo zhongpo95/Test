@@ -1,12 +1,12 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v3', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v4', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
 local runtime = require('jass.runtime')
 local native_require, native_xpcall = require, xpcall
 local env = _G
-local log_path = 'Logs/Hera_Wanhua_v3.txt'
+local log_path = 'Logs/Hera_Wanhua_v4.txt'
 local ui, bindings, frame_counter, draw_counter, epoch = {}, {}, 0, 0, 0
 local records = setmetatable({}, {__mode = 'k'})
 local frame_records, owned_frames = setmetatable({}, {__mode = 'v'}), {}
@@ -565,16 +565,17 @@ function M.start()
         rawset(japi, 'timer_destroy', function() end)
         limitation('Chinese platform identity and cloud persistence unavailable')
         local message = native_require('jass.message')
-        if not message.origin_load then message.origin_load = native_require('jass.storm').load end
-        message.create_list = function() return {} end
-        message.list_add = function(list, handle)
+        -- message의 __newindex는 hook 이외의 새 필드를 버리므로 호환 함수만 직접 등록한다.
+        if not message.origin_load then rawset(message, 'origin_load', assert(native_require('jass.storm').load, 'Missing Storm loader')) end
+        rawset(message, 'create_list', function() return {} end)
+        rawset(message, 'list_add', function(list, handle)
             for _, value in ipairs(list) do if value == handle then return end end
             list[#list + 1] = handle
-        end
-        message.list_remove = function(list, handle)
+        end)
+        rawset(message, 'list_remove', function(list, handle)
             for i, value in ipairs(list) do if value == handle then table.remove(list, i); return end end
-        end
-        message.list_enum_range = function(list, x, y, radius)
+        end)
+        rawset(message, 'list_enum_range', function(list, x, y, radius)
             local result = {}
             for _, handle in ipairs(list) do
                 local mover = env.game.mover.mover_map[handle]
@@ -584,7 +585,7 @@ function M.start()
                 end
             end
             return result
-        end
+        end)
         package.preload['jass.lni'] = function() return native_require('hera_lni') end
         package.preload['jass.dzapi'] = function() return japi end
         package.preload.mprender = function()

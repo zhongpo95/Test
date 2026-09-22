@@ -96,7 +96,16 @@ cache['jass.bignum']={new=function(data) return {data=data} end,bin=function(hex
 cache['jass.hook']={}
 cache['jass.slk']={unit={},item={},ability={},buff={},doodad={},destructable={},upgrade={}}
 cache['jass.debug']={gchash=function() end,handle_ref=function() end,handle_unref=function() end,handledef=function() return {type='unknown'} end,handlecount=function() return 0 end,handlemax=function() return 0 end}
-cache['jass.message']={keyboard={},hook=function() end,selection=function() return 0 end}
+-- YDWE libs_message drops new fields except the native hook property.
+local message_hook
+cache['jass.message']=setmetatable({keyboard={},selection=function() return 0 end}, {
+    __index=function(_,key) if key=='hook' then return message_hook end end,
+    __newindex=function(_,key,value)
+        if key=='hook' and (type(value)=='function' or value==nil) then message_hook=value end
+    end,
+})
+cache['jass.message'].origin_load=function() error('Dropped field must not run') end
+assert(cache['jass.message'].origin_load==nil)
 cache['jass.log']=setmetatable({path='logs\\\\mock.log'}, {__index=function() return function(...) end end})
 local saved={}
 cache['jass.storm']={load=function(name) return saved[name] or host_load(name) end,save=function(name,data) saved[name]=data;return true end}
@@ -173,7 +182,7 @@ WindowEventCallBack=original
 assert(seen[1][1]==7 and seen[2][1]==8 and seen[1][2]==65 and seen[2][2]==65)
 assert(port.trigger_key==nil)
 """)
-print('Map state',lua.execute(b"local e=require('hera_wanhua').env;if not e.game or not e.get_player_list then return 'not initialized' end;return tostring(e.game.client_mode),tostring(e.game.save_mode),#e.get_player_list(),tostring(e.game.state)"))
+print('Map state',lua.execute(b"local e=require('hera_wanhua').env;if not e.game or not e.game.player or not e.get_player_list then return 'not initialized' end;return tostring(e.game.client_mode),tostring(e.game.save_mode),#e.get_player_list(),tostring(e.game.state)"))
 print(lua.execute(b"return require('hera_wanhua').summary()").decode('utf8',errors='replace'))
 logs=lua.globals().get_logs()
 (args.staging/'mock-boot.log').write_bytes(logs)
@@ -203,9 +212,20 @@ player._base_name=nil
 assert(player:get_name()=='테스트鸟9')
 common.GetPlayerName=original
 assert(require('jass.console').enable==false)
+local message=require('jass.message')
+for _,name in ipairs({'origin_load','create_list','list_add','list_remove','list_enum_range'}) do
+    assert(type(rawget(message,name))=='function', 'Missing message compatibility function: '..name)
+end
+assert(message.origin_load==require('jass.storm').load)
+local previous_hook=message.hook
+local hook=function() return true end
+message.hook=hook
+assert(message.hook==hook and rawget(message,'hook')==nil)
+message.hook=previous_hook
 '''.encode('utf8'))
 report['missing_jass_code_fallback_checked'] = True
 report['player_name_suffix_and_utf8_checked'] = True
 report['debug_console_disabled'] = True
+report['message_newindex_and_native_hook_checked'] = True
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-print('JASS code fallback, player name and disabled console checks passed')
+print('JASS code fallback, player name, console and message registration checks passed')
