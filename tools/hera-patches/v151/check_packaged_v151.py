@@ -1,4 +1,4 @@
-# v150 추출본의 Lua 문법과 수정 코드 포함 여부 및 기존 스킬 보존을 검사한다.
+# v151 추출본의 Lua 문법과 수정 코드 포함 여부 및 기존 스킬 보존을 검사한다.
 from pathlib import Path
 import sys
 
@@ -8,7 +8,7 @@ from lupa.lua53 import LuaRuntime
 
 lua = LuaRuntime(encoding=None, unpack_returned_tuples=True)
 check = lua.eval(b'function(s) local a,b=load(s);return a~=nil,b end')
-extracted = r / 'hera-rpg-validation-v150'
+extracted = r / 'hera-rpg-validation-v151'
 sources = list(extracted.rglob('*.lua'))
 assert len(sources) == 593
 for path in sources:
@@ -30,5 +30,7 @@ assert act.count('yae_release.request()') == 1
 release=(extracted / 'scripts/gameplay/feature/shot/yae_release.lua').read_text(encoding='utf-8')
 assert 'local prefix = "HeraYaeE"' in release
 assert 'HeraYaeRelease' not in release
-assert 'v150' in (extracted / 'hera_boot.lua').read_text(encoding='utf-8')
+assert 'u.type ~= HeroType["八重樱"]' in release
+assert 'GetUnitTypeId(hero) ~= HeroType' not in release
+assert 'v151' in (extracted / 'hera_boot.lua').read_text(encoding='utf-8')
 print('PASS 593 packaged Lua sources parse; input hook and sync receiver match overlays; Yae E and A1S0 skill logic unchanged from v148.')

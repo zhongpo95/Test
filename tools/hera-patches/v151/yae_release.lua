@@ -26,10 +26,10 @@ TriggerAddAction(trigger, function()
   if data ~= token then return end
   if sy < 1 or sy > 6 or not Xuanze or not Xuanze[sy] then return end
   local hero = Hero and Hero[sy]
-  if not hero or hero == 0 or GetUnitTypeId(hero) ~= HeroType["八重樱"]
-      or GetOwningPlayer(hero) ~= sender then return end
+  if not hero or hero == 0 or GetOwningPlayer(hero) ~= sender then return end
   local u = getunit(hero)
-  if not u:isvalid() or not u:isalive()
+  -- H02F는 야에의 공중 형태이므로 입력·비행 처리와 같은 원래 영웅 종류를 확인한다.
+  if not u:isvalid() or u.type ~= HeroType["八重樱"] or not u:isalive()
       or not u:hasdata("八重樱拔刀斩蓄力")
       or u:hasdata("八重樱拔刀斩蓄力取消")
       or GetUnitAbilityLevel(hero, S2ID("A1S0")) == 0 then

@@ -7,7 +7,7 @@ sys.path.insert(0, str(ROOT / 'analysis-deps'))
 from lupa.lua53 import LuaRuntime
 
 PORT = ROOT / 'hera-port'
-EXTRACTED = ROOT / 'hera-rpg-validation-v150'
+EXTRACTED = ROOT / 'hera-rpg-validation-v151'
 release_source = (PORT / 'scripts/gameplay/feature/shot/yae_release.lua').read_text(encoding='utf-8')
 act_source = (PORT / 'scripts/gameplay/feature/shot/act.lua').read_text(encoding='utf-8')
 basic_source = (EXTRACTED / 'scripts/gameplay/hero/heroskill/八重樱/basicskill.lua').read_text(encoding='utf-8')
@@ -16,13 +16,14 @@ skill_source = (EXTRACTED / 'scripts/gameplay/hero/heroskill/八重樱/skill.lua
 e_start = skill_source.index('  E = function(u)') + len('  E = ')
 e_end = skill_source.index(',\n  R = function(u)', e_start)
 e_source = skill_source[e_start:e_end]
+baseline_release_source = (ROOT / 'hera-rpg-validation-v150/scripts/gameplay/feature/shot/yae_release.lua').read_text(encoding='utf-8')
 
 FIXTURE = r'''
 local charged = '八重樱拔刀斩蓄力'
 local canceled = '八重樱拔刀斩蓄力取消'
 registered, sent, orders, notes, units = {}, {}, {}, {}, {}
 settimedata_calls = 0
-HeroType = {['八重樱']=12345}
+HeroType = {['八重樱']=1211118148}
 Hero, Xuanze, CheXuanze = {}, {}, {}
 KEY = {T=84}
 BQBInfo = {panel={}}
@@ -30,7 +31,7 @@ selected = 1001
 for sy=1,6 do
   local h = 1000+sy
   Hero[sy], Xuanze[sy] = h, true
-  units[h] = {handle=h, ownerid=sy, owner=sy-1, type=12345,
+  units[h] = {handle=h, ownerid=sy, owner=sy-1, type=1211118148, raw_type=1211118148,
     valid=true, alive=true, ability=1, data={[charged]=true}}
   local u = units[h]
   function u:isvalid() return self.valid end
@@ -51,7 +52,7 @@ function CreateTrigger() return {} end
 function CreateGroup() return {} end
 function TriggerAddAction(t, action) t.action=action end
 function GetConvertedPlayerId(p) return p+1 end
-function GetUnitTypeId(h) return units[h] and units[h].type or 0 end
+function GetUnitTypeId(h) return units[h] and units[h].raw_type or 0 end
 function GetOwningPlayer(h) return units[h].owner end
 function GetUnitAbilityLevel(h, ability)
   assert(ability == S2ID('A1S0'))
@@ -295,12 +296,18 @@ function spell_down()
 end
 '''
 
-for hold_ms in (50, 1500):
+def prepare_loop(lua):
+    lua.execute(LOOP_FIXTURE)
+    lua.globals().E = lua.execute('return ' + e_source)
+    lua.execute("package.loaded['gameplay.hero.heroskill.八重樱.skill'].E=E")
+
+
+for hold_ms, raw_type in ((50, 1211118148), (1500, 1211118148),
+                          (50, 1211118150), (1500, 1211118150)):
     pair = [client(1), client(2)]
     for lua in pair:
-        lua.execute(LOOP_FIXTURE)
-        lua.globals().E = lua.execute('return ' + e_source)
-        lua.execute("package.loaded['gameplay.hero.heroskill.八重樱.skill'].E=E; spell_down(); assert(units[1001]:hasdata('八重樱拔刀斩蓄力')); assert(active_loops()==1 and stamina_used==3)")
+        prepare_loop(lua)
+        lua.execute(f"units[1001].raw_type={raw_type}; assert(units[1001].type==1211118148); spell_down(); assert(units[1001]:hasdata('八重樱拔刀斩蓄力')); assert(active_loops()==1 and stamina_used==3)")
         lua.execute(f"advance({hold_ms}); assert(airflow=={hold_ms//50}); assert(releases==0 and target_queries==0)")
         checked()
     # Only client 1 owns the local E-up input; both clients receive one packet.
@@ -317,5 +324,40 @@ for hold_ms in (50, 1500):
         lua.execute("assert(not units[1001]:hasdata('八重樱拔刀斩蓄力取消')); spell_down(); advance(100); deliver(0,'E_UP'); advance(50); assert(releases==2 and #orders==2 and active_loops()==0); assert(target_queries==2 and damage_calls==0)")
         checked()
 
-print(f'PASS {checks} scenarios: native prefix limits reject the old 13-byte name; E-keyup sends sync only; two isolated clients and all six sender slots agree; actual A19K, E loop, and A1S0 callbacks stop airflow on the next 50ms tick with zero targets, for short/long/repeated charge; invalid and duplicate requests are ignored.')
+# Flight state can change between initial spell, local key-up, and sync arrival.
+for landing_before_delivery in (False, True):
+    pair = [client(1), client(2)]
+    for lua in pair:
+        prepare_loop(lua)
+        lua.execute("spell_down(); advance(100); units[1001].raw_type=1211118150; advance(100); assert(airflow==4 and units[1001].type==1211118148 and active_loops()==1)")
+        checked()
+    pair[0].execute("message.hook({type='key_up',code=69,state=0}); assert(#sent==1 and #orders==0); assert(sent[1].prefix=='HeraYaeE')")
+    checked()
+    for lua in pair:
+        if landing_before_delivery:
+            lua.execute('units[1001].raw_type=1211118148')
+        lua.execute("deliver(0,'E_UP'); advance(50); assert(#orders==1 and releases==1 and airflow==4 and active_loops()==0); assert(target_queries==1 and damage_calls==0)")
+        checked()
+
+# The exact archived v150 receiver loses an airborne request. The new receiver
+# receives the same input with the same logical identity and stops that E loop.
+for source, should_release in ((baseline_release_source, False), (release_source, True)):
+    lua = client(source=source)
+    prepare_loop(lua)
+    lua.execute("spell_down(); advance(100); units[1001].raw_type=1211118150; message.hook({type='key_up',code=69,state=0}); assert(#sent==1); deliver(0,'E_UP'); advance(150)")
+    if should_release:
+        lua.execute('assert(#orders==1 and releases==1 and airflow==2 and active_loops()==0)')
+    else:
+        lua.execute('assert(#orders==0 and releases==0 and airflow==5 and active_loops()==1)')
+    checked()
+
+for raw_type in (1211118148, 1211118150):
+    lua = client()
+    lua.execute(f"units[1001].type=999; units[1001].raw_type={raw_type}; message.hook({{type='key_up',code=69,state=0}}); assert(#sent==0); deliver(0,'E_UP'); assert(#orders==0 and settimedata_calls==0)")
+    checked()
+lua = client()
+lua.execute("units[1001].raw_type=1211118150; units[1001].owner=1; deliver(0,'E_UP'); assert(#orders==0 and settimedata_calls==0)")
+checked()
+
+print(f'PASS {checks} scenarios: separate H02D logical identity and H02D/H02F engine forms; archived v150 reproduces lost airborne release, current receiver stops it; two-client short/long/repeated E and flight/landing transitions stop airflow on next 50ms tick with zero targets; spoofed forms, wrong owner, invalid/duplicate requests and overlong sync prefixes rejected.')
 print('LIMITS: native calls, timers, effects, selectors, and sync transport are mocks. No Warcraft execution, engine order acceptance, real packet delivery/ordering/latency, multiplayer desync, animation, sound, damage, or visual validation.')
