@@ -42,7 +42,6 @@ function advance(seconds)
         if not ok then cache.hera_wanhua.error(err) end
     end
     now=finish
-    cache.hera_wanhua.tick()
     return count
 end
 local function handle() counter=counter+1;return counter end
@@ -145,10 +144,22 @@ for path in list(Path(__file__).parent.glob('*.lua'))+list(args.staging.glob('*.
     assert ok,(path,err)
     syntax_count += 1
 print('Lua syntax passed')
-result=lua.execute(b"return require('hera_wanhua').start()")
+# 설치된 yd_lua_engine은 전달식을 return (%s)로 감싸서 평가한다.
+# JASS의 실제 문자열을 읽어 검사해야 중복 return 같은 연결부 오류를 잡을 수 있다.
+jass = (args.staging / 'war3map.j').read_text(encoding='utf8')
+def execute_jass_expression(function_name):
+    body = re.search(r'(?ms)^function ' + function_name + r' takes .*?^endfunction', jass)[0]
+    literal = re.search(r'EXExecuteScript\(("(?:[^"\\]|\\.)*")\)', body)[1]
+    expression = json.loads(literal)
+    result = lua.execute(('return (' + expression + ')').encode('utf8'))
+    assert isinstance(result, bytes), (function_name, 'EXExecuteScript must return a string')
+    return result
+
+result=execute_jass_expression('HWStart')
 print(result.decode('utf8',errors='replace'))
 timer_calls = lua.globals().advance(10)
 print('Deferred timer calls', timer_calls)
+execute_jass_expression('HWRefresh')
 lua.execute(b"""
 local port=require('hera_wanhua')
 local original=WindowEventCallBack
@@ -171,6 +182,7 @@ errors = [key.decode('utf8', errors='replace') for key in port[b'errors']]
 report = {'lua_syntax_files': syntax_count, 'modules_entered': len(port[b'modules']),
           'deferred_timer_calls': timer_calls, 'errors': errors, 'runtime_tested': False,
           'adapter_key_forwarding_checked': True,
+          'native_expression_wrapping_checked': True,
           'limits': 'No real natives, SLK objects, sync network, player input, GPU, or gameplay simulation.'}
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 if errors: raise SystemExit(1)

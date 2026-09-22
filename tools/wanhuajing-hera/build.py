@@ -351,13 +351,23 @@ function HWKeyUp takes nothing returns nothing
     call EXExecuteScript("require('hera_wanhua').key_input(8," + I2S(DzGetTriggerKey()) + ")")
 endfunction
 function HWRefresh takes nothing returns nothing
-    local string result = EXExecuteScript("return require('hera_wanhua').tick()")
+    local string result = EXExecuteScript("require('hera_wanhua').tick()")
+    if result == null then
+        call PauseTimer(GetExpiredTimer())
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v2: Lua update failed; refresh stopped.")
+        return
+    endif
     if result != "" then
         call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, result)
     endif
 endfunction
 function HWStart takes nothing returns nothing
-    local string result = EXExecuteScript("return require('hera_wanhua').start()")
+    local string result = EXExecuteScript("require('hera_wanhua').start()")
+    if result == null or result == "" then
+        call DestroyTimer(GetExpiredTimer())
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v2: Lua startup failed; refresh not started.")
+        return
+    endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)
     call TimerStart(GetExpiredTimer(), 0.033333333, true, function HWRefresh)
 endfunction
