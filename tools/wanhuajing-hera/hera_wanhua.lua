@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v8', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v9', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -296,9 +296,10 @@ function ui.render(record)
     else
         local resource = attrs.resource
         if attrs.resource2 and attrs.program and attrs.program.fragment:find('mix(texture2D', 1, true) and (attrs.u_progress or 0) > 0.5 then resource = attrs.resource2 end
-        local path = resource and resource.path or 'UI\\Widgets\\EscMenu\\Human\\blank-background.blp'
-        changed(record, 'texture', path, function(v) native('DzFrameSetTexture', record.frame, v, 0) end)
         local rgb = attrs.u_rgb or (attrs.program and attrs.program.uniforms.u_rgb) or {1, 1, 1}
+        local path = resource and resource.path or 'UI\\Widgets\\EscMenu\\Human\\blank-background.blp'
+        if resource and resource.black and rgb[1] == 0 and rgb[2] == 0 and rgb[3] == 0 then path = resource.black end
+        changed(record, 'texture', path, function(v) native('DzFrameSetTexture', record.frame, v, 0) end)
         local function channel(value) return math.floor(math.max(0, math.min(1, value)) * 255 + 0.5) end
         local color = 0xff000000 | (channel(rgb[1]) << 16) | (channel(rgb[2]) << 8) | channel(rgb[3])
         changed(record, 'color', color, function(v) native('DzFrameSetVertexColor', record.frame, v) end)

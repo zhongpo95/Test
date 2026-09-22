@@ -223,6 +223,27 @@ def prepare_bundle(data, output):
                        "var_3 [ 1922 ]= require('hera_fdf').load var_3 [ 1598 ]=", source[a:b], flags=re.S)
     assert count == 1, 'Runtime FDF write patch no longer matches'
     replacements[689] = ui
+    # 건축사 등록은 2.5초 뒤에 실행되지만 첫 레벨 변경은 즉시 발생한다.
+    a, b = spans[656 - 1]
+    battle, count = re.subn(
+        r'var_57430 : get_data \( var_2 \[ (\d+) \]\s*\)\) do',
+        lambda m: "(var_3 [ 1195 ]. chess_profile : refresh_summon_pools(var_57430) or "
+                  "var_57430 : get_data ( var_2 [ " + m[1] + " ], {} ))) do", source[a:b])
+    assert count == 1, 'Initial summon pool patch no longer matches'
+    replacements[656] = battle
+    # 내부 5번 슬롯에는 계정 권한이나 개인 장식 저장 기록이 없다.
+    a, b = spans[1290 - 1]
+    permissions, count = re.subn(
+        r'function \( var_78528 , var_78529 \)',
+        'function ( var_78528 , var_78529 ) if not var_78528 : is_player () then return false end', source[a:b])
+    assert count == 1, 'Non-player save permission patch no longer matches'
+    replacements[1290] = permissions
+    a, b = spans[1361 - 1]
+    cosmetics, count = re.subn(
+        r'function \( var_59558 , var_59559 , var_59560 , var_59561 \)',
+        'function ( var_59558 , var_59559 , var_59560 , var_59561 ) if not var_59559 : is_player () then return end', source[a:b])
+    assert count == 1, 'Non-player cosmetic save patch no longer matches'
+    replacements[1361] = cosmetics
     for index in sorted(replacements, reverse=True):
         a, b = spans[index - 1]
         source = source[:a] + replacements[index] + source[b:]
@@ -266,6 +287,14 @@ def prepare_images(archive, strings, staging):
         except UnicodeDecodeError: continue
         if len(name) < 260 and re.search(r'\.(?:blp|png|webp|tga|jpg|jpeg)$', name, re.I) and not any(c in name for c in '\r\n\0'):
             candidates.add(name)
+    # 문자열 조합으로 생성되어 상수 목록에서 빠지는 시작 화면 리소스이다.
+    candidates.update('[UI]\\序列帧\\%d.webp' % i for i in range(27))
+    candidates.update(('[UI]\\旅途存档UI\\UI_存档_功能中心.webp',
+                       '[UI]\\旅途存档UI\\UI_存档_模因协议.webp'))
+    aliases = {'[UI]\\UI_天赋_选择背景.blp': '[UI]\\UI_天赋_选择背景.webp',
+               '[UI]\\角色立绘\\游戏界面_圣园未花立绘1.png': '[UI]\\角色立绘\\游戏界面_圣园未花立绘1.webp',
+               'UI\\panel\\属性\\悬浮指示.tga': 'UI\\panel\\界面效果\\悬浮指示.tga'}
+    candidates.update(aliases.values())
     for name in list(candidates):
         if re.search(r'%0?\d*d', name) and name.count('%') == 1:
             for i in range(0, 1001):
@@ -308,6 +337,16 @@ def prepare_images(archive, strings, staging):
                 if not disk.exists(): disk.write_bytes(tga)
                 added[member] = disk
                 item = {'path':member,'width':img.width,'height':img.height}
+                if name == '[UI]\\杂项\\视效_边框模糊2.webp':
+                    # BACKDROP의 네이티브 착색에 의존하지 않고 원본 set_rgb(0,0,0)를 보존한다.
+                    black = Image.new('RGBA', img.size, (0, 0, 0, 0))
+                    black.putalpha(img.getchannel('A'))
+                    tinted = tga[:18] + black.tobytes('raw','BGRA')
+                    tint_key = hashlib.sha256(tinted).hexdigest()[:24]
+                    tint_disk = target / ('tex_' + tint_key + '.tga')
+                    tint_disk.write_bytes(tinted)
+                    item['black'] = 'HeraWanhua\\tex_' + tint_key + '.tga'
+                    added[item['black']] = tint_disk
                 if img.width >= 64 and img.height >= 64 and img.size != (64, 64):
                     crop = struct.pack('<BBBHHBHHHHBB',0,0,2,0,0,0,0,0,64,64,32,0x28) + img.crop((0,0,64,64)).tobytes('raw','BGRA')
                     crop_key = hashlib.sha256(crop).hexdigest()[:24]
@@ -319,10 +358,14 @@ def prepare_images(archive, strings, staging):
                 manifest[name.replace('/','\\').lower()] = item
         except Exception as error:
             failed.append({'name':name,'error':str(error)})
+    for alias, name in aliases.items():
+        if not archive.exists(alias) and name.lower() in manifest:
+            manifest[alias.lower()] = manifest[name.lower()]
     entries = []
     for name, item in sorted(manifest.items()):
         crop_lua = ',crop64={path=' + json.dumps(item['crop64']) + ',width=64,height=64}' if 'crop64' in item else ''
-        entries.append('[' + json.dumps(name,ensure_ascii=False) + ']={path=' + json.dumps(item['path']) + ',width=' + str(item['width']) + ',height=' + str(item['height']) + crop_lua + '}')
+        tint_lua = ',black=' + json.dumps(item['black']) if 'black' in item else ''
+        entries.append('[' + json.dumps(name,ensure_ascii=False) + ']={path=' + json.dumps(item['path']) + ',width=' + str(item['width']) + ',height=' + str(item['height']) + crop_lua + tint_lua + '}')
     data = ('-- 원본 맵 이미지와 헤라 TGA 리소스의 경로 및 크기를 연결한다.\nreturn {\n'+',\n'.join(entries)+'\n}\n').encode('utf8')
     (staging/'hera_assets.lua').write_bytes(data)
     (staging/'image-report.json').write_text(json.dumps({'textures':len(manifest),'files':len(added),'raw_bytes':sum(p.stat().st_size for p in added.values()),'failed':failed},ensure_ascii=False,indent=2),encoding='utf8')
@@ -424,7 +467,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v8: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v9: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -435,7 +478,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v8: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v9: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)

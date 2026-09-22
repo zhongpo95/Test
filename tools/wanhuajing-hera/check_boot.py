@@ -22,7 +22,7 @@ local passive_frames = {}
 local native_calls = 0
 function get_native_calls() return native_calls end
 cache.utf8=utf8
-local common = {}
+local common = {MAP_CONTROL_USER=0, PLAYER_SLOT_STATE_PLAYING=1}
 local pathing_calls = {}
 function common.SetUnitPathing(unit, enabled) pathing_calls[#pathing_calls+1]={unit,enabled} end
 function get_pathing_calls() return pathing_calls end
@@ -92,6 +92,7 @@ function common.TriggerEvaluate()
         error('Observed v5 failure injected: passive frame DzFrameSetEnable')
     elseif name=='DzFrameSetTexture' and globals.HWString1:match('^HeraWanhua') then
         assert(cache['jass.storm'].load(globals.HWString1), 'Texture is not in the map: '..globals.HWString1)
+        if passive_frames[globals.HWInteger1] then passive_frames[globals.HWInteger1].texture=globals.HWString1 end
     elseif name=='DzFrameSetVertexColor' and passive_frames[globals.HWInteger1] then
         passive_frames[globals.HWInteger1].color=globals.HWInteger2
     end
@@ -149,6 +150,7 @@ function check_passive_templates()
     assert(count>0)
 end
 function check_image_color(frame, color) assert(passive_frames[frame].color==color) end
+function check_image_texture(frame, path) assert(passive_frames[frame].texture==path) end
 function check_no_runtime_textures()
     for name in pairs(saved) do assert(not name:lower():match('%.tga$'), 'UI wrote a runtime texture: '..name) end
 end
@@ -245,6 +247,24 @@ print('\n'.join([line for line in lines if line.startswith(('ERROR','MODULE'))][
 lua.execute('''
 local port=require('hera_wanhua')
 local game=port.env.game
+-- 모드 선택 직후, 건축사 등록 전에도 원본 카드 설정에서 목록을 생성한다.
+local player=game.player[1]
+assert(player:get_data('召唤卡池')==nil)
+local pool=game.chess_profile:refresh_summon_pools(player)
+assert(type(pool)=='table' and #pool>=5 and type(pool[1].random_point[2])=='number')
+assert(player:get_data('召唤卡池')==pool)
+assert(game.chess_profile:refresh_summon_pools(player)==pool)
+-- 원본에 등록된 장식 콜백은 내부 슬롯의 없는 저장 기록을 읽지 않는다.
+local npc=game.player[5]
+assert(not npc:is_player() and npc:has_save_permission('test')==false)
+local checked=0
+for _,event in ipairs(game.instance.events['全局-准备载入召唤师']) do
+    if event._extra_info:find('载入狗牌',1,true) then
+        event({is_player=function() return false end,get_save=function() error('NPC save queried') end},{},{})
+        checked=checked+1
+    end
+end
+assert(checked==1 and port.status~='BLOCKED',port.first_error)
 local calls=get_pathing_calls()
 local first=#calls
 -- 실제 원본 메서드의 반경 보관 및 경로 충돌 켜기/끄기까지 검사한다.
@@ -275,6 +295,7 @@ report = {'lua_syntax_files': syntax_count, 'modules_entered': len(port[b'module
           'adapter_key_forwarding_checked': True,
           'native_expression_wrapping_checked': True,
           'original_collision_and_particle_initialization_checked': True,
+          'initial_summon_pool_and_nonplayer_cosmetic_callback_checked': True,
           'limits': 'No real natives, SLK objects, sync network, player input, GPU, or gameplay simulation.'}
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 if errors: raise SystemExit(1)
@@ -369,6 +390,19 @@ check_image_color(record.frame,0xffff8040)
 record.attributes.u_rgb=nil
 ui.render(record)
 check_image_color(record.frame,0xffffffff)
+local vignette=gl.get_resource('[UI]\\\\杂项\\\\视效_边框模糊2.webp')
+assert(vignette.black and vignette.black~=vignette.path)
+record.attributes.resource=vignette
+record.attributes.u_rgb={0,0,0}
+ui.render(record)
+check_image_texture(record.frame,vignette.black)
+record.attributes.u_rgb={1,1,1}
+ui.render(record)
+check_image_texture(record.frame,vignette.path)
+for i=0,26 do
+    local image=gl.get_resource('[UI]\\\\序列帧\\\\'..i..'.webp')
+    assert(image.path:match('^HeraWanhua') and image.width>0 and image.height>0)
+end
 local source='[UI]\\\\空.png'
 local original=gl.get_resource(source)
 assert(port.crop_texture(source,'hera-crop-test',0,0,64,64))
