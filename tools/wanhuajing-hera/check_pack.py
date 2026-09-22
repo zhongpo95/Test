@@ -1,0 +1,60 @@
+# 원본 MPQ 해시 슬롯 보존과 결과 맵의 모든 블록 내용을 독립적으로 다시 읽어 검사한다.
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import struct
+from build import Archive, SOURCE_SHA256, crypt, file_hash, name_hash
+
+
+def table(path):
+    with path.open('rb') as file:
+        prefix = file.read(8192)
+        base = prefix.index(b'MPQ\x1a')
+        _, size, total, version, shift, hp, bp, count, blocks = struct.unpack_from('<4sIIHHIIII', prefix, base)
+        assert size == 32 and version == 0 and total + base == path.stat().st_size
+        file.seek(base + hp)
+        entries = list(struct.iter_unpack('<IIHHI', crypt(file.read(count * 16), name_hash('(hash table)', 3))))
+        return prefix[:base], entries, blocks
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    for name in ('source', 'output', 'stormlib', 'report'):
+        parser.add_argument('--' + name, required=True, type=Path)
+    args = parser.parse_args()
+    report = json.loads(args.report.read_text(encoding='utf8'))
+    assert file_hash(args.source) == SOURCE_SHA256 == report['source_sha256']
+    assert file_hash(args.output) == report['output_sha256']
+    before, original, old_count = table(args.source)
+    after, modified, new_count = table(args.output)
+    assert before == after and len(original) == len(modified)
+    preserved_slots = 0
+    for index, entry in enumerate(original):
+        if entry[-1] not in (0xffffffff, 0xfffffffe):
+            assert entry == modified[index], ('Changed original hash slot', index)
+            preserved_slots += 1
+    assert len(report['files']) == new_count and old_count == 10611
+    archive = Archive(args.output, args.stormlib)
+    try:
+        named = 0
+        for row in report['files']:
+            data = archive.read(f"File{row['index']:08d}.xxx")
+            assert len(data) == row['size']
+            assert hashlib.sha256(data).hexdigest() == row['sha256'], row['index']
+            if row['name']:
+                assert archive.read(row['name']) == data, row['name']
+                named += 1
+            if row['index'] % 2000 == 0: print('Verified', row['index'], flush=True)
+    finally:
+        archive.close()
+    result = {'source_sha256': SOURCE_SHA256, 'output_sha256': report['output_sha256'],
+              'output_bytes': args.output.stat().st_size, 'verified_blocks': new_count,
+              'verified_named_patches': named, 'preserved_original_hash_slots': preserved_slots,
+              'source_unchanged': True, 'runtime_tested': False}
+    args.report.with_name('verification.json').write_text(json.dumps(result, indent=2), encoding='utf8')
+    print(json.dumps(result, indent=2))
+
+
+if __name__ == '__main__':
+    main()
