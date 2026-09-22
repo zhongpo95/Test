@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v7', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v8', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -531,6 +531,18 @@ function M.start()
         rawset(japi, 'FrameIsShow', function(frame) return (frame_metadata[frame] or {}).visible ~= false end)
         rawset(japi, 'SetUnitState', common.SetUnitState)
         rawset(japi, 'GetUnitState', common.GetUnitState)
+        if type(japi.SetUnitCollisionSize) ~= 'function' then
+            -- 원본 set_collision이 반경을 보관하고 SetUnitPathing으로 0/양수 상태를 처리한다.
+            rawset(japi, 'SetUnitCollisionSize', function()
+                limitation('dynamic collision radius unavailable; native radius retained, map pathing and logical radius remain active')
+            end)
+        end
+        if type(japi.SetPariticle2Size) ~= 'function' then
+            -- 입자만의 크기를 전체 효과 크기로 바꾸면 모델까지 변하므로 원래 입자를 유지한다.
+            rawset(japi, 'SetPariticle2Size', function()
+                limitation('particle-only scaling unavailable; original emitter size retained')
+            end)
+        end
         rawset(japi, 'GetRealSelectUnit', function() return native_require('jass.message').selection() end)
         rawset(japi, 'SetUnitModel', function(handle, path)
             if handle_kinds[handle] == 'unit' then return native('DzSetUnitModel', handle, path) end

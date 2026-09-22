@@ -23,6 +23,9 @@ local native_calls = 0
 function get_native_calls() return native_calls end
 cache.utf8=utf8
 local common = {}
+local pathing_calls = {}
+function common.SetUnitPathing(unit, enabled) pathing_calls[#pathing_calls+1]={unit,enabled} end
+function get_pathing_calls() return pathing_calls end
 local timers, now, expired = {}, 0, 0
 function common.TimerStart(timer, timeout, periodic, callback)
     timers[timer]={timeout=math.max(timeout,0.001),next=now+math.max(timeout,0.001),periodic=periodic,callback=callback}
@@ -60,7 +63,7 @@ function define(name, result)
         if name=='GetPlayerSlotState' then return (...) == 1 and 1 or 0 end
         if name=='GetRectMinX' or name=='GetRectMinY' then return -16384 end
         if name=='GetRectMaxX' or name=='GetRectMaxY' then return 16384 end
-        if name:sub(1,6)=='Create' or name:sub(1,4)=='Init' then return handle() end
+        if name:sub(1,6)=='Create' or name:sub(1,4)=='Init' or name=='AddSpecialEffect' or name=='AddSpecialEffectTarget' then return handle() end
         if result=='boolean' then return false end
         if result=='string' then return '' end
         if result=='nothing' then return nil end
@@ -239,6 +242,31 @@ logs=lua.globals().get_logs()
 (args.staging/'mock-boot.log').write_bytes(logs)
 lines=logs.decode('utf8',errors='replace').splitlines()
 print('\n'.join([line for line in lines if line.startswith(('ERROR','MODULE'))][-18:]))
+lua.execute('''
+local port=require('hera_wanhua')
+local game=port.env.game
+local calls=get_pathing_calls()
+local first=#calls
+-- 실제 원본 메서드의 반경 보관 및 경로 충돌 켜기/끄기까지 검사한다.
+local unit=setmetatable({handle=77},{__index=game.unit.class})
+unit:set_collision(0)
+assert(unit:get_collision()==0 and calls[first+1][1]==77 and calls[first+1][2]==false)
+unit:set_collision(32)
+assert(unit:get_collision()==32 and calls[first+2][2]==true)
+unit:set_collision()
+assert(unit:get_collision()==32 and calls[first+3][2]==true)
+unit:set_collision(0)
+assert(unit:get_collision()==0 and calls[first+4][2]==false)
+-- v7 로그의 모델과 입자 크기로 원본 effect_ex/model_init 경로를 실행한다.
+local effect=game.effect_ex({model='-952842119.mdx',point=game.point(0,0),size=1,
+    pariticle_size=0.01,time=1,immediate_remove=true})
+assert(effect and effect.handle~=0)
+effect:set_pariticle_size(0.5)
+assert(port.status~='BLOCKED',port.first_error)
+assert(port.limitations['dynamic collision radius unavailable; native radius retained, map pathing and logical radius remain active'])
+assert(port.limitations['particle-only scaling unavailable; original emitter size retained'])
+'''.encode('utf8'))
+(args.staging/'mock-boot.log').write_bytes(lua.globals().get_logs())
 archive.close()
 port = lua.globals().inspect_port()
 errors = [key.decode('utf8', errors='replace') for key in port[b'errors']]
@@ -246,6 +274,7 @@ report = {'lua_syntax_files': syntax_count, 'modules_entered': len(port[b'module
           'deferred_timer_calls': timer_calls, 'errors': errors, 'runtime_tested': False,
           'adapter_key_forwarding_checked': True,
           'native_expression_wrapping_checked': True,
+          'original_collision_and_particle_initialization_checked': True,
           'limits': 'No real natives, SLK objects, sync network, player input, GPU, or gameplay simulation.'}
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 if errors: raise SystemExit(1)
