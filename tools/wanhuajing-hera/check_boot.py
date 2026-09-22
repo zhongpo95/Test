@@ -17,7 +17,7 @@ archive = Archive(args.source, args.stormlib)
 
 lua = LuaRuntime(encoding=None, unpack_returned_tuples=True)
 lua.execute(b'''
-local cache, counter, definitions = {}, 10000, {}
+local cache, counter, definitions, toc_calls = {}, 10000, {}, {}
 cache.utf8=utf8
 local common = {}
 local timers, now, expired = {}, 0, 0
@@ -82,6 +82,13 @@ function common.TriggerEvaluate()
         globals.HWStringResult=common.GetPlayerName(common.Player(globals.HWInteger1-1))..'x'
     elseif name=='YDWERPGBillingGetItem' then
         globals.HWIntegerResult=0
+    elseif name=='DzLoadToc' then
+        local path=globals.HWString1
+        local toc=assert(cache['jass.storm'].load(path), 'TOC is not in the map: '..path)
+        for fdf in toc:gmatch('[^\\r\\n]+') do
+            assert(cache['jass.storm'].load(fdf), 'FDF is not in the map: '..fdf)
+        end
+        toc_calls[#toc_calls+1]=path
     end
     return false
 end
@@ -108,7 +115,14 @@ cache['jass.message'].origin_load=function() error('Dropped field must not run')
 assert(cache['jass.message'].origin_load==nil)
 cache['jass.log']=setmetatable({path='logs\\\\mock.log'}, {__index=function() return function(...) end end})
 local saved={}
-cache['jass.storm']={load=function(name) return saved[name] or host_load(name) end,save=function(name,data) saved[name]=data;return true end}
+-- With local file reads disabled, disk writes are not part of the MPQ read path.
+cache['jass.storm']={load=function(name) return host_load(name) end,save=function(name,data) saved[name]=data;return true end}
+function check_packaged_fdf()
+    assert(#toc_calls==1 and toc_calls[1]=='HeraWanhua_ui.toc')
+    for name in pairs(saved) do
+        assert(not name:lower():match('%.fdf$') and not name:lower():match('%.toc$'), 'UI wrote a runtime file: '..name)
+    end
+end
 function require(name)
     if cache[name] then return cache[name] end
     if package.preload[name] then cache[name]=package.preload[name]();return cache[name] end
@@ -120,9 +134,10 @@ function require(name)
     cache[name]=result == nil and true or result
     return cache[name]
 end
-local logs={}
-io.open=function() return {write=function(self,...) for _,v in ipairs({...}) do logs[#logs+1]=tostring(v) end;return self end,close=function() return true end} end
+local logs, log_names={}, {}
+io.open=function(name) log_names[name]=true;return {write=function(self,...) for _,v in ipairs({...}) do logs[#logs+1]=tostring(v) end;return self end,close=function() return true end} end
 function get_logs() return table.concat(logs) end
+function check_version_log() assert(log_names['Logs/Hera_Wanhua_'..cache.hera_wanhua.version..'_p1.txt']) end
 function inspect_port() return cache.hera_wanhua end
 ''')
 base = args.common_j
@@ -140,6 +155,9 @@ def host_module(name):
 
 def host_load(name):
     name=name.decode('utf8')
+    if name in ('HeraWanhua_ui.toc', 'HeraWanhua_base.fdf', 'HeraWanhua_fonts.fdf'):
+        path=args.staging/name
+        return path.read_bytes() if path.is_file() else None
     if name.startswith('HeraWanhua\\tex_'):
         path=args.staging/'images'/name.split('\\')[-1]
         if path.is_file(): return path.read_bytes()
@@ -222,10 +240,30 @@ local hook=function() return true end
 message.hook=hook
 assert(message.hook==hook and rawget(message,'hook')==nil)
 message.hook=previous_hook
+check_version_log()
+local catalog=require('hera_fdf_catalog')
+local fdf=require('hera_fdf')
+local fonts=require('jass.storm').load('HeraWanhua_fonts.fdf')
+for name,template in pairs(catalog.templates) do
+    for size=0,catalog.maximum do
+        local data
+        if name=='edit' then data=template:format(size,size,size,size/1000)
+        else data=template:format(size,size/1000) end
+        assert(fonts:find(data,1,true), 'Packaged FDF content mismatch: '..name..size)
+        fdf.load(data)
+    end
+end
+assert(not pcall(fdf.load, 'Frame "TEXT" "missing_template" {}'))
+assert(not pcall(fdf.load, catalog.templates.text:format(catalog.maximum+1,1)))
+assert(not pcall(fdf.load, catalog.templates.text:format(12,1)))
+check_packaged_fdf()
 '''.encode('utf8'))
 report['missing_jass_code_fallback_checked'] = True
 report['player_name_suffix_and_utf8_checked'] = True
 report['debug_console_disabled'] = True
 report['message_newindex_and_native_hook_checked'] = True
+report['packaged_fdf_without_local_reads_checked'] = True
+report['fdf_template_variants_checked'] = 1028
+report['versioned_log_path_checked'] = True
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-print('JASS code fallback, player name, console and message registration checks passed')
+print('JASS fallback, name, console, message, packaged FDF and version log checks passed')

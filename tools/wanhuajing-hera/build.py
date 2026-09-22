@@ -132,6 +132,40 @@ def modules(source):
     return spans
 
 
+def prepare_fdf(source, spans, strings, output):
+    a, b = spans[505 - 1]
+    body = re.fullmatch(r'function\s*\(\s*\)\s*var_3\s*\[\s*1922\s*\]\s*\((.*?)\)\s*end', source[a:b], re.S)
+    assert body, 'Base FDF call no longer matches'
+    parts = [re.fullmatch(r'\s*var_2\s*\[\s*(\d+)\s*\]\s*', part) for part in body[1].split('..')]
+    assert all(parts), 'Base FDF must contain only string constants'
+    base = b''.join(strings[int(part[1]) - 1] for part in parts).decode('utf8')
+    templates = {name: strings[index - 1].decode('utf8') for name, index in
+                 [('edit', 22763), ('text', 74111), ('text_shadow', 74112), ('text_title', 74113)]}
+    assert 'ChooBlankButtonTemplatetA' in base
+    for name, template in templates.items():
+        assert f'"{name}%d"' in template, name
+    # 정수 글꼴 크기를 사용하는 원본 템플릿을 준비해 실행 중 파일 쓰기를 없앤다.
+    maximum = 256
+    fonts = []
+    for name, template in templates.items():
+        for size in range(maximum + 1):
+            values = (size, size, size, size / 1000) if name == 'edit' else (size, size / 1000)
+            fonts.append(template % values)
+    # 원본 기본 템플릿의 글꼴 파일은 맵에 없으므로 포함된 fonts.ttf로 연결한다.
+    base_asset = base.replace('FrameFont "字体.ttf"', 'FrameFont "fonts.ttf"')
+    catalog = ('-- 맵에 포함한 UI 정의와 원본 호출 내용을 대조하는 목록이다.\nreturn {base=' +
+               json.dumps(base, ensure_ascii=False) + ', maximum=' + str(maximum) + ', templates={' +
+               ','.join('[' + json.dumps(k) + ']=' + json.dumps(v, ensure_ascii=False) for k, v in templates.items()) + '}}\n')
+    patches = {'hera_fdf_catalog.lua': catalog.encode('utf8'),
+               'HeraWanhua_base.fdf': ('// 만화경 기본 UI 프레임 정의.\n' + base_asset).encode('utf8'),
+               'HeraWanhua_fonts.fdf': ('// 만화경 텍스트와 입력 상자 글꼴 프레임 정의.\n' + ''.join(fonts)).encode('utf8'),
+               'HeraWanhua_ui.toc': b'HeraWanhua_base.fdf\r\nHeraWanhua_fonts.fdf\r\n'}
+    output.mkdir(parents=True, exist_ok=True)
+    for name, content in patches.items():
+        (output / name).write_bytes(content)
+    return patches
+
+
 def prepare_bundle(data, output):
     source = data.decode('utf8')
     alphabet = list(map(int, re.findall(r'\d+', re.match(r'local var_0\s*=\s*\{([^}]+)\}', source)[1])))
@@ -144,6 +178,7 @@ def prepare_bundle(data, output):
              for m in re.finditer(r'var_1\s*\(\s*\{([\d\s,]*)\}\s*\)', source[table_end:globals_end])]
     assert len(names) == 3315
     spans = modules(source)
+    fdf = prepare_fdf(source, spans, strings, output)
     replacements = {
         34: "function () return require('hera_wanhua').library end",
         89: "function () return require('hera_wanhua').model_info(var_6(350)) end",
@@ -169,6 +204,11 @@ def prepare_bundle(data, output):
                           "local var_27574 = require('hera_wanhua').ability_template local var_27575 =",skill,flags=re.S)
     assert count == 1, 'Ability template patch no longer matches'
     replacements[838] = skill
+    a, b = spans[689 - 1]
+    ui, count = re.subn(r'var_36843 \. save \( var_2 \[ 102061 \].*?var_3 \[ 1598 \]=',
+                       "var_3 [ 1922 ]= require('hera_fdf').load var_3 [ 1598 ]=", source[a:b], flags=re.S)
+    assert count == 1, 'Runtime FDF write patch no longer matches'
+    replacements[689] = ui
     for index in sorted(replacements, reverse=True):
         a, b = spans[index - 1]
         source = source[:a] + replacements[index] + source[b:]
@@ -186,7 +226,7 @@ def prepare_bundle(data, output):
     output.mkdir(parents=True, exist_ok=True)
     (output / 'run.lua').write_text(source, encoding='utf8')
     (output / 'bundle-summary.json').write_text(json.dumps({'modules':len(spans), 'strings':len(strings), 'globals':len(names)}, indent=2))
-    return source.encode('utf8'), strings
+    return source.encode('utf8'), strings, fdf
 
 
 def compress(data, sector_size):
@@ -360,7 +400,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v4: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v5: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -371,7 +411,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v4: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v5: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)
@@ -477,7 +517,7 @@ def main():
     archive = Archive(args.source, args.stormlib)
     try:
         staging = args.output.parent / 'staging'
-        run, strings = prepare_bundle(archive.read('run.lua'), staging)
+        run, strings, fdf = prepare_bundle(archive.read('run.lua'), staging)
         jass, bindings = prepare_jass(archive.read('war3map.j'),staging)
         if args.prepare_images:
             prepare_images(archive,strings,staging)
@@ -485,6 +525,7 @@ def main():
             print('Prepared bundle', len(run), flush=True)
             return
         patches={'run.lua':run,'war3map.j':jass,'hera_bindings.lua':bindings}
+        patches.update(fdf)
         entry = "-- 헤라 JASS 시작 타이머에서 호환 스크립트를 초기화한다.\nreturn require('hera_wanhua')\n".encode('utf8')
         patches.update({'main.lua':entry,'load.lua':entry,'config.lua':'-- 외부 플랫폼 DLL 부트스트랩을 사용하지 않는다.\nreturn true\n'.encode('utf8')})
         for path in Path(__file__).parent.glob('*.lua'):
