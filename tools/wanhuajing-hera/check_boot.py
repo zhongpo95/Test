@@ -67,8 +67,7 @@ end
 local japi = {}
 function define_japi(name, result) define(name,result);japi[name]=common[name] end
 local globals = {HWEvaluator=1, HWBusy=false, HWOperation=0, HWCompleted=false}
-local code = {}
-function register_jass(name, result) code[name] = common[name] or function() return result=='string' and '' or 0 end end
+function register_binding(name, operation) definitions[operation] = name end
 function common.TriggerEvaluate()
     globals.HWCompleted=true
     globals.HWIntegerResult=handle()
@@ -78,13 +77,18 @@ function common.TriggerEvaluate()
     globals.HWRealResult=0
     globals.HWStringResult=''
     globals.HWBooleanResult=false
+    local name = definitions[globals.HWOperation]
+    if name=='get_player_name' then
+        globals.HWStringResult=common.GetPlayerName(common.Player(globals.HWInteger1-1))..'x'
+    elseif name=='YDWERPGBillingGetItem' then
+        globals.HWIntegerResult=0
+    end
     return false
 end
 local runtime = {}
 cache['jass.common']=common
 cache['jass.japi']=japi
 cache['jass.globals']=globals
-cache['jass.code']=code
 cache['jass.runtime']=runtime
 cache['jass.console']={enable=true,write=function(...) end}
 cache['jass.ai']={}
@@ -115,8 +119,6 @@ function inspect_port() return cache.hera_wanhua end
 base = args.common_j
 for name, result in re.findall(r'(?m)^\s*(?:constant\s+)?native\s+(\w+).*?returns\s+(\w+)',base.read_text(encoding='utf8')):
     lua.globals().define(name.encode(), result.encode())
-for name, result in re.findall(r'(?m)^function\s+(\w+).*?returns\s+(\w+)', archive.read('war3map.j').decode('utf8')):
-    lua.globals().register_jass(name.encode(),result.encode())
 for path in args.library_dir.glob('*.j'):
     for name,result in re.findall(r'(?m)^\s*native\s+((?:Dz|EX)\w+).*?returns\s+(\w+)',path.read_text(encoding='utf8',errors='replace')):
         lua.globals().define_japi(name.encode(),result.encode())
@@ -137,6 +139,7 @@ def host_load(name):
 lua.globals().host_module=host_module
 lua.globals().host_load=host_load
 lua.globals().host_sha1=lambda data: hashlib.sha1(data).digest()
+lua.execute(b"for _,spec in ipairs(require('hera_bindings')) do register_binding(spec[1],spec[2]) end")
 check=lua.eval(b'function(data) local fn,err=load(data); return fn~=nil,err end')
 syntax_count = 0
 for path in list(Path(__file__).parent.glob('*.lua'))+list(args.staging.glob('*.lua')):
@@ -170,7 +173,7 @@ WindowEventCallBack=original
 assert(seen[1][1]==7 and seen[2][1]==8 and seen[1][2]==65 and seen[2][2]==65)
 assert(port.trigger_key==nil)
 """)
-print('Map state',lua.execute(b"local e=require('hera_wanhua').env;return tostring(e.game.client_mode),tostring(e.game.save_mode),#e.get_player_list(),tostring(e.game.state)"))
+print('Map state',lua.execute(b"local e=require('hera_wanhua').env;if not e.game or not e.get_player_list then return 'not initialized' end;return tostring(e.game.client_mode),tostring(e.game.save_mode),#e.get_player_list(),tostring(e.game.state)"))
 print(lua.execute(b"return require('hera_wanhua').summary()").decode('utf8',errors='replace'))
 logs=lua.globals().get_logs()
 (args.staging/'mock-boot.log').write_bytes(logs)
@@ -186,3 +189,23 @@ report = {'lua_syntax_files': syntax_count, 'modules_entered': len(port[b'module
           'limits': 'No real natives, SLK objects, sync network, player input, GPU, or gameplay simulation.'}
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 if errors: raise SystemExit(1)
+lua.execute('''
+local common=require('jass.common')
+local code=require('jass.code')
+assert(code.get_player_name(1)=='Player1x')
+assert(code.YDWERPGBillingGetItem(common.Player(0),'test')==0)
+assert(code.YDWERPGBillingHasItem(common.Player(0),'test')==false)
+assert(code.YDWERPGBillingHasStatus(common.Player(0),'test')==false)
+local original=common.GetPlayerName
+common.GetPlayerName=function() return '테스트鸟9' end
+local player=require('hera_wanhua').env.game.player[2]
+player._base_name=nil
+assert(player:get_name()=='테스트鸟9')
+common.GetPlayerName=original
+assert(require('jass.console').enable==false)
+'''.encode('utf8'))
+report['missing_jass_code_fallback_checked'] = True
+report['player_name_suffix_and_utf8_checked'] = True
+report['debug_console_disabled'] = True
+(args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
+print('JASS code fallback, player name and disabled console checks passed')

@@ -288,9 +288,15 @@ DzSetUnitModel DzGetUnitUnderMouse DzGetTriggerKey'''.split()
                 kind in ('integer', 'real', 'string', 'boolean') for kind in kinds):
             if result in ('integer', 'real', 'string', 'boolean', 'nothing'):
                 names.append(name)
+    # 구형 헤라에는 jass.code가 없으므로 실제로 사용하는 맵 JASS 함수만 연결한다.
+    for name in ('get_player_name', 'YDWERPGBillingGetItem', 'YDWERPGBillingHasStatus', 'YDWERPGBillingHasItem'):
+        match = re.search(r'(?m)^\s*function ' + name + r' takes ([^\n]+?) returns (\w+)', source)
+        assert match, 'Missing map function: ' + name
+        signatures[name] = (match[1], match[2])
+        names.append(name)
     fields, specs, branches = {}, [], []
-    default = {'integer':'0', 'real':'0.0', 'string':'""', 'boolean':'false', 'unit':'null'}
-    types = {'integer':'Integer', 'real':'Real', 'string':'String', 'boolean':'Boolean', 'unit':'Unit'}
+    default = {'integer':'0', 'real':'0.0', 'string':'""', 'boolean':'false', 'unit':'null', 'player':'null'}
+    types = {'integer':'Integer', 'real':'Real', 'string':'String', 'boolean':'Boolean', 'unit':'Unit', 'player':'Player'}
     for operation, name in enumerate(names, 1):
         args, result = signatures[name]
         params = [] if args == 'nothing' else [x.strip().split() for x in args.split(',')]
@@ -354,7 +360,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v2: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v3: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -365,7 +371,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v2: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v3: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)

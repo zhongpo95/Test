@@ -1,12 +1,12 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v2', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v3', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
 local runtime = require('jass.runtime')
 local native_require, native_xpcall = require, xpcall
 local env = _G
-local log_path = 'Logs/Hera_Wanhua_v2.txt'
+local log_path = 'Logs/Hera_Wanhua_v3.txt'
 local ui, bindings, frame_counter, draw_counter, epoch = {}, {}, 0, 0, 0
 local records = setmetatable({}, {__mode = 'k'})
 local frame_records, owned_frames = setmetatable({}, {__mode = 'v'}), {}
@@ -443,12 +443,12 @@ function M.start()
     if M.status ~= 'not started' then return M.summary() end
     M.status = 'initializing'
     local slot = common.GetPlayerId(common.GetLocalPlayer()) + 1
-    log_path = 'Logs/Hera_Wanhua_v2_p' .. slot .. '.txt'
+    log_path = 'Logs/Hera_Wanhua_v3_p' .. slot .. '.txt'
     local file = io.open(log_path, 'wb'); if file then file:close() end
-    M.note('Wanhua v0.175 Hera v2 / ' .. _VERSION)
+    M.note('Wanhua v0.175 Hera v3 / ' .. _VERSION)
     runtime.handle_level, runtime.sleep, runtime.error_handle = 0, false, M.error
     local console = native_require('jass.console')
-    console.enable = true
+    console.enable = false
     console.write = function(...)
         local items = {}
         for i = 1, select('#', ...) do items[i] = tostring(select(i, ...)) end
@@ -456,6 +456,15 @@ function M.start()
     end
     local ok = native_xpcall(function()
         bind()
+        local has_code = pcall(native_require, 'jass.code')
+        if not has_code then
+            local code = {}
+            for _, name in ipairs({'get_player_name', 'YDWERPGBillingGetItem', 'YDWERPGBillingHasStatus', 'YDWERPGBillingHasItem'}) do
+                code[name] = assert(bindings[name], 'Missing map JASS bridge: ' .. name)
+            end
+            package.preload['jass.code'] = function() return code end
+            limitation('jass.code uses the map JASS dispatcher')
+        end
         for _, spec in ipairs({{'CreateUnit', 'unit'}, {'CreateUnitAtLoc', 'unit'}, {'CreateItem', 'item'},
                 {'AddSpecialEffect', 'effect'}, {'AddSpecialEffectTarget', 'effect'}}) do
             local name, kind, original = spec[1], spec[2], common[spec[1]]
