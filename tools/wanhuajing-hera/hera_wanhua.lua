@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v5', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v6', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -23,6 +23,7 @@ end
 
 function M.error(err)
     local message = tostring(err)
+    M.first_error = M.first_error or message
     if not M.errors[message] then
         M.errors[message] = true
         M.status = 'BLOCKED'
@@ -122,6 +123,7 @@ local function bind()
     for _, spec in ipairs(specs) do
         local name, operation, result, args = spec[1], spec[2], spec[3], spec[4]
         bindings[name] = function(...)
+            assert(not M.native_failed, 'Native bridge stopped after: ' .. tostring(M.native_failed))
             assert(not globals.HWBusy, 'Nested UI bridge call: ' .. name)
             globals.HWBusy = true
             local values = table.pack(...)
@@ -149,7 +151,10 @@ local function bind()
                 if result ~= 'nothing' then return globals['HW' .. result .. 'Result'] end
             end)
             globals.HWBusy = false
-            if not ok then error(value, 2) end
+            if not ok then
+                M.native_failed = name
+                error('HERA_NATIVE_FAILED: ' .. name .. ' / ' .. tostring(value), 2)
+            end
             return value
         end
     end
@@ -262,11 +267,13 @@ function ui.render(record)
     assert(attrs.render_type ~= 3, 'HERA_UNSUPPORTED_VIDEO: UI video element')
     local kind = attrs.render_type == 1 and 'TEXT' or 'BACKDROP'
     if not record.frame then
+        native_require('hera_fdf').ensure_loaded()
         frame_counter = frame_counter + 1
-        record.frame = native('DzCreateFrameByTagName', kind, 'HW' .. frame_counter, native('DzGetGameUI'), '', 0)
-        assert(record.frame ~= 0, 'HERA_FRAME_CREATE_FAILED: ' .. kind)
-        native('DzFrameSetEnable', record.frame, false)
+        local template = kind == 'TEXT' and 'HeraWanhuaText' or 'HeraWanhuaImage'
+        record.frame = native('DzCreateFrameByTagName', kind, 'HW' .. frame_counter, native('DzGetGameUI'), template, 0)
+        assert(type(record.frame) == 'number' and record.frame ~= 0, 'HERA_FRAME_CREATE_FAILED: ' .. kind)
         frame_records[record.frame], owned_frames[record.frame] = record, true
+        native('DzFrameShow', record.frame, false)
     end
     local width, height = screen()
     local x, y, w, h = record.x, record.y, record.width, record.height
@@ -400,6 +407,7 @@ function M.ability_template(id)
 end
 
 function M.input(kind)
+    if M.status == 'BLOCKED' then return '' end
     local fn = _G.WindowEventCallBack
     if fn then native_xpcall(function() fn(kind, 0, 0) end, M.error) end
     return ''
@@ -407,12 +415,17 @@ end
 
 function M.tick()
     if M.status == 'not started' then return '' end
+    if M.status == 'BLOCKED' then
+        if not M.reported_error then M.reported_error = true; return M.summary() end
+        return ''
+    end
     epoch, draw_counter = epoch + 1, 0
     local time = os.clock()
     if last_tick and time > last_tick then tick_rate = 1 / (time - last_tick) end
     last_tick = time
     native_xpcall(function()
         M.input(10)
+        if M.status == 'BLOCKED' then return end
         if env.new_sound then env.new_sound.sound_update() end
         if env.newui then
             env.newui.render_gui()
@@ -433,7 +446,7 @@ function M.tick()
 end
 
 function M.summary()
-    local first = next(M.errors)
+    local first = M.first_error
     return 'Wanhua 0.175 Hera TEST ' .. M.version .. '\n' .. M.status .. '\n임시 세션 / 서버 저장 미지원' ..
         '\nModules: ' .. #M.modules .. ' / frames: ' .. frame_counter ..
         (first and '\n' .. first:sub(1, 220) or '')
@@ -565,6 +578,10 @@ function M.start()
         rawset(japi, 'timer_destroy', function() end)
         limitation('Chinese platform identity and cloud persistence unavailable')
         local message = native_require('jass.message')
+        if type(message.unit_overhead) ~= 'function' then
+            local height = native_require('hera_overhead')(M)
+            rawset(message, 'unit_overhead', height)
+        end
         -- message의 __newindex는 hook 이외의 새 필드를 버리므로 호환 함수만 직접 등록한다.
         if not message.origin_load then rawset(message, 'origin_load', assert(native_require('jass.storm').load, 'Missing Storm loader')) end
         rawset(message, 'create_list', function() return {} end)

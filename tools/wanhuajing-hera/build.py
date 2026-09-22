@@ -153,6 +153,17 @@ def prepare_fdf(source, spans, strings, output):
             fonts.append(template % values)
     # 원본 기본 템플릿의 글꼴 파일은 맵에 없으므로 포함된 fonts.ttf로 연결한다.
     base_asset = base.replace('FrameFont "字体.ttf"', 'FrameFont "fonts.ttf"')
+    base_asset += r'''
+Frame "TEXT" "HeraWanhuaText" {
+    LayerStyle "IGNORETRACKEVENTS",
+    FrameFont "fonts3.ttf", 0.012, "",
+}
+Frame "BACKDROP" "HeraWanhuaImage" {
+    LayerStyle "IGNORETRACKEVENTS",
+    BackdropBackground "UI\Widgets\EscMenu\Human\blank-background.blp",
+    BackdropBlendAll,
+}
+'''
     catalog = ('-- 맵에 포함한 UI 정의와 원본 호출 내용을 대조하는 목록이다.\nreturn {base=' +
                json.dumps(base, ensure_ascii=False) + ', maximum=' + str(maximum) + ', templates={' +
                ','.join('[' + json.dumps(k) + ']=' + json.dumps(v, ensure_ascii=False) for k, v in templates.items()) + '}}\n')
@@ -400,7 +411,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v5: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v6: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -411,7 +422,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v5: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v6: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)

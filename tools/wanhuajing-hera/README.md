@@ -1,6 +1,6 @@
-# 만화경 v0.175 헤라 호환 시험본 v5
+# 만화경 v0.175 헤라 호환 시험본 v6
 
-제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v5.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. 실제 헤라 로딩, 영웅 선택, 전투 및 멀티플레이 성공은 아직 확인하지 않았다.
+제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v6.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. 실제 헤라 로딩, 영웅 선택, 전투 및 멀티플레이 성공은 아직 확인하지 않았다.
 
 v2는 시작·갱신 호출에서 중복 `return`을 제거하고, Lua가 null을 반환하면 타이머를 중단하고 오류를 한 번 표시한다. [YDWE의 EXExecuteScript](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/lua_loader.cpp)는 전달식을 `return (...)`으로 감싼다. 설치 DLL의 `return (%s)` 문자열과 일치함을 확인했고, 생성된 JASS 문자열에 같은 규칙을 적용해 v1의 실패와 v2의 통과를 재현했다.
 
@@ -9,6 +9,8 @@ v3는 설치 헤라에 `jass.code`가 없는 경우, 맵에 정의된 `get_playe
 v4는 모듈 860의 `origin_load` 호출 실패를 수정한다. [YDWE의 jass.message](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/libs_message.cpp)는 `__newindex`에서 `hook` 이외의 새 필드 대입을 무시한다. 따라서 `origin_load`와 목록 함수 4개를 `rawset`으로 등록한다. 기존 메타테이블과 네이티브 `hook` 처리 방식은 유지한다. 부트 검사에도 이 제약을 적용해 v3의 모듈 64개·프레임 0개 상태와 동일 오류를 재현했다.
 
 v5는 `load_fdf`가 실행 중 저장한 파일을 다시 읽지 못해 문자열 결합에서 중단되는 문제를 수정한다. [YDWE의 파일 읽기 경로](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/fix_baselib.cpp)는 로컬 파일 읽기를 허용하지 않으면 MPQ로 읽는다. 기본 UI와 글꼴·입력 상자 정의를 FDF·TOC로 맵에 포함하고 한 번 로드한다. 글꼴 크기 0~256의 네 가지 형식을 준비하며, 다른 내용이나 범위 밖 요청은 오류로 알린다. 기본 정의의 누락된 `字体.ttf`는 맵에 있는 `fonts.ttf`로 연결한다. 로그 경로와 머리말은 현재 버전에서 생성한다.
+
+v6는 v5 로그의 `DzFrameSetEnable` 네이티브 실패와 체력바 `unit_overhead` 누락을 다룬다. 어댑터의 이미지·텍스트는 기본 배경·글꼴과 입력 추적 제외 속성을 갖춘 FDF 템플릿으로 생성하며, 생성 직후 활성화 상태를 바꾸는 호출은 제거한다. 네이티브 브리지 오류 후에는 후속 브리지 호출·화면 갱신·입력 처리를 중단하고 최초 오류를 표시한다. 체력바 높이는 현재 모델의 MDX 경계 상단으로 근사하며 읽을 수 없으면 60을 사용하고 제한을 기록한다. 원본의 애니메이션별 머리 위 부착점과 동일한 결과는 아니다. 충돌 덤프의 단일 원인을 확정하거나 실제 종료 문제가 해결됐다고 판정한 버전은 아니다.
 
 원본 SHA-256은 `901c31b06081e784490cdf0a99bde3680d60c6028a433a6ef57f20a0e9ec71d3`이다. 빌더는 다른 원본, 원본 덮어쓰기 및 기존 결과 덮어쓰기를 거부한다. 원본 맵, 복원한 원본 스크립트·에셋 및 DLL은 저장소에 포함하지 않는다.
 
@@ -24,7 +26,7 @@ v5는 `load_fdf`가 실행 중 저장한 파일을 다시 읽지 못해 문자�
 
 원본 `opengl`, `ui`, `mprender` 구현을 재현한 것은 아니다. MDXS 셰이더, 동영상, UI 3D 회전, UV 변형, 일부 클리핑·애니메이션·색상·효과 모델 교체는 지원하지 않거나 단순화했다. 텍스트 폭·월드 좌표 투영·채팅 상태는 근사값이다. 전용 창 크기 조절은 런처 설정을 사용한다. UI 클릭의 원래 게임 입력 차단, 단축키, 효과 제거 시점, 아이템 능력 템플릿, 동기화와 모든 캐릭터 스킬은 실제 게임에서 확인해야 한다.
 
-오류와 지원하지 않는 호출은 게임 폴더의 `Logs/Hera_Wanhua_v5_p1.txt`에 기록한다. 플레이어 번호에 따라 `p2`, `p3` 등으로 바뀐다. 초기화 상태에도 시험본과 서버 저장 미지원 안내가 표시된다. `initialized; gameplay unverified`는 Lua 초기화 반환 상태이며 게임 정상 작동 판정이 아니다. FDF 로드 네이티브는 반환값이 없으므로 템플릿이 실제로 화면에 적용됐는지는 게임에서 확인해야 한다.
+오류와 지원하지 않는 호출은 게임 폴더의 `Logs/Hera_Wanhua_v6_p1.txt`에 기록한다. 플레이어 번호에 따라 `p2`, `p3` 등으로 바뀐다. 초기화 상태에도 시험본과 서버 저장 미지원 안내가 표시된다. `initialized; gameplay unverified`는 Lua 초기화 반환 상태이며 게임 정상 작동 판정이 아니다. FDF 로드 네이티브는 반환값이 없으므로 템플릿이 실제로 화면에 적용됐는지는 게임에서 확인해야 한다.
 
 ## 빌드
 
@@ -32,7 +34,7 @@ Windows, Python 3.11 이상, Pillow, 64비트 StormLib가 필요하다. Lua 검�
 
 ```powershell
 python -m pip install Pillow lupa
-python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v5.w3x' --stormlib 'C:/tools/StormLib.dll'
+python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v6.w3x' --stormlib 'C:/tools/StormLib.dll'
 ```
 
 결과 옆 `staging`에는 생성 스크립트, 변환 이미지, 블록별 SHA-256을 담은 `build-report.json`이 만들어진다. `--prepare-only --prepare-images`는 맵 포장 없이 검사 입력을 준비한다.
@@ -43,7 +45,7 @@ python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/He
 python tools/wanhuajing-hera/check_core.py --original-jass 'C:/build/original-war3map.j'
 python tools/wanhuajing-hera/check_boot.py --source 'C:/maps/万华镜v0.175.w3x' --staging 'C:/build/staging' --stormlib 'C:/tools/StormLib.dll' --common-j 'C:/JN/common.j' --library-dir Library
 & 'C:/JN/pjass.exe' 'C:/JN/common.j' 'C:/JN/Blizzard.j' 'C:/build/staging/war3map.j'
-python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v5.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
+python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v6.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
 ```
 
 `check_core.py`의 원본 JASS는 원본 맵의 `war3map.j`를 읽기 전용으로 추출한 것이다. Lupa를 별도 폴더에 설치했다면 검사기에 `--lua-deps`를 지정할 수 있다.

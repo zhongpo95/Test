@@ -18,6 +18,9 @@ archive = Archive(args.source, args.stormlib)
 lua = LuaRuntime(encoding=None, unpack_returned_tuples=True)
 lua.execute(b'''
 local cache, counter, definitions, toc_calls = {}, 10000, {}, {}
+local passive_frames = {}
+local native_calls = 0
+function get_native_calls() return native_calls end
 cache.utf8=utf8
 local common = {}
 local timers, now, expired = {}, 0, 0
@@ -69,6 +72,8 @@ function define_japi(name, result) define(name,result);japi[name]=common[name] e
 local globals = {HWEvaluator=1, HWBusy=false, HWOperation=0, HWCompleted=false}
 function register_binding(name, operation) definitions[operation] = name end
 function common.TriggerEvaluate()
+    native_calls=native_calls+1
+    if definitions[globals.HWOperation]==mock_fail_native then error('Injected native bridge failure') end
     globals.HWCompleted=true
     globals.HWIntegerResult=handle()
     if globals.HWOperation==16 then globals.HWIntegerResult=1280 end
@@ -78,6 +83,11 @@ function common.TriggerEvaluate()
     globals.HWStringResult=''
     globals.HWBooleanResult=false
     local name = definitions[globals.HWOperation]
+    if name=='DzCreateFrameByTagName' and globals.HWString2:match('^HW%d+$') then
+        passive_frames[globals.HWIntegerResult]={kind=globals.HWString1,template=globals.HWString3}
+    elseif name=='DzFrameSetEnable' and passive_frames[globals.HWInteger1] then
+        error('Observed v5 failure injected: passive frame DzFrameSetEnable')
+    end
     if name=='get_player_name' then
         globals.HWStringResult=common.GetPlayerName(common.Player(globals.HWInteger1-1))..'x'
     elseif name=='YDWERPGBillingGetItem' then
@@ -122,6 +132,14 @@ function check_packaged_fdf()
     for name in pairs(saved) do
         assert(not name:lower():match('%.fdf$') and not name:lower():match('%.toc$'), 'UI wrote a runtime file: '..name)
     end
+end
+function check_passive_templates()
+    local count=0
+    for _,frame in pairs(passive_frames) do
+        assert(frame.template==(frame.kind=='TEXT' and 'HeraWanhuaText' or 'HeraWanhuaImage'))
+        count=count+1
+    end
+    assert(count>0)
 end
 function require(name)
     if cache[name] then return cache[name] end
@@ -174,6 +192,12 @@ for path in list(Path(__file__).parent.glob('*.lua'))+list(args.staging.glob('*.
     assert ok,(path,err)
     syntax_count += 1
 print('Lua syntax passed')
+base_fdf = (args.staging / 'HeraWanhua_base.fdf').read_text(encoding='utf8')
+image_fdf = re.search(r'Frame "BACKDROP" "HeraWanhuaImage"\s*\{([^}]+)\}', base_fdf)[1]
+text_fdf = re.search(r'Frame "TEXT" "HeraWanhuaText"\s*\{([^}]+)\}', base_fdf)[1]
+assert re.search(r'BackdropBackground "([^"]+)"', image_fdf)[1] == r'UI\Widgets\EscMenu\Human\blank-background.blp'
+assert 'FrameFont "fonts3.ttf", 0.012' in text_fdf
+assert all('LayerStyle "IGNORETRACKEVENTS"' in body for body in (image_fdf, text_fdf))
 # 설치된 yd_lua_engine은 전달식을 return (%s)로 감싸서 평가한다.
 # JASS의 실제 문자열을 읽어 검사해야 중복 return 같은 연결부 오류를 잡을 수 있다.
 jass = (args.staging / 'war3map.j').read_text(encoding='utf8')
@@ -257,6 +281,7 @@ assert(not pcall(fdf.load, 'Frame "TEXT" "missing_template" {}'))
 assert(not pcall(fdf.load, catalog.templates.text:format(catalog.maximum+1,1)))
 assert(not pcall(fdf.load, catalog.templates.text:format(12,1)))
 check_packaged_fdf()
+check_passive_templates()
 '''.encode('utf8'))
 report['missing_jass_code_fallback_checked'] = True
 report['player_name_suffix_and_utf8_checked'] = True
@@ -265,5 +290,49 @@ report['message_newindex_and_native_hook_checked'] = True
 report['packaged_fdf_without_local_reads_checked'] = True
 report['fdf_template_variants_checked'] = 1028
 report['versioned_log_path_checked'] = True
+lua.execute(b'''
+local common,storm=require('jass.common'),require('jass.storm')
+local old_id,old_load=common.GetUnitTypeId,storm.load
+common.GetUnitTypeId=function() return 1 end
+local notes,paths={},{}
+local top=145.5
+paths['test.mdx']='MDLXMODL'..string.pack('<I4',372)..string.rep(string.char(0),364)..string.pack('<fI4',top,0)
+paths['truncated.mdx']='MDLXMODL'..string.pack('<I4',372)..'short'
+storm.load=function(path) return paths[path] end
+local path='test.mdl'
+local unit={get_model_file=function() return path end}
+local port={env={game={unit={all_units={[77]=unit}}}},note=function(s) notes[#notes+1]=s end}
+local height=require('hera_overhead')(port)
+assert(height(77)==top)
+path='truncated.mdx';assert(height(77)==60)
+path='missing.mdx';assert(height(77)==60)
+assert(height(0)==0)
+common.GetUnitTypeId=function() return 0 end
+assert(height(77)==0)
+common.GetUnitTypeId,storm.load=old_id,old_load
+assert(type(rawget(require('jass.message'),'unit_overhead'))=='function')
+''')
+report['unit_overhead_bounds_and_fallback_checked'] = True
+lua.execute(b'''
+local port=require('hera_wanhua')
+local ui=port.library('ui')
+local record=ui.create()
+ui.set_attribute(record,'render_type',1)
+ui.set_attribute(record,'text','Native failure probe')
+ui.set_size(record,100,20)
+WindowEventCallBack=nil
+port.env.newui.render_gui=function() ui.render(record) end
+port.env.newui.render_gui2=function() error('Rendering continued after native failure') end
+mock_fail_native='DzFrameSetSize'
+local message=port.tick()
+assert(port.status=='BLOCKED' and port.native_failed=='DzFrameSetSize')
+assert(message:find('HERA_NATIVE_FAILED: DzFrameSetSize',1,true))
+local calls=get_native_calls()
+assert(port.tick()=='')
+port.input(10)
+assert(not pcall(require('jass.japi').DzFrameShow,record.frame,true))
+assert(get_native_calls()==calls)
+''')
+report['passive_templates_and_native_failure_stop_checked'] = True
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
-print('JASS fallback, name, console, message, packaged FDF and version log checks passed')
+print('JASS fallback, packaged FDF, passive UI, overhead and native failure stop checks passed')

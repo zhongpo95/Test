@@ -3,6 +3,14 @@ local catalog = require('hera_fdf_catalog')
 local loaded = false
 local M = {}
 
+function M.ensure_loaded()
+    if not loaded then
+        require('jass.japi').DzLoadToc('HeraWanhua_ui.toc')
+        loaded = true
+        require('hera_wanhua').note('FDF packaged templates requested; native rendering unverified')
+    end
+end
+
 function M.load(data)
     if data ~= catalog.base then
         local name, digits = data:match('^%s*Frame%s+"%u+"%s+"([%a_]+)(%d+)"')
@@ -13,11 +21,7 @@ function M.load(data)
         else expected = template:format(size, size / 1000) end
         assert(data == expected, 'UI definition differs from packaged template: ' .. name .. digits)
     end
-    if not loaded then
-        require('jass.japi').DzLoadToc('HeraWanhua_ui.toc')
-        loaded = true
-        require('hera_wanhua').note('FDF packaged templates requested; native rendering unverified')
-    end
+    M.ensure_loaded()
 end
 
 return M
