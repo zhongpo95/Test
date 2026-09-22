@@ -5,10 +5,10 @@
  import pathlib,struct,json,hashlib,re,zlib
  ROOT=pathlib.Path(__file__).parent
 -OUT=ROOT/'Hera_RPG_Init_v148.w3x'
-+OUT=ROOT/'Hera_RPG_Init_v149.w3x'
++OUT=ROOT/'Hera_RPG_Init_v150.w3x'
  SRC=ROOT/'hera-rpg-src';SRC.mkdir(exist_ok=True)
 -TITLE='Hera RPG initialization v148'
-+TITLE='Hera RPG initialization v149'
++TITLE='Hera RPG initialization v150'
  TABLE=[0]*1280;seed=0x100001
  for i in range(256):
      for j in range(5):
@@ -17,7 +17,7 @@
      f.seek(512);f.write(b'MPQ\x1a'+pack('IIHH4I',32,size,0,3,hpos,bpos,count,len(blocks)))
  temp.replace(OUT)
 -report={'revision':148,'map':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'files':len(rows),'known_names':sum(x['name'] is not None for x in manifest),'opaque_hashes':sum(x['name'] is None for x in manifest),'recovered_lua':lua_count,'jrp_assets':len(jrp),'excluded':excluded,'hash_table_slots':count,'empty_slots':0,'deleted_slots':count-len(rows),'status':'initialization test; no v148 game runtime validation','entries':manifest}
-+report={'revision':149,'map':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'files':len(rows),'known_names':sum(x['name'] is not None for x in manifest),'opaque_hashes':sum(x['name'] is None for x in manifest),'recovered_lua':lua_count,'jrp_assets':len(jrp),'excluded':excluded,'hash_table_slots':count,'empty_slots':0,'deleted_slots':count-len(rows),'status':'initialization test; no v149 game runtime validation','entries':manifest}
++report={'revision':150,'map':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'files':len(rows),'known_names':sum(x['name'] is not None for x in manifest),'opaque_hashes':sum(x['name'] is None for x in manifest),'recovered_lua':lua_count,'jrp_assets':len(jrp),'excluded':excluded,'hash_table_slots':count,'empty_slots':0,'deleted_slots':count-len(rows),'status':'initialization test; no v150 game runtime validation','entries':manifest}
  (ROOT/'hera-rpg-build.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
  print(json.dumps({k:v for k,v in report.items() if k!='entries'}))
 --- a/hera-port/hera_boot.lua
@@ -27,7 +27,7 @@
  local runtime
  local first_runtime_error
 -local report_path = "Logs/Hera_RPG_Boot_v148.txt"
-+local report_path = "Logs/Hera_RPG_Boot_v149.txt"
++local report_path = "Logs/Hera_RPG_Boot_v150.txt"
  
  local function save()
    local ok, result, reason = pcall(function()
@@ -36,7 +36,7 @@
      sync_line = "registered; sent=" .. tostring(sync.sent) .. "; received=" .. sync.received .. "; player=" .. sync.sender
    end
 -  return "Hera RPG initialization v148\nStatus = " .. status ..
-+  return "Hera RPG initialization v149\nStatus = " .. status ..
++  return "Hera RPG initialization v150\nStatus = " .. status ..
      "\nLoaded modules = " .. loaded_count ..
      (failed_module ~= "" and "\nModule = " .. failed_module or "") ..
      (first ~= "" and "\n" .. first:sub(1, 220) or "") ..
@@ -45,12 +45,12 @@
    end)
    if identity_ok and type(slot) == "number" then
 -    report_path = "Logs/Hera_RPG_Boot_v148_p" .. tostring(slot) .. ".txt"
-+    report_path = "Logs/Hera_RPG_Boot_v149_p" .. tostring(slot) .. ".txt"
++    report_path = "Logs/Hera_RPG_Boot_v150_p" .. tostring(slot) .. ".txt"
    end
    started, status = true, "loading recovered RPG modules"
    note("CLIENT SLOT = " .. tostring(identity_ok and slot or "unavailable"))
 -  note("Hera RPG initialization v148 / " .. _VERSION)
-+  note("Hera RPG initialization v149 / " .. _VERSION)
++  note("Hera RPG initialization v150 / " .. _VERSION)
    local ok, result = xpcall(function()
      runtime = original_require("jass.runtime")
      runtime.handle_level = 0
@@ -61,7 +61,7 @@
        " delta=" .. tostring(after_count - before_count) .. " sleep=" .. tostring(runtime.sleep) ..
        " runtime=" .. tostring(runtime.version) .. "\n"
 -    f = assert(io.open("Logs/Hera_RPG_Callback_v148_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", seq == 1 and "wb" or "ab"))
-+    f = assert(io.open("Logs/Hera_RPG_Callback_v149_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", seq == 1 and "wb" or "ab"))
++    f = assert(io.open("Logs/Hera_RPG_Callback_v150_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", seq == 1 and "wb" or "ab"))
      assert(f:write(line)); assert(f:close()); f = nil
    end)
    if not ok then
@@ -72,7 +72,7 @@
      for _, key in ipairs(fields) do line = line .. " " .. key .. "=" .. tostring(values[key]) end
      if monster_count == 49999 then line = line .. " TRACE_LIMIT_REACHED=true" end
 -    f = assert(io.open("Logs/Hera_RPG_Monster_v148_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", monster_count == 0 and "wb" or "ab"))
-+    f = assert(io.open("Logs/Hera_RPG_Monster_v149_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", monster_count == 0 and "wb" or "ab"))
++    f = assert(io.open("Logs/Hera_RPG_Monster_v150_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", monster_count == 0 and "wb" or "ab"))
      assert(f:write(line .. "\n"))
      assert(f:close())
      f = nil
@@ -81,11 +81,11 @@
    local boot = require('hera_boot')
    local japi = require('jass.japi')
 -  input_path = "Logs/Hera_RPG_Input_v148_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt"
-+  input_path = "Logs/Hera_RPG_Input_v149_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt"
++  input_path = "Logs/Hera_RPG_Input_v150_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt"
    pcall(function()
      local f = io.open(input_path, "wb")
 -    if f then f:write("v148 input trace; LOCAL is client input; SYNC is game event; max 40000 records; max 10000 SYNC commands; no AFTER timers\n"); f:close() end
-+    if f then f:write("v149 input trace; LOCAL is client input; SYNC is game event; max 40000 records; max 10000 SYNC commands; no AFTER timers\n"); f:close() end
++    if f then f:write("v150 input trace; LOCAL is client input; SYNC is game event; max 40000 records; max 10000 SYNC commands; no AFTER timers\n"); f:close() end
    end)
    local order_trigger = war3.CreateTrigger(function()
      local handle = GetTriggerUnit()
@@ -94,7 +94,7 @@
      TriggerRegisterPlayerUnitEvent(order_trigger, Player(i), EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER, nil)
    end
 -  boot.note("RUN INFO version=v148 local_time=" .. os.date("%Y-%m-%d %H:%M:%S") .. " utc=" .. os.date("!%Y-%m-%d %H:%M:%S"), true)
-+  boot.note("RUN INFO version=v149 local_time=" .. os.date("%Y-%m-%d %H:%M:%S") .. " utc=" .. os.date("!%Y-%m-%d %H:%M:%S"), true)
++  boot.note("RUN INFO version=v150 local_time=" .. os.date("%Y-%m-%d %H:%M:%S") .. " utc=" .. os.date("!%Y-%m-%d %H:%M:%S"), true)
    for slot = 0, 5 do
      boot.note("ROSTER slot=" .. slot .. " name=" .. GetPlayerName(Player(slot)) .. " controller=" .. tostring(GetPlayerController(Player(slot))) .. " state=" .. tostring(GetPlayerSlotState(Player(slot))), true)
    end
@@ -105,7 +105,7 @@
  end
  function M.step(ctx, stage, detail)
 -  -- v148는 이동 시작과 종료만 남겨 상세 파일 기록의 영향을 비교한다.
-+  -- v149는 이동 시작과 종료만 남겨 상세 파일 기록의 영향을 비교한다.
++  -- v150는 이동 시작과 종료만 남겨 상세 파일 기록의 영향을 비교한다.
    if stage ~= "CREATE" and stage ~= "FINISH" then return end
    if not ctx or step_failed or step_count >= 100000 then return end
    local f
@@ -114,7 +114,7 @@
        " x=" .. tostring(GetUnitX(h)) .. " y=" .. tostring(GetUnitY(h)) .. " facing=" .. tostring(GetUnitFacing(h)) ..
        " order=" .. tostring(GetUnitCurrentOrder(h)) .. " " .. (detail or "") .. "\n"
 -    f = assert(io.open("Logs/Hera_RPG_MoveSteps_v148_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", step_count == 0 and "wb" or "ab"))
-+    f = assert(io.open("Logs/Hera_RPG_MoveSteps_v149_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", step_count == 0 and "wb" or "ab"))
++    f = assert(io.open("Logs/Hera_RPG_MoveSteps_v150_p" .. tostring(GetPlayerId(GetLocalPlayer()) + 1) .. ".txt", step_count == 0 and "wb" or "ab"))
      assert(f:write(line))
      assert(f:close())
      f = nil
@@ -125,7 +125,7 @@
    local common = require("jass.common")
    local japi = require("jass.japi")
 -  path = "Logs/Hera_RPG_Trace_v148_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
-+  path = "Logs/Hera_RPG_Trace_v149_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
++  path = "Logs/Hera_RPG_Trace_v150_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
    local get_id = common.GetHandleId
    local function value(v)
      if type(v) == "userdata" then return tostring(get_id(v)) end
@@ -136,10 +136,10 @@
    if path then return end
    pcall(function()
 -    path = "Logs/Hera_RPG_UITrace_v148_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
-+    path = "Logs/Hera_RPG_UITrace_v149_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
++    path = "Logs/Hera_RPG_UITrace_v150_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
      local f = io.open(path, "wb")
 -    if f then f:write("UI trace v148; dispatch=TriggerEvaluate; per-client counters; maximum 20000 lines\n"); f:close() end
-+    if f then f:write("UI trace v149; dispatch=TriggerEvaluate; per-client counters; maximum 20000 lines\n"); f:close() end
++    if f then f:write("UI trace v150; dispatch=TriggerEvaluate; per-client counters; maximum 20000 lines\n"); f:close() end
    end)
  end
  function M.begin_event(frame, event, player)
@@ -178,7 +178,7 @@
    if use_filter then
      local center = Location(x, y)
 -    -- v148 비교 전용이며 원래 BJ처럼 공유 값을 덮어쓰고 종료 후 복원하지 않는다.
-+    -- v149 비교 전용이며 원래 BJ처럼 공유 값을 덮어쓰고 종료 후 복원하지 않는다.
++    -- v150 비교 전용이며 원래 BJ처럼 공유 값을 덮어쓰고 종료 후 복원하지 않는다.
      local probe = require("hera_callback_probe")
      -- 엔진에 전달할 중간 함수 자체의 등록을 관찰한다.
      local action = function()

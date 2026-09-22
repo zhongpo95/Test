@@ -2,7 +2,9 @@
 local japi = require("jass.japi")
 local boot = require("hera_boot")
 local M = {}
-local prefix = "HeraYaeRelease"
+local prefix = "HeraYaeE"
+-- 설치 JN의 Dz 동기화 접두사는 최대 9바이트다.
+assert(#prefix <= 9, "YAE_RELEASE_PREFIX_TOO_LONG")
 local token = "E_UP"
 local release_order = 852138
 local trace_count = 0
@@ -17,9 +19,11 @@ end
 local trigger = CreateTrigger()
 japi.DzTriggerRegisterSyncData(trigger, prefix, false)
 TriggerAddAction(trigger, function()
-  if japi.DzGetTriggerSyncData() ~= token then return end
+  local data = japi.DzGetTriggerSyncData()
   local sender = japi.DzGetTriggerSyncPlayer()
   local sy = GetConvertedPlayerId(sender)
+  trace("SYNC RECEIVE p=" .. sy .. " data=" .. tostring(data))
+  if data ~= token then return end
   if sy < 1 or sy > 6 or not Xuanze or not Xuanze[sy] then return end
   local hero = Hero and Hero[sy]
   if not hero or hero == 0 or GetUnitTypeId(hero) ~= HeroType["八重樱"]
@@ -37,6 +41,7 @@ TriggerAddAction(trigger, function()
   local accepted = IssueImmediateOrderById(hero, release_order)
   trace("SYNC END p=" .. sy .. " accepted=" .. tostring(accepted))
 end)
+trace("REGISTERED prefix=" .. prefix)
 
 function M.request()
   trace("LOCAL SEND")
