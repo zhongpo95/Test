@@ -87,6 +87,10 @@ function common.TriggerEvaluate()
         passive_frames[globals.HWIntegerResult]={kind=globals.HWString1,template=globals.HWString3}
     elseif name=='DzFrameSetEnable' and passive_frames[globals.HWInteger1] then
         error('Observed v5 failure injected: passive frame DzFrameSetEnable')
+    elseif name=='DzFrameSetTexture' and globals.HWString1:match('^HeraWanhua') then
+        assert(cache['jass.storm'].load(globals.HWString1), 'Texture is not in the map: '..globals.HWString1)
+    elseif name=='DzFrameSetVertexColor' and passive_frames[globals.HWInteger1] then
+        passive_frames[globals.HWInteger1].color=globals.HWInteger2
     end
     if name=='get_player_name' then
         globals.HWStringResult=common.GetPlayerName(common.Player(globals.HWInteger1-1))..'x'
@@ -140,6 +144,10 @@ function check_passive_templates()
         count=count+1
     end
     assert(count>0)
+end
+function check_image_color(frame, color) assert(passive_frames[frame].color==color) end
+function check_no_runtime_textures()
+    for name in pairs(saved) do assert(not name:lower():match('%.tga$'), 'UI wrote a runtime texture: '..name) end
 end
 function require(name)
     if cache[name] then return cache[name] end
@@ -211,6 +219,7 @@ def execute_jass_expression(function_name):
 
 result=execute_jass_expression('HWStart')
 print(result.decode('utf8',errors='replace'))
+lua.execute(b"assert(type(require('hera_wanhua').env.render.world_to_screen)=='function')")
 timer_calls = lua.globals().advance(10)
 print('Deferred timer calls', timer_calls)
 execute_jass_expression('HWRefresh')
@@ -313,6 +322,53 @@ common.GetUnitTypeId,storm.load=old_id,old_load
 assert(type(rawget(require('jass.message'),'unit_overhead'))=='function')
 ''')
 report['unit_overhead_bounds_and_fallback_checked'] = True
+lua.execute('''
+local port=require('hera_wanhua')
+local ui=port.library('ui')
+local gl=port.library('opengl')
+collectgarbage('collect')
+local before=ui.get_element_size()
+local record=ui.create()
+assert(ui.get_element_size()==before+1)
+record.width,record.height=100,100
+record.attributes={render_type=0,u_rgb={0,0,0},u_alpha=0.5}
+ui.render(record)
+check_image_color(record.frame,0xff000000)
+record.attributes.u_rgb={1,0.5,0.25}
+ui.render(record)
+check_image_color(record.frame,0xffff8040)
+record.attributes.u_rgb=nil
+ui.render(record)
+check_image_color(record.frame,0xffffffff)
+local source='[UI]\\\\空.png'
+local original=gl.get_resource(source)
+assert(port.crop_texture(source,'hera-crop-test',0,0,64,64))
+local cropped=gl.get_resource('hera-crop-test')
+assert(cropped.width==64 and cropped.height==64)
+assert(cropped.path==(original.crop64 and original.crop64.path or original.path))
+local message=require('jass.message')
+local ability,order,kind=message.common_selector()
+assert(ability==0 and order==0 and kind==0)
+-- 삭제로 XLS_data가 이미 정리된 유닛을 실제 등록된 스킬 선택 콜백에 전달한다.
+local player=port.env.game.player[1]
+local unit={removed=true,get_xls_name=function() error('Removed unit XLS_data accessed') end}
+local checked=0
+for _,event in ipairs(port.env.game.instance.events['玩家-选择单位']) do
+    if event._extra_info:find('选择单位刷新技能目标',1,true) then
+        event(player,unit,{unit})
+        unit.removed=nil
+        event(player,unit,{unit})
+        unit.XLS_data={name='test'}
+        unit.get_xls_name=function(self) return self.XLS_data.name end
+        event(player,unit,{unit})
+        checked=checked+1
+    end
+end
+assert(checked==1)
+assert(port.status~='BLOCKED',port.first_error)
+check_no_runtime_textures()
+'''.encode('utf8'))
+report['packaged_crop_tint_element_count_early_renderer_and_removed_selection_checked'] = True
 lua.execute(b'''
 local port=require('hera_wanhua')
 local ui=port.library('ui')

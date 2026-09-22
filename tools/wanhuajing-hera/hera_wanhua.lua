@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v6', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v7', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -197,26 +197,16 @@ function M.resolve_texture(path)
     return resource and resource.path or path or ''
 end
 
-local crop_counter = 0
 function M.crop_texture(source, target, x, y, width, height)
     local resource = gl.get_resource(source)
-    local storm = native_require('jass.storm')
-    local data = resource and storm.load(resource.path)
     local output = resource
-    if data and #data >= 18 and data:byte(3) == 2 and data:byte(17) == 32 and data:byte(18) == 0x28 then
-        local sw, sh = string.unpack('<I2I2', data, 13)
-        assert(width > 0 and height > 0 and x >= 0 and y >= 0 and x + width <= sw and y + height <= sh, 'Invalid UI crop rectangle')
-        local rows = {string.pack('<BBBBBBBBBBBBI2I2BB',0,0,2,0,0,0,0,0,0,0,0,0,width,height,32,0x28)}
-        for row = y, y + height - 1 do
-            local start = 19 + (row * sw + x) * 4
-            rows[#rows + 1] = data:sub(start, start + width * 4 - 1)
-        end
-        crop_counter = crop_counter + 1
-        local path = 'HeraWanhua\\crop_v1_' .. crop_counter .. '.tga'
-        assert(storm.save(path, table.concat(rows)), 'Failed to save UI crop')
-        output = {path = path, width = width, height = height}
+    -- 맵의 유일한 자르기 호출은 좌상단 64x64이며, 결과도 MPQ 안에서 읽어야 한다.
+    if resource and x == 0 and y == 0 and width == 64 and height == 64 and resource.crop64 then
+        output = resource.crop64
+    elseif resource and x == 0 and y == 0 and width == resource.width and height == resource.height then
+        output = resource
     else
-        limitation('UI crop source unavailable; full icon retained: ' .. tostring(source))
+        limitation('UI crop not packaged; original resource retained: ' .. tostring(source))
     end
     resources[target:gsub('/', '\\'):lower()] = output
     return output ~= nil
@@ -252,7 +242,11 @@ function ui.get_mouse_x() return native('DzGetMouseXRelative') end
 function ui.get_mouse_y() return native('DzGetMouseYRelative') end
 function ui.get_text_width_of_size(text, size) return text_width(text, size) end
 function ui.get_text_width(record) return text_width(record.attributes.text, record.height) end
-function ui.get_element_size(record) return record.width, record.height end
+function ui.get_element_size()
+    local count = 0
+    for _ in pairs(records) do count = count + 1 end
+    return count
+end
 function ui.scissor(x, y, width, height, enabled)
     if enabled then M.clip = {x, y, width, height} else M.clip = nil end
 end
@@ -304,6 +298,10 @@ function ui.render(record)
         if attrs.resource2 and attrs.program and attrs.program.fragment:find('mix(texture2D', 1, true) and (attrs.u_progress or 0) > 0.5 then resource = attrs.resource2 end
         local path = resource and resource.path or 'UI\\Widgets\\EscMenu\\Human\\blank-background.blp'
         changed(record, 'texture', path, function(v) native('DzFrameSetTexture', record.frame, v, 0) end)
+        local rgb = attrs.u_rgb or (attrs.program and attrs.program.uniforms.u_rgb) or {1, 1, 1}
+        local function channel(value) return math.floor(math.max(0, math.min(1, value)) * 255 + 0.5) end
+        local color = 0xff000000 | (channel(rgb[1]) << 16) | (channel(rgb[2]) << 8) | channel(rgb[3])
+        changed(record, 'color', color, function(v) native('DzFrameSetVertexColor', record.frame, v) end)
     end
     changed(record, 'visible', visible, function(v) native('DzFrameShow', record.frame, v) end)
 end
@@ -389,7 +387,6 @@ function M.ability_template(id)
         assert(ability_dummy and ability_dummy ~= 0, 'Ability template helper unit creation failed')
         common.UnitAddAbility(ability_dummy, string.unpack('>I4', 'Aloc'))
         common.SetUnitInvulnerable(ability_dummy, true)
-        common.PauseUnit(ability_dummy, true)
         common.ShowUnit(ability_dummy, false)
         native_require('jass.debug').handle_ref(ability_dummy)
     end
@@ -578,6 +575,13 @@ function M.start()
         rawset(japi, 'timer_destroy', function() end)
         limitation('Chinese platform identity and cloud persistence unavailable')
         local message = native_require('jass.message')
+        if type(message.common_selector) ~= 'function' then
+            -- 구형 엔진은 현재 조준 중인 능력을 조회하지 못한다. 기본 명령 입력은 유지한다.
+            rawset(message, 'common_selector', function()
+                limitation('custom targeting cursor inspection unavailable; native orders retained')
+                return 0, 0, 0
+            end)
+        end
         if type(message.unit_overhead) ~= 'function' then
             local height = native_require('hera_overhead')(M)
             rawset(message, 'unit_overhead', height)
@@ -611,6 +615,8 @@ function M.start()
             limitation('MDXS shaders and custom animation renderer unavailable')
             return renderer
         end
+        -- 원본의 지연 로드보다 앞서 첫 체력바 렌더에서도 좌표 변환을 사용할 수 있게 한다.
+        native_require('mprender')
         native_require('run')
     end, M.error)
     if ok and M.status ~= 'BLOCKED' then M.status = 'initialized; gameplay unverified' end

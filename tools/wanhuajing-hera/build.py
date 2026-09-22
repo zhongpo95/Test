@@ -214,6 +214,9 @@ def prepare_bundle(data, output):
     skill, count = re.subn(r'local var_27574 =.*?local var_27575 =',
                           "local var_27574 = require('hera_wanhua').ability_template local var_27575 =",skill,flags=re.S)
     assert count == 1, 'Ability template patch no longer matches'
+    skill, count = re.subn(r'if not var_28248 or \(',
+                          'if not var_28248 or var_28248.removed or not var_28248.XLS_data or (', skill)
+    assert count == 1, 'Deferred selection guard patch no longer matches'
     replacements[838] = skill
     a, b = spans[689 - 1]
     ui, count = re.subn(r'var_36843 \. save \( var_2 \[ 102061 \].*?var_3 \[ 1598 \]=',
@@ -304,12 +307,22 @@ def prepare_images(archive, strings, staging):
                 disk = target / ('tex_' + key + '.tga')
                 if not disk.exists(): disk.write_bytes(tga)
                 added[member] = disk
-                manifest[name.replace('/','\\').lower()] = {'path':member,'width':img.width,'height':img.height}
+                item = {'path':member,'width':img.width,'height':img.height}
+                if img.width >= 64 and img.height >= 64 and img.size != (64, 64):
+                    crop = struct.pack('<BBBHHBHHHHBB',0,0,2,0,0,0,0,0,64,64,32,0x28) + img.crop((0,0,64,64)).tobytes('raw','BGRA')
+                    crop_key = hashlib.sha256(crop).hexdigest()[:24]
+                    crop_member = 'HeraWanhua\\tex_' + crop_key + '.tga'
+                    crop_disk = target / ('tex_' + crop_key + '.tga')
+                    if not crop_disk.exists(): crop_disk.write_bytes(crop)
+                    added[crop_member] = crop_disk
+                    item['crop64'] = crop_member
+                manifest[name.replace('/','\\').lower()] = item
         except Exception as error:
             failed.append({'name':name,'error':str(error)})
     entries = []
     for name, item in sorted(manifest.items()):
-        entries.append('[' + json.dumps(name,ensure_ascii=False) + ']={path=' + json.dumps(item['path']) + ',width=' + str(item['width']) + ',height=' + str(item['height']) + '}')
+        crop_lua = ',crop64={path=' + json.dumps(item['crop64']) + ',width=64,height=64}' if 'crop64' in item else ''
+        entries.append('[' + json.dumps(name,ensure_ascii=False) + ']={path=' + json.dumps(item['path']) + ',width=' + str(item['width']) + ',height=' + str(item['height']) + crop_lua + '}')
     data = ('-- 원본 맵 이미지와 헤라 TGA 리소스의 경로 및 크기를 연결한다.\nreturn {\n'+',\n'.join(entries)+'\n}\n').encode('utf8')
     (staging/'hera_assets.lua').write_bytes(data)
     (staging/'image-report.json').write_text(json.dumps({'textures':len(manifest),'files':len(added),'raw_bytes':sum(p.stat().st_size for p in added.values()),'failed':failed},ensure_ascii=False,indent=2),encoding='utf8')
@@ -411,7 +424,7 @@ function HWRefresh takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').tick()")
     if result == null then
         call PauseTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v6: Lua update failed; refresh stopped.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v7: Lua update failed; refresh stopped.")
         return
     endif
     if result != "" then
@@ -422,7 +435,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v6: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v7: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)
