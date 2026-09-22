@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v9', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v10', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -631,6 +631,7 @@ function M.start()
         -- 원본의 지연 로드보다 앞서 첫 체력바 렌더에서도 좌표 변환을 사용할 수 있게 한다.
         native_require('mprender')
         native_require('run')
+        native_require('hera_model_probe')(M)
     end, M.error)
     if ok and M.status ~= 'BLOCKED' then M.status = 'initialized; gameplay unverified' end
     M.note(M.summary())

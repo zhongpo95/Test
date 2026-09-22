@@ -254,17 +254,30 @@ local pool=game.chess_profile:refresh_summon_pools(player)
 assert(type(pool)=='table' and #pool>=5 and type(pool[1].random_point[2])=='number')
 assert(player:get_data('召唤卡池')==pool)
 assert(game.chess_profile:refresh_summon_pools(player)==pool)
+-- 레벨이 먼저 변해도 표시 객체 생성 전에는 인원 수치만 보관한다.
+assert(player:get_data('玩家_人口特效显示表')==nil)
+player:set_max_ttk_people(4)
+assert(player:get_data('玩家_棋子最大人口')==4)
+player:hide_people_effect(true)
+assert(player:get_data('玩家_人口特效显示表')==nil)
+-- 표시가 생성된 뒤에는 원본 갱신 경로가 이전 숫자 효과를 지우고 다시 만든다.
+local removed=0
+local old={remove=function() removed=removed+1 end}
+local display={['当前数量']={old},['上限数量']={old}}
+player:set_data('玩家_人口特效显示表',display)
+player:update_people_effect()
+assert(removed==2 and #display['当前数量']==1 and #display['上限数量']==1)
 -- 원본에 등록된 장식 콜백은 내부 슬롯의 없는 저장 기록을 읽지 않는다.
 local npc=game.player[5]
 assert(not npc:is_player() and npc:has_save_permission('test')==false)
 local checked=0
 for _,event in ipairs(game.instance.events['全局-准备载入召唤师']) do
-    if event._extra_info:find('载入狗牌',1,true) then
+    if event._extra_info:find('载入狗牌',1,true) or event._extra_info:find('载入召唤师.lua:57',1,true) then
         event({is_player=function() return false end,get_save=function() error('NPC save queried') end},{},{})
         checked=checked+1
     end
 end
-assert(checked==1 and port.status~='BLOCKED',port.first_error)
+assert(checked==2 and port.status~='BLOCKED',port.first_error)
 local calls=get_pathing_calls()
 local first=#calls
 -- 실제 원본 메서드의 반경 보관 및 경로 충돌 켜기/끄기까지 검사한다.
@@ -296,6 +309,7 @@ report = {'lua_syntax_files': syntax_count, 'modules_entered': len(port[b'module
           'native_expression_wrapping_checked': True,
           'original_collision_and_particle_initialization_checked': True,
           'initial_summon_pool_and_nonplayer_cosmetic_callback_checked': True,
+          'population_display_before_and_after_initialization_checked': True,
           'limits': 'No real natives, SLK objects, sync network, player input, GPU, or gameplay simulation.'}
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 if errors: raise SystemExit(1)
@@ -455,3 +469,49 @@ assert(get_native_calls()==calls)
 report['passive_templates_and_native_failure_stop_checked'] = True
 (args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
 print('JASS fallback, packaged FDF, passive UI, overhead and native failure stop checks passed')
+
+# 비교 모델은 수동 명령에서만 표시하고 재입력 또는 타이머로 해제한다.
+probe = LuaRuntime(encoding=None, unpack_returned_tuples=True)
+probe.execute(b'''
+commands, pending, changes, effects, destroyed = {}, {}, {}, {}, {}
+local common={GetUnitX=function() return 100 end,GetUnitY=function() return 200 end,
+    GetUnitTypeId=function() return 1 end,IsUnitHidden=function() return false end,
+    AddSpecialEffect=function(path,x,y) effects[#effects+1]={path,x,y};return #effects end,
+    DestroyEffect=function(handle) destroyed[#destroyed+1]=handle end}
+local japi={SetUnitModel=function(handle,path) changes[#changes+1]={handle,path} end}
+function require(name)
+    if name=='jass.common' then return common end
+    if name=='jass.japi' then return japi end
+    if name=='jass.storm' then return {load=function() return nil end} end
+    error(name)
+end
+port={note=function() end,env={game={
+    register_chat_command=function(name,callback) commands[name]=callback end,
+    wait=function(_,callback) pending[#pending+1]=callback end}}}
+''')
+probe.execute((Path(__file__).parent/'hera_model_probe.lua').read_bytes())(probe.globals().port)
+probe.execute('''
+local command=assert(commands['hwmodel,모델진단'])
+local path='-909478866.mdx'
+local hero={handle=77,_model={{{get_path=function() return path end}}},get_size=function() return 1.4 end}
+local player={id=1,hero=hero,sendMsg=function() end}
+assert(#effects==0 and #changes==0)
+command(player)
+assert(#effects==2 and #changes==1 and changes[1][2]:find('builder_probe.mdx',1,true))
+command(player)
+assert(#destroyed==2 and changes[2][2]==path)
+command(player)
+pending[1]() -- 앞선 진단의 타이머가 새 진단을 종료하면 안 된다.
+assert(#destroyed==2 and #changes==3)
+pending[2]()
+assert(#destroyed==4 and changes[4][2]==path)
+command(player)
+path='later-model.mdx'
+pending[3]()
+assert(changes[6][2]==path) -- 진단 중 실제 모델이 바뀌면 최신 모델로 복귀한다.
+command(player)
+assert(#changes==6)
+'''.encode('utf8'))
+report['manual_model_probe_and_restore_checked'] = True
+(args.staging/'mock-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
+print('Manual model comparison and restore checks passed; no Warcraft rendering was tested')

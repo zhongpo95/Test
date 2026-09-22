@@ -230,6 +230,12 @@ def prepare_bundle(data, output):
         lambda m: "(var_3 [ 1195 ]. chess_profile : refresh_summon_pools(var_57430) or "
                   "var_57430 : get_data ( var_2 [ " + m[1] + " ], {} ))) do", source[a:b])
     assert count == 1, 'Initial summon pool patch no longer matches'
+    # 전투 초기화가 인원 표시를 만들기 전의 레벨 이벤트에서는 수치만 보관한다.
+    for table in ('var_57559', 'var_57567'):
+        battle, count = re.subn(
+            r'(local ' + table + r' = .*?: get_data \( var_2 \[ \d+ \],\{\}\))',
+            r'\1 if not ' + table + ' [ "当前数量" ] then return end', battle)
+        assert count == 1, 'Population display initialization guard no longer matches'
     replacements[656] = battle
     # 내부 5번 슬롯에는 계정 권한이나 개인 장식 저장 기록이 없다.
     a, b = spans[1290 - 1]
@@ -244,6 +250,12 @@ def prepare_bundle(data, output):
         'function ( var_59558 , var_59559 , var_59560 , var_59561 ) if not var_59559 : is_player () then return end', source[a:b])
     assert count == 1, 'Non-player cosmetic save patch no longer matches'
     replacements[1361] = cosmetics
+    a, b = spans[448 - 1]
+    skins, count = re.subn(
+        r'function \( var_63419 , var_63420 , var_63421 , var_63422 \)',
+        'function ( var_63419 , var_63420 , var_63421 , var_63422 ) if not var_63420 : is_player () then return end', source[a:b])
+    assert count == 1, 'Non-player summoner skin save patch no longer matches'
+    replacements[448] = skins
     for index in sorted(replacements, reverse=True):
         a, b = spans[index - 1]
         source = source[:a] + replacements[index] + source[b:]
@@ -517,6 +529,32 @@ endfunction
     return source.encode('utf8'), bindings.encode('utf8')
 
 
+def prepare_model_probe(archive, staging):
+    # 원본 모델은 보존하고 TEXS 경로 두 개만 바꾼 수동 진단용 사본을 만든다.
+    source, kind = restore_asset(archive.read('-909478866.mdx'))
+    assert kind == 'MDX' and source[:4] == b'MDLX'
+    expected = [b'MH-819509167.blp', b'MH933634193.blp']
+    data, names, offset = bytearray(source), [], 4
+    replacement = b'ReplaceableTextures\\TeamColor\\TeamColor08.blp'
+    while offset < len(data):
+        tag, size = struct.unpack_from('<4sI', data, offset)
+        if tag == b'TEXS':
+            assert size == 268 * 2
+            for start in range(offset + 8, offset + 8 + size, 268):
+                names.append(bytes(data[start + 4:start + 264]).split(b'\0')[0])
+                data[start + 4:start + 264] = replacement.ljust(260, b'\0')
+        offset += 8 + size
+    assert names == expected, 'Builder model texture references changed'
+    report = {'source_model': '-909478866.mdx', 'source_sha256': hashlib.sha256(source).hexdigest(),
+              'probe_sha256': hashlib.sha256(data).hexdigest(),
+              'original_textures': [name.decode('ascii') for name in names],
+              'probe_texture': replacement.decode('ascii'), 'changed_chunks': ['TEXS'],
+              'runtime_tested': False}
+    (staging / 'model-probe-report.json').write_text(json.dumps(report, indent=2), encoding='utf8')
+    (staging / 'builder_probe.mdx').write_bytes(data)
+    return {'HeraWanhua\\builder_probe.mdx': bytes(data)}
+
+
 def pack_map(source_path, output_path, archive, patches, staging):
     assert not output_path.exists(), 'Output already exists; choose a new version'
     with source_path.open('rb') as source:
@@ -600,6 +638,7 @@ def main():
         assets, images = prepare_images(archive, strings, staging)
         patches['hera_assets.lua']=assets
         patches.update(images)
+        patches.update(prepare_model_probe(archive, staging))
         report=pack_map(args.source,args.output,archive,patches,staging)
         print(json.dumps({k:v for k,v in report.items() if k!='files'},ensure_ascii=False),flush=True)
     finally:

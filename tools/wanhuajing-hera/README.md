@@ -1,6 +1,6 @@
-# 만화경 v0.175 헤라 호환 시험본 v9
+# 만화경 v0.175 헤라 호환 시험본 v10
 
-제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v9.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. v8에서 배경과 선택 원은 보였으나 캐릭터 모델이 표시되지 않고 UI 갱신도 중단됐다. v9는 확인된 초기화 오류와 일부 UI 리소스를 보완한다. 모델 텍스처 연결은 미해결이며 정상 플레이 가능한 완성본은 아니다.
+제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v10.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. v9에서 배경과 선택 원은 보이지만 캐릭터 모델과 게임 진행이 정상화되지 않았다. v10은 로그에서 확인한 후속 초기화 오류를 수정하고 수동 모델 비교 기능을 추가한다. 모델 텍스처 연결은 미해결이며 정상 플레이 가능한 완성본은 아니다.
 
 v2는 시작·갱신 호출에서 중복 `return`을 제거하고, Lua가 null을 반환하면 타이머를 중단하고 오류를 한 번 표시한다. [YDWE의 EXExecuteScript](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/lua_loader.cpp)는 전달식을 `return (...)`으로 감싼다. 설치 DLL의 `return (%s)` 문자열과 일치함을 확인했고, 생성된 JASS 문자열에 같은 규칙을 적용해 v1의 실패와 v2의 통과를 재현했다.
 
@@ -18,6 +18,18 @@ v8는 PVE 모드와 초보 난이도 선택 후 발생한 `SetUnitCollisionSize`
 
 v9는 건축사 등록보다 먼저 발생하는 레벨 갱신에서 원본 카드 풀을 준비하고, 내부 비플레이어 슬롯의 권한·개인 장식 저장 조회를 건너뛴다. 동적으로 조합되는 연속 WebP 27장과 저장 UI 두 장을 변환 목록에 추가하고 잘못된 확장자·폴더의 UI 참조 세 개를 실제 리소스에 연결한다. 검은 테두리 효과는 원본 알파를 유지한 검정 TGA를 별도 포장해 검정 착색일 때 사용한다.
 
+v10은 전투 초기화 전의 인원 표시 갱신을 유예하면서 수치는 보관하고, 내부 슬롯의 개인 소환사 스킨 저장 조회를 생략한다. 내부 슬롯은 이미 적용된 기본 건축사 모델을 유지한다. 실제 건축사 MDX의 TEXS 두 경로만 기본 회색 텍스처로 바꾼 진단용 사본을 추가하며 원본 모델과 원본 텍스처는 변경하지 않는다.
+
+## 모델 비교 방법
+
+기본 건축사가 생성된 후 `-hwmodel` 또는 `-모델진단`을 입력한다. 30초 동안 건축사에 회색 진단 모델을 적용하고, 양옆에 같은 회색 모델 효과와 기본 풋맨 효과를 생성한다. 다시 입력하면 즉시 종료한다. 타이머 종료 시 효과를 제거하고 현재 게임 로직이 지정한 모델로 복귀한다. 처음부터 진단 모델로 플레이하도록 바꾼 것은 아니다.
+
+- 회색 건축사와 양옆 효과가 모두 보이면 텍스처 참조 문제를 우선 확인한다.
+- 회색 효과와 풋맨만 보이면 유닛 모델 교체 호출·유닛 표시 상태를 추가 확인한다.
+- 풋맨만 보이면 회색 MDX의 게임 엔진 호환성·읽기 경로를 추가 확인한다.
+
+이 비교는 원인을 구분하기 위한 수동 검사이며, 원본 텍스처를 복구하거나 모델의 정상 표시를 보증하지 않는다. 로그에 요청 모델, 유닛 표시 상태·색상·크기, 모델·텍스처의 런타임 읽기 결과를 기록한다. 네이티브 호출 반환만으로 화면 표시 성공을 기록하지 않는다.
+
 원본 SHA-256은 `901c31b06081e784490cdf0a99bde3680d60c6028a433a6ef57f20a0e9ec71d3`이다. 빌더는 다른 원본, 원본 덮어쓰기 및 기존 결과 덮어쓰기를 거부한다. 원본 맵, 복원한 원본 스크립트·에셋 및 DLL은 저장소에 포함하지 않는다.
 
 ## 적용 범위
@@ -30,11 +42,11 @@ v9는 건축사 등록보다 먼저 발생하는 레벨 갱신에서 원본 카�
 
 ## 남아 있는 제한
 
-캐릭터 모델 복구는 미완료다. 초기 건축사의 `-909478866.mdx`는 MDLX 형식으로 복원되지만, 참조하는 `MH-819509167.blp`와 `MH933634193.blp`는 원본·v8 MPQ에서 해당 경로로 조회되지 않았다. 따라서 모델 바이트 복원을 모델 표시 성공으로 해석하면 안 된다. 대체 캐릭터나 임의 텍스처를 넣지 않았으며, v9에서도 모델이 보이지 않을 수 있다.
+캐릭터 모델 복구는 미완료다. 초기 건축사의 `-909478866.mdx`는 정점 6,926개·삼각형 8,026개·뼈대 99개·애니메이션 6개를 가진 MDX 800이다. 독립 파서의 읽기·재저장 바이트가 일치하고 회색 진단 텍스처로 WebGL 표시를 확인했다. 두 재질의 알파는 1이며 전체 투명도 트랙은 없다. 그러나 참조하는 `MH-819509167.blp`와 `MH933634193.blp`는 원본 MPQ의 해당 이름과 일치하는 해시 항목이 없다. 이름을 모르는 BLP 블록을 보존했지만 이 두 참조와의 대응은 확정하지 못했다. 별도 뷰어 결과를 Warcraft 표시 성공으로 해석하면 안 된다.
 
 원본 `opengl`, `ui`, `mprender` 구현을 재현한 것은 아니다. MDXS 셰이더, 동영상, UI 3D 회전, UV 변형, 일부 클리핑·애니메이션·색상·효과 모델 교체는 지원하지 않거나 단순화했다. 이미지 RGB는 0~1 범위를 지원하며 초과 밝기는 1로 제한한다. 텍스트 폭·월드 좌표 투영·채팅 상태는 근사값이다. 설치 엔진에는 현재 조준 중인 능력을 읽는 `common_selector`가 없어 `(0, 0, 0)`을 반환하며 제한을 기록한다. 기본 명령 입력은 그대로지만 원본의 전용 조준·스킬 취소·아이템 대상 분기까지 재현한 것은 아니다. [YDWE message 구현](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/libs_message.cpp)과 설치 DLL의 함수 문자열, 실제 nil 호출 로그를 확인했다. 전용 창 크기 조절은 런처 설정을 사용한다. UI 클릭의 원래 게임 입력 차단, 단축키, 효과 제거 시점, 아이템 능력 템플릿, 동기화와 모든 캐릭터 스킬은 실제 게임에서 확인해야 한다.
 
-오류와 지원하지 않는 호출은 게임 폴더의 `Logs/Hera_Wanhua_v9_p1.txt`에 기록한다. 플레이어 번호에 따라 `p2`, `p3` 등으로 바뀐다. 초기화 상태에도 시험본과 서버 저장 미지원 안내가 표시된다. `initialized; gameplay unverified`는 Lua 초기화 반환 상태이며 게임 정상 작동 판정이 아니다. FDF 로드 네이티브는 반환값이 없으므로 템플릿이 실제로 화면에 적용됐는지는 게임에서 확인해야 한다.
+오류와 지원하지 않는 호출은 게임 폴더의 `Logs/Hera_Wanhua_v10_p1.txt`에 기록한다. 플레이어 번호에 따라 `p2`, `p3` 등으로 바뀐다. 초기화 상태에도 시험본과 서버 저장 미지원 안내가 표시된다. `initialized; gameplay unverified`는 Lua 초기화 반환 상태이며 게임 정상 작동 판정이 아니다. FDF 로드 네이티브는 반환값이 없으므로 템플릿이 실제로 화면에 적용됐는지는 게임에서 확인해야 한다.
 
 ## 빌드
 
@@ -42,7 +54,7 @@ Windows, Python 3.11 이상, Pillow, 64비트 StormLib가 필요하다. Lua 검�
 
 ```powershell
 python -m pip install Pillow lupa
-python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v9.w3x' --stormlib 'C:/tools/StormLib.dll'
+python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v10.w3x' --stormlib 'C:/tools/StormLib.dll'
 ```
 
 결과 옆 `staging`에는 생성 스크립트, 변환 이미지, 블록별 SHA-256을 담은 `build-report.json`이 만들어진다. `--prepare-only --prepare-images`는 맵 포장 없이 검사 입력을 준비한다.
@@ -53,7 +65,7 @@ python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/He
 python tools/wanhuajing-hera/check_core.py --original-jass 'C:/build/original-war3map.j'
 python tools/wanhuajing-hera/check_boot.py --source 'C:/maps/万华镜v0.175.w3x' --staging 'C:/build/staging' --stormlib 'C:/tools/StormLib.dll' --common-j 'C:/JN/common.j' --library-dir Library
 & 'C:/JN/pjass.exe' 'C:/JN/common.j' 'C:/JN/Blizzard.j' 'C:/build/staging/war3map.j'
-python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v9.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
+python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v10.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
 ```
 
 `check_core.py`의 원본 JASS는 원본 맵의 `war3map.j`를 읽기 전용으로 추출한 것이다. Lupa를 별도 폴더에 설치했다면 검사기에 `--lua-deps`를 지정할 수 있다.
