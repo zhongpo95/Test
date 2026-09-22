@@ -1,6 +1,6 @@
 # 만화경 v0.175 헤라 호환 시험본 v10
 
-제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v10.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. v9에서 배경과 선택 원은 보이지만 캐릭터 모델과 게임 진행이 정상화되지 않았다. v10은 로그에서 확인한 후속 초기화 오류를 수정하고 수동 모델 비교 기능을 추가한다. 모델 텍스처 연결은 미해결이며 정상 플레이 가능한 완성본은 아니다.
+제공된 `万华镜v0.175.w3x`를 보존하고 별도 `Hera_Wanhua_0175_v10_NAMED.w3x`를 만든다. 원본 제작자 SDK 없이 맵 내부 호출부를 분석해 만든 **초기 호환 시험본**이다. v9에서 배경과 선택 원은 보이지만 캐릭터 모델과 게임 진행이 정상화되지 않았다. v10은 로그에서 확인한 후속 초기화 오류를 수정하고 수동 모델 비교 기능을 추가한다. 모델 텍스처 연결은 미해결이며 정상 플레이 가능한 완성본은 아니다.
 
 v2는 시작·갱신 호출에서 중복 `return`을 제거하고, Lua가 null을 반환하면 타이머를 중단하고 오류를 한 번 표시한다. [YDWE의 EXExecuteScript](https://github.com/actboy168/YDWE/blob/master/Development/Plugin/Warcraft3/yd_lua_engine/lua_engine/lua_loader.cpp)는 전달식을 `return (...)`으로 감싼다. 설치 DLL의 `return (%s)` 문자열과 일치함을 확인했고, 생성된 JASS 문자열에 같은 규칙을 적용해 v1의 실패와 v2의 통과를 재현했다.
 
@@ -19,6 +19,12 @@ v8는 PVE 모드와 초보 난이도 선택 후 발생한 `SetUnitCollisionSize`
 v9는 건축사 등록보다 먼저 발생하는 레벨 갱신에서 원본 카드 풀을 준비하고, 내부 비플레이어 슬롯의 권한·개인 장식 저장 조회를 건너뛴다. 동적으로 조합되는 연속 WebP 27장과 저장 UI 두 장을 변환 목록에 추가하고 잘못된 확장자·폴더의 UI 참조 세 개를 실제 리소스에 연결한다. 검은 테두리 효과는 원본 알파를 유지한 검정 TGA를 별도 포장해 검정 착색일 때 사용한다.
 
 v10은 전투 초기화 전의 인원 표시 갱신을 유예하면서 수치는 보관하고, 내부 슬롯의 개인 소환사 스킨 저장 조회를 생략한다. 내부 슬롯은 이미 적용된 기본 건축사 모델을 유지한다. 실제 건축사 MDX의 TEXS 두 경로만 기본 회색 텍스처로 바꾼 진단용 사본을 추가하며 원본 모델과 원본 텍스처는 변경하지 않는다.
+
+## 맵 이름과 버전 확인
+
+게임 목록·대기실용 이름은 `Hera Wanhua 0.175 TEST v10`이다. HM3W 헤더, `war3map.w3i`의 맵 이름, JASS `SetMapName`을 어댑터 버전에서 함께 생성한다. 이후 버전을 올릴 때도 내부 이름 세 곳을 같은 버전으로 갱신한다. 게임 중 `-version` 또는 `-버전`을 입력하면 요청한 플레이어의 화면에 버전명을 10초간 표시한다.
+
+이름을 수정한 배포 파일은 `Hera_Wanhua_0175_v10_NAMED.w3x`이며 이전 v10 파일도 보존한다. 이 변경은 버전 식별용이며 모델 텍스처 복구 상태는 기존 v10과 같다.
 
 ## 모델 비교 방법
 
@@ -54,7 +60,7 @@ Windows, Python 3.11 이상, Pillow, 64비트 StormLib가 필요하다. Lua 검�
 
 ```powershell
 python -m pip install Pillow lupa
-python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v10.w3x' --stormlib 'C:/tools/StormLib.dll'
+python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/Hera_Wanhua_0175_v10_NAMED.w3x' --stormlib 'C:/tools/StormLib.dll'
 ```
 
 결과 옆 `staging`에는 생성 스크립트, 변환 이미지, 블록별 SHA-256을 담은 `build-report.json`이 만들어진다. `--prepare-only --prepare-images`는 맵 포장 없이 검사 입력을 준비한다.
@@ -65,7 +71,7 @@ python tools/wanhuajing-hera/build.py 'C:/maps/万华镜v0.175.w3x' 'C:/build/He
 python tools/wanhuajing-hera/check_core.py --original-jass 'C:/build/original-war3map.j'
 python tools/wanhuajing-hera/check_boot.py --source 'C:/maps/万华镜v0.175.w3x' --staging 'C:/build/staging' --stormlib 'C:/tools/StormLib.dll' --common-j 'C:/JN/common.j' --library-dir Library
 & 'C:/JN/pjass.exe' 'C:/JN/common.j' 'C:/JN/Blizzard.j' 'C:/build/staging/war3map.j'
-python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v10.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
+python tools/wanhuajing-hera/check_pack.py --source 'C:/maps/万华镜v0.175.w3x' --output 'C:/build/Hera_Wanhua_0175_v10_NAMED.w3x' --stormlib 'C:/tools/StormLib.dll' --report 'C:/build/staging/build-report.json'
 ```
 
 `check_core.py`의 원본 JASS는 원본 맵의 `war3map.j`를 읽기 전용으로 추출한 것이다. Lupa를 별도 폴더에 설치했다면 검사기에 `--lua-deps`를 지정할 수 있다.

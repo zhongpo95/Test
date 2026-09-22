@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 import struct
 from build import Archive, SOURCE_SHA256, crypt, file_hash, name_hash
 
@@ -28,7 +29,16 @@ def main():
     assert file_hash(args.output) == report['output_sha256']
     before, original, old_count = table(args.source)
     after, modified, new_count = table(args.output)
-    assert before == after and len(original) == len(modified)
+    assert len(original) == len(modified)
+    title = report.get('map_name')
+    if title:
+        old_end, new_end = before.index(b'\0', 8), after.index(b'\0', 8)
+        assert len(before) == len(after) == 512 and before[:8] == after[:8]
+        assert after[8:new_end].decode('utf8') == title
+        assert before[old_end:old_end + 9] == after[new_end:new_end + 9]
+        assert not any(before[old_end + 9:]) and not any(after[new_end + 9:])
+    else:
+        assert before == after
     preserved_slots = 0
     for index, entry in enumerate(original):
         if entry[-1] not in (0xffffffff, 0xfffffffe):
@@ -37,6 +47,16 @@ def main():
     assert len(report['files']) == new_count and old_count == 10611
     archive = Archive(args.output, args.stormlib)
     try:
+        if title:
+            source = Archive(args.source, args.stormlib)
+            try: old_info = source.read('war3map.w3i')
+            finally: source.close()
+            info = archive.read('war3map.w3i')
+            old_end, new_end = old_info.index(b'\0', 12), info.index(b'\0', 12)
+            assert old_info[:12] == info[:12] and old_info[old_end:] == info[new_end:]
+            assert info[12:new_end].decode('utf8') == title
+            config_names = re.findall(r'call SetMapName\("([^"\r\n]*)"\)', archive.read('war3map.j').decode('utf8'))
+            assert config_names == [title]
         named = 0
         for row in report['files']:
             data = archive.read(f"File{row['index']:08d}.xxx")
@@ -52,6 +72,7 @@ def main():
               'output_bytes': args.output.stat().st_size, 'verified_blocks': new_count,
               'verified_named_patches': named, 'preserved_original_hash_slots': preserved_slots,
               'source_unchanged': True, 'runtime_tested': False}
+    if title: result['map_name'] = title
     args.report.with_name('verification.json').write_text(json.dumps(result, indent=2), encoding='utf8')
     print(json.dumps(result, indent=2))
 

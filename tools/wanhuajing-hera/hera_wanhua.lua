@@ -631,6 +631,10 @@ function M.start()
         -- 원본의 지연 로드보다 앞서 첫 체력바 렌더에서도 좌표 변환을 사용할 수 있게 한다.
         native_require('mprender')
         native_require('run')
+        env.game.register_chat_command('version,버전', function(player)
+            common.DisplayTimedTextToPlayer(common.Player(player.id - 1), 0.35, 0.35, 10,
+                'Hera Wanhua 0.175 TEST ' .. M.version)
+        end)
         native_require('hera_model_probe')(M)
     end, M.error)
     if ok and M.status ~= 'BLOCKED' then M.status = 'initialized; gameplay unverified' end

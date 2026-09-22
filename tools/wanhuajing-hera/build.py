@@ -26,6 +26,28 @@ def file_hash(path):
         return hashlib.file_digest(f, 'sha256').hexdigest()
 
 
+def map_title():
+    adapter = Path(__file__).with_name('hera_wanhua.lua').read_text(encoding='utf8')
+    version = re.search(r"local M = \{version = '(v\d+)'", adapter)
+    assert version, 'Adapter version is missing'
+    return 'Hera Wanhua 0.175 TEST ' + version[1]
+
+
+def prepare_map_info(data):
+    assert struct.unpack_from('<I', data)[0] == 25, 'Unexpected map info version'
+    end = data.index(b'\0', 12)
+    return data[:12] + map_title().encode('utf8') + data[end:]
+
+
+def prepare_map_header(data):
+    assert len(data) == 512 and data[:8] == b'HM3W\0\0\0\0'
+    end = data.index(b'\0', 8)
+    assert not any(data[end + 9:]), 'Unexpected map header payload'
+    header = data[:8] + map_title().encode('utf8') + data[end:end + 9]
+    assert len(header) <= 512
+    return header.ljust(512, b'\0')
+
+
 def name_hash(name, kind):
     a, b = 0x7fed7fed, 0xeeeeeeee
     for v in name.replace('/', '\\').encode('utf8').upper():
@@ -387,6 +409,9 @@ def prepare_images(archive, strings, staging):
 
 def prepare_jass(data, staging):
     source = data.decode('utf8').replace('\r\n', '\n')
+    source, count = re.subn(r'call SetMapName\("[^"\r\n]*"\)',
+                            'call SetMapName(' + json.dumps(map_title()) + ')', source)
+    assert count == 1, 'Map config name no longer matches'
     if not re.search(r'(?m)^native DzSetUnitModel ',source):
         source = re.sub(r'(?m)^endglobals$', 'endglobals\nnative DzSetUnitModel takes unit whichUnit, string path returns nothing', source, count=1)
     signatures = {m[1]:(m[2],m[3]) for m in re.finditer(r'(?m)^native (\w+) takes ([^\r\n]+) returns (\w+)',source)}
@@ -584,7 +609,7 @@ def pack_map(source_path, output_path, archive, patches, staging):
         replacements[index]=(name,data)
     rows=[];blocks=[];counts={'BLP':0,'MDX':0};output_path.parent.mkdir(parents=True,exist_ok=True)
     with output_path.open('xb') as out:
-        out.write(prefix[:base]);out.write(b'\0'*32)
+        out.write(prepare_map_header(prefix[:base]));out.write(b'\0'*32)
         for index in range(block_count+len(added)):
             if index in replacements:
                 name,data=replacements[index];kind='patch'
@@ -603,7 +628,7 @@ def pack_map(source_path, output_path, archive, patches, staging):
         bp=out.tell()-base;out.write(crypt(b''.join(struct.pack('<4I',*row) for row in blocks),name_hash('(block table)',3),True))
         size=out.tell()-base
         out.seek(base);out.write(struct.pack('<4sIIHHIIII',b'MPQ\x1a',32,size,0,shift,hp,bp,hash_count,len(blocks)))
-    report={'source_sha256':SOURCE_SHA256,'output':str(output_path),'output_sha256':file_hash(output_path),'restored':counts,'files':rows}
+    report={'source_sha256':SOURCE_SHA256,'output':str(output_path),'output_sha256':file_hash(output_path),'map_name':map_title(),'restored':counts,'files':rows}
     (staging/'build-report.json').write_text(json.dumps(report,indent=2),encoding='utf8')
     assert file_hash(source_path)==SOURCE_SHA256
     return report
@@ -629,7 +654,8 @@ def main():
         if args.prepare_only:
             print('Prepared bundle', len(run), flush=True)
             return
-        patches={'run.lua':run,'war3map.j':jass,'hera_bindings.lua':bindings}
+        patches={'run.lua':run,'war3map.j':jass,'hera_bindings.lua':bindings,
+                 'war3map.w3i':prepare_map_info(archive.read('war3map.w3i'))}
         patches.update(fdf)
         entry = "-- 헤라 JASS 시작 타이머에서 호환 스크립트를 초기화한다.\nreturn require('hera_wanhua')\n".encode('utf8')
         patches.update({'main.lua':entry,'load.lua':entry,'config.lua':'-- 외부 플랫폼 DLL 부트스트랩을 사용하지 않는다.\nreturn true\n'.encode('utf8')})
