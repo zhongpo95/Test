@@ -149,6 +149,7 @@ local entries = {
   {"jass.japi", "EXSetEffectVisible", true},
   {"jass.japi", "EXSetEffectXY", true},
   {"jass.japi", "EXSetEffectZ", true},
+  {"jass.japi", "EXGetItemDataString", true},
   {"jass.japi", "EXSetItemDataString", true},
   {"jass.japi", "EXSetUnitCollisionType", true},
   {"jass.japi", "EXSetUnitFacing", true},

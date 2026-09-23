@@ -463,26 +463,15 @@ do
       on_item_mouse_enter = function(wp)
         pcall(trace.item_hover, "ground_tooltip", nil, wp)
         local itemtype = GetItemTypeId(wp)
-        local data = slk.item[itemtype]
-        if not data or not data.Name then
-          return
-        end
-        local text = data.Name .. "\n" .. (data.Ubertip or ""):gsub(",DataA1.*", ""):gsub(",Dur1.*", "")
-        UIYNameKey = wp
-        Boolean_UIYName = false
-        uiy_show_text(text, "Item")
-        if YuanshengTooltip then
-          YuanshengTooltip.set_enabled(false)
-        end
-        japi.FrameShow(ui, false)
-      end,
-      on_item_mouse_leave = function(wp)
-        if UIYNameKey == wp then
-          uiy_hide()
-          UIYNameKey = 0
-          Boolean_UIYName = false
-          if YuanshengTooltip then
-            YuanshengTooltip.set_enabled(true)
+        if itemtype == 0 then return end
+        -- 현재 아이템 데이터에서 번역해 동적으로 바뀐 설명도 보존한다.
+        for _, field in ipairs({4, 2, 3, 5}) do
+          local original = japi.EXGetItemDataString(itemtype, field)
+          if original and original ~= "" then
+            local translated = korean.translate(original)
+            if translated ~= original then
+              japi.EXSetItemDataString(itemtype, field, translated)
+            end
           end
         end
       end
