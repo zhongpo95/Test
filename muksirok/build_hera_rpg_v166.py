@@ -101,6 +101,15 @@ if item_names_path:
         item_new=item_new[:start]+section.replace(old_line,new_line)+item_new[end:]
     add(item_name,item_new,'Korean object item names')
 
+text_tag_font=os.environ.get('HERA_TEXT_TAG_FONT')
+if text_tag_font:
+    skin_name='war3mapSkin.txt'
+    skin_old=files[key(skin_name)]['path'].read_bytes()
+    old_font=b'TextTagFont=Fonts\\gamefont.ttc'
+    new_font=('TextTagFont='+text_tag_font).encode('ascii')
+    assert skin_old.count(old_font)==1
+    add(skin_name,skin_old.replace(old_font,new_font),'Korean text tag font')
+
 original=(ROOT/'decrypted-map-files/war3map.j').read_text(encoding='utf-8')
 assert original.count('DzGetUnitNeededXP')==1
 original=re.sub(r'(?m)^([ \t]*native DzGetUnitNeededXP[^\r\n]*)',r'// 헤라 JN 선언과 설치 DLL에서 찾지 못한 미호출 중국 전용 선언이다.\n//\1',original,count=1)
