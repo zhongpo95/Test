@@ -363,6 +363,8 @@ local function bqbui_init()
     }
   })
   japi.FrameClearAllPoints(Panel._id)
+  Panel:set_level(5)
+  Panel:hide()
   Panel.Up:set_position(-90, -70, "底部", "顶部", true)
   Panel.Up.img:set_position(115, -10, "中心", "中心", true)
   Panel.Left:set_position(-90, -68, "右侧", "左侧", true)
@@ -380,6 +382,28 @@ local function bqbui_init()
   }
   ui_info.panel = Panel
   BQBInfo = ui_info
+  local function update_selection()
+    if not ui_info.is_show then
+      return
+    end
+    local x, y = game.get_mouse_pos()
+    local dx, dy = x - ui_info.x, y - ui_info.y
+    if dx * dx + dy * dy <= 27 * 27 then
+      return
+    end
+    local angle = math.deg(math.atan(dy, dx))
+    local id = math.floor((angle + 225) % 360 / 90) + 1
+    if id ~= ui_info.id then
+      local old_id = ui_info.id
+      if old_id ~= 0 then
+        ui_info.frame[old_id]:set_normal_image(ui_info.path[old_id])
+      end
+      ui_info.frame[id]:set_normal_image(ui_info.sel_path[id])
+      ui_info.id = id
+      require("hera_gameplay_diagnostic").local_input("emoji_choice", Hero and Hero[LocalPlayerID],
+        "id=" .. id .. " x=" .. tostring(x) .. " y=" .. tostring(y))
+    end
+  end
   local event = {
     on_key_down = function(code)
       if code == 84 then
@@ -390,31 +414,10 @@ local function bqbui_init()
       if code == 84 then
         M.key_up("window")
       end
-    end,
-    on_update = function()
-      if not ui_info.is_show then
-        return
-      end
-      local ux, uy = ui_info.x, ui_info.y
-      local x, y = game.get_mouse_pos()
-      local p1 = ac.point(ux, uy)
-      local p2 = ac.point(x, y)
-      if p1 * p2 <= 27 then
-        return
-      end
-      local angle = math.deg(p1 / p2)
-      local id = math.floor(math.fmod(angle + 215, 360) / 90) + 1
-      if id ~= ui_info.id then
-        local old_id = ui_info.id
-        if old_id ~= 0 then
-          ui_info.frame[old_id]:set_normal_image(ui_info.path[old_id])
-        end
-        ui_info.frame[id]:set_normal_image(ui_info.sel_path[id])
-        ui_info.id = math.floor(id)
-      end
     end
   }
   game.register_event(event)
+  ac.loop(30, update_selection)
   local trg = CreateTrigger()
   japi.DzTriggerRegisterSyncData(trg, "MSG", false)
   TriggerAddAction(trg, function()
@@ -564,6 +567,9 @@ function bqb_apply_config_group(u)
 end
 
 function M.key_down(source)
+  if ui_info.is_show then
+    return
+  end
   local sy = LocalPlayerID
   local selected = Xuanze and Xuanze[sy]
   require("hera_gameplay_diagnostic").local_input("emoji_key_down", Hero and Hero[sy],
@@ -572,6 +578,8 @@ function M.key_down(source)
     return
   end
   local x, y = game.get_mouse_pos()
+  require("hera_gameplay_diagnostic").local_input("emoji_open", Hero and Hero[sy],
+    "x=" .. tostring(x) .. " y=" .. tostring(y))
   ui_info.x = x
   ui_info.y = y
   ui_info.id = 0
@@ -582,8 +590,10 @@ end
 
 function M.key_up(source)
   local sy = LocalPlayerID
+  local x, y = game.get_mouse_pos()
   require("hera_gameplay_diagnostic").local_input("emoji_key_up", Hero and Hero[sy],
-    "source=" .. tostring(source) .. " open=" .. tostring(ui_info.is_show) .. " choice=" .. tostring(ui_info.id))
+    "source=" .. tostring(source) .. " open=" .. tostring(ui_info.is_show) ..
+    " choice=" .. tostring(ui_info.id) .. " x=" .. tostring(x) .. " y=" .. tostring(y))
   if not ui_info.is_show then
     return
   end
