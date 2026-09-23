@@ -77,6 +77,30 @@ ability_new=ability_old.replace(before,after)
 assert hashlib.sha256(ability_new).hexdigest()=='0671870a8de2c17b175c2414d2aa74e95e4a9fa91bdbfb15a53b10e0ec8171bc'
 add(ability_name,ability_new,'authenticated official 0.1.6b ability data delta')
 
+item_names_path=os.environ.get('HERA_ITEM_NAME_OVERRIDES')
+if item_names_path:
+    item_name='Units/ItemStrings.txt'
+    item_old=files[key(item_name)]['path'].read_bytes()
+    item_lines=pathlib.Path(item_names_path).read_text(encoding='utf-8').splitlines()
+    assert item_lines[0]=='# source_sha256='+hashlib.sha256(item_old).hexdigest()
+    assert item_lines[1]=='id\toriginal\tkorean'
+    item_new=item_old
+    seen=set()
+    for line in item_lines[2:]:
+        item_id,source_name,korean_name=line.split('\t')
+        assert len(item_id)==4 and item_id not in seen
+        seen.add(item_id)
+        start=item_new.find(('['+item_id+']\r\n').encode('ascii'))
+        assert start>=0,item_id
+        end=item_new.find(b'\r\n[',start+6)
+        if end<0:end=len(item_new)
+        section=item_new[start:end]
+        old_line=('Name='+source_name+'\r\n').encode('utf-8')
+        new_line=('Name='+korean_name+'\r\n').encode('utf-8')
+        assert section.count(old_line)==1,item_id
+        item_new=item_new[:start]+section.replace(old_line,new_line)+item_new[end:]
+    add(item_name,item_new,'Korean object item names')
+
 original=(ROOT/'decrypted-map-files/war3map.j').read_text(encoding='utf-8')
 assert original.count('DzGetUnitNeededXP')==1
 original=re.sub(r'(?m)^([ \t]*native DzGetUnitNeededXP[^\r\n]*)',r'// 헤라 JN 선언과 설치 DLL에서 찾지 못한 미호출 중국 전용 선언이다.\n//\1',original,count=1)
