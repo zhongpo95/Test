@@ -381,6 +381,16 @@ local function bqbui_init()
   ui_info.panel = Panel
   BQBInfo = ui_info
   local event = {
+    on_key_down = function(code)
+      if code == 84 then
+        M.key_down("window")
+      end
+    end,
+    on_key_up = function(code)
+      if code == 84 then
+        M.key_up("window")
+      end
+    end,
     on_update = function()
       if not ui_info.is_show then
         return
@@ -553,11 +563,11 @@ function bqb_apply_config_group(u)
   return true
 end
 
-function M.key_down()
+function M.key_down(source)
   local sy = LocalPlayerID
   local selected = Xuanze and Xuanze[sy]
   require("hera_gameplay_diagnostic").local_input("emoji_key_down", Hero and Hero[sy],
-    "selected=" .. tostring(selected) .. " enabled=" .. tostring(Bqb_OpenClose))
+    "source=" .. tostring(source) .. " selected=" .. tostring(selected) .. " enabled=" .. tostring(Bqb_OpenClose))
   if not selected or not Bqb_OpenClose or ui_info.is_show then
     return
   end
@@ -570,10 +580,10 @@ function M.key_down()
   ui_info.is_show = true
 end
 
-function M.key_up()
+function M.key_up(source)
   local sy = LocalPlayerID
   require("hera_gameplay_diagnostic").local_input("emoji_key_up", Hero and Hero[sy],
-    "open=" .. tostring(ui_info.is_show) .. " choice=" .. tostring(ui_info.id))
+    "source=" .. tostring(source) .. " open=" .. tostring(ui_info.is_show) .. " choice=" .. tostring(ui_info.id))
   if not ui_info.is_show then
     return
   end

@@ -143,11 +143,11 @@ endfunction
 
 // 아르카나의 T키 등록과 동일하게 누름과 뗌을 직접 전달한다.
 function HeraUIBridgeEmojiDown takes nothing returns nothing
-    local string result = EXExecuteScript("if BQBInfo then require('gameplay.interface.ui.bqb').key_down() end")
+    local string result = EXExecuteScript("require('hera_emoji_input').key_down()")
 endfunction
 
 function HeraUIBridgeEmojiUp takes nothing returns nothing
-    local string result = EXExecuteScript("if BQBInfo then require('gameplay.interface.ui.bqb').key_up() end")
+    local string result = EXExecuteScript("require('hera_emoji_input').key_up()")
 endfunction
 
 function HeraUIBridgeDispatch takes nothing returns nothing
