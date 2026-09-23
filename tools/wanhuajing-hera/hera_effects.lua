@@ -1,6 +1,6 @@
 -- 전용 모델 교체 풀 대신 워크래프트 기본 효과 생성·부착·해제를 사용한다.
 return function(env, note)
-    local common, dbg = require('jass.common'), require('jass.debug')
+    local common, dbg, japi = require('jass.common'), require('jass.debug'), require('jass.japi')
     local add, target, destroy = common.AddSpecialEffect, common.AddSpecialEffectTarget, common.DestroyEffect
     local models, created, destroyed, live = {}, 0, 0, 0
     local game = env.game
@@ -13,7 +13,12 @@ return function(env, note)
     end
     rawset(common, 'AddSpecialEffect', function(path, x, y) return retain(add(path, x, y), path) end)
     rawset(common, 'AddSpecialEffectTarget', function(path, widget, attachment, immediate, alternate)
-        return retain(target(alternate or path, widget, attachment), alternate or path)
+        -- 표시 설정은 로컬 상태이므로 실제 모델과 핸들은 유지하고 크기만 숨긴다.
+        local display = alternate or path
+        local hidden = display:lower() == 'nullmodel.mdx'
+        local handle = retain(target(hidden and path or display, widget, attachment), hidden and path or display)
+        if hidden then japi.EXSetEffectVisible(handle, false) end
+        return handle
     end)
     rawset(common, 'DestroyEffect', function(handle)
         if models[handle] then
@@ -30,6 +35,13 @@ return function(env, note)
         return result
     end
     function game.set_target_effect_display(handle, path)
-        if models[handle] ~= path then note('LIMITATION attached effect model swap unavailable: ' .. tostring(path)) end
+        if not models[handle] then return end
+        if path:lower() == 'nullmodel.mdx' then
+            japi.EXSetEffectVisible(handle, false)
+        elseif models[handle] == path then
+            japi.EXSetEffectVisible(handle, true)
+        else
+            note('LIMITATION attached effect model swap unavailable: ' .. tostring(path))
+        end
     end
 end

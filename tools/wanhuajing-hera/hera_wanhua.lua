@@ -1,5 +1,5 @@
 -- 만화경의 모듈 로딩과 기본 이미지·텍스트 UI를 헤라 JN 프레임 및 입력 경로에 연결한다.
-local M = {version = 'v11', status = 'not started', errors = {}, modules = {}, limitations = {}}
+local M = {version = 'v12', status = 'not started', errors = {}, modules = {}, limitations = {}}
 local common = require('jass.common')
 local japi = require('jass.japi')
 local globals = require('jass.globals')
@@ -557,19 +557,7 @@ function M.start()
         rawset(japi, 'GetUsedMemory', function() limitation('memory counter reports Lua heap only'); return math.floor(collectgarbage('count') / 1024) end)
         rawset(japi, 'ReleaseAllModel', function() limitation('model cache remains owned by JN') end)
         rawset(japi, 'UnBindEffect', function() limitation('native attachments are released when their effect is destroyed') end)
-        if type(japi.EXSetEffectVisible) ~= 'function' then
-            local hidden_size = {}
-            rawset(japi, 'EXSetEffectVisible', function(effect, visible)
-                if visible then
-                    if hidden_size[effect] then japi.EXSetEffectSize(effect, hidden_size[effect]); hidden_size[effect] = nil end
-                elseif not hidden_size[effect] then
-                    hidden_size[effect] = japi.EXGetEffectSize(effect)
-                    japi.EXSetEffectSize(effect, 0)
-                end
-            end)
-            local destroy = common.DestroyEffect
-            rawset(common, 'DestroyEffect', function(effect) hidden_size[effect] = nil; return destroy(effect) end)
-        end
+        native_require('hera_effect_visibility')(common, japi)
         rawset(japi, 'GetLoadingProgress', function() return 1 end)
         -- 기본 사운드 경로는 워크래프트 믹서가 마스터 음량을 이미 적용한다.
         rawset(japi, 'GetGlobalSoundVolume', function() return 100 end)
