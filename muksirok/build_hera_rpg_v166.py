@@ -256,6 +256,7 @@ for p in sorted((ROOT/'recovered-lua-source').rglob('*.lua')):
 for p in sorted(PORT.rglob('*.lua')):
     if p.name=='hera_ui_compat.lua':continue
     add(p.relative_to(PORT).as_posix(),p.read_bytes(),'Hera source overlay')
+add('hera_build_info.lua', ('-- 실행 맵의 실제 빌드 식별자를 진단 로그에 제공한다.\nreturn {revision=' + json.dumps(str(REVISION),ensure_ascii=False) + ',title=' + json.dumps(TITLE,ensure_ascii=False) + '}\n').encode('utf-8'), 'generated build identity')
 for p in sorted((ROOT/'hera-rpg-assets-v3').rglob('*')):
     if p.is_file():add(p.relative_to(ROOT/'hera-rpg-assets-v3').as_posix(),p.read_bytes(),'prepackaged UI definition with native verification template')
 for p in sorted((ROOT/'hera-rpg-assets-v7').rglob('*')):

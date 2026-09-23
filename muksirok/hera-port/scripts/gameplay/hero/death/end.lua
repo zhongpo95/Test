@@ -541,6 +541,7 @@ function GameOverRun()
   if gameoverboolean then
     return
   end
+  require('hera_desync_diagnostic').event('MAP_GAME_OVER', '')
   YisiStory["游戏失败"]()
   gameoverboolean = true
   if GetUnitTypeId(Hero_Bzz) == HeroType["白洲梓"] then
@@ -621,6 +622,7 @@ function GameOverRun()
     string[4] = "丢人，你马上给我退出战场！"
     string[5] = "你在期待什么失败台词？"
     for i = 1, 6 do
+      require('hera_desync_diagnostic').event('MAP_DEFEAT_REQUEST', 'slot=' .. tostring(i))
       CustomDefeatBJ(ConvertedPlayer(i), string[GetRandomInt(1, 5)])
     end
   end)

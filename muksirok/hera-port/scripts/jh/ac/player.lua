@@ -275,8 +275,9 @@ local function create_player_leave_trigger()
   PlayerLeave = war3.CreateTrigger(function()
     local p = getplayer(GetTriggerPlayer())
     local sy = p.id
+    require('hera_desync_diagnostic').event('PLAYER_LEAVE_BEGIN', 'slot=' .. tostring(sy))
     SendMsgAll(p:getname() .. "离开了游戏")
-    require("hera_boot").note("PLAYER LEAVE slot=" .. tostring(sy) .. "; local=" .. tostring(LocalPlayerID) .. "; clock=" .. tostring(ac.clock()) .. "; count=" .. tostring(PlayerCount))
+    require("hera_boot").note("PLAYER LEAVE slot=" .. tostring(sy) .. "; local=" .. tostring(LocalPlayerID) .. "; clock=" .. tostring(ac.clock()) .. "; count=" .. tostring(PlayerCount), true)
     -- 난이도 확정 전에는 인원 집계가 아직 생성되지 않는다.
     if type(PlayerCount) == "number" then
       PlayerCount = PlayerCount - 1
@@ -284,6 +285,7 @@ local function create_player_leave_trigger()
     if Xuanze[sy] then
       local u = getunit(Hero[sy])
       if type(u) ~= "table" then
+        require('hera_desync_diagnostic').event('PLAYER_LEAVE_NO_HERO', 'slot=' .. tostring(sy))
         return
       end
       u:groupremove(Group_PlayHero)
@@ -296,6 +298,7 @@ local function create_player_leave_trigger()
       ShowUnit(u.handle, false)
       u:buffset(u.handle, 3600, "无敌")
     end
+    require('hera_desync_diagnostic').event('PLAYER_LEAVE_END', 'slot=' .. tostring(sy))
   end)
 end
 

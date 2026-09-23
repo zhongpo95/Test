@@ -29,6 +29,9 @@ function M.phase(stage, values)
   pcall(function()
     record("Phase", "clock=" .. tostring(ac.clock()) .. " wave=" .. tostring(Stage) .. " stage=" .. stage .. " " .. fields_text(values))
   end)
+  if stage == 'ROUND_START_BEGIN' or stage == 'ROUND_START_END' then
+    require('hera_desync_diagnostic').snapshot(stage)
+  end
 end
 local input_path
 local input_count = 0
@@ -92,6 +95,7 @@ function M.summary()
     '; kills=' .. tostring(KillCumCount and KillCumCount[1])
 end
 function M.install()
+  require('hera_desync_diagnostic').install()
   M.monster("INSTALL", {})
   local boot = require('hera_boot')
   local japi = require('jass.japi')
@@ -143,6 +147,7 @@ function M.install()
   end
   local samples = 0
   ac.loop(5000, function(timer)
+    require('hera_desync_diagnostic').snapshot('PERIODIC')
     samples = samples + 1
     M.monster("STATE", {spawn=state(attack_start), next=state(attack_next), movie=Movie_Boolean, extra=ExtraBattle, boss=BossBattle, pool=MonsterType, sample=samples})
     local heroes = Group_PlayHero and type(Group_Counts)=='function' and Group_Counts(Group_PlayHero) or -1

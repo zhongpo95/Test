@@ -15,7 +15,9 @@ local ok, err = pcall(function()
       state.sender = GetPlayerId(player)
       boot.note("UI SYNC diagnostic received; player=" .. state.sender .. " count=" .. state.received)
     else
+      require('hera_desync_diagnostic').ui_receive('BEGIN', player, message)
       ui.on_custom_ui_event(player, message)
+      require('hera_desync_diagnostic').ui_receive('END', player, message)
     end
   end)
 end)
