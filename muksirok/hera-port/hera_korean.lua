@@ -48,7 +48,7 @@ for source, translated in pairs(require('hera_korean_cards')) do words[source] =
 for source, translated in pairs(require('hera_korean_commands').labels) do words[source] = translated end
 local blocks = {}
 local exact_blocks = {}
-for _, module in ipairs({'hera_korean_reference', 'hera_korean_command_cards', 'hera_korean_relics', 'hera_korean_advanced', 'hera_korean_blood', 'hera_korean_collections', 'hera_korean_integrated', 'hera_korean_v54', 'hera_korean_v137'}) do
+for _, module in ipairs({'hera_korean_reference', 'hera_korean_command_cards', 'hera_korean_relics', 'hera_korean_advanced', 'hera_korean_blood', 'hera_korean_collections', 'hera_korean_integrated', 'hera_korean_v54', 'hera_korean_v137', 'hera_korean_alice_talents'}) do
   for source, translated in pairs(require(module)) do
     if source:find('\n', 1, true) then
       exact_blocks[source] = translated
