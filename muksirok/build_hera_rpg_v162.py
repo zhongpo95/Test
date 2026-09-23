@@ -3,10 +3,10 @@ import pathlib,struct,json,hashlib,re,zlib,os
 WORK=pathlib.Path(__file__).parent
 ROOT=pathlib.Path(os.environ['HERA_ASSET_ROOT'])
 PORT=WORK/'hera-port'
-OUT=pathlib.Path(os.environ.get('HERA_MAP_OUT',str(WORK/'Hera_RPG_Init_v161.w3x')))
+OUT=pathlib.Path(os.environ.get('HERA_MAP_OUT',str(WORK/'Hera_RPG_Init_v162.w3x')))
 OUT.parent.mkdir(parents=True,exist_ok=True)
 SRC=WORK/'build-artifacts';SRC.mkdir(exist_ok=True)
-TITLE='Hera RPG initialization v161'
+TITLE='Hera RPG initialization v162'
 TABLE=[0]*1280;seed=0x100001
 for i in range(256):
     for j in range(5):
@@ -279,6 +279,6 @@ with temp.open('wb') as f:
     size=f.tell()-512
     f.seek(512);f.write(b'MPQ\x1a'+pack('IIHH4I',32,size,0,3,hpos,bpos,count,len(blocks)))
 temp.replace(OUT)
-report={'revision':161,'map':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'files':len(rows),'known_names':sum(x['name'] is not None for x in manifest),'opaque_hashes':sum(x['name'] is None for x in manifest),'recovered_lua':lua_count,'jrp_assets':len(jrp),'excluded':excluded,'hash_table_slots':count,'empty_slots':0,'deleted_slots':count-len(rows),'status':'initialization test; no v161 game runtime validation','entries':manifest}
+report={'revision':162,'map':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'files':len(rows),'known_names':sum(x['name'] is not None for x in manifest),'opaque_hashes':sum(x['name'] is None for x in manifest),'recovered_lua':lua_count,'jrp_assets':len(jrp),'excluded':excluded,'hash_table_slots':count,'empty_slots':0,'deleted_slots':count-len(rows),'status':'initialization test; no v162 game runtime validation','entries':manifest}
 (SRC/'hera-rpg-build.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({k:v for k,v in report.items() if k!='entries'}))

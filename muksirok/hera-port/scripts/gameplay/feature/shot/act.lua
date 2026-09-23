@@ -374,6 +374,7 @@ local event_map = {
         local x, y = game.get_mouse_pos()
         ui_info.x = x
         ui_info.y = y
+        ui_info.id = 0
         x = x / 1920 * 0.8
         y = (1 - y / 1080) * 0.6
         japi.FrameSetAbsolutePoint(Panel._id, 4, x, y)
@@ -423,7 +424,7 @@ local event_map = {
     if Xuanze[id1] then
       local ui_info = BQBInfo
       local Panel = ui_info.panel
-      if code == KEY.T and Bqb_OpenClose then
+      if code == KEY.T and Bqb_OpenClose and ui_info.is_show then
         local id = ui_info.id
         if id ~= 0 then
           local index = ui_info.bqb[id]
