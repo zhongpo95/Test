@@ -32,6 +32,7 @@ function M.install(common)
   pcall(function()
     path = "Logs/Hera_RPG_UITrace_v160_p" .. tostring(common.GetPlayerId(common.GetLocalPlayer()) + 1) .. ".txt"
     writer = require("hera_trace_ring").new(path)
+    write("BUILD v170 MP wall=" .. os.date("%Y-%m-%dT%H:%M:%S"))
   end)
 end
 
@@ -44,7 +45,7 @@ function M.forget_frame(frame)
 end
 
 function M.item_hover(place, slot, item)
-  write("ITEM HOVER place=" .. tostring(place) .. " slot=" .. tostring(slot) .. " handle=" .. tostring(item))
+  write("ITEM HOVER wall=" .. os.date("%Y-%m-%dT%H:%M:%S") .. " place=" .. tostring(place) .. " slot=" .. tostring(slot) .. " handle=" .. tostring(item))
   local ok, typeid = pcall(GetItemTypeId, item)
   local named, name = pcall(function()
     local data = ok and slk and slk.item and slk.item[typeid]
@@ -55,7 +56,7 @@ function M.item_hover(place, slot, item)
 end
 
 function M.target_change(kind, handle)
-  write("TARGET kind=" .. tostring(kind) .. " handle=" .. tostring(handle))
+  write("TARGET wall=" .. os.date("%Y-%m-%dT%H:%M:%S") .. " kind=" .. tostring(kind) .. " handle=" .. tostring(handle))
   if kind == 1 and handle and handle ~= 0 then
     M.item_hover("ground", nil, handle)
   elseif kind == 2 and handle and handle ~= 0 then
@@ -72,7 +73,7 @@ function M.begin_event(frame, event, player)
     if counts[op] then totals[#totals+1] = tostring(op) .. "=" .. tostring(counts[op]) end
   end
   local described, detail = pcall(frame_detail, frame)
-  write("EVENT BEGIN id=" .. sequence .. " kind=" .. tostring(names[event] or event) .. " frame=" .. tostring(frame) .. " player=" .. tostring(player) .. " detail=" .. (described and detail or "unknown") .. " calls=" .. calls .. " ops=" .. table.concat(totals, ","))
+  write("EVENT BEGIN id=" .. sequence .. " wall=" .. os.date("%Y-%m-%dT%H:%M:%S") .. " kind=" .. tostring(names[event] or event) .. " frame=" .. tostring(frame) .. " player=" .. tostring(player) .. " detail=" .. (described and detail or "unknown") .. " calls=" .. calls .. " ops=" .. table.concat(totals, ","))
   return previous
 end
 function M.end_event(previous, ok, result)
