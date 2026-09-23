@@ -397,14 +397,17 @@ do
   
   do
     local dzapi = require("jass.dzapi")
+    local trace = require("hera_ui_trace")
     local ui = japi.DzFrameGetTooltip()
     for i = 0, 5 do
       local btn = japi.DzFrameGetItemBarButton(i)
+      pcall(trace.label_frame, btn, "inventory_slot=" .. i)
       dzapi.DzFrameSetScriptByCode(btn, 2, function()
         local unit = japi.GetRealSelectUnit()
         if unit ~= 0 then
           local wp = UnitItemInSlot(unit, i)
           if wp ~= 0 then
+            pcall(trace.item_hover, "inventory", i, wp)
             local itemtype = GetItemTypeId(wp)
             local text = slk.item[itemtype].Name
             local text2 = slk.item[itemtype].Ubertip
@@ -458,6 +461,7 @@ do
     end
     game.register_event({
       on_item_mouse_enter = function(wp)
+        pcall(trace.item_hover, "ground_tooltip", nil, wp)
         local itemtype = GetItemTypeId(wp)
         local data = slk.item[itemtype]
         if not data or not data.Name then

@@ -29,7 +29,7 @@ function M.bind(common, globals)
   local model_assets = require("hera_model_assets")
   ui.model_stats = {loaded=0, writes=0, unused_textures=0}
   ui.target_stats = {units=0, items=0, empty=0, models=0}
-  local previous_target
+  local previous_target, previous_target_kind
 
   local function invoke(operation, arguments)
     assert(not globals.HeraUIBridgeBusy, "nested Hera UI bridge request")
@@ -119,20 +119,25 @@ function M.bind(common, globals)
   end
   function ui.GetTargetObject()
     local target = invoke(41, {})
-    if target.handle ~= previous_target then
+    if target.handle ~= previous_target or target.kind ~= previous_target_kind then
       local key = target.kind == 1 and "items" or target.kind == 2 and "units" or "empty"
       ui.target_stats[key] = ui.target_stats[key] + 1
       previous_target = target.handle
+      previous_target_kind = target.kind
+      pcall(trace.target_change, target.kind, target.handle)
     end
     return target.handle
   end
   function ui.CreateFrameByTagName(kind, name, parent, template, context)
-    return invoke(2, {StringA=kind, StringB=name, IntA=parent, StringC=template, IntB=context})
+    local frame = invoke(2, {StringA=kind, StringB=name, IntA=parent, StringC=template, IntB=context})
+    pcall(trace.label_frame, frame, tostring(kind) .. "/" .. tostring(name) .. "/" .. tostring(template))
+    return frame
   end
   function ui.DestroyFrame(frame)
     invoke(3, {IntA=frame})
     callbacks[frame] = nil
     model_paths[frame] = nil
+    pcall(trace.forget_frame, frame)
   end
   function ui.FrameSetPoint(frame, point, relative, relative_point, x, y)
     invoke(4, {IntA=frame, IntB=point, IntC=relative, IntD=relative_point, RealA=x, RealB=y})

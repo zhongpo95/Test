@@ -5,6 +5,21 @@ local sequence, calls, lines = 0, 0, 0
 local counts = {}
 local names = {[1]="click", [2]="enter", [3]="leave", [4]="up", [5]="down"}
 local writer
+local frame_labels = {}
+
+local function short(value)
+  return tostring(value):gsub("[\r\n]", " "):sub(1, 120)
+end
+
+local function frame_detail(frame)
+  local detail = frame_labels[frame] or ""
+  local button = class and class.button and class.button.button_map and class.button.button_map[frame]
+  if button then
+    detail = detail .. " name=" .. short(button._name) .. " key=" .. short(button.sync_key) ..
+      " image=" .. short(button.normal_image) .. " parent=" .. tostring(button.parent and button.parent._id)
+  end
+  return detail
+end
 local function write(text)
   if not writer then return end
   pcall(function()
@@ -19,6 +34,35 @@ function M.install(common)
     writer = require("hera_trace_ring").new(path)
   end)
 end
+
+function M.label_frame(frame, label)
+  if frame and frame ~= 0 then frame_labels[frame] = short(label) end
+end
+
+function M.forget_frame(frame)
+  frame_labels[frame] = nil
+end
+
+function M.item_hover(place, slot, item)
+  write("ITEM HOVER place=" .. tostring(place) .. " slot=" .. tostring(slot) .. " handle=" .. tostring(item))
+  local ok, typeid = pcall(GetItemTypeId, item)
+  local named, name = pcall(function()
+    local data = ok and slk and slk.item and slk.item[typeid]
+    return data and data.Name
+  end)
+  write("ITEM TYPE place=" .. tostring(place) .. " handle=" .. tostring(item) ..
+    " type=" .. tostring(ok and typeid or "error") .. " name=" .. short(named and name))
+end
+
+function M.target_change(kind, handle)
+  write("TARGET kind=" .. tostring(kind) .. " handle=" .. tostring(handle))
+  if kind == 1 and handle and handle ~= 0 then
+    M.item_hover("ground", nil, handle)
+  elseif kind == 2 and handle and handle ~= 0 then
+    local ok, typeid = pcall(GetUnitTypeId, handle)
+    write("TARGET UNIT handle=" .. tostring(handle) .. " type=" .. tostring(ok and typeid or "error"))
+  end
+end
 function M.begin_event(frame, event, player)
   local previous = context
   sequence = sequence + 1
@@ -27,7 +71,8 @@ function M.begin_event(frame, event, player)
   for op = 1, 50 do
     if counts[op] then totals[#totals+1] = tostring(op) .. "=" .. tostring(counts[op]) end
   end
-  write("EVENT BEGIN id=" .. sequence .. " kind=" .. tostring(names[event] or event) .. " frame=" .. tostring(frame) .. " player=" .. tostring(player) .. " calls=" .. calls .. " ops=" .. table.concat(totals, ","))
+  local described, detail = pcall(frame_detail, frame)
+  write("EVENT BEGIN id=" .. sequence .. " kind=" .. tostring(names[event] or event) .. " frame=" .. tostring(frame) .. " player=" .. tostring(player) .. " detail=" .. (described and detail or "unknown") .. " calls=" .. calls .. " ops=" .. table.concat(totals, ","))
   return previous
 end
 function M.end_event(previous, ok, result)
