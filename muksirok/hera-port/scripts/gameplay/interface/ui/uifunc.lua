@@ -456,6 +456,33 @@ do
         Boolean_UIYName = false
       end, false)
     end
+    game.register_event({
+      on_item_mouse_enter = function(wp)
+        local itemtype = GetItemTypeId(wp)
+        local data = slk.item[itemtype]
+        if not data or not data.Name then
+          return
+        end
+        local text = data.Name .. "\n" .. (data.Ubertip or ""):gsub(",DataA1.*", ""):gsub(",Dur1.*", "")
+        UIYNameKey = wp
+        Boolean_UIYName = false
+        uiy_show_text(text, "Item")
+        if YuanshengTooltip then
+          YuanshengTooltip.set_enabled(false)
+        end
+        japi.FrameShow(ui, false)
+      end,
+      on_item_mouse_leave = function(wp)
+        if UIYNameKey == wp then
+          uiy_hide()
+          UIYNameKey = 0
+          Boolean_UIYName = false
+          if YuanshengTooltip then
+            YuanshengTooltip.set_enabled(true)
+          end
+        end
+      end
+    })
   end
 end
 ac.wait(1000, function()
