@@ -1,0 +1,756 @@
+# source_sha256=2a9ffd46b0e4ff3c87b3403ecb299a812653df1064246c63d78dd64d6685df80
+id	original	korean
+I000	|cFF7DBEF1黑科弹|r	|cFF7DBEF1블랙테크 탄환|r
+I003	|cFF7DBEF1伯奈利军弹|r	|cFF7DBEF1베넬리 군용탄|r
+I006	|cFFFF0000鲜血模组|r	|cFFFF0000선혈 모듈|r
+I007	|cFF1FBF00补给箱|r	|cFF1FBF00보급 상자|r
+I008	|cFF3366FF军火箱|r	|cFF3366FF군수품 상자|r
+I009	手榴弹	수류탄
+I00A	|cFFFF6600小刀|r	|cFFFF6600단검|r
+I00B	|cFF3399FF风暴模组|r	|cFF3399FF폭풍 모듈|r
+I00C	医疗包	의료 가방
+I00D	|cFFFF6600铁剑|r	|cFFFF6600철검|r
+I00E	|cFF7DBEF1黑科弹-II|r	|cFF7DBEF1블랙테크 탄환-II|r
+I00F	|cFFFF3333战争模组|r	|cFFFF3333전쟁 모듈|r
+I00G	|cFF0041FF冰霜模组|r	|cFF0041FF서리 모듈|r
+I00H	|cFFFF6600hanbi快乐斧|r	|cFFFF6600hanbi의 즐거운 도끼|r
+I00I	|cFF1FBF00腐蚀模组|r	|cFF1FBF00부식 모듈|r
+I00J	|cFF7DBEF1净化药剂|r	|cFF7DBEF1정화 약물|r
+I00L	止痛药	진통제
+I00M	|cFFFF6600武士刀|r	|cFFFF6600일본도|r
+I00N	燃烧瓶	화염병
+I00O	|cFFFF6600撬棍|r	|cFFFF6600쇠지렛대|r
+I00T	|cFF7DBEF1瓦尔特弹|r	|cFF7DBEF1발터 탄환|r
+I00X	|cFFCC66FF次元匣|r	|cFFCC66FF차원 상자|r
+I00Y	|cFF949596记忆拼图I|r	|cFF949596기억 퍼즐 I|r
+I00Z	|cFF949596记忆拼图Ⅱ|r	|cFF949596기억 퍼즐 Ⅱ|r
+I010	|cFF949596记忆拼图Ⅲ|r	|cFF949596기억 퍼즐 Ⅲ|r
+I011	|cFFFF3333伊希斯血晶|r	|cFFFF3333이시스 혈정|r
+I012	|cFF336699虚黑|r|cFF335980の|r|cFF334C66刻印|r	|cFF336699허흑의 각인|r
+I013	测试用物品	테스트용 아이템
+I015	|cFFFF9933锋芒模组|r	|cFFFF9933예리함 모듈|r
+I016	|cFFFF6600日轮竹|r	|cFFFF6600일륜죽|r
+I019	|cFF7DBEF1清酒|r	|cFF7DBEF1청주|r
+I01A	『万宝槌.伪』	『만보추·위』
+I01B	|cFF6600FF刷新球|r	|cFF6600FF리프레셔 오브|r
+I01C	|cFF1FBF00幸运模组|r	|cFF1FBF00행운 모듈|r
+I01D	|cFFFF0000命运匣|r	|cFFFF0000운명 상자|r
+I01E	|cFF6633FF梦|r|cFF7052FF魇|r|cFF7A70FF模|r|cFF858FFF组|r	|cFF6633FF악몽 모듈|r
+I01F	|cFFCC0099「平行交差」|r	|cFFCC0099「평행 교차」|r
+I01G	|cFFFF0066沙漠之鹰-PW|r	|cFFFF0066데저트 이글-PW|r
+I01I	|cFF7DBEF1贯彻弹|r	|cFF7DBEF1관철탄|r
+I01J	|cFFFF3333烈焰模组|r	|cFFFF3333화염 모듈|r
+I01L	|cFF949596记忆拼图Ⅳ|r	|cFF949596기억 퍼즐 Ⅳ|r
+I01M	|cFF949596记忆拼图Ⅴ|r	|cFF949596기억 퍼즐 Ⅴ|r
+I01N	|cFFFFFF00Romanの祝福|r	|cFFFFFF00Roman의 축복|r
+I01P	|cFFCC0066邪神剑|r	|cFFCC0066사신검|r
+I01Q	|cFFFF3333血坏药剂|r	|cFFFF3333혈괴 약제|r
+I01V	|cFF333333神|r|cFF5C5C5C之|r|cFF858585花|r|cFFADADAD瓣|r	|cFF333333신의 꽃잎|r
+I01W	|cFF00CCFF权力之刃|r	|cFF00CCFF권력의 칼날|r
+I01X	|cFF990000深|r|cFFAD3300渊|r|cFFC26600宝|r|cFFD69900箱|r	|cFF990000심연 보물상자|r
+I01Y	|cFF0041FF权力之冠|r	|cFF0041FF권력의 왕관|r
+I01Z	|cFF0041FF无冕之王|r	|cFF0041FF무관의 왕|r
+I020	|cFFFFFF00菊一文字则宗|r	|cFFFFFF00키쿠이치몬지 노리무네|r
+I021	|cFFFFFF00诚之旗|r	|cFFFFFF00성실의 깃발|r
+I024	|cFFFF0000生之花|r	|cFFFF0000생명의 꽃|r
+I025	|cFFFF0000破戒刀|r	|cFFFF0000파계도|r
+I027	|cFFFF6600棒球棍|r	|cFFFF6600야구방망이|r
+I029	|cFF0041FF潮汐|r	|cFF0041FF조석|r
+I02B	|cFFFFFF00风祝の御币|r	|cFFFFFF00카자하후리의 고헤이|r
+I02C	|cFF6633FF不可能の明日|r	|cFF6633FF불가능한 내일|r
+I02D	无名长裙	이름 없는 드레스
+I02E	|cFF1BE6B8鲁纳斯泉水|r	|cFF1BE6B8루나스 샘물|r
+I02F	|cFF1FBF00以太药剂|r	|cFF1FBF00에테르 약물|r
+I02G	|cFFFF0066麻婆豆腐|r	|cFFFF0066마파두부|r
+I02H	|cFF6699CC冥王星之药|r	|cFF6699CC명왕성의 약|r
+I02I	|cFF3333FF草薙剑|r	|cFF3333FF쿠사나기 검|r
+I02J	|cFF339900遗物-摩托车|r	|cFF339900유물-오토바이|r
+I02K	遗物-鲜血之种	유물-선혈의 씨앗
+I02L	|cFF339900遗物-狩猎本能|r	|cFF339900유물-사냥 본능|r
+I02M	遗物-保罗的羊蹄	유물-폴의 염소발
+I02N	|cFFFF9900传说-反射棱镜|r	|cFFFF9900전설-반사 프리즘|r
+I02O	遗物-四叶草	유물-네잎클로버
+I02P	|cFF339900遗物-生锈小刀|r	|cFF339900유물-녹슨 단검|r
+I02Q	遗物-活体树甲	유물-살아 있는 나무 갑옷
+I02R	遗物-聚焦眼镜	유물-집중 안경
+I02S	|cFF339900遗物-苦涩树根|r	|cFF339900유물-쓴 뿌리|r
+I02T	遗物-隐士围巾	유물-은둔자의 목도리
+I02U	|cFF339900遗物-和平鸽|r	|cFF339900유물-평화의 비둘기|r
+I02V	|cFF006666类|r|cFF338585星|r|cFF66A3A3天|r|cFF99C2C2陨|r	|cFF006666퀘이사 낙성|r
+I02W	遗物-刽子手之妻	유물-처형인의 아내
+I02X	遗物-银弹	유물-은탄
+I02Y	|cFF339900遗物-血袋|r	|cFF339900유물-혈액 주머니|r
+I02Z	遗物-治愈精灵	유물-치유 정령
+I030	|cFFFFCC33次元の回忆|r	|cFFFFCC33차원의 추억|r
+I031	|cFF660066哀叹之种|r|n	|cFF660066그리프 시드|r
+I032	|cFF1FBF00红酒|r	|cFF1FBF00레드 와인|r
+I033	|cFF0041FF血腥玛丽|r	|cFF0041FF블러디 메리|r
+I034	|cFF7DBEF1啤酒|r	|cFF7DBEF1맥주|r
+I035	|cFF6666FF魔君兴奋剂|r	|cFF6666FF마군의 흥분제|r
+I036	|cFFFF6600星辉注射剂|r	|cFFFF6600별빛 주사제|r
+I037	|cFF1FBF00牛奶|r	|cFF1FBF00우유|r
+I038	|cFF1BE6B8资源箱|r	|cFF1BE6B8자원 상자|r
+I039	|cFF6600FF『杀生石』|r	|cFF6600FF『살생석』|r
+I03A	|cFFFF0000祟|r	|cFFFF0000재앙|r
+I03C	|cFFFF0066混沌传送权杖|r	|cFFFF0066혼돈의 순간이동 지팡이|r
+I03E	钱袋	돈주머니
+I03H	|cFFFFFF00世界的绘本-零|r	|cFFFFFF00세계의 그림책-제로|r
+I03I	|cFFFFFF00世界的绘本-加奈|r	|cFFFFFF00세계의 그림책-카나|r
+I03J	|cFFCC0000残暴心|r	|cFFCC0000잔혹한 마음|r
+I03K	|cFF949596戒|r	|cFF949596계율|r
+I03M	|cFF00FF66圣诞糖果(瓶装)|r	|cFF00FF66크리스마스 사탕(병)|r
+I03N	|cFFE500AF九字兼定|r	|cFFE500AF쿠지 카네사다|r
+I03O	|cFFE500AF九字兼定 - 境界|r	|cFFE500AF쿠지 카네사다 - 경계|r
+I03P	|cFFFF0000禁忌「レーヴァテイン」|r	|cFFFF0000금기 「레바테인」|r
+I03Q	|cFF00FF66芙兰朵露的日记残片①|r	|cFF00FF66플랑드르의 일기 조각 ①|r
+I03R	|cFF00FF66芙兰朵露的日记残片②|r	|cFF00FF66플랑드르의 일기 조각 ②|r
+I03S	|cFF00FF66芙兰朵露的日记残片③|r	|cFF00FF66플랑드르의 일기 조각 ③|r
+I03T	|cFF990000伪经-罪罚|r	|cFF990000위경-죄와 벌|r
+I03U	|cFFCC0000染血の佛珠|r	|cFFCC0000피로 물든 염주|r
+I03V	|cFFFF3300日轮刀|r	|cFFFF3300일륜도|r
+I03X	|cFFCC0000散发着红光的刀刃|r	|cFFCC0000붉은 빛을 발하는 칼날|r
+I03Y	|cFF0041FF七夜|r	|cFF0041FF나나야|r
+I03Z	|cFF3366FF洋流|r	|cFF3366FF해류|r
+I042	|cFFCC0000红魔秘史|r	|cFFCC0000홍마비사|r
+I048	|cFFFF3333命运|r	|cFFFF3333운명|r
+I049	|cFFFF3300命运之力|r	|cFFFF3300운명의 힘|r
+I04D	|cFFFFFF00金色怀表|r	|cFFFFFF00황금 회중시계|r
+I04F	|cFFFF6600蓬莱仙药|r	|cFFFF6600봉래의 약|r
+I04G	冰川钥匙	빙하의 열쇠
+I04H	|CffFF0000神枪·「スピア·ザ·グングニル」|r	|cffFF0000신창 「스피어 더 궁니르」|r
+I04I	|cFF3366FF《他乡的歌谣-泪》|r	|cFF3366FF《타향의 노래-눈물》|r
+I04J	|cFF3366FF《他乡的歌谣-悲》|r	|cFF3366FF《타향의 노래-슬픔》|r
+I04K	|cFF0041FF《泪|r|cFF1D5AFF落|r|cFF2C67FF星空》|r	|cFF0041FF《별하늘에 떨어지는 눈물》|r
+I04L	|cFFFF6600日轮竹.解放|r	|cFFFF6600일륜죽·해방|r
+I04N	|cFF009933箭|r	|cFF009933화살|r
+I04O	|cFF009933虫箭|r	|cFF009933벌레 화살|r
+I04P	|cFF9900001i撒旦|r|cFFAD141F - Satan|r	|cFF9900001i사탄 - Satan|r
+I04Q	|cFF1BE6B82i别西卜|r|cFF40F2DC - Beelzebub|r	|cFF1BE6B82i벨제부브 - Beelzebub|r
+I04R	|cFF1F253F3i路西弗格|r|cFF473F42 - Rophocale|r	|cFF1F253F3i루키푸게 - Rophocale|r
+I04S	|cFF0209824i阿斯塔罗特|r|cFF31208C - Astaroth|r	|cFF0209824i아스타로트 - Astaroth|r
+I04T	|cFF3333335i阿斯蒙蒂斯|r|cFF464747 - Asmodeus|r	|cFF3333335i아스모데우스 - Asmodeus|r
+I04U	|cFFFFCC996i贝尔芬格|r|cFFFFC27A - Belphegor|r	|cFFFFCC996i벨페고르 - Belphegor|r
+I04V	|cFFFF66FF7i巴尔|r|cFFFF52E0 - Baal|r	|cFFFF66FF7i바알 - Baal|r
+I04W	|cFFCC00CC8i亚德米勒|r|cFFD633D6 - Adramelech|r	|cFFCC00CC8i아드라멜렉 - Adramelech|r
+I04X	|cFFFFCCCC9i莉莉丝|r|cFFFFD6C2 - Lilith|r	|cFFFFCCCC9i릴리스 - Lilith|r
+I04Y	|cFF66666610i拿玛|r|cFF858585 - Nahema|r	|cFF66666610i나헤마 - Nahema|r
+I04Z	|cFFFF3333非想非非想の剑|r	|cFFFF3333비상비비상의 검|r
+I050	|cFF3333FF天剑十字|r	|cFF3333FF천검십자|r
+I051	|cFF3333FF暗之书|r	|cFF3333FF어둠의 서|r
+I052	|cFF3333FF暗の书页I|r	|cFF3333FF어둠의 책장 I|r
+I053	|cFF3333FF暗の书页II|r	|cFF3333FF어둠의 책장 II|r
+I054	|cFF3333FF暗の书页III|r	|cFF3333FF어둠의 책장 III|r
+I055	|cFFFF0000博丽赛钱箱|r	|cFFFF0000하쿠레이 새전함|r
+I057	|cFFFFD400夏娃|r|cFFFFAA00的|r|cFFFF8000心脏|r	|cFFFFD400이브의 심장|r
+I058	|cFF9999FF拉莱耶|r|cFF7A7AFFの|r|cFF5C5CFF祝福|r	|cFF9999FF르뤼에의 축복|r
+I059	|cFFFF9900炸鱼薯条|r	|cFFFF9900피시 앤드 칩스|r
+I05A	|cFFFFFF99小天鹅|r|cFFFFE673の|r|cFFFFCC4C炸鱼薯条|r	|cFFFFFF99시그넷의 피시 앤드 칩스|r
+I05C	|CffFF0000高频村雨刀|r	|cffFF0000고주파 무라사마|r
+I05D	|cFF0099FF七式突击降魔机枪-雪霞狼|r	|cFF0099FF칠식 돌격항마기창-설하랑|r
+I05E	|cFFCC66FF忴|r	|cFFCC66FF렴|r
+I05G	|cFF7DBEF1咖啡|r	|cFF7DBEF1커피|r
+I05H	|cFFFF66FF小爱特制.|r|cFFFF99FF七环|r	|cFFFF66FF아이 특제·일곱 고리|r
+I05J	|cFF7DBEF1合金箭矢|r	|cFF7DBEF1합금 화살|r
+I05K	脉冲电荷弓	펄스 전하 활
+I05L	|cFF7DBEF1达姆弹-黑牙|r	|cFF7DBEF1덤덤탄-검은 송곳니|r
+I05M	|cFFFF3300压切长谷部|r	|cFFFF3300헤시키리 하세베|r
+I05N	|cFF996699村正|r	|cFF996699무라마사|r
+I05O	|cFF336699鬼丸国纲|r	|cFF336699오니마루 쿠니츠나|r
+I05P	|cFFCC3366绯|r	|cFFCC3366비색|r
+I05Q	|cFF99FFFF布都御魂|r	|cFF99FFFF후츠노미타마|r
+I05R	|cFFCC33CC童子切安纲|r	|cFFCC33CC도지기리 야스츠나|r
+I05S	|cFFFF9900和泉守兼定|r	|cFFFF9900이즈미노카미 카네사다|r
+I05T	|cFFCCFFFF白楼剑|r	|cFFCCFFFF백루검|r
+I05U	|cFF99CCFF楼观剑|r	|cFF99CCFF누관검|r
+I05V	|cFFFFCC33观世正宗|r	|cFFFFCC33칸제 마사무네|r
+I05W	|cFF999999灰狐刀|r	|cFF999999그레이 폭스의 검|r
+I05X	|cFFCC0000斩机刀-那由他|r	|cFFCC0000참기도-나유타|r
+I05Y	|cFFFF9900辉|r|cFFFFAD14煌|r|cFFFFC229耀|r|cFFFFD63D世|r	|cFFFF9900세상을 비추는 광휘|r
+I05Z	|cFF3366FF业物|r	|cFF3366FF와자모노|r
+I060	|cFFFF6600光剑|r	|cFFFF6600광선검|r
+I061	|cFFFF6600镰刀|r	|cFFFF6600낫|r
+I062	|cFFFF6600钢爪|r	|cFFFF6600강철 발톱|r
+I063	|cFFFF6600战斧|r	|cFFFF6600전투도끼|r
+I064	|cFF33CCCC空间之刃|r	|cFF33CCCC공간의 칼날|r
+I066	|cFF7DBEF1螺旋塔弹|r	|cFF7DBEF1나선탑 탄환|r
+I067	|cFF6600FF『玉藻镇石』|r	|cFF6600FF『타마모의 진석』|r
+I068	|cFF6699FF弹药箱|r	|cFF6699FF탄약 상자|r
+I069	|cFF3366FF湮灭|r|cFF4C4CBF-|r|cFF663380P1|r	|cFF3366FF소멸-P1|r
+I06A	|cFF7DBEF1S02-SU弹|r	|cFF7DBEF1S02-SU 탄환|r
+I06B	|cFF7DBEF1塔纳活性能量弹|r	|cFF7DBEF1타나 활성 에너지탄|r
+I06C	|cFF7DBEF1劳伯奈利斯化武弹|r	|cFF7DBEF1라우베넬리스 화학탄|r
+I06D	|cFFCCFFFF迷|r|cFF99D0FF路|r|cFF66A0FF帖|r	|cFFCCFFFF미로첩|r
+I06E	|cFFFFFF33轩|r|cFFFFE633辕|r|cFFFFCC33剑(封)|r	|cFFFFFF33헌원검(봉인)|r
+I06F	|cFF6633FF紫阳伞|r	|cFF6633FF자양산|r
+I06G	|cff5d1cf4苍|r|cff506ffdの|r|cffa700ff灯笼|r	|cff5d1cf4아오의 등불|r
+I06H	|cFFFF0000石|r|cFFFF4040鬼|r|cFFFF8080面|r	|cFFFF0000돌가면|r
+I06I	|cFFFF9999空白面具|r	|cFFFF9999백지 가면|r
+I06J	|cFFCC0066妖狐面|r	|cFFCC0066요호 가면|r
+I06K	|cFFCC0066般若面|r	|cFFCC0066한냐 가면|r
+I06L	|cFFCC0066长壁面|r	|cFFCC0066오사카베 가면|r
+I06M	|cFFCC0066鬼婆面|r	|cFFCC0066오니바바 가면|r
+I06N	|cFFCC0066狮子面|r	|cFFCC0066사자 가면|r
+I06O	|cFFCC0066火男面|r	|cFFCC0066횻토코 가면|r
+I06P	|cFF000099黑|r|cFF000073刀|r|cFF00004C-夜|r	|cFF000099흑도-요루|r
+I06Q	1积分	1 포인트
+I06R	5积分	5 포인트
+I06S	50积分	50 포인트
+I06T	200积分	200 포인트
+I06U	400积分	400 포인트
+I06V	小型恢复神符	작은 회복 룬
+I06W	恢复神符	회복 룬
+I06X	大型恢复神符	큰 회복 룬
+I06Y	|cFF3399FF流光匕首|r	|cFF3399FF유광 단검|r
+I06Z	|cFFFF33FF东方|r|cFFD966FF求闻|r|cFFB299FF史记|r	|cFFFF33FF동방구문사기|r
+I070	|cFF3399FF善良|r|cFF66B2FFの|r|cFF99CCFF死神|r	|cFF3399FF선량한 사신|r
+I071	|cFFFF6699封魔壶|r	|cFFFF6699봉마호|r
+I072	|cFFCC99FF镇妖壶|r	|cFFCC99FF진요호|r
+I073	|cFFFF66FF蔷薇花开|r	|cFFFF66FF피어나는 장미|r
+I078	|cFFCCFFFF四叶草|r|cFF80FFCC的初心|r	|cFFCCFFFF네잎클로버의 초심|r
+I079	|cFFFFCCFF水|r|cFFFFD9CC果|r|cFFFFE699刀|r	|cFFFFCCFF과도|r
+I07B	|CffFF0000高频村雨刀（锁定）|r	|cffFF0000고주파 무라사마(잠김)|r
+I07C	|cFF8AC2FF魔|r|cFF94B3FF人|r|cFF9EA3FF经|r|cFFA894FF卷|r	|cFF8AC2FF마인의 경전|r
+I07D	|cFF9999FF紫阳花|r	|cFF9999FF수국|r
+I07E	四叶草の初心	네잎클로버의 초심
+I07F	|cFF3399CC御神刀·村雨|r	|cFF3399CC어신도·무라사메|r
+I07G	|cFF999999碎裂|r|cFF808C99的御|r|cFF668099神刀|r	|cFF999999부서진 어신도|r
+I07H	|cFF336699禁|r|cFF47527A忌|r|cFF5C3D5C之|r|cFF70293D血|r	|cFF336699금기의 피|r
+I07I	|cFFFF3399万宝槌|r	|cFFFF3399만보추|r
+I07J	|cFF99FFFF神刀-丛雨丸|r	|cFF99FFFF신도-무라사메마루|r
+I07L	|cFFFFFF00沙|r|cFFFFEB00海|r|cFFFFD600之|r|cFFFFC200晶|r	|cFFFFFF00모래바다의 결정|r
+I07M	|cFFFF9900利比亚碎片|r	|cFFFF9900리비아 파편|r
+I07N	紫阳花	수국
+I07Q	待解锁	해금 대기
+I07R	|cFF0033CC月面-雨中提琴[刀光哥]|r	|cFF0033CC월면-빗속의 바이올린[도광 형님]|r
+I07S	遗物-撬棍	유물-쇠지렛대
+I07T	遗物-更艰难的时光	유물-더 힘든 시절
+I07U	|cFF339900遗物-玫瑰圆盾|r	|cFF339900유물-장미 원형방패|r
+I07V	|cFF339900遗物-陈旧断头台|r	|cFF339900유물-낡은 단두대|r
+I07W	|cFF993399遗物-遗物背包|r	|cFF993399유물-유물 가방|r
+I07X	无法使用	사용할 수 없습니다.
+I07Y	|cFFFF9900传说-世界树之根|r	|cFFFF9900전설-세계수의 뿌리|r
+I07Z	|cFFFF9900传说-璀璨珍珠|r	|cFFFF9900전설-찬란한 진주|r
+I080	|cFF0033CC月面-易碎王冠|r	|cFF0033CC월면-부서지기 쉬운 왕관|r
+I081	|cFF0033CC月面-塑形玻璃|r	|cFF0033CC월면-성형 유리|r
+I082	|cFF0033CC月面-悲伤雕像|r	|cFF0033CC월면-슬픔의 조각상|r
+I083	|cFF0033CC月面-战争契约|r	|cFF0033CC월면-전쟁 계약|r
+I084	|cFF0033CC月面-变化叶脊|r	|cFF0033CC월면-변화하는 잎맥|r
+I085	遗物箱	유물 상자
+I086	稀有箱	희귀 상자
+I087	传奇箱	전설 상자
+I088	深渊箱	심연 상자
+I089	神话箱	신화 상자
+I08A	月面球	월면 구슬
+I08B	|cFF6699CC哥哥送的笛子|r	|cFF6699CC오빠가 준 피리|r
+I08C	|cFF6699FF海晶体|r	|cFF6699FF바다 결정체|r
+I08D	海晶花	바다 결정꽃
+I08E	|cFF66CCFF幻|r|cFF52A3FF海|r|cFF3D7AFF结|r|cFF2952FF晶|r	|cFF66CCFF환해 결정|r
+I08L	老旧的书籍	낡은 책
+I08M	金币箱	금화 상자
+I08N	积分箱	포인트 상자
+I08O	|cFFCC0000柴刀|r	|cFFCC0000장작칼|r
+I08P	|cFF99CCFF魔|r|cFF8888FF素|r	|cFF99CCFF마소|r
+I08Q	|cFF99CCFF大|r|cFF80B2FF贤|r|cFF6699FF者|r	|cFF99CCFF대현자|r
+I08R	|cFF6666CC阐释者|r	|cFF6666CC일루시데이터|r
+I08S	|cFF993333碎裂的笛子|r	|cFF993333부서진 피리|r
+I08T	书	책
+I08U	|cFFFFCC99小人族の信仰|r	|cFFFFCC99소인족의 신앙|r
+I08V	|cFF6699FF天殛之钥|r	|cFF6699FF천극의 열쇠|r
+I08W	|cFF330099天殛|r|cFF4026B2之镜|r|cFF4C4CCC.裁决|r	|cFF330099천극의 거울·재결|r
+I08X	|cFF9966CC糖果|r	|cFF9966CC사탕|r
+I08Y	|cFFFFCC33圣杯残片|r	|cFFFFCC33성배 파편|r
+I08Z	|cFFFFCC00粉碎之正义|r	|cFFFFCC00분쇄하는 정의|r
+I090	|cFFFFCC00DIO最好的朋友|r	|cFFFFCC00DIO의 가장 친한 친구|r
+I091	|cFF3366FF零时迷子|r	|cFF3366FF영시미아|r
+I092	|cFFFF9900百兽王化[狮子王]|r	|cFFFF9900백수왕화 [라이오넬]|r
+I093	|cFFCC66FF万物两断[销魂]|r	|cFFCC66FF만물양단 [엑스터스]|r
+I094	|cFF0041FF魔神显现[恶魔之粹]|r	|cFF0041FF마신현현 [데몬즈 엑스트랙트]|r
+I095	|cFFFF99FF变身自在[盖亚粉底]|r	|cFFFF99FF변신자재 [가이아 파운데이션]|r
+I097	|cFF66CCFF心智魔方|r	|cFF66CCFF마인드 큐브|r
+I098	|cFF66CCFF水|r|cFF4CA9FF之|r|cFF3386FF星|r	|cFF66CCFF물의 별|r
+I099	|cFF339966逸龙剑 - 抉择|r	|cFF339966일룡검 - 선택|r
+I09A	|cFFFF0000妖|r|cFFE61A2A精|r|cFFCC3355的|r|cFFB24C80尾巴|r	|cFFFF0000페어리 테일|r
+I09B	|cFF0099FF地|r|cFF0E80EA狱|r|cFF1C66D5の|r|cFF2A4CC0轮祸|r	|cFF0099FF지옥의 윤화|r
+I09C	|cFF9933CC暗影之核|r	|cFF9933CC그림자의 핵|r
+I09D	|cFF6699FF魔力石|r	|cFF6699FF마력석|r
+I09E	魔力石不限量版	마력석 무제한판
+I09F	|cFFFFCCFF无限|r|cFFFFBBAA烤|r|cFFFFB280薄饼|r	|cFFFFCCFF무한 팬케이크|r
+I09H	|cFF3366FF百|r|cFF335CD6鬼|r|cFF3352AD枷|r|cFF334785锁|r	|cFF3366FF백귀의 족쇄|r
+I09L	|cFF3399FF要|r|cFF7799FF石|r	|cFF3399FF요석|r
+I09M	|cFF333333干|r|cFF5C5C5C将|r|cFF858585莫|r|cFFADADAD邪|r	|cFF333333간장·막야|r
+I09N	义眼安装	의안 장착
+I09O	次元の回忆购买	차원의 추억 구매
+I09P	|cFFCC0000杀|r|cFFC21F1F戮|r|cFFB83D3D结|r|cFFAD5C5C晶|r	|cFFCC0000살육 결정|r
+I09Q	|cFF6633FF影|r|cFF4C26BF之|r|cFF331A80石|r	|cFF6633FF그림자 돌|r
+I09R	影之石购买	그림자 돌 구매
+I09S	聊天	대화
+I09T	|cFFFF9933机|r|cFFD98040巧|r|cFFB2664C粉|r	|cFFFF9933기교 가루|r
+I09U	机巧粉不限量版	기교 가루 무제한판
+I09V	|cFFFFFF00雷|r|cFFFFFF40之|r|cFFFFFF80粹|r	|cFFFFFF00번개의 정수|r
+I09X	|cFF7DBEF1极|r|cFF6498F4光|r|cFF4B72F7之|r|cFF324CF9钢|r	|cFF7DBEF1오로라강|r
+I09Y	|cFFFF9900煌|r|cFFFF7A00星|r|cFFFF5C00碎|r|cFFFF3D00片|r	|cFFFF9900황성의 조각|r
+I0A0	|cFFCC0000深渊|r|cFF660000邀请函|r	|cFFCC0000심연 초대장|r
+I0A1	兑换深渊邀请函	심연 초대장 교환
+I0A2	|cFF66FF99世|r|cFF66FFAD界|r|cFF66FFC2树|r|cFF66FFD6之种|r	|cFF66FF99세계수의 씨앗|r
+I0A3	|cFF66FFFF永|r|cFF5CE0FF远|r|cFF52C2FF结|r|cFF47A3FF冰|r	|cFF66FFFF영원결빙|r
+I0A4	|cFFCC3366蛮|r|cFFCC2985神|r|cFFCC1FA3心|r|cFFCC14C2脏|r	|cFFCC3366만신의 심장|r
+I0A5	|cFFFF0000「都|r|cFFFF2600牟刈|r|cFFFF4C00村正」|r	|cFFFF0000「츠무카리 무라마사」|r
+I0A7	|cFFFF3300匠|r|cFFE03D14之|r|cFFC24729年|r|cFFA3523D糕|r	|cFFFF3300장인의 떡|r
+I0A8	|cFF66FF99丛雨|r|cFF80FFB2丸伴|r|cFF99FFCC剑|r	|cFF66FF99무라사메마루의 동반검|r
+I0AA	|cFF3366FF银冰|r|cFF5C85FF之|r|cFF85A3FF枪|r	|cFF3366FF은빙의 창|r
+I0AB	|cFF6633FF糖|r|cFF8026BF果|r|cFF991A80袋|r	|cFF6633FF사탕 주머니|r
+I0AC	|cFF66CCFF白音|r|cFF8CB2FFの|r|cFFB299FF日记|r	|cFF66CCFF시로네의 일기|r
+I0AD	|cFFFFCCFF灵刀|r|cFFFFA6FF·樱|r|cFFFF80FF吹雪|r	|cFFFFCCFF영도·사쿠라 후부키|r
+I0AF	|cFFFFCC00金苹果|r	|cFFFFCC00황금 사과|r
+I0AG	|cFF999999银苹果|r	|cFF999999은 사과|r
+I0AH	|cFFFF0033苹果|r	|cFFFF0033사과|r
+I0AI	|cFFCC0066禁|r|cFFDD358C果|r	|cFFCC0066금단의 열매|r
+I0AJ	|cFFFFFF00昔|r|cFFFFE608日|r|cFFFFCC11的|r|cFFFFB21A记忆|r	|cFFFFFF00지난날의 기억|r
+I0AL	|cFFFF6633金黄|r|cFFFF8C26色的|r|cFFFFB21A誓言|r	|cFFFF6633황금빛 맹세|r
+I0AN	|cFFFFFF00圣|r|cFFE0FF1F诞|r|cFFC2FF3D礼|r|cFFA3FF5C盒|r	|cFFFFFF00크리스마스 선물상자|r
+I0AO	|cFFFF9900充满智慧的斧子|r	|cFFFF9900지혜가 가득한 도끼|r
+I0AP	|cFF330099潘多|r|cFF4C26B2拉之|r|cFF664CCC心|r	|cFF330099판도라의 마음|r
+I0AQ	|cFFFF0000薄|r|cFF1BE6B8暝|r	|cFFFF0000박명|r
+I0AR	|cFFFF66CC奇|r|cFFD65CC2妙~☆|r|cFFAD52B8仙|r|cFF8547AD境|r	|cFFFF66CC원더~☆랜드|r
+I0B6	|cFFCC33FF虚无魔石碎片|r	|cFFCC33FF허무 마석 파편|r
+I0B8	|cFF530080劫|r|cFF7E4060之|r|cFFA98040眼|r	|cFF530080겁의 눈|r
+I0B9	|cFFCCFFFF《魔女之旅》|r	|cFFCCFFFF《마녀의 여행》|r
+I0BA	|cFFCCFFFF魔|r|cFFBCF2FC女|r|cFFACE5F9帽|r|cFF9DD8F7子|r	|cFFCCFFFF마녀의 모자|r
+I0BB	|cFFCC6633魔|r|cFFB8663D女|r|cFFA36647扫|r|cFF8F6652帚|r	|cFFCC6633마녀의 빗자루|r
+I0BC	|cFF330099魔|r|cFF3D1FAD女|r|cFF473DC2衣|r|cFF525CD6袍|r	|cFF330099마녀의 로브|r
+I0BD	|cFF99FFFF星|r|cFFADEBFF形|r|cFFC2D6FF胸|r|cFFD6C2FF针|r	|cFF99FFFF별 모양 브로치|r
+I0BE	|cFFCCFFFF魔|r|cFFCCAAFF杖|r	|cFFCCFFFF마법 지팡이|r
+I0BG	|cFFCCFFFF「白蛇|r|cFF7AD6D6传|r|cFF52C2C2记」|r	|cFFCCFFFF「백사전기」|r
+I0BH	|cFF99FFFF「龙人|r|cFFC2EBAD秘|r|cFFD6E085抄」|r	|cFF99FFFF「용인비초」|r
+I0BI	|cFFCCFFFF折|r|cFFA3EBFF纸|r|cFF7AD6FF无|r|cFF52C2FF铭|r	|cFFCCFFFF종이접기 무명|r
+I0BK	两仪-炼妖	양의-연요
+I0BL	两仪-封魔	양의-봉마
+I0BM	两仪-痛觉残留	양의-통각잔류
+I0BP	|cFF7DBEF1腐朽弹|r	|cFF7DBEF1부패탄|r
+I0BQ	|cFF7DBEF1离子箭矢|r	|cFF7DBEF1이온 화살|r
+I0BR	|cFF7DBEF1电导箭矢|r	|cFF7DBEF1전도 화살|r
+I0BT	|cFF6699FF魔力压缩器|r	|cFF6699FF마력 압축기|r
+I0BU	|cFFCC0000演算宝珠|r	|cFFCC0000연산보주|r
+I0BV	|cFFFF99CC折纸|r|cFFFF3366浴|r|cFFFF0000火|r|cFFCC0000鸟|r	|cFFFF99CC종이접기 불사조|r
+I0BW	|cFFCCFFFF破|r|cFFA3EBFF碎的|r|cFF7AD6FF无|r|cFF52C2FF铭|r	|cFFCCFFFF부서진 무명|r
+I0BX	|cFFFFFF33脆|r|cFFFFBF26脆|r|cFFFF801A鲨|r	|cFFFFFF33크리스피 샤크|r
+I0BY	|cFFFF99CC儿童节|r|cFFF273D9不快乐|r|cFFE64CE6礼盒|r	|cFFFF99CC어린이날|r|cFFF273D9불행한|r|cFFE64CE6선물 상자|r
+I0BZ	|cFFFF99CC儿童节|r|cFFF273D9快乐|r|cFFE64CE6礼盒|r	|cFFFF99CC어린이날|r|cFFF273D9행복한|r|cFFE64CE6선물 상자|r
+I0C0	|cFFFF99CC棒|r|cFFFF73B2棒|r|cFFFF4C99糖|r	|cFFFF99CC막대사탕|r
+I0C1	|cFFBF9926维|r|cFF9F8020拉|r|cFF80661A之|r|cFF604C13判决|r	|cFFBF9926빌라의 판결|r
+I0C2	|cFFFFCCFF天|r|cFFFFADFF人|r|cFFFF8FFF仙|r|cFFFF70FF桃|r	|cFFFFCCFF천인의 선도|r
+I0C4	|cFFFF3300量子机神剑|r	|cFFFF3300양자 기신검|r
+I0C5	|cFF666666卑劣者の枷锁|r	|cFF666666비열한 자의 족쇄|r
+I0C6	|cFFCC0033狂|r|cFF880022魔|r|cFF440011之|r|cFFCC9966理|r	|cFFCC0033광마의 이치|r
+I0C7	|cFF6600FF天翼种|r|cFF8C00D9之|r|cFFB200B2镰|r	|cFF6600FF플뤼겔의 낫|r
+I0C8	|cFF9999FF《|r|cFF7A87FF夜|r|cFF5C76FF天|r|cFF3D64FF》|r	|cFF9999FF《야천》|r
+I0C9	|cFFCC0000朱|r|cFFD63333红|r|cFFE06666之|r|cFFEB9999瑰|r	|cFFCC0000주홍의 장미|r
+I0CA	|cFF3399FF希|r|cFF5CADF5望|r|cFF85C2EB之|r|cFFADD6E0星|r	|cFF3399FF희망의 별|r
+I0CB	|cFF0033FF星之泪|r	|cFF0033FF별의 눈물|r
+I0CC	|cFFFF66CC四魂之玉|r	|cFFFF66CC사혼의 구슬|r
+I0CD	|cFFCC66CC被污染的四魂之玉|r	|cFFCC66CC오염된 사혼의 구슬|r
+I0CE	|cFFFF99FF净化的四魂之玉|r	|cFFFF99FF정화된 사혼의 구슬|r
+I0CF	|cFF826DCA梓山|r|cFF7A62C7之弓|r	|cFF826DCA아즈사산의 활|r
+I0CI	|cFFFF9900延绵后世之物|r	|cFFFF9900후세로 이어지는 것|r
+I0CJ	|cFFFFCC66无名戒指|r	|cFFFFCC66이름 없는 반지|r
+I0CK	|cFFFFCC66雷霆长枪|r	|cFFFFCC66벼락의 장창|r
+I0CL	|cFFFFCC66无上金甲|r	|cFFFFCC66무상의 황금 갑옷|r
+I0CP	|cFFCC66FF弥弥切丸|r	|cFFCC66FF네네키리마루|r
+I0CQ	遗物-凝神水晶	유물-정신집중 수정
+I0CR	遗物-士兵的注射器	유물-병사의 주사기
+I0CS	|cFF339900遗物-红蘑菇|r	|cFF339900유물-붉은 버섯|r
+I0CT	遗物-战旗	유물-전투 깃발
+I0CU	|cFF339900遗物-贪婪之匙|r	|cFF339900유물-탐욕의 열쇠|r
+I0CV	|cFF0033CC月面-守夜灯笼|r	|cFF0033CC월면-밤을 지키는 등불|r
+I0CW	|cFFFFFF66遗物-珍珠|r	|cFFFFFF66유물-진주|r
+I0CX	|cFFFFFF66遗物-巨型隆起|r	|cFFFFFF66유물-거대한 융기|r
+I0CY	|cFFFF9900波利斯的黄金杯|r	|cFFFF9900폴리스의 황금잔|r
+I0CZ	|cFFFF9900罗塞塔石碑|r	|cFFFF9900로제타석|r
+I0D0	|cFFFF9900英雄王的象征|r	|cFFFF9900영웅왕의 상징|r
+I0D1	|cFFFF0000亚历|r|cFFFF4040山大|r|cFFFF8080指针|r	|cFFFF0000알렉산드리아의 바늘|r
+I0D2	|cFF99CCFF裁定|r|cFFB2D9FF者的|r|cFFCCE6FF天平|r	|cFF99CCFF재정자의 천칭|r
+I0D3	|cFF990000霸|r|cFFAD1F0A龙|r|cFFC23D14之|r|cFFD65C1F证|r	|cFF990000패룡의 증표|r
+I0D4	|cFF3366FF镜|r|cFF668CFF棱|r|cFF99B2FF柱|r	|cFF3366FF거울 프리즘|r
+I0D5	|cFF66FF99遗物-星芒结晶|r	|cFF66FF99유물-성망 결정|r
+I0D6	|cFFFF3366遗物-璀璨红石|r	|cFFFF3366유물-찬란한 붉은 돌|r
+I0D7	|cFF6699FF遗物-智慧源泉|r	|cFF6699FF유물-지혜의 샘|r
+I0D8	|cFF6633FF遗物-暗魔石|r	|cFF6633FF유물-어둠 마석|r
+I0D9	|cFFFF0000遗物-火魔石|r	|cFFFF0000유물-불 마석|r
+I0DA	|cFFFFFF66遗物-雷魔石|r	|cFFFFFF66유물-번개 마석|r
+I0DB	|cFF6699FF遗物-冰魔石|r	|cFF6699FF유물-얼음 마석|r
+I0DC	|cFF33FF99遗物-风魔石|r	|cFF33FF99유물-바람 마석|r
+I0DD	|cFFFF0066传说-激光瞄准镜|r	|cFFFF0066전설-레이저 조준경|r
+I0DE	|cFFFF9900传说-冰龙之证|r	|cFFFF9900전설-빙룡의 증표|r
+I0DF	|cFFFF9900传说-地龙之证|r	|cFFFF9900전설-지룡의 증표|r
+I0DG	|cFFFF9900传说-火龙之证|r	|cFFFF9900전설-화룡의 증표|r
+I0DH	|cFF6699FF沙漠|r|cFF6173DF之鹰-|r|cFF5C4CC0解构者|r	|cFF6699FF데저트 이글-해체자|r
+I0DI	|cFF0099FF定|r|cFF14ADEB海|r|cFF29C2D6古|r|cFF3DD6C2心|r	|cFF0099FF정해고심|r
+I0DK	|cFFCC66FF扭曲药剂|r	|cFFCC66FF왜곡 약제|r
+I0DL	|cFF9966FF扭|r|cFF8B52E6曲|r|cFF7D3DCC精|r|cFF6F29B3粹|r	|cFF9966FF왜곡의 정수|r
+I0DM	|cFFCC0000哀|r|cFFB80A29痛|r|cFFA31452之|r|cFF8F1F7A盒|r	|cFFCC0000애|r|cFFB80A29통|r|cFFA31452의|r|cFF8F1F7A상자|r
+I0DN	|cFFCC0000哀|r|cFFB80A29痛|r|cFFA31452之|r|cFF8F1F7A盒|r	|cFFCC0000애|r|cFFB80A29통|r|cFFA31452의|r|cFF8F1F7A상자|r
+I0DO	|cFFFFCC66猎龙头盔|r	|cFFFFCC66용 사냥꾼의 투구|r
+I0DP	|cFFFFCC66猎龙铠甲|r	|cFFFFCC66용 사냥꾼의 갑옷|r
+I0DQ	|cFFFFCC66猎龙臂甲|r	|cFFFFCC66용 사냥꾼의 완갑|r
+I0DR	|cFFFFCC66猎龙腿甲|r	|cFFFFCC66용 사냥꾼의 각갑|r
+I0DS	|cFFFFCC66雷霆长枪|r	|cFFFFCC66벼락의 장창|r
+I0DT	|cFFFFCC66狮子戒指|r	|cFFFFCC66사자 반지|r
+I0DU	|cFF999999铁|r|cFF737373碎|r|cFF4C4C4C牙|r	|cFF999999철쇄아|r
+I0DW	|cFF6699FF星光弹|r	|cFF6699FF별빛 탄환|r
+I0DX	|cFF6633FF幻|r|cFF5C3DFF想|r|cFF5247FF虚|r|cFF4752FF弹|r	|cFF6633FF환상 허탄|r
+I0DZ	|cFF9E47BA涤|r|cFF9F3EA6罪|r|cFF9F3593七雷|r|cFFA21A58.鸣|r	|cFF9E47BA속죄의 칠뢰·명|r
+I0E0	|cFFFF6699星|r|cFFCC5FAD光|r|cFF9957C2魔术|r|cFF6650D6师|r	|cFFFF6699별빛 마술사|r
+I0E2	|cFF990000加斯尔|r|cFF999999.豺狼|r	|cFF990000카슬·자칼|r
+I0E3	|cFFFF99FF魅|r|cFFFF73BF魔|r|cFFFF4C80见习生|r	|cFFFF99FF견습 서큐버스|r
+I0E4	|cFFFFCC66无上金甲|r	|cFFFFCC66무상의 황금 갑옷|r
+I0E5	|cFF1FBF00升级模块|r	|cFF1FBF00업그레이드 모듈|r
+I0E6	|cFF1FBF00极速模块|r	|cFF1FBF00고속 모듈|r
+I0E7	|cFF1FBF00弹匣模块|r	|cFF1FBF00탄창 모듈|r
+I0EC	|cFF990000加斯尔.豺狼|r	|cFF990000카슬·자칼|r
+I0ED	|cFFFF99FF神|r|cFFD6ADEB树|r|cFFADC2D6之|r|cFF85D6C2果|r	|cFFFF99FF신수의 열매|r
+I0EE	|cFFFF9900物理|r|cFFCC6600学|r|cFF333333圣剑|r	|cFFFF9900물리학의 성검|r
+I0EF	|cFFFFCC33星之奇迹|r	|cFFFFCC33별의 기적|r
+I0EG	|cFFFFCC00星光的群星|r	|cFFFFCC00별빛의 군성|r
+I0EH	|cFFFFCC33昆|r|cFFCCCC59仑|r|cFF99CC80镜|r	|cFFFFCC33곤륜경|r
+I0EI	|cFF0066FF潮|r|cFF0066CC枯|r	|cFF0066FF조고|r
+I0EJ	|cFFFFFFFF杜|r|cFFCCCCCC兰|r|cFF999999达|r|cFF666666尔|r	|cFFFFFFFF뒤랑달|r
+I0EL	|cFFCC9999渡渡鸟|r	|cFFCC9999도도새|r
+I0EN	|cFF009966蜥蜴比尔|r	|cFF009966도마뱀 빌|r
+I0EP	|cFFCC33FF柴郡|r|cFFD933D9猫的|r|cFFE633B2戒子|r	|cFFCC33FF체셔 고양이의 반지|r
+I0ER	|cFFFF99FF时钟|r	|cFFFF99FF시계|r
+I0ET	|cFFCCCCCC达摩克里斯之剑|r	|cFFCCCCCC다모클레스의 검|r
+I0EU	|cFF99FFFF草雉剑|r	|cFF99FFFF쿠사나기 검|r
+I0EV	|cFF7DBEF1净化药剂[师匠]|r	|cFF7DBEF1정화 약제 [스승]|r
+I0EW	|cFF66FF99智慧树的枝条|r	|cFF66FF99지혜의 나뭇가지|r
+I0EY	|cFFCC9999狮心会徽章|r	|cFFCC9999사자심회 휘장|r
+I0FM	|cFF339999死灵之书|r	|cFF339999네크로노미콘|r
+I0FO	|cFFFFCC33楔丸|r	|cFFFFCC33쿠사비마루|r
+I0FP	|cFFFFCC00军神|r|cFFE0A333的|r|cFFC27A66心之|r|cFFA35299所念|r	|cFFFFCC00군신의 마음에 품은 뜻|r
+I0FR	|cFF99FF99龙|r|cFF66FF99刃|r	|cFF99FF99용의 칼날|r
+I0FT	|cFF66FF99叶绿弹|r	|cFF66FF99녹조류 탄환|r
+I0FU	|cFF99FFFF水晶弹|r	|cFF99FFFF수정탄|r
+I0FV	|cFFFF3366爆裂弹|r	|cFFFF3366폭렬탄|r
+I0FW	|cFFFF9900机巧弹|r	|cFFFF9900기교탄|r
+I0FX	|cFFFF6699幸运药剂|r	|cFFFF6699행운 약제|r
+I0FY	|cFFFF6699属性药剂|r	|cFFFF6699능력치 약제|r
+I0FZ	|cFFFF6699祝福药剂|r	|cFFFF6699축복 약제|r
+I0G0	|cFF6699FF厄运药剂|r	|cFF6699FF불운 약제|r
+I0G1	|cFF6699FF诅咒药剂|r	|cFF6699FF저주 약제|r
+I0G2	|cFF6699FF未知药剂|r	|cFF6699FF미지의 약제|r
+I0G3	|cFF6699FF灾厄药剂|r	|cFF6699FF재액 약제|r
+I0G4	|cFFFF6699命运药剂|r	|cFFFF6699운명 약제|r
+I0G5	|cFF6699FF最|r|cFF858FEB初的|r|cFFA385D6约|r|cFFC27AC2定|r	|cFF6699FF최초의 약속|r
+I0G6	|cFFFF66FF菊一|r|cFFFF99FF文字|r|cFFFFCCFF则宗|r	|cFFFF66FF키쿠이치몬지 노리무네|r
+I0GA	|cFFF7DA02重力枪|r	|cFFF7DA02중력 총|r
+I0GB	|cFF999999埃琉德尼尔之冠|r	|cFF999999엘류드니르의 왕관|r
+I0GC	|cFF7DBEF1祖传魔导书|r	|cFF7DBEF1가문의 마도서|r
+I0GD	|cFFCBB391无尽的|r|cFF832D2C格里莫伊|r	|cFFCBB391끝없는 그리모어|r
+I0GE	|cFF7DBEF1祖传魔导书[活化]|r	|cFF7DBEF1가문의 마도서 [활성화]|r
+I0GF	|cFF9999FF魔界之息|r	|cFF9999FF마계의 숨결|r
+I0GG	|cFF990000妖刀|r|cFFB23340.赤|r|cFFCC6680染樱|r	|cFF990000요도·붉게 물든 벚꽃|r
+I0GI	|cFFCC0000特殊水果酒|r	|cFFCC0000특제 과실주|r
+I0GJ	|cFFFF99FF露娜酱|r|cFFF9A4FF玩偶|r|cFFF4B0FF★~!|r	|cFFFF99FF루나짱 인형★~!|r
+I0GK	|cFFFF0000鲜红の|r|cFFFF401A甜甜圈|r|cFFFF8033礼盒|r	|cFFFF0000선홍빛 도넛 선물 상자|r
+I0GL	|cFFDCB84E甜甜圈|r	|cFFDCB84E도넛|r
+I0GM	|cFFDCB84E精美甜甜圈|r	|cFFDCB84E고급 도넛|r
+I0GN	|cFFDDB087丈|r|cFFFEFCD3八|r	|cFFDDB087장팔|r
+I0GO	|cFF66FF99国士无双|r	|cFF66FF99국사무쌍|r
+I0GP	|cFF1FBF00雷电模块|r	|cFF1FBF00뇌전 모듈|r
+I0GQ	|cFF6699FF星|r|cFF70A3FF幽|r|cFF7AADFF药|r|cFF85B8FF剂|r	|cFF6699FF성유 약제|r
+I0GR	|cFFFF3333提纯的血晶|r	|cFFFF3333정제된 혈정|r
+I0GS	互动	상호작용
+I0GW	|cFFFF0000火灵草|r	|cFFFF0000화령초|r
+I0GX	火灵草	화령초
+I0GY	冰华花	빙화꽃
+I0GZ	世界树之根	세계수의 뿌리
+I0H0	|cFFA62F65粉|r|cFFAE3A74色|r|cFFB64683墨|r|cFFBE5193镜|r	|cFFA62F65분홍 선글라스|r
+I0H1	|cFFCC0000砰|r|cFFD6330A砰|r|cFFE06614礼|r|cFFEB991F物|r	|cFFCC0000팡팡 선물|r
+I0H3	|cFFB0C0D6白羽|r|cFF3C61A5扇|r	|cFFB0C0D6백우선|r
+I0H6	|cFFF2B995儿|r|cFFFDEDC8童|r|cFFFEBECF节|r|cFFE5819F棒棒糖|r	|cFFF2B995어린이날 막대사탕|r
+I0H8	|cFF598852粽子|r	|cFF598852쭝쯔|r
+I0H9	|cFFCCFFCC粽|r|cFFB2FFBF子|r|cFF99FFB2精|r	|cFFCCFFCC쭝쯔 요정|r
+I0HB	|cFFDAF2F6无|r|cFFCDEFF4影|r|cFFBFECF2剑|r	|cFFDAF2F6무영검|r
+I0HC	|cFF6666CC濡湿小镰刀|r	|cFF6666CC젖은 작은 낫|r
+I0HD	|cFFFF9900环印骑士直剑|r	|cFFFF9900고리의 기사의 직검|r
+I0HE	|cFFCC0000高频村雨刀|r	|cFFCC0000고주파 무라사마|r
+I0HF	|cFFAAFEFF光之剑.超新星|r	|cFFAAFEFF빛의 검 · 초신성|r
+I0HG	|cFF990000新月玫瑰|r	|cFF990000크레센트 로즈|r
+I0HH	|cFF7DBEF1物质枪|r	|cFF7DBEF1물질 총|r
+I0HI	|cFFFF6699刻耳柏洛斯的爪牙|r	|cFFFF6699케르베로스의 송곳니와 발톱|r
+I0HJ	|cFF7DBEF1骨头|r	|cFF7DBEF1뼈|r
+I0HK	|cFF7DBEF1骨粉|r	|cFF7DBEF1뼛가루|r
+I0HL	|cFF7DBEF1墓石|r	|cFF7DBEF1묘비|r
+I0HM	|cFF7DBEF1石头|r	|cFF7DBEF1돌|r
+I0HN	|cFF7DBEF1泥土|r	|cFF7DBEF1흙|r
+I0HO	|cFF7DBEF1种子袋-火灵草|r	|cFF7DBEF1씨앗 주머니-화령초|r
+I0HP	生长中的植株	자라는 식물
+I0HQ	|cFF7DBEF1种子袋-冰华花|r	|cFF7DBEF1씨앗 주머니-빙화꽃|r
+I0HR	|cFF7DBEF1种子袋-海晶花|r	|cFF7DBEF1씨앗 주머니-바다 결정꽃|r
+I0HS	|cFF7DBEF1种子袋-世界树之根|r	|cFF7DBEF1씨앗 주머니-세계수의 뿌리|r
+I0HT	|cFF7DBEF1种子袋-紫阳花|r	|cFF7DBEF1씨앗 주머니-수국|r
+I0HU	|cFFFFCC00圣域石|r	|cFFFFCC00성역석|r
+I0HV	|cFFFFCC33神|r|cFFFFD65C明|r|cFFFFE085羽|r|cFFFFEBAD骸|r	|cFFFFCC33신명의 깃털 잔해|r
+I0HW	|cFF7DBEF1洛阳稿|r	|cFF7DBEF1낙양고|r
+I0HX	|cFF6699FF剑意石|r	|cFF6699FF검의석|r
+I0HY	|cFF7DBEF1工业废水|r	|cFF7DBEF1산업 폐수|r
+I0HZ	|cFF7DBEF1机械零件|r	|cFF7DBEF1기계 부품|r
+I0I0	|cFF7DBEF1砖石|r	|cFF7DBEF1석재|r
+I0I1	|cFF7DBEF1水|r	|cFF7DBEF1물|r
+I0I2	|cFF7DBEF1木材|r	|cFF7DBEF1목재|r
+I0I3	|cFF66FF99欧格罗斯的邀请函|r	|cFF66FF99오그로스의 초대장|r
+I0I4	|cFFCC0000布兰兹的邀请函|r	|cFFCC0000브란츠의 초대장|r
+I0I5	|cFF6699FF维波的邀请函|r	|cFF6699FF비보의 초대장|r
+I0I6	|cFFCC9900斯狄尔的邀请函|r	|cFFCC9900스티르의 초대장|r
+I0I7	|cFF7DBEF1书|r	|cFF7DBEF1책|r
+I0I8	|cFF6699FF极寒之壳|r	|cFF6699FF극한의 껍질|r
+I0I9	|cFF66FF99生命之石|r	|cFF66FF99생명의 돌|r
+I0IA	|cFFCC0000炎魔核心|r	|cFFCC0000염마의 핵|r
+I0IB	|cFFFF9900碎片源石|r	|cFFFF9900오리지늄 파편|r
+I0IC	|cFFFF9900至纯源石|r	|cFFFF9900순오리지늄|r
+I0ID	|cFFFF9900矿石病抑制剂|r	|cFFFF9900광석병 억제제|r
+I0IE	|cFFFF9900源石神经剂|r	|cFFFF9900오리지늄 신경제|r
+I0IF	|cFF1F845B阿戈尔之赞|r	|cFF1F845B에기르의 찬가|r
+I0IG	|cFF6699FF能源矿石|r	|cFF6699FF에너지 광석|r
+I0IH	|cFF99FFFF幻海之心|r	|cFF99FFFF환해의 심장|r
+I0II	幻海花	환해꽃
+I0IJ	|cFF6699FF海之贝壳|r	|cFF6699FF바다 조개껍데기|r
+I0IK	|cFF447C9C腐化之心|r	|cFF447C9C타락한 심장|r
+I0IL	|cFFFF7C2B团扇|r	|cFFFF7C2B둥근 부채|r
+I0IM	|cFF7DBEF1图纸|r	|cFF7DBEF1설계도|r
+I0IN	|cFF7DBEF1种子袋-幻海花|r	|cFF7DBEF1씨앗 주머니-환해꽃|r
+I0IO	|cFFE2E5C1假面|r	|cFFE2E5C1가면|r
+I0IP	|cFFFFFFFF人|r|cFF333333格|r|cFFCC0000面|r|cFFFF9999具|r	|cFFFFFFFF페르소나|r
+I0IR	|cFF666666破碎斩龙|r	|cFF666666부서진 드래곤 슬레이어|r
+I0IS	|cFFCCFFFF霜星|r|cFFA6D9FF的源石|r|cFF80B2FF冰晶|r	|cFFCCFFFF프로스트노바의 오리지늄 얼음 결정|r
+I0IT	|cFF9F3032龙门石|r	|cFF9F3032용문석|r
+I0IV	|cFF9999FF星辰齿轮|r	|cFF9999FF별의 톱니바퀴|r
+I0IW	|cFF6D7CCD星|r|cFF6178D7辰|r|cFF5673E1短|r|cFF4A6FEB剑|r	|cFF6D7CCD별의 단검|r
+I0IX	|cFFFFF08B开腔器|r	|cFFFFF08B흉부 개방기|r
+I0IY	|cFFFFF08B螺丝起子|r	|cFFFFF08B드라이버|r
+I0J2	|cFF1FBF00以太结晶药剂|r	|cFF1FBF00에테르 결정 약제|r
+I0J3	|cFF6699FF魔弹|r	|cFF6699FF마탄|r
+I0J4	无子弹	탄환 없음
+I0J5	|cFFFFFFCC残缺的光之种|r	|cFFFFFFCC불완전한 빛의 씨앗|r
+I0J6	|cFF93BBC8至|r|cFFA9C9D3理|r|cFFBED6DE之|r|cFFD4E4E9书|r	|cFF93BBC8지극한 이치의 책|r
+I0J9	|cFF6699CC启示药剂|r	|cFF6699CC계시 약제|r
+I0JA	|cFF66FF99灭|r|cFF85FFAD诤|r|cFFA3FFC2草|r|cFFC2FFD6蔓|r	|cFF66FF99분쟁을 멸하는 덩굴|r
+I0JB	|cFF66FF99散失|r|cFF92FFB6的|r|cFFA8FFC5草|r|cFFBDFFD3神瞳|r	|cFF66FF99잃어버린 풀의 신의 눈동자|r
+I0JC	|cFF66FF99初|r|cFF85FFAD生|r|cFFA3FFC2白|r|cFFC2FFD6枝|r	|cFF66FF99새싹의 흰 가지|r
+I0JD	|cFF66FF99迷|r|cFF80FFAA宫|r|cFF99FFBB的|r|cFFB2FFCC游人|r	|cFF66FF99미궁의 여행자|r
+I0JE	|cFF66FF99翠|r|cFF80FFAA蔓|r|cFF99FFBB的|r|cFFB2FFCC智者|r	|cFF66FF99푸른 덩굴의 지혜|r
+I0JF	|cFF66FF99贤|r|cFF80FFAA智|r|cFF99FFBB的|r|cFFB2FFCC定期|r	|cFF66FF99깨달음의 주기|r
+I0JG	|cFF66FF99迷|r|cFF80FFAA雾|r|cFF99FFBB者|r|cFFB2FFCC之灯|r	|cFF66FF99안개를 가르는 등불|r
+I0JH	|cFF66FF99月|r|cFF80FFAA桂|r|cFF99FFBB的|r|cFFB2FFCC宝冠|r	|cFF66FF99월계수 왕관|r
+I0JI	|cFF66FF99千|r|cFF85FFAD叶|r|cFFA3FFC2浮|r|cFFC2FFD6梦|r	|cFF66FF99떠오르는 천일 밤의 꿈|r
+I0JJ	|cFFC50F0F青|r|cFFA81616色|r|cFF8A1D1D怒|r|cFF6D2424火|r	|cFFC50F0F푸른 서슬|r
+I0JK	|cFFFF99FF妖精|cFFF5ADFF小姐|cFFEBC2FF的礼盒	|cFFFF99FF요정 아가씨의 선물상자
+I0JL	|cFFFFFF99月饼|r	|cFFFFFF99월병|r
+I0JM	|cFFFF99FF无|r|cFFEB8FFF暇|r|cFFD685FF之|r|cFFC27AFF钥|r	|cFFFF99FF무결한 열쇠|r
+I0JP	|cFFFFCC66宠爱戒指|r	|cFFFFCC66총애의 반지|r
+I0JQ	|cFFFF99FF日常|cFFF5ADFF的|cFFEBC2FF馈赠	|cFFFF99FF일상의 선물
+I0JR	|cFF6699FF视|r|cFF708FF5界|r|cFF7A85EB探|r|cFF857AE0针|r	|cFF6699FF시야 탐침|r
+I0JS	|cFF6699FF纯|r|cFF7AADFF白の|r|cFF8FC2FF花|r|cFFA3D6FF朵	|cFF6699FF새하얀 꽃
+I0JT	|cFF949596死|r|cFF9FAAAB神|r|cFFAABFC0镰|r|cFFB6D5D5刀	|cFF949596사신의 낫
+I0JU	|cFF6699FF巨魔|r|cFF8CA6CC贝恩|r|cFFB2B299.天|r	|cFF6699FF트롤 베인·천|r
+I0JV	|cFFFFCC33邀|r|cFFFCCD4C请|r|cFFFACE66函|r	|cFFFFCC33초대장|r
+I0JX	|cFFF3C319糖|r|cFFCB9E18果|r|cFFA37817篮|r	|cFFF3C319사탕 바구니|r
+I0JY	|cFFFF99FF神|r|cFFFFB2E6乐|r|cFFFFCCCC铃|r	|cFFFF99FF카구라 방울|r
+I0JZ	|cFFFF99FF放了|r|cFFFCA0FB糖的|r|cFFF1B6F1料|r|cFFEEBDED理|r	|cFFFF99FF설탕을 넣은 요리|r
+I0K0	|cFFD5FDFF铁碎牙的刀鞘|r	|cFFD5FDFF철쇄아의 칼집|r
+I0K1	|cFFFFFF33Episode夺走的左腿|r	|cFFFFFF33에피소드가 빼앗은 왼쪽 다리|r
+I0K2	|cFFFFFF33Dramaturgy夺走的右腿|r	|cFFFFFF33드라마투르기가 빼앗은 오른쪽 다리|r
+I0K3	|cFFFFFF33Cutter夺走的双臂|r	|cFFFFFF33길로틴 커터가 빼앗은 양팔|r
+I0K4	|cFF3399FF闪烁匕首|r	|cFF3399FF점멸 단검|r
+I0K5	|cFFEEBDA1精灵之泉|r	|cFFEEBDA1정령의 샘|r
+I0K6	|cFFFFCC00迈达斯之手|r	|cFFFFCC00미다스의 손|r
+I0K7	|cFFCCCCCC卡|r|cFFA3A3A3兹戴|r|cFF7A7A7A尔纹章|r	|cFFCCCCCC카즈델 문장|r
+I0K8	|cFFCCCCCC魔|r|cFFA3A3A3王|r|cFF7A7A7A之|r|cFF525252触|r	|cFFCCCCCC마왕의 손길|r
+I0KA	|cFFFE8F98圣|r|cFFFE9B8E诞|r|cFFFEA784礼|r|cFFFFB47A盒|r	|cFFFE8F98크리스마스 선물상자|r
+I0KB	|cFF6699FF魔力药水|r	|cFF6699FF마력 물약|r
+I0KC	|cFFFFFF66破碎|r|cFFEEAA44の|r|cFFE68033刀|r|cFFDD5522刃|r	|cFFFFFF66부서진 칼날|r
+I0KD	|cFFFFFF66妖|r|cFFF5CC52刀|r|cFFEB993D心|r|cFFE06629渡|r	|cFFFFFF66요도 코코로와타리|r
+I0KE	|cFFFFFF66扭曲|r|cFFEEAA44の|r|cFFE68033刀|r|cFFDD5522刃|r	|cFFFFFF66뒤틀린 칼날|r
+I0KF	|cFFEB4747「红城の律令」|r	|cFFEB4747「붉은 성의 율령」|r
+I0KG	|cFF5773FF神|r|cFF7970FF明|r|cFF9A6EFF特|r|cFFBC6BFF典|r	|cFF5773FF신의 특전|r
+I0KH	|cFF33CC33神|r|cFF33D647秘|r|cFF33E05C小|r|cFF33EB70瓶|r	|cFF33CC33신비한 작은 병|r
+I0KI	|cFF3366FF魔|r|cFF2952CC神|r|cFF1F3D99人|r|cFF142966形|r	|cFF3366FF마신 인형|r
+I0KJ	|cFFCC0000灾|r|cFF880000祸|r	|cFFCC0000재화|r
+I0KK	|cFFE8443D长|r|cFFEE736E虹|r|cFFF4A29E剑|r	|cFFE8443D장홍검|r
+I0KL	|cFF990000薄|r|cFF660000暝|r	|cFF990000박명|r
+I0KO	|cFFCC0000狂|r|cFFAD0A0A战|r|cFF8F1414士|r|cFF701F1F之铠|r	|cFFCC0000광전사의 갑주|r
+I0KP	|cFFCCCCCC奴隶头巾|r	|cFFCCCCCC노예 두건|r
+I0KR	|cFF4CAAF9梦|r|cFF70BBFA境|r|cFF94CCFB之|r|cFFB7DDFD心|r	|cFF4CAAF9몽경의 심장|r
+I0KS	|cFFCC0000破|r|cFFD61F00碎|r|cFFE03D00的|r|cFFEB5C00梦|r	|cFFCC0000부서진 꿈|r
+I0KT	|cFFFFCC00贯穿|r|cFFFF9900梦想|r|cFFFF6600之枪|r	|cFFFFCC00꿈을 꿰뚫는 창|r
+I0KU	|cFF6699FF宁|r|cFF7AA3F5静|r|cFF8FADEB王|r|cFFA3B8E0冠|r	|cFF6699FF고요한 왕관|r
+I0KV	|cFFFF6699普利凯特的戒指|r	|cFFFF6699프리켓의 반지|r
+I0KW	|cFF5E3800死灵诅咒|r	|cFF5E3800사령의 저주|r
+I0KX	|cFF9966CC铃铛诅咒|r	|cFF9966CC방울의 저주|r
+I0KY	|cFFFF99CC儿童节|r|cFFE64CE6礼盒|r	|cFFFF99CC어린이날 선물상자|r
+I0L1	|cFFFCE5BB儿童节雪糕|r	|cFFFCE5BB어린이날 아이스크림|r
+I0L3	|cFFF0D987灵|r|cFFF3C884鸽|r|cFFF6B781小|r|cFFF8A67E七|r	|cFFF0D987영혼 비둘기 샤오치|r
+I0L4	|cFFE54354罪|r|cFFB13844之|r|cFF7C2C34镰|r	|cFFE54354죄의 낫|r
+I0L5	|cFF8FB394头环|r	|cFF8FB394머리 고리|r
+I0L6	|cFF99CCCC“|r|cFF99B8C2故|r|cFF99A3B8乡|r|cFF998FAD”|r	|cFF99CCCC“고향”|r
+I0L7	|cFF9999FF“|r|cFF9393EC奇|r|cFF8C8CD9迹|r|cFF8686C6师|r|cFF8080B2”|r|cFF79799F魔|r|cFF73738C药	|cFF9999FF“기적술사” 마법약
+I0L8	|cFF000066“|r|cFF0B0B66诡|r|cFF171766秘|r|cFF222266侍|r|cFF2D2D66者|r|cFF393966”|r|cFF444466魔	|cFF000066“비밀의 시종” 마법약
+I0L9	|cFF333333“|r|cFF3A3A3A愚|r|cFF424242者|r|cFF494949”|r|cFF505050魔|r|cFF575757药|r	|cFF333333“바보” 마법약|r
+I0LA	|cFFCCCCCC文|r|cFFAAAAAA明|r|cFF888888的|r|cFF666666存|r|cFF444444续|r	|cFFCCCCCC문명의 존속|r
+I0LB	|cFF99CCFF星|r|cFF8CB2FF之|r|cFF8099FF杖|r	|cFF99CCFF별의 지팡이|r
+I0LC	|cFF999999亵|r|cFF7A85A3渎|r|cFF5C70AD之|r|cFF3D5CB8牌|r|cFF999999「愚者」|r	|cFF999999모독의 카드 「바보」|r
+I0LD	待删除	삭제 예정
+I0LE	|cFF666699魔|r|cFF707099之|r|cFF7A7A99原|r|cFF858599质|r	|cFF666699악마의 원질|r
+I0LF	|cFF9966FF噬界核心|r	|cFF9966FF세계 포식의 핵|r
+I0LG	|cFF999999原|r|cFF8A8A8A质|r|cFF7C7C7C『|r|cFF6D6D6D理解|r|cFF5F5F5F之冠|r|cFF505050』|r	|cFF999999세피라 『이해의 왕관』|r
+I0LH	|cFF5A90BA原|r|cFF5785AB质|r|cFF547A9B『|r|cFF516F8C慈悲|r|cFF4E647D之泪|r|cFF4B596E』|r	|cFF5A90BA세피라 『자비의 눈물』|r
+I0LI	|cFFFF6699原|r|cFFF85783质|r|cFFF0496D『|r|cFFE93A57律行|r|cFFE22C42之履|r|cFFDB1D2C』|r	|cFFFF6699세피라 『율행의 신발』|r
+I0LJ	|cFFFEB2B6原|r|cFFFEA0AB质|r|cFFFE8E9F『|r|cFFFE7C94绮曜|r|cFFFF6988之羽|r|cFFFF577D』|r	|cFFFEB2B6세피라 『찬란한 깃털』|r
+I0LK	|cFF8CA6E3原|r|cFF91A6DF质|r|cFF97A7DC『|r|cFF9CA7D8赫德|r|cFFA2A7D5之碑|r|cFFA7A7D1』|r	|cFF8CA6E3세피라 『호드의 비석』|r
+I0LL	|cFFF9F9F9原|r|cFFE4E4E4质|r|cFFCFCFCF『|r|cFFBABABA源流|r|cFFA5A5A5之花|r|cFF909090』|r	|cFFF9F9F9세피라 『원류의 꽃』|r
+I0LM	|cFF9496C6原|r|cFF8284B1质|r|cFF70729C『|r|cFF5E6087创辉|r|cFF4C4E71之光|r|cFF3A3C5C』|r	|cFF9496C6세피라 『창휘의 빛』|r
+I0LN	|cFFFBFBFB原|r|cFFE4F5FC质|r|cFFCCEFFC『|r|cFFB5E9FD涅瑟|r|cFF9DE2FD之翼|r|cFF86DCFE』|r	|cFFFBFBFB세피라 『네차흐의 날개』|r
+I0LO	|cFF90A6B3原|r|cFF889CAA质|r|cFF8092A2『|r|cFF788899静默|r|cFF6F7D90之冕|r|cFF677387』|r	|cFF90A6B3세피라 『침묵의 관』|r
+I0LP	|cFFFFCC00原|r|cFFFFAF00质|r|cFFFF9200『|r|cFFFF7500至上|r|cFFFF5700之冠|r|cFFFF3A00』|r	|cFFFFCC00세피라 『지고의 왕관』|r
+I0LQ	|cFF3AC3A8翠|r|cFF2CACA4玉|r|cFF1D94A0录|r	|cFF3AC3A8에메랄드 타블렛|r
+I0LR	工作台	작업대
+I0LS	|cFF7DBEF1铁镐|r	|cFF7DBEF1철 곡괭이|r
+I0LT	|cFF7DBEF1钻石稿|r	|cFF7DBEF1다이아몬드 곡괭이|r
+I0LU	制作台	제작대
+I0LV	基础钻机	기초 시추기
+I0LW	火力发电机	화력 발전기
+I0LX	源石发电机	오리지늄 발전기
+I0LY	装配台	조립대
+I0LZ	进阶钻机	고급 시추기
+I0M0	通用武器盒	범용 무기 상자
+I0M1	通用枪械盒	범용 총기 상자
+I0M2	破旧的先驱挖掘装置	낡은 개척자 채굴 장치
+I0M3	装备制造台	장비 제작대
+I0M4	住客招募券	입주자 모집권
+I0M5	超凡物品兑换券	초월 물품 교환권
+I0M6	银之键	은색 열쇠
+I0M7	幻梦境之客	몽환의 땅의 손님
+I0M8	阿撒托斯之核	아자토스의 핵
+I0M9	奈亚拉幻形	니알라토텝의 환영
+I0MA	诺登斯请柬	노덴스의 초대장
+I0MB	人形制造契约	인형 제조 계약
+I0MC	火控元件	사격통제 부품
+I0MD	装备制造契约	장비 제조 계약
+I0ME	|cFFEB7C87第一次作战计划	|cFFEB7C87첫 작전 계획
+I0MF	|cFF1AA2F7作战计划表	|cFF1AA2F7작전 계획표
+I0MG	德丽莎茶会券	테레사의 다과회 초대권
+I0MH	|cFFCCCCCC撬锁工具|r	|cFFCCCCCC자물쇠 따기 도구|r
+I0MI	|cFFFFCCAA黄钥匙|r	|cFFFFCCAA노란 열쇠|r
+I0MJ	|cFFCCCCFF蓝钥匙|r	|cFFCCCCFF파란 열쇠|r
+I0MK	|cFFFF8888红钥匙|r	|cFFFF8888빨간 열쇠|r
+I0ML	|cFF00FF88绿钥匙|r	|cFF00FF88초록 열쇠|r
+I0MM	|cFF7B0000碎裂的桌子|r	|cFF7B0000부서진 탁자|r
+I0MN	|cFFEE4C38红烧大虾|r	|cFFEE4C38붉게 조린 왕새우|r
+I0MO	|cFFEE4C38冷冻龙虾|r	|cFFEE4C38냉동 랍스터|r
+I0MP	|cFF737FD8双刃下弦月|r	|cFF737FD8양날의 하현달|r
+I0MQ	|cFFCC0000龙之心|r	|cFFCC0000용의 심장|r
+I0MR	|cFFCCFFFF动力核心|r	|cFFCCFFFF동력 코어|r
+I0MS	|cFF7DBEF1钥匙包|r	|cFF7DBEF1열쇠 꾸러미|r
+I0MT	P点	P 포인트
+I0MU	|cFF999999召唤铃铛的奖励[普通]|r	|cFF999999소환 방울 보상 [일반]|r
+I0MV	|cFF999999召唤铃铛的奖励[稀有]|r	|cFF999999소환 방울 보상 [희귀]|r
+I0MW	|cFF999999召唤铃铛的奖励[罕见]|r	|cFF999999소환 방울 보상 [진귀]|r
+I0MX	|cFF6699FF选|r|cFF85A3D6定|r|cFFA3ADAD之|r|cFFC2B885仗|r	|cFF6699FF선정의 지팡이|r
+I0MY	|cFFF95C24日轮刀[赤炎]|r	|cFFF95C24일륜도 [적염]|r
+I0N0	|cFF999999王国的赐福[普通]|r	|cFF999999왕국의 축복 [일반]|r
+I0N1	|cFFFF0000神秘对联|r	|cFFFF0000신비한 대련|r
+I0N2	磨刀石	숫돌
+I0N3	开刃油	칼날 연마유
+I0N4	砥石	숫돌
+I0N9	|cFF7DBEF1土质弹药(大口径)|r	|cFF7DBEF1흙 탄약(대구경)|r
+I0NA	|cFF7DBEF1土质弹药(中口径)|r	|cFF7DBEF1흙 탄약(중구경)|r
+I0NB	|cFF7DBEF1土质弹药(小口径)|r	|cFF7DBEF1흙 탄약(소구경)|r
+I0NC	|cFF7DBEF1土质弹药(霰弹)|r	|cFF7DBEF1흙 탄약(산탄)|r
+I0NI	餐品兑换券	식사 교환권
+I0NJ	|cFFFFCC99黄宝箱|r	|cFFFFCC99노란 보물상자|r
+I0NK	|cFF6699FF蓝宝箱|r	|cFF6699FF파란 보물상자|r
+I0NL	|cFFFF3366红宝箱|r	|cFFFF3366빨간 보물상자|r
+I0NM	近战模块Lv1	근접 모듈 Lv1
+I0NN	近战模块Lv2	근접 모듈 Lv2
+I0NO	近战模块Lv3	근접 모듈 Lv3
+I0NP	暴击模块Lv1	치명타 모듈 Lv1
+I0NQ	暴击模块Lv2	치명타 모듈 Lv2
+I0NR	暴击模块Lv3	치명타 모듈 Lv3
+I0NS	连击模块Lv1	연타 모듈 Lv1
+I0NT	连击模块Lv2	연타 모듈 Lv2
+I0NU	连击模块Lv3	연타 모듈 Lv3
+I0NV	瞄准模块Lv1	조준 모듈 Lv1
+I0NW	瞄准模块Lv2	조준 모듈 Lv2
+I0NX	瞄准模块Lv3	조준 모듈 Lv3
+I0NY	射程模块Lv1	사거리 모듈 Lv1
+I0NZ	射程模块Lv2	사거리 모듈 Lv2
+I0O0	射程模块Lv3	사거리 모듈 Lv3
+I0O1	射速模块Lv1	연사 모듈 Lv1
+I0O2	射速模块Lv2	연사 모듈 Lv2
+I0O3	射速模块Lv3	연사 모듈 Lv3
+I0O4	扩容弹匣Lv1	대용량 탄창 Lv1
+I0O5	扩容弹匣Lv2	대용량 탄창 Lv2
+I0O6	扩容弹匣Lv3	대용량 탄창 Lv3
+I0O7	快速装填弹匣Lv1	빠른 장전 탄창 Lv1
+I0O8	快速装填弹匣Lv2	빠른 장전 탄창 Lv2
+I0O9	快速装填弹匣Lv3	빠른 장전 탄창 Lv3
+I0OA	轻弹匣Lv1	경량 탄창 Lv1
+I0OB	轻弹匣Lv2	경량 탄창 Lv2
+I0OC	轻弹匣Lv3	경량 탄창 Lv3
+I0OD	元素弹匣雷Lv1	번개 원소 탄창 Lv1
+I0OE	元素弹匣火Lv1	불 원소 탄창 Lv1
+I0OF	元素弹匣冰Lv1	얼음 원소 탄창 Lv1
+I0OG	元素弹匣暗Lv1	어둠 원소 탄창 Lv1
+I0OH	元素弹匣光Lv1	빛 원소 탄창 Lv1
+I0OI	元素弹匣水Lv1	물 원소 탄창 Lv1
+I0OJ	元素弹匣雷Lv2	번개 원소 탄창 Lv2
+I0OK	元素弹匣火Lv2	불 원소 탄창 Lv2
+I0OL	元素弹匣冰Lv2	얼음 원소 탄창 Lv2
+I0OM	元素弹匣暗Lv2	어둠 원소 탄창 Lv2
+I0ON	元素弹匣光Lv2	빛 원소 탄창 Lv2
+I0OO	元素弹匣水Lv2	물 원소 탄창 Lv2
+I0OP	元素弹匣雷Lv3	번개 원소 탄창 Lv3
+I0OQ	元素弹匣火Lv3	불 원소 탄창 Lv3
+I0OR	元素弹匣冰Lv3	얼음 원소 탄창 Lv3
+I0OS	元素弹匣暗Lv3	어둠 원소 탄창 Lv3
+I0OT	元素弹匣光Lv3	빛 원소 탄창 Lv3
+I0OU	元素弹匣水Lv3	물 원소 탄창 Lv3
+I0OV	高速枪口	고속 총구
+I0OW	元素调制枪口雷	번개 원소 조율 총구
+I0OX	元素调制枪口火	불 원소 조율 총구
+I0OY	元素调制枪口冰	얼음 원소 조율 총구
+I0OZ	元素调制枪口暗	어둠 원소 조율 총구
+I0P0	元素调制枪口光	빛 원소 조율 총구
+I0P1	元素调制枪口水	물 원소 조율 총구
+I0P2	强化配件	강화 부품
+I0P7	疯狂的齿轮	광기의 톱니바퀴
+I0P8	奇遇	기연
+I0P9	异热同心核心	제알 코어
+I0PA	|cFF99CCFF「|r|cFF8FB8EB魔|r|cFF85A3D6镜|r|cFF7A8FC2」|r|cFF9999CC阿罗|r|cFF8F8FC2德斯	|cFF99CCFF「마경」 아로더스
+I0PB	|cFF666666「|r|cFF70525C丧|r|cFF7A3D52钟|r|cFF852947」|r	|cFF666666「죽음의 종」|r
+I0PE	|cFFFFFF66妖|r|cFFEEAA44刀|r|cFFDD5522梦渡|r	|cFFFFFF66요도 몽도|r
+I0PF	|cFF66CC66蔷|r|cFF84B370薇|r|cFFA29A7A之|r|cFFC08083刃|r	|cFF66CC66장미의 칼날|r
+I0PG	卡牌奖励(储君)	카드 보상(왕세자)
+I0PH	|cFFF68305稀有卡牌奖励(储君)	|cFFF68305희귀 카드 보상(왕세자)
+I0PI	|cFF6699FF君王之剑|r	|cFF6699FF군왕의 검|r
+I0PJ	|cFF9A9A9A诡|r|cFF7E7D85异|r|cFF626070柴|r|cFF45445A刀|r	|cFF9A9A9A기괴한 장작칼|r
+I0PK	|cFFD8A075晋升之环|r	|cFFD8A075승급의 고리|r
+I0PL	|cFFFFCC00终末之环|r	|cFFFFCC00종말의 고리|r
+I0PM	|cFFFFFFFF无名众神的王女|r	|cFFFFFFFF이름 없는 신들의 왕녀|r
+I0PN	|cffc91628拟态|r	|cffc91628미미크리|r
+I0PO	|cFFEFFCCF哈密瓜雪糕(上)|r	|cFFEFFCCF멜론 아이스크림(상)|r
+I0PP	|cFFEFFCCF哈密瓜雪糕(下)|r	|cFFEFFCCF멜론 아이스크림(하)|r
+I0PQ	|cFFEFFCCF哈密瓜雪糕|r	|cFFEFFCCF멜론 아이스크림|r
+I0PS	海盗金币	해적 금화
+I0PT	|cFF66CCFF真|r|cFF7FD6FF女|r|cFF99E0FF神|r|cFFB3EAFF天|r|cFFCCF4FF子|r|cFFE5FAFFの|r|cFFFFFFFF祝|r|cFFFFFFFF福|r	|cFF66CCFF진여신 텐시의 축복|r
+I0PU	|cFF990000沾|r|cFF8C0606染|r|cFF800D0D罪|r|cFF731313业|r|cFF661A1A的|r|cFF592020御|r|cFF4C2626币|r	|cFF990000죄업에 물든 고헤이|r
+I0Q0	|cFF99CCFF强化药剂|r	|cFF99CCFF강화 약제|r
+I0Q1	|cFF990000棺|r|cFFA62626材|r|cFFB24C4C钉|r	|cFF990000관못|r
+I0Q2	|cFF990000人|r|cFFA62626皮|r|cFFB24C4C纸|r	|cFF990000인피지|r
+I0Q3	|cFF939393骗人鬼|r	|cFF939393거짓말 귀신|r
+I0Q4	|cFF939393鬼童|r	|cFF939393귀동|r
+I0Q5	|cFF333333神|r|cFF5C5C5C之|r|cFF858585花|r|cFFADADAD瓣(来自碎片)|r	|cFF333333신의 꽃잎(조각으로 획득)|r
+I0Q6	|cFF666699魔|r|cFF707099之|r|cFF7A7A99原|r|cFF858599质|r|cFFFFFFFF(来自碎片)|r	|cFF666699마의 원질(조각으로 획득)|r
+I0Z0	|cFF252A3A史|r|cFF454B69莱|r|cFF656C98姆剑|r	|cFF252A3A슬라임 검|r
+I0Z1	|cFF4935A8暗|r|cFF7139C2影|r|cFFA33CDA之|r|cFFD547E8力|r	|cFF4935A8그림자의 힘|r
+I0Z2	|cFF990000佣兵信标|r	|cFF990000용병 신호기|r
+I0Z3	|cFFF588FF小小奇迹|r	|cFFF588FF작은 기적|r
