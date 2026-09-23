@@ -53,6 +53,9 @@ function M.item_hover(place, slot, item)
   end)
   write("ITEM TYPE place=" .. tostring(place) .. " handle=" .. tostring(item) ..
     " type=" .. tostring(ok and typeid or "error") .. " name=" .. short(named and name))
+  local got, item_name = pcall(GetItemName, item)
+  write("ITEM ENGINE NAME place=" .. tostring(place) .. " handle=" .. tostring(item) ..
+    " type=" .. tostring(ok and typeid or "error") .. " name=" .. short(got and item_name))
 end
 
 function M.target_change(kind, handle)

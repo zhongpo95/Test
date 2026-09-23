@@ -101,8 +101,8 @@ if item_names_path:
         item_new=item_new[:start]+section.replace(old_line,new_line)+item_new[end:]
     add(item_name,item_new,'Korean object item names')
 
-skin_fonts={'TextTagFont':os.environ.get('HERA_TEXT_TAG_FONT'),
-            'MasterFont':os.environ.get('HERA_MASTER_FONT')}
+skin_fonts={setting:os.environ.get('HERA_'+setting.upper()) for setting in (
+    'ChatFont','EscMenuTextFont','InfoPanelTextFont','MasterFont','MessageFont','TextTagFont')}
 if any(skin_fonts.values()):
     skin_name='war3mapSkin.txt'
     skin_new=files[key(skin_name)]['path'].read_bytes()
