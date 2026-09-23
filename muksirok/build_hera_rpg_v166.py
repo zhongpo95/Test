@@ -101,14 +101,18 @@ if item_names_path:
         item_new=item_new[:start]+section.replace(old_line,new_line)+item_new[end:]
     add(item_name,item_new,'Korean object item names')
 
-text_tag_font=os.environ.get('HERA_TEXT_TAG_FONT')
-if text_tag_font:
+skin_fonts={'TextTagFont':os.environ.get('HERA_TEXT_TAG_FONT'),
+            'MasterFont':os.environ.get('HERA_MASTER_FONT')}
+if any(skin_fonts.values()):
     skin_name='war3mapSkin.txt'
-    skin_old=files[key(skin_name)]['path'].read_bytes()
-    old_font=b'TextTagFont=Fonts\\gamefont.ttc'
-    new_font=('TextTagFont='+text_tag_font).encode('ascii')
-    assert skin_old.count(old_font)==1
-    add(skin_name,skin_old.replace(old_font,new_font),'Korean text tag font')
+    skin_new=files[key(skin_name)]['path'].read_bytes()
+    for setting,font in skin_fonts.items():
+        if font:
+            old_font=(setting+r'=Fonts\gamefont.ttc').encode('ascii')
+            new_font=(setting+'='+font).encode('ascii')
+            assert skin_new.count(old_font)==1
+            skin_new=skin_new.replace(old_font,new_font)
+    add(skin_name,skin_new,'Korean UI fonts')
 
 original=(ROOT/'decrypted-map-files/war3map.j').read_text(encoding='utf-8')
 assert original.count('DzGetUnitNeededXP')==1
