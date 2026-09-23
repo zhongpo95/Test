@@ -515,7 +515,7 @@ function HWStart takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_wanhua').start()")
     if result == null or result == "" then
         call DestroyTimer(GetExpiredTimer())
-        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua v9: Lua startup failed; refresh not started.")
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 30.0, "Hera Wanhua: Lua startup failed; refresh not started.")
         return
     endif
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.0, 0.0, 20.0, result)
@@ -580,6 +580,46 @@ def prepare_model_probe(archive, staging):
     return {'HeraWanhua\\builder_probe.mdx': bytes(data)}
 
 
+def model_texture_path(name):
+    # 원본 DLL은 MH 접두사와 마지막 네 글자를 제거하고 IMG+이름의 31배 해시를 사용한다.
+    if not re.fullmatch(rb'MH-?\d+\.blp', name):
+        return name
+    value = 0
+    for byte in b'IMG' + name[2:-4]:
+        value = (value * 31 + byte) & 0xffffffff
+    if value >= 0x80000000:
+        value -= 0x100000000
+    return str(value).encode('ascii')
+
+
+def restore_model_textures(data, archive, resolved):
+    if not data.startswith(b'MDLX'):
+        return data
+    result, offset = bytearray(data), 4
+    while offset < len(data):
+        assert offset + 8 <= len(data), 'Truncated MDX chunk'
+        tag, size = struct.unpack_from('<4sI', data, offset)
+        assert offset + 8 + size <= len(data), 'Invalid MDX chunk size'
+        if tag == b'TEXS':
+            assert size % 268 == 0, 'Invalid MDX texture table'
+            for start in range(offset + 8, offset + 8 + size, 268):
+                name = data[start + 4:start + 264].split(b'\0')[0]
+                target = model_texture_path(name)
+                if target == name:
+                    continue
+                key = name.decode('ascii')
+                if key not in resolved:
+                    path = target.decode('ascii')
+                    assert archive.exists(path), ('Missing MH texture', key, path)
+                    texture, _ = restore_asset(archive.read(path))
+                    assert texture.startswith(b'BLP1'), ('MH target is not BLP', key, path)
+                    resolved[key] = {'path': path, 'sha256': hashlib.sha256(texture).hexdigest()}
+                result[start + 4:start + 264] = target.ljust(260, b'\0')
+        offset += 8 + size
+    assert offset == len(data)
+    return bytes(result)
+
+
 def pack_map(source_path, output_path, archive, patches, staging):
     assert not output_path.exists(), 'Output already exists; choose a new version'
     with source_path.open('rb') as source:
@@ -607,6 +647,8 @@ def pack_map(source_path, output_path, archive, patches, staging):
             index=block_count+len(added);added.append((index,data))
             struct.pack_into('<IIHHI',hashes,slot*16,name_hash(name,1),name_hash(name,2),0,0,index)
         replacements[index]=(name,data)
+    texture_paths = {}
+    changed_models = 0
     rows=[];blocks=[];counts={'BLP':0,'MDX':0};output_path.parent.mkdir(parents=True,exist_ok=True)
     with output_path.open('xb') as out:
         out.write(prepare_map_header(prefix[:base]));out.write(b'\0'*32)
@@ -618,6 +660,9 @@ def pack_map(source_path, output_path, archive, patches, staging):
                 data=archive.read(f'File{index:08d}.xxx')
                 data,kind=restore_asset(data)
                 if kind:counts[kind]+=1
+                fixed = restore_model_textures(data, archive, texture_paths)
+                if fixed != data: changed_models += 1
+                data = fixed
                 name=None
             offset=out.tell()-base
             packed,flags=compress(data,512<<shift)
@@ -628,6 +673,7 @@ def pack_map(source_path, output_path, archive, patches, staging):
         bp=out.tell()-base;out.write(crypt(b''.join(struct.pack('<4I',*row) for row in blocks),name_hash('(block table)',3),True))
         size=out.tell()-base
         out.seek(base);out.write(struct.pack('<4sIIHHIIII',b'MPQ\x1a',32,size,0,shift,hp,bp,hash_count,len(blocks)))
+    (staging/'model-textures.json').write_text(json.dumps({'changed_models': changed_models, 'textures': texture_paths}, indent=2), encoding='utf8')
     report={'source_sha256':SOURCE_SHA256,'output':str(output_path),'output_sha256':file_hash(output_path),'map_name':map_title(),'restored':counts,'files':rows}
     (staging/'build-report.json').write_text(json.dumps(report,indent=2),encoding='utf8')
     assert file_hash(source_path)==SOURCE_SHA256

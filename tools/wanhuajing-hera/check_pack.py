@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import re
 import struct
-from build import Archive, SOURCE_SHA256, crypt, file_hash, name_hash
+from build import Archive, SOURCE_SHA256, crypt, file_hash, name_hash, restore_asset
 
 
 def table(path):
@@ -57,6 +57,41 @@ def main():
             assert info[12:new_end].decode('utf8') == title
             config_names = re.findall(r'call SetMapName\("([^"\r\n]*)"\)', archive.read('war3map.j').decode('utf8'))
             assert config_names == [title]
+        texture_report = args.report.with_name('model-textures.json')
+        if texture_report.exists():
+            textures = json.loads(texture_report.read_text(encoding='utf8'))
+            source = Archive(args.source, args.stormlib)
+            changed = 0
+            try:
+                for row in report['files'][:old_count]:
+                    if row['name']:
+                        continue
+                    original_data, _ = restore_asset(source.read(f"File{row['index']:08d}.xxx"))
+                    if not original_data.startswith(b'MDLX'):
+                        continue
+                    data = archive.read(f"File{row['index']:08d}.xxx")
+                    assert len(data) == len(original_data)
+                    masked = bytearray(data)
+                    offset = 4
+                    while offset < len(data):
+                        tag, size = struct.unpack_from('<4sI', original_data, offset)
+                        if tag == b'TEXS':
+                            for start in range(offset + 8, offset + 8 + size, 268):
+                                old = original_data[start + 4:start + 264].split(b'\0')[0]
+                                new = data[start + 4:start + 264].split(b'\0')[0]
+                                if old != new:
+                                    entry = textures['textures'][old.decode('ascii')]
+                                    assert new.decode('ascii') == entry['path']
+                                    texture = archive.read(entry['path'])
+                                    assert texture.startswith(b'BLP1')
+                                    assert hashlib.sha256(texture).hexdigest() == entry['sha256']
+                                    masked[start + 4:start + 264] = original_data[start + 4:start + 264]
+                        offset += 8 + size
+                    assert bytes(masked) == original_data, ('Non-texture model data changed', row['index'])
+                    changed += data != original_data
+                assert changed == textures['changed_models']
+            finally:
+                source.close()
         named = 0
         for row in report['files']:
             data = archive.read(f"File{row['index']:08d}.xxx")
