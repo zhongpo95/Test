@@ -10,6 +10,8 @@ native DzFrameSetPoint takes integer frame, integer point, integer relativeFrame
 native DzFrameSetAbsolutePoint takes integer frame, integer point, real x, real y returns nothing
 native DzFrameSetSize takes integer frame, real w, real h returns nothing
 native DzFrameSetText takes integer frame, string text returns nothing
+native DzFrameGetText takes integer frame returns string
+native DzFrameSetFocus takes integer frame, boolean enable returns boolean
 native DzFrameSetTexture takes integer frame, string texture, integer flag returns nothing
 native DzFrameShow takes integer frame, boolean enable returns nothing
 native DzFrameSetEnable takes integer frame, boolean enable returns nothing
@@ -116,6 +118,10 @@ function HeraUIBridgeMouseDown takes nothing returns nothing
     call HeraUIBridgeEvent(5)
 endfunction
 
+function HeraUIBridgeEditChanged takes nothing returns nothing
+    call HeraUIBridgeEvent(9)
+endfunction
+
 // 왼쪽 버튼은 고정 해제된 UI의 드래그 시작과 종료만 전달한다.
 function HeraUIBridgeLeftDown takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_button_input').dispatch_left(true," + I2S(GetPlayerId(DzGetTriggerKeyPlayer())) + ")")
@@ -171,6 +177,8 @@ function HeraUIBridgeDispatch takes nothing returns nothing
             call DzFrameSetScriptByCode(HeraUIBridgeIntA, 4, function HeraUIBridgeMouseUp, HeraUIBridgeBoolA)
         elseif HeraUIBridgeIntB == 5 then
             call DzFrameSetScriptByCode(HeraUIBridgeIntA, 5, function HeraUIBridgeMouseDown, HeraUIBridgeBoolA)
+        elseif HeraUIBridgeIntB == 9 then
+            call DzFrameSetScriptByCode(HeraUIBridgeIntA, 9, function HeraUIBridgeEditChanged, HeraUIBridgeBoolA)
         else
             return
         endif
@@ -301,6 +309,10 @@ function HeraUIBridgeDispatch takes nothing returns nothing
         set HeraUIBridgeResult = DzFrameGetTooltip()
     elseif HeraUIBridgeOperation == 50 then
         set HeraUIBridgeResult = DzGetMouseFocus()
+    elseif HeraUIBridgeOperation == 51 then
+        set HeraUIBridgeStringResult = DzFrameGetText(HeraUIBridgeIntA)
+    elseif HeraUIBridgeOperation == 52 then
+        call DzFrameSetFocus(HeraUIBridgeIntA, HeraUIBridgeBoolA)
     elseif HeraUIBridgeOperation == 42 then
         if DzGetClientWidth() > 0 then
             set HeraUIBridgeRealResult = I2R(DzGetMouseXRelative()) * 1024.0 / I2R(DzGetClientWidth())

@@ -8,7 +8,7 @@ function M.install()
   local ui = require("hera_ui_bridge").bind()
   local names = {
     "GetGameUI", "FrameGetTooltip", "GetMouseFocus", "CreateFrameByTagName", "DestroyFrame", "FrameSetPoint",
-    "FrameSetAbsolutePoint", "FrameSetSize", "FrameSetText", "FrameSetTexture",
+    "FrameSetAbsolutePoint", "FrameSetSize", "FrameSetText", "FrameGetText", "FrameSetFocus", "FrameSetTexture",
     "FrameShow", "FrameSetEnable", "FrameSetScriptByCode", "LoadToc", "FrameGetHeight",
     "TriggerRegisterSyncData", "SyncData", "GetTriggerSyncData", "GetTriggerSyncPlayer",
     "FrameSetPriority", "FrameSetAlpha", "FrameGetAlpha", "FrameSetTextColor",
@@ -20,6 +20,11 @@ function M.install()
     rawset(japi, name, ui[name])
     rawset(japi, "Dz" .. name, ui[name])
   end
+  rawset(japi, "RegisterFrameEvent", function(frame)
+    ui.FrameSetScriptByCode(frame, 9, function()
+      FrameEventCallBack(frame, 9)
+    end, false)
+  end)
   -- 설치 JN의 JNFrameSetLevel도 1.28에서는 DzFrameSetPriority를 사용한다.
   rawset(japi, "FrameSetLevel", ui.FrameSetPriority)
   rawset(japi, "FrameSetTextFont", ui.FrameSetTextFont)

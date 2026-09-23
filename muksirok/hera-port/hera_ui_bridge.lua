@@ -60,7 +60,7 @@ function M.bind(common, globals)
       common.TriggerEvaluate(globals.HeraUIBridgeEvaluator)
       assert(globals.HeraUIBridgeCompleted, "Hera UI bridge did not complete operation " .. operation)
       if operation == 13 or operation == 42 or operation == 43 then return globals.HeraUIBridgeRealResult end
-      if operation == 16 then return globals.HeraUIBridgeStringResult end
+      if operation == 16 or operation == 51 then return globals.HeraUIBridgeStringResult end
       if operation == 17 then return globals.HeraUIBridgePlayerResult end
       if operation == 41 then
         return {handle=globals.HeraUIBridgeWidgetResult or 0, kind=globals.HeraUIBridgeResult}
@@ -146,6 +146,12 @@ function M.bind(common, globals)
   function ui.FrameSetText(frame, text)
     invoke(7, {IntA=frame, StringA=text})
   end
+  function ui.FrameGetText(frame)
+    return invoke(51, {IntA=frame})
+  end
+  function ui.FrameSetFocus(frame, enable)
+    invoke(52, {IntA=frame, BoolA=enable == true})
+  end
   function ui.FrameSetTexture(frame, texture, flag)
     invoke(8, {IntA=frame, StringA=texture, IntB=flag})
   end
@@ -153,7 +159,7 @@ function M.bind(common, globals)
     invoke(9, {IntA=frame, BoolA=visible})
   end
   function ui.FrameSetScriptByCode(frame, event, callback, sync)
-    assert(event == 1 or event == 2 or event == 3 or event == 4 or event == 5, "unsupported Hera UI event " .. tostring(event))
+    assert(event == 1 or event == 2 or event == 3 or event == 4 or event == 5 or event == 9, "unsupported Hera UI event " .. tostring(event))
     assert(type(callback) == "function", "Hera UI callback must be a function")
     local entries = callbacks[frame] or {}
     local previous = entries[event]
