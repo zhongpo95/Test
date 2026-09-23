@@ -129,7 +129,7 @@ end
 game.wait(0, function()
   base.on_init()
 end)
-game.loop(0.03, function()
+game.loop(30, function()
   local object = japi.GetTargetObject()
   if object ~= nil and object ~= pointer then
     local type = get_handle_type(pointer)
