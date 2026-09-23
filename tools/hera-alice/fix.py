@@ -7,6 +7,8 @@ STATE = '''
 local ALICE_SYNC_KEY = "AliceUI"
 local alice_sequence = 0
 local alice_pending = nil
+local alice_requests = {}
+local alice_received = {}
 local function alice_unlock(sequence)
   if alice_pending == sequence then
     alice_pending = nil
@@ -17,9 +19,14 @@ end
 SEND = '''      if Local_IsRunAliveVar then
         return
       end
-      alice_sequence = alice_sequence + 1
-      local sequence = alice_sequence
-      local msg = tostring(sequence) .. "|" .. tostring(cfg.id) .. "|" .. Local_AliceVarName
+      local request = tostring(cfg.id) .. "|" .. Local_AliceVarName
+      local sequence = alice_requests[request]
+      if not sequence then
+        alice_sequence = alice_sequence + 1
+        sequence = alice_sequence
+        alice_requests[request] = sequence
+      end
+      local msg = tostring(sequence) .. "|" .. request
       Local_UIButton = self
       alice_pending = sequence
       Local_IsRunAliveVar = true
@@ -42,11 +49,20 @@ RECEIVE = '''  local sequence, action, varid = data:match("^(%d+)|(%d+)|([^|]+)$
   action = tonumber(action)
   if sy == LocalPlayerID then
     alice_unlock(sequence)
+    local request = tostring(action) .. "|" .. tostring(varid)
+    if alice_requests[request] == sequence then
+      alice_requests[request] = nil
+    end
   end
   local u = getunit(Hero[sy])
   if not u or not action or not varid then
     return
   end
+  alice_received[sy] = alice_received[sy] or {}
+  if alice_received[sy][sequence] then
+    return
+  end
+  alice_received[sy][sequence] = true
   print("ALICE UI receive player=" .. tostring(sy) .. " request=" .. tostring(sequence))
   Alice_Action(u, action, varid)
 '''

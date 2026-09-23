@@ -1,4 +1,4 @@
-# 검증된 v177 복사본에 앨리스 수정과 v178 식별자만 적용한다.
+# 검증된 v177 복사본에 앨리스 수정과 v179 식별자만 적용한다.
 import argparse
 import hashlib
 import json
@@ -10,7 +10,7 @@ from mpq import Map, crypt, nh
 
 SOURCE_HASH = '183149b5e386774d33fb742daa3e313a44d630256a3e40653269efcb5a855c6f'
 ALICE = 'scripts/gameplay/var/pools/mwx/pools_mwx_alice.lua'
-TITLE = b'Hera RPG initialization v178 MP'
+TITLE = b'Hera RPG initialization v179 MP'
 
 def build(source, output):
     if output.exists() or source.resolve() == output.resolve():
@@ -23,10 +23,10 @@ def build(source, output):
     old_boot_title = b'return "Hera RPG initialization v160\\nStatus = "'
     assert boot.count(old_boot_title) == 1
     changes['hera_boot.lua'] = boot.replace(
-        old_boot_title, b'return "Hera RPG initialization v178 MP\\nStatus = "')
+        old_boot_title, b'return "Hera RPG initialization v179 MP\\nStatus = "')
     changes['hera_build_info.lua'] = (
         '-- 실행 맵의 실제 빌드 식별자를 진단 로그에 제공한다.\n'
-        'return {revision="178 MP",title="Hera RPG initialization v178 MP"}\n'
+        'return {revision="179 MP",title="Hera RPG initialization v179 MP"}\n'
     ).encode('utf-8')
     jass = archive.read('war3map.j')
     old = b'Hera RPG initialization v177 MP'
