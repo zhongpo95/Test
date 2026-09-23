@@ -1,5 +1,6 @@
 // Lua의 UI 요청을 JASS 전역변수로 받아 Dz 네이티브를 JASS에서 호출한다.
 native DzTriggerRegisterMouseEventByCode takes trigger trig, integer btn, integer status, boolean sync, code funcHandle returns nothing
+native DzTriggerRegisterKeyEventByCode takes trigger trig, integer key, integer status, boolean sync, code funcHandle returns nothing
 native DzGetTriggerKeyPlayer takes nothing returns player
 native DzGetMouseFocus takes nothing returns integer
 native DzFrameGetTooltip takes nothing returns integer
@@ -138,6 +139,15 @@ endfunction
 
 function HeraUIBridgeRightUp takes nothing returns nothing
     local string result = EXExecuteScript("require('hera_button_input').dispatch_right(false," + I2S(GetPlayerId(DzGetTriggerKeyPlayer())) + ")")
+endfunction
+
+// 아르카나의 T키 등록과 동일하게 누름과 뗌을 직접 전달한다.
+function HeraUIBridgeEmojiDown takes nothing returns nothing
+    local string result = EXExecuteScript("if BQBInfo then require('gameplay.interface.ui.bqb').key_down() end")
+endfunction
+
+function HeraUIBridgeEmojiUp takes nothing returns nothing
+    local string result = EXExecuteScript("if BQBInfo then require('gameplay.interface.ui.bqb').key_up() end")
 endfunction
 
 function HeraUIBridgeDispatch takes nothing returns nothing
@@ -343,5 +353,7 @@ function HeraUIBridgeInitialize takes nothing returns nothing
         // 설치된 Dz DLL은 WM_RBUTTONDOWN/UP을 버튼 2로 전달한다.
         call DzTriggerRegisterMouseEventByCode(null, 2, 1, false, function HeraUIBridgeRightDown)
         call DzTriggerRegisterMouseEventByCode(null, 2, 0, false, function HeraUIBridgeRightUp)
+        call DzTriggerRegisterKeyEventByCode(null, 84, 1, false, function HeraUIBridgeEmojiDown)
+        call DzTriggerRegisterKeyEventByCode(null, 84, 0, false, function HeraUIBridgeEmojiUp)
     endif
 endfunction

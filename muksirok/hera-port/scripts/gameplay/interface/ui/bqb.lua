@@ -1,4 +1,5 @@
 -- T키 이모티콘 선택창의 방향 판정과 채팅 표시를 관리한다.
+local M = {}
 Bqb_OpenClose = true
 ChatEmojiMap = {
   [1] = {
@@ -551,3 +552,38 @@ function bqb_apply_config_group(u)
   end
   return true
 end
+
+function M.key_down()
+  local sy = LocalPlayerID
+  local selected = Xuanze and Xuanze[sy]
+  require("hera_gameplay_diagnostic").local_input("emoji_key_down", Hero and Hero[sy],
+    "selected=" .. tostring(selected) .. " enabled=" .. tostring(Bqb_OpenClose))
+  if not selected or not Bqb_OpenClose or ui_info.is_show then
+    return
+  end
+  local x, y = game.get_mouse_pos()
+  ui_info.x = x
+  ui_info.y = y
+  ui_info.id = 0
+  japi.FrameSetAbsolutePoint(ui_info.panel._id, 4, x / 1920 * 0.8, (1 - y / 1080) * 0.6)
+  ui_info.panel:show()
+  ui_info.is_show = true
+end
+
+function M.key_up()
+  local sy = LocalPlayerID
+  require("hera_gameplay_diagnostic").local_input("emoji_key_up", Hero and Hero[sy],
+    "open=" .. tostring(ui_info.is_show) .. " choice=" .. tostring(ui_info.id))
+  if not ui_info.is_show then
+    return
+  end
+  local id = ui_info.id
+  if id ~= 0 then
+    ui_info.frame[id]:set_normal_image(ui_info.path[id])
+    japi.DzSyncData("MSG", "BQB|" .. ui_info.bqb[id])
+  end
+  ui_info.is_show = false
+  ui_info.panel:hide()
+end
+
+return M

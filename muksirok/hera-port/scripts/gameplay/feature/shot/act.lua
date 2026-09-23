@@ -367,21 +367,6 @@ local event_map = {
         uiy_hide()
       end
     end
-    if Xuanze[id1] then
-      local ui_info = BQBInfo
-      local Panel = ui_info.panel
-      if code == KEY.T and not ui_info.is_show and Bqb_OpenClose then
-        local x, y = game.get_mouse_pos()
-        ui_info.x = x
-        ui_info.y = y
-        ui_info.id = 0
-        x = x / 1920 * 0.8
-        y = (1 - y / 1080) * 0.6
-        japi.FrameSetAbsolutePoint(Panel._id, 4, x, y)
-        Panel:show()
-        ui_info.is_show = true
-      end
-    end
     return re
   end,
   key_up = function(msg)
@@ -419,20 +404,6 @@ local event_map = {
           ClearSelection()
           SelectUnit(unit, true)
         end
-      end
-    end
-    if Xuanze[id1] then
-      local ui_info = BQBInfo
-      local Panel = ui_info.panel
-      if code == KEY.T and Bqb_OpenClose and ui_info.is_show then
-        local id = ui_info.id
-        if id ~= 0 then
-          local index = ui_info.bqb[id]
-          ui_info.frame[id]:set_normal_image(ui_info.path[id])
-          japi.DzSyncData("MSG", "BQB|" .. index)
-        end
-        ui_info.is_show = false
-        Panel:hide()
       end
     end
     return true
