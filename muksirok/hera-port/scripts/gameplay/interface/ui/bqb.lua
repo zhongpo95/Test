@@ -391,8 +391,12 @@ local function bqbui_init()
     if dx * dx + dy * dy <= 27 * 27 then
       return
     end
-    local angle = math.deg(math.atan(dy, dx))
-    local id = math.floor((angle + 225) % 360 / 90) + 1
+    local id
+    if dx * dx >= dy * dy then
+      id = dx < 0 and 1 or 3
+    else
+      id = dy < 0 and 2 or 4
+    end
     if id ~= ui_info.id then
       local old_id = ui_info.id
       if old_id ~= 0 then
