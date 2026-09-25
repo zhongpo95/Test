@@ -1,4 +1,19 @@
-# 묵시록 v204 MP 채팅 및 진단 출력 수정
+# 묵시록 v205 MP 채팅 및 난이도 초기화 수정
+
+최신 전달본은 v205 MP다. 사용자 v204 상태창의 `Status = BLOCKED`, `Module = main`, `hera_ui_bridge.lua:164: ... Call jass function crash.<TriggerEvaluate>`를 확인했다. 164행은 `FrameShow` 경로이며 v204에서 기본 채팅 프레임에 추가한 숨김 호출을 제거했다. 투명도 0과 화면 밖 배치, 외침 도구와 로그 중지 변경은 유지한다.
+
+v205에서는 실제 `scripts/main.lua`와 난이도 로더를 사용한 모의 실행으로, 채팅 FrameShow에 같은 오류를 주입하면 v204 초기화가 중단되고 v205는 난이도 UI 로딩과 입력 연결까지 도달하는 것을 확인했다. 커스텀 UI 켜짐·꺼짐, 채팅 프레임 0을 검사했다. 실제 게임 화면과 멀티플레이는 미검증이다.
+
+```powershell
+python tools/hera-chat/build_v205.py <Hera_RPG_Init_v204_MP.w3x> <output/Hera_RPG_Init_v205_MP.w3x>
+python tools/hera-chat/check_v205.py <Hera_RPG_Init_v204_MP.w3x>
+```
+
+v205 전달 검사는 변경 멤버 4개 재추출 일치, 나머지 5,658개 블록 및 해시 테이블 불변과 pjass 정적 검사 통과다. 게임 기능 변경은 채팅 FrameShow 한 줄 제거뿐이며 나머지 3개 멤버는 버전 표시다. v204는 아래 재현 및 빌드 이력으로만 보존한다.
+
+v205 SHA-256. `a21d35caf394bf39eabe09e4ff7e69945e069a094fea2af70147c77b7fe59cb5`
+
+## v204 변경과 검사 이력
 
 v203 MP에서 기본 채팅과 커스텀 채팅이 겹쳐 표시되고 Alt+숫자 외침이 동작하지 않는 제보를 반영한다. 사용자가 안정화 후 중지해 달라고 요청한 진단 로그는 주석으로 보존한다.
 
