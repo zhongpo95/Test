@@ -1,6 +1,6 @@
 scope HeroBandiC
 globals
-    private constant real DR = 1.00
+    private constant real DR = 0.10
     private constant real SD = 0.00
     
     private constant real CoolTime = 0.7

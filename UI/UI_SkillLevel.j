@@ -194,10 +194,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         local string str = SkillFrameScriptValueDescription(pid, index, types, value1, value2)
 
         if str != "" then
-            if JNStringContains(skillType, "버프") or str == "|cFFB9E2FA직접 피해 없음.|r" then
-                return str
-            endif
-            return str + "|n|cFFB9E2FA피해 수치는 대상 방어력, 치명타 및 추가 피해 보정 전 기준입니다.|r"
+            return str
         endif
 
         if JNStringContains(skillType, "버프") then
@@ -225,7 +222,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             endif
             set desc = SkillFrameBaseDescription("일반", cooldown, "전방의 적에게 기본 공격 피해를 입힙니다.")
             if detail then
-                set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("기본 타격 피해량", AttackPower(pid)))
+                set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("기본 타격 피해량", AttackPower(pid) * 0.10))
                 if index == 14 then
                     set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA겐지 기본 공격은 E 차지 속도를 높이고 카구라의 강화 기본 공격은 연타 후 자세 전환 연계가 가능합니다.|r")
                 endif
