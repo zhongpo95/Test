@@ -26,35 +26,6 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
 
         //call DzFrameSetText(FS_ButtonTEXT[0], EXGetAbilityString(HeroSkillID0[index],1,ABILITY_DATA_TIP) )
 
-    private function SkillFrameShowSubTip takes integer abilId returns nothing
-        local string title
-        local string desc = ""
-
-        if abilId == 0 then
-            call DzFrameShow(UI_Tip, false)
-            return
-        endif
-
-        set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
-        if abilId == 'A002' and title == "" then
-            set title = "회피(X)"
-        endif
-        if abilId == 'A002' then
-            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
-            set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
-            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
-            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다." + "|r"
-        endif
-
-        call DzFrameSetText(UI_Tip_Text[1], title)
-        call DzFrameSetText(UI_Tip_Text[2], desc)
-        if title == "" and desc == "" then
-            call DzFrameShow(UI_Tip, false)
-        else
-            call DzFrameShow(UI_Tip, true)
-        endif
-    endfunction
-
     private function SkillFrameJoinDescription takes string base, string text returns string
         if text == "" then
             return base
@@ -82,8 +53,152 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         return str
     endfunction
 
-    private function SkillFrameValueDescription takes integer pid, string skillType, integer valueCount, real value1, real value2 returns string
+    // 전투용 원본 계수와 쿨타임을 바꾸지 않고 최종 적용 수치를 표시한다.
+    private function SkillFrameDisplayCooldown takes integer index, integer types, real cooldown returns real
+        if index == 3 then
+            if types == 2 then
+                return cooldown - 11.0
+            elseif types == 5 then
+                return cooldown - 5.0
+            endif
+        elseif index == 4 then
+            if types == 2 then
+                return cooldown - 5.6
+            elseif types == 4 then
+                return cooldown - 8.0
+            endif
+        elseif index == 15 then
+            if types == 6 or types == 7 then
+                return 5.0
+            endif
+        elseif index == 17 then
+            if types == 0 or types == 1 then
+                return 1.5
+            elseif types == 2 or types == 5 or types == 7 then
+                return 5.0
+            elseif types == 3 then
+                return 3.0
+            elseif types == 4 then
+                return HeroSkillCD0[14]
+            elseif types == 6 then
+                return 4.0
+            endif
+        endif
+        return cooldown
+    endfunction
+
+    private function SkillFrameDamageLine takes string label, real amount returns string
+        return "|cFFB9E2FA" + label + "|r " + R2SW(amount,1,2)
+    endfunction
+
+    private function SkillFrameScriptValueDescription takes integer pid, integer index, integer types, real value1, real value2 returns string
         local real damage = AttackPower(pid)
+        local real value
+        local string str = ""
+
+        if index == 3 then
+            if types == 0 then
+                return SkillFrameDamageLine("피해량", damage * value1 * 2.05)
+            elseif types == 1 then
+                return SkillFrameDamageLine("피해량", damage * value1 * 1.45)
+            elseif types == 2 then
+                set value = damage * value1 * 3.06
+                return SkillFrameDamageLine("1타 피해량", value / 6.0) + "|n" + SkillFrameDamageLine("6타 총 피해량", value)
+            elseif types == 3 then
+                return SkillFrameDamageLine("타격당 피해량", damage * value1 * 2.72)
+            elseif types == 4 then
+                set value = damage * value1 * 2.05 * 10.0
+                return SkillFrameDamageLine("10타 총 피해량", value) + "|n" + SkillFrameDamageLine("발도 버프 시 총 피해량", value * 1.95)
+            elseif types == 5 then
+                return SkillFrameDamageLine("피해량", damage * value1 * 1.95)
+            elseif types == 6 then
+                set value = damage * value1 * 1.45
+                return SkillFrameDamageLine("피해량", value) + "|n" + SkillFrameDamageLine("발도 버프 시 피해량", value * 1.95)
+            elseif types == 7 then
+                set value = damage * value1 * 1.60 * 1.95 * 8.0
+                return SkillFrameDamageLine("8타 총 피해량", value) + "|n" + SkillFrameDamageLine("발도 버프 시 총 피해량", value * 1.60)
+            endif
+        elseif index == 4 then
+            if types == 0 then
+                return SkillFrameDamageLine("1단계 피해량", damage * value1 * 0.80) + "|n" + SkillFrameDamageLine("2단계 피해량", damage * value1 * 1.525) + "|n" + SkillFrameDamageLine("최대 차지 피해량", damage * value1 * 2.50)
+            elseif types == 1 then
+                set value = damage * value1 * 1.5 * 2.0
+                return SkillFrameDamageLine("1타 피해량", value / 2.0) + "|n" + SkillFrameDamageLine("2타 총 피해량", value)
+            elseif types == 2 then
+                return SkillFrameDamageLine("피해량", damage * value1 * 1.7 * 2.6)
+            elseif types == 3 then
+                set value = damage * value1 * 1.50
+                return SkillFrameDamageLine("1단계 피해량", value) + "|n" + SkillFrameDamageLine("2단계 피해량", value * 1.30) + "|n" + SkillFrameDamageLine("3단계 피해량", value * 1.60) + "|n" + SkillFrameDamageLine("최대 차지 피해량", value * 1.90 * 2.22)
+            elseif types == 4 then
+                return SkillFrameDamageLine("보호막", GetUnitMaxLifeVJ(MainUnit[pid]) * value1)
+            elseif types == 5 or types == 6 then
+                return SkillFrameDamageLine("피해량", damage * value1)
+            elseif types == 7 then
+                set value = damage * value1 * 2.00
+                set str = SkillFrameDamageLine("1단계 총 피해량", value * 6.0) + "|n" + SkillFrameDamageLine("2단계 총 피해량", value * 10.0)
+                return str + "|n" + SkillFrameDamageLine("최대 차지 마지막 타격", damage * value2 * 2.00 * 1.70 * 1.891) + "|n" + SkillFrameDamageLine("최대 차지 총 피해량", value * 9.0 + damage * value2 * 2.00 * 1.70 * 1.891)
+            endif
+        elseif index == 14 then
+            if types == 0 then
+                return SkillFrameDamageLine("기본 타격 피해량", damage * value1) + "|n" + SkillFrameDamageLine("나비 6개 사용 시 총 피해량", damage * value1 * 7.0)
+            elseif types == 1 then
+                return SkillFrameDamageLine("겐지 전환 연계 11타 합계", damage * value1 * 0.5 * 11.0) + "|n" + SkillFrameDamageLine("카구라 전환 연계 1타", damage * value1)
+            elseif types == 2 then
+                set value = damage * value1
+                return SkillFrameDamageLine("베기 1/2단계", value) + " / " + R2SW(value * 1.30,1,2) + "|n" + SkillFrameDamageLine("베기 3/최대 단계", value * 1.60) + " / " + R2SW(value * 1.90,1,2) + "|n" + SkillFrameDamageLine("납도 또는 카구라 연계 1타", value)
+            elseif types == 3 then
+                return SkillFrameDamageLine("강화 베기 1타", damage * value1) + "|n" + SkillFrameDamageLine("강화 연타 1타", damage * value2)
+            elseif types == 4 then
+                return SkillFrameDamageLine("추가 공격력", I2R(R2I(Equip_Damage[pid])) * 0.35)
+            elseif types == 5 then
+                return SkillFrameDamageLine("충격파 기본 타격", damage * value1) + "|n" + SkillFrameDamageLine("나비 하나당 추가 피해량", damage * value1)
+            elseif types == 6 then
+                return SkillFrameDamageLine("나비 없이 총 피해량", damage * value1 * 13.0) + "|n" + SkillFrameDamageLine("나비 6개 사용 시 총 피해량", damage * value1 * 19.0)
+            elseif types == 7 then
+                return SkillFrameDamageLine("나비 없이 총 피해량", damage * value1 * 4.0) + "|n" + SkillFrameDamageLine("나비 6개 사용 시 총 피해량", damage * value1 * 22.0)
+            endif
+        elseif index == 15 then
+            if types == 0 or types == 2 or types == 4 then
+                return SkillFrameDamageLine("피해량", damage * value1)
+            elseif types == 1 then
+                return SkillFrameDamageLine("타격당 피해량", damage * value1) + "|n" + SkillFrameDamageLine("5회 적중 시 총 피해량", damage * value1 * 5.0)
+            elseif types == 3 then
+                return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue5[4]) + "|n" + SkillFrameDamageLine("6타 총 피해량", damage * HeroSkillVelue5[4] * 6.0)
+            elseif types == 5 then
+                return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue5[4]) + "|n" + SkillFrameDamageLine("2타 총 피해량", damage * HeroSkillVelue5[4] * 2.0)
+            elseif types == 6 then
+                return SkillFrameDamageLine("이동 타격 또는 착지 1타", damage * HeroSkillVelue5[14])
+            elseif types == 7 then
+                return "|cFFB9E2FA직접 피해 없음.|r"
+            endif
+        elseif index == 17 then
+            if types == 0 then
+                return SkillFrameDamageLine("1타 피해량", damage * value1) + "|n" + SkillFrameDamageLine("2타 총 피해량", damage * value1 * 2.0)
+            elseif types == 1 then
+                return SkillFrameDamageLine("참격 타격당 피해량", damage * HeroSkillVelue7[4] * 2.00)
+            elseif types == 2 then
+                return SkillFrameDamageLine("최대 차지 전 돌진 피해량", damage * HeroSkillVelue3[17] * 2.00) + "|n|cFFB9E2FA최대 차지 직접 피해 없음.|r"
+            elseif types == 3 or types == 6 or types == 7 then
+                return "|cFFB9E2FA직접 피해 없음.|r"
+            elseif types == 4 then
+                return SkillFrameDamageLine("피해량", damage * HeroSkillVelue2[4])
+            elseif types == 5 then
+                return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue0[14]) + "|n" + SkillFrameDamageLine("3타 총 피해량", damage * HeroSkillVelue0[14] * 3.0)
+            endif
+        endif
+        return ""
+    endfunction
+
+    private function SkillFrameValueDescription takes integer pid, integer index, integer types, string skillType, integer valueCount, real value1, real value2 returns string
+        local real damage = AttackPower(pid)
+        local string str = SkillFrameScriptValueDescription(pid, index, types, value1, value2)
+
+        if str != "" then
+            if JNStringContains(skillType, "버프") or str == "|cFFB9E2FA직접 피해 없음.|r" then
+                return str
+            endif
+            return str + "|n|cFFB9E2FA피해 수치는 대상 방어력, 치명타 및 추가 피해 보정 전 기준입니다.|r"
+        endif
 
         if JNStringContains(skillType, "버프") then
             return "|cFFB9E2FA수치|r : "+I2S(R2I(value1*100))+" %"
@@ -94,6 +209,75 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         endif
 
         return ""
+    endfunction
+
+    private function SkillFrameSubDescription takes integer pid, integer index, integer types, boolean detail returns string
+        local string desc = ""
+        local real cooldown = 0.0
+
+        if types == 10 then
+            if index == 4 then
+                set cooldown = 1.0
+            elseif index == 14 or index == 15 or index == 17 then
+                set cooldown = 0.7
+            else
+                return ""
+            endif
+            set desc = SkillFrameBaseDescription("일반", cooldown, "전방의 적에게 기본 공격 피해를 입힙니다.")
+            if detail then
+                set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("기본 타격 피해량", AttackPower(pid)))
+                if index == 14 then
+                    set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA겐지 기본 공격은 E 차지 속도를 높이고 카구라의 강화 기본 공격은 연타 후 자세 전환 연계가 가능합니다.|r")
+                endif
+            endif
+        elseif types == 8 and (index == 15 or index == 17) then
+            set desc = SkillFrameBaseDescription("버프", 4.0, "완전연소 자원을 사용하고 완전연소 변신 연출을 실행합니다.")
+            if detail then
+                set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA시전 중 약 3.34초간 피해와 제어 효과를 막습니다. 직접 피해는 없습니다.|r")
+            endif
+        elseif types == 11 then
+            if index == 3 or index == 4 or index == 14 then
+                set cooldown = 3.0
+            elseif index != 15 and index != 17 then
+                return ""
+            endif
+            set desc = SkillFrameBaseDescription("오의", cooldown, "보스의 오의 사용 기회에 합동 오의에 참여합니다.")
+            if detail then
+                set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA참가 인원 한 명당 보스 최대 생명력의 3% 피해를 입힙니다. 공격력의 영향을 받지 않습니다.|r")
+            endif
+        endif
+        return desc
+    endfunction
+
+    private function SkillFrameShowSubTip takes integer pid, integer index, integer types, integer abilId returns nothing
+        local string title
+        local string desc = ""
+
+        if abilId == 0 then
+            call DzFrameShow(UI_Tip, false)
+            return
+        endif
+
+        set title = EXGetAbilityString(abilId, 1, ABILITY_DATA_TIP)
+        if abilId == 'A002' and title == "" then
+            set title = "회피(X)"
+        endif
+        if abilId == 'A002' then
+            set desc = "|cFFA5FA7D[ 타입 ]|r "+"일반|n|n"
+            set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
+            set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
+            set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다." + "|r"
+        else
+            set desc = SkillFrameSubDescription(pid, index, types, true)
+        endif
+
+        call DzFrameSetText(UI_Tip_Text[1], title)
+        call DzFrameSetText(UI_Tip_Text[2], desc)
+        if title == "" and desc == "" then
+            call DzFrameShow(UI_Tip, false)
+        else
+            call DzFrameShow(UI_Tip, true)
+        endif
     endfunction
 
     private function SkillFrameExtraDescription takes string text1, string text2, string text3 returns string
@@ -121,43 +305,43 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         return str
     endfunction
 
-    private function SkillFrameDataDescriptionBuild takes integer pid, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3 returns string
-        local string str = SkillFrameBaseDescription(skillType, cooldown, skillDesc)
+    private function SkillFrameDataDescriptionBuild takes integer pid, integer index, integer types, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3 returns string
+        local string str = SkillFrameBaseDescription(skillType, SkillFrameDisplayCooldown(index, types, cooldown), skillDesc)
 
         set str = SkillFrameJoinDescription(str, SkillFrameExtraDescription(text1, text2, text3))
-        set str = SkillFrameJoinDescription(str, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
+        set str = SkillFrameJoinDescription(str, SkillFrameValueDescription(pid, index, types, skillType, valueCount, value1, value2))
 
         return str
     endfunction
 
     private function SkillFrameDataDescription takes integer pid, integer index, integer types returns string
         if types == 0 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index])
         elseif types == 1 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index])
         elseif types == 2 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index])
         elseif types == 3 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index])
         elseif types == 4 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index])
         elseif types == 5 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index])
         elseif types == 6 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index])
         elseif types == 7 then
-            return SkillFrameDataDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index])
+            return SkillFrameDataDescriptionBuild(pid, index, types, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index])
         endif
 
         return ""
     endfunction
 
-    private function SkillFrameHUDDescriptionBuild takes integer pid, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3, boolean detail returns string
-        local string desc = SkillFrameBaseDescription(skillType, cooldown, skillDesc)
+    private function SkillFrameHUDDescriptionBuild takes integer pid, integer index, integer types, string skillType, real cooldown, string skillDesc, integer valueCount, real value1, real value2, string text1, string text2, string text3, boolean detail returns string
+        local string desc = SkillFrameBaseDescription(skillType, SkillFrameDisplayCooldown(index, types, cooldown), skillDesc)
 
         if detail then
             set desc = SkillFrameJoinDescription(desc, SkillFrameExtraDescription(text1, text2, text3))
-            set desc = SkillFrameJoinDescription(desc, SkillFrameValueDescription(pid, skillType, valueCount, value1, value2))
+            set desc = SkillFrameJoinDescription(desc, SkillFrameValueDescription(pid, index, types, skillType, valueCount, value1, value2))
         endif
 
         return desc
@@ -167,21 +351,23 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         local string desc
 
         if types == 0 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye0[index], HeroSkillCD0[index], HeroSkillStr0[index], HeroSkillVCount0[index], HeroSkillVelue0[index], HeroSkillVelue20[index], HeroSkill0Text1[index], HeroSkill0Text2[index], HeroSkill0Text3[index], detail)
         elseif types == 1 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye1[index], HeroSkillCD1[index], HeroSkillStr1[index], HeroSkillVCount1[index], HeroSkillVelue1[index], HeroSkillVelue21[index], HeroSkill1Text1[index], HeroSkill1Text2[index], HeroSkill1Text3[index], detail)
         elseif types == 2 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye2[index], HeroSkillCD2[index], HeroSkillStr2[index], HeroSkillVCount2[index], HeroSkillVelue2[index], HeroSkillVelue22[index], HeroSkill2Text1[index], HeroSkill2Text2[index], HeroSkill2Text3[index], detail)
         elseif types == 3 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye3[index], HeroSkillCD3[index], HeroSkillStr3[index], HeroSkillVCount3[index], HeroSkillVelue3[index], HeroSkillVelue23[index], HeroSkill3Text1[index], HeroSkill3Text2[index], HeroSkill3Text3[index], detail)
         elseif types == 4 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye4[index], HeroSkillCD4[index], HeroSkillStr4[index], HeroSkillVCount4[index], HeroSkillVelue4[index], HeroSkillVelue24[index], HeroSkill4Text1[index], HeroSkill4Text2[index], HeroSkill4Text3[index], detail)
         elseif types == 5 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye5[index], HeroSkillCD5[index], HeroSkillStr5[index], HeroSkillVCount5[index], HeroSkillVelue5[index], HeroSkillVelue25[index], HeroSkill5Text1[index], HeroSkill5Text2[index], HeroSkill5Text3[index], detail)
         elseif types == 6 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye6[index], HeroSkillCD6[index], HeroSkillStr6[index], HeroSkillVCount6[index], HeroSkillVelue6[index], HeroSkillVelue26[index], HeroSkill6Text1[index], HeroSkill6Text2[index], HeroSkill6Text3[index], detail)
         elseif types == 7 then
-            return SkillFrameHUDDescriptionBuild(pid, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index], detail)
+            return SkillFrameHUDDescriptionBuild(pid, index, types, HeroSkillTpye7[index], HeroSkillCD7[index], HeroSkillStr7[index], HeroSkillVCount7[index], HeroSkillVelue7[index], HeroSkillVelue27[index], HeroSkill7Text1[index], HeroSkill7Text2[index], HeroSkill7Text3[index], detail)
+        elseif types == 8 or types == 10 or types == 11 then
+            return SkillFrameSubDescription(pid, index, types, detail)
         elseif types == 9 then
             set desc = "|cFFA5FA7D[ 타입 ]|r 일반|n|n"
             set desc = desc + "|cFFA5FA7D[ 쿨타임 ]|r "+R2SW(7.0,1,2)+"초|n|n"
@@ -361,13 +547,13 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             call DzFrameShow(UI_Tip, true)
             set i = 7
         elseif f == FS_Button[8] then
-            call SkillFrameShowSubTip(HeroSkillID10[index])
+            call SkillFrameShowSubTip(pid, index, 8, HeroSkillID10[index])
         elseif f == FS_Button[9] then
-            call SkillFrameShowSubTip('A002')
+            call SkillFrameShowSubTip(pid, index, 9, 'A002')
         elseif f == FS_Button[10] then
-            call SkillFrameShowSubTip(HeroSkillID9[index])
+            call SkillFrameShowSubTip(pid, index, 10, HeroSkillID9[index])
         elseif f == FS_Button[11] then
-            call SkillFrameShowSubTip(HeroSkillID8[index])
+            call SkillFrameShowSubTip(pid, index, 11, HeroSkillID8[index])
         endif
         if i != 99999 then
             set str = SkillFrameDataDescription(pid, index, i)
@@ -459,7 +645,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             set desc = desc + "|cff5AD2FF[ 간단 설명 ]|r|n  |cFFB9E2FA"+"마우스 방향으로 짧게 이동합니다."
             set desc = desc + "|n|n|cff5AD2FF[ 부가 설명 ]|r|n  |cFFB9E2FA" +  "이동중 CC면역 상태가 됩니다.|n최대 3회까지 충전됩니다." + "|r"
         else
-            set desc = ""
+            set desc = SkillFrameSubDescription(pid, index, types, true)
         endif
 
         if abilId == 'A002' and title == "" then
