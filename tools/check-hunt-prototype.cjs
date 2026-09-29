@@ -20,6 +20,26 @@ function choose(e,pid,id,branch=1){
   request(e,pid,2200+branch);assert.equal(e.ProtoStage[pid],3);
   request(e,pid,2400);assert.equal(e.ProtoStage[pid],0);
 }
+check('머리 카드 없음은 도감 동기화 전에도 준비·출발 가능, 발견하지 않은 머리는 차단',()=>{
+  const t=fresh(0,true),e=t.e;e.ProtoCodexSlot[0]=0;t.render();
+  assert.equal(e.ProtoStartHead[0],0);assert(t.frame(t.common(2001)).enabled);assert(e.ProtoCanDepart(0));
+  e.ProtoStartHead[0]=1;assert(!e.ProtoCanDepart(0));e.ProtoHeadKnown[1]=true;
+  assert(!e.ProtoCanDepart(0));e.ProtoCodexSlot[0]=1;assert(e.ProtoCanDepart(0));
+  e.ProtoHeadKnown[1]=false;assert(!e.ProtoCanDepart(0));e.ProtoStartHead[0]=0;e.ProtoCodexSlot[0]=0;
+  t.start();assert.equal(e.ProtoHeadCount[0],0);assert.equal(e.ProtoDamageBonus[0],0);
+});
+check('카드 없이 파티 준비 중 늦은 도감 동기화는 준비 상태를 취소하지 않음',()=>{
+  const t=fresh(0,true),e=t.e;e.online=[true,true,false,false];e.ProtoCodexSlot[0]=e.ProtoCodexSlot[1]=0;
+  request(e,0,2001);assert(e.ExpReady[0]);assert.equal(e.ExpState,e.EXP_LOBBY);
+  e.eventPlayer=0;e.syncData='1|0|0|0';e.ProtoCodexSync();assert(e.ExpReady[0]);
+  request(e,1,2001);assert.equal(e.ExpState,e.EXP_HUNT);assert.equal(e.ExpPlayers,2);
+});
+check('카드 없이 출발 후 늦은 도감 로드는 새 발견을 보존하고 기존 도감도 복원',()=>{
+  const t=fresh(0,true),e=t.e;e.ProtoCodexSlot[0]=0;t.start();e.ProtoGrantHead(0,1);
+  e.eventPlayer=0;e.syncData='1|0|1|0';e.ProtoCodexSync();
+  assert.equal(e.ProtoCodexSlot[0],1);assert(e.ProtoHeadKnown[1]);assert(e.ProtoHeadKnown[2]);
+  assert.equal(e.ProtoHeadCount[0],1);assert(!e.ProtoHeadOwned[2]);assert.equal(e.ExpState,e.EXP_HUNT);
+});
 check('T1 출발 차단, 도감 머리 0~1장 선택과 초기 전투 카드 없음',()=>{
   const t=fresh(0,true),e=t.e;e.MockAttack=1;t.render();
   assert(!t.frame(t.common(2001)).enabled);request(e,0,2001);assert.equal(e.ExpRun,0);

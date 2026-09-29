@@ -54,7 +54,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             if ProtoStartHead[pid] == i then
                 set value = "선택 · " + value
             endif
-            call ExpUISetButton(HeadButtons[i], value, not ExpReady[pid] and (i == 0 or ProtoHeadKnown[ExpKey(pid, i)]))
+            call ExpUISetButton(HeadButtons[i], value, not ExpReady[pid] and (i == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, i)])))
             set i = i + 1
         endloop
         set value = "개인 사냥 10분 · 행동력 10 · 사냥 처치당 기본 10골드|n사건 후보 2개 · 리롤 500골드부터 +100골드|n발견한 머리 카드 0~1장을 들고 출발합니다.|n"
@@ -81,7 +81,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if ExpReady[pid] then
             call ExpUISetButton(LobbyReady, "출발 준비 취소", true)
         else
-            call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and ProtoCodexSlot[pid] == PlayerSlotNumber[pid])
+            call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid])
         set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/10   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 밀도 " + I2S(ProtoDensity[pid])

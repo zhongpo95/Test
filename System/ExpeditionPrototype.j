@@ -19,9 +19,15 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call RefreshHP(MainUnit[pid])
     endfunction
 
+    function ProtoStartHeadReady takes integer pid returns boolean
+        local integer head = ProtoStartHead[pid]
+        // 머리 카드 없이 출발할 때는 도감 로드를 기다리지 않는다.
+        return head == 0 or (head >= 1 and head <= 3 and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, head)])
+    endfunction
+
     function ProtoCanDepart takes integer pid returns boolean
         // 기존 첫 계승(ID10 → ID3)이 공격력 1인 T1을 공격력 100인 T2로 바꾼다.
-        return PickCheck[pid] and ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and PlayerSlotNumber[pid] > 0 and GetItemTier(Eitem[pid][EQUIP_SLOT_WEAPON]) >= 2 and AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid])
+        return PickCheck[pid] and ProtoStartHeadReady(pid) and PlayerSlotNumber[pid] > 0 and GetItemTier(Eitem[pid][EQUIP_SLOT_WEAPON]) >= 2 and AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid])
     endfunction
 
     private function ProtoRememberHead takes integer pid, integer head returns nothing
@@ -570,7 +576,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 call ProtoTryStart()
             elseif action >= 2010 and action <= 2013 and not ExpReady[pid] then
                 set id = action - 2010
-                if id == 0 or ProtoHeadKnown[ExpKey(pid, id)] then
+                if id == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, id)]) then
                     set ProtoStartHead[pid] = id
                 endif
             elseif action == 2001 then
@@ -647,21 +653,24 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
         local string data = DzGetTriggerSyncData()
         local integer head = 1
-        if pid < 0 or pid > 3 or ExpMember[pid] or (ExpState != EXP_LOBBY and ExpState != EXP_RESULT) or S2I(JNStringSplit(data, "|", 0)) != PlayerSlotNumber[pid] then
+        if pid < 0 or pid > 3 or (ExpState != EXP_LOBBY and ExpState != EXP_RESULT and not ExpPrototypeActive) or S2I(JNStringSplit(data, "|", 0)) != PlayerSlotNumber[pid] then
             return
         endif
         // 같은 캐릭터의 뒤늦은 로드 패킷이 이번 원정의 발견 기록을 덮어쓰지 않는다.
         if ProtoCodexSlot[pid] == PlayerSlotNumber[pid] then
             return
         endif
-        set ProtoCodexSlot[pid] = PlayerSlotNumber[pid]
-        set ProtoStartHead[pid] = 0
-        set ExpReady[pid] = false
+        if not ExpMember[pid] and ProtoStartHead[pid] != 0 then
+            set ProtoStartHead[pid] = 0
+            set ExpReady[pid] = false
+        endif
         loop
             exitwhen head > 3
-            set ProtoHeadKnown[ExpKey(pid, head)] = S2I(JNStringSplit(data, "|", head)) == 1
+            // 첫 도감 로드 전에 사냥에서 발견한 머리도 함께 보존한다.
+            set ProtoHeadKnown[ExpKey(pid, head)] = S2I(JNStringSplit(data, "|", head)) == 1 or (ProtoCodexSlot[pid] == 0 and ProtoHeadKnown[ExpKey(pid, head)])
             set head = head + 1
         endloop
+        set ProtoCodexSlot[pid] = PlayerSlotNumber[pid]
     endfunction
 
     function ProtoKill takes integer pid returns nothing
