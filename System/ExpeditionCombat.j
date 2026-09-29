@@ -171,16 +171,24 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
 
     private function PlanEnemy takes integer i returns boolean
         local integer attempt = 0
+        local rect bounds = MapCenter[ExpArena]
+        if bounds == null or GetRectMaxX(bounds) - GetRectMinX(bounds) <= 320.0 or GetRectMaxY(bounds) - GetRectMinY(bounds) <= 320.0 then
+            set bounds = null
+            return false
+        endif
         loop
-            set SpawnX[i] = CenterX + GetRandomReal(-950.0, 950.0)
-            set SpawnY[i] = CenterY + GetRandomReal(-650.0, 950.0)
+            // 보스와 일반 적 모두 해당 전장의 지정 생성 구역 안에 배치한다.
+            set SpawnX[i] = GetRandomReal(GetRectMinX(bounds) + 160.0, GetRectMaxX(bounds) - 160.0)
+            set SpawnY[i] = GetRandomReal(GetRectMinY(bounds) + 160.0, GetRectMaxY(bounds) - 160.0)
             if SpawnValid(i, SpawnX[i], SpawnY[i]) then
                 set Planned[i] = true
+                set bounds = null
                 return true
             endif
             set attempt = attempt + 1
             exitwhen attempt == 128
         endloop
+        set bounds = null
         return false
     endfunction
 

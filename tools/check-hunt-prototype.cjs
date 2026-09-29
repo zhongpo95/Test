@@ -66,6 +66,25 @@ check('기본 근접 몬스터 체력 300, 처치당 10골드와 지속 재생�
   assert(old.removed);assert.notEqual(e.HuntUnits[1],old);assert.equal(e.ExpGold[0],10);assert.equal(e.ProtoKills[0],1);
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);assert.equal(e.ProtoAP[0],10);
 });
+check('4인 최초 생성·재생성은 각자의 MapCenter 내부이며 미지정·막힌 구역에서 외부 생성하지 않음',()=>{
+  const {e}=party(4);
+  const inside=(u,r)=>u.x>=r.minX+160&&u.x<=r.maxX-160&&u.y>=r.minY+160&&u.y<=r.maxY-160;
+  for(let pid=0;pid<4;pid++){
+    e.MapCenter[pid+1]={minX:4000*(pid+1),minY:5000*(pid+1),maxX:4000*(pid+1)+1600,maxY:5000*(pid+1)+1600};
+    e.ProtoDensity[pid]=10;e.ProtoHuntUpdate(pid);
+    for(let slot=1;slot<=10;slot++)assert(inside(e.HuntUnits[pid*16+slot],e.MapCenter[pid+1]));
+    for(let i=0;i<20;i++){
+      const old=e.HuntUnits[pid*16+1];e.UnitHP[old.id]=0;e.ProtoHuntUpdate(pid);
+      assert(old.removed);assert(inside(e.HuntUnits[pid*16+1],e.MapCenter[pid+1]));
+    }
+  }
+  e.ProtoRemoveEnemy(1);e.MapCenter[1]=null;e.ProtoSpawn(0,1);assert.equal(e.HuntUnits[1],null);
+  e.MapCenter[1]={minX:1000,minY:1000,maxX:1200,maxY:1200};e.ProtoSpawn(0,1);assert.equal(e.HuntUnits[1],null);
+  e.MapCenter[1]={minX:1000,minY:1000,maxX:2600,maxY:2600};e.IsTerrainPathable=()=>true;
+  e.ProtoSpawn(0,1);assert.equal(e.HuntUnits[1],null);
+  e.IsTerrainPathable=()=>false;e.MapCenter[1]={minX:-320,minY:-320,maxX:320,maxY:320};
+  e.ProtoSpawn(0,1);assert.equal(e.HuntUnits[1],null);
+});
 check('중립 귀환 AI 차단, 동일 목적지 추적 유지와 사건 재개 후 재추적·근접 공격',()=>{
   const {e}=party(),orders=[];e.ProtoHuntUpdate(0);const u=e.HuntUnits[1];
   assert.equal(u.creepGuard,false);assert(u.guardRemoved);u.x=600;u.y=0;

@@ -21,6 +21,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
     PlayerItem3: [0, 1, 2, 3].map(() => ({charges: 2})),
     MapSt: [null, {caster: null}, {caster: null}, {caster: null}, {caster: null}],
     MapRectCheck: [false, true, true, true, true], Mapthema: [0, 0, 0, 0, 0],
+    MapCenter: [null,...Array.from({length:6},()=>({minX:-1024,minY:-1024,maxX:1024,maxY:1024}))],
     bj_FORCE_ALL_PLAYERS: 0, gg_rct_Home: 0, Eitem: Array.from({length: 4}, () => Array(20).fill('0')),
     EQUIP_SLOT_MAX: 7, MapName: '', MapApi: '', ArcanaData: 0,
     ArcanaText: Array.from({length: 64}, (_, i) => '각인' + i),
@@ -53,6 +54,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
     OrderId: s => s, GetUnitCurrentOrder: u => u.order || '',
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
+    GetRectMinX:r=>r.minX, GetRectMinY:r=>r.minY, GetRectMaxX:r=>r.maxX, GetRectMaxY:r=>r.maxY,
     MapRectReturn: x => x, MapResetAll: no, MapReset: (x) => {env.MapRectCheck[x] = true;},
     MapSet: (x, theme) => {env.Mapthema[x] = theme; env.MapRectCheck[x] = true; return x;},
     Rect: (x,y,w,h) => ({x,y,w,h}), RemoveRect: no,
@@ -302,6 +304,23 @@ check('전투 제한시간 실패와 정산 한 번, 생존 적/예고 정리', 
   const {env:e}=environment([...files,'System/ExpeditionCombat.j']);e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;e.ExpCombatStart(true);
   const enemy=e.Enemies[1];let ended=0;e.TriggerExecute=()=>{ended++;};e.ExpSeconds=0;e.Update();e.Update();e.Conclude(false);
   assert.equal(ended,1);assert.equal(e.ExpWon,false);assert.equal(e.ExpProgress,0);assert.equal(enemy.removed,true);assert.equal(e.ExpEnemy[enemy.id],false);
+});
+check('보스 5·6번 구역과 일반 전투 두 무리는 MapCenter에서만 생성하며 미지정 시 외부 대체 없음',()=>{
+  const inside=(u,r)=>u.x>=r.minX+160&&u.x<=r.maxX-160&&u.y>=r.minY+160&&u.y<=r.maxY-160;
+  for(const area of [5,6]){
+    const {env:e}=environment([...files,'System/ExpeditionCombat.j']);
+    e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=area;e.ExpState=e.EXP_BATTLE;
+    e.MapCenter[area]={minX:350,minY:400,maxX:1000,maxY:1100};e.ExpCombatStart(true);
+    assert.equal(e.Spawned,1);assert(inside(e.Enemies[1],e.MapCenter[area]));
+  }
+  const {env:e}=environment([...files,'System/ExpeditionCombat.j']);
+  e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;
+  e.MapCenter[1]={minX:-700,minY:-600,maxX:750,maxY:800};e.ExpCombatStart(false);
+  for(let i=1;i<=8;i++)assert(inside(e.Enemies[i],e.MapCenter[1]));
+  for(let i=1;i<=6;i++)e.UnitHP[e.Enemies[i].id]=0;
+  for(let i=0;i<15;i++)e.Update();assert.equal(e.Spawned,16);
+  for(let i=9;i<=16;i++)assert(inside(e.Enemies[i],e.MapCenter[1]));
+  e.ExpCombatStop();e.MapCenter[1]=null;e.ExpCombatStart(true);assert.equal(e.Finished,true);assert.equal(e.Enemies[1],null);
 });
 check('일반 적 체력 추적·가시성·사망/전투 종료 정리와 참여자 보스바 연결', () => {
   const calls=[];
