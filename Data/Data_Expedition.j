@@ -10,6 +10,43 @@ library DataExpedition
         constant integer EXP_MOVE = 6
         constant integer EXP_RESULT = 7
         constant integer EXP_EVENT = 8
+        constant integer EXP_HUNT = 9
+        // 개인 사냥 프로토타입의 동기화 상태. 도감만 원정 간 유지한다.
+        boolean ExpPrototypeActive = false
+        boolean ExpPrototypeEnabled = false
+        trigger ExpPrototypeRequest = CreateTrigger()
+        trigger ExpPrototypeCleanup = CreateTrigger()
+        integer ExpPrototypePid = 0
+        integer ExpPrototypeAction = 0
+        integer array ProtoAP
+        integer array ProtoHeadCount
+        integer array ProtoStartHead
+        boolean array ProtoHeadOwned
+        boolean array ProtoHeadKnown
+        integer array ProtoCodexSlot
+        integer array ProtoStage
+        integer array ProtoCandidates
+        integer array ProtoSelected
+        boolean array ProtoEventUsed
+        boolean array ProtoPaused
+        boolean array ProtoReady
+        integer array ProtoHuntOwner
+        integer array ProtoKills
+        real array ProtoDamage
+        real array ProtoSafeTime
+        real array ProtoCardProgress
+        boolean array ProtoEvolved
+        integer array ProtoLevel
+        integer array ProtoDensity
+        integer array ProtoChoices
+        real array ProtoDamageBonus
+        integer array ProtoGoldBonus
+        integer array ProtoLastEvent
+        integer array ProtoLastKill
+        integer array ProtoOfferKills
+        integer array ProtoDeadline
+        integer array ProtoRerolls
+        string array ProtoOutcome
         integer ExpState = EXP_LOBBY
         integer ExpRun = 0
         integer ExpRevision = 0

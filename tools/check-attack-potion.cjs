@@ -29,7 +29,7 @@ function fresh() {
     JNSetItemName: (item,text) => {item.name=text;}, JNSetItemTooltip: (item,text) => {item.tip=text;},
     JNSetItemExtendedTooltip: (item,text) => {item.description=text;},
   }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ExpKey','ExpHasCard','ExpCardDamage','ExpArcanaDamage',
-    'HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
+    'ProtoDataInit','ProtoCanHit','ProtoRecordDamage','ProtoCardText','HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
     'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent','ApplyEvent','ExpEventUnavailable','CardsLeft',
     'PrepareEvent','OwnedEventCard','OwnedEventPenalty','SelectCard','ReleaseReward']);
   e=env;
@@ -49,6 +49,8 @@ function fresh() {
   };
   return {e,use,advance,damage,labels};
 }
+module.exports={fresh};
+if(require.main===module){
 check('일반 카드로 조로 획득, 공격력 증가 재계산 및 피해량 중복 적용 방지',()=>{
   const {e,damage}=fresh();e.ExpMember[0]=true;e.ExpState=e.EXP_BATTLE;
   assert.equal(e.AttackPower(0),120);assert.equal(damage(0),120);
@@ -122,3 +124,5 @@ check('로컬 플레이어가 달라도 카드와 물약의 공유 전투 결과
   assert.deepEqual(results[0],results[1]);assert.deepEqual(results[0],results[2]);
 });
 console.log(`${checks} attack/potion checks passed. Mock native execution; Warcraft runtime remains untested.`);
+
+}

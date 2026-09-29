@@ -1,11 +1,21 @@
 // 시험 원정 카드의 피해와 방어력 관통을 기존 전투에 적용한다.
-library ExpeditionEffects requires DataExpedition, DataUnit, AttackAngle
+library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, AttackAngle
     function ExpHasCard takes integer pid, integer id returns boolean
         return ExpMember[pid] and ExpCardOwned[ExpKey(pid, id)]
     endfunction
 
     function ExpCardPenetration takes integer pid returns real
         local real value = 0.0
+        local integer card = PROTO_CARD_FIRST
+        if ExpPrototypeActive and ExpMember[pid] then
+            loop
+                exitwhen card > PROTO_CARD_LAST
+                if ExpHasCard(pid, card) and ProtoCardKind[card] == 2 then
+                    set value = value + ProtoCardValue[card] / 100.0
+                endif
+                set card = card + 1
+            endloop
+        endif
         if ExpHasCard(pid, 7) then
             set value = value + 0.20
         endif
@@ -23,6 +33,25 @@ library ExpeditionEffects requires DataExpedition, DataUnit, AttackAngle
         local real dy = GetUnitY(source) - GetUnitY(target)
         local real distance = SquareRoot(dx * dx + dy * dy)
         local integer i = 0
+        if ExpPrototypeActive and ExpMember[pid] then
+            set value = ProtoDamageBonus[pid]
+            set i = PROTO_CARD_FIRST
+            loop
+                exitwhen i > PROTO_CARD_LAST
+                if ExpHasCard(pid, i) then
+                    if ProtoCardKind[i] == 1 then
+                        set value = value + ProtoCardValue[i]
+                    elseif ProtoCardKind[i] == 7 then
+                        set value = value + RMinBJ(30.0, ExpGold[pid] * 0.03)
+                    endif
+                    if ProtoEvolved[ExpKey(pid, i)] then
+                        set value = value + 25.0
+                    endif
+                endif
+                set i = i + 1
+            endloop
+            return value
+        endif
         if UnitHPMAX[index] > 0 then
             set health = UnitHP[index] / UnitHPMAX[index]
         endif

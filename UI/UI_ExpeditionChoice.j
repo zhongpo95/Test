@@ -394,7 +394,7 @@ library UIExpeditionChoice initializer Init requires UIExpeditionCommon
         set root = ExpUIRoot(EXP_UI_RESULT, 0.46, 0.295, 0.485, true)
         set f = ExpUIHeader(root, 0.46, "원정 결과")
         set ResultText = ExpUILabel(root, 0.025, 0.061, 0.41, 0.17, 0.011, "")
-        set ResultReady = ExpUIButton(root, 0.025, 0.249, 0.175, 0.030, "다시 준비", 1)
+        set ResultReady = ExpUIButton(root, 0.025, 0.249, 0.175, 0.030, "머리 카드 준비", -8)
         set f = ExpUIButton(root, 0.235, 0.249, 0.200, 0.030, "보관 보상 수령 · 저장", 2)
         call TriggerAddAction(ExpRefresh, function Render)
         call TriggerExecute(ExpRefresh)

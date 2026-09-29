@@ -4,6 +4,8 @@ const root = path.resolve(__dirname, '..');
 let checks = 0;
 function check(name, test) { test(); checks++; console.log('PASS ' + name); }
 function environment(files, extras = {}, onlyFunctions = null) {
+  // 신규 피해/표시 함수의 데이터 의존성도 기존 회귀 환경에 로드한다.
+  if (files.includes('Data/Data_Expedition.j') && !files.includes('Data/Data_Prototype.j')) files = [...files, 'Data/Data_Prototype.j'];
   const env = {}, records = new Map(), saves = [], pauses = new Map();
   let seed = 41, unitId = 100;
   const no = () => {};

@@ -555,13 +555,17 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
                 set EnemyKind[i] = 3
             endif
             // 조우의 위험 조건은 일반 전투에만 적용한다.
-            set EnemyMaximum[i] = 450000.0 * ExpPlayers
+            set EnemyMaximum[i] = 300.0 * ExpPlayers
             if not boss and ExpEncounter == 2 then
-                set EnemyMaximum[i] = 550000.0 * ExpPlayers
+                set EnemyMaximum[i] = EnemyMaximum[i] * (11.0 / 9.0)
             endif
             if boss then
                 set EnemyKind[i] = 4
                 set EnemyMaximum[i] = 12000000.0 * ExpPlayers
+                if ExpPrototypeActive then
+                    // 공격력 100 출발에 맞춘 임시 보스 체력. 라이브 테스트 후 재조정한다.
+                    set EnemyMaximum[i] = 12000.0 * ExpPlayers
+                endif
             endif
             set EnemyDead[i] = false
             set Planned[i] = false

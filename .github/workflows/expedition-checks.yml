@@ -31,6 +31,8 @@ jobs:
         run: node tools/check-expedition-rewards.cjs
       - name: UI callbacks and synchronized requests
         run: node tools/check-expedition-ui.cjs
+      - name: Personal hunting prototype lifecycle
+        run: node tools/check-hunt-prototype.cjs
       - name: Startup input registration across players
         run: node tools/check-ui-input-startup.cjs
       - name: Bounded character selection diagnostics
