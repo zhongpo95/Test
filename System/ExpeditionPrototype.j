@@ -8,6 +8,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         private unit array HuntUnits
         private real array AttackClock
         private boolean array AttackWarning
+        private boolean array HuntMoving
+        private real array MoveX
+        private real array MoveY
         private boolean array ReservedRegion
     endglobals
 
@@ -104,6 +107,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoChoices[pid] = IMinBJ(4, ProtoChoices[pid] + 1)
         endif
         set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
+        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 획득 · [" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n성장·카드 창에서 효과와 각성 조건을 확인할 수 있습니다.")
         call ProtoRememberCard(pid, card)
         call ProtoRefreshStats(pid)
     endfunction
@@ -269,6 +273,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         set AttackClock[key] = 0.0
         set AttackWarning[key] = false
+        set HuntMoving[key] = false
     endfunction
 
     function ProtoApplyField takes integer pid returns nothing
@@ -287,6 +292,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     set ratio = UnitHP[index] / UnitHPMAX[index]
                     set UnitHPMAX[index] = 300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1))
                     set UnitHP[index] = UnitHPMAX[index] * ratio
+                    call ExpSyncEnemyLife(HuntUnits[key])
                 endif
             endif
             set slot = slot + 1
@@ -297,6 +303,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer id = ProtoSelected[pid]
         local integer kind = ProtoEventKind[id]
         local integer roll
+        local integer levelBefore = ProtoLevel[pid]
+        local integer densityBefore = ProtoDensity[pid]
         if ProtoStage[pid] != 2 or not ProtoBranchAllowed(pid, choice) then
             return
         endif
@@ -363,6 +371,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ExpGold[pid] = ExpGold[pid] + 150
         endif
         call ProtoApplyField(pid)
+        if levelBefore != ProtoLevel[pid] then
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n적 단계 " + I2S(levelBefore) + " → " + I2S(ProtoLevel[pid]) + "|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (levelBefore - 1)))) + " → " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + "|n한 번의 공격 피해 · 내 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (levelBefore - 1)), 0, 1) + "% → " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+        endif
+        if densityBefore != ProtoDensity[pid] then
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n동시 몬스터 수 " + I2S(densityBefore) + " → " + I2S(ProtoDensity[pid])
+        endif
         set ProtoStage[pid] = 3
         set ProtoDeadline[pid] = 8
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
@@ -718,9 +732,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call SetUnitState(HuntUnits[key], UNIT_STATE_LIFE, 1000000.0)
         call UnitRemoveAbility(HuntUnits[key], 'Aatk')
         call SetUnitAcquireRange(HuntUnits[key], 0.0)
+        // 중립 적의 귀환 명령이 개인 사냥 추적을 덮어쓰지 않는다.
+        call SetUnitCreepGuard(HuntUnits[key], false)
+        call RemoveGuardPosition(HuntUnits[key])
         call SetUnitMoveSpeed(HuntUnits[key], 380.0)
         set AttackClock[key] = 0.75
         set AttackWarning[key] = false
+        set HuntMoving[key] = false
         set bounds = null
     endfunction
 
@@ -766,9 +784,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                             set AttackWarning[key] = false
                             set AttackClock[key] = 1.0
                             call SetUnitVertexColor(HuntUnits[key], 255, 255, 255, 255)
+                            call SetUnitAnimation(HuntUnits[key], "stand")
                         endif
                     elseif IsUnitInRange(HuntUnits[key], MainUnit[pid], 140.0) then
-                        call IssueImmediateOrder(HuntUnits[key], "stop")
+                        if HuntMoving[key] then
+                            call IssueImmediateOrder(HuntUnits[key], "stop")
+                            set HuntMoving[key] = false
+                        endif
                         if AttackClock[key] <= 0.0 then
                             call SetUnitAnimation(HuntUnits[key], "attack")
                             call SetUnitVertexColor(HuntUnits[key], 255, 80, 80, 255)
@@ -776,7 +798,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                             set AttackClock[key] = 0.5
                         endif
                     else
-                        call IssuePointOrder(HuntUnits[key], "move", GetUnitX(MainUnit[pid]), GetUnitY(MainUnit[pid]))
+                        // 같은 목적지 명령을 반복하여 회전과 이동 시작을 끊지 않는다.
+                        if not HuntMoving[key] or GetUnitCurrentOrder(HuntUnits[key]) != OrderId("move") or (MoveX[key] - GetUnitX(MainUnit[pid])) * (MoveX[key] - GetUnitX(MainUnit[pid])) + (MoveY[key] - GetUnitY(MainUnit[pid])) * (MoveY[key] - GetUnitY(MainUnit[pid])) >= 10000.0 then
+                            set MoveX[key] = GetUnitX(MainUnit[pid])
+                            set MoveY[key] = GetUnitY(MainUnit[pid])
+                            call IssuePointOrder(HuntUnits[key], "move", MoveX[key], MoveY[key])
+                            set HuntMoving[key] = true
+                        endif
                     endif
                 endif
             endif

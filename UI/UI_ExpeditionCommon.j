@@ -275,7 +275,11 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         else
             call ExpUISetButton(ActivityButton, "선택지", true)
         endif
-        call ExpUISetButton(StatsButton, "스탯  " + I2S(ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]), true)
+        if ExpPrototypeActive then
+            call ExpUISetButton(StatsButton, "성장·카드", true)
+        else
+            call ExpUISetButton(StatsButton, "스탯  " + I2S(ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]), true)
+        endif
         loop
             exitwhen i > 9
             if ExpUIRoots[i] != 0 then

@@ -7,13 +7,14 @@ const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/
 // 이 검사로 증명하지 않는다. 저장/업로드 API는 허용하지 않는다.
 const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
-  I2S S2I R2I I2R IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges
+  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
   DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha
 `.trim().split(/\s+/));
 const allowedWrites = new Set(`
   ExpUIPanel FMap_OnOff
   UIExpeditionPrototype.LoadedSlot
+  UIExpeditionStats.CardPage
   UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone
   UIExpeditionCommon.ShownRun UIExpeditionCommon.ShownRevision UIExpeditionCommon.ShownOffer

@@ -29,7 +29,7 @@ function fresh() {
     JNSetItemName: (item,text) => {item.name=text;}, JNSetItemTooltip: (item,text) => {item.tip=text;},
     JNSetItemExtendedTooltip: (item,text) => {item.description=text;},
   }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ExpKey','ExpHasCard','ExpCardDamage','ExpArcanaDamage',
-    'ProtoDataInit','ProtoCanHit','ProtoRecordDamage','ProtoCardText','HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
+    'ProtoDataInit','ProtoCanHit','ProtoRecordDamage','ProtoCardText','ExpSyncEnemyLife','HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
     'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent','ApplyEvent','ExpEventUnavailable','CardsLeft',
     'PrepareEvent','OwnedEventCard','OwnedEventPenalty','SelectCard','ReleaseReward']);
   e=env;

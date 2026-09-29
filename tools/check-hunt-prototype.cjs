@@ -66,6 +66,29 @@ check('기본 근접 몬스터 체력 300, 처치당 10골드와 지속 재생�
   assert(old.removed);assert.notEqual(e.HuntUnits[1],old);assert.equal(e.ExpGold[0],10);assert.equal(e.ProtoKills[0],1);
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);assert.equal(e.ProtoAP[0],10);
 });
+check('중립 귀환 AI 차단, 동일 목적지 추적 유지와 사건 재개 후 재추적·근접 공격',()=>{
+  const {e}=party(),orders=[];e.ProtoHuntUpdate(0);const u=e.HuntUnits[1];
+  assert.equal(u.creepGuard,false);assert(u.guardRemoved);u.x=600;u.y=0;
+  e.IssuePointOrder=(enemy,order,x,y)=>{enemy.order=order;orders.push({enemy,x,y});return true;};
+  for(let i=0;i<5;i++)e.ProtoHuntUpdate(0);assert.equal(orders.filter(o=>o.enemy===u).length,1);
+  const getX=e.GetUnitX;e.GetUnitX=unit=>unit===0?150:getX(unit);e.ProtoHuntUpdate(0);
+  assert.equal(orders.filter(o=>o.enemy===u).length,2);assert.equal(orders.at(-1).x,150);
+  e.ProtoOffer(0);u.order='stop';e.ProtoResume(0);e.ProtoHuntUpdate(0);
+  assert.equal(orders.filter(o=>o.enemy===u).length,3);
+  const hits=[];e.BossDeal=(source,target,damage)=>hits.push({source,target,damage});u.x=250;
+  e.ProtoHuntUpdate(0);assert(e.AttackWarning[1]);assert.equal(u.order,'stop');
+  e.ProtoHuntUpdate(0);e.ProtoHuntUpdate(0);assert.equal(hits.filter(h=>h.source===u).length,1);
+  assert.equal(hits.find(h=>h.source===u).damage,400);
+});
+check('HeroDeal에서 체력바와 치명적 타격의 사망을 즉시 반영하고 각성 피해는 실제 체력만 집계',()=>{
+  const {e}=combat(),life=[],kills=[];e.ProtoDataInit();e.ExpPrototypeActive=true;e.ExpMember[0]=true;e.ExpState=e.EXP_HUNT;
+  e.ProtoHuntOwner[2]=1;e.ExpEnemy[2]=true;e.UnitHP[2]=300;e.UnitHPMAX[2]=300;e.ExpCardOwned[16]=true;
+  e.SetUnitState=(unit,state,value)=>life.push({unit,state,value});e.KillUnit=unit=>kills.push(unit);
+  e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],168);
+  assert(Math.abs(life.at(-1).value-5600)<1e-8);assert.equal(kills.length,0);
+  e.HeroDeal(1,0,2,2,false,false,false,false);assert.deepEqual(kills,[2]);assert.equal(e.ProtoDamage[0],300);
+  e.HeroDeal(1,0,2,2,false,false,false,false);assert.deepEqual(kills,[2]);
+});
 check('내 사건 중에는 내 공간만 정지하고 공통 최대시간과 다른 플레이어 사냥은 계속됨',()=>{
   const {e}=party(2),paused=new Map();e.PauseUnit=(u,v)=>paused.set(u,v);
   e.ProtoHuntUpdate(0);e.ProtoHuntUpdate(1);e.ProtoOffer(0);
@@ -108,8 +131,11 @@ check('처치·시간·정체 사건의 쿨다운, AP 0일 때 사냥만 계속'
 check('사건 필드 변경은 기존 몬스터에도 HP 비율을 보존하고 적용하며 상한에서 공짜 위험 보상 차단',()=>{
   const {e}=party();e.ProtoHuntUpdate(0);const u=e.HuntUnits[1];e.UnitHP[u.id]=150;
   choose(e,0,51,1);assert.equal(e.ProtoLevel[0],2);assert.equal(e.UnitHPMAX[u.id],390);assert.equal(e.UnitHP[u.id],195);
+  assert(e.ProtoOutcome[0].includes('적 단계 1 → 2'));assert(e.ProtoOutcome[0].includes('몬스터 체력 300 → 390'));
+  assert(e.ProtoOutcome[0].includes('4.0% → 5.0%'));
   const gold=e.ExpGold[0];assert.equal(gold,250);e.ProtoSelected[0]=51;e.ProtoLevel[0]=5;assert(!e.ProtoBranchAllowed(0,1));
   e.ProtoLevel[0]=2;choose(e,0,50,1);assert.equal(e.ProtoDensity[0],6);e.ProtoHuntUpdate(0);assert(e.HuntUnits[6]);
+  assert(e.ProtoOutcome[0].includes('동시 몬스터 수 4 → 6'));
   e.ProtoDensity[0]=9;e.ProtoSelected[0]=50;assert(!e.ProtoBranchAllowed(0,1));
 });
 check('획득 이후부터만 처치·실제 피해·무피격 각성 진행, 카드 효과와 최대 사건 후보 4개',()=>{
@@ -137,6 +163,25 @@ check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피�
   e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.ProtoDamage[0],30);assert.equal(e.ProtoCardProgress[16],30);
   e.UnitHP[2]=100;e.ProtoPaused[0]=true;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
   e.ProtoPaused[0]=false;e.ProtoHuntOwner[2]=2;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
+});
+check('획득 카드 전체를 로컬 페이지로 확인, 효과·각성 진행 표시와 난이도 HUD 갱신',()=>{
+  const t=party(),e=t.e,notices=[];e.DisplayTimedTextToPlayer=(player,x,y,seconds,text)=>notices.push(text);
+  for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)e.ProtoGrantCard(0,id);
+  assert.equal(notices.length,24);assert(notices[0].includes(e.ProtoCardName[13]));
+  e.ProtoGrantHead(0,1);e.ExpUIOpen(5);t.render();const effect=t.frame(e.UIExpeditionStats_Effects);
+  const previous=e.ExpUIButtons[e.UIExpeditionStats_PreviousCard],next=e.ExpUIButtons[e.UIExpeditionStats_NextCard];
+  assert(effect.text.includes('학원도시'));assert(effect.text.includes(e.ProtoCardName[13]));assert(!t.frame(previous).enabled);
+  t.click(next);assert(effect.text.includes(e.ProtoCardName[14]));assert(effect.text.includes('방어력 관통 +15%'));
+  t.event(next,4,1);t.render();assert(effect.text.includes(e.ProtoCardName[14]));
+  t.click(next);e.ProtoCardProgress[15]=9;t.render();assert(effect.text.includes('9/25'));
+  e.ProtoEvolved[15]=true;t.render();assert(effect.text.includes('각성 · 피해 +25%'));
+  for(let i=3;i<24;i++)t.click(next);assert(effect.text.includes(e.ProtoCardName[36]));assert(!t.frame(next).enabled);
+  assert.equal(t.packets.length,0);assert.equal(e.ExpCardOwned.filter(Boolean).length,24);
+  t.click(previous);assert(effect.text.includes(e.ProtoCardName[35]));
+  e.ProtoLevel[0]=2;t.render();const hud=t.frame(e.UIExpeditionPrototype_HuntStatus);
+  assert(hud.text.includes('몬스터 체력 390'));assert(hud.text.includes('5.0%'));
+  e.ExpCardOwned.fill(false);e.ProtoHeadOwned.fill(false);t.render();assert(effect.text.includes('획득한 성장 카드 없음'));
+  assert(!t.frame(previous).enabled);assert(!t.frame(next).enabled);assert.equal(e.UIExpeditionStats_CardPage,0);
 });
 check('사냥 사망 15초 부활, 사망 중 사건·각성 진행 차단과 골드 패널티 없음',()=>{
   const {e}=party();let alive=false,revives=0;e.UnitAlive=u=>u===0?alive:!!u&&!u.dead&&!u.removed;

@@ -355,7 +355,8 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
             set dx = GetUnitX(target) - GetUnitX(Enemies[i])
             set dy = GetUnitY(target) - GetUnitY(Enemies[i])
             set distance = SquareRoot(dx * dx + dy * dy)
-            set step = RMinBJ(GetUnitMoveSpeed(Enemies[i]) * 0.1, distance - 320.0)
+            // Amov를 제거한 모델의 엔진 이동속도 대신 전투 설정 속도 400을 사용한다.
+            set step = RMinBJ(400.0 * 0.1, distance - 320.0)
             call SetUnitPosition(Enemies[i], RMaxBJ(CenterX - 1240.0, RMinBJ(CenterX + 1240.0, GetUnitX(Enemies[i]) + dx * step / distance)), RMaxBJ(CenterY - 1240.0, RMinBJ(CenterY + 1240.0, GetUnitY(Enemies[i]) + dy * step / distance)))
             call SetUnitFacing(Enemies[i], Atan2(dy, dx) * bj_RADTODEG)
             if not EnemyMoving[i] then

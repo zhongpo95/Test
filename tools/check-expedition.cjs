@@ -48,7 +48,9 @@ function environment(files, extras = {}, onlyFunctions = null) {
     IsUnitInRange: (u,v,r) => Math.hypot(env.GetUnitX(u)-env.GetUnitX(v),env.GetUnitY(u)-env.GetUnitY(v))<=r,
     SetUnitX: (u,x) => {u.x=x;}, SetUnitY: (u,y) => {u.y=y;}, Atan2: Math.atan2,
     SetUnitAnimation: no, SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no, SetUnitPathing: no,
-    IssuePointOrder: no, IssueImmediateOrder: no, SetUnitFacing: no, SelectUnit: no, TimerStart: no, PauseTimer: no, BossDeal: no,
+    IssuePointOrder: (u,s) => {u.order=s;return true;}, IssueImmediateOrder: (u,s) => {u.order=s;return true;}, SetUnitFacing: no, SelectUnit: no, TimerStart: no, PauseTimer: no, BossDeal: no,
+    SetUnitCreepGuard: (u,v) => {u.creepGuard=v;}, RemoveGuardPosition: u => {u.guardRemoved=true;},
+    OrderId: s => s, GetUnitCurrentOrder: u => u.order || '',
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
     MapRectReturn: x => x, MapResetAll: no, MapReset: (x) => {env.MapRectCheck[x] = true;},
@@ -350,6 +352,8 @@ check('보스 좌표 추적은 로커스트와 정지를 유지하고 사거리�
   const {env:e}=environment([...files,'System/ExpeditionCombat.j'],{
     SetUnitPosition:(u,x,y)=>{if(typeof u==='object'){u.x=x;u.y=y;moves.push([x,y]);}},
     SetUnitAnimation:(u,name)=>animations.push(name),
+    // Amov를 제거한 실제 모델처럼 엔진 이동속도가 0이어도 추적해야 한다.
+    GetUnitMoveSpeed:()=>0,
   });
   e.ExpMember[0]=true;e.ExpPlayers=1;e.ExpArena=1;e.ExpState=e.EXP_BATTLE;e.ExpCombatStart(true);
   const boss=e.Enemies[1];boss.x=1000;boss.y=0;boss.abilities.add('Aloc');
