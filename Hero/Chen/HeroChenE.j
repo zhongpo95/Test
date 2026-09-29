@@ -13,12 +13,14 @@ globals
 
     private constant real scale = 500
     private constant real distance = 200
+    private group CheckG
     boolean array IsCastingChenE
 endglobals
 
 private struct FxEffect
     unit caster
     unit dummy
+    party ul = 0
     real TargetX
     real TargetY
     real speed
@@ -28,6 +30,10 @@ private struct FxEffect
 
     method destroy takes nothing returns nothing
 
+        if ul != 0 then
+            call ul.destroy()
+            set ul = 0
+        endif
 
         set caster = null
         set dummy = null
@@ -45,11 +51,12 @@ private function splashD takes nothing returns nothing
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
     if IsCastingChenE[pid] == true then
-        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+        if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(),CheckG) == false then
             set Velue = Velue * 1.70
 
             set Velue = Velue * 2.60
 
+            call GroupAddUnit(CheckG,GetEnumUnit())
             call HeroDeal('A019',splash.source,GetEnumUnit(),HeroSkillVelue2[4]*Velue,true,false,true,false)
         endif
     endif
@@ -67,23 +74,29 @@ private function EffectFunction takes nothing returns nothing
         call t.destroy()
     else
         if fx.i == 1 then
+            set fx.ul = party.create()
             set fx.dummy = UnitEffectTime2('e00U',GetWidgetX(fx.caster),GetWidgetY(fx.caster),GetUnitFacing(fx.caster),1.0,1,GetPlayerId(GetOwningPlayer(fx.caster)))
         endif
+        // 돌진과 마지막 타격은 시전별 타격 기록을 공유한다.
+        set CheckG = fx.ul.super
         if fx.i != 10 then
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
             call t.start( Time3 /fx.speed/10, false, function EffectFunction )
         else
             call SetUnitSafePolarUTA(fx.caster,Dist/10,GetUnitFacing(fx.caster))
             call SetUnitX(fx.dummy,GetWidgetX(fx.caster))
             call SetUnitY(fx.dummy,GetWidgetY(fx.caster))
+            call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD )
             call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster)+PolarX( 100, GetUnitFacing(fx.caster) ), GetWidgetY(fx.caster) +PolarY( 100, GetUnitFacing(fx.caster) ), scale, function splashD )
 
             set IsCastingChenE[GetPlayerId(GetOwningPlayer(fx.caster))] = false
             call fx.destroy()
             call t.destroy()
         endif
+        set CheckG = null
     endif
 
 
