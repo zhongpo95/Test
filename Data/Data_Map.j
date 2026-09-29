@@ -4,6 +4,7 @@ globals
     integer array Mapthema
     integer array MapSt
     boolean array MapRectCheck
+    rect array MapCenter
     //기본휴식타임 3.0초
     constant integer StandTime = 150
     //카운터 그로기 7.5초
@@ -142,6 +143,12 @@ private struct TEvAfterA extends array
         set MapRect[4] = gg_rct_MapRect04
         set MapRect[5] = gg_rct_MapRect05
         set MapRect[6] = gg_rct_MapRect06
+        set MapCenter[1] = gg_rct_MapRect_01
+        set MapCenter[2] = gg_rct_MapRect_02
+        set MapCenter[3] = gg_rct_MapRect_03
+        set MapCenter[4] = gg_rct_MapRect_04
+        set MapCenter[5] = gg_rct_MapRect_05
+        set MapCenter[6] = gg_rct_MapRect_06
     endmethod
 endstruct
 endlibrary
