@@ -357,7 +357,7 @@ private function init takes nothing returns nothing
     set HeroSkill1Text3[4] = ""
 
     set HeroSkillTpye2[4] = "헤드어택, 카운터"
-    set HeroSkillStr2[4] = "전방으로 짧게 돌진한 뒤 적을 벱니다."
+    set HeroSkillStr2[4] = "전방으로 짧게 돌진하며 경로와 도착 지점 전방의 적을 벱니다. 같은 적은 한 번만 피해를 받습니다."
     set HeroSkillCD2[4] = 16.00
     set HeroSkillVCount2[4] = 1
     set HeroSkillVelue2[4] = (5.13) / 10.0
@@ -366,7 +366,7 @@ private function init takes nothing returns nothing
     set HeroSkill2Text3[4] = ""
     
     set HeroSkillTpye3[4] = "헤드어택, 차지"
-    set HeroSkillStr3[4] = "키를 누르고 차지한 뒤 놓으면 전방으로 돌진해 공격합니다."
+    set HeroSkillStr3[4] = "키를 누르고 차지한 뒤 놓으면 전방으로 돌진해 경로와 도착 지점 전방의 적을 공격합니다. 같은 적은 한 번만 피해를 받습니다."
     set HeroSkillCD3[4] = 30.00
     set HeroSkillVCount3[4] = 1
     set HeroSkillVelue3[4] = (12.93) / 10.0

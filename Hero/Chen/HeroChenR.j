@@ -14,12 +14,14 @@ globals
 
     private constant real scale = 500
     private constant real distance = 150
+    private group CheckG
 
     private integer array Stack
 endglobals
 
 private struct FxEffect
     unit caster
+    party ul = 0
     real TargetX
     real TargetY
     integer pid
@@ -30,6 +32,10 @@ private struct FxEffect
 
     method destroy takes nothing returns nothing
 
+        if ul != 0 then
+            call ul.destroy()
+            set ul = 0
+        endif
 
         set caster = null
         set TargetX = 0
@@ -46,9 +52,10 @@ private function splashD1 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(),CheckG) == false then
         set Velue = Velue * 1.50
 
+        call GroupAddUnit(CheckG,GetEnumUnit())
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -56,9 +63,10 @@ private function splashD2 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(),CheckG) == false then
         set Velue = Velue * 1.50
         set Velue = Velue * 1.30
+        call GroupAddUnit(CheckG,GetEnumUnit())
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -66,11 +74,12 @@ private function splashD3 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(),CheckG) == false then
         set Velue = Velue * 1.50
 
         set Velue = Velue * 1.60
 
+        call GroupAddUnit(CheckG,GetEnumUnit())
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -78,13 +87,14 @@ private function splashD4 takes nothing returns nothing
     local real Velue = 1.0
     local integer pid = GetPlayerId(GetOwningPlayer(splash.source))
 
-    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
+    if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) and IsUnitInGroup(GetEnumUnit(),CheckG) == false then
         set Velue = Velue * 1.50
 
         set Velue = Velue * 1.90
 
         set Velue = Velue * 2.22
 
+        call GroupAddUnit(CheckG,GetEnumUnit())
         call HeroDeal('A01C',splash.source,GetEnumUnit(),HeroSkillVelue3[4]*Velue,true,false,false,true)
     endif
 endfunction
@@ -99,13 +109,17 @@ private function EffectFunction2 takes nothing returns nothing
 
     if fx.caster != null and IsUnitDeadVJ(fx.caster) == false then
         if fx.i == 1 then
+            set fx.ul = party.create()
             call AnimationStart3(fx.caster,17, fx.speed)
             call UnitEffectTime2('e00R',GetWidgetX(fx.caster)+PolarX( 50, GetUnitFacing(fx.caster) ),GetWidgetY(fx.caster) +PolarY( 50, GetUnitFacing(fx.caster) ),GetUnitFacing(fx.caster),0.4,1,fx.pid)
             call Sound3D(fx.caster,'A01H')
         endif
+        // 차지 단계별 피해를 돌진과 마지막 타격에 동일하게 적용한다.
+        set CheckG = fx.ul.super
         if Stack[fx.pid] == 11 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD1 )
                 call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
                 call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
@@ -123,6 +137,7 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 12 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD2 )
                 call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
                 call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
@@ -140,6 +155,7 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 13 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD3 )
                 call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
                 call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
@@ -157,6 +173,7 @@ private function EffectFunction2 takes nothing returns nothing
         elseif Stack[fx.pid] == 14 then
             if fx.i < 10 then
                 call SetUnitSafePolarUTA(fx.caster,35,GetUnitFacing(fx.caster))
+                call splash.range( splash.ENEMY, fx.caster, GetWidgetX(fx.caster), GetWidgetY(fx.caster), scale, function splashD4 )
                 call DummyMagicleash(fx.caster, (Time / 10) /fx.speed)
                 call BuffNoST.Apply( fx.caster, (Time / 10) /fx.speed, 0 )
                 call t.start( (Time / 10) /fx.speed , false, function EffectFunction2 )
@@ -172,6 +189,7 @@ private function EffectFunction2 takes nothing returns nothing
                 call t.destroy()
             endif
         endif
+        set CheckG = null
     else
         call CastingBarShow(Player(fx.pid),false)
         set Stack[fx.pid] = 0
