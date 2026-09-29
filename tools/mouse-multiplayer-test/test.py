@@ -3,12 +3,20 @@ import argparse
 import importlib.util
 import json
 import math
+import re
 import struct
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.dont_write_bytecode = True
+
+
+def boot_expression():
+    script = (ROOT / 'war3map.j').read_text(encoding='utf8')
+    expressions = re.findall(r'set result = EXExecuteScript\("([^"\n]+)"\)', script)
+    assert len(expressions) == 1
+    return expressions[0]
 
 
 class Peer:
@@ -69,14 +77,26 @@ class Peer:
         for name, module in [('jass.common', j), ('jass.japi', api), ('jass.message', message)]:
             self.lua.globals().mock_modules[name] = module
         self.lua.globals().mock_log = self.logs.append
+        self.lua.globals().mock_mouse_source = (ROOT / 'mouse_test.lua').read_text(encoding='utf8')
         self.lua.execute('''
-            require = function(name) assert(mock_modules[name], name); return mock_modules[name] end
+            require = function(name)
+                if name == 'mouse_test' then
+                    if mouse_module then return mouse_module end
+                    local fn, err = load(mock_mouse_source, '@mouse_test.lua')
+                    assert(fn, err)
+                    mouse_module = fn() or true
+                    return mouse_module
+                end
+                assert(mock_modules[name], name)
+                return mock_modules[name]
+            end
             io.open = function() return {
                 write = function(self, text) mock_log(text) end,
                 flush = function() end
             } end
         ''')
-        self.lua.execute((ROOT / 'mouse_test.lua').read_text(encoding='utf8'))
+        # 설치 DLL과 같은 return (...) 래퍼에서 실제 JASS 부팅 식을 실행한다.
+        assert self.lua.execute('return (' + boot_expression() + ')') == 'MT LUA READY'
 
     def handle(self):
         self.next_handle += 1
@@ -231,9 +251,22 @@ def main():
     args = parser.parse_args()
     if args.lupa_root:
         sys.path.insert(0, str(args.lupa_root))
-    from lupa.lua53 import LuaRuntime
+    from lupa.lua53 import LuaRuntime, LuaSyntaxError
     results = [binary_checks()]
+    probe = LuaRuntime()
+    old_boot = "local ok, err = pcall(require, 'mouse_test'); if ok then return 'MT LUA READY' else return 'MT LUA ERROR ' .. tostring(err) end"
+    try:
+        probe.execute('return (' + old_boot + ')')
+    except LuaSyntaxError:
+        results.append('v002 boot syntax failure reproduced under EXExecuteScript return-expression wrapper')
+    else:
+        raise AssertionError('Old boot must fail before module initialization')
+    probe.execute("require = function() error('injected module load failure') end")
+    boot_error = probe.execute('return (' + boot_expression() + ')')
+    assert boot_error.startswith('MT LUA ERROR ') and 'injected module load failure' in boot_error
+    results.append('v003 boot expression parses and reports a module initialization error')
     bus = Bus(LuaRuntime)
+    results.append('actual JASS boot expression initializes module, units and triggers in all six Lua VMs')
     bus.chat(0, '-mouse'); bus.advance(2)
     for peer in bus.peers:
         assert (peer.units[1003]['x'], peer.units[1003]['y']) == (200, 400)
@@ -245,9 +278,9 @@ def main():
         assert (peer.units[1007]['x'], peer.units[1007]['y']) == (251, 371)
         assert any('D ACK 6/6 PASS' in text for text in peer.logs)
     results.append('alternate Dz coordinates and six receipts passed')
-    bus.queue.append(('sync', 2, 'MT002XY', '0|M|99|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT002XY', '0|M|1|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT002XY', '0|M|100|99999|999')); bus.flush()
+    bus.queue.append(('sync', 2, 'MT003XY', '0|M|99|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT003XY', '0|M|1|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT003XY', '0|M|100|99999|999')); bus.flush()
     for peer in bus.peers:
         assert (peer.units[1003]['x'], peer.units[1003]['y']) == (200, 400)
     results.append('spoofed sender, stale sequence and out-of-bounds packet rejected')

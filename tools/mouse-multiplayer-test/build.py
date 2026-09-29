@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.dont_write_bytecode = True
-TITLE = 'Hera Mouse Multiplayer Test v002'
+TITLE = 'Hera Mouse Multiplayer Test v003'
 
 
 def u(*values):
