@@ -85,8 +85,12 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real ArcanaRate = 1
         local integer ArcanaLv = 0
         local integer i = 0
+        local real healthBefore = UnitHP[UnitIndex]
     
-        if ExpEnemy[UnitIndex] and (ExpState != EXP_BATTLE or UnitHP[UnitIndex] <= 0.0) then
+        if not ProtoCanHit(pid, UnitIndex) then
+            return false
+        endif
+        if ExpEnemy[UnitIndex] and ((ExpState != EXP_BATTLE and ExpState != EXP_HUNT) or UnitHP[UnitIndex] <= 0.0) then
             return false
         endif
 
@@ -425,6 +429,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             endif
         endif
         
+        call ProtoRecordDamage(pid, UnitIndex, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
         //어그로 시스템
         call PlayerBossAttack(source, target, dmg)
         return CounterBoolean

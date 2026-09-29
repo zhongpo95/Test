@@ -73,7 +73,14 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     function ExpUIActivity takes integer pid returns integer
-        if ExpState == EXP_LOBBY then
+        if ExpPrototypeEnabled and ExpState == EXP_LOBBY then
+            return 8
+        elseif ExpState == EXP_HUNT and ExpMember[pid] then
+            if ProtoStage[pid] > 0 then
+                return 9
+            endif
+            return 0
+        elseif ExpState == EXP_LOBBY then
             return EXP_UI_LOBBY
         elseif ExpState == EXP_RESULT then
             return EXP_UI_RESULT
@@ -191,10 +198,10 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         local integer panel = 1
         local integer i
         loop
-            exitwhen panel > 7 or ExpUIRoots[panel] == parent
+            exitwhen panel > 9 or ExpUIRoots[panel] == parent
             set panel = panel + 1
         endloop
-        if panel > 7 then
+        if panel > 9 then
             return 0
         endif
         // 창을 숨겨도 버튼은 같은 위치에서 입력을 받도록 별도 부모에 둔다.
@@ -227,7 +234,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
             set ExpUIPanel = activity
             set FoldedPanel = 0
             set SeenRevision = ExpRevision
-        elseif SeenOffer != ExpOfferVersion[pid] and ExpState == EXP_REWARD and ExpEventDeadline[pid] > 0 then
+        elseif SeenOffer != ExpOfferVersion[pid] and ((ExpState == EXP_REWARD and ExpEventDeadline[pid] > 0) or ExpState == EXP_HUNT) then
             set ExpUIPanel = activity
             set FoldedPanel = 0
         elseif not SeenDone and ExpDone[pid] and (ExpUIPanel == EXP_UI_CHOICE or ExpUIPanel == EXP_UI_EVENT or ExpUIPanel == EXP_UI_SHOP) then
@@ -235,6 +242,14 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endif
         if ExpDone[pid] and (FoldedPanel == EXP_UI_CHOICE or FoldedPanel == EXP_UI_EVENT or FoldedPanel == EXP_UI_SHOP) then
             set FoldedPanel = 0
+        endif
+        if ExpState == EXP_HUNT and ProtoStage[pid] == 0 then
+            if ExpUIPanel == 9 then
+                set ExpUIPanel = 0
+            endif
+            if FoldedPanel == 9 then
+                set FoldedPanel = 0
+            endif
         endif
         set SeenDone = ExpDone[pid]
         set SeenOffer = ExpOfferVersion[pid]
@@ -251,7 +266,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         else
             call DzFrameSetPoint(ExpUIButtons[StatsButton], JN_FRAMEPOINT_TOPLEFT, Navigation, JN_FRAMEPOINT_TOPLEFT, 0.180, 0)
         endif
-        if activity == EXP_UI_LOBBY then
+        if activity == EXP_UI_LOBBY or activity == 8 then
             call ExpUISetButton(ActivityButton, "출발 준비", true)
         elseif activity == EXP_UI_RESULT then
             call ExpUISetButton(ActivityButton, "원정 결과", true)
@@ -262,7 +277,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endif
         call ExpUISetButton(StatsButton, "스탯  " + I2S(ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]), true)
         loop
-            exitwhen i > 7
+            exitwhen i > 9
             if ExpUIRoots[i] != 0 then
                 call DzFrameShow(ExpUIRoots[i], visible and ExpUIPanel == i)
             endif

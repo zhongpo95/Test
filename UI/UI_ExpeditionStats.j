@@ -46,6 +46,8 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon
         endif
         if ExpState == EXP_BATTLE then
             call ExpUIText(Hint, "전투 중에는 배분할 수 없습니다.")
+        elseif ExpState == EXP_HUNT then
+            call ExpUIText(Hint, "사건으로 공간이 정지했을 때 배분 가능합니다.")
         elseif editable then
             call ExpUIText(Hint, "1포인트당 +60 · 비전투 중 배분 가능")
         else
@@ -58,6 +60,20 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon
             endif
             set i = i + 1
         endloop
+        if ExpPrototypeActive then
+            set i = PROTO_CARD_FIRST
+            loop
+                exitwhen i > PROTO_CARD_LAST
+                if ExpCardOwned[ExpKey(pid, i)] then
+                    set owned = owned + ProtoCardName[i]
+                    if ProtoEvolved[ExpKey(pid, i)] then
+                        set owned = owned + "(각성)"
+                    endif
+                    set owned = owned + "   "
+                endif
+                set i = i + 1
+            endloop
+        endif
         if owned == "" then
             set owned = "획득한 카드 없음"
         endif

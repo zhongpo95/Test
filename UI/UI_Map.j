@@ -25,6 +25,17 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
         elseif ExpNode >= 2 then
             set current = 2
         endif
+        if ExpPrototypeEnabled then
+            set current = 1
+            if ExpState == EXP_HUNT then
+                set current = 2
+                if ProtoReady[pid] then
+                    set current = 3
+                endif
+            elseif ExpState == EXP_BATTLE then
+                set current = 4
+            endif
+        endif
         loop
             exitwhen i > 4
             set name = JNStringSplit("출발|조우 · 전투|상점|보스", "|", i - 1)
@@ -33,6 +44,9 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
                 set name = "|cff07516b현재 위치|r|n" + name
             else
                 call DzFrameSetTexture(Nodes[i], "war3mapImported\\UI_Upgrade_Card.tga", 0)
+            endif
+            if ExpPrototypeEnabled then
+                set name = JNStringSplit("머리 카드 준비|개인 사냥 · 사건|준비 완료|보스 합류", "|", i - 1)
             endif
             call ExpUIText(NodeLabels[i], name)
             set i = i + 1
@@ -45,6 +59,9 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
             endif
         elseif ExpState == EXP_RESULT then
             set status = "원정 종료"
+        endif
+        if ExpState == EXP_HUNT then
+            set status = "개인 구역 " + I2S(pid + 1) + " · 남은 " + I2S(ExpSeconds) + "초 · 행동력 " + I2S(ProtoAP[pid]) + "|n머리 " + I2S(ProtoHeadCount[pid]) + "/3 · 골드 " + I2S(ExpGold[pid])
         endif
         call ExpUIText(Status, status)
     endfunction
@@ -63,7 +80,7 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
     function SetMapLine takes integer pid returns nothing
         // 영웅 선택의 기존 진입점은 출발 준비 창에 연결한다.
         if GetLocalPlayer() == Player(pid) then
-            call ExpUIOpen(EXP_UI_LOBBY)
+            call ExpUIOpen(ExpUIActivity(pid))
         endif
     endfunction
 

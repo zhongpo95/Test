@@ -562,6 +562,10 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
             if boss then
                 set EnemyKind[i] = 4
                 set EnemyMaximum[i] = 12000000.0 * ExpPlayers
+                if ExpPrototypeActive then
+                    // 공격력 100 출발에 맞춘 임시 보스 체력. 라이브 테스트 후 재조정한다.
+                    set EnemyMaximum[i] = 12000.0 * ExpPlayers
+                endif
             endif
             set EnemyDead[i] = false
             set Planned[i] = false

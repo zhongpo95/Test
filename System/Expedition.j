@@ -658,6 +658,9 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
     private function Finish takes boolean clear returns nothing
         local integer pid = 0
         call ExpCombatStop()
+        if ExpPrototypeActive then
+            call TriggerExecute(ExpPrototypeCleanup)
+        endif
         set ExpState = EXP_RESULT
         set ExpRevision = ExpRevision + 1
         set ExpSeconds = 0
@@ -805,6 +808,19 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
     private function BattleFinished takes nothing returns nothing
         local integer pid = 0
         if ExpState != EXP_BATTLE then
+            return
+        endif
+        if ExpPrototypeActive then
+            if ExpWon then
+                loop
+                    exitwhen pid == 4
+                    if ExpMember[pid] then
+                        call ConfirmVictory(pid, true)
+                    endif
+                    set pid = pid + 1
+                endloop
+            endif
+            call Finish(ExpWon)
             return
         endif
         if not ExpWon then
@@ -1008,12 +1024,21 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
     endfunction
 
     function ExpCanAllocate takes integer pid returns boolean
-        return ExpMember[pid] and not ExpLeft[pid] and (ExpState == EXP_START or ExpState == EXP_VOTE or ExpState == EXP_REWARD or ExpState == EXP_SHOP or ExpState == EXP_MOVE)
+        return ExpMember[pid] and not ExpLeft[pid] and (ExpState == EXP_START or ExpState == EXP_VOTE or ExpState == EXP_REWARD or ExpState == EXP_SHOP or ExpState == EXP_MOVE or (ExpState == EXP_HUNT and ProtoPaused[pid] and not ProtoReady[pid]))
     endfunction
 
     function ExpAction takes integer pid, integer action returns nothing
         local integer kind
         if pid < 0 or pid > 3 or ExpLeft[pid] or not PickCheck[pid] then
+            return
+        endif
+        if action >= 2000 or (ExpPrototypeEnabled and action == 1 and (ExpState == EXP_LOBBY or ExpState == EXP_RESULT)) then
+            set ExpPrototypePid = pid
+            set ExpPrototypeAction = action
+            if action == 1 then
+                set ExpPrototypeAction = 2001
+            endif
+            call TriggerExecute(ExpPrototypeRequest)
             return
         endif
         if ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
@@ -1133,6 +1158,10 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
         local boolean allDone = true
         local integer fight = 0
         local integer avoid = 0
+        if ExpPrototypeActive then
+            call TriggerExecute(ExpRefresh)
+            return
+        endif
         if ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
             call TriggerExecute(ExpRefresh)
             return
@@ -1225,7 +1254,13 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                 call Finish(false)
             endif
         elseif ExpState == EXP_LOBBY or ExpState == EXP_RESULT then
-            call TryStart()
+            if ExpPrototypeEnabled then
+                set ExpPrototypePid = pid
+                set ExpPrototypeAction = 2002
+                call TriggerExecute(ExpPrototypeRequest)
+            else
+                call TryStart()
+            endif
         endif
     endfunction
 

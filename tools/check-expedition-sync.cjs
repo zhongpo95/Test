@@ -6,13 +6,14 @@ const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/
 // 기존 로컬 저장소 조회는 별도 경계다. StashLoad의 내부 scratch 변수와 저장 엔진은
 // 이 검사로 증명하지 않는다. 저장/업로드 API는 허용하지 않는다.
 const allowedCalls = new Set(`
-  GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController
+  GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
   I2S S2I R2I I2R IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
-  DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha
+  DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha
 `.trim().split(/\s+/));
 const allowedWrites = new Set(`
   ExpUIPanel FMap_OnOff
+  UIExpeditionPrototype.LoadedSlot
   UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone
   UIExpeditionCommon.ShownRun UIExpeditionCommon.ShownRevision UIExpeditionCommon.ShownOffer

@@ -5,11 +5,12 @@ const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Da
   'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
-function fresh(localPlayer = 0) {
+function fresh(localPlayer = 0, prototype = false) {
+  const prototypeFiles = prototype ? [...files, 'System/ExpeditionPrototype.j', 'UI/UI_ExpeditionPrototype.j'] : files;
   const frames = new Map([[0, {id:0,type:'GAME',parent:null,shown:true,enabled:true,x:0,y:.6}]]), packets = [], timers = [], executions = [];
   let e, count = 0, eventFrame = 0, eventPlayer = 0;
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
-  const {env} = environment(files, {
+  const {env} = environment(prototypeFiles, {
     F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
@@ -35,8 +36,18 @@ function fresh(localPlayer = 0) {
   });
   e = env;
   e.localPlayer = localPlayer;
+  if(prototype){
+    e.ProtoDataInit();e.ExpPrototypeEnabled=true;
+    e.MapSt[5]=e.MapSt[6]={caster:null};e.MapRectCheck[5]=e.MapRectCheck[6]=true;
+    e.EQUIP_SLOT_WEAPON=1;e.MockAttack=100;e.AttackPower=()=>e.MockAttack;e.GetItemTier=()=>2;
+    e.GetRectMinX=e.GetRectMinY=()=>-1200;e.GetRectMaxX=e.GetRectMaxY=()=>1200;
+    e.AddSpecialEffectTarget=()=>({});e.DestroyEffect=()=>{};
+    e.TriggerAddAction(e.ExpPrototypeRequest,e.ProtoDispatch);
+    e.TriggerAddAction(e.ExpPrototypeCleanup,e.ProtoCleanup);
+  }
   e.UIMainQuest_Init();
   for(const lib of ['UIExpeditionCommon','UIExpeditionChoice','UIExpeditionStats','UIMap'])e[lib+'_Build']();
+  if(prototype)e.UIExpeditionPrototype_Build();
   const visible = id => id===0 || frame(id).shown && visible(frame(id).parent);
   // 게임의 공통 타이머 이벤트를 한 번 진행한다. 로컬 UI 입력 자체는 트리거를 실행하지 않는다.
   const render = () => {
@@ -45,18 +56,21 @@ function fresh(localPlayer = 0) {
     timers[0].trigger.actions.forEach(fn=>fn());
   };
   const event = (id,kind,player=e.localPlayer) => {assert(visible(id),'Hidden frame event');assert(frame(id).enabled,'Disabled frame event');eventFrame=id;eventPlayer=player;frame(id).scripts[kind]();};
-  const flush = () => {for(const p of packets.splice(0)){e.eventPlayer=p.player;e.syncData=p.data;e.OnSync();}};
+  const flush = () => {for(const p of packets.splice(0)){e.eventPlayer=p.player;e.syncData=p.data;if(p.channel==='ProtoCodex')e.ProtoCodexSync();else e.OnSync();}};
   const click = id => {event(id,4);flush();render();};
   const common = action => {
     for(let i=1;i<=e.UIExpeditionCommon_ButtonCount;i++)if(e.UIExpeditionCommon_ButtonActions[i]===action && visible(e.ExpUIButtons[i]))return e.ExpUIButtons[i];
     throw Error('No visible button for action '+action);
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
-  const start = () => {render();click(common(1));assert.equal(e.ExpState,e.EXP_START);};
-  const roots = () => Array.from({length:7},(_,i)=>i+1).filter(i=>visible(e.ExpUIRoots[i]));
+  const start = () => {render();click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
+  const roots = () => Array.from({length:9},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
+  if(prototype){flush();render();}
   return {e,frames,frame,visible,render,event,packets,flush,click,common,card,start,roots,timers,executions};
 }
+module.exports={fresh};
+if(require.main===module){
 check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 않고 전원 같은 타이머로 갱신',()=>{
   const clients=[0,1,4].map(pid=>{
     const t=fresh(pid);t.e.online=[true,true,false,false];
@@ -262,3 +276,5 @@ if(process.argv[2]){
   fs.writeFileSync(process.argv[2],JSON.stringify(out,null,2));
 }
 console.log(`${checks} UI scenario groups passed. Mock frame/native execution only; real game rendering and input remain untested.`);
+
+}
