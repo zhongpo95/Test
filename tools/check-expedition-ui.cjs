@@ -40,7 +40,6 @@ function fresh(localPlayer = 0, prototype = false) {
     e.ProtoDataInit();e.ExpPrototypeEnabled=true;
     e.MapSt[5]=e.MapSt[6]={caster:null};e.MapRectCheck[5]=e.MapRectCheck[6]=true;
     e.EQUIP_SLOT_WEAPON=1;e.MockAttack=100;e.AttackPower=()=>e.MockAttack;e.GetItemTier=()=>2;
-    e.GetRectMinX=e.GetRectMinY=()=>-1200;e.GetRectMaxX=e.GetRectMaxY=()=>1200;
     e.AddSpecialEffectTarget=()=>({});e.DestroyEffect=()=>{};
     e.TriggerAddAction(e.ExpPrototypeRequest,e.ProtoDispatch);
     e.TriggerAddAction(e.ExpPrototypeCleanup,e.ProtoCleanup);

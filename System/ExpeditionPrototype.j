@@ -702,12 +702,17 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     private function ProtoSpawn takes integer pid, integer slot returns nothing
-        local rect bounds = MapRectReturn(pid + 1)
+        local rect bounds = MapCenter[pid + 1]
         local real x
         local real y
         local integer attempts = 0
         local integer key = pid * 16 + slot
         local integer index
+        // 이동 구역 전체가 아니라 사용자가 지정한 몬스터 생성 구역만 사용한다.
+        if bounds == null or GetRectMaxX(bounds) - GetRectMinX(bounds) <= 320.0 or GetRectMaxY(bounds) - GetRectMinY(bounds) <= 320.0 then
+            set bounds = null
+            return
+        endif
         loop
             set x = GetRandomReal(GetRectMinX(bounds) + 160.0, GetRectMaxX(bounds) - 160.0)
             set y = GetRandomReal(GetRectMinY(bounds) + 160.0, GetRectMaxY(bounds) - 160.0)
