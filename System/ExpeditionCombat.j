@@ -218,7 +218,12 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set ExpEnemy[index] = true
         set UnitHP[index] = EnemyMaximum[i]
         set UnitHPMAX[index] = EnemyMaximum[i]
-        set UnitArm[index] = 2000.0
+        if EnemyKind[i] == 4 then
+            set UnitArm[index] = 2000.0
+        else
+            set UnitArm[index] = 0.0
+            call JNSetUnitArmor(Enemies[i], 0.0)
+        endif
         set UnitSD[index] = 0.0
         set UnitSDMAX[index] = 0.0
         set UnitCasting[index] = false

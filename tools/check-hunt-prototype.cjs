@@ -61,10 +61,22 @@ check('4인 개인 구역 1~4와 남은 5~6 구역의 보스 예약, 사용 중�
 check('기본 근접 몬스터 체력 300, 처치당 10골드와 지속 재생성',()=>{
   const {e}=party();e.ProtoHuntUpdate(0);
   assert(e.HuntUnits.slice(1,5).every(Boolean));assert.equal(e.HuntUnits[5],null);
-  for(let slot=1;slot<=4;slot++){const u=e.HuntUnits[slot];assert.equal(e.UnitHPMAX[u.id],300);assert.equal(e.ProtoHuntOwner[u.id],1);assert(!u.abilities.has('Aatk'));}
+  for(let slot=1;slot<=4;slot++){const u=e.HuntUnits[slot];assert.equal(e.UnitHPMAX[u.id],300);assert.equal(e.UnitArm[u.id],0);assert.equal(u.engineArmor,0);assert.equal(e.ProtoHuntOwner[u.id],1);assert(!u.abilities.has('Aatk'));}
   const old=e.HuntUnits[1];e.UnitHP[old.id]=0;e.ProtoHuntUpdate(0);
   assert(old.removed);assert.notEqual(e.HuntUnits[1],old);assert.equal(e.ExpGold[0],10);assert.equal(e.ProtoKills[0],1);
+  assert.equal(e.UnitArm[e.HuntUnits[1].id],0);assert.equal(e.HuntUnits[1].engineArmor,0);
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);assert.equal(e.ProtoAP[0],10);
+});
+check('일반 전투 근접·원거리·위험 몬스터 방어력 0, 보스 방어력 유지',()=>{
+  const {env:e}=environment(['System/ExpeditionCombat.j'],{
+    ExpEnemy:[], ExpMember:[false,false,false,false], ClearWarning:()=>{}, UpdateHealth:()=>{},
+    CreateUnit:(p,raw,x,y)=>({id:100,p,raw,x,y,engineArmor:9,abilities:new Set()}),
+  },['SpawnEnemy']);
+  e.Planned[1]=true;e.SpawnX[1]=100;e.SpawnY[1]=100;e.EnemyMaximum[1]=300;
+  for(const kind of [1,2,3,4]){
+    e.EnemyKind[1]=kind;e.SpawnEnemy(1);const u=e.Enemies[1];
+    assert.equal(e.UnitArm[u.id],kind===4?2000:0);assert.equal(u.engineArmor,kind===4?9:0);
+  }
 });
 check('4인 최초 생성·재생성은 각자의 MapCenter 내부이며 미지정·막힌 구역에서 외부 생성하지 않음',()=>{
   const {e}=party(4);

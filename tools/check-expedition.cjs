@@ -48,6 +48,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
     UnitAddAbility: (u,a) => u.abilities.add(a), UnitRemoveAbility: (u,a) => u.abilities.delete(a), GetUnitAbilityLevel: (u,a) => u.abilities.has(a) ? 1 : 0,
     IsUnitInRange: (u,v,r) => Math.hypot(env.GetUnitX(u)-env.GetUnitX(v),env.GetUnitY(u)-env.GetUnitY(v))<=r,
     SetUnitX: (u,x) => {u.x=x;}, SetUnitY: (u,y) => {u.y=y;}, Atan2: Math.atan2,
+    JNSetUnitArmor: (u,armor) => {u.engineArmor=armor;},
     SetUnitAnimation: no, SetUnitScale: no, SetUnitVertexColor: no, SetUnitTimeScale: no, SetUnitMoveSpeed: no, SetUnitAcquireRange: no, SetUnitPathing: no,
     IssuePointOrder: (u,s) => {u.order=s;return true;}, IssueImmediateOrder: (u,s) => {u.order=s;return true;}, SetUnitFacing: no, SelectUnit: no, TimerStart: no, PauseTimer: no, BossDeal: no,
     SetUnitCreepGuard: (u,v) => {u.creepGuard=v;}, RemoveGuardPosition: u => {u.guardRemoved=true;},

@@ -730,6 +730,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set UnitHP[index] = 300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1))
         set UnitHPMAX[index] = UnitHP[index]
         set UnitArm[index] = 0.0
+        call JNSetUnitArmor(HuntUnits[key], 0.0)
         set UnitSD[index] = 0.0
         set UnitSDMAX[index] = 0.0
         set UnitCasting[index] = false
