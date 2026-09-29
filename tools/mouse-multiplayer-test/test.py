@@ -193,9 +193,17 @@ def binary_checks():
     for player in range(6):
         assert read('4I') == (player, 1, 1, 1)
         string(); read('2f2I')
-    assert read('3I') == (1, 11, 63)
-    assert string() == 'Mouse testers'
+    assert read('I') == (6,)
+    team_masks = []
+    for player in range(6):
+        flags, mask = read('2I')
+        assert flags == 0 and mask == 1 << player
+        assert string() == 'Tester team ' + str(player + 1)
+        team_masks.append(mask)
+    assert sum(team_masks) == 63 and len(set(team_masks)) == 6
     assert read('4I') == (0, 0, 0, 0) and pos == len(blob)
+    script = data['war3map.j'].decode('utf8')
+    assert 'call SetTeams(6)' in script and 'call SetPlayerTeam(Player(i), i)' in script
     assert len(data['war3map.w3e']) == 53 + 33 * 33 * 7
     assert len(data['war3map.wpm']) == 16 + 128 * 128
     # W3A를 별도 커서로 읽어 중력건과 같은 핵심 Channel 설정을 확인한다.
@@ -213,7 +221,7 @@ def binary_checks():
     assert pos == len(blob)
     assert mods['Ncl2'] == 2 and mods['Ncl3'] == 1 and mods['Ncl6'] == 'innerfire'
     assert mods['Ncl1'] == 0 and mods['arng'] == 200000
-    return 'W3I/W3E/WPM/W3A structure and six user slots passed'
+    return 'W3I/W3E/WPM/W3A structure, six user slots and distinct lobby teams matching JASS passed'
 
 
 def main():
@@ -237,9 +245,9 @@ def main():
         assert (peer.units[1007]['x'], peer.units[1007]['y']) == (251, 371)
         assert any('D ACK 6/6 PASS' in text for text in peer.logs)
     results.append('alternate Dz coordinates and six receipts passed')
-    bus.queue.append(('sync', 2, 'MT001XY', '0|M|99|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT001XY', '0|M|1|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT001XY', '0|M|100|99999|999')); bus.flush()
+    bus.queue.append(('sync', 2, 'MT002XY', '0|M|99|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT002XY', '0|M|1|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT002XY', '0|M|100|99999|999')); bus.flush()
     for peer in bus.peers:
         assert (peer.units[1003]['x'], peer.units[1003]['y']) == (200, 400)
     results.append('spoofed sender, stale sequence and out-of-bounds packet rejected')

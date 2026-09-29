@@ -3,13 +3,13 @@ local j = require('jass.common')
 local api = require('jass.japi')
 local message = require('jass.message')
 local ME = j.GetPlayerId(j.GetLocalPlayer())
-local SYNC, ACK = 'MT001XY', 'MT001ACK'
+local SYNC, ACK = 'MT002XY', 'MT002ACK'
 local CHANNEL = 1093681994 -- A0CJ
 local ORDER = 852066 -- innerfire
 local heroes, helpers, markers, orderMarkers = {}, {}, {}, {}
 local latest, orderSeq, sampleSeq, runs = {}, {}, {}, {}
 local syncReady, file = false, nil
-local logPath = 'Logs/Hera_Mouse_Test_v001_p' .. (ME + 1) .. '.txt'
+local logPath = 'Logs/Hera_Mouse_Test_v002_p' .. (ME + 1) .. '.txt'
 pcall(function() file = io.open(logPath, 'w') end)
 
 local function log(text)

@@ -10,7 +10,7 @@ native DzGetMouseTerrainY takes nothing returns real
 function MouseTestBoot takes nothing returns nothing
     local string result
     call DestroyTimer(GetExpiredTimer())
-    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "Mouse Multiplayer Test v001. Hera/JN Lua engine required.")
+    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "Mouse Multiplayer Test v002. Hera/JN Lua engine required.")
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "If LUA READY does not appear, the Lua engine did not load.")
     set result = EXExecuteScript("local ok, err = pcall(require, 'mouse_test'); if ok then return 'MT LUA READY' else return 'MT LUA ERROR ' .. tostring(err) end")
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, result)
@@ -27,10 +27,10 @@ endfunction
 
 function config takes nothing returns nothing
     local integer i = 0
-    call SetMapName("Hera Mouse Multiplayer Test v001")
+    call SetMapName("Hera Mouse Multiplayer Test v002")
     call SetMapDescription("2-6 human players. Mouse sampling, sync receipts and gravity-gun point-order test. Commands shown in game.")
     call SetPlayers(6)
-    call SetTeams(1)
+    call SetTeams(6)
     call SetGamePlacement(MAP_PLACEMENT_USE_MAP_SETTINGS)
     loop
         exitwhen i == 6
@@ -41,7 +41,7 @@ function config takes nothing returns nothing
         call SetPlayerRacePreference(Player(i), RACE_PREF_HUMAN)
         call SetPlayerRaceSelectable(Player(i), false)
         call SetPlayerColor(Player(i), ConvertPlayerColor(i))
-        call SetPlayerTeam(Player(i), 0)
+        call SetPlayerTeam(Player(i), i)
         set i = i + 1
     endloop
 endfunction

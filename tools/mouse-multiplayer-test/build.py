@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.dont_write_bytecode = True
-TITLE = 'Hera Mouse Multiplayer Test v001'
+TITLE = 'Hera Mouse Multiplayer Test v002'
 
 
 def u(*values):
@@ -40,7 +40,9 @@ def info():
     for player in range(6):
         data += u(player, 1, 1, 1) + z('Tester ' + str(player + 1))
         data += f(-750 + player * 300, -600) + u(0, 0)
-    data += u(1, 11, 63) + z('Mouse testers')
+    data += u(6)
+    for player in range(6):
+        data += u(0, 1 << player) + z('Tester team ' + str(player + 1))
     return data + u(0, 0, 0, 0)
 
 
@@ -139,7 +141,7 @@ def main():
         'output': str(output), 'bytes': output.stat().st_size,
         'sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
         'members': {name: hashlib.sha256(data).hexdigest() for name, data in assets.items()},
-        'players': 6, 'terrainCells': [32, 32], 'jassCompile': 'passed',
+        'players': 6, 'lobbyTeams': 6, 'terrainCells': [32, 32], 'jassCompile': 'passed',
         'packageReadback': 'passed', 'realGameTested': False, 'multiplayerTested': False,
         'existingMapUsedOrChanged': False,
     }
