@@ -10,7 +10,7 @@ native DzGetMouseTerrainY takes nothing returns real
 function MouseTestBoot takes nothing returns nothing
     local string result
     call DestroyTimer(GetExpiredTimer())
-    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "Mouse Multiplayer Test v003. Hera/JN Lua engine required.")
+    call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "Mouse Multiplayer Test v004. Hera/JN Lua engine required.")
     call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "Starting Lua diagnostic. LUA READY or a boot error should appear below.")
     // EXExecuteScript는 입력을 return (...)으로 감싸므로 하나의 식을 전달한다.
     set result = EXExecuteScript("(function() local ok, err = pcall(require, 'mouse_test'); if ok then return 'MT LUA READY' else return 'MT LUA ERROR ' .. tostring(err) end end)()")
@@ -32,7 +32,7 @@ endfunction
 
 function config takes nothing returns nothing
     local integer i = 0
-    call SetMapName("Hera Mouse Multiplayer Test v003")
+    call SetMapName("Hera Mouse Multiplayer Test v004")
     call SetMapDescription("2-6 human players. Mouse sampling, sync receipts and gravity-gun point-order test. Commands shown in game.")
     call SetPlayers(6)
     call SetTeams(6)

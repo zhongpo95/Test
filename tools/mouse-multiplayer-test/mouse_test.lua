@@ -3,13 +3,13 @@ local j = require('jass.common')
 local api = require('jass.japi')
 local message = require('jass.message')
 local ME = j.GetPlayerId(j.GetLocalPlayer())
-local SYNC, ACK = 'MT003XY', 'MT003ACK'
+local SYNC, ACK = 'MT004XY', 'MT004ACK'
 local CHANNEL = 1093681994 -- A0CJ
 local ORDER = 852066 -- innerfire
 local heroes, helpers, markers, orderMarkers = {}, {}, {}, {}
 local latest, orderSeq, sampleSeq, runs = {}, {}, {}, {}
 local syncReady, file = false, nil
-local logPath = 'Logs/Hera_Mouse_Test_v003_p' .. (ME + 1) .. '.txt'
+local logPath = 'Logs/Hera_Mouse_Test_v004_p' .. (ME + 1) .. '.txt'
 pcall(function() file = io.open(logPath, 'w') end)
 
 local function log(text)
@@ -55,7 +55,7 @@ end
 
 local function accept(source, kind, seq, x, y, payload)
     local key = source .. kind
-    if latest[key] and seq <= latest[key].seq then return end
+    if latest[key] and seq <= latest[key].seq then return false end
     local record = {seq = seq, x = x, y = y, payload = payload, acks = {}}
     latest[key] = record
     local marker = kind == 'O' and orderMarkers[source] or markers[source]
@@ -66,6 +66,7 @@ local function accept(source, kind, seq, x, y, payload)
         api.DzSyncData(ACK, source .. '|' .. kind .. '|' .. seq .. '|' .. ME .. '|' .. payload)
     end
     if seq == 1 then say('P' .. (source + 1) .. ' ' .. kind .. ' received ' .. x .. ', ' .. y) end
+    return true
 end
 
 local function installSync()
@@ -83,11 +84,16 @@ local function installSync()
     j.TriggerAddAction(xy, function()
         local data = api.DzGetTriggerSyncData()
         if type(data) ~= 'string' then return end
-        local s, kind, seq, x, y = data:match('^(%d)|([MD])|(%d+)|([%-%.%d]+)|([%-%.%d]+)$')
+        local s, kind, seq, x, y = data:match('^(%d)|([MDP])|(%d+)|([%-%.%d]+)|([%-%.%d]+)$')
         s, seq, x, y = tonumber(s), tonumber(seq), tonumber(x), tonumber(y)
         local sender = j.GetPlayerId(api.DzGetTriggerSyncPlayer())
         if s ~= sender or not active(sender) or not seq or seq < 1 or not valid(x, y) then return end
-        accept(s, kind, seq, x, y, data)
+        if accept(s, kind, seq, x, y, data) and kind == 'P' then
+            -- 전달받은 좌표로 모든 클라이언트에서 같은 보조 유닛에 명령한다.
+            log('BEFORE IssuePointOrderById P' .. (s + 1) .. '#' .. seq)
+            local issued = j.IssuePointOrderById(helpers[s], ORDER, x, y)
+            log('AFTER IssuePointOrderById P' .. (s + 1) .. '#' .. seq .. ' result=' .. tostring(issued))
+        end
     end)
     local ack = j.CreateTrigger()
     log('BEFORE DzTriggerRegisterSyncData ACK')
@@ -96,7 +102,7 @@ local function installSync()
     j.TriggerAddAction(ack, function()
         local data = api.DzGetTriggerSyncData()
         if type(data) ~= 'string' then return end
-        local s, kind, seq, receiver, payload = data:match('^(%d)|([MDO])|(%d+)|(%d)|(.+)$')
+        local s, kind, seq, receiver, payload = data:match('^(%d)|([MDPO])|(%d+)|(%d)|(.+)$')
         s, seq, receiver = tonumber(s), tonumber(seq), tonumber(receiver)
         if not s or not active(s) or not active(receiver or -1) then return end
         if receiver ~= j.GetPlayerId(api.DzGetTriggerSyncPlayer()) then return end
@@ -113,10 +119,11 @@ local function installSync()
 end
 
 local function sample(id, kind, send, quiet)
-    local name = kind == 'D' and 'DzGetMouseTerrain' or 'message.mouse'
+    local useDz = kind == 'D' or kind == 'P'
+    local name = useDz and 'DzGetMouseTerrain' or 'message.mouse'
     log('BEFORE ' .. name)
     local ok, x, y = pcall(function()
-        if kind == 'D' then return api.DzGetMouseTerrainX(), api.DzGetMouseTerrainY() end
+        if useDz then return api.DzGetMouseTerrainX(), api.DzGetMouseTerrainY() end
         return message.mouse()
     end)
     log('AFTER ' .. name .. ' ok=' .. tostring(ok) .. ' x=' .. tostring(x) .. ' y=' .. tostring(y))
@@ -136,7 +143,7 @@ end
 local function status()
     for id = 0, 5 do
         if active(id) then
-            for _, kind in ipairs({'M', 'D', 'O'}) do
+            for _, kind in ipairs({'M', 'D', 'P', 'O'}) do
                 local record = latest[id .. kind]
                 if record then
                     local count, expected = totals(record)
@@ -152,8 +159,8 @@ end
 local function help()
     say('LUA READY. 2-6 players. Put cursor on terrain after sending command.')
     say('-local local read; -mouse one shared sample; -dz alternate API sample')
-    say('-track 10s shared samples; -order 10s gravity-gun input; -stop; -status')
-    say('M=message.mouse D=Dz mouse O=spell event. ACK N/N = peer receipts.')
+    say('-track 10s shared samples; -order 10s Dz synced point orders; -stop; -status')
+    say('M=message.mouse D=Dz mouse P=point request O=spell event. ACK N/N = peer receipts.')
     say('Logs: ' .. logPath .. (file and '' or ' (file unavailable; use screenshots)'))
 end
 
@@ -174,18 +181,7 @@ local function start(id, mode)
             if ME == id and not run.stop and not run.localFailed then
                 local ok, err = pcall(function()
                     if mode == 'order' then
-                        log('BEFORE ClearSelection/SelectUnit helper tick=' .. tick)
-                        j.ClearSelection()
-                        j.SelectUnit(helpers[id], true)
-                        local x, y = sample(id, 'M', false, true)
-                        if x then
-                            log('BEFORE message.order_point tick=' .. tick)
-                            message.order_point(ORDER, x, y)
-                            log('AFTER message.order_point tick=' .. tick)
-                        end
-                        j.ClearSelection()
-                        j.SelectUnit(heroes[id], true)
-                        log('AFTER restore selection tick=' .. tick)
+                        sample(id, 'P', true)
                     else
                         sample(id, mode == 'dz' and 'D' or 'M', mode ~= 'local')
                     end
@@ -193,8 +189,6 @@ local function start(id, mode)
                 if not ok then
                     run.localFailed = true
                     say('Stopped local input after Lua error: ' .. tostring(err))
-                    j.ClearSelection()
-                    j.SelectUnit(heroes[id], true)
                 end
             end
             if tick >= limit or run.stop then
@@ -256,11 +250,9 @@ j.TriggerAddAction(chat, function()
     elseif cmd == '-stop' then
         if runs[id] then runs[id].stop = true end
     elseif mode then
-        if (mode == 'mouse' or mode == 'dz' or mode == 'track') and not syncReady then
+        if (mode == 'mouse' or mode == 'dz' or mode == 'track' or mode == 'order') and not syncReady then
             if ME == id then say('Sync API unavailable. Use -local to test only the local reader.') end
-        elseif mode == 'order' and type(message.order_point) ~= 'function' then
-            if ME == id then say('Missing message.order_point') end
-        elseif mode == 'dz' and (type(api.DzGetMouseTerrainX) ~= 'function' or type(api.DzGetMouseTerrainY) ~= 'function') then
+        elseif (mode == 'dz' or mode == 'order') and (type(api.DzGetMouseTerrainX) ~= 'function' or type(api.DzGetMouseTerrainY) ~= 'function') then
             if ME == id then say('Missing DzGetMouseTerrainX/Y') end
         else start(id, mode) end
     end

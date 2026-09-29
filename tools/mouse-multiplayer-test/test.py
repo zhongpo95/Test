@@ -29,6 +29,8 @@ class Peer:
         self.logs, self.orders, self.mouse_calls = [], [], 0
         self.mouse = (200 + me * 50, 400 - me * 30)
         self.throw_mouse = False
+        self.throw_dz = False
+        self.dz_calls, self.raw_orders = 0, 0
         j = self.lua.table()
         self.j = j
         bindings = {
@@ -40,6 +42,7 @@ class Peer:
             'TimerStart': self.timer_start, 'DestroyTimer': lambda t: self.timers.pop(t, None),
             'CreateUnit': self.unit, 'SetUnitX': lambda h, x: self.units[h].update(x=x),
             'SetUnitY': lambda h, y: self.units[h].update(y=y),
+            'IssuePointOrderById': self.shared_order,
             'TriggerRegisterPlayerChatEvent': lambda t, *args: self.triggers[t].update(kind='chat'),
             'TriggerRegisterPlayerUnitEvent': lambda t, *args: self.triggers[t].update(kind='spell'),
             'GetTriggerPlayer': lambda: self.context['sender'],
@@ -60,8 +63,8 @@ class Peer:
                      'SetUnitPathing', 'FogModifierStart', 'PanCameraToTimed', 'SetCameraField', 'SetPlayerAlliance'):
             j[name] = lambda *args: None
         api = self.lua.table()
-        api['DzGetMouseTerrainX'] = lambda: self.mouse[0] + 1
-        api['DzGetMouseTerrainY'] = lambda: self.mouse[1] + 1
+        api['DzGetMouseTerrainX'] = lambda: self.read_dz(0)
+        api['DzGetMouseTerrainY'] = lambda: self.read_dz(1)
         if not missing_sync:
             api['DzTriggerRegisterSyncData'] = lambda t, prefix, flag: self.triggers[t].update(kind=prefix)
             api['DzGetTriggerSyncData'] = lambda: self.context['data']
@@ -127,10 +130,25 @@ class Peer:
         return self.mouse
 
     def order(self, order, x, y):
+        self.raw_orders += 1
+        raise AssertionError('message.order_point must not be used')
+
+    def read_dz(self, axis):
+        self.dz_calls += 1
+        if self.throw_dz:
+            raise RuntimeError('injected Dz mouse error')
+        return self.mouse[axis] + 1
+
+    def shared_order(self, unit, order, x, y):
         assert order == 852066
-        assert self.selection == 1002 + self.me * 4
-        self.orders.append((order, x, y))
-        self.bus.queue.append(('spell', self.me, self.selection, x, y))
+        assert self.context['data'].split('|')[1] == 'P'
+        sender = self.context['sender']
+        assert unit == 1002 + sender * 4
+        self.orders.append((unit, order, x, y))
+        # 하나의 공유 게임 이벤트를 각 클라이언트에 전달하는 엔진을 모사한다.
+        if self.me == 0:
+            self.bus.queue.append(('spell', sender, unit, x, y))
+        return True
 
     def fire(self, kind, context):
         self.context = context
@@ -278,9 +296,9 @@ def main():
         assert (peer.units[1007]['x'], peer.units[1007]['y']) == (251, 371)
         assert any('D ACK 6/6 PASS' in text for text in peer.logs)
     results.append('alternate Dz coordinates and six receipts passed')
-    bus.queue.append(('sync', 2, 'MT003XY', '0|M|99|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT003XY', '0|M|1|999|999')); bus.flush()
-    bus.queue.append(('sync', 0, 'MT003XY', '0|M|100|99999|999')); bus.flush()
+    bus.queue.append(('sync', 2, 'MT004XY', '0|M|99|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT004XY', '0|M|1|999|999')); bus.flush()
+    bus.queue.append(('sync', 0, 'MT004XY', '0|M|100|99999|999')); bus.flush()
     for peer in bus.peers:
         assert (peer.units[1003]['x'], peer.units[1003]['y']) == (200, 400)
     results.append('spoofed sender, stale sequence and out-of-bounds packet rejected')
@@ -289,27 +307,38 @@ def main():
     for peer in bus.peers:
         assert peer.units[1011]['x'] == -150
     results.append('NaN local coordinates blocked before shared mutation')
+    before_mouse = [peer.mouse_calls for peer in bus.peers]
+    before_dz = [peer.dz_calls for peer in bus.peers]
     bus.chat(3, '-order'); bus.advance(12)
-    assert len(bus.peers[3].orders) == 100
     for peer in bus.peers:
-        assert len(peer.orders) == (100 if peer.me == 3 else 0)
+        assert len(peer.orders) == 100 and peer.orders == bus.peers[0].orders
+        assert peer.orders[0] == (1014, 852066, 351, 311)
+        assert peer.mouse_calls == before_mouse[peer.me] and peer.raw_orders == 0
+        assert peer.dz_calls - before_dz[peer.me] == (200 if peer.me == 3 else 0)
         assert peer.selection == 1001 + peer.me * 4
-        assert (peer.units[1016]['x'], peer.units[1016]['y']) == (350, 310)
+        assert (peer.units[1016]['x'], peer.units[1016]['y']) == (351, 311)
         assert not peer.timers
     bus.chat(3, '-status')
     assert all(any('O #100' in text and 'ACK 6/6 PASS' in text for text in peer.logs) for peer in bus.peers)
-    results.append('100 owner-only point orders, all peer spell receipts, restored selection, timer cleanup passed')
+    assert all(any('P #100' in text and 'ACK 6/6 PASS' in text for text in peer.logs) for peer in bus.peers)
+    results.append('100 owner-only Dz samples produce identical shared point orders and P/O receipts on all peers; no message API or selection changes')
+    for sender, payload in [(2, '3|P|101|999|999'), (3, '3|P|100|999|999'), (3, '3|P|101|99999|999')]:
+        bus.queue.append(('sync', sender, 'MT004XY', payload)); bus.flush()
+    assert all(len(peer.orders) == 100 for peer in bus.peers)
+    results.append('spoofed, stale and invalid point requests issue no extra commands')
     bus.chat(4, '-track'); bus.advance(2); bus.chat(4, '-stop'); bus.advance(1)
     assert all(not peer.timers for peer in bus.peers)
     results.append('shared stop terminates every peer timer')
-    bus.peers[5].throw_mouse = True
+    bus.peers[5].throw_dz = True
     bus.chat(5, '-order'); bus.advance(12)
-    assert not bus.peers[5].orders
+    assert all(len(peer.orders) == 100 for peer in bus.peers)
     assert all(not peer.timers for peer in bus.peers)
-    results.append('Lua mouse exception sends no order and does not leak shared timers')
+    results.append('Dz mouse exception sends no order and does not leak shared timers')
     no_sync = Bus(LuaRuntime, missing_sync=True)
     no_sync.chat(0, '-mouse'); no_sync.advance(2)
     assert no_sync.peers[0].mouse_calls == 0
+    no_sync.chat(0, '-order'); no_sync.advance(2)
+    assert all(not peer.orders and peer.dz_calls == 0 for peer in no_sync.peers)
     no_sync.chat(0, '-local'); no_sync.advance(2)
     assert no_sync.peers[0].mouse_calls == 1
     results.append('missing sync API disables shared sampling while local diagnostic remains usable')
