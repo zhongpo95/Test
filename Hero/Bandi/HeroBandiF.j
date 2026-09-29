@@ -27,7 +27,7 @@ scope HeroBandiF
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[15],true,false,false,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
             set random = GetRandomInt(0,2)

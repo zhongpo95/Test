@@ -142,17 +142,17 @@ library DataExpeditionEvents requires DataExpedition, DataArcana, Native
     function ExpEncounterOptionText takes integer id, integer choice returns string
         if id == 1 then
             if choice == 1 then
-                return "일반 적 체력 45만 × 인원|n제한시간 120초|n기본 전투 승리 보상"
+                return "일반 적 체력 300 × 인원|n제한시간 120초|n기본 전투 승리 보상"
             endif
             return "전투 생략|n각자 무작위 물약 +1회|n개인 성장 선택으로 이동"
         elseif id == 2 then
             if choice == 1 then
-                return "일반 적 체력 55만 × 인원|n제한시간 120초|n승리 시 기본 보상 + 각자 100골드"
+                return "일반 적 체력 약 366.67 × 인원|n제한시간 120초|n승리 시 기본 보상 + 각자 100골드"
             endif
             return "전투 생략 · 각자 50골드|n개인 성장 선택으로 이동"
         endif
         if choice == 1 then
-            return "일반 적 체력 45만 × 인원|n제한시간 90초|n승리 시 기본 보상 + 일반 카드 1장|n카드 소진 시 150골드"
+            return "일반 적 체력 300 × 인원|n제한시간 90초|n승리 시 기본 보상 + 일반 카드 1장|n카드 소진 시 150골드"
         endif
         return "전투 생략 · 각자 60골드|n개인 성장 선택으로 이동"
     endfunction

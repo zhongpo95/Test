@@ -40,8 +40,8 @@ scope HeroBandiR
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance2) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())-90,1.2,pid)
             call UnitEffectTimeEX2('e04I',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),AngleWBW(splash.source,GetEnumUnit())+90,1.2,pid)
 
@@ -64,7 +64,7 @@ scope HeroBandiR
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,true,false)
+            call HeroDeal('A06I',splash.source,GetEnumUnit(),HeroSkillVelue3[15],true,false,true,false)
             call UnitEffectTimeEX2('e046',GetWidgetX(GetEnumUnit()),GetWidgetY(GetEnumUnit()),GetRandomReal(0,360),1.2,pid)
 
             set random = GetRandomInt(0,2)
