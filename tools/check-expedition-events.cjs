@@ -90,7 +90,8 @@ check('작업대는 표시된 각인 +1만 지급하고 감소 각인과 타인 
 check('조우별 체력·시간 조건과 보스전 독립',()=>{
   for(const encounter of [1,2,3])for(const boss of [false,true]){
     const e=fresh(1,true);e.ExpPlayers=2;e.ExpEncounter=encounter;e.ExpState=e.EXP_BATTLE;e.ExpCombatStart(boss);
-    assert.equal(e.EnemyMaximum[1],boss?24000000:encounter===2?1100000:900000);
+    const maximum=boss?24000000:encounter===2?600*(11/9):600;
+    assert(Math.abs(e.EnemyMaximum[1]-maximum)<1e-9);
     assert.equal(e.ExpBattleLimit,boss?360:encounter===3?90:120);
   }
 });

@@ -555,9 +555,9 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
                 set EnemyKind[i] = 3
             endif
             // 조우의 위험 조건은 일반 전투에만 적용한다.
-            set EnemyMaximum[i] = 450000.0 * ExpPlayers
+            set EnemyMaximum[i] = 300.0 * ExpPlayers
             if not boss and ExpEncounter == 2 then
-                set EnemyMaximum[i] = 550000.0 * ExpPlayers
+                set EnemyMaximum[i] = EnemyMaximum[i] * (11.0 / 9.0)
             endif
             if boss then
                 set EnemyKind[i] = 4

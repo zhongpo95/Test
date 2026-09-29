@@ -163,9 +163,9 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             elseif types == 1 then
                 return SkillFrameDamageLine("타격당 피해량", damage * value1) + "|n" + SkillFrameDamageLine("5회 적중 시 총 피해량", damage * value1 * 5.0)
             elseif types == 3 then
-                return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue5[4]) + "|n" + SkillFrameDamageLine("6타 총 피해량", damage * HeroSkillVelue5[4] * 6.0)
+                return SkillFrameDamageLine("1타 피해량", damage * value1) + "|n" + SkillFrameDamageLine("6타 총 피해량", damage * value1 * 6.0)
             elseif types == 5 then
-                return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue5[4]) + "|n" + SkillFrameDamageLine("2타 총 피해량", damage * HeroSkillVelue5[4] * 2.0)
+                return SkillFrameDamageLine("1타 피해량", damage * value1) + "|n" + SkillFrameDamageLine("2타 총 피해량", damage * value1 * 2.0)
             elseif types == 6 then
                 return SkillFrameDamageLine("이동 타격 또는 착지 1타", damage * HeroSkillVelue5[14])
             elseif types == 7 then
@@ -222,7 +222,7 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             endif
             set desc = SkillFrameBaseDescription("일반", cooldown, "전방의 적에게 기본 공격 피해를 입힙니다.")
             if detail then
-                set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("기본 타격 피해량", AttackPower(pid) * 0.10))
+                set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("기본 타격 피해량", AttackPower(pid) * 0.20))
                 if index == 14 then
                     set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA겐지 기본 공격은 E 차지 속도를 높이고 카구라의 강화 기본 공격은 연타 후 자세 전환 연계가 가능합니다.|r")
                 endif

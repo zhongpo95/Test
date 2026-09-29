@@ -387,7 +387,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[4] = "전방의 적을 빠르게 벱니다."
     set HeroSkillCD5[4] = 10.00
     set HeroSkillVCount5[4] = 1
-    set HeroSkillVelue5[4] = (1.84) / 10.0
+    set HeroSkillVelue5[4] = 1.00
     set HeroSkill5Text1[4] = ""
     set HeroSkill5Text2[4] = ""
     set HeroSkill5Text3[4] = ""
@@ -396,7 +396,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr6[4] = "주변 적에게 범위 피해를 입히고 자신에게 보호막을 부여합니다."
     set HeroSkillCD6[4] = 24.00
     set HeroSkillVCount6[4] = 1
-    set HeroSkillVelue6[4] = (3.39) / 10.0
+    set HeroSkillVelue6[4] = 1.50
     set HeroSkill6Text1[4] = "주변에 적이 있으면 장비 기본 공격력의 35%를 10초간 추가 공격력으로 얻습니다."
     set HeroSkill6Text2[4] = "자신의 최대 생명력의 30% 보호막이 4초간 유지됩니다."
     set HeroSkill6Text3[4] = ""
@@ -623,7 +623,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr3[15] = "전방의 적을 총 6회 공격합니다."
     set HeroSkillCD3[15] = 2.75
     set HeroSkillVCount3[15] = 2
-    set HeroSkillVelue3[15] = (1.00) / 10.0
+    set HeroSkillVelue3[15] = 0.184
     set HeroSkillVelue23[15] = (1.00) / 10.0
     set HeroSkill3Text1[15] = "마지막 동작에서 2회 타격합니다."
     set HeroSkill3Text2[15] = ""
@@ -642,7 +642,7 @@ private function init takes nothing returns nothing
     set HeroSkillStr5[15] = "전방에 두 번 범위 피해를 입힙니다."
     set HeroSkillCD5[15] = 10.00
     set HeroSkillVCount5[15] = 1
-    set HeroSkillVelue5[15] = (1.00) / 10.0
+    set HeroSkillVelue5[15] = 0.184
     set HeroSkill5Text1[15] = ""
     set HeroSkill5Text2[15] = ""
     set HeroSkill5Text3[15] = ""

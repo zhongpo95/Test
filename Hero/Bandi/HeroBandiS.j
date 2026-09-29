@@ -38,7 +38,7 @@ scope HeroBandiS
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
+            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[15],true,false,false,false)
 
             //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
@@ -50,7 +50,7 @@ scope HeroBandiS
 
         if IsUnitInRangeXY(GetEnumUnit(),splash.x,splash.y,distance) then
 
-            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[4],true,false,false,false)
+            call HeroDeal('A06J',splash.source,GetEnumUnit(),HeroSkillVelue5[15],true,false,false,false)
 
             //call DeBuffMArm.Apply( GetEnumUnit(), 10.0, 0 )
 
