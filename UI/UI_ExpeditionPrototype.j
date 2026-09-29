@@ -84,9 +84,9 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid])
-        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/10   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 밀도 " + I2S(ProtoDensity[pid])
+        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/10   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
         if ProtoReady[pid] then
-            set value = value + "|n준비 완료 · 보스 합류 대기 중"
+            set value = "보스 합류 대기 · " + value
         endif
         call ExpUIText(HuntStatus, value)
         call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
@@ -162,12 +162,12 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set RerollButton = ExpUIButton(EventRoot, 0.025, 0.348, 0.59, 0.030, "사건 리롤", 2300)
         set ResumeButton = ExpUIButton(EventRoot, 0.025, 0.348, 0.59, 0.030, "확인 · 사냥 재개", 2400)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
-        call DzFrameSetSize(HuntHUD, 0.31, 0.070)
+        call DzFrameSetSize(HuntHUD, 0.40, 0.074)
         call DzFrameSetAbsolutePoint(HuntHUD, JN_FRAMEPOINT_TOPLEFT, 0.245, 0.600)
         call DzFrameSetPriority(HuntHUD, 85)
-        set f = ExpUITexture(HuntHUD, 0, 0, 0.31, 0.070, "war3mapImported\\UI_Upgrade_Panel.tga")
-        set HuntStatus = ExpUILabel(HuntHUD, 0.012, 0.006, 0.286, 0.037, 0.009, "")
-        set HuntReady = ExpUIButton(HuntHUD, 0.073, 0.045, 0.164, 0.021, "준비 완료", 2500)
+        set f = ExpUITexture(HuntHUD, 0, 0, 0.40, 0.074, "war3mapImported\\UI_Upgrade_Panel.tga")
+        set HuntStatus = ExpUILabel(HuntHUD, 0.012, 0.006, 0.376, 0.044, 0.0085, "")
+        set HuntReady = ExpUIButton(HuntHUD, 0.125, 0.052, 0.164, 0.020, "준비 완료", 2500)
         call DzFrameShow(HuntHUD, false)
         call TriggerAddAction(ExpRefresh, function Render)
     endfunction

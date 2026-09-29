@@ -1,5 +1,18 @@
 // 시험 원정 카드의 피해와 방어력 관통을 기존 전투에 적용한다.
 library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, AttackAngle
+    function ExpSyncEnemyLife takes unit target returns nothing
+        local integer index = IndexUnit(target)
+        if not ExpEnemy[index] or UnitHPMAX[index] <= 0.0 then
+            return
+        endif
+        // 타이머를 기다리지 않고 이번 타격의 체력바와 사망을 반영한다.
+        if UnitHP[index] <= 0.0 then
+            call KillUnit(target)
+        else
+            call SetUnitState(target, UNIT_STATE_LIFE, RMaxBJ(1.0, GetUnitState(target, UNIT_STATE_MAX_LIFE) * RMinBJ(1.0, UnitHP[index] / UnitHPMAX[index])))
+        endif
+    endfunction
+
     function ExpHasCard takes integer pid, integer id returns boolean
         return ExpMember[pid] and ExpCardOwned[ExpKey(pid, id)]
     endfunction

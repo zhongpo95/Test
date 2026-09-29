@@ -47,6 +47,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         set dmg = UnitHPMAX[UnitIndex] * rate
 
         set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
+        call ExpSyncEnemyLife(target)
         set ttag = CreateTextTag()
         set s = FormatDamageText(dmg)
         call SetTextTagText(ttag, s + " !", 0.030)
@@ -430,6 +431,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         
         call ProtoRecordDamage(pid, UnitIndex, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
+        call ExpSyncEnemyLife(target)
         //어그로 시스템
         call PlayerBossAttack(source, target, dmg)
         return CounterBoolean
