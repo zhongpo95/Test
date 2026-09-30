@@ -15,6 +15,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         private integer array ButtonBackdrops
         private integer array ButtonActions
         private boolean array ButtonEnabled
+        private boolean array ButtonCover
         private integer ButtonCount = 0
         private integer Hovered = 0
         private integer Navigation
@@ -111,7 +112,18 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     private function ButtonStyle takes integer i returns nothing
-        if not ButtonEnabled[i] then
+        if ButtonCover[i] then
+            if Hovered == i and ButtonEnabled[i] then
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+            else
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Card.tga", 0)
+            endif
+            if ButtonEnabled[i] then
+                call DzFrameSetAlpha(ExpUIButtons[i], 255)
+            else
+                call DzFrameSetAlpha(ExpUIButtons[i], 155)
+            endif
+        elseif not ButtonEnabled[i] then
             call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
         elseif Hovered == i then
             call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
@@ -198,6 +210,18 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         return i
     endfunction
 
+    function ExpUICoverButton takes integer parent, integer action returns integer
+        local integer i = ExpUIButton(parent, 0, 0, 0.307, 0.246, "사건 만나기", action)
+        set ButtonCover[i] = true
+        call ButtonStyle(i)
+        return i
+    endfunction
+
+    function ExpUIResizeCover takes integer i, real width, real height returns nothing
+        call DzFrameSetSize(ExpUIButtons[i], width, height)
+        call DzFrameSetSize(ButtonBackdrops[i], width, height)
+    endfunction
+
     function ExpUIPanelToggle takes integer parent, real x, real y, real width, real height returns integer
         local integer panel = 1
         local integer i
@@ -210,6 +234,8 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endif
         // 창을 숨겨도 버튼은 같은 위치에서 입력을 받도록 별도 부모에 둔다.
         set i = ExpUIButton(DzGetGameUI(), x, y, width, height, "접기", -panel)
+        // 좁은 접기 버튼에서도 두 글자가 한 줄에 들어가도록 오른쪽 여백을 줄인다.
+        call DzFrameSetSize(ExpUIButtonLabels[i], width - 0.012, height - 0.006)
         call DzFrameClearAllPoints(ExpUIButtons[i])
         call DzFrameSetPoint(ExpUIButtons[i], JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetPriority(ExpUIButtons[i], 95)

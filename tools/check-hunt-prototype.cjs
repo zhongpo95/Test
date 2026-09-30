@@ -362,6 +362,33 @@ check('중복은 표시한 100골드로만 교환, 다른 작품 추첨과 사�
   e.ProtoStage[0]=2;e.ProtoSelected[0]=30;e.ProtoResolve(0,1);
   assert(e.ExpCardOwned[30]);assert.equal(notices.length,0);
 });
+check('행동 미리보기는 실제 카드 효과와 보상·비용·사냥터 변화를 구분, 중복은 골드로 표시',()=>{
+  const {e}=party();e.ProtoSelected[0]=107;e.ExpGold[0]=1000;
+  const text=e.ProtoBranchText(0,1);
+  assert(text.includes('[보상] [레어] 키리사메 마리사 · 피해 +25%'));
+  assert(text.includes('[사냥터] |cff9c4a22적 단계 +1'));assert(!text.includes('[비용]'));
+  e.ProtoSelected[0]=25;
+  assert(e.ProtoBranchText(0,1).includes('[성공 보상]'));
+  assert(e.ProtoBranchText(0,1).includes('[비용] 100골드'));
+  assert(e.ProtoBranchText(0,1).includes('성공 50% · 실패 시 보상 없음'));
+  e.ProtoGrantCard(0,43);
+  const duplicate=e.ProtoBranchText(0,2);
+  assert(duplicate.includes('솔글래드 이미 보유 · 골드 +100'));assert(!duplicate.includes('사냥 처치 골드 +'));
+});
+check('사건 결과는 획득·지불·필드 변경을 구분, 실패를 획득 보상으로 표시하지 않음',()=>{
+  for(const win of [true,false]){
+    const {e}=party();e.ProtoStage[0]=2;e.ProtoSelected[0]=25;e.ExpGold[0]=1000;
+    e.GetRandomInt=(a,b)=>win?a:b;e.ProtoResolve(0,1);
+    const result=e.ProtoOutcome[0];
+    assert.equal(result.includes('[획득 보상]'),win);assert.equal(result.includes('[실패 · 보상 없음]'),!win);
+    assert(result.includes('[지불 비용]'));assert(result.includes('지불한 골드 100'));
+    assert(!result.includes('[사냥터 변화]'));
+  }
+  const {e}=party();e.ProtoStage[0]=2;e.ProtoSelected[0]=107;e.ProtoResolve(0,1);
+  const result=e.ProtoOutcome[0];
+  assert(result.indexOf('[획득 보상]')<result.indexOf('[사냥터 변화]'));
+  assert(result.includes('몬스터 체력 300 → 390'));assert(!result.includes('[지불 비용]'));
+});
 check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
   const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
   const root=t.frame(e.ExpUIRoots[9]);
@@ -372,21 +399,104 @@ check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 
     assert(-label.y+label.h<=frame.h);assert(label.x+label.w<=frame.w);
   }
   e.ProtoCandidates[1]=1;t.render();const index=e.ExpUIButtons.indexOf(t.common(2101));
-  assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('즉시 획득 · 피해 +5%'));
+  assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('머리 카드 획득'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateRegion[1]).text.includes('지역 개방'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateBonus[1]).text.includes('피해 +5%'));
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],3);
   assert(!t.frame(e.ExpUIButtons[e.UIExpeditionPrototype_BranchButtons[1]]).shown);
   assert(t.frame(t.common(2400)).shown);
-  assert(root.y-root.h>=.12);
+  assert.equal(root.x,0);assert.equal(root.y,.6);assert.equal(root.w,.8);assert.equal(root.h,.6);
 });
 check('사건 후보와 분기 UI 실제 동기화, 최대 4개 클릭 영역·화면 경계·준비 HUD 분리',()=>{
   const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();assert.deepEqual(t.roots(),[9]);
   const buttons=[1,2,3,4].map(i=>t.frame(t.common(2100+i))),root=t.frame(e.ExpUIRoots[9]);
-  for(const b of buttons){assert(root.y+b.y-b.h>=.12);assert(root.x+b.x>=0);assert(root.x+b.x+b.w<=.8);}
-  for(let i=1;i<buttons.length;i++)assert(buttons[i-1].y-buttons[i-1].h>buttons[i].y);
-  const hud=t.frame(e.UIExpeditionPrototype_HuntHUD);assert(hud.y-hud.h>root.y);
+  for(const b of buttons){assert(root.y+b.y-b.h>=0);assert(root.x+b.x>=0);assert(root.x+b.x+b.w<=.8);}
+  const overlap=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&-a.y<-b.y+b.h&&-b.y<-a.y+a.h;
+  for(let i=0;i<buttons.length;i++)for(let j=i+1;j<buttons.length;j++)assert(!overlap(buttons[i],buttons[j]));
+  const hud=e.UIExpeditionPrototype_HuntHUD;assert(!t.visible(hud));
+  const info=()=>t.frame(e.UIExpeditionPrototype_EventInfo).text;
+  assert(info().includes('사냥 '+e.ExpSeconds+'초'));assert(info().includes('선택 '+e.ProtoDeadline[0]+'초'));
   t.event(t.common(2101),4,1);assert.equal(t.packets.length,0);
   e.ProtoCandidates[e.ExpKey(0,1)]=49;t.render();
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],2);assert.deepEqual(t.roots(),[9]);
-  t.click(t.common(2202));assert.equal(e.ProtoStage[0],3);t.click(t.common(2400));assert.deepEqual(t.roots(),[]);
+  t.click(t.common(2202));assert.equal(e.ProtoStage[0],3);t.click(t.common(2400));assert.deepEqual(t.roots(),[]);assert(t.visible(hud));
+});
+check('후보 2·3·4개는 같은 크기로 가운데 정렬, 장식과 하단 글씨 경계 및 최신 후보 표시',()=>{
+  const t=party(),e=t.e;
+  const parts=['CandidateRegion','CandidateTitle','CandidateIcon','CandidateIntro','CandidateBonus','CandidateFooter'];
+  for(const count of [2,3,4]){
+    e.ProtoChoices[0]=count;e.ProtoOffer(0);
+    e.ProtoCandidates[1]=107;e.ProtoCandidates[2]=9;
+    if(count>2)e.ProtoCandidates[3]=25;
+    if(count>3)e.ProtoCandidates[4]=13;
+    t.render();
+    for(let i=1;i<=count;i++){
+      const id=e.ProtoCandidates[e.ExpKey(0,i)],button=t.frame(t.common(2100+i));
+      assert.equal(button.h,.386);assert.equal(button.w,.174);assert.equal(button.y,-.138);
+      const index=e.UIExpeditionPrototype_CandidateButtons[i],background=t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]);
+      assert.equal(background.w,button.w);assert.equal(background.h,button.h);
+      assert(t.frame(e.UIExpeditionPrototype_CandidateTitle[i]).text.includes(e.ProtoEventName[id]));
+      assert(t.frame(e.UIExpeditionPrototype_CandidateIntro[i]).text.includes(e.ProtoEventIntro[id]));
+      assert.equal(t.frame(e.UIExpeditionPrototype_CandidateIcon[i]).texture,e.ProtoEventIcon[id]);
+      for(const part of parts){
+        const f=t.frame(e['UIExpeditionPrototype_'+part][i]);if(!f.shown)continue;
+        assert.equal(f.parent,button.id);assert(f.x>=0&&f.x+f.w<=button.w+.00001);
+        assert(-f.y>=0&&-f.y+f.h<=button.h+.00001);
+        if(f.type==='TEXT'){assert.equal(f.enabled,false);assert.equal(f.vertical,0);assert.equal(f.horizontal,0);}
+      }
+      assert.equal(t.frame(e.UIExpeditionPrototype_CandidateBonus[i]).shown,e.ProtoEventKind[id]===0);
+      const action=t.frame(e.ExpUIButtonLabels[index]),footer=t.frame(e.UIExpeditionPrototype_CandidateFooter[i]);
+      assert(action.id>footer.id,'하단 글자는 배경 다음에 생성해야 함');assert.equal(action.enabled,false);
+      assert(-footer.y<=-action.y&&-action.y+action.h<=-footer.y+footer.h);
+      if(e.ProtoEventKind[id]===0){
+        const icon=t.frame(e.UIExpeditionPrototype_CandidateIcon[i]),intro=t.frame(e.UIExpeditionPrototype_CandidateIntro[i]);
+        assert(-icon.y+icon.h<=-intro.y);
+      }
+    }
+    const first=t.frame(t.common(2101)),last=t.frame(t.common(2100+count));
+    assert(Math.abs(first.x-(.8-last.x-last.w))<.00001,'후보 행의 좌우 여백이 다름');
+    for(let i=2;i<=count;i++)assert(t.frame(t.common(2100+i-1)).x+first.w<t.frame(t.common(2100+i)).x);
+    for(let i=count+1;i<=4;i++)assert(!t.visible(e.ExpUIButtons[e.UIExpeditionPrototype_CandidateButtons[i]]));
+  }
+  assert(t.frame(e.UIExpeditionPrototype_CandidateRegion[2]).text.includes('지역 개방'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateBonus[2]).text.includes('메이링'));
+  assert.equal(e.ProtoEventIntro[107],'마리사가 문 대신 창문으로 들어와 책을 찾는다.');
+  e.ExpGold[0]=1100;t.render();const ap=e.ProtoAP[0];
+  const stale=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|2101`;
+  t.click(t.common(2300));assert.equal(e.ExpGold[0],600);assert.equal(e.ProtoAP[0],ap);
+  request(e,0,2101,stale);assert.equal(e.ProtoStage[0],1);assert.equal(e.ProtoAP[0],ap);
+  const id=e.ProtoCandidates[1];assert(t.frame(e.UIExpeditionPrototype_CandidateTitle[1]).text.includes(e.ProtoEventName[id]));
+  t.event(t.common(2101),2);const index=e.UIExpeditionPrototype_CandidateButtons[1];
+  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Selected.tga'));
+  t.event(t.common(2101),3);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Card.tga'));
+  for(let id=1;id<=e.PROTO_EVENT_COUNT;id++){
+    assert(e.ProtoEventIntro[id]);assert(e.ProtoEventStory[id].startsWith(e.ProtoEventIntro[id]));assert(e.ProtoEventIcon[id]);
+  }
+});
+check('전체 사건 화면의 이야기 유지, 비용 부족·선택 결과·접기·성장 카드 왕복',()=>{
+  const t=party(),e=t.e;e.ProtoGrantHead(0,2);e.ProtoOffer(0);e.ProtoCandidates[1]=25;e.ExpGold[0]=0;t.render();
+  const candidates=e.ProtoCandidates.slice(),version=e.ExpOfferVersion[0];
+  t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
+  assert(t.visible(e.UIExpeditionPrototype_HuntHUD));t.click(t.common(-98));assert.deepEqual(t.roots(),[9]);
+  assert(!t.visible(e.UIExpeditionPrototype_HuntHUD));assert.deepEqual(e.ProtoCandidates.slice(),candidates);assert.equal(e.ExpOfferVersion[0],version);
+  t.click(t.common(2101));assert.equal(e.ProtoStage[0],2);
+  assert(t.visible(e.UIExpeditionPrototype_StoryPanel));assert(!t.visible(e.UIExpeditionPrototype_OutcomePanel));
+  const story=t.frame(e.UIExpeditionPrototype_StoryText).text;
+  assert(story.includes(e.ProtoEventStory[25]));assert(t.frame(e.UIExpeditionPrototype_StoryTitle).text.includes(e.ProtoEventName[25]));
+  const first=e.UIExpeditionPrototype_BranchButtons[1];assert(!t.frame(e.ExpUIButtons[first]).enabled);
+  assert(t.frame(e.ExpUIButtonLabels[first]).text.includes('100골드'));
+  assert(t.frame(e.UIExpeditionPrototype_BranchAction[1]).text.includes('선택 불가'));
+  const toggle=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[9]];
+  t.click(toggle);assert.deepEqual(t.roots(),[]);assert(t.visible(e.UIExpeditionPrototype_HuntHUD));
+  t.click(toggle);assert.deepEqual(t.roots(),[9]);assert.equal(t.frame(e.UIExpeditionPrototype_StoryText).text,story);
+  t.click(t.common(2202));assert.equal(e.ProtoStage[0],3);
+  assert(t.visible(e.UIExpeditionPrototype_OutcomePanel));assert(t.frame(e.UIExpeditionPrototype_OutcomeText).text.includes(e.ProtoOutcome[0]));
+  assert.equal(t.frame(e.UIExpeditionPrototype_StoryText).text,story);assert(!t.visible(e.ExpUIButtons[first]));
+  assert(!t.visible(e.ExpUIButtons[e.UIExpeditionPrototype_RerollButton]));
+  for(const pid of [0,1]){
+    e.localPlayer=pid;e.PickCheck[pid]=true;e.ExpMember[pid]=true;e.UIExpeditionCommon_SeenRevision=-1;t.render();
+    assert.equal(t.visible(e.ExpUIRoots[9]),pid===0);
+  }
+  e.localPlayer=0;e.UIExpeditionCommon_SeenRevision=-1;t.render();t.click(t.common(2400));assert.equal(e.ProtoStage[0],0);assert(t.visible(e.UIExpeditionPrototype_HuntHUD));
 });
 console.log(`${checks} prototype scenario groups passed. Static JASS/mock checks only; Warcraft rendering, actual multiplayer and server persistence remain untested.`);

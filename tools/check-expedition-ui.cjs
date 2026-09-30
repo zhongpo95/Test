@@ -12,6 +12,7 @@ function fresh(localPlayer = 0, prototype = false) {
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(prototypeFiles, {
     F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
+    JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
     CreateTrigger: () => ({actions:[]}), TriggerAddAction: (t,fn) => t.actions.push(fn),
@@ -26,6 +27,7 @@ function fresh(localPlayer = 0, prototype = false) {
     DzFrameSetAbsolutePoint: (id,point,x,y) => Object.assign(frame(id),{x,y,absolute:true}),
     DzFrameSetSize: (id,w,h) => Object.assign(frame(id),{w,h}),
     DzFrameSetFont: (id,font,size,flags) => Object.assign(frame(id),{font,size}),
+    JNFrameSetTextAlignment: (id,vertical,horizontal) => Object.assign(frame(id),{vertical,horizontal}),
     DzFrameSetText: (id,text) => {frame(id).text=text;}, DzFrameSetTexture: (id,texture) => {frame(id).texture=texture;},
     // 설치된 Dz 구현은 CControl::Enable을 호출하므로 BACKDROP에는 사용할 수 없다.
     DzFrameSetEnable: (id,enabled) => {assert.notEqual(frame(id).type,'BACKDROP','DzFrameSetEnable cannot target a BACKDROP');frame(id).enabled=enabled;}, DzFrameShow: (id,shown) => {frame(id).shown=shown;},

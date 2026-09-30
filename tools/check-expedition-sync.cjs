@@ -10,7 +10,7 @@ const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
   I2S S2I R2I I2R R2SW IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges GetUnitState
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
-  DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha
+  DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha DzFrameSetFont
 `.trim().split(/\s+/));
 const allowedWrites = new Set(`
   ExpUIPanel FMap_OnOff

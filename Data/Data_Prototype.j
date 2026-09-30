@@ -18,6 +18,8 @@ library DataPrototype initializer ProtoDataInit requires DataExpedition
         integer array ProtoEventHead
         integer array ProtoEventKind
         string array ProtoEventStory
+        string array ProtoEventIntro
+        string array ProtoEventIcon
 
         integer array ProtoHeadEntryCard
         integer array ProtoEventRequired
@@ -110,6 +112,14 @@ library DataPrototype initializer ProtoDataInit requires DataExpedition
         set ProtoEventHead[id] = head
         set ProtoEventKind[id] = 1
         set ProtoEventStory[id] = story
+        set ProtoEventIntro[id] = JNStringSplit(story, ".", 0) + "."
+        if head == 1 then
+            set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
+        elseif head == 2 then
+            set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
+        else
+            set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        endif
         set ProtoEventRequired[id] = previous
         set ProtoEventRequiredChoice[id] = choice
     endfunction
@@ -128,9 +138,21 @@ library DataPrototype initializer ProtoDataInit requires DataExpedition
         set ProtoBranchHealth[key] = health
         set ProtoBranchPotions[key] = potions
         set ProtoBranchChance[key] = chance
+        if choice == 1 then
+            if card > 0 and ProtoCardKind[card] == 4 then
+                set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNPeriapt.blp"
+            elseif card > 0 and ProtoCardKind[card] == 2 then
+                set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp"
+            elseif card > 0 and ProtoCardKind[card] == 6 then
+                set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp"
+            elseif gold > 0 or (card > 0 and ProtoCardKind[card] == 3) then
+                set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
+            endif
+        endif
     endfunction
 
     private function ProtoDataInit takes nothing returns nothing
+        local integer id = 1
         set ProtoCardKeyword[13] = "공통 · 수급"
         set ProtoCardKeyword[14] = "공통 · 관통"
         set ProtoCardKeyword[15] = "공통 · 피해"
@@ -815,5 +837,17 @@ library DataPrototype initializer ProtoDataInit requires DataExpedition
         call ProtoSetScene(108, 3, "얼음 때문에 늦은 배달", "치르노가 호숫가의 짐을 얼려 버렸다. 배달원이 더 늦기 전에 도와 달라고 한다. 얼음을 깨거나 치르노에게 풀어 달라고 설득할 수 있다.", 0, 0)
         call ProtoSetBranch(108, 1, "치르노의 얼음을 깨며 겨룬다", "얼음이 깨져 짐이 풀렸다. 치르노의 기억과 실전 경험이 남는다.", 48, 0, 0, 0, 0, 1, 0.0, 0, 0, 0)
         call ProtoSetBranch(108, 2, "짐을 풀도록 설득한다", "겨루지 않고 짐을 옮겼다. 배달원이 보수를 준다.", 0, 0, 160, 0, 0, 0, 0.0, 20, 0, 0)
+        // 후보에는 첫 장면만 보여 주고, 행동 선택 화면에서 사건 설명을 이어 읽는다.
+        loop
+            exitwhen id > 12
+            set ProtoEventIntro[id] = JNStringSplit(ProtoEventStory[id], ".", 0) + "."
+            set ProtoEventIcon[id] = "ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp"
+            set id = id + 1
+        endloop
+        // 반디 사건은 기존 영웅 선택창의 인물 이미지를 재사용한다.
+        set ProtoEventIcon[26] = "UI_HeroPot3.blp"
+        set ProtoEventIcon[85] = "UI_HeroPot3.blp"
+        set ProtoEventIcon[86] = "UI_HeroPot3.blp"
+        set ProtoEventIcon[94] = "UI_HeroPot3.blp"
     endfunction
 endlibrary
