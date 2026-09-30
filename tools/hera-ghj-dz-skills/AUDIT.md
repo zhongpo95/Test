@@ -1,4 +1,6 @@
-# GHJ 1.5 Dz 지점 시전 점검
+# GHJ 1.6 Dz 지점 시전 점검
+
+정식 파일은 `GHJ 1.6.w3x`이며, 맵 제목과 인게임 `GameVersion`은 1.6이다. Dz 수정본 GHJ 1.5에서 버전 메타데이터만 변경했고 스킬 코드는 동일하다. 1.6 맵의 로드와 화면 표시는 아직 실제 게임에서 확인하지 않았다.
 
 원본 맵 SHA-256은 `1c8ff203bfea4ca44cc16736703f47a6c50f2a83b6ea75ec31a6d4638c7924f7`이다. 아래 목록은 `shot/act.lua`의 단축키 분기, `Units/AbilityData.slk`, 능력 UI 데이터, `ShootSkillMapping`을 대조한 정적 결과다.
 
