@@ -1,0 +1,21 @@
+# 로컬 Gemma의 용도 제한과 번역 서식 보존을 모델 다운로드 없이 검사한다.
+name: Local Gemma checks
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/local-gemma/**', '.github/workflows/local-gemma-checks.yml']
+  push:
+    branches: [main]
+    paths: ['tools/local-gemma/**', '.github/workflows/local-gemma-checks.yml']
+permissions:
+  contents: read
+jobs:
+  local-gemma:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check tools/local-gemma/server.cjs
+      - run: node --test tools/local-gemma/check.cjs

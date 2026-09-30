@@ -1,0 +1,93 @@
+<!-- 로컬 Gemma 번역과 사건 스토리 제작 화면을 제공한다. -->
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcana · 로컬 Gemma</title>
+<style>
+  :root { color-scheme: dark; font-family: "Malgun Gothic", sans-serif; background: #10151e; color: #edf0f7; }
+  body { margin: 32px auto; max-width: 1120px; padding: 0 24px; }
+  h1 { font-size: 26px; margin-bottom: 8px; } p { color: #abb8cb; line-height: 1.7; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  label { display: block; margin: 14px 0 8px; font-size: 14px; }
+  select, button, textarea { font: inherit; color: inherit; border: 1px solid #3d4b61; border-radius: 8px; background: #192230; padding: 11px 14px; }
+  textarea { box-sizing: border-box; width: 100%; resize: vertical; line-height: 1.7; }
+  button { cursor: pointer; } button.primary { background: #6055cc; border-color: #8b80ee; } button:disabled { opacity: .45; cursor: default; }
+  #status { font-size: 13px; color: #b9cfb5; } #message { min-height: 28px; color: #cfbffd; white-space: pre-wrap; }
+  #output { min-height: 438px; } small { color: #a9b5c6; } [hidden] { display: none !important; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } body { margin-top: 20px; } }
+</style>
+<h1>Arcana · 로컬 Gemma</h1>
+<p>게임 텍스트 번역과 사건·스토리 초안을 만드는 작업 공간입니다.</p>
+<div class="row">
+  <select id="mode" aria-label="작업 종류"><option value="translate">번역</option><option value="story">사건·스토리 제작</option></select>
+  <select id="language" aria-label="목표 언어"><option value="ko">한국어로 번역</option><option value="en">영어로 번역</option><option value="zh">중국어로 번역</option><option value="ja">일본어로 번역</option></select>
+  <select id="world" aria-label="사건 세계관" hidden><option value="academy">학원도시</option><option value="penacony">페나코니</option><option value="scarlet">홍마관</option><option value="original">새로운 세계관</option></select>
+  <span id="status">모델 연결을 확인하고 있습니다.</span>
+</div>
+<div class="grid">
+  <section>
+    <label for="input" id="inputLabel">번역할 문장·아이템 설명</label>
+    <textarea id="input" rows="12" maxlength="4000" placeholder="获得100金币。|n恢复药水+1次。"></textarea>
+    <small id="help">최대 4,000자. 색상·줄바꿈 서식, 수치, {변수}, %s, rawcode와 경로를 보존합니다.</small>
+    <label for="glossary">용어집 · 원문=사용할 표현</label>
+    <textarea id="glossary" rows="3" maxlength="1500" placeholder="金币=골드&#10;恢复药水=회복 물약"></textarea>
+    <div class="row"><button class="primary" id="run">번역하기</button><button id="cancel" disabled>중단</button><button id="unload">GPU 메모리 해제</button></div>
+  </section>
+  <section>
+    <label for="output">결과 · 검토 후 사용</label>
+    <textarea id="output" readonly placeholder="결과가 여기에 표시됩니다."></textarea>
+    <div class="row"><button id="copy" disabled>복사</button><button id="download" disabled>초안 저장</button></div>
+  </section>
+</div>
+<div id="message" role="status" aria-live="polite"></div>
+<p><small>사건 초안의 원작 설정과 밸런스는 검토가 필요합니다. 입력·결과는 화면을 닫으면 사라지므로 필요한 결과는 저장해 주세요.</small></p>
+<script>
+  const token = '__SESSION_TOKEN__';
+  const $ = id => document.getElementById(id);
+  let controller;
+  let ready = false;
+  let resultMode = 'translate';
+  async function api(url, body, signal) {
+    const reply = await fetch(url, {method: body ? 'POST' : 'GET', headers: {'Content-Type': 'application/json', 'X-Session-Token': token}, body: body ? JSON.stringify(body) : undefined, signal});
+    const data = await reply.json();
+    if (!reply.ok) throw new Error(data.error || '요청 실패.');
+    return data;
+  }
+  async function status() {
+    try { const data = await api('/api/status'); ready = data.ready; $('status').textContent = ready ? 'Gemma 4 12B QAT · 로컬 실행 준비 완료' : '모델 설치가 필요합니다. 설치.cmd를 실행해 주세요.'; }
+    catch (error) { ready = false; $('status').textContent = error.message; }
+    $('run').disabled = !ready || !!controller;
+  }
+  $('mode').onchange = () => {
+    const story = $('mode').value === 'story';
+    $('world').hidden = !story; $('language').hidden = story;
+    $('run').textContent = story ? '사건 초안 만들기' : '번역하기';
+    $('inputLabel').textContent = story ? '사건 요청 · 상황, 등장인물, 선택과 보상 조건' : '번역할 문장·아이템 설명';
+    $('input').placeholder = story ? '잃어버린 편지를 발견하는 개인 사건. 골드 보상은 100, 비용 없는 선택과 다음 사건의 단서를 포함해 줘.' : '获得100金币。|n恢复药水+1次。';
+    $('help').textContent = story ? '최대 4,000자. 원하는 길이·말투·선행 사건과 반드시 지킬 수치를 적어 주세요.' : '최대 4,000자. 색상·줄바꿈 서식, 수치, {변수}, %s, rawcode와 경로를 보존합니다.';
+  };
+  async function run(unload = false) {
+    if (controller) return;
+    controller = new AbortController();
+    $('run').disabled = $('unload').disabled = true; $('cancel').disabled = false;
+    $('mode').disabled = $('language').disabled = $('world').disabled = true;
+    $('message').textContent = unload ? 'GPU 메모리를 해제하고 있습니다.' : '생성 중입니다. 첫 요청은 모델을 불러오는 시간이 추가됩니다.';
+    const mode = $('mode').value;
+    try {
+      const data = await api(unload ? '/api/unload' : '/api/run', unload ? {} : {mode, language: $('language').value, world: $('world').value, text: $('input').value, glossary: $('glossary').value}, controller.signal);
+      if (unload) $('message').textContent = data.text;
+      else { $('output').value = data.text; resultMode = mode; $('copy').disabled = $('download').disabled = false; $('message').textContent = `완료. ${data.seconds.toFixed(1)}초 · ${data.tokensPerSecond.toFixed(1)}토큰/초`; }
+    } catch (error) { $('message').textContent = error.name === 'AbortError' ? '요청을 중단했습니다.' : error.message; }
+    finally { controller = null; $('cancel').disabled = true; $('unload').disabled = false; $('mode').disabled = $('language').disabled = $('world').disabled = false; await status(); }
+  }
+  $('run').onclick = () => run(); $('unload').onclick = () => run(true); $('cancel').onclick = () => controller?.abort();
+  $('copy').onclick = async () => { try { await navigator.clipboard.writeText($('output').value); $('message').textContent = '결과를 복사했습니다.'; } catch { $('output').select(); $('message').textContent = '결과가 선택됐습니다. Ctrl+C로 복사해 주세요.'; } };
+  $('download').onclick = () => {
+    const blob = new Blob([$('output').value], {type: 'text/plain;charset=utf-8'});
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `gemma-${resultMode}-${Date.now()}.txt`; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  };
+  status();
+</script>
+</html>
