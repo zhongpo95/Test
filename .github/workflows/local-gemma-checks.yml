@@ -1,4 +1,4 @@
-# 로컬 Gemma의 용도 제한과 번역 서식 보존을 모델 다운로드 없이 검사한다.
+# 로컬 Gemma의 번역 보존과 텍스트·이미지 검토 연결을 모델 다운로드 없이 검사한다.
 name: Local Gemma checks
 on:
   pull_request:
@@ -18,4 +18,5 @@ jobs:
         with:
           node-version: '24'
       - run: node --check tools/local-gemma/server.cjs
+      - run: node --check tools/local-gemma/review.cjs
       - run: node --test tools/local-gemma/check.cjs

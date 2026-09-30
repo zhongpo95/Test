@@ -1,4 +1,4 @@
-<!-- 로컬 Gemma 번역과 사건 스토리 제작 화면을 제공한다. -->
+<!-- 로컬 Gemma 번역과 사건 제작 및 텍스트와 이미지 검토 대화 화면을 제공한다. -->
 <!doctype html>
 <html lang="ko">
 <meta charset="utf-8">
@@ -16,39 +16,69 @@
   button { cursor: pointer; } button.primary { background: #6055cc; border-color: #8b80ee; } button:disabled { opacity: .45; cursor: default; }
   #status { font-size: 13px; color: #b9cfb5; } #message { min-height: 28px; color: #cfbffd; white-space: pre-wrap; }
   #output { min-height: 438px; } small { color: #a9b5c6; } [hidden] { display: none !important; }
+  #imageList { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+  #imageList figure { margin: 0; max-width: 200px; } #imageList img { max-width: 200px; max-height: 140px; object-fit: contain; }
+  #imageList figcaption { font-size: 12px; overflow-wrap: anywhere; color: #abb8cb; }
   @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } body { margin-top: 20px; } }
 </style>
 <h1>Arcana · 로컬 Gemma</h1>
-<p>게임 텍스트 번역과 사건·스토리 초안을 만드는 작업 공간입니다.</p>
+<p>게임 텍스트 번역과 사건·스토리 제작, 초안을 함께 검토하는 작업 공간입니다.</p>
 <div class="row">
-  <select id="mode" aria-label="작업 종류"><option value="translate">번역</option><option value="story">사건·스토리 제작</option></select>
+  <select id="mode" aria-label="작업 종류"><option value="translate">번역</option><option value="story">사건·스토리 제작</option><option value="review">초안 검토 · 대화</option></select>
+  <select id="reviewKind" aria-label="검토 대상" hidden><option value="translate">번역문 검토</option><option value="story">사건 초안 검토</option><option value="image">프로젝트 이미지 검토</option></select>
   <select id="language" aria-label="목표 언어"><option value="ko">한국어로 번역</option><option value="en">영어로 번역</option><option value="zh">중국어로 번역</option><option value="ja">일본어로 번역</option></select>
   <select id="world" aria-label="사건 세계관" hidden><option value="academy">학원도시</option><option value="penacony">페나코니</option><option value="scarlet">홍마관</option><option value="original">새로운 세계관</option></select>
   <span id="status">모델 연결을 확인하고 있습니다.</span>
 </div>
 <div class="grid">
   <section>
+    <div id="generationFields">
     <label for="input" id="inputLabel">번역할 문장·아이템 설명</label>
     <textarea id="input" rows="12" maxlength="4000" placeholder="获得100金币。|n恢复药水+1次。"></textarea>
     <small id="help">최대 4,000자. 색상·줄바꿈 서식, 수치, {변수}, %s, rawcode와 경로를 보존합니다.</small>
-    <label for="glossary">용어집 · 원문=사용할 표현</label>
+    </div>
+    <div id="reviewFields" hidden>
+      <label for="brief">원문 · 원래 요청</label>
+      <textarea id="brief" rows="3" maxlength="4000" placeholder="번역 원문 또는 제가 처음 요청한 사건 조건을 입력하세요."></textarea>
+      <label for="draft" id="draftLabel">검토할 초안 · Codex가 만든 글도 붙여 넣을 수 있습니다.</label>
+      <textarea id="draft" rows="6" maxlength="4000" placeholder="검토할 번역문이나 사건 초안"></textarea>
+      <small>짧은 초안부터 검토하세요. 첫 검토가 끝나면 원래 요청과 초안이 고정됩니다. 수정본은 아래 질문에 보내 주세요.</small>
+    </div>
+    <label for="glossary" id="glossaryLabel">용어집 · 원문=사용할 표현</label>
     <textarea id="glossary" rows="3" maxlength="1500" placeholder="金币=골드&#10;恢复药水=회복 물약"></textarea>
+    <div id="questionFields" hidden>
+      <label for="images">검토 이미지 · 처음 자료나 수정 이미지 첨부</label>
+      <input id="images" type="file" accept="image/png,image/jpeg,image/webp" multiple>
+      <small id="imageHelp">PNG·JPEG·WebP. 긴 변은 2,048px로 줄여 보내며 원본은 바꾸지 않습니다. 대화 전체 최대 3장. 작은 글씨는 확대한 부분 이미지도 함께 보내 주세요.</small>
+      <div id="imageList"></div>
+      <label for="question">검토 질문 · 후속 질문이나 수정본</label>
+      <textarea id="question" rows="3" maxlength="1500">원래 요청에 맞는지 검토해 줘. 반드시 고칠 부분과 확인이 필요한 부분을 구분해 줘.</textarea>
+      <small>후속 질문·수정본은 최대 1,500자입니다.</small>
+      <button id="newReview">새 검토</button>
+    </div>
     <div class="row"><button class="primary" id="run">번역하기</button><button id="cancel" disabled>중단</button><button id="unload">GPU 메모리 해제</button></div>
   </section>
   <section>
-    <label for="output">결과 · 검토 후 사용</label>
+    <label for="output" id="outputLabel">결과 · 검토 후 사용</label>
     <textarea id="output" readonly placeholder="결과가 여기에 표시됩니다."></textarea>
-    <div class="row"><button id="copy" disabled>복사</button><button id="download" disabled>초안 저장</button></div>
+    <p id="reviewAudit" hidden></p>
+    <div class="row"><button id="reviewResult" disabled>이 결과 검토</button><button id="copy" disabled>복사</button><button id="download" disabled>초안 저장</button></div>
   </section>
 </div>
 <div id="message" role="status" aria-live="polite"></div>
-<p><small>사건 초안의 원작 설정과 밸런스는 검토가 필요합니다. 입력·결과는 화면을 닫으면 사라지므로 필요한 결과는 저장해 주세요.</small></p>
+<p><small>Gemma 검토는 오류를 놓칠 수 있습니다. 원작 설정·밸런스·게임 동작은 별도 확인이 필요합니다. 입력·결과·대화는 새로고침하거나 화면을 닫으면 사라지므로 필요한 내용은 저장해 주세요.</small></p>
 <script>
   const token = '__SESSION_TOKEN__';
   const $ = id => document.getElementById(id);
   let controller;
   let ready = false;
-  let resultMode = 'translate';
+  let generated;
+  let reviewSeed;
+  let reviewHistory = [];
+  let reviewCheck;
+  let pendingImages = [];
+  let imageLoading = false;
+  const firstQuestion = $('question').value;
   async function api(url, body, signal) {
     const reply = await fetch(url, {method: body ? 'POST' : 'GET', headers: {'Content-Type': 'application/json', 'X-Session-Token': token}, body: body ? JSON.stringify(body) : undefined, signal});
     const data = await reply.json();
@@ -58,35 +88,121 @@
   async function status() {
     try { const data = await api('/api/status'); ready = data.ready; $('status').textContent = ready ? 'Gemma 4 12B QAT · 로컬 실행 준비 완료' : '모델 설치가 필요합니다. 설치.cmd를 실행해 주세요.'; }
     catch (error) { ready = false; $('status').textContent = error.message; }
-    $('run').disabled = !ready || !!controller;
+    controls();
   }
-  $('mode').onchange = () => {
-    const story = $('mode').value === 'story';
-    $('world').hidden = !story; $('language').hidden = story;
-    $('run').textContent = story ? '사건 초안 만들기' : '번역하기';
+  function controls() {
+    const active = !!controller;
+    const working = active || imageLoading;
+    const locked = $('mode').value === 'review' && !!reviewSeed;
+    $('run').disabled = !ready || working;
+    $('cancel').disabled = !active;
+    $('unload').disabled = $('mode').disabled = $('input').disabled = $('question').disabled = $('newReview').disabled = $('images').disabled = working;
+    for (const id of ['language', 'world', 'reviewKind', 'brief', 'draft', 'glossary']) $(id).disabled = working || locked;
+    for (const button of $('imageList').querySelectorAll('button')) button.disabled = working;
+    $('reviewResult').disabled = working || !generated;
+    $('copy').disabled = $('download').disabled = working || !$('output').value;
+  }
+  function transcript() {
+    if (!reviewSeed) return '';
+    const context = `검토 대상. ${reviewSeed.kind === 'translate' ? '번역문 · ' + reviewSeed.language : reviewSeed.kind === 'story' ? '사건 초안 · ' + reviewSeed.world : '프로젝트 이미지'}\n\n원문·원래 요청\n${reviewSeed.brief}\n\n처음 초안\n${reviewSeed.draft || '(이미지 첨부)'}\n\n용어집·참고 설정\n${reviewSeed.glossary || '(없음)'}`;
+    return context + '\n\n' + reviewHistory.map(turn => `${turn.role === 'user' ? '나' : 'Gemma'}.\n${turn.content}${turn.images?.length ? '\n첨부 이미지. ' + turn.images.map(item => item.name).join(', ') : ''}`).join('\n\n');
+  }
+  function renderImages() {
+    $('imageList').replaceChildren();
+    const previous = reviewHistory.flatMap(turn => turn.images || []);
+    for (const [index, item] of [...previous, ...pendingImages].entries()) {
+      const figure = document.createElement('figure');
+      const img = document.createElement('img'); img.src = item.data; img.alt = item.name;
+      const caption = document.createElement('figcaption'); caption.textContent = `${index < previous.length ? '이전 첨부' : '이번 첨부'} · ${item.name}`;
+      figure.append(img, caption);
+      if (index >= previous.length) {
+        const button = document.createElement('button'); button.textContent = '첨부 취소'; button.onclick = () => { pendingImages.splice(index - previous.length, 1); renderImages(); controls(); }; figure.append(button);
+      }
+      $('imageList').append(figure);
+    }
+  }
+  async function readImage(file) {
+    if (!['image/png', 'image/jpeg', 'image/webp'].includes(file.type) || file.size > 10 * 1024 * 1024) throw new Error('PNG·JPEG·WebP 파일이며 원본은 10MB 이내여야 합니다.');
+    let data = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(new Error('이미지를 읽을 수 없습니다.')); reader.readAsDataURL(file); });
+    const image = new Image(); image.src = data; await image.decode();
+    if (image.naturalWidth * image.naturalHeight > 40000000) throw new Error('이미지가 너무 큽니다. 검토할 부분을 잘라서 첨부해 주세요.');
+    if (Math.max(image.naturalWidth, image.naturalHeight) > 2048 || file.type === 'image/webp') {
+      const scale = Math.min(1, 2048 / Math.max(image.naturalWidth, image.naturalHeight));
+      const canvas = document.createElement('canvas'); canvas.width = Math.max(1, Math.round(image.naturalWidth * scale)); canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+      data = canvas.toDataURL(file.type === 'image/jpeg' ? 'image/jpeg' : 'image/png', 0.9);
+    }
+    if (data.length > 5600000) throw new Error('전송 이미지가 4MB를 넘습니다. 크기를 줄이거나 부분 이미지를 첨부해 주세요.');
+    return {name: file.name, data};
+  }
+  $('images').onchange = async () => {
+    const files = [...$('images').files];
+    imageLoading = true; controls();
+    try {
+      if (reviewHistory.flatMap(turn => turn.images || []).length + pendingImages.length + files.length > 3) throw new Error('이전 이미지와 이번 이미지를 합쳐 최대 3장입니다. 새 검토를 시작해 주세요.');
+      const attached = [];
+      for (const file of files) attached.push(await readImage(file));
+      pendingImages.push(...attached); renderImages(); $('message').textContent = '이미지를 첨부했습니다. 질문과 함께 로컬 모델로 전송합니다.';
+    } catch (error) { $('message').textContent = error.message; }
+    finally { $('images').value = ''; imageLoading = false; controls(); }
+  };
+  function renderMode() {
+    const review = $('mode').value === 'review';
+    if (reviewSeed && review) {
+      $('reviewKind').value = reviewSeed.kind; $('language').value = reviewSeed.language; $('world').value = reviewSeed.world;
+      $('brief').value = reviewSeed.brief; $('draft').value = reviewSeed.draft; $('glossary').value = reviewSeed.glossary;
+    }
+    const story = review ? $('reviewKind').value === 'story' : $('mode').value === 'story';
+    $('generationFields').hidden = review;
+    $('reviewFields').hidden = $('questionFields').hidden = $('reviewKind').hidden = !review;
+    $('world').hidden = !story; $('language').hidden = story || (review && $('reviewKind').value === 'image');
+    $('draftLabel').textContent = review && $('reviewKind').value === 'image' ? '이미지 설명 · 텍스트 초안 · 선택 입력' : '검토할 초안 · Codex가 만든 글도 붙여 넣을 수 있습니다.';
+    $('run').textContent = review ? (reviewSeed ? '대화 보내기' : '검토 시작') : story ? '사건 초안 만들기' : '번역하기';
     $('inputLabel').textContent = story ? '사건 요청 · 상황, 등장인물, 선택과 보상 조건' : '번역할 문장·아이템 설명';
     $('input').placeholder = story ? '잃어버린 편지를 발견하는 개인 사건. 골드 보상은 100, 비용 없는 선택과 다음 사건의 단서를 포함해 줘.' : '获得100金币。|n恢复药水+1次。';
     $('help').textContent = story ? '최대 4,000자. 원하는 길이·말투·선행 사건과 반드시 지킬 수치를 적어 주세요.' : '최대 4,000자. 색상·줄바꿈 서식, 수치, {변수}, %s, rawcode와 경로를 보존합니다.';
+    $('glossaryLabel').textContent = review ? '용어집 · 참고 설정 · 검토 기준' : '용어집 · 원문=사용할 표현';
+    $('outputLabel').textContent = review ? '검토 대화 · 처음 자료와 질문·답변' : '결과 · 검토 후 사용';
+    $('output').value = review ? transcript() : generated?.text || '';
+    $('download').textContent = review ? '자료·대화 저장' : '초안 저장';
+    $('reviewAudit').hidden = !review || !reviewCheck;
+    $('reviewAudit').textContent = reviewCheck ? `처음 초안의 서식·수치 검사. ${reviewCheck.status}. 누락 ${JSON.stringify(reviewCheck.missing)}, 추가 ${JSON.stringify(reviewCheck.extra)}${reviewCheck.formatOrderChanged ? ', 서식 순서 변경' : ''}. 의미의 정확성은 별도 검토합니다.` : '';
+    renderImages(); controls();
+  }
+  $('mode').onchange = $('reviewKind').onchange = renderMode;
+  $('newReview').onclick = () => { reviewSeed = undefined; reviewHistory = []; reviewCheck = undefined; pendingImages = []; $('question').value = firstQuestion; renderMode(); $('message').textContent = '새 검토를 준비했습니다. 원래 요청과 초안을 수정할 수 있습니다.'; };
+  $('reviewResult').onclick = () => {
+    $('mode').value = 'review';
+    if (reviewHistory.length) { renderMode(); $('message').textContent = '검토 대화가 남아 있습니다. 필요한 대화를 저장한 뒤 새 검토를 누르고 결과를 다시 넘겨 주세요.'; return; }
+    $('reviewKind').value = generated.mode; $('language').value = generated.language; $('world').value = generated.world;
+    $('brief').value = generated.brief; $('draft').value = generated.text; $('glossary').value = generated.glossary; $('question').value = firstQuestion;
+    renderMode(); $('message').textContent = '생성 당시 요청과 결과를 가져왔습니다. 검토 시작을 누르세요.';
   };
   async function run(unload = false) {
-    if (controller) return;
-    controller = new AbortController();
-    $('run').disabled = $('unload').disabled = true; $('cancel').disabled = false;
-    $('mode').disabled = $('language').disabled = $('world').disabled = true;
-    $('message').textContent = unload ? 'GPU 메모리를 해제하고 있습니다.' : '생성 중입니다. 첫 요청은 모델을 불러오는 시간이 추가됩니다.';
+    if (controller || imageLoading) return;
     const mode = $('mode').value;
+    const seed = reviewSeed || {kind: $('reviewKind').value, language: $('language').value, world: $('world').value, brief: $('brief').value, draft: $('draft').value, glossary: $('glossary').value};
+    const request = mode === 'review' ? {mode, ...seed, text: $('question').value, images: pendingImages, history: reviewHistory} : {mode, language: $('language').value, world: $('world').value, text: $('input').value, glossary: $('glossary').value};
+    controller = new AbortController(); controls();
+    $('message').textContent = unload ? 'GPU 메모리를 해제하고 있습니다.' : mode === 'review' ? 'Gemma가 초안을 검토하고 있습니다.' : '생성 중입니다. 첫 요청은 모델을 불러오는 시간이 추가됩니다.';
     try {
-      const data = await api(unload ? '/api/unload' : '/api/run', unload ? {} : {mode, language: $('language').value, world: $('world').value, text: $('input').value, glossary: $('glossary').value}, controller.signal);
+      const data = await api(unload ? '/api/unload' : '/api/run', unload ? {} : request, controller.signal);
       if (unload) $('message').textContent = data.text;
-      else { $('output').value = data.text; resultMode = mode; $('copy').disabled = $('download').disabled = false; $('message').textContent = `완료. ${data.seconds.toFixed(1)}초 · ${data.tokensPerSecond.toFixed(1)}토큰/초`; }
+      else {
+        if (mode === 'review') { reviewSeed = seed; reviewCheck = data.reviewCheck; reviewHistory.push({role: 'user', content: request.text, ...(pendingImages.length ? {images: pendingImages} : {})}, {role: 'assistant', content: data.text}); pendingImages = []; $('question').value = ''; $('question').placeholder = '지적한 부분을 고쳤어. 수정본. …\n처음 조건에 맞는지 다시 확인해 줘.'; }
+        else generated = {...request, brief: request.text, text: data.text};
+        renderMode(); $('output').scrollTop = $('output').scrollHeight;
+        $('message').textContent = `완료. ${data.seconds.toFixed(1)}초 · ${data.tokensPerSecond.toFixed(1)}토큰/초`;
+      }
     } catch (error) { $('message').textContent = error.name === 'AbortError' ? '요청을 중단했습니다.' : error.message; }
-    finally { controller = null; $('cancel').disabled = true; $('unload').disabled = false; $('mode').disabled = $('language').disabled = $('world').disabled = false; await status(); }
+    finally { controller = null; await status(); }
   }
   $('run').onclick = () => run(); $('unload').onclick = () => run(true); $('cancel').onclick = () => controller?.abort();
   $('copy').onclick = async () => { try { await navigator.clipboard.writeText($('output').value); $('message').textContent = '결과를 복사했습니다.'; } catch { $('output').select(); $('message').textContent = '결과가 선택됐습니다. Ctrl+C로 복사해 주세요.'; } };
   $('download').onclick = () => {
-    const blob = new Blob([$('output').value], {type: 'text/plain;charset=utf-8'});
-    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `gemma-${resultMode}-${Date.now()}.txt`; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    const review = $('mode').value === 'review';
+    const blob = new Blob([review ? JSON.stringify({...reviewSeed, text: $('question').value || firstQuestion, history: reviewHistory}, null, 2) : $('output').value], {type: review ? 'application/json;charset=utf-8' : 'text/plain;charset=utf-8'});
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `gemma-${review ? 'review' : generated.mode}-${Date.now()}.${review ? 'json' : 'txt'}`; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   };
   status();
 </script>
