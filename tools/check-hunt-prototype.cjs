@@ -16,8 +16,9 @@ function request(e,pid,action,packet){
 }
 function choose(e,pid,id,branch=1){
   e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;
-  request(e,pid,2101);assert.equal(e.ProtoStage[pid],2);
-  request(e,pid,2200+branch);assert.equal(e.ProtoStage[pid],3);
+  request(e,pid,2101);
+  if(e.ProtoEventKind[id]!==0){assert.equal(e.ProtoStage[pid],2);request(e,pid,2200+branch);}
+  assert.equal(e.ProtoStage[pid],3);
   request(e,pid,2400);assert.equal(e.ProtoStage[pid],0);
 }
 check('머리 카드 없음은 도감 동기화 전에도 준비·출발 가능, 발견하지 않은 머리는 차단',()=>{
@@ -198,7 +199,8 @@ check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피�
 check('획득 카드 전체를 로컬 페이지로 확인, 효과·각성 진행 표시와 난이도 HUD 갱신',()=>{
   const t=party(),e=t.e,notices=[];e.DisplayTimedTextToPlayer=(player,x,y,seconds,text)=>notices.push(text);
   for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)e.ProtoGrantCard(0,id);
-  assert.equal(notices.length,24);assert(notices[0].includes(e.ProtoCardName[13]));
+  const count=e.PROTO_CARD_LAST-e.PROTO_CARD_FIRST+1;
+  assert.equal(notices.length,count);assert(notices[0].includes(e.ProtoCardName[13]));
   e.ProtoGrantHead(0,1);e.ExpUIOpen(5);t.render();const effect=t.frame(e.UIExpeditionStats_Effects);
   const previous=e.ExpUIButtons[e.UIExpeditionStats_PreviousCard],next=e.ExpUIButtons[e.UIExpeditionStats_NextCard];
   assert(effect.text.includes('학원도시'));assert(effect.text.includes(e.ProtoCardName[13]));assert(!t.frame(previous).enabled);
@@ -206,9 +208,9 @@ check('획득 카드 전체를 로컬 페이지로 확인, 효과·각성 진행
   t.event(next,4,1);t.render();assert(effect.text.includes(e.ProtoCardName[14]));
   t.click(next);e.ProtoCardProgress[15]=9;t.render();assert(effect.text.includes('9/25'));
   e.ProtoEvolved[15]=true;t.render();assert(effect.text.includes('각성 · 피해 +25%'));
-  for(let i=3;i<24;i++)t.click(next);assert(effect.text.includes(e.ProtoCardName[36]));assert(!t.frame(next).enabled);
-  assert.equal(t.packets.length,0);assert.equal(e.ExpCardOwned.filter(Boolean).length,24);
-  t.click(previous);assert(effect.text.includes(e.ProtoCardName[35]));
+  for(let i=3;i<count;i++)t.click(next);assert(effect.text.includes(e.ProtoCardName[e.PROTO_CARD_LAST]));assert(!t.frame(next).enabled);
+  assert.equal(t.packets.length,0);assert.equal(e.ExpCardOwned.filter(Boolean).length,count);
+  t.click(previous);assert(effect.text.includes(e.ProtoCardName[e.PROTO_CARD_LAST-1]));
   e.ProtoLevel[0]=2;t.render();const hud=t.frame(e.UIExpeditionPrototype_HuntStatus);
   assert(hud.text.includes('몬스터 체력 390'));assert(hud.text.includes('5.0%'));
   e.ExpCardOwned.fill(false);e.ProtoHeadOwned.fill(false);t.render();assert(effect.text.includes('획득한 성장 카드 없음'));
@@ -247,7 +249,7 @@ check('다른 로컬 플레이어의 클라이언트에서 같은 요청은 같�
     e.online=[true,true,false,false];e.ProtoCodexSlot[0]=e.ProtoCodexSlot[1]=1;
     request(e,0,2001);request(e,1,2001);
     for(let i=0;i<4;i++)e.ProtoTick();
-    choose(e,0,1,1);choose(e,1,5,1);choose(e,0,13,1);
+    choose(e,0,1,1);choose(e,1,6,1);choose(e,0,13,1);
     e.UnitHP[e.HuntUnits[1].id]=0;e.ProtoTick();
   }
   const snapshot=e=>({state:e.ExpState,seconds:e.ExpSeconds,ap:e.ProtoAP.slice(0,4),gold:e.ExpGold.slice(0,4),heads:e.ProtoHeadOwned.slice(),known:e.ProtoHeadKnown.slice(),used:e.ProtoEventUsed.slice(),cards:e.ExpCardOwned.slice(),kills:e.ProtoKills.slice(0,4),damage:e.ProtoDamageBonus.slice(0,4),hp:e.HuntUnits.filter(Boolean).map(u=>e.UnitHP[u.id])});
@@ -261,6 +263,121 @@ check('사건 만료는 후보 AP 미소비 또는 무료 분기, 대기실 이�
   const lobby=fresh(0,true).e;lobby.online=[true,true,false,false];request(lobby,0,2001);assert.equal(lobby.ExpState,lobby.EXP_LOBBY);
   lobby.eventPlayer=1;lobby.Leave();assert.equal(lobby.ExpState,lobby.EXP_HUNT);assert.equal(lobby.ExpPlayers,1);
 });
+check('머리 후보는 AP 한 번으로 바로 성장, 4인 각자의 같은 지역 입구와 중복 패킷 차단',()=>{
+  const t=party(4),e=t.e;
+  for(let pid=0;pid<4;pid++){
+    const id=pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;
+    assert(e.ProtoEventEligible(pid,id));assert(!e.ProtoEventEligible(pid,(pid+1)%4+1));
+    const packet=''+e.ExpRun+'|'+e.ExpRevision+'|'+e.ExpOfferVersion[pid]+'|2101';
+    request(e,pid,2101,packet);
+    assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],9);assert.equal(e.ProtoHeadCount[pid],1);
+    assert.equal(e.ProtoDamageBonus[pid],5);assert(e.ExpCardOwned[e.ExpKey(pid,20)]);
+    assert(e.ProtoOutcome[pid].includes('관련 사건 풀 개방 · 피해 +5%'));
+    request(e,pid,2101,packet);request(e,pid,2201);
+    assert.equal(e.ProtoAP[pid],9);assert.equal(e.ProtoDamageBonus[pid],5);
+    assert(!e.ProtoEventEligible(pid,id));assert(e.ProtoEventEligible(pid,13));
+  }
+});
+check('황금의 순간은 슬롯머신·솔글래드의 고정 카드, 확률 성공과 실패의 비용 및 후속 조건',()=>{
+  for(const win of [true,false]){
+    const {e}=party();e.ProtoGrantHead(0,2);e.ExpGold[0]=100;
+    e.ProtoSelected[0]=25;assert(e.ProtoBranchText(0,1).includes('좋은꿈 슬롯머신'));
+    assert(e.ProtoBranchText(0,1).includes('성공 50%'));
+    e.ProtoOffer(0);e.ProtoCandidates[1]=25;request(e,0,2101);
+    e.GetRandomInt=(a,b)=>win?a:b;request(e,0,2201);
+    assert.equal(e.ExpGold[0],win?200:0);assert.equal(e.ExpCardOwned[41],win);
+    assert(!e.ExpCardOwned[18]);assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,25)],win?1:-1);
+    assert.equal(e.ProtoEventEligible(0,86),win);assert.equal(e.ProtoAP[0],9);
+    assert(e.ProtoOutcome[0].includes(win?'그림이 일렬로':'그림이 한 칸'));
+  }
+  const {e}=party();e.ProtoGrantHead(0,2);e.ExpGold[0]=99;
+  e.ProtoOffer(0);e.ProtoCandidates[1]=25;request(e,0,2101);
+  assert(!e.ProtoBranchAllowed(0,1));request(e,0,2201);assert.equal(e.ProtoStage[0],2);assert.equal(e.ExpGold[0],99);
+  request(e,0,2202);assert(e.ExpCardOwned[43]);assert.equal(e.ExpGold[0],99);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,25)],2);assert(!e.ProtoEventEligible(0,86));
+});
+check('지역별 24개와 공통 24개의 관련 카드·서사·무료 기본 선택지, 모든 결과를 실제 실행',()=>{
+  const {e}=party(),counts=[0,0,0,0],cards=new Set();
+  for(let id=1;id<=e.PROTO_EVENT_COUNT;id++){
+    if(e.ProtoEventKind[id]===0)continue;
+    counts[e.ProtoEventHead[id]]++;assert(e.ProtoEventStory[id].length>=45);
+    for(const choice of [1,2]){
+      const key=e.ProtoChoiceKey(id,choice);assert(e.ProtoBranchLabel[key]);assert(e.ProtoBranchResult[key]);
+      for(const card of [e.ProtoBranchCard[key],e.ProtoBranchCard2[key]]){
+        if(!card)continue;
+        assert(card>=e.PROTO_CARD_FIRST&&card<=e.PROTO_CARD_LAST);cards.add(card);
+        assert.equal(e.ProtoCardHead[card],e.ProtoEventHead[id]);
+      }
+      if(choice===2){
+        assert.equal(e.ProtoBranchCost[key],0);assert(e.ProtoBranchLevel[key]<=0);
+        assert(e.ProtoBranchDensity[key]<=0);assert(e.ProtoBranchHealth[key]>=0);assert.equal(e.ProtoBranchChance[key],0);
+      }
+      // 리스크와 수입, 카드 중복 환산까지 포함해 실제 ProtoResolve를 실행한다.
+      e.ProtoSelected[0]=id;e.ProtoStage[0]=2;e.ExpGold[0]=1000;
+      e.ProtoLevel[0]=1;e.ProtoDensity[0]=4;e.GetRandomInt=(a,b)=>id===52?b:a;
+      const beforeCards=e.ExpCardOwned.slice(),bonus=e.ProtoDamageBonus[0];
+      let duplicateGold=0;
+      for(const card of [e.ProtoBranchCard[key],e.ProtoBranchCard2[key]]){
+        if(card&&beforeCards[card])duplicateGold+=100;
+      }
+      assert(e.ProtoBranchAllowed(0,choice),id+':'+choice);e.ProtoResolve(0,choice);
+      assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoDeadline[0],30);
+      assert.equal(e.ExpGold[0],1000-e.ProtoBranchCost[key]+e.ProtoBranchGold[key]+duplicateGold);
+      assert.equal(e.ProtoDamageBonus[0],bonus+e.ProtoBranchDamage[key]);
+      assert(e.ProtoOutcome[0].includes(e.ProtoBranchResult[key]));
+    }
+  }
+  assert.deepEqual(counts,[24,24,24,24]);assert.equal(cards.size,36);
+});
+check('실제 체력 리스크는 생존 가능한 경우만 지불, 회복은 최대 체력을 넘지 않음',()=>{
+  const {e}=party();let hp=2000;
+  e.GetUnitState=(u,state)=>state===e.UNIT_STATE_MAX_LIFE?10000:hp;
+  e.SetUnitState=(u,state,value)=>{if(state===e.UNIT_STATE_LIFE)hp=value;};
+  e.ProtoGrantHead(0,1);e.ProtoSelected[0]=21;e.ProtoStage[0]=2;
+  assert(!e.ProtoBranchAllowed(0,1));e.ProtoResolve(0,1);assert.equal(hp,2000);assert(!e.ExpCardOwned[21]);
+  hp=2001;e.ProtoResolve(0,1);assert.equal(hp,1);assert(e.ExpCardOwned[21]);assert.equal(e.ProtoLevel[0],2);
+  hp=9900;e.ProtoSelected[0]=26;e.ProtoStage[0]=2;e.ProtoResolve(0,2);assert.equal(hp,10000);
+});
+check('이야기는 선택/성공한 본인에게만 이어지고 재출발 때 64칸을 넘는 기록도 초기화',()=>{
+  const {e}=party(2);for(let pid=0;pid<2;pid++)e.ProtoGrantHead(pid,2);
+  assert(!e.ProtoEventEligible(0,85));assert(!e.ProtoEventEligible(1,85));
+  choose(e,0,26,1);assert(e.ProtoEventEligible(0,85));assert(!e.ProtoEventEligible(1,85));
+  assert(!e.ProtoEventEligible(1,26));choose(e,0,85,1);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,85)],1);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(1,85)],0);
+  e.ProtoEventHistory[e.ProtoStoryKey(3,108)]=2;
+  e.ProtoJoinBoss();e.ExpWon=false;e.BattleFinished();
+  request(e,0,2001);request(e,1,2001);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,26)],0);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,85)],0);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(3,108)],0);
+  assert(!e.ProtoEventEligible(0,85));
+});
+check('중복은 표시한 100골드로만 교환, 다른 작품 추첨과 사건 결과 채팅 겹침 없음',()=>{
+  const {e}=party(),notices=[];e.DisplayTimedTextToPlayer=(p,x,y,t,text)=>notices.push(text);
+  e.ProtoGrantHead(0,2);e.ProtoGrantCard(0,43);notices.length=0;e.ProtoSelected[0]=25;
+  assert(e.ProtoBranchText(0,2).includes('솔글래드 이미 보유 · 골드 +100'));
+  e.ProtoStage[0]=2;e.ProtoResolve(0,2);
+  assert.equal(e.ExpGold[0],100);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);assert.equal(notices.length,0);
+  e.ProtoStage[0]=2;e.ProtoSelected[0]=30;e.ProtoResolve(0,1);
+  assert(e.ExpCardOwned[30]);assert.equal(notices.length,0);
+});
+check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
+  const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
+  const root=t.frame(e.ExpUIRoots[9]);
+  assert([...t.frames.values()].some(f=>f.relative===e.ExpUIRoots[9]&&f.texture==='war3mapImported\\UI_Upgrade_Background.tga'));
+  for(const action of [2101,2102,2103,2104,2300]){
+    const button=t.common(action),index=e.ExpUIButtons.indexOf(button),frame=t.frame(button),label=t.frame(e.ExpUIButtonLabels[index]);
+    assert(label.text.startsWith(frame.enabled?'|cff163848':'|cff425c6b'));
+    assert(-label.y+label.h<=frame.h);assert(label.x+label.w<=frame.w);
+  }
+  e.ProtoCandidates[1]=1;t.render();const index=e.ExpUIButtons.indexOf(t.common(2101));
+  assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('즉시 획득 · 피해 +5%'));
+  t.click(t.common(2101));assert.equal(e.ProtoStage[0],3);
+  assert(!t.frame(e.ExpUIButtons[e.UIExpeditionPrototype_BranchButtons[1]]).shown);
+  assert(t.frame(t.common(2400)).shown);
+  assert(root.y-root.h>=.12);
+});
 check('사건 후보와 분기 UI 실제 동기화, 최대 4개 클릭 영역·화면 경계·준비 HUD 분리',()=>{
   const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();assert.deepEqual(t.roots(),[9]);
   const buttons=[1,2,3,4].map(i=>t.frame(t.common(2100+i))),root=t.frame(e.ExpUIRoots[9]);
@@ -268,6 +385,7 @@ check('사건 후보와 분기 UI 실제 동기화, 최대 4개 클릭 영역·�
   for(let i=1;i<buttons.length;i++)assert(buttons[i-1].y-buttons[i-1].h>buttons[i].y);
   const hud=t.frame(e.UIExpeditionPrototype_HuntHUD);assert(hud.y-hud.h>root.y);
   t.event(t.common(2101),4,1);assert.equal(t.packets.length,0);
+  e.ProtoCandidates[e.ExpKey(0,1)]=49;t.render();
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],2);assert.deepEqual(t.roots(),[9]);
   t.click(t.common(2202));assert.equal(e.ProtoStage[0],3);t.click(t.common(2400));assert.deepEqual(t.roots(),[]);
 });
