@@ -9,6 +9,12 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer EventInfo
         private integer EventStory
         private integer array CandidateButtons
+        private integer array CandidateRegion
+        private integer array CandidateTitle
+        private integer array CandidateIcon
+        private integer array CandidateIntro
+        private integer array CandidateBonus
+        private integer array CandidateFooter
         private integer array BranchButtons
         private integer RerollButton
         private integer ResumeButton
@@ -18,11 +24,92 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer LoadedSlot = -1
     endglobals
 
+    private function CoverLabel takes integer parent, real size returns integer
+        local integer f = ExpUILabel(parent, 0, 0, 0.279, 0.020, size, "")
+        call JNFrameSetTextAlignment(f, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        return f
+    endfunction
+
+    private function PlaceCoverPart takes integer frame, integer parent, real x, real y, real width, real height returns nothing
+        call DzFrameClearAllPoints(frame)
+        call DzFrameSetPoint(frame, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
+        call DzFrameSetSize(frame, width, height)
+    endfunction
+
+    private function RenderCover takes integer pid, integer i, integer id returns nothing
+        local integer cover = ExpUIButtons[CandidateButtons[i]]
+        local integer head = ProtoEventHead[id]
+        local boolean compact = ProtoChoices[pid] > 2
+        local boolean opening = ProtoEventKind[id] == 0
+        local real x = 0.025
+        local real y = 0.104
+        local real height = 0.246
+        local string tag = "공통 사건"
+        local string action = "사건 만나기"
+        if i == 2 or i == 4 then
+            set x = 0.348
+        endif
+        if compact then
+            set height = 0.124
+            if i > 2 then
+                set y = 0.232
+            endif
+        endif
+        call PlaceCoverPart(cover, EventRoot, x, y, 0.307, height)
+        call ExpUIResizeCover(CandidateButtons[i], height)
+        call PlaceCoverPart(CandidateFooter[i], cover, 0.007, height - 0.028, 0.293, 0.022)
+        call PlaceCoverPart(ExpUIButtonLabels[CandidateButtons[i]], cover, 0.018, height - 0.025, 0.271, 0.018)
+        if compact then
+            call PlaceCoverPart(CandidateIcon[i], cover, 0.013, 0.012, 0.040, 0.051)
+            call PlaceCoverPart(CandidateRegion[i], cover, 0.065, 0.010, 0.229, 0.013)
+            call PlaceCoverPart(CandidateTitle[i], cover, 0.065, 0.025, 0.229, 0.024)
+            if opening then
+                call PlaceCoverPart(CandidateIcon[i], cover, 0.013, 0.012, 0.030, 0.038)
+                call PlaceCoverPart(CandidateIntro[i], cover, 0.013, 0.052, 0.281, 0.017)
+                call PlaceCoverPart(CandidateBonus[i], cover, 0.013, 0.070, 0.281, 0.024)
+            else
+                call PlaceCoverPart(CandidateIntro[i], cover, 0.065, 0.051, 0.229, 0.041)
+            endif
+            call DzFrameSetFont(CandidateIntro[i], "Fonts\\DFHeiMd.ttf", 0.008, 0)
+            call DzFrameSetFont(CandidateBonus[i], "Fonts\\DFHeiMd.ttf", 0.0075, 0)
+        else
+            call PlaceCoverPart(CandidateIcon[i], cover, 0.018, 0.052, 0.070, 0.088)
+            call PlaceCoverPart(CandidateRegion[i], cover, 0.018, 0.015, 0.271, 0.016)
+            call PlaceCoverPart(CandidateTitle[i], cover, 0.104, 0.059, 0.185, 0.057)
+            if opening then
+                call PlaceCoverPart(CandidateIntro[i], cover, 0.018, 0.148, 0.271, 0.026)
+                call PlaceCoverPart(CandidateBonus[i], cover, 0.018, 0.176, 0.271, 0.040)
+            else
+                call PlaceCoverPart(CandidateIntro[i], cover, 0.018, 0.148, 0.271, 0.067)
+            endif
+            call DzFrameSetFont(CandidateIntro[i], "Fonts\\DFHeiMd.ttf", 0.010, 0)
+            call DzFrameSetFont(CandidateBonus[i], "Fonts\\DFHeiMd.ttf", 0.009, 0)
+        endif
+        if head > 0 then
+            set tag = ProtoHeadName[head]
+        endif
+        if opening then
+            set tag = "지역 개방 · " + tag
+            set action = "머리 카드 획득"
+            call ExpUIText(CandidateBonus[i], "머리 카드 · 관련 사건 개방 · 피해 +5%|n" + ProtoEventCardPreview(pid, ProtoHeadEntryCard[head]))
+        elseif ProtoEventRequired[id] > 0 then
+            set tag = tag + " · 이어지는 사건"
+        endif
+        call ExpUIText(CandidateRegion[i], tag)
+        call ExpUIText(CandidateTitle[i], ProtoEventName[id])
+        call ExpUIText(CandidateIntro[i], ProtoEventIntro[id])
+        call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
+        call DzFrameShow(CandidateBonus[i], opening)
+        if not ProtoEventEligible(pid, id) then
+            set action = "선택 불가 · 후보 갱신 대기"
+        endif
+        call ExpUISetButton(CandidateButtons[i], action, ProtoEventEligible(pid, id))
+    endfunction
+
     private function Render takes nothing returns nothing
         local integer pid = GetPlayerId(GetLocalPlayer())
         local integer i = 1
         local integer id
-        local integer head
         local boolean lobby
         local string value
         local string packet
@@ -92,8 +179,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
         call ExpUIText(EventInfo, "남은 선택 시간 " + I2S(ProtoDeadline[pid]) + "초    행동력 " + I2S(ProtoAP[pid]) + "    골드 " + I2S(ExpGold[pid]))
         if ProtoStage[pid] == 1 then
-            call DzFrameSetSize(EventStory, 0.63, 0.072)
-            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?|n사건 하나를 선택하면 행동력 1을 사용합니다. 선택 중에는 내 공간만 정지합니다.")
+            call DzFrameSetSize(EventStory, 0.63, 0.016)
+            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  선택 시 행동력 1 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call DzFrameSetSize(EventStory, 0.63, 0.145)
             call ExpUIText(EventStory, ProtoEventName[ProtoSelected[pid]] + "|n" + ProtoEventStory[ProtoSelected[pid]])
@@ -106,18 +193,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             exitwhen i > 4
             set id = ProtoCandidates[ExpKey(pid, i)]
             call DzFrameShow(ExpUIButtons[CandidateButtons[i]], ProtoStage[pid] == 1 and i <= ProtoChoices[pid] and id > 0)
-            if id > 0 then
-                set head = ProtoEventHead[id]
-                set value = ProtoEventName[id]
-                if head > 0 then
-                    set value = value + " · " + ProtoHeadName[head]
-                else
-                    set value = value + " · 공통 사건"
-                endif
-                if ProtoEventKind[id] == 0 then
-                    set value = value + "|n즉시 획득 · 피해 +5% · " + ProtoCardName[ProtoHeadEntryCard[head]] + " 카드"
-                endif
-                call ExpUISetButton(CandidateButtons[i], value, ProtoEventEligible(pid, id))
+            if ProtoStage[pid] == 1 and i <= ProtoChoices[pid] and id > 0 then
+                call RenderCover(pid, i, id)
             endif
             set i = i + 1
         endloop
@@ -154,7 +231,17 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set i = 1
         loop
             exitwhen i > 4
-            set CandidateButtons[i] = ExpUIButton(EventRoot, 0.025, 0.154 + (i - 1) * 0.047, 0.63, 0.041, "", 2100 + i)
+            set CandidateButtons[i] = ExpUICoverButton(EventRoot, 2100 + i)
+            set f = ExpUIButtons[CandidateButtons[i]]
+            set CandidateRegion[i] = CoverLabel(f, 0.008)
+            set CandidateTitle[i] = CoverLabel(f, 0.0105)
+            set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.070, 0.088, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+            set CandidateIntro[i] = CoverLabel(f, 0.010)
+            set CandidateBonus[i] = CoverLabel(f, 0.009)
+            set CandidateFooter[i] = ExpUITexture(f, 0, 0, 0.293, 0.022, "war3mapImported\\UI_Upgrade_Header.tga")
+            call DzFrameSetPriority(ExpUIButtonLabels[CandidateButtons[i]], 1)
+            // 모든 장식은 표지 버튼의 자식이며 글자는 클릭을 가로채지 않는다.
+            call JNFrameSetTextAlignment(ExpUIButtonLabels[CandidateButtons[i]], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
             set i = i + 1
         endloop
         set BranchButtons[1] = ExpUIButton(EventRoot, 0.025, 0.232, 0.63, 0.062, "", 2201)

@@ -15,6 +15,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         private integer array ButtonBackdrops
         private integer array ButtonActions
         private boolean array ButtonEnabled
+        private boolean array ButtonCover
         private integer ButtonCount = 0
         private integer Hovered = 0
         private integer Navigation
@@ -111,7 +112,18 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     private function ButtonStyle takes integer i returns nothing
-        if not ButtonEnabled[i] then
+        if ButtonCover[i] then
+            if Hovered == i and ButtonEnabled[i] then
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
+            else
+                call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Card.tga", 0)
+            endif
+            if ButtonEnabled[i] then
+                call DzFrameSetAlpha(ExpUIButtons[i], 255)
+            else
+                call DzFrameSetAlpha(ExpUIButtons[i], 155)
+            endif
+        elseif not ButtonEnabled[i] then
             call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Disabled.tga", 0)
         elseif Hovered == i then
             call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_ActionHover.tga", 0)
@@ -196,6 +208,18 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetScriptByCode(ExpUIButtons[i], JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveButton, false)
         call DzFrameSetScriptByCode(ExpUIButtons[i], JN_FRAMEEVENT_MOUSE_UP, function ClickButton, false)
         return i
+    endfunction
+
+    function ExpUICoverButton takes integer parent, integer action returns integer
+        local integer i = ExpUIButton(parent, 0, 0, 0.307, 0.246, "사건 만나기", action)
+        set ButtonCover[i] = true
+        call ButtonStyle(i)
+        return i
+    endfunction
+
+    function ExpUIResizeCover takes integer i, real height returns nothing
+        call DzFrameSetSize(ExpUIButtons[i], 0.307, height)
+        call DzFrameSetSize(ButtonBackdrops[i], 0.307, height)
     endfunction
 
     function ExpUIPanelToggle takes integer parent, real x, real y, real width, real height returns integer

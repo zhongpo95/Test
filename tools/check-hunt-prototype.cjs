@@ -372,7 +372,9 @@ check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 
     assert(-label.y+label.h<=frame.h);assert(label.x+label.w<=frame.w);
   }
   e.ProtoCandidates[1]=1;t.render();const index=e.ExpUIButtons.indexOf(t.common(2101));
-  assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('즉시 획득 · 피해 +5%'));
+  assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('머리 카드 획득'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateRegion[1]).text.includes('지역 개방'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateBonus[1]).text.includes('피해 +5%'));
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],3);
   assert(!t.frame(e.ExpUIButtons[e.UIExpeditionPrototype_BranchButtons[1]]).shown);
   assert(t.frame(t.common(2400)).shown);
@@ -382,11 +384,58 @@ check('사건 후보와 분기 UI 실제 동기화, 최대 4개 클릭 영역·�
   const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();assert.deepEqual(t.roots(),[9]);
   const buttons=[1,2,3,4].map(i=>t.frame(t.common(2100+i))),root=t.frame(e.ExpUIRoots[9]);
   for(const b of buttons){assert(root.y+b.y-b.h>=.12);assert(root.x+b.x>=0);assert(root.x+b.x+b.w<=.8);}
-  for(let i=1;i<buttons.length;i++)assert(buttons[i-1].y-buttons[i-1].h>buttons[i].y);
+  const overlap=(a,b)=>a.x<b.x+b.w&&b.x<a.x+a.w&&-a.y<-b.y+b.h&&-b.y<-a.y+a.h;
+  for(let i=0;i<buttons.length;i++)for(let j=i+1;j<buttons.length;j++)assert(!overlap(buttons[i],buttons[j]));
   const hud=t.frame(e.UIExpeditionPrototype_HuntHUD);assert(hud.y-hud.h>root.y);
   t.event(t.common(2101),4,1);assert.equal(t.packets.length,0);
   e.ProtoCandidates[e.ExpKey(0,1)]=49;t.render();
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],2);assert.deepEqual(t.roots(),[9]);
   t.click(t.common(2202));assert.equal(e.ProtoStage[0],3);t.click(t.common(2400));assert.deepEqual(t.roots(),[]);
+});
+check('사건 표지는 2개 확대·3/4개 격자, 도입부·지역·장식 경계와 리롤 최신 후보를 표시',()=>{
+  const t=party(),e=t.e;
+  const parts=['CandidateRegion','CandidateTitle','CandidateIcon','CandidateIntro','CandidateBonus','CandidateFooter'];
+  for(const count of [2,3,4]){
+    e.ProtoChoices[0]=count;e.ProtoOffer(0);
+    e.ProtoCandidates[1]=107;e.ProtoCandidates[2]=9;
+    if(count>2)e.ProtoCandidates[3]=25;
+    if(count>3)e.ProtoCandidates[4]=13;
+    t.render();
+    for(let i=1;i<=count;i++){
+      const id=e.ProtoCandidates[e.ExpKey(0,i)],button=t.frame(t.common(2100+i));
+      assert.equal(button.h,count===2?.246:.124);
+      const index=e.UIExpeditionPrototype_CandidateButtons[i],background=t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]);
+      assert.equal(background.w,button.w);assert.equal(background.h,button.h);
+      assert(t.frame(e.UIExpeditionPrototype_CandidateTitle[i]).text.includes(e.ProtoEventName[id]));
+      assert(t.frame(e.UIExpeditionPrototype_CandidateIntro[i]).text.includes(e.ProtoEventIntro[id]));
+      assert.equal(t.frame(e.UIExpeditionPrototype_CandidateIcon[i]).texture,e.ProtoEventIcon[id]);
+      for(const part of parts){
+        const f=t.frame(e['UIExpeditionPrototype_'+part][i]);if(!f.shown)continue;
+        assert.equal(f.parent,button.id);assert(f.x>=0&&f.x+f.w<=button.w+.00001);
+        assert(-f.y>=0&&-f.y+f.h<=button.h+.00001);
+        if(f.type==='TEXT'){assert.equal(f.enabled,false);assert.equal(f.vertical,0);assert.equal(f.horizontal,0);}
+      }
+      assert.equal(t.frame(e.UIExpeditionPrototype_CandidateBonus[i]).shown,e.ProtoEventKind[id]===0);
+      if(e.ProtoEventKind[id]===0){
+        const icon=t.frame(e.UIExpeditionPrototype_CandidateIcon[i]),intro=t.frame(e.UIExpeditionPrototype_CandidateIntro[i]);
+        assert(-icon.y+icon.h<=-intro.y);
+      }
+    }
+    for(let i=count+1;i<=4;i++)assert(!t.visible(e.ExpUIButtons[e.UIExpeditionPrototype_CandidateButtons[i]]));
+  }
+  assert(t.frame(e.UIExpeditionPrototype_CandidateRegion[2]).text.includes('지역 개방'));
+  assert(t.frame(e.UIExpeditionPrototype_CandidateBonus[2]).text.includes('메이링'));
+  assert.equal(e.ProtoEventIntro[107],'마리사가 문 대신 창문으로 들어와 책을 찾는다.');
+  e.ExpGold[0]=1100;t.render();const ap=e.ProtoAP[0];
+  const stale=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|2101`;
+  t.click(t.common(2300));assert.equal(e.ExpGold[0],600);assert.equal(e.ProtoAP[0],ap);
+  request(e,0,2101,stale);assert.equal(e.ProtoStage[0],1);assert.equal(e.ProtoAP[0],ap);
+  const id=e.ProtoCandidates[1];assert(t.frame(e.UIExpeditionPrototype_CandidateTitle[1]).text.includes(e.ProtoEventName[id]));
+  t.event(t.common(2101),2);const index=e.UIExpeditionPrototype_CandidateButtons[1];
+  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Selected.tga'));
+  t.event(t.common(2101),3);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Card.tga'));
+  for(let id=1;id<=e.PROTO_EVENT_COUNT;id++){
+    assert(e.ProtoEventIntro[id]);assert(e.ProtoEventStory[id].startsWith(e.ProtoEventIntro[id]));assert(e.ProtoEventIcon[id]);
+  }
 });
 console.log(`${checks} prototype scenario groups passed. Static JASS/mock checks only; Warcraft rendering, actual multiplayer and server persistence remain untested.`);
