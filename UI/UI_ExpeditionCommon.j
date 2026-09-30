@@ -217,9 +217,9 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         return i
     endfunction
 
-    function ExpUIResizeCover takes integer i, real height returns nothing
-        call DzFrameSetSize(ExpUIButtons[i], 0.307, height)
-        call DzFrameSetSize(ButtonBackdrops[i], 0.307, height)
+    function ExpUIResizeCover takes integer i, real width, real height returns nothing
+        call DzFrameSetSize(ExpUIButtons[i], width, height)
+        call DzFrameSetSize(ButtonBackdrops[i], width, height)
     endfunction
 
     function ExpUIPanelToggle takes integer parent, real x, real y, real width, real height returns integer
@@ -234,6 +234,8 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endif
         // 창을 숨겨도 버튼은 같은 위치에서 입력을 받도록 별도 부모에 둔다.
         set i = ExpUIButton(DzGetGameUI(), x, y, width, height, "접기", -panel)
+        // 좁은 접기 버튼에서도 두 글자가 한 줄에 들어가도록 오른쪽 여백을 줄인다.
+        call DzFrameSetSize(ExpUIButtonLabels[i], width - 0.012, height - 0.006)
         call DzFrameClearAllPoints(ExpUIButtons[i])
         call DzFrameSetPoint(ExpUIButtons[i], JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetPriority(ExpUIButtons[i], 95)
