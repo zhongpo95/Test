@@ -107,18 +107,28 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoChoices[pid] = IMinBJ(4, ProtoChoices[pid] + 1)
         endif
         set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 획득 · [" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n성장·카드 창에서 효과와 각성 조건을 확인할 수 있습니다.")
+        // 사건 결과 창에 이미 표시할 때는 채팅 알림이 본문을 덮지 않도록 한다.
+        if ProtoStage[pid] != 2 then
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 획득 · [" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n성장·카드 창에서 효과와 각성 조건을 확인할 수 있습니다.")
+        endif
         call ProtoRememberCard(pid, card)
         call ProtoRefreshStats(pid)
     endfunction
 
     function ProtoEventEligible takes integer pid, integer id returns boolean
-        local integer head = ProtoEventHead[id]
-        if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventUsed[id] then
+        local integer head
+        local integer previous
+        if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventUsed[id] or ProtoEventKind[id] < 0 then
             return false
         endif
+        set head = ProtoEventHead[id]
         if ProtoEventKind[id] == 0 then
-            return ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, head)]
+            // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
+            return id == (head - 1) * 4 + pid + 1 and ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, head)]
+        endif
+        set previous = ProtoEventRequired[id]
+        if previous > 0 and ProtoEventHistory[ProtoStoryKey(pid, previous)] != ProtoEventRequiredChoice[id] then
+            return false
         endif
         return head == 0 or ProtoHeadOwned[ExpKey(pid, head)]
     endfunction
@@ -171,7 +181,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     if not duplicate and ProtoEventEligible(pid, id) then
                         set weight = 1
                         if ProtoEventKind[id] == 0 then
-                            set weight = 20
+                            set weight = 80
+                        elseif ProtoEventRequired[id] > 0 then
+                            // 이미 시작한 이야기는 이어질 가능성을 높이되 강제로 등장시키지 않는다.
+                            set weight = 12
                         elseif ProtoEventHead[id] > 0 then
                             set weight = 3
                         endif
@@ -203,62 +216,95 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call ProtoSetPause(pid, true)
     endfunction
 
-    function ProtoBranchText takes integer pid, integer choice returns string
-        local integer kind = ProtoEventKind[ProtoSelected[pid]]
-        if kind == 0 then
-            if choice == 1 then
-                return "지역 조사 · 머리 카드 획득, 관련 풀 개방"
-            endif
-            return "출발을 미룬다 · 골드 +100"
-        elseif kind == 1 or kind == 5 then
-            if choice == 1 then
-                return "힘의 단서를 택한다 · 무작위 카드 1장"
-            endif
-            return "자원을 챙긴다 · 골드 +150"
-        elseif kind == 2 then
-            if choice == 1 then
-                return "무리를 유인한다 · 적 수 +2, 카드 1장"
-            endif
-            return "길을 정리한다 · 적 수 -1, 골드 +100"
-        elseif kind == 3 then
-            if choice == 1 then
-                return "강적을 부른다 · 적 단계 +1, 골드 +250"
-            endif
-            return "안전하게 사냥한다 · 적 단계 -1"
-        elseif kind == 4 then
-            if choice == 1 then
-                return "판돈 200골드 · 주사위 4~6이면 카드 2장, 1~3이면 손실"
-            endif
-            return "작은 보상을 받는다 · 골드 +80"
-        elseif kind == 6 then
-            if choice == 1 then
-                return "위험한 힘을 받는다 · 피해 +15%, 적 단계 +1"
-            endif
-            return "상처를 돌본다 · 생명력 100% 회복"
-        elseif kind == 7 then
-            if choice == 1 then
-                return "300골드로 거래한다 · 무작위 카드 2장"
-            endif
-            return "거래 대신 수고비 · 골드 +100"
+    function ProtoEventCardPreview takes integer pid, integer card returns string
+        if ExpCardOwned[ExpKey(pid, card)] then
+            return ProtoCardName[card] + " 이미 보유 · 골드 +100으로 교환"
         endif
-        if choice == 1 then
-            return "보급품을 챙긴다 · 생명력 물약 +2"
-        endif
-        return "물자를 넘긴다 · 골드 +150"
+        return "[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card]
     endfunction
 
     function ProtoBranchAllowed takes integer pid, integer choice returns boolean
-        local integer kind = ProtoEventKind[ProtoSelected[pid]]
-        if choice == 1 and kind == 2 then
-            return ProtoDensity[pid] <= 8
-        elseif choice == 1 and (kind == 3 or kind == 6) then
-            return ProtoLevel[pid] < 5
-        elseif choice == 1 and kind == 4 then
-            return ExpGold[pid] >= 200
-        elseif choice == 1 and kind == 7 then
-            return ExpGold[pid] >= 300
+        local integer id = ProtoSelected[pid]
+        local integer key = ProtoChoiceKey(id, choice)
+        if choice < 1 or choice > 2 then
+            return false
         endif
-        return choice == 1 or choice == 2
+        if ProtoEventKind[id] == 0 then
+            return choice == 1 and ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
+        endif
+        if ExpGold[pid] < ProtoBranchCost[key] or ProtoLevel[pid] + ProtoBranchLevel[key] > 5 or ProtoDensity[pid] + ProtoBranchDensity[key] > 10 then
+            return false
+        endif
+        if ProtoBranchHealth[key] < 0 and GetUnitState(MainUnit[pid], UNIT_STATE_LIFE) <= GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE) * (-ProtoBranchHealth[key]) * 0.01 then
+            return false
+        endif
+        return true
+    endfunction
+
+    function ProtoBranchText takes integer pid, integer choice returns string
+        local integer id = ProtoSelected[pid]
+        local integer key = ProtoChoiceKey(id, choice)
+        local string value = ProtoBranchLabel[key]
+        local string reward = ""
+        if ProtoEventKind[id] == 0 then
+            return "즉시 지역 개방 · 피해 +5%, " + ProtoCardName[ProtoHeadEntryCard[ProtoEventHead[id]]] + " 카드 획득"
+        endif
+        if ProtoBranchCost[key] > 0 then
+            set value = value + " · 비용 " + I2S(ProtoBranchCost[key]) + "골드"
+        endif
+        if ProtoBranchLevel[key] > 0 then
+            set value = value + " · 적 단계 +" + I2S(ProtoBranchLevel[key])
+        elseif ProtoBranchLevel[key] < 0 then
+            set value = value + " · 적 단계 " + I2S(ProtoBranchLevel[key]) + " (최저 1)"
+        endif
+        if ProtoBranchDensity[key] > 0 then
+            set value = value + " · 적 수 +" + I2S(ProtoBranchDensity[key])
+        elseif ProtoBranchDensity[key] < 0 then
+            set value = value + " · 적 수 " + I2S(ProtoBranchDensity[key]) + " (최저 1)"
+        endif
+        if ProtoBranchHealth[key] < 0 then
+            set value = value + " · 최대 체력의 " + I2S(-ProtoBranchHealth[key]) + "% 소모"
+        endif
+        if ProtoBranchCard[key] > 0 then
+            set reward = ProtoEventCardPreview(pid, ProtoBranchCard[key]) + "  "
+        endif
+        if ProtoBranchCard2[key] > 0 then
+            set reward = reward + ProtoEventCardPreview(pid, ProtoBranchCard2[key]) + "  "
+        endif
+        if ProtoBranchGold[key] > 0 then
+            set reward = reward + "골드 +" + I2S(ProtoBranchGold[key]) + "  "
+        endif
+        if ProtoBranchDamage[key] > 0 then
+            set reward = reward + "피해 +" + I2S(R2I(ProtoBranchDamage[key])) + "%  "
+        endif
+        if ProtoBranchHealth[key] > 0 then
+            set reward = reward + "최대 체력의 " + I2S(ProtoBranchHealth[key]) + "% 회복  "
+        endif
+        if ProtoBranchPotions[key] > 0 then
+            set reward = reward + "생명력 물약 +" + I2S(ProtoBranchPotions[key])
+        endif
+        if ProtoBranchChance[key] > 0 then
+            set value = value + "|n성공 " + I2S(ProtoBranchChance[key]) + "% · 성공 시 " + reward + "|n실패 시 비용은 돌려받지 못합니다."
+        elseif reward != "" then
+            set value = value + "|n" + reward
+        endif
+        if not ProtoBranchAllowed(pid, choice) then
+            set value = value + "|n현재 골드·체력 또는 적 단계·수 상한 때문에 선택할 수 없습니다."
+        endif
+        return value
+    endfunction
+
+    function ProtoGrantEventCard takes integer pid, integer card returns nothing
+        if card <= 0 then
+            return
+        endif
+        // 사건의 정체성을 유지한다. 중복 카드를 다른 작품의 카드로 다시 뽑지 않는다.
+        if ExpCardOwned[ExpKey(pid, card)] then
+            set ExpGold[pid] = ExpGold[pid] + 100
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoCardName[card] + " 이미 보유 · 골드 +100."
+        else
+            call ProtoGrantCard(pid, card)
+        endif
     endfunction
 
     function ProtoRemoveEnemy takes integer key returns nothing
@@ -301,75 +347,78 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoResolve takes integer pid, integer choice returns nothing
         local integer id = ProtoSelected[pid]
-        local integer kind = ProtoEventKind[id]
-        local integer roll
+        local integer key = ProtoChoiceKey(id, choice)
+        local integer roll = 0
+        local boolean success = true
         local integer levelBefore = ProtoLevel[pid]
         local integer densityBefore = ProtoDensity[pid]
+        local real maximum = GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE)
         if ProtoStage[pid] != 2 or not ProtoBranchAllowed(pid, choice) then
             return
         endif
-        set ProtoOutcome[pid] = ProtoEventName[id] + "|n" + ProtoBranchText(pid, choice)
-        if kind == 0 then
-            if choice == 1 then
-                call ProtoGrantHead(pid, ProtoEventHead[id])
-            else
-                set ExpGold[pid] = ExpGold[pid] + 100
-            endif
-        elseif kind == 1 or kind == 5 then
-            if choice == 1 then
-                call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-            else
-                set ExpGold[pid] = ExpGold[pid] + 150
-            endif
-        elseif kind == 2 then
-            if choice == 1 then
-                set ProtoDensity[pid] = IMinBJ(10, ProtoDensity[pid] + 2)
-                call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-            else
-                set ProtoDensity[pid] = IMaxBJ(1, ProtoDensity[pid] - 1)
-                set ExpGold[pid] = ExpGold[pid] + 100
-            endif
-        elseif kind == 3 then
-            if choice == 1 then
-                set ProtoLevel[pid] = IMinBJ(5, ProtoLevel[pid] + 1)
-                set ExpGold[pid] = ExpGold[pid] + 250
-            else
-                set ProtoLevel[pid] = IMaxBJ(1, ProtoLevel[pid] - 1)
-            endif
-        elseif kind == 4 then
-            if choice == 1 then
-                set ExpGold[pid] = ExpGold[pid] - 200
-                set roll = GetRandomInt(1, 6)
-                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n주사위 " + I2S(roll)
-                if roll >= 4 then
-                    call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-                    call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-                endif
-            else
-                set ExpGold[pid] = ExpGold[pid] + 80
-            endif
-        elseif kind == 6 then
-            if choice == 1 then
-                set ProtoLevel[pid] = IMinBJ(5, ProtoLevel[pid] + 1)
-                set ProtoDamageBonus[pid] = ProtoDamageBonus[pid] + 15.0
-            else
-                call SetUnitState(MainUnit[pid], UNIT_STATE_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE))
+        set ProtoOutcome[pid] = ProtoEventName[id]
+        if ProtoEventKind[id] == 0 then
+            call ProtoGrantHead(pid, ProtoEventHead[id])
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventStory[id] + "|n머리 카드 획득 · " + ProtoHeadName[ProtoEventHead[id]] + "|n관련 사건 풀 개방 · 피해 +5%|n입문 보너스"
+            call ProtoGrantEventCard(pid, ProtoHeadEntryCard[ProtoEventHead[id]])
+        else
+            // 표시한 비용과 필드 위험은 먼저 적용한다. 실패했다고 판돈이 환급되지는 않는다.
+            set ExpGold[pid] = ExpGold[pid] - ProtoBranchCost[key]
+            set ProtoLevel[pid] = IMaxBJ(1, ProtoLevel[pid] + ProtoBranchLevel[key])
+            set ProtoDensity[pid] = IMaxBJ(1, ProtoDensity[pid] + ProtoBranchDensity[key])
+            if ProtoBranchHealth[key] < 0 then
+                call SetUnitState(MainUnit[pid], UNIT_STATE_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_LIFE) + maximum * ProtoBranchHealth[key] * 0.01)
                 call RefreshHP(MainUnit[pid])
             endif
-        elseif kind == 7 then
-            if choice == 1 then
-                set ExpGold[pid] = ExpGold[pid] - 300
-                call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-                call ProtoGrantCard(pid, ProtoDrawCard(pid, ProtoEventHead[id]))
-            else
-                set ExpGold[pid] = ExpGold[pid] + 100
+            if ProtoBranchChance[key] > 0 then
+                if id == 52 then
+                    set roll = GetRandomInt(1, 6)
+                    set success = roll >= 4
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n주사위 " + I2S(roll)
+                else
+                    set roll = GetRandomInt(1, 100)
+                    set success = roll <= ProtoBranchChance[key]
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n성공 판정 " + I2S(roll) + "/100 · " + I2S(ProtoBranchChance[key]) + " 이하이면 성공"
+                endif
             endif
-        elseif choice == 1 then
-            call SetItemCharges(PlayerItem1[pid], GetItemCharges(PlayerItem1[pid]) + 2)
-            call ShowPlayerPotionDisplay(pid)
-        else
-            set ExpGold[pid] = ExpGold[pid] + 150
+            if success then
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoBranchLabel[key] + "|n" + ProtoBranchResult[key]
+                call ProtoGrantEventCard(pid, ProtoBranchCard[key])
+                call ProtoGrantEventCard(pid, ProtoBranchCard2[key])
+                set ExpGold[pid] = ExpGold[pid] + ProtoBranchGold[key]
+                set ProtoDamageBonus[pid] = ProtoDamageBonus[pid] + ProtoBranchDamage[key]
+                if ProtoBranchGold[key] > 0 then
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n골드 +" + I2S(ProtoBranchGold[key])
+                endif
+                if ProtoBranchDamage[key] > 0 then
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n피해 +" + I2S(R2I(ProtoBranchDamage[key])) + "%"
+                endif
+                if ProtoBranchHealth[key] > 0 then
+                    call SetUnitState(MainUnit[pid], UNIT_STATE_LIFE, RMinBJ(maximum, GetUnitState(MainUnit[pid], UNIT_STATE_LIFE) + maximum * ProtoBranchHealth[key] * 0.01))
+                    call RefreshHP(MainUnit[pid])
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n최대 체력의 " + I2S(ProtoBranchHealth[key]) + "% 회복"
+                endif
+                if ProtoBranchPotions[key] > 0 then
+                    call SetItemCharges(PlayerItem1[pid], GetItemCharges(PlayerItem1[pid]) + ProtoBranchPotions[key])
+                    call ShowPlayerPotionDisplay(pid)
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n생명력 물약 +" + I2S(ProtoBranchPotions[key])
+                endif
+            else
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventFailure[id]
+            endif
+            if ProtoBranchCost[key] > 0 then
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n지불한 골드 " + I2S(ProtoBranchCost[key])
+            endif
+            if ProtoBranchHealth[key] < 0 then
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n최대 체력의 " + I2S(-ProtoBranchHealth[key]) + "% 소모"
+            endif
         endif
+        if success then
+            set ProtoEventHistory[ProtoStoryKey(pid, id)] = choice
+        else
+            set ProtoEventHistory[ProtoStoryKey(pid, id)] = -choice
+        endif
+        call ProtoRefreshStats(pid)
         call ProtoApplyField(pid)
         if levelBefore != ProtoLevel[pid] then
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n적 단계 " + I2S(levelBefore) + " → " + I2S(ProtoLevel[pid]) + "|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (levelBefore - 1)))) + " → " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + "|n한 번의 공격 피해 · 내 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (levelBefore - 1)), 0, 1) + "% → " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
@@ -378,7 +427,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n동시 몬스터 수 " + I2S(densityBefore) + " → " + I2S(ProtoDensity[pid])
         endif
         set ProtoStage[pid] = 3
-        set ProtoDeadline[pid] = 8
+        set ProtoDeadline[pid] = 30
         set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
     endfunction
 
@@ -555,6 +604,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set ProtoCandidates[ExpKey(pid, id)] = 0
                 set id = id + 1
             endloop
+            set id = 1
+            loop
+                exitwhen id > PROTO_EVENT_COUNT
+                set ProtoEventHistory[ProtoStoryKey(pid, id)] = 0
+                set id = id + 1
+            endloop
             if ExpMember[pid] then
                 call MapSet(pid + 1, 1)
                 set MapRectCheck[pid + 1] = false
@@ -622,6 +677,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoStage[pid] = 2
             set ProtoDeadline[pid] = 45
             set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
+            // 머리 후보를 선택한 시점에 이미 획득 의사가 확정되었다. 다시 묻거나 행동력을 더 쓰지 않는다.
+            if ProtoEventKind[id] == 0 then
+                call ProtoResolve(pid, 1)
+            endif
             // 표시만 된 사건은 재등장 가능하지만 선택된 사건은 파티 전체에서 제외한다.
             set other = 0
             loop

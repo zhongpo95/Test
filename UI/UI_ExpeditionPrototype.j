@@ -92,13 +92,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
         call ExpUIText(EventInfo, "남은 선택 시간 " + I2S(ProtoDeadline[pid]) + "초    행동력 " + I2S(ProtoAP[pid]) + "    골드 " + I2S(ExpGold[pid]))
         if ProtoStage[pid] == 1 then
-            call DzFrameSetSize(EventStory, 0.59, 0.072)
+            call DzFrameSetSize(EventStory, 0.63, 0.072)
             call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?|n사건 하나를 선택하면 행동력 1을 사용합니다. 선택 중에는 내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
-            call DzFrameSetSize(EventStory, 0.59, 0.11)
+            call DzFrameSetSize(EventStory, 0.63, 0.145)
             call ExpUIText(EventStory, ProtoEventName[ProtoSelected[pid]] + "|n" + ProtoEventStory[ProtoSelected[pid]])
         else
-            call DzFrameSetSize(EventStory, 0.59, 0.26)
+            call DzFrameSetSize(EventStory, 0.63, 0.265)
             call ExpUIText(EventStory, ProtoOutcome[pid])
         endif
         set i = 1
@@ -115,7 +115,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                     set value = value + " · 공통 사건"
                 endif
                 if ProtoEventKind[id] == 0 then
-                    set value = value + " · 머리 카드"
+                    set value = value + "|n즉시 획득 · 피해 +5% · " + ProtoCardName[ProtoHeadEntryCard[head]] + " 카드"
                 endif
                 call ExpUISetButton(CandidateButtons[i], value, ProtoEventEligible(pid, id))
             endif
@@ -147,20 +147,20 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set i = i + 1
         endloop
         set LobbyReady = ExpUIButton(LobbyRoot, 0.025, 0.309, 0.49, 0.029, "출발 준비", 2001)
-        set EventRoot = ExpUIRoot(9, 0.64, 0.384, 0.524, true)
-        set f = ExpUIHeader(EventRoot, 0.64, "개인 사건")
-        set EventInfo = ExpUILabel(EventRoot, 0.025, 0.053, 0.59, 0.024, 0.010, "")
-        set EventStory = ExpUILabel(EventRoot, 0.025, 0.080, 0.59, 0.11, 0.011, "")
+        set EventRoot = ExpUIRoot(9, 0.68, 0.400, 0.524, true)
+        set f = ExpUIHeader(EventRoot, 0.68, "개인 사건")
+        set EventInfo = ExpUILabel(EventRoot, 0.025, 0.053, 0.63, 0.024, 0.010, "")
+        set EventStory = ExpUILabel(EventRoot, 0.025, 0.080, 0.63, 0.145, 0.011, "")
         set i = 1
         loop
             exitwhen i > 4
-            set CandidateButtons[i] = ExpUIButton(EventRoot, 0.025, 0.159 + (i - 1) * 0.044, 0.59, 0.038, "", 2100 + i)
+            set CandidateButtons[i] = ExpUIButton(EventRoot, 0.025, 0.154 + (i - 1) * 0.047, 0.63, 0.041, "", 2100 + i)
             set i = i + 1
         endloop
-        set BranchButtons[1] = ExpUIButton(EventRoot, 0.025, 0.230, 0.59, 0.052, "", 2201)
-        set BranchButtons[2] = ExpUIButton(EventRoot, 0.025, 0.295, 0.59, 0.052, "", 2202)
-        set RerollButton = ExpUIButton(EventRoot, 0.025, 0.348, 0.59, 0.030, "사건 리롤", 2300)
-        set ResumeButton = ExpUIButton(EventRoot, 0.025, 0.348, 0.59, 0.030, "확인 · 사냥 재개", 2400)
+        set BranchButtons[1] = ExpUIButton(EventRoot, 0.025, 0.232, 0.63, 0.062, "", 2201)
+        set BranchButtons[2] = ExpUIButton(EventRoot, 0.025, 0.299, 0.63, 0.062, "", 2202)
+        set RerollButton = ExpUIButton(EventRoot, 0.025, 0.365, 0.63, 0.030, "사건 리롤", 2300)
+        set ResumeButton = ExpUIButton(EventRoot, 0.025, 0.365, 0.63, 0.030, "확인 · 사냥 재개", 2400)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetSize(HuntHUD, 0.40, 0.074)
         call DzFrameSetAbsolutePoint(HuntHUD, JN_FRAMEPOINT_TOPLEFT, 0.245, 0.600)

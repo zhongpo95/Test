@@ -60,7 +60,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetAbsolutePoint(f, JN_FRAMEPOINT_TOPLEFT, (0.8 - width) * 0.5, top)
         call DzFrameSetPriority(f, 90)
         if background then
-            set decoration = ExpUITexture(f, 0, 0, width, height, "war3mapImported\\UI_Upgrade_Panel.tga")
+            set decoration = ExpUITexture(f, 0, 0, width, height, "war3mapImported\\UI_Upgrade_Background.tga")
         endif
         set ExpUIRoots[id] = f
         call DzFrameShow(f, false)
@@ -123,7 +123,11 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     function ExpUISetButton takes integer i, string value, boolean enabled returns nothing
         set ButtonEnabled[i] = enabled
         call DzFrameSetEnable(ExpUIButtons[i], enabled)
-        call DzFrameSetText(ExpUIButtonLabels[i], "|cffffffff" + value + "|r")
+        if enabled then
+            call DzFrameSetText(ExpUIButtonLabels[i], "|cff163848" + value + "|r")
+        else
+            call DzFrameSetText(ExpUIButtonLabels[i], "|cff425c6b" + value + "|r")
+        endif
         call ButtonStyle(i)
     endfunction
 
@@ -185,7 +189,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetPoint(ExpUIButtons[i], JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(ExpUIButtons[i], width, height)
         set ButtonBackdrops[i] = ExpUITexture(ExpUIButtons[i], 0, 0, width, height, "war3mapImported\\UI_Upgrade_Action.tga")
-        set ExpUIButtonLabels[i] = ExpUILabel(ExpUIButtons[i], 0.007, (height - 0.012) * 0.5, width - 0.014, 0.027, 0.009, value)
+        set ExpUIButtonLabels[i] = ExpUILabel(ExpUIButtons[i], 0.010, 0.003, width - 0.020, height - 0.006, 0.010, value)
         set ButtonActions[i] = action
         call ExpUISetButton(i, value, true)
         call DzFrameSetScriptByCode(ExpUIButtons[i], JN_FRAMEEVENT_MOUSE_ENTER, function HoverButton, false)
