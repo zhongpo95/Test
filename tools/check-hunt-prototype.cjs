@@ -362,6 +362,33 @@ check('중복은 표시한 100골드로만 교환, 다른 작품 추첨과 사�
   e.ProtoStage[0]=2;e.ProtoSelected[0]=30;e.ProtoResolve(0,1);
   assert(e.ExpCardOwned[30]);assert.equal(notices.length,0);
 });
+check('행동 미리보기는 실제 카드 효과와 보상·비용·사냥터 변화를 구분, 중복은 골드로 표시',()=>{
+  const {e}=party();e.ProtoSelected[0]=107;e.ExpGold[0]=1000;
+  const text=e.ProtoBranchText(0,1);
+  assert(text.includes('[보상] [레어] 키리사메 마리사 · 피해 +25%'));
+  assert(text.includes('[사냥터] |cff9c4a22적 단계 +1'));assert(!text.includes('[비용]'));
+  e.ProtoSelected[0]=25;
+  assert(e.ProtoBranchText(0,1).includes('[성공 보상]'));
+  assert(e.ProtoBranchText(0,1).includes('[비용] 100골드'));
+  assert(e.ProtoBranchText(0,1).includes('성공 50% · 실패 시 보상 없음'));
+  e.ProtoGrantCard(0,43);
+  const duplicate=e.ProtoBranchText(0,2);
+  assert(duplicate.includes('솔글래드 이미 보유 · 골드 +100'));assert(!duplicate.includes('사냥 처치 골드 +'));
+});
+check('사건 결과는 획득·지불·필드 변경을 구분, 실패를 획득 보상으로 표시하지 않음',()=>{
+  for(const win of [true,false]){
+    const {e}=party();e.ProtoStage[0]=2;e.ProtoSelected[0]=25;e.ExpGold[0]=1000;
+    e.GetRandomInt=(a,b)=>win?a:b;e.ProtoResolve(0,1);
+    const result=e.ProtoOutcome[0];
+    assert.equal(result.includes('[획득 보상]'),win);assert.equal(result.includes('[실패 · 보상 없음]'),!win);
+    assert(result.includes('[지불 비용]'));assert(result.includes('지불한 골드 100'));
+    assert(!result.includes('[사냥터 변화]'));
+  }
+  const {e}=party();e.ProtoStage[0]=2;e.ProtoSelected[0]=107;e.ProtoResolve(0,1);
+  const result=e.ProtoOutcome[0];
+  assert(result.indexOf('[획득 보상]')<result.indexOf('[사냥터 변화]'));
+  assert(result.includes('몬스터 체력 300 → 390'));assert(!result.includes('[지불 비용]'));
+});
 check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
   const t=party(),e=t.e;e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
   const root=t.frame(e.ExpUIRoots[9]);

@@ -220,7 +220,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ExpCardOwned[ExpKey(pid, card)] then
             return ProtoCardName[card] + " 이미 보유 · 골드 +100으로 교환"
         endif
-        return "[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card]
+        return "[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + " · " + JNStringSplit(ProtoCardText(pid, card), "|n", 1)
     endfunction
 
     function ProtoBranchAllowed takes integer pid, integer choice returns boolean
@@ -246,24 +246,26 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer key = ProtoChoiceKey(id, choice)
         local string value = ProtoBranchLabel[key]
         local string reward = ""
+        local string cost = ""
+        local string field = ""
         if ProtoEventKind[id] == 0 then
             return "즉시 지역 개방 · 피해 +5%, " + ProtoCardName[ProtoHeadEntryCard[ProtoEventHead[id]]] + " 카드 획득"
         endif
         if ProtoBranchCost[key] > 0 then
-            set value = value + " · 비용 " + I2S(ProtoBranchCost[key]) + "골드"
+            set cost = I2S(ProtoBranchCost[key]) + "골드  "
         endif
         if ProtoBranchLevel[key] > 0 then
-            set value = value + " · 적 단계 +" + I2S(ProtoBranchLevel[key])
+            set field = "|cff9c4a22적 단계 +" + I2S(ProtoBranchLevel[key]) + "|cff163848  "
         elseif ProtoBranchLevel[key] < 0 then
-            set value = value + " · 적 단계 " + I2S(ProtoBranchLevel[key]) + " (최저 1)"
+            set field = "|cff216548적 단계 " + I2S(ProtoBranchLevel[key]) + " (최저 1)|cff163848  "
         endif
         if ProtoBranchDensity[key] > 0 then
-            set value = value + " · 적 수 +" + I2S(ProtoBranchDensity[key])
+            set field = field + "|cff9c4a22적 수 +" + I2S(ProtoBranchDensity[key]) + "|cff163848"
         elseif ProtoBranchDensity[key] < 0 then
-            set value = value + " · 적 수 " + I2S(ProtoBranchDensity[key]) + " (최저 1)"
+            set field = field + "|cff216548적 수 " + I2S(ProtoBranchDensity[key]) + " (최저 1)|cff163848"
         endif
         if ProtoBranchHealth[key] < 0 then
-            set value = value + " · 최대 체력의 " + I2S(-ProtoBranchHealth[key]) + "% 소모"
+            set cost = cost + "최대 체력의 " + I2S(-ProtoBranchHealth[key]) + "% 소모"
         endif
         if ProtoBranchCard[key] > 0 then
             set reward = ProtoEventCardPreview(pid, ProtoBranchCard[key]) + "  "
@@ -284,9 +286,25 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set reward = reward + "생명력 물약 +" + I2S(ProtoBranchPotions[key])
         endif
         if ProtoBranchChance[key] > 0 then
-            set value = value + "|n성공 " + I2S(ProtoBranchChance[key]) + "% · 성공 시 " + reward + "|n실패 시 비용은 돌려받지 못합니다."
+            set value = value + "|n|cff216548[성공 보상] " + reward + "|cff163848"
         elseif reward != "" then
-            set value = value + "|n" + reward
+            set value = value + "|n|cff216548[보상] " + reward + "|cff163848"
+        endif
+        if cost != "" then
+            set value = value + "|n|cff9c4a22[비용] " + cost + "|cff163848"
+        endif
+        if field != "" then
+            set value = value + "|n[사냥터] " + field
+        endif
+        if ProtoBranchChance[key] > 0 then
+            set value = value + "|n[판정] 성공 " + I2S(ProtoBranchChance[key]) + "% · 실패 시 보상 없음"
+            if cost != "" and field != "" then
+                set value = value + "|n실패해도 비용과 사냥터 변화는 적용됩니다."
+            elseif cost != "" then
+                set value = value + "|n실패해도 비용은 소모됩니다."
+            elseif field != "" then
+                set value = value + "|n실패해도 사냥터 변화는 적용됩니다."
+            endif
         endif
         if not ProtoBranchAllowed(pid, choice) then
             set value = value + "|n현재 골드·체력 또는 적 단계·수 상한 때문에 선택할 수 없습니다."
@@ -359,7 +377,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoOutcome[pid] = ProtoEventName[id]
         if ProtoEventKind[id] == 0 then
             call ProtoGrantHead(pid, ProtoEventHead[id])
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventStory[id] + "|n머리 카드 획득 · " + ProtoHeadName[ProtoEventHead[id]] + "|n관련 사건 풀 개방 · 피해 +5%|n입문 보너스"
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventStory[id] + "|n|n|cff216548[지역 개방]|cff315a70|n머리 카드 획득 · " + ProtoHeadName[ProtoEventHead[id]] + "|n관련 사건 풀 개방 · 피해 +5%|n|n|cff216548[입문 카드]|cff315a70"
             call ProtoGrantEventCard(pid, ProtoHeadEntryCard[ProtoEventHead[id]])
         else
             // 표시한 비용과 필드 위험은 먼저 적용한다. 실패했다고 판돈이 환급되지는 않는다.
@@ -383,6 +401,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             if success then
                 set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoBranchLabel[key] + "|n" + ProtoBranchResult[key]
+                if ProtoBranchCard[key] > 0 or ProtoBranchCard2[key] > 0 or ProtoBranchGold[key] > 0 or ProtoBranchDamage[key] > 0 or ProtoBranchHealth[key] > 0 or ProtoBranchPotions[key] > 0 then
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff216548[획득 보상]|cff315a70"
+                endif
                 call ProtoGrantEventCard(pid, ProtoBranchCard[key])
                 call ProtoGrantEventCard(pid, ProtoBranchCard2[key])
                 set ExpGold[pid] = ExpGold[pid] + ProtoBranchGold[key]
@@ -404,7 +425,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n생명력 물약 +" + I2S(ProtoBranchPotions[key])
                 endif
             else
-                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventFailure[id]
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|cff9c4a22[실패 · 보상 없음]|cff315a70|n" + ProtoEventFailure[id]
+            endif
+            if ProtoBranchCost[key] > 0 or ProtoBranchHealth[key] < 0 then
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff9c4a22[지불 비용]|cff315a70"
             endif
             if ProtoBranchCost[key] > 0 then
                 set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n지불한 골드 " + I2S(ProtoBranchCost[key])
@@ -420,6 +444,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         call ProtoRefreshStats(pid)
         call ProtoApplyField(pid)
+        if levelBefore != ProtoLevel[pid] or densityBefore != ProtoDensity[pid] then
+            if ProtoLevel[pid] > levelBefore or ProtoDensity[pid] > densityBefore then
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff9c4a22[사냥터 변화]|cff315a70"
+            else
+                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff216548[사냥터 변화]|cff315a70"
+            endif
+        endif
         if levelBefore != ProtoLevel[pid] then
             set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n적 단계 " + I2S(levelBefore) + " → " + I2S(ProtoLevel[pid]) + "|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (levelBefore - 1)))) + " → " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + "|n한 번의 공격 피해 · 내 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (levelBefore - 1)), 0, 1) + "% → " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
         endif
