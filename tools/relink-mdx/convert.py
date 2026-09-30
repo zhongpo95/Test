@@ -51,6 +51,10 @@ def materials(path):
         maps = vector(data, field(data, mat, 1))
         albedo = [text_string(data, field(data, item, 1)) for item in maps
                   if struct.unpack_from('<I', data, field(data, item, 0))[0] == 0x3f2b4d59]
+        if not albedo and path.parent.parent.name == 'fp1100':
+            iris = [text_string(data, field(data, item, 1)) for item in maps
+                    if struct.unpack_from('<I', data, field(data, item, 0))[0] == 0x637a19f3]
+            albedo = [name.replace('_iris', '_warcraft_albd') for name in iris]
         if len(albedo) != 1:
             raise ValueError('Expected one albedo texture per material')
         result.append((struct.unpack_from('<I', data, field(data, mat, 4))[0], albedo[0]))
@@ -61,25 +65,43 @@ def trs(position, rotation, scale):
     return np.array(Matrix.LocRotScale(Vector(position), Quaternion(rotation), Vector(scale)), dtype=np.float64)
 
 
-def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset):
+def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset, merge_face=False):
     base = raw / 'model' / entity[:2] / entity
     info = reader.parse_mesh_info_file(str(base / (entity + '.minfo')))
     skel = reader.parse_skeleton_file(str(base / (entity + '.skeleton')))
     bone_offset = len(bones)
+    remap, source_worlds = [], []
+    shared = {bone['source']:i for i, bone in enumerate(bones) if bone['entity'] == 'pl1100'}
     for i in range(skel.BodyLength()):
         source = skel.Body(i)
         position = [source.Position().X(), source.Position().Y(), source.Position().Z()]
         rotation = [source.Quat().W(), source.Quat().X(), source.Quat().Y(), source.Quat().Z()]
         scale = [source.Scale().X(), source.Scale().Y(), source.Scale().Z()]
         local = trs(position, rotation, scale)
-        parent_id = parent if source.ParentId() == 65535 else bone_offset + source.ParentId()
-        world = bones[parent_id]['bind'] @ local if parent_id >= 0 else local
+        if merge_face:
+            source_world = local if source.ParentId() == 65535 else source_worlds[source.ParentId()] @ local
+            source_worlds.append(source_world)
+            if source.Name().decode() in shared:
+                target = shared[source.Name().decode()]
+                if np.max(np.abs(bones[target]['bind'] - source_world)) > 0.001:
+                    raise ValueError('Shared face/body bind poses differ')
+                remap.append(target)
+                continue
+            parent_id = parent if source.ParentId() == 65535 else remap[source.ParentId()]
+            world = source_world
+            local = np.linalg.inv(bones[parent_id]['bind']) @ world
+            location, quaternion, scaling = Matrix(local).decompose()
+            position, rotation, scale = list(location), list(quaternion), list(scaling)
+        else:
+            parent_id = parent if source.ParentId() == 65535 else bone_offset + source.ParentId()
+            world = bones[parent_id]['bind'] @ local if parent_id >= 0 else local
+        remap.append(len(bones))
         bones.append({'name':entity + source.Name().decode(), 'source':source.Name().decode(),
                       'parent':parent_id, 'position':position, 'rotation':rotation, 'scale':scale,
                       'local':local, 'bind':world, 'entity':entity})
     lod = info.Lods(lod_number)
     flags = reader.vertex_flags_to_bools(lod.BufferTypes())
-    deform = [bone_offset + info.DeformBoneToBoneIndexTable(i)
+    deform = [remap[info.DeformBoneToBoneIndexTable(i)]
               for i in range(info.DeformBoneToBoneIndexTableLength())]
     with (raw / 'model_streaming' / ('lod' + str(lod_number)) / (entity + '.mmesh')).open('rb') as stream:
         positions, normals, uv = reader.get_mesh_vertex_data(stream, lod.VertexCount())
@@ -91,7 +113,7 @@ def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset)
     positions = np.array(positions, dtype=float)
     normals = np.array(normals, dtype=float)
     uv = np.array(uv, dtype=float)
-    if parent >= 0:
+    if parent >= 0 and not merge_face:
         transform = bones[parent]['bind']
         positions = (transform[:3, :3] @ positions.T).T + transform[:3, 3]
         normals = (transform[:3, :3] @ normals.T).T
@@ -244,7 +266,7 @@ def make_geosets(entity, coordinate, sequence_extents, node_ids=None):
     return result
 
 
-def sample_motion(mot, bones, coordinate, selected_frames=None):
+def sample_motion(mot, bones, coordinate, selected_frames=None, in_place=False):
     frames = np.arange(mot.header.frameCount) if selected_frames is None else np.array(selected_frames)
     count = len(frames)
     channels = {}
@@ -292,6 +314,19 @@ def sample_motion(mot, bones, coordinate, selected_frames=None):
             scales.append(scaling)
         local_pose.append(np.array(local_matrices))
         tracks.append([np.array(translations), np.array(rotations), np.array(scales)])
+    if in_place:
+        hips = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_000')
+        chain, index = [], hips
+        while index >= 0:
+            chain.append(index)
+            index = bones[index]['parent']
+        world = np.tile(np.eye(4), (count, 1, 1))
+        for index in reversed(chain):
+            world = world @ local_pose[index]
+        shift = -world[:, :3, 3]
+        shift[:, 1] = 0
+        local_pose[0][:, :3, 3] += shift
+        tracks[0][0] += (coordinate[:3, :3] @ shift.T).T
     return frames, tracks, local_pose, sorted(missing)
 
 
@@ -352,6 +387,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--lod', type=int, default=2, choices=range(4))
     parser.add_argument('--motions', nargs='*')
+    parser.add_argument('--combat-only', action='store_true')
+    parser.add_argument('--in-place', action='store_true')
     args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
     if args.output.exists() and any(args.output.iterdir()):
         raise ValueError('Output directory must be empty; existing versions are preserved')
@@ -365,9 +402,23 @@ def main():
     body = read_entity(reader, args.raw, 'pl1100', args.lod, bones, 0, 0)
     socket = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_400')
     weapon = read_entity(reader, args.raw, 'wp1100', args.lod, bones, socket, 7)
+    head = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_005')
+    face = read_entity(reader, args.raw, 'fp1100', args.lod, bones, head, 8, merge_face=True)
+    entities = [body, weapon, face]
     coordinate = np.eye(4)
     coordinate[:3, :3] = np.array([[0,0,60],[60,0,0],[0,60,0]])
     files = sorted((args.raw/'pl/pl1100').glob('*.mot'))
+    removed = []
+    if args.combat_only:
+        # Combat locomotion, avoidance, guard, damage/recovery, link/SBA and attacks/skills.
+        def combat_file(file):
+            value = int(file.stem[-4:], 16)
+            return (value in [0x0000,0x0010,0x0520,0x0060,0x0065,0x0066,0x0067]
+                    or 0x0030 <= value <= 0x0052 or 0x0080 <= value <= 0x00a2
+                    or 0x0500 <= value <= 0x067f or 0x1800 <= value <= 0x1820
+                    or 0x3000 <= value < 0x3b00)
+        removed = [file.name for file in files if not combat_file(file)]
+        files = [file for file in files if combat_file(file)]
     if args.motions:
         missing_files = set(args.motions) - {file.stem[-4:] for file in files}
         if missing_files:
@@ -376,48 +427,68 @@ def main():
     if not files:
         raise ValueError('No pl1100 MOT files were found')
     # Quantized source weights are also retained for independent pose comparisons.
-    make_geosets(body, coordinate, [])
-    make_geosets(weapon, coordinate, [])
-    bounds = influence_bounds([body, weapon], len(bones))
-    all_materials = materials(args.raw/'model/pl/pl1100/vars/0.mmat') + materials(args.raw/'model/wp/wp1100/vars/0.mmat')
+    for entity in entities:
+        make_geosets(entity, coordinate, [])
+    bounds = influence_bounds(entities, len(bones))
+    all_materials = sum([materials(args.raw/'model'/entity['entity'][:2]/entity['entity']/'vars/0.mmat') for entity in entities], [])
     texture_names = list(dict.fromkeys(name for _, name in all_materials))
     material_bytes = b''
     for _, name in all_materials:
-        layer = struct.pack('<IIIiii f', 28, 2 if 'hair' in name else 0, 16, texture_names.index(name), -1, 0, 1.0)
+        mode = 2 if 'hair' in name else 1 if 'face' in name else 0
+        layer = struct.pack('<IIIiii f', 28, mode, 16, texture_names.index(name), -1, 0, 1.0)
         material_bytes += struct.pack('<Iii', 48, 0, 0) + b'LAYS' + struct.pack('<I', 1) + layer
     texture_bytes = b''.join(struct.pack('<I', 0) + padded('Siegfried\\' + name + '.blp', 260) + struct.pack('<I', 0) for name in texture_names)
-    combined = np.concatenate([body['positions'], weapon['positions']])
+    combined = np.concatenate([entity['positions'] for entity in entities])
     model_extent = extent((coordinate[:3, :3] @ combined.T).T)
     sequence_bytes = b''
     sequence_extents = []
     node_tracks = [[[], [], []] for _ in bones]
+    hips = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_000')
+    lock_chain, index = set(), hips
+    while index >= 0:
+        lock_chain.add(index)
+        index = bones[index]['parent']
     report = {'lod':args.lod, 'bones':len(bones), 'textures':texture_names,
-              'triangles':sum(len(part['faces']) for entity in [body,weapon] for part in entity['parts']), 'motions':[]}
+              'triangles':sum(len(part['faces']) for entity in entities for part in entity['parts']),
+              'entities':[entity['entity'] for entity in entities], 'in_place':args.in_place,
+              'combat_only':args.combat_only, 'removed_motions':removed, 'motions':[]}
     next_start = 1000
+    spell_number = 0
     for number, file in enumerate(files):
         mot = motlib.MotFile()
         with file.open('rb') as stream:
             mot.fromFile(stream)
-        frames, tracks, local_pose, missing = sample_motion(mot, bones, coordinate)
+        frames, tracks, local_pose, missing = sample_motion(mot, bones, coordinate, in_place=args.in_place)
         times = next_start + np.rint(frames*1000/60).astype(int)
         standard_names = {'0000':'Stand', '0001':'Stand Alternate', '0010':'Walk',
                           '3000':'Attack - 1', '3001':'Attack - 2', '3002':'Attack - 3',
                           '3003':'Attack - 4', '3004':'Attack - 5', '3400':'Spell', '0520':'Death'}
         name = standard_names.get(file.stem[-4:], 'Relink ' + file.stem[-4:])
+        if args.combat_only:
+            name = {'0000':'Stand','0010':'Walk','0520':'Death'}.get(file.stem[-4:])
+            if name is None:
+                spell_number += 1
+                name = 'Spell - ' + str(spell_number)
         clip_extent = motion_extent(bones, local_pose, coordinate, bounds)
         sequence_extents.append(clip_extent)
         loop = name.startswith('Stand') or name == 'Walk'
         sequence_bytes += padded(name,80) + struct.pack('<II f I f I', int(times[0]), int(times[-1]), 270 if name == 'Walk' else 0, 0 if loop else 1, 0, 0) + clip_extent
         for index, track in enumerate(tracks):
             for component, (values, tolerance) in enumerate(zip(track, [0.02, math.radians(0.1), 0.0002])):
-                keep = reduce_keys(values, times, tolerance, component == 1)
+                keep = list(range(len(values))) if args.in_place and index in lock_chain else reduce_keys(values, times, tolerance, component == 1)
                 node_tracks[index][component].extend((int(times[i]), values[i]) for i in keep)
-        report['motions'].append({'source':file.name, 'name':name, 'frames':mot.header.frameCount,
-                                  'start':int(times[0]), 'end':int(times[-1]), 'missing_bones':missing})
-        if args.motions or file.stem[-4:] in ['0000','0010','0020','0030','0500','0520','3000','3011','3200','3400','0b00','c000']:
+        world = np.tile(np.eye(4), (len(frames), 1, 1))
+        for index in sorted(lock_chain):
+            world = world @ local_pose[index]
+        anchor = (coordinate @ world)[:, :3, 3]
+        entry = {'source':file.name, 'name':name, 'frames':mot.header.frameCount,
+                 'start':int(times[0]), 'end':int(times[-1]), 'missing_bones':missing,
+                 'anchor_height':anchor[:,2].tolist(), 'anchor_xy_max':float(np.max(np.abs(anchor[:,:2])))}
+        report['motions'].append(entry)
+        if args.motions or args.combat_only or file.stem[-4:] in ['0000','0010','0020','0030','0500','0520','3000','3011','3200','3400','0b00','c000']:
             for frame in [0, mot.header.frameCount//2, mot.header.frameCount-1]:
                 data = {}
-                for entity in [body, weapon]:
+                for entity in entities:
                     prefix = entity['entity']
                     data[prefix+'_vertices'] = skin(entity,bones,local_pose,frame)
                     quantized = skin(entity,bones,local_pose,frame,True)
@@ -432,7 +503,7 @@ def main():
         next_start = int(times[-1]) + 1000
         print('MOTION', number+1, len(files), file.name, 'unmapped', missing, flush=True)
     bone_bytes, helper_bytes = b'', b''
-    weighted_nodes = set(index for entity in [body,weapon] for group in entity['quantized'] for index in group)
+    weighted_nodes = set(index for entity in entities for group in entity['quantized'] for index in group)
     # Legacy readers index nodes in chunk order: bones first, then helpers.
     export_order = ([index for index in range(len(bones)) if index in weighted_nodes]
                     + [index for index in range(len(bones)) if index not in weighted_nodes])
@@ -454,8 +525,7 @@ def main():
         else:
             helper_bytes += node
     pivots = np.array([(coordinate @ np.r_[bones[index]['bind'][:3,3],1])[:3] for index in export_order],dtype='<f4')
-    geosets = (make_geosets(body, coordinate, sequence_extents, node_ids)
-               + make_geosets(weapon, coordinate, sequence_extents, node_ids))
+    geosets = sum([make_geosets(entity, coordinate, sequence_extents, node_ids) for entity in entities], [])
     report['geosets'] = len(geosets)
     report['weighted_bones'] = len(weighted_nodes)
     report['helpers'] = len(bones) - len(weighted_nodes)
@@ -463,7 +533,7 @@ def main():
               + struct.pack('<iiI',len(bones),node_ids[0],2048) + bytes(260) + struct.pack('<I',0))
     pivots = np.vstack([pivots,[0,0,0]]).astype('<f4')
     report['skin_maps'] = [{'entity':entity['entity'], 'vertices':vertices}
-                           for entity in [body,weapon] for vertices in entity['geoset_vertices']]
+                           for entity in entities for vertices in entity['geoset_vertices']]
     model = (b'MDLX' + chunk('VERS',struct.pack('<I',800))
              + chunk('MODL',padded('Siegfried Relink',80)+bytes(260)+model_extent+struct.pack('<I',150))
              + chunk('SEQS',sequence_bytes) + chunk('MTLS',material_bytes) + chunk('TEXS',texture_bytes)

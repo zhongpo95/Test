@@ -60,24 +60,46 @@ function sample(bone, tag, time, fallback) {
 const preview = path.join(modelFolder, 'poses');
 fs.mkdirSync(preview, { recursive: true });
 const conversion = JSON.parse(fs.readFileSync(path.join(modelFolder, 'conversion.json')));
+function worldMatrixFactory(time) {
+  const worlds = [];
+  function worldMatrix(id) {
+    if (worlds[id]) return worlds[id];
+    const bone = nodes[id];
+    const pivot = model.pivotPoints[bone.objectId];
+    const translation = sample(bone, 'KGTR', time, [0,0,0]);
+    const rotation = sample(bone, 'KGRT', time, [0,0,0,1]);
+    const scale = sample(bone, 'KGSC', time, [1,1,1]);
+    const local = mat4.fromRotationTranslationScaleOrigin(mat4.create(), rotation, translation, scale, pivot);
+    worlds[id] = bone.parentId < 0 ? local : mat4.multiply(mat4.create(), worldMatrix(bone.parentId), local);
+    return worlds[id];
+  }
+  return worldMatrix;
+}
+report.rootLock = { enabled:!!conversion.in_place, frames:0, maxXY:0, maxHeightError:0, clips:[] };
+if (conversion.in_place) {
+  const hips = nodes.find(node => node.name === 'pl1100_000');
+  for (const entry of conversion.motions) {
+    let maxXY = 0, maxHeightError = 0;
+    for (let frame = 0; frame < entry.frames; frame++) {
+      const matrix = worldMatrixFactory(entry.start + Math.round(frame * 1000 / 60))(hips.objectId);
+      const point = vec3.transformMat4(vec3.create(), model.pivotPoints[hips.objectId], matrix);
+      maxXY = Math.max(maxXY, Math.abs(point[0]), Math.abs(point[1]));
+      maxHeightError = Math.max(maxHeightError, Math.abs(point[2] - entry.anchor_height[frame]));
+    }
+    report.rootLock.frames += entry.frames;
+    report.rootLock.maxXY = Math.max(report.rootLock.maxXY, maxXY);
+    report.rootLock.maxHeightError = Math.max(report.rootLock.maxHeightError, maxHeightError);
+    report.rootLock.clips.push({ source:entry.source, maxXY, maxHeightError });
+  }
+  if (report.rootLock.maxXY > 0.002 || report.rootLock.maxHeightError > 0.002) throw new Error('Horizontal root lock or height preservation failed');
+}
 for (const entry of conversion.motions) {
-  if (!['0000','0010','0020','0030','0500','0520','0620','3000','3011','3200','3400','0b00','c000'].includes(entry.source.slice(7,11))) continue;
+  if (!conversion.combat_only && !['0000','0010','0020','0030','0500','0520','0620','3000','3011','3200','3400','0b00','c000'].includes(entry.source.slice(7,11))) continue;
   const frames = [0, Math.floor(entry.frames / 2), entry.frames - 1];
   for (const frame of frames) {
     const time = entry.start + Math.round(frame * 1000 / 60);
-    const worlds = [];
-    function worldMatrix(id) {
-      if (worlds[id]) return worlds[id];
-      const bone = nodes[id];
-      const pivot = model.pivotPoints[bone.objectId];
-      const translation = sample(bone, 'KGTR', time, [0,0,0]);
-      const rotation = sample(bone, 'KGRT', time, [0,0,0,1]);
-      const scale = sample(bone, 'KGSC', time, [1,1,1]);
-      const local = mat4.fromRotationTranslationScaleOrigin(mat4.create(), rotation, translation, scale, pivot);
-      worlds[id] = bone.parentId < 0 ? local : mat4.multiply(mat4.create(), worldMatrix(bone.parentId), local);
-      return worlds[id];
-    }
-    for (const bone of nodes) worldMatrix(bone.objectId);
+    const worldMatrix = worldMatrixFactory(time);
+    const worlds = nodes.map(bone => worldMatrix(bone.objectId));
     const geosets = [];
     for (const geo of model.geosets) {
       const groups = [];

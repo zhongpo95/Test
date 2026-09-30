@@ -1,6 +1,6 @@
 # 리링크 지크프리트 MDX 변환
 
-설치된 게임에서 별도로 추출한 지크프리트 기본 복장 `pl1100`과 검 `wp1100`을 클래식 MDX 800 및 BLP1로 변환합니다. LOD2 본체 15,778개와 검 954개를 합쳐 16,732개 삼각형을 유지하며, `pl/pl1100`의 MOT 파일을 각각 독립된 시퀀스로 넣습니다. 게임 원본과 이전 출력물을 덮어쓰지 않습니다.
+설치된 게임에서 별도로 추출한 지크프리트 기본 복장 `pl1100`, 검 `wp1100`, 얼굴 `fp1100`을 클래식 MDX 800 및 BLP1로 변환합니다. LOD2 본체 15,778개, 검 954개, 얼굴 2,412개를 합쳐 19,144개 삼각형입니다. 전투용 변환은 비전투 모션을 제외하고 워크래프트 X·Y를 0,0으로 고정하며, 높이와 팔다리 동작은 유지합니다. 게임 원본과 이전 출력물을 덮어쓰지 않습니다.
 
 ## 준비
 
@@ -23,8 +23,12 @@ GBFRDataTools.exe extract -i $archive -f model/pl/pl1100/vars/0.mmat -o $raw
 GBFRDataTools.exe extract -i $archive -f model/wp/wp1100/wp1100.minfo -o $raw
 GBFRDataTools.exe extract -i $archive -f model/wp/wp1100/wp1100.skeleton -o $raw
 GBFRDataTools.exe extract -i $archive -f model/wp/wp1100/vars/0.mmat -o $raw
+GBFRDataTools.exe extract -i $archive -f model/fp/fp1100/fp1100.minfo -o $raw
+GBFRDataTools.exe extract -i $archive -f model/fp/fp1100/fp1100.skeleton -o $raw
+GBFRDataTools.exe extract -i $archive -f model/fp/fp1100/vars/0.mmat -o $raw
 GBFRDataTools.exe extract -i $archive -f model_streaming/lod2/pl1100.mmesh -o $raw
 GBFRDataTools.exe extract -i $archive -f model_streaming/lod2/wp1100.mmesh -o $raw
+GBFRDataTools.exe extract -i $archive -f model_streaming/lod2/fp1100.mmesh -o $raw
 GBFRDataTools.exe extract-all -i $archive -f pl/pl1100/ -o $raw
 ```
 
@@ -37,41 +41,47 @@ LOD 선택을 바꾸면 같은 번호의 메시를 추가로 추출해야 합니
 | pl1100_hair_lod0_albd | bdca879e3f553a2dd7674fb1e1f85c263f200c6404a450ed78f2f86ed1ca46d7 |
 | pl1100_skin_lod0_albd | 7a452d012d62e14b719cb96ada820b5370f2dddece0466859a791d9ade043824 |
 | wp1100_lod0_albd | 25ed65e72930baecabb32aa864ec08f758ccbd445490615adf07933cadcd6d7c |
+| fp1100_face_lod0_albd | 5e5bfc594e5856204288fd65a2b66a4c5c3012716bae3314ccdfcca96b9f2b1f |
 
 검 텍스처는 같은 폴더의 `97da40170d14745a559f5517e599f224ec2d9cc76b789967ebef136420ebfbe7.gtp`도 필요합니다. 이 경로와 해시는 현재 설치 데이터에서 확인한 값이며 다른 게임 버전에서는 재확인이 필요합니다.
+
+눈은 고정 해상도 원본이 있는 `granite/4k/gts/2/2.gts`를 사용합니다. 왼눈 페이지는 `fb172709ef4d3e6db5885f1d002b471c2d4ea918769cf150ae0b5bf4c8647e06`, 오른눈 페이지는 `f83912e2c87f82b88abdb52a4b3c4219ad26248bfb2d3820140afe56484f7312`입니다. 각각 `-l 0` 흰자, `-l 1` 홍채, 왼눈의 `-l 2` 공유 하이라이트를 복원합니다. 페이지에 걸친 공유 하이라이트 때문에 양쪽 GTP가 모두 필요합니다. `textures.py`는 같은 UV의 원본 RGBA를 합성하여 눈마다 불투명 확산 BLP를 만듭니다. 리링크의 눈 시차 셰이더는 재현하지 않습니다.
 
 ## 변환과 검증
 
 `$output`은 비어 있는 새 폴더여야 합니다. `--motions 0000 0010 0520 3000 3400` 같은 옵션으로 먼저 일부 모션만 검사할 수 있습니다.
 
 ```powershell
-blender.exe --background --factory-startup --python-exit-code 1 --python tools/relink-mdx/convert.py -- --raw $raw --dependencies $deps --output $output --lod 2
+blender.exe --background --factory-startup --python-exit-code 1 --python tools/relink-mdx/convert.py -- --raw $raw --dependencies $deps --output $output --lod 2 --combat-only --in-place
 python tools/relink-mdx/textures.py --source $textures --model-folder $output
 node tools/relink-mdx/validate.cjs $deps $output
 python tools/relink-mdx/compare.py $output
 ```
 
-최종 게임 가져오기 파일은 `Siegfried.mdx`와 `Siegfried\*.blp` 다섯 개입니다. BLP의 사용자 지정 가져오기 경로에서 `Siegfried\` 접두사를 그대로 유지합니다. NPZ, JSON, RGBA는 원본 대조와 렌더링을 위한 검사 자료로, 맵에 가져올 필요가 없습니다.
+최종 게임 가져오기 파일은 `Siegfried.mdx`와 `Siegfried\*.blp` 여덟 개입니다. BLP의 사용자 지정 가져오기 경로에서 `Siegfried\` 접두사를 그대로 유지합니다. NPZ, JSON, RGBA는 원본 대조와 렌더링을 위한 검사 자료로, 맵에 가져올 필요가 없습니다.
 
-`conversion.json`에는 원본 모션 파일과 MDX 구간이 기록됩니다. 기본 동작은 다음과 같이 연결했습니다. 원본 지크프리트 액션 설정에서 `3000`부터 `3004`까지의 일반 공격 콤보와 `3400`의 마니강스를 확인했습니다. 달리기는 후보 자세를 보고 선택했고, 사망에는 원본의 뒤로 넘어지는 `0520` 모션을 사용합니다. 나머지 시퀀스 이름은 `Relink <원본 ID>`이며 명시적인 애니메이션 선택용입니다.
+`conversion.json`에는 원본 모션 파일, MDX 구간, 제외한 모션 및 모든 프레임의 골반 높이가 기록됩니다. `--combat-only`는 현재 설치본 292개 중 149개를 유지합니다. 기본 동작 세 개와 나머지 전투 모션 146개를 다음처럼 연결합니다. 달리기는 후보 자세를 보고 선택했고, 사망에는 뒤로 넘어지는 `0520`을 사용합니다. 전투 모션은 원본 ID 순으로 연속 번호를 부여하며, 일반 공격도 사용자의 요청에 따라 `Spell - 번호`로 바꿉니다.
 
 | MDX 시퀀스 | 원본 ID |
 | --- | --- |
 | Stand | 0000 |
-| Stand Alternate | 0001 |
 | Walk | 0010 |
-| Attack - 1 ~ 5 | 3000 ~ 3004 |
-| Spell | 3400 |
 | Death | 0520 |
+| Spell - 1 ~ 146 | 아래 전투 범위의 원본 ID 순서 |
+
+전투 범위는 회피·가드·점프 전환 `0030..0052`, 검 준비 `0060`, 공중 전환 `0065..0067`, 점프·공중 회피·착지 `0080..00a2`, 피격·다운·회복 `0500..067f`, 링크/오의 `1800..1820`, 공격·스킬 `3000..3aff`입니다. 원본 액션 설정의 일반·저스트·공중 공격, 가드 및 여덟 스킬 참조는 존재하는 MOT 파일에 대해 모두 포함합니다. 대기 변형, 추가 이동 변형, 감정 표현, 컷신 및 기타 연출 모션 143개를 제외합니다. 원본 액션 설정에만 있고 실제 MOT가 없는 `3021`, `3022`는 생성하지 않습니다. 필요하면 `--motions`로 유지 목록 안에서 일부만 검사할 수 있습니다.
+
+번호별 원본 액션은 배포 패키지의 `motions.csv`에서 확인합니다. JASS에서 특정 번호를 정확히 선택하려면 이 파일의 0부터 시작하는 인덱스를 `SetUnitAnimationByIndex`에 사용합니다.
 
 ## 변환 범위와 검증 경계
 
-- 60fps 원본 뼈 모션을 샘플링한 후 위치 0.02 워크래프트 단위, 회전 0.1도, 스케일 0.0002 허용 오차로 키를 줄입니다. 이동량과 회전, 점프 높이를 유지하므로 일부 공격·연출 모션에는 원본의 큰 이동이 남아 있습니다.
+- 60fps 원본 뼈 모션을 샘플링한 후 위치 0.02 워크래프트 단위, 회전 0.1도, 스케일 0.0002 허용 오차로 키를 줄입니다. `--in-place`에서는 원본 X·Z, 즉 워크래프트 X·Y의 골반 이동을 루트에서 상쇄합니다. 골반까지의 조상 노드 키를 줄이지 않아 원점 고정을 유지하며, 높이는 변경하지 않습니다. 독립 파서는 유지한 모든 프레임에서 XY 및 높이 오차가 0.002단위 이하인지 검사합니다.
 - 검은 오른손 소켓 `pl1100_400`에 연결합니다. Y축 위쪽 좌표를 Z축 위쪽으로 바꾸고 원본 1단위를 워크래프트 60단위로 변환합니다.
+- 얼굴은 본체의 목·머리 뼈 `_004`, `_005`, `_a04`를 공유합니다. 얼굴 전용 뼈의 바인드 좌표를 유지하고 독립 루트를 머리에 연결하므로, 얼굴·눈이 모든 모션에서 머리를 따라갑니다. 표정은 중립이며 별도 FP 표정 MOT는 포함하지 않습니다.
 - 클래식 SD의 균등한 행렬 그룹에 맞춰 스킨 가중치를 네 칸으로 근사합니다. 원본의 연속 가중치와 완전히 동일한 메시 변형은 아닙니다.
 - 각 지오셋은 정점 4,096개 및 행렬 그룹 256개 이하로 나눕니다. 시퀀스별 경계는 모든 프레임의 영향을 받는 뼈와 메시 범위를 포함합니다.
 - BLP1은 256색 팔레트, 8비트 알파, 전체 밉맵을 포함합니다. 노멀 맵, 리링크 셰이더, VFX, IK, 실시간 천·머리카락 물리는 포함하지 않습니다.
 - 일부 연출 MOT에는 본체 스켈레톤에 없는 `0x7000` 이상의 채널이 있습니다. 해당 채널은 본체 뼈 모션에서 제외하고 `conversion.json`의 `missing_bones`에 원본 ID를 기록합니다. 캐릭터 뼈에 해당하는 채널은 별도로 유지합니다.
-- 독립 파서의 MDX 재저장 바이트 일치, BLP 전체 밉맵 디코딩, 구조 검사 및 대표 자세의 원본 대조를 수행합니다. `Relink` 사용자 지정 시퀀스 이름과 사용되지 않는 원본 노드는 구조 검사에서 경고나 미사용 항목으로 보고될 수 있습니다.
+- 독립 파서의 MDX 재저장 바이트 일치, BLP 전체 밉맵 디코딩, 구조 검사 및 유지한 모든 시퀀스의 시작·중간·끝 자세 원본 대조를 수행합니다. 얼굴까지 포함하여 메시 매핑 누락도 검사합니다. 사용되지 않는 원본 노드와 시퀀스 경계 키는 미사용 항목으로 보고될 수 있습니다.
 - `pose-comparison.json`은 키 축소 후 내보내기 오차와 SD 가중치 근사 오차를 별도로 기록합니다. 대표 프레임의 내보내기 최대 오차가 0.5단위를 초과하면 검증이 실패합니다.
 - 실제 워크래프트 및 월드 에디터에서의 불러오기, 애니메이션 자동 선택과 성능은 별도의 런타임 시험이 필요합니다. 독립 파서나 Blender 렌더 성공이 게임 실행 검증을 대신하지 않습니다.

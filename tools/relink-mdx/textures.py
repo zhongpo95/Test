@@ -8,7 +8,7 @@ from PIL import Image
 
 
 def save_blp(source, destination, maximum=1024):
-    image = Image.open(source).convert('RGBA')
+    image = source.convert('RGBA') if isinstance(source, Image.Image) else Image.open(source).convert('RGBA')
     image.thumbnail((maximum, maximum), Image.Resampling.LANCZOS)
     width, height = image.size
     if width & (width-1) or height & (height-1):
@@ -37,13 +37,26 @@ def save_blp(source, destination, maximum=1024):
     return {'file':destination.name,'width':width,'height':height,'mipmaps':level,'alpha_bits':8}
 
 
+def eye_diffuse(folder, name):
+    prefix = name.replace('_warcraft_albd', '')
+    white = Image.open(folder/(prefix+'_conj.tga')).convert('RGBA')
+    iris = Image.open(folder/(prefix+'_iris.tga')).convert('RGBA')
+    highlight = Image.open(folder/'fp1100_l_eye_lod0_eyeh.tga').convert('RGBA')
+    if white.size != iris.size or iris.size != highlight.size:
+        raise ValueError('Eye shader layers must have matching dimensions')
+    diffuse = Image.alpha_composite(Image.alpha_composite(white, iris), highlight)
+    diffuse.putalpha(255)
+    return diffuse
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--source', type=Path, required=True)
     parser.add_argument('--model-folder', type=Path, required=True)
     args = parser.parse_args()
     model = json.loads((args.model_folder/'conversion.json').read_text())
-    report = [save_blp(args.source/(name+'.tga'), args.model_folder/'Siegfried'/(name+'.blp')) for name in model['textures']]
+    report = [save_blp(eye_diffuse(args.source, name) if name.endswith('_warcraft_albd') else args.source/(name+'.tga'),
+                       args.model_folder/'Siegfried'/(name+'.blp')) for name in model['textures']]
     (args.model_folder/'textures.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps(report,indent=2))
 
