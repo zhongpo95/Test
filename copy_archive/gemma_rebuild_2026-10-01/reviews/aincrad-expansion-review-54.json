@@ -1,0 +1,1092 @@
+{
+  "started": "2026-10-01T16:31:40.281Z",
+  "finished": "2026-10-01T16:31:53.034Z",
+  "request": {
+    "review": true,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "system": "한국어 독립 검토자다. 실제 문장과 effects·cost·gold·level·density·chance를 직접 대조해 PASS 또는 REVISE를 판단한다. 문장에 없는 피해 감소나 소녀의 질문을 상상하지 않는다. 새로운 스탯이나 수치 변경을 권고하지 않는다. 모호함과 실제 모순을 구분한다.",
+    "brief": {
+      "sourceFacts": [
+        {
+          "source": "https://eoa.sao-game.jp/character/argo.php",
+          "fact": "반다이남코 Echoes of Aincrad 공식 인물 소개에서 아르고는 다양한 정보를 다루는 정보상이며 해당 게임 주인공들과 베타 테스트에서 만났다고 소개한다. 정보상 역할만 활용하며 게임 주인공의 관계와 새 게임 전용 전개를 애니메이션의 사실로 옮기지 않는다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story11.html",
+          "fact": "공식 애니메이션11화 소개에서 키리토와 아스나는22층 호숫가의 통나무집에서 살기 시작한다. 유령 소문이 난 숲에서 기억을 잃고 쓰러진 소녀를 보호한다. 본문으로 소녀의 관리자 능력·정체·기억 회복 방법·후일 결말을 확인한 것이 아니다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story02.html",
+          "fact": "공식2화 소개에서 베타 경험자 키리토는 솔로로 탐색한 뒤1층 보스 방을 발견한다. 디아벨이 주최한 공략 회의에 참석하고 다른 솔로 플레이어와 파티를 맺는다. 본편의 승패·사망·보상 독점과 비터 평판을 여행자가 바꾸지 않는다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story04.html",
+          "fact": "공식4화 소개에서 시리카는 파티와 싸워 헤어진 뒤 숲에서 길을 잃고 피나를 잃는다. 키리토가 구해 주고 소생 방법을 설명하며 무상으로 돕겠다고 한다. 키리토가 왜 돕는지 설명한 답의 내용은 소개 본문에 없다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story13.html",
+          "fact": "공식13화 소개에서 낚시가 취미인 니시다는 키리토와 호수의 주인을 낚으려 협력한다. 공략의 최전선에 있던 키리토와 아스나는 평범한 사람들이 하루를 살아가는 모습을 실감한다. 주인을 실제 낚거나 쓰러뜨리는 결말은 본문으로 확인하지 않았다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story07.html",
+          "fact": "키리토는 예산보다 좋은 검을 원하고 리즈벳이 만든 최고 검의 내구력을 시험하다 부러뜨린다. 리즈벳은 희귀 금속이 있으면 원하는 검을 만들 수 있다고 맞선다. 여행자가 원작 검을 소유하거나 영구 장비 강화를 받지 않는다."
+        },
+        {
+          "source": "https://www.swordart-online.net/sp/aincrad/story/story08.html",
+          "fact": "키리토가74층에서 희귀 라구 래빗 고기를 얻었지만 요리 스킬이 부족해 에길에게 팔려 한다. 아스나는 요리 스킬을 완성했고 고기의 절반을 받는 조건으로 자기 방의 도구를 쓰려 한다. 여행자가 원작 고기 소유권과 거래 결말을 바꾸지 않는다."
+        },
+        {
+          "source": "https://www.swordart-online.net/character/index2.html",
+          "fact": "아스나는 리즈벳의 친한 친구이며 혈맹기사단 부단장·섬광이라 불리는 검사다. 에길은 상인 겸 도끼 전사, 클라인은 풍림화산 길드장이고 키리토의 친구다."
+        }
+      ],
+      "content": {
+        "cards": [
+          {
+            "key": "sao_argo_question",
+            "name": "아르고",
+            "effectName": "묻지 않은 갈림길",
+            "keyword": "사건 후보 · 관통",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "event_choices",
+                "value": 1
+              },
+              {
+                "stat": "penetration",
+                "value": 6
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "공식 게임 소개의 정보상 역할을 필요한 질문을 좁히고 위험의 빈틈을 찾는 기억으로 각색했다. 정확한 미래·베타의 정답·다른 플레이어 정보·정보 독점권을 지급하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_argo_shared",
+            "name": "아르고",
+            "effectName": "둘이 들어도 남는 정보",
+            "keyword": "행동 · 처치 골드",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 5
+              },
+              {
+                "stat": "kill_gold",
+                "value": 2
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "정보상 역할을 같은 내용을 듣더라도 자기 몫을 놓치지 않고 움직이는 기억으로 각색했다. 다른 플레이어의 카드와 골드를 빼앗거나 실제 정보 시장·재판매를 열지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_asuna_silence",
+            "name": "아스나",
+            "effectName": "대답을 기다리는 자리",
+            "keyword": "최대 체력 · 피해 감소",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "max_health_percent",
+                "value": 10
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 5
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "공식11화의 기억을 잃은 소녀를 보호하는 상황에서 조용히 곁을 지키는 기억으로 각색했다. 소녀의 기억·정체·관리자 능력을 해금하거나 체력 비율을 즉시 회복하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_kirito_distance",
+            "name": "키리토",
+            "effectName": "혼자와 다른 한 걸음",
+            "keyword": "이동 · 방향",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "move_speed",
+                "value": 6
+              },
+              {
+                "stat": "directional_damage",
+                "value": 10
+              }
+            ],
+            "evolution": {
+              "kind": 1,
+              "goal": 45,
+              "effects": [
+                {
+                  "stat": "boss_damage_percent",
+                  "value": 5
+                }
+              ]
+            },
+            "canonFact": "공식2화의 솔로끼리 파티를 맺는 상황에서 자기 간격과 앞쪽을 보는 기억으로 각색했다. 실제 파티 합류·NPC 동행·원작 소드스킬·공략 승리를 지급하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_argo_return",
+            "name": "아르고",
+            "effectName": "돌아와 더할 한 문장",
+            "keyword": "일반 적 · 치명타 피해",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "normal_damage_percent",
+                "value": 12
+              },
+              {
+                "stat": "crit_damage",
+                "value": 10
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "정보상을 만났던 자신의 질문을 다시 떠올리는 창작 후속의 기억이다. 실제 새 탐사·낚시·추가 사냥 처치·시스템 지식·최신 지도의 정확성을 보장하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_kirito",
+            "name": "키리토",
+            "effectName": "빈틈을 잇는 검",
+            "keyword": "행동 · 치명",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 6
+              },
+              {
+                "stat": "crit_chance",
+                "value": 4
+              }
+            ],
+            "evolution": {
+              "kind": 2,
+              "goal": 12000,
+              "effects": [
+                {
+                  "stat": "boss_damage_percent",
+                  "value": 8
+                }
+              ]
+            },
+            "canonFact": "키리토의 검 전투를 공격 기회를 이어가는 성장으로 각색했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_asuna",
+            "name": "아스나",
+            "effectName": "섬광의 사선",
+            "keyword": "신속 · 방향",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "swift",
+                "value": 270
+              },
+              {
+                "stat": "directional_damage",
+                "value": 12
+              }
+            ],
+            "evolution": {
+              "kind": 3,
+              "goal": 60,
+              "effects": [
+                {
+                  "stat": "crit_damage",
+                  "value": 15
+                }
+              ]
+            },
+            "canonFact": "섬광이라는 아스나의 검사 이미지를 신속·방향 공격으로 각색했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_liz",
+            "name": "리즈벳",
+            "effectName": "가공의 완성도",
+            "keyword": "공격 · 관통",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "attack_percent",
+                "value": 12
+              },
+              {
+                "stat": "penetration",
+                "value": 6
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "리즈벳의 대장장이 역할을 가공·관통 성장으로 각색했다. 영구 무기를 새로 강화하는 사건은 아니다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_silica",
+            "name": "시리카",
+            "effectName": "돌아갈 길의 동료",
+            "keyword": "체력 · 재생",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "max_health_percent",
+                "value": 8
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.6
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "공식4화의 피나를 잃고 소생 준비를 하는 상황을 귀환·회복 준비의 기억으로 각색했다. 꽃의 명칭·정확한 층·소생 제한은 확인한 공식 소개로 확정하지 않으며 동료 소환·소생·즉시 비율 회복 기능을 지급하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_klein",
+            "name": "클라인",
+            "effectName": "함께 맞서는 간격",
+            "keyword": "생존 · 비방향",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "damage_reduction",
+                "value": 6
+              },
+              {
+                "stat": "nondirectional_damage",
+                "value": 10
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "클라인이 동료와 함께 전투하는 역할을 방어·비방향 공격으로 각색했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_asuna_meal",
+            "name": "아스나",
+            "effectName": "공략 전의 식탁",
+            "keyword": "고체력 · 체력",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "healthy_damage",
+                "value": 14
+              },
+              {
+                "stat": "max_health_percent",
+                "value": 8
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "아스나가 희귀 고기를 요리하는 이야기를 공략 전 식사 준비로 각색했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_kirito_scout",
+            "name": "키리토",
+            "effectName": "돌아와 전한 경고",
+            "keyword": "보스 · 관통",
+            "grade": 3,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 16
+              },
+              {
+                "stat": "penetration",
+                "value": 10
+              }
+            ],
+            "evolution": {
+              "kind": 2,
+              "goal": 15000,
+              "effects": [
+                {
+                  "stat": "final_damage_percent",
+                  "value": 5
+                }
+              ]
+            },
+            "canonFact": "보스 방의 위험을 알게 되는 정찰 전개를 보스 피해·관통으로 각색했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_nishida_wait",
+            "name": "니시다",
+            "effectName": "당기기 전에 기다리기",
+            "keyword": "재생 · 비방향 피해",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "regeneration",
+                "value": 0.3
+              },
+              {
+                "stat": "nondirectional_damage",
+                "value": 10
+              }
+            ],
+            "evolution": {
+              "kind": 0,
+              "goal": 0,
+              "effects": []
+            },
+            "canonFact": "낚시를 좋아하는 중년 플레이어가 키리토와 어울리는 역할을 오래 움직이며 주변을 넓게 보는 준비로 각색한다. 실제 낚시 도구·물고기 아이템·즉시 회복·전투 보스 소환은 없다.",
+            "uncertain": []
+          }
+        ],
+        "events": [
+          {
+            "key": "sao_argo_fork",
+            "title": "강한 상대보다 돌아갈 길",
+            "story": "아르고에게 그 길은 어떠냐고 묻자 상대의 위험부터 답이 돌아온다. 네가 궁금했던 것은 사냥을 마친 뒤 어느 갈림길로 돌아오는가였고 아르고는 처음부터 무엇을 알고 싶은지 말했어야 한다고 손을 펼친다. 다음 상대와 돌아올 길 중 네 질문에 빠진 것이 남아 있다.",
+            "intro": "돌아올 길을 사서 들을까, 자기 간격부터 익힐까?",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "180골드를 내고 돌아올 갈림길만 묻는다",
+                "result": "180골드를 내고 돌아올 갈림길만 골라 물었다. 필요한 질문을 좁힌 기억으로 사건 후보와 방어력 관통이 늘었다. 아르고는 상대에 관한 답까지 산 것은 아니라며 처음 질문을 다시 짚는다.",
+                "card": "sao_argo_question",
+                "card2": null,
+                "cost": 180,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡고 자기 발걸음의 간격을 익힌다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 자기 발걸음의 간격을 익혔다. 이동속도와 방향 공격 피해가 늘었다. 아르고는 네가 길을 묻던 말과 이제 맡겠다는 몫이 다르다는 것을 확인한다.",
+                "card": "sao_kirito_distance",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "가져온 전달물을 건네고 보급 보수를 받는다",
+                "result": "가져온 전달물을 건넨 보수로140골드와물약1개를 받았다. 아르고의 펼친 손에서 전달물은 내려갔지만 돌아올 길에 관한 질문은 아직 남아 있다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 140,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "아르고의 정보상 역할에서 질문과 답의 범위가 다른 만남을 창작했다. 길·갈림길·전달물·정보료는 창작이며 베타 정보를 최신 정답으로 확정하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_argo_same_answer",
+            "title": "옆 사람도 들은 답",
+            "story": "아르고가 옆 손님에게 방금 네가 들은 이야기를 다시 전하자 그 손님이 먼저 산 쪽만 아는 정보 아니냐며 너를 돌아본다. 아르고는 혼자만 들을 권리를 판 적은 없다며 너에게도 무엇을 살 것인지 묻는다. 너는 남의 입을 막는 대신 자기 질문과 맡을 사냥의 몫을 정한다.",
+            "intro": "같은 답을 들은 뒤 내게 남은 질문은 무엇일까?",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "200골드를 내고 같은 정보에서 내 몫의 질문을 고른다",
+                "result": "200골드를 내고 같은 정보에서 내게 필요한 질문을 골랐다. 자기 몫을 놓치지 않는 기억으로 행동속도와 처치 골드가 늘었다. 옆 손님은 아르고가 다른 질문에도 같은 값을 받는지 다시 묻는다.",
+                "card": "sao_argo_shared",
+                "card2": null,
+                "cost": 200,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 강한 개인 사냥을 맡으며 위험에 관한 질문을 남긴다",
+                "result": "더 강한 개인 사냥을 맡는 부담을 택하고 위험에 관한 질문을 남겼다. 사건 후보와 방어력 관통이 늘었다. 아르고는 옆 손님의 거래까지 네가 산 것은 아니라며 각자의 질문을 받는다.",
+                "card": "sao_argo_question",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 1,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "거래를 마친 물품을 운반하고 보수를 받는다",
+                "result": "거래를 마친 물품을 운반한 보수로160골드와물약1개를 받았다. 옆 손님은 네가 들은 답이 아니라 지금 옮기는 짐을 보고 아르고에게 남은 거래를 묻는다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 160,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "다양한 정보를 거래하는 역할에서 손님의 독점 오해를 창작했다. 정보 독점·다른 플레이어의 후보 차단·실제 정보 재판매 기능과 공식 특정 거래를 추가하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_girl_unanswered",
+            "title": "이름 다음의 질문",
+            "story": "네가 앉아 있는 소녀에게 어디서 왔냐고 묻자 키리토도 막 같은 질문을 했다고 말한다. 아스나는 더 묻기 전에 앉을 곳부터 비우고 있지만 기억을 잃은 소녀에게는 아직 이어서 할 말이 없다. 네 손에는 자기 외투와 전달할 담요가 남아 있다.",
+            "intro": "질문이 멈춘 자리에서 무엇을 먼저 내놓을까?",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "180골드로 깔개를 마련하고 외투를 내놓는다",
+                "result": "깔개값180골드를 내고 자기 외투를 앉을 자리에 내놓았다. 대답보다 먼저 곁을 지킨 기억으로 최대 체력이 늘고 받는 피해가 줄었다. 아스나는 외투의 접힌 쪽을 펴고 소녀의 다음 말을 아직 기다린다.",
+                "card": "sao_asuna_silence",
+                "card2": null,
+                "cost": 180,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡고 기다릴 자리의 간격을 익힌다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 기다릴 자리의 간격을 기억했다. 이동속도와 방향 공격 피해가 늘었다. 키리토는 새 질문을 꺼내려다가 소녀에게 남은 말을 먼저 기다린다.",
+                "card": "sao_kirito_distance",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "빌린 담요를 전달하고 보급품을 받는다",
+                "result": "빌린 담요를 전달하고120골드와물약2개를 받았다. 아스나는 담요를 받은 자리부터 비우고 소녀에게 어디서 왔느냐는 질문을 다시 재촉하지 않는다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 120,
+                "level": 0,
+                "density": 0,
+                "potions": 2,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "공식11화의 소녀 보호 상황에서 외투·깔개·담요 전달을 창작했다. 기억 회복·유령 정체·관리자 권한·유이의 후일 결말은 정하지 않는다. 소녀를 원작의 치료 능력으로 바꾸지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_first_party_step",
+            "title": "둘이서도 혼자 걷는 사람",
+            "story": "첫 공략 회의 뒤 출발 준비를 지켜보는데 키리토와 아스나가 각자 걷던 간격 때문에 자꾸 서로를 돌아본다. 키리토가 옆의 빈 자리를 보자 네 발도 혼자 다닐 때의 보폭을 따라 움직인다. 너는 두 사람의 파티를 대신하지 않고 자기 다음 싸움에서 남길 간격을 생각한다.",
+            "intro": "혼자 걷던 보폭으로 다음 싸움을 맞아도 될까?",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "190골드로 연습용 준비를 마련하고 내 간격을 맞춘다",
+                "result": "연습 준비값190골드를 내고 자기 보폭의 간격을 맞췄다. 혼자와 다른 한 걸음의 기억으로 이동속도와 방향 공격 피해가 늘었다. 키리토와 아스나는 아직 서로가 남길 자리부터 보고 있다.",
+                "card": "sao_kirito_distance",
+                "card2": null,
+                "cost": 190,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡고 아스나의 앞쪽 보는 자세를 기억한다",
+                "result": "아스나가 앞쪽을 보는 자세를 기억하고 더 많은 개인 사냥을 맡는 부담을 택했다. 신속과 방향 공격 피해가 늘었다. 네가 맡을 싸움과 두 사람이 출발할 공략은 각자 남아 있다.",
+                "card": "sao_asuna",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 2,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "회의 뒤에 남은 보급품을 운반하고 보수를 받는다",
+                "result": "회의 뒤 보급품을 운반한 보수로150골드와물약1개를 받았다. 키리토가 지나갈 쪽의 짐은 비었고 아스나는 아직 출발할 방향을 보고 있다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 150,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "공식2화의 공략 회의와 솔로끼리 파티를 맺는 장면에 별도 여행자의 준비를 창작했다. 여행자가 본편의 파티원·공략 지휘자·디아벨의 생사를 결정하는 주체로 대체되지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_argo_second_question",
+            "title": "돌아갈 길 다음에 묻는 것",
+            "story": "돌아올 갈림길을 물었던 너를 아르고가 알아보고 이번에는 무엇이 빠졌냐고 묻는다. 네가 그 길에서 버텨야 할 상대도 알아야 한다고 말하자 아르고는 처음 질문과 이번 질문은 값이 다르다고 손가락을 편다. 앞선 답을 무효로 만들지 않고 이번 질문에 자기 몫을 보탤 차례다.",
+            "intro": "돌아갈 길은 들었다. 상대에 관한 질문도 보탤까?",
+            "previous": "sao_argo_fork",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "120골드를 내고 기억한 갈림길에 상대 정보를 맞춰 본다",
+                "result": "정보료120골드를 내고 기억한 갈림길과 상대 정보를 연결했다. 돌아와 한 문장을 더한 기억으로 일반 몬스터 피해와 치명타 피해가 늘고 냈던 정보료와 같은 액수의 확인 보수120골드도 받았다. 아르고는 이번에 물었던 부분과 처음 들었던 귀환 답을 따로 짚는다.",
+                "card": "sao_argo_return",
+                "card2": null,
+                "cost": 120,
+                "gold": 120,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 70
+              },
+              {
+                "label": "190골드를 내고 상대 정보까지 차근차근 듣는다",
+                "result": "정보료190골드를 내고 상대에 관한 설명을 끝까지 들었다. 일반 몬스터 피해와 치명타 피해가 늘었다. 아르고는 듣지 못한 부분이 또 없는지 이번에는 네 질문이 끝나기를 기다린다.",
+                "card": "sao_argo_return",
+                "card2": null,
+                "cost": 190,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡으며 같은 정보에서 내 몫을 고른다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 같은 정보에서 자기 몫을 골랐다. 행동속도와 처치 골드가 늘었다. 아르고는 옆 손님이 듣는 답까지 네 몫으로 묶지 않는다.",
+                "card": "sao_argo_shared",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "전달물을 반환하고 보급 보수를 받는다",
+                "result": "전달물을 반환한 보수로160골드와물약1개를 받았다. 아르고의 손에는 짐 대신 다음 질문을 받을 자리가 남았다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 160,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": "갈림길에 상대 정보를 맞추려 했지만 네가 기억한 부분만으로는 연결되지 않았다. 정보료120골드는 돌아오지 않고 카드와 확인 보수도 받지 못했다. 아르고는 앞선 귀환 답까지 틀렸던 것은 아니라고 덧붙인다.",
+            "canonFact": "sao_argo_fork에서 자신의 성공한1번 정보 구매 뒤에만 열리는 창작 후속이다. 실제 사냥 탐사·미니게임·정보상 카드 소모·새 시스템 지식을 요구하거나 구현하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_smith_metal",
+            "title": "부러진 시험검",
+            "story": "키리토가 내민 희귀 검과 비교하던 리즈벳의 시험검이 부러져 공방의 말이 잠깐 끊긴다. 리즈벳은 희귀 재료만 있다면 원하는 검을 만들 수 있다고 하고 키리토는 아직 남은 파편을 본다. 네게 새 검을 달라는 의뢰는 아니지만 공방에 필요한 수송 준비와 남은 부품을 맡을 수 있다.",
+            "intro": "부러진 검을 대신 요구하지 않고 무엇을 맡을까?",
+            "choices": [
+              {
+                "label": "220골드로 수송 준비를 마련하며 리즈벳의 가공을 지켜본다",
+                "result": "수송 준비값220골드를 내고 리즈벳이 재료를 다룰 때를 지켜봤다. 가공의 기억으로 공격력과 방어력 관통이 늘었다. 리즈벳은 부러진 시험검보다 앞으로 올 재료를 둘 자리를 먼저 본다.",
+                "card": "sao_liz",
+                "card2": null,
+                "cost": 220,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 강한 개인 사냥을 맡으며 키리토의 움직임을 기억한다",
+                "result": "더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 다음 움직임을 기억했다. 행동속도와 치명타 확률이 늘었다. 키리토는 아직 부러진 검의 파편을 리즈벳 쪽에 남긴다.",
+                "card": "sao_kirito",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 1,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "남은 부품을 에길에게 전달하고 220골드를 받는다",
+                "result": "남은 부품을 에길에게 전달하고220골드를 받았다. 에길은 파편을 맡았지만 키리토가 원하는 검과 리즈벳의 대답까지 값을 매기지는 않는다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 220,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              }
+            ],
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "failure": null,
+            "canonFact": "공식7화에서 키리토가 리즈벳의 시험검을 부러뜨리고 희귀 금속이 있으면 원하는 검을 만들 수 있다는 대화가 나온다. 여행자의 수송·부품 전달은 창작이며 원작 검 제작의 주인공과 영구 무기 강화 결과는 바꾸지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_smith_return",
+            "title": "공방으로 돌아온 재료",
+            "story": "네가 마련했던 수송 준비가 공방에 닿자 리즈벳은 이제 검을 만드는 쪽은 자기 일이라고 말한다. 키리토는 다음 동작을 살피고 아스나는 친구가 작업할 공간을 비우며 네가 아직 들고 있는 짐을 본다. 너는 직접 내려놓을 자리와 더 맡을 준비 중 자기 몫을 정한다.",
+            "intro": "수송 준비를 마친 손에 아직 짐이 남아 있다.",
+            "choices": [
+              {
+                "label": "더 많은 개인 사냥을 맡고 키리토의 다음 동작을 기억한다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 키리토의 다음 동작을 기억했다. 행동속도와 치명타 확률이 늘었다. 리즈벳은 네가 내려놓은 짐 옆에서 아직 자기 작업을 준비한다.",
+                "card": "sao_kirito",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "200골드로 짐을 놓을 준비를 마련하고 아스나의 간격을 본다",
+                "result": "짐을 놓을 준비값200골드를 내고 아스나가 비워 둔 간격을 살폈다. 신속과 방향 공격 피해가 늘었다. 아스나는 친구의 작업 공간을 가리지 않도록 자기 짐도 옆으로 옮긴다.",
+                "card": "sao_asuna",
+                "card2": null,
+                "cost": 200,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "남은 짐을 내려놓고 250골드와 물약 1개를 받는다",
+                "result": "남은 짐을 내려놓은 보수로250골드와물약1개를 받았다. 리즈벳이 쓸 공간은 비었지만 검을 완성할 손은 여전히 그녀에게 남아 있다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 250,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "previous": "sao_smith_metal",
+            "previousChoice": 1,
+            "requiredCard": null,
+            "failure": null,
+            "canonFact": "자신의 수송 준비 성공1번에서만 열리는 공방의 창작 후속이다. 리즈벳의 제작과 키리토의 원작 검은 대신 완성하지 않으며 아스나에게 위치·경계를 명령하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_companion_herb",
+            "title": "작은 동료를 되찾으러",
+            "story": "피나를 잃은 시리카에게 키리토가 소생을 위한 방법과 길을 설명하고 있다. 시리카는 돌아올 준비물을 만지다가 아직 피나가 없는 쪽을 돌아본다. 네 손에 남은 보급과 운반 준비는 그 길을 떠나기 전에도 필요하다.",
+            "intro": "소생의 길을 앞두고 내 손에 남은 준비를 정한다.",
+            "choices": [
+              {
+                "label": "180골드로 보급을 마련하고 시리카와 돌아올 준비를 한다",
+                "result": "보급값180골드를 내고 시리카와 돌아올 준비를 했다. 동료를 기다릴 기억으로 최대 체력과 지속 체력 재생이 늘었다. 시리카는 챙긴 보급과 아직 피나가 없는 자리를 함께 본다.",
+                "card": "sao_silica",
+                "card2": null,
+                "cost": 180,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡으며 클라인과 버틸 간격을 기억한다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 간격을 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 시리카에게 돌아올 준비는 남겼고 키리토는 떠날 길에 관한 말을 이어 간다.",
+                "card": "sao_klein",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 2,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 강한 개인 사냥을 맡으며 키리토의 경고를 듣는다",
+                "result": "더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 경고를 기억했다. 보스에게 가하는 피해와 방어력 관통이 늘었다. 키리토는 시리카에게 소생 방법과 자기 경고를 같은 대답으로 묶지 않는다.",
+                "card": "sao_kirito_scout",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 1,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "운반할 용기를 준비하고 230골드를 받는다",
+                "result": "운반할 용기를 준비한 보수로230골드를 받았다. 시리카는 빈 용기를 받았고 그 안에 무엇을 넣고 돌아올지는 아직 길 끝에 남아 있다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 230,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              }
+            ],
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "failure": null,
+            "canonFact": "공식4화 소개로 피나를 잃고 키리토가 무상으로 소생 방법을 설명하고 돕는 사실을 확인했다. 꽃의 명칭·정확한 층·소생 시간제한은 이 공식 본문으로 확인하지 않아 새 설명에서 확정하지 않는다. 맵의 운반 준비와 클라인의 기억은 별도 창작이며 피나 소환과 소생을 지급하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_rabbit_table",
+            "title": "요리할 수 없는 희귀 고기",
+            "story": "에길의 가게에서 키리토가 희귀한 라구 래빗 고기를 내밀지만 자기 요리 실력으로는 아깝다고 말한다. 아스나는 반을 나누는 조건으로 맡겠다고 하다가 요리 도구는 자기 방에 있다고 덧붙인다. 네가 보탤 식탁 준비와 에길에게 옮길 물품이 남아 있다.",
+            "intro": "고기의 주인이 정한 식사에 어떤 준비를 보탤까?",
+            "choices": [
+              {
+                "label": "170골드로 식탁 준비를 보태고 아스나와 식사를 준비한다",
+                "result": "식탁 준비값170골드를 내고 아스나의 식사 준비를 도왔다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 키리토와 나눌 고기부터 살피고 도구를 가져올 쪽을 가리킨다.",
+                "card": "sao_asuna_meal",
+                "card2": null,
+                "cost": 170,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "에길에게 거래 운반을 돕고 280골드를 받는다",
+                "result": "에길의 거래 물품을 운반한 보수로280골드를 받았다. 키리토의 고기를 대신 팔지는 않았고 에길은 아스나에게 식탁 준비를 어디로 옮길지 묻는다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 280,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡으며 클라인과 버틸 위치를 기억한다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 위치를 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 식탁에 쓸 몫은 아스나에게 남기고 네가 맡을 준비를 따로 챙겼다.",
+                "card": "sao_klein",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              }
+            ],
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "failure": null,
+            "canonFact": "공식8화의 고기는 키리토가 얻었고 아스나는 절반을 받는 조건으로 자신의 요리 도구를 쓰려 한다. 여행자가 고기 소유권을 빼앗아 원작 식사를 취소하는 거래는 없으며 별도 식탁 준비와 운반 보수만 창작했다.",
+            "uncertain": []
+          },
+          {
+            "key": "sao_lakeside_wait",
+            "title": "호숫가에서 기다릴 사람",
+            "story": "니시다가 찌를 보는 동안 키리토의 손은 한 번 더 당겨 보려는 쪽으로 움직인다. 니시다는 빨리 다음 일을 찾는 것과 입질을 기다리는 것은 다르다고 말하고 아스나는 두 사람 옆에 앉을 자리를 잡는다. 너는 작은 입질을 노려 볼 준비와 오래 기다릴 자리 중 자기 몫을 정한다.",
+            "intro": "작은 입질을 노려 볼까, 기다릴 자리를 마련할까?",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "150골드로 미끼를 마련하고 작은 입질의 때를 맞춰 본다",
+                "result": "미끼값150골드를 내고 작은 입질의 때를 맞췄다. 당기기 전에 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘고 낚시 보수240골드를 받았다. 니시다는 호수의 주인보다 방금 잠잠해진 찌를 먼저 보고 있다.",
+                "card": "sao_nishida_wait",
+                "card2": null,
+                "cost": 150,
+                "gold": 240,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 65
+              },
+              {
+                "label": "210골드로 기다릴 자리를 마련하고 니시다 옆에서 찌를 본다",
+                "result": "기다릴 자리값210골드를 내고 니시다 옆에서 찌가 움직일 때를 봤다. 오래 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘었다. 키리토의 손이 움직이자 니시다는 아직 같은 때가 아니라며 찌를 가리킨다.",
+                "card": "sao_nishida_wait",
+                "card2": null,
+                "cost": 210,
+                "gold": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 많은 개인 사냥을 맡으며 아스나와 몸 상태를 유지할 준비를 한다",
+                "result": "더 많은 개인 사냥을 맡는 부담을 택하고 아스나와 몸 상태를 지킬 준비를 했다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 기다릴 자리에 앉고 네가 가져갈 보급을 옆에 남긴다.",
+                "card": "sao_asuna_meal",
+                "card2": null,
+                "cost": 0,
+                "gold": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "돌아갈 짐을 운반하고 130골드와 물약 1개를 받는다",
+                "result": "돌아갈 짐을 운반한 보수로130골드와물약1개를 받았다. 니시다는 떠날 준비가 끝난 짐을 보면서도 아직 낚싯대에서 손을 떼지 않는다.",
+                "card": null,
+                "card2": null,
+                "cost": 0,
+                "gold": 130,
+                "level": 0,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": "150골드를 내고 미끼를 마련했지만 작은 입질을 놓쳤다. 준비 비용은 돌아오지 않고 카드와240골드의 낚시 보수도 받지 못했다. 니시다는 호수의 주인 이야기를 아직 꺼내지 않고 찌가 잠잠해질 때를 기다린다.",
+            "canonFact": "공식13화의 니시다 취미와 키리토·아스나가 만난 평범한 생활에서 별도 작은 낚시를 창작했다.65%의 입질·미끼값·낚시 보수·자리 준비는 맵 각색이며 호수 주인을 낚거나 쓰러뜨린 결말이 아니다. 실제 물고기 아이템·낚시 기능·호숫가 몬스터 침입은 없다.",
+            "uncertain": []
+          }
+        ]
+      },
+      "mechanics": "사건진입AP1,자기사냥정지.cost/level/density먼저적용,성공시card/gold/potions.실패는비용과부담유지.필드는이후원정개인사냥이고호숫가·안전구역의침입아님.65/70는맵창작확률.중복카드100골드.후속은자기앞선성공1번만.최대체력은기존체력비율보존.고체력효과는65%이상일때가하는대미지증가이며받는피해감소아님.흡수+재생10%/초한도,물약별도.회복·현재체력비용·새무기·소드스킬·소생·기억회복없음.",
+      "questions": [
+        "실제결과의비용·골드·물약·지속필드·지정카드가데이터와모순되는경우만찾는다.",
+        "healthy_damage는65%이상체력일때가하는대미지이며attack_percent나damage_reduction이아니다.",
+        "소녀에게먼저질문한주체는여행자다.소녀는아직대답하지못한다.",
+        "정보후속1번은cost120을먼저지불하고70%성공때card와gold120을받는다.성공차액0·실패손실120이며의도된위험선택이다.",
+        "원작역할대체·정지중실제추가처치·새NPC동행·소생·관리자권한을약속하는지확인한다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 독립 검토자다. 실제 문장과 effects·cost·gold·level·density·chance를 직접 대조해 PASS 또는 REVISE를 판단한다. 문장에 없는 피해 감소나 소녀의 질문을 상상하지 않는다. 새로운 스탯이나 수치 변경을 권고하지 않는다. 모호함과 실제 모순을 구분한다."
+      },
+      {
+        "role": "user",
+        "content": "{\"sourceFacts\":[{\"source\":\"https://eoa.sao-game.jp/character/argo.php\",\"fact\":\"반다이남코 Echoes of Aincrad 공식 인물 소개에서 아르고는 다양한 정보를 다루는 정보상이며 해당 게임 주인공들과 베타 테스트에서 만났다고 소개한다. 정보상 역할만 활용하며 게임 주인공의 관계와 새 게임 전용 전개를 애니메이션의 사실로 옮기지 않는다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story11.html\",\"fact\":\"공식 애니메이션11화 소개에서 키리토와 아스나는22층 호숫가의 통나무집에서 살기 시작한다. 유령 소문이 난 숲에서 기억을 잃고 쓰러진 소녀를 보호한다. 본문으로 소녀의 관리자 능력·정체·기억 회복 방법·후일 결말을 확인한 것이 아니다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story02.html\",\"fact\":\"공식2화 소개에서 베타 경험자 키리토는 솔로로 탐색한 뒤1층 보스 방을 발견한다. 디아벨이 주최한 공략 회의에 참석하고 다른 솔로 플레이어와 파티를 맺는다. 본편의 승패·사망·보상 독점과 비터 평판을 여행자가 바꾸지 않는다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story04.html\",\"fact\":\"공식4화 소개에서 시리카는 파티와 싸워 헤어진 뒤 숲에서 길을 잃고 피나를 잃는다. 키리토가 구해 주고 소생 방법을 설명하며 무상으로 돕겠다고 한다. 키리토가 왜 돕는지 설명한 답의 내용은 소개 본문에 없다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story13.html\",\"fact\":\"공식13화 소개에서 낚시가 취미인 니시다는 키리토와 호수의 주인을 낚으려 협력한다. 공략의 최전선에 있던 키리토와 아스나는 평범한 사람들이 하루를 살아가는 모습을 실감한다. 주인을 실제 낚거나 쓰러뜨리는 결말은 본문으로 확인하지 않았다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story07.html\",\"fact\":\"키리토는 예산보다 좋은 검을 원하고 리즈벳이 만든 최고 검의 내구력을 시험하다 부러뜨린다. 리즈벳은 희귀 금속이 있으면 원하는 검을 만들 수 있다고 맞선다. 여행자가 원작 검을 소유하거나 영구 장비 강화를 받지 않는다.\"},{\"source\":\"https://www.swordart-online.net/sp/aincrad/story/story08.html\",\"fact\":\"키리토가74층에서 희귀 라구 래빗 고기를 얻었지만 요리 스킬이 부족해 에길에게 팔려 한다. 아스나는 요리 스킬을 완성했고 고기의 절반을 받는 조건으로 자기 방의 도구를 쓰려 한다. 여행자가 원작 고기 소유권과 거래 결말을 바꾸지 않는다.\"},{\"source\":\"https://www.swordart-online.net/character/index2.html\",\"fact\":\"아스나는 리즈벳의 친한 친구이며 혈맹기사단 부단장·섬광이라 불리는 검사다. 에길은 상인 겸 도끼 전사, 클라인은 풍림화산 길드장이고 키리토의 친구다.\"}],\"content\":{\"cards\":[{\"key\":\"sao_argo_question\",\"name\":\"아르고\",\"effectName\":\"묻지 않은 갈림길\",\"keyword\":\"사건 후보 · 관통\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"penetration\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 게임 소개의 정보상 역할을 필요한 질문을 좁히고 위험의 빈틈을 찾는 기억으로 각색했다. 정확한 미래·베타의 정답·다른 플레이어 정보·정보 독점권을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_argo_shared\",\"name\":\"아르고\",\"effectName\":\"둘이 들어도 남는 정보\",\"keyword\":\"행동 · 처치 골드\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":5},{\"stat\":\"kill_gold\",\"value\":2}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"정보상 역할을 같은 내용을 듣더라도 자기 몫을 놓치지 않고 움직이는 기억으로 각색했다. 다른 플레이어의 카드와 골드를 빼앗거나 실제 정보 시장·재판매를 열지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_asuna_silence\",\"name\":\"아스나\",\"effectName\":\"대답을 기다리는 자리\",\"keyword\":\"최대 체력 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":10},{\"stat\":\"damage_reduction\",\"value\":5}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식11화의 기억을 잃은 소녀를 보호하는 상황에서 조용히 곁을 지키는 기억으로 각색했다. 소녀의 기억·정체·관리자 능력을 해금하거나 체력 비율을 즉시 회복하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_kirito_distance\",\"name\":\"키리토\",\"effectName\":\"혼자와 다른 한 걸음\",\"keyword\":\"이동 · 방향\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":6},{\"stat\":\"directional_damage\",\"value\":10}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":5}]},\"canonFact\":\"공식2화의 솔로끼리 파티를 맺는 상황에서 자기 간격과 앞쪽을 보는 기억으로 각색했다. 실제 파티 합류·NPC 동행·원작 소드스킬·공략 승리를 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_argo_return\",\"name\":\"아르고\",\"effectName\":\"돌아와 더할 한 문장\",\"keyword\":\"일반 적 · 치명타 피해\",\"grade\":2,\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":12},{\"stat\":\"crit_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"정보상을 만났던 자신의 질문을 다시 떠올리는 창작 후속의 기억이다. 실제 새 탐사·낚시·추가 사냥 처치·시스템 지식·최신 지도의 정확성을 보장하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_kirito\",\"name\":\"키리토\",\"effectName\":\"빈틈을 잇는 검\",\"keyword\":\"행동 · 치명\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":6},{\"stat\":\"crit_chance\",\"value\":4}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":8}]},\"canonFact\":\"키리토의 검 전투를 공격 기회를 이어가는 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"sao_asuna\",\"name\":\"아스나\",\"effectName\":\"섬광의 사선\",\"keyword\":\"신속 · 방향\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":270},{\"stat\":\"directional_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"crit_damage\",\"value\":15}]},\"canonFact\":\"섬광이라는 아스나의 검사 이미지를 신속·방향 공격으로 각색했다.\",\"uncertain\":[]},{\"key\":\"sao_liz\",\"name\":\"리즈벳\",\"effectName\":\"가공의 완성도\",\"keyword\":\"공격 · 관통\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":12},{\"stat\":\"penetration\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"리즈벳의 대장장이 역할을 가공·관통 성장으로 각색했다. 영구 무기를 새로 강화하는 사건은 아니다.\",\"uncertain\":[]},{\"key\":\"sao_silica\",\"name\":\"시리카\",\"effectName\":\"돌아갈 길의 동료\",\"keyword\":\"체력 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"regeneration\",\"value\":0.6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식4화의 피나를 잃고 소생 준비를 하는 상황을 귀환·회복 준비의 기억으로 각색했다. 꽃의 명칭·정확한 층·소생 제한은 확인한 공식 소개로 확정하지 않으며 동료 소환·소생·즉시 비율 회복 기능을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_klein\",\"name\":\"클라인\",\"effectName\":\"함께 맞서는 간격\",\"keyword\":\"생존 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":6},{\"stat\":\"nondirectional_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"클라인이 동료와 함께 전투하는 역할을 방어·비방향 공격으로 각색했다.\",\"uncertain\":[]},{\"key\":\"sao_asuna_meal\",\"name\":\"아스나\",\"effectName\":\"공략 전의 식탁\",\"keyword\":\"고체력 · 체력\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":14},{\"stat\":\"max_health_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"아스나가 희귀 고기를 요리하는 이야기를 공략 전 식사 준비로 각색했다.\",\"uncertain\":[]},{\"key\":\"sao_kirito_scout\",\"name\":\"키리토\",\"effectName\":\"돌아와 전한 경고\",\"keyword\":\"보스 · 관통\",\"grade\":3,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":16},{\"stat\":\"penetration\",\"value\":10}],\"evolution\":{\"kind\":2,\"goal\":15000,\"effects\":[{\"stat\":\"final_damage_percent\",\"value\":5}]},\"canonFact\":\"보스 방의 위험을 알게 되는 정찰 전개를 보스 피해·관통으로 각색했다.\",\"uncertain\":[]},{\"key\":\"sao_nishida_wait\",\"name\":\"니시다\",\"effectName\":\"당기기 전에 기다리기\",\"keyword\":\"재생 · 비방향 피해\",\"grade\":2,\"effects\":[{\"stat\":\"regeneration\",\"value\":0.3},{\"stat\":\"nondirectional_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"낚시를 좋아하는 중년 플레이어가 키리토와 어울리는 역할을 오래 움직이며 주변을 넓게 보는 준비로 각색한다. 실제 낚시 도구·물고기 아이템·즉시 회복·전투 보스 소환은 없다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"sao_argo_fork\",\"title\":\"강한 상대보다 돌아갈 길\",\"story\":\"아르고에게 그 길은 어떠냐고 묻자 상대의 위험부터 답이 돌아온다. 네가 궁금했던 것은 사냥을 마친 뒤 어느 갈림길로 돌아오는가였고 아르고는 처음부터 무엇을 알고 싶은지 말했어야 한다고 손을 펼친다. 다음 상대와 돌아올 길 중 네 질문에 빠진 것이 남아 있다.\",\"intro\":\"돌아올 길을 사서 들을까, 자기 간격부터 익힐까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"180골드를 내고 돌아올 갈림길만 묻는다\",\"result\":\"180골드를 내고 돌아올 갈림길만 골라 물었다. 필요한 질문을 좁힌 기억으로 사건 후보와 방어력 관통이 늘었다. 아르고는 상대에 관한 답까지 산 것은 아니라며 처음 질문을 다시 짚는다.\",\"card\":\"sao_argo_question\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡고 자기 발걸음의 간격을 익힌다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 자기 발걸음의 간격을 익혔다. 이동속도와 방향 공격 피해가 늘었다. 아르고는 네가 길을 묻던 말과 이제 맡겠다는 몫이 다르다는 것을 확인한다.\",\"card\":\"sao_kirito_distance\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"가져온 전달물을 건네고 보급 보수를 받는다\",\"result\":\"가져온 전달물을 건넨 보수로140골드와물약1개를 받았다. 아르고의 펼친 손에서 전달물은 내려갔지만 돌아올 길에 관한 질문은 아직 남아 있다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":140,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"아르고의 정보상 역할에서 질문과 답의 범위가 다른 만남을 창작했다. 길·갈림길·전달물·정보료는 창작이며 베타 정보를 최신 정답으로 확정하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_argo_same_answer\",\"title\":\"옆 사람도 들은 답\",\"story\":\"아르고가 옆 손님에게 방금 네가 들은 이야기를 다시 전하자 그 손님이 먼저 산 쪽만 아는 정보 아니냐며 너를 돌아본다. 아르고는 혼자만 들을 권리를 판 적은 없다며 너에게도 무엇을 살 것인지 묻는다. 너는 남의 입을 막는 대신 자기 질문과 맡을 사냥의 몫을 정한다.\",\"intro\":\"같은 답을 들은 뒤 내게 남은 질문은 무엇일까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"200골드를 내고 같은 정보에서 내 몫의 질문을 고른다\",\"result\":\"200골드를 내고 같은 정보에서 내게 필요한 질문을 골랐다. 자기 몫을 놓치지 않는 기억으로 행동속도와 처치 골드가 늘었다. 옆 손님은 아르고가 다른 질문에도 같은 값을 받는지 다시 묻는다.\",\"card\":\"sao_argo_shared\",\"card2\":null,\"cost\":200,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 강한 개인 사냥을 맡으며 위험에 관한 질문을 남긴다\",\"result\":\"더 강한 개인 사냥을 맡는 부담을 택하고 위험에 관한 질문을 남겼다. 사건 후보와 방어력 관통이 늘었다. 아르고는 옆 손님의 거래까지 네가 산 것은 아니라며 각자의 질문을 받는다.\",\"card\":\"sao_argo_question\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"거래를 마친 물품을 운반하고 보수를 받는다\",\"result\":\"거래를 마친 물품을 운반한 보수로160골드와물약1개를 받았다. 옆 손님은 네가 들은 답이 아니라 지금 옮기는 짐을 보고 아르고에게 남은 거래를 묻는다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":160,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"다양한 정보를 거래하는 역할에서 손님의 독점 오해를 창작했다. 정보 독점·다른 플레이어의 후보 차단·실제 정보 재판매 기능과 공식 특정 거래를 추가하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_girl_unanswered\",\"title\":\"이름 다음의 질문\",\"story\":\"네가 앉아 있는 소녀에게 어디서 왔냐고 묻자 키리토도 막 같은 질문을 했다고 말한다. 아스나는 더 묻기 전에 앉을 곳부터 비우고 있지만 기억을 잃은 소녀에게는 아직 이어서 할 말이 없다. 네 손에는 자기 외투와 전달할 담요가 남아 있다.\",\"intro\":\"질문이 멈춘 자리에서 무엇을 먼저 내놓을까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"180골드로 깔개를 마련하고 외투를 내놓는다\",\"result\":\"깔개값180골드를 내고 자기 외투를 앉을 자리에 내놓았다. 대답보다 먼저 곁을 지킨 기억으로 최대 체력이 늘고 받는 피해가 줄었다. 아스나는 외투의 접힌 쪽을 펴고 소녀의 다음 말을 아직 기다린다.\",\"card\":\"sao_asuna_silence\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡고 기다릴 자리의 간격을 익힌다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 기다릴 자리의 간격을 기억했다. 이동속도와 방향 공격 피해가 늘었다. 키리토는 새 질문을 꺼내려다가 소녀에게 남은 말을 먼저 기다린다.\",\"card\":\"sao_kirito_distance\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"빌린 담요를 전달하고 보급품을 받는다\",\"result\":\"빌린 담요를 전달하고120골드와물약2개를 받았다. 아스나는 담요를 받은 자리부터 비우고 소녀에게 어디서 왔느냐는 질문을 다시 재촉하지 않는다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":120,\"level\":0,\"density\":0,\"potions\":2,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식11화의 소녀 보호 상황에서 외투·깔개·담요 전달을 창작했다. 기억 회복·유령 정체·관리자 권한·유이의 후일 결말은 정하지 않는다. 소녀를 원작의 치료 능력으로 바꾸지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_first_party_step\",\"title\":\"둘이서도 혼자 걷는 사람\",\"story\":\"첫 공략 회의 뒤 출발 준비를 지켜보는데 키리토와 아스나가 각자 걷던 간격 때문에 자꾸 서로를 돌아본다. 키리토가 옆의 빈 자리를 보자 네 발도 혼자 다닐 때의 보폭을 따라 움직인다. 너는 두 사람의 파티를 대신하지 않고 자기 다음 싸움에서 남길 간격을 생각한다.\",\"intro\":\"혼자 걷던 보폭으로 다음 싸움을 맞아도 될까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"190골드로 연습용 준비를 마련하고 내 간격을 맞춘다\",\"result\":\"연습 준비값190골드를 내고 자기 보폭의 간격을 맞췄다. 혼자와 다른 한 걸음의 기억으로 이동속도와 방향 공격 피해가 늘었다. 키리토와 아스나는 아직 서로가 남길 자리부터 보고 있다.\",\"card\":\"sao_kirito_distance\",\"card2\":null,\"cost\":190,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡고 아스나의 앞쪽 보는 자세를 기억한다\",\"result\":\"아스나가 앞쪽을 보는 자세를 기억하고 더 많은 개인 사냥을 맡는 부담을 택했다. 신속과 방향 공격 피해가 늘었다. 네가 맡을 싸움과 두 사람이 출발할 공략은 각자 남아 있다.\",\"card\":\"sao_asuna\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"회의 뒤에 남은 보급품을 운반하고 보수를 받는다\",\"result\":\"회의 뒤 보급품을 운반한 보수로150골드와물약1개를 받았다. 키리토가 지나갈 쪽의 짐은 비었고 아스나는 아직 출발할 방향을 보고 있다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":150,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식2화의 공략 회의와 솔로끼리 파티를 맺는 장면에 별도 여행자의 준비를 창작했다. 여행자가 본편의 파티원·공략 지휘자·디아벨의 생사를 결정하는 주체로 대체되지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_argo_second_question\",\"title\":\"돌아갈 길 다음에 묻는 것\",\"story\":\"돌아올 갈림길을 물었던 너를 아르고가 알아보고 이번에는 무엇이 빠졌냐고 묻는다. 네가 그 길에서 버텨야 할 상대도 알아야 한다고 말하자 아르고는 처음 질문과 이번 질문은 값이 다르다고 손가락을 편다. 앞선 답을 무효로 만들지 않고 이번 질문에 자기 몫을 보탤 차례다.\",\"intro\":\"돌아갈 길은 들었다. 상대에 관한 질문도 보탤까?\",\"previous\":\"sao_argo_fork\",\"previousChoice\":1,\"requiredCard\":null,\"choices\":[{\"label\":\"120골드를 내고 기억한 갈림길에 상대 정보를 맞춰 본다\",\"result\":\"정보료120골드를 내고 기억한 갈림길과 상대 정보를 연결했다. 돌아와 한 문장을 더한 기억으로 일반 몬스터 피해와 치명타 피해가 늘고 냈던 정보료와 같은 액수의 확인 보수120골드도 받았다. 아르고는 이번에 물었던 부분과 처음 들었던 귀환 답을 따로 짚는다.\",\"card\":\"sao_argo_return\",\"card2\":null,\"cost\":120,\"gold\":120,\"level\":0,\"density\":0,\"potions\":0,\"chance\":70},{\"label\":\"190골드를 내고 상대 정보까지 차근차근 듣는다\",\"result\":\"정보료190골드를 내고 상대에 관한 설명을 끝까지 들었다. 일반 몬스터 피해와 치명타 피해가 늘었다. 아르고는 듣지 못한 부분이 또 없는지 이번에는 네 질문이 끝나기를 기다린다.\",\"card\":\"sao_argo_return\",\"card2\":null,\"cost\":190,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡으며 같은 정보에서 내 몫을 고른다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 같은 정보에서 자기 몫을 골랐다. 행동속도와 처치 골드가 늘었다. 아르고는 옆 손님이 듣는 답까지 네 몫으로 묶지 않는다.\",\"card\":\"sao_argo_shared\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"전달물을 반환하고 보급 보수를 받는다\",\"result\":\"전달물을 반환한 보수로160골드와물약1개를 받았다. 아르고의 손에는 짐 대신 다음 질문을 받을 자리가 남았다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":160,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":\"갈림길에 상대 정보를 맞추려 했지만 네가 기억한 부분만으로는 연결되지 않았다. 정보료120골드는 돌아오지 않고 카드와 확인 보수도 받지 못했다. 아르고는 앞선 귀환 답까지 틀렸던 것은 아니라고 덧붙인다.\",\"canonFact\":\"sao_argo_fork에서 자신의 성공한1번 정보 구매 뒤에만 열리는 창작 후속이다. 실제 사냥 탐사·미니게임·정보상 카드 소모·새 시스템 지식을 요구하거나 구현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_smith_metal\",\"title\":\"부러진 시험검\",\"story\":\"키리토가 내민 희귀 검과 비교하던 리즈벳의 시험검이 부러져 공방의 말이 잠깐 끊긴다. 리즈벳은 희귀 재료만 있다면 원하는 검을 만들 수 있다고 하고 키리토는 아직 남은 파편을 본다. 네게 새 검을 달라는 의뢰는 아니지만 공방에 필요한 수송 준비와 남은 부품을 맡을 수 있다.\",\"intro\":\"부러진 검을 대신 요구하지 않고 무엇을 맡을까?\",\"choices\":[{\"label\":\"220골드로 수송 준비를 마련하며 리즈벳의 가공을 지켜본다\",\"result\":\"수송 준비값220골드를 내고 리즈벳이 재료를 다룰 때를 지켜봤다. 가공의 기억으로 공격력과 방어력 관통이 늘었다. 리즈벳은 부러진 시험검보다 앞으로 올 재료를 둘 자리를 먼저 본다.\",\"card\":\"sao_liz\",\"card2\":null,\"cost\":220,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 강한 개인 사냥을 맡으며 키리토의 움직임을 기억한다\",\"result\":\"더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 다음 움직임을 기억했다. 행동속도와 치명타 확률이 늘었다. 키리토는 아직 부러진 검의 파편을 리즈벳 쪽에 남긴다.\",\"card\":\"sao_kirito\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"남은 부품을 에길에게 전달하고 220골드를 받는다\",\"result\":\"남은 부품을 에길에게 전달하고220골드를 받았다. 에길은 파편을 맡았지만 키리토가 원하는 검과 리즈벳의 대답까지 값을 매기지는 않는다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"공식7화에서 키리토가 리즈벳의 시험검을 부러뜨리고 희귀 금속이 있으면 원하는 검을 만들 수 있다는 대화가 나온다. 여행자의 수송·부품 전달은 창작이며 원작 검 제작의 주인공과 영구 무기 강화 결과는 바꾸지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_smith_return\",\"title\":\"공방으로 돌아온 재료\",\"story\":\"네가 마련했던 수송 준비가 공방에 닿자 리즈벳은 이제 검을 만드는 쪽은 자기 일이라고 말한다. 키리토는 다음 동작을 살피고 아스나는 친구가 작업할 공간을 비우며 네가 아직 들고 있는 짐을 본다. 너는 직접 내려놓을 자리와 더 맡을 준비 중 자기 몫을 정한다.\",\"intro\":\"수송 준비를 마친 손에 아직 짐이 남아 있다.\",\"choices\":[{\"label\":\"더 많은 개인 사냥을 맡고 키리토의 다음 동작을 기억한다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 키리토의 다음 동작을 기억했다. 행동속도와 치명타 확률이 늘었다. 리즈벳은 네가 내려놓은 짐 옆에서 아직 자기 작업을 준비한다.\",\"card\":\"sao_kirito\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"200골드로 짐을 놓을 준비를 마련하고 아스나의 간격을 본다\",\"result\":\"짐을 놓을 준비값200골드를 내고 아스나가 비워 둔 간격을 살폈다. 신속과 방향 공격 피해가 늘었다. 아스나는 친구의 작업 공간을 가리지 않도록 자기 짐도 옆으로 옮긴다.\",\"card\":\"sao_asuna\",\"card2\":null,\"cost\":200,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"남은 짐을 내려놓고 250골드와 물약 1개를 받는다\",\"result\":\"남은 짐을 내려놓은 보수로250골드와물약1개를 받았다. 리즈벳이 쓸 공간은 비었지만 검을 완성할 손은 여전히 그녀에게 남아 있다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":250,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"previous\":\"sao_smith_metal\",\"previousChoice\":1,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"자신의 수송 준비 성공1번에서만 열리는 공방의 창작 후속이다. 리즈벳의 제작과 키리토의 원작 검은 대신 완성하지 않으며 아스나에게 위치·경계를 명령하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_companion_herb\",\"title\":\"작은 동료를 되찾으러\",\"story\":\"피나를 잃은 시리카에게 키리토가 소생을 위한 방법과 길을 설명하고 있다. 시리카는 돌아올 준비물을 만지다가 아직 피나가 없는 쪽을 돌아본다. 네 손에 남은 보급과 운반 준비는 그 길을 떠나기 전에도 필요하다.\",\"intro\":\"소생의 길을 앞두고 내 손에 남은 준비를 정한다.\",\"choices\":[{\"label\":\"180골드로 보급을 마련하고 시리카와 돌아올 준비를 한다\",\"result\":\"보급값180골드를 내고 시리카와 돌아올 준비를 했다. 동료를 기다릴 기억으로 최대 체력과 지속 체력 재생이 늘었다. 시리카는 챙긴 보급과 아직 피나가 없는 자리를 함께 본다.\",\"card\":\"sao_silica\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡으며 클라인과 버틸 간격을 기억한다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 간격을 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 시리카에게 돌아올 준비는 남겼고 키리토는 떠날 길에 관한 말을 이어 간다.\",\"card\":\"sao_klein\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"더 강한 개인 사냥을 맡으며 키리토의 경고를 듣는다\",\"result\":\"더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 경고를 기억했다. 보스에게 가하는 피해와 방어력 관통이 늘었다. 키리토는 시리카에게 소생 방법과 자기 경고를 같은 대답으로 묶지 않는다.\",\"card\":\"sao_kirito_scout\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"운반할 용기를 준비하고 230골드를 받는다\",\"result\":\"운반할 용기를 준비한 보수로230골드를 받았다. 시리카는 빈 용기를 받았고 그 안에 무엇을 넣고 돌아올지는 아직 길 끝에 남아 있다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":230,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"공식4화 소개로 피나를 잃고 키리토가 무상으로 소생 방법을 설명하고 돕는 사실을 확인했다. 꽃의 명칭·정확한 층·소생 시간제한은 이 공식 본문으로 확인하지 않아 새 설명에서 확정하지 않는다. 맵의 운반 준비와 클라인의 기억은 별도 창작이며 피나 소환과 소생을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_rabbit_table\",\"title\":\"요리할 수 없는 희귀 고기\",\"story\":\"에길의 가게에서 키리토가 희귀한 라구 래빗 고기를 내밀지만 자기 요리 실력으로는 아깝다고 말한다. 아스나는 반을 나누는 조건으로 맡겠다고 하다가 요리 도구는 자기 방에 있다고 덧붙인다. 네가 보탤 식탁 준비와 에길에게 옮길 물품이 남아 있다.\",\"intro\":\"고기의 주인이 정한 식사에 어떤 준비를 보탤까?\",\"choices\":[{\"label\":\"170골드로 식탁 준비를 보태고 아스나와 식사를 준비한다\",\"result\":\"식탁 준비값170골드를 내고 아스나의 식사 준비를 도왔다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 키리토와 나눌 고기부터 살피고 도구를 가져올 쪽을 가리킨다.\",\"card\":\"sao_asuna_meal\",\"card2\":null,\"cost\":170,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"에길에게 거래 운반을 돕고 280골드를 받는다\",\"result\":\"에길의 거래 물품을 운반한 보수로280골드를 받았다. 키리토의 고기를 대신 팔지는 않았고 에길은 아스나에게 식탁 준비를 어디로 옮길지 묻는다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":280,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡으며 클라인과 버틸 위치를 기억한다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 위치를 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 식탁에 쓸 몫은 아스나에게 남기고 네가 맡을 준비를 따로 챙겼다.\",\"card\":\"sao_klein\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"공식8화의 고기는 키리토가 얻었고 아스나는 절반을 받는 조건으로 자신의 요리 도구를 쓰려 한다. 여행자가 고기 소유권을 빼앗아 원작 식사를 취소하는 거래는 없으며 별도 식탁 준비와 운반 보수만 창작했다.\",\"uncertain\":[]},{\"key\":\"sao_lakeside_wait\",\"title\":\"호숫가에서 기다릴 사람\",\"story\":\"니시다가 찌를 보는 동안 키리토의 손은 한 번 더 당겨 보려는 쪽으로 움직인다. 니시다는 빨리 다음 일을 찾는 것과 입질을 기다리는 것은 다르다고 말하고 아스나는 두 사람 옆에 앉을 자리를 잡는다. 너는 작은 입질을 노려 볼 준비와 오래 기다릴 자리 중 자기 몫을 정한다.\",\"intro\":\"작은 입질을 노려 볼까, 기다릴 자리를 마련할까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"150골드로 미끼를 마련하고 작은 입질의 때를 맞춰 본다\",\"result\":\"미끼값150골드를 내고 작은 입질의 때를 맞췄다. 당기기 전에 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘고 낚시 보수240골드를 받았다. 니시다는 호수의 주인보다 방금 잠잠해진 찌를 먼저 보고 있다.\",\"card\":\"sao_nishida_wait\",\"card2\":null,\"cost\":150,\"gold\":240,\"level\":0,\"density\":0,\"potions\":0,\"chance\":65},{\"label\":\"210골드로 기다릴 자리를 마련하고 니시다 옆에서 찌를 본다\",\"result\":\"기다릴 자리값210골드를 내고 니시다 옆에서 찌가 움직일 때를 봤다. 오래 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘었다. 키리토의 손이 움직이자 니시다는 아직 같은 때가 아니라며 찌를 가리킨다.\",\"card\":\"sao_nishida_wait\",\"card2\":null,\"cost\":210,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 많은 개인 사냥을 맡으며 아스나와 몸 상태를 유지할 준비를 한다\",\"result\":\"더 많은 개인 사냥을 맡는 부담을 택하고 아스나와 몸 상태를 지킬 준비를 했다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 기다릴 자리에 앉고 네가 가져갈 보급을 옆에 남긴다.\",\"card\":\"sao_asuna_meal\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"돌아갈 짐을 운반하고 130골드와 물약 1개를 받는다\",\"result\":\"돌아갈 짐을 운반한 보수로130골드와물약1개를 받았다. 니시다는 떠날 준비가 끝난 짐을 보면서도 아직 낚싯대에서 손을 떼지 않는다.\",\"card\":null,\"card2\":null,\"cost\":0,\"gold\":130,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":\"150골드를 내고 미끼를 마련했지만 작은 입질을 놓쳤다. 준비 비용은 돌아오지 않고 카드와240골드의 낚시 보수도 받지 못했다. 니시다는 호수의 주인 이야기를 아직 꺼내지 않고 찌가 잠잠해질 때를 기다린다.\",\"canonFact\":\"공식13화의 니시다 취미와 키리토·아스나가 만난 평범한 생활에서 별도 작은 낚시를 창작했다.65%의 입질·미끼값·낚시 보수·자리 준비는 맵 각색이며 호수 주인을 낚거나 쓰러뜨린 결말이 아니다. 실제 물고기 아이템·낚시 기능·호숫가 몬스터 침입은 없다.\",\"uncertain\":[]}]},\"mechanics\":\"사건진입AP1,자기사냥정지.cost/level/density먼저적용,성공시card/gold/potions.실패는비용과부담유지.필드는이후원정개인사냥이고호숫가·안전구역의침입아님.65/70는맵창작확률.중복카드100골드.후속은자기앞선성공1번만.최대체력은기존체력비율보존.고체력효과는65%이상일때가하는대미지증가이며받는피해감소아님.흡수+재생10%/초한도,물약별도.회복·현재체력비용·새무기·소드스킬·소생·기억회복없음.\",\"questions\":[\"실제결과의비용·골드·물약·지속필드·지정카드가데이터와모순되는경우만찾는다.\",\"healthy_damage는65%이상체력일때가하는대미지이며attack_percent나damage_reduction이아니다.\",\"소녀에게먼저질문한주체는여행자다.소녀는아직대답하지못한다.\",\"정보후속1번은cost120을먼저지불하고70%성공때card와gold120을받는다.성공차액0·실패손실120이며의도된위험선택이다.\",\"원작역할대체·정지중실제추가처치·새NPC동행·소생·관리자권한을약속하는지확인한다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.15,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T16:31:53.03015Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"REVISE\",\n  \"issues\": [\n    {\n      \"key\": \"sao_argo_return\",\n      \"problem\": \"mechanics 설명과 선택지 결과의 모순\",\n      \"evidence\": \"mechanics에서 '정보후속1번은 cost120을 먼저 지불하고 70% 성공 때 card와 gold120을 받는다'고 명시되어 있으나, 해당 사건(sao_argo_second_question)의 1번 선택지 결과에는 '냈던 정보료와 같은 액수의 확인 보수120골드도 받았다'고 되어 있어, 비용(cost)과 보수(gold)가 상쇄되는 구조임이 명확히 드러나지 않음. 또한 mechanics의 '성공 차액 0'과 선택지 결과의 '보수 120골드'가 합산인지 상쇄인지 모호함.\",\n      \"suggestion\": \"결과 문구에 '정보료 120골드를 지불하고 확인 보수 120골드를 받아 실질적인 골드 변화는 없다'는 점을 명확히 하거나, mechanics의 비용 처리 방식을 선택지 결과와 일치시킬 것.\"\n    },\n    {\n      \"key\": \"sao_lakeside_wait\",\n      \"problem\": \"mechanics 설명과 선택지 결과의 모순\",\n      \"evidence\": \"mechanics에서 '정보후속1번은 cost120을 먼저 지불하고 70% 성공 때 card와 gold120을 받는다'고 되어 있으나, sao_lakeside_wait의 1번 선택지는 cost150을 지불하고 성공 시 gold240을 받는 구조임. 이는 mechanics에 정의된 '정보후속1번'의 수치(cost120, gold120)와 완전히 일치하지 않음.\",\n      \"suggestion\": \"mechanics의 '정보후속1번' 수치 정의를 sao_lakeside_wait의 수치(cost150, gold240)에 맞게 수정하거나, 해당 사건의 수치를 mechanics 정의에 맞게 조정할 것.\"\n    }\n  ],\n  \"strengths\": [\n    \"healthy_damage의 정의(65% 이상 체력 시 가하는 대미지)를 mechanics에 정확히 명시하여 피해 감소와 혼동을 방지함.\",\n    \"소녀의 질문이나 관리자 능력 등 원작에 없는 요소를 배제하고 정보상/보호/수송 등 역할에 기반한 각색을 잘 유지함.\",\n    \"비용과 골드, 물약의 수치가 데이터와 일관되게 배치됨.\"\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 12713170600,
+    "load_duration": 2055400,
+    "prompt_eval_count": 9306,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 3555906000,
+    "eval_count": 612,
+    "eval_duration": 8872969000
+  },
+  "parsed": {
+    "verdict": "REVISE",
+    "issues": [
+      {
+        "key": "sao_argo_return",
+        "problem": "mechanics 설명과 선택지 결과의 모순",
+        "evidence": "mechanics에서 '정보후속1번은 cost120을 먼저 지불하고 70% 성공 때 card와 gold120을 받는다'고 명시되어 있으나, 해당 사건(sao_argo_second_question)의 1번 선택지 결과에는 '냈던 정보료와 같은 액수의 확인 보수120골드도 받았다'고 되어 있어, 비용(cost)과 보수(gold)가 상쇄되는 구조임이 명확히 드러나지 않음. 또한 mechanics의 '성공 차액 0'과 선택지 결과의 '보수 120골드'가 합산인지 상쇄인지 모호함.",
+        "suggestion": "결과 문구에 '정보료 120골드를 지불하고 확인 보수 120골드를 받아 실질적인 골드 변화는 없다'는 점을 명확히 하거나, mechanics의 비용 처리 방식을 선택지 결과와 일치시킬 것."
+      },
+      {
+        "key": "sao_lakeside_wait",
+        "problem": "mechanics 설명과 선택지 결과의 모순",
+        "evidence": "mechanics에서 '정보후속1번은 cost120을 먼저 지불하고 70% 성공 때 card와 gold120을 받는다'고 되어 있으나, sao_lakeside_wait의 1번 선택지는 cost150을 지불하고 성공 시 gold240을 받는 구조임. 이는 mechanics에 정의된 '정보후속1번'의 수치(cost120, gold120)와 완전히 일치하지 않음.",
+        "suggestion": "mechanics의 '정보후속1번' 수치 정의를 sao_lakeside_wait의 수치(cost150, gold240)에 맞게 수정하거나, 해당 사건의 수치를 mechanics 정의에 맞게 조정할 것."
+      }
+    ],
+    "strengths": [
+      "healthy_damage의 정의(65% 이상 체력 시 가하는 대미지)를 mechanics에 정확히 명시하여 피해 감소와 혼동을 방지함.",
+      "소녀의 질문이나 관리자 능력 등 원작에 없는 요소를 배제하고 정보상/보호/수송 등 역할에 기반한 각색을 잘 유지함.",
+      "비용과 골드, 물약의 수치가 데이터와 일관되게 배치됨."
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "72825cd4-5d18-439e-af7d-4c1309220b2c"
+}
