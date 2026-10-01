@@ -197,7 +197,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[165] = 1
         set ProtoBranchPotions[165] = 0
         set ProtoBranchChance[165] = 100
-        set ProtoBranchLabel[166] = "술식 기록을 넘기고 사냥터의 인원을 줄인다"
+        set ProtoBranchLabel[166] = "술식 기록을 넘기고 대피 통로를 정리한다"
         set ProtoBranchResult[166] = "린에게 찾은 기록을 넘기고 학생들이 빠져나올 길을 정리했다. 복도에 몰리던 기척이 흩어지고 응급 물약도 챙길 수 있었다."
         set ProtoBranchCard[166] = 0
         set ProtoBranchCard2[166] = 0
@@ -208,19 +208,19 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[166] = 1
         set ProtoBranchChance[166] = 100
         set ProtoEventKey[42] = "school_circle_trace"
-        set ProtoEventName[42] = "끊어진 선의 반대편"
+        set ProtoEventName[42] = "서로 다른 마력의 흔적"
         set ProtoEventHead[42] = 1
         set ProtoEventKind[42] = 1
         set ProtoEventChoices[42] = 3
-        set ProtoEventStory[42] = "학교에서 잘라낸 술식의 선이 류도사 쪽을 가리킨다. 아처는 모두 쫓아갈 필요는 없다며 다음 큰 전투를 위한 준비를 권한다. 린은 현장을 직접 확인하면 다른 힘의 운용도 읽을 수 있다고 한다."
-        set ProtoEventIntro[42] = "린과 함께 끊은 술식의 흔적이 다음 준비로 이어진다."
+        set ProtoEventStory[42] = "학교의 기록을 정리한 린이 가스 누출 사고 현장에 남은 다른 마력 흔적을 보여 준다. 아처는 그 흔적에 이끌려 깊이 들어가기보다 다음 큰 전투에 대비하라고 한다. 현장을 더 살필지, 아처에게 상대를 관찰할 자리를 물을지 정한다."
+        set ProtoEventIntro[42] = "학교 조사 뒤 린이 따로 찾아낸 흔적. 추적과 다음 전투의 준비 중 하나를 맡는다."
         set ProtoEventIcon[42] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[42] = 41
         set ProtoEventRequiredChoice[42] = 1
         set ProtoEventRequiredCard[42] = 0
         set ProtoEventFailure[42] = ""
         set ProtoBranchLabel[168] = "아처와 다음 큰 전투를 계산한다"
-        set ProtoBranchResult[168] = "시로와 남은 흔적을 따라 술식이 놓인 형태를 확인했다. 그대로 따라 만들기보다 어디에 힘이 모이는지 살펴보기로 했다."
+        set ProtoBranchResult[168] = "아처와 현장 바깥에서 상대를 볼 자리를 골랐다. 무작정 따라 들어가는 대신 공격을 받아 낼 위치와 되돌아설 순간을 나눠 짚었다."
         set ProtoBranchCard[168] = 17
         set ProtoBranchCard2[168] = 0
         set ProtoBranchGold[168] = 0
@@ -230,7 +230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[168] = 0
         set ProtoBranchChance[168] = 100
         set ProtoBranchLabel[169] = "현장에 남은 마력 운용을 해석한다"
-        set ProtoBranchResult[169] = "아처는 눈앞의 흔적만 보고 깊이 들어가지 말라고 했다. 무리한 돌파를 멈추고, 큰 상대와 마주할 때 볼 자리를 다시 짚었다."
+        set ProtoBranchResult[169] = "린과 골목 안쪽에 남은 마력의 집중점을 확인했다. 흐름을 읽을 단서는 얻었지만 더 강한 기척이 남은 구간까지 맡게 되었고, 그 힘을 운용하는 부담도 가볍지 않았다."
         set ProtoBranchCard[169] = 20
         set ProtoBranchCard2[169] = 0
         set ProtoBranchGold[169] = 0
@@ -272,7 +272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[172] = 0
         set ProtoBranchChance[172] = 100
         set ProtoBranchLabel[173] = "더 빠른 상대를 상정해 검끝의 간격을 익힌다"
-        set ProtoBranchResult[173] = "세이버의 검이 움직이기 전에 발끝이 어디를 향하는지 살폈다. 넓은 자리에서 여러 상대를 받아들여 간격이 무너지는 순간까지 익혔다."
+        set ProtoBranchResult[173] = "세이버가 속도를 높이자 검끝을 쫓던 발이 먼저 흐트러졌다. 더 빠른 한 상대를 받아들이며 칼이 지나간 뒤 다시 파고들 자리를 반복해서 맞췄다."
         set ProtoBranchCard[173] = 15
         set ProtoBranchCard2[173] = 0
         set ProtoBranchGold[173] = 0
@@ -314,7 +314,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[176] = 0
         set ProtoBranchChance[176] = 100
         set ProtoBranchLabel[177] = "세이버와 공격할 틈을 만든다"
-        set ProtoBranchResult[177] = "캐스터가 건네는 마력의 흐름을 받아들였다. 힘을 끌어오는 방법은 얻었지만, 그것을 감당할 부담까지 사라진 것은 아니었다."
+        set ProtoBranchResult[177] = "세이버가 검술가의 칼을 받아내는 동안 옆으로 설 자리를 골랐다. 필요한 준비물을 마련하고 서로의 검이 겹치지 않는 간격을 맞추자, 정면 돌진으로는 보이지 않던 틈이 드러났다."
         set ProtoBranchCard[177] = 15
         set ProtoBranchCard2[177] = 0
         set ProtoBranchGold[177] = 0
@@ -481,7 +481,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[180] = 0
         set ProtoBranchChance[180] = 100
         set ProtoBranchLabel[181] = "다크니스와 강한 몬스터를 맡는다"
-        set ProtoBranchResult[181] = "크리스와 혼잡한 길을 빠져나갈 순서를 맞췄다. 필요한 도구를 준비하고, 손이 먼저 갈 곳과 몸을 뺄 곳을 나눠 봤다."
+        set ProtoBranchResult[181] = "다크니스와 강한 몬스터가 남은 의뢰를 맡았다. 그녀는 앞에서 버틸 자리를 반겼고, 당신은 빗나가는 검에 기대기보다 빈틈이 생길 때 움직일 위치를 골랐다. 돌아오는 길에도 강한 상대를 경계해야 한다."
         set ProtoBranchCard[181] = 25
         set ProtoBranchCard2[181] = 0
         set ProtoBranchGold[181] = 0
@@ -523,7 +523,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[184] = 0
         set ProtoBranchChance[184] = 100
         set ProtoBranchLabel[185] = "길드에 보수 재발행을 요청한다"
-        set ProtoBranchResult[185] = "카즈마와 수고비가 적힌 부분부터 대조했다. 더 위험한 길을 맡아야 한다는 것을 확인하고도 이번에는 직접 나서기로 했다."
+        set ProtoBranchResult[185] = "카즈마와 완료한 의뢰의 번호를 대조해 길드에 명세서 재발행을 요청했다. 루나가 기록을 확인하고 빠져 있던 보수를 건넸다."
         set ProtoBranchCard[185] = 0
         set ProtoBranchCard2[185] = 0
         set ProtoBranchGold[185] = 230
@@ -547,7 +547,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[47] = 2
         set ProtoEventKind[47] = 1
         set ProtoEventChoices[47] = 3
-        set ProtoEventStory[47] = "메구밍이 오늘 사용할 폭렬 마법의 장소를 찾는다. 당신의 사냥터 근처에는 무너져도 되는 빈 암벽이 있지만, 큰 소리가 몬스터를 끌어들일 수 있다. 위즈는 안전 거리를 계산해 주겠다고 한다."
+        set ProtoEventStory[47] = "메구밍이 오늘 사용할 폭렬 마법의 장소를 찾는다. 당신의 사냥터 근처에는 무너져도 되는 빈 암벽이 있지만, 큰 소리에 강한 몬스터까지 접근할 수 있다. 위즈는 안전 거리를 계산해 주겠다고 한다."
         set ProtoEventIntro[47] = "폭렬 마법을 쓸 장소를 확보해 달라는 부탁."
         set ProtoEventIcon[47] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
         set ProtoEventRequired[47] = 0
@@ -555,7 +555,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[47] = 0
         set ProtoEventFailure[47] = ""
         set ProtoBranchLabel[188] = "사냥터 옆 암벽에서 시연을 본다"
-        set ProtoBranchResult[188] = "메구밍이 가리킨 자리에서 폭렬 마법의 여파를 살폈다. 주변까지 끌어들일 만큼 큰 힘에는 빈틈도 남는다는 것을 배웠다."
+        set ProtoBranchResult[188] = "암벽을 뒤흔드는 메구밍의 폭렬을 보고 한 번에 힘을 모으는 박자를 익혔다. 큰 소리에 더 강한 상대의 기척도 다가왔고, 큰 힘을 쓴 뒤 곧바로 다음 동작을 잇기는 어려웠다."
         set ProtoBranchCard[188] = 24
         set ProtoBranchCard2[188] = 0
         set ProtoBranchGold[188] = 0
@@ -691,7 +691,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[200] = 0
         set ProtoBranchChance[200] = 100
         set ProtoBranchLabel[201] = "크리스와 몬스터를 흩어 놓는다"
-        set ProtoBranchResult[201] = "아쿠아가 돌아올 사람을 위한 준비를 할 수 있도록 물품을 마련했다. 길을 서둘러 나서는 대신 보급을 먼저 맞췄다."
+        set ProtoBranchResult[201] = "크리스와 장비를 마련하고 몬스터가 한꺼번에 몰리지 않도록 통로를 나눴다. 적은 수를 마주하는 동안 몸을 빼며 옆을 잡을 자리를 확인했다."
         set ProtoBranchCard[201] = 23
         set ProtoBranchCard2[201] = 0
         set ProtoBranchGold[201] = 0
@@ -701,7 +701,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[201] = 0
         set ProtoBranchChance[201] = 100
         set ProtoBranchLabel[202] = "호위 역할만 맡고 보수를 받는다"
-        set ProtoBranchResult[202] = "길목에 엉킨 짐을 옮기며 한쪽의 흐름을 줄였다. 몰리던 상대가 흩어진 틈에 돌아갈 보급을 챙겼다."
+        set ProtoBranchResult[202] = "다크니스가 버티는 앞쪽을 살피며 뒤에서 짐을 옮길 사람들을 호위했다. 맡은 구간을 넘기고 보수와 응급 물약을 받았지만, 몰린 상대가 사라진 것은 아니다."
         set ProtoBranchCard[202] = 0
         set ProtoBranchCard2[202] = 0
         set ProtoBranchGold[202] = 170
@@ -1067,7 +1067,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[56] = 33
         set ProtoEventFailure[56] = ""
         set ProtoBranchLabel[224] = "노노미와 위험 구역의 구조 경로를 준비한다"
-        set ProtoBranchResult[224] = "시로코와 남겨진 단서를 따라 돌아올 길을 이었다. 앞을 막는 강한 상대를 감수하며 호시노가 돌아올 자리를 준비했다."
+        set ProtoBranchResult[224] = "노노미와 남은 기록을 대조해 호시노가 돌아올 길을 표시했다. 엄호할 자리를 넓히는 동안 강한 상대의 기척도 확인했다. 구출은 아직 끝나지 않았지만 수색대가 다음에 확인할 구간을 남겼다."
         set ProtoBranchCard[224] = 36
         set ProtoBranchCard2[224] = 0
         set ProtoBranchGold[224] = 0
@@ -1253,7 +1253,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[228] = 0
         set ProtoBranchChance[228] = 100
         set ProtoBranchLabel[229] = "쿠로코와 위험한 현장으로 간다"
-        set ProtoBranchResult[229] = "쿠로코의 신속한 이동을 따라 현장에 도달했다. 지형지물을 활용하는 법을 익힌다."
+        set ProtoBranchResult[229] = "쿠로코와 현장에 들어가 끊긴 신호의 위치를 찾았다. 빠르게 도착하는 데서 그치지 않고 물러날 공간까지 짚었지만, 안쪽에는 더 강한 상대가 기다리고 있었다."
         set ProtoBranchCard[229] = 40
         set ProtoBranchCard2[229] = 0
         set ProtoBranchGold[229] = 0
@@ -1263,7 +1263,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[229] = 0
         set ProtoBranchChance[229] = 100
         set ProtoBranchLabel[230] = "사텐과 가까운 골목부터 수색한다"
-        set ProtoBranchResult[230] = "사텐의 발품을 빌려 인근 골목을 샅샅이 훑었다. 주변 지형에 대한 이해도가 높아진다."
+        set ProtoBranchResult[230] = "사텐과 가까운 골목의 문을 두드리며 마지막 연락을 들은 사람을 찾았다. 확인할 갈림길이 늘어나 그곳을 오가는 무리까지 맡게 되었지만, 수색 순서를 정할 단서는 모였다."
         set ProtoBranchCard[230] = 42
         set ProtoBranchCard2[230] = 0
         set ProtoBranchGold[230] = 0
@@ -1305,7 +1305,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[232] = 0
         set ProtoBranchChance[232] = 100
         set ProtoBranchLabel[233] = "토우마와 구조 경로를 확보한다"
-        set ProtoBranchResult[233] = "토우마와 동행하며 안전한 이동 경로를 확보했다. 방어적인 기동이 가능해진다."
+        set ProtoBranchResult[233] = "토우마와 구조 대상에게 닿을 통로를 열었다. 사람들을 먼저 내보내고 당신이 뒤쪽을 맡으면서, 더 많은 상대가 남은 구간을 경계할 준비를 했다."
         set ProtoBranchCard[233] = 41
         set ProtoBranchCard2[233] = 0
         set ProtoBranchGold[233] = 0
@@ -1337,7 +1337,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[59] = 0
         set ProtoEventFailure[59] = ""
         set ProtoBranchLabel[236] = "조사 장비를 준비하고 미코토와 장치를 확인한다"
-        set ProtoBranchResult[236] = "정밀 장비를 갖추고 미코토와 함께 장치를 분석했다. 고출력 에너지 제어법을 습득한다."
+        set ProtoBranchResult[236] = "조사 장비를 준비해 미코토가 장치의 반응을 살피는 동안 주변 표시를 기록했다. 소문으로 들은 힘을 얻은 것이 아니라 전류가 집중되는 지점과 다가가지 말아야 할 자리를 구분했다."
         set ProtoBranchCard[236] = 39
         set ProtoBranchCard2[236] = 0
         set ProtoBranchGold[236] = 0
@@ -1379,7 +1379,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[60] = 0
         set ProtoEventFailure[60] = ""
         set ProtoBranchLabel[240] = "위험 구역을 맡고 정밀 사격을 관찰한다"
-        set ProtoBranchResult[240] = "위험한 구역에 자원하며 미코토의 사격 궤적을 연구했다. 고위력 집중 타격이 가능해진다."
+        set ProtoBranchResult[240] = "통로 끝을 맡아 작업자들이 사선에 들어오지 않도록 알렸다. 미코토가 표적을 꿰뚫는 순간을 지켜봤지만, 더 강한 상대가 접근하는 구간까지 계속 지켜야 한다."
         set ProtoBranchCard[240] = 44
         set ProtoBranchCard2[240] = 0
         set ProtoBranchGold[240] = 0
@@ -1421,7 +1421,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[61] = 0
         set ProtoEventFailure[61] = ""
         set ProtoBranchLabel[244] = "사텐과 물자를 나르며 길을 익힌다"
-        set ProtoBranchResult[244] = "사텐과 함께 물자를 옮기며 지형을 숙지했다. 기초적인 이동 능력이 향상된다."
+        set ProtoBranchResult[244] = "사텐과 남은 물자를 나르며 골목마다 돌아올 표식을 남겼다. 한 번 더 확인할 길을 맡은 만큼 오가는 무리도 늘었지만, 힘이 없어 멈춰 있던 짐은 목적지에 닿았다."
         set ProtoBranchCard[244] = 42
         set ProtoBranchCard2[244] = 0
         set ProtoBranchGold[244] = 0
@@ -1639,7 +1639,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[252] = 0
         set ProtoBranchChance[252] = 100
         set ProtoBranchLabel[253] = "사야카와 현장의 사람들을 지킨다"
-        set ProtoBranchResult[253] = "사야카와 함께 시민들을 밀어내며 위협으로부터 안전하게 보호한다."
+        set ProtoBranchResult[253] = "사야카와 시민들이 주차장에 들어오지 않게 안내했다. 사람들은 빠져나갔지만 당신은 더 많은 기척이 모인 경계를 맡아 마미가 돌아올 길을 지켜야 했다."
         set ProtoBranchCard[253] = 50
         set ProtoBranchCard2[253] = 0
         set ProtoBranchGold[253] = 0
@@ -1681,7 +1681,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[64] = 0
         set ProtoEventFailure[64] = ""
         set ProtoBranchLabel[256] = "마미와 사격 위치를 확보한다"
-        set ProtoBranchResult[256] = "마미와 함께 최적의 사격 지점을 파악하며 전술적인 위치를 선점한다."
+        set ProtoBranchResult[256] = "마미와 사격할 자리와 물러날 길을 함께 표시했다. 먼 곳을 볼 위치는 얻었지만 그쪽으로 이어진 강한 기척까지 살펴야 하며, 결계 안의 일은 아직 끝나지 않았다."
         set ProtoBranchCard[256] = 48
         set ProtoBranchCard2[256] = 0
         set ProtoBranchGold[256] = 0
@@ -1743,7 +1743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[261] = 0
         set ProtoBranchChance[261] = 100
         set ProtoBranchLabel[262] = "쿄코와 추적 구역을 나눈다"
-        set ProtoBranchResult[262] = "쿄코와 협력하여 효율적으로 수색 구역을 배분한다."
+        set ProtoBranchResult[262] = "쿄코와 놓친 흔적이 갈라지는 길을 나눠 살폈다. 한 구역만 찾을 때보다 확인할 상대가 늘었지만, 어느 길에서 긴 창의 간격을 확보할지 판단할 수 있었다."
         set ProtoBranchCard[262] = 51
         set ProtoBranchCard2[262] = 0
         set ProtoBranchGold[262] = 0
@@ -2118,7 +2118,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[284] = 0
         set ProtoBranchChance[284] = 100
         set ProtoBranchLabel[285] = "클라인과 주변 몬스터를 다른 길로 유도한다"
-        set ProtoBranchResult[285] = "클라인의 전술을 활용해 적의 시선을 분산시킨다. 동료들이 안전하게 이동할 수 있는 경로를 확보한다."
+        set ProtoBranchResult[285] = "클라인과 앞쪽 몬스터의 주의를 끌어 시리카가 지나갈 틈을 만들었다. 당신이 맡은 갈림길로는 더 많은 상대가 모여들어, 동료가 꽃을 가져올 때까지 그 자리를 버텨야 한다."
         set ProtoBranchCard[285] = 60
         set ProtoBranchCard2[285] = 0
         set ProtoBranchGold[285] = 0
@@ -2128,7 +2128,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[285] = 0
         set ProtoBranchChance[285] = 100
         set ProtoBranchLabel[286] = "키리토와 위험한 길을 먼저 확인한다"
-        set ProtoBranchResult[286] = "키리토에게 앞장서서 길을 개척해달라고 요청한다. 그의 정찰을 통해 안전한 경로를 확보한다."
+        set ProtoBranchResult[286] = "키리토와 위험한 길을 먼저 살펴 시리카가 피해야 할 구간을 표시했다. 강한 상대의 위치를 알아냈지만 당신이 맡은 길에서 그 상대를 감수할 준비도 필요하다."
         set ProtoBranchCard[286] = 62
         set ProtoBranchCard2[286] = 0
         set ProtoBranchGold[286] = 0
@@ -2482,7 +2482,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[305] = 0
         set ProtoBranchChance[305] = 100
         set ProtoBranchLabel[306] = "여분의 통로를 닫고 보급을 회수한다"
-        set ProtoBranchResult[306] = "불필요한 통로를 차단하여 방어력을 높인다. 동시에 남은 보급품을 안전하게 회수한다."
+        set ProtoBranchResult[306] = "쓰지 않을 통로 하나를 닫고 남아 있던 물약을 회수했다. 경계할 상대가 줄어든 자리에 장비를 다시 두었다."
         set ProtoBranchCard[306] = 0
         set ProtoBranchCard2[306] = 0
         set ProtoBranchGold[306] = 0
@@ -2504,7 +2504,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[77] = 0
         set ProtoEventFailure[77] = ""
         set ProtoBranchLabel[308] = "이오와 안전한 준비 장소를 마련한다"
-        set ProtoBranchResult[308] = "이오의 마법이 안정적으로 발동하도록 방어적인 위치를 잡는다. 집중된 마력을 효율적으로 방어에 쓴다."
+        set ProtoBranchResult[308] = "준비 자재를 마련하고 이오가 힘을 모으는 동안 끼어들지 않을 자리를 골랐다. 그녀가 집중을 다시 잇는 박자를 보며, 당신도 공격을 서두르기 전에 호흡을 맞췄다."
         set ProtoBranchCard[308] = 66
         set ProtoBranchCard2[308] = 0
         set ProtoBranchGold[308] = 0
@@ -2514,7 +2514,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[308] = 0
         set ProtoBranchChance[308] = 100
         set ProtoBranchLabel[309] = "나루메아와 넓은 통로를 맡는다"
-        set ProtoBranchResult[309] = "나루메아와 함께 넓은 구역을 담당한다. 검술을 활용해 광범위한 적의 접근을 차단한다."
+        set ProtoBranchResult[309] = "나루메아와 갈라진 넓은 통로를 맡아 어디서 검의 간격이 무너지는지 살폈다. 접근하는 상대가 더 많아졌으므로 검이 닿지 않는 옆길까지 경계를 이어가야 한다."
         set ProtoBranchCard[309] = 67
         set ProtoBranchCard2[309] = 0
         set ProtoBranchGold[309] = 0
@@ -2524,7 +2524,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[309] = 0
         set ProtoBranchChance[309] = 100
         set ProtoBranchLabel[310] = "베인과 돌아올 길을 지킨다"
-        set ProtoBranchResult[310] = "베인과 협력하여 퇴각 경로를 확보한다. 동료들이 안전하게 돌아올 수 있는 길을 수호한다."
+        set ProtoBranchResult[310] = "베인과 동료가 돌아올 길 끝에 지킬 자리를 정했다. 빠져나오는 사람들의 길은 남겼지만 당신이 맡은 바깥에는 더 강한 상대의 기척이 이어졌다."
         set ProtoBranchCard[310] = 68
         set ProtoBranchCard2[310] = 0
         set ProtoBranchGold[310] = 0
@@ -2660,7 +2660,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[321] = 0
         set ProtoBranchChance[321] = 100
         set ProtoBranchLabel[322] = "자재를 내고 위험 구역 하나를 닫는다"
-        set ProtoBranchResult[322] = "자재를 사용하여 위험 구역의 입구를 봉쇄한다. 적의 접근을 차단하고 안전을 확보한다."
+        set ProtoBranchResult[322] = "자재를 마련해 강한 상대가 드나드는 입구 하나를 봉쇄했다. 남은 물약을 챙기고 다른 길로 귀환 준비를 이어갔다."
         set ProtoBranchCard[322] = 0
         set ProtoBranchCard2[322] = 0
         set ProtoBranchGold[322] = 0
