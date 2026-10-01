@@ -102,4 +102,42 @@ check('직전 성공 보상을 반드시 소유하는 후속에서 같은 카드
   }
  }
 });
+check('카라쿠라의 배송 행동은 해당 후속 하나와 지정 카드만 열고 비용 부족 후속은 후보에서 제외',()=>{
+ const next=['bl_rooftop_marks','bl_return_receipt','bl_closed_lane','bl_light_parcel'];
+ const rewards=['bl_ichigo','bl_uryu','bl_orihime',null];
+ for(let choice=1;choice<=4;choice++){
+  const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('karakura');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
+  enter(e,0,'bl_shop_boxes');e.ProtoResolve(0,choice);
+  for(const [i,key] of next.entries()){
+   assert.equal(e.ProtoEventEligible(0,id(e,key)),i+1===choice,key);
+   assert(!e.ProtoEventEligible(1,id(e,key)),key);
+  }
+  for(const key of rewards.filter(Boolean))assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,key))],key===rewards[choice-1]);
+ }
+ const {e}=party();e.ExpGold[0]=180;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('karakura'));
+ enter(e,0,'bl_shop_boxes');e.ProtoResolve(0,2);assert.equal(e.ExpGold[0],0);
+ const follow=id(e,'bl_return_receipt');assert(!e.ProtoEventEligible(0,follow));
+ e.ExpGold[0]=180;assert(e.ProtoEventEligible(0,follow));enter(e,0,'bl_return_receipt');
+ assert(!e.ProtoBranchAllowed(0,1));assert(e.ProtoBranchAllowed(0,2));
+});
+check('카라쿠라 경보의 실패는 보상 없이 비용·적 수 부담과 개인 실패 기록을 유지',()=>{
+ for(const [roll,success] of [[70,true],[71,false]]){
+  const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('karakura'));
+  const scene=enter(e,0,'bl_stray_alarm'),density=e.ProtoDensity[0];e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
+  assert.equal(e.ExpGold[0],success?1100:900);assert.equal(e.ProtoDensity[0],density+2);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
+  assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'bl_yoruichi'))],success);
+  assert.equal(e.ProtoEventEligible(0,id(e,'bl_unmarked_corner')),!success);
+  assert(!e.ProtoEventEligible(1,id(e,'bl_unmarked_corner')));
+ }
+});
+check('라그나 공통 사건의 흡수 카드는 머리 없이 획득하고 후속 안전 선택은 적 단계를 실제 감소',()=>{
+ const {e}=party();e.ExpGold[0]=1000;assert.equal(e.ProtoHeadCount[0],0);
+ enter(e,0,'common_torn_poster');e.ProtoResolve(0,1);
+ assert.equal(e.ProtoStat(0,e.PROTO_STAT_LEECH),8);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),6);assert.equal(e.ProtoLevel[0],2);
+ assert(e.ProtoEventEligible(0,id(e,'common_lowered_blade')));assert(!e.ProtoEventEligible(1,id(e,'common_lowered_blade')));
+ e.ProtoResume(0);enter(e,0,'common_lowered_blade');e.ProtoResolve(0,2);
+ assert.equal(e.ProtoLevel[0],1);assert.equal(e.ExpGold[0],1230);
+ assert(!e.ExpCardOwned[e.ExpKey(0,card(e,'common_ragna_break'))]);
+});
 console.log(`${checks} content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.`);
