@@ -1,0 +1,275 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "story",
+            "intro",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "story": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "result"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 사건 작가다. story는 선택 전 발단 3문장, intro는 남은 문제 1문장, result는 성공한 행동과 NPC의 남은 반응 2~3문장이다. key와 선택 순서를 유지한다. 플레이어가 NPC 대신 결정하지 않는다. 카드 성장 수치를 내부 필드 목록으로 복사하지 말고 그 만남에서 기억에 남은 태도로 표현한다. 지불·보수·물약·개인 적 강함과 수는 실제 변화와 맞게 적는다. 현재 체력 회복과 재생·최대 체력 성장을 구분한다.",
+  "brief": {
+    "sourceFacts": [
+      {
+        "source": "https://blog.de.playstation.com/?p=178594",
+        "fact": "개발팀의 2.2 소개를 읽었다. 솔글래드 후원의 축제 오디션이 열리고 그 단계를 거쳐 대극장에 갈 기회가 생긴다. 대극장은 화합 축제의 중심이며 로빈의 공연이 예정되어 많은 관객이 모인다. 로빈은 페나코니 출신의 우아한 유명 가수로 화합의 힘을 음악에 담아 여러 존재에게 울림을 준다. 부트힐은 낙천적이고 거침없는 사이보그 카우보이이자 갤럭시 레인저이며 복수 대상인 IPC의 관심을 끄는 대담한 행동을 한다. 원작 전투는 한 상대와의 결투를 강조한다."
+      },
+      {
+        "source": "https://blog.playstation.com/2024/06/07/honkai-star-rail-update-v2-3-brings-new-friends-and-simulated-universe-on-june-19/",
+        "fact": "개발팀의 2.3 소개를 읽었다. 반디는 SAM 기계 갑옷을 입는 스텔라론 헌터로 오래전 멸망한 글라모스 출신이며 스웜에 대항할 무기로 만들어졌다. 삶의 의미와 운명에 맞서려는 목적이 있다. 종이새는 광휘의 장석호에 등장하고 제한된 수의 이동으로 제거하며 전투력을 올리는 오락 게임이 있다. 새 사건에서 과거를 바꾸거나 엔트로피 상실증을 치료하지 않는다. 종이새 오락 게임은 글로만 각색한다."
+      }
+    ],
+    "events": [
+      {
+        "key": "hsr_name_over_song",
+        "scene": "대극장의 사전 공연 안내 자리에서 네 앞의 관객들이 로빈의 이름을 번갈아 외쳐 뒤쪽 사람은 시작 안내를 듣지 못한다. 로빈은 아직 노래를 시작하지 않고 뒤편에서도 안내가 들렸는지 묻는다. 너는 함께 이름을 외치려던 친구에게 기다릴 이유를 말할지, 다른 자리에서 듣도록 도울지 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "choices": [
+          {
+            "action": "160골드로 다른 자리를 마련하고 뒤편 관객과 먼저 듣는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 160,
+              "rememberedCard": "공격력 증가 6 / 지속 체력 재생 0.4"
+            }
+          },
+          {
+            "action": "더 많은 개인 사냥을 맡고 친구와 기다릴 첫마디를 정한다",
+            "chance": 100,
+            "expectedSuccess": {
+              "rememberedCard": "공격력 증가 8 / 고체력에서 피해 증가 12",
+              "personalEnemyCountChange": 1
+            }
+          },
+          {
+            "action": "안내를 전달하고 보급품을 받으며 맡을 사냥 수를 줄인다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 60,
+              "receivedPotions": 2,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "hsr_introduction_left",
+        "scene": "솔글래드 후원 오디션 참가자가 소개를 연습하는데 광고 문구는 끝까지 읽고도 자기 이름은 말하지 못한다. 옆을 지나던 로빈이 네가 내민 소개지에서 참가자 이름이 어디에 있는지 묻자 참가자가 빈 여백을 짚는다. 너는 이름을 다시 적을 준비를 도울지, 순서를 바꾸지 않고 들릴 위치를 찾을지 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "choices": [
+          {
+            "action": "150골드로 새 소개지를 마련하고 이름부터 말할 시도를 돕는다",
+            "chance": 70,
+            "expectedSuccess": {
+              "paidGold": 150,
+              "rememberedCard": "공격력 증가 8 / 고체력에서 피해 증가 12",
+              "receivedGold": 60
+            }
+          },
+          {
+            "action": "200골드로 안내 자리를 마련해 먼저 들어 줄 사람을 찾는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 200,
+              "rememberedCard": "공격력 증가 6 / 지속 체력 재생 0.4"
+            }
+          },
+          {
+            "action": "광고 안내만 전달하고 맡은 일의 보수를 받는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 120
+            }
+          }
+        ]
+      },
+      {
+        "key": "hsr_cowboy_in_frame",
+        "scene": "한 관광객이 IPC 광고 앞에서 부트힐의 기념사진을 찍어 달라며 네게 카메라를 건넨다. 부트힐은 광고의 로고가 자기 뒤에 들어오는 것을 보자 그 사진을 누가 무슨 뜻으로 보게 될지 먼저 묻는다. 관광객은 멋진 사이보그를 남기고 싶었을 뿐이라며 광고를 빼면 어떤 말을 붙여야 할지 되묻는다.",
+        "previous": null,
+        "previousChoice": 0,
+        "choices": [
+          {
+            "action": "180골드로 별도 사진 자리를 마련하고 배경을 고른 이유를 적는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 180,
+              "rememberedCard": "보스 피해 증가 14 / 방향 조건 피해 증가 10"
+            }
+          },
+          {
+            "action": "부트힐이 알리려는 말을 듣고 더 강한 개인 사냥을 맡는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "rememberedCard": "이동속도 증가 4 / 늘어난 이동속도 비율에 따른 피해 증가 14 / 받는 피해 감소 비율 -3",
+              "personalEnemyStrengthChange": 1
+            }
+          },
+          {
+            "action": "촬영 안내만 마치고 보수를 받으며 개인 사냥 수를 줄인다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 120,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "hsr_view_without_armor",
+        "scene": "꿈속 관광 안내 자리에서 여행자가 반디에게 SAM의 모습을 보여 달라고 부탁한다. 반디는 바로 답하지 않고 네가 펼친 풍경 안내의 한쪽을 보고 있는데 여행자는 갑옷 사진이 없으면 무엇을 보러 가냐고 묻는다. 너는 반디에게 보고 싶은 풍경을 물을지, 안내만 전달하고 다른 준비를 할지 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "choices": [
+          {
+            "action": "170골드로 풍경 안내를 마련하고 반디가 보고 싶은 곳을 묻는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 170,
+              "rememberedCard": "최대 체력 증가 10 / 이동속도 증가 4"
+            }
+          },
+          {
+            "action": "더 많은 개인 사냥을 맡는 대신 풍경 안내를 직접 전달한다",
+            "chance": 100,
+            "expectedSuccess": {
+              "rememberedCard": "최대 체력 증가 10 / 이동속도 증가 4",
+              "personalEnemyCountChange": 2
+            }
+          },
+          {
+            "action": "갑옷을 요구하지 않고 안내만 마쳐 물약을 받는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedPotions": 2,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "hsr_name_after_poster",
+        "scene": "참가자가 첫 소개를 마친 뒤 그 이름을 적은 안내지가 네 자리에도 붙었다. 다음 손님은 준비를 도운 네가 무대의 주인인 줄 알고 공연을 부탁한다. 로빈은 참가자가 다시 말할 기회를 잃지 않게 누가 도왔고 누가 이름을 말했는지 구분하자고 한다.",
+        "previous": "hsr_introduction_left",
+        "previousChoice": 1,
+        "choices": [
+          {
+            "action": "130골드로 안내를 고쳐 참가자의 이름을 분명히 남긴다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 130,
+              "rememberedCard": "공격력 증가 6 / 지속 체력 재생 0.4"
+            }
+          },
+          {
+            "action": "다음 안내를 맡고 잘못 찾아온 손님에게 맡은 일을 설명한다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 180
+            }
+          },
+          {
+            "action": "안내 자리를 줄이고 보급품을 받아 물러난다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 80,
+              "receivedPotions": 1,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "hsr_photo_missing_caption",
+        "scene": "광고가 빠진 사진을 넘긴 뒤 관광객이 붙인 설명에는 IPC의 수호자라는 말이 적혀 있다. 부트힐은 배경만 바꾸면 같은 뜻도 바뀌는 줄 알았냐며 네가 앞서 적은 이유를 보여 준다. 관광객은 사진은 마음에 든다며 설명만 어디부터 고칠지 묻는다.",
+        "previous": "hsr_cowboy_in_frame",
+        "previousChoice": 1,
+        "choices": [
+          {
+            "action": "140골드로 설명지를 다시 마련하고 빠진 이유를 적는다",
+            "chance": 100,
+            "expectedSuccess": {
+              "paidGold": 140,
+              "rememberedCard": "사건 후보 추가 1 / 치명타 피해 증가 14"
+            }
+          },
+          {
+            "action": "더 강한 개인 사냥을 맡고 부트힐이 숨기지 않을 말을 전한다",
+            "chance": 100,
+            "expectedSuccess": {
+              "rememberedCard": "이동속도 증가 4 / 늘어난 이동속도 비율에 따른 피해 증가 14 / 받는 피해 감소 비율 -3",
+              "personalEnemyStrengthChange": 1
+            }
+          },
+          {
+            "action": "설명 전달만 맡아 보수를 받고 개인 사냥 수를 줄인다",
+            "chance": 100,
+            "expectedSuccess": {
+              "receivedGold": 150,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      }
+    ],
+    "rules": [
+      "명단·비품 정리나 일반 훈련 조언으로 장면을 바꾸지 않는다. NPC의 대사와 관광객 상황은 창작이며 원작 문장을 인용하지 않는다. 역할·질병·복수·축제 결말을 새로 확정하지 않는다.",
+      "부트힐의 수호자라는 말은 후속의 잘못된 설명이다. 부트힐은 IPC에 복수하려는 갤럭시 레인저이며 IPC 직원이 아니다. 반디는 갑옷을 실제 소환하지 않고 삶의 의미를 찾는 만남을 가진다.",
+      "로빈은 참가자 대신 노래하거나 플레이어에게 공연 운영권을 주지 않는다. 참가자는 자신의 소개를 시도하며 우승이 확정되는 것이 아니다.",
+      "사냥 단계와 수의 변화는 관객이나 안내 행사를 몬스터로 바꾸는 효과가 아니다. 여행자가 원정 준비의 부담을 택하는 별도 개인 필드 규칙이며 다음 한 번만이 아니라 계속 유지된다.",
+      "현재 체력 소모·즉시 치료·새 기술·갑옷·실제 촬영·노래 음원·실제 오디션·명성·미래 부채·NPC 전투 동행은 없다. 물약은 받는 보급품이다. 카드의 피해 감소 -3은 지속 패널티다.",
+      "70% 분기의 결과는 성공일 때만 쓴다. 실패 문장은 따로 고정되어 있으니 성공과 실패를 섞지 않는다. 후속은 자기의 앞선 성공한 선택을 요구한다. 0이나 null의 효과를 만들지 않는다."
+    ]
+  }
+}
