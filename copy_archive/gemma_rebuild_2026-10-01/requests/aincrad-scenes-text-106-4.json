@@ -1,0 +1,875 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "sao_argo_second_question",
+                "sao_tied_fishing_line",
+                "sao_verified_price"
+              ]
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "index",
+                  "actionText",
+                  "reactionText"
+                ],
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "actionText": {
+                    "type": "string"
+                  },
+                  "reactionText": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 사건 집필자. 모든 문장은 한국어다. 확정된 장면·인물·수치·지정카드·선택 순서를 바꾸지 않고 여행자가 한 일과 인물의 다음 반응을 과거형으로 쓴다. 창작 기억을 원작 신규 초능력·장비·완전한 해결이라고 주장하지 않는다. 미소/끄덕임 반복이나 능력치 설명 복사는 피한다. 출력은 JSON뿐이다.",
+  "brief": {
+    "events": [
+      {
+        "key": "sao_argo_second_question",
+        "title": "돌아갈 길 다음에 묻는 것",
+        "story": "돌아올 갈림길을 물었던 너를 아르고가 알아보고 이번에는 무엇이 빠졌냐고 묻는다. 네가 그 길에서 버텨야 할 상대도 알아야 한다고 말하자 아르고는 처음 질문과 이번 질문은 값이 다르다고 손가락을 편다. 앞선 답을 무효로 만들지 않고 이번 질문에 자기 몫을 보탤 차례다.",
+        "intro": "돌아갈 길은 들었다. 상대에 관한 질문도 보탤까?",
+        "previous": "sao_argo_fork",
+        "previousChoice": 1,
+        "requiredCard": null,
+        "choices": [
+          {
+            "label": "120골드를 내고 기억한 갈림길에 상대 정보를 맞춰 본다",
+            "result": "정보료120골드를 내고 기억한 갈림길과 상대 정보를 연결했다. 돌아와 한 문장을 더한 기억으로 일반 몬스터 피해와 치명타 피해가 늘고 냈던 정보료와 같은 액수의 확인 보수120골드도 받았다. 아르고는 이번에 물었던 부분과 처음 들었던 귀환 답을 따로 짚는다.",
+            "card": "sao_argo_return",
+            "card2": null,
+            "cost": 120,
+            "gold": 0,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 70
+          },
+          {
+            "label": "190골드를 내고 아르고와 질문할 범위와 내 발걸음을 따로 짚는다",
+            "card": "sao_argo_sketch",
+            "card2": null,
+            "gold": 0,
+            "cost": 190,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          },
+          {
+            "label": "더 많은 개인 사냥을 맡으며 같은 정보에서 내 몫을 고른다",
+            "result": "더 많은 개인 사냥을 맡는 부담을 택하고 같은 정보에서 자기 몫을 골랐다. 행동속도와 처치 골드가 늘었다. 아르고는 옆 손님이 듣는 답까지 네 몫으로 묶지 않는다.",
+            "card": "sao_argo_shared",
+            "card2": null,
+            "cost": 0,
+            "gold": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "failure": "기억한 갈림길에 상대 정보를 맞추려 했지만 빠진 구간을 연결하지 못했다. 정보료120골드는 돌아오지 않고 카드도 받지 못한다. 아르고는 먼저 산 귀환 답과 이번에 비어 있는 질문을 따로 놓는다.",
+        "canonFact": "sao_argo_fork에서 자신의 성공한1번 정보 구매 뒤에만 열리는 창작 후속이다. 실제 사냥 탐사·미니게임·정보상 카드 소모·새 시스템 지식을 요구하거나 구현하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_tied_fishing_line",
+        "title": "두 번째 매듭을 묶기 전에",
+        "intro": "익힌 기다림을 알아본 니시다가 옆에 남은 자리를 가리킨다.",
+        "story": "다른 방문에서 찌를 기다린 너를 니시다가 알아보고 이번에도 같은 자리에 앉을지 묻는다. 네 낚싯줄은 이미 풀려 있어 입질을 기다리는 설명부터 되풀이할 필요는 없다. 아스나는 떠날 사람들의 준비를 챙기며 먼저 맡을 몫만 답해 두자고 한다. 다음 자리, 지금의 기다림, 바깥 구역 중 어디에 힘을 남길까?",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": "sao_nishida_wait",
+        "actionCost": 0,
+        "failure": null,
+        "canonFact": "공식13화의 니시다와 낚시 생활을 배경으로 만든 별도 만남이다. 자신의 기다림 카드 보유를 조건으로 하며 같은 날의 선형 진행이나 본편 호수 주인 낚시 승리가 아니다. AP 추가는 여행자의 방문 횟수이며 시간·물고기·NPC 능력을 지급하지 않는다.",
+        "uncertain": [],
+        "choices": [
+          {
+            "label": "220골드로 내 준비를 마련하고 니시다에게 다음 자리까지 맡겠다고 답한다",
+            "card": "sao_nishida_next",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          },
+          {
+            "label": "160골드로 보급을 마련하고 니시다와 기다릴 길목을 줄인다",
+            "card": "sao_nishida_pause",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100,
+            "result": ""
+          },
+          {
+            "label": "아스나와 더 강한 적이 오가는 바깥 구역의 준비를 맡는다",
+            "card": "sao_asuna_margin",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          }
+        ]
+      },
+      {
+        "key": "sao_verified_price",
+        "title": "같은 값표로 묶지 않을 것",
+        "intro": "에길이 네가 나눠 두었던 값표를 다시 꺼내 보인다.",
+        "story": "에길의 상점에서 전에 나눠 둔 값표와 새로 온 물품이 한데 놓여 있다. 가격이 같다고 용도까지 같지는 않다는 에길의 말에 리즈벳은 휘어진 면부터 보자고 한다. 전달할 물품을 기다리던 아르고는 물어볼 항목을 먼저 펴 두라고 덧붙인다. 익힌 비교 순서로 이번에는 무엇을 따로 확인할까?",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": "sao_agil_shelf",
+        "actionCost": 1,
+        "failure": null,
+        "canonFact": "상인·도끼 전사 에길, 대장장이 리즈벳, 정보상 아르고의 공식 역할을 활용한 별도 상점 방문이다. 자신이 값표 카드로 익힌 비교 경험을 조건으로 하며 실제 상점 재고·장비 감정·정답 정보 기능은 아니다.",
+        "uncertain": [],
+        "choices": [
+          {
+            "label": "200골드로 운반 도구를 마련하고 에길과 물품의 무게를 직접 나눈다",
+            "card": "sao_agil_axe",
+            "card2": null,
+            "gold": 0,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          },
+          {
+            "label": "리즈벳과 더 강한 적이 오가는 운반 구역의 손상 면을 살핀다",
+            "card": "sao_liz_shards",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          },
+          {
+            "label": "180골드로 기록 도구를 마련하고 아르고와 질문할 담당 구역을 줄인다",
+            "card": "sao_argo_sketch",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100,
+            "result": ""
+          }
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "key": "sao_agil",
+        "name": "에길",
+        "effectName": "거래의 눈",
+        "keyword": "자원",
+        "grade": 1,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "에길의 거래·물품 확인 역할을 처치 수급으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_kirito",
+        "name": "키리토",
+        "effectName": "빈틈을 잇는 검",
+        "keyword": "행동 · 치명",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 6
+          },
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 12000,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ]
+        },
+        "canonFact": "키리토의 검 전투를 공격 기회를 이어가는 성장으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_asuna",
+        "name": "아스나",
+        "effectName": "섬광의 사선",
+        "keyword": "신속 · 방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "swift",
+            "value": 270
+          },
+          {
+            "stat": "directional_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 60,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 15
+            }
+          ]
+        },
+        "canonFact": "섬광이라는 아스나의 검사 이미지를 신속·방향 공격으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_liz",
+        "name": "리즈벳",
+        "effectName": "가공의 완성도",
+        "keyword": "공격 · 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 12
+          },
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "리즈벳의 대장장이 역할을 가공·관통 성장으로 각색했다. 영구 무기를 새로 강화하는 사건은 아니다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_silica",
+        "name": "시리카",
+        "effectName": "돌아갈 길의 동료",
+        "keyword": "체력 · 재생",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          },
+          {
+            "stat": "regeneration",
+            "value": 0.6
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식4화의 피나를 잃고 소생 준비를 하는 상황을 귀환·회복 준비의 기억으로 각색했다. 꽃의 명칭·정확한 층·소생 제한은 확인한 공식 소개로 확정하지 않으며 동료 소환·소생·즉시 비율 회복 기능을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_klein",
+        "name": "클라인",
+        "effectName": "함께 맞서는 간격",
+        "keyword": "생존 · 비방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "damage_reduction",
+            "value": 6
+          },
+          {
+            "stat": "nondirectional_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "클라인이 동료와 함께 전투하는 역할을 방어·비방향 공격으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_asuna_meal",
+        "name": "아스나",
+        "effectName": "공략 전의 식탁",
+        "keyword": "고체력 · 체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 14
+          },
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "아스나가 희귀 고기를 요리하는 이야기를 공략 전 식사 준비로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_kirito_scout",
+        "name": "키리토",
+        "effectName": "돌아와 전한 경고",
+        "keyword": "보스 · 관통",
+        "grade": 3,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 16
+          },
+          {
+            "stat": "penetration",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 15000,
+          "effects": [
+            {
+              "stat": "final_damage_percent",
+              "value": 5
+            }
+          ]
+        },
+        "canonFact": "보스 방의 위험을 알게 되는 정찰 전개를 보스 피해·관통으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_agil_shelf",
+        "name": "에길",
+        "effectName": "값표 아래 남은 항목",
+        "keyword": "처치 골드 · 사건 후보",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 3
+          },
+          {
+            "stat": "event_choices",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "상인의 물품 거래 역할을 얻을 몫과 비교할 후보를 놓치지 않는 준비로 각색한다. 실제 물품 재고·상점 시스템·장비 감정 기능은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_klein_roles",
+        "name": "클라인",
+        "effectName": "뒤쪽에 남겨 둘 사람",
+        "keyword": "보스 · 피해 감소",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 10
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "풍림화산의 길드장과 친근한 친구 역할을 큰 상대 앞에서 버틸 위치를 나누는 준비로 각색한다. 길드원 NPC 소환·도발·새 파티 능력은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_sachi_lantern",
+        "name": "사치",
+        "effectName": "대답을 기다릴 자리",
+        "keyword": "최대 체력 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 12
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "중층에서 동료와 살고 죽음을 두려워하는 사치를 무리하지 않고 몸 상태를 지킨 채 다음 싸움을 준비하는 성장으로 각색했다. 사치의 공포를 완치하거나 본편 비극을 뒤집는 생존 보상은 아니다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_nishida_wait",
+        "name": "니시다",
+        "effectName": "당기기 전에 기다리기",
+        "keyword": "재생 · 비방향 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.3
+          },
+          {
+            "stat": "nondirectional_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "낚시를 좋아하는 중년 플레이어가 키리토와 어울리는 역할을 오래 움직이며 주변을 넓게 보는 준비로 각색한다. 실제 낚시 도구·물고기 아이템·즉시 회복·전투 보스 소환은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_asuna_dispatch",
+        "name": "아스나",
+        "effectName": "지시 뒤의 빈 자리",
+        "keyword": "보스 · 치명타 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 12
+          },
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 10000,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ]
+        },
+        "canonFact": "혈맹기사단 부단장의 강한 심지와 검 전투를 큰 상대에게 힘을 싣는 순간을 나누는 준비로 각색한다. 길드 입단·히스클리프 결투·실제 부대 지휘를 구현하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_argo_question",
+        "name": "아르고",
+        "effectName": "묻지 않은 갈림길",
+        "keyword": "사건 후보 · 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 게임 소개의 정보상 역할을 필요한 질문을 좁히고 위험의 빈틈을 찾는 기억으로 각색했다. 정확한 미래·베타의 정답·다른 플레이어 정보·정보 독점권을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_argo_shared",
+        "name": "아르고",
+        "effectName": "둘이 들어도 남는 정보",
+        "keyword": "행동 · 처치 골드",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 5
+          },
+          {
+            "stat": "kill_gold",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "정보상 역할을 같은 내용을 듣더라도 자기 몫을 놓치지 않고 움직이는 기억으로 각색했다. 다른 플레이어의 카드와 골드를 빼앗거나 실제 정보 시장·재판매를 열지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_asuna_silence",
+        "name": "아스나",
+        "effectName": "대답을 기다리는 자리",
+        "keyword": "최대 체력 · 피해 감소",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 10
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식11화의 기억을 잃은 소녀를 보호하는 상황에서 조용히 곁을 지키는 기억으로 각색했다. 소녀의 기억·정체·관리자 능력을 해금하거나 체력 비율을 즉시 회복하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_kirito_distance",
+        "name": "키리토",
+        "effectName": "혼자와 다른 한 걸음",
+        "keyword": "이동 · 방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 6
+          },
+          {
+            "stat": "directional_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 5
+            }
+          ]
+        },
+        "canonFact": "공식2화의 솔로끼리 파티를 맺는 상황에서 자기 간격과 앞쪽을 보는 기억으로 각색했다. 실제 파티 합류·NPC 동행·원작 소드스킬·공략 승리를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_argo_return",
+        "name": "아르고",
+        "effectName": "돌아와 더할 한 문장",
+        "keyword": "일반 적 · 치명타 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 12
+          },
+          {
+            "stat": "crit_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "정보상을 만났던 자신의 질문을 다시 떠올리는 창작 후속의 기억이다. 실제 새 탐사·낚시·추가 사냥 처치·시스템 지식·최신 지도의 정확성을 보장하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_liz_shards",
+        "name": "리즈벳",
+        "effectName": "깨진 면부터 보기",
+        "keyword": "치명 피해 · 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 14
+          },
+          {
+            "stat": "penetration",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "대장장이가 검의 내구성을 비교하는 공식7화의 상황을 부러진 부분과 힘이 실리는 면을 살피는 기억으로 각색했다. 영구 무기 공격력 강화가 아니다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_klein_carry",
+        "name": "클라인",
+        "effectName": "먼저 들지 않은 짐",
+        "keyword": "이동 · 받는 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 3
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "풍림화산 길드장과 친근한 친구라는 공식 역할에서 앞사람만 보지 않고 남은 짐과 길목을 맡는 기억이다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_agil_axe",
+        "name": "에길",
+        "effectName": "값을 매기기 전의 무게",
+        "keyword": "일반 적 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 14
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "상인이면서 보스 공략에 참여하는 뛰어난 도끼 전사라는 공식 소개를 물품의 무게와 자기 전투 준비를 구분하는 기억으로 각색했다. 고체력은 최대 체력65%이상이다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_kirito_sign",
+        "name": "키리토",
+        "effectName": "확인한 흔적만 잇기",
+        "keyword": "치명 확률 · 일반 적",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식5화에서 안전 구역 사건을 조사하는 행동을 확인한 관찰만 이어 붙이는 기억으로 각색했다. 사건 범인이나 시스템 우회 기술을 알아내는 보상이 아니다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_asuna_margin",
+        "name": "아스나",
+        "effectName": "비워 둘 한 박자",
+        "keyword": "차지 속도 · 신속",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 6
+          },
+          {
+            "stat": "swift",
+            "value": 180
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "섬광의 검사이자 강한 심지를 가진 부단장이라는 공식 소개에서 맡은 일을 한곳에 몰지 않고 다음 동작의 여백을 남기는 기억이다. 실제 지휘·소드스킬 구현이 아니다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_nishida_pause",
+        "name": "니시다",
+        "effectName": "찌가 가라앉기 전",
+        "keyword": "재생 · 치명 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.4
+          },
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식13화의 낚시가 취미인 플레이어 역할에서 기다릴 때와 당길 때를 구분하는 기억이다. 재생0.4%는 초당 최대체력 비율이며 물약과 실제 낚시 기능을 대신하지 않는다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_nishida_next",
+        "name": "니시다",
+        "effectName": "다음 입질도 볼 자리",
+        "keyword": "행동력 최대치",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_capacity",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식13화의 낚시를 즐기는 역할에서 한 번의 입질 뒤에도 다시 맡을 몫을 정하는 기억이다. 행동력 최대치와 현재 행동력의 증가분1만 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "sao_argo_sketch",
+        "name": "아르고",
+        "effectName": "값을 묻기 전에 펼치기",
+        "keyword": "치명 피해 · 이동 조건",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 14
+          },
+          {
+            "stat": "moving_damage",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 게임 소개의 정보상 역할에서 질문할 범위와 자기 발걸음을 구분하는 기억이다. 이동 조건 피해는 기본 이동속도400대비 추가속도 비율을40%에서 정규화하며 움직이고 있는지 판정하는 효과가 아니다. 여행자의 기억으로 각색하며 원작 장비·새 능력·NPC 동행이나 결말 변경을 지급하지 않는다.",
+        "uncertain": []
+      }
+    ],
+    "canon": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 값표·역할 분담·중층 등불·작은 낚시·지시 누락은 공식 인물과 생활 배경에서 별도로 창작했다. 사치 생전과 니시다 만남은 서로 다른 시점이다. 사치의 공포와 본편 비극·낚시 주인·혈맹기사단 결투·귀환 결말은 선택 보상으로 해결하지 않는다. 맵의 개인 몬스터 변화가 원작 안전 구역 해제나 실제 마을 침입이라는 뜻은 아니다. 정보상의 질문과 독점 오해·소녀 옆에 남는 질문·공략 회의 뒤의 자기 보폭은 공식 소개에서 각색한 별도 방문이다. 아르고는 정보상 역할만 공식 게임 소개에서 가져오고 해당 게임의 주인공·베타 전개를 애니메이션에 이식하지 않는다. 정보 후속은 자신이 귀환 질문을 산 성공1번에만 연결된다. 원작 파티원·검과 고기의 소유자·소생과 관리자 정체를 대신 결정하지 않는다. 기존 낚시는 기록 분류가 아닌 창작 작은 입질로 바꾸며 호수 주인의 승패와 실제 낚시 기능은 없다. 안전 구역 사건은 원TV5화, 철수 경고는9화의 공식 줄거리로 대조했다. 새 카드 조건의 만남은 이전에 익힌 개인 기억을 알아보는 별도 방문이며 하나의 날짜를 재현하는 선형 사건이 아니다. 새 수치와 방문AP0은 여행자의 선택이고 원작 인물 능력·낚시 기술·장비 지급이 아니다. 행동력 최대치 증가는 방문 횟수로 사냥 제한시간을 늘리지 않는다.",
+    "rules": [
+      "actionText는label행동이완료된과거형1문장이다. 비용/강함/적수/물약 변화가있으면누락하지않는다.",
+      "reactionText는행동에반응하는구체적말/손/물건과아직남은문제1문장이다. 보상은데이터가표시하므로스탯을산문으로길게복사하지않는다.",
+      "직접골드는모두0. 물약은potions개를지급하며사용/소비/마셨다고쓰지않는다.",
+      "방문AP0은선택cost0과다르다. 강함·적수는개인사냥부담이며플레이어레벨이아니다.",
+      "낚시성공은65%,두번째정보맞추기는70%다. 확정행동에새실패나확률을만들지않는다.",
+      "실제낚시기능·NPC동행·원작검제작·피나소생·소녀정체·범인확정·보스승리를지급하지않는다.",
+      "각성이없는카드도허용된다. 무료방문은AP잔여0에서사건재개를시키지않는다."
+    ]
+  }
+}

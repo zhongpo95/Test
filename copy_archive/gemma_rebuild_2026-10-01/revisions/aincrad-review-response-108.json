@@ -1,0 +1,79 @@
+{
+  "accepted": [
+    {
+      "review": "reviews/aincrad-card-choices-review-107-2.json",
+      "key": "sao_argo_sketch",
+      "decision": "정규화 공식의 추가 설명을 수용했다.",
+      "evidence": "System/ExpeditionEffects.j의 실제 조건식을 대조해480에서4%,560에서8%라고 메타데이터에 명시했다. 효과8은 유지한다."
+    }
+  ],
+  "rejected": [
+    {
+      "review": "reviews/aincrad-card-choices-review-107-1.json",
+      "key": "sao_smith_return",
+      "claim": "부모3의 조각 카드를 후속3에서 다시 받는다.",
+      "reason": "후속은 자신의 부모 성공1(sao_liz)에서만 열린다. 부모3(sao_liz_shards)을 선택하면 후속은 열리지 않는다. 미선택 카드까지 보유로 읽은 오독이다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-1.json",
+      "key": "sao_argo_same_answer",
+      "claim": "same_answer가fork성공1에 묶였으며 다른 갈래는 막다른 길이다.",
+      "reason": "same_answer는previous=null인 독립 사건이다. 실제 후속은sao_argo_second_question이며 성공1만 요구한다. 모든 사건 행동에 후속을 강제하는 기획은 없다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-1.json",
+      "key": "sao_verified_price",
+      "claim": "조건 카드를 얻는 경로가 하나라 구조적 모순이다.",
+      "reason": "특정 카드를 가진 사람만 만나는 사건을 사용자가 승인했다. 값표사건1에서sao_agil_shelf를 얻는 단일 경로가 존재하며 다른 플레이어 보유는 자격이 되지 않는다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-1.json",
+      "key": "sao_nishida_next",
+      "claim": "AP가 가득 찼을 때 현재치도 늘어나는지 불명확하다.",
+      "reason": "ProtoRebuildCardStats는 최대치 증가분을 현재AP에 더하고 새최대치로 상한 처리한다.10/10에서11/11이 되고 반복재합산·중복은 증가분0이다. 기존8묶음과 이번 새카드 합산으로 검사한다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-2.json",
+      "key": "sao_nishida_next",
+      "claim": "행동력 횟수는 시간이므로 사냥 제한시간도 늘어난다.",
+      "reason": "AP는 사건 방문 횟수이며 공통 사냥 최대시간은 별도 타이머다. AP카드는max/current증가분만 바꾸고10분 타이머를 바꾸지 않는다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-2.json",
+      "key": "sao_nishida_wait",
+      "claim": "카드next가history후속이라wait조건이 불명확하다.",
+      "reason": "next는 카드다. 사건tied_fishing_line은previous=null/requiredCard=wait이며 독립 방문 자격이다. wait는lakeside_wait의성공1에서얻는다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-2.json",
+      "key": "sao_agil_axe",
+      "claim": "고체력65% 발동 기준이 없다.",
+      "reason": "canonFact와ProtoStatNames에65%이상이라고 적혀 있고System/ExpeditionEffects.j의현재체력>=최대체력×0.65에서만healthy_damage를더한다. 누락 지적과 입력이 모순이다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-3.json",
+      "key": "sao_argo_return",
+      "claim": "카드previous=null이므로정보후속연결이없다.",
+      "reason": "카드에는previous필드가 없다. 사건second_question의previous=fork/previousChoice=1이 이 카드 지급을 열며 allEventRoutes에도 제공했다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-3.json",
+      "key": "sao_argo_shared",
+      "claim": "fork3이shared를 주어success1정책과모순이다.",
+      "reason": "fork3은sketch를지급한다. shared는독립same_answer1과성공1후속second_question3에서얻는다. 세계의모든정보상만남을한후속조건으로묶지않는다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-3.json",
+      "key": "sao_verified_price",
+      "claim": "단일조건카드경로를다시고정해야한다.",
+      "reason": "현재구조상문제가없다는검토자자신의설명과같다. 이미counter_labels1→shelf보유→verified_price의개인조건이고추가수정은필요없다."
+    },
+    {
+      "review": "reviews/aincrad-card-choices-review-107-3.json",
+      "key": "sao_tied_fishing_line",
+      "claim": "같은날의선형진행으로읽힐수있다.",
+      "reason": "이미story의다른방문과canonFact의별도만남/같은날선형아님을명시했다. 보유기억을새만남의자격으로쓰며실제날짜진행시스템은없다."
+    }
+  ],
+  "limits": "모델의PASS/REVISE는자문이다. 반려는입력데이터와기존실제함수·새분기검사로판단하며실게임재미증명은아니다."
+}
