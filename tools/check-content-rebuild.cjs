@@ -140,4 +140,46 @@ check('라그나 공통 사건의 흡수 카드는 머리 없이 획득하고 �
  assert.equal(e.ProtoLevel[0],1);assert.equal(e.ExpGold[0],1230);
  assert(!e.ExpCardOwned[e.ExpKey(0,card(e,'common_ragna_break'))]);
 });
+check('페나코니 슬롯머신의 60/61 경계는 판돈을 소모하고 성공·실패 후속을 개인 기록으로 구분',()=>{
+ for(const [roll,success] of [[60,true],[61,false]]){
+  const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('penacony');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
+  const scene=enter(e,0,'hsr_dreamy_slots');e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
+  assert.equal(e.ExpGold[0],success?1300:700);assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
+  assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_aventurine_fortune'))],success);
+  assert.equal(e.ProtoEventEligible(0,id(e,'hsr_after_win')),success);
+  assert.equal(e.ProtoEventEligible(0,id(e,'hsr_after_loss')),!success);
+  assert(!e.ProtoEventEligible(0,id(e,'hsr_sorted_tokens')));
+  for(const key of ['hsr_after_win','hsr_after_loss','hsr_sorted_tokens'])assert(!e.ProtoEventEligible(1,id(e,key)));
+  const outcome=e.ProtoOutcome[0];e.ProtoResolve(0,1);assert.equal(e.ProtoOutcome[0],outcome);assert.equal(e.ExpGold[0],success?1300:700);
+ }
+});
+check('슬롯머신 정리와 실패 후속은 추가 행동력을 쓰며 비용 부족이면 후속 후보가 나타나지 않음',()=>{
+ const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('penacony'));
+ enter(e,0,'hsr_dreamy_slots');const density=e.ProtoDensity[0];e.ProtoResolve(0,3);
+ assert.equal(e.ProtoDensity[0],density+1);assert.equal(e.ExpGold[0],1150);
+ assert(e.ProtoEventEligible(0,id(e,'hsr_sorted_tokens')));
+ assert(!e.ProtoEventEligible(0,id(e,'hsr_after_win')));assert(!e.ProtoEventEligible(0,id(e,'hsr_after_loss')));
+ e.ProtoLevel[0]=2;e.ProtoResume(0);enter(e,0,'hsr_sorted_tokens');e.ProtoResolve(0,1);
+ assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],1010);assert.equal(e.ProtoLevel[0],1);
+ assert(e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_misha_route'))]);
+ const t=party(),f=t.e;f.ExpGold[0]=300;f.ProtoGrantHead(0,f.ProtoHeadKey.indexOf('penacony'));
+ enter(f,0,'hsr_dreamy_slots');f.GetRandomInt=()=>61;f.ProtoResolve(0,1);
+ assert.equal(f.ExpGold[0],0);assert(!f.ProtoEventEligible(0,id(f,'hsr_after_loss')));
+ f.ExpGold[0]=180;assert(f.ProtoEventEligible(0,id(f,'hsr_after_loss')));
+ f.ProtoResume(0);enter(f,0,'hsr_after_loss');f.ProtoResolve(0,1);
+ assert.equal(f.ProtoAP[0],8);assert.equal(f.ExpGold[0],0);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'hsr_black_swan_archive'))]);
+ assert(!f.ExpCardOwned[f.ExpKey(0,card(f,'hsr_aventurine_fortune'))]);
+});
+check('가면 연극의 기억 대조만 출구 후속을 열고 다른 배역과 길 정리는 해당 후속을 열지 않음',()=>{
+ for(let action=1;action<=3;action++){
+  const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('penacony'));
+  enter(e,0,'hsr_masked_stage');e.ProtoResolve(0,action);
+  assert.equal(e.ProtoEventEligible(0,id(e,'hsr_remembered_exit')),action===2);
+  if(action===2){e.ProtoDensity[0]=5;e.ProtoResume(0);enter(e,0,'hsr_remembered_exit');e.ProtoResolve(0,1);
+   assert.equal(e.ProtoDensity[0],4);assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],500);
+   assert(e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_aventurine_reserve'))]);
+  }
+ }
+});
 console.log(`${checks} content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.`);
