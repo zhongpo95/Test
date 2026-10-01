@@ -39,3 +39,5 @@ jobs:
         run: node tools/check-ui-input-startup.cjs
       - name: Bounded character selection diagnostics
         run: node tools/check-pick-trace.cjs
+      - name: Character preview event isolation
+        run: node tools/check-pick-preview.cjs
