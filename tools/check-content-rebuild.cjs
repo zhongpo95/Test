@@ -208,4 +208,34 @@ check('나즈린의 골드 부족·필드 상한에서도 운반 선택을 남�
  assert.equal(f.ProtoDensity[0],density+2);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'common_nazrin_retreat'))]);
  assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVE),5);assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVING),12);assert.equal(f.ProtoAP[0],9);
 });
+check('아메스트리스 정비 선택은 지정 카드와 개인 후속을 나누고 비용 부족·필드 상한에서 기본 자세를 남김',()=>{
+ for(let choice=1;choice<=3;choice++){
+  const {e}=party();e.ExpGold[0]=200;const h=e.ProtoHeadKey.indexOf('amestris');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
+  enter(e,0,'fma_workshop');const level=e.ProtoLevel[0];e.ProtoResolve(0,choice);
+  const keys=['fma_winry_precision','fma_edward','fma_alphonse'];
+  for(const [i,key] of keys.entries())assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,key))],i+1===choice);
+  assert.equal(e.ExpGold[0],choice===1?0:200);assert.equal(e.ProtoLevel[0],level+(choice===2?1:0));assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.ProtoEventEligible(0,id(e,'fma_measurement_notes')),choice===1);assert.equal(e.ProtoEventEligible(0,id(e,'fma_trial_footprints')),choice===2);
+  for(const key of ['fma_measurement_notes','fma_trial_footprints'])assert(!e.ProtoEventEligible(1,id(e,key)));
+ }
+ const {e}=party();e.ExpGold[0]=0;e.ProtoLevel[0]=5;e.ProtoDensity[0]=10;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('amestris'));
+ enter(e,0,'fma_workshop');assert(!e.ProtoBranchAllowed(0,1));assert(!e.ProtoBranchAllowed(0,2));assert(e.ProtoBranchAllowed(0,3));e.ProtoResolve(0,3);
+ assert(e.ExpCardOwned[e.ExpKey(0,card(e,'fma_alphonse'))]);assert.equal(e.ProtoLevel[0],5);assert.equal(e.ProtoDensity[0],10);
+});
+check('아메스트리스 수련 후속은 강함·수의 자기 기록을 사용하고 중간 필드 변화 뒤에도 최저값과 행동력 유지',()=>{
+ for(const choice of [1,2]){
+  const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('amestris');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
+  const level=e.ProtoLevel[0],density=e.ProtoDensity[0];enter(e,0,'fma_training');e.ProtoResolve(0,choice);
+  assert.equal(e.ProtoLevel[0],level+(choice===1?2:0));assert.equal(e.ProtoDensity[0],density+(choice===2?2:0));
+  assert(e.ExpCardOwned[e.ExpKey(0,card(e,choice===1?'fma_izumi':'fma_armstrong'))]);
+  assert.equal(e.ProtoEventEligible(0,id(e,'fma_after_large')),choice===1);assert.equal(e.ProtoEventEligible(0,id(e,'fma_after_crowd')),choice===2);
+  for(const key of ['fma_after_large','fma_after_crowd'])assert(!e.ProtoEventEligible(1,id(e,key)));
+  e.ProtoResume(0);e.ProtoLevel[0]=1;e.ProtoDensity[0]=1;const beforeHP=e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE)/e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_MAX_LIFE);
+  enter(e,0,choice===1?'fma_after_large':'fma_after_crowd');e.ProtoResolve(0,choice===1?2:1);
+  assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAP[1],10);assert.equal(e.ProtoLevel[0],1);assert.equal(e.ProtoDensity[0],1);
+  assert.equal(e.ExpGold[0],choice===1?760:720);
+  assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE)/e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_MAX_LIFE),beforeHP);
+  assert(e.ExpCardOwned[e.ExpKey(0,card(e,choice===1?'fma_alphonse':'fma_izumi_flow'))]);
+ }
+});
 console.log(`${checks} content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.`);

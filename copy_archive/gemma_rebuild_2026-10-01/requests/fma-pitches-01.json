@@ -1,0 +1,41 @@
+{
+  "system": "한국어 게임 사건 작가다. 제공한 공식 설정만 사실로 취급하고 새 만남은 맵 전용 창작으로 구분한다. 지금은 숫자와 JSON 실행 콘텐츠를 확정하지 않고 서로 다른 사건 상황을 제안한다. 상황의 문제, 선택으로 바뀌는 것, 그 뒤 남는 문제를 구체적인 행동과 물건으로 보여준다. 등장인물 이름만 바꾼 보상 메뉴를 피한다. 카드 한 장은 그 인물과 겪은 경험을 기존 전투 능력치로 추상화한 것이며 원작 능력 자체를 배우거나 NPC를 소환하는 것이 아니다. 출력은 요청 스키마만 사용한다.",
+  "schema": {
+    "type": "object", "additionalProperties": false, "required": ["pitches"],
+    "properties": {
+      "pitches": {"type": "array", "minItems": 4, "maxItems": 4, "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["key", "title", "situation", "canonConnection", "choices", "followup", "weakness"],
+        "properties": {
+          "key": {"type": "string"}, "title": {"type": "string"}, "situation": {"type": "string"}, "canonConnection": {"type": "string"},
+          "choices": {"type": "array", "minItems": 2, "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["action", "immediate", "later", "mechanic"], "properties": {"action": {"type": "string"}, "immediate": {"type": "string"}, "later": {"type": "string"}, "mechanic": {"type": "string"}}}},
+          "followup": {"type": "string"}, "weakness": {"type": "string"}
+        }
+      }}
+    }
+  },
+  "brief": {
+    "work": "강철의 연금술사 FULLMETAL ALCHEMIST. 2009년판 공식 사이트를 기준으로 하며 2003년 애니의 독자 설정을 섞지 않는다.",
+    "sources": ["https://www.hagaren.jp/fa/characters/index01.html", "https://www.hagaren.jp/fa/about/introduction.html"],
+    "confirmedFacts": [
+      "연금술은 대상을 이해하고 분해·재구축하며 등가교환을 따른다. 인체 연성은 금기다.",
+      "에드워드는 오른팔·왼다리가 오토메일이며 연금술과 체술을 사용한다. 알폰스는 갑옷에 영혼이 묶여 있고 형보다 침착하며 체술에 능하다.",
+      "윈리는 오토메일 정비사다. 셰스카는 읽은 책을 정확하게 기억하는 전직 중앙도서관 직원이다.",
+      "리자는 침착한 명사수다. 로이는 발화포 장갑과 산소 조절로 불꽃을 사용한다.",
+      "암스트롱은 체술과 조형을 결합한다. 이즈미는 형제의 연금술 스승이고 엄격하게 가르친다."
+    ],
+    "sheetReference": "제공 QQ 문서 折光天赋表의 钢炼 탭 D1, A3:A8, D3:D8을 읽었다. 머리에서 인물 풀을 열고 다른 카드·각성으로 연결하는 구조만 참고한다. 해당 맵의 수치·라이프 지불·강제 인체 연성 진화를 그대로 옮기지 않는다.",
+    "currentGame": "플레이어별 개인 사냥 10분 동안 사건을 최대 행동력 10 안에서 겪고 보스전에 모인다. 사건 후보를 고르면 행동력 1을 쓴다. 후속도 추가 행동력 1이며 확정 등장하지 않는다. 하나의 사건은 팀에서 선택된 뒤 다시 등장하지 않는다. 이야기와 선택이 주인공이고 보상은 그 결과다.",
+    "existingMechanics": ["지정 인물 카드 0~2장", "골드 비용 또는 골드 보수", "물약 소모품 지급", "이후 개인 사냥의 적 단계 또는 동시 적 수 증감", "이전 사건의 특정 선택 또는 확률 성공·실패를 요구하는 개인 후속", "특정 보유 카드가 있어야 등장하는 사건"],
+    "constraints": [
+      "현재 체력·팀 라이프·장기 손상을 지불시키지 않는다. 원작의 희생을 값싼 강력 카드 메뉴로 쓰지 않는다.",
+      "새 퀘스트 물품, 지형·퍼즐·NPC 호위·자동 동료전투·즉시 이동·인물 소환·신규 스킬·시간 정지 시스템은 없다.",
+      "플레이어에게 오토메일이 있다고 가정하지 않는다. 알폰스가 먹거나 마셔 회복하지 않는다. 윈리를 사람의 몸을 고치는 마법사로 쓰지 않는다.",
+      "본편 최종 비밀·형제의 육체 복구·국가적 음모를 간단한 선택으로 해결하지 않는다.",
+      "사건 네 개가 모두 자재비를 내고 작업을 돕는다/넓은 적 구역을 맡는다/그냥 일당을 받는다의 반복이어서는 안 된다.",
+      "모든 선택에 즉시 카드가 필요하지 않지만 행동력만 잃고 아무 의미도 없는 선택은 피한다. 골드가 없거나 적 단계·수가 상한이어도 선택 가능한 경로를 남긴다.",
+      "한 선택이 여는 개인 후속 하나를 설명할 수 있다. 후속을 자동 지급·보장된 미래 보상으로 약속하지 않는다.",
+      "아직 검토 중이므로 구현할 수 없거나 근거가 약한 부분은 weakness에 스스로 지적한다."
+    ]
+  }
+}
