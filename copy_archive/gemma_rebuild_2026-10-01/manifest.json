@@ -1,0 +1,79 @@
+[
+  {
+    "path": "Data/Data_Prototype.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "C1F2AA8CF143D3A68B2FCE08638A4CD03944717E4AEC32EC3C260B8AFDFD18F7",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "Data/Data_Expedition.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "9482643AA7759E2E2597C1DCE324FCCA2527C8967C5CB0931E508CC99F05C605",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "Data/Native.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "FD98FBC6FF356228C6E987FEB05F8B4D754110B783D9AD91BE28028C3FE775AB",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/ExpeditionPrototype.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "9B6CFF906D8739E19E48A747746BF0F9C0CF00D4688B1AC20C1A814E34E4BC56",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/ExpeditionEffects.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "F72CF23A2598462EE62CE7B7A6E660ED080215F0E05CEB9C400D016D41C89143",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/StatsSetting.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "A2A8E5072A9094DDEBB407808BB344AB018FFFA21E4C05E60B29810D5B9FE98D",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/DamageEffect.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "F5094373538B107963E30673E1FE1636D0F6B4EB67C15D5BBF1427A5B8C9776E",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/DamageEffectBoss.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "87FF8A3985B60BC41B4CE4745C0BDBE16F01E004877AACD1E696D963399EF0B1",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "System/ExpeditionCombat.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "2049FC3273BA0EC870C7252C989FFA7FD41DC754B5E5F1B4E6E29C80DFE06592",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "UI/UI_ExpeditionPrototype.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "35E69FA3D8015C6A290F16B7D8F1F3EBC97170940C76B4522C573312F6EA9685",
+    "reason": "머리카드 및 사건 전면 교체와 카드 능력치 연결 전 원본 보관",
+    "active": false
+  },
+  {
+    "path": "UI/UI_ExpeditionStats.j",
+    "sourceCommit": "067d5d68cc9db8acf15c94b09d73d99c497c2eb8",
+    "sha256": "1D48ACC3D7DE300694893AD075CA05F9BD5812862DB0EDB1995E1094F5AEE74A",
+    "reason": "성장 카드 능력치 표시 교체 전 원본 보관",
+    "active": false
+  }
+]

@@ -1,0 +1,432 @@
+{
+  "started": "2026-10-01T06:47:11.364Z",
+  "finished": "2026-10-01T06:47:56.761Z",
+  "request": {
+    "system": "Write Korean original interactive fan-fiction incidents for a Warcraft roguelite. Use only the supplied canonical facts; clearly distinguish player intervention from source canon. Every incident has a concrete problem and three DIFFERENT useful responses. NO generic training, free talent vs nothing, HP costs, vague future rewards, or random unrelated cards. Focus on story and decisions, not numerical balancing. Consequences may change hunting population/difficulty, spend gold, give a related character card, or prepare a named follow-up. Failure and refusal can be useful. State the price of the strongest reward. Write 5 incidents per world including linked continuation, not just renamed reward menus.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "world": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "situation": {
+                "type": "string"
+              },
+              "sourceFact": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string"
+                    },
+                    "outcome": {
+                      "type": "string"
+                    },
+                    "growth": {
+                      "type": "string"
+                    },
+                    "tradeoff": {
+                      "type": "string"
+                    },
+                    "followup": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "outcome",
+                    "growth",
+                    "tradeoff",
+                    "followup"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "world",
+              "title",
+              "situation",
+              "sourceFact",
+              "choices"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "brief": {
+      "worlds": [
+        {
+          "key": "axel",
+          "name": "액셀",
+          "facts": [
+            "루나는 길드 접수원이고 카즈마는 보통 모험가지만 운이 높다.",
+            "아쿠아는 음식과 특이한 돌을 좋아하는 치유 마법사다. 메구밍은 폭렬 마법을 고집하고 다크니스는 방어가 강하나 공격이 맞지 않는다.",
+            "크리스는 도적이며 카즈마에게 도적 기술을 가르쳤다. 위즈의 마도구 가게는 열심히 운영하지만 적자를 낸다. 바니르는 가면의 악마이고 가게에서 일한다.",
+            "공식 2기 7화에 카즈마와 바니르가 상품 개발 지적재산권 거래를 논의한다. 8화의 몬스터는 단단한 다크니스를 향해 돌진한다."
+          ],
+          "source": "https://konosuba.com/3rd/character/ 및 https://konosuba.com/2nd/story/"
+        },
+        {
+          "key": "abydos",
+          "name": "아비도스",
+          "facts": [
+            "사막화와 빚 때문에 폐교 위기의 학교를 5명 대책위원회가 지킨다. 시로코 호시노 세리카 노노미 아야네.",
+            "공식 3~5화에 세리카는 시바세키 라멘에서 일하고 대책위원회는 블랙마켓으로 빚의 흐름을 추적한다. 히후미와 조우하며, 시로코는 수상한 은행을 털자는 방안을 제시한다. 거액의 돈을 손에 넣지만 돌려준다.",
+            "6~7화 편리한 청부업체 68이 라멘 가게를 폭파하고, 선도부는 인도를 요구한다. 대책위원회가 거절한 뒤 상처 입은 가게 주인을 걱정한다.",
+            "9화에서 학교 주변 사막 땅이 카이저 소유라고 밝혀진다. 10~12화에 호시노가 떠나고 대책위원회가 구출한다."
+          ],
+          "source": "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/"
+        }
+      ],
+      "designExample": {
+        "problem": "강한 몬스터가 길목을 막아서 장비 수리 재료가 배달되지 않는다.",
+        "responses": [
+          {
+            "action": "사냥터로 유인해 직접 처리한다.",
+            "growth": "전투에 어울리는 인물 카드",
+            "tradeoff": "이번 사냥의 몬스터 수 +2"
+          },
+          {
+            "action": "보급상에게 우회 운송을 의뢰한다.",
+            "growth": "안전 준비에 어울리는 인물 카드",
+            "tradeoff": "골드 180 지불"
+          },
+          {
+            "action": "적이 떠날 때까지 안전한 통로를 확보한다.",
+            "growth": "몬스터 수 -1 및 물약",
+            "tradeoff": "강한 전투 카드는 획득하지 않음"
+          }
+        ]
+      },
+      "important": "행동만으로 결과가 확정되었다고 과장하지 말고, 모험가인 플레이어가 해결 과정에 참여하는 짧은 사건을 쓴다. 각 사건 150~250자 내외."
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "world": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "situation": {
+                "type": "string"
+              },
+              "sourceFact": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string"
+                    },
+                    "outcome": {
+                      "type": "string"
+                    },
+                    "growth": {
+                      "type": "string"
+                    },
+                    "tradeoff": {
+                      "type": "string"
+                    },
+                    "followup": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "outcome",
+                    "growth",
+                    "tradeoff",
+                    "followup"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "world",
+              "title",
+              "situation",
+              "sourceFact",
+              "choices"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Write Korean original interactive fan-fiction incidents for a Warcraft roguelite. Use only the supplied canonical facts; clearly distinguish player intervention from source canon. Every incident has a concrete problem and three DIFFERENT useful responses. NO generic training, free talent vs nothing, HP costs, vague future rewards, or random unrelated cards. Focus on story and decisions, not numerical balancing. Consequences may change hunting population/difficulty, spend gold, give a related character card, or prepare a named follow-up. Failure and refusal can be useful. State the price of the strongest reward. Write 5 incidents per world including linked continuation, not just renamed reward menus."
+      },
+      {
+        "role": "user",
+        "content": "{\"worlds\":[{\"key\":\"axel\",\"name\":\"액셀\",\"facts\":[\"루나는 길드 접수원이고 카즈마는 보통 모험가지만 운이 높다.\",\"아쿠아는 음식과 특이한 돌을 좋아하는 치유 마법사다. 메구밍은 폭렬 마법을 고집하고 다크니스는 방어가 강하나 공격이 맞지 않는다.\",\"크리스는 도적이며 카즈마에게 도적 기술을 가르쳤다. 위즈의 마도구 가게는 열심히 운영하지만 적자를 낸다. 바니르는 가면의 악마이고 가게에서 일한다.\",\"공식 2기 7화에 카즈마와 바니르가 상품 개발 지적재산권 거래를 논의한다. 8화의 몬스터는 단단한 다크니스를 향해 돌진한다.\"],\"source\":\"https://konosuba.com/3rd/character/ 및 https://konosuba.com/2nd/story/\"},{\"key\":\"abydos\",\"name\":\"아비도스\",\"facts\":[\"사막화와 빚 때문에 폐교 위기의 학교를 5명 대책위원회가 지킨다. 시로코 호시노 세리카 노노미 아야네.\",\"공식 3~5화에 세리카는 시바세키 라멘에서 일하고 대책위원회는 블랙마켓으로 빚의 흐름을 추적한다. 히후미와 조우하며, 시로코는 수상한 은행을 털자는 방안을 제시한다. 거액의 돈을 손에 넣지만 돌려준다.\",\"6~7화 편리한 청부업체 68이 라멘 가게를 폭파하고, 선도부는 인도를 요구한다. 대책위원회가 거절한 뒤 상처 입은 가게 주인을 걱정한다.\",\"9화에서 학교 주변 사막 땅이 카이저 소유라고 밝혀진다. 10~12화에 호시노가 떠나고 대책위원회가 구출한다.\"],\"source\":\"https://sh-anime.shochiku.co.jp/bluearchive-anime/story/\"}],\"designExample\":{\"problem\":\"강한 몬스터가 길목을 막아서 장비 수리 재료가 배달되지 않는다.\",\"responses\":[{\"action\":\"사냥터로 유인해 직접 처리한다.\",\"growth\":\"전투에 어울리는 인물 카드\",\"tradeoff\":\"이번 사냥의 몬스터 수 +2\"},{\"action\":\"보급상에게 우회 운송을 의뢰한다.\",\"growth\":\"안전 준비에 어울리는 인물 카드\",\"tradeoff\":\"골드 180 지불\"},{\"action\":\"적이 떠날 때까지 안전한 통로를 확보한다.\",\"growth\":\"몬스터 수 -1 및 물약\",\"tradeoff\":\"강한 전투 카드는 획득하지 않음\"}]},\"important\":\"행동만으로 결과가 확정되었다고 과장하지 말고, 모험가인 플레이어가 해결 과정에 참여하는 짧은 사건을 쓴다. 각 사건 150~250자 내외.\"}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T06:47:56.7577132Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n\"events\": [\n{\n\"key\": \"axel_1\",\n\"world\": \"axel\",\n\"title\": \"위즈의 가게와 지적재산권\",\n\"situation\": \"위즈의 마도구 가게에 방문한 카즈마와 바니르가 무언가 진지하게 논의 중입니다. 카즈마는 당신에게 접근해 '새로운 상품의 지적재산권'을 확보해야 한다고 말하며, 당신이 이 비즈니스 협상의 기술을 배워주길 원합니다. 하지만 바니르는 매우 고압적인 태도로 당신을 노려보고 있습니다.\",\n\"sourceFact\": \"공식 2기 7화에 카즈마와 바니르가 상품 개발 지적재산권 거래를 논의한다.\",\n\"choices\": [\n{\n\"action\": \"카즈마의 편에 서서 바니르를 압박해 유리한 계약을 끌어낸다.\",\n\"outcome\": \"카즈마의 신뢰를 얻고 '협상가 카즈마' 카드를 획득합니다.\",\n\"growth\": \"카즈마의 비즈니스 지식 상승\",\n\"tradeoff\": \"바니르의 분노로 인해 다음 상점 이용 시 물품 가격이 10% 상승합니다.\",\n\"followup\": \"바니르가 복수를 위해 당신을 추격하는 사건이 발생합니다.\"\n},\n{\n\"action\": \"바니르에게 굴복하고 그가 제시하는 조건에 순순히 따르기로 한다.\",\n\"outcome\": \"바니르의 인정을 받아 '가면의 악마' 카드를 획득합니다.\",\n\"growth\": \"공포와 위압감 관련 능력치 상승\",\n\"tradeoff\": \"카즈마가 당신을 '속물'이라 부르며 한동안 무시합니다.\",\n\"followup\": \"바니르가 당신에게 위험한 암시장 정보를 공유합니다.\"\n},\n{\n\"action\": \"두 사람의 논의에 끼어들지 않고 구경만 한다.\",\n\"outcome\": \"아무런 변화가 없으며 상황을 방관합니다.\",\n\"growth\": \"없음\",\n\"tradeoff\": \"아무런 보상도 얻지 못합니다.\",\n\"followup\": \"없음\"\n},\n{\n\"action\": \"위의 세 가지 중 가장 강력한 보상을 얻으려면?\",\n\"outcome\": \"바니르의 인정을 받아 '가면의 악마' 카드를 획득하는 선택지.\",\n\"growth\": \"공포와 위압감 관련 능력치 상승\",\n\"tradeoff\": \"카즈마가 당신을 '속물'이라 부르며 한동안 무시합니다.\",\n\"followup\": \"바니르가 당신에게 위험한 암시장 정보를 공유합니다.\"\n}\n]\n},\n{\n\"key\": \"axel_2\",\n\"world\": \"axel\",\n\"title\": \"다크니스의 방어벽\",\n\"situation\": \"거대한 몬스터 무리가 길을 가로막고 있습니다. 하지만 그 앞에는 방어력이 매우 높은 다크니스가 서서 꿋꿋이 버티고 있습니다. 몬스터들은 그녀를 무너뜨리기 위해 돌진하고 있으며, 당신은 이 상황에서 어떻게 개입할지 결정해야 합니다.\",\n\"sourceFact\": \"8화의 몬스터는 단단한 다크니스를 향해 돌진한다.\",\n\"choices\": [\n{\n\"action\": \"다크니스에게 공격을 유도하며 뒤에서 몬스터를 하나씩 처리한다.\",\n\"outcome\": \"다크니스가 활약하며 몬스터를 소탕합니다. '방어의 다크니스' 카드를 획득합니다.\",\n\"growth\": \"방어력 관련 인물 카드\",\n\"tradeoff\": \"다크니스가 당신에게 고마움을 표현하며 돌발 행동을 할 확률이 생깁니다.\",\n\"followup\": \"다크니스와 함께하는 '전투 훈련' 이벤트 발생.\"\n},\n{\n\"action\": \"다크니스를 보호하기 위해 앞장서서 몬스터의 시선을 분산시킨다.\",\n\"outcome\": \"몬스터의 시선을 끌어내어 다크니스의 체력을 보존합니다. '용기 있는 모험가' 카드를 획득합니다.\",\n\"growth\": \"시선 분산 및 유인 기술 상승\",\n\"tradeoff\": \"당신이 받는 대미지가 증가합니다.\",\n\"followup\": \"다크니스가 당신의 용기에 감동해 보조 마법을 지원합니다.\"\n},\n{\n\"action\": \"몬스터들이 다크니스를 쓰러뜨릴 때까지 지켜본다.\",\n\"outcome\": \"다크니스가 쓰러진 후 몬스터들이 흩어집니다.\",\n\"growth\": \"몬스터 수 -2 및 소량의 골드\",\n\"tradeoff\": \"다크니스 관련 카드를 획득할 수 없습니다.\",\n\"followup\": \"없음\"\n},\n{\n\"action\": \"위의 세 가지 중 가장 강력한 보상을 얻으려면?\",\n\"outcome\": \"다크니스에게 공격을 유도하며 뒤에서 몬스터를 하나씩 처리한다.\",\n\"growth\": \"방어력 관련 인물 카드\",\n\"tradeoff\": \"다크니스가 당신에게 고마움을 표현하며 돌발 행동을 할 확률이 생깁니다.\",\n\"followup\": \"다크니스와 함께하는 '전투 훈련' 이벤트 발생.\"\n}\n]\n},\n{\n\"key\": \"abydos_1\",\n\"world\": \"abydos\",\n\"title\": \"블랙마켓의 추적\",\n\"situation\": \"아비도스 대책위원회가 블랙마켓을 통해 빚의 흐름을 추적하고 있습니다. 시로코가 당신에게 수상한 은행을 털자는 제안을 건넵니다. 하지만 이는 매우 위험한 일이며, 성공하더라도 돈을 돌려줘야 할 가능성이 높습니다.\",\n\"sourceFact\": \"시로코는 수상한 은행을 털자는 방안을 제시한다. 거액의 돈을 손에 넣지만 돌려준다.\",\n\"choices\": [\n{\n\"action\": \"시로코의 계획에 동참하여 은행을 습격한다.\",\n\"outcome\": \"성공적으로 거액을 확보하지만, 시로코의 성격대로 다시 돌려주게 됩니다. '시로코의 동료' 카드를 획득합니다.\",\n\"growth\": \"은신 및 침투 기술 상승\",\n\"tradeoff\": \"은행의 보안 시스템에 감지되어 추격전이 발생합니다.\",\n\"followup\": \"은행 보안팀과의 추격전 발생.\"\n},\n{\n\"action\": \"돈을 돌려줄 필요가 없도록 다른 경로로 빚을 상환할 방법을 찾는다.\",\n\"outcome\": \"세리카의 라멘 가게를 홍보하여 자금을 마련합니다. '세리카의 열정' 카드를 획득합니다.\",\n\"growth\": \"상업 및 홍보 능력 상승\",\n\"tradeoff\": \"자금 확보까지 시간이 오래 걸립니다.\",\n\"followup\": \"라멘 가게가 유명해지는 이벤트 발생.\"\n},\n{\n\"action\": \"시로코의 제안을 거절하고 안전하게 대책위원회 업무를 돕는다.\",\n\"outcome\": \"안전하게 빚 추적 자료를 수집합니다. '아야네의 기록' 카드를 획득합니다.\",\n\"growth\": \"정보 수집 능력 상승\",\n\"tradeoff\": \"거액의 자금은 얻지 못합니다.\",\n\"followup\": \"없음\"\n},\n{\n\"action\": \"위의 세 가지 중 가장 강력한 보상을 얻으려면?\",\n\"outcome\": \"시로코의 계획에 동참하여 은행을 습격한다.\",\n\"growth\": \"은신 및 침투 기술 상승\",\n\"tradeoff\": \"은행의 보안 시스템에 감지되어 추격전이 발생합니다.\",\n\"followup\": \"은행 보안팀과의 추격전 발생.\"\n}\n]\n},\n{\n\"key\": \"abydos_2\",\n\"world\": \"abydos\",\n\"title\": \"라멘 가게의 위기\",\n\"situation\": \"편리한 청부업체 68이 시바세키 라멘 가게를 폭파했습니다. 가게 주인은 큰 상처를 입었고, 선도부는 이 일에 대해 강력한 인도를 요구하고 있습니다. 당신은 상처 입은 주인을 돕고 대책위원회와 협력해야 합니다.\",\n\"sourceFact\": \"편리한 청부업체 68이 라멘 가게를 폭파하고, 선도부는 인도를 요구한다. 대책위원회가 거절한 뒤 상처 입은 가게 주인을 걱정한다.\",\n\"choices\": [\n{\n\"action\": \"선도부의 요구를 거절하고 가게 주인을 먼저 치료한다.\",\n\"outcome\": \"가게 주인의 신뢰를 얻고 '치유의 손길' 카드를 획득합니다.\",\n\"growth\": \"의료 및 호감도 상승\",\n\"tradeoff\": \"선도부와의 관계가 악화되어 이동 시 제약이 생깁니다.\",\n\"followup\": \"선도부와의 대립 사건 발생.\"\n},\n{\n\"action\": \"선도부와 협상하여 가게 주인을 위한 보상금을 받아낸다.\",\n\"outcome\": \"가게 주인과 선도부 모두를 만족시키는 타협점을 찾습니다. '협상의 달인' 카드를 획득합니다.\",\n\"growth\": \"외교 및 협상 능력 상승\",\n\"tradeoff\": \"보상금의 상당 부분을 세금으로 떼이게 됩니다.\",\n\"followup\": \"없음\"\n},\n{\n\"action\": \"청부업체 68의 행방을 쫓아 복수를 실행한다.\",\n\"outcome\": \"가게 주인을 위한 복수를 성공적으로 수행합니다. '복수의 칼날' 카드를 획득합니다.\",\n\"growth\": \"전투 및 추적 능력 상승\",\n\"tradeoff\": \"전투 중 부상을 입을 확률이 높습니다.\",\n\"followup\": \"청부업체 68의 잔당과의 전투 발생.\"\n},\n{\n\"action\": \"위의 세 가지 중 가장 강력한 보상을 얻으려면?\",\n\"outcome\": \"청부업체 68의 행방을 쫓아 복수를 실행한다.\",\n\"growth\": \"전투 및 추적 능력 상승\",\n\"tradeoff\": \"전투 중 부상을 입을 확률이 높습니다.\",\n\"followup\": \"청부업체 68의 잔당과의 전투 발생.\"\n}\n]\n},\n{\n\"key\": \"abydos_3\",\n\"world\": \"abydos\",\n\"title\": \"사막의 주인\",\n\"situation\": \"학교 주변의 사막 땅이 카이저 소유라는 사실이 밝혀졌습니다. 카이저는 학교를 압박하며 땅을 넘기라고 요구합니다. 호시노는 이 상황을 해결하기 위해 당신에게 도움을 요청합니다.\",\n\"sourceFact\": \"9화에서 학교 주변 사막 땅이 카이저 소유라고 밝혀진다. 10~12화에 호시노가 떠나고 대책위원회가 구출한다.\",\n\"choices\": [\n{\n\"action\": \"카이저의 사설 군대를 상대로 정면 돌파를 시도한다.\",\n\"outcome\": \"강력한 전투를 치러내고 학교를 지켜냅니다. '호시노의 용기' 카드를 획득합니다.\",\n\"growth\": \"강력한 전투력 상승\",\n\"tradeoff\": \"대책위원회 멤버 중 일부가 부상을 입습니다.\",\n\"followup\": \"부상당한 멤버를 치료하는 이벤트 발생.\"\n},\n{\n\"action\": \"카이저의 자금 흐름을 방해하여 땅을 빼앗을 명분을 찾는다.\",\n\"outcome\": \"법적/경제적 공세를 통해 카이저를 압박합니다. '전략적 분석' 카드를 획득합니다.\",\n\"growth\": \"지략 및 분석 능력 상승\",\n\"tradeoff\": \"시간이 오래 걸려 학교가 잠시 폐쇄됩니다.\",\n\"followup\": \"카이저의 변호사와의 두뇌 싸움 발생.\"\n},\n{\n\"action\": \"호시노가 떠나기 전, 그녀를 안전하게 호위하며 정보를 수집한다.\",\n\"outcome\": \"호시노를 무사히 호위하며 핵심 정보를 얻습니다. '호시노의 유산' 카드를 획득합니다.\",\n\"growth\": \"호위 및 은신 능력 상승\",\n\"tradeoff\": \"카이저의 직접적인 공격을 피하기 어렵습니다.\",\n\"followup\": \"호시노가 떠난 후의 대책위원회 구출 작전 발생.\"\n},\n{\n\"action\": \"위의 세 가지 중 가장 강력한 보상을 얻으려면?\",\n\"outcome\": \"카이저의 사설 군대를 상대로 정면 돌파를 시도한다.\",\n\"growth\": \"강력한 전투력 상승\",\n\"tradeoff\": \"대책위원회 멤버 중 일부가 부상을 입습니다.\",\n\"followup\": \"부상당한 멤버를 치료하는 이벤트 발생.\"\n}\n]\n}\n]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 45369908300,
+    "load_duration": 2817035800,
+    "prompt_eval_count": 819,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 376403000,
+    "eval_count": 2961,
+    "eval_duration": 42171723000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "axel_1",
+        "world": "axel",
+        "title": "위즈의 가게와 지적재산권",
+        "situation": "위즈의 마도구 가게에 방문한 카즈마와 바니르가 무언가 진지하게 논의 중입니다. 카즈마는 당신에게 접근해 '새로운 상품의 지적재산권'을 확보해야 한다고 말하며, 당신이 이 비즈니스 협상의 기술을 배워주길 원합니다. 하지만 바니르는 매우 고압적인 태도로 당신을 노려보고 있습니다.",
+        "sourceFact": "공식 2기 7화에 카즈마와 바니르가 상품 개발 지적재산권 거래를 논의한다.",
+        "choices": [
+          {
+            "action": "카즈마의 편에 서서 바니르를 압박해 유리한 계약을 끌어낸다.",
+            "outcome": "카즈마의 신뢰를 얻고 '협상가 카즈마' 카드를 획득합니다.",
+            "growth": "카즈마의 비즈니스 지식 상승",
+            "tradeoff": "바니르의 분노로 인해 다음 상점 이용 시 물품 가격이 10% 상승합니다.",
+            "followup": "바니르가 복수를 위해 당신을 추격하는 사건이 발생합니다."
+          },
+          {
+            "action": "바니르에게 굴복하고 그가 제시하는 조건에 순순히 따르기로 한다.",
+            "outcome": "바니르의 인정을 받아 '가면의 악마' 카드를 획득합니다.",
+            "growth": "공포와 위압감 관련 능력치 상승",
+            "tradeoff": "카즈마가 당신을 '속물'이라 부르며 한동안 무시합니다.",
+            "followup": "바니르가 당신에게 위험한 암시장 정보를 공유합니다."
+          },
+          {
+            "action": "두 사람의 논의에 끼어들지 않고 구경만 한다.",
+            "outcome": "아무런 변화가 없으며 상황을 방관합니다.",
+            "growth": "없음",
+            "tradeoff": "아무런 보상도 얻지 못합니다.",
+            "followup": "없음"
+          },
+          {
+            "action": "위의 세 가지 중 가장 강력한 보상을 얻으려면?",
+            "outcome": "바니르의 인정을 받아 '가면의 악마' 카드를 획득하는 선택지.",
+            "growth": "공포와 위압감 관련 능력치 상승",
+            "tradeoff": "카즈마가 당신을 '속물'이라 부르며 한동안 무시합니다.",
+            "followup": "바니르가 당신에게 위험한 암시장 정보를 공유합니다."
+          }
+        ]
+      },
+      {
+        "key": "axel_2",
+        "world": "axel",
+        "title": "다크니스의 방어벽",
+        "situation": "거대한 몬스터 무리가 길을 가로막고 있습니다. 하지만 그 앞에는 방어력이 매우 높은 다크니스가 서서 꿋꿋이 버티고 있습니다. 몬스터들은 그녀를 무너뜨리기 위해 돌진하고 있으며, 당신은 이 상황에서 어떻게 개입할지 결정해야 합니다.",
+        "sourceFact": "8화의 몬스터는 단단한 다크니스를 향해 돌진한다.",
+        "choices": [
+          {
+            "action": "다크니스에게 공격을 유도하며 뒤에서 몬스터를 하나씩 처리한다.",
+            "outcome": "다크니스가 활약하며 몬스터를 소탕합니다. '방어의 다크니스' 카드를 획득합니다.",
+            "growth": "방어력 관련 인물 카드",
+            "tradeoff": "다크니스가 당신에게 고마움을 표현하며 돌발 행동을 할 확률이 생깁니다.",
+            "followup": "다크니스와 함께하는 '전투 훈련' 이벤트 발생."
+          },
+          {
+            "action": "다크니스를 보호하기 위해 앞장서서 몬스터의 시선을 분산시킨다.",
+            "outcome": "몬스터의 시선을 끌어내어 다크니스의 체력을 보존합니다. '용기 있는 모험가' 카드를 획득합니다.",
+            "growth": "시선 분산 및 유인 기술 상승",
+            "tradeoff": "당신이 받는 대미지가 증가합니다.",
+            "followup": "다크니스가 당신의 용기에 감동해 보조 마법을 지원합니다."
+          },
+          {
+            "action": "몬스터들이 다크니스를 쓰러뜨릴 때까지 지켜본다.",
+            "outcome": "다크니스가 쓰러진 후 몬스터들이 흩어집니다.",
+            "growth": "몬스터 수 -2 및 소량의 골드",
+            "tradeoff": "다크니스 관련 카드를 획득할 수 없습니다.",
+            "followup": "없음"
+          },
+          {
+            "action": "위의 세 가지 중 가장 강력한 보상을 얻으려면?",
+            "outcome": "다크니스에게 공격을 유도하며 뒤에서 몬스터를 하나씩 처리한다.",
+            "growth": "방어력 관련 인물 카드",
+            "tradeoff": "다크니스가 당신에게 고마움을 표현하며 돌발 행동을 할 확률이 생깁니다.",
+            "followup": "다크니스와 함께하는 '전투 훈련' 이벤트 발생."
+          }
+        ]
+      },
+      {
+        "key": "abydos_1",
+        "world": "abydos",
+        "title": "블랙마켓의 추적",
+        "situation": "아비도스 대책위원회가 블랙마켓을 통해 빚의 흐름을 추적하고 있습니다. 시로코가 당신에게 수상한 은행을 털자는 제안을 건넵니다. 하지만 이는 매우 위험한 일이며, 성공하더라도 돈을 돌려줘야 할 가능성이 높습니다.",
+        "sourceFact": "시로코는 수상한 은행을 털자는 방안을 제시한다. 거액의 돈을 손에 넣지만 돌려준다.",
+        "choices": [
+          {
+            "action": "시로코의 계획에 동참하여 은행을 습격한다.",
+            "outcome": "성공적으로 거액을 확보하지만, 시로코의 성격대로 다시 돌려주게 됩니다. '시로코의 동료' 카드를 획득합니다.",
+            "growth": "은신 및 침투 기술 상승",
+            "tradeoff": "은행의 보안 시스템에 감지되어 추격전이 발생합니다.",
+            "followup": "은행 보안팀과의 추격전 발생."
+          },
+          {
+            "action": "돈을 돌려줄 필요가 없도록 다른 경로로 빚을 상환할 방법을 찾는다.",
+            "outcome": "세리카의 라멘 가게를 홍보하여 자금을 마련합니다. '세리카의 열정' 카드를 획득합니다.",
+            "growth": "상업 및 홍보 능력 상승",
+            "tradeoff": "자금 확보까지 시간이 오래 걸립니다.",
+            "followup": "라멘 가게가 유명해지는 이벤트 발생."
+          },
+          {
+            "action": "시로코의 제안을 거절하고 안전하게 대책위원회 업무를 돕는다.",
+            "outcome": "안전하게 빚 추적 자료를 수집합니다. '아야네의 기록' 카드를 획득합니다.",
+            "growth": "정보 수집 능력 상승",
+            "tradeoff": "거액의 자금은 얻지 못합니다.",
+            "followup": "없음"
+          },
+          {
+            "action": "위의 세 가지 중 가장 강력한 보상을 얻으려면?",
+            "outcome": "시로코의 계획에 동참하여 은행을 습격한다.",
+            "growth": "은신 및 침투 기술 상승",
+            "tradeoff": "은행의 보안 시스템에 감지되어 추격전이 발생합니다.",
+            "followup": "은행 보안팀과의 추격전 발생."
+          }
+        ]
+      },
+      {
+        "key": "abydos_2",
+        "world": "abydos",
+        "title": "라멘 가게의 위기",
+        "situation": "편리한 청부업체 68이 시바세키 라멘 가게를 폭파했습니다. 가게 주인은 큰 상처를 입었고, 선도부는 이 일에 대해 강력한 인도를 요구하고 있습니다. 당신은 상처 입은 주인을 돕고 대책위원회와 협력해야 합니다.",
+        "sourceFact": "편리한 청부업체 68이 라멘 가게를 폭파하고, 선도부는 인도를 요구한다. 대책위원회가 거절한 뒤 상처 입은 가게 주인을 걱정한다.",
+        "choices": [
+          {
+            "action": "선도부의 요구를 거절하고 가게 주인을 먼저 치료한다.",
+            "outcome": "가게 주인의 신뢰를 얻고 '치유의 손길' 카드를 획득합니다.",
+            "growth": "의료 및 호감도 상승",
+            "tradeoff": "선도부와의 관계가 악화되어 이동 시 제약이 생깁니다.",
+            "followup": "선도부와의 대립 사건 발생."
+          },
+          {
+            "action": "선도부와 협상하여 가게 주인을 위한 보상금을 받아낸다.",
+            "outcome": "가게 주인과 선도부 모두를 만족시키는 타협점을 찾습니다. '협상의 달인' 카드를 획득합니다.",
+            "growth": "외교 및 협상 능력 상승",
+            "tradeoff": "보상금의 상당 부분을 세금으로 떼이게 됩니다.",
+            "followup": "없음"
+          },
+          {
+            "action": "청부업체 68의 행방을 쫓아 복수를 실행한다.",
+            "outcome": "가게 주인을 위한 복수를 성공적으로 수행합니다. '복수의 칼날' 카드를 획득합니다.",
+            "growth": "전투 및 추적 능력 상승",
+            "tradeoff": "전투 중 부상을 입을 확률이 높습니다.",
+            "followup": "청부업체 68의 잔당과의 전투 발생."
+          },
+          {
+            "action": "위의 세 가지 중 가장 강력한 보상을 얻으려면?",
+            "outcome": "청부업체 68의 행방을 쫓아 복수를 실행한다.",
+            "growth": "전투 및 추적 능력 상승",
+            "tradeoff": "전투 중 부상을 입을 확률이 높습니다.",
+            "followup": "청부업체 68의 잔당과의 전투 발생."
+          }
+        ]
+      },
+      {
+        "key": "abydos_3",
+        "world": "abydos",
+        "title": "사막의 주인",
+        "situation": "학교 주변의 사막 땅이 카이저 소유라는 사실이 밝혀졌습니다. 카이저는 학교를 압박하며 땅을 넘기라고 요구합니다. 호시노는 이 상황을 해결하기 위해 당신에게 도움을 요청합니다.",
+        "sourceFact": "9화에서 학교 주변 사막 땅이 카이저 소유라고 밝혀진다. 10~12화에 호시노가 떠나고 대책위원회가 구출한다.",
+        "choices": [
+          {
+            "action": "카이저의 사설 군대를 상대로 정면 돌파를 시도한다.",
+            "outcome": "강력한 전투를 치러내고 학교를 지켜냅니다. '호시노의 용기' 카드를 획득합니다.",
+            "growth": "강력한 전투력 상승",
+            "tradeoff": "대책위원회 멤버 중 일부가 부상을 입습니다.",
+            "followup": "부상당한 멤버를 치료하는 이벤트 발생."
+          },
+          {
+            "action": "카이저의 자금 흐름을 방해하여 땅을 빼앗을 명분을 찾는다.",
+            "outcome": "법적/경제적 공세를 통해 카이저를 압박합니다. '전략적 분석' 카드를 획득합니다.",
+            "growth": "지략 및 분석 능력 상승",
+            "tradeoff": "시간이 오래 걸려 학교가 잠시 폐쇄됩니다.",
+            "followup": "카이저의 변호사와의 두뇌 싸움 발생."
+          },
+          {
+            "action": "호시노가 떠나기 전, 그녀를 안전하게 호위하며 정보를 수집한다.",
+            "outcome": "호시노를 무사히 호위하며 핵심 정보를 얻습니다. '호시노의 유산' 카드를 획득합니다.",
+            "growth": "호위 및 은신 능력 상승",
+            "tradeoff": "카이저의 직접적인 공격을 피하기 어렵습니다.",
+            "followup": "호시노가 떠난 후의 대책위원회 구출 작전 발생."
+          },
+          {
+            "action": "위의 세 가지 중 가장 강력한 보상을 얻으려면?",
+            "outcome": "카이저의 사설 군대를 상대로 정면 돌파를 시도한다.",
+            "growth": "강력한 전투력 상승",
+            "tradeoff": "대책위원회 멤버 중 일부가 부상을 입습니다.",
+            "followup": "부상당한 멤버를 치료하는 이벤트 발생."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null
+}

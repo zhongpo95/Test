@@ -1,0 +1,571 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "findings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "choice": {
+              "type": "integer"
+            },
+            "severity": {
+              "type": "string",
+              "enum": [
+                "blocker",
+                "improve",
+                "none"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "choice",
+            "severity",
+            "reason",
+            "suggestion"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "findings"
+    ],
+    "additionalProperties": false
+  },
+  "system": "한국어 사건·카드를 비판적으로 검토한다. 원작 세부 사실은 출처를 실제 확인하지 못하면 틀렸다고 단정하지 않는다. 현재 체력은 비용으로 쓰지 않는다. 카드의 max_health_percent 음수는 최대체력 능력치 패널티이며 현재체력 지불과 다르다. 각성 kind는 0 없음, 1 처치수, 2 실제 누적 피해, 3 연속 무피격 초다. goal을 카드 효과 수치나 등급으로 오독하지 마라. crit_damage 25는 치명타 추가 보너스 25퍼센트포인트다. 적 단계 상승은 더 강한 적, density 상승은 더 많은 근접 적이다. 결과에 쓰인 적 감소가 해당 choice의 음수 필드로 구현됐는지 확인하라. 사건 선택 시 행동력 1을 쓰고 표시된 골드 비용·필드 변화는 실패에도 적용된다. 같은 카드 이미 보유하면 100골드로 교환한다. 서사의 행동과 실제 손익이 맞는지, 미구현 효과를 약속하는지, 명백히 열등한 선택인지, 후속 조건과 사건의 말이 모순인지 검토한다. 문제 있는 사례만 최대 8개 지적하고 구체적인 key와 행동 번호를 쓴다. 개인 취향과 확정 버그를 구분하고 코드나 존재하지 않는 사실을 invent하지 않는다.",
+  "brief": [
+    {
+      "world": "여행길",
+      "canonBoundary": "야토의 5엔 의뢰와 신기·히요리 관계, 호로와 로렌스의 행상과 거짓말을 듣는 특징은 공식 자료를 따른다. 개별 의뢰·거래 결과는 맵의 창작이다. 원작 화폐를 맵 골드로 환산한 효과이며 실제 엔 결제는 아니다.",
+      "sources": [
+        "https://www.noragami-anime.net/1/story.html",
+        "https://noragami-anime.net/chara/index.html",
+        "https://spice-and-wolf.com/"
+      ],
+      "cards": [
+        {
+          "key": "common_yato",
+          "name": "야토",
+          "effectName": "5엔의 인연",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 5
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "common_yukine",
+          "name": "유키네",
+          "effectName": "경계를 가르는 검",
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 12
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 15
+              }
+            ]
+          }
+        },
+        {
+          "key": "common_hiyori",
+          "name": "이키 히요리",
+          "effectName": "돌아올 길을 기억하기",
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 5
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "common_holo",
+          "name": "호로",
+          "effectName": "거짓말을 듣는 귀",
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "crit_chance",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "common_lawrence",
+          "name": "크래프트 로렌스",
+          "effectName": "두 도시의 가격",
+          "effects": [
+            {
+              "stat": "kill_gold",
+              "value": 3
+            },
+            {
+              "stat": "attack_percent",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "kill_gold",
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "key": "common_holo_wit",
+          "name": "호로",
+          "effectName": "손익 뒤의 의도",
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 12
+            },
+            {
+              "stat": "crit_damage",
+              "value": 25
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "key": "common_five_coin",
+          "story": "길목의 벽에 5엔이면 의뢰를 받는다는 번호가 적혀 있다. 전화를 받은 야토는 놓친 물건을 찾아 주겠다고 하지만 길은 안전하지 않다. 당신도 의뢰의 한 부분을 맡을 수 있다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "5골드를 내고 야토에게 길목 정리를 부탁한다",
+              "result": "야토에게 작은 의뢰를 맡기고 함께 길목을 살폈다. 그가 대단한 보상보다 약속한 일을 끝내는 모습을 보며 첫 경험을 얻었다.",
+              "card": "common_yato",
+              "card2": null,
+              "gold": 0,
+              "cost": 5,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "야토와 유키네의 위험한 길을 맡는다",
+              "result": "유키네가 길을 여는 동안 더 강한 적이 다니는 통로를 맡았다. 검이 닿는 간격을 살피는 경험을 얻었다.",
+              "card": "common_yukine",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "의뢰인을 안전한 장소로 안내한다",
+              "result": "의뢰인을 무사히 목적지까지 호위하여 보상을 받았다.",
+              "card": null,
+              "card2": null,
+              "gold": 150,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_shrine_work",
+          "story": "텐진의 신사에 일이 몰려 야토가 도움을 부탁받았다. 히요리는 종이와 물자를 정리하고 유키네는 바깥 통로를 확인한다. 가장 요란한 일을 맡아야만 도움이 되는 것은 아니다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "히요리와 운반 자재를 준비한다",
+              "result": "히요리가 꼼꼼하게 자재를 정리하여 효율을 높입니다.",
+              "card": "common_hiyori",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "유키네와 바깥 통로의 적을 나눈다",
+              "result": "유키네와 통로를 나누어 더 많은 적이 들어오는 길을 맡았다. 빠져나갈 자리를 지키며 검의 경계를 익혔다.",
+              "card": "common_yukine",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "기록 정리를 돕고 수고비를 받는다",
+              "result": "차분하게 기록을 정리하고 정해진 수고비를 받았다.",
+              "card": null,
+              "card2": null,
+              "gold": 240,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_lost_address",
+          "story": "야토와 함께 정리한 길목 끝에서 의뢰인의 주소가 틀렸다는 사실을 알았다. 작업은 했지만 연락할 사람이 없어 마무리가 남았다. 히요리는 근처 사람들이 기억하는 길부터 확인하자고 한다.",
+          "previous": "common_five_coin",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "히요리와 사람들에게 주소를 확인한다",
+              "result": "히요리와 주변 사람들에게 주소를 다시 물었다. 사람들이 오갈 통로를 더 열어 남은 적도 늘었지만 돌아올 길을 기억했다.",
+              "card": "common_hiyori",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "추가 자재를 내고 연락 장소를 비운다",
+              "result": "추가 자재비를 내고 연락 지점의 통로 하나를 닫았다. 남은 적 수를 줄이고 의뢰인이 맡긴 보급 물약을 회수했다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            },
+            {
+              "label": "야토의 심부름을 마치고 대금을 받는다",
+              "result": "야토의 요청대로 남은 절차를 마무리하고 대금을 수령했다.",
+              "card": null,
+              "card2": null,
+              "gold": 220,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_fur_scale",
+          "story": "로렌스가 모피를 팔려는데 저울을 놓는 순서부터 이야기가 엇갈린다. 호로는 가격보다 상대가 무엇을 숨기는지 들어 보라고 한다. 급히 현금화할지 확인 비용을 쓸지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": "상대는 재협상을 거절했다. 확인 비용은 돌아오지 않으며 이번에는 카드도 얻지 못한다. 그러나 거래 내역을 남겨 다른 판매 경로를 찾을 수 있다.",
+          "choices": [
+            {
+              "label": "검증 비용을 내고 호로와 설명을 듣는다",
+              "result": "호로의 도움으로 상대의 숨겨진 의도를 파악했다.",
+              "card": "common_holo",
+              "card2": null,
+              "gold": 0,
+              "cost": 190,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "로렌스와 혼잡한 거래 구역을 맡는다",
+              "result": "로렌스와 동행하며 번잡한 시장을 뚫고 거래를 진행했다.",
+              "card": "common_lawrence",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호로의 지적대로 재협상을 시도한다",
+              "result": "호로가 짚은 저울의 차이를 근거로 조건을 다시 제시했다. 상대가 거래를 받아들여 말 뒤에 숨은 의도를 읽는 경험을 얻었다.",
+              "card": "common_holo_wit",
+              "card2": null,
+              "gold": 0,
+              "cost": 120,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 65
+            },
+            {
+              "label": "확실한 가격으로 팔고 거래를 끝낸다",
+              "result": "복잡한 절차를 생략하고 즉시 판매하여 현금을 확보했다.",
+              "card": null,
+              "card2": null,
+              "gold": 250,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_other_buyer",
+          "story": "재협상을 거절당한 거래 내역을 다시 펼쳤다. 로렌스는 손실을 숨기기보다 다른 구매자의 비용을 비교하자고 한다. 이번에는 약속만 좋은 거래와 확정된 정리 대금을 구분한다.",
+          "previous": "common_fur_scale",
+          "previousChoice": -3,
+          "failure": null,
+          "choices": [
+            {
+              "label": "로렌스와 운송 비용을 계산한다",
+              "result": "로렌스와 함께 정확한 운송 비용을 산출했다.",
+              "card": "common_lawrence",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호로와 거절 이유를 확인한다",
+              "result": "호로의 귀를 통해 상대가 거절한 진짜 이유를 듣습니다.",
+              "card": "common_holo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "남은 모피를 정리하고 보급을 준비한다",
+              "result": "남은 물량을 정리하며 다음을 위한 보급을 마칩니다.",
+              "card": null,
+              "card2": null,
+              "gold": 170,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_good_receipt",
+          "story": "재협상이 성사된 뒤에도 호로는 서류를 살펴보라고 한다. 앞서 들은 말과 적힌 조건이 다르면 다음 여행에서 문제가 된다. 지금 정리를 맡을지 다음 운송을 맡을지 고른다.",
+          "previous": "common_fur_scale",
+          "previousChoice": 3,
+          "failure": null,
+          "choices": [
+            {
+              "label": "로렌스와 운송 경비를 준비한다",
+              "result": "로렌스와 협력하여 차기 운송을 위한 경비를 마련했다.",
+              "card": "common_lawrence",
+              "card2": null,
+              "gold": 0,
+              "cost": 140,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호로와 서류의 다른 조건을 확인한다",
+              "result": "호로와 함께 서류 속의 미세한 함정을 찾아냅니다.",
+              "card": "common_holo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "정산을 끝내고 현금을 챙긴다",
+              "result": "모든 정산이 완료되어 현금을 확보했다.",
+              "card": null,
+              "card2": null,
+              "gold": 260,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_rain_cargo",
+          "story": "여행길의 비로 로렌스의 화물 덮개가 젖었다. 호로는 그 상태로 가격을 말해도 상대가 믿지 않을 거라고 한다. 화물의 상태를 확인하거나 우회 운송을 맡는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "덮개 비용을 내고 로렌스와 화물을 확인한다",
+              "result": "비용을 들여 화물을 보수하고 로렌스와 점검했다.",
+              "card": "common_lawrence",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호로와 거래 상대의 말을 확인한다",
+              "result": "호로와 상대에게 화물 상태를 솔직히 알렸다. 더 강한 적이 있는 확인 장소까지 맡으며 물건보다 말의 모순을 먼저 살피는 요령을 얻었다.",
+              "card": "common_holo_wit",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "비를 피할 통로를 정리하고 대금을 받는다",
+              "result": "우회 경로를 확보하여 안전하게 대금을 수령했다.",
+              "card": null,
+              "card2": null,
+              "gold": 180,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "common_northern_route",
+          "story": "호로는 고향으로 돌아갈 길을 찾고 로렌스는 다음 도시의 거래를 생각한다. 어느 길도 지금의 여행을 한 번에 끝내지는 않는다. 남은 물자를 어떻게 나눌지 묻는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "호로와 우회로를 확인할 비용을 낸다",
+              "result": "호로와 함께 우회로의 자재비를 냈다. 적이 들어오는 통로 하나를 줄이고 다음 길을 살펴볼 단서를 얻었다.",
+              "card": "common_holo",
+              "card2": null,
+              "gold": 0,
+              "cost": 210,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "로렌스와 붐비는 수송로를 맡는다",
+              "result": "로렌스와 함께 활발한 수송로를 통해 이동했다.",
+              "card": "common_lawrence",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "귀환용 보급을 준비하고 정산한다",
+              "result": "귀환을 위한 보급을 마친 뒤 모든 정산을 완료했다.",
+              "card": null,
+              "card2": null,
+              "gold": 210,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

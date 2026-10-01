@@ -1,0 +1,1007 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "findings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "choice": {
+              "type": "integer"
+            },
+            "severity": {
+              "type": "string",
+              "enum": [
+                "blocker",
+                "improve",
+                "none"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "choice",
+            "severity",
+            "reason",
+            "suggestion"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "findings"
+    ],
+    "additionalProperties": false
+  },
+  "system": "한국어 사건·카드를 비판적으로 검토한다. 원작 세부 사실은 출처를 실제 확인하지 못하면 틀렸다고 단정하지 않는다. 현재 체력은 비용으로 쓰지 않는다. 카드의 max_health_percent 음수는 최대체력 능력치 패널티이며 현재체력 지불과 다르다. 각성 kind는 0 없음, 1 처치수, 2 실제 누적 피해, 3 연속 무피격 초다. goal을 카드 효과 수치나 등급으로 오독하지 마라. crit_damage 25는 치명타 추가 보너스 25퍼센트포인트다. 적 단계 상승은 더 강한 적, density 상승은 더 많은 근접 적이다. 결과에 쓰인 적 감소가 해당 choice의 음수 필드로 구현됐는지 확인하라. 사건 선택 시 행동력 1을 쓰고 표시된 골드 비용·필드 변화는 실패에도 적용된다. 같은 카드 이미 보유하면 100골드로 교환한다. 서사의 행동과 실제 손익이 맞는지, 미구현 효과를 약속하는지, 명백히 열등한 선택인지, 후속 조건과 사건의 말이 모순인지 검토한다. 문제 있는 사례만 최대 8개 지적하고 구체적인 key와 행동 번호를 쓴다. 개인 취향과 확정 버그를 구분하고 코드나 존재하지 않는 사실을 invent하지 않는다.",
+  "brief": [
+    {
+      "world": "학원도시",
+      "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+      "sources": [
+        "https://toaru-project.com/railgun_t/chara/mikoto.html",
+        "https://toaru-project.com/railgun_t/chara/kuroko.html",
+        "https://toaru-project.com/railgun_t/chara/uiharu.html",
+        "https://toaru-project.com/railgun_t/chara/saten.html",
+        "https://toaru-project.com/railgun_t/chara/kamijo.html"
+      ],
+      "cards": [
+        {
+          "key": "academy_uiharu",
+          "name": "우이하루 카자리",
+          "effectName": "관찰 기록",
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "academy_mikoto",
+          "name": "미사카 미코토",
+          "effectName": "정밀한 전자기 제어",
+          "effects": [
+            {
+              "stat": "penetration",
+              "value": 10
+            },
+            {
+              "stat": "charge_damage",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 15
+              }
+            ]
+          }
+        },
+        {
+          "key": "academy_kuroko",
+          "name": "시라이 쿠로코",
+          "effectName": "공간의 사각",
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 5
+            },
+            {
+              "stat": "directional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "academy_touma",
+          "name": "카미조 토우마",
+          "effectName": "이매진 브레이커",
+          "effects": [
+            {
+              "stat": "damage_reduction",
+              "value": 6
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "academy_saten",
+          "name": "사텐 루이코",
+          "effectName": "발로 찾은 단서",
+          "effects": [
+            {
+              "stat": "kill_gold",
+              "value": 2
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "swift",
+                "value": 90
+              }
+            ]
+          }
+        },
+        {
+          "key": "academy_dispatch",
+          "name": "우이하루 카자리",
+          "effectName": "백업 통신",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 5
+            },
+            {
+              "stat": "swift",
+              "value": 180
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "academy_focus",
+          "name": "미사카 미코토",
+          "effectName": "한 점의 레일건",
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 14
+            },
+            {
+              "stat": "charge_speed",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 15000,
+            "effects": [
+              {
+                "stat": "final_damage_percent",
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "key": "academy_persevere",
+          "name": "사텐 루이코",
+          "effectName": "능력 밖의 용기",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 10
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        }
+      ],
+      "events": [
+        {
+          "key": "academy_bad_signal",
+          "story": "풍기위원 지부에서 구조 신호가 끊겼다. 우이하루는 기록을 복구하고 쿠로코는 현장으로 갈 준비를 한다. 통신선을 살리는 일과 사람을 먼저 찾는 일 중 어디를 맡을까?",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "수리 자재를 사고 우이하루의 백업을 돕는다",
+              "result": "자재를 사서 끊어진 통신선을 이었다. 우이하루가 나눠 준 기록으로 당신도 다음 행동을 준비할 여유를 얻었다.",
+              "card": "academy_dispatch",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "쿠로코와 위험한 현장으로 간다",
+              "result": "쿠로코의 신속한 이동을 따라 현장에 도달했다. 지형지물을 활용하는 법을 익힌다.",
+              "card": "academy_kuroko",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "사텐과 가까운 골목부터 수색한다",
+              "result": "사텐의 발품을 빌려 인근 골목을 샅샅이 훑었다. 주변 지형에 대한 이해도가 높아진다.",
+              "card": "academy_saten",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "우회로를 열고 보급품을 옮긴다",
+              "result": "험난한 길을 뚫어 보급로를 확보했다. 이동 경로가 확보되어 보급품을 획득한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 80,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "academy_signal_answer",
+          "story": "복구한 신호의 좌표가 도착했다. 한 번의 단서로 도시의 큰 사건을 끝내지는 못한다. 미코토가 전원 시설을 확인하는 동안 토우마는 구조 대상에게 다가가려 한다.",
+          "previous": "academy_bad_signal",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "미코토에게 절연 장비를 빌린다",
+              "result": "절연 장비 대여비를 내고 전원 시설을 확인했다. 미코토가 한 지점에 힘을 모으는 과정을 보며 공격 기회를 준비했다.",
+              "card": "academy_mikoto",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "토우마와 구조 경로를 확보한다",
+              "result": "토우마와 동행하며 안전한 이동 경로를 확보했다. 방어적인 기동이 가능해진다.",
+              "card": "academy_touma",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "현장 기록을 전달하고 수고비를 받는다",
+              "result": "수집한 정보를 관련 부서에 전달하고 보상을 받았다. 당장의 자금을 확보한다.",
+              "card": null,
+              "card2": null,
+              "gold": 250,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "academy_urban_rumor",
+          "story": "사텐이 들은 능력 개발 소문이 사람들을 한 골목으로 모았다. 우이하루는 사실 확인이 먼저라고 하고 미코토는 수상한 장치에 시선을 둔다. 소문을 퍼뜨리는 대신 확인할 일을 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "조사 장비를 준비하고 미코토와 장치를 확인한다",
+              "result": "정밀 장비를 갖추고 미코토와 함께 장치를 분석했다. 고출력 에너지 제어법을 습득한다.",
+              "card": "academy_mikoto",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "사텐과 모인 사람들의 이야기를 듣는다",
+              "result": "사텐과 함께 현장 목격자들의 진술을 청취했다. 인내심을 가지고 정보를 수집한다.",
+              "card": "academy_persevere",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "사람들을 안내해 골목을 비운다",
+              "result": "사람들을 안내해 골목을 비웠다. 길목 정리의 수고비를 받고 남은 사냥터로 들어오는 적 수도 줄였다.",
+              "card": null,
+              "card2": null,
+              "gold": 150,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "academy_coin_test",
+          "story": "미코토는 코인으로 작은 표적을 겨누지만 뒤편에는 작업자 통로가 있다. 발사 위력을 높이는 일보다 통로를 비우고 안전한 각도를 찾는 일이 먼저다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "위험 구역을 맡고 정밀 사격을 관찰한다",
+              "result": "위험한 구역에 자원하며 미코토의 사격 궤적을 연구했다. 고위력 집중 타격이 가능해진다.",
+              "card": "academy_focus",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "안전 장비 비용을 내고 사선을 표시한다",
+              "result": "안전 가이드라인을 설치해 사격 구역을 명확히 했다. 쿠로코의 이동 경로를 보조한다.",
+              "card": "academy_kuroko",
+              "card2": null,
+              "gold": 0,
+              "cost": 210,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "통행 안내를 맡고 보급품을 받는다",
+              "result": "작업자들이 사선을 지나지 않게 안내했다. 일행에게 수고비와 다음 이동에 필요한 물약을 받았다.",
+              "card": null,
+              "card2": null,
+              "gold": 180,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "academy_no_ability",
+          "story": "모두가 능력자를 따라간 뒤 사텐과 당신 앞에는 옮기지 못한 물자가 남았다. 능력이 없어도 지금 할 수 있는 일이 있다. 어느 쪽을 먼저 챙길까?",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "사텐과 물자를 나르며 길을 익힌다",
+              "result": "사텐과 함께 물자를 옮기며 지형을 숙지했다. 기초적인 이동 능력이 향상된다.",
+              "card": "academy_saten",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "운송비를 내고 사텐과 피난 장소를 정리한다",
+              "result": "운송 비용을 지불하고 체계적으로 물자를 정리했다. 생존을 위한 안정성을 확보한다.",
+              "card": "academy_persevere",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "토우마를 따라 남은 사람을 찾는다",
+              "result": "토우마를 따라 실종된 시민들을 수색했다. 위험 지역에서의 생존력이 높아진다.",
+              "card": "academy_touma",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "academy_second_route",
+          "story": "현장에 들어간 쿠로코가 처음 보지 못한 통로를 알려 왔다. 우이하루의 지원을 받을지 직접 확인할지 정한다. 통로를 더 열면 사냥터로 들어오는 적도 달라진다.",
+          "previous": "academy_bad_signal",
+          "previousChoice": 2,
+          "failure": null,
+          "choices": [
+            {
+              "label": "새 통로를 조사하고 백업 통신을 연결한다",
+              "result": "새 통로를 확보하며 우이하루와 실시간 통신망을 구축했다. 행동 속도가 빨라진다.",
+              "card": "academy_dispatch",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "자재를 내고 통로 하나를 안전하게 닫는다",
+              "result": "봉쇄 자재비를 내고 위험한 통로를 닫았다. 더 강한 적의 접근을 줄이고 남은 물약을 회수했다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 120,
+              "level": -1,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "label": "쿠로코와 이동 요령을 점검한다",
+              "result": "쿠로코와 협력하여 은밀하고 빠른 이동 요령을 익혔다. 기동성이 크게 향상된다.",
+              "card": "academy_kuroko",
+              "card2": null,
+              "gold": 0,
+              "cost": 170,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "world": "미타키하라",
+      "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+      "sources": [
+        "https://www.madoka-magica.com/tv/youtube-streaming/character/",
+        "https://www.madoka-magica.com/tv/story/?id=02",
+        "https://www.madoka-magica.com/tv/story/?id=5",
+        "https://www.madoka-magica.com/tv/story/?id=6"
+      ],
+      "cards": [
+        {
+          "key": "madoka_care",
+          "name": "카나메 마도카",
+          "effectName": "친구를 위해",
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 8
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "madoka_mami",
+          "name": "토모에 마미",
+          "effectName": "흔들리지 않는 조준",
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 18
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "charge_speed",
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "key": "madoka_homura",
+          "name": "아케미 호무라",
+          "effectName": "반복해 세운 준비",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 6
+            },
+            {
+              "stat": "swift",
+              "value": 180
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "key": "madoka_sayaka",
+          "name": "미키 사야카",
+          "effectName": "물러서지 않는 결심",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 10
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "madoka_kyoko",
+          "name": "사쿠라 쿄코",
+          "effectName": "긴 창의 간격",
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 15
+            },
+            {
+              "stat": "moving_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 15
+              }
+            ]
+          }
+        },
+        {
+          "key": "madoka_contract",
+          "name": "큐베",
+          "effectName": "힘이라는 소원",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 22
+            },
+            {
+              "stat": "max_health_percent",
+              "value": -10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "madoka_guide",
+          "name": "토모에 마미",
+          "effectName": "혼자 두지 않는 안내",
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "madoka_resolve",
+          "name": "카나메 마도카",
+          "effectName": "서로의 말을 듣기",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        }
+      ],
+      "events": [
+        {
+          "key": "madoka_parking_seed",
+          "story": "병원 주차장에서 부화 직전의 그리프 시드를 발견했다. 마도카는 마미를 부르러 가려 하고, 사야카는 시민들이 접근하지 못하도록 경계한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "차단 자재를 마련하고 마미의 안내를 받는다",
+              "result": "마미의 지시에 따라 안전하게 주변을 봉쇄하며 마미로부터 노하우를 전수받는다.",
+              "card": "madoka_guide",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "사야카와 현장의 사람들을 지킨다",
+              "result": "사야카와 함께 시민들을 밀어내며 위협으로부터 안전하게 보호한다.",
+              "card": "madoka_sayaka",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호무라에게 자리를 넘기고 우회로를 확인한다",
+              "result": "장비 준비비를 내고 호무라에게 현장을 넘겼다. 그녀가 확인한 우회로를 살펴보며 다음 대응을 준비했다.",
+              "card": "madoka_homura",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "안내 표지와 보급품을 나른다",
+              "result": "급히 표지판을 세우고 주변에 필요한 물자를 배치한다.",
+              "card": null,
+              "card2": null,
+              "gold": 150,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "madoka_mentor_return",
+          "story": "마미를 기다리는 길목에서 다음 작전을 논의한다. 마미는 결계의 위험을 경고하며 사격 위치와 퇴로를 함께 정하자고 제안한다.",
+          "previous": "madoka_parking_seed",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "마미와 사격 위치를 확보한다",
+              "result": "마미와 함께 최적의 사격 지점을 파악하며 전술적인 위치를 선점한다.",
+              "card": "madoka_mami",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "돌아올 길을 정리하며 마도카를 돕는다",
+              "result": "마도카를 챙기며 안전하게 퇴각할 수 있는 경로를 미리 확보한다.",
+              "card": "madoka_care",
+              "card2": null,
+              "gold": 0,
+              "cost": 150,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "보급품을 구입하고 현장 경계를 줄인다",
+              "result": "물약을 구입하고 경계할 통로 하나를 닫았다. 남은 사냥의 규모를 줄여 귀환 준비에 집중한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "madoka_familiar_trace",
+          "story": "마법소녀들의 충돌 이후 놓친 사역마의 흔적이 발견되었다. 사야카는 추적을 원하지만, 마도카는 서로 대화하며 상황을 풀길 바란다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "사야카와 흔적을 끝까지 따라간다",
+              "result": "사야카의 의지에 따라 흔적을 추적하며 깊은 곳으로 들어간다.",
+              "card": "madoka_sayaka",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "마도카와 안전한 만남의 장소를 마련한다",
+              "result": "마도카의 제안대로 대화할 수 있는 평온한 장소를 찾아 이동한다.",
+              "card": "madoka_resolve",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "쿄코와 추적 구역을 나눈다",
+              "result": "쿄코와 협력하여 효율적으로 수색 구역을 배분한다.",
+              "card": "madoka_kyoko",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "madoka_church_food",
+          "story": "쿄코가 사야카를 데리고 폐허가 된 교회로 향했다. 쿄코가 내민 음식을 두고 두 사람의 태도가 엇갈리는 상황에서 당신은 어떻게 행동할까?",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "먹을 것을 나누며 쿄코의 이야기를 듣는다",
+              "result": "쿄코가 건넨 음식을 나누어 먹으며 그녀의 과거와 속마음을 경청한다.",
+              "card": "madoka_kyoko",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "보급품을 사고 사야카가 돌아갈 길을 지킨다",
+              "result": "물자를 확보하면서 사야카가 안전하게 돌아갈 수 있도록 길을 확보한다.",
+              "card": "madoka_resolve",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "label": "주변 통로를 비우고 이동할 자리를 준비한다",
+              "result": "불필요한 시선을 차단하고 세 사람이 머물 수 있는 공간을 정리한다.",
+              "card": null,
+              "card2": null,
+              "gold": 180,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "madoka_one_wish",
+          "story": "큐베가 당신의 소원 한 가지를 이루어 주겠다고 한다. 큰 힘을 바라면 그 힘을 감당할 준비도 필요하다. 사야카와 호무라가 곁에서 당신의 답을 기다린다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "더 강한 힘을 바란다",
+              "result": "큐베와 계약하여 강력한 힘을 얻지만 그에 따른 책임과 위험을 마주한다.",
+              "card": "madoka_contract",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "사야카와 사람을 지키는 길을 택한다",
+              "result": "개인적인 힘 대신 사야카와 시민들을 보호하는 헌신적인 길을 걷는다.",
+              "card": "madoka_sayaka",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호무라와 준비부터 확인한다",
+              "result": "호무라와 함께 힘을 얻기 전 필요한 대비책을 꼼꼼히 점검한다.",
+              "card": "madoka_homura",
+              "card2": null,
+              "gold": 0,
+              "cost": 230,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "계약하지 않고 현장 보급을 돕는다",
+              "result": "큐베의 제안을 거절하고 묵묵히 현장에서 필요한 물자를 보급한다.",
+              "card": null,
+              "card2": null,
+              "gold": 230,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "madoka_warning",
+          "story": "호무라가 준비한 지도에 아직 파악되지 않은 빈 구역이 존재한다. 한 곳에 대비를 집중할지 아니면 사람들을 우선적으로 안내할지 결정해야 한다.",
+          "previous": "madoka_parking_seed",
+          "previousChoice": 3,
+          "failure": null,
+          "choices": [
+            {
+              "label": "마미와 먼 곳의 공격 기회를 준비한다",
+              "result": "마미와 협력하여 예상치 못한 위치에서 적을 격퇴할 준비를 마친다.",
+              "card": "madoka_mami",
+              "card2": null,
+              "gold": 0,
+              "cost": 210,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "마도카와 남은 사람들을 안내한다",
+              "result": "마도카를 도와 위험에 처한 사람들을 안전한 곳으로 대피시킨다.",
+              "card": "madoka_resolve",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "구역 정리 비용을 내고 적 접근을 늦춘다",
+              "result": "정리 비용을 내고 위험한 구역 하나를 막았다. 다가오는 적의 단계를 낮추고 물약을 준비했다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": -1,
+              "density": 0,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

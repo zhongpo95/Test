@@ -1,0 +1,985 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "findings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "choice": {
+              "type": "integer"
+            },
+            "severity": {
+              "type": "string",
+              "enum": [
+                "blocker",
+                "improve",
+                "none"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "choice",
+            "severity",
+            "reason",
+            "suggestion"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "findings"
+    ],
+    "additionalProperties": false
+  },
+  "system": "한국어 사건·카드를 비판적으로 검토한다. 원작 세부 사실은 출처를 실제 확인하지 못하면 틀렸다고 단정하지 않는다. 현재 체력은 비용으로 쓰지 않는다. 카드의 max_health_percent 음수는 최대체력 능력치 패널티이며 현재체력 지불과 다르다. 각성 kind는 0 없음, 1 처치수, 2 실제 누적 피해, 3 연속 무피격 초다. goal을 카드 효과 수치나 등급으로 오독하지 마라. crit_damage 25는 치명타 추가 보너스 25퍼센트포인트다. 적 단계 상승은 더 강한 적, density 상승은 더 많은 근접 적이다. 결과에 쓰인 적 감소가 해당 choice의 음수 필드로 구현됐는지 확인하라. 사건 선택 시 행동력 1을 쓰고 표시된 골드 비용·필드 변화는 실패에도 적용된다. 같은 카드 이미 보유하면 100골드로 교환한다. 서사의 행동과 실제 손익이 맞는지, 미구현 효과를 약속하는지, 명백히 열등한 선택인지, 후속 조건과 사건의 말이 모순인지 검토한다. 문제 있는 사례만 최대 8개 지적하고 구체적인 key와 행동 번호를 쓴다. 개인 취향과 확정 버그를 구분하고 코드나 존재하지 않는 사실을 invent하지 않는다.",
+  "brief": [
+    {
+      "world": "아인크라드",
+      "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+      "sources": [
+        "https://www.swordart-online.net/character/index2.html",
+        "https://www.aniplex.co.jp/lineup/swordartonline/story/"
+      ],
+      "cards": [
+        {
+          "key": "sao_agil",
+          "name": "에길",
+          "effectName": "거래의 눈",
+          "effects": [
+            {
+              "stat": "kill_gold",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "sao_kirito",
+          "name": "키리토",
+          "effectName": "빈틈을 잇는 검",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 6
+            },
+            {
+              "stat": "crit_chance",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "key": "sao_asuna",
+          "name": "아스나",
+          "effectName": "섬광의 사선",
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 270
+            },
+            {
+              "stat": "directional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 15
+              }
+            ]
+          }
+        },
+        {
+          "key": "sao_liz",
+          "name": "리즈벳",
+          "effectName": "가공의 완성도",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 12
+            },
+            {
+              "stat": "penetration",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "sao_silica",
+          "name": "시리카",
+          "effectName": "돌아갈 길의 동료",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "sao_klein",
+          "name": "클라인",
+          "effectName": "함께 맞서는 간격",
+          "effects": [
+            {
+              "stat": "damage_reduction",
+              "value": 6
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "sao_asuna_meal",
+          "name": "아스나",
+          "effectName": "공략 전의 식탁",
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 14
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "sao_kirito_scout",
+          "name": "키리토",
+          "effectName": "돌아와 전한 경고",
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 16
+            },
+            {
+              "stat": "penetration",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 15000,
+            "effects": [
+              {
+                "stat": "final_damage_percent",
+                "value": 5
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "key": "sao_smith_metal",
+          "story": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "금속 수송 장비 비용을 낸다",
+              "result": "수송용 특수 케이스를 확보했다. 리즈벳이 안전한 운송을 위해 필요한 장비를 준비한다.",
+              "card": "sao_liz",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "키리토와 위험 구역의 재료를 찾는다",
+              "result": "키리토의 빠른 기동성을 빌려 험난한 지형을 돌파한다. 위험을 무릅쓰고 희귀 재료를 채굴한다.",
+              "card": "sao_kirito",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "에길에게 남은 부품을 넘긴다",
+              "result": "쓸모없어진 파편을 에길에게 매각한다. 상인인 그는 이를 가치 있게 평가하며 보상을 건넨다.",
+              "card": null,
+              "card2": null,
+              "gold": 220,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "sao_smith_return",
+          "story": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+          "previous": "sao_smith_metal",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "가공을 돕고 키리토의 검 운용을 관찰한다",
+              "result": "리즈벳의 손놀림을 돕는 동시에 키리토의 검술을 분석한다. 실전에서 유용한 검술의 궤적을 익힌다.",
+              "card": "sao_kirito",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "아스나에게 안전한 작업 구역을 부탁한다",
+              "result": "아스나에게 주변 경계와 안전 확보를 요청한다. 그녀의 지휘 아래 안정적인 작업 환경을 구축한다.",
+              "card": "sao_asuna",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "남은 재료를 정리하고 대금을 받는다",
+              "result": "정리된 재료를 최종 검수하고 의뢰비를 수령한다. 깔끔한 뒷정리로 정당한 보상을 얻는다.",
+              "card": null,
+              "card2": null,
+              "gold": 250,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "sao_companion_herb",
+          "story": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "시리카와 보급을 준비한다",
+              "result": "시리카와 함께 필요한 물자를 챙기며 이동한다. 그녀의 꼼꼼한 보급 준비로 기반을 다진다.",
+              "card": "sao_silica",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "클라인과 주변 몬스터를 다른 길로 유도한다",
+              "result": "클라인의 전술을 활용해 적의 시선을 분산시킨다. 동료들이 안전하게 이동할 수 있는 경로를 확보한다.",
+              "card": "sao_klein",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "키리토와 위험한 길을 먼저 확인한다",
+              "result": "키리토에게 앞장서서 길을 개척해달라고 요청한다. 그의 정찰을 통해 안전한 경로를 확보한다.",
+              "card": "sao_kirito_scout",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "꽃을 운반할 도구를 맡고 대금을 받는다",
+              "result": "시리카가 돌아올 때 꽃을 안전하게 옮길 용기를 준비했다. 필요한 도구를 전달하고 수고비를 받았다.",
+              "card": null,
+              "card2": null,
+              "gold": 230,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "sao_rabbit_table",
+          "story": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "재료비를 내고 아스나와 식탁을 준비한다",
+              "result": "아스나에게 재료비를 일부 건네며 요리를 부탁한다. 그녀의 손맛으로 든든한 식사를 준비한다.",
+              "card": "sao_asuna_meal",
+              "card2": null,
+              "gold": 0,
+              "cost": 170,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "에길에게 팔고 골드를 챙긴다",
+              "result": "고기를 상인 에길에게 넘겨 현금화한다. 식사는 포기하지만 즉각적인 자금을 확보한다.",
+              "card": null,
+              "card2": null,
+              "gold": 280,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "클라인과 경계 구역을 나눠 식사를 지킨다",
+              "result": "클라인과 역할을 나누어 식사 시간을 확보한다. 경계를 유지하며 안전하게 식사를 마친다.",
+              "card": "sao_klein",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "sao_boss_warning",
+          "story": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "키리토와 위험 구역의 정찰을 이어간다",
+              "result": "키리토와 함께 보스 방 주변을 더 상세히 조사한다. 정확한 위치와 적의 배치를 파악한다.",
+              "card": "sao_kirito_scout",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "아스나와 진입 순서를 정리한다",
+              "result": "아스나의 지휘 아래 효율적인 진입 동선을 짠다. 체계적인 계획으로 초기 피해를 줄인다.",
+              "card": "sao_asuna",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "추가 보급 비용을 내고 사냥터를 줄인다",
+              "result": "보급 비용을 내고 진입 통로 하나를 닫았다. 사냥할 적 수는 줄지만 물약을 챙겨 다음 전투를 준비했다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "sao_safezone_clue",
+          "story": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "장비를 조사하며 가공 비용을 낸다",
+              "result": "의심스러운 장비의 제작 공정을 정밀 조사한다. 리즈벳의 기술을 빌려 조작 여부를 확인한다.",
+              "card": "sao_liz",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "아스나와 목격담을 확인한다",
+              "result": "아스나와 함께 현장을 돌며 목격자들을 대조한다. 엇갈리는 증언 사이의 모순을 찾아낸다.",
+              "card": "sao_asuna",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "에길에게 확인된 물품을 맡긴다",
+              "result": "에길에게 물품 확인을 맡기고 거래 기록을 정리했다. 증거를 팔아 없애지 않고 조사에 필요한 수고비를 받았다.",
+              "card": null,
+              "card2": null,
+              "gold": 200,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "world": "제타 그랑데",
+      "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+      "sources": [
+        "https://relink.granbluefantasy.jp/world/",
+        "https://relink.granbluefantasy.jp/characters/detail?chara=id"
+      ],
+      "cards": [
+        {
+          "key": "gbf_rackam",
+          "name": "라캄",
+          "effectName": "항로 점검",
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            },
+            {
+              "stat": "kill_gold",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "gbf_katalina",
+          "name": "카타리나",
+          "effectName": "곁을 지키는 검",
+          "effects": [
+            {
+              "stat": "damage_reduction",
+              "value": 6
+            },
+            {
+              "stat": "shielded_damage",
+              "value": 16
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "gbf_eugen",
+          "name": "오이겐",
+          "effectName": "숙련된 사격점",
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 16
+            },
+            {
+              "stat": "crit_damage",
+              "value": 20
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "penetration",
+                "value": 6
+              }
+            ]
+          }
+        },
+        {
+          "key": "gbf_io",
+          "name": "이오",
+          "effectName": "마법사의 집중",
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 8
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "gbf_narmaya",
+          "name": "나루메아",
+          "effectName": "끝없는 검의 수련",
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 16
+            },
+            {
+              "stat": "crit_chance",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "gbf_vane",
+          "name": "베인",
+          "effectName": "친구가 돌아올 자리",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 16
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        },
+        {
+          "key": "gbf_zeta",
+          "name": "제타",
+          "effectName": "봉인 무기의 사선",
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 16
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 15000,
+            "effects": [
+              {
+                "stat": "final_damage_percent",
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "key": "gbf_cagliostro",
+          "name": "칼리오스트로",
+          "effectName": "정밀한 연금 조정",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 10
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          }
+        }
+      ],
+      "events": [
+        {
+          "key": "gbf_airship_crate",
+          "story": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
+              "result": "카타리나와 협력하여 헐거워진 화물을 고정한다. 선체의 안정성을 확보하기 위한 보수 작업을 마친다.",
+              "card": "gbf_katalina",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
+              "result": "오이겐의 노련한 움직임으로 무거운 장비를 운반한다. 사격에 최적화된 위치로 장비를 배치한다.",
+              "card": "gbf_eugen",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "보급 화물을 정리하고 수고비를 받는다",
+              "result": "적재된 보급품을 질서 있게 정리한다. 정리된 물량에 비례하여 수고비를 받는다.",
+              "card": null,
+              "card2": null,
+              "gold": 220,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "gbf_deck_position",
+          "story": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+          "previous": "gbf_airship_crate",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "오이겐과 사격 위치를 넓힌다",
+              "result": "오이겐과 협력하여 사격 범위를 확장한다. 더 넓은 각도에서 적을 타격할 수 있는 위치를 잡는다.",
+              "card": "gbf_eugen",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "칼리오스트로에게 장비 조정을 의뢰한다",
+              "result": "칼리오스트로에게 정밀한 장비 조정을 요청한다. 연금술적 기술로 사격의 정확도를 높인다.",
+              "card": "gbf_cagliostro",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "여분의 통로를 닫고 보급을 회수한다",
+              "result": "불필요한 통로를 차단하여 방어력을 높인다. 동시에 남은 보급품을 안전하게 회수한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "gbf_broken_focus",
+          "story": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 다음 구역에 들어갈 준비가 아직 끝나지 않았다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "이오와 안전한 준비 장소를 마련한다",
+              "result": "이오의 마법이 안정적으로 발동하도록 방어적인 위치를 잡는다. 집중된 마력을 효율적으로 방어에 쓴다.",
+              "card": "gbf_io",
+              "card2": null,
+              "gold": 0,
+              "cost": 190,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "나루메아와 넓은 통로를 맡는다",
+              "result": "나루메아와 함께 넓은 구역을 담당한다. 검술을 활용해 광범위한 적의 접근을 차단한다.",
+              "card": "gbf_narmaya",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "베인과 돌아올 길을 지킨다",
+              "result": "베인과 협력하여 퇴각 경로를 확보한다. 동료들이 안전하게 돌아올 수 있는 길을 수호한다.",
+              "card": "gbf_vane",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "gbf_sealed_report",
+          "story": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "제타와 위험 구역의 기록을 확인한다",
+              "result": "제타와 위험 구역의 조사 기록을 대조했다. 적의 움직임을 확인하며 보스에게 공격을 이어갈 기회를 준비했다.",
+              "card": "gbf_zeta",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+              "result": "오이겐이 사용할 특수 장비를 지원한다. 노련한 그의 경험과 장비가 시너지를 낸다.",
+              "card": "gbf_eugen",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "기록을 전달하고 보급을 준비한다",
+              "result": "조사된 기록을 정리하여 전달한다. 동시에 필요한 보급품을 확보한다.",
+              "card": null,
+              "card2": null,
+              "gold": 230,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "gbf_alchemy_sample",
+          "story": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "failure": null,
+          "choices": [
+            {
+              "label": "검증 비용을 내고 정밀 조정을 받는다",
+              "result": "칼리오스트로에게 비용을 지불하고 정밀 조정을 의뢰한다. 연금술적 기술로 장비의 성능을 극대화한다.",
+              "card": "gbf_cagliostro",
+              "card2": null,
+              "gold": 0,
+              "cost": 210,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "이오와 위험한 시험 구역을 맡는다",
+              "result": "이오와 함께 직접 견본을 테스트한다. 위험을 감수하며 실전적인 데이터들을 수집한다.",
+              "card": "gbf_io",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "나루메아와 여러 견본의 작동을 확인한다",
+              "result": "나루메아와 함께 여러 견본의 물리적 작동을 확인한다. 검술적 관점에서 장비의 안정성을 체크한다.",
+              "card": "gbf_narmaya",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "분류 작업을 마치고 대금을 받는다",
+              "result": "섞여 있는 견본들을 꼼꼼하게 분류한다. 단순하지만 중요한 기초 작업을 완수하고 보상을 받는다.",
+              "card": null,
+              "card2": null,
+              "gold": 230,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "gbf_return_signal",
+          "story": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+          "previous": "gbf_sealed_report",
+          "previousChoice": 1,
+          "failure": null,
+          "choices": [
+            {
+              "label": "베인과 귀환 통로를 지킨다",
+              "result": "베인과 협력하여 귀환 통로를 수호한다. 동료들이 안전하게 복귀할 수 있는 방패가 된다.",
+              "card": "gbf_vane",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "라캄의 항로 준비를 돕는다",
+              "result": "항로 점검에 필요한 자재를 사고 라캄의 귀환 신호를 연결했다. 이동 요령을 익히며 불필요한 통로 하나를 닫았다.",
+              "card": "gbf_rackam",
+              "card2": null,
+              "gold": 0,
+              "cost": 150,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "자재를 내고 위험 구역 하나를 닫는다",
+              "result": "자재를 사용하여 위험 구역의 입구를 봉쇄한다. 적의 접근을 차단하고 안전을 확보한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": -1,
+              "density": 0,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

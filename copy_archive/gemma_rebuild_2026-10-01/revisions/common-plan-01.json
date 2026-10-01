@@ -1,0 +1,591 @@
+{
+  "world": {
+    "key": "common",
+    "name": "여행길",
+    "work": "노라가미 · 늑대와 향신료",
+    "intro": "",
+    "effects": [],
+    "entryCard": null
+  },
+  "sources": [
+    "https://www.noragami-anime.net/1/story.html",
+    "https://noragami-anime.net/chara/index.html",
+    "https://spice-and-wolf.com/"
+  ],
+  "canonBoundary": "야토의 5엔 의뢰와 신기·히요리 관계, 호로와 로렌스의 행상과 거짓말을 듣는 특징은 공식 자료를 따른다. 개별 의뢰·거래 결과는 맵의 창작이다. 원작 화폐를 맵 골드로 환산한 효과이며 실제 엔 결제는 아니다.",
+  "cards": [
+    {
+      "key": "common_yato",
+      "name": "야토",
+      "effectName": "5엔의 인연",
+      "keyword": "공통 · 탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_yukine",
+      "name": "유키네",
+      "effectName": "경계를 가르는 검",
+      "keyword": "공통 · 탐색",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        },
+        {
+          "stat": "penetration",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_hiyori",
+      "name": "이키 히요리",
+      "effectName": "돌아올 길을 기억하기",
+      "keyword": "공통 · 탐색",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_holo",
+      "name": "호로",
+      "effectName": "거짓말을 듣는 귀",
+      "keyword": "공통 · 탐색",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_lawrence",
+      "name": "크래프트 로렌스",
+      "effectName": "두 도시의 가격",
+      "keyword": "공통 · 탐색",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 1
+          }
+        ]
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_holo_wit",
+      "name": "호로",
+      "effectName": "손익 뒤의 의도",
+      "keyword": "공통 · 탐색",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 12
+        },
+        {
+          "stat": "crit_damage",
+          "value": 25
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ]
+      },
+      "canonFact": "아래 출처에서 확인한 인물의 역할을 성장 경험으로 각색했다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "common_five_coin",
+      "title": "벽에 적힌 전화번호",
+      "story": "길목의 벽에 5엔이면 의뢰를 받는다는 번호가 적혀 있다. 전화를 받은 야토는 놓친 물건을 찾아 주겠다고 하지만 길은 안전하지 않다. 당신도 의뢰의 한 부분을 맡을 수 있다.",
+      "intro": "길목의 벽에 5엔이면 의뢰를 받는다는 번호가 적혀 있다. 전화를 받은 야토는 놓친 물건을 찾아 주겠다고 하지만 길은 안전하지 않다. 당신도 의뢰의 한 부분을 맡을 수 있다.",
+      "choices": [
+        {
+          "label": "5골드를 내고 야토에게 길목 정리를 부탁한다",
+          "result": "검토 전.",
+          "card": "common_yato",
+          "card2": null,
+          "gold": 0,
+          "cost": 5,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "야토와 유키네의 위험한 길을 맡는다",
+          "result": "검토 전.",
+          "card": "common_yukine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "의뢰인을 안전한 장소로 안내한다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 150,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_shrine_work",
+      "title": "시험철의 신사 심부름",
+      "story": "텐진의 신사에 일이 몰려 야토가 도움을 부탁받았다. 히요리는 종이와 물자를 정리하고 유키네는 바깥 통로를 확인한다. 가장 요란한 일을 맡아야만 도움이 되는 것은 아니다.",
+      "intro": "텐진의 신사에 일이 몰려 야토가 도움을 부탁받았다. 히요리는 종이와 물자를 정리하고 유키네는 바깥 통로를 확인한다. 가장 요란한 일을 맡아야만 도움이 되는 것은 아니다.",
+      "choices": [
+        {
+          "label": "히요리와 운반 자재를 준비한다",
+          "result": "검토 전.",
+          "card": "common_hiyori",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "유키네와 바깥 통로의 적을 나눈다",
+          "result": "검토 전.",
+          "card": "common_yukine",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기록 정리를 돕고 수고비를 받는다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 240,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_lost_address",
+      "title": "연락이 닿지 않는 의뢰인",
+      "story": "야토가 정리한 길목 끝에서 의뢰인의 주소가 잘못되었다는 사실을 알았다. 보상은 받았지만 일은 끝나지 않았다. 남은 연락을 찾거나 다른 사람의 안전을 먼저 챙긴다.",
+      "intro": "야토가 정리한 길목 끝에서 의뢰인의 주소가 잘못되었다는 사실을 알았다. 보상은 받았지만 일은 끝나지 않았다. 남은 연락을 찾거나 다른 사람의 안전을 먼저 챙긴다.",
+      "choices": [
+        {
+          "label": "히요리와 사람들에게 주소를 확인한다",
+          "result": "검토 전.",
+          "card": "common_hiyori",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "추가 자재를 내고 연락 장소를 비운다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100
+        },
+        {
+          "label": "야토의 심부름을 마치고 대금을 받는다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 220,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": "common_five_coin",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_fur_scale",
+      "title": "저울 앞의 모피",
+      "story": "로렌스가 모피를 팔려는데 저울을 놓는 순서부터 이야기가 엇갈린다. 호로는 가격보다 상대가 무엇을 숨기는지 들어 보라고 한다. 급히 현금화할지 확인 비용을 쓸지 정한다.",
+      "intro": "로렌스가 모피를 팔려는데 저울을 놓는 순서부터 이야기가 엇갈린다. 호로는 가격보다 상대가 무엇을 숨기는지 들어 보라고 한다. 급히 현금화할지 확인 비용을 쓸지 정한다.",
+      "choices": [
+        {
+          "label": "검증 비용을 내고 호로와 설명을 듣는다",
+          "result": "검토 전.",
+          "card": "common_holo",
+          "card2": null,
+          "gold": 0,
+          "cost": 190,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "로렌스와 혼잡한 거래 구역을 맡는다",
+          "result": "검토 전.",
+          "card": "common_lawrence",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호로의 지적대로 재협상을 시도한다",
+          "result": "검토 전.",
+          "card": "common_holo_wit",
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 65
+        },
+        {
+          "label": "확실한 가격으로 팔고 거래를 끝낸다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 250,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": "상대는 재협상을 거절했다. 확인 비용은 돌아오지 않으며 이번에는 카드도 얻지 못한다. 그러나 거래 내역을 남겨 다른 판매 경로를 찾을 수 있다.",
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_other_buyer",
+      "title": "다른 구매자의 장부",
+      "story": "재협상을 거절당한 거래 내역을 다시 펼쳤다. 로렌스는 손실을 숨기기보다 다른 구매자의 비용을 비교하자고 한다. 이번에는 약속만 좋은 거래와 확정된 정리 대금을 구분한다.",
+      "intro": "재협상을 거절당한 거래 내역을 다시 펼쳤다. 로렌스는 손실을 숨기기보다 다른 구매자의 비용을 비교하자고 한다. 이번에는 약속만 좋은 거래와 확정된 정리 대금을 구분한다.",
+      "choices": [
+        {
+          "label": "로렌스와 운송 비용을 계산한다",
+          "result": "검토 전.",
+          "card": "common_lawrence",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호로와 거절 이유를 확인한다",
+          "result": "검토 전.",
+          "card": "common_holo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남은 모피를 정리하고 보급을 준비한다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 170,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": "common_fur_scale",
+      "previousChoice": -3,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_good_receipt",
+      "title": "수익 뒤의 영수증",
+      "story": "재협상이 성사된 뒤에도 호로는 서류를 살펴보라고 한다. 앞서 들은 말과 적힌 조건이 다르면 다음 여행에서 문제가 된다. 지금 정리를 맡을지 다음 운송을 맡을지 고른다.",
+      "intro": "재협상이 성사된 뒤에도 호로는 서류를 살펴보라고 한다. 앞서 들은 말과 적힌 조건이 다르면 다음 여행에서 문제가 된다. 지금 정리를 맡을지 다음 운송을 맡을지 고른다.",
+      "choices": [
+        {
+          "label": "로렌스와 운송 경비를 준비한다",
+          "result": "검토 전.",
+          "card": "common_lawrence",
+          "card2": null,
+          "gold": 0,
+          "cost": 140,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호로와 서류의 다른 조건을 확인한다",
+          "result": "검토 전.",
+          "card": "common_holo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "정산을 끝내고 현금을 챙긴다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 260,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": "common_fur_scale",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_rain_cargo",
+      "title": "비 맞은 화물 덮개",
+      "story": "여행길의 비로 로렌스의 화물 덮개가 젖었다. 호로는 그 상태로 가격을 말해도 상대가 믿지 않을 거라고 한다. 화물의 상태를 확인하거나 우회 운송을 맡는다.",
+      "intro": "여행길의 비로 로렌스의 화물 덮개가 젖었다. 호로는 그 상태로 가격을 말해도 상대가 믿지 않을 거라고 한다. 화물의 상태를 확인하거나 우회 운송을 맡는다.",
+      "choices": [
+        {
+          "label": "덮개 비용을 내고 로렌스와 화물을 확인한다",
+          "result": "검토 전.",
+          "card": "common_lawrence",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호로와 거래 상대의 말을 확인한다",
+          "result": "검토 전.",
+          "card": "common_holo_wit",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "비를 피할 통로를 정리하고 대금을 받는다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 180,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_northern_route",
+      "title": "북쪽으로 가는 마차",
+      "story": "호로는 고향으로 돌아갈 길을 찾고 로렌스는 다음 도시의 거래를 생각한다. 어느 길도 지금의 여행을 한 번에 끝내지는 않는다. 남은 물자를 어떻게 나눌지 묻는다.",
+      "intro": "호로는 고향으로 돌아갈 길을 찾고 로렌스는 다음 도시의 거래를 생각한다. 어느 길도 지금의 여행을 한 번에 끝내지는 않는다. 남은 물자를 어떻게 나눌지 묻는다.",
+      "choices": [
+        {
+          "label": "호로와 우회로를 확인할 비용을 낸다",
+          "result": "검토 전.",
+          "card": "common_holo",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "로렌스와 붐비는 수송로를 맡는다",
+          "result": "검토 전.",
+          "card": "common_lawrence",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "귀환용 보급을 준비하고 정산한다",
+          "result": "검토 전.",
+          "card": null,
+          "card2": null,
+          "gold": 210,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원작 인물·역할을 활용한 맵 전용 사건이며 원작의 실제 에피소드라고 주장하지 않는다.",
+      "uncertain": []
+    }
+  ]
+}
