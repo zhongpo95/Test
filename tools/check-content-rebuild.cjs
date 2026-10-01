@@ -66,17 +66,20 @@ check('도감의 마지막 지역 선택은 페이지 이동 뒤 실제 머리 I
  t.start();e.ProtoGrantCard(0,card(e,'common_yato'));const saved=[];e.StashSave=(...args)=>saved.push(args);e.ProtoHeadKnown[1]=false;e.ProtoGrantHead(0,1);
  assert(saved.some(args=>args.includes(e.PROTO_SAVE_PREFIX+'머리도감.'+e.ProtoHeadKey[1])));
 });
-check('마그놀리아 게시판의 네 행동은 자기 후속 하나만 열고 다른 플레이어의 기록을 만들지 않음',()=>{
- const next=['ft_timber','ft_receipt','ft_fish','ft_new_board'];
- for(let choice=1;choice<=4;choice++){
+check('마그놀리아 게시판 세 행동은 자기 후속을 열고 기록 카드로 재방문하며 타인에게 공유하지 않음',()=>{
+ const next=['ft_timber','ft_receipt','ft_fish'];
+ for(let choice=1;choice<=3;choice++){
   const {e}=party();e.ExpGold[0]=1000;
   const h=e.ProtoHeadKey.indexOf('magnolia');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
   for(const key of next)assert(!e.ProtoEventEligible(0,id(e,key)));
-  const board=enter(e,0,'ft_request_board');e.ProtoResolve(0,choice);
+  const board=enter(e,0,'ft_request_board');assert.equal(e.ProtoEventChoices[board],3);
+  assert(!e.ProtoBranchAllowed(0,4));e.ProtoResolve(0,4);assert.equal(e.ProtoStage[0],2);assert.equal(e.ExpGold[0],1000);e.ProtoResolve(0,choice);
   for(const [i,key] of next.entries()){
    assert.equal(e.ProtoEventEligible(0,id(e,key)),i+1===choice,key);
    assert(!e.ProtoEventEligible(1,id(e,key)),key);
   }
+  const revisit=id(e,'ft_new_board');assert.equal(e.ProtoEventEligible(0,revisit),choice===2);assert(!e.ProtoEventEligible(1,revisit));
+  assert.equal(e.ProtoEventRequired[revisit],0);assert.equal(e.ProtoEventRequiredCard[revisit],card(e,'ft_lucy'));
   assert.equal(e.ProtoAP[0],9);assert(!e.ProtoEventEligible(1,board));
  }
 });
@@ -85,7 +88,7 @@ check('물길의 70/71 확률 경계와 실패 후속, 나츠 준비 카드의 �
   const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('magnolia'));
   const scene=enter(e,0,'ft_river'),before=e.ProtoDensity[0];
   e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
-  assert.equal(e.ExpGold[0],success?1090:910);assert.equal(e.ProtoDensity[0],before+1);
+  assert.equal(e.ExpGold[0],910);assert.equal(e.ProtoDensity[0],before+1);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
   assert.equal(e.ProtoEventEligible(0,id(e,'ft_wet_receipt')),!success);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'ft_gray'))],success);

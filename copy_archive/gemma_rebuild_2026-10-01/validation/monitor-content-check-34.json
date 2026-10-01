@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "file": "drafts/magnolia-scenes-text-116-1.json",
+      "recordId": "7cf81092-a27d-49fc-a38a-9af5f131652f",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/magnolia-scenes-text-116-2.json",
+      "recordId": "06e0ccb1-e02e-41cb-8f81-743380615723",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/magnolia-scenes-text-116-3.json",
+      "recordId": "4d94fdc2-4202-4582-9568-e08cfd3c5ae1",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/magnolia-scenes-text-116-4.json",
+      "recordId": "7f97b2ab-57bb-4472-8c56-8e919525b428",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/magnolia-card-choices-review-117-1.json",
+      "recordId": "ca5424d3-d700-4410-9049-d02b256f3002",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/magnolia-card-choices-review-117-2.json",
+      "recordId": "895f9cdb-9fb2-4320-8deb-b8ed73f0607f",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "원문·입력·기록ID·저장성공의대조다. 내용정확성·재미·밸런스·실게임증명과구분한다."
+}
