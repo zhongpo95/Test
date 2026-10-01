@@ -1,0 +1,103 @@
+{
+  "heads": 13,
+  "cards": 324,
+  "events": 229,
+  "roots": 183,
+  "followups": 46,
+  "free": [
+    "fy_one_more_blanket",
+    "axel_newcomer_questions",
+    "ab68_big_bill",
+    "academy_no_ability",
+    "academy_unsealed_list",
+    "madoka_afterclass_appts",
+    "sao_counter_labels",
+    "sao_tied_fishing_line",
+    "gbf_yodarha_foot",
+    "ft_lucy_unfinished",
+    "bl_empty_bench",
+    "hsr_floating_treat",
+    "fma_hayate_commands",
+    "kny_morning_greeting"
+  ],
+  "requiredCard": [
+    {
+      "event": "abydos_missing_senior",
+      "card": "abydos_hoshino"
+    },
+    {
+      "event": "academy_next_shift",
+      "card": "academy_uiharu_order"
+    },
+    {
+      "event": "academy_unsealed_list",
+      "card": "academy_uiharu_list"
+    },
+    {
+      "event": "madoka_folded_edge",
+      "card": "madoka_mami_distance"
+    },
+    {
+      "event": "sao_tied_fishing_line",
+      "card": "sao_nishida_wait"
+    },
+    {
+      "event": "sao_verified_price",
+      "card": "sao_agil_shelf"
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "card": "gbf_rolan_guide"
+    },
+    {
+      "event": "ft_new_board",
+      "card": "ft_lucy"
+    },
+    {
+      "event": "ft_controlled_flame",
+      "card": "ft_natsu"
+    },
+    {
+      "event": "ft_mirajane_next_note",
+      "card": "ft_mirajane_visitors"
+    },
+    {
+      "event": "bl_light_parcel",
+      "card": "bl_uryu"
+    },
+    {
+      "event": "bl_joint_training",
+      "card": "bl_ichigo"
+    },
+    {
+      "event": "bl_urahara_return_list",
+      "card": "bl_urahara"
+    },
+    {
+      "event": "hsr_misha_second_page",
+      "card": "hsr_misha_route"
+    },
+    {
+      "event": "hsr_robin_next_row",
+      "card": "hsr_robin_listen"
+    },
+    {
+      "event": "fma_sheska_next_blank",
+      "card": "fma_sheska"
+    },
+    {
+      "event": "fma_pinako_return_list",
+      "card": "fma_pinako_return"
+    }
+  ],
+  "threeChoiceEvents": 219,
+  "directGoldChoices": 31,
+  "potionRewardChoices": 0,
+  "commands": 16,
+  "records": 5,
+  "normalCost": 1,
+  "defaultCandidates": 3,
+  "maxCandidates": 4,
+  "statKinds": 25,
+  "limits": "모의실행과정적데이터집계다. 시각·Warcraft·멀티·저장·재미·실전밸런스는미검증."
+}

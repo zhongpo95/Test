@@ -1,0 +1,387 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "fma_after_crowd",
+                "fma_hayate_commands",
+                "fma_family_photo",
+                "fma_home_spares",
+                "fma_butcher_counter",
+                "fma_ling_lunch"
+              ]
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "index",
+                  "actionText",
+                  "reactionText"
+                ],
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "actionText": {
+                    "type": "string"
+                  },
+                  "reactionText": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 사건 집필자. 여행자가 한 행동의 과거형과 인물의 반응/남은 문제만 쓰라. 내부키/JSON조각/수치표/카드이름/통계 설명은 문자열에 절대 쓰지 마라. 성공한 장면만 집필하며 실패는 별도다. 같은 제한문을 모든 반응에 반복하지 마라.",
+  "brief": {
+    "events": [
+      {
+        "key": "fma_after_crowd",
+        "title": "발을 디딜 한 뼘",
+        "story": "여러 적 사이에서 힘을 모으던 연습이 끝나자 이즈미가 발밑을 보게 한다. 공격할 자리는 찾았지만 다음 발을 둘 공간을 자꾸 잃었다. 알폰스는 넓게 맡은 구역부터 줄여 보자고 한다. 암스트롱은 힘을 모으던 자리 옆에 다음 사람이 지나갈 자리를 남겨 보자고 한다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": "fma_training",
+        "previousChoice": 2,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "정리 비용을 내고 이즈미와 다음 발을 놓을 곳을 익힌다",
+            "card": "fma_izumi_flow",
+            "card2": null,
+            "cost": 280,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "알폰스와 길을 정리하고 기본 자세로 돌아간다",
+            "card": "fma_alphonse",
+            "card2": null,
+            "cost": 0,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "암스트롱과 힘을 실을 방향을 짚고 더 강한 시험 구역을 맡는다",
+            "card": "fma_armstrong_space",
+            "card2": null,
+            "cost": 0,
+            "gold": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+        "uncertain": []
+      },
+      {
+        "key": "fma_hayate_commands",
+        "title": "부를 때까지 기다려",
+        "story": "리자가 블랙 하야테에게 낮은 목소리로 기다리라고 한다. 에드워드는 앞길을 살피려 움직이고, 개는 준비 가방 쪽을 빤히 쳐다본다. 리자는 가방을 든 네 손을 낮추고 지나갈 선부터 비우라고 말한다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "표시 도구를 마련해 리자와 지나갈 선을 비운다",
+            "card": "fma_riza_line",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "에드워드와 더 강한 적이 드나드는 바깥길을 맡는다",
+            "card": "fma_edward",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "150골드로 가방을 정리하고 리자와 맡을 통행 길목을 줄인다",
+            "card": "fma_riza_pause",
+            "card2": null,
+            "cost": 150,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "리자의 침착함·정확한 사격·반려견 블랙 하야테에서 별도 기다림 문제를 창작한다. 원작 반려견 훈련 장면·새 명령 시스템을 재현하지 않는다.",
+        "uncertain": [],
+        "actionCost": 0
+      },
+      {
+        "key": "fma_family_photo",
+        "title": "사진 아래 놓인 보고서",
+        "story": "휴즈가 소중한 가족 사진을 보여주려 하자, 셰스카가 들고 온 보고서가 그 아래로 겹쳐 깔린다. 휴즈는 보고서의 미세한 차이를 단번에 짚어내면서도 다시 딸 이야기를 꺼내려 한다. 지금은 어느 쪽을 먼저 정리해야 할지 결정해야 한다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "정리용품을 마련해 휴즈와 빠뜨린 부분을 살핀다",
+            "card": "fma_hughes_notice",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "셰스카와 더 넓은 구역의 기록을 대조한다",
+            "card": "fma_sheska",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "휴즈와 사진을 보고서에서 나누고 더 강한 기록 확인 구역을 맡는다",
+            "card": "fma_hughes_sequence",
+            "card2": null,
+            "cost": 0,
+            "gold": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "휴즈의 가족 자랑·빠른 판단과 셰스카의 읽은 글 기억·군법회의소 일을 바탕으로 한 별도 문서와 사진이다. 휴즈가 살아 있던 시기의 독립 만남이며 본편 음모·사망·부활을 바꾸지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "fma_home_spares",
+        "title": "떠날 몫과 남겨 둘 몫",
+        "story": "윈리가 준비한 소모품을 가방에 전부 넣으려 하자, 피나코가 돌아왔을 때 쓸 몫을 가리키며 만류한다. 에드워드는 밖에서 확인할 곳이 많다며 문 옆에서 팔짱을 낀 채 기다린다. 지금 더 챙길지 아니면 남겨 둘지 정해야 한다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "소모품 비용을 내고 피나코와 돌아올 몫을 남긴다",
+            "card": "fma_pinako_return",
+            "card2": null,
+            "gold": 0,
+            "cost": 240,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "윈리와 더 넓은 시험 구역을 확인할 준비를 한다",
+            "card": "fma_winry_precision",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 2,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "140골드로 치수 표시를 마련하고 피나코와 맡을 시험 길목을 줄인다",
+            "card": "fma_pinako_measure",
+            "card2": null,
+            "cost": 140,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "피나코의 정비와 돌아갈 집·윈리의 지원 역할을 별도 보급 분배로 각색한다. 실제 오토메일 부품·장비 강화·집 상태를 생성하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "fma_butcher_counter",
+        "title": "큰 손이 멈추는 무게",
+        "story": "시그가 정육점의 같은 무게 묶음을 나누다가 작은 묶음을 다시 저울에 올린다. 이즈미는 에드워드에게 단순히 힘만 주는 것이 아니라고 주의를 준다. 가게 일을 돕거나 바깥의 더 강한 상대를 맡을 수 있다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "작업 준비물을 마련해 시그와 무게를 나누어 든다",
+            "card": "fma_sig_balance",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "이즈미와 더 강한 적이 있는 구역을 맡는다",
+            "card": "fma_izumi_flow",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "160골드로 분류 준비물을 마련하고 시그와 맡을 운반 길목을 줄인다",
+            "card": "fma_sig_portions",
+            "card2": null,
+            "cost": 160,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "시그의 정육점·강한 몸·세심함과 이즈미의 엄격한 가르침을 별도 분배 작업으로 창작한다. 질병·잃은 장기·인체 연성은 대가나 보상이 아니다.",
+        "uncertain": []
+      },
+      {
+        "key": "fma_ling_lunch",
+        "title": "빈 접시와 남은 계산",
+        "story": "린이 식사 접시를 깨끗이 비운 뒤 계산서를 보고 환하게 웃는다. 에드워드는 떠날 준비를 먼저 해야 한다고 재촉하고, 알폰스는 식탁에 앉아 두 사람의 대화를 듣는다. 식사비를 거들거나 다른 준비 일을 맡아야 한다.",
+        "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "180골드의 식사비를 거들고 린과 움직일 준비를 한다",
+            "card": "fma_ling_stride",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "에드워드와 더 강한 적이 드나드는 길을 맡는다",
+            "card": "fma_edward",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "100골드로 다음 준비를 나누고 린과 맡을 귀환 길목을 줄인다",
+            "card": "fma_ling_budget",
+            "card2": null,
+            "cost": 100,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "canonFact": "공식 큰 식욕·검술·상황 적응과 15화의 러시밸리 식사 소재에서 별도 계산 문제를 창작한다. 알폰스는 식사하거나 물약을 마시지 않는다. 먹어서 즉시 플레이어를 치료하거나 불로불사·그리드 동화는 없다.",
+        "uncertain": []
+      }
+    ],
+    "policy": {
+      "cards": "세 지정 카드. 입문/성공 부모/필수 카드 재지급 없음. 새9장은 각성 없음.",
+      "cost": "골드·필드 선적용. 파이 연락70%는 성공만 카드. 직접골드0·물약0. 기본 사냥/중복 교환은 별개.",
+      "ap": "기본 후보3최대4. 방문AP0/1. 현재AP0이면 무료도없음. 최대치 증가분1을 현재AP에 한 번만 더함. 사냥10분 고정.",
+      "field": "강함1~5·적수1~10. 개인사냥 변화이며 민간인이 몬스터로 바뀌거나 NPC가 동행하지 않음.",
+      "canon": "2009년 FULLMETAL ALCHEMIST의 인물 소개와 6·7·9·12화 줄거리에서 정비·기록 복원·수련 소재를 확인했다. 이 사건의 기술서·치수·의뢰·수련 구역·비용과 보상은 맵의 창작이며 본편 장면을 대신 해결하지 않는다. 인체 연성·현재 체력 지불·팀 라이프 소모·플레이어 오토메일·연금술 신규 기술·NPC 전투 능력·퀘스트 물품을 구현하지 않는다. 사냥터 부담은 사건 이후 남는 플레이어 개인 구역의 변화다. 시트는 풀 연결의 참고이며 원작 자료가 아니다. 추가된 반려견 기다림·가족 사진·귀가 보급·정육점 무게·식사 계산·발화포 준비·파이 표시 문제는 공식 인물의 생활에서 별도로 창작했다. 휴즈는 생전, 하보크는 부상 전의 서로 독립된 만남이다. 모든 사건이 본편 같은 시각·장소에 일어났다고 주장하지 않는다. 알폰스는 먹지 않으며 흡수는 린의 원작 흡혈 능력이 아니다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다. 이번 재구성은 지정 카드 세 장, 직접 골드0, 물약0이다. 기다림 방문은 AP0이지만 도구 비용은 실제 지불한다. 셰스카 기록/피나코 귀환 기억의 새 방문은 개인 카드 보유 조건이다. 새 아홉 카드는 각성 없음이 의도된 구성이다."
+    },
+    "verifiedFacts": [
+      "윈리는 오토메일 정비사, 셰스카는 읽은 책을 기억하며 휴즈는 가족애와 배려가 강하다. 피나코는 숙련된 정비사로 돌아갈 장소를 지킨다.",
+      "리자는 냉정한 보좌와 정확한 사격, 블랙 하야테를 기른다. 암스트롱은 체술과 조형, 이즈미는 엄격한 수련, 시그는 세심한 정육점 일을 한다.",
+      "린은 큰 식욕과 적응력을 지닌 검사다. 로이는 발화포 장갑을 사용하며 하보크는 경호와 양동 실무를 맡는다. 알폰스는 먹거나 잠들지 못한다.",
+      "새 사건은 별도 창작이며 휴즈 생전/하보크 부상 전 만남이다. 시간·장소를 본편의 한 시점으로 합치지 않는다."
+    ],
+    "rules": [
+      "행동은 고정 선택 번호와 비용·필드에 맞춘다. 보상을 복창하지 말고 말/물건/남은 문제를 쓴다.",
+      "현재 체력 지불·물약·즉시 치유·골드보수·새 기술·NPC 동행은 없다.",
+      "AP와 행동/차지 속도는 다른 단위다. 최대치1은 사냥 시간 증가가 아니다.",
+      "알폰스가 먹거나 잠들지 않는다. 휴즈/하보크의 본편 운명을 바꾸지 않는다."
+    ]
+  }
+}

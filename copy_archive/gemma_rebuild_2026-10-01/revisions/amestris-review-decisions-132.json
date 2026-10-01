@@ -1,0 +1,83 @@
+{
+  "rejected": [
+    {
+      "file": "reviews/amestris-card-choices-review-131-1.json",
+      "recordId": "2e25da36-40b8-4e96-8aab-7c4e2041beb2",
+      "issue": {
+        "key": "fma_riza_pause",
+        "problem": "카드 효과와 설명의 수치 및 조건 모순",
+        "evidence": "카드 효과(effects)에는 'healthy_damage: 10'과 'nondirectional_damage: 12'가 명시되어 있으나, canonFact 설명에서는 '고체력65%이상'이라는 조건이 언급됨. 현재 카드 효과 데이터에는 해당 조건을 활성화하거나 제한하는 수치적 근거가 누락되어 있음.",
+        "suggestion": "canonFact에 명시된 '고체력 65% 이상' 조건을 카드 효과 데이터에 조건부 스탯으로 포함하거나, 설명과 효과를 일치시켜야 함."
+      },
+      "decision": "반려",
+      "evidence": "System/ExpeditionEffects.j의 ExpArcanaDamage가 healthy_damage 값을 현재 체력65%이상에서만 더한다. 각 카드에 조건 필드를 다시 선언하지 않는다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-1.json",
+      "recordId": "2e25da36-40b8-4e96-8aab-7c4e2041beb2",
+      "issue": {
+        "key": "fma_pinako_measure",
+        "problem": "재생 수치와 한도 설명의 불일치",
+        "evidence": "카드 효과는 'regeneration: 0.4'이나, checks 항목에서는 '재생0.4는초당최대체력0.4%이고흡수와합산10%한도'라고 명시함. 하지만 카드 효과 데이터 자체에는 이 '10% 한도'에 대한 시스템적 제한 수치가 포함되어 있지 않음.",
+        "suggestion": "카드 효과 데이터에 최대치 한도(cap)를 명시하거나, 시스템적으로 자동 적용됨을 명확히 할 것."
+      },
+      "decision": "반려",
+      "evidence": "System/CardRecovery.j의 ProtoRecoveryTick 공통 함수가 재생과 유효 흡수의 합계를 최대 체력10%/초로 제한한다. 카드에 별도 cap 키를 도입하지 않는다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-1.json",
+      "recordId": "2e25da36-40b8-4e96-8aab-7c4e2041beb2",
+      "issue": {
+        "key": "fma_sheska_margin",
+        "problem": "행동력 최대치 증가 방식의 모순",
+        "evidence": "canonFact에서는 '현재 행동력에 최대치 증가분1만 한 번 지급'한다고 되어 있으나, 효과 데이터는 'action_capacity: 1'로 되어 있음. 이는 현재 행동력을 1 증가시키는 것인지, 최대치를 1 늘리는 것인지 데이터상으로 모호함.",
+        "suggestion": "현재 행동력(current) 증가인지 최대치(max) 증가인지 효과 키를 명확히 구분할 것."
+      },
+      "decision": "반려",
+      "evidence": "Data/Data_PrototypeStats.j의 ProtoRebuildCardStats는 최대치 증가분만 현재AP에 더한다. System/ExpeditionPrototype.j는 AP>0에서 방문하고 비용 적용 뒤 카드 획득으로 증가분을 받을 수 있다. ExpSeconds600과 방문횟수는 별개다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-2.json",
+      "recordId": "d54afb32-03c6-4e23-a6ae-9eff13a9731d",
+      "issue": {
+        "key": "fma_riza_pause",
+        "problem": "카드 효과와 canonFact 간의 수치적 모순",
+        "evidence": "canonFact에서는 '고체력 65% 이상'을 조건으로 명시하고 있으나, 실제 effects에는 'healthy_damage'와 'nondirectional_damage' 스탯만 존재할 뿐 고체력(max_health_percent 또는 현재 체력 비율)과 관련된 수치적 보정이나 조건부 효과가 누락되어 있다.",
+        "suggestion": "canonFact에 명시된 '고체력 65% 이상' 조건을 실제 effects에 반영하거나, 해당 조건이 게임 시스템상 별도의 체크 없이 스탯으로만 치환되는 것인지 명확히 할 것."
+      },
+      "decision": "반려",
+      "evidence": "System/ExpeditionEffects.j의 ExpArcanaDamage가 healthy_damage 값을 현재 체력65%이상에서만 더한다. 각 카드에 조건 필드를 다시 선언하지 않는다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-2.json",
+      "recordId": "d54afb32-03c6-4e23-a6ae-9eff13a9731d",
+      "issue": {
+        "key": "fma_pinako_measure",
+        "problem": "재생 수치와 한도 설명의 모순",
+        "evidence": "effects에서 'regeneration: 0.4'를 부여하고 있으나, checks에서는 '재생 0.4는 초당 최대 체력 0.4%이고 흡수와 합산 10% 한도'라고 설명한다. 하지만 카드 자체에는 이 한도(Cap)를 계산하는 로직이나 흡수(leech)와의 합산 관계를 정의하는 수치가 포함되어 있지 않아 실제 적용 시 모순이 발생할 수 있다.",
+        "suggestion": "재생 수치에 한도(Cap)를 명시하거나, 시스템적으로 자동 적용됨을 명확히 할 것."
+      },
+      "decision": "반려",
+      "evidence": "System/CardRecovery.j의 ProtoRecoveryTick 공통 함수가 재생과 유효 흡수의 합계를 최대 체력10%/초로 제한한다. 카드에 별도 cap 키를 도입하지 않는다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-2.json",
+      "recordId": "d54afb32-03c6-4e23-a6ae-9eff13a9731d",
+      "issue": {
+        "key": "fma_sheska_next_blank",
+        "problem": "행동력 최대치 증가와 사냥 시간의 모순",
+        "evidence": "canonFact에서 '행동력 최대치 1은 사냥 시간을 늘리지 않는다'고 명시했으나, policy에서는 '최대치 증가분 1을 현재 AP에 한 번만 더함'이라고 기술되어 있다. 만약 현재 AP가 0인 상태에서 방문 시 이 효과가 적용된다면 실제 행동력은 증가하지만, 사냥 시간(고정 10분)과 무관하다는 설명과 '한 번만 더함'이라는 실행 방식 사이의 우선순위가 모호하다.",
+        "suggestion": "현재 AP가 0일 때의 처리 방식과 사냥 시간 고정 원칙을 더 명확히 구분할 것."
+      },
+      "decision": "반려",
+      "evidence": "Data/Data_PrototypeStats.j의 ProtoRebuildCardStats는 최대치 증가분만 현재AP에 더한다. System/ExpeditionPrototype.j는 AP>0에서 방문하고 비용 적용 뒤 카드 획득으로 증가분을 받을 수 있다. ExpSeconds600과 방문횟수는 별개다.",
+      "revisit": "실제 JASS 조건·회복 한도·AP 경계 검사에서 다른 결과가 나타나거나 사용자가 해당 규칙 변경을 지시할 때."
+    }
+  ],
+  "meaning": "모델의 REVISE6의견은 카드 데이터에 공통 조건·회복 한도를 중복 정의하라는 의견과 AP/시간의 단위 혼동이다. PASS 재요청 없이 실제 함수로 대조한다."
+}
