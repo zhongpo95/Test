@@ -90,7 +90,8 @@ function environment(files, extras = {}, onlyFunctions = null) {
   });
   for (const s of sources) for (const block of s.matchAll(/\bglobals\b([\s\S]*?)\bendglobals\b/g)) {
     for (const line of block[1].split(/\r?\n/)) {
-      const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect|texttag) (array )?(\w+)(?:\s*=\s*(.*))?/);
+      const declaration = line.replace(/("(?:\\.|[^"\\])*")|\/\/.*$/g, (match, quoted) => quoted || '');
+      const m = declaration.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect|texttag) (array )?(\w+)(?:\s*=\s*(.*))?/);
       if (!m) continue;
       const initial = m[1] === 'boolean' ? false : m[1] === 'string' ? '' : ['unit','texttag'].includes(m[1]) ? null : 0;
       env[m[3]] = m[2] ? Array(8192).fill(initial) : m[4] ? Function('env', 'with(env){return ' + expr(m[4]) + '}')(env) : initial;

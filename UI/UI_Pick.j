@@ -39,6 +39,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         private timer PickTraceTimer = CreateTimer()
         private integer PickTraceSequence = 0
         private integer PickTraceSeconds = 0
+        private boolean PickPreviewTraced = false
     endglobals
 
     // 양쪽 클라이언트의 선택 경로를 대조한다. 계정명과 저장 데이터 원문은 기록하지 않는다.
@@ -328,14 +329,28 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
         local integer i = 1
         local integer heroNumber = 0
+        local boolean trace = false
+        // 동기화된 클릭은 전원에게 전달되지만 미리보기 상태와 프레임은 선택자만 갱신한다.
+        if GetLocalPlayer() != Player(pid) then
+            return
+        endif
         loop
             exitwhen i > PickVisibleCardCount
             if f == FP_HeroB[i] then
                 set heroNumber = PickVisibleHeroNumber(i)
                 if heroNumber <= PickCardCount then
+                    // 첫 미리보기의 진입과 완료만 기록하여 native 실행 경계도 대조한다.
+                    if not PickPreviewTraced then
+                        set PickPreviewTraced = true
+                        set trace = true
+                        call TracePick(pid, "preview-begin hero=" + I2S(heroNumber))
+                    endif
                     set SHNumber = heroNumber
                     set PickSkinNumber = 1
                     call RefreshPickCards(pid)
+                    if trace then
+                        call TracePick(pid, "preview-complete")
+                    endif
                 endif
                 return
             endif
@@ -504,7 +519,8 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             set FP_HeroB[i]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetAllPoints(FP_HeroB[i], FP_HeroBBD[i])
             call DzFrameSetSize(FP_HeroB[i], 0.085, 0.085)
-            call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
+            // Dz 비동기 RunFunction 경로 대신 동기화된 프레임 이벤트로 첫 클릭을 받는다.
+            call DzFrameSetScriptByCode(FP_HeroB[i], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, true)
             set i = i + 1
         endloop
 
