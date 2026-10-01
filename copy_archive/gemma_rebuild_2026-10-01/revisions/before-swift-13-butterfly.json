@@ -49,7 +49,7 @@
       "effects": [
         {
           "stat": "swift",
-          "value": 180
+          "value": 6
         },
         {
           "stat": "healthy_damage",

@@ -30,6 +30,7 @@ function inspect(input) {
       if (!stats.has(effect.stat) || !Number.isFinite(effect.value)) fail(key,'허용되지 않은 스탯 또는 비정상 수치');
       if (['regeneration','leech','kill_gold','event_choices'].includes(effect.stat) && effect.value < 0) fail(key,'음수로 구현하지 않는 수급·회복 스탯');
       if (effect.stat==='regeneration' && effect.value>1) warnings.push({key,reason:'카드 하나의 초당 재생이 최대체력 1%를 넘음. 별도 밸런스 검토 필요'});
+      if (effect.stat==='swift' && effect.value!==0 && Math.abs(effect.value)<45) warnings.push({key,reason:'신속은 고정 수치다. '+effect.value+'는 행동 속도 '+(effect.value/45).toFixed(3)+'%, 쿨타임 감소 '+(effect.value/46).toFixed(3)+'%p에 해당하므로 단위와 선택 가치를 재검토해야 함'});
       if (effect.stat==='event_choices' && !Number.isInteger(effect.value)) fail(key,'사건 후보 증가는 정수여야 함');
     }
   }

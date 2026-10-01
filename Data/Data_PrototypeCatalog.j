@@ -4688,7 +4688,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[108] = 1
         set ProtoEvolutionKind[108] = 0
         set ProtoEvolutionGoal[108] = 0.00
-        call ProtoSetEffect(108, 8, 3.00, false)
+        call ProtoSetEffect(108, 8, 90.00, false)
         set ProtoCardKey[109] = "fma_edward"
         set ProtoCardName[109] = "에드워드 엘릭"
         set ProtoCardEffectName[109] = "이해하고 부수고 다시 잇기"
@@ -4758,7 +4758,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[115] = 2
         set ProtoEvolutionKind[115] = 0
         set ProtoEvolutionGoal[115] = 0.00
-        call ProtoSetEffect(115, 8, 5.00, false)
+        call ProtoSetEffect(115, 8, 180.00, false)
         call ProtoSetEffect(115, 19, 12.00, false)
         set ProtoEventKey[127] = "fma_workshop"
         set ProtoEventName[127] = "떠나려는 손, 붙잡는 손"
@@ -5092,7 +5092,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[117] = 2
         set ProtoEvolutionKind[117] = 3
         set ProtoEvolutionGoal[117] = 45.00
-        call ProtoSetEffect(117, 8, 6.00, false)
+        call ProtoSetEffect(117, 8, 180.00, false)
         call ProtoSetEffect(117, 24, 14.00, false)
         call ProtoSetEffect(117, 3, 3.00, true)
         set ProtoCardKey[118] = "kny_kanao"

@@ -1,0 +1,47 @@
+{
+  "reason": "고정 신속을 퍼센트처럼 작은 수치로 설계하여 최근 세 카드의 효과가 지나치게 작았다. 행동·이동·쿨타임을 모두 고려한 보수적인 후보값으로 조정한다.",
+  "sourceCommit": "c9fca50",
+  "originals": [
+    {
+      "path": "copy_archive\\gemma_rebuild_2026-10-01\\revisions\\before-swift-12-amestris.json",
+      "sha256": "129dd499472b051ddbee3ca510605a42bacc74df6f930999ec09f5dbedc8c7f3"
+    },
+    {
+      "path": "copy_archive\\gemma_rebuild_2026-10-01\\revisions\\before-swift-13-butterfly.json",
+      "sha256": "296240fc0069e85a8702fe30130f7d4f778a000ca06dc3448b682c6201541892"
+    }
+  ],
+  "changes": [
+    {
+      "key": "fma_winry",
+      "before": 3,
+      "after": 90,
+      "stat": "swift",
+      "beforeAction": 0.06666666666666667,
+      "afterAction": 2,
+      "beforeCooldown": 0.06521739130434782,
+      "afterCooldown": 1.9565217391304348
+    },
+    {
+      "key": "fma_izumi_flow",
+      "before": 5,
+      "after": 180,
+      "stat": "swift",
+      "beforeAction": 0.1111111111111111,
+      "afterAction": 4,
+      "beforeCooldown": 0.10869565217391304,
+      "afterCooldown": 3.9130434782608696
+    },
+    {
+      "key": "kny_tanjiro",
+      "before": 6,
+      "after": 180,
+      "stat": "swift",
+      "beforeAction": 0.13333333333333333,
+      "afterAction": 4,
+      "beforeCooldown": 0.13043478260869565,
+      "afterCooldown": 3.9130434782608696
+    }
+  ],
+  "otherMechanicsUnchanged": true
+}
