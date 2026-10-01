@@ -66,4 +66,40 @@ check('도감의 마지막 지역 선택은 페이지 이동 뒤 실제 머리 I
  t.start();e.ProtoGrantCard(0,card(e,'common_yato'));const saved=[];e.StashSave=(...args)=>saved.push(args);e.ProtoHeadKnown[1]=false;e.ProtoGrantHead(0,1);
  assert(saved.some(args=>args.includes(e.PROTO_SAVE_PREFIX+'머리도감.'+e.ProtoHeadKey[1])));
 });
+check('마그놀리아 게시판의 네 행동은 자기 후속 하나만 열고 다른 플레이어의 기록을 만들지 않음',()=>{
+ const next=['ft_timber','ft_receipt','ft_fish','ft_new_board'];
+ for(let choice=1;choice<=4;choice++){
+  const {e}=party();e.ExpGold[0]=1000;
+  const h=e.ProtoHeadKey.indexOf('magnolia');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
+  for(const key of next)assert(!e.ProtoEventEligible(0,id(e,key)));
+  const board=enter(e,0,'ft_request_board');e.ProtoResolve(0,choice);
+  for(const [i,key] of next.entries()){
+   assert.equal(e.ProtoEventEligible(0,id(e,key)),i+1===choice,key);
+   assert(!e.ProtoEventEligible(1,id(e,key)),key);
+  }
+  assert.equal(e.ProtoAP[0],9);assert(!e.ProtoEventEligible(1,board));
+ }
+});
+check('물길의 70/71 확률 경계와 실패 후속, 나츠 준비 카드의 후속 조건을 실제 JASS로 검증',()=>{
+ for(const [roll,success] of [[70,true],[71,false]]){
+  const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('magnolia'));
+  const scene=enter(e,0,'ft_river'),before=e.ProtoDensity[0];
+  e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
+  assert.equal(e.ExpGold[0],success?1090:910);assert.equal(e.ProtoDensity[0],before+1);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
+  assert.equal(e.ProtoEventEligible(0,id(e,'ft_wet_receipt')),!success);
+  assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'ft_gray'))],success);
+  const flame=id(e,'ft_controlled_flame');assert(!e.ProtoEventEligible(0,flame));
+  e.ProtoGrantCard(0,card(e,'ft_natsu'));assert(e.ProtoEventEligible(0,flame));
+ }
+});
+check('직전 성공 보상을 반드시 소유하는 후속에서 같은 카드를 성장 보상으로 다시 제시하지 않음',()=>{
+ for(const w of worlds){const events=new Map(w.events.map(e=>[e.key,e]));
+  for(const scene of w.events.filter(e=>e.previous&&e.previousChoice>0)){
+   const previous=events.get(scene.previous).choices[scene.previousChoice-1];
+   const granted=[previous.card,previous.card2].filter(Boolean);
+   for(const b of scene.choices)for(const key of [b.card,b.card2].filter(Boolean))assert(!granted.includes(key),scene.key+'의 직전 보상 중복 '+key);
+  }
+ }
+});
 console.log(`${checks} content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.`);

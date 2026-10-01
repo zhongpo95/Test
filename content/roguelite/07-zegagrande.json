@@ -227,6 +227,30 @@
       },
       "canonFact": "연금술을 창시하고 육체를 연성하는 칼리오스트로의 역할을 공격·재생 성장으로 각색했다.",
       "uncertain": []
+    },
+    {
+      "key": "gbf_rackam_signal",
+      "name": "라캄",
+      "effectName": "끊기지 않는 귀환 신호",
+      "keyword": "신속 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기공정 조타수인 라캄의 항로·귀환 역할을 신속과 체력을 유지한 준비로 각색했다. 입문 항로 점검과 다른 후속이며 실제 항로·교신 조작 기능은 지급하지 않는다.",
+      "uncertain": []
     }
   ],
   "events": [
@@ -512,8 +536,8 @@
         },
         {
           "label": "라캄의 항로 준비를 돕는다",
-          "result": "항로 점검에 필요한 자재를 사고 라캄의 귀환 신호를 연결했다. 이동 요령을 익히며 불필요한 통로 하나를 닫았다.",
-          "card": "gbf_rackam",
+          "result": "라캄과 귀환 신호를 맞추고 필요한 자재를 준비했다. 열어 둘 길과 닫을 길을 구분한 뒤, 연락이 왔을 때 움직일 순서를 다시 익혔다.",
+          "card": "gbf_rackam_signal",
           "card2": null,
           "gold": 0,
           "cost": 150,

@@ -15,7 +15,7 @@ for(const w of worlds){
  for(const c of w.cards){const ev=c.evolution,goal=ev.kind===1?ev.goal+'처치':ev.kind===2?'실제 피해 '+ev.goal:ev.kind===3?'연속 무피격 '+ev.goal+'초':'없음';lines.push(`| ${c.name} | ${c.effectName} | ${grade[c.grade]} | ${effects(c.effects)} | ${goal}${ev.kind?' → '+effects(ev.effects):''} | ${c.canonFact} |`);}
  lines.push('','### 사건','');
  for(const e of w.events){
-  lines.push('#### '+e.title,'',e.story,'');
+  lines.push('#### '+e.title,'',e.story,'','원작과 각색 근거. '+e.canonFact,'');
   if(e.previous){const parent=events.get(e.previous);lines.push(`등장 조건. 「${parent.title}」의 ${Math.abs(e.previousChoice)}번 행동 ${e.previousChoice<0?'실패':'성공'} 기록.`, '');}
   if(e.requiredCard)lines.push('보유 조건. '+cards.get(e.requiredCard).name+' · '+cards.get(e.requiredCard).effectName+'.','');
   lines.push('| 행동 | 보상 | 비용·필드 변화·판정 | 결과 |','| --- | --- | --- | --- |');
@@ -30,5 +30,5 @@ for(const w of worlds){
  lines.push('공식 설정 참고. '+w.sources.map((u,i)=>`[자료 ${i+1}](${u})`).join(', ')+'.','');
 }
 const file=path.join(root,'md/roguelite/검토용 사건 카드 목록.md'),text=lines.join('\n');
-if(process.argv.includes('--check')){if(fs.readFileSync(file,'utf8')!==text)throw Error('검토 문서와 활성 JSON이 다릅니다.');}else fs.writeFileSync(file,text);
+if(process.argv.includes('--check')){if(fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n')!==text)throw Error('검토 문서와 활성 JSON이 다릅니다.');}else fs.writeFileSync(file,text);
 console.log('검토 문서 '+events.size+'사건, '+cards.size+'카드.');

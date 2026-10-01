@@ -84,7 +84,7 @@ function run() {
   const worlds=files.map(f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8')));
   const text=generate(worlds), file=path.join(root,'Data/Data_PrototypeCatalog.j');
   if (process.argv.includes('--check')) {
-    if (fs.readFileSync(file,'utf8')!==text) throw Error('검토 JSON과 생성 JASS가 일치하지 않습니다.');
+    if (fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n')!==text) throw Error('검토 JSON과 생성 JASS가 일치하지 않습니다.');
   } else fs.writeFileSync(file,text);
   console.log(JSON.stringify({worlds:worlds.filter(w=>w.world.key!=='common').length,cards:worlds.reduce((n,w)=>n+w.cards.length,0),events:worlds.reduce((n,w)=>n+w.events.length,0)}));
 }
