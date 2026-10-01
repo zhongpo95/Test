@@ -1,0 +1,107 @@
+{
+  "sourceRevision": "406a12c",
+  "preparedFrom": "5e6eb08",
+  "beforePotionSha256": "26447d063ed5dfc0fe36943cc50bda635ac2b36af4ce4cc25ed16b39c516e131",
+  "currentSha256": "b6fed50db9d90d68ed63f0b9242e9060946bc523824e2dda8e890a1c3e683163",
+  "oldCardsUnchanged": 20,
+  "newCards": [
+    "hsr_misha_margin",
+    "hsr_black_swan_compare",
+    "hsr_gallagher_portion",
+    "hsr_sparkle_exit",
+    "hsr_robin_pause",
+    "hsr_firefly_moment",
+    "hsr_acheron_pause",
+    "hsr_jade_limit",
+    "hsr_boothill_line"
+  ],
+  "events": 22,
+  "choices": 66,
+  "directGoldChoices": 2,
+  "removedGoldChoices": 16,
+  "freeEvents": 1,
+  "requiredCardEvents": 2,
+  "history": "슬롯 성공1/실패-1/정리3 후속,가면2 출구,소개성공1/사진1 후속 유지. 두 새 개인 보유 방문.",
+  "reviewResults": [
+    {
+      "file": "reviews/penacony-card-choices-review-127-1.json",
+      "recordId": "890a2b9c-faaf-46a6-abed-e1b11f0ae570",
+      "verdict": "REVISE",
+      "issues": [
+        {
+          "key": "hsr_misha_margin",
+          "problem": "모순된 효과 설명 및 정책 위반",
+          "evidence": "canonFact에서 '최대치와 현재 행동력 증가분1만 한 번 지급하며 사냥 시간은 늘지 않는다'고 명시했으나, policy의 'ap' 항목에서는 '최대치 증가분1만 현재AP에 한 번 지급. 10분 그대로'라고 기술하여 '사냥 시간'과 '10분'이라는 구체적 수치가 충돌함. 또한, policy에서 '사냥시간은 늘지 않는다'고 명시했음에도 canonFact에서 '사냥 시간은 늘지 않는다'를 강조하는 것은 시스템적 수치(10분)와 모순될 가능성이 큼.",
+          "suggestion": "사냥 시간이나 10분과 같은 구체적 시간 수치를 제거하고, '현재 행동력 최대치 1 증가 및 현재 행동력 1 즉시 회복(1회성)'으로 통일할 것."
+        },
+        {
+          "key": "hsr_gallagher_portion",
+          "problem": "보상 체계 모순",
+          "evidence": "policy의 'cost' 항목에서 '두 돈 핵심 첫 행동 외 직접 골드0. 물약 보상은 전부0'이라고 명시했으나, hsr_gallagher_portion의 canonFact에서는 '재생은 초당 최대 체력0.4%로 흡수와 합산10%한도이며'라고 기술함. 이는 '물약 보상'이 아니더라도 '지속적인 수치 보상'이 포함되는 것인지 모호하며, policy의 '물약 보상은 전부0'과 '직접 골드0'의 엄격한 제한과 충돌할 여지가 있음.",
+          "suggestion": "재생 수치가 '보급'이나 '물약'이 아닌 '카드 효과'임을 명확히 하되, policy의 '직접 골드0' 원칙을 준수하는지 재확인할 것."
+        },
+        {
+          "key": "hsr_misha_reach",
+          "problem": "방문 AP 관련 모순",
+          "evidence": "hsr_floating_treat 사건에서 '방문 행동력 없이 한 번 더 간식 앞의 발자리를 살핀다'고 되어 있고, policy의 'ap' 항목에서 '방문AP0/1'을 언급함. 그러나 hsr_misha_reach 카드는 '차지 속도'를 포함하고 있음. policy에서 '방문AP0'이 '준비물 비용 무료가 아님'을 명시했으나, 실제 카드 효과와 사건의 AP 소모/획득 구조가 '방문' 행위와 어떻게 결합되는지 논리적 연결이 부족함.",
+          "suggestion": "방문 AP 0이 '무료'가 아니라는 점을 명확히 하기 위해, 해당 사건 진입 시 소모되는 AP와 카드 획득 시의 AP 변화를 수치로 고정할 것."
+        },
+        {
+          "key": "hsr_aventurine_scattered",
+          "problem": "이동 속도 수치 모순",
+          "evidence": "policy에서 '이동 조건은 현재400대비 증가량을40%로 정규화한다. 걷는 상태 아님'이라고 명시했으나, hsr_aventurine_scattered 카드의 효과는 'move_speed: -2'임. 정규화 공식(400의 40% = 160)과 실제 적용 수치(-2) 사이의 상관관계가 설명되지 않음.",
+          "suggestion": "정규화 수치를 적용한 최종 결과값인지, 혹은 단순 차감인지 정책과 카드 효과를 일치시킬 것."
+        }
+      ]
+    },
+    {
+      "file": "reviews/penacony-card-choices-review-127-2.json",
+      "recordId": "c009e38b-4ecd-44fb-a73f-67a485cbd928",
+      "verdict": "REVISE",
+      "issues": [
+        {
+          "key": "hsr_misha_reach",
+          "problem": "원작 능력과 창작 카드 기억의 모순",
+          "evidence": "canonFact에서 '벨보이의 실제 일이나 모든 호텔 손님에게 보이는 인물이라고 주장하지 않는다'고 명시했으나, 효과(effects)에서 'charge_speed'를 부여함. 이는 벨보이로서의 업무적 숙련도나 실제 행동을 암시하는 수치로 해석될 여지가 있어, '실제 일'을 배제한다는 원칙과 충돌함.",
+          "suggestion": "charge_speed 대신 'action_speed' 또는 'move_speed'를 사용하여 단순한 이동/행동의 여유로만 한정할 것."
+        },
+        {
+          "key": "hsr_gallagher_order",
+          "problem": "물약 보상 및 보급 원칙 위반",
+          "evidence": "canonFact에서 '마시는 즉시 치유가 아니라 지속 성장'이라고 명시했으나, 효과에 'regeneration'이 포함됨. 정책(policy)에서 '물약 보상은 전부0'이며 '갤러거의 회복은 공통 지연 흡수로 각색'한다고 명시했으므로, regeneration 수치는 0이어야 함.",
+          "suggestion": "regeneration 값을 0으로 수정하거나, 정책에 따라 'damage_reduction' 수치만 유지할 것."
+        },
+        {
+          "key": "hsr_misha_margin",
+          "problem": "사냥 시간 및 행동력 정책 모순",
+          "evidence": "canonFact에서 '사냥 시간은 늘지 않는다'고 명시했으나, 효과에서 'action_capacity'를 1 증가시킴. 정책(policy)에서 '최대치1은 현재행동력 증가분1 한 번이며 사냥시간 증가 아님'이라고 정의했으므로, 이 수치가 '사냥 시간'으로 오인되지 않도록 효과 설명에 '사냥 시간 미포함'을 명시하거나 수치 적용 방식을 재검토해야 함.",
+          "suggestion": "효과 설명에 '사냥 시간 증가 아님'을 명시적으로 추가할 것."
+        },
+        {
+          "key": "hsr_firefly_visit",
+          "problem": "원작 능력과 창작 카드 기억의 모순",
+          "evidence": "canonFact에서 '체력 증가는 카드 성장이지 엔트로피 상실증 치료가 아니다'라고 명시했으나, 효과에 'max_health_percent'가 포함됨. 이는 원작의 핵심 설정인 '치료'와 '성장'의 경계가 모호함. 정책에서 '질병 치료는 없다'고 했으므로, 이 수치가 단순 수치 증가임을 더 명확히 해야 함.",
+          "suggestion": "효과 설명에 '질병 치료 효과 없음'을 명시할 것."
+        },
+        {
+          "key": "hsr_jade_terms",
+          "problem": "지속 스탯 및 정책 모순",
+          "evidence": "정책에서 '제이드·어벤츄린의 새 카드가 주는 이동 감소는 지속 스탯'이라고 명시했으나, 효과에서 'move_speed' -3을 부여함. 이는 '이동 속도' 자체를 깎는 것인지, '이동 시 발생하는 페널티'인지 모호함.",
+          "suggestion": "이동 속도 수치 대신 'move_penalty'와 같은 별도 키를 사용하거나, 정책에 따라 '지속 스탯'임을 명확히 할 것."
+        }
+      ]
+    }
+  ],
+  "discarded": "revisions/penacony-card-choices-discarded-127.json",
+  "reviewDecisions": "revisions/penacony-review-decisions-128.json",
+  "limits": [
+    "개발팀인물/시설소개에서별도만남을창작했다. 본편임무재현/치료/동행/실제기술/공연성공이아니다.",
+    "Warcraft·시각·멀티·저장·재미·실전밸런스는미검증."
+  ],
+  "check": {
+    "cards": 29,
+    "events": 22,
+    "errors": [],
+    "warnings": []
+  }
+}

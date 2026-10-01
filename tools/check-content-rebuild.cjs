@@ -164,11 +164,11 @@ check('페나코니 슬롯머신의 60/61 경계는 판돈을 소모하고 성�
 check('슬롯머신 정리와 실패 후속은 추가 행동력을 쓰며 비용 부족이면 후속 후보가 나타나지 않음',()=>{
  const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('penacony'));
  enter(e,0,'hsr_dreamy_slots');const density=e.ProtoDensity[0];e.ProtoResolve(0,3);
- assert.equal(e.ProtoDensity[0],density+1);assert.equal(e.ExpGold[0],1150);
+ assert.equal(e.ProtoDensity[0],density+1);assert.equal(e.ExpGold[0],1000);
  assert(e.ProtoEventEligible(0,id(e,'hsr_sorted_tokens')));
  assert(!e.ProtoEventEligible(0,id(e,'hsr_after_win')));assert(!e.ProtoEventEligible(0,id(e,'hsr_after_loss')));
  e.ProtoLevel[0]=2;e.ProtoResume(0);enter(e,0,'hsr_sorted_tokens');e.ProtoResolve(0,1);
- assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],1010);assert.equal(e.ProtoLevel[0],1);
+ assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],860);assert.equal(e.ProtoLevel[0],1);
  assert(e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_misha_route'))]);
  const t=party(),f=t.e;f.ExpGold[0]=300;f.ProtoGrantHead(0,f.ProtoHeadKey.indexOf('penacony'));
  enter(f,0,'hsr_dreamy_slots');f.GetRandomInt=()=>61;f.ProtoResolve(0,1);
