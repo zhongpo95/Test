@@ -16,7 +16,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoRefreshStats takes integer pid returns nothing
         local real ratio = GetUnitState(MainUnit[pid], UNIT_STATE_LIFE) / GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE)
-        call ProtoRebuildCardStats(pid, PROTO_CARD_FIRST, PROTO_CARD_LAST, PROTO_HEAD_COUNT)
+        call ProtoStatRefreshDerived(pid)
         call PlayerStatsSet(pid)
         call ItemUIStatsSet(pid)
         call SetUnitState(MainUnit[pid], UNIT_STATE_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE) * ratio)
@@ -58,7 +58,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoHeadOwned[ExpKey(pid, head)] = true
         set ProtoHeadCount[pid] = ProtoHeadCount[pid] + 1
         // 머리 효과는 작게 두고 관련 풀을 여는 역할에 집중한다.
-        call ProtoRebuildCardStats(pid, PROTO_CARD_FIRST, PROTO_CARD_LAST, PROTO_HEAD_COUNT)
+        call ProtoStatAddHead(pid, head)
+        call ProtoStatRefreshDerived(pid)
         call ProtoRememberHead(pid, head)
     endfunction
 
@@ -100,6 +101,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ExpCardOwned[ExpKey(pid, card)] = true
         set ProtoCardProgress[ExpKey(pid, card)] = 0.0
         set ProtoEvolved[ExpKey(pid, card)] = false
+        call ProtoStatAddCard(pid, card, false)
+        call ProtoEvolutionRegister(pid, card)
         set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
         // 사건 결과 창에 이미 표시할 때는 채팅 알림이 본문을 덮지 않도록 한다.
         if ProtoStage[pid] != 2 then
@@ -531,6 +534,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         loop
             exitwhen area == 4
             call ProtoClearRecovery(area)
+            call ProtoEvolutionReset(area)
             set ProtoPaused[area] = false
             set ProtoReady[area] = false
             set ProtoStage[area] = 0
@@ -663,6 +667,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set HuntSeconds[pid] = 0
             set DeathSeconds[pid] = 0.0
             call ProtoClearRecovery(pid)
+            call ProtoStatReset(pid)
+            call ProtoEvolutionReset(pid)
             set id = 0
             loop
                 exitwhen id > IMaxBJ(63, PROTO_CARD_LAST)
@@ -819,16 +825,14 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     function ProtoKill takes integer pid returns nothing
-        local integer id = PROTO_CARD_FIRST
+        local integer id = ProtoEvolutionFirst[pid * 4 + 1]
         set ProtoKills[pid] = ProtoKills[pid] + 1
         set ProtoLastKill[pid] = HuntSeconds[pid]
         set ExpGold[pid] = ExpGold[pid] + 10 + ProtoGoldBonus[pid]
         loop
-            exitwhen id > PROTO_CARD_LAST
-            if ExpCardOwned[ExpKey(pid, id)] and ProtoEvolutionKind[id] == 1 and not ProtoEvolved[ExpKey(pid, id)] then
-                set ProtoCardProgress[ExpKey(pid, id)] = ProtoCardProgress[ExpKey(pid, id)] + 1.0
-            endif
-            set id = id + 1
+            exitwhen id == 0
+            set ProtoCardProgress[ExpKey(pid, id)] = ProtoCardProgress[ExpKey(pid, id)] + 1.0
+            set id = ProtoEvolutionNext[ExpKey(pid, id)]
         endloop
     endfunction
 
@@ -955,17 +959,32 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     function ProtoEvolutionTick takes integer pid returns nothing
-        local integer id = PROTO_CARD_FIRST
+        local integer kind = 1
+        local integer id
+        local integer previous
+        local integer next
         local boolean changed = false
         set ProtoSafeTime[pid] = ProtoSafeTime[pid] + 0.25
         loop
-            exitwhen id > PROTO_CARD_LAST
-            if ExpCardOwned[ExpKey(pid, id)] and ProtoEvolutionKind[id] > 0 and not ProtoEvolved[ExpKey(pid, id)] then
-                if ProtoEvolutionKind[id] == 3 then
+            exitwhen kind > 3
+            set id = ProtoEvolutionFirst[pid * 4 + kind]
+            set previous = 0
+            loop
+                exitwhen id == 0
+                set next = ProtoEvolutionNext[ExpKey(pid, id)]
+                if kind == 3 then
                     set ProtoCardProgress[ExpKey(pid, id)] = ProtoCardProgress[ExpKey(pid, id)] + 0.25
                 endif
                 if ProtoCardProgress[ExpKey(pid, id)] >= ProtoEvolutionGoal[id] then
+                    // 각성한 카드는 현재 목록에서 제거하여 이후 전투에서 검사하지 않는다.
+                    if previous == 0 then
+                        set ProtoEvolutionFirst[pid * 4 + kind] = next
+                    else
+                        set ProtoEvolutionNext[ExpKey(pid, previous)] = next
+                    endif
+                    set ProtoEvolutionNext[ExpKey(pid, id)] = 0
                     set ProtoEvolved[ExpKey(pid, id)] = true
+                    call ProtoStatAddCard(pid, id, true)
                     set changed = true
                     call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoCardName[id] + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCardEffectsText(id, true))
                     if GetLocalPlayer() == Player(pid) then
@@ -973,9 +992,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     endif
                     call RequestPlayerSave(pid)
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
+                else
+                    set previous = id
                 endif
-            endif
-            set id = id + 1
+                set id = next
+            endloop
+            set kind = kind + 1
         endloop
         if changed then
             call ProtoRefreshStats(pid)

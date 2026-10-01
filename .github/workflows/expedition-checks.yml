@@ -43,6 +43,8 @@ jobs:
         run: node tools/check-content-rebuild.cjs
       - name: Card damage factors and bounded life recovery
         run: node tools/check-card-stats.cjs
+      - name: Incremental card effects and pending awakening lists
+        run: node tools/check-card-effects.cjs
       - name: Chen dash collision and single-hit damage
         run: node tools/check-chen-dash.cjs
       - name: Startup input registration across players

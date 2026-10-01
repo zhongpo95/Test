@@ -12,7 +12,7 @@ function setup(){
   e.SetUnitState=(u,state,value)=>{if(u===0){if(state===e.UNIT_STATE_MAX_LIFE)maximum=value;else if(state===e.UNIT_STATE_LIFE)life=value;}};
   e.GetUnitStatePercent=(u,state)=>100*e.GetUnitState(u,state)/e.GetUnitState(u,e.UNIT_STATE_MAX_LIFE);
   e.UnitAlive=u=>u!==0||alive;e.RefreshHP=()=>{};
-  const effects=values=>{for(const [stat,value] of values)e.ProtoSetEffect(900,stat,value,false);e.ExpCardOwned[900]=true;e.ProtoRebuildCardStats(0,900,900,0);};
+  const effects=values=>{for(const [stat,value] of values)e.ProtoSetEffect(900,stat,value,false);e.ProtoStatAddCard(0,900,false);e.ProtoStatRefreshDerived(0);};
   const hit=(flags=[false,false,false,false])=>{e.UnitHP[2]=100000;e.UnitHPMAX[2]=100000;e.ExpEnemy[2]=true;e.ProtoHuntOwner[2]=1;e.HeroDeal(1,0,2,1,...flags);return 100000-e.UnitHP[2];};
   const advance=n=>{for(let i=0;i<n;i++)e.ProtoRecoveryTick();};
   return {e,effects,hit,advance,health:()=>life,setHealth:x=>{life=x;},setAlive:x=>{alive=x;},maximum:()=>maximum};

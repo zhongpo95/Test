@@ -1,4 +1,4 @@
-// 캐릭터 카드의 복수 능력치와 각성 효과를 합산하여 전투에서 재사용한다.
+// 획득한 카드와 각성의 추가 능력치만 누적하여 전투에서 재사용한다.
 library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
     globals
         constant integer PROTO_STAT_ATTACK = 1
@@ -107,42 +107,45 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         return result
     endfunction
 
-    // 획득과 각성 때만 전체 카드를 합산한다. 피해 처리에서는 이 결과만 읽는다.
-    function ProtoRebuildCardStats takes integer pid, integer first, integer last, integer heads returns nothing
+    function ProtoStatReset takes integer pid returns nothing
         local integer kind = 1
-        local integer id
-        local real value
-        local integer previousMax = IMaxBJ(10, ProtoAPMax[pid])
-        local integer nextMax
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set value = 0.0
-            set id = first
-            loop
-                exitwhen id > last
-                if ExpCardOwned[ExpKey(pid, id)] then
-                    set value = value + LoadReal(ProtoEffectData, id, kind)
-                    if ProtoEvolved[ExpKey(pid, id)] then
-                        set value = value + LoadReal(ProtoEffectData, id, kind + 32)
-                    endif
-                endif
-                set id = id + 1
-            endloop
-            set id = 1
-            loop
-                exitwhen id > heads
-                if ProtoHeadOwned[ExpKey(pid, id)] then
-                    set value = value + LoadReal(ProtoHeadEffectData, id, kind)
-                endif
-                set id = id + 1
-            endloop
-            set ProtoStatValues[pid * 32 + kind] = value
+            set ProtoStatValues[pid * 32 + kind] = 0.0
             set kind = kind + 1
         endloop
+    endfunction
+
+    // 기본 효과는 최초 획득 때, 각성 추가 효과는 최초 각성 때만 더한다.
+    function ProtoStatAddCard takes integer pid, integer card, boolean evolved returns nothing
+        local integer kind = 1
+        local integer offset = 0
+        if evolved then
+            set offset = 32
+        endif
+        loop
+            exitwhen kind > PROTO_STAT_LAST
+            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoEffectData, card, kind + offset)
+            set kind = kind + 1
+        endloop
+    endfunction
+
+    function ProtoStatAddHead takes integer pid, integer head returns nothing
+        local integer kind = 1
+        loop
+            exitwhen kind > PROTO_STAT_LAST
+            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoHeadEffectData, head, kind)
+            set kind = kind + 1
+        endloop
+    endfunction
+
+    function ProtoStatRefreshDerived takes integer pid returns nothing
+        local integer previousMax = IMaxBJ(10, ProtoAPMax[pid])
+        local integer nextMax
         set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * 32 + PROTO_STAT_GOLD])
         set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))
         set nextMax = 10 + IMaxBJ(0, R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CAPACITY]))
-        // 같은 카드의 재합산으로 행동력을 다시 충전하지 않는다.
+        // 화면과 유닛 능력치 갱신으로 행동력을 다시 충전하지 않는다.
         if ExpPrototypeActive and ExpMember[pid] then
             set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid] + IMaxBJ(0, nextMax - previousMax)))
         endif

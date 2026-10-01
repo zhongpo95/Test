@@ -1,5 +1,29 @@
 // 개인 사냥 카드의 표시, 실제 피해 기록과 사건 선택 키를 관리한다.
 library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
+    globals
+        // 플레이어별 처치(1), 피해(2), 무피격(3) 조건의 보유 미각성 카드만 연결한다.
+        integer array ProtoEvolutionFirst
+        integer array ProtoEvolutionNext
+    endglobals
+
+    function ProtoEvolutionReset takes integer pid returns nothing
+        local integer kind = 1
+        loop
+            exitwhen kind > 3
+            set ProtoEvolutionFirst[pid * 4 + kind] = 0
+            set kind = kind + 1
+        endloop
+    endfunction
+
+    // 최초 획득 경로에서 한 번만 등록한다. 새 원정은 시작점만 비우고 다음 획득 때 링크를 덮어쓴다.
+    function ProtoEvolutionRegister takes integer pid, integer card returns nothing
+        local integer kind = ProtoEvolutionKind[card]
+        if kind >= 1 and kind <= 3 then
+            set ProtoEvolutionNext[ExpKey(pid, card)] = ProtoEvolutionFirst[pid * 4 + kind]
+            set ProtoEvolutionFirst[pid * 4 + kind] = card
+        endif
+    endfunction
+
     function ProtoCardText takes integer pid, integer id returns string
         local string value = "[" + ProtoCardKeyword[id] + "] " + ProtoCardEffectName[id] + "|n"
         set value = value + ProtoCardEffectsText(id, ProtoEvolved[ExpKey(pid, id)])
@@ -29,17 +53,24 @@ library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
     endfunction
 
     function ProtoRecordDamage takes integer pid, integer targetIndex, real amount returns nothing
-        local integer id = PROTO_CARD_FIRST
+        local integer id = ProtoEvolutionFirst[pid * 4 + 2]
         if ProtoHuntOwner[targetIndex] != pid + 1 or amount <= 0 then
             return
         endif
         set ProtoDamage[pid] = ProtoDamage[pid] + amount
         loop
-            exitwhen id > PROTO_CARD_LAST
-            if ExpCardOwned[ExpKey(pid, id)] and ProtoEvolutionKind[id] == 2 and not ProtoEvolved[ExpKey(pid, id)] then
-                set ProtoCardProgress[ExpKey(pid, id)] = ProtoCardProgress[ExpKey(pid, id)] + amount
-            endif
-            set id = id + 1
+            exitwhen id == 0
+            set ProtoCardProgress[ExpKey(pid, id)] = ProtoCardProgress[ExpKey(pid, id)] + amount
+            set id = ProtoEvolutionNext[ExpKey(pid, id)]
+        endloop
+    endfunction
+
+    function ProtoResetSafeProgress takes integer pid returns nothing
+        local integer id = ProtoEvolutionFirst[pid * 4 + 3]
+        loop
+            exitwhen id == 0
+            set ProtoCardProgress[ExpKey(pid, id)] = 0.0
+            set id = ProtoEvolutionNext[ExpKey(pid, id)]
         endloop
     endfunction
 

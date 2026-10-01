@@ -20,20 +20,15 @@ library DamageEffect2 requires DataUnit,UIBossHP,AttackAngle,BuffData,DataProtot
             //set rate = rate * ( 1 + ( rateut / 10 ) )
         //endif
         
-        local integer card = PROTO_CARD_FIRST
         local real reduction = 0.0
         if ExpPrototypeActive and pid >= 0 and pid < 4 and ExpMember[pid] then
             if ProtoPaused[pid] or ProtoReady[pid] then
                 return
             endif
             set reduction = ProtoStat(pid, PROTO_STAT_REDUCTION)
-            loop
-                exitwhen card > PROTO_CARD_LAST
-                if ExpState == EXP_HUNT and rate > 0.0 and ExpCardOwned[ExpKey(pid, card)] and not ProtoEvolved[ExpKey(pid, card)] and ProtoEvolutionKind[card] == 3 then
-                    set ProtoCardProgress[ExpKey(pid, card)] = 0.0
-                endif
-                set card = card + 1
-            endloop
+            if ExpState == EXP_HUNT and rate > 0.0 then
+                call ProtoResetSafeProgress(pid)
+            endif
             set rate = rate * (1.0 - RMinBJ(60.0, reduction) / 100.0)
             if ExpState == EXP_HUNT and rate > 0.0 then
                 set ProtoSafeTime[pid] = 0.0

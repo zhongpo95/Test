@@ -104,7 +104,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
   for (const s of sources) for (const m of s.matchAll(/(?:private )?function (\w+) takes (.*?) returns (\w+)([\s\S]*?)endfunction/g)) {
     const [, name, args, returns, body] = m;
     if (skip.has(name)) continue;
-    if (onlyFunctions && !onlyFunctions.includes(name) && !/^Proto(?:Stat|SetEffect|EffectText|CardEffects|HeadEffect|RebuildCardStats|LoadWorld|CatalogInit|TargetDamageRate|LeechHit|ClearRecovery|Recovery)/.test(name)) continue;
+    if (onlyFunctions && !onlyFunctions.includes(name) && !/^Proto(?:Stat|SetEffect|EffectText|CardEffects|HeadEffect|Evolution|ResetSafeProgress|LoadWorld|CatalogInit|TargetDamageRate|LeechHit|ClearRecovery|Recovery)/.test(name)) continue;
     const params = args === 'nothing' ? '' : args.split(',').map(p => p.trim().split(/\s+/)[1]).join(',');
     const js = [];
     for (let line of body.split(/\r?\n/)) {
