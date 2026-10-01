@@ -1,0 +1,428 @@
+{
+  "cards": [
+    {
+      "key": "gbf_rosetta_trace",
+      "name": "로제타",
+      "effectName": "같은 길에 남은 차이",
+      "keyword": "사건 후보 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "과거와 현재를 잇는 관찰자 역할을 단서 비교와 큰 상대의 차이를 찾는 성장으로 각색했다. 시간 여행·미래 확정·장미 소환 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rolan_guide",
+      "name": "롤란",
+      "effectName": "함께 걸으며 들은 질문",
+      "keyword": "사건 후보 · 이동",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "서쪽 하늘의 붙임성 좋은 임시 동행자라는 소개를 여러 부탁을 비교하고 이동 동선을 읽는 성장으로 각색했다. 숨겨진 정체·신관 직업·영구 NPC 동행을 단정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_lancelot_roles",
+      "name": "랜슬롯",
+      "effectName": "교대 뒤의 한 걸음",
+      "keyword": "행동 속도 · 방향 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
+      },
+      "canonFact": "기사단장의 병사 통솔을 역할 교대와 공격 위치의 성장으로 각색했다. 군대·쌍검·새 전격 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_percival_share",
+      "name": "퍼시벌",
+      "effectName": "약한 쪽에 남길 몫",
+      "keyword": "보스 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 12
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "약자를 돕는 이상 국가를 추구하는 성격을 상대에 맞는 힘과 책임 배분으로 각색했다. 영구 국가 건설·불 공격·계급 자원은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_yodarha_wait",
+      "name": "요달라하",
+      "effectName": "찌보다 먼저 움직인 발",
+      "keyword": "신속 · 이동 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
+      },
+      "canonFact": "낚시꾼을 자처하는 숨은 검호를 몸놀림과 움직임에 비례한 공격 요령으로 각색했다. 낚시 성공·물고기 자원·검 장비·원작 검 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_io_smile",
+      "name": "이오",
+      "effectName": "다시 해 보자는 웃음",
+      "keyword": "고체력 · 차지 준비",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        },
+        {
+          "stat": "charge_speed",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사람들에게 미소를 전하려는 작은 마법사의 역할을 좋은 몸 상태에서 힘을 모으는 성장으로 각색했다. 즉시 치유·분위기 수치·새 마법·공연 미니게임은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "gbf_rosetta_dates",
+      "title": "같은 길에 다른 날짜",
+      "scene": "한 여행자가 이미 지나온 길을 오늘 열린 길이라며 알려 준다. 로제타는 두 안내의 날짜가 다르다며 네가 직접 무엇을 확인했는지 묻는다. 라캄은 확인되지 않은 말을 항로에 적기 전에 낡은 기록부터 대조하자고 한다.",
+      "choices": [
+        {
+          "action": "연락 비용을 내고 예전 기록의 주인을 찾는다",
+          "card": "gbf_rosetta_trace",
+          "card2": null,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "gold": 180,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "action": "복사 용품을 마련해 로제타와 남은 두 기록을 대조한다",
+          "card": "gbf_rosetta_trace",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "확인한 길만 남겨 담당 구역을 줄인다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 130,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "연락 비용160골드를 썼지만 이전 기록의 주인을 찾지 못했다. 날짜의 차이는 아직 확인되지 않아 새 카드와 확인 보수는 받지 못했다. 로제타는 확인하지 못한 부분을 사실처럼 적지 말자고 한다.",
+      "canonFact": "과거와 현재를 잇는 공식 로제타와 조타사 라캄에서 별도 기록의 날짜 문제를 만들었다. 로제타가 미래를 보거나 거짓말 탐지 기능을 지급하지 않는다."
+    },
+    {
+      "key": "gbf_rolan_two_questions",
+      "title": "가려던 곳과 물어본 곳",
+      "scene": "롤란이 여행자에게 길을 알려 주는데 여행자는 가려던 곳과 물어본 곳이 다르다고 뒤늦게 말한다. 비는 앞에서 설명한 길을 벌써 가리켰고 롤란은 먼저 무엇을 하러 왔는지 다시 묻는다. 안내를 다시 들을지 바깥에서 길을 확인할지 정해야 한다.",
+      "choices": [
+        {
+          "action": "표시 용품을 내고 롤란과 목적부터 다시 확인한다",
+          "card": "gbf_rolan_guide",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "라캄과 더 강한 적이 오가는 바깥 길을 확인한다",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "담당 길목을 줄이고 안내 정리 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 140,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 롤란의 붙임성과 임시 동행, 비의 여행 파트너와 라캄의 조타 역할에서 창작했다. 롤란의 숨겨진 정체·교회·실제 동행 유닛은 등장시키지 않는다."
+    },
+    {
+      "key": "gbf_lancelot_shift",
+      "title": "교대할 사람이 없는 자리",
+      "scene": "앞쪽을 먼저 맡겠다는 사람이 모이자 돌아올 사람을 받을 자리가 비었다. 랜슬롯은 앞에 몇 명이 서는지보다 뒤를 누가 이어받는지 먼저 묻고 베인은 돌아오는 쪽을 남기자고 한다. 네가 맡을 자리가 정해져야 교대가 시작된다.",
+      "choices": [
+        {
+          "action": "표시 용품을 내고 랜슬롯과 교대 순서를 정한다",
+          "card": "gbf_lancelot_roles",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "베인과 적이 많은 돌아올 길목을 맡는다",
+          "card": "gbf_vane",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "물약 값을 내고 맡을 구역을 더 약한 곳으로 바꾼다",
+          "card": null,
+          "card2": null,
+          "cost": 100,
+          "level": -1,
+          "density": 0,
+          "gold": 0,
+          "potions": 1,
+          "chance": 100
+        },
+        {
+          "action": "남은 교대 표식을 정리하고 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 150,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 기사단장 랜슬롯의 통솔과 동료를 지키는 베인에서 별도 교대 문제를 만들었다. 실제 병사 소환·호위 임무·자동 전투 승리는 없다."
+    },
+    {
+      "key": "gbf_percival_load",
+      "title": "가벼운 짐의 무거운 몫",
+      "scene": "짐을 나누던 사람들은 힘없는 여행자에게도 같은 무게를 들라며 서두른다. 퍼시벌은 같은 수로 나누었다고 같은 부담이 되는 것은 아니라고 말한다. 너는 맡을 짐과 적이 있는 길을 다시 나누거나 운반만 마칠 수 있다.",
+      "choices": [
+        {
+          "action": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눈다",
+          "card": "gbf_percival_share",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "베인과 더 강한 적이 드나드는 길목을 맡는다",
+          "card": "gbf_vane",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "약한 여행자의 짐을 내려 주고 담당 구역을 줄인다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 120,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 퍼시벌의 약자를 돕는 이상과 베인의 보호 역할에서 창작한 짐의 부담 문제다. 실제 국가 정책·체력 지불·노동자 시스템·원작 결말을 만들지 않는다."
+    },
+    {
+      "key": "gbf_yodarha_foot",
+      "title": "낚싯대보다 먼저 피한 발",
+      "scene": "낚시꾼을 자처하는 요달라하 옆으로 긴 짐을 든 여행자가 지나가자 그는 낚싯대보다 발을 먼저 옮겨 비켜 준다. 너는 그 짧은 움직임이 낚시 자세와 어울리지 않아 다시 보게 된다. 요달라하는 낚시할 자리는 남겨 두라며 네가 어디에 설 것인지 묻는다.",
+      "choices": [
+        {
+          "action": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚는다",
+          "card": "gbf_yodarha_wait",
+          "card2": null,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "나루메아와 적이 많은 바깥 통로를 맡는다",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "사용할 길을 좁히고 도구 운반 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 140,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 낚시꾼을 자처하는 검호의 숨은 기량에서 별도 짐을 피하는 장면을 창작했다. 실제 낚시 결과·물고기 판매·비밀 강제 공개·원작 검법은 지급하지 않는다."
+    },
+    {
+      "key": "gbf_io_audience",
+      "title": "다른 쪽을 보고 있던 관객",
+      "scene": "이오가 사람들에게 웃음을 주려고 작은 시범을 준비하는데 앞줄은 서로의 어깨에 가려 보이지 않는다. 이오는 더 큰 마법이면 잘 보이겠냐고 묻고 비는 먼저 사람들이 어디를 보고 있는지 살펴보자고 한다. 네가 자리를 나눌지 바깥 일을 맡을지 고른다.",
+      "choices": [
+        {
+          "action": "바닥 표시 용품을 내고 이오와 보는 자리를 나눈다",
+          "card": "gbf_io_smile",
+          "card2": null,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "라캄과 더 많은 적이 오가는 바깥 길을 확인한다",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "남은 자리를 정리하고 보수와 물약을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 130,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 이오의 미소를 전하려는 바람과 비의 여행 파트너 역할에서 관객 자리 문제를 창작했다. 추가 마법·관객 유닛·공연 성공 판정·즉시 회복을 만들지 않는다."
+    }
+  ],
+  "sourceFacts": [
+    {
+      "source": "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=rolan",
+      "fact": "공식 한국어 본문에 로제타는 과거와 현재를 잇는 관찰자, 롤란은 서쪽 하늘의 붙임성 좋은 임시 동행자, 랜슬롯은 통솔력 있는 기사단장, 퍼시벌은 약자를 돕는 이상을 추구, 요달라하는 낚시꾼을 자처하는 검호, 이오는 미소를 전하려는 작은 마법사, 비는 여행 파트너다. 새 여섯 문제는 별도 창작이다."
+    },
+    {
+      "source": "https://asia.sega.com/relink.granbluefantasy/kr/world/",
+      "fact": "섬과 공역을 오가는 하늘의 여행 배경을 확인했다. 같은 공역 풀에 포함된다고 모든 인물이 같은 날 같은 장소에 있었다는 뜻은 아니다."
+    }
+  ]
+}

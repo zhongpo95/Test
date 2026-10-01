@@ -1,0 +1,570 @@
+{
+  "world": {
+    "key": "zegagrande",
+    "name": "제가 그랑데 공역",
+    "work": "그랑블루 판타지 리링크",
+    "intro": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+    "effects": [
+      {
+        "stat": "boss_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "gbf_rackam",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+  },
+  "sources": [
+    "https://relink.granbluefantasy.jp/world/",
+    "https://relink.granbluefantasy.jp/characters/detail?chara=id",
+    "https://asia.sega.com/relink.granbluefantasy/kr/world/",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=eugen"
+  ],
+  "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+  "cards": [
+    {
+      "key": "gbf_rackam",
+      "name": "라캄",
+      "effectName": "항로 점검",
+      "keyword": "이동 · 자원",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기공정의 조타사 라캄을 항로·수송 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_katalina",
+      "name": "카타리나",
+      "effectName": "곁을 지키는 검",
+      "keyword": "생존 · 보호막",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "shielded_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "루리아를 지키는 기사라는 카타리나의 역할을 방어·보호막 유지로 각색했다. 새 보호막은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_eugen",
+      "name": "오이겐",
+      "effectName": "숙련된 사격점",
+      "keyword": "차지 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 16
+        },
+        {
+          "stat": "crit_damage",
+          "value": 20
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ]
+      },
+      "canonFact": "숙련된 노병 오이겐의 사격을 차지·치명 보너스로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_io",
+      "name": "이오",
+      "effectName": "마법사의 집중",
+      "keyword": "차지 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 8
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "재능 있는 어린 마법사 이오의 역할을 집중·차지 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_narmaya",
+      "name": "나루메아",
+      "effectName": "끝없는 검의 수련",
+      "keyword": "방향 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 16
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          }
+        ]
+      },
+      "canonFact": "무예를 수련하는 검호 나루메아의 역할을 방향 적중·치명 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_vane",
+      "name": "베인",
+      "effectName": "친구가 돌아올 자리",
+      "keyword": "체력 · 생존",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 16
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동료와 나라를 지키는 베인의 역할을 최대 체력·피해 감소로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_zeta",
+      "name": "제타",
+      "effectName": "봉인 무기의 사선",
+      "keyword": "보스 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 16
+        },
+        {
+          "stat": "penetration",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
+      },
+      "canonFact": "성정수를 사냥하는 조직과 알베스의 창을 사용하는 제타의 역할을 보스·관통 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_cagliostro",
+      "name": "칼리오스트로",
+      "effectName": "정밀한 연금 조정",
+      "keyword": "공격 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 10
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "연금술을 창시하고 육체를 연성하는 칼리오스트로의 역할을 공격·재생 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rackam_signal",
+      "name": "라캄",
+      "effectName": "끊기지 않는 귀환 신호",
+      "keyword": "신속 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기공정 조타수인 라캄의 항로·귀환 역할을 신속과 체력을 유지한 준비로 각색했다. 입문 항로 점검과 다른 후속이며 실제 항로·교신 조작 기능은 지급하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "gbf_airship_crate",
+      "title": "묶이지 않은 화물",
+      "story": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+      "intro": "화물이 미끄러져 다음 비행 준비가 늦어진다.",
+      "choices": [
+        {
+          "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
+          "result": "카타리나와 협력하여 헐거워진 화물을 고정한다. 선체의 안정성을 확보하기 위한 보수 작업을 마친다.",
+          "card": "gbf_katalina",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
+          "result": "오이겐의 노련한 움직임으로 무거운 장비를 운반한다. 사격에 최적화된 위치로 장비를 배치한다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "보급 화물을 정리하고 수고비를 받는다",
+          "result": "적재된 보급품을 질서 있게 정리한다. 정리된 물량에 비례하여 수고비를 받는다.",
+          "card": null,
+          "card2": null,
+          "gold": 220,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_deck_position",
+      "title": "확보한 갑판의 자리",
+      "story": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+      "intro": "안정된 갑판에 공격 위치를 정한다.",
+      "choices": [
+        {
+          "label": "오이겐과 사격 위치를 넓힌다",
+          "result": "오이겐과 협력하여 사격 범위를 확장한다. 더 넓은 각도에서 적을 타격할 수 있는 위치를 잡는다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "칼리오스트로에게 장비 조정을 의뢰한다",
+          "result": "칼리오스트로에게 정밀한 장비 조정을 요청한다. 연금술적 기술로 사격의 정확도를 높인다.",
+          "card": "gbf_cagliostro",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "여분의 통로를 닫고 보급을 회수한다",
+          "result": "쓰지 않을 통로 하나를 닫고 남아 있던 물약을 회수했다. 경계할 상대가 줄어든 자리에 장비를 다시 두었다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "previous": "gbf_airship_crate",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_broken_focus",
+      "title": "흐트러진 집중",
+      "story": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 다음 구역에 들어갈 준비가 아직 끝나지 않았다.",
+      "intro": "이오의 집중을 지킬 통로를 골라야 한다.",
+      "choices": [
+        {
+          "label": "이오와 안전한 준비 장소를 마련한다",
+          "result": "준비 자재를 마련하고 이오가 힘을 모으는 동안 끼어들지 않을 자리를 골랐다. 그녀가 집중을 다시 잇는 박자를 보며, 당신도 공격을 서두르기 전에 호흡을 맞췄다.",
+          "card": "gbf_io",
+          "card2": null,
+          "gold": 0,
+          "cost": 190,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "나루메아와 넓은 통로를 맡는다",
+          "result": "나루메아와 갈라진 넓은 통로를 맡아 어디서 검의 간격이 무너지는지 살폈다. 접근하는 상대가 더 많아졌으므로 검이 닿지 않는 옆길까지 경계를 이어가야 한다.",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "베인과 돌아올 길을 지킨다",
+          "result": "베인과 동료가 돌아올 길 끝에 지킬 자리를 정했다. 빠져나오는 사람들의 길은 남겼지만 당신이 맡은 바깥에는 더 강한 상대의 기척이 이어졌다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_sealed_report",
+      "title": "봉인 무기의 조사 기록",
+      "story": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+      "intro": "제타의 성정수 조사 기록에 빈 부분이 있다.",
+      "choices": [
+        {
+          "label": "제타와 위험 구역의 기록을 확인한다",
+          "result": "제타와 위험 구역의 조사 기록을 대조했다. 적의 움직임을 확인하며 보스에게 공격을 이어갈 기회를 준비했다.",
+          "card": "gbf_zeta",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+          "result": "오이겐이 사용할 특수 장비를 지원한다. 노련한 그의 경험과 장비가 시너지를 낸다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기록을 전달하고 보급을 준비한다",
+          "result": "조사된 기록을 정리하여 전달한다. 동시에 필요한 보급품을 확보한다.",
+          "card": null,
+          "card2": null,
+          "gold": 230,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_alchemy_sample",
+      "title": "연금 조정의 견본",
+      "story": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+      "intro": "연금 조정 전후의 견본이 섞였다.",
+      "choices": [
+        {
+          "label": "검증 비용을 내고 정밀 조정을 받는다",
+          "result": "칼리오스트로에게 비용을 지불하고 정밀 조정을 의뢰한다. 연금술적 기술로 장비의 성능을 극대화한다.",
+          "card": "gbf_cagliostro",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이오와 위험한 시험 구역을 맡는다",
+          "result": "이오와 함께 직접 견본을 테스트한다. 위험을 감수하며 실전적인 데이터들을 수집한다.",
+          "card": "gbf_io",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "나루메아와 여러 견본의 작동을 확인한다",
+          "result": "나루메아와 함께 여러 견본의 물리적 작동을 확인한다. 검술적 관점에서 장비의 안정성을 체크한다.",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "분류 작업을 마치고 대금을 받는다",
+          "result": "섞여 있는 견본들을 꼼꼼하게 분류한다. 단순하지만 중요한 기초 작업을 완수하고 보상을 받는다.",
+          "card": null,
+          "card2": null,
+          "gold": 230,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_return_signal",
+      "title": "돌아올 자리의 신호",
+      "story": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+      "intro": "조사를 마친 일행의 귀환 신호를 보낸다.",
+      "choices": [
+        {
+          "label": "베인과 귀환 통로를 지킨다",
+          "result": "베인과 협력하여 귀환 통로를 수호한다. 동료들이 안전하게 복귀할 수 있는 방패가 된다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "라캄의 항로 준비를 돕는다",
+          "result": "라캄과 귀환 신호를 맞추고 필요한 자재를 준비했다. 열어 둘 길과 닫을 길을 구분한 뒤, 연락이 왔을 때 움직일 순서를 다시 익혔다.",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "자재를 내고 위험 구역 하나를 닫는다",
+          "result": "자재를 마련해 강한 상대가 드나드는 입구 하나를 봉쇄했다. 남은 물약을 챙기고 다른 길로 귀환 준비를 이어갔다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": -1,
+          "density": 0,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "previous": "gbf_sealed_report",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    }
+  ]
+}

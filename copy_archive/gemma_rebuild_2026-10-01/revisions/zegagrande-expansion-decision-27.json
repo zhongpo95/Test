@@ -1,0 +1,27 @@
+{
+  "sourceRevision": "51b0c55",
+  "beforeFile": "copy_archive/gemma_rebuild_2026-10-01/before-zegagrande-expansion-27.json",
+  "beforeSha256": "f788e625d80bb30b7dc2b35338b7e225e7af7f43785e656bbefd5c7dbafdbbee",
+  "review": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "원작의 캐릭터 설정(로제타의 관찰자, 롤란의 동행자, 랜슬롯의 통솔력, 퍼시벌의 이상, 요달라하의 검호, 이오의 미소)을 정확히 파악하여 이를 게임 내 메커니즘(성장, 이동, 전투 요령 등)으로 적절히 치환함.",
+      "성장 비유(예: 관찰자 → 단서 비교, 통솔력 → 교대 순서)를 원작의 기술이나 능력치로 오해하지 않고 '요령'이나 '성장'으로 명확히 기술함.",
+      "금지된 요소(시간 여행, 영구 NPC 동행, 실제 낚시, 원작 검술 등)를 canonFact에 명시하여 배제함.",
+      "수치적 일관성(비용 대비 보수, 물약 획득 시 적 단계 감소 등)이 논리적으로 구성됨."
+    ]
+  },
+  "reviewDisposition": [],
+  "decision": "독립6사건·관련6카드 채택.",
+  "candidateCheck": {
+    "cards": 15,
+    "events": 12,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": [
+    "공식 한국어 인물 소개와 세계관 본문을 읽었다. 공식 매뉴얼은 메뉴만 읽혀 게임의 기본·메인 메뉴 본문 검토로 보고하지 않는다. 전체 게임·페이트 에피소드·이미지 픽셀은 미검토.",
+    "Warcraft 런타임·화면·멀티플레이·재미·밸런스 미검증."
+  ]
+}
