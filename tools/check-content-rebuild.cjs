@@ -182,4 +182,30 @@ check('가면 연극의 기억 대조만 출구 후속을 열고 다른 배역�
   }
  }
 });
+check('나즈린 수색의 60/61 경계는 실패 부담을 유지하고 개인 정리 후속도 추가 행동력을 사용',()=>{
+ for(const [roll,success] of [[60,true],[61,false]]){
+  const {e}=party();e.ExpGold[0]=150;const level=e.ProtoLevel[0],density=e.ProtoDensity[0],hp=e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE);
+  const scene=enter(e,0,'common_nazrin_signal');assert(e.ProtoBranchText(0,3).includes('적 단계 +1'));assert(e.ProtoBranchText(0,3).includes('실패해도 비용과 사냥터 변화는 적용'));
+  e.GetRandomInt=()=>roll;e.ProtoResolve(0,3);
+  assert.equal(e.ExpGold[0],success?420:0);assert.equal(e.ProtoLevel[0],level+1);assert.equal(e.ProtoDensity[0],density);assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);assert.equal(e.ProtoHeadCount[0],0);
+  assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'common_nazrin_search'))],success);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?3:-3);
+  assert.equal(e.ProtoEventEligible(0,id(e,'common_nazrin_found')),success);assert.equal(e.ProtoEventEligible(0,id(e,'common_nazrin_false')),!success);
+  for(const key of ['common_nazrin_found','common_nazrin_false'])assert(!e.ProtoEventEligible(1,id(e,key)));
+  const charges=e.GetItemCharges(e.PlayerItem1[0]);e.ProtoResume(0);enter(e,0,success?'common_nazrin_found':'common_nazrin_false');e.ProtoResolve(0,3);
+  assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAP[1],10);assert.equal(e.ExpGold[0],success?320:140);assert.equal(e.ProtoLevel[0],level);
+  assert.equal(e.GetItemCharges(e.PlayerItem1[0]),charges+(success?1:0));assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);
+  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?3:-3);
+ }
+});
+check('나즈린의 골드 부족·필드 상한에서도 운반 선택을 남기며 이동 성장에는 표시된 적 수 부담 적용',()=>{
+ const {e}=party();e.ExpGold[0]=0;e.ProtoLevel[0]=5;e.ProtoDensity[0]=10;enter(e,0,'common_nazrin_signal');
+ for(const choice of [1,2,3])assert(!e.ProtoBranchAllowed(0,choice));assert(e.ProtoBranchAllowed(0,4));e.ProtoResolve(0,4);
+ assert.equal(e.ExpGold[0],180);assert.equal(e.ProtoLevel[0],5);assert.equal(e.ProtoDensity[0],10);
+ assert(!e.ProtoEventEligible(0,id(e,'common_nazrin_found')));assert(!e.ProtoEventEligible(0,id(e,'common_nazrin_false')));
+ const t=party(),f=t.e;const density=f.ProtoDensity[0];enter(f,0,'common_nazrin_signal');f.ProtoResolve(0,2);
+ assert.equal(f.ProtoDensity[0],density+2);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'common_nazrin_retreat'))]);
+ assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVE),5);assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVING),12);assert.equal(f.ProtoAP[0],9);
+});
 console.log(`${checks} content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.`);
