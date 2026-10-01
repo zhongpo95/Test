@@ -105,17 +105,20 @@ check('직전 성공 보상을 반드시 소유하는 후속에서 같은 카드
   }
  }
 });
-check('카라쿠라의 배송 행동은 해당 후속 하나와 지정 카드만 열고 비용 부족 후속은 후보에서 제외',()=>{
- const next=['bl_rooftop_marks','bl_return_receipt','bl_closed_lane','bl_light_parcel'];
- const rewards=['bl_ichigo','bl_uryu','bl_orihime',null];
- for(let choice=1;choice<=4;choice++){
+check('카라쿠라 배송 세 행동과 우류 개인 보유 재방문은 타인과 분리되고 비용 부족 후속은 제외',()=>{
+ const next=['bl_rooftop_marks','bl_return_receipt','bl_closed_lane'];
+ const rewards=['bl_ichigo','bl_uryu','bl_orihime'];
+ for(let choice=1;choice<=3;choice++){
   const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('karakura');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
-  enter(e,0,'bl_shop_boxes');e.ProtoResolve(0,choice);
+  const board=enter(e,0,'bl_shop_boxes');assert.equal(e.ProtoEventChoices[board],3);
+  assert(!e.ProtoBranchAllowed(0,4));e.ProtoResolve(0,4);assert.equal(e.ExpGold[0],1000);assert.equal(e.ProtoStage[0],2);e.ProtoResolve(0,choice);
   for(const [i,key] of next.entries()){
    assert.equal(e.ProtoEventEligible(0,id(e,key)),i+1===choice,key);
    assert(!e.ProtoEventEligible(1,id(e,key)),key);
   }
-  for(const key of rewards.filter(Boolean))assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,key))],key===rewards[choice-1]);
+  const revisit=id(e,'bl_light_parcel');assert.equal(e.ProtoEventEligible(0,revisit),choice===2);assert(!e.ProtoEventEligible(1,revisit));
+  assert.equal(e.ProtoEventRequired[revisit],0);assert.equal(e.ProtoEventRequiredCard[revisit],card(e,'bl_uryu'));
+  for(const key of rewards)assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,key))],key===rewards[choice-1]);
  }
  const {e}=party();e.ExpGold[0]=180;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('karakura'));
  enter(e,0,'bl_shop_boxes');e.ProtoResolve(0,2);assert.equal(e.ExpGold[0],0);
@@ -127,7 +130,7 @@ check('카라쿠라 경보의 실패는 보상 없이 비용·적 수 부담과 
  for(const [roll,success] of [[70,true],[71,false]]){
   const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('karakura'));
   const scene=enter(e,0,'bl_stray_alarm'),density=e.ProtoDensity[0];e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
-  assert.equal(e.ExpGold[0],success?1100:900);assert.equal(e.ProtoDensity[0],density+2);
+  assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoDensity[0],density+2);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'bl_yoruichi'))],success);
   assert.equal(e.ProtoEventEligible(0,id(e,'bl_unmarked_corner')),!success);

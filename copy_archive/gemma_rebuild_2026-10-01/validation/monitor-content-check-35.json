@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "file": "drafts/karakura-scenes-text-120-1.json",
+      "recordId": "174000ac-9f83-42b7-91e6-ec04f8e006b8",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-2.json",
+      "recordId": "239972f5-4b36-4970-897d-4ca80ca9613c",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-3.json",
+      "recordId": "07fd1427-7e5a-4e5e-8ceb-a232868e27ae",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-4.json",
+      "recordId": "538e2efb-6f4a-4977-aafa-3c11035837a1",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/karakura-card-choices-review-121-1.json",
+      "recordId": "7c5bba23-46a0-447a-b6c0-15b7b301f0e9",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/karakura-card-choices-review-121-2.json",
+      "recordId": "36ffa13f-3499-4f98-bb0d-13358f23ee25",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "원문·입력·기록ID·저장성공의대조다. 내용정확성·재미·밸런스·실게임증명과구분한다."
+}

@@ -1,0 +1,41 @@
+{
+  "drafts": [
+    {
+      "file": "drafts/karakura-scenes-text-120-1.json",
+      "recordId": "174000ac-9f83-42b7-91e6-ec04f8e006b8"
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-2.json",
+      "recordId": "239972f5-4b36-4970-897d-4ca80ca9613c"
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-3.json",
+      "recordId": "07fd1427-7e5a-4e5e-8ceb-a232868e27ae"
+    },
+    {
+      "file": "drafts/karakura-scenes-text-120-4.json",
+      "recordId": "538e2efb-6f4a-4977-aafa-3c11035837a1"
+    }
+  ],
+  "indexProblems": [],
+  "discarded": [
+    {
+      "what": "성공문구에실패복사·카드없음·경보적수2의전행동전파",
+      "why": "120-2가실패문구를모든성공결과에복사했다. 확정카드/필드와불일치한다.",
+      "replace": "성공의과거형/실제부담/물약과남은문제를고정하고실패는70%또는65%경계에서만표시한다.",
+      "revisit": "다음집필입력에서failure를제거하고성공/실패집필을구분해실제데이터와대조할때."
+    },
+    {
+      "what": "같은카드의확률/확정가격·상자골드4번의고아후속",
+      "why": "같은카드는빌드비교가아니고4번제외시후속이막힌다.",
+      "replace": "확정묶음은우류의다른기억,옛배송후속은우류보유자의새방문으로바꿨다.",
+      "revisit": "돈핵심의사건을별도요청하고동급카드선택과비교할때."
+    },
+    {
+      "what": "경로정리의안전확정·NPC주체의능력치산문",
+      "why": "짐분류의결과는카드성장이며실제통로전투/장비/새기술/동행을추가하지않는다.",
+      "replace": "확인한몫과모르는길을분리하고개인사냥변화에한정했다.",
+      "revisit": "별도기믹을요청하고원작/구현을검증했을때."
+    }
+  ]
+}
