@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "file": "drafts/abydos-pitches-68.json",
+      "recordId": "4fe16122-721b-4b47-993e-6f1fe5c75ff1",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-expansion-text-69.json",
+      "recordId": "71441c4b-c63b-4f55-8867-7dbdfa0ae34b",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/abydos-expansion-review-70.json",
+      "recordId": "ea58fd1f-ff60-446a-9af7-d8f5432e9415",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "입력·원문·ID·저장 성공을 대조했다. 콘텐츠 정확성·재미·밸런스 검증과 구분한다."
+}

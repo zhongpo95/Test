@@ -1,0 +1,30 @@
+{
+  "sourceRevision": "8fe7f7197a776b69c4158907e14f66dbab0fe25d",
+  "beforeFile": "before-abydos-expansion-71.json",
+  "beforeSha256": "f832fc8c5403a20280696e170e0b3e3486c518c55ca9150596fc0855c6a11dac",
+  "review": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "모든 카드의 canonFact가 sourceFacts의 제약 사항(원작의 빚, 폭파, 특정 물품 명칭 사용 금지 등)을 정확히 준수하고 있습니다.",
+      "mechanics에 정의된 수치 체계(regeneration, healthy_damage, nondirectional_damage 등)가 각 카드의 효과 및 사건 결과와 일관되게 적용되었습니다.",
+      "사건의 흐름(history)이 데이터에 명시된 조건(아루 후속, 카요코 후속)에 따라 정확히 설계되었습니다.",
+      "자연스러운 한국어 표현을 사용하면서도 시스템적인 수치 오류나 설정 파괴가 발견되지 않았습니다."
+    ]
+  },
+  "decision": "네 독립 사건·자기 계산 도움 성공1번/한 곡 듣기 성공2번의 두 후속·카드6장 채택. 기존14카드·12사건의 모든 필드를 유지한다.",
+  "numericExceptions": [],
+  "rewardReferenceCorrections": [],
+  "check": {
+    "cards": 20,
+    "events": 18,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": [
+    "공식 줄거리와 인물 소개의 관계·취미·역할을 읽었으며 원작 전편/전체 영상을 확인한 것은 아니다.",
+    "계산서·CD주문·잡초 화분·봉투 내기와 작은 대사는 별도 창작이다. 원작 큰 결말·가게폭파·학교빚·원작범죄·구출을 해결하지 않는다.",
+    "카드는 여행자의 기억이며 NPC피해량·실제CD버프·공포·폭발·식물성장·동행·새AP/시간/체력비용 기능을 지급하지 않는다.",
+    "Gemma PASS는 자문이며 정적·JASS 변환 모의 검사·컴파일과 분리한다. Warcraft·화면·멀티·재미·밸런스는 미검증이다."
+  ]
+}

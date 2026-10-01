@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "commands": [
+    {
+      "command": "node tools/check-expedition-sync.cjs",
+      "exit": 0,
+      "stdout": "PASS 원정 로컬 UI 19개 시작점, 73개 함수 호출 경로\nPASS 금지 동작 검출. 직접 트리거 실행\nPASS 금지 동작 검출. 유닛 상태 변경\nPASS 금지 동작 검출. 공유 난수\nPASS 금지 동작 검출. 핸들 생성\nPASS 금지 동작 검출. 공유 배열 변경\nPASS 금지 동작 검출. 미등록 호출\nPASS 금지 동작 검출. 문자열 간접 실행\nPASS 보조 함수 뒤에 숨은 트리거 실행 검출\nPASS 다른 라이브러리 조회 함수의 게임 상태 변경 검출\nPASS 로컬 플레이어를 직접 읽지 않는 새 프레임 콜백 검출\nPASS 주석과 문자열은 호출로 오인하지 않음\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-expedition.cjs",
+      "exit": 0,
+      "stdout": "PASS 라이프 손실의 모든 구간과 반올림 경계\nPASS 등급 경계 5500/9000/9950과 최대 40포인트\nPASS 개인 카드 공개 중복 방지와 소진 대체 보상\nPASS 사건 예약 중복 방지, 미선택 해제, 거절 소모\nPASS 준비 인원, 영웅 선택, 마을 조건과 전투 구역 예약\nPASS 오래된 원정/화면/후보 요청과 시작 보상 중복 거부\nPASS 시작 무작위 능력치는 한 종류만 200 증가하고 마지막 선택은 골드\nPASS 시작 카드 세 형태를 1/3 추첨하고 해당 장수·등급만 한 번 지급\nPASS 시작 카드 미선택은 공개형만 등장 기록 유지, 숨긴 카드와 재추첨은 없음\nPASS 리롤 비용 증가, 시간 유지, 확정 후 차단\nPASS 스탯 배분 한도, 초기화, 전투 중 변경 차단\nPASS 보상 시간 초과는 5포인트 지급 뒤 독립된 추가 사건 시작\nPASS 마지막 순간 기본 보상 후 사건 40초, 무료 결과 확인 후 이동\nPASS 추가 사건 진입 후 이탈해도 만난 사건은 다시 나오지 않음\nPASS 비전투 대기 두 배와 시간 초과 경계, 이동 대기 6초\nPASS 상점 단일 구매와 물약 종류별 2회 및 할인 올림\nPASS 팀 라이프 구매는 개인 골드와 파티 1회 한도\nPASS 마지막 전투만 남은 시험 상점은 라이프 상품 차단\nPASS 승리 정산은 한 번, 일반전 실패 후 기본 보상\nPASS 대표 보스 실패는 종료, 임시 성장 분리와 전투 구역 반환\nPASS 저장 중 후속 요청은 최신 스냅샷으로 한 번 더 전송\nPASS 서버 로드 실패 차단, 저장 실패 재시도는 보상 재지급 없음\nPASS 가방이 가득 찬 영구 재료는 보관 수량 유지\nPASS 이탈 인원은 대기에서 제외, 마지막 이탈은 정리\nPASS 카드 조건부 피해와 골드 기반 관통값\nPASS 개인 상태에 따른 사건 제외와 투표 중 스탯 배분\nPASS 일반 적 구성, 2마리 이하 두 번째 무리 예고, 미등장 체력 포함\nPASS 전투 제한시간 실패와 정산 한 번, 생존 적/예고 정리\nPASS 보스 5·6번 구역과 일반 전투 두 무리는 MapCenter에서만 생성하며 미지정 시 외부 대체 없음\nPASS 일반 적 체력 추적·가시성·사망/전투 종료 정리와 참여자 보스바 연결\nPASS 원정 보스는 로커스트를 유지하고 기존 보스 생성 순서를 적용, 일반 적과 예고는 유지\nPASS 보스 좌표 추적은 로커스트와 정지를 유지하고 사거리·예고·회복 중 이동을 멈춤\nPASS 보호막이 없는 보스도 체력 UI 크기 계산을 끝까지 수행\nPASS 보스 사망은 60초 한 번 차감, 15초 부활과 2초 무적\nPASS 일반 전투 사망은 30초 한 번 차감, 이탈은 현재 적 체력 유지\nPASS 2인 원정 전체 진행 후 새 원정에 임시 성장 미이월\n36 scenario groups passed. JASS natives, real multiplayer, game rendering and server persistence remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-attack-potion.cjs",
+      "exit": 0,
+      "stdout": "PASS 일반 카드로 조로 획득, 공격력 증가 재계산 및 피해량 중복 적용 방지\nPASS 기존 스킬 공증과 카드 공증 합산, 감소 각인 및 소수점 버림\nPASS 원정 종료 시 공격력 카드 해제, 기존 스킬 버프와 장비 유지\nPASS 수집가에게 공격력 카드 반납 시 실제 공격력 회수와 등장 기록 유지\nPASS 정화는 원정 감소 각인만 없애고 장비 각인과 타인 능력치를 보존\nPASS 물약은 공격력을 바꾸지 않고 최종 대미지 증가, 카드 및 기존 최종 대미지 합산\nPASS 물약 재사용은 갱신, 오래된 만료 무시, 플레이어별 독립 종료\nPASS 장비 재계산 중 물약 유지 및 만료 시 기존 최종 대미지 보존\nPASS 물약 이름과 설명은 공격력 대신 최종 대미지 효과 표시\nPASS 로컬 플레이어가 달라도 카드와 물약의 공유 전투 결과가 같음\n10 attack/potion checks passed. Mock native execution; Warcraft runtime remains untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-expedition-events.cjs",
+      "exit": 0,
+      "stdout": "PASS 아홉 사건의 두 선택은 개인 자원만 변경하고 결과 확인 전까지 대기\nPASS 골드 부족·물약 부족·카드 소진은 차감과 선택 종료 없이 거부\nPASS 거래별 실제 차감·보상과 바이바인 충전 보너스\nPASS 금고는 공개된 50% 경계와 정확한 순이익·손실 적용\nPASS 각인 최대치와 실제 +1 미리보기, 전부 포화된 경우 비용 없는 대안\nPASS 중복·오래된 동기화 요청과 결과 확인 12초 만료\nPASS 사건 만료는 무료 무위험 보상 우선, 비용 있는 거래는 떠나기\nPASS 작업대는 표시된 각인 +1만 지급하고 감소 각인과 타인 자원은 유지\nPASS 조우별 체력·시간 조건과 보스전 독립\nPASS 조우 승리 추가 보상은 일반전에만 적용하고 카드 소진은 골드 대체\nPASS 파티 동률은 우회하고 과반수만 전투, 미응답도 우회 표로 처리\nPASS 서로 다른 로컬 플레이어에서도 동일한 사건 요청의 공유 상태 일치\n12 event/encounter groups passed. Mock execution only; real multiplayer and rendering remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-expedition-rewards.cjs",
+      "exit": 0,
+      "stdout": "PASS 기본 세 선택 모두 먼저 지급하고 사건은 확정 뒤 처음 추첨\nPASS 현재 유효한 19개 즉시 항목의 실제 지급 수량과 중복 없는 카드 묶음\nPASS 카드 이름 비공개 예약은 등장 기록을 소모하지 않고 리롤·다른 선택 시 반환\nPASS 카드 예약은 다른 추첨과 충돌하지 않고 실제 선택 때만 공개 소모\nPASS 보상 재고·포인트 한도·미구현 등급·잔여 성장 조건을 같은 등급 내에서 제외\nPASS 새 각인과 카드 획득을 반영한 뒤 정화·교환 사건의 자격 판단\nPASS 기본 보상과 추가 사건의 독립 등급, 사건 소진 대체도 기본 보상 유지\nPASS 리롤·기본 선택 중복 패킷이 추가 사건의 선택으로 해석되지 않음\nPASS 파티원이 기본 선택과 사건을 따로 진행해도 사건 중복과 조기 이동 없음\nPASS 팀 전용 대상 구역은 기본 보상 뒤 개인 사건을 추가하지 않음\nPASS 이탈·원정 종료·화면 변경은 비공개 예약을 반환하고 기본 보상 반복 지급 없음\nPASS 실패로 계속되는 원정은 보상과 사건, 라이프 소진·최종보스는 추가 사건 없음\nPASS 로컬 플레이어가 다른 두 클라이언트의 보상·사건 순서와 공유 결과 일치\n13 reward separation groups passed. Mock execution only; Warcraft multiplayer remains untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-expedition-ui.cjs",
+      "exit": 0,
+      "stdout": "PASS 한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 않고 전원 같은 타이머로 갱신\nPASS 영웅 선택 후 준비창, 시작 보상 5개, M 지도와 스탯창의 독립 전환\nPASS 원정 중 마을 안내 갱신이 선택창에 겹치지 않고 마을에서 다시 표시됨\nPASS 카드 전체 클릭, 장식의 입력 차단 방지, 마우스 강조와 복원\nPASS 시작 후보 5개의 실제 동기화 요청, 타인 UI 이벤트 차단 및 중복 확정 거부\nPASS 배분은 보상 확정과 분리되고 전투 중에는 수정할 수 없음\nPASS 이동·투표·보상·상점에서 스탯 배분, 포인트 부족·한도·전투 제한 표시\nPASS 접기와 ESC 후 후보 유지, 상태 변경 시 자동 표시, 강화창과 겹침 차단\nPASS 보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사건 선택 화면 전환\nPASS 상점의 가격 표시, 돈 부족/구매 완료 비활성화 및 정비 완료 처리\nPASS 선택·투표·사건·상점의 같은 버튼으로 접기/열기, 전환·확정 시 잔여 버튼 제거\nPASS 상점 잔액과 불가 사유 갱신, 일반 구매 버튼의 강조 및 동기화\nPASS 선택 창의 클릭 영역이 분리되고 화면 및 기본 HUD 영역을 침범하지 않음\nPASS 다른 플레이어의 확정이 내 창을 닫지 않음\nPASS 사건의 비용 부족과 결과 카드, 확인 버튼 및 다음 조우의 카드 복원\nPASS 기본 보상 세 버튼 모두 지급 후 사건 UI로 전환하며 사건 내용은 미리 노출하지 않음\nPASS 사건 부족 지원금의 표시·확인과 스탯 한도 대체\nPASS 시작 카드 한 자리의 세 형태·33% 표시와 마지막 골드, 접기 후 후보 유지\n18 UI scenario groups passed. Mock frame/native execution only; real game rendering and input remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-hunt-prototype.cjs",
+      "exit": 0,
+      "stdout": "PASS 머리 카드 없음은 도감 동기화 전에도 준비·출발 가능, 발견하지 않은 머리는 차단\nPASS 카드 없이 파티 준비 중 늦은 도감 동기화는 준비 상태를 취소하지 않음\nPASS 카드 없이 출발 후 늦은 도감 로드는 새 발견을 보존하고 기존 도감도 복원\nPASS T1 출발 차단, 도감 머리 0~1장 선택과 초기 전투 카드 없음\nPASS 4인 개인 구역 1~4와 남은 5~6 구역의 보스 예약, 사용 중이면 출발 보류\nPASS 기본 근접 몬스터 체력 300, 처치당 10골드와 지속 재생성\nPASS 일반 전투 근접·원거리·위험 몬스터 방어력 0, 보스 방어력 유지\nPASS 4인 최초 생성·재생성은 각자의 MapCenter 내부이며 미지정·막힌 구역에서 외부 생성하지 않음\nPASS 중립 귀환 AI 차단, 동일 목적지 추적 유지와 사건 재개 후 재추적·근접 공격\nPASS HeroDeal에서 체력바와 치명적 타격의 사망을 즉시 반영하고 각성 피해는 실제 체력만 집계\nPASS 내 사건 중에는 내 공간만 정지하고 공통 최대시간과 다른 플레이어 사냥은 계속됨\nPASS 사건 선택만 AP 소모, 500/600골드 리롤과 다음 화면 500골드 복귀\nPASS 표시만 된 사건은 미소비, 동시 선택은 파티 중복 차단과 오래된 패킷 거부\nPASS 처치·시간·정체 사건의 쿨다운, AP 0일 때 사냥만 계속\nPASS 사건 필드 변경은 기존 몬스터에도 HP 비율을 보존하고 적용하며 상한에서 공짜 위험 보상 차단\nPASS 획득 이후부터만 처치·실제 피해·무피격 각성 진행, 카드 효과와 최대 사건 후보 4개\nPASS 실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피해를 각성에 더하지 않음\nPASS 획득 카드 전체를 로컬 페이지로 확인, 효과·각성 진행 표시와 난이도 HUD 갱신\nPASS 사냥 사망 15초 부활, 사망 중 사건·각성 진행 차단과 골드 패널티 없음\nPASS 준비 완료 버튼은 AP 0에서만 활성화, 남은 시간 골드 한 번 지급, 전원 준비 또는 10분 뒤 합류\nPASS 원정 종료·새 출발 때 카드/필드/AP 초기화, 머리 도감만 유지 및 이탈 정리\nPASS 다른 로컬 플레이어의 클라이언트에서 같은 요청은 같은 사냥·사건·성장 상태를 만든다\nPASS 사건 만료는 후보 AP 미소비 또는 무료 분기, 대기실 이탈은 남은 인원으로 새 흐름 출발\nPASS 머리 후보는 AP 한 번으로 바로 성장, 4인 각자의 같은 지역 입구와 중복 패킷 차단\nPASS 사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역\nPASS 사건 후보와 분기 UI 실제 동기화, 최대 4개 클릭 영역·화면 경계·준비 HUD 분리\nPASS 후보 2·3·4개는 같은 크기로 가운데 정렬, 장식과 하단 글씨 경계 및 최신 후보 표시\nPASS 전체 사건 화면의 이야기 유지, 비용 부족·선택 결과·접기·성장 카드 왕복\n28 prototype scenario groups passed. Static JASS/mock checks only; Warcraft rendering, actual multiplayer and server persistence remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/generate-prototype-content.cjs --check",
+      "exit": 0,
+      "stdout": "{\"worlds\":13,\"cards\":232,\"events\":212}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/generate-content-review.cjs --check",
+      "exit": 0,
+      "stdout": "검토 문서 212사건, 232카드.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-content-rebuild.cjs",
+      "exit": 0,
+      "stdout": "PASS 검토 JSON 전체 참조·단위 검사와 실제 생성 데이터 수 일치\nPASS 잘못된 카드 참조·체력 지불·실패 후속·순환·각성·미지급 카드는 검사에서 탈락\nPASS 머리 후보 첫 선택에서 행동력 한 번 지불, 즉시 입문 카드와 약한 지역 효과 획득\nPASS 확률 경계 65는 성공, 66은 실패하며 비용은 둘 다 지불하고 후속은 선택한 플레이어만 개방\nPASS 사건 선택 전 골드 부족과 사냥터 상한을 검사하고 중복 지급은 관련 카드의 100골드로 교환\nPASS 공통 사건은 머리 없이 등장하고 관련 사건은 소유 지역에서만 열리며 선택 전 공유 후보는 소진되지 않음\nPASS 네 행동은 영역 안에 배치되고 상세 확인은 로컬 UI만 바꾸며 커서 이탈 시 사건 설명 복원\nPASS 도감의 마지막 지역 선택은 페이지 이동 뒤 실제 머리 ID를 동기화하고 저장은 안정된 콘텐츠 key 사용\nPASS 마그놀리아 게시판의 네 행동은 자기 후속 하나만 열고 다른 플레이어의 기록을 만들지 않음\nPASS 물길의 70/71 확률 경계와 실패 후속, 나츠 준비 카드의 후속 조건을 실제 JASS로 검증\nPASS 직전 성공 보상을 반드시 소유하는 후속에서 같은 카드를 성장 보상으로 다시 제시하지 않음\nPASS 카라쿠라의 배송 행동은 해당 후속 하나와 지정 카드만 열고 비용 부족 후속은 후보에서 제외\nPASS 카라쿠라 경보의 실패는 보상 없이 비용·적 수 부담과 개인 실패 기록을 유지\nPASS 라그나 공통 사건의 흡수 카드는 머리 없이 획득하고 후속 안전 선택은 적 단계를 실제 감소\nPASS 페나코니 슬롯머신의 60/61 경계는 판돈을 소모하고 성공·실패 후속을 개인 기록으로 구분\nPASS 슬롯머신 정리와 실패 후속은 추가 행동력을 쓰며 비용 부족이면 후속 후보가 나타나지 않음\nPASS 가면 연극의 기억 대조만 출구 후속을 열고 다른 배역과 길 정리는 해당 후속을 열지 않음\nPASS 나즈린 수색의 60/61 경계는 실패 부담을 유지하고 개인 정리 후속도 추가 행동력을 사용\nPASS 나즈린의 골드 부족·필드 상한에서도 운반 선택을 남기며 이동 성장에는 표시된 적 수 부담 적용\nPASS 아메스트리스 정비 선택은 지정 카드와 개인 후속을 나누고 비용 부족·필드 상한에서 기본 자세를 남김\nPASS 아메스트리스 수련 후속은 강함·수의 자기 기록을 사용하고 중간 필드 변화 뒤에도 최저값과 행동력 유지\n21 content integration/negative-control groups passed. Mock natives only; visual rendering, Warcraft gameplay and server saves remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-card-stats.cjs",
+      "exit": 0,
+      "stdout": "PASS 영구 무기 배율 뒤 런 공격력 배율, 추가·대미지·최종·대상 배율은 서로 곱함\nPASS 신규 치명 확률과 피해는 분리, 신속·행동속도와 상한은 다른 단위\nPASS 방관은 방어력에만 적용, 방향·비방향·차지·보호막·고체력은 조건 충족 때 합산\nPASS 흡수는 실제 피해의 비율을 저장하며 한 타격 10%, 초당 2%, 최대 5초\nPASS 작은 흡수량 마지막 틱을 보존하고 초과 타격 피해는 흡수하지 않음\nPASS 여러 타격과 재생의 합계는 10%/초, 한도 중에도 흡수 수명은 정상 종료\nPASS 사건 정지·준비 중 회복과 흡수 수명 정지, 사망·종료·최대 체력에서는 저장량 폐기\nPASS 플레이어별 흡수 저장량 분리, 물약 직접 회복은 공유 회복 상한에 포함하지 않음\n8 card stat/recovery groups passed. Actual JASS functions with mock natives; Warcraft runtime and performance remain untested.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-chen-dash.cjs",
+      "exit": 0,
+      "stdout": "PASS E 1단계 경로·끝점 동일 피해, 적별 1회\nPASS E 이동이 막혀도 반복 타격 없음, 다음 시전은 다시 타격\nPASS E 두 플레이어의 돌진 타격 기록은 독립\nPASS E 돌진 중 취소 시 타격 그룹 반환\nPASS R 1단계 경로·끝점 동일 피해, 적별 1회\nPASS R 2단계 경로·끝점 동일 피해, 적별 1회\nPASS R 3단계 경로·끝점 동일 피해, 적별 1회\nPASS R 4단계 경로·끝점 동일 피해, 적별 1회\nPASS R 이동이 막혀도 반복 타격 없음, 다음 시전은 다시 타격\nPASS R 두 플레이어의 돌진 타격 기록은 독립\nPASS R 돌진 중 취소 시 타격 그룹 반환\nPASS R 최대 차지 자동 발동에서도 경로 타격 및 그룹 반환\nVerified 12 Chen dash scenarios.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-ui-input-startup.cjs",
+      "exit": 0,
+      "stdout": "PASS 로딩 대기가 길어져도 게임 전역 입력을 등록하지 않음\nPASS 선택 순서가 달라도 모든 클라이언트와 관전자의 등록·평가 순서가 같음\nPASS 전원 선택 후에도 프레임 생성 전이면 대기하고 준비 후 한 번 등록\nPASS 미선택 참가자 이탈 후 남은 참가자 선택으로 등록, 빈 방은 미등록\nPASS 컴퓨터 슬롯은 선택을 기다리지 않음\nPASS 미선택자와 관전자의 이모지·HUD·인벤토리 클릭은 처리하지 않음\nPASS 인벤토리 가운데 클릭도 미선택 상태에서 UI 접근 전에 반환\nPASS 키·클릭 등록은 모두 지연 함수 내부에 있고 기존 선택창 휠은 유지\nPASS 화면 갱신 훅 없이 게임 타이머로 이동 아이콘 갱신, 준비 전·최소화 중 프레임 접근 차단\n9 startup checks passed. Native Dz dispatch and loading-screen stability require in-game validation.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tools/check-pick-trace.cjs",
+      "exit": 0,
+      "stdout": "PASS 선택 진단: 3개 클라이언트 동일 상태, 미선택 슬롯, 20초 종료, 재선택, 불일치 기록, 두 선택 경로, 읽기 전용 로그\n",
+      "stderr": ""
+    },
+    {
+      "command": "node --test tools/gemma-content-check.cjs",
+      "exit": 0,
+      "stdout": "✔ 공통 기록 API로만 호출하고 요청·원래 payload·raw와 기록 ID를 출력 파일에 보존 (122.5741ms)\n✔ JSON 잘림·파싱 오류도 원래 응답 파일을 만든 뒤 오류로 알림 (49.9337ms)\n✔ 기록 서버 연결·API 실패 시 기록 없는 직접 Ollama 호출로 우회하지 않음 (4.2786ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 433.03\n",
+      "stderr": ""
+    }
+  ]
+}
