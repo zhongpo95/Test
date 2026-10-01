@@ -1,0 +1,27 @@
+// 후유키 세 카드 선택의 전체 분기·입문 중복 제거·새 기억 합산 검사와 공통 기록 대조를 준비한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const write=(p,x)=>fs.writeFileSync(path.join(root,p),x,{flag:'wx'});
+let probe=fs.readFileSync(path.join(root,'validation/head-card-choices-probe-15.cjs'),'utf8');
+probe=probe.replace('나비저택 전체 세 카드 분기와 성공·실패 개인 후속 및 유효 선택 필터','후유키 전체 세 카드 분기와 입문 카드 중복 제거·새 기억 합산 및 개인 후속');
+probe=probe.replaceAll('butterfly-card-choices-adopted-78','fuyuki-card-choices-adopted-82').replaceAll("'butterfly'","'fuyuki'");
+probe=probe.replace('assert.equal(data.events.length,17);assert.equal(historyGates.length,3);assert.equal(runs.length,108);','assert.equal(data.events.length,16);assert.equal(historyGates.length,2);assert.equal(runs.length,102);');
+probe=probe.replace('events:17,choices:51','events:16,choices:48').replaceAll('historyGates:3','historyGates:2').replaceAll('head-card-choices-probe-15','head-card-choices-probe-16');
+probe=probe.replace('야간성공1/실패-1/표주박성공1개인후속','학교연결끊기1/타이가질문1개인후속');
+probe=probe.replace('function party(){','function party(enterHead=true){').replace("e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('fuyuki'));","if(enterHead)e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('fuyuki'));");
+probe=probe.replace('report.lowerBounds=lowerBounds;',`report.lowerBounds=lowerBounds;
+const e=party(false),head=e.ProtoHeadKey.indexOf('fuyuki');enter(e,e.ProtoEventKey[(head-1)*4+1]);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),11);
+const structure=card(e,'fy_shiro_structure'),request=card(e,'fy_shiro_request');
+e.ProtoGrantCard(0,structure);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),23);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ACTION),3);assert.equal(e.ProtoStat(0,e.PROTO_STAT_REDUCTION),0);
+e.ProtoGrantCard(0,request);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),35);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ACTION),3);assert.equal(e.ProtoStat(0,e.PROTO_STAT_REDUCTION),2);
+e.ProtoGrantCard(0,structure);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),35);assert.equal(e.ProtoStat(1,e.PROTO_STAT_ATTACK),0);
+report.newMemoryStats={entryAttack:11,structureAttack:23,togetherAttack:35,action:3,reduction:2,duplicateNotStacked:true,otherPlayerUnchanged:true};`);
+probe=probe.replaceAll('events:17,choices:51','events:16,choices:48');
+write('validation/head-card-choices-probe-16.cjs',probe);
+let ci=fs.readFileSync(path.join(root,'validation/checkpoint-tests-25.cjs'),'utf8');
+ci=ci.replace('나비저택 확장과 세 카드 재구성 뒤 회귀 검사 및 Gemma 아홉 요청의 저장 원문을 대조한다.','후유키 세 카드 재구성 뒤 회귀 검사 및 Gemma 아홉 요청의 저장 원문을 대조한다.');
+ci=ci.replace(/const records=\[[^;]+;/,`const records=[...[1,2].map(n=>'drafts/fuyuki-card-choices-text-79-'+n+'.json'),...[1,2,3,4].map(n=>'drafts/fuyuki-card-choices-text-80-'+n+'.json'),...[1,2,3].map(n=>'reviews/fuyuki-card-choices-review-81-'+n+'.json')];`);
+ci=ci.replaceAll('ci-commands-25.json','ci-commands-26.json').replace("read('validation/ci-commands-24.json')","read('validation/ci-commands-25.json')").replace('monitor-content-check-25.json','monitor-content-check-26.json').replace('card-contrast-audit-after-74.json','card-contrast-audit-after-82.json');
+write('validation/checkpoint-tests-26.cjs',ci);
+console.log(JSON.stringify({head:'fuyuki',events:16,choices:48,expectedBranchCases:102,monitorRecords:9}));

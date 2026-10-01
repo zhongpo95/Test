@@ -4,7 +4,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         constant integer PROTO_HEAD_COUNT = 13
         constant integer PROTO_EVENT_COUNT = 269
         constant integer PROTO_CARD_FIRST = 13
-        constant integer PROTO_CARD_LAST = 250
+        constant integer PROTO_CARD_LAST = 252
         constant string PROTO_SAVE_PREFIX = "원정.콘텐츠2."
         string array ProtoHeadKey
         string array ProtoHeadName
@@ -298,6 +298,26 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionGoal[33] = 0.00
         call ProtoSetEffect(33, 11, 8.00, false)
         call ProtoSetEffect(33, 6, 3.00, false)
+        set ProtoCardKey[34] = "fy_shiro_structure"
+        set ProtoCardName[34] = "에미야 시로"
+        set ProtoCardEffectName[34] = "맞춰 본 빈칸"
+        set ProtoCardKeyword[34] = "후유키 · 공격력 · 행동 속도"
+        set ProtoCardHead[34] = 1
+        set ProtoCardGrade[34] = 2
+        set ProtoEvolutionKind[34] = 0
+        set ProtoEvolutionGoal[34] = 0.00
+        call ProtoSetEffect(34, 1, 12.00, false)
+        call ProtoSetEffect(34, 9, 3.00, false)
+        set ProtoCardKey[35] = "fy_shiro_request"
+        set ProtoCardName[35] = "에미야 시로"
+        set ProtoCardEffectName[35] = "이름 없이 맡긴 부탁"
+        set ProtoCardKeyword[35] = "후유키 · 공격력 · 받는 피해"
+        set ProtoCardHead[35] = 1
+        set ProtoCardGrade[35] = 2
+        set ProtoEvolutionKind[35] = 0
+        set ProtoEvolutionGoal[35] = 0.00
+        call ProtoSetEffect(35, 1, 12.00, false)
+        call ProtoSetEffect(35, 14, 2.00, false)
         set ProtoEventKey[53] = "school_circle"
         set ProtoEventName[53] = "학교에 남은 마법진"
         set ProtoEventHead[53] = 1
@@ -321,8 +341,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[212] = 0
         set ProtoBranchChance[212] = 100
         set ProtoBranchLabel[213] = "시로와 학생들을 먼저 대피시킨다"
-        set ProtoBranchResult[213] = "시로와 학생들을 밖으로 안내하며 막힌 문을 하나씩 열었다. 근원을 건드리지는 못해, 뒤에서 다가오는 기척도 함께 경계해야 했다."
-        set ProtoBranchCard[213] = 13
+        set ProtoBranchResult[213] = "시로와 학생들을 밖으로 안내하기 전에 막힌 문의 구조를 하나씩 확인했다. 「맞춰 본 빈칸」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계는1올랐다. 시로가 문을 붙잡는 동안 네가 먼저 바깥으로 보낼 사람을 부른다."
+        set ProtoBranchCard[213] = 34
         set ProtoBranchCard2[213] = 0
         set ProtoBranchGold[213] = 0
         set ProtoBranchCost[213] = 0
@@ -330,12 +350,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[213] = 1
         set ProtoBranchPotions[213] = 0
         set ProtoBranchChance[213] = 100
-        set ProtoBranchLabel[214] = "술식 기록을 넘기고 대피 통로를 정리한다"
-        set ProtoBranchResult[214] = "린에게 찾은 기록을 넘기고 학생들이 빠져나올 길을 정리했다. 복도에 몰리던 기척이 흩어지고 응급 물약도 챙길 수 있었다."
-        set ProtoBranchCard[214] = 0
+        set ProtoBranchLabel[214] = "140골드로 기록용품을 마련하고 린과 대피 순서를 나눈다"
+        set ProtoBranchResult[214] = "린과 학생을 내보낼 순서를 다른 줄에 적어 대피 통로를 나눴다. 140골드를 지불했다. 「답을 기다리는 순서」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 린은 기록지의 마지막 이름까지 확인한 뒤 아직 복도 안에 남은 쪽을 가리킨다."
+        set ProtoBranchCard[214] = 22
         set ProtoBranchCard2[214] = 0
         set ProtoBranchGold[214] = 0
-        set ProtoBranchCost[214] = 0
+        set ProtoBranchCost[214] = 140
         set ProtoBranchLevel[214] = 0
         set ProtoBranchDensity[214] = -1
         set ProtoBranchPotions[214] = 1
@@ -372,12 +392,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[217] = 0
         set ProtoBranchPotions[217] = 0
         set ProtoBranchChance[217] = 100
-        set ProtoBranchLabel[218] = "조사 결과만 보고하고 준비 자금을 받는다"
-        set ProtoBranchResult[218] = "더 깊이 들어가는 대신 찾은 기록을 정리해 넘겼다. 확인에 필요한 수고비를 받고 다음 조사를 준비했다."
-        set ProtoBranchCard[218] = 0
+        set ProtoBranchLabel[218] = "180골드로 기록을 나눠 적고 린과 다시 확인할 차례를 맞춘다"
+        set ProtoBranchResult[218] = "린과 남은 흔적을 나눠 적고 같은 곳을 다시 확인할 차례부터 맞췄다. 180골드를 지불했다. 「답을 기다리는 순서」의 기억 카드1장을 얻었다. 린은 확인하지 않은 줄을 네 기록으로 채우지 않고 다음에 물을 항목으로 남긴다."
+        set ProtoBranchCard[218] = 22
         set ProtoBranchCard2[218] = 0
-        set ProtoBranchGold[218] = 220
-        set ProtoBranchCost[218] = 0
+        set ProtoBranchGold[218] = 0
+        set ProtoBranchCost[218] = 180
         set ProtoBranchLevel[218] = 0
         set ProtoBranchDensity[218] = 0
         set ProtoBranchPotions[218] = 0
@@ -456,12 +476,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[225] = 0
         set ProtoBranchPotions[225] = 0
         set ProtoBranchChance[225] = 100
-        set ProtoBranchLabel[226] = "계단을 피하고 안전한 귀환 경로를 정리한다"
-        set ProtoBranchResult[226] = "경계를 넘지 않고 바깥의 길부터 정리했다. 발길이 엉키지 않게 만든 뒤 돌아갈 보급을 챙겼다."
-        set ProtoBranchCard[226] = 0
+        set ProtoBranchLabel[226] = "160골드로 돌아갈 표식을 마련하고 세이버와 발을 둘 길을 나눈다"
+        set ProtoBranchResult[226] = "세이버와 돌아갈 길에 표식을 놓고 서로 발을 둘 간격을 나눴다. 160골드를 지불했다. 「곁에 맞춘 보폭」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 세이버는 산문을 넘은 것처럼 서두르지 말라며 네가 뒤로 뺀 발부터 본다."
+        set ProtoBranchCard[226] = 25
         set ProtoBranchCard2[226] = 0
         set ProtoBranchGold[226] = 0
-        set ProtoBranchCost[226] = 0
+        set ProtoBranchCost[226] = 160
         set ProtoBranchLevel[226] = -1
         set ProtoBranchDensity[226] = 0
         set ProtoBranchPotions[226] = 1
@@ -489,8 +509,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[228] = 0
         set ProtoBranchChance[228] = 100
         set ProtoBranchLabel[229] = "시로와 넓은 길목의 확인까지 맡는다"
-        set ProtoBranchResult[229] = "시로와 넓은 길목까지 살피며 문과 길의 구조를 하나씩 짚었다. 맡을 범위가 넓어 개인 사냥의 적 수가 늘었다. 상자에 이름을 붙일 사람은 아직 찾지 못했다."
-        set ProtoBranchCard[229] = 13
+        set ProtoBranchResult[229] = "시로와 부실 밖 길목의 문과 보관할 자리를 하나씩 확인했다. 「맞춰 본 빈칸」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계는1올랐다. 시로가 상자의 주인을 다시 묻자 너도 확인한 길과 아직 묻지 않은 사람을 나눠 적는다."
+        set ProtoBranchCard[229] = 34
         set ProtoBranchCard2[229] = 0
         set ProtoBranchGold[229] = 0
         set ProtoBranchCost[229] = 0
@@ -498,12 +518,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[229] = 1
         set ProtoBranchPotions[229] = 0
         set ProtoBranchChance[229] = 100
-        set ProtoBranchLabel[230] = "확인된 물건만 정리하고 보수와 보급을 받는다"
-        set ProtoBranchResult[230] = "이름이 확인된 물건만 정리하고 일을 맡긴 사람에게 보수와 보급 물약을 받았다. 타이가에게 이름 없는 상자를 따로 보여 주고 조사를 남겨 둔다."
-        set ProtoBranchCard[230] = 0
+        set ProtoBranchLabel[230] = "160골드로 포장을 마련하고 시로와 아직 이름 없는 상자의 몫을 맡는다"
+        set ProtoBranchResult[230] = "시로와 이름 없는 상자의 포장을 나누고 주인이 올 때까지 맡을 몫을 정했다. 160골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 물약1개를 받았다. 타이가는 그 상자에 아무 이름이나 쓰지 않고 네가 맡을 몫만 따로 표시한다."
+        set ProtoBranchCard[230] = 35
         set ProtoBranchCard2[230] = 0
-        set ProtoBranchGold[230] = 150
-        set ProtoBranchCost[230] = 0
+        set ProtoBranchGold[230] = 0
+        set ProtoBranchCost[230] = 160
         set ProtoBranchLevel[230] = 0
         set ProtoBranchDensity[230] = 0
         set ProtoBranchPotions[230] = 1
@@ -540,12 +560,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[233] = -1
         set ProtoBranchPotions[233] = 0
         set ProtoBranchChance[233] = 100
-        set ProtoBranchLabel[234] = "연락이 닿은 곳만 정리해 보수와 물약을 받는다"
-        set ProtoBranchResult[234] = "연락이 닿은 곳의 자료 정리를 돕고 조사 보수와 보급 물약을 받았다. 시로에게 답이 없는 항목을 따로 넘긴다. 누락된 연락을 버리거나 전부 끝냈다고 하지는 않는다."
-        set ProtoBranchCard[234] = 0
+        set ProtoBranchLabel[234] = "160골드로 연락할 준비를 마련하고 시로와 아직 답 없는 일을 나눈다"
+        set ProtoBranchResult[234] = "시로와 답 없는 곳에 다시 연락할 일을 나누고 이미 끝난 일과 다른 줄에 적었다. 160골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 물약1개를 받았다. 린은 네가 맡은 항목을 지우는 대신 누구에게 다시 물을지 옆에 남긴다."
+        set ProtoBranchCard[234] = 35
         set ProtoBranchCard2[234] = 0
-        set ProtoBranchGold[234] = 150
-        set ProtoBranchCost[234] = 0
+        set ProtoBranchGold[234] = 0
+        set ProtoBranchCost[234] = 160
         set ProtoBranchLevel[234] = 0
         set ProtoBranchDensity[234] = 0
         set ProtoBranchPotions[234] = 1
@@ -561,12 +581,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequired[59] = 0
         set ProtoEventRequiredChoice[59] = 0
         set ProtoEventRequiredCard[59] = 0
-        set ProtoEventFailure[59] = "연락 비용은 썼지만 제안을 뒷받침할 자료를 확인하지 못했다. 넓은 길목을 맡은 부담과 개인 사냥의 늘어난 적 수는 남고, 카드와 자료 보수는 받지 못한다."
+        set ProtoEventFailure[59] = "연락 비용은 썼지만 제안을 뒷받침할 자료를 확인하지 못했다. 넓은 길목을 맡은 부담과 개인 사냥의 늘어난 적 수는 남고, 카드는 받지 못한다."
         set ProtoBranchLabel[236] = "연락 비용을 내고 더 넓은 구역에서 제안의 근거를 찾는다"
-        set ProtoBranchResult[236] = "연락 비용을 내고 서로 맞는 자료를 찾아 린과 제안의 빈틈을 짚었다. 확인 자료를 넘긴 보수도 받았다. 더 넓은 길목을 맡아 개인 사냥의 적 수는 늘었고 협력을 받아들일지는 아직 정하지 않았다."
+        set ProtoBranchResult[236] = "연락 비용을 내고 더 넓은 길목에서 제안과 맞는 자료를 찾아 린과 빈틈을 짚었다. 180골드를 지불했다. 「술식의 취약점」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계는1올랐다. 신지가 답을 재촉하자 린은 확인한 문장과 아직 빠진 조건을 따로 펼친다."
         set ProtoBranchCard[236] = 16
         set ProtoBranchCard2[236] = 0
-        set ProtoBranchGold[236] = 280
+        set ProtoBranchGold[236] = 0
         set ProtoBranchCost[236] = 180
         set ProtoBranchLevel[236] = 0
         set ProtoBranchDensity[236] = 1
@@ -582,12 +602,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[237] = 0
         set ProtoBranchPotions[237] = 0
         set ProtoBranchChance[237] = 100
-        set ProtoBranchLabel[238] = "확인된 문장만 따로 적고 조사 보수를 받는다"
-        set ProtoBranchResult[238] = "확인된 문장만 따로 옮겨 조사 정리 보수를 받았다. 신지가 빠뜨린 조건은 빈칸으로 남겼다. 린과 시로가 제안을 계속 검토할 자리는 남겨 둔다."
-        set ProtoBranchCard[238] = 0
+        set ProtoBranchLabel[238] = "160골드로 확인할 준비를 갖추고 시로와 답하기 전 맡을 일을 나눈다"
+        set ProtoBranchResult[238] = "시로와 제안에 답하기 전에 확인할 일을 나눴다. 160골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 신지는 협력할 것이냐고 다시 묻지만 시로는 아직 확인하지 않은 조건부터 남긴다."
+        set ProtoBranchCard[238] = 35
         set ProtoBranchCard2[238] = 0
-        set ProtoBranchGold[238] = 170
-        set ProtoBranchCost[238] = 0
+        set ProtoBranchGold[238] = 0
+        set ProtoBranchCost[238] = 160
         set ProtoBranchLevel[238] = 0
         set ProtoBranchDensity[238] = 0
         set ProtoBranchPotions[238] = 0
@@ -624,12 +644,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[241] = 0
         set ProtoBranchPotions[241] = 0
         set ProtoBranchChance[241] = 100
-        set ProtoBranchLabel[242] = "멀리 나가지 않고 보급 정리를 도와 보수를 받는다"
-        set ProtoBranchResult[242] = "가까운 보급 정리를 도와 보수와 물약을 받았다. 맡을 길목을 한 곳 덜어 개인 사냥의 적 수도 줄었다. 멀리 둘러볼 곳은 두 사람에게 맡긴다."
-        set ProtoBranchCard[242] = 0
+        set ProtoBranchLabel[242] = "160골드로 가까운 길의 준비를 갖추고 시로와 남은 몫을 나눈다"
+        set ProtoBranchResult[242] = "시로와 가까운 길의 준비를 나누고 멀리 갈 몫은 다른 사람에게 남겼다. 160골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 세이버가 둘러볼 길을 묻자 시로는 네가 맡은 가까운 쪽부터 다시 가리킨다."
+        set ProtoBranchCard[242] = 35
         set ProtoBranchCard2[242] = 0
-        set ProtoBranchGold[242] = 130
-        set ProtoBranchCost[242] = 0
+        set ProtoBranchGold[242] = 0
+        set ProtoBranchCost[242] = 160
         set ProtoBranchLevel[242] = 0
         set ProtoBranchDensity[242] = -1
         set ProtoBranchPotions[242] = 1
@@ -645,20 +665,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequired[61] = 0
         set ProtoEventRequiredChoice[61] = 0
         set ProtoEventRequiredCard[61] = 0
-        set ProtoEventFailure[61] = "조사 비용을 썼지만 빠진 사실을 확인하지 못했다. 더 넓은 길목을 맡아 개인 사냥의 적 수가 늘어난 상태는 남는다. 확인 보수와 카드는 받지 못하며 교사의 정체도 단정하지 않는다."
+        set ProtoEventFailure[61] = "조사 비용을 썼지만 빠진 사실을 확인하지 못했다. 더 넓은 길목을 맡아 개인 사냥의 적 수가 늘어난 상태는 남는다. 카드는 받지 못하며 교사의 정체도 단정하지 않는다."
         set ProtoBranchLabel[244] = "조사 비용을 내고 더 넓은 길목에서 빠진 사실을 확인한다"
-        set ProtoBranchResult[244] = "조사 비용을 내고 확인할 길목을 넓혀 빠진 시각과 장소를 찾았다. 린과 사실을 짚는 순서를 배우고 자료 보수를 받았다. 개인 사냥의 적 수는 늘었지만 교사의 정체를 단정하지는 않는다."
+        set ProtoBranchResult[244] = "더 넓은 길목에서 빠진 시각과 장소를 찾고 린과 직접 본 말의 순서를 맞췄다. 120골드를 지불했다. 「답을 기다리는 순서」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계는1올랐다. 린은 교사의 이름 아래에 결론을 쓰려던 네 손을 멈추고 아직 듣기만 한 줄을 짚는다."
         set ProtoBranchCard[244] = 22
         set ProtoBranchCard2[244] = 0
-        set ProtoBranchGold[244] = 220
+        set ProtoBranchGold[244] = 0
         set ProtoBranchCost[244] = 120
         set ProtoBranchLevel[244] = 0
         set ProtoBranchDensity[244] = 1
         set ProtoBranchPotions[244] = 0
         set ProtoBranchChance[244] = 70
         set ProtoBranchLabel[245] = "기록 도구를 마련해 시로와 확인된 길의 구조를 살핀다"
-        set ProtoBranchResult[245] = "기록 도구 값을 내고 시로와 진술에 나온 길의 구조를 직접 맞춰 보았다. 복잡한 부분을 하나씩 살피는 요령을 배웠다. 들은 말까지 확인된 사실로 바꾸지는 않았다."
-        set ProtoBranchCard[245] = 13
+        set ProtoBranchResult[245] = "시로와 진술에 나온 길을 직접 보며 문의 구조와 지나갈 자리를 기록에 맞췄다. 180골드를 지불했다. 「맞춰 본 빈칸」의 기억 카드1장을 얻었다. 시로는 들은 말까지 같은 표시로 채우지 않고 아직 묻지 않은 자리를 남긴다."
+        set ProtoBranchCard[245] = 34
         set ProtoBranchCard2[245] = 0
         set ProtoBranchGold[245] = 0
         set ProtoBranchCost[245] = 180
@@ -666,12 +686,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[245] = 0
         set ProtoBranchPotions[245] = 0
         set ProtoBranchChance[245] = 100
-        set ProtoBranchLabel[246] = "빈칸을 그대로 남기고 기록 보수를 받는다"
-        set ProtoBranchResult[246] = "직접 본 일과 전해 들은 일을 다른 줄에 적어 기록 보수를 받았다. 빈칸은 빈칸으로 남긴다. 린에게 더 물어볼 항목을 따로 건넸다."
-        set ProtoBranchCard[246] = 0
+        set ProtoBranchLabel[246] = "160골드로 물어볼 준비를 하고 시로와 확인되지 않은 일을 남겨 둔다"
+        set ProtoBranchResult[246] = "시로와 확인되지 않은 일을 남겨 두고 다음에 직접 물을 몫을 나눴다. 160골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 린이 빈 줄을 다시 보자 시로는 같은 학교의 사람이라는 이유로 그 줄을 채우지 않는다."
+        set ProtoBranchCard[246] = 35
         set ProtoBranchCard2[246] = 0
-        set ProtoBranchGold[246] = 160
-        set ProtoBranchCost[246] = 0
+        set ProtoBranchGold[246] = 0
+        set ProtoBranchCost[246] = 160
         set ProtoBranchLevel[246] = 0
         set ProtoBranchDensity[246] = 0
         set ProtoBranchPotions[246] = 0
@@ -708,12 +728,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[249] = 0
         set ProtoBranchPotions[249] = 0
         set ProtoBranchChance[249] = 100
-        set ProtoBranchLabel[250] = "둘의 주장을 따로 적고 보급 정리 일을 돕는다"
-        set ProtoBranchResult[250] = "둘의 주장을 다른 줄에 적고 보급 준비 일을 도왔다. 작업 보수와 물약을 받았다. 누가 옳다고 판정하지 않고 둘이 남긴 질문도 함께 적어 둔다."
-        set ProtoBranchCard[250] = 0
+        set ProtoBranchLabel[250] = "180골드로 보급을 마련하고 시로와 다음에 맡을 몫부터 나눈다"
+        set ProtoBranchResult[250] = "시로와 다음에 맡을 보급을 나누되 둘의 주장은 다른 줄에 남겼다. 180골드를 지불했다. 「이름 없이 맡긴 부탁」의 기억 카드1장을 얻었다. 물약1개를 받았다. 아처가 감당할 몫을 다시 묻자 시로도 네가 맡지 않은 사람의 이름을 지우지 않는다."
+        set ProtoBranchCard[250] = 35
         set ProtoBranchCard2[250] = 0
-        set ProtoBranchGold[250] = 180
-        set ProtoBranchCost[250] = 0
+        set ProtoBranchGold[250] = 0
+        set ProtoBranchCost[250] = 180
         set ProtoBranchLevel[250] = 0
         set ProtoBranchDensity[250] = 0
         set ProtoBranchPotions[250] = 1
@@ -750,12 +770,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[253] = 0
         set ProtoBranchPotions[253] = 0
         set ProtoBranchChance[253] = 100
-        set ProtoBranchLabel[254] = "가까이 다가가지 않고 맡을 길목을 줄인다"
-        set ProtoBranchResult[254] = "가까이 다가가는 대신 맡을 길목을 줄여 개인 사냥의 적 수가 줄었다. 세이버는 아직 간격을 제대로 보지 못했다면 다시 보러 와도 된다고 말한다. 랜서는 네가 물러난 쪽을 지켜보며 창을 자기 옆으로 돌린다."
-        set ProtoBranchCard[254] = 0
+        set ProtoBranchLabel[254] = "160골드로 연습할 준비를 갖추고 세이버와 물러선 자리의 검끝을 본다"
+        set ProtoBranchResult[254] = "세이버와 물러선 자리에서 검끝이 지나갈 간격을 다시 살폈다. 160골드를 지불했다. 「검끝의 간격」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 랜서가 창을 고쳐 쥐자 세이버는 이번에는 빈 쪽보다 네 검이 돌아올 쪽을 보라고 한다."
+        set ProtoBranchCard[254] = 15
         set ProtoBranchCard2[254] = 0
         set ProtoBranchGold[254] = 0
-        set ProtoBranchCost[254] = 0
+        set ProtoBranchCost[254] = 160
         set ProtoBranchLevel[254] = 0
         set ProtoBranchDensity[254] = -1
         set ProtoBranchPotions[254] = 0
@@ -824,9 +844,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[260] = 0
         set ProtoBranchPotions[260] = 0
         set ProtoBranchChance[260] = 100
-        set ProtoBranchLabel[261] = "더 많은 개인 사냥을 맡고 타이가에게 실패한 동작을 묻는다"
-        set ProtoBranchResult[261] = "개인 사냥의 몬스터 수 단계를1올리는 부담을 맡고 자기 실패의 동작을 물었다. 치명타 확률과 방향 공격 피해가 늘었다. 타이가는 더 많이 하는 것과 서두르는 것이 같은 말은 아니라며 다음 화살 앞에 말을 남긴다."
-        set ProtoBranchCard[261] = 29
+        set ProtoBranchLabel[261] = "더 많은 개인 사냥을 맡고 시로가 건넨 화살과 내 손의 순서를 본다"
+        set ProtoBranchResult[261] = "시로가 건넨 화살을 받기 전에 내 손과 도구가 닿는 순서를 먼저 살폈다. 「맞춰 본 빈칸」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계는1올랐다. 타이가는 다음 표적보다 네가 아직 받지 않은 화살부터 보라고 한다."
+        set ProtoBranchCard[261] = 34
         set ProtoBranchCard2[261] = 0
         set ProtoBranchGold[261] = 0
         set ProtoBranchCost[261] = 0
@@ -834,12 +854,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[261] = 1
         set ProtoBranchPotions[261] = 0
         set ProtoBranchChance[261] = 100
-        set ProtoBranchLabel[262] = "오늘 연습을 마치고 내가 맡은 정리의 보수만 받는다"
-        set ProtoBranchResult[262] = "연습을 마치고 자기가 맡은 정리의 보수120골드를 받았다. 시로가 가져온 화살은 내려놓았지만 타이가는 네가 처음 던진 질문을 아직 끝내지 않는다."
-        set ProtoBranchCard[262] = 0
+        set ProtoBranchLabel[262] = "160골드로 준비 목록을 마련하고 타이가와 아직 안 받은 물건부터 확인한다"
+        set ProtoBranchResult[262] = "타이가와 준비 목록을 나눠 적고 아직 손에 받지 않은 물건부터 확인했다. 160골드를 지불했다. 「빠뜨린 이름까지」의 기억 카드1장을 얻었다. 타이가는 화살을 받았는지 묻고 시로는 네가 비워 둔 손 앞으로 그것을 다시 놓는다."
+        set ProtoBranchCard[262] = 21
         set ProtoBranchCard2[262] = 0
-        set ProtoBranchGold[262] = 120
-        set ProtoBranchCost[262] = 0
+        set ProtoBranchGold[262] = 0
+        set ProtoBranchCost[262] = 160
         set ProtoBranchLevel[262] = 0
         set ProtoBranchDensity[262] = 0
         set ProtoBranchPotions[262] = 0
@@ -876,12 +896,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[265] = 0
         set ProtoBranchPotions[265] = 0
         set ProtoBranchChance[265] = 100
-        set ProtoBranchLabel[266] = "내 사냥의 적 수를 줄이고 돌아갈 보급을 챙긴다"
-        set ProtoBranchResult[266] = "개인 사냥의 몬스터 수 단계를1낮추고 귀환 준비의 물약2개를 챙겼다. 문 밖으로 가져갈 보급은 정했지만 키레이가 되물었던 보호의 뜻은 네 대답을 기다리고 있다."
-        set ProtoBranchCard[266] = 0
+        set ProtoBranchLabel[266] = "180골드로 확인할 자료를 마련하고 린과 보호의 말에서 빠진 범위를 짚는다"
+        set ProtoBranchResult[266] = "린과 보호의 말에서 빠진 범위를 자료에 나눠 적고 다음 위험에 맞춰 준비했다. 180골드를 지불했다. 「술식의 취약점」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약2개를 받았다. 키레이가 아직 답을 기다리자 린은 교회 밖의 네 사냥까지 약속한 말은 없다고 자료를 돌려 준다."
+        set ProtoBranchCard[266] = 16
         set ProtoBranchCard2[266] = 0
         set ProtoBranchGold[266] = 0
-        set ProtoBranchCost[266] = 0
+        set ProtoBranchCost[266] = 180
         set ProtoBranchLevel[266] = 0
         set ProtoBranchDensity[266] = -1
         set ProtoBranchPotions[266] = 2
@@ -918,12 +938,12 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[269] = 0
         set ProtoBranchPotions[269] = 0
         set ProtoBranchChance[269] = 100
-        set ProtoBranchLabel[270] = "내 사냥의 적 수를 줄이고 뒤로 물러날 보급을 챙긴다"
-        set ProtoBranchResult[270] = "개인 사냥의 몬스터 수 단계를1낮추고 뒤로 물러날 준비의 물약1개를 챙겼다. 자기 발은 뺐지만 아처와 랜서가 보는 다음 움직임은 여전히 남아 있다."
-        set ProtoBranchCard[270] = 0
+        set ProtoBranchLabel[270] = "180골드로 관찰할 준비를 갖추고 아처와 다음 큰 상대의 위치를 나눈다"
+        set ProtoBranchResult[270] = "아처와 다음 큰 상대를 관찰할 위치를 나누고 되돌아설 순간을 다시 짚었다. 180골드를 지불했다. 「전장 계산」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 랜서가 창을 돌리자 아처는 막았던 손보다 아직 시작하지 않은 다음 움직임을 본다."
+        set ProtoBranchCard[270] = 17
         set ProtoBranchCard2[270] = 0
         set ProtoBranchGold[270] = 0
-        set ProtoBranchCost[270] = 0
+        set ProtoBranchCost[270] = 180
         set ProtoBranchLevel[270] = 0
         set ProtoBranchDensity[270] = -1
         set ProtoBranchPotions[270] = 1
@@ -932,7 +952,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventName[68] = "아직 당기지 않은 줄"
         set ProtoEventHead[68] = 1
         set ProtoEventKind[68] = 1
-        set ProtoEventChoices[68] = 4
+        set ProtoEventChoices[68] = 3
         set ProtoEventStory[68] = "타이가에게 성급한 동작을 물었던 네 앞에 시로가 다음 화살을 놓는다. 타이가는 아직 줄을 당기지 않았는데 네 눈이 벌써 표적에 가 있다고 말한다. 시로가 가져온 화살은 손 닿을 곳에 있지만 네 손은 그것을 받기 전에 다시 앞을 향한다."
         set ProtoEventIntro[68] = "놓지 않은 손보다 결과가 먼저 앞서갔다."
         set ProtoEventIcon[68] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -950,9 +970,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[272] = 0
         set ProtoBranchPotions[272] = 0
         set ProtoBranchChance[272] = 75
-        set ProtoBranchLabel[273] = "220골드로 충분히 준비하고 타이가에게 다음 간격을 다시 묻는다"
-        set ProtoBranchResult[273] = "연습 준비값220골드를 내고 타이가에게 다음 간격을 다시 물었다. 차지 준비 속도와 치명타 확률이 늘었다. 타이가는 네가 표적보다 먼저 묻는 말을 듣고도 다음 화살을 받을 손부터 보라고 한다."
-        set ProtoBranchCard[273] = 33
+        set ProtoBranchLabel[273] = "220골드로 내 연습을 준비하고 시로가 건넨 화살을 받을 차례부터 본다"
+        set ProtoBranchResult[273] = "시로가 건넨 화살을 받을 차례부터 다시 맞추며 내 손과 도구의 순서를 살폈다. 220골드를 지불했다. 「맞춰 본 빈칸」의 기억 카드1장을 얻었다. 타이가는 네 눈이 표적을 떠난 뒤에도 다음 화살을 받을 손은 놓치지 말라고 한다."
+        set ProtoBranchCard[273] = 34
         set ProtoBranchCard2[273] = 0
         set ProtoBranchGold[273] = 0
         set ProtoBranchCost[273] = 220
@@ -970,16 +990,6 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[274] = 0
         set ProtoBranchPotions[274] = 0
         set ProtoBranchChance[274] = 100
-        set ProtoBranchLabel[275] = "연습을 마치고 남은 내 준비의 보급을 챙긴다"
-        set ProtoBranchResult[275] = "연습을 마치고 남은 자기 준비에서100골드와물약2개를 챙겼다. 타이가는 마지막 화살을 먼저 들지 않고 네가 내려놓은 손과 아직 남은 표적을 번갈아 본다."
-        set ProtoBranchCard[275] = 0
-        set ProtoBranchCard2[275] = 0
-        set ProtoBranchGold[275] = 100
-        set ProtoBranchCost[275] = 0
-        set ProtoBranchLevel[275] = 0
-        set ProtoBranchDensity[275] = 0
-        set ProtoBranchPotions[275] = 2
-        set ProtoBranchChance[275] = 100
     endfunction
 
     function ProtoLoadWorld1 takes nothing returns nothing
@@ -987,7 +997,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[2] = "액셀"
         set ProtoHeadIntro[2] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoHeadIcon[2] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
-        set ProtoHeadEntryCard[2] = 34
+        set ProtoHeadEntryCard[2] = 36
         call SaveReal(ProtoHeadEffectData, 2, 17, 1.00)
         set ProtoEventKey[5] = "axel_entry_0"
         set ProtoEventName[5] = "액셀 방문"
@@ -1021,193 +1031,193 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[8] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIntro[8] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIcon[8] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
-        set ProtoCardKey[34] = "axel_luna"
-        set ProtoCardName[34] = "루나"
-        set ProtoCardEffectName[34] = "의뢰의 정리"
-        set ProtoCardKeyword[34] = "액셀 · 탐색"
-        set ProtoCardHead[34] = 2
-        set ProtoCardGrade[34] = 1
-        set ProtoEvolutionKind[34] = 0
-        set ProtoEvolutionGoal[34] = 0.00
-        call ProtoSetEffect(34, 18, 1.00, false)
-        set ProtoCardKey[35] = "axel_kazuma"
-        set ProtoCardName[35] = "사토 카즈마"
-        set ProtoCardEffectName[35] = "운 좋은 모험가"
-        set ProtoCardKeyword[35] = "액셀 · 치명 · 수급"
-        set ProtoCardHead[35] = 2
-        set ProtoCardGrade[35] = 2
-        set ProtoEvolutionKind[35] = 0
-        set ProtoEvolutionGoal[35] = 0.00
-        call ProtoSetEffect(35, 6, 5.00, false)
-        call ProtoSetEffect(35, 17, 1.00, false)
-        set ProtoCardKey[36] = "axel_chris"
-        set ProtoCardName[36] = "크리스"
-        set ProtoCardEffectName[36] = "도적의 손놀림"
-        set ProtoCardKeyword[36] = "액셀 · 신속"
+        set ProtoCardKey[36] = "axel_luna"
+        set ProtoCardName[36] = "루나"
+        set ProtoCardEffectName[36] = "의뢰의 정리"
+        set ProtoCardKeyword[36] = "액셀 · 탐색"
         set ProtoCardHead[36] = 2
-        set ProtoCardGrade[36] = 2
-        set ProtoEvolutionKind[36] = 3
-        set ProtoEvolutionGoal[36] = 60.00
-        call ProtoSetEffect(36, 8, 180.00, false)
-        call ProtoSetEffect(36, 20, 10.00, false)
-        call ProtoSetEffect(36, 7, 15.00, true)
-        set ProtoCardKey[37] = "axel_megumin"
-        set ProtoCardName[37] = "메구밍"
-        set ProtoCardEffectName[37] = "폭렬 마법에 올인"
-        set ProtoCardKeyword[37] = "액셀 · 차지 · 패널티"
+        set ProtoCardGrade[36] = 1
+        set ProtoEvolutionKind[36] = 0
+        set ProtoEvolutionGoal[36] = 0.00
+        call ProtoSetEffect(36, 18, 1.00, false)
+        set ProtoCardKey[37] = "axel_kazuma"
+        set ProtoCardName[37] = "사토 카즈마"
+        set ProtoCardEffectName[37] = "운 좋은 모험가"
+        set ProtoCardKeyword[37] = "액셀 · 치명 · 수급"
         set ProtoCardHead[37] = 2
-        set ProtoCardGrade[37] = 3
-        set ProtoEvolutionKind[37] = 2
-        set ProtoEvolutionGoal[37] = 12000.00
-        call ProtoSetEffect(37, 23, 24.00, false)
-        call ProtoSetEffect(37, 11, 8.00, false)
-        call ProtoSetEffect(37, 9, -3.00, false)
-        call ProtoSetEffect(37, 23, 10.00, true)
-        set ProtoCardKey[38] = "axel_darkness"
-        set ProtoCardName[38] = "다크니스"
-        set ProtoCardEffectName[38] = "서툰 검과 단단한 갑옷"
-        set ProtoCardKeyword[38] = "액셀 · 생존 · 패널티"
+        set ProtoCardGrade[37] = 2
+        set ProtoEvolutionKind[37] = 0
+        set ProtoEvolutionGoal[37] = 0.00
+        call ProtoSetEffect(37, 6, 5.00, false)
+        call ProtoSetEffect(37, 17, 1.00, false)
+        set ProtoCardKey[38] = "axel_chris"
+        set ProtoCardName[38] = "크리스"
+        set ProtoCardEffectName[38] = "도적의 손놀림"
+        set ProtoCardKeyword[38] = "액셀 · 신속"
         set ProtoCardHead[38] = 2
         set ProtoCardGrade[38] = 2
-        set ProtoEvolutionKind[38] = 0
-        set ProtoEvolutionGoal[38] = 0.00
-        call ProtoSetEffect(38, 13, 18.00, false)
-        call ProtoSetEffect(38, 14, 8.00, false)
-        call ProtoSetEffect(38, 1, -5.00, false)
-        set ProtoCardKey[39] = "axel_aqua"
-        set ProtoCardName[39] = "아쿠아"
-        set ProtoCardEffectName[39] = "아크 프리스트의 축복"
-        set ProtoCardKeyword[39] = "액셀 · 재생"
+        set ProtoEvolutionKind[38] = 3
+        set ProtoEvolutionGoal[38] = 60.00
+        call ProtoSetEffect(38, 8, 180.00, false)
+        call ProtoSetEffect(38, 20, 10.00, false)
+        call ProtoSetEffect(38, 7, 15.00, true)
+        set ProtoCardKey[39] = "axel_megumin"
+        set ProtoCardName[39] = "메구밍"
+        set ProtoCardEffectName[39] = "폭렬 마법에 올인"
+        set ProtoCardKeyword[39] = "액셀 · 차지 · 패널티"
         set ProtoCardHead[39] = 2
-        set ProtoCardGrade[39] = 2
-        set ProtoEvolutionKind[39] = 0
-        set ProtoEvolutionGoal[39] = 0.00
-        call ProtoSetEffect(39, 16, 0.70, false)
-        call ProtoSetEffect(39, 24, 12.00, false)
-        set ProtoCardKey[40] = "axel_wiz"
-        set ProtoCardName[40] = "위즈"
-        set ProtoCardEffectName[40] = "마도구 감정"
-        set ProtoCardKeyword[40] = "액셀 · 공격"
+        set ProtoCardGrade[39] = 3
+        set ProtoEvolutionKind[39] = 2
+        set ProtoEvolutionGoal[39] = 12000.00
+        call ProtoSetEffect(39, 23, 24.00, false)
+        call ProtoSetEffect(39, 11, 8.00, false)
+        call ProtoSetEffect(39, 9, -3.00, false)
+        call ProtoSetEffect(39, 23, 10.00, true)
+        set ProtoCardKey[40] = "axel_darkness"
+        set ProtoCardName[40] = "다크니스"
+        set ProtoCardEffectName[40] = "서툰 검과 단단한 갑옷"
+        set ProtoCardKeyword[40] = "액셀 · 생존 · 패널티"
         set ProtoCardHead[40] = 2
         set ProtoCardGrade[40] = 2
         set ProtoEvolutionKind[40] = 0
         set ProtoEvolutionGoal[40] = 0.00
-        call ProtoSetEffect(40, 1, 10.00, false)
-        call ProtoSetEffect(40, 21, 8.00, false)
-        set ProtoCardKey[41] = "axel_vanir"
-        set ProtoCardName[41] = "바니르"
-        set ProtoCardEffectName[41] = "가면 너머의 계산"
-        set ProtoCardKeyword[41] = "액셀 · 보스 · 관통"
+        call ProtoSetEffect(40, 13, 18.00, false)
+        call ProtoSetEffect(40, 14, 8.00, false)
+        call ProtoSetEffect(40, 1, -5.00, false)
+        set ProtoCardKey[41] = "axel_aqua"
+        set ProtoCardName[41] = "아쿠아"
+        set ProtoCardEffectName[41] = "아크 프리스트의 축복"
+        set ProtoCardKeyword[41] = "액셀 · 재생"
         set ProtoCardHead[41] = 2
-        set ProtoCardGrade[41] = 3
-        set ProtoEvolutionKind[41] = 1
-        set ProtoEvolutionGoal[41] = 45.00
-        call ProtoSetEffect(41, 4, 14.00, false)
-        call ProtoSetEffect(41, 12, 10.00, false)
-        call ProtoSetEffect(41, 7, 15.00, true)
-        set ProtoCardKey[42] = "axel_aqua_stage"
-        set ProtoCardName[42] = "아쿠아"
-        set ProtoCardEffectName[42] = "박수가 끝난 뒤의 준비"
-        set ProtoCardKeyword[42] = "액셀 · 사건 후보 · 재생"
+        set ProtoCardGrade[41] = 2
+        set ProtoEvolutionKind[41] = 0
+        set ProtoEvolutionGoal[41] = 0.00
+        call ProtoSetEffect(41, 16, 0.70, false)
+        call ProtoSetEffect(41, 24, 12.00, false)
+        set ProtoCardKey[42] = "axel_wiz"
+        set ProtoCardName[42] = "위즈"
+        set ProtoCardEffectName[42] = "마도구 감정"
+        set ProtoCardKeyword[42] = "액셀 · 공격"
         set ProtoCardHead[42] = 2
         set ProtoCardGrade[42] = 2
         set ProtoEvolutionKind[42] = 0
         set ProtoEvolutionGoal[42] = 0.00
-        call ProtoSetEffect(42, 18, 1.00, false)
-        call ProtoSetEffect(42, 16, 0.30, false)
-        set ProtoCardKey[43] = "axel_darkness_small"
-        set ProtoCardName[43] = "다크니스"
-        set ProtoCardEffectName[43] = "갑옷 옆에 남긴 작은 자리"
-        set ProtoCardKeyword[43] = "액셀 · 최대 체력 · 고체력"
+        call ProtoSetEffect(42, 1, 10.00, false)
+        call ProtoSetEffect(42, 21, 8.00, false)
+        set ProtoCardKey[43] = "axel_vanir"
+        set ProtoCardName[43] = "바니르"
+        set ProtoCardEffectName[43] = "가면 너머의 계산"
+        set ProtoCardKeyword[43] = "액셀 · 보스 · 관통"
         set ProtoCardHead[43] = 2
-        set ProtoCardGrade[43] = 2
-        set ProtoEvolutionKind[43] = 0
-        set ProtoEvolutionGoal[43] = 0.00
-        call ProtoSetEffect(43, 13, 10.00, false)
-        call ProtoSetEffect(43, 24, 12.00, false)
-        set ProtoCardKey[44] = "axel_yunyun_practice"
-        set ProtoCardName[44] = "융융"
-        set ProtoCardEffectName[44] = "다른 마법도 준비할 시간"
-        set ProtoCardKeyword[44] = "액셀 · 차지 · 비방향 피해"
+        set ProtoCardGrade[43] = 3
+        set ProtoEvolutionKind[43] = 1
+        set ProtoEvolutionGoal[43] = 45.00
+        call ProtoSetEffect(43, 4, 14.00, false)
+        call ProtoSetEffect(43, 12, 10.00, false)
+        call ProtoSetEffect(43, 7, 15.00, true)
+        set ProtoCardKey[44] = "axel_aqua_stage"
+        set ProtoCardName[44] = "아쿠아"
+        set ProtoCardEffectName[44] = "박수가 끝난 뒤의 준비"
+        set ProtoCardKeyword[44] = "액셀 · 사건 후보 · 재생"
         set ProtoCardHead[44] = 2
         set ProtoCardGrade[44] = 2
-        set ProtoEvolutionKind[44] = 2
-        set ProtoEvolutionGoal[44] = 10000.00
-        call ProtoSetEffect(44, 23, 12.00, false)
-        call ProtoSetEffect(44, 21, 12.00, false)
-        call ProtoSetEffect(44, 11, 3.00, true)
-        set ProtoCardKey[45] = "axel_mitsurugi_stance"
-        set ProtoCardName[45] = "미츠루기"
-        set ProtoCardEffectName[45] = "이름을 말하기 전의 자세"
-        set ProtoCardKeyword[45] = "액셀 · 방향 피해 · 보스"
+        set ProtoEvolutionKind[44] = 0
+        set ProtoEvolutionGoal[44] = 0.00
+        call ProtoSetEffect(44, 18, 1.00, false)
+        call ProtoSetEffect(44, 16, 0.30, false)
+        set ProtoCardKey[45] = "axel_darkness_small"
+        set ProtoCardName[45] = "다크니스"
+        set ProtoCardEffectName[45] = "갑옷 옆에 남긴 작은 자리"
+        set ProtoCardKeyword[45] = "액셀 · 최대 체력 · 고체력"
         set ProtoCardHead[45] = 2
         set ProtoCardGrade[45] = 2
         set ProtoEvolutionKind[45] = 0
         set ProtoEvolutionGoal[45] = 0.00
-        call ProtoSetEffect(45, 20, 12.00, false)
-        call ProtoSetEffect(45, 4, 10.00, false)
-        set ProtoCardKey[46] = "axel_luna_arrival"
-        set ProtoCardName[46] = "루나"
-        set ProtoCardEffectName[46] = "처음 온 사람의 다음 질문"
-        set ProtoCardKeyword[46] = "액셀 · 사건 후보 · 수급 · 최대 체력"
+        call ProtoSetEffect(45, 13, 10.00, false)
+        call ProtoSetEffect(45, 24, 12.00, false)
+        set ProtoCardKey[46] = "axel_yunyun_practice"
+        set ProtoCardName[46] = "융융"
+        set ProtoCardEffectName[46] = "다른 마법도 준비할 시간"
+        set ProtoCardKeyword[46] = "액셀 · 차지 · 비방향 피해"
         set ProtoCardHead[46] = 2
         set ProtoCardGrade[46] = 2
-        set ProtoEvolutionKind[46] = 0
-        set ProtoEvolutionGoal[46] = 0.00
-        call ProtoSetEffect(46, 18, 1.00, false)
-        call ProtoSetEffect(46, 17, 2.00, false)
-        call ProtoSetEffect(46, 13, 4.00, false)
-        set ProtoCardKey[47] = "axel_aqua_rope"
-        set ProtoCardName[47] = "아쿠아"
-        set ProtoCardEffectName[47] = "끌어올릴 때까지 놓지 않기"
-        set ProtoCardKeyword[47] = "액셀 · 최대 체력 · 피해 감소"
+        set ProtoEvolutionKind[46] = 2
+        set ProtoEvolutionGoal[46] = 10000.00
+        call ProtoSetEffect(46, 23, 12.00, false)
+        call ProtoSetEffect(46, 21, 12.00, false)
+        call ProtoSetEffect(46, 11, 3.00, true)
+        set ProtoCardKey[47] = "axel_mitsurugi_stance"
+        set ProtoCardName[47] = "미츠루기"
+        set ProtoCardEffectName[47] = "이름을 말하기 전의 자세"
+        set ProtoCardKeyword[47] = "액셀 · 방향 피해 · 보스"
         set ProtoCardHead[47] = 2
         set ProtoCardGrade[47] = 2
         set ProtoEvolutionKind[47] = 0
         set ProtoEvolutionGoal[47] = 0.00
-        call ProtoSetEffect(47, 13, 10.00, false)
-        call ProtoSetEffect(47, 14, 6.00, false)
-        set ProtoCardKey[48] = "axel_kazuma_snow"
-        set ProtoCardName[48] = "사토 카즈마"
-        set ProtoCardEffectName[48] = "먼 발자국을 따라갈 때"
-        set ProtoCardKeyword[48] = "액셀 · 이동 · 일반 적"
+        call ProtoSetEffect(47, 20, 12.00, false)
+        call ProtoSetEffect(47, 4, 10.00, false)
+        set ProtoCardKey[48] = "axel_luna_arrival"
+        set ProtoCardName[48] = "루나"
+        set ProtoCardEffectName[48] = "처음 온 사람의 다음 질문"
+        set ProtoCardKeyword[48] = "액셀 · 사건 후보 · 수급 · 최대 체력"
         set ProtoCardHead[48] = 2
         set ProtoCardGrade[48] = 2
-        set ProtoEvolutionKind[48] = 1
-        set ProtoEvolutionGoal[48] = 40.00
-        call ProtoSetEffect(48, 10, 5.00, false)
-        call ProtoSetEffect(48, 5, 12.00, false)
-        call ProtoSetEffect(48, 4, 5.00, true)
-        set ProtoCardKey[49] = "axel_wiz_question"
-        set ProtoCardName[49] = "위즈"
-        set ProtoCardEffectName[49] = "질문이 끝나는 순간"
-        set ProtoCardKeyword[49] = "액셀 · 차지 속도 · 비방향"
+        set ProtoEvolutionKind[48] = 0
+        set ProtoEvolutionGoal[48] = 0.00
+        call ProtoSetEffect(48, 18, 1.00, false)
+        call ProtoSetEffect(48, 17, 2.00, false)
+        call ProtoSetEffect(48, 13, 4.00, false)
+        set ProtoCardKey[49] = "axel_aqua_rope"
+        set ProtoCardName[49] = "아쿠아"
+        set ProtoCardEffectName[49] = "끌어올릴 때까지 놓지 않기"
+        set ProtoCardKeyword[49] = "액셀 · 최대 체력 · 피해 감소"
         set ProtoCardHead[49] = 2
         set ProtoCardGrade[49] = 2
         set ProtoEvolutionKind[49] = 0
         set ProtoEvolutionGoal[49] = 0.00
-        call ProtoSetEffect(49, 11, 8.00, false)
-        call ProtoSetEffect(49, 21, 10.00, false)
-        set ProtoCardKey[50] = "axel_aqua_threshold"
-        set ProtoCardName[50] = "아쿠아"
-        set ProtoCardEffectName[50] = "의뢰받은 문부터"
-        set ProtoCardKeyword[50] = "액셀 · 일반 적 · 재생"
+        call ProtoSetEffect(49, 13, 10.00, false)
+        call ProtoSetEffect(49, 14, 6.00, false)
+        set ProtoCardKey[50] = "axel_kazuma_snow"
+        set ProtoCardName[50] = "사토 카즈마"
+        set ProtoCardEffectName[50] = "먼 발자국을 따라갈 때"
+        set ProtoCardKeyword[50] = "액셀 · 이동 · 일반 적"
         set ProtoCardHead[50] = 2
         set ProtoCardGrade[50] = 2
-        set ProtoEvolutionKind[50] = 0
-        set ProtoEvolutionGoal[50] = 0.00
-        call ProtoSetEffect(50, 5, 14.00, false)
-        call ProtoSetEffect(50, 16, 0.30, false)
-        set ProtoCardKey[51] = "axel_kazuma_release"
-        set ProtoCardName[51] = "사토 카즈마"
-        set ProtoCardEffectName[51] = "손을 떼는 순서"
-        set ProtoCardKeyword[51] = "액셀 · 이동 · 차지 속도"
+        set ProtoEvolutionKind[50] = 1
+        set ProtoEvolutionGoal[50] = 40.00
+        call ProtoSetEffect(50, 10, 5.00, false)
+        call ProtoSetEffect(50, 5, 12.00, false)
+        call ProtoSetEffect(50, 4, 5.00, true)
+        set ProtoCardKey[51] = "axel_wiz_question"
+        set ProtoCardName[51] = "위즈"
+        set ProtoCardEffectName[51] = "질문이 끝나는 순간"
+        set ProtoCardKeyword[51] = "액셀 · 차지 속도 · 비방향"
         set ProtoCardHead[51] = 2
         set ProtoCardGrade[51] = 2
         set ProtoEvolutionKind[51] = 0
         set ProtoEvolutionGoal[51] = 0.00
-        call ProtoSetEffect(51, 10, 4.00, false)
-        call ProtoSetEffect(51, 11, 12.00, false)
+        call ProtoSetEffect(51, 11, 8.00, false)
+        call ProtoSetEffect(51, 21, 10.00, false)
+        set ProtoCardKey[52] = "axel_aqua_threshold"
+        set ProtoCardName[52] = "아쿠아"
+        set ProtoCardEffectName[52] = "의뢰받은 문부터"
+        set ProtoCardKeyword[52] = "액셀 · 일반 적 · 재생"
+        set ProtoCardHead[52] = 2
+        set ProtoCardGrade[52] = 2
+        set ProtoEvolutionKind[52] = 0
+        set ProtoEvolutionGoal[52] = 0.00
+        call ProtoSetEffect(52, 5, 14.00, false)
+        call ProtoSetEffect(52, 16, 0.30, false)
+        set ProtoCardKey[53] = "axel_kazuma_release"
+        set ProtoCardName[53] = "사토 카즈마"
+        set ProtoCardEffectName[53] = "손을 떼는 순서"
+        set ProtoCardKeyword[53] = "액셀 · 이동 · 차지 속도"
+        set ProtoCardHead[53] = 2
+        set ProtoCardGrade[53] = 2
+        set ProtoEvolutionKind[53] = 0
+        set ProtoEvolutionGoal[53] = 0.00
+        call ProtoSetEffect(53, 10, 4.00, false)
+        call ProtoSetEffect(53, 11, 12.00, false)
         set ProtoEventKey[69] = "axel_request"
         set ProtoEventName[69] = "게시판의 밀린 의뢰"
         set ProtoEventHead[69] = 2
@@ -1222,7 +1232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[69] = ""
         set ProtoBranchLabel[276] = "카즈마와 몬스터 무리를 맡는다"
         set ProtoBranchResult[276] = "카즈마와 몬스터 수가 많은 의뢰를 골랐다. 서류의 수고비부터 확인했지만, 약속된 자리에는 상대해야 할 무리도 더 기다리고 있었다."
-        set ProtoBranchCard[276] = 35
+        set ProtoBranchCard[276] = 37
         set ProtoBranchCard2[276] = 0
         set ProtoBranchGold[276] = 0
         set ProtoBranchCost[276] = 0
@@ -1232,7 +1242,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[276] = 100
         set ProtoBranchLabel[277] = "다크니스와 강한 몬스터를 맡는다"
         set ProtoBranchResult[277] = "다크니스와 강한 몬스터가 남은 의뢰를 맡았다. 그녀는 앞에서 버틸 자리를 반겼고, 당신은 빗나가는 검에 기대기보다 빈틈이 생길 때 움직일 위치를 골랐다. 돌아오는 길에도 강한 상대를 경계해야 한다."
-        set ProtoBranchCard[277] = 38
+        set ProtoBranchCard[277] = 40
         set ProtoBranchCard2[277] = 0
         set ProtoBranchGold[277] = 0
         set ProtoBranchCost[277] = 0
@@ -1264,7 +1274,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[70] = ""
         set ProtoBranchLabel[280] = "크리스에게 수색을 배운다"
         set ProtoBranchResult[280] = "크리스와 사라진 게시물의 흔적을 따라갔다. 물건을 되찾는 데 급급하기보다 누가 지나갔는지부터 구분했다."
-        set ProtoBranchCard[280] = 36
+        set ProtoBranchCard[280] = 38
         set ProtoBranchCard2[280] = 0
         set ProtoBranchGold[280] = 0
         set ProtoBranchCost[280] = 0
@@ -1306,7 +1316,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[71] = ""
         set ProtoBranchLabel[284] = "사냥터 옆 암벽에서 시연을 본다"
         set ProtoBranchResult[284] = "암벽을 뒤흔드는 메구밍의 폭렬을 보고 한 번에 힘을 모으는 박자를 익혔다. 큰 소리에 더 강한 상대의 기척도 다가왔고, 큰 힘을 쓴 뒤 곧바로 다음 동작을 잇기는 어려웠다."
-        set ProtoBranchCard[284] = 37
+        set ProtoBranchCard[284] = 39
         set ProtoBranchCard2[284] = 0
         set ProtoBranchGold[284] = 0
         set ProtoBranchCost[284] = 0
@@ -1316,7 +1326,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[284] = 100
         set ProtoBranchLabel[285] = "위즈에게 안전한 마법 시연을 의뢰한다"
         set ProtoBranchResult[285] = "위즈에게 비용을 내고 마도구의 출력을 차례로 확인했다. 큰 폭발을 쫓기보다 손에 맞는 준비부터 다시 고른다."
-        set ProtoBranchCard[285] = 40
+        set ProtoBranchCard[285] = 42
         set ProtoBranchCard2[285] = 0
         set ProtoBranchGold[285] = 0
         set ProtoBranchCost[285] = 220
@@ -1348,7 +1358,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[72] = ""
         set ProtoBranchLabel[288] = "고장 난 마도구의 감정을 돕는다"
         set ProtoBranchResult[288] = "위즈와 납품 기록을 맞춰 보며 도구를 확인했다. 장부에 이름만 남아 있던 물건을 실제 용도대로 나누었다."
-        set ProtoBranchCard[288] = 40
+        set ProtoBranchCard[288] = 42
         set ProtoBranchCard2[288] = 0
         set ProtoBranchGold[288] = 0
         set ProtoBranchCost[288] = 180
@@ -1358,7 +1368,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[288] = 100
         set ProtoBranchLabel[289] = "바니르와 손해를 부르는 거래를 찾는다"
         set ProtoBranchResult[289] = "바니르와 계산을 맞추다 까다로운 납품까지 맡게 됐다. 겉으로 보이는 이익만 믿지 말라는 말을 듣고, 큰 상대에게 들이밀 자리를 다시 고른다."
-        set ProtoBranchCard[289] = 41
+        set ProtoBranchCard[289] = 43
         set ProtoBranchCard2[289] = 0
         set ProtoBranchGold[289] = 0
         set ProtoBranchCost[289] = 0
@@ -1390,7 +1400,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[73] = ""
         set ProtoBranchLabel[292] = "식사 값을 보태고 축복을 받는다"
         set ProtoBranchResult[292] = "아쿠아가 다음 모험의 건강을 기원했다. 즉시 회복하는 물약 대신 천천히 이어지는 축복을 얻었다."
-        set ProtoBranchCard[292] = 39
+        set ProtoBranchCard[292] = 41
         set ProtoBranchCard2[292] = 0
         set ProtoBranchGold[292] = 0
         set ProtoBranchCost[292] = 180
@@ -1432,7 +1442,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[74] = ""
         set ProtoBranchLabel[296] = "다크니스 뒤에서 공격할 자리를 만든다"
         set ProtoBranchResult[296] = "다크니스의 방어 뒤에서 공격할 자리를 잡았다. 좁은 곳에 몰린 상대까지 맡아야 했지만, 정면에서 버틸 사람이 있다는 차이를 배웠다."
-        set ProtoBranchCard[296] = 38
+        set ProtoBranchCard[296] = 40
         set ProtoBranchCard2[296] = 0
         set ProtoBranchGold[296] = 0
         set ProtoBranchCost[296] = 0
@@ -1442,7 +1452,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[296] = 100
         set ProtoBranchLabel[297] = "크리스와 몬스터를 흩어 놓는다"
         set ProtoBranchResult[297] = "크리스와 장비를 마련하고 몬스터가 한꺼번에 몰리지 않도록 통로를 나눴다. 적은 수를 마주하는 동안 몸을 빼며 옆을 잡을 자리를 확인했다."
-        set ProtoBranchCard[297] = 36
+        set ProtoBranchCard[297] = 38
         set ProtoBranchCard2[297] = 0
         set ProtoBranchGold[297] = 0
         set ProtoBranchCost[297] = 200
@@ -1474,7 +1484,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[75] = ""
         set ProtoBranchLabel[300] = "천과 그릇 값을 보태고 아쿠아와 물자리를 나눈다"
         set ProtoBranchResult[300] = "천과 그릇 값160골드를 내고 젖어도 되는 자리와 짐 둘 자리를 나눴다. 아쿠아와 여러 부탁을 비교하며 오래 움직일 습관을 익혔다. 아쿠아는 짐이 빠진 자리를 보더니 이제 박수를 칠 준비도 됐냐고 묻는다."
-        set ProtoBranchCard[300] = 42
+        set ProtoBranchCard[300] = 44
         set ProtoBranchCard2[300] = 0
         set ProtoBranchGold[300] = 0
         set ProtoBranchCost[300] = 160
@@ -1484,7 +1494,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[300] = 100
         set ProtoBranchLabel[301] = "카즈마와 적이 많은 바깥 길목을 맡는다"
         set ProtoBranchResult[301] = "카즈마와 더 많은 적이 오가는 바깥 길목을 맡았다. 빈틈을 노리고 얻을 몫을 놓치지 않는 요령을 배웠고 개인 사냥의 적 수가 늘었다. 카즈마는 안에서 박수만 치는 것보다는 벌이가 있어야 한다며 너와 맡을 자리를 나눈다."
-        set ProtoBranchCard[301] = 35
+        set ProtoBranchCard[301] = 37
         set ProtoBranchCard2[301] = 0
         set ProtoBranchGold[301] = 0
         set ProtoBranchCost[301] = 0
@@ -1516,7 +1526,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[76] = ""
         set ProtoBranchLabel[304] = "포장 용품을 마련해 다크니스와 진열품을 나눈다"
         set ProtoBranchResult[304] = "포장 용품 값180골드를 내고 작은 진열품을 나눴다. 다크니스와 몸 상태를 지키며 싸움을 이어 갈 요령을 익혔다. 포장이 끝나자 다크니스는 남은 작은 물건도 살펴보고 크리스는 이번에는 길부터 비키라고 웃는다."
-        set ProtoBranchCard[304] = 43
+        set ProtoBranchCard[304] = 45
         set ProtoBranchCard2[304] = 0
         set ProtoBranchGold[304] = 0
         set ProtoBranchCost[304] = 180
@@ -1526,7 +1536,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[304] = 100
         set ProtoBranchLabel[305] = "다크니스와 적이 많은 바깥 자리를 맡는다"
         set ProtoBranchResult[305] = "다크니스와 더 많은 적이 드나드는 바깥 자리를 맡았다. 오래 버틸 준비를 배웠지만 공격의 부담도 남고 개인 사냥의 적 수가 늘었다. 다크니스는 진열품을 다시 보고 싶어 하면서도 먼저 맡을 자리를 가리킨다."
-        set ProtoBranchCard[305] = 38
+        set ProtoBranchCard[305] = 40
         set ProtoBranchCard2[305] = 0
         set ProtoBranchGold[305] = 0
         set ProtoBranchCost[305] = 0
@@ -1558,7 +1568,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[77] = ""
         set ProtoBranchLabel[308] = "도구 값을 내고 융융과 작은 표적의 간격을 짚는다"
         set ProtoBranchResult[308] = "연습 도구 값200골드를 내고 융융과 표적 간격을 짚었다. 힘을 모으면서 주변도 살피는 공격 요령을 익혔다. 융융은 다른 공격도 준비할 수 있다며 아직 남은 표적을 보여 주고 메구밍은 큰 자리를 다시 가리킨다."
-        set ProtoBranchCard[308] = 44
+        set ProtoBranchCard[308] = 46
         set ProtoBranchCard2[308] = 0
         set ProtoBranchGold[308] = 0
         set ProtoBranchCost[308] = 200
@@ -1568,7 +1578,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[308] = 100
         set ProtoBranchLabel[309] = "메구밍과 더 강한 적이 접근하는 자리를 맡는다"
         set ProtoBranchResult[309] = "메구밍과 더 강한 적이 접근하는 자리를 맡았다. 큰 공격에 힘을 모으는 요령을 배운 대신 다음 동작의 부담이 남고 개인 사냥의 적 단계가 올라갔다. 메구밍은 폭렬 마법을 쓸 때까지 작은 표적도 남겨 두겠냐고 묻는다."
-        set ProtoBranchCard[309] = 37
+        set ProtoBranchCard[309] = 39
         set ProtoBranchCard2[309] = 0
         set ProtoBranchGold[309] = 0
         set ProtoBranchCost[309] = 0
@@ -1600,7 +1610,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[78] = ""
         set ProtoBranchLabel[312] = "표시 용품을 마련해 미츠루기와 공격 방향을 짚는다"
         set ProtoBranchResult[312] = "표시 용품 값220골드를 내고 미츠루기와 큰 상대를 향한 공격 방향을 짚었다. 공격 위치와 힘을 실을 순간을 고르는 요령을 익혔다. 미츠루기는 자세 설명을 마치자 다시 그람의 이름을 말하려 하고 카즈마는 맡을 쪽이 먼저 정해졌다며 돌아선다."
-        set ProtoBranchCard[312] = 45
+        set ProtoBranchCard[312] = 47
         set ProtoBranchCard2[312] = 0
         set ProtoBranchGold[312] = 0
         set ProtoBranchCost[312] = 220
@@ -1610,7 +1620,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[312] = 100
         set ProtoBranchLabel[313] = "크리스와 적이 많은 바깥 길목을 맡는다"
         set ProtoBranchResult[313] = "크리스와 더 많은 적이 드나드는 바깥 길목을 맡았다. 빠르게 움직이며 공격 방향을 고르는 요령을 익혔고 개인 사냥의 적 수가 늘었다. 크리스는 미츠루기의 소개가 끝나기를 기다리면 늦겠다며 갈 쪽을 먼저 짚는다."
-        set ProtoBranchCard[313] = 36
+        set ProtoBranchCard[313] = 38
         set ProtoBranchCard2[313] = 0
         set ProtoBranchGold[313] = 0
         set ProtoBranchCost[313] = 0
@@ -1642,7 +1652,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[79] = ""
         set ProtoBranchLabel[316] = "기록용품을 마련해 루나와 신참의 질문을 나눈다"
         set ProtoBranchResult[316] = "기록용품 값180골드를 내고 루나와 신참의 질문을 나누었다. 여러 부탁과 얻을 몫을 확인하며 오래 움직일 습관을 익혔다. 첫 질문이 끝나자 신참은 다음에 물어볼 일도 적어 놓고 루나는 한꺼번에 답하려 하지 말자고 한다."
-        set ProtoBranchCard[316] = 46
+        set ProtoBranchCard[316] = 48
         set ProtoBranchCard2[316] = 0
         set ProtoBranchGold[316] = 0
         set ProtoBranchCost[316] = 180
@@ -1652,7 +1662,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[316] = 100
         set ProtoBranchLabel[317] = "카즈마와 더 강한 적이 오가는 안내 길목을 맡는다"
         set ProtoBranchResult[317] = "카즈마와 더 강한 적이 오가는 안내 길목을 맡았다. 빈틈과 얻을 몫을 놓치지 않는 요령을 익힌 대신 개인 사냥의 적 단계가 올라갔다. 카즈마는 운에만 맡기지 말고 돌아올 길도 확인하자며 신참이 질문한 쪽을 짚는다."
-        set ProtoBranchCard[317] = 35
+        set ProtoBranchCard[317] = 37
         set ProtoBranchCard2[317] = 0
         set ProtoBranchGold[317] = 0
         set ProtoBranchCost[317] = 0
@@ -1684,7 +1694,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[80] = ""
         set ProtoBranchLabel[320] = "180골드로 줄 고정용품을 마련하고 끌어올릴 때까지 잡는다"
         set ProtoBranchResult[320] = "줄 고정용품 값 180골드를 내고 우리를 끌어올릴 때까지 손을 놓지 않았다. 끝까지 버틴 기억으로 최대 체력이 늘고 받는 피해가 줄었다. 아쿠아는 물 밖으로 나왔지만 손을 뗄 자리부터 찾으라고 외친다."
-        set ProtoBranchCard[320] = 47
+        set ProtoBranchCard[320] = 49
         set ProtoBranchCard2[320] = 0
         set ProtoBranchGold[320] = 0
         set ProtoBranchCost[320] = 180
@@ -1694,7 +1704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[320] = 100
         set ProtoBranchLabel[321] = "정화 의뢰의 목적을 설명하고 더 많은 개인 사냥을 맡는다"
         set ProtoBranchResult[321] = "구경꾼에게 정화 의뢰와 우리를 쓰는 이유를 설명하고 더 많은 개인 사냥을 맡는 부담을 택했다. 의뢰받은 일을 확인하는 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 카즈마는 설명이 끝난 손도 줄을 잡을 수 있냐고 묻는다."
-        set ProtoBranchCard[321] = 50
+        set ProtoBranchCard[321] = 52
         set ProtoBranchCard2[321] = 0
         set ProtoBranchGold[321] = 0
         set ProtoBranchCost[321] = 0
@@ -1726,7 +1736,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[81] = ""
         set ProtoBranchLabel[324] = "180골드로 길 표시 용품을 마련하고 발자국 사이를 따라간다"
         set ProtoBranchResult[324] = "길 표시 용품 값 180골드를 내고 겹친 발자국 사이에 돌아올 표식을 남겼다. 추격의 발걸음을 기억해 이동속도와 일반 몬스터에게 가하는 피해가 늘었다. 카즈마는 멀어진 정령과 네가 남긴 표식을 번갈아 본다."
-        set ProtoBranchCard[324] = 48
+        set ProtoBranchCard[324] = 50
         set ProtoBranchCard2[324] = 0
         set ProtoBranchGold[324] = 0
         set ProtoBranchCost[324] = 180
@@ -1736,7 +1746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[324] = 100
         set ProtoBranchLabel[325] = "더 많은 개인 사냥을 맡으며 추격의 발걸음을 기억한다"
         set ProtoBranchResult[325] = "추격의 발걸음을 기억하는 대신 개인 사냥의 적 수를 늘리는 부담을 택했다. 이동속도와 일반 몬스터에게 가하는 피해가 늘었다. 아쿠아는 네가 돌아올 표식을 가리키며 그쪽까지 놓치지 말라고 말한다."
-        set ProtoBranchCard[325] = 48
+        set ProtoBranchCard[325] = 50
         set ProtoBranchCard2[325] = 0
         set ProtoBranchGold[325] = 0
         set ProtoBranchCost[325] = 0
@@ -1768,7 +1778,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[82] = ""
         set ProtoBranchLabel[328] = "200골드로 시범 소모품을 마련하고 내 질문을 먼저 마친다"
         set ProtoBranchResult[328] = "시범 소모품 값 200골드를 내고 내 질문을 끝까지 마쳤다. 질문과 시범이 끝날 때를 기다린 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 답하던 손을 다시 들고 아쿠아는 아직 문밖의 의뢰를 가리킨다."
-        set ProtoBranchCard[328] = 49
+        set ProtoBranchCard[328] = 51
         set ProtoBranchCard2[328] = 0
         set ProtoBranchGold[328] = 0
         set ProtoBranchCost[328] = 200
@@ -1778,7 +1788,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[328] = 100
         set ProtoBranchLabel[329] = "더 강한 개인 사냥을 맡고 위즈의 남은 설명을 듣는다"
         set ProtoBranchResult[329] = "더 강한 개인 사냥을 맡는 부담을 택하고 위즈의 남은 설명을 들었다. 준비의 끝을 기다린 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 카즈마는 자기가 아직 못 들은 다음 부분도 있냐고 묻는다."
-        set ProtoBranchCard[329] = 49
+        set ProtoBranchCard[329] = 51
         set ProtoBranchCard2[329] = 0
         set ProtoBranchGold[329] = 0
         set ProtoBranchCost[329] = 0
@@ -1810,7 +1820,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[83] = ""
         set ProtoBranchLabel[332] = "170골드로 의뢰 안내를 대조하고 열릴 문을 기다린다"
         set ProtoBranchResult[332] = "의뢰 안내를 마련한 값 170골드를 내고 문턱을 대조했다. 의뢰받은 곳부터 확인한 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 아쿠아는 먼저 본 창문에서 문 쪽으로 시선을 옮긴다."
-        set ProtoBranchCard[332] = 50
+        set ProtoBranchCard[332] = 52
         set ProtoBranchCard2[332] = 0
         set ProtoBranchGold[332] = 0
         set ProtoBranchCost[332] = 170
@@ -1820,7 +1830,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[332] = 100
         set ProtoBranchLabel[333] = "더 강한 개인 사냥을 맡으며 위즈와 바깥 흔적을 살핀다"
         set ProtoBranchResult[333] = "위즈와 바깥의 발자국을 살피고 더 강한 개인 사냥을 맡는 부담을 택했다. 끝까지 설명을 듣고 준비한 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 흔적만으로 집 안의 주인을 안다고 단정하지 않고 다시 문을 본다."
-        set ProtoBranchCard[333] = 49
+        set ProtoBranchCard[333] = 51
         set ProtoBranchCard2[333] = 0
         set ProtoBranchGold[333] = 0
         set ProtoBranchCost[333] = 0
@@ -1852,7 +1862,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[84] = "150골드를 내고 받침을 준비했지만 내려놓는 때를 맞추지 못했다. 기다리던 손은 아직 줄을 잡고 있고 카드와 보급 보수는 얻지 못했다."
         set ProtoBranchLabel[336] = "150골드로 내려놓을 받침을 마련하고 손을 뗄 때를 맞춘다"
         set ProtoBranchResult[336] = "받침 값 150골드를 내고 내려놓는 때를 맞춰 줄에서 손을 뗐다. 카즈마와 짧은 준비의 끝을 기다린 기억으로 이동속도와 차지 준비 속도가 늘었다. 아쿠아는 받침을 보자 다시 물속에 넣는 용도는 아니냐고 묻는다."
-        set ProtoBranchCard[336] = 51
+        set ProtoBranchCard[336] = 53
         set ProtoBranchCard2[336] = 0
         set ProtoBranchGold[336] = 0
         set ProtoBranchCost[336] = 150
@@ -1862,7 +1872,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[336] = 75
         set ProtoBranchLabel[337] = "더 많은 개인 사냥을 맡고 줄과 발 디딜 자리를 직접 살핀다"
         set ProtoBranchResult[337] = "발 디딜 자리와 줄을 직접 확인하는 대신 더 많은 개인 사냥을 맡는 부담을 택했다. 손을 뗄 때를 기다린 기억으로 이동속도와 차지 준비 속도가 늘었다. 카즈마는 네 손이 움직이자 아쿠아가 나설 자리도 다시 본다."
-        set ProtoBranchCard[337] = 51
+        set ProtoBranchCard[337] = 53
         set ProtoBranchCard2[337] = 0
         set ProtoBranchGold[337] = 0
         set ProtoBranchCost[337] = 0
@@ -1887,7 +1897,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[3] = "아비도스"
         set ProtoHeadIntro[3] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoHeadIcon[3] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
-        set ProtoHeadEntryCard[3] = 52
+        set ProtoHeadEntryCard[3] = 54
         call SaveReal(ProtoHeadEffectData, 3, 13, 3.00)
         set ProtoEventKey[9] = "abydos_entry_0"
         set ProtoEventName[9] = "아비도스 방문"
@@ -1921,211 +1931,211 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[12] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIntro[12] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIcon[12] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
-        set ProtoCardKey[52] = "abydos_ayane"
-        set ProtoCardName[52] = "오쿠소라 아야네"
-        set ProtoCardEffectName[52] = "작전 기록"
-        set ProtoCardKeyword[52] = "아비도스 · 탐색"
-        set ProtoCardHead[52] = 3
-        set ProtoCardGrade[52] = 1
-        set ProtoEvolutionKind[52] = 0
-        set ProtoEvolutionGoal[52] = 0.00
-        call ProtoSetEffect(52, 18, 1.00, false)
-        set ProtoCardKey[53] = "abydos_shiroko"
-        set ProtoCardName[53] = "스나오오카미 시로코"
-        set ProtoCardEffectName[53] = "조용한 정찰"
-        set ProtoCardKeyword[53] = "아비도스 · 이동 · 전투"
-        set ProtoCardHead[53] = 3
-        set ProtoCardGrade[53] = 2
-        set ProtoEvolutionKind[53] = 3
-        set ProtoEvolutionGoal[53] = 60.00
-        call ProtoSetEffect(53, 10, 5.00, false)
-        call ProtoSetEffect(53, 19, 16.00, false)
-        call ProtoSetEffect(53, 6, 4.00, true)
-        set ProtoCardKey[54] = "abydos_serika"
-        set ProtoCardName[54] = "쿠로미 세리카"
-        set ProtoCardEffectName[54] = "남은 일까지"
-        set ProtoCardKeyword[54] = "아비도스 · 수급 · 전투"
+        set ProtoCardKey[54] = "abydos_ayane"
+        set ProtoCardName[54] = "오쿠소라 아야네"
+        set ProtoCardEffectName[54] = "작전 기록"
+        set ProtoCardKeyword[54] = "아비도스 · 탐색"
         set ProtoCardHead[54] = 3
         set ProtoCardGrade[54] = 1
         set ProtoEvolutionKind[54] = 0
         set ProtoEvolutionGoal[54] = 0.00
-        call ProtoSetEffect(54, 17, 2.00, false)
-        call ProtoSetEffect(54, 5, 8.00, false)
-        set ProtoCardKey[55] = "abydos_nonomi"
-        set ProtoCardName[55] = "이자요이 노노미"
-        set ProtoCardEffectName[55] = "넓게 펼친 엄호"
-        set ProtoCardKeyword[55] = "아비도스 · 일반전"
+        call ProtoSetEffect(54, 18, 1.00, false)
+        set ProtoCardKey[55] = "abydos_shiroko"
+        set ProtoCardName[55] = "스나오오카미 시로코"
+        set ProtoCardEffectName[55] = "조용한 정찰"
+        set ProtoCardKeyword[55] = "아비도스 · 이동 · 전투"
         set ProtoCardHead[55] = 3
         set ProtoCardGrade[55] = 2
-        set ProtoEvolutionKind[55] = 1
-        set ProtoEvolutionGoal[55] = 40.00
-        call ProtoSetEffect(55, 5, 18.00, false)
-        call ProtoSetEffect(55, 1, 5.00, false)
-        call ProtoSetEffect(55, 5, 10.00, true)
-        set ProtoCardKey[56] = "abydos_hoshino"
-        set ProtoCardName[56] = "타카나시 호시노"
-        set ProtoCardEffectName[56] = "선배의 방패"
-        set ProtoCardKeyword[56] = "아비도스 · 보호막"
+        set ProtoEvolutionKind[55] = 3
+        set ProtoEvolutionGoal[55] = 60.00
+        call ProtoSetEffect(55, 10, 5.00, false)
+        call ProtoSetEffect(55, 19, 16.00, false)
+        call ProtoSetEffect(55, 6, 4.00, true)
+        set ProtoCardKey[56] = "abydos_serika"
+        set ProtoCardName[56] = "쿠로미 세리카"
+        set ProtoCardEffectName[56] = "남은 일까지"
+        set ProtoCardKeyword[56] = "아비도스 · 수급 · 전투"
         set ProtoCardHead[56] = 3
-        set ProtoCardGrade[56] = 2
+        set ProtoCardGrade[56] = 1
         set ProtoEvolutionKind[56] = 0
         set ProtoEvolutionGoal[56] = 0.00
-        call ProtoSetEffect(56, 13, 10.00, false)
-        call ProtoSetEffect(56, 22, 18.00, false)
-        set ProtoCardKey[57] = "abydos_ayane_supply"
-        set ProtoCardName[57] = "오쿠소라 아야네"
-        set ProtoCardEffectName[57] = "끊기지 않는 보급"
-        set ProtoCardKeyword[57] = "아비도스 · 생존"
+        call ProtoSetEffect(56, 17, 2.00, false)
+        call ProtoSetEffect(56, 5, 8.00, false)
+        set ProtoCardKey[57] = "abydos_nonomi"
+        set ProtoCardName[57] = "이자요이 노노미"
+        set ProtoCardEffectName[57] = "넓게 펼친 엄호"
+        set ProtoCardKeyword[57] = "아비도스 · 일반전"
         set ProtoCardHead[57] = 3
         set ProtoCardGrade[57] = 2
-        set ProtoEvolutionKind[57] = 0
-        set ProtoEvolutionGoal[57] = 0.00
-        call ProtoSetEffect(57, 16, 0.60, false)
-        call ProtoSetEffect(57, 14, 5.00, false)
-        set ProtoCardKey[58] = "abydos_hifumi"
-        set ProtoCardName[58] = "아지타니 히후미"
-        set ProtoCardEffectName[58] = "함께 찾은 출구"
-        set ProtoCardKeyword[58] = "아비도스 · 생존 · 이동"
+        set ProtoEvolutionKind[57] = 1
+        set ProtoEvolutionGoal[57] = 40.00
+        call ProtoSetEffect(57, 5, 18.00, false)
+        call ProtoSetEffect(57, 1, 5.00, false)
+        call ProtoSetEffect(57, 5, 10.00, true)
+        set ProtoCardKey[58] = "abydos_hoshino"
+        set ProtoCardName[58] = "타카나시 호시노"
+        set ProtoCardEffectName[58] = "선배의 방패"
+        set ProtoCardKeyword[58] = "아비도스 · 보호막"
         set ProtoCardHead[58] = 3
-        set ProtoCardGrade[58] = 1
+        set ProtoCardGrade[58] = 2
         set ProtoEvolutionKind[58] = 0
         set ProtoEvolutionGoal[58] = 0.00
-        call ProtoSetEffect(58, 10, 4.00, false)
-        call ProtoSetEffect(58, 14, 5.00, false)
-        set ProtoCardKey[59] = "abydos_hoshino_rescue"
-        set ProtoCardName[59] = "타카나시 호시노"
-        set ProtoCardEffectName[59] = "돌아올 자리"
-        set ProtoCardKeyword[59] = "아비도스 · 보스 · 생존"
+        call ProtoSetEffect(58, 13, 10.00, false)
+        call ProtoSetEffect(58, 22, 18.00, false)
+        set ProtoCardKey[59] = "abydos_ayane_supply"
+        set ProtoCardName[59] = "오쿠소라 아야네"
+        set ProtoCardEffectName[59] = "끊기지 않는 보급"
+        set ProtoCardKeyword[59] = "아비도스 · 생존"
         set ProtoCardHead[59] = 3
-        set ProtoCardGrade[59] = 3
-        set ProtoEvolutionKind[59] = 2
-        set ProtoEvolutionGoal[59] = 12000.00
-        call ProtoSetEffect(59, 4, 16.00, false)
-        call ProtoSetEffect(59, 24, 12.00, false)
-        call ProtoSetEffect(59, 3, 5.00, true)
-        set ProtoCardKey[60] = "abydos_serika_return"
-        set ProtoCardName[60] = "쿠로미 세리카"
-        set ProtoCardEffectName[60] = "다시 열 가게를 위해"
-        set ProtoCardKeyword[60] = "아비도스 · 고체력 · 수급"
+        set ProtoCardGrade[59] = 2
+        set ProtoEvolutionKind[59] = 0
+        set ProtoEvolutionGoal[59] = 0.00
+        call ProtoSetEffect(59, 16, 0.60, false)
+        call ProtoSetEffect(59, 14, 5.00, false)
+        set ProtoCardKey[60] = "abydos_hifumi"
+        set ProtoCardName[60] = "아지타니 히후미"
+        set ProtoCardEffectName[60] = "함께 찾은 출구"
+        set ProtoCardKeyword[60] = "아비도스 · 생존 · 이동"
         set ProtoCardHead[60] = 3
-        set ProtoCardGrade[60] = 2
-        set ProtoEvolutionKind[60] = 1
-        set ProtoEvolutionGoal[60] = 40.00
-        call ProtoSetEffect(60, 24, 12.00, false)
-        call ProtoSetEffect(60, 17, 1.00, false)
-        call ProtoSetEffect(60, 1, 5.00, true)
-        set ProtoCardKey[61] = "abydos_shiroko_pace"
-        set ProtoCardName[61] = "스나오오카미 시로코"
-        set ProtoCardEffectName[61] = "같은 속도로 한 바퀴"
-        set ProtoCardKeyword[61] = "아비도스 · 신속 · 일반 적"
+        set ProtoCardGrade[60] = 1
+        set ProtoEvolutionKind[60] = 0
+        set ProtoEvolutionGoal[60] = 0.00
+        call ProtoSetEffect(60, 10, 4.00, false)
+        call ProtoSetEffect(60, 14, 5.00, false)
+        set ProtoCardKey[61] = "abydos_hoshino_rescue"
+        set ProtoCardName[61] = "타카나시 호시노"
+        set ProtoCardEffectName[61] = "돌아올 자리"
+        set ProtoCardKeyword[61] = "아비도스 · 보스 · 생존"
         set ProtoCardHead[61] = 3
-        set ProtoCardGrade[61] = 2
-        set ProtoEvolutionKind[61] = 1
-        set ProtoEvolutionGoal[61] = 45.00
-        call ProtoSetEffect(61, 8, 180.00, false)
-        call ProtoSetEffect(61, 5, 10.00, false)
-        call ProtoSetEffect(61, 9, 3.00, true)
-        set ProtoCardKey[62] = "abydos_hoshino_wake"
-        set ProtoCardName[62] = "타카나시 호시노"
-        set ProtoCardEffectName[62] = "쉬는 자리의 앞쪽"
-        set ProtoCardKeyword[62] = "아비도스 · 고체력 · 피해 감소"
+        set ProtoCardGrade[61] = 3
+        set ProtoEvolutionKind[61] = 2
+        set ProtoEvolutionGoal[61] = 12000.00
+        call ProtoSetEffect(61, 4, 16.00, false)
+        call ProtoSetEffect(61, 24, 12.00, false)
+        call ProtoSetEffect(61, 3, 5.00, true)
+        set ProtoCardKey[62] = "abydos_serika_return"
+        set ProtoCardName[62] = "쿠로미 세리카"
+        set ProtoCardEffectName[62] = "다시 열 가게를 위해"
+        set ProtoCardKeyword[62] = "아비도스 · 고체력 · 수급"
         set ProtoCardHead[62] = 3
         set ProtoCardGrade[62] = 2
-        set ProtoEvolutionKind[62] = 0
-        set ProtoEvolutionGoal[62] = 0.00
-        call ProtoSetEffect(62, 24, 14.00, false)
-        call ProtoSetEffect(62, 14, 4.00, false)
-        set ProtoCardKey[63] = "abydos_nonomi_share"
-        set ProtoCardName[63] = "이자요이 노노미"
-        set ProtoCardEffectName[63] = "빠뜨린 몫은 없나요"
-        set ProtoCardKeyword[63] = "아비도스 · 대미지 · 재생"
+        set ProtoEvolutionKind[62] = 1
+        set ProtoEvolutionGoal[62] = 40.00
+        call ProtoSetEffect(62, 24, 12.00, false)
+        call ProtoSetEffect(62, 17, 1.00, false)
+        call ProtoSetEffect(62, 1, 5.00, true)
+        set ProtoCardKey[63] = "abydos_shiroko_pace"
+        set ProtoCardName[63] = "스나오오카미 시로코"
+        set ProtoCardEffectName[63] = "같은 속도로 한 바퀴"
+        set ProtoCardKeyword[63] = "아비도스 · 신속 · 일반 적"
         set ProtoCardHead[63] = 3
         set ProtoCardGrade[63] = 2
-        set ProtoEvolutionKind[63] = 0
-        set ProtoEvolutionGoal[63] = 0.00
-        call ProtoSetEffect(63, 2, 8.00, false)
-        call ProtoSetEffect(63, 16, 0.40, false)
-        set ProtoCardKey[64] = "abydos_ayane_ledger"
-        set ProtoCardName[64] = "오쿠소라 아야네"
-        set ProtoCardEffectName[64] = "항목 아래 남은 숫자"
-        set ProtoCardKeyword[64] = "아비도스 · 처치 골드 · 사건 후보"
+        set ProtoEvolutionKind[63] = 1
+        set ProtoEvolutionGoal[63] = 45.00
+        call ProtoSetEffect(63, 8, 180.00, false)
+        call ProtoSetEffect(63, 5, 10.00, false)
+        call ProtoSetEffect(63, 9, 3.00, true)
+        set ProtoCardKey[64] = "abydos_hoshino_wake"
+        set ProtoCardName[64] = "타카나시 호시노"
+        set ProtoCardEffectName[64] = "쉬는 자리의 앞쪽"
+        set ProtoCardKeyword[64] = "아비도스 · 고체력 · 피해 감소"
         set ProtoCardHead[64] = 3
         set ProtoCardGrade[64] = 2
         set ProtoEvolutionKind[64] = 0
         set ProtoEvolutionGoal[64] = 0.00
-        call ProtoSetEffect(64, 17, 3.00, false)
-        call ProtoSetEffect(64, 18, 1.00, false)
-        set ProtoCardKey[65] = "abydos_hifumi_stall"
-        set ProtoCardName[65] = "아지타니 히후미"
-        set ProtoCardEffectName[65] = "들어 보고 고르는 것"
-        set ProtoCardKeyword[65] = "아비도스 · 사건 후보 · 최대 체력"
+        call ProtoSetEffect(64, 24, 14.00, false)
+        call ProtoSetEffect(64, 14, 4.00, false)
+        set ProtoCardKey[65] = "abydos_nonomi_share"
+        set ProtoCardName[65] = "이자요이 노노미"
+        set ProtoCardEffectName[65] = "빠뜨린 몫은 없나요"
+        set ProtoCardKeyword[65] = "아비도스 · 대미지 · 재생"
         set ProtoCardHead[65] = 3
         set ProtoCardGrade[65] = 2
         set ProtoEvolutionKind[65] = 0
         set ProtoEvolutionGoal[65] = 0.00
-        call ProtoSetEffect(65, 18, 1.00, false)
-        call ProtoSetEffect(65, 13, 6.00, false)
-        set ProtoCardKey[66] = "ab68_aru_bill"
-        set ProtoCardName[66] = "리쿠하치마 아루"
-        set ProtoCardEffectName[66] = "악당의 품격"
-        set ProtoCardKeyword[66] = "아비도스 · 보스 피해 · 일반 피해 손해"
+        call ProtoSetEffect(65, 2, 8.00, false)
+        call ProtoSetEffect(65, 16, 0.40, false)
+        set ProtoCardKey[66] = "abydos_ayane_ledger"
+        set ProtoCardName[66] = "오쿠소라 아야네"
+        set ProtoCardEffectName[66] = "항목 아래 남은 숫자"
+        set ProtoCardKeyword[66] = "아비도스 · 처치 골드 · 사건 후보"
         set ProtoCardHead[66] = 3
         set ProtoCardGrade[66] = 2
         set ProtoEvolutionKind[66] = 0
         set ProtoEvolutionGoal[66] = 0.00
-        call ProtoSetEffect(66, 4, 18.00, false)
-        call ProtoSetEffect(66, 5, -6.00, false)
-        set ProtoCardKey[67] = "ab68_kayoko_disc"
-        set ProtoCardName[67] = "오니카타 카요코"
-        set ProtoCardEffectName[67] = "침묵에도 내용이 있다"
-        set ProtoCardKeyword[67] = "아비도스 · 차지 속도 · 피해 감소"
+        call ProtoSetEffect(66, 17, 3.00, false)
+        call ProtoSetEffect(66, 18, 1.00, false)
+        set ProtoCardKey[67] = "abydos_hifumi_stall"
+        set ProtoCardName[67] = "아지타니 히후미"
+        set ProtoCardEffectName[67] = "들어 보고 고르는 것"
+        set ProtoCardKeyword[67] = "아비도스 · 사건 후보 · 최대 체력"
         set ProtoCardHead[67] = 3
         set ProtoCardGrade[67] = 2
         set ProtoEvolutionKind[67] = 0
         set ProtoEvolutionGoal[67] = 0.00
-        call ProtoSetEffect(67, 11, 9.00, false)
-        call ProtoSetEffect(67, 14, 3.00, false)
-        set ProtoCardKey[68] = "ab68_haruka_pot"
-        set ProtoCardName[68] = "이구사 하루카"
-        set ProtoCardEffectName[68] = "뽑지 않고 남긴 것"
-        set ProtoCardKeyword[68] = "아비도스 · 최대 체력 · 재생"
+        call ProtoSetEffect(67, 18, 1.00, false)
+        call ProtoSetEffect(67, 13, 6.00, false)
+        set ProtoCardKey[68] = "ab68_aru_bill"
+        set ProtoCardName[68] = "리쿠하치마 아루"
+        set ProtoCardEffectName[68] = "악당의 품격"
+        set ProtoCardKeyword[68] = "아비도스 · 보스 피해 · 일반 피해 손해"
         set ProtoCardHead[68] = 3
         set ProtoCardGrade[68] = 2
         set ProtoEvolutionKind[68] = 0
         set ProtoEvolutionGoal[68] = 0.00
-        call ProtoSetEffect(68, 13, 8.00, false)
-        call ProtoSetEffect(68, 16, 0.50, false)
-        set ProtoCardKey[69] = "ab68_mutsuki_envelope"
-        set ProtoCardName[69] = "아사기 무츠키"
-        set ProtoCardEffectName[69] = "열어 보기 전의 웃음"
-        set ProtoCardKeyword[69] = "아비도스 · 치명타 피해 · 비방향"
+        call ProtoSetEffect(68, 4, 18.00, false)
+        call ProtoSetEffect(68, 5, -6.00, false)
+        set ProtoCardKey[69] = "ab68_kayoko_disc"
+        set ProtoCardName[69] = "오니카타 카요코"
+        set ProtoCardEffectName[69] = "침묵에도 내용이 있다"
+        set ProtoCardKeyword[69] = "아비도스 · 차지 속도 · 피해 감소"
         set ProtoCardHead[69] = 3
         set ProtoCardGrade[69] = 2
-        set ProtoEvolutionKind[69] = 2
-        set ProtoEvolutionGoal[69] = 8000.00
-        call ProtoSetEffect(69, 7, 20.00, false)
-        call ProtoSetEffect(69, 21, 10.00, false)
-        call ProtoSetEffect(69, 5, 5.00, true)
-        set ProtoCardKey[70] = "ab68_aru_task"
-        set ProtoCardName[70] = "리쿠하치마 아루"
-        set ProtoCardEffectName[70] = "직함 대신 할 일"
-        set ProtoCardKeyword[70] = "아비도스 · 치명타 확률 · 고체력"
+        set ProtoEvolutionKind[69] = 0
+        set ProtoEvolutionGoal[69] = 0.00
+        call ProtoSetEffect(69, 11, 9.00, false)
+        call ProtoSetEffect(69, 14, 3.00, false)
+        set ProtoCardKey[70] = "ab68_haruka_pot"
+        set ProtoCardName[70] = "이구사 하루카"
+        set ProtoCardEffectName[70] = "뽑지 않고 남긴 것"
+        set ProtoCardKeyword[70] = "아비도스 · 최대 체력 · 재생"
         set ProtoCardHead[70] = 3
         set ProtoCardGrade[70] = 2
         set ProtoEvolutionKind[70] = 0
         set ProtoEvolutionGoal[70] = 0.00
-        call ProtoSetEffect(70, 6, 5.00, false)
-        call ProtoSetEffect(70, 24, 8.00, false)
-        set ProtoCardKey[71] = "ab68_kayoko_reply"
-        set ProtoCardName[71] = "오니카타 카요코"
-        set ProtoCardEffectName[71] = "말을 기다린 박자"
-        set ProtoCardKeyword[71] = "아비도스 · 행동 속도 · 방어 관통"
+        call ProtoSetEffect(70, 13, 8.00, false)
+        call ProtoSetEffect(70, 16, 0.50, false)
+        set ProtoCardKey[71] = "ab68_mutsuki_envelope"
+        set ProtoCardName[71] = "아사기 무츠키"
+        set ProtoCardEffectName[71] = "열어 보기 전의 웃음"
+        set ProtoCardKeyword[71] = "아비도스 · 치명타 피해 · 비방향"
         set ProtoCardHead[71] = 3
         set ProtoCardGrade[71] = 2
-        set ProtoEvolutionKind[71] = 0
-        set ProtoEvolutionGoal[71] = 0.00
-        call ProtoSetEffect(71, 9, 5.00, false)
-        call ProtoSetEffect(71, 12, 4.00, false)
+        set ProtoEvolutionKind[71] = 2
+        set ProtoEvolutionGoal[71] = 8000.00
+        call ProtoSetEffect(71, 7, 20.00, false)
+        call ProtoSetEffect(71, 21, 10.00, false)
+        call ProtoSetEffect(71, 5, 5.00, true)
+        set ProtoCardKey[72] = "ab68_aru_task"
+        set ProtoCardName[72] = "리쿠하치마 아루"
+        set ProtoCardEffectName[72] = "직함 대신 할 일"
+        set ProtoCardKeyword[72] = "아비도스 · 치명타 확률 · 고체력"
+        set ProtoCardHead[72] = 3
+        set ProtoCardGrade[72] = 2
+        set ProtoEvolutionKind[72] = 0
+        set ProtoEvolutionGoal[72] = 0.00
+        call ProtoSetEffect(72, 6, 5.00, false)
+        call ProtoSetEffect(72, 24, 8.00, false)
+        set ProtoCardKey[73] = "ab68_kayoko_reply"
+        set ProtoCardName[73] = "오니카타 카요코"
+        set ProtoCardEffectName[73] = "말을 기다린 박자"
+        set ProtoCardKeyword[73] = "아비도스 · 행동 속도 · 방어 관통"
+        set ProtoCardHead[73] = 3
+        set ProtoCardGrade[73] = 2
+        set ProtoEvolutionKind[73] = 0
+        set ProtoEvolutionGoal[73] = 0.00
+        call ProtoSetEffect(73, 9, 5.00, false)
+        call ProtoSetEffect(73, 12, 4.00, false)
         set ProtoEventKey[85] = "abydos_sand_supply"
         set ProtoEventName[85] = "모래에 묻힌 보급로"
         set ProtoEventHead[85] = 3
@@ -2140,7 +2150,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[85] = ""
         set ProtoBranchLabel[340] = "시로코와 지름길을 정찰한다"
         set ProtoBranchResult[340] = "가벼운 발걸음으로 통로를 확인했다. 장비를 빌리는 비용을 내고 정찰 요령을 얻었다."
-        set ProtoBranchCard[340] = 53
+        set ProtoBranchCard[340] = 55
         set ProtoBranchCard2[340] = 0
         set ProtoBranchGold[340] = 0
         set ProtoBranchCost[340] = 160
@@ -2150,7 +2160,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[340] = 100
         set ProtoBranchLabel[341] = "노노미와 큰길의 물자를 옮긴다"
         set ProtoBranchResult[341] = "수송대가 지나갈 공간을 만들었다. 적이 많은 길을 맡는 대신 넓게 공격하는 경험을 얻었다."
-        set ProtoBranchCard[341] = 55
+        set ProtoBranchCard[341] = 57
         set ProtoBranchCard2[341] = 0
         set ProtoBranchGold[341] = 0
         set ProtoBranchCost[341] = 0
@@ -2160,7 +2170,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[341] = 100
         set ProtoBranchLabel[342] = "운송비를 내고 학교 안 보급을 정리한다"
         set ProtoBranchResult[342] = "외부 전투 대신 아야네의 보급 계획을 도왔다. 비용은 들었지만 다음 사냥을 안전하게 준비했다."
-        set ProtoBranchCard[342] = 57
+        set ProtoBranchCard[342] = 59
         set ProtoBranchCard2[342] = 0
         set ProtoBranchGold[342] = 0
         set ProtoBranchCost[342] = 220
@@ -2182,7 +2192,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[86] = ""
         set ProtoBranchLabel[344] = "가까운 배달을 대신한다"
         set ProtoBranchResult[344] = "가게 주인의 부탁을 받아 세리카의 일을 나눴다. 배달길의 적 수는 늘지만 처치와 수입을 함께 챙기는 요령을 얻었다."
-        set ProtoBranchCard[344] = 54
+        set ProtoBranchCard[344] = 56
         set ProtoBranchCard2[344] = 0
         set ProtoBranchGold[344] = 0
         set ProtoBranchCost[344] = 0
@@ -2224,7 +2234,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[87] = ""
         set ProtoBranchLabel[348] = "히후미와 사람들을 먼저 안내한다"
         set ProtoBranchResult[348] = "모두가 빠져나갈 통로를 확보했다. 조사 속도 대신 안전을 택해 적 수가 줄었다."
-        set ProtoBranchCard[348] = 58
+        set ProtoBranchCard[348] = 60
         set ProtoBranchCard2[348] = 0
         set ProtoBranchGold[348] = 0
         set ProtoBranchCost[348] = 0
@@ -2234,7 +2244,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[348] = 100
         set ProtoBranchLabel[349] = "시로코와 위험한 골목을 조사한다"
         set ProtoBranchResult[349] = "시로코와 위험한 길목의 움직임을 살폈다. 큰 상대의 흔적까지 따라간 만큼 돌아오는 길도 더 신중하게 골라야 했다."
-        set ProtoBranchCard[349] = 53
+        set ProtoBranchCard[349] = 55
         set ProtoBranchCard2[349] = 0
         set ProtoBranchGold[349] = 0
         set ProtoBranchCost[349] = 0
@@ -2266,7 +2276,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[88] = ""
         set ProtoBranchLabel[352] = "세리카와 쓸 수 있는 물건을 회수한다"
         set ProtoBranchResult[352] = "세리카와 잔해 사이에서 남은 도구를 골랐다. 모여드는 상대를 살피면서도, 쉬던 교대 때와 달리 지킬 자리가 있다는 것을 기억했다."
-        set ProtoBranchCard[352] = 60
+        set ProtoBranchCard[352] = 62
         set ProtoBranchCard2[352] = 0
         set ProtoBranchGold[352] = 0
         set ProtoBranchCost[352] = 0
@@ -2276,7 +2286,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[352] = 100
         set ProtoBranchLabel[353] = "복구 자재 비용을 보탠다"
         set ProtoBranchResult[353] = "아야네가 필요한 물자를 확보했다. 지출은 있었지만 보급을 이어가는 방식을 배웠다."
-        set ProtoBranchCard[353] = 57
+        set ProtoBranchCard[353] = 59
         set ProtoBranchCard2[353] = 0
         set ProtoBranchGold[353] = 0
         set ProtoBranchCost[353] = 220
@@ -2308,7 +2318,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[89] = ""
         set ProtoBranchLabel[356] = "호시노와 엄호할 위치를 고른다"
         set ProtoBranchResult[356] = "호시노의 방어 지침을 듣고 엄호 장비를 준비했다. 장비 비용을 내고 동료가 돌아올 위치를 지키는 경험을 얻었다."
-        set ProtoBranchCard[356] = 56
+        set ProtoBranchCard[356] = 58
         set ProtoBranchCard2[356] = 0
         set ProtoBranchGold[356] = 0
         set ProtoBranchCost[356] = 200
@@ -2318,7 +2328,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[356] = 100
         set ProtoBranchLabel[357] = "노노미와 순찰 경로를 밀어 낸다"
         set ProtoBranchResult[357] = "더 넓은 구역의 적을 받아들이며 엄호선을 확보했다. 학교의 문제는 남지만 일반전을 준비할 경험을 얻었다."
-        set ProtoBranchCard[357] = 55
+        set ProtoBranchCard[357] = 57
         set ProtoBranchCard2[357] = 0
         set ProtoBranchGold[357] = 0
         set ProtoBranchCost[357] = 0
@@ -2346,11 +2356,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIcon[90] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
         set ProtoEventRequired[90] = 89
         set ProtoEventRequiredChoice[90] = 1
-        set ProtoEventRequiredCard[90] = 56
+        set ProtoEventRequiredCard[90] = 58
         set ProtoEventFailure[90] = ""
         set ProtoBranchLabel[360] = "노노미와 위험 구역의 구조 경로를 준비한다"
         set ProtoBranchResult[360] = "노노미와 남은 기록을 대조해 호시노가 돌아올 길을 표시했다. 엄호할 자리를 넓히는 동안 강한 상대의 기척도 확인했다. 구출은 아직 끝나지 않았지만 수색대가 다음에 확인할 구간을 남겼다."
-        set ProtoBranchCard[360] = 59
+        set ProtoBranchCard[360] = 61
         set ProtoBranchCard2[360] = 0
         set ProtoBranchGold[360] = 0
         set ProtoBranchCost[360] = 0
@@ -2360,7 +2370,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[360] = 100
         set ProtoBranchLabel[361] = "아야네의 통신과 보급을 지원한다"
         set ProtoBranchResult[361] = "수색대의 연락이 끊기지 않도록 장비를 준비했다. 지출을 감수하고 지속적인 생존을 준비했다."
-        set ProtoBranchCard[361] = 57
+        set ProtoBranchCard[361] = 59
         set ProtoBranchCard2[361] = 0
         set ProtoBranchGold[361] = 0
         set ProtoBranchCost[361] = 240
@@ -2392,7 +2402,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[91] = ""
         set ProtoBranchLabel[364] = "준비 도구를 마련해 시로코와 한 바퀴의 박자를 맞춘다"
         set ProtoBranchResult[364] = "준비 도구 값을 내고 시로코와 다음 동작을 늦추지 않을 박자를 맞췄다. 반복해서 마주칠 상대를 넘기는 준비도 배웠다. 세리카는 지도에 표시된 한 바퀴 끝을 손가락으로 다시 짚는다."
-        set ProtoBranchCard[364] = 61
+        set ProtoBranchCard[364] = 63
         set ProtoBranchCard2[364] = 0
         set ProtoBranchGold[364] = 0
         set ProtoBranchCost[364] = 220
@@ -2402,7 +2412,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[364] = 100
         set ProtoBranchLabel[365] = "시로코와 더 넓은 정찰 길목을 맡는다"
         set ProtoBranchResult[365] = "시로코와 더 넓은 길목을 맡으며 움직일 자리를 먼저 보는 요령을 배웠다. 맡을 범위가 늘어 개인 사냥의 적 수가 많아졌다. 시로코는 지도를 접고 짧게 출발하자고 한다."
-        set ProtoBranchCard[365] = 53
+        set ProtoBranchCard[365] = 55
         set ProtoBranchCard2[365] = 0
         set ProtoBranchGold[365] = 0
         set ProtoBranchCost[365] = 0
@@ -2444,7 +2454,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[92] = ""
         set ProtoBranchLabel[368] = "준비 비용을 내고 호시노와 앞에 설 자리를 비운다"
         set ProtoBranchResult[368] = "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 자리를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 비워진 의자 앞을 보고 가방을 옆으로 당긴다."
-        set ProtoBranchCard[368] = 62
+        set ProtoBranchCard[368] = 64
         set ProtoBranchCard2[368] = 0
         set ProtoBranchGold[368] = 0
         set ProtoBranchCost[368] = 200
@@ -2454,7 +2464,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[368] = 100
         set ProtoBranchLabel[369] = "노노미와 더 넓은 길목을 맡는다"
         set ProtoBranchResult[369] = "노노미와 더 넓은 길목에서 반복해서 마주칠 상대를 짚었다. 공격을 넓게 준비하는 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 노노미는 호시노가 일어날 자리를 하나 남긴다."
-        set ProtoBranchCard[369] = 55
+        set ProtoBranchCard[369] = 57
         set ProtoBranchCard2[369] = 0
         set ProtoBranchGold[369] = 0
         set ProtoBranchCost[369] = 0
@@ -2486,7 +2496,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[93] = ""
         set ProtoBranchLabel[372] = "포장 비용을 보태고 노노미와 빠뜨린 몫을 살핀다"
         set ProtoBranchResult[372] = "포장 비용을 보태고 노노미와 빠뜨린 몫을 살폈다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미가 마지막 봉투를 내밀자 세리카는 장부도 봐 달라며 주문서를 당긴다."
-        set ProtoBranchCard[372] = 63
+        set ProtoBranchCard[372] = 65
         set ProtoBranchCard2[372] = 0
         set ProtoBranchGold[372] = 0
         set ProtoBranchCost[372] = 180
@@ -2496,7 +2506,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[372] = 100
         set ProtoBranchLabel[373] = "기록용품을 마련해 아야네와 남은 항목을 대조한다"
         set ProtoBranchResult[373] = "기록용품 값을 내고 아야네와 남은 항목을 대조했다. 얻을 몫을 놓치지 않고 여러 부탁을 더 비교하는 준비를 배웠다. 아야네는 아직 확인하지 않은 항목에는 숫자를 적지 않는다."
-        set ProtoBranchCard[373] = 64
+        set ProtoBranchCard[373] = 66
         set ProtoBranchCard2[373] = 0
         set ProtoBranchGold[373] = 0
         set ProtoBranchCost[373] = 220
@@ -2528,7 +2538,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[94] = "지워진 항목의 이전 기록을 확인하지 못했다. 연락 비용 150골드는 돌아오지 않고 카드와 기록 확인 보수도 받지 못한다. 아야네는 확인되지 않은 숫자를 빈칸으로 남긴다."
         set ProtoBranchLabel[376] = "150골드의 연락 비용을 내고 지워진 항목을 찾는다"
         set ProtoBranchResult[376] = "연락 비용 150골드를 쓰고 지워진 항목의 이전 기록을 확인했다. 아야네와 빠뜨린 수급과 비교할 항목을 살피는 요령을 배우고 가게 주인에게 기록 확인 보수 230골드를 받았다. 아야네는 확인한 숫자만 빈칸에 옮긴다."
-        set ProtoBranchCard[376] = 64
+        set ProtoBranchCard[376] = 66
         set ProtoBranchCard2[376] = 0
         set ProtoBranchGold[376] = 230
         set ProtoBranchCost[376] = 150
@@ -2538,7 +2548,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[376] = 70
         set ProtoBranchLabel[377] = "확인된 기록용품을 마련해 아야네와 장부를 정리한다"
         set ProtoBranchResult[377] = "기록용품 값을 내고 아야네와 확인된 항목만 나누었다. 얻을 몫과 더 비교할 후보를 살피는 준비를 배웠다. 지워진 항목은 확인되지 않았다는 표시로 남겨 둔다."
-        set ProtoBranchCard[377] = 64
+        set ProtoBranchCard[377] = 66
         set ProtoBranchCard2[377] = 0
         set ProtoBranchGold[377] = 0
         set ProtoBranchCost[377] = 220
@@ -2570,7 +2580,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[95] = ""
         set ProtoBranchLabel[380] = "준비 비용을 내고 호시노와 앞에 설 자리를 정한다"
         set ProtoBranchResult[380] = "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 위치를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 안내판 쪽으로 몸을 돌리고 아야네는 남은 보급 일을 적는다."
-        set ProtoBranchCard[380] = 62
+        set ProtoBranchCard[380] = 64
         set ProtoBranchCard2[380] = 0
         set ProtoBranchGold[380] = 0
         set ProtoBranchCost[380] = 240
@@ -2580,7 +2590,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[380] = 100
         set ProtoBranchLabel[381] = "시로코와 더 강한 적이 드나드는 귀환길을 맡는다"
         set ProtoBranchResult[381] = "시로코와 더 강한 적이 드나드는 귀환길을 맡았다. 움직일 자리를 먼저 보는 요령을 배우고 개인 사냥의 적 단계가 올라갔다. 시로코는 돌아갈 길의 표시를 따로 접어 둔다."
-        set ProtoBranchCard[381] = 53
+        set ProtoBranchCard[381] = 55
         set ProtoBranchCard2[381] = 0
         set ProtoBranchGold[381] = 0
         set ProtoBranchCost[381] = 0
@@ -2612,7 +2622,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[96] = ""
         set ProtoBranchLabel[384] = "진열 준비물을 마련해 히후미와 부탁을 하나씩 듣는다"
         set ProtoBranchResult[384] = "진열 준비물 값을 내고 히후미와 부탁을 하나씩 들었다. 더 비교할 후보를 놓치지 않고 오래 버틸 준비를 배웠다. 히후미는 진열된 페로로를 다시 보다가 아직 남은 사람 쪽으로 고개를 돌린다."
-        set ProtoBranchCard[384] = 65
+        set ProtoBranchCard[384] = 67
         set ProtoBranchCard2[384] = 0
         set ProtoBranchGold[384] = 0
         set ProtoBranchCost[384] = 220
@@ -2622,7 +2632,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[384] = 100
         set ProtoBranchLabel[385] = "포장 비용을 보태고 노노미와 가져갈 몫을 나눈다"
         set ProtoBranchResult[385] = "포장 비용을 보태고 노노미와 가져갈 몫을 나누었다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미는 기다리는 사람의 봉투도 한쪽에 남겨 둔다."
-        set ProtoBranchCard[385] = 63
+        set ProtoBranchCard[385] = 65
         set ProtoBranchCard2[385] = 0
         set ProtoBranchGold[385] = 0
         set ProtoBranchCost[385] = 180
@@ -2632,7 +2642,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[385] = 100
         set ProtoBranchLabel[386] = "히후미와 맡을 통행 구역을 줄인다"
         set ProtoBranchResult[386] = "히후미와 맡을 길목을 한 곳 줄였다. 움직일 자리를 찾고 버티는 요령을 배웠고 개인 사냥의 적 수가 줄었다. 시로코는 줄인 구역 바깥의 표시를 지운다."
-        set ProtoBranchCard[386] = 58
+        set ProtoBranchCard[386] = 60
         set ProtoBranchCard2[386] = 0
         set ProtoBranchGold[386] = 0
         set ProtoBranchCost[386] = 0
@@ -2664,7 +2674,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[97] = ""
         set ProtoBranchLabel[388] = "180골드로 부족한 계산을 돕고 아루의 큰소리도 끝까지 듣는다"
         set ProtoBranchResult[388] = "부족한 계산에180골드를 보태고 아루의 큰소리를 끝까지 들었다. 네가 기억한 악당의 품격으로 보스에게 가하는 피해가18%늘고 일반 몬스터에게 가하는 피해는6%줄었다. 아루는 계산서가 닫힌 뒤에야 원래 그렇게 하려 했다며 목소리를 다시 높인다."
-        set ProtoBranchCard[388] = 66
+        set ProtoBranchCard[388] = 68
         set ProtoBranchCard2[388] = 0
         set ProtoBranchGold[388] = 0
         set ProtoBranchCost[388] = 180
@@ -2674,7 +2684,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[388] = 100
         set ProtoBranchLabel[389] = "내 사냥의 적 수 단계를1올리고 아루의 큰 상대를 겨눈 말을 기억한다"
         set ProtoBranchResult[389] = "개인 사냥의 적 수 단계를1올리는 부담을 맡고 큰 상대를 겨눈 아루의 말을 기억했다. 보스에게 가하는 피해가18%늘고 일반 몬스터에게 가하는 피해는6%줄었다. 무츠키는 큰소리를 함께 내는 사람은 늘었는데 계산서는 아직 여기 있다고 아루를 본다."
-        set ProtoBranchCard[389] = 66
+        set ProtoBranchCard[389] = 68
         set ProtoBranchCard2[389] = 0
         set ProtoBranchGold[389] = 0
         set ProtoBranchCost[389] = 0
@@ -2684,7 +2694,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[389] = 100
         set ProtoBranchLabel[390] = "내 몫의 정리만 마치고 세리카의 일하는 박자를 기억한다"
         set ProtoBranchResult[390] = "세리카와 네 몫의 그릇을 모으며 자기 일을 마쳤다. 세리카의 박자를 기억해 이후 처치당 추가골드2와 일반 몬스터에게 가하는 피해8%가 늘었다. 세리카는 그릇을 내려놓고 아루에게 계산은 어떻게 할 것인지 다시 묻는다."
-        set ProtoBranchCard[390] = 54
+        set ProtoBranchCard[390] = 56
         set ProtoBranchCard2[390] = 0
         set ProtoBranchGold[390] = 0
         set ProtoBranchCost[390] = 0
@@ -2716,7 +2726,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[98] = ""
         set ProtoBranchLabel[392] = "200골드로 내가 고른CD값을 내고 카요코의 말이 끝날 때까지 듣는다"
         set ProtoBranchResult[392] = "네가 고른CD값200골드를 내고 카요코의 말을 끝까지 들었다. 그 기억으로 차지 준비 속도9%와 받는 피해 감소3%를 얻었다. 주인이 또 사과하려 하자 카요코는 이번에는 찾는 물건 이름부터 말한다."
-        set ProtoBranchCard[392] = 67
+        set ProtoBranchCard[392] = 69
         set ProtoBranchCard2[392] = 0
         set ProtoBranchGold[392] = 0
         set ProtoBranchCost[392] = 200
@@ -2726,7 +2736,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[392] = 100
         set ProtoBranchLabel[393] = "내 사냥의 강함 단계를1올리고 카요코와 한 곡의 박자를 끝까지 듣는다"
         set ProtoBranchResult[393] = "개인 사냥의 강함 단계를1올리는 부담을 맡고 카요코와 한 곡을 끝까지 들었다. 차지 준비 속도9%와 받는 피해 감소3%가 늘었다. 카요코는 곡이 끝난 뒤에도 주문할 말을 남겨 두고 진열을 다시 본다."
-        set ProtoBranchCard[393] = 67
+        set ProtoBranchCard[393] = 69
         set ProtoBranchCard2[393] = 0
         set ProtoBranchGold[393] = 0
         set ProtoBranchCost[393] = 0
@@ -2758,7 +2768,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[99] = ""
         set ProtoBranchLabel[396] = "160골드로 화분을 둘 받침을 마련하고 먼저 뻗은 손을 거둔다"
         set ProtoBranchResult[396] = "받침값160골드를 내고 먼저 뻗었던 손을 거둔 뒤 화분을 놓을 자리를 만들었다. 하루카의 남겨 둔 것을 기억해 최대 체력8%와초당 최대체력0.5%재생이 늘었다. 하루카는 그 자리에 둔 화분을 보고도 네가 잡초라고 부르던 말을 한 번 되묻는다."
-        set ProtoBranchCard[396] = 68
+        set ProtoBranchCard[396] = 70
         set ProtoBranchCard2[396] = 0
         set ProtoBranchGold[396] = 0
         set ProtoBranchCost[396] = 160
@@ -2768,7 +2778,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[396] = 100
         set ProtoBranchLabel[397] = "내 사냥의 적 수 단계를1올리고 남겨 둘 자리를 함께 살핀다"
         set ProtoBranchResult[397] = "개인 사냥의 적 수 단계를1올리는 부담을 맡고 하루카와 화분을 둘 자리를 살폈다. 최대 체력8%와초당 최대체력0.5%재생이 늘었다. 하루카는 화분을 아직 놓지 않고 네가 다시 손을 뻗을 쪽을 먼저 본다."
-        set ProtoBranchCard[397] = 68
+        set ProtoBranchCard[397] = 70
         set ProtoBranchCard2[397] = 0
         set ProtoBranchGold[397] = 0
         set ProtoBranchCost[397] = 0
@@ -2800,7 +2810,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[100] = "내기값100골드를 먼저 냈지만 고른 봉투에는 답 대신 빈 종이가 있었다. 카드는 얻지 못하고100골드는 돌아오지 않는다. 무츠키는 네 손에 남은 종이와 아직 닫힌 봉투를 번갈아 본다."
         set ProtoBranchLabel[400] = "100골드를 먼저 걸고 봉투 하나를 연다"
         set ProtoBranchResult[400] = "내기값100골드를 먼저 내고 답이 든 봉투를 골랐다. 무츠키의 빈틈을 기다리는 기억으로 치명타 피해20%와헤드·백이 없는 비방향 공격 대미지10%가 늘었다. 무츠키는 네가 웃는 것을 보더니 아직 닫힌 봉투를 아루 앞으로 민다."
-        set ProtoBranchCard[400] = 69
+        set ProtoBranchCard[400] = 71
         set ProtoBranchCard2[400] = 0
         set ProtoBranchGold[400] = 0
         set ProtoBranchCost[400] = 100
@@ -2810,7 +2820,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[400] = 60
         set ProtoBranchLabel[401] = "240골드로 내기 대신 두 봉투의 답을 바로 듣는다"
         set ProtoBranchResult[401] = "대가240골드를 내고 두 봉투의 답을 모두 들었다. 치명타 피해20%와헤드·백이 없는 비방향 공격 대미지10%가 늘었다. 무츠키는 봉투를 고르지 않은 네 손을 보고 다음에는 대가도 바꿔 봐야겠다고 웃는다."
-        set ProtoBranchCard[401] = 69
+        set ProtoBranchCard[401] = 71
         set ProtoBranchCard2[401] = 0
         set ProtoBranchGold[401] = 0
         set ProtoBranchCost[401] = 240
@@ -2842,7 +2852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[101] = "준비값150골드를 먼저 냈지만 소개가 이어져 맡을 일을 분명히 듣지 못했다. 카드는 얻지 못하고150골드는 돌아오지 않는다. 무츠키는 끝나지 않은 소개를 아루에게 한 번 더 짚는다."
         set ProtoBranchLabel[404] = "150골드로 내 의뢰 준비값을 내고 이름보다 맡을 일을 먼저 묻는다"
         set ProtoBranchResult[404] = "준비값150골드를 먼저 내고 이름보다 맡을 일을 물어 분명히 들었다. 아루의 말에서 할 일을 가르는 기억으로 치명타 확률5%p와체력65%이상에서 가하는 피해8%가 늘었다. 아루가 소개를 다시 꺼내려 하자 무츠키는 이번에는 할 일부터였다고 짚는다."
-        set ProtoBranchCard[404] = 70
+        set ProtoBranchCard[404] = 72
         set ProtoBranchCard2[404] = 0
         set ProtoBranchGold[404] = 0
         set ProtoBranchCost[404] = 150
@@ -2852,7 +2862,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[404] = 75
         set ProtoBranchLabel[405] = "220골드로 내 준비를 충분히 하고 할 일부터 다시 확인한다"
         set ProtoBranchResult[405] = "준비값220골드를 내고 소개가 길어지기 전에 할 일부터 다시 확인했다. 치명타 확률5%p와체력65%이상에서 가하는 피해8%가 늘었다. 아루는 소개에 쓰려던 이름을 잠깐 접어 두고 질문부터 받는다."
-        set ProtoBranchCard[405] = 70
+        set ProtoBranchCard[405] = 72
         set ProtoBranchCard2[405] = 0
         set ProtoBranchGold[405] = 0
         set ProtoBranchCost[405] = 220
@@ -2862,7 +2872,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[405] = 100
         set ProtoBranchLabel[406] = "내 사냥의 강함 단계를1올리고 세리카의 일을 끝내는 박자를 기억한다"
         set ProtoBranchResult[406] = "개인 사냥의 강함 단계를1올리는 부담을 맡고 소개 옆에서도 일을 마치는 세리카의 박자를 기억했다. 체력65%이상에서 가하는 피해12%와이후 처치당 추가골드1이 늘었다. 세리카는 빈 그릇을 내려놓으며 아루의 소개는 아직 계속되는지 묻는다."
-        set ProtoBranchCard[406] = 60
+        set ProtoBranchCard[406] = 62
         set ProtoBranchCard2[406] = 0
         set ProtoBranchGold[406] = 0
         set ProtoBranchCost[406] = 0
@@ -2894,7 +2904,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[102] = ""
         set ProtoBranchLabel[408] = "180골드로 내가 살 것을 따로 정하고 카요코의 대답을 기다린다"
         set ProtoBranchResult[408] = "네가 살 것의 값180골드를 내고 카요코의 대답을 기다렸다. 말을 기다린 기억으로 일반 행동속도5%와방어관통4%가 늘었다. 카요코가 주문을 마친 뒤에야 주인은 네가 고른 것도 함께 묻는다."
-        set ProtoBranchCard[408] = 71
+        set ProtoBranchCard[408] = 73
         set ProtoBranchCard2[408] = 0
         set ProtoBranchGold[408] = 0
         set ProtoBranchCost[408] = 180
@@ -2904,7 +2914,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[408] = 100
         set ProtoBranchLabel[409] = "내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다"
         set ProtoBranchResult[409] = "개인 사냥의 적 수 단계를1올리는 부담을 맡고 말과 말 사이의 박자를 기억했다. 일반 행동속도5%와방어관통4%가 늘었다. 카요코는 이번에는 말을 다 마친 뒤 네가 무엇을 고를 것인지 본다."
-        set ProtoBranchCard[409] = 71
+        set ProtoBranchCard[409] = 73
         set ProtoBranchCard2[409] = 0
         set ProtoBranchGold[409] = 0
         set ProtoBranchCost[409] = 0
@@ -2929,7 +2939,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[4] = "학원도시"
         set ProtoHeadIntro[4] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoHeadIcon[4] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[4] = 72
+        set ProtoHeadEntryCard[4] = 74
         call SaveReal(ProtoHeadEffectData, 4, 9, 2.00)
         set ProtoEventKey[13] = "academy_entry_0"
         set ProtoEventName[13] = "학원도시 방문"
@@ -2963,222 +2973,222 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[16] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIntro[16] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIcon[16] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[72] = "academy_uiharu"
-        set ProtoCardName[72] = "우이하루 카자리"
-        set ProtoCardEffectName[72] = "관찰 기록"
-        set ProtoCardKeyword[72] = "학원도시 · 탐색"
-        set ProtoCardHead[72] = 4
-        set ProtoCardGrade[72] = 1
-        set ProtoEvolutionKind[72] = 0
-        set ProtoEvolutionGoal[72] = 0.00
-        call ProtoSetEffect(72, 18, 1.00, false)
-        set ProtoCardKey[73] = "academy_mikoto"
-        set ProtoCardName[73] = "미사카 미코토"
-        set ProtoCardEffectName[73] = "정밀한 전자기 제어"
-        set ProtoCardKeyword[73] = "학원도시 · 관통 · 차지"
-        set ProtoCardHead[73] = 4
-        set ProtoCardGrade[73] = 2
-        set ProtoEvolutionKind[73] = 2
-        set ProtoEvolutionGoal[73] = 12000.00
-        call ProtoSetEffect(73, 12, 10.00, false)
-        call ProtoSetEffect(73, 23, 14.00, false)
-        call ProtoSetEffect(73, 7, 15.00, true)
-        set ProtoCardKey[74] = "academy_kuroko"
-        set ProtoCardName[74] = "시라이 쿠로코"
-        set ProtoCardEffectName[74] = "공간의 사각"
-        set ProtoCardKeyword[74] = "학원도시 · 이동 · 방향"
+        set ProtoCardKey[74] = "academy_uiharu"
+        set ProtoCardName[74] = "우이하루 카자리"
+        set ProtoCardEffectName[74] = "관찰 기록"
+        set ProtoCardKeyword[74] = "학원도시 · 탐색"
         set ProtoCardHead[74] = 4
-        set ProtoCardGrade[74] = 2
-        set ProtoEvolutionKind[74] = 3
-        set ProtoEvolutionGoal[74] = 60.00
-        call ProtoSetEffect(74, 10, 5.00, false)
-        call ProtoSetEffect(74, 20, 12.00, false)
-        call ProtoSetEffect(74, 9, 4.00, true)
-        set ProtoCardKey[75] = "academy_touma"
-        set ProtoCardName[75] = "카미조 토우마"
-        set ProtoCardEffectName[75] = "이매진 브레이커"
-        set ProtoCardKeyword[75] = "학원도시 · 생존 · 보스"
+        set ProtoCardGrade[74] = 1
+        set ProtoEvolutionKind[74] = 0
+        set ProtoEvolutionGoal[74] = 0.00
+        call ProtoSetEffect(74, 18, 1.00, false)
+        set ProtoCardKey[75] = "academy_mikoto"
+        set ProtoCardName[75] = "미사카 미코토"
+        set ProtoCardEffectName[75] = "정밀한 전자기 제어"
+        set ProtoCardKeyword[75] = "학원도시 · 관통 · 차지"
         set ProtoCardHead[75] = 4
         set ProtoCardGrade[75] = 2
-        set ProtoEvolutionKind[75] = 0
-        set ProtoEvolutionGoal[75] = 0.00
-        call ProtoSetEffect(75, 14, 6.00, false)
-        call ProtoSetEffect(75, 4, 10.00, false)
-        set ProtoCardKey[76] = "academy_saten"
-        set ProtoCardName[76] = "사텐 루이코"
-        set ProtoCardEffectName[76] = "발로 찾은 단서"
-        set ProtoCardKeyword[76] = "학원도시 · 자원 · 탐색"
+        set ProtoEvolutionKind[75] = 2
+        set ProtoEvolutionGoal[75] = 12000.00
+        call ProtoSetEffect(75, 12, 10.00, false)
+        call ProtoSetEffect(75, 23, 14.00, false)
+        call ProtoSetEffect(75, 7, 15.00, true)
+        set ProtoCardKey[76] = "academy_kuroko"
+        set ProtoCardName[76] = "시라이 쿠로코"
+        set ProtoCardEffectName[76] = "공간의 사각"
+        set ProtoCardKeyword[76] = "학원도시 · 이동 · 방향"
         set ProtoCardHead[76] = 4
-        set ProtoCardGrade[76] = 1
-        set ProtoEvolutionKind[76] = 1
-        set ProtoEvolutionGoal[76] = 45.00
-        call ProtoSetEffect(76, 17, 2.00, false)
-        call ProtoSetEffect(76, 5, 6.00, false)
-        call ProtoSetEffect(76, 8, 90.00, true)
-        set ProtoCardKey[77] = "academy_dispatch"
-        set ProtoCardName[77] = "우이하루 카자리"
-        set ProtoCardEffectName[77] = "백업 통신"
-        set ProtoCardKeyword[77] = "학원도시 · 행동 · 신속"
+        set ProtoCardGrade[76] = 2
+        set ProtoEvolutionKind[76] = 3
+        set ProtoEvolutionGoal[76] = 60.00
+        call ProtoSetEffect(76, 10, 5.00, false)
+        call ProtoSetEffect(76, 20, 12.00, false)
+        call ProtoSetEffect(76, 9, 4.00, true)
+        set ProtoCardKey[77] = "academy_touma"
+        set ProtoCardName[77] = "카미조 토우마"
+        set ProtoCardEffectName[77] = "이매진 브레이커"
+        set ProtoCardKeyword[77] = "학원도시 · 생존 · 보스"
         set ProtoCardHead[77] = 4
         set ProtoCardGrade[77] = 2
         set ProtoEvolutionKind[77] = 0
         set ProtoEvolutionGoal[77] = 0.00
-        call ProtoSetEffect(77, 9, 5.00, false)
-        call ProtoSetEffect(77, 8, 180.00, false)
-        set ProtoCardKey[78] = "academy_focus"
-        set ProtoCardName[78] = "미사카 미코토"
-        set ProtoCardEffectName[78] = "한 점의 레일건"
-        set ProtoCardKeyword[78] = "학원도시 · 보스 · 차지"
+        call ProtoSetEffect(77, 14, 6.00, false)
+        call ProtoSetEffect(77, 4, 10.00, false)
+        set ProtoCardKey[78] = "academy_saten"
+        set ProtoCardName[78] = "사텐 루이코"
+        set ProtoCardEffectName[78] = "발로 찾은 단서"
+        set ProtoCardKeyword[78] = "학원도시 · 자원 · 탐색"
         set ProtoCardHead[78] = 4
-        set ProtoCardGrade[78] = 3
-        set ProtoEvolutionKind[78] = 2
-        set ProtoEvolutionGoal[78] = 15000.00
-        call ProtoSetEffect(78, 4, 14.00, false)
-        call ProtoSetEffect(78, 11, 8.00, false)
-        call ProtoSetEffect(78, 3, 5.00, true)
-        set ProtoCardKey[79] = "academy_persevere"
-        set ProtoCardName[79] = "사텐 루이코"
-        set ProtoCardEffectName[79] = "능력 밖의 용기"
-        set ProtoCardKeyword[79] = "학원도시 · 체력 · 고체력"
+        set ProtoCardGrade[78] = 1
+        set ProtoEvolutionKind[78] = 1
+        set ProtoEvolutionGoal[78] = 45.00
+        call ProtoSetEffect(78, 17, 2.00, false)
+        call ProtoSetEffect(78, 5, 6.00, false)
+        call ProtoSetEffect(78, 8, 90.00, true)
+        set ProtoCardKey[79] = "academy_dispatch"
+        set ProtoCardName[79] = "우이하루 카자리"
+        set ProtoCardEffectName[79] = "백업 통신"
+        set ProtoCardKeyword[79] = "학원도시 · 행동 · 신속"
         set ProtoCardHead[79] = 4
         set ProtoCardGrade[79] = 2
         set ProtoEvolutionKind[79] = 0
         set ProtoEvolutionGoal[79] = 0.00
-        call ProtoSetEffect(79, 13, 10.00, false)
-        call ProtoSetEffect(79, 24, 12.00, false)
-        set ProtoCardKey[80] = "academy_kuroko_response"
-        set ProtoCardName[80] = "시라이 쿠로코"
-        set ProtoCardEffectName[80] = "현장에서 정할 다음 행동"
-        set ProtoCardKeyword[80] = "학원도시 · 행동 · 생존"
+        call ProtoSetEffect(79, 9, 5.00, false)
+        call ProtoSetEffect(79, 8, 180.00, false)
+        set ProtoCardKey[80] = "academy_focus"
+        set ProtoCardName[80] = "미사카 미코토"
+        set ProtoCardEffectName[80] = "한 점의 레일건"
+        set ProtoCardKeyword[80] = "학원도시 · 보스 · 차지"
         set ProtoCardHead[80] = 4
-        set ProtoCardGrade[80] = 2
-        set ProtoEvolutionKind[80] = 0
-        set ProtoEvolutionGoal[80] = 0.00
-        call ProtoSetEffect(80, 9, 6.00, false)
-        call ProtoSetEffect(80, 14, 4.00, false)
-        set ProtoCardKey[81] = "academy_mikoto_keepsake"
-        set ProtoCardName[81] = "미사카 미코토"
-        set ProtoCardEffectName[81] = "진열 앞에서 한 번 더"
-        set ProtoCardKeyword[81] = "학원도시 · 치명타 피해 · 최대 체력"
+        set ProtoCardGrade[80] = 3
+        set ProtoEvolutionKind[80] = 2
+        set ProtoEvolutionGoal[80] = 15000.00
+        call ProtoSetEffect(80, 4, 14.00, false)
+        call ProtoSetEffect(80, 11, 8.00, false)
+        call ProtoSetEffect(80, 3, 5.00, true)
+        set ProtoCardKey[81] = "academy_persevere"
+        set ProtoCardName[81] = "사텐 루이코"
+        set ProtoCardEffectName[81] = "능력 밖의 용기"
+        set ProtoCardKeyword[81] = "학원도시 · 체력 · 고체력"
         set ProtoCardHead[81] = 4
         set ProtoCardGrade[81] = 2
         set ProtoEvolutionKind[81] = 0
         set ProtoEvolutionGoal[81] = 0.00
-        call ProtoSetEffect(81, 7, 15.00, false)
-        call ProtoSetEffect(81, 13, 6.00, false)
-        set ProtoCardKey[82] = "academy_uiharu_break"
-        set ProtoCardName[82] = "우이하루 카자리"
-        set ProtoCardEffectName[82] = "쉬었다가 다시 맞춘 항목"
-        set ProtoCardKeyword[82] = "학원도시 · 재생 · 차지 속도"
+        call ProtoSetEffect(81, 13, 10.00, false)
+        call ProtoSetEffect(81, 24, 12.00, false)
+        set ProtoCardKey[82] = "academy_kuroko_response"
+        set ProtoCardName[82] = "시라이 쿠로코"
+        set ProtoCardEffectName[82] = "현장에서 정할 다음 행동"
+        set ProtoCardKeyword[82] = "학원도시 · 행동 · 생존"
         set ProtoCardHead[82] = 4
         set ProtoCardGrade[82] = 2
         set ProtoEvolutionKind[82] = 0
         set ProtoEvolutionGoal[82] = 0.00
-        call ProtoSetEffect(82, 16, 0.30, false)
-        call ProtoSetEffect(82, 11, 8.00, false)
-        set ProtoCardKey[83] = "academy_kongo_pair"
-        set ProtoCardName[83] = "콘고 미츠코"
-        set ProtoCardEffectName[83] = "옆 사람에게 맞춘 보폭"
-        set ProtoCardKeyword[83] = "학원도시 · 행동 속도 · 이동속도 비례 피해"
+        call ProtoSetEffect(82, 9, 6.00, false)
+        call ProtoSetEffect(82, 14, 4.00, false)
+        set ProtoCardKey[83] = "academy_mikoto_keepsake"
+        set ProtoCardName[83] = "미사카 미코토"
+        set ProtoCardEffectName[83] = "진열 앞에서 한 번 더"
+        set ProtoCardKeyword[83] = "학원도시 · 치명타 피해 · 최대 체력"
         set ProtoCardHead[83] = 4
         set ProtoCardGrade[83] = 2
         set ProtoEvolutionKind[83] = 0
         set ProtoEvolutionGoal[83] = 0.00
-        call ProtoSetEffect(83, 9, 5.00, false)
-        call ProtoSetEffect(83, 19, 12.00, false)
-        set ProtoCardKey[84] = "academy_wannai_calm"
-        set ProtoCardName[84] = "완나이 키누호"
-        set ProtoCardEffectName[84] = "흐르는 쪽부터 살피기"
-        set ProtoCardKeyword[84] = "학원도시 · 피해 감소 · 최대 체력"
+        call ProtoSetEffect(83, 7, 15.00, false)
+        call ProtoSetEffect(83, 13, 6.00, false)
+        set ProtoCardKey[84] = "academy_uiharu_break"
+        set ProtoCardName[84] = "우이하루 카자리"
+        set ProtoCardEffectName[84] = "쉬었다가 다시 맞춘 항목"
+        set ProtoCardKeyword[84] = "학원도시 · 재생 · 차지 속도"
         set ProtoCardHead[84] = 4
         set ProtoCardGrade[84] = 2
         set ProtoEvolutionKind[84] = 0
         set ProtoEvolutionGoal[84] = 0.00
-        call ProtoSetEffect(84, 14, 5.00, false)
-        call ProtoSetEffect(84, 13, 8.00, false)
-        set ProtoCardKey[85] = "academy_awatsuki_balance"
-        set ProtoCardName[85] = "아와츠키 마아야"
-        set ProtoCardEffectName[85] = "떠 있는 동안의 균형"
-        set ProtoCardKeyword[85] = "학원도시 · 차지 속도 · 차지 피해"
+        call ProtoSetEffect(84, 16, 0.30, false)
+        call ProtoSetEffect(84, 11, 8.00, false)
+        set ProtoCardKey[85] = "academy_kongo_pair"
+        set ProtoCardName[85] = "콘고 미츠코"
+        set ProtoCardEffectName[85] = "옆 사람에게 맞춘 보폭"
+        set ProtoCardKeyword[85] = "학원도시 · 행동 속도 · 이동속도 비례 피해"
         set ProtoCardHead[85] = 4
         set ProtoCardGrade[85] = 2
         set ProtoEvolutionKind[85] = 0
         set ProtoEvolutionGoal[85] = 0.00
-        call ProtoSetEffect(85, 11, 6.00, false)
-        call ProtoSetEffect(85, 23, 12.00, false)
-        set ProtoCardKey[86] = "academy_sogiita_guts"
-        set ProtoCardName[86] = "소기이타 군하"
-        set ProtoCardEffectName[86] = "먼저 내디딜 한 걸음"
-        set ProtoCardKeyword[86] = "학원도시 · 공격력 · 최대 체력 패널티"
+        call ProtoSetEffect(85, 9, 5.00, false)
+        call ProtoSetEffect(85, 19, 12.00, false)
+        set ProtoCardKey[86] = "academy_wannai_calm"
+        set ProtoCardName[86] = "완나이 키누호"
+        set ProtoCardEffectName[86] = "흐르는 쪽부터 살피기"
+        set ProtoCardKeyword[86] = "학원도시 · 피해 감소 · 최대 체력"
         set ProtoCardHead[86] = 4
         set ProtoCardGrade[86] = 2
-        set ProtoEvolutionKind[86] = 2
-        set ProtoEvolutionGoal[86] = 9000.00
-        call ProtoSetEffect(86, 1, 18.00, false)
-        call ProtoSetEffect(86, 13, -5.00, false)
-        call ProtoSetEffect(86, 5, 10.00, true)
-        set ProtoCardKey[87] = "academy_touma_coin"
-        set ProtoCardName[87] = "카미조 토우마"
-        set ProtoCardEffectName[87] = "삼켜도 남은 한 닢"
-        set ProtoCardKeyword[87] = "학원도시 · 처치 골드 · 피해 감소"
+        set ProtoEvolutionKind[86] = 0
+        set ProtoEvolutionGoal[86] = 0.00
+        call ProtoSetEffect(86, 14, 5.00, false)
+        call ProtoSetEffect(86, 13, 8.00, false)
+        set ProtoCardKey[87] = "academy_awatsuki_balance"
+        set ProtoCardName[87] = "아와츠키 마아야"
+        set ProtoCardEffectName[87] = "떠 있는 동안의 균형"
+        set ProtoCardKeyword[87] = "학원도시 · 차지 속도 · 차지 피해"
         set ProtoCardHead[87] = 4
         set ProtoCardGrade[87] = 2
         set ProtoEvolutionKind[87] = 0
         set ProtoEvolutionGoal[87] = 0.00
-        call ProtoSetEffect(87, 17, 2.00, false)
-        call ProtoSetEffect(87, 14, 5.00, false)
-        set ProtoCardKey[88] = "academy_kuroko_return"
-        set ProtoCardName[88] = "시라이 쿠로코"
-        set ProtoCardEffectName[88] = "다녀와서 들 한 잔"
-        set ProtoCardKeyword[88] = "학원도시 · 신속 · 고체력"
+        call ProtoSetEffect(87, 11, 6.00, false)
+        call ProtoSetEffect(87, 23, 12.00, false)
+        set ProtoCardKey[88] = "academy_sogiita_guts"
+        set ProtoCardName[88] = "소기이타 군하"
+        set ProtoCardEffectName[88] = "먼저 내디딜 한 걸음"
+        set ProtoCardKeyword[88] = "학원도시 · 공격력 · 최대 체력 패널티"
         set ProtoCardHead[88] = 4
         set ProtoCardGrade[88] = 2
-        set ProtoEvolutionKind[88] = 0
-        set ProtoEvolutionGoal[88] = 0.00
-        call ProtoSetEffect(88, 8, 180.00, false)
-        call ProtoSetEffect(88, 24, 10.00, false)
-        set ProtoCardKey[89] = "academy_uiharu_promise"
-        set ProtoCardName[89] = "우이하루 카자리"
-        set ProtoCardEffectName[89] = "아직 답하지 않은 약속"
-        set ProtoCardKeyword[89] = "학원도시 · 사건 후보 · 보스"
+        set ProtoEvolutionKind[88] = 2
+        set ProtoEvolutionGoal[88] = 9000.00
+        call ProtoSetEffect(88, 1, 18.00, false)
+        call ProtoSetEffect(88, 13, -5.00, false)
+        call ProtoSetEffect(88, 5, 10.00, true)
+        set ProtoCardKey[89] = "academy_touma_coin"
+        set ProtoCardName[89] = "카미조 토우마"
+        set ProtoCardEffectName[89] = "삼켜도 남은 한 닢"
+        set ProtoCardKeyword[89] = "학원도시 · 처치 골드 · 피해 감소"
         set ProtoCardHead[89] = 4
         set ProtoCardGrade[89] = 2
         set ProtoEvolutionKind[89] = 0
         set ProtoEvolutionGoal[89] = 0.00
-        call ProtoSetEffect(89, 18, 1.00, false)
-        call ProtoSetEffect(89, 4, 8.00, false)
-        set ProtoCardKey[90] = "academy_tessou_button"
-        set ProtoCardName[90] = "테츠소 츠즈리"
-        set ProtoCardEffectName[90] = "떠난 뒤 남은 버튼"
-        set ProtoCardKeyword[90] = "학원도시 · 행동 · 비방향"
+        call ProtoSetEffect(89, 17, 2.00, false)
+        call ProtoSetEffect(89, 14, 5.00, false)
+        set ProtoCardKey[90] = "academy_kuroko_return"
+        set ProtoCardName[90] = "시라이 쿠로코"
+        set ProtoCardEffectName[90] = "다녀와서 들 한 잔"
+        set ProtoCardKeyword[90] = "학원도시 · 신속 · 고체력"
         set ProtoCardHead[90] = 4
         set ProtoCardGrade[90] = 2
-        set ProtoEvolutionKind[90] = 1
-        set ProtoEvolutionGoal[90] = 35.00
-        call ProtoSetEffect(90, 9, 4.00, false)
-        call ProtoSetEffect(90, 21, 12.00, false)
-        call ProtoSetEffect(90, 6, 3.00, true)
-        set ProtoCardKey[91] = "academy_mikoto_curtain"
-        set ProtoCardName[91] = "미사카 미코토"
-        set ProtoCardEffectName[91] = "막 앞의 한 호흡"
-        set ProtoCardKeyword[91] = "학원도시 · 차지 피해 · 치명타 피해"
+        set ProtoEvolutionKind[90] = 0
+        set ProtoEvolutionGoal[90] = 0.00
+        call ProtoSetEffect(90, 8, 180.00, false)
+        call ProtoSetEffect(90, 24, 10.00, false)
+        set ProtoCardKey[91] = "academy_uiharu_promise"
+        set ProtoCardName[91] = "우이하루 카자리"
+        set ProtoCardEffectName[91] = "아직 답하지 않은 약속"
+        set ProtoCardKeyword[91] = "학원도시 · 사건 후보 · 보스"
         set ProtoCardHead[91] = 4
         set ProtoCardGrade[91] = 2
-        set ProtoEvolutionKind[91] = 2
-        set ProtoEvolutionGoal[91] = 9000.00
-        call ProtoSetEffect(91, 23, 12.00, false)
-        call ProtoSetEffect(91, 7, 12.00, false)
-        call ProtoSetEffect(91, 4, 4.00, true)
-        set ProtoCardKey[92] = "academy_mikoto_drink"
-        set ProtoCardName[92] = "미사카 미코토"
-        set ProtoCardEffectName[92] = "차가워지기 전에"
-        set ProtoCardKeyword[92] = "학원도시 · 차지 속도 · 최대 체력"
+        set ProtoEvolutionKind[91] = 0
+        set ProtoEvolutionGoal[91] = 0.00
+        call ProtoSetEffect(91, 18, 1.00, false)
+        call ProtoSetEffect(91, 4, 8.00, false)
+        set ProtoCardKey[92] = "academy_tessou_button"
+        set ProtoCardName[92] = "테츠소 츠즈리"
+        set ProtoCardEffectName[92] = "떠난 뒤 남은 버튼"
+        set ProtoCardKeyword[92] = "학원도시 · 행동 · 비방향"
         set ProtoCardHead[92] = 4
         set ProtoCardGrade[92] = 2
-        set ProtoEvolutionKind[92] = 0
-        set ProtoEvolutionGoal[92] = 0.00
-        call ProtoSetEffect(92, 11, 8.00, false)
-        call ProtoSetEffect(92, 13, 8.00, false)
+        set ProtoEvolutionKind[92] = 1
+        set ProtoEvolutionGoal[92] = 35.00
+        call ProtoSetEffect(92, 9, 4.00, false)
+        call ProtoSetEffect(92, 21, 12.00, false)
+        call ProtoSetEffect(92, 6, 3.00, true)
+        set ProtoCardKey[93] = "academy_mikoto_curtain"
+        set ProtoCardName[93] = "미사카 미코토"
+        set ProtoCardEffectName[93] = "막 앞의 한 호흡"
+        set ProtoCardKeyword[93] = "학원도시 · 차지 피해 · 치명타 피해"
+        set ProtoCardHead[93] = 4
+        set ProtoCardGrade[93] = 2
+        set ProtoEvolutionKind[93] = 2
+        set ProtoEvolutionGoal[93] = 9000.00
+        call ProtoSetEffect(93, 23, 12.00, false)
+        call ProtoSetEffect(93, 7, 12.00, false)
+        call ProtoSetEffect(93, 4, 4.00, true)
+        set ProtoCardKey[94] = "academy_mikoto_drink"
+        set ProtoCardName[94] = "미사카 미코토"
+        set ProtoCardEffectName[94] = "차가워지기 전에"
+        set ProtoCardKeyword[94] = "학원도시 · 차지 속도 · 최대 체력"
+        set ProtoCardHead[94] = 4
+        set ProtoCardGrade[94] = 2
+        set ProtoEvolutionKind[94] = 0
+        set ProtoEvolutionGoal[94] = 0.00
+        call ProtoSetEffect(94, 11, 8.00, false)
+        call ProtoSetEffect(94, 13, 8.00, false)
         set ProtoEventKey[103] = "academy_bad_signal"
         set ProtoEventName[103] = "끊어진 구조 신호"
         set ProtoEventHead[103] = 4
@@ -3193,7 +3203,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[103] = ""
         set ProtoBranchLabel[412] = "수리 자재를 사고 우이하루의 백업을 돕는다"
         set ProtoBranchResult[412] = "자재를 사서 끊어진 통신선을 이었다. 우이하루가 나눠 준 기록으로 당신도 다음 행동을 준비할 여유를 얻었다."
-        set ProtoBranchCard[412] = 77
+        set ProtoBranchCard[412] = 79
         set ProtoBranchCard2[412] = 0
         set ProtoBranchGold[412] = 0
         set ProtoBranchCost[412] = 200
@@ -3203,7 +3213,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[412] = 100
         set ProtoBranchLabel[413] = "쿠로코와 위험한 현장으로 간다"
         set ProtoBranchResult[413] = "쿠로코와 현장에 들어가 끊긴 신호의 위치를 찾았다. 빠르게 도착하는 데서 그치지 않고 물러날 공간까지 짚었지만, 안쪽에는 더 강한 상대가 기다리고 있었다."
-        set ProtoBranchCard[413] = 74
+        set ProtoBranchCard[413] = 76
         set ProtoBranchCard2[413] = 0
         set ProtoBranchGold[413] = 0
         set ProtoBranchCost[413] = 0
@@ -3213,7 +3223,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[413] = 100
         set ProtoBranchLabel[414] = "사텐과 가까운 골목부터 수색한다"
         set ProtoBranchResult[414] = "사텐과 가까운 골목의 문을 두드리며 마지막 연락을 들은 사람을 찾았다. 확인할 갈림길이 늘어나 그곳을 오가는 무리까지 맡게 되었지만, 수색 순서를 정할 단서는 모였다."
-        set ProtoBranchCard[414] = 76
+        set ProtoBranchCard[414] = 78
         set ProtoBranchCard2[414] = 0
         set ProtoBranchGold[414] = 0
         set ProtoBranchCost[414] = 0
@@ -3245,7 +3255,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[104] = ""
         set ProtoBranchLabel[416] = "미코토에게 절연 장비를 빌린다"
         set ProtoBranchResult[416] = "절연 장비 대여비를 내고 전원 시설을 확인했다. 미코토가 한 지점에 힘을 모으는 과정을 보며 공격 기회를 준비했다."
-        set ProtoBranchCard[416] = 73
+        set ProtoBranchCard[416] = 75
         set ProtoBranchCard2[416] = 0
         set ProtoBranchGold[416] = 0
         set ProtoBranchCost[416] = 220
@@ -3255,7 +3265,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[416] = 100
         set ProtoBranchLabel[417] = "토우마와 구조 경로를 확보한다"
         set ProtoBranchResult[417] = "토우마와 구조 대상에게 닿을 통로를 열었다. 사람들을 먼저 내보내고 당신이 뒤쪽을 맡으면서, 더 많은 상대가 남은 구간을 경계할 준비를 했다."
-        set ProtoBranchCard[417] = 75
+        set ProtoBranchCard[417] = 77
         set ProtoBranchCard2[417] = 0
         set ProtoBranchGold[417] = 0
         set ProtoBranchCost[417] = 0
@@ -3287,7 +3297,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[105] = ""
         set ProtoBranchLabel[420] = "조사 장비를 준비하고 미코토와 장치를 확인한다"
         set ProtoBranchResult[420] = "조사 장비를 준비해 미코토가 장치의 반응을 살피는 동안 주변 표시를 기록했다. 소문으로 들은 힘을 얻은 것이 아니라 전류가 집중되는 지점과 다가가지 말아야 할 자리를 구분했다."
-        set ProtoBranchCard[420] = 73
+        set ProtoBranchCard[420] = 75
         set ProtoBranchCard2[420] = 0
         set ProtoBranchGold[420] = 0
         set ProtoBranchCost[420] = 180
@@ -3297,7 +3307,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[420] = 100
         set ProtoBranchLabel[421] = "사텐과 모인 사람들의 이야기를 듣는다"
         set ProtoBranchResult[421] = "사텐과 함께 현장 목격자들의 진술을 청취했다. 인내심을 가지고 정보를 수집한다."
-        set ProtoBranchCard[421] = 79
+        set ProtoBranchCard[421] = 81
         set ProtoBranchCard2[421] = 0
         set ProtoBranchGold[421] = 0
         set ProtoBranchCost[421] = 0
@@ -3329,7 +3339,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[106] = ""
         set ProtoBranchLabel[424] = "위험 구역을 맡고 정밀 사격을 관찰한다"
         set ProtoBranchResult[424] = "통로 끝을 맡아 작업자들이 사선에 들어오지 않도록 알렸다. 미코토가 표적을 꿰뚫는 순간을 지켜봤지만, 더 강한 상대가 접근하는 구간까지 계속 지켜야 한다."
-        set ProtoBranchCard[424] = 78
+        set ProtoBranchCard[424] = 80
         set ProtoBranchCard2[424] = 0
         set ProtoBranchGold[424] = 0
         set ProtoBranchCost[424] = 0
@@ -3339,7 +3349,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[424] = 100
         set ProtoBranchLabel[425] = "안전 장비 비용을 내고 사선을 표시한다"
         set ProtoBranchResult[425] = "안전 가이드라인을 설치해 사격 구역을 명확히 했다. 쿠로코의 이동 경로를 보조한다."
-        set ProtoBranchCard[425] = 74
+        set ProtoBranchCard[425] = 76
         set ProtoBranchCard2[425] = 0
         set ProtoBranchGold[425] = 0
         set ProtoBranchCost[425] = 210
@@ -3371,7 +3381,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[107] = ""
         set ProtoBranchLabel[428] = "사텐과 물자를 나르며 길을 익힌다"
         set ProtoBranchResult[428] = "사텐과 남은 물자를 나르며 골목마다 돌아올 표식을 남겼다. 한 번 더 확인할 길을 맡은 만큼 오가는 무리도 늘었지만, 힘이 없어 멈춰 있던 짐은 목적지에 닿았다."
-        set ProtoBranchCard[428] = 76
+        set ProtoBranchCard[428] = 78
         set ProtoBranchCard2[428] = 0
         set ProtoBranchGold[428] = 0
         set ProtoBranchCost[428] = 0
@@ -3381,7 +3391,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[428] = 100
         set ProtoBranchLabel[429] = "운송비를 내고 사텐과 피난 장소를 정리한다"
         set ProtoBranchResult[429] = "운송 비용을 지불하고 체계적으로 물자를 정리했다. 생존을 위한 안정성을 확보한다."
-        set ProtoBranchCard[429] = 79
+        set ProtoBranchCard[429] = 81
         set ProtoBranchCard2[429] = 0
         set ProtoBranchGold[429] = 0
         set ProtoBranchCost[429] = 180
@@ -3391,7 +3401,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[429] = 100
         set ProtoBranchLabel[430] = "토우마를 따라 남은 사람을 찾는다"
         set ProtoBranchResult[430] = "토우마를 따라 실종된 시민들을 수색했다. 위험 지역에서의 생존력이 높아진다."
-        set ProtoBranchCard[430] = 75
+        set ProtoBranchCard[430] = 77
         set ProtoBranchCard2[430] = 0
         set ProtoBranchGold[430] = 0
         set ProtoBranchCost[430] = 0
@@ -3413,7 +3423,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[108] = ""
         set ProtoBranchLabel[432] = "새 통로를 조사하고 백업 통신을 연결한다"
         set ProtoBranchResult[432] = "새 통로를 확인하고 우이하루에게 위치를 전달했다. 더 많은 상대가 오가는 길을 맡는 동안, 다음 연락을 기다리기보다 필요한 정보를 먼저 주고받았다."
-        set ProtoBranchCard[432] = 77
+        set ProtoBranchCard[432] = 79
         set ProtoBranchCard2[432] = 0
         set ProtoBranchGold[432] = 0
         set ProtoBranchCost[432] = 0
@@ -3433,7 +3443,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[433] = 100
         set ProtoBranchLabel[434] = "쿠로코와 현장 대응 순서를 점검한다"
         set ProtoBranchResult[434] = "쿠로코와 현장 장비를 준비하고 연락이 들어왔을 때 움직일 순서를 맞췄다. 길을 빠르게 건너는 데서 그치지 않고 도착한 자리에서 할 일을 확인했다."
-        set ProtoBranchCard[434] = 80
+        set ProtoBranchCard[434] = 82
         set ProtoBranchCard2[434] = 0
         set ProtoBranchGold[434] = 0
         set ProtoBranchCost[434] = 170
@@ -3455,7 +3465,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[109] = ""
         set ProtoBranchLabel[436] = "정리 도구 값을 보태고 미코토와 가려진 진열을 고친다"
         set ProtoBranchResult[436] = "정리 도구 값을 보태고 미코토와 진열 앞에 겹친 상자를 옮겼다. 힘을 쏟을 순간을 고르면서 다음 일을 버틸 준비를 배웠다. 미코토가 마지막 소품을 들여다보자 쿠로코는 순찰 시간을 다시 짚는다."
-        set ProtoBranchCard[436] = 81
+        set ProtoBranchCard[436] = 83
         set ProtoBranchCard2[436] = 0
         set ProtoBranchGold[436] = 0
         set ProtoBranchCost[436] = 180
@@ -3465,7 +3475,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[436] = 100
         set ProtoBranchLabel[437] = "쿠로코와 적이 더 많이 드나드는 순찰 길목을 맡는다"
         set ProtoBranchResult[437] = "쿠로코와 더 많은 적이 드나드는 길목을 맡았다. 도착한 자리에서 다음 동작을 빠르게 준비하고 버틸 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 쿠로코는 맡기로 한 길목만 지도에 표시한다."
-        set ProtoBranchCard[437] = 80
+        set ProtoBranchCard[437] = 82
         set ProtoBranchCard2[437] = 0
         set ProtoBranchGold[437] = 0
         set ProtoBranchCost[437] = 0
@@ -3497,7 +3507,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[110] = ""
         set ProtoBranchLabel[440] = "확인 용품을 마련하고 우이하루와 주문을 맞춘다"
         set ProtoBranchResult[440] = "확인 용품 값을 내고 우이하루와 겹친 주문 항목을 지웠다. 쉬었다가 다시 오래 움직이며 차지 동작을 준비하는 습관을 배웠다. 우이하루는 접힌 주문표를 펴 둔 뒤 고르던 간식 쪽으로 돌아간다."
-        set ProtoBranchCard[440] = 82
+        set ProtoBranchCard[440] = 84
         set ProtoBranchCard2[440] = 0
         set ProtoBranchGold[440] = 0
         set ProtoBranchCost[440] = 160
@@ -3507,7 +3517,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[440] = 100
         set ProtoBranchLabel[441] = "우이하루와 더 강한 적이 드나드는 납품 경로의 연락을 맡는다"
         set ProtoBranchResult[441] = "우이하루와 더 강한 적이 오가는 납품 경로의 연락을 맡았다. 다음 동작을 늦추지 않고 필요한 연락을 먼저 잇는 요령을 배운 대신 개인 사냥의 적 단계가 올라갔다. 사텐은 그 경로의 상자만 따로 빼놓는다."
-        set ProtoBranchCard[441] = 77
+        set ProtoBranchCard[441] = 79
         set ProtoBranchCard2[441] = 0
         set ProtoBranchGold[441] = 0
         set ProtoBranchCost[441] = 0
@@ -3539,7 +3549,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[111] = ""
         set ProtoBranchLabel[444] = "준비 도구를 마련해 콘고와 옆 사람의 보폭을 맞춘다"
         set ProtoBranchResult[444] = "준비 도구 값을 내고 콘고와 옆 사람의 보폭을 맞췄다. 다음 동작을 빠르게 준비하고 움직일 속도에 맞춰 힘을 싣는 요령을 배웠다. 미코토가 걸음을 늦추자 콘고도 앞서 내민 발을 되돌린다."
-        set ProtoBranchCard[444] = 83
+        set ProtoBranchCard[444] = 85
         set ProtoBranchCard2[444] = 0
         set ProtoBranchGold[444] = 0
         set ProtoBranchCost[444] = 180
@@ -3549,7 +3559,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[444] = 100
         set ProtoBranchLabel[445] = "미코토와 더 강한 적이 오가는 바깥 준비 구역을 맡는다"
         set ProtoBranchResult[445] = "미코토와 더 강한 적이 오가는 바깥 준비 구역을 맡았다. 힘을 모아 공격하고 단단한 상대를 넘기는 준비를 배웠고 개인 사냥의 적 단계가 올라갔다. 콘고는 돌아와서 다시 보폭을 맞추자고 한다."
-        set ProtoBranchCard[445] = 73
+        set ProtoBranchCard[445] = 75
         set ProtoBranchCard2[445] = 0
         set ProtoBranchGold[445] = 0
         set ProtoBranchCost[445] = 0
@@ -3559,7 +3569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[445] = 100
         set ProtoBranchLabel[446] = "완나이와 버틸 위치를 살필 준비물을 챙긴다"
         set ProtoBranchResult[446] = "준비물 값을 내고 완나이와 먼저 버틸 위치를 짚었다. 맞을 부담을 줄이고 다음 일을 오래 이어 갈 준비를 배웠다. 완나이는 바깥까지 한 번에 맡기보다 지금 나눈 위치를 먼저 보자고 한다."
-        set ProtoBranchCard[446] = 84
+        set ProtoBranchCard[446] = 86
         set ProtoBranchCard2[446] = 0
         set ProtoBranchGold[446] = 0
         set ProtoBranchCost[446] = 220
@@ -3591,7 +3601,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[112] = ""
         set ProtoBranchLabel[448] = "준비물 비용을 내고 완나이와 버틸 위치를 살핀다"
         set ProtoBranchResult[448] = "준비물 값을 내고 완나이와 물이 흐르는 쪽부터 위치를 살폈다. 맞을 부담을 줄이고 오래 버틸 준비를 배웠다. 완나이는 먼저 옮길 꾸러미를 가리키고 콘고는 바깥 구역의 목록을 접는다."
-        set ProtoBranchCard[448] = 84
+        set ProtoBranchCard[448] = 86
         set ProtoBranchCard2[448] = 0
         set ProtoBranchGold[448] = 0
         set ProtoBranchCost[448] = 220
@@ -3601,7 +3611,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[448] = 100
         set ProtoBranchLabel[449] = "받침 도구를 마련해 아와츠키와 준비 동작의 균형을 맞춘다"
         set ProtoBranchResult[449] = "받침 도구 값을 내고 아와츠키와 잠깐 뜨는 물건의 균형을 맞췄다. 차지 동작을 빠르게 준비하고 모은 힘을 싣는 요령을 배웠다. 아와츠키는 균형이 흐트러진 꾸러미를 따로 남긴다."
-        set ProtoBranchCard[449] = 85
+        set ProtoBranchCard[449] = 87
         set ProtoBranchCard2[449] = 0
         set ProtoBranchGold[449] = 0
         set ProtoBranchCost[449] = 220
@@ -3633,7 +3643,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[113] = ""
         set ProtoBranchLabel[452] = "군하와 더 강한 적이 드나드는 길목까지 맡는다"
         set ProtoBranchResult[452] = "군하와 더 강한 적이 드나드는 길목까지 맡았다. 더 세게 밀어붙이는 힘을 얻었지만 오래 버틸 여유는 조금 줄었고 개인 사냥의 적 단계도 올라갔다. 토우마는 짐의 도착지를 적은 종이를 군하에게 먼저 내민다."
-        set ProtoBranchCard[452] = 86
+        set ProtoBranchCard[452] = 88
         set ProtoBranchCard2[452] = 0
         set ProtoBranchGold[452] = 0
         set ProtoBranchCost[452] = 0
@@ -3643,7 +3653,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[452] = 100
         set ProtoBranchLabel[453] = "운송 도구를 마련해 토우마와 남은 사람 쪽을 살핀다"
         set ProtoBranchResult[453] = "운송 도구 값을 내고 토우마와 남은 사람 쪽을 살폈다. 버티며 큰 상대에게 공격할 준비를 배웠다. 토우마는 아직 갈 곳을 확인하지 못한 짐 하나를 옆으로 남긴다."
-        set ProtoBranchCard[453] = 75
+        set ProtoBranchCard[453] = 77
         set ProtoBranchCard2[453] = 0
         set ProtoBranchGold[453] = 0
         set ProtoBranchCost[453] = 200
@@ -3675,7 +3685,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[114] = "예전 표식의 기록을 확인하지 못했다. 연락 비용 120골드는 돌아오지 않고 카드와 기록 확인 보수도 받지 못한다. 우이하루는 확인되지 않은 표식을 상자에 남긴다."
         set ProtoBranchLabel[456] = "120골드의 연락 비용을 내고 예전 표식의 기록을 찾는다"
         set ProtoBranchResult[456] = "연락 비용 120골드를 쓰고 예전 표식의 기록을 확인했다. 우이하루와 쉬었다가 차지 동작을 다시 준비하는 습관을 배우고 준비 담당자에게 기록 확인 보수 210골드를 받았다. 우이하루는 확인한 표식만 새 상자로 옮긴다."
-        set ProtoBranchCard[456] = 82
+        set ProtoBranchCard[456] = 84
         set ProtoBranchCard2[456] = 0
         set ProtoBranchGold[456] = 210
         set ProtoBranchCost[456] = 120
@@ -3685,7 +3695,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[456] = 70
         set ProtoBranchLabel[457] = "새 표시 도구를 마련해 쿠로코와 대응 순서를 맞춘다"
         set ProtoBranchResult[457] = "새 표시 도구 값을 내고 쿠로코와 연락 뒤 움직일 순서를 맞췄다. 다음 동작을 빠르게 준비하면서 도착한 자리에서 버틸 요령을 배웠다. 쿠로코는 확인되지 않은 옛 표식을 따로 남기고 새 표식만 가리킨다."
-        set ProtoBranchCard[457] = 80
+        set ProtoBranchCard[457] = 82
         set ProtoBranchCard2[457] = 0
         set ProtoBranchGold[457] = 0
         set ProtoBranchCost[457] = 200
@@ -3717,7 +3727,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[115] = ""
         set ProtoBranchLabel[460] = "160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다"
         set ProtoBranchResult[460] = "다른 음료값160골드를 내고 자기 남은 몫을 챙겼다. 삼킨 동전 뒤에도 준비를 찾는 기억으로 처치 골드가 늘고 받는 피해가 줄었다. 토우마는 네 음료와 자기 손의 한 닢을 번갈아 본다."
-        set ProtoBranchCard[460] = 87
+        set ProtoBranchCard[460] = 89
         set ProtoBranchCard2[460] = 0
         set ProtoBranchGold[460] = 0
         set ProtoBranchCost[460] = 160
@@ -3727,7 +3737,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[460] = 100
         set ProtoBranchLabel[461] = "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다"
         set ProtoBranchResult[461] = "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 미코토는 자판기를 한 번 더 보다가 네 손에 남은 준비를 묻는다."
-        set ProtoBranchCard[461] = 92
+        set ProtoBranchCard[461] = 94
         set ProtoBranchCard2[461] = 0
         set ProtoBranchGold[461] = 0
         set ProtoBranchCost[461] = 0
@@ -3737,7 +3747,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[461] = 100
         set ProtoBranchLabel[462] = "더 많은 개인 사냥을 맡고 토우마와 남은 준비를 나눈다"
         set ProtoBranchResult[462] = "개인 사냥의 몬스터 수 단계를1올리는 부담을 택하고 토우마와 남은 몫을 나누었다. 처치 골드가 늘고 받는 피해가 줄었다. 토우마는 자기 동전까지 같은 몫으로 세지 말라며 한 닢을 다시 쥔다."
-        set ProtoBranchCard[462] = 87
+        set ProtoBranchCard[462] = 89
         set ProtoBranchCard2[462] = 0
         set ProtoBranchGold[462] = 0
         set ProtoBranchCost[462] = 0
@@ -3769,7 +3779,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[116] = ""
         set ProtoBranchLabel[464] = "180골드로 포장을 마련하고 돌아올 한 잔을 남긴다"
         set ProtoBranchResult[464] = "포장값180골드를 내고 돌아올 한 잔을 남겼다. 급히 나서도 자기 몫을 남기는 기억으로 신속과 체력65%이상일 때 가하는 피해가 늘었다. 사텐은 포장된 쪽을 보고 자기 잔까지 남겨야 하냐고 묻는다."
-        set ProtoBranchCard[464] = 88
+        set ProtoBranchCard[464] = 90
         set ProtoBranchCard2[464] = 0
         set ProtoBranchGold[464] = 0
         set ProtoBranchCost[464] = 180
@@ -3779,7 +3789,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[464] = 100
         set ProtoBranchLabel[465] = "더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다"
         set ProtoBranchResult[465] = "더 많은 개인 사냥을 맡는 부담을 택하고 우이하루의 남은 답을 기다렸다. 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 아직 들지 못한 잔을 내려놓고 쿠로코가 나갈 쪽을 본다."
-        set ProtoBranchCard[465] = 89
+        set ProtoBranchCard[465] = 91
         set ProtoBranchCard2[465] = 0
         set ProtoBranchGold[465] = 0
         set ProtoBranchCost[465] = 0
@@ -3811,7 +3821,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[117] = ""
         set ProtoBranchLabel[468] = "180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다"
         set ProtoBranchResult[468] = "준비값180골드를 내고 자기가 맡을 일을 끝까지 답했다. 남은 질문을 놓치지 않는 기억으로 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 네 대답을 들었지만 쿠로코 쪽에는 아직 묻던 말이 남아 있다."
-        set ProtoBranchCard[468] = 89
+        set ProtoBranchCard[468] = 91
         set ProtoBranchCard2[468] = 0
         set ProtoBranchGold[468] = 0
         set ProtoBranchCost[468] = 180
@@ -3821,7 +3831,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[468] = 100
         set ProtoBranchLabel[469] = "더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다"
         set ProtoBranchResult[469] = "더 강한 개인 사냥을 맡는 부담을 택하고 쿠로코의 다음 행동을 기억했다. 행동속도가 늘고 받는 피해가 줄었다. 쿠로코는 네가 맡을 몫과 자기 앞에 남은 질문을 따로 본다."
-        set ProtoBranchCard[469] = 80
+        set ProtoBranchCard[469] = 82
         set ProtoBranchCard2[469] = 0
         set ProtoBranchGold[469] = 0
         set ProtoBranchCost[469] = 0
@@ -3853,7 +3863,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[118] = ""
         set ProtoBranchLabel[472] = "200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다"
         set ProtoBranchResult[472] = "자기 다음 차례값200골드를 내고 남은 버튼을 지켜봤다. 다음 입력을 기다리는 기억으로 행동속도와 비방향 공격 피해가 늘었다. 테츠소는 빈 의자에 이어 하려던 말을 아직 버튼 앞에 남긴다."
-        set ProtoBranchCard[472] = 90
+        set ProtoBranchCard[472] = 92
         set ProtoBranchCard2[472] = 0
         set ProtoBranchGold[472] = 0
         set ProtoBranchCost[472] = 200
@@ -3863,7 +3873,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[472] = 100
         set ProtoBranchLabel[473] = "더 많은 개인 사냥을 맡고 테츠소와 다음 입력의 간격을 본다"
         set ProtoBranchResult[473] = "더 많은 개인 사냥을 맡는 부담을 택하고 테츠소와 다음 입력의 간격을 봤다. 행동속도와 비방향 공격 피해가 늘었다. 테츠소는 학생이 앉았던 자리보다 아직 자기 손 앞의 버튼을 먼저 본다."
-        set ProtoBranchCard[473] = 90
+        set ProtoBranchCard[473] = 92
         set ProtoBranchCard2[473] = 0
         set ProtoBranchGold[473] = 0
         set ProtoBranchCost[473] = 0
@@ -3895,7 +3905,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[119] = ""
         set ProtoBranchLabel[476] = "210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다"
         set ProtoBranchResult[476] = "기다릴 준비값210골드를 내고 무대 앞의 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 자기 차례를 떠올린 뒤에도 우이하루가 보고 싶다던 전시를 한 번 더 가리킨다."
-        set ProtoBranchCard[476] = 91
+        set ProtoBranchCard[476] = 93
         set ProtoBranchCard2[476] = 0
         set ProtoBranchGold[476] = 0
         set ProtoBranchCost[476] = 210
@@ -3905,7 +3915,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[476] = 100
         set ProtoBranchLabel[477] = "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다"
         set ProtoBranchResult[477] = "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 사텐은 미코토에게 물었던 돌아갈 자리를 아직 가리키고 있다."
-        set ProtoBranchCard[477] = 92
+        set ProtoBranchCard[477] = 94
         set ProtoBranchCard2[477] = 0
         set ProtoBranchGold[477] = 0
         set ProtoBranchCost[477] = 0
@@ -3937,7 +3947,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[120] = "다음 보급값120골드를 먼저 낸 뒤 준비를 끝낼 때를 맞추지 못했다. 카드는 얻지 못하고 지불한120골드는 돌아오지 않는다. 미코토는 아직 뜯지 않은 음료를 내려놓고 토우마는 남은 짐부터 본다."
         set ProtoBranchLabel[480] = "120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다"
         set ProtoBranchResult[480] = "다음 보급값120골드를 내고 준비를 끝낼 때를 맞췄다. 미코토의 짧은 기다림을 기억해 차지 준비 속도와 최대 체력이 늘었다. 토우마는 자판기에 남은 동전보다 이제 손에 든 짐을 먼저 챙긴다."
-        set ProtoBranchCard[480] = 92
+        set ProtoBranchCard[480] = 94
         set ProtoBranchCard2[480] = 0
         set ProtoBranchGold[480] = 0
         set ProtoBranchCost[480] = 120
@@ -3947,7 +3957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[480] = 70
         set ProtoBranchLabel[481] = "더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다"
         set ProtoBranchResult[481] = "더 많은 개인 사냥을 맡는 부담을 택하고 미코토의 짧은 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 아직 뜯지 않은 자기 음료를 들고 토우마의 다음 말을 기다린다."
-        set ProtoBranchCard[481] = 91
+        set ProtoBranchCard[481] = 93
         set ProtoBranchCard2[481] = 0
         set ProtoBranchGold[481] = 0
         set ProtoBranchCost[481] = 0
@@ -3972,7 +3982,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[5] = "미타키하라"
         set ProtoHeadIntro[5] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoHeadIcon[5] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[5] = 93
+        set ProtoHeadEntryCard[5] = 95
         call SaveReal(ProtoHeadEffectData, 5, 13, 3.00)
         set ProtoEventKey[17] = "mitakihara_entry_0"
         set ProtoEventName[17] = "미타키하라 방문"
@@ -4006,151 +4016,151 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[20] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIntro[20] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIcon[20] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[93] = "madoka_care"
-        set ProtoCardName[93] = "카나메 마도카"
-        set ProtoCardEffectName[93] = "친구를 위해"
-        set ProtoCardKeyword[93] = "미타키하라 · 고체력 · 생존"
-        set ProtoCardHead[93] = 5
-        set ProtoCardGrade[93] = 1
-        set ProtoEvolutionKind[93] = 0
-        set ProtoEvolutionGoal[93] = 0.00
-        call ProtoSetEffect(93, 24, 8.00, false)
-        call ProtoSetEffect(93, 14, 3.00, false)
-        set ProtoCardKey[94] = "madoka_mami"
-        set ProtoCardName[94] = "토모에 마미"
-        set ProtoCardEffectName[94] = "흔들리지 않는 조준"
-        set ProtoCardKeyword[94] = "미타키하라 · 차지 · 관통"
-        set ProtoCardHead[94] = 5
-        set ProtoCardGrade[94] = 2
-        set ProtoEvolutionKind[94] = 2
-        set ProtoEvolutionGoal[94] = 12000.00
-        call ProtoSetEffect(94, 23, 18.00, false)
-        call ProtoSetEffect(94, 12, 8.00, false)
-        call ProtoSetEffect(94, 11, 6.00, true)
-        set ProtoCardKey[95] = "madoka_homura"
-        set ProtoCardName[95] = "아케미 호무라"
-        set ProtoCardEffectName[95] = "반복해 세운 준비"
-        set ProtoCardKeyword[95] = "미타키하라 · 행동 · 신속"
+        set ProtoCardKey[95] = "madoka_care"
+        set ProtoCardName[95] = "카나메 마도카"
+        set ProtoCardEffectName[95] = "친구를 위해"
+        set ProtoCardKeyword[95] = "미타키하라 · 고체력 · 생존"
         set ProtoCardHead[95] = 5
-        set ProtoCardGrade[95] = 2
-        set ProtoEvolutionKind[95] = 3
-        set ProtoEvolutionGoal[95] = 60.00
-        call ProtoSetEffect(95, 9, 6.00, false)
-        call ProtoSetEffect(95, 8, 180.00, false)
-        call ProtoSetEffect(95, 4, 8.00, true)
-        set ProtoCardKey[96] = "madoka_sayaka"
-        set ProtoCardName[96] = "미키 사야카"
-        set ProtoCardEffectName[96] = "물러서지 않는 결심"
-        set ProtoCardKeyword[96] = "미타키하라 · 체력 · 공격"
+        set ProtoCardGrade[95] = 1
+        set ProtoEvolutionKind[95] = 0
+        set ProtoEvolutionGoal[95] = 0.00
+        call ProtoSetEffect(95, 24, 8.00, false)
+        call ProtoSetEffect(95, 14, 3.00, false)
+        set ProtoCardKey[96] = "madoka_mami"
+        set ProtoCardName[96] = "토모에 마미"
+        set ProtoCardEffectName[96] = "흔들리지 않는 조준"
+        set ProtoCardKeyword[96] = "미타키하라 · 차지 · 관통"
         set ProtoCardHead[96] = 5
         set ProtoCardGrade[96] = 2
-        set ProtoEvolutionKind[96] = 0
-        set ProtoEvolutionGoal[96] = 0.00
-        call ProtoSetEffect(96, 1, 10.00, false)
-        call ProtoSetEffect(96, 13, 12.00, false)
-        set ProtoCardKey[97] = "madoka_kyoko"
-        set ProtoCardName[97] = "사쿠라 쿄코"
-        set ProtoCardEffectName[97] = "긴 창의 간격"
-        set ProtoCardKeyword[97] = "미타키하라 · 방향 · 이동"
+        set ProtoEvolutionKind[96] = 2
+        set ProtoEvolutionGoal[96] = 12000.00
+        call ProtoSetEffect(96, 23, 18.00, false)
+        call ProtoSetEffect(96, 12, 8.00, false)
+        call ProtoSetEffect(96, 11, 6.00, true)
+        set ProtoCardKey[97] = "madoka_homura"
+        set ProtoCardName[97] = "아케미 호무라"
+        set ProtoCardEffectName[97] = "반복해 세운 준비"
+        set ProtoCardKeyword[97] = "미타키하라 · 행동 · 신속"
         set ProtoCardHead[97] = 5
         set ProtoCardGrade[97] = 2
-        set ProtoEvolutionKind[97] = 1
-        set ProtoEvolutionGoal[97] = 45.00
-        call ProtoSetEffect(97, 20, 15.00, false)
-        call ProtoSetEffect(97, 19, 10.00, false)
-        call ProtoSetEffect(97, 7, 15.00, true)
-        set ProtoCardKey[98] = "madoka_contract"
-        set ProtoCardName[98] = "큐베"
-        set ProtoCardEffectName[98] = "힘이라는 소원"
-        set ProtoCardKeyword[98] = "미타키하라 · 공격 · 대가"
+        set ProtoEvolutionKind[97] = 3
+        set ProtoEvolutionGoal[97] = 60.00
+        call ProtoSetEffect(97, 9, 6.00, false)
+        call ProtoSetEffect(97, 8, 180.00, false)
+        call ProtoSetEffect(97, 4, 8.00, true)
+        set ProtoCardKey[98] = "madoka_sayaka"
+        set ProtoCardName[98] = "미키 사야카"
+        set ProtoCardEffectName[98] = "물러서지 않는 결심"
+        set ProtoCardKeyword[98] = "미타키하라 · 체력 · 공격"
         set ProtoCardHead[98] = 5
-        set ProtoCardGrade[98] = 3
+        set ProtoCardGrade[98] = 2
         set ProtoEvolutionKind[98] = 0
         set ProtoEvolutionGoal[98] = 0.00
-        call ProtoSetEffect(98, 1, 22.00, false)
-        call ProtoSetEffect(98, 13, -10.00, false)
-        set ProtoCardKey[99] = "madoka_guide"
-        set ProtoCardName[99] = "토모에 마미"
-        set ProtoCardEffectName[99] = "혼자 두지 않는 안내"
-        set ProtoCardKeyword[99] = "미타키하라 · 탐색 · 생존"
+        call ProtoSetEffect(98, 1, 10.00, false)
+        call ProtoSetEffect(98, 13, 12.00, false)
+        set ProtoCardKey[99] = "madoka_kyoko"
+        set ProtoCardName[99] = "사쿠라 쿄코"
+        set ProtoCardEffectName[99] = "긴 창의 간격"
+        set ProtoCardKeyword[99] = "미타키하라 · 방향 · 이동"
         set ProtoCardHead[99] = 5
         set ProtoCardGrade[99] = 2
-        set ProtoEvolutionKind[99] = 0
-        set ProtoEvolutionGoal[99] = 0.00
-        call ProtoSetEffect(99, 18, 1.00, false)
-        call ProtoSetEffect(99, 14, 4.00, false)
-        set ProtoCardKey[100] = "madoka_resolve"
-        set ProtoCardName[100] = "카나메 마도카"
-        set ProtoCardEffectName[100] = "서로의 말을 듣기"
-        set ProtoCardKeyword[100] = "미타키하라 · 생존 · 보스"
+        set ProtoEvolutionKind[99] = 1
+        set ProtoEvolutionGoal[99] = 45.00
+        call ProtoSetEffect(99, 20, 15.00, false)
+        call ProtoSetEffect(99, 19, 10.00, false)
+        call ProtoSetEffect(99, 7, 15.00, true)
+        set ProtoCardKey[100] = "madoka_contract"
+        set ProtoCardName[100] = "큐베"
+        set ProtoCardEffectName[100] = "힘이라는 소원"
+        set ProtoCardKeyword[100] = "미타키하라 · 공격 · 대가"
         set ProtoCardHead[100] = 5
-        set ProtoCardGrade[100] = 2
+        set ProtoCardGrade[100] = 3
         set ProtoEvolutionKind[100] = 0
         set ProtoEvolutionGoal[100] = 0.00
-        call ProtoSetEffect(100, 13, 8.00, false)
-        call ProtoSetEffect(100, 4, 12.00, false)
-        set ProtoCardKey[101] = "madoka_junko_choice"
-        set ProtoCardName[101] = "카나메 준코"
-        set ProtoCardEffectName[101] = "먼저 정할 한 가지"
-        set ProtoCardKeyword[101] = "미타키하라 · 보스 · 피해 감소"
+        call ProtoSetEffect(100, 1, 22.00, false)
+        call ProtoSetEffect(100, 13, -10.00, false)
+        set ProtoCardKey[101] = "madoka_guide"
+        set ProtoCardName[101] = "토모에 마미"
+        set ProtoCardEffectName[101] = "혼자 두지 않는 안내"
+        set ProtoCardKeyword[101] = "미타키하라 · 탐색 · 생존"
         set ProtoCardHead[101] = 5
         set ProtoCardGrade[101] = 2
         set ProtoEvolutionKind[101] = 0
         set ProtoEvolutionGoal[101] = 0.00
-        call ProtoSetEffect(101, 4, 12.00, false)
+        call ProtoSetEffect(101, 18, 1.00, false)
         call ProtoSetEffect(101, 14, 4.00, false)
-        set ProtoCardKey[102] = "madoka_tomohisa_pack"
-        set ProtoCardName[102] = "카나메 토모히사"
-        set ProtoCardEffectName[102] = "남겨 놓은 한 사람의 몫"
-        set ProtoCardKeyword[102] = "미타키하라 · 재생 · 최대 체력"
+        set ProtoCardKey[102] = "madoka_resolve"
+        set ProtoCardName[102] = "카나메 마도카"
+        set ProtoCardEffectName[102] = "서로의 말을 듣기"
+        set ProtoCardKeyword[102] = "미타키하라 · 생존 · 보스"
         set ProtoCardHead[102] = 5
         set ProtoCardGrade[102] = 2
         set ProtoEvolutionKind[102] = 0
         set ProtoEvolutionGoal[102] = 0.00
-        call ProtoSetEffect(102, 16, 0.40, false)
-        call ProtoSetEffect(102, 13, 10.00, false)
-        set ProtoCardKey[103] = "madoka_hitomi_schedule"
-        set ProtoCardName[103] = "시즈키 히토미"
-        set ProtoCardEffectName[103] = "약속 사이에 남긴 여백"
-        set ProtoCardKeyword[103] = "미타키하라 · 신속 · 차지 속도"
+        call ProtoSetEffect(102, 13, 8.00, false)
+        call ProtoSetEffect(102, 4, 12.00, false)
+        set ProtoCardKey[103] = "madoka_junko_choice"
+        set ProtoCardName[103] = "카나메 준코"
+        set ProtoCardEffectName[103] = "먼저 정할 한 가지"
+        set ProtoCardKeyword[103] = "미타키하라 · 보스 · 피해 감소"
         set ProtoCardHead[103] = 5
         set ProtoCardGrade[103] = 2
         set ProtoEvolutionKind[103] = 0
         set ProtoEvolutionGoal[103] = 0.00
-        call ProtoSetEffect(103, 8, 180.00, false)
-        call ProtoSetEffect(103, 11, 6.00, false)
-        set ProtoCardKey[104] = "madoka_sayaka_listen"
-        set ProtoCardName[104] = "미키 사야카"
-        set ProtoCardEffectName[104] = "말이 끝날 때까지"
-        set ProtoCardKeyword[104] = "미타키하라 · 치명 확률 · 고체력"
+        call ProtoSetEffect(103, 4, 12.00, false)
+        call ProtoSetEffect(103, 14, 4.00, false)
+        set ProtoCardKey[104] = "madoka_tomohisa_pack"
+        set ProtoCardName[104] = "카나메 토모히사"
+        set ProtoCardEffectName[104] = "남겨 놓은 한 사람의 몫"
+        set ProtoCardKeyword[104] = "미타키하라 · 재생 · 최대 체력"
         set ProtoCardHead[104] = 5
         set ProtoCardGrade[104] = 2
         set ProtoEvolutionKind[104] = 0
         set ProtoEvolutionGoal[104] = 0.00
-        call ProtoSetEffect(104, 6, 5.00, false)
-        call ProtoSetEffect(104, 24, 10.00, false)
-        set ProtoCardKey[105] = "madoka_homura_school"
-        set ProtoCardName[105] = "아케미 호무라"
-        set ProtoCardEffectName[105] = "먼저 끝내고 기다릴 자리"
-        set ProtoCardKeyword[105] = "미타키하라 · 행동 속도 · 비방향 피해"
+        call ProtoSetEffect(104, 16, 0.40, false)
+        call ProtoSetEffect(104, 13, 10.00, false)
+        set ProtoCardKey[105] = "madoka_hitomi_schedule"
+        set ProtoCardName[105] = "시즈키 히토미"
+        set ProtoCardEffectName[105] = "약속 사이에 남긴 여백"
+        set ProtoCardKeyword[105] = "미타키하라 · 신속 · 차지 속도"
         set ProtoCardHead[105] = 5
         set ProtoCardGrade[105] = 2
-        set ProtoEvolutionKind[105] = 3
-        set ProtoEvolutionGoal[105] = 60.00
-        call ProtoSetEffect(105, 9, 4.00, false)
-        call ProtoSetEffect(105, 21, 12.00, false)
-        call ProtoSetEffect(105, 12, 6.00, true)
-        set ProtoCardKey[106] = "madoka_mami_distance"
-        set ProtoCardName[106] = "토모에 마미"
-        set ProtoCardEffectName[106] = "들어가기 전의 한 걸음"
-        set ProtoCardKeyword[106] = "미타키하라 · 방향 피해 · 피해 감소"
+        set ProtoEvolutionKind[105] = 0
+        set ProtoEvolutionGoal[105] = 0.00
+        call ProtoSetEffect(105, 8, 180.00, false)
+        call ProtoSetEffect(105, 11, 6.00, false)
+        set ProtoCardKey[106] = "madoka_sayaka_listen"
+        set ProtoCardName[106] = "미키 사야카"
+        set ProtoCardEffectName[106] = "말이 끝날 때까지"
+        set ProtoCardKeyword[106] = "미타키하라 · 치명 확률 · 고체력"
         set ProtoCardHead[106] = 5
         set ProtoCardGrade[106] = 2
-        set ProtoEvolutionKind[106] = 2
-        set ProtoEvolutionGoal[106] = 9000.00
-        call ProtoSetEffect(106, 20, 14.00, false)
-        call ProtoSetEffect(106, 14, 4.00, false)
-        call ProtoSetEffect(106, 11, 3.00, true)
+        set ProtoEvolutionKind[106] = 0
+        set ProtoEvolutionGoal[106] = 0.00
+        call ProtoSetEffect(106, 6, 5.00, false)
+        call ProtoSetEffect(106, 24, 10.00, false)
+        set ProtoCardKey[107] = "madoka_homura_school"
+        set ProtoCardName[107] = "아케미 호무라"
+        set ProtoCardEffectName[107] = "먼저 끝내고 기다릴 자리"
+        set ProtoCardKeyword[107] = "미타키하라 · 행동 속도 · 비방향 피해"
+        set ProtoCardHead[107] = 5
+        set ProtoCardGrade[107] = 2
+        set ProtoEvolutionKind[107] = 3
+        set ProtoEvolutionGoal[107] = 60.00
+        call ProtoSetEffect(107, 9, 4.00, false)
+        call ProtoSetEffect(107, 21, 12.00, false)
+        call ProtoSetEffect(107, 12, 6.00, true)
+        set ProtoCardKey[108] = "madoka_mami_distance"
+        set ProtoCardName[108] = "토모에 마미"
+        set ProtoCardEffectName[108] = "들어가기 전의 한 걸음"
+        set ProtoCardKeyword[108] = "미타키하라 · 방향 피해 · 피해 감소"
+        set ProtoCardHead[108] = 5
+        set ProtoCardGrade[108] = 2
+        set ProtoEvolutionKind[108] = 2
+        set ProtoEvolutionGoal[108] = 9000.00
+        call ProtoSetEffect(108, 20, 14.00, false)
+        call ProtoSetEffect(108, 14, 4.00, false)
+        call ProtoSetEffect(108, 11, 3.00, true)
         set ProtoEventKey[121] = "madoka_parking_seed"
         set ProtoEventName[121] = "주차장의 검은 씨앗"
         set ProtoEventHead[121] = 5
@@ -4165,7 +4175,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[121] = ""
         set ProtoBranchLabel[484] = "차단 자재를 마련하고 마미의 안내를 받는다"
         set ProtoBranchResult[484] = "마미의 지시에 따라 안전하게 주변을 봉쇄하며 마미로부터 노하우를 전수받는다."
-        set ProtoBranchCard[484] = 99
+        set ProtoBranchCard[484] = 101
         set ProtoBranchCard2[484] = 0
         set ProtoBranchGold[484] = 0
         set ProtoBranchCost[484] = 180
@@ -4175,7 +4185,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[484] = 100
         set ProtoBranchLabel[485] = "사야카와 현장의 사람들을 지킨다"
         set ProtoBranchResult[485] = "사야카와 시민들이 주차장에 들어오지 않게 안내했다. 사람들은 빠져나갔지만 당신은 더 많은 기척이 모인 경계를 맡아 마미가 돌아올 길을 지켜야 했다."
-        set ProtoBranchCard[485] = 96
+        set ProtoBranchCard[485] = 98
         set ProtoBranchCard2[485] = 0
         set ProtoBranchGold[485] = 0
         set ProtoBranchCost[485] = 0
@@ -4185,7 +4195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[485] = 100
         set ProtoBranchLabel[486] = "호무라에게 자리를 넘기고 우회로를 확인한다"
         set ProtoBranchResult[486] = "장비 준비비를 내고 호무라에게 현장을 넘겼다. 그녀가 확인한 우회로를 살펴보며 다음 대응을 준비했다."
-        set ProtoBranchCard[486] = 95
+        set ProtoBranchCard[486] = 97
         set ProtoBranchCard2[486] = 0
         set ProtoBranchGold[486] = 0
         set ProtoBranchCost[486] = 240
@@ -4217,7 +4227,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[122] = ""
         set ProtoBranchLabel[488] = "마미와 사격 위치를 확보한다"
         set ProtoBranchResult[488] = "마미와 사격할 자리와 물러날 길을 함께 표시했다. 먼 곳을 볼 위치는 얻었지만 그쪽으로 이어진 강한 기척까지 살펴야 하며, 결계 안의 일은 아직 끝나지 않았다."
-        set ProtoBranchCard[488] = 94
+        set ProtoBranchCard[488] = 96
         set ProtoBranchCard2[488] = 0
         set ProtoBranchGold[488] = 0
         set ProtoBranchCost[488] = 0
@@ -4227,7 +4237,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[488] = 100
         set ProtoBranchLabel[489] = "돌아올 길을 정리하며 마도카를 돕는다"
         set ProtoBranchResult[489] = "마도카와 돌아올 길의 표식을 다시 맞췄다. 준비할 물품을 마련하고, 서로 엇갈리지 않도록 찾을 자리를 끝까지 들어 뒀다."
-        set ProtoBranchCard[489] = 100
+        set ProtoBranchCard[489] = 102
         set ProtoBranchCard2[489] = 0
         set ProtoBranchGold[489] = 0
         set ProtoBranchCost[489] = 150
@@ -4259,7 +4269,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[123] = ""
         set ProtoBranchLabel[492] = "사야카와 흔적을 끝까지 따라간다"
         set ProtoBranchResult[492] = "사야카의 의지에 따라 흔적을 추적하며 깊은 곳으로 들어간다."
-        set ProtoBranchCard[492] = 96
+        set ProtoBranchCard[492] = 98
         set ProtoBranchCard2[492] = 0
         set ProtoBranchGold[492] = 0
         set ProtoBranchCost[492] = 0
@@ -4269,7 +4279,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[492] = 100
         set ProtoBranchLabel[493] = "마도카와 안전한 만남의 장소를 마련한다"
         set ProtoBranchResult[493] = "마도카의 제안대로 대화할 수 있는 평온한 장소를 찾아 이동한다."
-        set ProtoBranchCard[493] = 100
+        set ProtoBranchCard[493] = 102
         set ProtoBranchCard2[493] = 0
         set ProtoBranchGold[493] = 0
         set ProtoBranchCost[493] = 180
@@ -4279,7 +4289,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[493] = 100
         set ProtoBranchLabel[494] = "쿄코와 추적 구역을 나눈다"
         set ProtoBranchResult[494] = "쿄코와 놓친 흔적이 갈라지는 길을 나눠 살폈다. 한 구역만 찾을 때보다 확인할 상대가 늘었지만, 어느 길에서 긴 창의 간격을 확보할지 판단할 수 있었다."
-        set ProtoBranchCard[494] = 97
+        set ProtoBranchCard[494] = 99
         set ProtoBranchCard2[494] = 0
         set ProtoBranchGold[494] = 0
         set ProtoBranchCost[494] = 0
@@ -4301,7 +4311,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[124] = ""
         set ProtoBranchLabel[496] = "먹을 것을 나누며 쿄코의 이야기를 듣는다"
         set ProtoBranchResult[496] = "쿄코가 건넨 음식을 나누어 먹으며 그녀의 과거와 속마음을 경청한다."
-        set ProtoBranchCard[496] = 97
+        set ProtoBranchCard[496] = 99
         set ProtoBranchCard2[496] = 0
         set ProtoBranchGold[496] = 0
         set ProtoBranchCost[496] = 160
@@ -4311,7 +4321,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[496] = 100
         set ProtoBranchLabel[497] = "보급품을 사고 사야카가 돌아갈 길을 지킨다"
         set ProtoBranchResult[497] = "물자를 확보하면서 사야카가 안전하게 돌아갈 수 있도록 길을 확보한다."
-        set ProtoBranchCard[497] = 100
+        set ProtoBranchCard[497] = 102
         set ProtoBranchCard2[497] = 0
         set ProtoBranchGold[497] = 0
         set ProtoBranchCost[497] = 200
@@ -4343,7 +4353,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[125] = ""
         set ProtoBranchLabel[500] = "더 강한 힘을 바란다"
         set ProtoBranchResult[500] = "큐베와 계약하여 강력한 힘을 얻지만 그에 따른 책임과 위험을 마주한다."
-        set ProtoBranchCard[500] = 98
+        set ProtoBranchCard[500] = 100
         set ProtoBranchCard2[500] = 0
         set ProtoBranchGold[500] = 0
         set ProtoBranchCost[500] = 0
@@ -4353,7 +4363,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[500] = 100
         set ProtoBranchLabel[501] = "사야카와 사람을 지키는 길을 택한다"
         set ProtoBranchResult[501] = "개인적인 힘 대신 사야카와 시민들을 보호하는 헌신적인 길을 걷는다."
-        set ProtoBranchCard[501] = 96
+        set ProtoBranchCard[501] = 98
         set ProtoBranchCard2[501] = 0
         set ProtoBranchGold[501] = 0
         set ProtoBranchCost[501] = 0
@@ -4363,7 +4373,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[501] = 100
         set ProtoBranchLabel[502] = "호무라와 준비부터 확인한다"
         set ProtoBranchResult[502] = "호무라와 함께 힘을 얻기 전 필요한 대비책을 꼼꼼히 점검한다."
-        set ProtoBranchCard[502] = 95
+        set ProtoBranchCard[502] = 97
         set ProtoBranchCard2[502] = 0
         set ProtoBranchGold[502] = 0
         set ProtoBranchCost[502] = 230
@@ -4395,7 +4405,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[126] = ""
         set ProtoBranchLabel[504] = "마미와 먼 곳의 공격 기회를 준비한다"
         set ProtoBranchResult[504] = "마미와 협력하여 예상치 못한 위치에서 적을 격퇴할 준비를 마친다."
-        set ProtoBranchCard[504] = 94
+        set ProtoBranchCard[504] = 96
         set ProtoBranchCard2[504] = 0
         set ProtoBranchGold[504] = 0
         set ProtoBranchCost[504] = 210
@@ -4405,7 +4415,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[504] = 100
         set ProtoBranchLabel[505] = "마도카와 남은 사람들을 안내한다"
         set ProtoBranchResult[505] = "마도카를 도와 위험에 처한 사람들을 안전한 곳으로 대피시킨다."
-        set ProtoBranchCard[505] = 100
+        set ProtoBranchCard[505] = 102
         set ProtoBranchCard2[505] = 0
         set ProtoBranchGold[505] = 0
         set ProtoBranchCost[505] = 0
@@ -4437,7 +4447,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[127] = "이전 목록에서도 음악 제목을 확인하지 못했다. 연락 비용120골드는 돌아오지 않고 카드와 확인 보수도 받지 못한다. 사야카는 쪽지를 가방 안에 다시 넣는다."
         set ProtoBranchLabel[508] = "120골드의 연락 비용을 내고 쪽지의 제목을 확인한다"
         set ProtoBranchResult[508] = "연락 비용120골드를 쓰고 이전 목록에서 음악 제목을 찾았다. 사야카와 상대의 말을 끝까지 살피며 몸 상태를 지키고 힘을 싣는 준비를 배웠고 물품 담당자에게 확인 보수180골드를 받았다. 사야카는 제목을 적고도 가방을 바로 닫지 않는다."
-        set ProtoBranchCard[508] = 104
+        set ProtoBranchCard[508] = 106
         set ProtoBranchCard2[508] = 0
         set ProtoBranchGold[508] = 180
         set ProtoBranchCost[508] = 120
@@ -4447,7 +4457,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[508] = 70
         set ProtoBranchLabel[509] = "포장 용품을 마련해 사야카와 문병 가방을 나눈다"
         set ProtoBranchResult[509] = "포장 용품 값을 내고 사야카와 문병 가방을 나누었다. 상대를 먼저 살피며 몸 상태를 지키고 공격할 순간을 고르는 준비를 배웠다. 마도카는 쪽지를 아직 확인하지 않았다는 표시로 가방 안에 남긴다."
-        set ProtoBranchCard[509] = 104
+        set ProtoBranchCard[509] = 106
         set ProtoBranchCard2[509] = 0
         set ProtoBranchGold[509] = 0
         set ProtoBranchCost[509] = 180
@@ -4479,7 +4489,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[128] = ""
         set ProtoBranchLabel[512] = "정리 용품을 보태고 준코와 먼저 할 일을 나눈다"
         set ProtoBranchResult[512] = "정리 용품 값을 보태고 준코와 먼저 할 일을 나누었다. 큰 상대를 앞두고 버틸 일과 힘을 쏟을 순간을 고르는 준비를 배웠다. 준코는 가방을 닫기 전에 마도카 쪽에 남길 봉투를 하나 빼놓는다."
-        set ProtoBranchCard[512] = 101
+        set ProtoBranchCard[512] = 103
         set ProtoBranchCard2[512] = 0
         set ProtoBranchGold[512] = 0
         set ProtoBranchCost[512] = 160
@@ -4489,7 +4499,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[512] = 100
         set ProtoBranchLabel[513] = "포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙긴다"
         set ProtoBranchResult[513] = "포장 용품 값을 내고 토모히사와 남겨 둘 몫을 챙겼다. 다음 일을 오래 이어 갈 보급 습관을 배웠다. 토모히사는 현관에 모인 봉투에 이름을 적고 아직 챙기지 않은 몫을 식탁에 남긴다."
-        set ProtoBranchCard[513] = 102
+        set ProtoBranchCard[513] = 104
         set ProtoBranchCard2[513] = 0
         set ProtoBranchGold[513] = 0
         set ProtoBranchCost[513] = 180
@@ -4499,7 +4509,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[513] = 100
         set ProtoBranchLabel[514] = "마도카와 적이 더 많은 바깥 배달 길목을 맡는다"
         set ProtoBranchResult[514] = "마도카와 더 많은 적이 오가는 바깥 배달 길목을 맡았다. 몸 상태를 지키고 버티며 공격할 준비를 배운 대신 개인 사냥의 적 수가 늘었다. 토모히사는 그 길목으로 가져갈 봉투만 나눈다."
-        set ProtoBranchCard[514] = 93
+        set ProtoBranchCard[514] = 95
         set ProtoBranchCard2[514] = 0
         set ProtoBranchGold[514] = 0
         set ProtoBranchCost[514] = 0
@@ -4531,7 +4541,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[129] = ""
         set ProtoBranchLabel[516] = "표시 용품을 마련해 히토미와 약속 사이의 준비를 나눈다"
         set ProtoBranchResult[516] = "표시 용품 값을 내고 히토미와 약속 사이에 준비할 일을 나누었다. 다음 동작과 차지 준비를 늦추지 않는 습관을 배웠다. 히토미가 가방을 챙기자 사야카는 같이 갈 수 있는 구간만 손가락으로 짚는다."
-        set ProtoBranchCard[516] = 103
+        set ProtoBranchCard[516] = 105
         set ProtoBranchCard2[516] = 0
         set ProtoBranchGold[516] = 0
         set ProtoBranchCost[516] = 180
@@ -4541,7 +4551,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[516] = 100
         set ProtoBranchLabel[517] = "마도카와 적이 더 많은 안내 길목을 맡는다"
         set ProtoBranchResult[517] = "마도카와 더 많은 적이 오가는 안내 길목을 맡았다. 오래 버티며 큰 상대에게 공격할 준비를 배웠고 개인 사냥의 적 수가 늘었다. 히토미는 함께 갈 수 없는 구간을 안내표에서 따로 접는다."
-        set ProtoBranchCard[517] = 100
+        set ProtoBranchCard[517] = 102
         set ProtoBranchCard2[517] = 0
         set ProtoBranchGold[517] = 0
         set ProtoBranchCost[517] = 0
@@ -4573,7 +4583,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[130] = ""
         set ProtoBranchLabel[520] = "준비 용품을 마련해 호무라와 다음 동작을 맞춘다"
         set ProtoBranchResult[520] = "준비 용품 값을 내고 호무라와 다음 동작을 맞췄다. 공격할 자리를 넓게 보고 다음 동작을 늦추지 않는 요령을 배웠다. 사야카가 다시 물으려 하자 호무라는 아직 남은 도구를 먼저 가리킨다."
-        set ProtoBranchCard[520] = 105
+        set ProtoBranchCard[520] = 107
         set ProtoBranchCard2[520] = 0
         set ProtoBranchGold[520] = 0
         set ProtoBranchCost[520] = 220
@@ -4583,7 +4593,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[520] = 100
         set ProtoBranchLabel[521] = "호무라와 더 강한 적이 오가는 길목을 맡는다"
         set ProtoBranchResult[521] = "호무라와 더 강한 적이 오가는 길목을 맡았다. 동작을 빠르게 준비하는 요령을 배웠고 개인 사냥의 적 단계가 올라갔다. 마도카는 끝나고 돌아올 자리를 확인해 두자고 한다."
-        set ProtoBranchCard[521] = 95
+        set ProtoBranchCard[521] = 97
         set ProtoBranchCard2[521] = 0
         set ProtoBranchGold[521] = 0
         set ProtoBranchCost[521] = 0
@@ -4615,7 +4625,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[131] = ""
         set ProtoBranchLabel[524] = "표시 용품을 마련해 마미와 입구의 간격을 짚는다"
         set ProtoBranchResult[524] = "표시 용품 값을 내고 마미와 적중할 위치와 물러설 자리를 짚었다. 맞을 부담을 줄이면서 공격 방향을 정하는 준비를 배웠다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 곳에 표시를 남긴다."
-        set ProtoBranchCard[524] = 106
+        set ProtoBranchCard[524] = 108
         set ProtoBranchCard2[524] = 0
         set ProtoBranchGold[524] = 0
         set ProtoBranchCost[524] = 200
@@ -4625,7 +4635,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[524] = 100
         set ProtoBranchLabel[525] = "마미와 적이 더 많이 오가는 바깥 길목을 맡는다"
         set ProtoBranchResult[525] = "마미와 더 많은 적이 오가는 바깥 길목을 맡았다. 여러 상황을 비교하며 버틸 준비를 배웠고 개인 사냥의 적 수가 늘었다. 마미는 다음에 맡을 범위를 지도에 남겨 둔다."
-        set ProtoBranchCard[525] = 99
+        set ProtoBranchCard[525] = 101
         set ProtoBranchCard2[525] = 0
         set ProtoBranchGold[525] = 0
         set ProtoBranchCost[525] = 0
@@ -4657,7 +4667,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[132] = ""
         set ProtoBranchLabel[528] = "확인 용품을 마련해 마미와 들어갈 위치를 정한다"
         set ProtoBranchResult[528] = "확인 용품 값을 내고 마미와 들어갈 위치를 정했다. 공격 방향과 물러설 자리를 먼저 보며 맞을 부담을 줄이는 요령을 배웠다. 호무라는 확인하지 않은 안쪽을 그대로 남겨 두자고 한다."
-        set ProtoBranchCard[528] = 106
+        set ProtoBranchCard[528] = 108
         set ProtoBranchCard2[528] = 0
         set ProtoBranchGold[528] = 0
         set ProtoBranchCost[528] = 220
@@ -4667,7 +4677,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[528] = 100
         set ProtoBranchLabel[529] = "호무라와 더 강한 적이 오가는 바깥 구역을 맡는다"
         set ProtoBranchResult[529] = "호무라와 더 강한 적이 오가는 바깥 구역을 맡았다. 다음 동작을 빠르게 준비하는 요령을 배운 대신 개인 사냥의 적 단계가 올라갔다. 마도카는 확인한 바깥 흔적만 지도에 적는다."
-        set ProtoBranchCard[529] = 95
+        set ProtoBranchCard[529] = 97
         set ProtoBranchCard2[529] = 0
         set ProtoBranchGold[529] = 0
         set ProtoBranchCost[529] = 0
@@ -4692,7 +4702,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[6] = "아인크라드"
         set ProtoHeadIntro[6] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoHeadIcon[6] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[6] = 107
+        set ProtoHeadEntryCard[6] = 109
         call SaveReal(ProtoHeadEffectData, 6, 5, 3.00)
         set ProtoEventKey[21] = "aincrad_entry_0"
         set ProtoEventName[21] = "아인크라드 방문"
@@ -4726,190 +4736,190 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[24] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIntro[24] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIcon[24] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[107] = "sao_agil"
-        set ProtoCardName[107] = "에길"
-        set ProtoCardEffectName[107] = "거래의 눈"
-        set ProtoCardKeyword[107] = "아인크라드 · 자원"
-        set ProtoCardHead[107] = 6
-        set ProtoCardGrade[107] = 1
-        set ProtoEvolutionKind[107] = 0
-        set ProtoEvolutionGoal[107] = 0.00
-        call ProtoSetEffect(107, 17, 2.00, false)
-        set ProtoCardKey[108] = "sao_kirito"
-        set ProtoCardName[108] = "키리토"
-        set ProtoCardEffectName[108] = "빈틈을 잇는 검"
-        set ProtoCardKeyword[108] = "아인크라드 · 행동 · 치명"
-        set ProtoCardHead[108] = 6
-        set ProtoCardGrade[108] = 2
-        set ProtoEvolutionKind[108] = 2
-        set ProtoEvolutionGoal[108] = 12000.00
-        call ProtoSetEffect(108, 9, 6.00, false)
-        call ProtoSetEffect(108, 6, 4.00, false)
-        call ProtoSetEffect(108, 4, 8.00, true)
-        set ProtoCardKey[109] = "sao_asuna"
-        set ProtoCardName[109] = "아스나"
-        set ProtoCardEffectName[109] = "섬광의 사선"
-        set ProtoCardKeyword[109] = "아인크라드 · 신속 · 방향"
+        set ProtoCardKey[109] = "sao_agil"
+        set ProtoCardName[109] = "에길"
+        set ProtoCardEffectName[109] = "거래의 눈"
+        set ProtoCardKeyword[109] = "아인크라드 · 자원"
         set ProtoCardHead[109] = 6
-        set ProtoCardGrade[109] = 2
-        set ProtoEvolutionKind[109] = 3
-        set ProtoEvolutionGoal[109] = 60.00
-        call ProtoSetEffect(109, 8, 270.00, false)
-        call ProtoSetEffect(109, 20, 12.00, false)
-        call ProtoSetEffect(109, 7, 15.00, true)
-        set ProtoCardKey[110] = "sao_liz"
-        set ProtoCardName[110] = "리즈벳"
-        set ProtoCardEffectName[110] = "가공의 완성도"
-        set ProtoCardKeyword[110] = "아인크라드 · 공격 · 관통"
+        set ProtoCardGrade[109] = 1
+        set ProtoEvolutionKind[109] = 0
+        set ProtoEvolutionGoal[109] = 0.00
+        call ProtoSetEffect(109, 17, 2.00, false)
+        set ProtoCardKey[110] = "sao_kirito"
+        set ProtoCardName[110] = "키리토"
+        set ProtoCardEffectName[110] = "빈틈을 잇는 검"
+        set ProtoCardKeyword[110] = "아인크라드 · 행동 · 치명"
         set ProtoCardHead[110] = 6
         set ProtoCardGrade[110] = 2
-        set ProtoEvolutionKind[110] = 0
-        set ProtoEvolutionGoal[110] = 0.00
-        call ProtoSetEffect(110, 1, 12.00, false)
-        call ProtoSetEffect(110, 12, 6.00, false)
-        set ProtoCardKey[111] = "sao_silica"
-        set ProtoCardName[111] = "시리카"
-        set ProtoCardEffectName[111] = "돌아갈 길의 동료"
-        set ProtoCardKeyword[111] = "아인크라드 · 체력 · 재생"
+        set ProtoEvolutionKind[110] = 2
+        set ProtoEvolutionGoal[110] = 12000.00
+        call ProtoSetEffect(110, 9, 6.00, false)
+        call ProtoSetEffect(110, 6, 4.00, false)
+        call ProtoSetEffect(110, 4, 8.00, true)
+        set ProtoCardKey[111] = "sao_asuna"
+        set ProtoCardName[111] = "아스나"
+        set ProtoCardEffectName[111] = "섬광의 사선"
+        set ProtoCardKeyword[111] = "아인크라드 · 신속 · 방향"
         set ProtoCardHead[111] = 6
         set ProtoCardGrade[111] = 2
-        set ProtoEvolutionKind[111] = 0
-        set ProtoEvolutionGoal[111] = 0.00
-        call ProtoSetEffect(111, 13, 8.00, false)
-        call ProtoSetEffect(111, 16, 0.60, false)
-        set ProtoCardKey[112] = "sao_klein"
-        set ProtoCardName[112] = "클라인"
-        set ProtoCardEffectName[112] = "함께 맞서는 간격"
-        set ProtoCardKeyword[112] = "아인크라드 · 생존 · 비방향"
+        set ProtoEvolutionKind[111] = 3
+        set ProtoEvolutionGoal[111] = 60.00
+        call ProtoSetEffect(111, 8, 270.00, false)
+        call ProtoSetEffect(111, 20, 12.00, false)
+        call ProtoSetEffect(111, 7, 15.00, true)
+        set ProtoCardKey[112] = "sao_liz"
+        set ProtoCardName[112] = "리즈벳"
+        set ProtoCardEffectName[112] = "가공의 완성도"
+        set ProtoCardKeyword[112] = "아인크라드 · 공격 · 관통"
         set ProtoCardHead[112] = 6
         set ProtoCardGrade[112] = 2
         set ProtoEvolutionKind[112] = 0
         set ProtoEvolutionGoal[112] = 0.00
-        call ProtoSetEffect(112, 14, 6.00, false)
-        call ProtoSetEffect(112, 21, 10.00, false)
-        set ProtoCardKey[113] = "sao_asuna_meal"
-        set ProtoCardName[113] = "아스나"
-        set ProtoCardEffectName[113] = "공략 전의 식탁"
-        set ProtoCardKeyword[113] = "아인크라드 · 고체력 · 체력"
+        call ProtoSetEffect(112, 1, 12.00, false)
+        call ProtoSetEffect(112, 12, 6.00, false)
+        set ProtoCardKey[113] = "sao_silica"
+        set ProtoCardName[113] = "시리카"
+        set ProtoCardEffectName[113] = "돌아갈 길의 동료"
+        set ProtoCardKeyword[113] = "아인크라드 · 체력 · 재생"
         set ProtoCardHead[113] = 6
         set ProtoCardGrade[113] = 2
         set ProtoEvolutionKind[113] = 0
         set ProtoEvolutionGoal[113] = 0.00
-        call ProtoSetEffect(113, 24, 14.00, false)
         call ProtoSetEffect(113, 13, 8.00, false)
-        set ProtoCardKey[114] = "sao_kirito_scout"
-        set ProtoCardName[114] = "키리토"
-        set ProtoCardEffectName[114] = "돌아와 전한 경고"
-        set ProtoCardKeyword[114] = "아인크라드 · 보스 · 관통"
+        call ProtoSetEffect(113, 16, 0.60, false)
+        set ProtoCardKey[114] = "sao_klein"
+        set ProtoCardName[114] = "클라인"
+        set ProtoCardEffectName[114] = "함께 맞서는 간격"
+        set ProtoCardKeyword[114] = "아인크라드 · 생존 · 비방향"
         set ProtoCardHead[114] = 6
-        set ProtoCardGrade[114] = 3
-        set ProtoEvolutionKind[114] = 2
-        set ProtoEvolutionGoal[114] = 15000.00
-        call ProtoSetEffect(114, 4, 16.00, false)
-        call ProtoSetEffect(114, 12, 10.00, false)
-        call ProtoSetEffect(114, 3, 5.00, true)
-        set ProtoCardKey[115] = "sao_agil_shelf"
-        set ProtoCardName[115] = "에길"
-        set ProtoCardEffectName[115] = "값표 아래 남은 항목"
-        set ProtoCardKeyword[115] = "아인크라드 · 처치 골드 · 사건 후보"
+        set ProtoCardGrade[114] = 2
+        set ProtoEvolutionKind[114] = 0
+        set ProtoEvolutionGoal[114] = 0.00
+        call ProtoSetEffect(114, 14, 6.00, false)
+        call ProtoSetEffect(114, 21, 10.00, false)
+        set ProtoCardKey[115] = "sao_asuna_meal"
+        set ProtoCardName[115] = "아스나"
+        set ProtoCardEffectName[115] = "공략 전의 식탁"
+        set ProtoCardKeyword[115] = "아인크라드 · 고체력 · 체력"
         set ProtoCardHead[115] = 6
         set ProtoCardGrade[115] = 2
         set ProtoEvolutionKind[115] = 0
         set ProtoEvolutionGoal[115] = 0.00
-        call ProtoSetEffect(115, 17, 3.00, false)
-        call ProtoSetEffect(115, 18, 1.00, false)
-        set ProtoCardKey[116] = "sao_klein_roles"
-        set ProtoCardName[116] = "클라인"
-        set ProtoCardEffectName[116] = "뒤쪽에 남겨 둘 사람"
-        set ProtoCardKeyword[116] = "아인크라드 · 보스 · 피해 감소"
+        call ProtoSetEffect(115, 24, 14.00, false)
+        call ProtoSetEffect(115, 13, 8.00, false)
+        set ProtoCardKey[116] = "sao_kirito_scout"
+        set ProtoCardName[116] = "키리토"
+        set ProtoCardEffectName[116] = "돌아와 전한 경고"
+        set ProtoCardKeyword[116] = "아인크라드 · 보스 · 관통"
         set ProtoCardHead[116] = 6
-        set ProtoCardGrade[116] = 2
-        set ProtoEvolutionKind[116] = 0
-        set ProtoEvolutionGoal[116] = 0.00
-        call ProtoSetEffect(116, 4, 10.00, false)
-        call ProtoSetEffect(116, 14, 4.00, false)
-        set ProtoCardKey[117] = "sao_sachi_lantern"
-        set ProtoCardName[117] = "사치"
-        set ProtoCardEffectName[117] = "대답을 기다릴 자리"
-        set ProtoCardKeyword[117] = "아인크라드 · 최대 체력 · 고체력"
+        set ProtoCardGrade[116] = 3
+        set ProtoEvolutionKind[116] = 2
+        set ProtoEvolutionGoal[116] = 15000.00
+        call ProtoSetEffect(116, 4, 16.00, false)
+        call ProtoSetEffect(116, 12, 10.00, false)
+        call ProtoSetEffect(116, 3, 5.00, true)
+        set ProtoCardKey[117] = "sao_agil_shelf"
+        set ProtoCardName[117] = "에길"
+        set ProtoCardEffectName[117] = "값표 아래 남은 항목"
+        set ProtoCardKeyword[117] = "아인크라드 · 처치 골드 · 사건 후보"
         set ProtoCardHead[117] = 6
         set ProtoCardGrade[117] = 2
         set ProtoEvolutionKind[117] = 0
         set ProtoEvolutionGoal[117] = 0.00
-        call ProtoSetEffect(117, 13, 12.00, false)
-        call ProtoSetEffect(117, 24, 8.00, false)
-        set ProtoCardKey[118] = "sao_nishida_wait"
-        set ProtoCardName[118] = "니시다"
-        set ProtoCardEffectName[118] = "당기기 전에 기다리기"
-        set ProtoCardKeyword[118] = "아인크라드 · 재생 · 비방향 피해"
+        call ProtoSetEffect(117, 17, 3.00, false)
+        call ProtoSetEffect(117, 18, 1.00, false)
+        set ProtoCardKey[118] = "sao_klein_roles"
+        set ProtoCardName[118] = "클라인"
+        set ProtoCardEffectName[118] = "뒤쪽에 남겨 둘 사람"
+        set ProtoCardKeyword[118] = "아인크라드 · 보스 · 피해 감소"
         set ProtoCardHead[118] = 6
         set ProtoCardGrade[118] = 2
         set ProtoEvolutionKind[118] = 0
         set ProtoEvolutionGoal[118] = 0.00
-        call ProtoSetEffect(118, 16, 0.30, false)
-        call ProtoSetEffect(118, 21, 10.00, false)
-        set ProtoCardKey[119] = "sao_asuna_dispatch"
-        set ProtoCardName[119] = "아스나"
-        set ProtoCardEffectName[119] = "지시 뒤의 빈 자리"
-        set ProtoCardKeyword[119] = "아인크라드 · 보스 · 치명타 피해"
+        call ProtoSetEffect(118, 4, 10.00, false)
+        call ProtoSetEffect(118, 14, 4.00, false)
+        set ProtoCardKey[119] = "sao_sachi_lantern"
+        set ProtoCardName[119] = "사치"
+        set ProtoCardEffectName[119] = "대답을 기다릴 자리"
+        set ProtoCardKeyword[119] = "아인크라드 · 최대 체력 · 고체력"
         set ProtoCardHead[119] = 6
         set ProtoCardGrade[119] = 2
-        set ProtoEvolutionKind[119] = 2
-        set ProtoEvolutionGoal[119] = 10000.00
-        call ProtoSetEffect(119, 4, 12.00, false)
-        call ProtoSetEffect(119, 7, 12.00, false)
-        call ProtoSetEffect(119, 9, 3.00, true)
-        set ProtoCardKey[120] = "sao_argo_question"
-        set ProtoCardName[120] = "아르고"
-        set ProtoCardEffectName[120] = "묻지 않은 갈림길"
-        set ProtoCardKeyword[120] = "아인크라드 · 사건 후보 · 관통"
+        set ProtoEvolutionKind[119] = 0
+        set ProtoEvolutionGoal[119] = 0.00
+        call ProtoSetEffect(119, 13, 12.00, false)
+        call ProtoSetEffect(119, 24, 8.00, false)
+        set ProtoCardKey[120] = "sao_nishida_wait"
+        set ProtoCardName[120] = "니시다"
+        set ProtoCardEffectName[120] = "당기기 전에 기다리기"
+        set ProtoCardKeyword[120] = "아인크라드 · 재생 · 비방향 피해"
         set ProtoCardHead[120] = 6
         set ProtoCardGrade[120] = 2
         set ProtoEvolutionKind[120] = 0
         set ProtoEvolutionGoal[120] = 0.00
-        call ProtoSetEffect(120, 18, 1.00, false)
-        call ProtoSetEffect(120, 12, 6.00, false)
-        set ProtoCardKey[121] = "sao_argo_shared"
-        set ProtoCardName[121] = "아르고"
-        set ProtoCardEffectName[121] = "둘이 들어도 남는 정보"
-        set ProtoCardKeyword[121] = "아인크라드 · 행동 · 처치 골드"
+        call ProtoSetEffect(120, 16, 0.30, false)
+        call ProtoSetEffect(120, 21, 10.00, false)
+        set ProtoCardKey[121] = "sao_asuna_dispatch"
+        set ProtoCardName[121] = "아스나"
+        set ProtoCardEffectName[121] = "지시 뒤의 빈 자리"
+        set ProtoCardKeyword[121] = "아인크라드 · 보스 · 치명타 피해"
         set ProtoCardHead[121] = 6
         set ProtoCardGrade[121] = 2
-        set ProtoEvolutionKind[121] = 0
-        set ProtoEvolutionGoal[121] = 0.00
-        call ProtoSetEffect(121, 9, 5.00, false)
-        call ProtoSetEffect(121, 17, 2.00, false)
-        set ProtoCardKey[122] = "sao_asuna_silence"
-        set ProtoCardName[122] = "아스나"
-        set ProtoCardEffectName[122] = "대답을 기다리는 자리"
-        set ProtoCardKeyword[122] = "아인크라드 · 최대 체력 · 피해 감소"
+        set ProtoEvolutionKind[121] = 2
+        set ProtoEvolutionGoal[121] = 10000.00
+        call ProtoSetEffect(121, 4, 12.00, false)
+        call ProtoSetEffect(121, 7, 12.00, false)
+        call ProtoSetEffect(121, 9, 3.00, true)
+        set ProtoCardKey[122] = "sao_argo_question"
+        set ProtoCardName[122] = "아르고"
+        set ProtoCardEffectName[122] = "묻지 않은 갈림길"
+        set ProtoCardKeyword[122] = "아인크라드 · 사건 후보 · 관통"
         set ProtoCardHead[122] = 6
         set ProtoCardGrade[122] = 2
         set ProtoEvolutionKind[122] = 0
         set ProtoEvolutionGoal[122] = 0.00
-        call ProtoSetEffect(122, 13, 10.00, false)
-        call ProtoSetEffect(122, 14, 5.00, false)
-        set ProtoCardKey[123] = "sao_kirito_distance"
-        set ProtoCardName[123] = "키리토"
-        set ProtoCardEffectName[123] = "혼자와 다른 한 걸음"
-        set ProtoCardKeyword[123] = "아인크라드 · 이동 · 방향"
+        call ProtoSetEffect(122, 18, 1.00, false)
+        call ProtoSetEffect(122, 12, 6.00, false)
+        set ProtoCardKey[123] = "sao_argo_shared"
+        set ProtoCardName[123] = "아르고"
+        set ProtoCardEffectName[123] = "둘이 들어도 남는 정보"
+        set ProtoCardKeyword[123] = "아인크라드 · 행동 · 처치 골드"
         set ProtoCardHead[123] = 6
         set ProtoCardGrade[123] = 2
-        set ProtoEvolutionKind[123] = 1
-        set ProtoEvolutionGoal[123] = 45.00
-        call ProtoSetEffect(123, 10, 6.00, false)
-        call ProtoSetEffect(123, 20, 10.00, false)
-        call ProtoSetEffect(123, 4, 5.00, true)
-        set ProtoCardKey[124] = "sao_argo_return"
-        set ProtoCardName[124] = "아르고"
-        set ProtoCardEffectName[124] = "돌아와 더할 한 문장"
-        set ProtoCardKeyword[124] = "아인크라드 · 일반 적 · 치명타 피해"
+        set ProtoEvolutionKind[123] = 0
+        set ProtoEvolutionGoal[123] = 0.00
+        call ProtoSetEffect(123, 9, 5.00, false)
+        call ProtoSetEffect(123, 17, 2.00, false)
+        set ProtoCardKey[124] = "sao_asuna_silence"
+        set ProtoCardName[124] = "아스나"
+        set ProtoCardEffectName[124] = "대답을 기다리는 자리"
+        set ProtoCardKeyword[124] = "아인크라드 · 최대 체력 · 피해 감소"
         set ProtoCardHead[124] = 6
         set ProtoCardGrade[124] = 2
         set ProtoEvolutionKind[124] = 0
         set ProtoEvolutionGoal[124] = 0.00
-        call ProtoSetEffect(124, 5, 12.00, false)
-        call ProtoSetEffect(124, 7, 10.00, false)
+        call ProtoSetEffect(124, 13, 10.00, false)
+        call ProtoSetEffect(124, 14, 5.00, false)
+        set ProtoCardKey[125] = "sao_kirito_distance"
+        set ProtoCardName[125] = "키리토"
+        set ProtoCardEffectName[125] = "혼자와 다른 한 걸음"
+        set ProtoCardKeyword[125] = "아인크라드 · 이동 · 방향"
+        set ProtoCardHead[125] = 6
+        set ProtoCardGrade[125] = 2
+        set ProtoEvolutionKind[125] = 1
+        set ProtoEvolutionGoal[125] = 45.00
+        call ProtoSetEffect(125, 10, 6.00, false)
+        call ProtoSetEffect(125, 20, 10.00, false)
+        call ProtoSetEffect(125, 4, 5.00, true)
+        set ProtoCardKey[126] = "sao_argo_return"
+        set ProtoCardName[126] = "아르고"
+        set ProtoCardEffectName[126] = "돌아와 더할 한 문장"
+        set ProtoCardKeyword[126] = "아인크라드 · 일반 적 · 치명타 피해"
+        set ProtoCardHead[126] = 6
+        set ProtoCardGrade[126] = 2
+        set ProtoEvolutionKind[126] = 0
+        set ProtoEvolutionGoal[126] = 0.00
+        call ProtoSetEffect(126, 5, 12.00, false)
+        call ProtoSetEffect(126, 7, 10.00, false)
         set ProtoEventKey[133] = "sao_smith_metal"
         set ProtoEventName[133] = "부러진 시험검"
         set ProtoEventHead[133] = 6
@@ -4924,7 +4934,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[133] = ""
         set ProtoBranchLabel[532] = "220골드로 수송 준비를 마련하며 리즈벳의 가공을 지켜본다"
         set ProtoBranchResult[532] = "수송 준비값220골드를 내고 리즈벳이 재료를 다룰 때를 지켜봤다. 가공의 기억으로 공격력과 방어력 관통이 늘었다. 리즈벳은 부러진 시험검보다 앞으로 올 재료를 둘 자리를 먼저 본다."
-        set ProtoBranchCard[532] = 110
+        set ProtoBranchCard[532] = 112
         set ProtoBranchCard2[532] = 0
         set ProtoBranchGold[532] = 0
         set ProtoBranchCost[532] = 220
@@ -4934,7 +4944,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[532] = 100
         set ProtoBranchLabel[533] = "더 강한 개인 사냥을 맡으며 키리토의 움직임을 기억한다"
         set ProtoBranchResult[533] = "더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 다음 움직임을 기억했다. 행동속도와 치명타 확률이 늘었다. 키리토는 아직 부러진 검의 파편을 리즈벳 쪽에 남긴다."
-        set ProtoBranchCard[533] = 108
+        set ProtoBranchCard[533] = 110
         set ProtoBranchCard2[533] = 0
         set ProtoBranchGold[533] = 0
         set ProtoBranchCost[533] = 0
@@ -4966,7 +4976,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[134] = ""
         set ProtoBranchLabel[536] = "더 많은 개인 사냥을 맡고 키리토의 다음 동작을 기억한다"
         set ProtoBranchResult[536] = "더 많은 개인 사냥을 맡는 부담을 택하고 키리토의 다음 동작을 기억했다. 행동속도와 치명타 확률이 늘었다. 리즈벳은 네가 내려놓은 짐 옆에서 아직 자기 작업을 준비한다."
-        set ProtoBranchCard[536] = 108
+        set ProtoBranchCard[536] = 110
         set ProtoBranchCard2[536] = 0
         set ProtoBranchGold[536] = 0
         set ProtoBranchCost[536] = 0
@@ -4976,7 +4986,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[536] = 100
         set ProtoBranchLabel[537] = "200골드로 짐을 놓을 준비를 마련하고 아스나의 간격을 본다"
         set ProtoBranchResult[537] = "짐을 놓을 준비값200골드를 내고 아스나가 비워 둔 간격을 살폈다. 신속과 방향 공격 피해가 늘었다. 아스나는 친구의 작업 공간을 가리지 않도록 자기 짐도 옆으로 옮긴다."
-        set ProtoBranchCard[537] = 109
+        set ProtoBranchCard[537] = 111
         set ProtoBranchCard2[537] = 0
         set ProtoBranchGold[537] = 0
         set ProtoBranchCost[537] = 200
@@ -5008,7 +5018,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[135] = ""
         set ProtoBranchLabel[540] = "180골드로 보급을 마련하고 시리카와 돌아올 준비를 한다"
         set ProtoBranchResult[540] = "보급값180골드를 내고 시리카와 돌아올 준비를 했다. 동료를 기다릴 기억으로 최대 체력과 지속 체력 재생이 늘었다. 시리카는 챙긴 보급과 아직 피나가 없는 자리를 함께 본다."
-        set ProtoBranchCard[540] = 111
+        set ProtoBranchCard[540] = 113
         set ProtoBranchCard2[540] = 0
         set ProtoBranchGold[540] = 0
         set ProtoBranchCost[540] = 180
@@ -5018,7 +5028,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[540] = 100
         set ProtoBranchLabel[541] = "더 많은 개인 사냥을 맡으며 클라인과 버틸 간격을 기억한다"
         set ProtoBranchResult[541] = "더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 간격을 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 시리카에게 돌아올 준비는 남겼고 키리토는 떠날 길에 관한 말을 이어 간다."
-        set ProtoBranchCard[541] = 112
+        set ProtoBranchCard[541] = 114
         set ProtoBranchCard2[541] = 0
         set ProtoBranchGold[541] = 0
         set ProtoBranchCost[541] = 0
@@ -5028,7 +5038,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[541] = 100
         set ProtoBranchLabel[542] = "더 강한 개인 사냥을 맡으며 키리토의 경고를 듣는다"
         set ProtoBranchResult[542] = "더 강한 개인 사냥을 맡는 부담을 택하고 키리토의 경고를 기억했다. 보스에게 가하는 피해와 방어력 관통이 늘었다. 키리토는 시리카에게 소생 방법과 자기 경고를 같은 대답으로 묶지 않는다."
-        set ProtoBranchCard[542] = 114
+        set ProtoBranchCard[542] = 116
         set ProtoBranchCard2[542] = 0
         set ProtoBranchGold[542] = 0
         set ProtoBranchCost[542] = 0
@@ -5060,7 +5070,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[136] = ""
         set ProtoBranchLabel[544] = "170골드로 식탁 준비를 보태고 아스나와 식사를 준비한다"
         set ProtoBranchResult[544] = "식탁 준비값170골드를 내고 아스나의 식사 준비를 도왔다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 키리토와 나눌 고기부터 살피고 도구를 가져올 쪽을 가리킨다."
-        set ProtoBranchCard[544] = 113
+        set ProtoBranchCard[544] = 115
         set ProtoBranchCard2[544] = 0
         set ProtoBranchGold[544] = 0
         set ProtoBranchCost[544] = 170
@@ -5080,7 +5090,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[545] = 100
         set ProtoBranchLabel[546] = "더 많은 개인 사냥을 맡으며 클라인과 버틸 위치를 기억한다"
         set ProtoBranchResult[546] = "더 많은 개인 사냥을 맡는 부담을 택하고 클라인과 버틸 위치를 기억했다. 받는 피해가 줄고 비방향 공격 피해가 늘었다. 식탁에 쓸 몫은 아스나에게 남기고 네가 맡을 준비를 따로 챙겼다."
-        set ProtoBranchCard[546] = 112
+        set ProtoBranchCard[546] = 114
         set ProtoBranchCard2[546] = 0
         set ProtoBranchGold[546] = 0
         set ProtoBranchCost[546] = 0
@@ -5102,7 +5112,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[137] = ""
         set ProtoBranchLabel[548] = "키리토와 위험 구역의 정찰을 이어간다"
         set ProtoBranchResult[548] = "키리토와 함께 보스 방 주변을 더 상세히 조사한다. 정확한 위치와 적의 배치를 파악한다."
-        set ProtoBranchCard[548] = 114
+        set ProtoBranchCard[548] = 116
         set ProtoBranchCard2[548] = 0
         set ProtoBranchGold[548] = 0
         set ProtoBranchCost[548] = 0
@@ -5112,7 +5122,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[548] = 100
         set ProtoBranchLabel[549] = "아스나와 진입 순서를 정리한다"
         set ProtoBranchResult[549] = "아스나의 지휘 아래 효율적인 진입 동선을 짠다. 체계적인 계획으로 초기 피해를 줄인다."
-        set ProtoBranchCard[549] = 109
+        set ProtoBranchCard[549] = 111
         set ProtoBranchCard2[549] = 0
         set ProtoBranchGold[549] = 0
         set ProtoBranchCost[549] = 220
@@ -5144,7 +5154,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[138] = ""
         set ProtoBranchLabel[552] = "장비를 조사하며 가공 비용을 낸다"
         set ProtoBranchResult[552] = "의심스러운 장비의 제작 공정을 정밀 조사한다. 리즈벳의 기술을 빌려 조작 여부를 확인한다."
-        set ProtoBranchCard[552] = 110
+        set ProtoBranchCard[552] = 112
         set ProtoBranchCard2[552] = 0
         set ProtoBranchGold[552] = 0
         set ProtoBranchCost[552] = 160
@@ -5154,7 +5164,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[552] = 100
         set ProtoBranchLabel[553] = "아스나와 목격담을 확인한다"
         set ProtoBranchResult[553] = "아스나와 함께 현장을 돌며 목격자들을 대조한다. 엇갈리는 증언 사이의 모순을 찾아낸다."
-        set ProtoBranchCard[553] = 109
+        set ProtoBranchCard[553] = 111
         set ProtoBranchCard2[553] = 0
         set ProtoBranchGold[553] = 0
         set ProtoBranchCost[553] = 0
@@ -5186,7 +5196,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[139] = ""
         set ProtoBranchLabel[556] = "기록용품 값을 내고 에길과 겹친 값표를 맞춘다"
         set ProtoBranchResult[556] = "기록용품 값180골드를 내고 에길과 겹친 값표를 맞췄다. 얻을 몫과 비교할 후보를 놓치지 않는 준비를 배웠다. 키리토가 바깥에서 가져올 물건을 묻자 에길은 아직 확인하지 않은 상자부터 가리킨다."
-        set ProtoBranchCard[556] = 115
+        set ProtoBranchCard[556] = 117
         set ProtoBranchCard2[556] = 0
         set ProtoBranchGold[556] = 0
         set ProtoBranchCost[556] = 180
@@ -5196,7 +5206,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[556] = 100
         set ProtoBranchLabel[557] = "키리토와 더 강한 적이 오가는 운반 길목을 맡는다"
         set ProtoBranchResult[557] = "키리토와 더 강한 적이 오가는 운반 길목을 맡았다. 공격할 순간과 다음 동작을 잇는 요령을 배웠고 개인 사냥의 적 단계가 올라갔다. 에길은 그 길목으로 나갈 상자만 따로 나눈다."
-        set ProtoBranchCard[557] = 108
+        set ProtoBranchCard[557] = 110
         set ProtoBranchCard2[557] = 0
         set ProtoBranchGold[557] = 0
         set ProtoBranchCost[557] = 0
@@ -5238,7 +5248,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[140] = ""
         set ProtoBranchLabel[560] = "준비 도구를 마련해 클라인과 앞뒤 역할을 나눈다"
         set ProtoBranchResult[560] = "준비 도구 값200골드를 내고 클라인과 앞뒤 역할을 나누었다. 큰 상대에게 힘을 싣고 버틸 위치를 남기는 준비를 배웠다. 키리토는 뒤에 남길 몫이 빠지지 않았는지 다시 묻는다."
-        set ProtoBranchCard[560] = 116
+        set ProtoBranchCard[560] = 118
         set ProtoBranchCard2[560] = 0
         set ProtoBranchGold[560] = 0
         set ProtoBranchCost[560] = 200
@@ -5248,7 +5258,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[560] = 100
         set ProtoBranchLabel[561] = "클라인과 더 많은 적이 오가는 옆길을 맡는다"
         set ProtoBranchResult[561] = "클라인과 더 많은 적이 드나드는 옆길을 맡았다. 주변을 넓게 보며 맞을 부담을 줄이는 준비를 배운 대신 개인 사냥의 적 수가 늘었다. 클라인은 앞쪽뿐 아니라 돌아올 쪽에도 표시를 남긴다."
-        set ProtoBranchCard[561] = 112
+        set ProtoBranchCard[561] = 114
         set ProtoBranchCard2[561] = 0
         set ProtoBranchGold[561] = 0
         set ProtoBranchCost[561] = 0
@@ -5280,7 +5290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[141] = ""
         set ProtoBranchLabel[564] = "준비물 값을 내고 사치와 더 약한 담당 구역을 정한다"
         set ProtoBranchResult[564] = "준비물 값220골드를 내고 사치와 더 약한 구역을 맡았다. 몸 상태를 지키고 오래 이어 갈 준비를 배웠고 개인 사냥의 적 단계가 낮아졌다. 사치는 대답을 서두르지 않고 돌아올 자리의 표시를 한 번 더 본다."
-        set ProtoBranchCard[564] = 117
+        set ProtoBranchCard[564] = 119
         set ProtoBranchCard2[564] = 0
         set ProtoBranchGold[564] = 0
         set ProtoBranchCost[564] = 220
@@ -5290,7 +5300,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[564] = 100
         set ProtoBranchLabel[565] = "키리토와 더 강한 적이 오가는 바깥 길목을 맡는다"
         set ProtoBranchResult[565] = "키리토와 더 강한 적이 오가는 바깥 길목을 맡았다. 공격할 순간과 다음 동작을 잇는 요령을 배운 대신 개인 사냥의 적 단계가 올라갔다. 키리토는 사치가 아직 나누지 않은 준비물을 옆에 남긴다."
-        set ProtoBranchCard[565] = 108
+        set ProtoBranchCard[565] = 110
         set ProtoBranchCard2[565] = 0
         set ProtoBranchGold[565] = 0
         set ProtoBranchCost[565] = 0
@@ -5322,7 +5332,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[142] = "150골드를 내고 미끼를 마련했지만 작은 입질을 놓쳤다. 준비 비용은 돌아오지 않고 카드와240골드의 낚시 보수도 받지 못했다. 니시다는 호수의 주인 이야기를 아직 꺼내지 않고 찌가 잠잠해질 때를 기다린다."
         set ProtoBranchLabel[568] = "150골드로 미끼를 마련하고 작은 입질의 때를 맞춰 본다"
         set ProtoBranchResult[568] = "미끼값150골드를 내고 작은 입질의 때를 맞췄다. 당기기 전에 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘고 낚시 보수240골드를 받았다. 니시다는 호수의 주인보다 방금 잠잠해진 찌를 먼저 보고 있다."
-        set ProtoBranchCard[568] = 118
+        set ProtoBranchCard[568] = 120
         set ProtoBranchCard2[568] = 0
         set ProtoBranchGold[568] = 240
         set ProtoBranchCost[568] = 150
@@ -5332,7 +5342,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[568] = 65
         set ProtoBranchLabel[569] = "210골드로 기다릴 자리를 마련하고 니시다 옆에서 찌를 본다"
         set ProtoBranchResult[569] = "기다릴 자리값210골드를 내고 니시다 옆에서 찌가 움직일 때를 봤다. 오래 기다리는 기억으로 지속 체력 재생과 비방향 공격 피해가 늘었다. 키리토의 손이 움직이자 니시다는 아직 같은 때가 아니라며 찌를 가리킨다."
-        set ProtoBranchCard[569] = 118
+        set ProtoBranchCard[569] = 120
         set ProtoBranchCard2[569] = 0
         set ProtoBranchGold[569] = 0
         set ProtoBranchCost[569] = 210
@@ -5342,7 +5352,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[569] = 100
         set ProtoBranchLabel[570] = "더 많은 개인 사냥을 맡으며 아스나와 몸 상태를 유지할 준비를 한다"
         set ProtoBranchResult[570] = "더 많은 개인 사냥을 맡는 부담을 택하고 아스나와 몸 상태를 지킬 준비를 했다. 최대 체력이 늘고 체력이65%이상일 때 가하는 피해도 늘었다. 아스나는 기다릴 자리에 앉고 네가 가져갈 보급을 옆에 남긴다."
-        set ProtoBranchCard[570] = 113
+        set ProtoBranchCard[570] = 115
         set ProtoBranchCard2[570] = 0
         set ProtoBranchGold[570] = 0
         set ProtoBranchCost[570] = 0
@@ -5374,7 +5384,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[143] = ""
         set ProtoBranchLabel[572] = "표시 용품을 마련해 아스나와 남은 지시를 나눈다"
         set ProtoBranchResult[572] = "표시 용품 값220골드를 내고 아스나와 남은 지시를 나누었다. 큰 상대에게 힘을 싣는 순간을 고르는 준비를 배웠다. 키리토는 자신에게 남길 연락을 먼저 묻고 클라인은 아직 빈 길목을 가리킨다."
-        set ProtoBranchCard[572] = 119
+        set ProtoBranchCard[572] = 121
         set ProtoBranchCard2[572] = 0
         set ProtoBranchGold[572] = 0
         set ProtoBranchCost[572] = 220
@@ -5384,7 +5394,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[572] = 100
         set ProtoBranchLabel[573] = "클라인과 더 많은 적이 오가는 빈 길목을 맡는다"
         set ProtoBranchResult[573] = "클라인과 더 많은 적이 드나드는 빈 길목을 맡았다. 큰 상대에게 힘을 싣고 버틸 위치를 남기는 준비를 배웠고 개인 사냥의 적 수가 늘었다. 아스나는 네가 맡은 범위만 따로 표시한다."
-        set ProtoBranchCard[573] = 116
+        set ProtoBranchCard[573] = 118
         set ProtoBranchCard2[573] = 0
         set ProtoBranchGold[573] = 0
         set ProtoBranchCost[573] = 0
@@ -5426,7 +5436,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[144] = ""
         set ProtoBranchLabel[576] = "180골드를 내고 돌아올 갈림길만 묻는다"
         set ProtoBranchResult[576] = "180골드를 내고 돌아올 갈림길만 골라 물었다. 필요한 질문을 좁힌 기억으로 사건 후보와 방어력 관통이 늘었다. 아르고는 상대에 관한 답까지 산 것은 아니라며 처음 질문을 다시 짚는다."
-        set ProtoBranchCard[576] = 120
+        set ProtoBranchCard[576] = 122
         set ProtoBranchCard2[576] = 0
         set ProtoBranchGold[576] = 0
         set ProtoBranchCost[576] = 180
@@ -5436,7 +5446,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[576] = 100
         set ProtoBranchLabel[577] = "더 많은 개인 사냥을 맡고 자기 발걸음의 간격을 익힌다"
         set ProtoBranchResult[577] = "더 많은 개인 사냥을 맡는 부담을 택하고 자기 발걸음의 간격을 익혔다. 이동속도와 방향 공격 피해가 늘었다. 아르고는 네가 길을 묻던 말과 이제 맡겠다는 몫이 다르다는 것을 확인한다."
-        set ProtoBranchCard[577] = 123
+        set ProtoBranchCard[577] = 125
         set ProtoBranchCard2[577] = 0
         set ProtoBranchGold[577] = 0
         set ProtoBranchCost[577] = 0
@@ -5468,7 +5478,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[145] = ""
         set ProtoBranchLabel[580] = "200골드를 내고 같은 정보에서 내 몫의 질문을 고른다"
         set ProtoBranchResult[580] = "200골드를 내고 같은 정보에서 내게 필요한 질문을 골랐다. 자기 몫을 놓치지 않는 기억으로 행동속도와 처치 골드가 늘었다. 옆 손님은 아르고가 다른 질문에도 같은 값을 받는지 다시 묻는다."
-        set ProtoBranchCard[580] = 121
+        set ProtoBranchCard[580] = 123
         set ProtoBranchCard2[580] = 0
         set ProtoBranchGold[580] = 0
         set ProtoBranchCost[580] = 200
@@ -5478,7 +5488,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[580] = 100
         set ProtoBranchLabel[581] = "더 강한 개인 사냥을 맡으며 위험에 관한 질문을 남긴다"
         set ProtoBranchResult[581] = "더 강한 개인 사냥을 맡는 부담을 택하고 위험에 관한 질문을 남겼다. 사건 후보와 방어력 관통이 늘었다. 아르고는 옆 손님의 거래까지 네가 산 것은 아니라며 각자의 질문을 받는다."
-        set ProtoBranchCard[581] = 120
+        set ProtoBranchCard[581] = 122
         set ProtoBranchCard2[581] = 0
         set ProtoBranchGold[581] = 0
         set ProtoBranchCost[581] = 0
@@ -5510,7 +5520,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[146] = ""
         set ProtoBranchLabel[584] = "180골드로 깔개를 마련하고 외투를 내놓는다"
         set ProtoBranchResult[584] = "깔개값180골드를 내고 자기 외투를 앉을 자리에 내놓았다. 대답보다 먼저 곁을 지킨 기억으로 최대 체력이 늘고 받는 피해가 줄었다. 아스나는 외투의 접힌 쪽을 펴고 소녀의 다음 말을 아직 기다린다."
-        set ProtoBranchCard[584] = 122
+        set ProtoBranchCard[584] = 124
         set ProtoBranchCard2[584] = 0
         set ProtoBranchGold[584] = 0
         set ProtoBranchCost[584] = 180
@@ -5520,7 +5530,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[584] = 100
         set ProtoBranchLabel[585] = "더 많은 개인 사냥을 맡고 기다릴 자리의 간격을 익힌다"
         set ProtoBranchResult[585] = "더 많은 개인 사냥을 맡는 부담을 택하고 기다릴 자리의 간격을 기억했다. 이동속도와 방향 공격 피해가 늘었다. 키리토는 새 질문을 꺼내려다가 소녀에게 남은 말을 먼저 기다린다."
-        set ProtoBranchCard[585] = 123
+        set ProtoBranchCard[585] = 125
         set ProtoBranchCard2[585] = 0
         set ProtoBranchGold[585] = 0
         set ProtoBranchCost[585] = 0
@@ -5552,7 +5562,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[147] = ""
         set ProtoBranchLabel[588] = "190골드로 연습용 준비를 마련하고 내 간격을 맞춘다"
         set ProtoBranchResult[588] = "연습 준비값190골드를 내고 자기 보폭의 간격을 맞췄다. 혼자와 다른 한 걸음의 기억으로 이동속도와 방향 공격 피해가 늘었다. 키리토와 아스나는 아직 서로가 남길 자리부터 보고 있다."
-        set ProtoBranchCard[588] = 123
+        set ProtoBranchCard[588] = 125
         set ProtoBranchCard2[588] = 0
         set ProtoBranchGold[588] = 0
         set ProtoBranchCost[588] = 190
@@ -5562,7 +5572,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[588] = 100
         set ProtoBranchLabel[589] = "더 많은 개인 사냥을 맡고 아스나의 앞쪽 보는 자세를 기억한다"
         set ProtoBranchResult[589] = "아스나가 앞쪽을 보는 자세를 기억하고 더 많은 개인 사냥을 맡는 부담을 택했다. 신속과 방향 공격 피해가 늘었다. 네가 맡을 싸움과 두 사람이 출발할 공략은 각자 남아 있다."
-        set ProtoBranchCard[589] = 109
+        set ProtoBranchCard[589] = 111
         set ProtoBranchCard2[589] = 0
         set ProtoBranchGold[589] = 0
         set ProtoBranchCost[589] = 0
@@ -5594,7 +5604,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[148] = "갈림길에 상대 정보를 맞추려 했지만 네가 기억한 부분만으로는 연결되지 않았다. 정보료120골드는 돌아오지 않고 카드와 확인 보수도 받지 못했다. 아르고는 앞선 귀환 답까지 틀렸던 것은 아니라고 덧붙인다."
         set ProtoBranchLabel[592] = "120골드를 내고 기억한 갈림길에 상대 정보를 맞춰 본다"
         set ProtoBranchResult[592] = "정보료120골드를 내고 기억한 갈림길과 상대 정보를 연결했다. 돌아와 한 문장을 더한 기억으로 일반 몬스터 피해와 치명타 피해가 늘고 냈던 정보료와 같은 액수의 확인 보수120골드도 받았다. 아르고는 이번에 물었던 부분과 처음 들었던 귀환 답을 따로 짚는다."
-        set ProtoBranchCard[592] = 124
+        set ProtoBranchCard[592] = 126
         set ProtoBranchCard2[592] = 0
         set ProtoBranchGold[592] = 120
         set ProtoBranchCost[592] = 120
@@ -5604,7 +5614,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[592] = 70
         set ProtoBranchLabel[593] = "190골드를 내고 상대 정보까지 차근차근 듣는다"
         set ProtoBranchResult[593] = "정보료190골드를 내고 상대에 관한 설명을 끝까지 들었다. 일반 몬스터 피해와 치명타 피해가 늘었다. 아르고는 듣지 못한 부분이 또 없는지 이번에는 네 질문이 끝나기를 기다린다."
-        set ProtoBranchCard[593] = 124
+        set ProtoBranchCard[593] = 126
         set ProtoBranchCard2[593] = 0
         set ProtoBranchGold[593] = 0
         set ProtoBranchCost[593] = 190
@@ -5614,7 +5624,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[593] = 100
         set ProtoBranchLabel[594] = "더 많은 개인 사냥을 맡으며 같은 정보에서 내 몫을 고른다"
         set ProtoBranchResult[594] = "더 많은 개인 사냥을 맡는 부담을 택하고 같은 정보에서 자기 몫을 골랐다. 행동속도와 처치 골드가 늘었다. 아르고는 옆 손님이 듣는 답까지 네 몫으로 묶지 않는다."
-        set ProtoBranchCard[594] = 121
+        set ProtoBranchCard[594] = 123
         set ProtoBranchCard2[594] = 0
         set ProtoBranchGold[594] = 0
         set ProtoBranchCost[594] = 0
@@ -5639,7 +5649,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[7] = "제가 그랑데 공역"
         set ProtoHeadIntro[7] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoHeadIcon[7] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[7] = 125
+        set ProtoHeadEntryCard[7] = 127
         call SaveReal(ProtoHeadEffectData, 7, 4, 3.00)
         set ProtoEventKey[25] = "zegagrande_entry_0"
         set ProtoEventName[25] = "제가 그랑데 공역 방문"
@@ -5673,161 +5683,161 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[28] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIntro[28] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIcon[28] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[125] = "gbf_rackam"
-        set ProtoCardName[125] = "라캄"
-        set ProtoCardEffectName[125] = "항로 점검"
-        set ProtoCardKeyword[125] = "제가 그랑데 공역 · 이동 · 자원"
-        set ProtoCardHead[125] = 7
-        set ProtoCardGrade[125] = 1
-        set ProtoEvolutionKind[125] = 0
-        set ProtoEvolutionGoal[125] = 0.00
-        call ProtoSetEffect(125, 10, 3.00, false)
-        call ProtoSetEffect(125, 17, 1.00, false)
-        set ProtoCardKey[126] = "gbf_katalina"
-        set ProtoCardName[126] = "카타리나"
-        set ProtoCardEffectName[126] = "곁을 지키는 검"
-        set ProtoCardKeyword[126] = "제가 그랑데 공역 · 생존 · 보호막"
-        set ProtoCardHead[126] = 7
-        set ProtoCardGrade[126] = 2
-        set ProtoEvolutionKind[126] = 0
-        set ProtoEvolutionGoal[126] = 0.00
-        call ProtoSetEffect(126, 14, 6.00, false)
-        call ProtoSetEffect(126, 22, 16.00, false)
-        set ProtoCardKey[127] = "gbf_eugen"
-        set ProtoCardName[127] = "오이겐"
-        set ProtoCardEffectName[127] = "숙련된 사격점"
-        set ProtoCardKeyword[127] = "제가 그랑데 공역 · 차지 · 치명"
+        set ProtoCardKey[127] = "gbf_rackam"
+        set ProtoCardName[127] = "라캄"
+        set ProtoCardEffectName[127] = "항로 점검"
+        set ProtoCardKeyword[127] = "제가 그랑데 공역 · 이동 · 자원"
         set ProtoCardHead[127] = 7
-        set ProtoCardGrade[127] = 2
-        set ProtoEvolutionKind[127] = 2
-        set ProtoEvolutionGoal[127] = 12000.00
-        call ProtoSetEffect(127, 23, 16.00, false)
-        call ProtoSetEffect(127, 7, 20.00, false)
-        call ProtoSetEffect(127, 12, 6.00, true)
-        set ProtoCardKey[128] = "gbf_io"
-        set ProtoCardName[128] = "이오"
-        set ProtoCardEffectName[128] = "마법사의 집중"
-        set ProtoCardKeyword[128] = "제가 그랑데 공역 · 차지 · 고체력"
+        set ProtoCardGrade[127] = 1
+        set ProtoEvolutionKind[127] = 0
+        set ProtoEvolutionGoal[127] = 0.00
+        call ProtoSetEffect(127, 10, 3.00, false)
+        call ProtoSetEffect(127, 17, 1.00, false)
+        set ProtoCardKey[128] = "gbf_katalina"
+        set ProtoCardName[128] = "카타리나"
+        set ProtoCardEffectName[128] = "곁을 지키는 검"
+        set ProtoCardKeyword[128] = "제가 그랑데 공역 · 생존 · 보호막"
         set ProtoCardHead[128] = 7
         set ProtoCardGrade[128] = 2
         set ProtoEvolutionKind[128] = 0
         set ProtoEvolutionGoal[128] = 0.00
-        call ProtoSetEffect(128, 11, 8.00, false)
-        call ProtoSetEffect(128, 24, 12.00, false)
-        set ProtoCardKey[129] = "gbf_narmaya"
-        set ProtoCardName[129] = "나루메아"
-        set ProtoCardEffectName[129] = "끝없는 검의 수련"
-        set ProtoCardKeyword[129] = "제가 그랑데 공역 · 방향 · 치명"
+        call ProtoSetEffect(128, 14, 6.00, false)
+        call ProtoSetEffect(128, 22, 16.00, false)
+        set ProtoCardKey[129] = "gbf_eugen"
+        set ProtoCardName[129] = "오이겐"
+        set ProtoCardEffectName[129] = "숙련된 사격점"
+        set ProtoCardKeyword[129] = "제가 그랑데 공역 · 차지 · 치명"
         set ProtoCardHead[129] = 7
         set ProtoCardGrade[129] = 2
-        set ProtoEvolutionKind[129] = 1
-        set ProtoEvolutionGoal[129] = 45.00
-        call ProtoSetEffect(129, 20, 16.00, false)
-        call ProtoSetEffect(129, 6, 4.00, false)
-        call ProtoSetEffect(129, 9, 4.00, true)
-        set ProtoCardKey[130] = "gbf_vane"
-        set ProtoCardName[130] = "베인"
-        set ProtoCardEffectName[130] = "친구가 돌아올 자리"
-        set ProtoCardKeyword[130] = "제가 그랑데 공역 · 체력 · 생존"
+        set ProtoEvolutionKind[129] = 2
+        set ProtoEvolutionGoal[129] = 12000.00
+        call ProtoSetEffect(129, 23, 16.00, false)
+        call ProtoSetEffect(129, 7, 20.00, false)
+        call ProtoSetEffect(129, 12, 6.00, true)
+        set ProtoCardKey[130] = "gbf_io"
+        set ProtoCardName[130] = "이오"
+        set ProtoCardEffectName[130] = "마법사의 집중"
+        set ProtoCardKeyword[130] = "제가 그랑데 공역 · 차지 · 고체력"
         set ProtoCardHead[130] = 7
         set ProtoCardGrade[130] = 2
         set ProtoEvolutionKind[130] = 0
         set ProtoEvolutionGoal[130] = 0.00
-        call ProtoSetEffect(130, 13, 16.00, false)
-        call ProtoSetEffect(130, 14, 5.00, false)
-        set ProtoCardKey[131] = "gbf_zeta"
-        set ProtoCardName[131] = "제타"
-        set ProtoCardEffectName[131] = "봉인 무기의 사선"
-        set ProtoCardKeyword[131] = "제가 그랑데 공역 · 보스 · 관통"
+        call ProtoSetEffect(130, 11, 8.00, false)
+        call ProtoSetEffect(130, 24, 12.00, false)
+        set ProtoCardKey[131] = "gbf_narmaya"
+        set ProtoCardName[131] = "나루메아"
+        set ProtoCardEffectName[131] = "끝없는 검의 수련"
+        set ProtoCardKeyword[131] = "제가 그랑데 공역 · 방향 · 치명"
         set ProtoCardHead[131] = 7
-        set ProtoCardGrade[131] = 3
-        set ProtoEvolutionKind[131] = 2
-        set ProtoEvolutionGoal[131] = 15000.00
-        call ProtoSetEffect(131, 4, 16.00, false)
-        call ProtoSetEffect(131, 12, 8.00, false)
-        call ProtoSetEffect(131, 3, 5.00, true)
-        set ProtoCardKey[132] = "gbf_cagliostro"
-        set ProtoCardName[132] = "칼리오스트로"
-        set ProtoCardEffectName[132] = "정밀한 연금 조정"
-        set ProtoCardKeyword[132] = "제가 그랑데 공역 · 공격 · 재생"
+        set ProtoCardGrade[131] = 2
+        set ProtoEvolutionKind[131] = 1
+        set ProtoEvolutionGoal[131] = 45.00
+        call ProtoSetEffect(131, 20, 16.00, false)
+        call ProtoSetEffect(131, 6, 4.00, false)
+        call ProtoSetEffect(131, 9, 4.00, true)
+        set ProtoCardKey[132] = "gbf_vane"
+        set ProtoCardName[132] = "베인"
+        set ProtoCardEffectName[132] = "친구가 돌아올 자리"
+        set ProtoCardKeyword[132] = "제가 그랑데 공역 · 체력 · 생존"
         set ProtoCardHead[132] = 7
         set ProtoCardGrade[132] = 2
         set ProtoEvolutionKind[132] = 0
         set ProtoEvolutionGoal[132] = 0.00
-        call ProtoSetEffect(132, 1, 10.00, false)
-        call ProtoSetEffect(132, 16, 0.60, false)
-        set ProtoCardKey[133] = "gbf_rackam_signal"
-        set ProtoCardName[133] = "라캄"
-        set ProtoCardEffectName[133] = "끊기지 않는 귀환 신호"
-        set ProtoCardKeyword[133] = "제가 그랑데 공역 · 신속 · 고체력"
+        call ProtoSetEffect(132, 13, 16.00, false)
+        call ProtoSetEffect(132, 14, 5.00, false)
+        set ProtoCardKey[133] = "gbf_zeta"
+        set ProtoCardName[133] = "제타"
+        set ProtoCardEffectName[133] = "봉인 무기의 사선"
+        set ProtoCardKeyword[133] = "제가 그랑데 공역 · 보스 · 관통"
         set ProtoCardHead[133] = 7
-        set ProtoCardGrade[133] = 2
-        set ProtoEvolutionKind[133] = 0
-        set ProtoEvolutionGoal[133] = 0.00
-        call ProtoSetEffect(133, 8, 180.00, false)
-        call ProtoSetEffect(133, 24, 12.00, false)
-        set ProtoCardKey[134] = "gbf_rosetta_trace"
-        set ProtoCardName[134] = "로제타"
-        set ProtoCardEffectName[134] = "같은 길에 남은 차이"
-        set ProtoCardKeyword[134] = "제가 그랑데 공역 · 사건 후보 · 보스"
+        set ProtoCardGrade[133] = 3
+        set ProtoEvolutionKind[133] = 2
+        set ProtoEvolutionGoal[133] = 15000.00
+        call ProtoSetEffect(133, 4, 16.00, false)
+        call ProtoSetEffect(133, 12, 8.00, false)
+        call ProtoSetEffect(133, 3, 5.00, true)
+        set ProtoCardKey[134] = "gbf_cagliostro"
+        set ProtoCardName[134] = "칼리오스트로"
+        set ProtoCardEffectName[134] = "정밀한 연금 조정"
+        set ProtoCardKeyword[134] = "제가 그랑데 공역 · 공격 · 재생"
         set ProtoCardHead[134] = 7
         set ProtoCardGrade[134] = 2
         set ProtoEvolutionKind[134] = 0
         set ProtoEvolutionGoal[134] = 0.00
-        call ProtoSetEffect(134, 18, 1.00, false)
-        call ProtoSetEffect(134, 4, 8.00, false)
-        set ProtoCardKey[135] = "gbf_rolan_guide"
-        set ProtoCardName[135] = "롤란"
-        set ProtoCardEffectName[135] = "함께 걸으며 들은 질문"
-        set ProtoCardKeyword[135] = "제가 그랑데 공역 · 사건 후보 · 이동"
+        call ProtoSetEffect(134, 1, 10.00, false)
+        call ProtoSetEffect(134, 16, 0.60, false)
+        set ProtoCardKey[135] = "gbf_rackam_signal"
+        set ProtoCardName[135] = "라캄"
+        set ProtoCardEffectName[135] = "끊기지 않는 귀환 신호"
+        set ProtoCardKeyword[135] = "제가 그랑데 공역 · 신속 · 고체력"
         set ProtoCardHead[135] = 7
         set ProtoCardGrade[135] = 2
         set ProtoEvolutionKind[135] = 0
         set ProtoEvolutionGoal[135] = 0.00
-        call ProtoSetEffect(135, 18, 1.00, false)
-        call ProtoSetEffect(135, 10, 4.00, false)
-        set ProtoCardKey[136] = "gbf_lancelot_roles"
-        set ProtoCardName[136] = "랜슬롯"
-        set ProtoCardEffectName[136] = "교대 뒤의 한 걸음"
-        set ProtoCardKeyword[136] = "제가 그랑데 공역 · 행동 속도 · 방향 피해"
+        call ProtoSetEffect(135, 8, 180.00, false)
+        call ProtoSetEffect(135, 24, 12.00, false)
+        set ProtoCardKey[136] = "gbf_rosetta_trace"
+        set ProtoCardName[136] = "로제타"
+        set ProtoCardEffectName[136] = "같은 길에 남은 차이"
+        set ProtoCardKeyword[136] = "제가 그랑데 공역 · 사건 후보 · 보스"
         set ProtoCardHead[136] = 7
         set ProtoCardGrade[136] = 2
-        set ProtoEvolutionKind[136] = 1
-        set ProtoEvolutionGoal[136] = 50.00
-        call ProtoSetEffect(136, 9, 4.00, false)
-        call ProtoSetEffect(136, 20, 12.00, false)
-        call ProtoSetEffect(136, 7, 12.00, true)
-        set ProtoCardKey[137] = "gbf_percival_share"
-        set ProtoCardName[137] = "퍼시벌"
-        set ProtoCardEffectName[137] = "약한 쪽에 남길 몫"
-        set ProtoCardKeyword[137] = "제가 그랑데 공역 · 보스 · 일반 적"
+        set ProtoEvolutionKind[136] = 0
+        set ProtoEvolutionGoal[136] = 0.00
+        call ProtoSetEffect(136, 18, 1.00, false)
+        call ProtoSetEffect(136, 4, 8.00, false)
+        set ProtoCardKey[137] = "gbf_rolan_guide"
+        set ProtoCardName[137] = "롤란"
+        set ProtoCardEffectName[137] = "함께 걸으며 들은 질문"
+        set ProtoCardKeyword[137] = "제가 그랑데 공역 · 사건 후보 · 이동"
         set ProtoCardHead[137] = 7
         set ProtoCardGrade[137] = 2
         set ProtoEvolutionKind[137] = 0
         set ProtoEvolutionGoal[137] = 0.00
-        call ProtoSetEffect(137, 4, 12.00, false)
-        call ProtoSetEffect(137, 5, 8.00, false)
-        set ProtoCardKey[138] = "gbf_yodarha_wait"
-        set ProtoCardName[138] = "요달라하"
-        set ProtoCardEffectName[138] = "찌보다 먼저 움직인 발"
-        set ProtoCardKeyword[138] = "제가 그랑데 공역 · 신속 · 이동 피해"
+        call ProtoSetEffect(137, 18, 1.00, false)
+        call ProtoSetEffect(137, 10, 4.00, false)
+        set ProtoCardKey[138] = "gbf_lancelot_roles"
+        set ProtoCardName[138] = "랜슬롯"
+        set ProtoCardEffectName[138] = "교대 뒤의 한 걸음"
+        set ProtoCardKeyword[138] = "제가 그랑데 공역 · 행동 속도 · 방향 피해"
         set ProtoCardHead[138] = 7
         set ProtoCardGrade[138] = 2
-        set ProtoEvolutionKind[138] = 3
-        set ProtoEvolutionGoal[138] = 60.00
-        call ProtoSetEffect(138, 8, 90.00, false)
-        call ProtoSetEffect(138, 19, 12.00, false)
+        set ProtoEvolutionKind[138] = 1
+        set ProtoEvolutionGoal[138] = 50.00
+        call ProtoSetEffect(138, 9, 4.00, false)
+        call ProtoSetEffect(138, 20, 12.00, false)
         call ProtoSetEffect(138, 7, 12.00, true)
-        set ProtoCardKey[139] = "gbf_io_smile"
-        set ProtoCardName[139] = "이오"
-        set ProtoCardEffectName[139] = "다시 해 보자는 웃음"
-        set ProtoCardKeyword[139] = "제가 그랑데 공역 · 고체력 · 최대 체력"
+        set ProtoCardKey[139] = "gbf_percival_share"
+        set ProtoCardName[139] = "퍼시벌"
+        set ProtoCardEffectName[139] = "약한 쪽에 남길 몫"
+        set ProtoCardKeyword[139] = "제가 그랑데 공역 · 보스 · 일반 적"
         set ProtoCardHead[139] = 7
         set ProtoCardGrade[139] = 2
         set ProtoEvolutionKind[139] = 0
         set ProtoEvolutionGoal[139] = 0.00
-        call ProtoSetEffect(139, 24, 12.00, false)
-        call ProtoSetEffect(139, 13, 8.00, false)
+        call ProtoSetEffect(139, 4, 12.00, false)
+        call ProtoSetEffect(139, 5, 8.00, false)
+        set ProtoCardKey[140] = "gbf_yodarha_wait"
+        set ProtoCardName[140] = "요달라하"
+        set ProtoCardEffectName[140] = "찌보다 먼저 움직인 발"
+        set ProtoCardKeyword[140] = "제가 그랑데 공역 · 신속 · 이동 피해"
+        set ProtoCardHead[140] = 7
+        set ProtoCardGrade[140] = 2
+        set ProtoEvolutionKind[140] = 3
+        set ProtoEvolutionGoal[140] = 60.00
+        call ProtoSetEffect(140, 8, 90.00, false)
+        call ProtoSetEffect(140, 19, 12.00, false)
+        call ProtoSetEffect(140, 7, 12.00, true)
+        set ProtoCardKey[141] = "gbf_io_smile"
+        set ProtoCardName[141] = "이오"
+        set ProtoCardEffectName[141] = "다시 해 보자는 웃음"
+        set ProtoCardKeyword[141] = "제가 그랑데 공역 · 고체력 · 최대 체력"
+        set ProtoCardHead[141] = 7
+        set ProtoCardGrade[141] = 2
+        set ProtoEvolutionKind[141] = 0
+        set ProtoEvolutionGoal[141] = 0.00
+        call ProtoSetEffect(141, 24, 12.00, false)
+        call ProtoSetEffect(141, 13, 8.00, false)
         set ProtoEventKey[149] = "gbf_airship_crate"
         set ProtoEventName[149] = "묶이지 않은 화물"
         set ProtoEventHead[149] = 7
@@ -5842,7 +5852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[149] = ""
         set ProtoBranchLabel[596] = "보수 자재를 사고 카타리나와 화물을 고정한다"
         set ProtoBranchResult[596] = "카타리나와 협력하여 헐거워진 화물을 고정한다. 선체의 안정성을 확보하기 위한 보수 작업을 마친다."
-        set ProtoBranchCard[596] = 126
+        set ProtoBranchCard[596] = 128
         set ProtoBranchCard2[596] = 0
         set ProtoBranchGold[596] = 0
         set ProtoBranchCost[596] = 200
@@ -5852,7 +5862,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[596] = 100
         set ProtoBranchLabel[597] = "오이겐과 위험한 갑판에서 사격 장비를 옮긴다"
         set ProtoBranchResult[597] = "오이겐의 노련한 움직임으로 무거운 장비를 운반한다. 사격에 최적화된 위치로 장비를 배치한다."
-        set ProtoBranchCard[597] = 127
+        set ProtoBranchCard[597] = 129
         set ProtoBranchCard2[597] = 0
         set ProtoBranchGold[597] = 0
         set ProtoBranchCost[597] = 0
@@ -5884,7 +5894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[150] = ""
         set ProtoBranchLabel[600] = "오이겐과 사격 위치를 넓힌다"
         set ProtoBranchResult[600] = "오이겐과 협력하여 사격 범위를 확장한다. 더 넓은 각도에서 적을 타격할 수 있는 위치를 잡는다."
-        set ProtoBranchCard[600] = 127
+        set ProtoBranchCard[600] = 129
         set ProtoBranchCard2[600] = 0
         set ProtoBranchGold[600] = 0
         set ProtoBranchCost[600] = 0
@@ -5894,7 +5904,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[600] = 100
         set ProtoBranchLabel[601] = "칼리오스트로에게 장비 조정을 의뢰한다"
         set ProtoBranchResult[601] = "칼리오스트로에게 정밀한 장비 조정을 요청한다. 연금술적 기술로 사격의 정확도를 높인다."
-        set ProtoBranchCard[601] = 132
+        set ProtoBranchCard[601] = 134
         set ProtoBranchCard2[601] = 0
         set ProtoBranchGold[601] = 0
         set ProtoBranchCost[601] = 240
@@ -5926,7 +5936,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[151] = ""
         set ProtoBranchLabel[604] = "이오와 안전한 준비 장소를 마련한다"
         set ProtoBranchResult[604] = "준비 자재를 마련하고 이오가 힘을 모으는 동안 끼어들지 않을 자리를 골랐다. 그녀가 집중을 다시 잇는 박자를 보며, 당신도 공격을 서두르기 전에 호흡을 맞췄다."
-        set ProtoBranchCard[604] = 128
+        set ProtoBranchCard[604] = 130
         set ProtoBranchCard2[604] = 0
         set ProtoBranchGold[604] = 0
         set ProtoBranchCost[604] = 190
@@ -5936,7 +5946,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[604] = 100
         set ProtoBranchLabel[605] = "나루메아와 넓은 통로를 맡는다"
         set ProtoBranchResult[605] = "나루메아와 갈라진 넓은 통로를 맡아 어디서 검의 간격이 무너지는지 살폈다. 접근하는 상대가 더 많아졌으므로 검이 닿지 않는 옆길까지 경계를 이어가야 한다."
-        set ProtoBranchCard[605] = 129
+        set ProtoBranchCard[605] = 131
         set ProtoBranchCard2[605] = 0
         set ProtoBranchGold[605] = 0
         set ProtoBranchCost[605] = 0
@@ -5946,7 +5956,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[605] = 100
         set ProtoBranchLabel[606] = "베인과 돌아올 길을 지킨다"
         set ProtoBranchResult[606] = "베인과 동료가 돌아올 길 끝에 지킬 자리를 정했다. 빠져나오는 사람들의 길은 남겼지만 당신이 맡은 바깥에는 더 강한 상대의 기척이 이어졌다."
-        set ProtoBranchCard[606] = 130
+        set ProtoBranchCard[606] = 132
         set ProtoBranchCard2[606] = 0
         set ProtoBranchGold[606] = 0
         set ProtoBranchCost[606] = 0
@@ -5968,7 +5978,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[152] = ""
         set ProtoBranchLabel[608] = "제타와 위험 구역의 기록을 확인한다"
         set ProtoBranchResult[608] = "제타와 위험 구역의 조사 기록을 대조했다. 적의 움직임을 확인하며 보스에게 공격을 이어갈 기회를 준비했다."
-        set ProtoBranchCard[608] = 131
+        set ProtoBranchCard[608] = 133
         set ProtoBranchCard2[608] = 0
         set ProtoBranchGold[608] = 0
         set ProtoBranchCost[608] = 0
@@ -5978,7 +5988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[608] = 100
         set ProtoBranchLabel[609] = "조사 장비 비용을 내고 오이겐을 돕는다"
         set ProtoBranchResult[609] = "오이겐이 사용할 특수 장비를 지원한다. 노련한 그의 경험과 장비가 시너지를 낸다."
-        set ProtoBranchCard[609] = 127
+        set ProtoBranchCard[609] = 129
         set ProtoBranchCard2[609] = 0
         set ProtoBranchGold[609] = 0
         set ProtoBranchCost[609] = 220
@@ -6010,7 +6020,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[153] = ""
         set ProtoBranchLabel[612] = "검증 비용을 내고 정밀 조정을 받는다"
         set ProtoBranchResult[612] = "칼리오스트로에게 비용을 지불하고 정밀 조정을 의뢰한다. 연금술적 기술로 장비의 성능을 극대화한다."
-        set ProtoBranchCard[612] = 132
+        set ProtoBranchCard[612] = 134
         set ProtoBranchCard2[612] = 0
         set ProtoBranchGold[612] = 0
         set ProtoBranchCost[612] = 210
@@ -6020,7 +6030,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[612] = 100
         set ProtoBranchLabel[613] = "이오와 위험한 시험 구역을 맡는다"
         set ProtoBranchResult[613] = "이오와 함께 직접 견본을 테스트한다. 위험을 감수하며 실전적인 데이터들을 수집한다."
-        set ProtoBranchCard[613] = 128
+        set ProtoBranchCard[613] = 130
         set ProtoBranchCard2[613] = 0
         set ProtoBranchGold[613] = 0
         set ProtoBranchCost[613] = 0
@@ -6030,7 +6040,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[613] = 100
         set ProtoBranchLabel[614] = "나루메아와 여러 견본의 작동을 확인한다"
         set ProtoBranchResult[614] = "나루메아와 함께 여러 견본의 물리적 작동을 확인한다. 검술적 관점에서 장비의 안정성을 체크한다."
-        set ProtoBranchCard[614] = 129
+        set ProtoBranchCard[614] = 131
         set ProtoBranchCard2[614] = 0
         set ProtoBranchGold[614] = 0
         set ProtoBranchCost[614] = 0
@@ -6062,7 +6072,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[154] = ""
         set ProtoBranchLabel[616] = "베인과 귀환 통로를 지킨다"
         set ProtoBranchResult[616] = "베인과 협력하여 귀환 통로를 수호한다. 동료들이 안전하게 복귀할 수 있는 방패가 된다."
-        set ProtoBranchCard[616] = 130
+        set ProtoBranchCard[616] = 132
         set ProtoBranchCard2[616] = 0
         set ProtoBranchGold[616] = 0
         set ProtoBranchCost[616] = 0
@@ -6072,7 +6082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[616] = 100
         set ProtoBranchLabel[617] = "라캄의 항로 준비를 돕는다"
         set ProtoBranchResult[617] = "라캄과 귀환 신호를 맞추고 필요한 자재를 준비했다. 열어 둘 길과 닫을 길을 구분한 뒤, 연락이 왔을 때 움직일 순서를 다시 익혔다."
-        set ProtoBranchCard[617] = 133
+        set ProtoBranchCard[617] = 135
         set ProtoBranchCard2[617] = 0
         set ProtoBranchGold[617] = 0
         set ProtoBranchCost[617] = 150
@@ -6104,7 +6114,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[155] = "연락 비용160골드를 썼지만 이전 기록의 주인을 찾지 못했다. 날짜의 차이는 아직 확인되지 않아 새 카드와 확인 보수는 받지 못했다. 로제타는 확인하지 못한 부분을 사실처럼 적지 말자고 한다."
         set ProtoBranchLabel[620] = "연락 비용을 내고 예전 기록의 주인을 찾는다"
         set ProtoBranchResult[620] = "연락 비용으로 160골드를 지불하고 예전 기록의 주인을 찾아내어 단서를 더 비교하고 큰 상대의 차이를 찾는 요령을 익혔다. 180골드를 보수로 받았다. 로제타는 확인한 날짜와 아직 묻지 못한 부분을 따로 적고 라캄은 확인한 기록만 항로 옆에 남긴다."
-        set ProtoBranchCard[620] = 134
+        set ProtoBranchCard[620] = 136
         set ProtoBranchCard2[620] = 0
         set ProtoBranchGold[620] = 180
         set ProtoBranchCost[620] = 160
@@ -6114,7 +6124,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[620] = 70
         set ProtoBranchLabel[621] = "복사 용품을 마련해 로제타와 남은 두 기록을 대조한다"
         set ProtoBranchResult[621] = "복사 용품을 마련하는 데 220골드를 지불하고 로제타와 남은 두 기록을 대조하여 단서를 더 비교하고 큰 상대의 차이를 찾는 요령을 익혔다. 로제타는 서로 다른 날짜를 같은 안내로 옮겨 적지 말자고 한다. 라캄은 다음에 같은 이야기를 들으면 날짜부터 묻겠다고 답한다."
-        set ProtoBranchCard[621] = 134
+        set ProtoBranchCard[621] = 136
         set ProtoBranchCard2[621] = 0
         set ProtoBranchGold[621] = 0
         set ProtoBranchCost[621] = 220
@@ -6146,7 +6156,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[156] = ""
         set ProtoBranchLabel[624] = "표시 용품을 내고 롤란과 목적부터 다시 확인한다"
         set ProtoBranchResult[624] = "표시 용품 값180골드를 내고 롤란과 목적부터 다시 확인하여 여러 부탁을 확인하고 더 빠르게 이동할 동선을 읽는 요령을 익혔다. 롤란은 목적을 먼저 들었으면 돌아오지 않아도 됐겠다고 웃고 비는 방금 가리킨 쪽을 다시 살핀다."
-        set ProtoBranchCard[624] = 135
+        set ProtoBranchCard[624] = 137
         set ProtoBranchCard2[624] = 0
         set ProtoBranchGold[624] = 0
         set ProtoBranchCost[624] = 180
@@ -6156,7 +6166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[624] = 100
         set ProtoBranchLabel[625] = "라캄과 더 강한 적이 오가는 바깥 길을 확인한다"
         set ProtoBranchResult[625] = "라캄과 더 강한 적이 오가는 바깥 길을 확인하여 몸 상태를 지키며 빠르게 움직이는 요령을 익혔다. 개인 사냥의 적 단계가 올라갔다. 라캄은 더 강한 적이 오가는 길임을 다시 짚고 롤란은 안내를 듣던 여행자에게 그 길을 쉽게 권하지 말자고 한다."
-        set ProtoBranchCard[625] = 133
+        set ProtoBranchCard[625] = 135
         set ProtoBranchCard2[625] = 0
         set ProtoBranchGold[625] = 0
         set ProtoBranchCost[625] = 0
@@ -6188,7 +6198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[157] = ""
         set ProtoBranchLabel[628] = "표시 용품을 내고 랜슬롯과 교대 순서를 정한다"
         set ProtoBranchResult[628] = "표시 용품 값220골드를 내고 랜슬롯과 교대 순서를 정하여 공격 위치를 고르고 다음 동작을 빠르게 잇는 요령을 익혔다. 랜슬롯은 첫 순서보다 다음 사람이 이어받을 자리를 다시 확인하고 베인은 돌아올 사람을 기다릴 쪽에 선다."
-        set ProtoBranchCard[628] = 136
+        set ProtoBranchCard[628] = 138
         set ProtoBranchCard2[628] = 0
         set ProtoBranchGold[628] = 0
         set ProtoBranchCost[628] = 220
@@ -6198,7 +6208,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[628] = 100
         set ProtoBranchLabel[629] = "베인과 적이 많은 돌아올 길목을 맡는다"
         set ProtoBranchResult[629] = "베인과 적이 많은 돌아올 길목을 맡아 더 오래 버티며 받을 부담을 줄이는 요령을 익혔다. 개인 사냥의 적 수가 늘었다. 베인은 돌아올 길을 남겨 두되 너의 바깥에는 더 많은 적이 접근할 것이라고 짚는다."
-        set ProtoBranchCard[629] = 130
+        set ProtoBranchCard[629] = 132
         set ProtoBranchCard2[629] = 0
         set ProtoBranchGold[629] = 0
         set ProtoBranchCost[629] = 0
@@ -6240,7 +6250,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[158] = ""
         set ProtoBranchLabel[632] = "묶을 용품을 내고 퍼시벌과 부담을 다시 나눈다"
         set ProtoBranchResult[632] = "묶을 용품 값200골드를 내고 퍼시벌과 부담을 다시 나누어 큰 상대와 작은 상대에 맞춰 힘을 나누는 요령을 익혔다. 퍼시벌은 묶음 수가 같아졌는지보다 그 사람이 들고 갈 수 있는지 먼저 본다. 약한 여행자가 작은 묶음을 다시 들어 보자 베인은 남은 쪽을 맡는다."
-        set ProtoBranchCard[632] = 137
+        set ProtoBranchCard[632] = 139
         set ProtoBranchCard2[632] = 0
         set ProtoBranchGold[632] = 0
         set ProtoBranchCost[632] = 200
@@ -6250,7 +6260,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[632] = 100
         set ProtoBranchLabel[633] = "베인과 더 강한 적이 드나드는 길목을 맡는다"
         set ProtoBranchResult[633] = "베인과 더 강한 적이 드나드는 길목을 맡아 더 오래 버티며 받을 부담을 줄이는 요령을 익혔다. 개인 사냥의 적 단계가 올라갔다. 베인은 바깥의 강한 적을 맡을 준비를 하고 퍼시벌은 약한 여행자의 짐에 같은 부담을 다시 얹지 말자고 한다."
-        set ProtoBranchCard[633] = 130
+        set ProtoBranchCard[633] = 132
         set ProtoBranchCard2[633] = 0
         set ProtoBranchGold[633] = 0
         set ProtoBranchCost[633] = 0
@@ -6282,7 +6292,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[159] = ""
         set ProtoBranchLabel[636] = "도구 값을 내고 요달라하와 발을 옮길 간격을 짚는다"
         set ProtoBranchResult[636] = "연습 도구 값210골드를 내고 요달라하와 발을 옮길 간격을 짚어 몸놀림을 빠르게 하고 움직임에 힘을 싣는 요령을 익혔다. 요달라하는 네가 발을 옮긴 뒤 낚싯대를 건드리지 않았는지 먼저 본다. 더 보여 달라는 말에는 낚시할 자리를 가리킨다."
-        set ProtoBranchCard[636] = 138
+        set ProtoBranchCard[636] = 140
         set ProtoBranchCard2[636] = 0
         set ProtoBranchGold[636] = 0
         set ProtoBranchCost[636] = 210
@@ -6292,7 +6302,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[636] = 100
         set ProtoBranchLabel[637] = "나루메아와 적이 많은 바깥 통로를 맡는다"
         set ProtoBranchResult[637] = "나루메아와 적이 많은 바깥 통로를 맡아 공격 방향과 빈틈을 고르는 요령을 익혔다. 개인 사냥의 적 수가 늘었다. 나루메아는 검이 닿는 방향만 보지 말고 옆 통로도 남기자고 한다. 요달라하는 너희가 비운 물가 자리에 다시 낚싯대를 둔다."
-        set ProtoBranchCard[637] = 129
+        set ProtoBranchCard[637] = 131
         set ProtoBranchCard2[637] = 0
         set ProtoBranchGold[637] = 0
         set ProtoBranchCost[637] = 0
@@ -6324,7 +6334,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[160] = ""
         set ProtoBranchLabel[640] = "바닥 표시 용품을 내고 이오와 보는 자리를 나눈다"
         set ProtoBranchResult[640] = "바닥 표시 용품 값 170골드를 내고 이오와 보는 자리를 나눴다. 미소를 전하려는 기억으로 최대 체력과 고체력에서 가하는 피해가 늘었다. 이오는 더 큰 힘을 쓰기 전에 앞줄이 무엇을 보는지 다시 묻고 비는 서로의 어깨 대신 시범 쪽을 가리킨다."
-        set ProtoBranchCard[640] = 139
+        set ProtoBranchCard[640] = 141
         set ProtoBranchCard2[640] = 0
         set ProtoBranchGold[640] = 0
         set ProtoBranchCost[640] = 170
@@ -6334,7 +6344,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[640] = 100
         set ProtoBranchLabel[641] = "라캄과 더 많은 적이 오가는 바깥 길을 확인한다"
         set ProtoBranchResult[641] = "라캄과 더 많은 적이 오가는 바깥 길을 확인하여 몸 상태를 지키며 빠르게 움직이는 요령을 익혔다. 개인 사냥의 적 수가 늘었다. 라캄은 늘어난 적이 오갈 바깥 길을 다시 확인하고 비는 안쪽 자리가 막히지 않았는지 돌아본다."
-        set ProtoBranchCard[641] = 133
+        set ProtoBranchCard[641] = 135
         set ProtoBranchCard2[641] = 0
         set ProtoBranchGold[641] = 0
         set ProtoBranchCost[641] = 0
@@ -6355,112 +6365,112 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
     endfunction
 
     function ProtoLoadWorld7 takes nothing returns nothing
-        set ProtoCardKey[140] = "common_yato"
-        set ProtoCardName[140] = "야토"
-        set ProtoCardEffectName[140] = "5엔의 인연"
-        set ProtoCardKeyword[140] = "여행길 · 공통 · 탐색"
-        set ProtoCardHead[140] = 0
-        set ProtoCardGrade[140] = 1
-        set ProtoEvolutionKind[140] = 0
-        set ProtoEvolutionGoal[140] = 0.00
-        call ProtoSetEffect(140, 1, 5.00, false)
-        call ProtoSetEffect(140, 5, 5.00, false)
-        set ProtoCardKey[141] = "common_yukine"
-        set ProtoCardName[141] = "유키네"
-        set ProtoCardEffectName[141] = "경계를 가르는 검"
-        set ProtoCardKeyword[141] = "여행길 · 공통 · 탐색"
-        set ProtoCardHead[141] = 0
-        set ProtoCardGrade[141] = 2
-        set ProtoEvolutionKind[141] = 2
-        set ProtoEvolutionGoal[141] = 12000.00
-        call ProtoSetEffect(141, 20, 12.00, false)
-        call ProtoSetEffect(141, 12, 8.00, false)
-        call ProtoSetEffect(141, 7, 15.00, true)
-        set ProtoCardKey[142] = "common_hiyori"
-        set ProtoCardName[142] = "이키 히요리"
-        set ProtoCardEffectName[142] = "돌아올 길을 기억하기"
+        set ProtoCardKey[142] = "common_yato"
+        set ProtoCardName[142] = "야토"
+        set ProtoCardEffectName[142] = "5엔의 인연"
         set ProtoCardKeyword[142] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[142] = 0
-        set ProtoCardGrade[142] = 2
+        set ProtoCardGrade[142] = 1
         set ProtoEvolutionKind[142] = 0
         set ProtoEvolutionGoal[142] = 0.00
-        call ProtoSetEffect(142, 10, 5.00, false)
-        call ProtoSetEffect(142, 24, 10.00, false)
-        set ProtoCardKey[143] = "common_holo"
-        set ProtoCardName[143] = "호로"
-        set ProtoCardEffectName[143] = "거짓말을 듣는 귀"
+        call ProtoSetEffect(142, 1, 5.00, false)
+        call ProtoSetEffect(142, 5, 5.00, false)
+        set ProtoCardKey[143] = "common_yukine"
+        set ProtoCardName[143] = "유키네"
+        set ProtoCardEffectName[143] = "경계를 가르는 검"
         set ProtoCardKeyword[143] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[143] = 0
         set ProtoCardGrade[143] = 2
-        set ProtoEvolutionKind[143] = 0
-        set ProtoEvolutionGoal[143] = 0.00
-        call ProtoSetEffect(143, 18, 1.00, false)
-        call ProtoSetEffect(143, 6, 3.00, false)
-        set ProtoCardKey[144] = "common_lawrence"
-        set ProtoCardName[144] = "크래프트 로렌스"
-        set ProtoCardEffectName[144] = "두 도시의 가격"
+        set ProtoEvolutionKind[143] = 2
+        set ProtoEvolutionGoal[143] = 12000.00
+        call ProtoSetEffect(143, 20, 12.00, false)
+        call ProtoSetEffect(143, 12, 8.00, false)
+        call ProtoSetEffect(143, 7, 15.00, true)
+        set ProtoCardKey[144] = "common_hiyori"
+        set ProtoCardName[144] = "이키 히요리"
+        set ProtoCardEffectName[144] = "돌아올 길을 기억하기"
         set ProtoCardKeyword[144] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[144] = 0
         set ProtoCardGrade[144] = 2
-        set ProtoEvolutionKind[144] = 1
-        set ProtoEvolutionGoal[144] = 45.00
-        call ProtoSetEffect(144, 17, 3.00, false)
-        call ProtoSetEffect(144, 1, 5.00, false)
-        call ProtoSetEffect(144, 17, 1.00, true)
-        set ProtoCardKey[145] = "common_holo_wit"
+        set ProtoEvolutionKind[144] = 0
+        set ProtoEvolutionGoal[144] = 0.00
+        call ProtoSetEffect(144, 10, 5.00, false)
+        call ProtoSetEffect(144, 24, 10.00, false)
+        set ProtoCardKey[145] = "common_holo"
         set ProtoCardName[145] = "호로"
-        set ProtoCardEffectName[145] = "손익 뒤의 의도"
+        set ProtoCardEffectName[145] = "거짓말을 듣는 귀"
         set ProtoCardKeyword[145] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[145] = 0
-        set ProtoCardGrade[145] = 3
-        set ProtoEvolutionKind[145] = 3
-        set ProtoEvolutionGoal[145] = 60.00
-        call ProtoSetEffect(145, 4, 12.00, false)
-        call ProtoSetEffect(145, 7, 25.00, false)
-        call ProtoSetEffect(145, 6, 4.00, true)
-        set ProtoCardKey[146] = "common_ragna_eater"
-        set ProtoCardName[146] = "라그나 더 블러드엣지"
-        set ProtoCardEffectName[146] = "소울 이터"
-        set ProtoCardKeyword[146] = "여행길 · 공통 · 흡수 · 공격"
+        set ProtoCardGrade[145] = 2
+        set ProtoEvolutionKind[145] = 0
+        set ProtoEvolutionGoal[145] = 0.00
+        call ProtoSetEffect(145, 18, 1.00, false)
+        call ProtoSetEffect(145, 6, 3.00, false)
+        set ProtoCardKey[146] = "common_lawrence"
+        set ProtoCardName[146] = "크래프트 로렌스"
+        set ProtoCardEffectName[146] = "두 도시의 가격"
+        set ProtoCardKeyword[146] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[146] = 0
         set ProtoCardGrade[146] = 2
-        set ProtoEvolutionKind[146] = 2
-        set ProtoEvolutionGoal[146] = 15000.00
-        call ProtoSetEffect(146, 15, 8.00, false)
-        call ProtoSetEffect(146, 1, 6.00, false)
-        call ProtoSetEffect(146, 13, 8.00, true)
-        set ProtoCardKey[147] = "common_ragna_break"
-        set ProtoCardName[147] = "라그나 더 블러드엣지"
-        set ProtoCardEffectName[147] = "정면 돌파"
-        set ProtoCardKeyword[147] = "여행길 · 공통 · 방향 · 관통"
+        set ProtoEvolutionKind[146] = 1
+        set ProtoEvolutionGoal[146] = 45.00
+        call ProtoSetEffect(146, 17, 3.00, false)
+        call ProtoSetEffect(146, 1, 5.00, false)
+        call ProtoSetEffect(146, 17, 1.00, true)
+        set ProtoCardKey[147] = "common_holo_wit"
+        set ProtoCardName[147] = "호로"
+        set ProtoCardEffectName[147] = "손익 뒤의 의도"
+        set ProtoCardKeyword[147] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[147] = 0
-        set ProtoCardGrade[147] = 2
-        set ProtoEvolutionKind[147] = 0
-        set ProtoEvolutionGoal[147] = 0.00
-        call ProtoSetEffect(147, 20, 16.00, false)
-        call ProtoSetEffect(147, 12, 6.00, false)
-        set ProtoCardKey[148] = "common_nazrin_search"
-        set ProtoCardName[148] = "나즈린"
-        set ProtoCardEffectName[148] = "작은 다우저의 눈"
-        set ProtoCardKeyword[148] = "여행길 · 탐색 · 수급"
+        set ProtoCardGrade[147] = 3
+        set ProtoEvolutionKind[147] = 3
+        set ProtoEvolutionGoal[147] = 60.00
+        call ProtoSetEffect(147, 4, 12.00, false)
+        call ProtoSetEffect(147, 7, 25.00, false)
+        call ProtoSetEffect(147, 6, 4.00, true)
+        set ProtoCardKey[148] = "common_ragna_eater"
+        set ProtoCardName[148] = "라그나 더 블러드엣지"
+        set ProtoCardEffectName[148] = "소울 이터"
+        set ProtoCardKeyword[148] = "여행길 · 공통 · 흡수 · 공격"
         set ProtoCardHead[148] = 0
         set ProtoCardGrade[148] = 2
-        set ProtoEvolutionKind[148] = 1
-        set ProtoEvolutionGoal[148] = 45.00
-        call ProtoSetEffect(148, 18, 1.00, false)
-        call ProtoSetEffect(148, 17, 2.00, false)
-        call ProtoSetEffect(148, 17, 1.00, true)
-        set ProtoCardKey[149] = "common_nazrin_retreat"
-        set ProtoCardName[149] = "나즈린"
-        set ProtoCardEffectName[149] = "돌아갈 틈을 남기기"
-        set ProtoCardKeyword[149] = "여행길 · 이동 · 이동 피해"
+        set ProtoEvolutionKind[148] = 2
+        set ProtoEvolutionGoal[148] = 15000.00
+        call ProtoSetEffect(148, 15, 8.00, false)
+        call ProtoSetEffect(148, 1, 6.00, false)
+        call ProtoSetEffect(148, 13, 8.00, true)
+        set ProtoCardKey[149] = "common_ragna_break"
+        set ProtoCardName[149] = "라그나 더 블러드엣지"
+        set ProtoCardEffectName[149] = "정면 돌파"
+        set ProtoCardKeyword[149] = "여행길 · 공통 · 방향 · 관통"
         set ProtoCardHead[149] = 0
         set ProtoCardGrade[149] = 2
-        set ProtoEvolutionKind[149] = 3
-        set ProtoEvolutionGoal[149] = 45.00
-        call ProtoSetEffect(149, 10, 5.00, false)
-        call ProtoSetEffect(149, 19, 12.00, false)
-        call ProtoSetEffect(149, 14, 3.00, true)
+        set ProtoEvolutionKind[149] = 0
+        set ProtoEvolutionGoal[149] = 0.00
+        call ProtoSetEffect(149, 20, 16.00, false)
+        call ProtoSetEffect(149, 12, 6.00, false)
+        set ProtoCardKey[150] = "common_nazrin_search"
+        set ProtoCardName[150] = "나즈린"
+        set ProtoCardEffectName[150] = "작은 다우저의 눈"
+        set ProtoCardKeyword[150] = "여행길 · 탐색 · 수급"
+        set ProtoCardHead[150] = 0
+        set ProtoCardGrade[150] = 2
+        set ProtoEvolutionKind[150] = 1
+        set ProtoEvolutionGoal[150] = 45.00
+        call ProtoSetEffect(150, 18, 1.00, false)
+        call ProtoSetEffect(150, 17, 2.00, false)
+        call ProtoSetEffect(150, 17, 1.00, true)
+        set ProtoCardKey[151] = "common_nazrin_retreat"
+        set ProtoCardName[151] = "나즈린"
+        set ProtoCardEffectName[151] = "돌아갈 틈을 남기기"
+        set ProtoCardKeyword[151] = "여행길 · 이동 · 이동 피해"
+        set ProtoCardHead[151] = 0
+        set ProtoCardGrade[151] = 2
+        set ProtoEvolutionKind[151] = 3
+        set ProtoEvolutionGoal[151] = 45.00
+        call ProtoSetEffect(151, 10, 5.00, false)
+        call ProtoSetEffect(151, 19, 12.00, false)
+        call ProtoSetEffect(151, 14, 3.00, true)
         set ProtoEventKey[161] = "common_five_coin"
         set ProtoEventName[161] = "벽에 적힌 전화번호"
         set ProtoEventHead[161] = 0
@@ -6475,7 +6485,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[161] = ""
         set ProtoBranchLabel[644] = "5골드를 내고 야토에게 길목 정리를 부탁한다"
         set ProtoBranchResult[644] = "야토에게 작은 의뢰를 맡기고 함께 길목을 살폈다. 그가 대단한 보상보다 약속한 일을 끝내는 모습을 보며 첫 경험을 얻었다."
-        set ProtoBranchCard[644] = 140
+        set ProtoBranchCard[644] = 142
         set ProtoBranchCard2[644] = 0
         set ProtoBranchGold[644] = 0
         set ProtoBranchCost[644] = 5
@@ -6485,7 +6495,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[644] = 100
         set ProtoBranchLabel[645] = "야토와 유키네의 위험한 길을 맡는다"
         set ProtoBranchResult[645] = "유키네가 길을 여는 동안 더 강한 적이 다니는 통로를 맡았다. 검이 닿는 간격을 살피는 경험을 얻었다."
-        set ProtoBranchCard[645] = 141
+        set ProtoBranchCard[645] = 143
         set ProtoBranchCard2[645] = 0
         set ProtoBranchGold[645] = 0
         set ProtoBranchCost[645] = 0
@@ -6517,7 +6527,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[162] = ""
         set ProtoBranchLabel[648] = "히요리와 운반 자재를 준비한다"
         set ProtoBranchResult[648] = "히요리가 꼼꼼하게 자재를 정리하여 효율을 높입니다."
-        set ProtoBranchCard[648] = 142
+        set ProtoBranchCard[648] = 144
         set ProtoBranchCard2[648] = 0
         set ProtoBranchGold[648] = 0
         set ProtoBranchCost[648] = 180
@@ -6527,7 +6537,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[648] = 100
         set ProtoBranchLabel[649] = "유키네와 바깥 통로의 적을 나눈다"
         set ProtoBranchResult[649] = "유키네와 통로를 나누어 더 많은 적이 들어오는 길을 맡았다. 빠져나갈 자리를 지키며 검의 경계를 익혔다."
-        set ProtoBranchCard[649] = 141
+        set ProtoBranchCard[649] = 143
         set ProtoBranchCard2[649] = 0
         set ProtoBranchGold[649] = 0
         set ProtoBranchCost[649] = 0
@@ -6559,7 +6569,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[163] = ""
         set ProtoBranchLabel[652] = "히요리와 사람들에게 주소를 확인한다"
         set ProtoBranchResult[652] = "히요리와 주변 사람들에게 주소를 다시 물었다. 사람들이 오갈 통로를 더 열어 남은 적도 늘었지만 돌아올 길을 기억했다."
-        set ProtoBranchCard[652] = 142
+        set ProtoBranchCard[652] = 144
         set ProtoBranchCard2[652] = 0
         set ProtoBranchGold[652] = 0
         set ProtoBranchCost[652] = 0
@@ -6601,7 +6611,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[164] = "상대는 재협상을 거절했다. 확인 비용은 돌아오지 않으며 이번에는 카드도 얻지 못한다. 그러나 거래 내역을 남겨 다른 판매 경로를 찾을 수 있다."
         set ProtoBranchLabel[656] = "검증 비용을 내고 호로와 설명을 듣는다"
         set ProtoBranchResult[656] = "호로의 도움으로 상대의 숨겨진 의도를 파악했다."
-        set ProtoBranchCard[656] = 143
+        set ProtoBranchCard[656] = 145
         set ProtoBranchCard2[656] = 0
         set ProtoBranchGold[656] = 0
         set ProtoBranchCost[656] = 190
@@ -6611,7 +6621,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[656] = 100
         set ProtoBranchLabel[657] = "로렌스와 혼잡한 거래 구역을 맡는다"
         set ProtoBranchResult[657] = "로렌스와 동행하며 번잡한 시장을 뚫고 거래를 진행했다."
-        set ProtoBranchCard[657] = 144
+        set ProtoBranchCard[657] = 146
         set ProtoBranchCard2[657] = 0
         set ProtoBranchGold[657] = 0
         set ProtoBranchCost[657] = 0
@@ -6621,7 +6631,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[657] = 100
         set ProtoBranchLabel[658] = "호로의 지적대로 재협상을 시도한다"
         set ProtoBranchResult[658] = "호로가 짚은 저울의 차이를 근거로 조건을 다시 제시했다. 상대가 거래를 받아들여 말 뒤에 숨은 의도를 읽는 경험을 얻었다."
-        set ProtoBranchCard[658] = 145
+        set ProtoBranchCard[658] = 147
         set ProtoBranchCard2[658] = 0
         set ProtoBranchGold[658] = 0
         set ProtoBranchCost[658] = 120
@@ -6653,7 +6663,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[165] = ""
         set ProtoBranchLabel[660] = "로렌스와 운송 비용을 계산한다"
         set ProtoBranchResult[660] = "로렌스와 함께 정확한 운송 비용을 산출했다."
-        set ProtoBranchCard[660] = 144
+        set ProtoBranchCard[660] = 146
         set ProtoBranchCard2[660] = 0
         set ProtoBranchGold[660] = 0
         set ProtoBranchCost[660] = 160
@@ -6663,7 +6673,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[660] = 100
         set ProtoBranchLabel[661] = "호로와 거절 이유를 확인한다"
         set ProtoBranchResult[661] = "호로의 귀를 통해 상대가 거절한 진짜 이유를 듣습니다."
-        set ProtoBranchCard[661] = 143
+        set ProtoBranchCard[661] = 145
         set ProtoBranchCard2[661] = 0
         set ProtoBranchGold[661] = 0
         set ProtoBranchCost[661] = 0
@@ -6695,7 +6705,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[166] = ""
         set ProtoBranchLabel[664] = "로렌스와 운송 경비를 준비한다"
         set ProtoBranchResult[664] = "로렌스와 협력하여 차기 운송을 위한 경비를 마련했다."
-        set ProtoBranchCard[664] = 144
+        set ProtoBranchCard[664] = 146
         set ProtoBranchCard2[664] = 0
         set ProtoBranchGold[664] = 0
         set ProtoBranchCost[664] = 140
@@ -6705,7 +6715,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[664] = 100
         set ProtoBranchLabel[665] = "호로와 서류의 다른 조건을 확인한다"
         set ProtoBranchResult[665] = "호로와 함께 서류 속의 미세한 함정을 찾아냅니다."
-        set ProtoBranchCard[665] = 143
+        set ProtoBranchCard[665] = 145
         set ProtoBranchCard2[665] = 0
         set ProtoBranchGold[665] = 0
         set ProtoBranchCost[665] = 0
@@ -6737,7 +6747,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[167] = ""
         set ProtoBranchLabel[668] = "덮개 비용을 내고 로렌스와 화물을 확인한다"
         set ProtoBranchResult[668] = "비용을 들여 화물을 보수하고 로렌스와 점검했다."
-        set ProtoBranchCard[668] = 144
+        set ProtoBranchCard[668] = 146
         set ProtoBranchCard2[668] = 0
         set ProtoBranchGold[668] = 0
         set ProtoBranchCost[668] = 180
@@ -6747,7 +6757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[668] = 100
         set ProtoBranchLabel[669] = "호로와 거래 상대의 말을 확인한다"
         set ProtoBranchResult[669] = "호로와 상대에게 화물 상태를 솔직히 알렸다. 더 강한 적이 있는 확인 장소까지 맡으며 물건보다 말의 모순을 먼저 살피는 요령을 얻었다."
-        set ProtoBranchCard[669] = 145
+        set ProtoBranchCard[669] = 147
         set ProtoBranchCard2[669] = 0
         set ProtoBranchGold[669] = 0
         set ProtoBranchCost[669] = 0
@@ -6779,7 +6789,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[168] = ""
         set ProtoBranchLabel[672] = "호로와 우회로를 확인할 비용을 낸다"
         set ProtoBranchResult[672] = "호로와 함께 우회로의 자재비를 냈다. 적이 들어오는 통로 하나를 줄이고 다음 길을 살펴볼 단서를 얻었다."
-        set ProtoBranchCard[672] = 143
+        set ProtoBranchCard[672] = 145
         set ProtoBranchCard2[672] = 0
         set ProtoBranchGold[672] = 0
         set ProtoBranchCost[672] = 210
@@ -6789,7 +6799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[672] = 100
         set ProtoBranchLabel[673] = "로렌스와 붐비는 수송로를 맡는다"
         set ProtoBranchResult[673] = "로렌스와 함께 활발한 수송로를 통해 이동했다."
-        set ProtoBranchCard[673] = 144
+        set ProtoBranchCard[673] = 146
         set ProtoBranchCard2[673] = 0
         set ProtoBranchGold[673] = 0
         set ProtoBranchCost[673] = 0
@@ -6821,7 +6831,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[169] = ""
         set ProtoBranchLabel[676] = "라그나와 막힌 길의 앞쪽을 맡는다"
         set ProtoBranchResult[676] = "라그나가 짐이 지나갈 틈을 먼저 열었다. 검이 닿은 뒤에도 움직임을 끊지 않는 모습을 따라 보지만, 길 끝에 남은 큰 흔적까지 맡아야 한다."
-        set ProtoBranchCard[676] = 146
+        set ProtoBranchCard[676] = 148
         set ProtoBranchCard2[676] = 0
         set ProtoBranchGold[676] = 0
         set ProtoBranchCost[676] = 0
@@ -6831,7 +6841,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[676] = 100
         set ProtoBranchLabel[677] = "옆길의 짐을 묶고 칼이 닿을 자리를 살핀다"
         set ProtoBranchResult[677] = "운반 끈을 바꿔 짐을 옆으로 옮기자 라그나의 칼이 들어갈 각도가 보였다. 좁은 옆길을 쓰는 동안 그쪽으로 더 많은 흔적이 모였다."
-        set ProtoBranchCard[677] = 147
+        set ProtoBranchCard[677] = 149
         set ProtoBranchCard2[677] = 0
         set ProtoBranchGold[677] = 0
         set ProtoBranchCost[677] = 220
@@ -6863,7 +6873,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[170] = ""
         set ProtoBranchLabel[680] = "좁은 길을 손보고 라그나와 각도를 다시 잡는다"
         set ProtoBranchResult[680] = "새 지지대로 짐을 묶어 옆으로 밀었다. 라그나는 비워진 길에서 칼을 다시 들었고, 돌아갈 때는 같은 병목에 멈출 필요가 줄었다."
-        set ProtoBranchCard[680] = 147
+        set ProtoBranchCard[680] = 149
         set ProtoBranchCard2[680] = 0
         set ProtoBranchGold[680] = 0
         set ProtoBranchCost[680] = 240
@@ -6895,7 +6905,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[171] = "진흙을 걷어 냈지만 막대가 가리킨 자리에서는 고철만 나왔다. 작업비는 돌아오지 않았고 깊은 구역의 강한 적도 그대로 남아, 의뢰 보수를 받지 못한 채 젖은 표시를 다시 살폈다."
         set ProtoBranchLabel[684] = "측정 자재를 보태고 나즈린과 반응을 대조한다"
         set ProtoBranchResult[684] = "비에 젖은 표시를 다시 세우고 나즈린과 여러 반응의 방향을 대조했다. 상자를 찾았다고 단정하지 않고 어떤 자리를 먼저 살필지 구분하는 경험을 남겼다."
-        set ProtoBranchCard[684] = 148
+        set ProtoBranchCard[684] = 150
         set ProtoBranchCard2[684] = 0
         set ProtoBranchGold[684] = 0
         set ProtoBranchCost[684] = 170
@@ -6905,7 +6915,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[684] = 100
         set ProtoBranchLabel[685] = "나즈린의 퇴로를 남기고 넓은 수색 구역을 맡는다"
         set ProtoBranchResult[685] = "강한 기척을 피하는 나즈린이 빠져나갈 자리를 남기고 넓은 구역을 맡았다. 더 많은 적을 상대해야 하지만 좁은 곳에 몰리기 전에 돌아갈 간격을 확인했다."
-        set ProtoBranchCard[685] = 149
+        set ProtoBranchCard[685] = 151
         set ProtoBranchCard2[685] = 0
         set ProtoBranchGold[685] = 0
         set ProtoBranchCost[685] = 0
@@ -6915,7 +6925,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[685] = 100
         set ProtoBranchLabel[686] = "작업비를 내고 강한 적이 남은 깊은 자리를 판다"
         set ProtoBranchResult[686] = "고철 옆에서 의뢰 쪽지의 표식이 붙은 상자를 찾아 상인에게 넘겼다. 약속한 보수와 탐색 경험을 얻었지만 깊은 구역에 남은 강한 적까지 사라지지는 않았다."
-        set ProtoBranchCard[686] = 148
+        set ProtoBranchCard[686] = 150
         set ProtoBranchCard2[686] = 0
         set ProtoBranchGold[686] = 420
         set ProtoBranchCost[686] = 150
@@ -6947,7 +6957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[172] = ""
         set ProtoBranchLabel[688] = "나즈린의 퇴로를 맡고 더 강한 구역을 살핀다"
         set ProtoBranchResult[688] = "나즈린이 빠져나갈 비탈을 지키며 한층 강한 적이 다니는 구역을 맡았다. 끝낸 수색의 작은 추가 보수와 물러날 간격을 남겼지만 새 구역의 부담은 계속됐다."
-        set ProtoBranchCard[688] = 149
+        set ProtoBranchCard[688] = 151
         set ProtoBranchCard2[688] = 0
         set ProtoBranchGold[688] = 60
         set ProtoBranchCost[688] = 0
@@ -6989,7 +6999,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[173] = ""
         set ProtoBranchLabel[692] = "측정 끈을 새로 마련하고 나즈린과 방향을 다시 잰다"
         set ProtoBranchResult[692] = "새 끈을 마련해 젖은 표시를 다시 세우고 나즈린과 반응을 구분했다. 이번에는 상자나 보수를 되찾은 것이 아니라 방향을 재는 경험을 남겼다."
-        set ProtoBranchCard[692] = 148
+        set ProtoBranchCard[692] = 150
         set ProtoBranchCard2[692] = 0
         set ProtoBranchGold[692] = 0
         set ProtoBranchCost[692] = 170
@@ -6999,7 +7009,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[692] = 100
         set ProtoBranchLabel[693] = "나즈린이 물러날 더 넓은 구역을 맡는다"
         set ProtoBranchResult[693] = "나즈린이 물러날 자리를 남기고 주변의 넓은 구역을 추가로 맡았다. 적은 더 늘었지만 돌아갈 틈을 놓치지 않는 간격을 확인했다."
-        set ProtoBranchCard[693] = 149
+        set ProtoBranchCard[693] = 151
         set ProtoBranchCard2[693] = 0
         set ProtoBranchGold[693] = 0
         set ProtoBranchCost[693] = 0
@@ -7024,7 +7034,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[8] = "마그놀리아"
         set ProtoHeadIntro[8] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoHeadIcon[8] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[8] = 150
+        set ProtoHeadEntryCard[8] = 152
         call SaveReal(ProtoHeadEffectData, 8, 13, 3.00)
         set ProtoEventKey[29] = "magnolia_entry_0"
         set ProtoEventName[29] = "마그놀리아 방문"
@@ -7058,163 +7068,163 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[32] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIntro[32] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIcon[32] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[150] = "ft_happy"
-        set ProtoCardName[150] = "해피"
-        set ProtoCardEffectName[150] = "하늘에서 찾은 귀환길"
-        set ProtoCardKeyword[150] = "마그놀리아 · 이동"
-        set ProtoCardHead[150] = 8
-        set ProtoCardGrade[150] = 1
-        set ProtoEvolutionKind[150] = 0
-        set ProtoEvolutionGoal[150] = 0.00
-        call ProtoSetEffect(150, 10, 3.00, false)
-        set ProtoCardKey[151] = "ft_natsu"
-        set ProtoCardName[151] = "나츠 드래그닐"
-        set ProtoCardEffectName[151] = "화룡의 철권"
-        set ProtoCardKeyword[151] = "마그놀리아 · 공격 · 일반 몬스터"
-        set ProtoCardHead[151] = 8
-        set ProtoCardGrade[151] = 2
-        set ProtoEvolutionKind[151] = 2
-        set ProtoEvolutionGoal[151] = 12000.00
-        call ProtoSetEffect(151, 1, 12.00, false)
-        call ProtoSetEffect(151, 5, 8.00, false)
-        call ProtoSetEffect(151, 4, 8.00, true)
-        set ProtoCardKey[152] = "ft_lucy"
-        set ProtoCardName[152] = "루시 하트필리아"
-        set ProtoCardEffectName[152] = "의뢰를 잇는 기록"
-        set ProtoCardKeyword[152] = "마그놀리아 · 탐색 · 수급"
+        set ProtoCardKey[152] = "ft_happy"
+        set ProtoCardName[152] = "해피"
+        set ProtoCardEffectName[152] = "하늘에서 찾은 귀환길"
+        set ProtoCardKeyword[152] = "마그놀리아 · 이동"
         set ProtoCardHead[152] = 8
-        set ProtoCardGrade[152] = 2
+        set ProtoCardGrade[152] = 1
         set ProtoEvolutionKind[152] = 0
         set ProtoEvolutionGoal[152] = 0.00
-        call ProtoSetEffect(152, 18, 1.00, false)
-        call ProtoSetEffect(152, 17, 1.00, false)
-        set ProtoCardKey[153] = "ft_gray"
-        set ProtoCardName[153] = "그레이 풀버스터"
-        set ProtoCardEffectName[153] = "아이스 메이크"
-        set ProtoCardKeyword[153] = "마그놀리아 · 차지 · 비방향"
+        call ProtoSetEffect(152, 10, 3.00, false)
+        set ProtoCardKey[153] = "ft_natsu"
+        set ProtoCardName[153] = "나츠 드래그닐"
+        set ProtoCardEffectName[153] = "화룡의 철권"
+        set ProtoCardKeyword[153] = "마그놀리아 · 공격 · 일반 몬스터"
         set ProtoCardHead[153] = 8
         set ProtoCardGrade[153] = 2
         set ProtoEvolutionKind[153] = 2
         set ProtoEvolutionGoal[153] = 12000.00
-        call ProtoSetEffect(153, 23, 18.00, false)
-        call ProtoSetEffect(153, 21, 8.00, false)
-        call ProtoSetEffect(153, 11, 6.00, true)
-        set ProtoCardKey[154] = "ft_erza_blade"
-        set ProtoCardName[154] = "엘자 스칼렛"
-        set ProtoCardEffectName[154] = "검 하나에 실은 결심"
-        set ProtoCardKeyword[154] = "마그놀리아 · 방향 · 치명"
+        call ProtoSetEffect(153, 1, 12.00, false)
+        call ProtoSetEffect(153, 5, 8.00, false)
+        call ProtoSetEffect(153, 4, 8.00, true)
+        set ProtoCardKey[154] = "ft_lucy"
+        set ProtoCardName[154] = "루시 하트필리아"
+        set ProtoCardEffectName[154] = "의뢰를 잇는 기록"
+        set ProtoCardKeyword[154] = "마그놀리아 · 탐색 · 수급"
         set ProtoCardHead[154] = 8
         set ProtoCardGrade[154] = 2
-        set ProtoEvolutionKind[154] = 1
-        set ProtoEvolutionGoal[154] = 45.00
-        call ProtoSetEffect(154, 20, 16.00, false)
-        call ProtoSetEffect(154, 6, 4.00, false)
-        call ProtoSetEffect(154, 7, 15.00, true)
-        set ProtoCardKey[155] = "ft_erza_guard"
-        set ProtoCardName[155] = "엘자 스칼렛"
-        set ProtoCardEffectName[155] = "갑옷을 고르는 이유"
-        set ProtoCardKeyword[155] = "마그놀리아 · 체력 · 보호막"
+        set ProtoEvolutionKind[154] = 0
+        set ProtoEvolutionGoal[154] = 0.00
+        call ProtoSetEffect(154, 18, 1.00, false)
+        call ProtoSetEffect(154, 17, 1.00, false)
+        set ProtoCardKey[155] = "ft_gray"
+        set ProtoCardName[155] = "그레이 풀버스터"
+        set ProtoCardEffectName[155] = "아이스 메이크"
+        set ProtoCardKeyword[155] = "마그놀리아 · 차지 · 비방향"
         set ProtoCardHead[155] = 8
         set ProtoCardGrade[155] = 2
-        set ProtoEvolutionKind[155] = 0
-        set ProtoEvolutionGoal[155] = 0.00
-        call ProtoSetEffect(155, 13, 10.00, false)
-        call ProtoSetEffect(155, 22, 16.00, false)
-        set ProtoCardKey[156] = "ft_wendy"
-        set ProtoCardName[156] = "웬디 마벨"
-        set ProtoCardEffectName[156] = "하늘의 부가술"
-        set ProtoCardKeyword[156] = "마그놀리아 · 재생 · 공격"
+        set ProtoEvolutionKind[155] = 2
+        set ProtoEvolutionGoal[155] = 12000.00
+        call ProtoSetEffect(155, 23, 18.00, false)
+        call ProtoSetEffect(155, 21, 8.00, false)
+        call ProtoSetEffect(155, 11, 6.00, true)
+        set ProtoCardKey[156] = "ft_erza_blade"
+        set ProtoCardName[156] = "엘자 스칼렛"
+        set ProtoCardEffectName[156] = "검 하나에 실은 결심"
+        set ProtoCardKeyword[156] = "마그놀리아 · 방향 · 치명"
         set ProtoCardHead[156] = 8
         set ProtoCardGrade[156] = 2
-        set ProtoEvolutionKind[156] = 0
-        set ProtoEvolutionGoal[156] = 0.00
-        call ProtoSetEffect(156, 16, 0.70, false)
-        call ProtoSetEffect(156, 1, 6.00, false)
-        set ProtoCardKey[157] = "ft_charles"
-        set ProtoCardName[157] = "샤를"
-        set ProtoCardEffectName[157] = "놓치지 않는 징후"
-        set ProtoCardKeyword[157] = "마그놀리아 · 고체력 · 생존"
+        set ProtoEvolutionKind[156] = 1
+        set ProtoEvolutionGoal[156] = 45.00
+        call ProtoSetEffect(156, 20, 16.00, false)
+        call ProtoSetEffect(156, 6, 4.00, false)
+        call ProtoSetEffect(156, 7, 15.00, true)
+        set ProtoCardKey[157] = "ft_erza_guard"
+        set ProtoCardName[157] = "엘자 스칼렛"
+        set ProtoCardEffectName[157] = "갑옷을 고르는 이유"
+        set ProtoCardKeyword[157] = "마그놀리아 · 체력 · 보호막"
         set ProtoCardHead[157] = 8
         set ProtoCardGrade[157] = 2
-        set ProtoEvolutionKind[157] = 3
-        set ProtoEvolutionGoal[157] = 60.00
-        call ProtoSetEffect(157, 24, 12.00, false)
-        call ProtoSetEffect(157, 14, 4.00, false)
-        call ProtoSetEffect(157, 6, 4.00, true)
-        set ProtoCardKey[158] = "ft_natsu_focus"
-        set ProtoCardName[158] = "나츠 드래그닐"
-        set ProtoCardEffectName[158] = "동료를 향한 불꽃"
-        set ProtoCardKeyword[158] = "마그놀리아 · 공격 · 최종 대미지"
+        set ProtoEvolutionKind[157] = 0
+        set ProtoEvolutionGoal[157] = 0.00
+        call ProtoSetEffect(157, 13, 10.00, false)
+        call ProtoSetEffect(157, 22, 16.00, false)
+        set ProtoCardKey[158] = "ft_wendy"
+        set ProtoCardName[158] = "웬디 마벨"
+        set ProtoCardEffectName[158] = "하늘의 부가술"
+        set ProtoCardKeyword[158] = "마그놀리아 · 재생 · 공격"
         set ProtoCardHead[158] = 8
-        set ProtoCardGrade[158] = 3
+        set ProtoCardGrade[158] = 2
         set ProtoEvolutionKind[158] = 0
         set ProtoEvolutionGoal[158] = 0.00
-        call ProtoSetEffect(158, 1, 10.00, false)
-        call ProtoSetEffect(158, 3, 6.00, false)
-        call ProtoSetEffect(158, 9, -4.00, false)
-        set ProtoCardKey[159] = "ft_gajeel_meal"
-        set ProtoCardName[159] = "가질 레드폭스"
-        set ProtoCardEffectName[159] = "먹을 몫과 남길 몫"
-        set ProtoCardKeyword[159] = "마그놀리아 · 흡수 · 공격"
+        call ProtoSetEffect(158, 16, 0.70, false)
+        call ProtoSetEffect(158, 1, 6.00, false)
+        set ProtoCardKey[159] = "ft_charles"
+        set ProtoCardName[159] = "샤를"
+        set ProtoCardEffectName[159] = "놓치지 않는 징후"
+        set ProtoCardKeyword[159] = "마그놀리아 · 고체력 · 생존"
         set ProtoCardHead[159] = 8
         set ProtoCardGrade[159] = 2
-        set ProtoEvolutionKind[159] = 1
-        set ProtoEvolutionGoal[159] = 50.00
-        call ProtoSetEffect(159, 15, 1.50, false)
-        call ProtoSetEffect(159, 1, 8.00, false)
-        call ProtoSetEffect(159, 16, 0.30, true)
-        set ProtoCardKey[160] = "ft_juvia_umbrella"
-        set ProtoCardName[160] = "쥬비아 록서"
-        set ProtoCardEffectName[160] = "하나 더 남긴 우산"
-        set ProtoCardKeyword[160] = "마그놀리아 · 재생 · 고체력"
+        set ProtoEvolutionKind[159] = 3
+        set ProtoEvolutionGoal[159] = 60.00
+        call ProtoSetEffect(159, 24, 12.00, false)
+        call ProtoSetEffect(159, 14, 4.00, false)
+        call ProtoSetEffect(159, 6, 4.00, true)
+        set ProtoCardKey[160] = "ft_natsu_focus"
+        set ProtoCardName[160] = "나츠 드래그닐"
+        set ProtoCardEffectName[160] = "동료를 향한 불꽃"
+        set ProtoCardKeyword[160] = "마그놀리아 · 공격 · 최종 대미지"
         set ProtoCardHead[160] = 8
-        set ProtoCardGrade[160] = 2
+        set ProtoCardGrade[160] = 3
         set ProtoEvolutionKind[160] = 0
         set ProtoEvolutionGoal[160] = 0.00
-        call ProtoSetEffect(160, 16, 0.40, false)
-        call ProtoSetEffect(160, 24, 10.00, false)
-        set ProtoCardKey[161] = "ft_mirajane_visitors"
-        set ProtoCardName[161] = "미라젠 스트라우스"
-        set ProtoCardEffectName[161] = "사진 밖의 부탁"
-        set ProtoCardKeyword[161] = "마그놀리아 · 사건 후보 · 치명타 피해"
+        call ProtoSetEffect(160, 1, 10.00, false)
+        call ProtoSetEffect(160, 3, 6.00, false)
+        call ProtoSetEffect(160, 9, -4.00, false)
+        set ProtoCardKey[161] = "ft_gajeel_meal"
+        set ProtoCardName[161] = "가질 레드폭스"
+        set ProtoCardEffectName[161] = "먹을 몫과 남길 몫"
+        set ProtoCardKeyword[161] = "마그놀리아 · 흡수 · 공격"
         set ProtoCardHead[161] = 8
         set ProtoCardGrade[161] = 2
-        set ProtoEvolutionKind[161] = 0
-        set ProtoEvolutionGoal[161] = 0.00
-        call ProtoSetEffect(161, 18, 1.00, false)
-        call ProtoSetEffect(161, 7, 14.00, false)
-        set ProtoCardKey[162] = "ft_laxus_reply"
-        set ProtoCardName[162] = "렉서스 드레아"
-        set ProtoCardEffectName[162] = "짧은 말의 뒷자리"
-        set ProtoCardKeyword[162] = "마그놀리아 · 보스 · 치명타 피해 · 패널티"
+        set ProtoEvolutionKind[161] = 1
+        set ProtoEvolutionGoal[161] = 50.00
+        call ProtoSetEffect(161, 15, 1.50, false)
+        call ProtoSetEffect(161, 1, 8.00, false)
+        call ProtoSetEffect(161, 16, 0.30, true)
+        set ProtoCardKey[162] = "ft_juvia_umbrella"
+        set ProtoCardName[162] = "쥬비아 록서"
+        set ProtoCardEffectName[162] = "하나 더 남긴 우산"
+        set ProtoCardKeyword[162] = "마그놀리아 · 재생 · 고체력"
         set ProtoCardHead[162] = 8
         set ProtoCardGrade[162] = 2
         set ProtoEvolutionKind[162] = 0
         set ProtoEvolutionGoal[162] = 0.00
-        call ProtoSetEffect(162, 4, 10.00, false)
-        call ProtoSetEffect(162, 7, 18.00, false)
-        call ProtoSetEffect(162, 1, -3.00, false)
-        set ProtoCardKey[163] = "ft_gildarts_distance"
-        set ProtoCardName[163] = "길다트 클라이브"
-        set ProtoCardEffectName[163] = "손이 닿기 전에"
-        set ProtoCardKeyword[163] = "마그놀리아 · 관통 · 차지"
+        call ProtoSetEffect(162, 16, 0.40, false)
+        call ProtoSetEffect(162, 24, 10.00, false)
+        set ProtoCardKey[163] = "ft_mirajane_visitors"
+        set ProtoCardName[163] = "미라젠 스트라우스"
+        set ProtoCardEffectName[163] = "사진 밖의 부탁"
+        set ProtoCardKeyword[163] = "마그놀리아 · 사건 후보 · 치명타 피해"
         set ProtoCardHead[163] = 8
         set ProtoCardGrade[163] = 2
-        set ProtoEvolutionKind[163] = 2
-        set ProtoEvolutionGoal[163] = 14000.00
-        call ProtoSetEffect(163, 12, 6.00, false)
-        call ProtoSetEffect(163, 23, 12.00, false)
-        call ProtoSetEffect(163, 12, 3.00, true)
-        set ProtoCardKey[164] = "ft_lucy_reader"
-        set ProtoCardName[164] = "루시 하트필리아"
-        set ProtoCardEffectName[164] = "결말 앞의 다른 길"
-        set ProtoCardKeyword[164] = "마그놀리아 · 사건 후보 · 치명타 확률"
+        set ProtoEvolutionKind[163] = 0
+        set ProtoEvolutionGoal[163] = 0.00
+        call ProtoSetEffect(163, 18, 1.00, false)
+        call ProtoSetEffect(163, 7, 14.00, false)
+        set ProtoCardKey[164] = "ft_laxus_reply"
+        set ProtoCardName[164] = "렉서스 드레아"
+        set ProtoCardEffectName[164] = "짧은 말의 뒷자리"
+        set ProtoCardKeyword[164] = "마그놀리아 · 보스 · 치명타 피해 · 패널티"
         set ProtoCardHead[164] = 8
         set ProtoCardGrade[164] = 2
         set ProtoEvolutionKind[164] = 0
         set ProtoEvolutionGoal[164] = 0.00
-        call ProtoSetEffect(164, 18, 1.00, false)
-        call ProtoSetEffect(164, 6, 3.00, false)
+        call ProtoSetEffect(164, 4, 10.00, false)
+        call ProtoSetEffect(164, 7, 18.00, false)
+        call ProtoSetEffect(164, 1, -3.00, false)
+        set ProtoCardKey[165] = "ft_gildarts_distance"
+        set ProtoCardName[165] = "길다트 클라이브"
+        set ProtoCardEffectName[165] = "손이 닿기 전에"
+        set ProtoCardKeyword[165] = "마그놀리아 · 관통 · 차지"
+        set ProtoCardHead[165] = 8
+        set ProtoCardGrade[165] = 2
+        set ProtoEvolutionKind[165] = 2
+        set ProtoEvolutionGoal[165] = 14000.00
+        call ProtoSetEffect(165, 12, 6.00, false)
+        call ProtoSetEffect(165, 23, 12.00, false)
+        call ProtoSetEffect(165, 12, 3.00, true)
+        set ProtoCardKey[166] = "ft_lucy_reader"
+        set ProtoCardName[166] = "루시 하트필리아"
+        set ProtoCardEffectName[166] = "결말 앞의 다른 길"
+        set ProtoCardKeyword[166] = "마그놀리아 · 사건 후보 · 치명타 확률"
+        set ProtoCardHead[166] = 8
+        set ProtoCardGrade[166] = 2
+        set ProtoEvolutionKind[166] = 0
+        set ProtoEvolutionGoal[166] = 0.00
+        call ProtoSetEffect(166, 18, 1.00, false)
+        call ProtoSetEffect(166, 6, 3.00, false)
         set ProtoEventKey[174] = "ft_request_board"
         set ProtoEventName[174] = "무너진 게시판 아래"
         set ProtoEventHead[174] = 8
@@ -7229,7 +7239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[174] = ""
         set ProtoBranchLabel[696] = "나츠와 짐을 옮길 길을 연다"
         set ProtoBranchResult[696] = "나츠가 목재를 들고 달려갈 틈을 만들었다. 넓게 열린 길 저편에서 큰 짐승이 고개를 들었지만, 나츠는 주먹을 맞대며 먼저 움직일 곳을 짚어 준다."
-        set ProtoBranchCard[696] = 151
+        set ProtoBranchCard[696] = 153
         set ProtoBranchCard2[696] = 0
         set ProtoBranchGold[696] = 0
         set ProtoBranchCost[696] = 0
@@ -7239,7 +7249,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[696] = 100
         set ProtoBranchLabel[697] = "루시와 의뢰서 주소를 대조한다"
         set ProtoBranchResult[697] = "루시와 영수증을 대조해 빠진 주소를 채웠다. 복사할 종이와 운반 표식을 마련하자, 엉킨 의뢰를 하나씩 구분할 수 있게 됐다."
-        set ProtoBranchCard[697] = 152
+        set ProtoBranchCard[697] = 154
         set ProtoBranchCard2[697] = 0
         set ProtoBranchGold[697] = 0
         set ProtoBranchCost[697] = 160
@@ -7249,7 +7259,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[697] = 100
         set ProtoBranchLabel[698] = "샤를과 수송 동선을 살핀다"
         set ProtoBranchResult[698] = "샤를이 같은 자리에서 끊기는 발자국을 짚었다. 안전한 길을 고르려면 먼저 모여 있는 짐승들의 움직임부터 읽어야 했다."
-        set ProtoBranchCard[698] = 157
+        set ProtoBranchCard[698] = 159
         set ProtoBranchCard2[698] = 0
         set ProtoBranchGold[698] = 0
         set ProtoBranchCost[698] = 0
@@ -7281,7 +7291,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[175] = ""
         set ProtoBranchLabel[700] = "그레이와 길목의 구조를 정리한다"
         set ProtoBranchResult[700] = "그레이와 받침대를 세우고 접근할 수 있는 틈을 줄였다. 얼음을 단순히 크게 만드는 것보다 놓일 형태를 먼저 고르는 이유를 배웠다."
-        set ProtoBranchCard[700] = 153
+        set ProtoBranchCard[700] = 155
         set ProtoBranchCard2[700] = 0
         set ProtoBranchGold[700] = 0
         set ProtoBranchCost[700] = 120
@@ -7291,7 +7301,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[700] = 100
         set ProtoBranchLabel[701] = "웬디와 돌아온 사람들을 돌본다"
         set ProtoBranchResult[701] = "웬디에게 맡길 자리를 정리하고 마른 천과 보급품을 마련했다. 돌아온 사람들을 재촉하기보다 다음 일을 버틸 준비를 함께 했다."
-        set ProtoBranchCard[701] = 156
+        set ProtoBranchCard[701] = 158
         set ProtoBranchCard2[701] = 0
         set ProtoBranchGold[701] = 0
         set ProtoBranchCost[701] = 140
@@ -7313,7 +7323,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[176] = ""
         set ProtoBranchLabel[704] = "방어가 필요한 수령인부터 맡는다"
         set ProtoBranchResult[704] = "방어물을 기다리는 수령인의 주소가 맞다는 것을 확인했다. 엘자와 필요한 짐만 나눠 들고 불필요하게 열려 있던 길 하나를 정리했다."
-        set ProtoBranchCard[704] = 155
+        set ProtoBranchCard[704] = 157
         set ProtoBranchCard2[704] = 0
         set ProtoBranchGold[704] = 0
         set ProtoBranchCost[704] = 160
@@ -7323,7 +7333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[704] = 100
         set ProtoBranchLabel[705] = "위험한 길목의 의뢰를 먼저 맡는다"
         set ProtoBranchResult[705] = "위험한 길목에 남아 있는 의뢰인을 먼저 찾아갔다. 엘자는 앞만 보며 밀어붙이지 말라며, 검이 닿을 자리를 함께 확인했다."
-        set ProtoBranchCard[705] = 154
+        set ProtoBranchCard[705] = 156
         set ProtoBranchCard2[705] = 0
         set ProtoBranchGold[705] = 0
         set ProtoBranchCost[705] = 0
@@ -7355,7 +7365,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[177] = ""
         set ProtoBranchLabel[708] = "생선과 보급품을 나눠 운반한다"
         set ProtoBranchResult[708] = "해피에게 생선 봉지를 따로 맡기고 웬디와 보급품을 작은 묶음으로 나눴다. 복잡하게 오가던 짐이 정리되자 길목도 한산해졌다."
-        set ProtoBranchCard[708] = 156
+        set ProtoBranchCard[708] = 158
         set ProtoBranchCard2[708] = 0
         set ProtoBranchGold[708] = 0
         set ProtoBranchCost[708] = 160
@@ -7365,7 +7375,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[708] = 100
         set ProtoBranchLabel[709] = "내가 위험한 지상 운반을 맡는다"
         set ProtoBranchResult[709] = "해피가 들지 못한 짐을 맡아 엘자와 지상으로 돌아왔다. 숲 가장자리의 큰 짐승을 피해 몸을 돌리는 동안, 무게보다 자세를 먼저 잡는 법을 배웠다."
-        set ProtoBranchCard[709] = 155
+        set ProtoBranchCard[709] = 157
         set ProtoBranchCard2[709] = 0
         set ProtoBranchGold[709] = 100
         set ProtoBranchCost[709] = 0
@@ -7387,7 +7397,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[178] = ""
         set ProtoBranchLabel[712] = "그레이와 좁은 길목을 점검한다"
         set ProtoBranchResult[712] = "그레이와 좁은 통로에 맞는 받침대와 표식을 마련했다. 사람이 지나갈 틈을 남기는 것과 공격할 공간을 남기는 것은 다른 문제였다."
-        set ProtoBranchCard[712] = 153
+        set ProtoBranchCard[712] = 155
         set ProtoBranchCard2[712] = 0
         set ProtoBranchGold[712] = 0
         set ProtoBranchCost[712] = 170
@@ -7397,7 +7407,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[712] = 100
         set ProtoBranchLabel[713] = "엘자와 복귀할 길을 지킨다"
         set ProtoBranchResult[713] = "돌아오는 사람들의 짐이 멈추지 않도록 엘자와 넓은 길목을 맡았다. 여러 짐승이 몰리는 동안에도, 엘자는 몸이 돌아서는 순간의 빈틈을 기다렸다가 검을 뻗었다."
-        set ProtoBranchCard[713] = 154
+        set ProtoBranchCard[713] = 156
         set ProtoBranchCard2[713] = 0
         set ProtoBranchGold[713] = 0
         set ProtoBranchCost[713] = 0
@@ -7419,7 +7429,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[179] = ""
         set ProtoBranchLabel[716] = "검을 휘두를 간격을 맞춘다"
         set ProtoBranchResult[716] = "엘자는 먼저 검을 뽑아 볼 공간부터 남기라고 했다. 짐을 덜고 훈련 도구를 마련하자, 상대가 등을 돌릴 때 검을 뻗을 자리도 함께 볼 수 있었다."
-        set ProtoBranchCard[716] = 154
+        set ProtoBranchCard[716] = 156
         set ProtoBranchCard2[716] = 0
         set ProtoBranchGold[716] = 0
         set ProtoBranchCost[716] = 220
@@ -7429,7 +7439,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[716] = 100
         set ProtoBranchLabel[717] = "방어 태세에 맞춰 짐을 정리한다"
         set ProtoBranchResult[717] = "엘자와 갑옷을 갖춰 입는 순서와 몸을 돌릴 자리를 확인했다. 무조건 더 챙기기보다 지금 지킬 수 있는 자세에 맞춰 짐을 골랐다."
-        set ProtoBranchCard[717] = 155
+        set ProtoBranchCard[717] = 157
         set ProtoBranchCard2[717] = 0
         set ProtoBranchGold[717] = 0
         set ProtoBranchCost[717] = 180
@@ -7439,7 +7449,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[717] = 100
         set ProtoBranchLabel[718] = "웬디에게 지속 지원을 부탁한다"
         set ProtoBranchResult[718] = "웬디가 오래 버틸 준비에 필요한 물품을 짚어 줬다. 급히 출발하려던 짐을 다시 펴고, 돌아올 때까지 이어 쓸 보급을 나눠 담았다."
-        set ProtoBranchCard[718] = 156
+        set ProtoBranchCard[718] = 158
         set ProtoBranchCard2[718] = 0
         set ProtoBranchGold[718] = 0
         set ProtoBranchCost[718] = 210
@@ -7461,7 +7471,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[180] = "고정한 구조물이 물살에 밀려 짐 일부와 의뢰서가 젖었다. 따라온 짐승을 경계하며 건져 낸 짐을 다시 정리해야 한다."
         set ProtoBranchLabel[720] = "구조물을 고정해 물길을 건넌다"
         set ProtoBranchResult[720] = "그레이가 만든 조형물을 붙잡아 물살 사이에 통로를 냈다. 건너편에 모인 짐승까지 감수하고 짐을 전달하자, 기다리던 사람이 수고비를 내밀었다."
-        set ProtoBranchCard[720] = 153
+        set ProtoBranchCard[720] = 155
         set ProtoBranchCard2[720] = 0
         set ProtoBranchGold[720] = 180
         set ProtoBranchCost[720] = 90
@@ -7471,7 +7481,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[720] = 70
         set ProtoBranchLabel[721] = "웬디와 짐을 나눠 우회한다"
         set ProtoBranchResult[721] = "웬디와 짐을 나눠 마른 길로 돌아왔다. 새 운반 도구를 준비하는 데 비용은 들었지만, 엉킨 통로를 정리하고 남은 보급품도 챙겼다."
-        set ProtoBranchCard[721] = 156
+        set ProtoBranchCard[721] = 158
         set ProtoBranchCard2[721] = 0
         set ProtoBranchGold[721] = 0
         set ProtoBranchCost[721] = 140
@@ -7493,7 +7503,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[181] = ""
         set ProtoBranchLabel[724] = "루시와 수령인을 다시 찾는다"
         set ProtoBranchResult[724] = "루시와 마른 종이에 읽히는 부분부터 옮겨 적었다. 연락과 운반에 필요한 비용을 보태자, 남은 짐을 보낼 주소를 다시 찾을 수 있었다."
-        set ProtoBranchCard[724] = 152
+        set ProtoBranchCard[724] = 154
         set ProtoBranchCard2[724] = 0
         set ProtoBranchGold[724] = 0
         set ProtoBranchCost[724] = 160
@@ -7503,7 +7513,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[724] = 100
         set ProtoBranchLabel[725] = "웬디와 돌아갈 보급을 정리한다"
         set ProtoBranchResult[725] = "웬디와 쓸 수 있는 물품을 골라 묶었다. 길을 어지럽히던 젖은 포장을 치우고, 돌아갈 때 사용할 보급만 남겼다."
-        set ProtoBranchCard[725] = 156
+        set ProtoBranchCard[725] = 158
         set ProtoBranchCard2[725] = 0
         set ProtoBranchGold[725] = 0
         set ProtoBranchCost[725] = 0
@@ -7521,11 +7531,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIcon[182] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[182] = 0
         set ProtoEventRequiredChoice[182] = 0
-        set ProtoEventRequiredCard[182] = 151
+        set ProtoEventRequiredCard[182] = 153
         set ProtoEventFailure[182] = ""
         set ProtoBranchLabel[728] = "나츠와 한 번의 일격에 힘을 싣는다"
         set ProtoBranchResult[728] = "가림막과 훈련 도구를 마련해 나츠를 따라 한 번의 일격에 힘을 모으자, 다음 움직임은 늦어졌다. 커진 소리를 듣고 큰 짐승까지 다가오기 시작했다."
-        set ProtoBranchCard[728] = 158
+        set ProtoBranchCard[728] = 160
         set ProtoBranchCard2[728] = 0
         set ProtoBranchGold[728] = 0
         set ProtoBranchCost[728] = 260
@@ -7535,7 +7545,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[728] = 100
         set ProtoBranchLabel[729] = "엘자와 빗나갈 간격을 줄인다"
         set ProtoBranchResult[729] = "엘자는 옆의 짐을 건드리지 않고 검을 멈춰 보라고 했다. 훈련 도구를 마련해 다시 간격을 맞추자, 힘을 더 싣기 전에 볼 자리를 찾았다."
-        set ProtoBranchCard[729] = 154
+        set ProtoBranchCard[729] = 156
         set ProtoBranchCard2[729] = 0
         set ProtoBranchGold[729] = 0
         set ProtoBranchCost[729] = 200
@@ -7557,7 +7567,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[183] = ""
         set ProtoBranchLabel[732] = "분류 용품을 마련해 가질과 먹을 철을 나눈다"
         set ProtoBranchResult[732] = "분류 용품을 마련해 가질의 식사 재료를 명확히 구분하였다. 공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령을 배웠으며, 200골드를 지불했다. 가질은 의자에 끼울 부품 쪽을 밀어 놓고 먹을 철만 자기 앞으로 당긴다. 미라젠은 아직 쓸 철을 식사로 내놓지 않게 표시를 남긴다."
-        set ProtoBranchCard[732] = 159
+        set ProtoBranchCard[732] = 161
         set ProtoBranchCard2[732] = 0
         set ProtoBranchGold[732] = 0
         set ProtoBranchCost[732] = 200
@@ -7567,7 +7577,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[732] = 100
         set ProtoBranchLabel[733] = "나츠와 더 강한 적이 오가는 부품 길목을 맡는다"
         set ProtoBranchResult[733] = "외부에서 부품을 가져오는 역할을 맡아 나츠와 함께 이동한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 사냥의 적 단계가 1 올라갔다. 나츠는 부품을 가져올 길을 가리키고 가질은 이번에는 먹을 철과 바꿔 들지 말라고 한다."
-        set ProtoBranchCard[733] = 151
+        set ProtoBranchCard[733] = 153
         set ProtoBranchCard2[733] = 0
         set ProtoBranchGold[733] = 0
         set ProtoBranchCost[733] = 0
@@ -7599,7 +7609,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[184] = ""
         set ProtoBranchLabel[736] = "우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다"
         set ProtoBranchResult[736] = "우산 표시 용품을 마련해 쥬비아의 요청에 따라 물량을 배분한다. 몸 상태를 오래 유지하는 요령을 배웠으며 180골드를 지불했다. 쥬비아가 그레이 쪽에 두었던 우산 하나를 옮기자 미라젠은 아직 돌아오지 않은 사람의 몫을 짚는다."
-        set ProtoBranchCard[736] = 160
+        set ProtoBranchCard[736] = 162
         set ProtoBranchCard2[736] = 0
         set ProtoBranchGold[736] = 0
         set ProtoBranchCost[736] = 180
@@ -7609,7 +7619,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[736] = 100
         set ProtoBranchLabel[737] = "그레이와 더 많은 적이 오가는 바깥 길목을 맡는다"
         set ProtoBranchResult[737] = "그레이와 동행하며 외부의 위험 요소에 대비한다. 힘을 모으며 넓은 범위를 살피는 공격 요령을 배웠고, 개인 사냥의 적 수가 늘었다. 그레이는 자기 우산을 더 늘리지 말자고 하고 쥬비아는 돌아올 자리에 하나만 남겨 둔다."
-        set ProtoBranchCard[737] = 153
+        set ProtoBranchCard[737] = 155
         set ProtoBranchCard2[737] = 0
         set ProtoBranchGold[737] = 0
         set ProtoBranchCost[737] = 0
@@ -7641,7 +7651,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[185] = ""
         set ProtoBranchLabel[740] = "표시 용품을 내고 미라젠과 방문 목적을 구분한다"
         set ProtoBranchResult[740] = "표시 용품을 마련해 방문객들의 목적을 따로 듣는다. 여러 부탁을 비교하고 빈틈에 힘을 싣는 요령을 배웠으며 210골드를 지불했다. 미라젠은 사진을 내민 사람에게 먼저 보고 싶던 것이 무엇인지 묻는다. 루시는 뒤에서 기다리던 의뢰인의 서류를 따로 받는다."
-        set ProtoBranchCard[740] = 161
+        set ProtoBranchCard[740] = 163
         set ProtoBranchCard2[740] = 0
         set ProtoBranchGold[740] = 0
         set ProtoBranchCost[740] = 210
@@ -7651,7 +7661,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[740] = 100
         set ProtoBranchLabel[741] = "루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다"
         set ProtoBranchResult[741] = "루시를 도와 밀린 의뢰 내용을 파악하며 외곽을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 사냥의 적 수가 늘었다. 루시는 부탁의 첫 줄을 다시 읽고 미라젠은 사진을 가져온 손님에게 지금은 이야기를 길게 듣기 어렵다고 말한다."
-        set ProtoBranchCard[741] = 152
+        set ProtoBranchCard[741] = 154
         set ProtoBranchCard2[741] = 0
         set ProtoBranchGold[741] = 0
         set ProtoBranchCost[741] = 0
@@ -7683,7 +7693,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[186] = ""
         set ProtoBranchLabel[744] = "표시 용품을 내고 렉서스가 남긴 뒤쪽을 확인한다"
         set ProtoBranchResult[744] = "표시 용품을 마련해 렉서스의 의도를 정확히 파악하기 위해 뒤쪽을 확인한다. 큰 상대의 빈틈에 힘을 집중하는 대신 공격력 일부를 낮춘 성장 요령을 배웠으며 220골드를 지불했다. 나츠가 앞쪽으로 돌아서자 렉서스는 돌아오는 길까지 비우라는 말은 아니었다고 덧붙인다. 루시는 이제야 답의 끝을 적는다."
-        set ProtoBranchCard[744] = 162
+        set ProtoBranchCard[744] = 164
         set ProtoBranchCard2[744] = 0
         set ProtoBranchGold[744] = 0
         set ProtoBranchCost[744] = 220
@@ -7693,7 +7703,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[744] = 100
         set ProtoBranchLabel[745] = "나츠와 더 강한 적이 오가는 앞쪽을 맡는다"
         set ProtoBranchResult[745] = "나츠와 협력하여 앞쪽의 위협에 대응한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 사냥의 적 단계가 1 올라갔다. 렉서스는 나츠가 돌아올 쪽도 맡겠다고 한 번 더 말하고 루시는 그 말부터 나츠에게 전한다."
-        set ProtoBranchCard[745] = 151
+        set ProtoBranchCard[745] = 153
         set ProtoBranchCard2[745] = 0
         set ProtoBranchGold[745] = 0
         set ProtoBranchCost[745] = 0
@@ -7725,7 +7735,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[187] = ""
         set ProtoBranchLabel[748] = "표시 용품을 내고 길다트와 손이 닿는 간격을 짚는다"
         set ProtoBranchResult[748] = "표시 용품을 마련해 길다트의 이동 경로와 안전 거리를 확보한다. 간격을 재며 강한 방어에 힘을 모으는 요령을 배웠으며 240골드를 지불했다. 길다트가 남은 문틀을 돌아보자 미라젠은 그 옆에 짐을 놓지 말라고 한다. 너는 벽이 남은 쪽과 손이 닿을 쪽을 다시 짚는다."
-        set ProtoBranchCard[748] = 163
+        set ProtoBranchCard[748] = 165
         set ProtoBranchCard2[748] = 0
         set ProtoBranchGold[748] = 0
         set ProtoBranchCost[748] = 240
@@ -7735,7 +7745,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[748] = 100
         set ProtoBranchLabel[749] = "엘자와 더 강한 적이 오가는 바깥 자리를 맡는다"
         set ProtoBranchResult[749] = "엘자와 협력하여 외곽의 강력한 적들을 상대한다. 공격 방향과 빈틈을 고르는 요령을 배웠고, 개인 사냥의 적 단계가 1 올라갔다. 엘자는 바깥 일을 맡기 전에 남은 문틀 쪽을 비워 두자고 한다. 길다트는 이번에는 그 옆을 지나지 않는다."
-        set ProtoBranchCard[749] = 154
+        set ProtoBranchCard[749] = 156
         set ProtoBranchCard2[749] = 0
         set ProtoBranchGold[749] = 0
         set ProtoBranchCost[749] = 0
@@ -7777,7 +7787,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[188] = ""
         set ProtoBranchLabel[752] = "종이 값을 내고 루시와 독자가 멈춘 갈래를 읽는다"
         set ProtoBranchResult[752] = "새 종이에 독자가 궁금해하는 지점을 함께 읽어준다. 다른 갈래를 읽고 빈틈을 찾는 요령을 배웠으며 170골드를 지불했다. 루시는 다음 페이지를 보여 주려던 손을 멈추고 독자가 물은 줄을 고쳐 적는다. 해피는 이번에는 왜 그 길을 택했는지 읽어 보자고 한다."
-        set ProtoBranchCard[752] = 164
+        set ProtoBranchCard[752] = 166
         set ProtoBranchCard2[752] = 0
         set ProtoBranchGold[752] = 0
         set ProtoBranchCost[752] = 170
@@ -7787,7 +7797,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[752] = 100
         set ProtoBranchLabel[753] = "루시와 다른 부탁을 기록하고 더 많은 길목을 맡는다"
         set ProtoBranchResult[753] = "루시를 도와 다른 의뢰를 기록하며 외곽 길목을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 사냥의 적 수가 늘었다. 루시는 남은 의뢰의 첫 줄을 적고 해피는 소설의 다음 페이지를 그 종이와 섞지 말라고 한다."
-        set ProtoBranchCard[753] = 152
+        set ProtoBranchCard[753] = 154
         set ProtoBranchCard2[753] = 0
         set ProtoBranchGold[753] = 0
         set ProtoBranchCost[753] = 0
@@ -7812,7 +7822,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[9] = "카라쿠라 마을"
         set ProtoHeadIntro[9] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoHeadIcon[9] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[9] = 165
+        set ProtoHeadEntryCard[9] = 167
         call SaveReal(ProtoHeadEffectData, 9, 14, 3.00)
         set ProtoEventKey[33] = "karakura_entry_0"
         set ProtoEventName[33] = "카라쿠라 마을 방문"
@@ -7846,183 +7856,183 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[36] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIntro[36] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIcon[36] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[165] = "bl_kon"
-        set ProtoCardName[165] = "콘"
-        set ProtoCardEffectName[165] = "몸을 맡길 수 있는 동료"
-        set ProtoCardKeyword[165] = "카라쿠라 마을 · 이동"
-        set ProtoCardHead[165] = 9
-        set ProtoCardGrade[165] = 1
-        set ProtoEvolutionKind[165] = 0
-        set ProtoEvolutionGoal[165] = 0.00
-        call ProtoSetEffect(165, 10, 3.00, false)
-        set ProtoCardKey[166] = "bl_ichigo"
-        set ProtoCardName[166] = "쿠로사키 이치고"
-        set ProtoCardEffectName[166] = "지키기 위해 들었던 검"
-        set ProtoCardKeyword[166] = "카라쿠라 마을 · 공격 · 보스"
-        set ProtoCardHead[166] = 9
-        set ProtoCardGrade[166] = 2
-        set ProtoEvolutionKind[166] = 1
-        set ProtoEvolutionGoal[166] = 45.00
-        call ProtoSetEffect(166, 1, 12.00, false)
-        call ProtoSetEffect(166, 4, 8.00, false)
-        call ProtoSetEffect(166, 6, 3.00, true)
-        set ProtoCardKey[167] = "bl_uryu"
-        set ProtoCardName[167] = "이시다 우류"
-        set ProtoCardEffectName[167] = "흐트러지지 않는 조준"
-        set ProtoCardKeyword[167] = "카라쿠라 마을 · 치명 · 관통"
+        set ProtoCardKey[167] = "bl_kon"
+        set ProtoCardName[167] = "콘"
+        set ProtoCardEffectName[167] = "몸을 맡길 수 있는 동료"
+        set ProtoCardKeyword[167] = "카라쿠라 마을 · 이동"
         set ProtoCardHead[167] = 9
-        set ProtoCardGrade[167] = 2
-        set ProtoEvolutionKind[167] = 3
-        set ProtoEvolutionGoal[167] = 60.00
-        call ProtoSetEffect(167, 6, 6.00, false)
-        call ProtoSetEffect(167, 12, 8.00, false)
-        call ProtoSetEffect(167, 7, 20.00, true)
-        set ProtoCardKey[168] = "bl_orihime"
-        set ProtoCardName[168] = "이노우에 오리히메"
-        set ProtoCardEffectName[168] = "거절하는 것은 상처"
-        set ProtoCardKeyword[168] = "카라쿠라 마을 · 재생 · 체력"
+        set ProtoCardGrade[167] = 1
+        set ProtoEvolutionKind[167] = 0
+        set ProtoEvolutionGoal[167] = 0.00
+        call ProtoSetEffect(167, 10, 3.00, false)
+        set ProtoCardKey[168] = "bl_ichigo"
+        set ProtoCardName[168] = "쿠로사키 이치고"
+        set ProtoCardEffectName[168] = "지키기 위해 들었던 검"
+        set ProtoCardKeyword[168] = "카라쿠라 마을 · 공격 · 보스"
         set ProtoCardHead[168] = 9
         set ProtoCardGrade[168] = 2
-        set ProtoEvolutionKind[168] = 0
-        set ProtoEvolutionGoal[168] = 0.00
-        call ProtoSetEffect(168, 16, 0.80, false)
-        call ProtoSetEffect(168, 13, 8.00, false)
-        set ProtoCardKey[169] = "bl_yoruichi"
-        set ProtoCardName[169] = "시호인 요루이치"
-        set ProtoCardEffectName[169] = "순신의 보법"
-        set ProtoCardKeyword[169] = "카라쿠라 마을 · 신속 · 이동 피해"
+        set ProtoEvolutionKind[168] = 1
+        set ProtoEvolutionGoal[168] = 45.00
+        call ProtoSetEffect(168, 1, 12.00, false)
+        call ProtoSetEffect(168, 4, 8.00, false)
+        call ProtoSetEffect(168, 6, 3.00, true)
+        set ProtoCardKey[169] = "bl_uryu"
+        set ProtoCardName[169] = "이시다 우류"
+        set ProtoCardEffectName[169] = "흐트러지지 않는 조준"
+        set ProtoCardKeyword[169] = "카라쿠라 마을 · 치명 · 관통"
         set ProtoCardHead[169] = 9
         set ProtoCardGrade[169] = 2
         set ProtoEvolutionKind[169] = 3
         set ProtoEvolutionGoal[169] = 60.00
-        call ProtoSetEffect(169, 8, 270.00, false)
-        call ProtoSetEffect(169, 19, 16.00, false)
-        call ProtoSetEffect(169, 9, 5.00, true)
-        set ProtoCardKey[170] = "bl_rukia"
-        set ProtoCardName[170] = "쿠치키 루키아"
-        set ProtoCardEffectName[170] = "현세에서 지켜야 할 간격"
-        set ProtoCardKeyword[170] = "카라쿠라 마을 · 차지 · 피해"
+        call ProtoSetEffect(169, 6, 6.00, false)
+        call ProtoSetEffect(169, 12, 8.00, false)
+        call ProtoSetEffect(169, 7, 20.00, true)
+        set ProtoCardKey[170] = "bl_orihime"
+        set ProtoCardName[170] = "이노우에 오리히메"
+        set ProtoCardEffectName[170] = "거절하는 것은 상처"
+        set ProtoCardKeyword[170] = "카라쿠라 마을 · 재생 · 체력"
         set ProtoCardHead[170] = 9
         set ProtoCardGrade[170] = 2
-        set ProtoEvolutionKind[170] = 3
-        set ProtoEvolutionGoal[170] = 45.00
-        call ProtoSetEffect(170, 11, 6.00, false)
-        call ProtoSetEffect(170, 2, 12.00, false)
-        call ProtoSetEffect(170, 14, 4.00, true)
-        set ProtoCardKey[171] = "bl_urahara"
-        set ProtoCardName[171] = "우라하라 키스케"
-        set ProtoCardEffectName[171] = "준비가 남기는 여유"
-        set ProtoCardKeyword[171] = "카라쿠라 마을 · 탐색 · 보스"
+        set ProtoEvolutionKind[170] = 0
+        set ProtoEvolutionGoal[170] = 0.00
+        call ProtoSetEffect(170, 16, 0.80, false)
+        call ProtoSetEffect(170, 13, 8.00, false)
+        set ProtoCardKey[171] = "bl_yoruichi"
+        set ProtoCardName[171] = "시호인 요루이치"
+        set ProtoCardEffectName[171] = "순신의 보법"
+        set ProtoCardKeyword[171] = "카라쿠라 마을 · 신속 · 이동 피해"
         set ProtoCardHead[171] = 9
         set ProtoCardGrade[171] = 2
-        set ProtoEvolutionKind[171] = 0
-        set ProtoEvolutionGoal[171] = 0.00
-        call ProtoSetEffect(171, 18, 1.00, false)
-        call ProtoSetEffect(171, 4, 6.00, false)
-        set ProtoCardKey[172] = "bl_chad"
-        set ProtoCardName[172] = "사도 야스토라"
-        set ProtoCardEffectName[172] = "약한 사람 앞에 서는 팔"
-        set ProtoCardKeyword[172] = "카라쿠라 마을 · 체력 · 방어"
+        set ProtoEvolutionKind[171] = 3
+        set ProtoEvolutionGoal[171] = 60.00
+        call ProtoSetEffect(171, 8, 270.00, false)
+        call ProtoSetEffect(171, 19, 16.00, false)
+        call ProtoSetEffect(171, 9, 5.00, true)
+        set ProtoCardKey[172] = "bl_rukia"
+        set ProtoCardName[172] = "쿠치키 루키아"
+        set ProtoCardEffectName[172] = "현세에서 지켜야 할 간격"
+        set ProtoCardKeyword[172] = "카라쿠라 마을 · 차지 · 피해"
         set ProtoCardHead[172] = 9
         set ProtoCardGrade[172] = 2
-        set ProtoEvolutionKind[172] = 0
-        set ProtoEvolutionGoal[172] = 0.00
-        call ProtoSetEffect(172, 13, 14.00, false)
-        call ProtoSetEffect(172, 14, 6.00, false)
-        set ProtoCardKey[173] = "bl_ichigo_focus"
-        set ProtoCardName[173] = "쿠로사키 이치고"
-        set ProtoCardEffectName[173] = "한 번의 틈에 모은 힘"
-        set ProtoCardKeyword[173] = "카라쿠라 마을 · 차지 · 공격"
+        set ProtoEvolutionKind[172] = 3
+        set ProtoEvolutionGoal[172] = 45.00
+        call ProtoSetEffect(172, 11, 6.00, false)
+        call ProtoSetEffect(172, 2, 12.00, false)
+        call ProtoSetEffect(172, 14, 4.00, true)
+        set ProtoCardKey[173] = "bl_urahara"
+        set ProtoCardName[173] = "우라하라 키스케"
+        set ProtoCardEffectName[173] = "준비가 남기는 여유"
+        set ProtoCardKeyword[173] = "카라쿠라 마을 · 탐색 · 보스"
         set ProtoCardHead[173] = 9
-        set ProtoCardGrade[173] = 3
-        set ProtoEvolutionKind[173] = 2
-        set ProtoEvolutionGoal[173] = 12000.00
-        call ProtoSetEffect(173, 23, 24.00, false)
-        call ProtoSetEffect(173, 1, 6.00, false)
-        call ProtoSetEffect(173, 9, -3.00, false)
-        call ProtoSetEffect(173, 4, 10.00, true)
-        set ProtoCardKey[174] = "bl_uryu_stitch"
-        set ProtoCardName[174] = "이시다 우류"
-        set ProtoCardEffectName[174] = "어긋난 한 땀까지"
-        set ProtoCardKeyword[174] = "카라쿠라 마을 · 차지 속도 · 치명타 피해"
+        set ProtoCardGrade[173] = 2
+        set ProtoEvolutionKind[173] = 0
+        set ProtoEvolutionGoal[173] = 0.00
+        call ProtoSetEffect(173, 18, 1.00, false)
+        call ProtoSetEffect(173, 4, 6.00, false)
+        set ProtoCardKey[174] = "bl_chad"
+        set ProtoCardName[174] = "사도 야스토라"
+        set ProtoCardEffectName[174] = "약한 사람 앞에 서는 팔"
+        set ProtoCardKeyword[174] = "카라쿠라 마을 · 체력 · 방어"
         set ProtoCardHead[174] = 9
         set ProtoCardGrade[174] = 2
         set ProtoEvolutionKind[174] = 0
         set ProtoEvolutionGoal[174] = 0.00
-        call ProtoSetEffect(174, 11, 6.00, false)
-        call ProtoSetEffect(174, 7, 15.00, false)
-        set ProtoCardKey[175] = "bl_yuzu_portion"
-        set ProtoCardName[175] = "쿠로사키 유즈"
-        set ProtoCardEffectName[175] = "돌아올 사람의 몫"
-        set ProtoCardKeyword[175] = "카라쿠라 마을 · 재생 · 처치 골드"
+        call ProtoSetEffect(174, 13, 14.00, false)
+        call ProtoSetEffect(174, 14, 6.00, false)
+        set ProtoCardKey[175] = "bl_ichigo_focus"
+        set ProtoCardName[175] = "쿠로사키 이치고"
+        set ProtoCardEffectName[175] = "한 번의 틈에 모은 힘"
+        set ProtoCardKeyword[175] = "카라쿠라 마을 · 차지 · 공격"
         set ProtoCardHead[175] = 9
-        set ProtoCardGrade[175] = 2
-        set ProtoEvolutionKind[175] = 0
-        set ProtoEvolutionGoal[175] = 0.00
-        call ProtoSetEffect(175, 16, 0.40, false)
-        call ProtoSetEffect(175, 17, 3.00, false)
-        set ProtoCardKey[176] = "bl_tatsuki_stance"
-        set ProtoCardName[176] = "아리사와 타츠키"
-        set ProtoCardEffectName[176] = "발을 놓고 나서"
-        set ProtoCardKeyword[176] = "카라쿠라 마을 · 방향 공격 · 피해 감소"
+        set ProtoCardGrade[175] = 3
+        set ProtoEvolutionKind[175] = 2
+        set ProtoEvolutionGoal[175] = 12000.00
+        call ProtoSetEffect(175, 23, 24.00, false)
+        call ProtoSetEffect(175, 1, 6.00, false)
+        call ProtoSetEffect(175, 9, -3.00, false)
+        call ProtoSetEffect(175, 4, 10.00, true)
+        set ProtoCardKey[176] = "bl_uryu_stitch"
+        set ProtoCardName[176] = "이시다 우류"
+        set ProtoCardEffectName[176] = "어긋난 한 땀까지"
+        set ProtoCardKeyword[176] = "카라쿠라 마을 · 차지 속도 · 치명타 피해"
         set ProtoCardHead[176] = 9
         set ProtoCardGrade[176] = 2
-        set ProtoEvolutionKind[176] = 1
-        set ProtoEvolutionGoal[176] = 45.00
-        call ProtoSetEffect(176, 20, 14.00, false)
-        call ProtoSetEffect(176, 14, 3.00, false)
-        call ProtoSetEffect(176, 9, 3.00, true)
-        set ProtoCardKey[177] = "bl_don_signal"
-        set ProtoCardName[177] = "돈 칸온지"
-        set ProtoCardEffectName[177] = "보이게 전하는 신호"
-        set ProtoCardKeyword[177] = "카라쿠라 마을 · 사건 후보 · 이동"
+        set ProtoEvolutionKind[176] = 0
+        set ProtoEvolutionGoal[176] = 0.00
+        call ProtoSetEffect(176, 11, 6.00, false)
+        call ProtoSetEffect(176, 7, 15.00, false)
+        set ProtoCardKey[177] = "bl_yuzu_portion"
+        set ProtoCardName[177] = "쿠로사키 유즈"
+        set ProtoCardEffectName[177] = "돌아올 사람의 몫"
+        set ProtoCardKeyword[177] = "카라쿠라 마을 · 재생 · 처치 골드"
         set ProtoCardHead[177] = 9
         set ProtoCardGrade[177] = 2
         set ProtoEvolutionKind[177] = 0
         set ProtoEvolutionGoal[177] = 0.00
-        call ProtoSetEffect(177, 18, 1.00, false)
-        call ProtoSetEffect(177, 10, 4.00, false)
-        set ProtoCardKey[178] = "bl_karin_distance"
-        set ProtoCardName[178] = "쿠로사키 카린"
-        set ProtoCardEffectName[178] = "보이지 않아도 비울 자리"
-        set ProtoCardKeyword[178] = "카라쿠라 마을 · 이동 속도 · 고체력"
+        call ProtoSetEffect(177, 16, 0.40, false)
+        call ProtoSetEffect(177, 17, 3.00, false)
+        set ProtoCardKey[178] = "bl_tatsuki_stance"
+        set ProtoCardName[178] = "아리사와 타츠키"
+        set ProtoCardEffectName[178] = "발을 놓고 나서"
+        set ProtoCardKeyword[178] = "카라쿠라 마을 · 방향 공격 · 피해 감소"
         set ProtoCardHead[178] = 9
         set ProtoCardGrade[178] = 2
-        set ProtoEvolutionKind[178] = 0
-        set ProtoEvolutionGoal[178] = 0.00
-        call ProtoSetEffect(178, 10, 5.00, false)
-        call ProtoSetEffect(178, 24, 10.00, false)
-        set ProtoCardKey[179] = "bl_isshin_welcome"
-        set ProtoCardName[179] = "쿠로사키 잇신"
-        set ProtoCardEffectName[179] = "지나친 환영 뒤의 걱정"
-        set ProtoCardKeyword[179] = "카라쿠라 마을 · 최대 체력 · 재생"
+        set ProtoEvolutionKind[178] = 1
+        set ProtoEvolutionGoal[178] = 45.00
+        call ProtoSetEffect(178, 20, 14.00, false)
+        call ProtoSetEffect(178, 14, 3.00, false)
+        call ProtoSetEffect(178, 9, 3.00, true)
+        set ProtoCardKey[179] = "bl_don_signal"
+        set ProtoCardName[179] = "돈 칸온지"
+        set ProtoCardEffectName[179] = "보이게 전하는 신호"
+        set ProtoCardKeyword[179] = "카라쿠라 마을 · 사건 후보 · 이동"
         set ProtoCardHead[179] = 9
         set ProtoCardGrade[179] = 2
         set ProtoEvolutionKind[179] = 0
         set ProtoEvolutionGoal[179] = 0.00
-        call ProtoSetEffect(179, 13, 10.00, false)
-        call ProtoSetEffect(179, 16, 0.40, false)
-        set ProtoCardKey[180] = "bl_ururu_lift"
-        set ProtoCardName[180] = "츠무기야 우루루"
-        set ProtoCardEffectName[180] = "가볍게 보지 않을 힘"
-        set ProtoCardKeyword[180] = "카라쿠라 마을 · 차지 · 치명타 피해"
+        call ProtoSetEffect(179, 18, 1.00, false)
+        call ProtoSetEffect(179, 10, 4.00, false)
+        set ProtoCardKey[180] = "bl_karin_distance"
+        set ProtoCardName[180] = "쿠로사키 카린"
+        set ProtoCardEffectName[180] = "보이지 않아도 비울 자리"
+        set ProtoCardKeyword[180] = "카라쿠라 마을 · 이동 속도 · 고체력"
         set ProtoCardHead[180] = 9
         set ProtoCardGrade[180] = 2
-        set ProtoEvolutionKind[180] = 2
-        set ProtoEvolutionGoal[180] = 12000.00
-        call ProtoSetEffect(180, 23, 16.00, false)
-        call ProtoSetEffect(180, 7, 14.00, false)
-        call ProtoSetEffect(180, 12, 3.00, true)
-        set ProtoCardKey[181] = "bl_keigo_invitation"
-        set ProtoCardName[181] = "아사노 케이고"
-        set ProtoCardEffectName[181] = "아직 묻지 않은 약속"
-        set ProtoCardKeyword[181] = "카라쿠라 마을 · 사건 후보 · 행동 속도"
+        set ProtoEvolutionKind[180] = 0
+        set ProtoEvolutionGoal[180] = 0.00
+        call ProtoSetEffect(180, 10, 5.00, false)
+        call ProtoSetEffect(180, 24, 10.00, false)
+        set ProtoCardKey[181] = "bl_isshin_welcome"
+        set ProtoCardName[181] = "쿠로사키 잇신"
+        set ProtoCardEffectName[181] = "지나친 환영 뒤의 걱정"
+        set ProtoCardKeyword[181] = "카라쿠라 마을 · 최대 체력 · 재생"
         set ProtoCardHead[181] = 9
         set ProtoCardGrade[181] = 2
         set ProtoEvolutionKind[181] = 0
         set ProtoEvolutionGoal[181] = 0.00
-        call ProtoSetEffect(181, 18, 1.00, false)
-        call ProtoSetEffect(181, 9, 3.00, false)
+        call ProtoSetEffect(181, 13, 10.00, false)
+        call ProtoSetEffect(181, 16, 0.40, false)
+        set ProtoCardKey[182] = "bl_ururu_lift"
+        set ProtoCardName[182] = "츠무기야 우루루"
+        set ProtoCardEffectName[182] = "가볍게 보지 않을 힘"
+        set ProtoCardKeyword[182] = "카라쿠라 마을 · 차지 · 치명타 피해"
+        set ProtoCardHead[182] = 9
+        set ProtoCardGrade[182] = 2
+        set ProtoEvolutionKind[182] = 2
+        set ProtoEvolutionGoal[182] = 12000.00
+        call ProtoSetEffect(182, 23, 16.00, false)
+        call ProtoSetEffect(182, 7, 14.00, false)
+        call ProtoSetEffect(182, 12, 3.00, true)
+        set ProtoCardKey[183] = "bl_keigo_invitation"
+        set ProtoCardName[183] = "아사노 케이고"
+        set ProtoCardEffectName[183] = "아직 묻지 않은 약속"
+        set ProtoCardKeyword[183] = "카라쿠라 마을 · 사건 후보 · 행동 속도"
+        set ProtoCardHead[183] = 9
+        set ProtoCardGrade[183] = 2
+        set ProtoEvolutionKind[183] = 0
+        set ProtoEvolutionGoal[183] = 0.00
+        call ProtoSetEffect(183, 18, 1.00, false)
+        call ProtoSetEffect(183, 9, 3.00, false)
         set ProtoEventKey[189] = "bl_shop_boxes"
         set ProtoEventName[189] = "수취인이 없는 짐"
         set ProtoEventHead[189] = 9
@@ -8037,7 +8047,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[189] = ""
         set ProtoBranchLabel[756] = "이치고와 앞길을 열고 짐을 옮긴다"
         set ProtoBranchResult[756] = "이치고가 짐을 먼저 통과시키고 돌아갈 길의 입구를 짚었다. 그 길 끝에는 더 큰 발자국이 이어져 있어 짐을 보내는 일만으로는 끝나지 않는다."
-        set ProtoBranchCard[756] = 166
+        set ProtoBranchCard[756] = 168
         set ProtoBranchCard2[756] = 0
         set ProtoBranchGold[756] = 0
         set ProtoBranchCost[756] = 0
@@ -8047,7 +8057,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[756] = 100
         set ProtoBranchLabel[757] = "우류와 젖은 배송 쪽지를 복구한다"
         set ProtoBranchResult[757] = "우류가 떨어진 쪽지 조각을 실로 이어 순서를 되찾았다. 새 종이 위에 두 주소를 따로 옮겨 적자 서로 다른 집의 짐이 한 묶음에 섞였다는 사실이 드러났다."
-        set ProtoBranchCard[757] = 167
+        set ProtoBranchCard[757] = 169
         set ProtoBranchCard2[757] = 0
         set ProtoBranchGold[757] = 0
         set ProtoBranchCost[757] = 180
@@ -8057,7 +8067,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[757] = 100
         set ProtoBranchLabel[758] = "오리히메와 부서진 운반대를 복구한다"
         set ProtoBranchResult[758] = "오리히메가 손을 뻗자 꺾였던 운반대의 금이 사라졌다. 새 묶음끈으로 짐을 옮겨 뒷길을 비우고, 복원된 받침이 다시 부러지지 않게 고정했다."
-        set ProtoBranchCard[758] = 168
+        set ProtoBranchCard[758] = 170
         set ProtoBranchCard2[758] = 0
         set ProtoBranchGold[758] = 0
         set ProtoBranchCost[758] = 160
@@ -8089,7 +8099,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[190] = ""
         set ProtoBranchLabel[760] = "요루이치가 짚은 발판을 정비한다"
         set ProtoBranchResult[760] = "요루이치가 짚은 낡은 발판을 새 재료로 고쳤다. 아래의 막힌 길을 피해 돌아갈 폭이 생겼고, 요루이치는 다음 발을 놓을 곳부터 보여 줬다."
-        set ProtoBranchCard[760] = 169
+        set ProtoBranchCard[760] = 171
         set ProtoBranchCard2[760] = 0
         set ProtoBranchGold[760] = 0
         set ProtoBranchCost[760] = 200
@@ -8099,7 +8109,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[760] = 100
         set ProtoBranchLabel[761] = "루키아와 골목 입구를 맡는다"
         set ProtoBranchResult[761] = "루키아가 입구에서 적의 접근을 살피는 동안 좁은 길 위로 많은 발자국이 새겨졌다."
-        set ProtoBranchCard[761] = 170
+        set ProtoBranchCard[761] = 172
         set ProtoBranchCard2[761] = 0
         set ProtoBranchGold[761] = 0
         set ProtoBranchCost[761] = 0
@@ -8121,7 +8131,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[191] = ""
         set ProtoBranchLabel[764] = "우라하라에게 다음 구간의 준비물을 맡긴다"
         set ProtoBranchResult[764] = "우라하라가 길에 맞는 표식과 묶음끈을 골라 짐 위에 놓았다. 주소만 읽고 나섰다면 빠뜨렸을 갈림길이 이제 배송 쪽지에도 표시됐다."
-        set ProtoBranchCard[764] = 171
+        set ProtoBranchCard[764] = 173
         set ProtoBranchCard2[764] = 0
         set ProtoBranchGold[764] = 0
         set ProtoBranchCost[764] = 240
@@ -8131,7 +8141,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[764] = 100
         set ProtoBranchLabel[765] = "차드와 짐을 나눠 안전 통로를 만든다"
         set ProtoBranchResult[765] = "차드가 운반 끈을 바꾸고 짐을 나누어 들자 좁은 길이 한결 넓어졌다."
-        set ProtoBranchCard[765] = 172
+        set ProtoBranchCard[765] = 174
         set ProtoBranchCard2[765] = 0
         set ProtoBranchGold[765] = 0
         set ProtoBranchCost[765] = 180
@@ -8153,7 +8163,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[192] = ""
         set ProtoBranchLabel[768] = "루키아와 바깥 골목의 흔적을 따라간다"
         set ProtoBranchResult[768] = "루키아와 사람 없는 바깥 골목의 자국을 살폈다. 작은 발자국 뒤로 더 큰 흔적이 이어져 있어 돌아갈 때는 그 길을 직접 맡아야 한다."
-        set ProtoBranchCard[768] = 170
+        set ProtoBranchCard[768] = 172
         set ProtoBranchCard2[768] = 0
         set ProtoBranchGold[768] = 0
         set ProtoBranchCost[768] = 0
@@ -8163,7 +8173,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[768] = 100
         set ProtoBranchLabel[769] = "차드와 귀환 표식을 세운다"
         set ProtoBranchResult[769] = "차드가 새 표식을 세워 배치하고 돌아오는 이들을 위한 보급품을 챙겼다."
-        set ProtoBranchCard[769] = 172
+        set ProtoBranchCard[769] = 174
         set ProtoBranchCard2[769] = 0
         set ProtoBranchGold[769] = 0
         set ProtoBranchCost[769] = 220
@@ -8185,7 +8195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[193] = ""
         set ProtoBranchLabel[772] = "오리히메와 남은 배송 길을 살핀다"
         set ProtoBranchResult[772] = "오리히메가 배송 쪽지 뒤에 남은 이름을 다시 읽었다. 먼저 살펴야 할 집을 나누고, 잃어버린 짐을 기다리는 사람에게 돌아갈 경로를 짚었다."
-        set ProtoBranchCard[772] = 168
+        set ProtoBranchCard[772] = 170
         set ProtoBranchCard2[772] = 0
         set ProtoBranchGold[772] = 0
         set ProtoBranchCost[772] = 160
@@ -8195,7 +8205,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[772] = 100
         set ProtoBranchLabel[773] = "우라하라와 필요한 물품만 골라 싣는다"
         set ProtoBranchResult[773] = "우라하라가 물품을 작은 묶음으로 재포장하자 목적지별로 헷갈릴 여지가 사라졌다."
-        set ProtoBranchCard[773] = 171
+        set ProtoBranchCard[773] = 173
         set ProtoBranchCard2[773] = 0
         set ProtoBranchGold[773] = 0
         set ProtoBranchCost[773] = 220
@@ -8217,7 +8227,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[194] = "먼저 울린 경보를 좇는 동안 다른 골목의 신호를 놓쳤다. 준비한 표식은 이미 사용했고 돌아가는 길에는 더 많은 적의 흔적이 남았다. 장소를 잘못 짚었다는 기록이 남는다."
         set ProtoBranchLabel[776] = "요루이치와 가까운 신호를 추적한다"
         set ProtoBranchResult[776] = "요루이치와 신호가 겹치는 지점을 찾아 빈 경보를 가려냈다. 경보 담당자가 수고비를 건넸지만, 추적하는 동안 다른 골목에서 몰려든 흔적은 귀환길에 남아 있다."
-        set ProtoBranchCard[776] = 169
+        set ProtoBranchCard[776] = 171
         set ProtoBranchCard2[776] = 0
         set ProtoBranchGold[776] = 200
         set ProtoBranchCost[776] = 100
@@ -8227,7 +8237,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[776] = 70
         set ProtoBranchLabel[777] = "차드와 통행로의 짐을 치운다"
         set ProtoBranchResult[777] = "차드가 통행로에 쌓인 짐을 옆으로 치워 사람들이 돌아갈 공간을 확보했다."
-        set ProtoBranchCard[777] = 172
+        set ProtoBranchCard[777] = 174
         set ProtoBranchCard2[777] = 0
         set ProtoBranchGold[777] = 0
         set ProtoBranchCost[777] = 220
@@ -8237,7 +8247,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[777] = 100
         set ProtoBranchLabel[778] = "우류와 경보 표시를 대조한다"
         set ProtoBranchResult[778] = "우류가 어긋난 표시를 대조해 두 경보가 같은 곳을 가리킨다는 점을 찾아냈다. 새 쪽지의 위치를 고치자 같은 신호를 쫓아 길을 두 번 돌아갈 필요가 사라졌다."
-        set ProtoBranchCard[778] = 167
+        set ProtoBranchCard[778] = 169
         set ProtoBranchCard2[778] = 0
         set ProtoBranchGold[778] = 0
         set ProtoBranchCost[778] = 210
@@ -8259,7 +8269,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[195] = ""
         set ProtoBranchLabel[780] = "루키아와 갈림길을 다시 표시한다"
         set ProtoBranchResult[780] = "부족했던 표식을 다시 마련하여 루키아와 함께 갈림길의 복귀 경로를 정리했다."
-        set ProtoBranchCard[780] = 170
+        set ProtoBranchCard[780] = 172
         set ProtoBranchCard2[780] = 0
         set ProtoBranchGold[780] = 0
         set ProtoBranchCost[780] = 160
@@ -8269,7 +8279,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[780] = 100
         set ProtoBranchLabel[781] = "우라하라에게 경보 기록을 보여 준다"
         set ProtoBranchResult[781] = "우라하라가 기록을 훑어내며 앞서 비어 있던 위치 하나를 정확히 찾아냈다."
-        set ProtoBranchCard[781] = 171
+        set ProtoBranchCard[781] = 173
         set ProtoBranchCard2[781] = 0
         set ProtoBranchGold[781] = 0
         set ProtoBranchCost[781] = 200
@@ -8287,11 +8297,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventIcon[196] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[196] = 0
         set ProtoEventRequiredChoice[196] = 0
-        set ProtoEventRequiredCard[196] = 166
+        set ProtoEventRequiredCard[196] = 168
         set ProtoEventFailure[196] = ""
         set ProtoBranchLabel[784] = "이치고와 한 번의 틈에 힘을 모은다"
         set ProtoBranchResult[784] = "이치고와 한 번의 틈에 힘을 모으는 박자를 맞췄다. 다음 동작은 조금 느려지지만 한 번에 더 무거운 일격을 모으게 되었고, 준비한 길에서는 더 큰 상대의 흔적을 맡기로 했다."
-        set ProtoBranchCard[784] = 173
+        set ProtoBranchCard[784] = 175
         set ProtoBranchCard2[784] = 0
         set ProtoBranchGold[784] = 0
         set ProtoBranchCost[784] = 300
@@ -8301,7 +8311,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[784] = 100
         set ProtoBranchLabel[785] = "차드와 버틸 자리를 고른다"
         set ProtoBranchResult[785] = "차드가 지지대를 마련하여 몸이 쏠리지 않는 자리를 확보하고 좁은 통로를 비웠다."
-        set ProtoBranchCard[785] = 172
+        set ProtoBranchCard[785] = 174
         set ProtoBranchCard2[785] = 0
         set ProtoBranchGold[785] = 0
         set ProtoBranchCost[785] = 180
@@ -8323,7 +8333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[197] = ""
         set ProtoBranchLabel[788] = "천과 실을 마련해 우류와 움직일 여유를 남긴다"
         set ProtoBranchResult[788] = "천과 실 값을 내고 우류와 팔이 걸리지 않을 여유를 남겼다. 한 땀을 서두르기보다 힘을 모아 정확히 잇는 준비를 배웠다. 콘의 실타래는 풀었지만 바깥 길목 확인은 남았다."
-        set ProtoBranchCard[788] = 174
+        set ProtoBranchCard[788] = 176
         set ProtoBranchCard2[788] = 0
         set ProtoBranchGold[788] = 0
         set ProtoBranchCost[788] = 220
@@ -8333,7 +8343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[788] = 100
         set ProtoBranchLabel[789] = "소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다"
         set ProtoBranchResult[789] = "우류와 넓은 길목을 먼저 살피며 어느 곳을 겨눌지 짚었다. 맡을 범위가 늘어 개인 사냥의 적 수가 많아졌다. 소매 정리는 이치고에게 남긴다."
-        set ProtoBranchCard[789] = 167
+        set ProtoBranchCard[789] = 169
         set ProtoBranchCard2[789] = 0
         set ProtoBranchGold[789] = 0
         set ProtoBranchCost[789] = 0
@@ -8365,7 +8375,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[198] = ""
         set ProtoBranchLabel[792] = "표시 도구를 마련해 차드와 앞에 설 자리를 고른다"
         set ProtoBranchResult[792] = "표시 도구 값을 내고 차드와 사람을 밀지 않고 앞에 설 자리를 골랐다. 몸을 오래 버티게 하고 누군가 앞을 지키는 준비를 배웠다. 다른 길목 확인은 이치고에게 맡긴다."
-        set ProtoBranchCard[792] = 172
+        set ProtoBranchCard[792] = 174
         set ProtoBranchCard2[792] = 0
         set ProtoBranchGold[792] = 0
         set ProtoBranchCost[792] = 240
@@ -8407,7 +8417,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[199] = ""
         set ProtoBranchLabel[796] = "보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다"
         set ProtoBranchResult[796] = "보급 비용을 내고 유즈와 돌아올 사람의 몫을 따로 묶었다. 오래 움직이고 준비한 몫을 챙기는 요령을 배웠다. 바깥 길을 살피는 일은 이치고에게 남긴다."
-        set ProtoBranchCard[796] = 175
+        set ProtoBranchCard[796] = 177
         set ProtoBranchCard2[796] = 0
         set ProtoBranchGold[796] = 0
         set ProtoBranchCost[796] = 200
@@ -8417,7 +8427,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[796] = 100
         set ProtoBranchLabel[797] = "이치고와 더 강한 적이 드나드는 길을 맡는다"
         set ProtoBranchResult[797] = "이치고와 더 강한 적이 드나드는 길목을 맡기로 했다. 앞에 나서서 지킬 준비를 배우고 개인 사냥의 적 단계가 올라갔다. 집에 남길 보급까지 전부 챙기지는 못했다."
-        set ProtoBranchCard[797] = 166
+        set ProtoBranchCard[797] = 168
         set ProtoBranchCard2[797] = 0
         set ProtoBranchGold[797] = 0
         set ProtoBranchCost[797] = 0
@@ -8449,7 +8459,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[200] = ""
         set ProtoBranchLabel[800] = "표시용품을 사서 칸온지와 보일 신호를 맞춘다"
         set ProtoBranchResult[800] = "표시용품 값을 내고 칸온지와 멀리서도 보일 손짓을 맞췄다. 놓친 곳을 하나 더 살피고 움직일 자리를 찾는 준비를 배웠다. 콘과 좁은 길을 정리할 일은 아직 남았다."
-        set ProtoBranchCard[800] = 177
+        set ProtoBranchCard[800] = 179
         set ProtoBranchCard2[800] = 0
         set ProtoBranchGold[800] = 0
         set ProtoBranchCost[800] = 180
@@ -8459,7 +8469,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[800] = 100
         set ProtoBranchLabel[801] = "이치고와 더 넓은 길목까지 맡는다"
         set ProtoBranchResult[801] = "이치고와 더 넓은 길목까지 맡아 사람들이 지나갈 자리를 나누었다. 동료 앞에 나설 준비를 배우는 대신 개인 사냥의 적 수가 늘었다. 촬영을 모두 끝내거나 다른 길까지 비운 것은 아니다."
-        set ProtoBranchCard[801] = 166
+        set ProtoBranchCard[801] = 168
         set ProtoBranchCard2[801] = 0
         set ProtoBranchGold[801] = 0
         set ProtoBranchCost[801] = 0
@@ -8491,7 +8501,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[201] = "준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. 확인되지 않은 물품을 쓸 수 있다고 하지는 않는다."
         set ProtoBranchLabel[804] = "180골드를 내고 목록이 불완전한 묶음을 확인한다"
         set ProtoBranchResult[804] = "180골드를 내고 확인한 묶음은 필요한 목록에 맞았다. 우라하라와 빠뜨릴 준비를 한 번 더 살피는 요령을 배우고 보급 물약 두 개를 챙겼다. 목록 밖의 새 장비까지 받은 것은 아니다."
-        set ProtoBranchCard[804] = 171
+        set ProtoBranchCard[804] = 173
         set ProtoBranchCard2[804] = 0
         set ProtoBranchGold[804] = 0
         set ProtoBranchCost[804] = 180
@@ -8501,7 +8511,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[804] = 65
         set ProtoBranchLabel[805] = "확인된 물품만 따로 마련해 준비 요령을 배운다"
         set ProtoBranchResult[805] = "확인된 물품 값을 내고 우라하라와 다음 싸움에 남길 준비를 골랐다. 빠뜨릴 곳을 살피는 요령을 배우고 보급 물약 하나를 받았다. 값싼 묶음의 빈칸은 그대로 남겨 둔다."
-        set ProtoBranchCard[805] = 171
+        set ProtoBranchCard[805] = 173
         set ProtoBranchCard2[805] = 0
         set ProtoBranchGold[805] = 0
         set ProtoBranchCost[805] = 260
@@ -8533,7 +8543,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[202] = ""
         set ProtoBranchLabel[808] = "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다"
         set ProtoBranchResult[808] = "연습 준비물 값을 내고 타츠키와 발을 놓은 뒤 몸을 돌리는 순서를 맞췄다. 공격 방향과 버틸 자세를 준비했다. 기다리는 사람들의 연습까지 모두 대신하지는 않았다."
-        set ProtoBranchCard[808] = 176
+        set ProtoBranchCard[808] = 178
         set ProtoBranchCard2[808] = 0
         set ProtoBranchGold[808] = 0
         set ProtoBranchCost[808] = 220
@@ -8543,7 +8553,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[808] = 100
         set ProtoBranchLabel[809] = "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다"
         set ProtoBranchResult[809] = "보급 비용을 내고 오리히메와 맡을 길목을 한 곳 줄였다. 오래 움직일 몸의 준비를 챙기고 개인 사냥의 적 수를 줄였다. 연습 자리를 정하는 일은 타츠키에게 남긴다."
-        set ProtoBranchCard[809] = 168
+        set ProtoBranchCard[809] = 170
         set ProtoBranchCard2[809] = 0
         set ProtoBranchGold[809] = 0
         set ProtoBranchCost[809] = 200
@@ -8575,7 +8585,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[203] = ""
         set ProtoBranchLabel[812] = "카린이 비워 둔 자리를 존중하고 옆으로 옮긴다"
         set ProtoBranchResult[812] = "카린이 비워 둔 자리 옆으로 움직이며 빠른 발과 좋은 몸 상태에서 일격에 힘을 싣는 요령을 배웠다. 카린은 비켜 주면 되는 일을 모두 설명할 필요는 없다고 한다. 손님이 다시 앉으려 하자 이치고는 자기가 내준 자리를 가리킨다."
-        set ProtoBranchCard[812] = 178
+        set ProtoBranchCard[812] = 180
         set ProtoBranchCard2[812] = 0
         set ProtoBranchGold[812] = 0
         set ProtoBranchCost[812] = 0
@@ -8585,7 +8595,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[812] = 100
         set ProtoBranchLabel[813] = "이치고와 더 강한 길목을 맡아 자리를 비운다"
         set ProtoBranchResult[813] = "이치고에게 공격력과 보스에게 힘을 싣는 요령을 배우고 개인 사냥의 적 단계를 1 올렸다. 카린은 자리를 옮기라는 말이 위험을 찾아가라는 뜻은 아니었다고 한다. 이치고는 네가 맡을 범위까지만 다시 짚는다."
-        set ProtoBranchCard[813] = 166
+        set ProtoBranchCard[813] = 168
         set ProtoBranchCard2[813] = 0
         set ProtoBranchGold[813] = 0
         set ProtoBranchCost[813] = 0
@@ -8617,7 +8627,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[204] = ""
         set ProtoBranchLabel[816] = "180골드로 머무를 준비를 하고 잇신의 걱정을 듣는다"
         set ProtoBranchResult[816] = "180골드로 머무를 준비를 하고 최대 체력을 늘려 몸 상태를 천천히 유지하는 요령을 배웠다. 잇신이 아들과 무엇을 했냐고 다시 묻자 이치고는 물건만 돌려받는 일이라고 한 번 더 말한다. 유즈는 용건이 끝나면 안쪽 이야기까지 길어질 것 같다며 웃는다."
-        set ProtoBranchCard[816] = 179
+        set ProtoBranchCard[816] = 181
         set ProtoBranchCard2[816] = 0
         set ProtoBranchGold[816] = 0
         set ProtoBranchCost[816] = 180
@@ -8627,7 +8637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[816] = 100
         set ProtoBranchLabel[817] = "유즈와 손님이 드나들 길목을 더 맡는다"
         set ProtoBranchResult[817] = "유즈에게 몸 상태를 천천히 유지하며 처치 보수를 챙기는 요령을 배웠다. 맡을 길목을 넓혀 개인 사냥의 적 수가 늘었다. 유즈가 문을 비켜 주는 사이에도 잇신은 이치고의 친구가 온 이유부터 묻고 있다."
-        set ProtoBranchCard[817] = 175
+        set ProtoBranchCard[817] = 177
         set ProtoBranchCard2[817] = 0
         set ProtoBranchGold[817] = 0
         set ProtoBranchCost[817] = 0
@@ -8659,7 +8669,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[205] = ""
         set ProtoBranchLabel[820] = "220골드로 받칠 도구를 마련하고 우루루의 힘을 먼저 묻는다"
         set ProtoBranchResult[820] = "220골드로 받칠 도구를 마련하고 우루루에게 차지 일격과 치명타에 힘을 모으는 요령을 배웠다. 우루루는 도구를 어디에 놓을지부터 묻는다. 진타는 들 수 있다고 모든 부탁을 받아야 하는 것은 아니라며 추가 상자를 뒤로 민다."
-        set ProtoBranchCard[820] = 180
+        set ProtoBranchCard[820] = 182
         set ProtoBranchCard2[820] = 0
         set ProtoBranchGold[820] = 0
         set ProtoBranchCost[820] = 220
@@ -8669,7 +8679,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[820] = 100
         set ProtoBranchLabel[821] = "차드와 더 많은 길목을 맡고 점원에게 미룬 일을 나눈다"
         set ProtoBranchResult[821] = "차드에게 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 점원에게 미룬 길목을 나눠 맡아 개인 사냥의 적 수가 더 늘었다. 차드는 맡을 몫을 짧게 말하고 진타는 손님에게 그보다 더 맡긴 적은 없다고 한다."
-        set ProtoBranchCard[821] = 172
+        set ProtoBranchCard[821] = 174
         set ProtoBranchCard2[821] = 0
         set ProtoBranchGold[821] = 0
         set ProtoBranchCost[821] = 0
@@ -8701,7 +8711,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[206] = ""
         set ProtoBranchLabel[824] = "케이고에게 자신이 한 약속부터 설명하게 한다"
         set ProtoBranchResult[824] = "케이고의 말을 끝까지 듣고 사건의 다른 후보를 살피며 빠르게 행동을 이어 가는 요령을 배웠다. 케이고는 같이 갈 줄 알았다는 말과 같이 가기로 했다는 말이 다르다는 지적을 듣는다. 이치고는 이번에는 물어보고 약속하라고 한다."
-        set ProtoBranchCard[824] = 181
+        set ProtoBranchCard[824] = 183
         set ProtoBranchCard2[824] = 0
         set ProtoBranchGold[824] = 0
         set ProtoBranchCost[824] = 0
@@ -8711,7 +8721,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[824] = 100
         set ProtoBranchLabel[825] = "이치고와 더 강한 구역을 맡을 수 있는 범위를 정한다"
         set ProtoBranchResult[825] = "이치고에게 공격력과 보스에게 힘을 싣는 요령을 배우고 개인 사냥의 적 단계를 1 올렸다. 이치고는 정한 범위 밖까지 약속한 것은 아니라고 케이고에게 말한다. 케이고도 이번에는 네가 맡기로 한 범위만 전한다."
-        set ProtoBranchCard[825] = 166
+        set ProtoBranchCard[825] = 168
         set ProtoBranchCard2[825] = 0
         set ProtoBranchGold[825] = 0
         set ProtoBranchCost[825] = 0
@@ -8721,7 +8731,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[825] = 100
         set ProtoBranchLabel[826] = "140골드로 따로 안내를 구하고 우라하라에게 길을 묻는다"
         set ProtoBranchResult[826] = "140골드로 따로 안내를 구하고 우라하라에게 사건의 다른 후보와 보스에게 힘을 싣는 요령을 배웠다. 우라하라는 먼저 누구와 한 약속인지 묻는다. 케이고는 이번 안내까지 이치고와 함께 가기로 했다고 덧붙이지 않는다."
-        set ProtoBranchCard[826] = 171
+        set ProtoBranchCard[826] = 173
         set ProtoBranchCard2[826] = 0
         set ProtoBranchGold[826] = 0
         set ProtoBranchCost[826] = 140
@@ -8736,7 +8746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[10] = "페나코니"
         set ProtoHeadIntro[10] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoHeadIcon[10] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoHeadEntryCard[10] = 182
+        set ProtoHeadEntryCard[10] = 184
         call SaveReal(ProtoHeadEffectData, 10, 6, 2.00)
         set ProtoEventKey[37] = "penacony_entry_0"
         set ProtoEventName[37] = "페나코니 방문"
@@ -8770,217 +8780,217 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[40] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIntro[40] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIcon[40] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-        set ProtoCardKey[182] = "hsr_misha"
-        set ProtoCardName[182] = "미샤"
-        set ProtoCardEffectName[182] = "꿈속에서 찾은 귀환길"
-        set ProtoCardKeyword[182] = "페나코니 · 이동 · 고체력"
-        set ProtoCardHead[182] = 10
-        set ProtoCardGrade[182] = 1
-        set ProtoEvolutionKind[182] = 0
-        set ProtoEvolutionGoal[182] = 0.00
-        call ProtoSetEffect(182, 10, 2.00, false)
-        call ProtoSetEffect(182, 24, 5.00, false)
-        set ProtoCardKey[183] = "hsr_misha_route"
-        set ProtoCardName[183] = "미샤"
-        set ProtoCardEffectName[183] = "분주했던 여행 준비"
-        set ProtoCardKeyword[183] = "페나코니 · 행동 · 일반 몬스터"
-        set ProtoCardHead[183] = 10
-        set ProtoCardGrade[183] = 2
-        set ProtoEvolutionKind[183] = 1
-        set ProtoEvolutionGoal[183] = 40.00
-        call ProtoSetEffect(183, 9, 5.00, false)
-        call ProtoSetEffect(183, 5, 10.00, false)
-        call ProtoSetEffect(183, 24, 8.00, true)
-        set ProtoCardKey[184] = "hsr_aventurine_fortune"
-        set ProtoCardName[184] = "어벤츄린"
-        set ProtoCardEffectName[184] = "운명을 마주하는 미소"
-        set ProtoCardKeyword[184] = "페나코니 · 치명"
+        set ProtoCardKey[184] = "hsr_misha"
+        set ProtoCardName[184] = "미샤"
+        set ProtoCardEffectName[184] = "꿈속에서 찾은 귀환길"
+        set ProtoCardKeyword[184] = "페나코니 · 이동 · 고체력"
         set ProtoCardHead[184] = 10
-        set ProtoCardGrade[184] = 2
-        set ProtoEvolutionKind[184] = 1
-        set ProtoEvolutionGoal[184] = 50.00
-        call ProtoSetEffect(184, 6, 5.00, false)
-        call ProtoSetEffect(184, 7, 18.00, false)
-        call ProtoSetEffect(184, 4, 8.00, true)
-        set ProtoCardKey[185] = "hsr_aventurine_reserve"
-        set ProtoCardName[185] = "어벤츄린"
-        set ProtoCardEffectName[185] = "판돈 밖에 남겨 둔 여유"
-        set ProtoCardKeyword[185] = "페나코니 · 보호막 · 치명"
+        set ProtoCardGrade[184] = 1
+        set ProtoEvolutionKind[184] = 0
+        set ProtoEvolutionGoal[184] = 0.00
+        call ProtoSetEffect(184, 10, 2.00, false)
+        call ProtoSetEffect(184, 24, 5.00, false)
+        set ProtoCardKey[185] = "hsr_misha_route"
+        set ProtoCardName[185] = "미샤"
+        set ProtoCardEffectName[185] = "분주했던 여행 준비"
+        set ProtoCardKeyword[185] = "페나코니 · 행동 · 일반 몬스터"
         set ProtoCardHead[185] = 10
         set ProtoCardGrade[185] = 2
-        set ProtoEvolutionKind[185] = 0
-        set ProtoEvolutionGoal[185] = 0.00
-        call ProtoSetEffect(185, 22, 18.00, false)
-        call ProtoSetEffect(185, 7, 15.00, false)
-        set ProtoCardKey[186] = "hsr_sparkle"
-        set ProtoCardName[186] = "스파클"
-        set ProtoCardEffectName[186] = "다음 막은 누구의 차례"
-        set ProtoCardKeyword[186] = "페나코니 · 행동 · 치명"
+        set ProtoEvolutionKind[185] = 1
+        set ProtoEvolutionGoal[185] = 40.00
+        call ProtoSetEffect(185, 9, 5.00, false)
+        call ProtoSetEffect(185, 5, 10.00, false)
+        call ProtoSetEffect(185, 24, 8.00, true)
+        set ProtoCardKey[186] = "hsr_aventurine_fortune"
+        set ProtoCardName[186] = "어벤츄린"
+        set ProtoCardEffectName[186] = "운명을 마주하는 미소"
+        set ProtoCardKeyword[186] = "페나코니 · 치명"
         set ProtoCardHead[186] = 10
         set ProtoCardGrade[186] = 2
-        set ProtoEvolutionKind[186] = 0
-        set ProtoEvolutionGoal[186] = 0.00
-        call ProtoSetEffect(186, 9, 8.00, false)
-        call ProtoSetEffect(186, 7, 15.00, false)
-        set ProtoCardKey[187] = "hsr_black_swan_trace"
-        set ProtoCardName[187] = "블랙 스완"
-        set ProtoCardEffectName[187] = "기억에 남은 빈틈"
-        set ProtoCardKeyword[187] = "페나코니 · 피해 · 보스"
+        set ProtoEvolutionKind[186] = 1
+        set ProtoEvolutionGoal[186] = 50.00
+        call ProtoSetEffect(186, 6, 5.00, false)
+        call ProtoSetEffect(186, 7, 18.00, false)
+        call ProtoSetEffect(186, 4, 8.00, true)
+        set ProtoCardKey[187] = "hsr_aventurine_reserve"
+        set ProtoCardName[187] = "어벤츄린"
+        set ProtoCardEffectName[187] = "판돈 밖에 남겨 둔 여유"
+        set ProtoCardKeyword[187] = "페나코니 · 보호막 · 치명"
         set ProtoCardHead[187] = 10
         set ProtoCardGrade[187] = 2
-        set ProtoEvolutionKind[187] = 2
-        set ProtoEvolutionGoal[187] = 15000.00
-        call ProtoSetEffect(187, 2, 12.00, false)
-        call ProtoSetEffect(187, 4, 8.00, false)
-        call ProtoSetEffect(187, 3, 4.00, true)
-        set ProtoCardKey[188] = "hsr_black_swan_archive"
-        set ProtoCardName[188] = "블랙 스완"
-        set ProtoCardEffectName[188] = "흩어진 장면을 잇기"
-        set ProtoCardKeyword[188] = "페나코니 · 탐색 · 고체력"
+        set ProtoEvolutionKind[187] = 0
+        set ProtoEvolutionGoal[187] = 0.00
+        call ProtoSetEffect(187, 22, 18.00, false)
+        call ProtoSetEffect(187, 7, 15.00, false)
+        set ProtoCardKey[188] = "hsr_sparkle"
+        set ProtoCardName[188] = "스파클"
+        set ProtoCardEffectName[188] = "다음 막은 누구의 차례"
+        set ProtoCardKeyword[188] = "페나코니 · 행동 · 치명"
         set ProtoCardHead[188] = 10
         set ProtoCardGrade[188] = 2
         set ProtoEvolutionKind[188] = 0
         set ProtoEvolutionGoal[188] = 0.00
-        call ProtoSetEffect(188, 18, 1.00, false)
-        call ProtoSetEffect(188, 24, 8.00, false)
-        set ProtoCardKey[189] = "hsr_gallagher"
-        set ProtoCardName[189] = "갤러거"
-        set ProtoCardEffectName[189] = "경계를 놓지 않는 환대"
-        set ProtoCardKeyword[189] = "페나코니 · 흡수 · 방어"
+        call ProtoSetEffect(188, 9, 8.00, false)
+        call ProtoSetEffect(188, 7, 15.00, false)
+        set ProtoCardKey[189] = "hsr_black_swan_trace"
+        set ProtoCardName[189] = "블랙 스완"
+        set ProtoCardEffectName[189] = "기억에 남은 빈틈"
+        set ProtoCardKeyword[189] = "페나코니 · 피해 · 보스"
         set ProtoCardHead[189] = 10
         set ProtoCardGrade[189] = 2
-        set ProtoEvolutionKind[189] = 0
-        set ProtoEvolutionGoal[189] = 0.00
-        call ProtoSetEffect(189, 15, 5.00, false)
-        call ProtoSetEffect(189, 14, 4.00, false)
-        set ProtoCardKey[190] = "hsr_aventurine_scattered"
-        set ProtoCardName[190] = "어벤츄린"
-        set ProtoCardEffectName[190] = "흩어진 판돈"
-        set ProtoCardKeyword[190] = "페나코니 · 처치 골드 · 치명타 피해 · 패널티"
+        set ProtoEvolutionKind[189] = 2
+        set ProtoEvolutionGoal[189] = 15000.00
+        call ProtoSetEffect(189, 2, 12.00, false)
+        call ProtoSetEffect(189, 4, 8.00, false)
+        call ProtoSetEffect(189, 3, 4.00, true)
+        set ProtoCardKey[190] = "hsr_black_swan_archive"
+        set ProtoCardName[190] = "블랙 스완"
+        set ProtoCardEffectName[190] = "흩어진 장면을 잇기"
+        set ProtoCardKeyword[190] = "페나코니 · 탐색 · 고체력"
         set ProtoCardHead[190] = 10
         set ProtoCardGrade[190] = 2
         set ProtoEvolutionKind[190] = 0
         set ProtoEvolutionGoal[190] = 0.00
-        call ProtoSetEffect(190, 17, 1.00, false)
-        call ProtoSetEffect(190, 7, 16.00, false)
-        call ProtoSetEffect(190, 10, -2.00, false)
-        set ProtoCardKey[191] = "hsr_misha_reach"
-        set ProtoCardName[191] = "미샤"
-        set ProtoCardEffectName[191] = "손보다 먼저 본 자리"
-        set ProtoCardKeyword[191] = "페나코니 · 차지 속도 · 고체력"
+        call ProtoSetEffect(190, 18, 1.00, false)
+        call ProtoSetEffect(190, 24, 8.00, false)
+        set ProtoCardKey[191] = "hsr_gallagher"
+        set ProtoCardName[191] = "갤러거"
+        set ProtoCardEffectName[191] = "경계를 놓지 않는 환대"
+        set ProtoCardKeyword[191] = "페나코니 · 흡수 · 방어"
         set ProtoCardHead[191] = 10
         set ProtoCardGrade[191] = 2
-        set ProtoEvolutionKind[191] = 3
-        set ProtoEvolutionGoal[191] = 60.00
-        call ProtoSetEffect(191, 11, 6.00, false)
-        call ProtoSetEffect(191, 24, 12.00, false)
-        call ProtoSetEffect(191, 5, 8.00, true)
-        set ProtoCardKey[192] = "hsr_acheron_gap"
-        set ProtoCardName[192] = "아케론"
-        set ProtoCardEffectName[192] = "검을 돌리기 전의 간격"
-        set ProtoCardKeyword[192] = "페나코니 · 관통 · 방향"
+        set ProtoEvolutionKind[191] = 0
+        set ProtoEvolutionGoal[191] = 0.00
+        call ProtoSetEffect(191, 15, 5.00, false)
+        call ProtoSetEffect(191, 14, 4.00, false)
+        set ProtoCardKey[192] = "hsr_aventurine_scattered"
+        set ProtoCardName[192] = "어벤츄린"
+        set ProtoCardEffectName[192] = "흩어진 판돈"
+        set ProtoCardKeyword[192] = "페나코니 · 처치 골드 · 치명타 피해 · 패널티"
         set ProtoCardHead[192] = 10
         set ProtoCardGrade[192] = 2
-        set ProtoEvolutionKind[192] = 2
-        set ProtoEvolutionGoal[192] = 12000.00
-        call ProtoSetEffect(192, 12, 6.00, false)
-        call ProtoSetEffect(192, 20, 12.00, false)
-        call ProtoSetEffect(192, 4, 6.00, true)
-        set ProtoCardKey[193] = "hsr_sparkle_cut"
-        set ProtoCardName[193] = "스파클"
-        set ProtoCardEffectName[193] = "박수 뒤의 한 장면"
-        set ProtoCardKeyword[193] = "페나코니 · 차지 속도 · 치명타 피해"
+        set ProtoEvolutionKind[192] = 0
+        set ProtoEvolutionGoal[192] = 0.00
+        call ProtoSetEffect(192, 17, 1.00, false)
+        call ProtoSetEffect(192, 7, 16.00, false)
+        call ProtoSetEffect(192, 10, -2.00, false)
+        set ProtoCardKey[193] = "hsr_misha_reach"
+        set ProtoCardName[193] = "미샤"
+        set ProtoCardEffectName[193] = "손보다 먼저 본 자리"
+        set ProtoCardKeyword[193] = "페나코니 · 차지 속도 · 고체력"
         set ProtoCardHead[193] = 10
         set ProtoCardGrade[193] = 2
-        set ProtoEvolutionKind[193] = 0
-        set ProtoEvolutionGoal[193] = 0.00
-        call ProtoSetEffect(193, 11, 12.00, false)
-        call ProtoSetEffect(193, 7, 14.00, false)
-        set ProtoCardKey[194] = "hsr_gallagher_order"
-        set ProtoCardName[194] = "갤러거"
-        set ProtoCardEffectName[194] = "먼저 물어본 한 잔"
-        set ProtoCardKeyword[194] = "페나코니 · 재생 · 피해 감소"
+        set ProtoEvolutionKind[193] = 3
+        set ProtoEvolutionGoal[193] = 60.00
+        call ProtoSetEffect(193, 11, 6.00, false)
+        call ProtoSetEffect(193, 24, 12.00, false)
+        call ProtoSetEffect(193, 5, 8.00, true)
+        set ProtoCardKey[194] = "hsr_acheron_gap"
+        set ProtoCardName[194] = "아케론"
+        set ProtoCardEffectName[194] = "검을 돌리기 전의 간격"
+        set ProtoCardKeyword[194] = "페나코니 · 관통 · 방향"
         set ProtoCardHead[194] = 10
         set ProtoCardGrade[194] = 2
-        set ProtoEvolutionKind[194] = 0
-        set ProtoEvolutionGoal[194] = 0.00
-        call ProtoSetEffect(194, 16, 0.40, false)
-        call ProtoSetEffect(194, 14, 4.00, false)
-        set ProtoCardKey[195] = "hsr_jade_terms"
-        set ProtoCardName[195] = "제이드"
-        set ProtoCardEffectName[195] = "가격표 밖의 조건"
-        set ProtoCardKeyword[195] = "페나코니 · 피해 · 처치 골드 · 패널티"
+        set ProtoEvolutionKind[194] = 2
+        set ProtoEvolutionGoal[194] = 12000.00
+        call ProtoSetEffect(194, 12, 6.00, false)
+        call ProtoSetEffect(194, 20, 12.00, false)
+        call ProtoSetEffect(194, 4, 6.00, true)
+        set ProtoCardKey[195] = "hsr_sparkle_cut"
+        set ProtoCardName[195] = "스파클"
+        set ProtoCardEffectName[195] = "박수 뒤의 한 장면"
+        set ProtoCardKeyword[195] = "페나코니 · 차지 속도 · 치명타 피해"
         set ProtoCardHead[195] = 10
         set ProtoCardGrade[195] = 2
         set ProtoEvolutionKind[195] = 0
         set ProtoEvolutionGoal[195] = 0.00
-        call ProtoSetEffect(195, 2, 14.00, false)
-        call ProtoSetEffect(195, 17, 2.00, false)
-        call ProtoSetEffect(195, 10, -3.00, false)
-        set ProtoCardKey[196] = "hsr_robin_listen"
-        set ProtoCardName[196] = "로빈"
-        set ProtoCardEffectName[196] = "이름보다 오래 남은 노래"
-        set ProtoCardKeyword[196] = "페나코니 · 공격력 · 재생"
+        call ProtoSetEffect(195, 11, 12.00, false)
+        call ProtoSetEffect(195, 7, 14.00, false)
+        set ProtoCardKey[196] = "hsr_gallagher_order"
+        set ProtoCardName[196] = "갤러거"
+        set ProtoCardEffectName[196] = "먼저 물어본 한 잔"
+        set ProtoCardKeyword[196] = "페나코니 · 재생 · 피해 감소"
         set ProtoCardHead[196] = 10
         set ProtoCardGrade[196] = 2
         set ProtoEvolutionKind[196] = 0
         set ProtoEvolutionGoal[196] = 0.00
-        call ProtoSetEffect(196, 1, 6.00, false)
         call ProtoSetEffect(196, 16, 0.40, false)
-        set ProtoCardKey[197] = "hsr_robin_voice"
-        set ProtoCardName[197] = "로빈"
-        set ProtoCardEffectName[197] = "첫마디에 남긴 자기 이름"
-        set ProtoCardKeyword[197] = "페나코니 · 공격력 · 고체력"
+        call ProtoSetEffect(196, 14, 4.00, false)
+        set ProtoCardKey[197] = "hsr_jade_terms"
+        set ProtoCardName[197] = "제이드"
+        set ProtoCardEffectName[197] = "가격표 밖의 조건"
+        set ProtoCardKeyword[197] = "페나코니 · 피해 · 처치 골드 · 패널티"
         set ProtoCardHead[197] = 10
         set ProtoCardGrade[197] = 2
-        set ProtoEvolutionKind[197] = 3
-        set ProtoEvolutionGoal[197] = 60.00
-        call ProtoSetEffect(197, 1, 8.00, false)
-        call ProtoSetEffect(197, 24, 12.00, false)
-        call ProtoSetEffect(197, 4, 6.00, true)
-        set ProtoCardKey[198] = "hsr_boothill_focus"
-        set ProtoCardName[198] = "부트힐"
-        set ProtoCardEffectName[198] = "많은 시선 속의 한 표적"
-        set ProtoCardKeyword[198] = "페나코니 · 보스 · 방향"
+        set ProtoEvolutionKind[197] = 0
+        set ProtoEvolutionGoal[197] = 0.00
+        call ProtoSetEffect(197, 2, 14.00, false)
+        call ProtoSetEffect(197, 17, 2.00, false)
+        call ProtoSetEffect(197, 10, -3.00, false)
+        set ProtoCardKey[198] = "hsr_robin_listen"
+        set ProtoCardName[198] = "로빈"
+        set ProtoCardEffectName[198] = "이름보다 오래 남은 노래"
+        set ProtoCardKeyword[198] = "페나코니 · 공격력 · 재생"
         set ProtoCardHead[198] = 10
         set ProtoCardGrade[198] = 2
-        set ProtoEvolutionKind[198] = 2
-        set ProtoEvolutionGoal[198] = 15000.00
-        call ProtoSetEffect(198, 4, 14.00, false)
-        call ProtoSetEffect(198, 20, 10.00, false)
-        call ProtoSetEffect(198, 12, 3.00, true)
-        set ProtoCardKey[199] = "hsr_boothill_attention"
-        set ProtoCardName[199] = "부트힐"
-        set ProtoCardEffectName[199] = "숨기지 않은 발걸음"
-        set ProtoCardKeyword[199] = "페나코니 · 이동 · 이동 조건 · 패널티"
+        set ProtoEvolutionKind[198] = 0
+        set ProtoEvolutionGoal[198] = 0.00
+        call ProtoSetEffect(198, 1, 6.00, false)
+        call ProtoSetEffect(198, 16, 0.40, false)
+        set ProtoCardKey[199] = "hsr_robin_voice"
+        set ProtoCardName[199] = "로빈"
+        set ProtoCardEffectName[199] = "첫마디에 남긴 자기 이름"
+        set ProtoCardKeyword[199] = "페나코니 · 공격력 · 고체력"
         set ProtoCardHead[199] = 10
         set ProtoCardGrade[199] = 2
-        set ProtoEvolutionKind[199] = 0
-        set ProtoEvolutionGoal[199] = 0.00
-        call ProtoSetEffect(199, 10, 4.00, false)
-        call ProtoSetEffect(199, 19, 14.00, false)
-        call ProtoSetEffect(199, 14, -3.00, false)
-        set ProtoCardKey[200] = "hsr_firefly_visit"
-        set ProtoCardName[200] = "반디"
-        set ProtoCardEffectName[200] = "갑옷 밖에서 보려던 풍경"
-        set ProtoCardKeyword[200] = "페나코니 · 최대 체력 · 이동"
+        set ProtoEvolutionKind[199] = 3
+        set ProtoEvolutionGoal[199] = 60.00
+        call ProtoSetEffect(199, 1, 8.00, false)
+        call ProtoSetEffect(199, 24, 12.00, false)
+        call ProtoSetEffect(199, 4, 6.00, true)
+        set ProtoCardKey[200] = "hsr_boothill_focus"
+        set ProtoCardName[200] = "부트힐"
+        set ProtoCardEffectName[200] = "많은 시선 속의 한 표적"
+        set ProtoCardKeyword[200] = "페나코니 · 보스 · 방향"
         set ProtoCardHead[200] = 10
         set ProtoCardGrade[200] = 2
-        set ProtoEvolutionKind[200] = 1
-        set ProtoEvolutionGoal[200] = 40.00
-        call ProtoSetEffect(200, 13, 10.00, false)
-        call ProtoSetEffect(200, 10, 4.00, false)
-        call ProtoSetEffect(200, 24, 8.00, true)
-        set ProtoCardKey[201] = "hsr_boothill_caption"
+        set ProtoEvolutionKind[200] = 2
+        set ProtoEvolutionGoal[200] = 15000.00
+        call ProtoSetEffect(200, 4, 14.00, false)
+        call ProtoSetEffect(200, 20, 10.00, false)
+        call ProtoSetEffect(200, 12, 3.00, true)
+        set ProtoCardKey[201] = "hsr_boothill_attention"
         set ProtoCardName[201] = "부트힐"
-        set ProtoCardEffectName[201] = "사진 아래에 빠진 말"
-        set ProtoCardKeyword[201] = "페나코니 · 사건 후보 · 치명타 피해"
+        set ProtoCardEffectName[201] = "숨기지 않은 발걸음"
+        set ProtoCardKeyword[201] = "페나코니 · 이동 · 이동 조건 · 패널티"
         set ProtoCardHead[201] = 10
         set ProtoCardGrade[201] = 2
         set ProtoEvolutionKind[201] = 0
         set ProtoEvolutionGoal[201] = 0.00
-        call ProtoSetEffect(201, 18, 1.00, false)
-        call ProtoSetEffect(201, 7, 14.00, false)
+        call ProtoSetEffect(201, 10, 4.00, false)
+        call ProtoSetEffect(201, 19, 14.00, false)
+        call ProtoSetEffect(201, 14, -3.00, false)
+        set ProtoCardKey[202] = "hsr_firefly_visit"
+        set ProtoCardName[202] = "반디"
+        set ProtoCardEffectName[202] = "갑옷 밖에서 보려던 풍경"
+        set ProtoCardKeyword[202] = "페나코니 · 최대 체력 · 이동"
+        set ProtoCardHead[202] = 10
+        set ProtoCardGrade[202] = 2
+        set ProtoEvolutionKind[202] = 1
+        set ProtoEvolutionGoal[202] = 40.00
+        call ProtoSetEffect(202, 13, 10.00, false)
+        call ProtoSetEffect(202, 10, 4.00, false)
+        call ProtoSetEffect(202, 24, 8.00, true)
+        set ProtoCardKey[203] = "hsr_boothill_caption"
+        set ProtoCardName[203] = "부트힐"
+        set ProtoCardEffectName[203] = "사진 아래에 빠진 말"
+        set ProtoCardKeyword[203] = "페나코니 · 사건 후보 · 치명타 피해"
+        set ProtoCardHead[203] = 10
+        set ProtoCardGrade[203] = 2
+        set ProtoEvolutionKind[203] = 0
+        set ProtoEvolutionGoal[203] = 0.00
+        call ProtoSetEffect(203, 18, 1.00, false)
+        call ProtoSetEffect(203, 7, 14.00, false)
         set ProtoEventKey[207] = "hsr_dreamy_slots"
         set ProtoEventName[207] = "좋은꿈 슬롯머신 앞에서"
         set ProtoEventHead[207] = 10
@@ -8995,7 +9005,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[207] = "회전판은 맞지 않은 그림에서 멈췄다. 바꿔 넣은 코인은 돌아오지 않았고 어벤츄린은 다음 판을 대신 돌려주지 않는다. 조용한 쪽으로 걸어가 잠깐 전의 선택을 돌아본다."
         set ProtoBranchLabel[828] = "코인을 바꾸고 어벤츄린과 한 번만 돌린다"
         set ProtoBranchResult[828] = "서로 다른 속도로 돌아가던 그림이 같은 줄에서 멈췄다. 받은 당첨금을 따로 챙기고 어벤츄린과 함께 다음 차례의 손님에게 자리를 넘겼다."
-        set ProtoBranchCard[828] = 184
+        set ProtoBranchCard[828] = 186
         set ProtoBranchCard2[828] = 0
         set ProtoBranchGold[828] = 600
         set ProtoBranchCost[828] = 300
@@ -9005,7 +9015,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[828] = 60
         set ProtoBranchLabel[829] = "놀이 대신 어벤츄린과 귀환 준비를 챙긴다"
         set ProtoBranchResult[829] = "기계에 넣을 돈을 귀환 준비물 값으로 남겼다. 어벤츄린과 넓은 출구를 확인하고 손이 비는 쪽에 필요한 물품을 나눠 챙겼다."
-        set ProtoBranchCard[829] = 185
+        set ProtoBranchCard[829] = 187
         set ProtoBranchCard2[829] = 0
         set ProtoBranchGold[829] = 0
         set ProtoBranchCost[829] = 220
@@ -9037,7 +9047,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[208] = ""
         set ProtoBranchLabel[832] = "스파클의 배역에 맞추고 손님들을 먼 출구로 안내한다"
         set ProtoBranchResult[832] = "스파클이 바뀐 배역으로 박수의 방향을 돌리자 빈자리가 보였다. 그 박자에 맞춰 무대 밖으로 나와 손님들을 먼 출구까지 안내하느라 더 넓은 길을 맡았다."
-        set ProtoBranchCard[832] = 186
+        set ProtoBranchCard[832] = 188
         set ProtoBranchCard2[832] = 0
         set ProtoBranchGold[832] = 0
         set ProtoBranchCost[832] = 220
@@ -9047,7 +9057,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[832] = 100
         set ProtoBranchLabel[833] = "갤러거와 조용한 귀환 통로를 확보한다"
         set ProtoBranchResult[833] = "갤러거와 서둘러 나가는 사람과 구경하려는 사람의 길을 나눴다. 섞이던 발걸음이 두 갈래로 갈라져 조용한 쪽 출구를 쓸 수 있게 됐다."
-        set ProtoBranchCard[833] = 189
+        set ProtoBranchCard[833] = 191
         set ProtoBranchCard2[833] = 0
         set ProtoBranchGold[833] = 0
         set ProtoBranchCost[833] = 180
@@ -9069,7 +9079,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[209] = ""
         set ProtoBranchLabel[836] = "블랙 스완과 결정을 망설인 장면을 돌아본다"
         set ProtoBranchResult[836] = "블랙 스완과 회전판보다 손을 멈추지 못했던 장면을 먼저 돌아봤다. 다음 판을 맞히는 답은 얻지 못했지만, 어떤 제안에 흔들렸는지 기억을 정리했다."
-        set ProtoBranchCard[836] = 188
+        set ProtoBranchCard[836] = 190
         set ProtoBranchCard2[836] = 0
         set ProtoBranchGold[836] = 0
         set ProtoBranchCost[836] = 180
@@ -9079,7 +9089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[836] = 100
         set ProtoBranchLabel[837] = "갤러거와 붐비는 길을 피해 돌아갈 준비를 한다"
         set ProtoBranchResult[837] = "갤러거가 짚은 안내 표시를 다시 확인하고 기계 소리가 작은 쪽으로 발길을 돌렸다. 돌아갈 길은 놀이 줄과 갈라져 더 이상 같은 무리에 끼지 않았다."
-        set ProtoBranchCard[837] = 189
+        set ProtoBranchCard[837] = 191
         set ProtoBranchCard2[837] = 0
         set ProtoBranchGold[837] = 0
         set ProtoBranchCost[837] = 180
@@ -9101,7 +9111,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[210] = ""
         set ProtoBranchLabel[840] = "미샤가 짚은 호텔 귀환길을 다시 확인한다"
         set ProtoBranchResult[840] = "미샤가 짚은 길에서 낡은 방향 표시를 다시 확인하고 필요한 등불을 챙겼다. 큰 흔적이 이어지는 길 대신 덜 거친 길로 돌아가기로 했다."
-        set ProtoBranchCard[840] = 183
+        set ProtoBranchCard[840] = 185
         set ProtoBranchCard2[840] = 0
         set ProtoBranchGold[840] = 0
         set ProtoBranchCost[840] = 140
@@ -9111,7 +9121,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[840] = 100
         set ProtoBranchLabel[841] = "어벤츄린과 귀환길에 쓸 준비물을 따로 챙긴다"
         set ProtoBranchResult[841] = "어벤츄린과 서둘러 쓸 물건을 귀환길의 준비물과 나눠 담았다. 출구 앞에서 물품을 찾느라 멈추지 않도록 필요한 순서도 맞췄다."
-        set ProtoBranchCard[841] = 185
+        set ProtoBranchCard[841] = 187
         set ProtoBranchCard2[841] = 0
         set ProtoBranchGold[841] = 0
         set ProtoBranchCost[841] = 180
@@ -9133,7 +9143,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[211] = ""
         set ProtoBranchLabel[844] = "갤러거와 되풀이되는 안내를 확인한다"
         set ProtoBranchResult[844] = "갤러거와 손님들의 같은 말을 대조하자 먼 길의 소문이 바로 옆 안내처럼 전해진 것을 알았다. 소문이 시작된 사람과 실제 길을 본 사람을 구분해 돌아갈 준비를 했다."
-        set ProtoBranchCard[844] = 189
+        set ProtoBranchCard[844] = 191
         set ProtoBranchCard2[844] = 0
         set ProtoBranchGold[844] = 0
         set ProtoBranchCost[844] = 180
@@ -9143,7 +9153,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[844] = 100
         set ProtoBranchLabel[845] = "미샤가 짚은 호텔 안내를 광고와 구분한다"
         set ProtoBranchResult[845] = "미샤가 짚은 표시를 살펴 솔글래드 광고가 가리고 있던 호텔 안내를 찾아냈다. 안내를 따라 길을 나눠 쓰기로 하자 한 통로로 몰리던 흔적이 줄었다."
-        set ProtoBranchCard[845] = 183
+        set ProtoBranchCard[845] = 185
         set ProtoBranchCard2[845] = 0
         set ProtoBranchGold[845] = 0
         set ProtoBranchCost[845] = 120
@@ -9175,7 +9185,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[212] = ""
         set ProtoBranchLabel[848] = "스파클의 바뀐 배역에 맞춰 무대를 빠져나간다"
         set ProtoBranchResult[848] = "스파클이 또 다른 얼굴로 바뀌는 순간에 맞춰 무대 뒤로 나왔다. 좁은 출구는 비었지만 준비한 길 끝에는 더 거친 흔적이 이어져 있었다."
-        set ProtoBranchCard[848] = 186
+        set ProtoBranchCard[848] = 188
         set ProtoBranchCard2[848] = 0
         set ProtoBranchGold[848] = 0
         set ProtoBranchCost[848] = 200
@@ -9185,7 +9195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[848] = 100
         set ProtoBranchLabel[849] = "블랙 스완과 두 안내가 갈린 순간을 대조한다"
         set ProtoBranchResult[849] = "블랙 스완과 두 장면을 차례로 되짚자 같은 얼굴이 서로 다른 손을 뻗었던 순간이 보였다. 안내를 그대로 따르지 않고 사람들이 실제로 꺾어 들어간 출구를 찾았다."
-        set ProtoBranchCard[849] = 187
+        set ProtoBranchCard[849] = 189
         set ProtoBranchCard2[849] = 0
         set ProtoBranchGold[849] = 0
         set ProtoBranchCost[849] = 240
@@ -9195,7 +9205,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[849] = 100
         set ProtoBranchLabel[850] = "블랙 스완과 지나온 길의 순서부터 정리한다"
         set ProtoBranchResult[850] = "블랙 스완과 간판, 계단, 무대의 순서를 기억에서 나눠 정리했다. 같은 얼굴이 다시 나타나도 어느 구간의 안내인지 구분할 준비가 됐다."
-        set ProtoBranchCard[850] = 188
+        set ProtoBranchCard[850] = 190
         set ProtoBranchCard2[850] = 0
         set ProtoBranchGold[850] = 0
         set ProtoBranchCost[850] = 180
@@ -9217,7 +9227,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[213] = ""
         set ProtoBranchLabel[852] = "어벤츄린과 넓은 통로를 준비한다"
         set ProtoBranchResult[852] = "어벤츄린과 좁은 출구를 한 번에 통과하지 않고 옆 통로에 준비물을 나눠 두었다. 몰려드는 무리와 다른 길을 쓸 수 있게 됐다."
-        set ProtoBranchCard[852] = 185
+        set ProtoBranchCard[852] = 187
         set ProtoBranchCard2[852] = 0
         set ProtoBranchGold[852] = 0
         set ProtoBranchCost[852] = 260
@@ -9227,7 +9237,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[852] = 100
         set ProtoBranchLabel[853] = "갤러거와 경비가 확인한 우회로를 택한다"
         set ProtoBranchResult[853] = "갤러거와 경비 안내가 끊기지 않은 길을 대조해 우회로를 정했다. 더 거친 흔적이 이어지는 쪽은 맡지 않고 확인한 길로 돌아가기로 했다."
-        set ProtoBranchCard[853] = 189
+        set ProtoBranchCard[853] = 191
         set ProtoBranchCard2[853] = 0
         set ProtoBranchGold[853] = 0
         set ProtoBranchCost[853] = 220
@@ -9249,7 +9259,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[214] = ""
         set ProtoBranchLabel[856] = "미샤와 호텔 입구를 기준으로 길을 다시 표시한다"
         set ProtoBranchResult[856] = "미샤가 짚은 시계판을 기준으로 광고판이 지나간 자리를 표시했다. 움직이는 광고를 뒤따르는 무리와 다른 길을 쓸 수 있게 됐다."
-        set ProtoBranchCard[856] = 183
+        set ProtoBranchCard[856] = 185
         set ProtoBranchCard2[856] = 0
         set ProtoBranchGold[856] = 0
         set ProtoBranchCost[856] = 140
@@ -9259,7 +9269,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[856] = 100
         set ProtoBranchLabel[857] = "블랙 스완과 반복해서 본 간판을 대조한다"
         set ProtoBranchResult[857] = "블랙 스완과 되풀이된 간판을 떠올리자 마지막에 본 글자가 다른 방향을 가리킨 것을 알았다. 빛나는 글자보다 같은 장소에 남은 표식을 따라 돌아가기로 했다."
-        set ProtoBranchCard[857] = 187
+        set ProtoBranchCard[857] = 189
         set ProtoBranchCard2[857] = 0
         set ProtoBranchGold[857] = 0
         set ProtoBranchCost[857] = 200
@@ -9291,7 +9301,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[215] = "200골드를 내고 따라갔지만 지폐가 흩어진 쪽을 놓쳤다. 새 배움과 보수는 얻지 못했다. 어벤츄린은 이번에 걸었던 몫부터 다시 세어 보라고 한다."
         set ProtoBranchLabel[860] = "200골드를 걸고 흩어진 지폐 끝까지 따라간다"
         set ProtoBranchResult[860] = "200골드를 걸고 지폐가 흩어진 쪽을 따라가 260골드를 챙겼다. 더 큰 수입과 일격의 힘을 얻는 대신 이동이 느려지는 성장을 배웠다. 어벤츄린은 받은 몫만 세지 말고 걸었던 몫도 함께 적으라고 한다."
-        set ProtoBranchCard[860] = 190
+        set ProtoBranchCard[860] = 192
         set ProtoBranchCard2[860] = 0
         set ProtoBranchGold[860] = 260
         set ProtoBranchCost[860] = 200
@@ -9301,7 +9311,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[860] = 60
         set ProtoBranchLabel[861] = "어벤츄린과 위험이 늘어날 길까지 계산한다"
         set ProtoBranchResult[861] = "어벤츄린과 길을 계산하며 일격이 들어갈 확률과 힘을 높이는 요령을 배웠다. 개인 사냥의 적 단계가 올라갔다. 어벤츄린은 계산에 적어 둔 위험이 아직 남아 있다고 짚는다."
-        set ProtoBranchCard[861] = 184
+        set ProtoBranchCard[861] = 186
         set ProtoBranchCard2[861] = 0
         set ProtoBranchGold[861] = 0
         set ProtoBranchCost[861] = 0
@@ -9333,7 +9343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[216] = ""
         set ProtoBranchLabel[864] = "미샤와 발을 둘 자리부터 보고 손을 뻗는다"
         set ProtoBranchResult[864] = "발을 둘 자리를 먼저 보고 힘을 모으는 준비를 빨리 끝내는 요령과 좋은 몸 상태에서 일격을 고르는 요령을 배웠다. 개인 사냥의 적 수가 늘었다. 미샤는 간식을 잡았다는 이야기보다 네가 먼저 멈춘 자리를 다시 묻는다."
-        set ProtoBranchCard[864] = 191
+        set ProtoBranchCard[864] = 193
         set ProtoBranchCard2[864] = 0
         set ProtoBranchGold[864] = 0
         set ProtoBranchCost[864] = 0
@@ -9343,7 +9353,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[864] = 100
         set ProtoBranchLabel[865] = "150골드로 다른 간식을 고르고 여행 이야기를 들려준다"
         set ProtoBranchResult[865] = "150골드로 다른 간식을 고르고 동작을 빨리 이어 가며 작은 적을 처리하는 요령을 배웠다. 네 여행 이야기를 듣던 미샤는 간식이 뜨지 않는 별도 있었냐고 묻는다."
-        set ProtoBranchCard[865] = 183
+        set ProtoBranchCard[865] = 185
         set ProtoBranchCard2[865] = 0
         set ProtoBranchGold[865] = 0
         set ProtoBranchCost[865] = 150
@@ -9375,7 +9385,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[217] = ""
         set ProtoBranchLabel[868] = "아케론과 더 강한 적이 오가는 바깥 통로의 간격을 짚는다"
         set ProtoBranchResult[868] = "아케론과 간격을 짚으며 단단한 방어를 뚫을 일격의 방향을 고르는 요령을 배웠다. 개인 사냥의 적 단계가 올라갔다. 아케론은 도면에서 이어진 선보다 실제로 발을 둘 자리를 다시 본다."
-        set ProtoBranchCard[868] = 192
+        set ProtoBranchCard[868] = 194
         set ProtoBranchCard2[868] = 0
         set ProtoBranchGold[868] = 0
         set ProtoBranchCost[868] = 0
@@ -9385,7 +9395,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[868] = 100
         set ProtoBranchLabel[869] = "180골드로 도면 사본을 받아 다른 연결을 비교한다"
         set ProtoBranchResult[869] = "180골드로 도면 사본을 받아 서로 다른 길을 더 많이 비교하고 좋은 몸 상태에서 일격을 고르는 요령을 배웠다. 네가 비교한 길의 기억을 듣던 블랙 스완은 도면의 선과 네가 기억한 간격을 따로 짚는다."
-        set ProtoBranchCard[869] = 188
+        set ProtoBranchCard[869] = 190
         set ProtoBranchCard2[869] = 0
         set ProtoBranchGold[869] = 0
         set ProtoBranchCost[869] = 180
@@ -9417,7 +9427,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[218] = "150골드를 내고 마지막 장면을 맞추려 했지만 스파클이 바꾼 역을 끝까지 따라가지 못했다. 새 배움은 얻지 못했다. 다음 체험 손님이 들어오자 스파클은 이제 누구의 박수를 듣고 있냐고 묻는다."
         set ProtoBranchLabel[872] = "150골드를 내고 스파클의 마지막 장면을 다시 맞춘다"
         set ProtoBranchResult[872] = "150골드를 내고 마지막 장면을 맞추며 힘을 모으는 준비를 빠르게 마치고 치명타에 힘을 싣는 요령을 배웠다. 다음 손님이 들어오자 스파클은 너희가 마친 역을 다른 표정으로 다시 시작한다."
-        set ProtoBranchCard[872] = 193
+        set ProtoBranchCard[872] = 195
         set ProtoBranchCard2[872] = 0
         set ProtoBranchGold[872] = 0
         set ProtoBranchCost[872] = 150
@@ -9427,7 +9437,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[872] = 75
         set ProtoBranchLabel[873] = "더 많은 적이 오가는 역할을 맡아 직접 장면을 이어 간다"
         set ProtoBranchResult[873] = "동작과 일격을 빠르게 이어 가는 요령을 배웠고 개인 사냥의 적 수가 늘었다. 스파클은 네가 기다린 박수보다 다음 역을 먼저 보라고 한다."
-        set ProtoBranchCard[873] = 186
+        set ProtoBranchCard[873] = 188
         set ProtoBranchCard2[873] = 0
         set ProtoBranchGold[873] = 0
         set ProtoBranchCost[873] = 0
@@ -9459,7 +9469,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[219] = ""
         set ProtoBranchLabel[876] = "200골드로 새 잔을 마련하고 갤러거와 손님 말을 먼저 듣는다"
         set ProtoBranchResult[876] = "200골드로 새 잔을 마련하고 손님 이야기를 먼저 듣는 동안 몸 상태를 천천히 유지하며 받는 피해를 줄이는 요령을 배웠다. 갤러거는 잔을 다시 내밀기 전에 처음 주문과 달랐던 말을 한 번 더 확인한다."
-        set ProtoBranchCard[876] = 194
+        set ProtoBranchCard[876] = 196
         set ProtoBranchCard2[876] = 0
         set ProtoBranchGold[876] = 0
         set ProtoBranchCost[876] = 200
@@ -9469,7 +9479,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[876] = 100
         set ProtoBranchLabel[877] = "더 많은 적을 맡는 대신 갤러거에게 버티는 요령을 배운다"
         set ProtoBranchResult[877] = "갤러거에게 공격을 이어 가며 버틸 힘을 얻고 받는 피해를 줄이는 요령을 배웠다. 개인 사냥의 적 수가 늘었다. 갤러거는 돌아오는 길에서도 처음 들은 주문을 잊지 말자고 한다."
-        set ProtoBranchCard[877] = 189
+        set ProtoBranchCard[877] = 191
         set ProtoBranchCard2[877] = 0
         set ProtoBranchGold[877] = 0
         set ProtoBranchCost[877] = 0
@@ -9501,7 +9511,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[220] = ""
         set ProtoBranchLabel[880] = "230골드와 느려질 이동을 받아들이고 거래한다"
         set ProtoBranchResult[880] = "230골드를 지불하고 더 큰 피해와 수입을 얻는 대신 이동이 느려지는 성장을 배웠다. 제이드는 받은 몫과 앞으로 계속 남을 부담을 같은 서류에 적고 네가 둘 다 읽었는지 묻는다."
-        set ProtoBranchCard[880] = 195
+        set ProtoBranchCard[880] = 197
         set ProtoBranchCard2[880] = 0
         set ProtoBranchGold[880] = 0
         set ProtoBranchCost[880] = 230
@@ -9511,7 +9521,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[880] = 100
         set ProtoBranchLabel[881] = "골드 대신 더 강한 적을 맡는 조건으로 거래한다"
         set ProtoBranchResult[881] = "제이드가 제시한 일에서 더 강한 적을 맡는 대신 골드 지불을 면제받았다. 더 큰 피해와 수입을 얻되 이동이 느려지는 성장을 배웠고 개인 사냥의 적 단계가 올라갔다. 제이드는 지불이 없다는 말이 남을 부담도 없다는 뜻은 아니라고 짚는다."
-        set ProtoBranchCard[881] = 195
+        set ProtoBranchCard[881] = 197
         set ProtoBranchCard2[881] = 0
         set ProtoBranchGold[881] = 0
         set ProtoBranchCost[881] = 0
@@ -9543,7 +9553,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[221] = ""
         set ProtoBranchLabel[884] = "160골드로 다른 자리를 마련하고 뒤편 관객과 먼저 듣는다"
         set ProtoBranchResult[884] = "160골드로 듣기 좋은 다른 자리를 마련하고 뒤편 관객에게 시작 안내를 전했다. 로빈의 노래를 기다린 태도가 기억에 남아 공격력과 지속 체력 재생이 늘었다. 로빈은 앞줄의 큰 환호보다 뒤편에서 준비됐다는 답을 먼저 듣는다."
-        set ProtoBranchCard[884] = 196
+        set ProtoBranchCard[884] = 198
         set ProtoBranchCard2[884] = 0
         set ProtoBranchGold[884] = 0
         set ProtoBranchCost[884] = 160
@@ -9553,7 +9563,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[884] = 100
         set ProtoBranchLabel[885] = "더 많은 개인 사냥을 맡고 친구와 기다릴 첫마디를 정한다"
         set ProtoBranchResult[885] = "친구와 첫마디까지 기다리기로 하고 개인 사냥의 적 수를 늘리는 부담을 택했다. 로빈의 첫마디를 기다린 기억으로 공격력과 고체력에서 가하는 피해가 늘었다. 친구는 이름을 외치려던 입을 다물고 언제 첫마디가 나올지 기다린다."
-        set ProtoBranchCard[885] = 197
+        set ProtoBranchCard[885] = 199
         set ProtoBranchCard2[885] = 0
         set ProtoBranchGold[885] = 0
         set ProtoBranchCost[885] = 0
@@ -9585,7 +9595,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[222] = "150골드로 소개지를 다시 마련했지만 참가자는 이름 앞에서 멈추었다. 새 카드와 보수는 얻지 못했다. 로빈은 종이를 대신 읽어 주지 않고 참가자가 다시 입을 열 때까지 기다린다."
         set ProtoBranchLabel[888] = "150골드로 새 소개지를 마련하고 이름부터 말할 시도를 돕는다"
         set ProtoBranchResult[888] = "150골드로 새 소개지를 마련했고 참가자가 자기 이름부터 말하는 시도에 성공해 보수 60골드를 받았다. 로빈과 함께 첫마디를 기다린 기억으로 공격력과 고체력에서 가하는 피해가 늘었다. 참가자는 다음 소개에서도 여백을 보며 자기 이름을 빼지 않으려 한다."
-        set ProtoBranchCard[888] = 197
+        set ProtoBranchCard[888] = 199
         set ProtoBranchCard2[888] = 0
         set ProtoBranchGold[888] = 60
         set ProtoBranchCost[888] = 150
@@ -9595,7 +9605,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[888] = 70
         set ProtoBranchLabel[889] = "200골드로 안내 자리를 마련해 먼저 들어 줄 사람을 찾는다"
         set ProtoBranchResult[889] = "200골드로 안내 자리를 마련하고 참가자의 소개를 먼저 들어 줄 사람을 찾았다. 노래보다 앞선 목소리를 듣는 기억으로 공격력과 지속 체력 재생이 늘었다. 로빈은 준비한 말을 대신 읽지 않고 참가자가 새로 고른 첫 문장을 듣는다."
-        set ProtoBranchCard[889] = 196
+        set ProtoBranchCard[889] = 198
         set ProtoBranchCard2[889] = 0
         set ProtoBranchGold[889] = 0
         set ProtoBranchCost[889] = 200
@@ -9627,7 +9637,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[223] = ""
         set ProtoBranchLabel[892] = "180골드로 별도 사진 자리를 마련하고 배경을 고른 이유를 적는다"
         set ProtoBranchResult[892] = "180골드로 IPC 광고가 들어오지 않는 사진 자리를 마련하고 배경을 바꾼 이유를 적었다. 많은 시선보다 한 표적을 보는 부트힐의 태도가 남아 보스와 방향 조건에서 가하는 피해가 늘었다. 관광객은 사진을 받은 뒤에도 어떤 설명을 붙일지 다시 읽는다."
-        set ProtoBranchCard[892] = 198
+        set ProtoBranchCard[892] = 200
         set ProtoBranchCard2[892] = 0
         set ProtoBranchGold[892] = 0
         set ProtoBranchCost[892] = 180
@@ -9637,7 +9647,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[892] = 100
         set ProtoBranchLabel[893] = "부트힐이 알리려는 말을 듣고 더 강한 개인 사냥을 맡는다"
         set ProtoBranchResult[893] = "부트힐이 IPC에 알리려는 말을 듣고 개인 사냥의 적 단계를 높이는 부담을 택했다. 숨기지 않은 발걸음의 기억으로 이동속도와 그 증가량에 따른 피해가 늘었지만 받는 피해도 커졌다. 부트힐은 관광객에게 자신을 멋진 배경으로만 보았는지 다시 묻는다."
-        set ProtoBranchCard[893] = 199
+        set ProtoBranchCard[893] = 201
         set ProtoBranchCard2[893] = 0
         set ProtoBranchGold[893] = 0
         set ProtoBranchCost[893] = 0
@@ -9669,7 +9679,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[224] = ""
         set ProtoBranchLabel[896] = "170골드로 풍경 안내를 마련하고 반디가 보고 싶은 곳을 묻는다"
         set ProtoBranchResult[896] = "170골드로 풍경 안내를 마련하고 반디에게 갑옷 대신 보고 싶은 곳을 물었다. 갑옷 밖의 풍경을 고르는 기억으로 최대 체력과 이동속도가 늘었다. 반디는 갑옷 사진이 없는 안내에서 자신이 가리킨 풍경을 다시 본다."
-        set ProtoBranchCard[896] = 200
+        set ProtoBranchCard[896] = 202
         set ProtoBranchCard2[896] = 0
         set ProtoBranchGold[896] = 0
         set ProtoBranchCost[896] = 170
@@ -9679,7 +9689,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[896] = 100
         set ProtoBranchLabel[897] = "더 많은 개인 사냥을 맡는 대신 풍경 안내를 직접 전달한다"
         set ProtoBranchResult[897] = "풍경 안내를 직접 전달하는 대신 개인 사냥의 적 수를 늘리는 부담을 택했다. 반디와 보고 싶은 풍경을 고르는 기억으로 최대 체력과 이동속도가 늘었다. 갑옷을 기다리던 여행자는 아직 질문을 바꾸지 않았지만 반디는 안내의 다른 면을 펼친다."
-        set ProtoBranchCard[897] = 200
+        set ProtoBranchCard[897] = 202
         set ProtoBranchCard2[897] = 0
         set ProtoBranchGold[897] = 0
         set ProtoBranchCost[897] = 0
@@ -9711,7 +9721,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[225] = ""
         set ProtoBranchLabel[900] = "130골드로 안내를 고쳐 참가자의 이름을 분명히 남긴다"
         set ProtoBranchResult[900] = "130골드로 잘못 붙은 자리 표시를 고쳐 참가자의 이름과 무대 자리를 다시 적었다. 앞선 목소리를 기다린 로빈의 태도가 남아 공격력과 지속 체력 재생이 늘었다. 다음 손님은 참가자를 찾아가고 너는 준비를 도운 자리에 남았다."
-        set ProtoBranchCard[900] = 196
+        set ProtoBranchCard[900] = 198
         set ProtoBranchCard2[900] = 0
         set ProtoBranchGold[900] = 0
         set ProtoBranchCost[900] = 130
@@ -9753,7 +9763,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[226] = ""
         set ProtoBranchLabel[904] = "140골드로 설명지를 다시 마련하고 빠진 이유를 적는다"
         set ProtoBranchResult[904] = "140골드로 설명지를 다시 마련해 부트힐이 IPC의 수호자가 아니라 그들에게 알릴 말을 가진 레인저라고 적었다. 빠진 말을 되찾는 기억으로 사건 후보와 치명타 피해가 늘었다. 관광객은 사진 아래에 왜 배경을 바꾸었는지도 함께 남긴다."
-        set ProtoBranchCard[904] = 201
+        set ProtoBranchCard[904] = 203
         set ProtoBranchCard2[904] = 0
         set ProtoBranchGold[904] = 0
         set ProtoBranchCost[904] = 140
@@ -9763,7 +9773,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[904] = 100
         set ProtoBranchLabel[905] = "더 강한 개인 사냥을 맡고 부트힐이 숨기지 않을 말을 전한다"
         set ProtoBranchResult[905] = "부트힐이 IPC에 알리려는 말을 전하고 개인 사냥의 적 단계를 높이는 부담을 택했다. 숨기지 않은 발걸음의 기억으로 이동속도와 그 증가량에 따른 피해가 늘었지만 받는 피해도 커졌다. 관광객은 수호자라고 적었던 설명 위에 선을 긋는다."
-        set ProtoBranchCard[905] = 199
+        set ProtoBranchCard[905] = 201
         set ProtoBranchCard2[905] = 0
         set ProtoBranchGold[905] = 0
         set ProtoBranchCost[905] = 0
@@ -9788,7 +9798,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[11] = "아메스트리스"
         set ProtoHeadIntro[11] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoHeadIcon[11] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
-        set ProtoHeadEntryCard[11] = 202
+        set ProtoHeadEntryCard[11] = 204
         call SaveReal(ProtoHeadEffectData, 11, 12, 2.00)
         set ProtoEventKey[41] = "amestris_entry_0"
         set ProtoEventName[41] = "아메스트리스 방문"
@@ -9822,148 +9832,148 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[44] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIntro[44] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIcon[44] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
-        set ProtoCardKey[202] = "fma_winry"
-        set ProtoCardName[202] = "윈리 록벨"
-        set ProtoCardEffectName[202] = "떠나기 전의 점검"
-        set ProtoCardKeyword[202] = "아메스트리스 · 신속"
-        set ProtoCardHead[202] = 11
-        set ProtoCardGrade[202] = 1
-        set ProtoEvolutionKind[202] = 0
-        set ProtoEvolutionGoal[202] = 0.00
-        call ProtoSetEffect(202, 8, 90.00, false)
-        set ProtoCardKey[203] = "fma_edward"
-        set ProtoCardName[203] = "에드워드 엘릭"
-        set ProtoCardEffectName[203] = "이해하고 부수고 다시 잇기"
-        set ProtoCardKeyword[203] = "아메스트리스 · 공격 · 관통"
-        set ProtoCardHead[203] = 11
-        set ProtoCardGrade[203] = 2
-        set ProtoEvolutionKind[203] = 2
-        set ProtoEvolutionGoal[203] = 8000.00
-        call ProtoSetEffect(203, 1, 10.00, false)
-        call ProtoSetEffect(203, 12, 8.00, false)
-        call ProtoSetEffect(203, 12, 4.00, true)
-        set ProtoCardKey[204] = "fma_alphonse"
-        set ProtoCardName[204] = "알폰스 엘릭"
-        set ProtoCardEffectName[204] = "먼저 무너지지 않는 자세"
-        set ProtoCardKeyword[204] = "아메스트리스 · 생존"
+        set ProtoCardKey[204] = "fma_winry"
+        set ProtoCardName[204] = "윈리 록벨"
+        set ProtoCardEffectName[204] = "떠나기 전의 점검"
+        set ProtoCardKeyword[204] = "아메스트리스 · 신속"
         set ProtoCardHead[204] = 11
         set ProtoCardGrade[204] = 1
         set ProtoEvolutionKind[204] = 0
         set ProtoEvolutionGoal[204] = 0.00
-        call ProtoSetEffect(204, 13, 10.00, false)
-        call ProtoSetEffect(204, 14, 2.00, false)
-        set ProtoCardKey[205] = "fma_winry_precision"
-        set ProtoCardName[205] = "윈리 록벨"
-        set ProtoCardEffectName[205] = "작은 어긋남까지"
-        set ProtoCardKeyword[205] = "아메스트리스 · 행동 · 차지 속도"
+        call ProtoSetEffect(204, 8, 90.00, false)
+        set ProtoCardKey[205] = "fma_edward"
+        set ProtoCardName[205] = "에드워드 엘릭"
+        set ProtoCardEffectName[205] = "이해하고 부수고 다시 잇기"
+        set ProtoCardKeyword[205] = "아메스트리스 · 공격 · 관통"
         set ProtoCardHead[205] = 11
         set ProtoCardGrade[205] = 2
-        set ProtoEvolutionKind[205] = 0
-        set ProtoEvolutionGoal[205] = 0.00
-        call ProtoSetEffect(205, 9, 6.00, false)
-        call ProtoSetEffect(205, 11, 8.00, false)
-        set ProtoCardKey[206] = "fma_sheska"
-        set ProtoCardName[206] = "셰스카"
-        set ProtoCardEffectName[206] = "한 권도 빠뜨리지 않는 기억"
-        set ProtoCardKeyword[206] = "아메스트리스 · 사건 후보 · 처치 골드"
+        set ProtoEvolutionKind[205] = 2
+        set ProtoEvolutionGoal[205] = 8000.00
+        call ProtoSetEffect(205, 1, 10.00, false)
+        call ProtoSetEffect(205, 12, 8.00, false)
+        call ProtoSetEffect(205, 12, 4.00, true)
+        set ProtoCardKey[206] = "fma_alphonse"
+        set ProtoCardName[206] = "알폰스 엘릭"
+        set ProtoCardEffectName[206] = "먼저 무너지지 않는 자세"
+        set ProtoCardKeyword[206] = "아메스트리스 · 생존"
         set ProtoCardHead[206] = 11
-        set ProtoCardGrade[206] = 2
+        set ProtoCardGrade[206] = 1
         set ProtoEvolutionKind[206] = 0
         set ProtoEvolutionGoal[206] = 0.00
-        call ProtoSetEffect(206, 18, 1.00, false)
-        call ProtoSetEffect(206, 17, 1.00, false)
-        set ProtoCardKey[207] = "fma_armstrong"
-        set ProtoCardName[207] = "알렉스 루이 암스트롱"
-        set ProtoCardEffectName[207] = "체술과 조형의 호흡"
-        set ProtoCardKeyword[207] = "아메스트리스 · 생존 · 차지 피해"
+        call ProtoSetEffect(206, 13, 10.00, false)
+        call ProtoSetEffect(206, 14, 2.00, false)
+        set ProtoCardKey[207] = "fma_winry_precision"
+        set ProtoCardName[207] = "윈리 록벨"
+        set ProtoCardEffectName[207] = "작은 어긋남까지"
+        set ProtoCardKeyword[207] = "아메스트리스 · 행동 · 차지 속도"
         set ProtoCardHead[207] = 11
         set ProtoCardGrade[207] = 2
         set ProtoEvolutionKind[207] = 0
         set ProtoEvolutionGoal[207] = 0.00
-        call ProtoSetEffect(207, 13, 12.00, false)
-        call ProtoSetEffect(207, 23, 18.00, false)
-        set ProtoCardKey[208] = "fma_izumi"
-        set ProtoCardName[208] = "이즈미 커티스"
-        set ProtoCardEffectName[208] = "도망치지 않는 한 걸음"
-        set ProtoCardKeyword[208] = "아메스트리스 · 공격 · 고체력"
+        call ProtoSetEffect(207, 9, 6.00, false)
+        call ProtoSetEffect(207, 11, 8.00, false)
+        set ProtoCardKey[208] = "fma_sheska"
+        set ProtoCardName[208] = "셰스카"
+        set ProtoCardEffectName[208] = "한 권도 빠뜨리지 않는 기억"
+        set ProtoCardKeyword[208] = "아메스트리스 · 사건 후보 · 처치 골드"
         set ProtoCardHead[208] = 11
-        set ProtoCardGrade[208] = 3
-        set ProtoEvolutionKind[208] = 3
-        set ProtoEvolutionGoal[208] = 60.00
-        call ProtoSetEffect(208, 1, 16.00, false)
-        call ProtoSetEffect(208, 24, 16.00, false)
-        call ProtoSetEffect(208, 3, 4.00, true)
-        set ProtoCardKey[209] = "fma_izumi_flow"
-        set ProtoCardName[209] = "이즈미 커티스"
-        set ProtoCardEffectName[209] = "혼자서도 흐름 속에서"
-        set ProtoCardKeyword[209] = "아메스트리스 · 신속 · 이동 피해"
+        set ProtoCardGrade[208] = 2
+        set ProtoEvolutionKind[208] = 0
+        set ProtoEvolutionGoal[208] = 0.00
+        call ProtoSetEffect(208, 18, 1.00, false)
+        call ProtoSetEffect(208, 17, 1.00, false)
+        set ProtoCardKey[209] = "fma_armstrong"
+        set ProtoCardName[209] = "알렉스 루이 암스트롱"
+        set ProtoCardEffectName[209] = "체술과 조형의 호흡"
+        set ProtoCardKeyword[209] = "아메스트리스 · 생존 · 차지 피해"
         set ProtoCardHead[209] = 11
         set ProtoCardGrade[209] = 2
         set ProtoEvolutionKind[209] = 0
         set ProtoEvolutionGoal[209] = 0.00
-        call ProtoSetEffect(209, 8, 180.00, false)
-        call ProtoSetEffect(209, 19, 12.00, false)
-        set ProtoCardKey[210] = "fma_roy_preparation"
-        set ProtoCardName[210] = "로이 머스탱"
-        set ProtoCardEffectName[210] = "불씨보다 먼저"
-        set ProtoCardKeyword[210] = "아메스트리스 · 보스 · 차지 피해"
+        call ProtoSetEffect(209, 13, 12.00, false)
+        call ProtoSetEffect(209, 23, 18.00, false)
+        set ProtoCardKey[210] = "fma_izumi"
+        set ProtoCardName[210] = "이즈미 커티스"
+        set ProtoCardEffectName[210] = "도망치지 않는 한 걸음"
+        set ProtoCardKeyword[210] = "아메스트리스 · 공격 · 고체력"
         set ProtoCardHead[210] = 11
-        set ProtoCardGrade[210] = 2
-        set ProtoEvolutionKind[210] = 0
-        set ProtoEvolutionGoal[210] = 0.00
-        call ProtoSetEffect(210, 4, 14.00, false)
-        call ProtoSetEffect(210, 23, 12.00, false)
-        set ProtoCardKey[211] = "fma_riza_line"
-        set ProtoCardName[211] = "리자 호크아이"
-        set ProtoCardEffectName[211] = "지나갈 선을 비우다"
-        set ProtoCardKeyword[211] = "아메스트리스 · 치명타 확률 · 방향 공격"
+        set ProtoCardGrade[210] = 3
+        set ProtoEvolutionKind[210] = 3
+        set ProtoEvolutionGoal[210] = 60.00
+        call ProtoSetEffect(210, 1, 16.00, false)
+        call ProtoSetEffect(210, 24, 16.00, false)
+        call ProtoSetEffect(210, 3, 4.00, true)
+        set ProtoCardKey[211] = "fma_izumi_flow"
+        set ProtoCardName[211] = "이즈미 커티스"
+        set ProtoCardEffectName[211] = "혼자서도 흐름 속에서"
+        set ProtoCardKeyword[211] = "아메스트리스 · 신속 · 이동 피해"
         set ProtoCardHead[211] = 11
         set ProtoCardGrade[211] = 2
-        set ProtoEvolutionKind[211] = 1
-        set ProtoEvolutionGoal[211] = 50.00
-        call ProtoSetEffect(211, 6, 5.00, false)
-        call ProtoSetEffect(211, 20, 12.00, false)
-        call ProtoSetEffect(211, 7, 10.00, true)
-        set ProtoCardKey[212] = "fma_hughes_notice"
-        set ProtoCardName[212] = "마스 휴즈"
-        set ProtoCardEffectName[212] = "보여 주기 전에 살필 것"
-        set ProtoCardKeyword[212] = "아메스트리스 · 사건 후보 · 보스"
+        set ProtoEvolutionKind[211] = 0
+        set ProtoEvolutionGoal[211] = 0.00
+        call ProtoSetEffect(211, 8, 180.00, false)
+        call ProtoSetEffect(211, 19, 12.00, false)
+        set ProtoCardKey[212] = "fma_roy_preparation"
+        set ProtoCardName[212] = "로이 머스탱"
+        set ProtoCardEffectName[212] = "불씨보다 먼저"
+        set ProtoCardKeyword[212] = "아메스트리스 · 보스 · 차지 피해"
         set ProtoCardHead[212] = 11
         set ProtoCardGrade[212] = 2
         set ProtoEvolutionKind[212] = 0
         set ProtoEvolutionGoal[212] = 0.00
-        call ProtoSetEffect(212, 18, 1.00, false)
-        call ProtoSetEffect(212, 4, 6.00, false)
-        set ProtoCardKey[213] = "fma_pinako_return"
-        set ProtoCardName[213] = "피나코 록벨"
-        set ProtoCardEffectName[213] = "돌아올 자리까지"
-        set ProtoCardKeyword[213] = "아메스트리스 · 최대 체력 · 피해 감소"
+        call ProtoSetEffect(212, 4, 14.00, false)
+        call ProtoSetEffect(212, 23, 12.00, false)
+        set ProtoCardKey[213] = "fma_riza_line"
+        set ProtoCardName[213] = "리자 호크아이"
+        set ProtoCardEffectName[213] = "지나갈 선을 비우다"
+        set ProtoCardKeyword[213] = "아메스트리스 · 치명타 확률 · 방향 공격"
         set ProtoCardHead[213] = 11
         set ProtoCardGrade[213] = 2
-        set ProtoEvolutionKind[213] = 0
-        set ProtoEvolutionGoal[213] = 0.00
-        call ProtoSetEffect(213, 13, 10.00, false)
-        call ProtoSetEffect(213, 14, 4.00, false)
-        set ProtoCardKey[214] = "fma_sig_balance"
-        set ProtoCardName[214] = "시그 커티스"
-        set ProtoCardEffectName[214] = "같은 무게를 들어도"
-        set ProtoCardKeyword[214] = "아메스트리스 · 공격 · 차지 피해"
+        set ProtoEvolutionKind[213] = 1
+        set ProtoEvolutionGoal[213] = 50.00
+        call ProtoSetEffect(213, 6, 5.00, false)
+        call ProtoSetEffect(213, 20, 12.00, false)
+        call ProtoSetEffect(213, 7, 10.00, true)
+        set ProtoCardKey[214] = "fma_hughes_notice"
+        set ProtoCardName[214] = "마스 휴즈"
+        set ProtoCardEffectName[214] = "보여 주기 전에 살필 것"
+        set ProtoCardKeyword[214] = "아메스트리스 · 사건 후보 · 보스"
         set ProtoCardHead[214] = 11
         set ProtoCardGrade[214] = 2
         set ProtoEvolutionKind[214] = 0
         set ProtoEvolutionGoal[214] = 0.00
-        call ProtoSetEffect(214, 1, 12.00, false)
-        call ProtoSetEffect(214, 23, 12.00, false)
-        set ProtoCardKey[215] = "fma_ling_stride"
-        set ProtoCardName[215] = "린 야오"
-        set ProtoCardEffectName[215] = "허기 뒤에도 한 걸음"
-        set ProtoCardKeyword[215] = "아메스트리스 · 흡수 · 이동 피해"
+        call ProtoSetEffect(214, 18, 1.00, false)
+        call ProtoSetEffect(214, 4, 6.00, false)
+        set ProtoCardKey[215] = "fma_pinako_return"
+        set ProtoCardName[215] = "피나코 록벨"
+        set ProtoCardEffectName[215] = "돌아올 자리까지"
+        set ProtoCardKeyword[215] = "아메스트리스 · 최대 체력 · 피해 감소"
         set ProtoCardHead[215] = 11
         set ProtoCardGrade[215] = 2
         set ProtoEvolutionKind[215] = 0
         set ProtoEvolutionGoal[215] = 0.00
-        call ProtoSetEffect(215, 15, 2.00, false)
-        call ProtoSetEffect(215, 19, 14.00, false)
+        call ProtoSetEffect(215, 13, 10.00, false)
+        call ProtoSetEffect(215, 14, 4.00, false)
+        set ProtoCardKey[216] = "fma_sig_balance"
+        set ProtoCardName[216] = "시그 커티스"
+        set ProtoCardEffectName[216] = "같은 무게를 들어도"
+        set ProtoCardKeyword[216] = "아메스트리스 · 공격 · 차지 피해"
+        set ProtoCardHead[216] = 11
+        set ProtoCardGrade[216] = 2
+        set ProtoEvolutionKind[216] = 0
+        set ProtoEvolutionGoal[216] = 0.00
+        call ProtoSetEffect(216, 1, 12.00, false)
+        call ProtoSetEffect(216, 23, 12.00, false)
+        set ProtoCardKey[217] = "fma_ling_stride"
+        set ProtoCardName[217] = "린 야오"
+        set ProtoCardEffectName[217] = "허기 뒤에도 한 걸음"
+        set ProtoCardKeyword[217] = "아메스트리스 · 흡수 · 이동 피해"
+        set ProtoCardHead[217] = 11
+        set ProtoCardGrade[217] = 2
+        set ProtoEvolutionKind[217] = 0
+        set ProtoEvolutionGoal[217] = 0.00
+        call ProtoSetEffect(217, 15, 2.00, false)
+        call ProtoSetEffect(217, 19, 14.00, false)
         set ProtoEventKey[227] = "fma_workshop"
         set ProtoEventName[227] = "떠나려는 손, 붙잡는 손"
         set ProtoEventHead[227] = 11
@@ -9978,7 +9988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[227] = ""
         set ProtoBranchLabel[908] = "정밀 공구를 빌려 윈리의 점검을 돕는다"
         set ProtoBranchResult[908] = "헛도는 부분을 찾아 조이고 다시 움직여 본다. 윈리는 힘을 더 주기 전에 작은 어긋남부터 확인하는 순서를 보여 준다."
-        set ProtoBranchCard[908] = 205
+        set ProtoBranchCard[908] = 207
         set ProtoBranchCard2[908] = 0
         set ProtoBranchGold[908] = 0
         set ProtoBranchCost[908] = 200
@@ -9988,7 +9998,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[908] = 100
         set ProtoBranchLabel[909] = "에드워드와 더 강한 적이 있는 구역을 시험한다"
         set ProtoBranchResult[909] = "에드가 단단한 상대를 무너뜨릴 때 어디를 먼저 보는지 짚어 준다. 시험을 마친 뒤에도 네가 맡은 사냥 구역의 적은 전보다 강하다."
-        set ProtoBranchCard[909] = 203
+        set ProtoBranchCard[909] = 205
         set ProtoBranchCard2[909] = 0
         set ProtoBranchGold[909] = 0
         set ProtoBranchCost[909] = 0
@@ -9998,7 +10008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[909] = 100
         set ProtoBranchLabel[910] = "알폰스와 막고 물러서는 자세를 익힌다"
         set ProtoBranchResult[910] = "알폰스가 발을 놓을 위치를 바꿔 가며 같은 자세를 되풀이한다. 세게 버티는 것보다 무너지지 않은 채 물러나는 법이 먼저 손에 익는다."
-        set ProtoBranchCard[910] = 204
+        set ProtoBranchCard[910] = 206
         set ProtoBranchCard2[910] = 0
         set ProtoBranchGold[910] = 0
         set ProtoBranchCost[910] = 0
@@ -10020,7 +10030,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[228] = ""
         set ProtoBranchLabel[912] = "종이와 제본비를 마련해 셰스카의 기억을 기록한다"
         set ProtoBranchResult[912] = "셰스카의 기억을 종이와 제본으로 남기고 윈리와 실제 치수를 대조했다. 기록을 비교하는 기억으로 사건 후보가 늘고 사냥 처치 골드를 더 챙기게 되었다. 셰스카는 읽었던 페이지와 직접 재야 할 치수를 구분해 둔다."
-        set ProtoBranchCard[912] = 206
+        set ProtoBranchCard[912] = 208
         set ProtoBranchCard2[912] = 0
         set ProtoBranchGold[912] = 0
         set ProtoBranchCost[912] = 180
@@ -10030,7 +10040,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[912] = 100
         set ProtoBranchLabel[913] = "에드워드와 강한 상대를 기준으로 다시 시험한다"
         set ProtoBranchResult[913] = "도면에 적힌 수치와 실제로 힘이 걸리는 자리를 비교한다. 시험에 택한 강한 적 구역은 앞으로도 네가 맡는다."
-        set ProtoBranchCard[913] = 203
+        set ProtoBranchCard[913] = 205
         set ProtoBranchCard2[913] = 0
         set ProtoBranchGold[913] = 0
         set ProtoBranchCost[913] = 0
@@ -10062,7 +10072,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[229] = ""
         set ProtoBranchLabel[916] = "정리 비용을 내고 알폰스와 강한 구역을 줄인다"
         set ProtoBranchResult[916] = "주변 정리를 맡길 비용을 내고 무리한 시험 구역 한 곳을 뺀다. 알폰스와 발을 놓는 위치를 다시 익히며 남은 구역으로 돌아간다."
-        set ProtoBranchCard[916] = 204
+        set ProtoBranchCard[916] = 206
         set ProtoBranchCard2[916] = 0
         set ProtoBranchGold[916] = 0
         set ProtoBranchCost[916] = 160
@@ -10072,7 +10082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[916] = 100
         set ProtoBranchLabel[917] = "암스트롱과 더 많은 적 사이에서 자세를 시험한다"
         set ProtoBranchResult[917] = "암스트롱의 체술을 보며 힘을 모았다가 내딛는 순서를 익힌다. 이번 연습에서는 지금 맡은 구역에 더 많은 적을 받아들여 빈틈을 살핀다."
-        set ProtoBranchCard[917] = 207
+        set ProtoBranchCard[917] = 209
         set ProtoBranchCard2[917] = 0
         set ProtoBranchGold[917] = 0
         set ProtoBranchCost[917] = 0
@@ -10104,7 +10114,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[230] = ""
         set ProtoBranchLabel[920] = "필사 비용을 마련하고 한 권 전체를 함께 정리한다"
         set ProtoBranchResult[920] = "필사 비용을 내고 셰스카의 기억을 받아 흩어진 내용을 목차에 맞춰 모았다. 기록을 비교하는 기억으로 사건 후보가 늘고 사냥 처치 골드를 더 챙기게 되었다. 셰스카는 다음에도 읽은 부분과 읽지 못한 부분을 섞지 않겠다고 한다."
-        set ProtoBranchCard[920] = 206
+        set ProtoBranchCard[920] = 208
         set ProtoBranchCard2[920] = 0
         set ProtoBranchGold[920] = 0
         set ProtoBranchCost[920] = 240
@@ -10114,7 +10124,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[920] = 100
         set ProtoBranchLabel[921] = "실습 재료를 사서 에드워드와 도면의 원리를 확인한다"
         set ProtoBranchResult[921] = "같은 재료를 두고 모양과 힘이 걸리는 자리를 달리해 본다. 글의 표현을 외우는 대신 어느 부분을 먼저 이해해야 하는지 짚는다."
-        set ProtoBranchCard[921] = 203
+        set ProtoBranchCard[921] = 205
         set ProtoBranchCard2[921] = 0
         set ProtoBranchGold[921] = 0
         set ProtoBranchCost[921] = 80
@@ -10146,7 +10156,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[231] = ""
         set ProtoBranchLabel[924] = "큰 적이 있는 구역에서 자세를 지키며 수련한다"
         set ProtoBranchResult[924] = "이즈미는 급하게 달려드는 발을 멈추고 몸이 준비된 순간에 내딛게 한다. 한 번의 수련이 끝나도 이 구역의 강한 적을 계속 상대해야 한다."
-        set ProtoBranchCard[924] = 208
+        set ProtoBranchCard[924] = 210
         set ProtoBranchCard2[924] = 0
         set ProtoBranchGold[924] = 0
         set ProtoBranchCost[924] = 0
@@ -10156,7 +10166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[924] = 100
         set ProtoBranchLabel[925] = "더 많은 적이 지나는 구역에서 암스트롱과 힘을 모은다"
         set ProtoBranchResult[925] = "암스트롱의 체술을 따라 몸을 낮췄다가 힘을 실어 움직인다. 빈틈을 찾을 상대도, 놓치면 몰려올 적도 많아진다."
-        set ProtoBranchCard[925] = 207
+        set ProtoBranchCard[925] = 209
         set ProtoBranchCard2[925] = 0
         set ProtoBranchGold[925] = 0
         set ProtoBranchCost[925] = 0
@@ -10166,7 +10176,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[925] = 100
         set ProtoBranchLabel[926] = "알폰스와 기본 방어 자세부터 되풀이한다"
         set ProtoBranchResult[926] = "주변을 읽지 못한 채 버티려던 습관을 알폰스가 하나씩 짚어 준다. 더 위험한 구역을 맡기 전에 발을 놓고 물러서는 기본을 익힌다."
-        set ProtoBranchCard[926] = 204
+        set ProtoBranchCard[926] = 206
         set ProtoBranchCard2[926] = 0
         set ProtoBranchGold[926] = 0
         set ProtoBranchCost[926] = 0
@@ -10188,7 +10198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[232] = ""
         set ProtoBranchLabel[928] = "이즈미와 주변 흐름까지 살피며 수련을 넓힌다"
         set ProtoBranchResult[928] = "상대가 쓰러진 다음에 어디로 움직일지도 함께 살핀다. 지금보다 더 많은 적을 받아들이고, 눈앞과 주변의 움직임을 함께 읽는 연습을 준비한다."
-        set ProtoBranchCard[928] = 209
+        set ProtoBranchCard[928] = 211
         set ProtoBranchCard2[928] = 0
         set ProtoBranchGold[928] = 0
         set ProtoBranchCost[928] = 0
@@ -10198,7 +10208,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[928] = 100
         set ProtoBranchLabel[929] = "정리 비용을 내고 알폰스와 맡은 구역을 줄인다"
         set ProtoBranchResult[929] = "강한 구역을 정리할 비용을 내고 알폰스와 물러날 위치를 익힌다. 다음에 맡을 범위는 현재의 사냥터 상황을 보며 다시 정한다."
-        set ProtoBranchCard[929] = 204
+        set ProtoBranchCard[929] = 206
         set ProtoBranchCard2[929] = 0
         set ProtoBranchGold[929] = 0
         set ProtoBranchCost[929] = 240
@@ -10220,7 +10230,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[233] = ""
         set ProtoBranchLabel[932] = "정리 비용을 내고 이즈미와 다음 발을 놓을 곳을 익힌다"
         set ProtoBranchResult[932] = "구역 정리를 맡기고 남은 적의 흐름을 살핀다. 이즈미와 공격하는 순간뿐 아니라 그 뒤 몸을 옮기는 순서까지 되짚는다."
-        set ProtoBranchCard[932] = 209
+        set ProtoBranchCard[932] = 211
         set ProtoBranchCard2[932] = 0
         set ProtoBranchGold[932] = 0
         set ProtoBranchCost[932] = 280
@@ -10230,7 +10240,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[932] = 100
         set ProtoBranchLabel[933] = "알폰스와 길을 정리하고 기본 자세로 돌아간다"
         set ProtoBranchResult[933] = "무리하게 넓혀 보았던 구역을 돌아보며 정리할 곳을 확인한다. 알폰스와 기본 자세를 되풀이한 뒤 지금 감당할 범위를 다시 살핀다."
-        set ProtoBranchCard[933] = 204
+        set ProtoBranchCard[933] = 206
         set ProtoBranchCard2[933] = 0
         set ProtoBranchGold[933] = 0
         set ProtoBranchCost[933] = 0
@@ -10252,7 +10262,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[234] = ""
         set ProtoBranchLabel[936] = "표시 도구를 마련해 리자와 지나갈 선을 비운다"
         set ProtoBranchResult[936] = "표시 도구 값을 내고 리자와 사람 앞을 가로지르지 않을 위치를 짚었다. 공격할 방향과 짧은 틈을 정확히 고르는 준비를 배웠다. 리자가 손을 내리자 블랙 하야테도 가방에서 시선을 뗀다."
-        set ProtoBranchCard[936] = 211
+        set ProtoBranchCard[936] = 213
         set ProtoBranchCard2[936] = 0
         set ProtoBranchGold[936] = 0
         set ProtoBranchCost[936] = 180
@@ -10262,7 +10272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[936] = 100
         set ProtoBranchLabel[937] = "에드워드와 더 강한 적이 드나드는 바깥길을 맡는다"
         set ProtoBranchResult[937] = "에드워드와 더 강한 적이 드나드는 길을 맡았다. 단단한 상대를 무너뜨릴 곳부터 짚는 법을 배우고 개인 사냥의 적 단계가 올라갔다. 리자는 안쪽 통행 준비를 계속한다."
-        set ProtoBranchCard[937] = 203
+        set ProtoBranchCard[937] = 205
         set ProtoBranchCard2[937] = 0
         set ProtoBranchGold[937] = 0
         set ProtoBranchCost[937] = 0
@@ -10294,7 +10304,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[235] = ""
         set ProtoBranchLabel[940] = "정리용품을 마련해 휴즈와 빠뜨린 부분을 살핀다"
         set ProtoBranchResult[940] = "정리용품 값을 내고 휴즈와 사진 아래 가려진 기록을 한 장씩 살폈다. 빠뜨린 후보를 더 보고 강한 상대에게 놓칠 점을 짚는 준비를 배웠다. 휴즈는 사진을 꺼내 놓고 딸 이야기를 이어 간다."
-        set ProtoBranchCard[940] = 212
+        set ProtoBranchCard[940] = 214
         set ProtoBranchCard2[940] = 0
         set ProtoBranchGold[940] = 0
         set ProtoBranchCost[940] = 220
@@ -10304,7 +10314,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[940] = 100
         set ProtoBranchLabel[941] = "셰스카와 더 넓은 구역의 기록을 대조한다"
         set ProtoBranchResult[941] = "대조용품 값 160골드를 내고 셰스카와 더 넓은 길목의 기록을 맡았다. 기억한 내용을 비교해 사건 후보와 사냥 처치 골드를 늘렸지만 개인 사냥의 적 수도 늘었다. 휴즈에게는 가족 사진을 돌려주었다."
-        set ProtoBranchCard[941] = 206
+        set ProtoBranchCard[941] = 208
         set ProtoBranchCard2[941] = 0
         set ProtoBranchGold[941] = 0
         set ProtoBranchCost[941] = 160
@@ -10336,7 +10346,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[236] = ""
         set ProtoBranchLabel[944] = "소모품 비용을 내고 피나코와 돌아올 몫을 남긴다"
         set ProtoBranchResult[944] = "소모품 값을 내고 피나코와 돌아올 때 쓸 몫을 남겼다. 오래 버티려면 지금 가져갈 것뿐 아니라 다음에 기대어 쓸 자리도 챙기는 법을 배웠다. 윈리는 가방을 다시 닫고 문 쪽으로 옮긴다."
-        set ProtoBranchCard[944] = 213
+        set ProtoBranchCard[944] = 215
         set ProtoBranchCard2[944] = 0
         set ProtoBranchGold[944] = 0
         set ProtoBranchCost[944] = 240
@@ -10346,7 +10356,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[944] = 100
         set ProtoBranchLabel[945] = "윈리와 더 넓은 시험 구역을 확인할 준비를 한다"
         set ProtoBranchResult[945] = "윈리와 더 넓은 시험 구역에서 살필 움직임을 짚었다. 작은 어긋남을 덜고 힘을 모을 준비를 배운 대신 개인 사냥의 적 수가 늘었다. 피나코는 집에 남길 상자를 따로 두었다."
-        set ProtoBranchCard[945] = 205
+        set ProtoBranchCard[945] = 207
         set ProtoBranchCard2[945] = 0
         set ProtoBranchGold[945] = 0
         set ProtoBranchCost[945] = 0
@@ -10378,7 +10388,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[237] = ""
         set ProtoBranchLabel[948] = "작업 준비물을 마련해 시그와 무게를 나누어 든다"
         set ProtoBranchResult[948] = "작업 준비물 값을 내고 시그와 무게가 흔들리지 않을 잡는 자리를 찾았다. 한 번에 힘을 쏟기보다 힘을 모아 쓰는 법을 배웠다. 시그는 작은 묶음을 다시 저울에 올리고 고개를 끄덕인다."
-        set ProtoBranchCard[948] = 214
+        set ProtoBranchCard[948] = 216
         set ProtoBranchCard2[948] = 0
         set ProtoBranchGold[948] = 0
         set ProtoBranchCost[948] = 220
@@ -10388,7 +10398,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[948] = 100
         set ProtoBranchLabel[949] = "이즈미와 더 강한 적이 있는 구역을 맡는다"
         set ProtoBranchResult[949] = "이즈미와 더 강한 상대가 있는 구역을 맡았다. 주변을 살피며 다음 동작을 잇는 준비를 배웠고 개인 사냥의 적 단계가 올라갔다. 에드워드는 무게만 들면 되는 줄 알았다며 저울을 다시 본다."
-        set ProtoBranchCard[949] = 209
+        set ProtoBranchCard[949] = 211
         set ProtoBranchCard2[949] = 0
         set ProtoBranchGold[949] = 0
         set ProtoBranchCost[949] = 0
@@ -10420,7 +10430,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[238] = ""
         set ProtoBranchLabel[952] = "180골드의 식사비를 거들고 린과 움직일 준비를 한다"
         set ProtoBranchResult[952] = "식사비 180골드를 거들고 린과 공격 뒤에 멈추지 않을 발걸음을 맞췄다. 공격을 이어 가며 버티고 움직일 여유를 찾는 요령을 배웠다. 린은 빈 접시를 밀어 두고 다음 길을 가리킨다."
-        set ProtoBranchCard[952] = 215
+        set ProtoBranchCard[952] = 217
         set ProtoBranchCard2[952] = 0
         set ProtoBranchGold[952] = 0
         set ProtoBranchCost[952] = 180
@@ -10430,7 +10440,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[952] = 100
         set ProtoBranchLabel[953] = "에드워드와 더 강한 적이 드나드는 길을 맡는다"
         set ProtoBranchResult[953] = "에드워드와 더 강한 적이 드나드는 길을 맡았다. 상대를 무너뜨릴 곳을 짚는 준비를 배우고 개인 사냥의 적 단계가 올라갔다. 알폰스는 계산서를 린 앞으로 다시 놓는다."
-        set ProtoBranchCard[953] = 203
+        set ProtoBranchCard[953] = 205
         set ProtoBranchCard2[953] = 0
         set ProtoBranchGold[953] = 0
         set ProtoBranchCost[953] = 0
@@ -10472,7 +10482,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[239] = ""
         set ProtoBranchLabel[956] = "준비 재료 값을 내고 로이와 힘을 모을 순서를 짚는다"
         set ProtoBranchResult[956] = "재료 값을 내고 로이와 강한 상대를 겨누기 전에 힘을 모을 순서를 짚었다. 서둘러 불씨부터 내기보다 집중할 지점을 고르는 준비를 배웠다. 리자는 사람들이 지나갈 선을 다시 확인한다."
-        set ProtoBranchCard[956] = 210
+        set ProtoBranchCard[956] = 212
         set ProtoBranchCard2[956] = 0
         set ProtoBranchGold[956] = 0
         set ProtoBranchCost[956] = 260
@@ -10482,7 +10492,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[956] = 100
         set ProtoBranchLabel[957] = "표시 도구를 사서 리자와 지나갈 방향을 확인한다"
         set ProtoBranchResult[957] = "표시 도구 값을 내고 리자와 공격할 선 앞을 비워 둘 위치를 짚었다. 정확한 방향과 짧은 틈을 고르는 준비를 배웠다. 하보크는 아직 남은 상자를 안쪽으로 옮긴다."
-        set ProtoBranchCard[957] = 211
+        set ProtoBranchCard[957] = 213
         set ProtoBranchCard2[957] = 0
         set ProtoBranchGold[957] = 0
         set ProtoBranchCost[957] = 180
@@ -10514,7 +10524,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[240] = "겹친 이름의 연락을 끝내 확인하지 못했다. 포장과 연락에 쓴 120골드는 돌아오지 않고 카드·보수·보급 물약도 받지 못한다. 휴즈는 상자 이름부터 다시 나누자고 한다."
         set ProtoBranchLabel[960] = "포장과 연락에 120골드를 쓰고 겹친 이름을 확인한다"
         set ProtoBranchResult[960] = "포장과 연락에 120골드를 쓰고 겹친 이름을 구분할 수 있었다. 휴즈와 놓친 부분을 한 번 더 살피는 요령을 배우고 준비 작업 보수 200골드와 보급 물약 하나를 받았다. 그레이시아는 표시가 나뉜 상자부터 따로 놓는다."
-        set ProtoBranchCard[960] = 212
+        set ProtoBranchCard[960] = 214
         set ProtoBranchCard2[960] = 0
         set ProtoBranchGold[960] = 200
         set ProtoBranchCost[960] = 120
@@ -10524,7 +10534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[960] = 70
         set ProtoBranchLabel[961] = "확인된 포장을 마련해 알폰스와 넘어지지 않을 자세를 짚는다"
         set ProtoBranchResult[961] = "확인된 포장 값을 내고 알폰스와 상자를 들었을 때 무너지지 않을 자세를 짚었다. 발을 놓고 버티는 준비를 배웠다. 겹친 이름의 연락은 휴즈에게 남긴다."
-        set ProtoBranchCard[961] = 204
+        set ProtoBranchCard[961] = 206
         set ProtoBranchCard2[961] = 0
         set ProtoBranchGold[961] = 0
         set ProtoBranchCost[961] = 160
@@ -10549,7 +10559,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[12] = "나비저택"
         set ProtoHeadIntro[12] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoHeadIcon[12] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
-        set ProtoHeadEntryCard[12] = 216
+        set ProtoHeadEntryCard[12] = 218
         call SaveReal(ProtoHeadEffectData, 12, 24, 2.00)
         set ProtoEventKey[45] = "butterfly_entry_0"
         set ProtoEventName[45] = "나비저택 방문"
@@ -10583,223 +10593,223 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[48] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIntro[48] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIcon[48] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
-        set ProtoCardKey[216] = "kny_aoi"
-        set ProtoCardName[216] = "칸자키 아오이"
-        set ProtoCardEffectName[216] = "다시 시작할 준비"
-        set ProtoCardKeyword[216] = "나비저택 · 행동"
-        set ProtoCardHead[216] = 12
-        set ProtoCardGrade[216] = 1
-        set ProtoEvolutionKind[216] = 0
-        set ProtoEvolutionGoal[216] = 0.00
-        call ProtoSetEffect(216, 9, 3.00, false)
-        set ProtoCardKey[217] = "kny_tanjiro"
-        set ProtoCardName[217] = "카마도 탄지로"
-        set ProtoCardEffectName[217] = "끊기지 않는 호흡"
-        set ProtoCardKeyword[217] = "나비저택 · 신속 · 고체력"
-        set ProtoCardHead[217] = 12
-        set ProtoCardGrade[217] = 2
-        set ProtoEvolutionKind[217] = 3
-        set ProtoEvolutionGoal[217] = 45.00
-        call ProtoSetEffect(217, 8, 180.00, false)
-        call ProtoSetEffect(217, 24, 14.00, false)
-        call ProtoSetEffect(217, 3, 3.00, true)
-        set ProtoCardKey[218] = "kny_kanao"
-        set ProtoCardName[218] = "츠유리 카나오"
-        set ProtoCardEffectName[218] = "먼저 읽는 움직임"
-        set ProtoCardKeyword[218] = "나비저택 · 치명 · 행동"
+        set ProtoCardKey[218] = "kny_aoi"
+        set ProtoCardName[218] = "칸자키 아오이"
+        set ProtoCardEffectName[218] = "다시 시작할 준비"
+        set ProtoCardKeyword[218] = "나비저택 · 행동"
         set ProtoCardHead[218] = 12
-        set ProtoCardGrade[218] = 2
-        set ProtoEvolutionKind[218] = 2
-        set ProtoEvolutionGoal[218] = 6000.00
-        call ProtoSetEffect(218, 6, 7.00, false)
-        call ProtoSetEffect(218, 9, 6.00, false)
-        call ProtoSetEffect(218, 7, 15.00, true)
-        set ProtoCardKey[219] = "kny_shinobu"
-        set ProtoCardName[219] = "코쵸 시노부"
-        set ProtoCardEffectName[219] = "출발 전에 남긴 당부"
-        set ProtoCardKeyword[219] = "나비저택 · 재생 · 생존"
+        set ProtoCardGrade[218] = 1
+        set ProtoEvolutionKind[218] = 0
+        set ProtoEvolutionGoal[218] = 0.00
+        call ProtoSetEffect(218, 9, 3.00, false)
+        set ProtoCardKey[219] = "kny_tanjiro"
+        set ProtoCardName[219] = "카마도 탄지로"
+        set ProtoCardEffectName[219] = "끊기지 않는 호흡"
+        set ProtoCardKeyword[219] = "나비저택 · 신속 · 고체력"
         set ProtoCardHead[219] = 12
         set ProtoCardGrade[219] = 2
-        set ProtoEvolutionKind[219] = 0
-        set ProtoEvolutionGoal[219] = 0.00
-        call ProtoSetEffect(219, 16, 0.60, false)
-        call ProtoSetEffect(219, 14, 3.00, false)
-        set ProtoCardKey[220] = "kny_zenitsu"
-        set ProtoCardName[220] = "아가츠마 젠이츠"
-        set ProtoCardEffectName[220] = "한순간에 모은 힘"
-        set ProtoCardKeyword[220] = "나비저택 · 차지 · 치명"
+        set ProtoEvolutionKind[219] = 3
+        set ProtoEvolutionGoal[219] = 45.00
+        call ProtoSetEffect(219, 8, 180.00, false)
+        call ProtoSetEffect(219, 24, 14.00, false)
+        call ProtoSetEffect(219, 3, 3.00, true)
+        set ProtoCardKey[220] = "kny_kanao"
+        set ProtoCardName[220] = "츠유리 카나오"
+        set ProtoCardEffectName[220] = "먼저 읽는 움직임"
+        set ProtoCardKeyword[220] = "나비저택 · 치명 · 행동"
         set ProtoCardHead[220] = 12
         set ProtoCardGrade[220] = 2
-        set ProtoEvolutionKind[220] = 1
-        set ProtoEvolutionGoal[220] = 60.00
-        call ProtoSetEffect(220, 23, 18.00, false)
-        call ProtoSetEffect(220, 7, 20.00, false)
-        call ProtoSetEffect(220, 4, 8.00, true)
-        set ProtoCardKey[221] = "kny_inosuke"
-        set ProtoCardName[221] = "하시비라 이노스케"
-        set ProtoCardEffectName[221] = "머뭇거리지 않는 돌파"
-        set ProtoCardKeyword[221] = "나비저택 · 일반 · 비방향"
+        set ProtoEvolutionKind[220] = 2
+        set ProtoEvolutionGoal[220] = 6000.00
+        call ProtoSetEffect(220, 6, 7.00, false)
+        call ProtoSetEffect(220, 9, 6.00, false)
+        call ProtoSetEffect(220, 7, 15.00, true)
+        set ProtoCardKey[221] = "kny_shinobu"
+        set ProtoCardName[221] = "코쵸 시노부"
+        set ProtoCardEffectName[221] = "출발 전에 남긴 당부"
+        set ProtoCardKeyword[221] = "나비저택 · 재생 · 생존"
         set ProtoCardHead[221] = 12
         set ProtoCardGrade[221] = 2
         set ProtoEvolutionKind[221] = 0
         set ProtoEvolutionGoal[221] = 0.00
-        call ProtoSetEffect(221, 5, 15.00, false)
-        call ProtoSetEffect(221, 21, 12.00, false)
-        call ProtoSetEffect(221, 14, -4.00, false)
-        set ProtoCardKey[222] = "kny_aoi_supply"
-        set ProtoCardName[222] = "칸자키 아오이"
-        set ProtoCardEffectName[222] = "필요한 몫을 먼저"
-        set ProtoCardKeyword[222] = "나비저택 · 재생 · 처치 골드"
+        call ProtoSetEffect(221, 16, 0.60, false)
+        call ProtoSetEffect(221, 14, 3.00, false)
+        set ProtoCardKey[222] = "kny_zenitsu"
+        set ProtoCardName[222] = "아가츠마 젠이츠"
+        set ProtoCardEffectName[222] = "한순간에 모은 힘"
+        set ProtoCardKeyword[222] = "나비저택 · 차지 · 치명"
         set ProtoCardHead[222] = 12
         set ProtoCardGrade[222] = 2
-        set ProtoEvolutionKind[222] = 0
-        set ProtoEvolutionGoal[222] = 0.00
-        call ProtoSetEffect(222, 16, 0.40, false)
-        call ProtoSetEffect(222, 17, 2.00, false)
-        set ProtoCardKey[223] = "kny_kanao_quiet"
-        set ProtoCardName[223] = "츠유리 카나오"
-        set ProtoCardEffectName[223] = "발이 움직이기 전에"
-        set ProtoCardKeyword[223] = "나비저택 · 이동 · 치명 확률"
+        set ProtoEvolutionKind[222] = 1
+        set ProtoEvolutionGoal[222] = 60.00
+        call ProtoSetEffect(222, 23, 18.00, false)
+        call ProtoSetEffect(222, 7, 20.00, false)
+        call ProtoSetEffect(222, 4, 8.00, true)
+        set ProtoCardKey[223] = "kny_inosuke"
+        set ProtoCardName[223] = "하시비라 이노스케"
+        set ProtoCardEffectName[223] = "머뭇거리지 않는 돌파"
+        set ProtoCardKeyword[223] = "나비저택 · 일반 · 비방향"
         set ProtoCardHead[223] = 12
         set ProtoCardGrade[223] = 2
         set ProtoEvolutionKind[223] = 0
         set ProtoEvolutionGoal[223] = 0.00
-        call ProtoSetEffect(223, 10, 5.00, false)
-        call ProtoSetEffect(223, 6, 5.00, false)
-        set ProtoCardKey[224] = "kny_tanjiro_smell"
-        set ProtoCardName[224] = "카마도 탄지로"
-        set ProtoCardEffectName[224] = "겹친 흔적 사이"
-        set ProtoCardKeyword[224] = "나비저택 · 방향 적중 · 관통"
+        call ProtoSetEffect(223, 5, 15.00, false)
+        call ProtoSetEffect(223, 21, 12.00, false)
+        call ProtoSetEffect(223, 14, -4.00, false)
+        set ProtoCardKey[224] = "kny_aoi_supply"
+        set ProtoCardName[224] = "칸자키 아오이"
+        set ProtoCardEffectName[224] = "필요한 몫을 먼저"
+        set ProtoCardKeyword[224] = "나비저택 · 재생 · 처치 골드"
         set ProtoCardHead[224] = 12
         set ProtoCardGrade[224] = 2
-        set ProtoEvolutionKind[224] = 1
-        set ProtoEvolutionGoal[224] = 45.00
-        call ProtoSetEffect(224, 20, 14.00, false)
-        call ProtoSetEffect(224, 12, 5.00, false)
-        call ProtoSetEffect(224, 4, 6.00, true)
-        set ProtoCardKey[225] = "kny_shinobu_points"
-        set ProtoCardName[225] = "코쵸 시노부"
-        set ProtoCardEffectName[225] = "상대를 먼저 알기"
-        set ProtoCardKeyword[225] = "나비저택 · 관통 · 보스"
+        set ProtoEvolutionKind[224] = 0
+        set ProtoEvolutionGoal[224] = 0.00
+        call ProtoSetEffect(224, 16, 0.40, false)
+        call ProtoSetEffect(224, 17, 2.00, false)
+        set ProtoCardKey[225] = "kny_kanao_quiet"
+        set ProtoCardName[225] = "츠유리 카나오"
+        set ProtoCardEffectName[225] = "발이 움직이기 전에"
+        set ProtoCardKeyword[225] = "나비저택 · 이동 · 치명 확률"
         set ProtoCardHead[225] = 12
         set ProtoCardGrade[225] = 2
         set ProtoEvolutionKind[225] = 0
         set ProtoEvolutionGoal[225] = 0.00
-        call ProtoSetEffect(225, 12, 8.00, false)
-        call ProtoSetEffect(225, 4, 12.00, false)
-        set ProtoCardKey[226] = "kny_zenitsu_listen"
-        set ProtoCardName[226] = "아가츠마 젠이츠"
-        set ProtoCardEffectName[226] = "소리 사이의 한순간"
-        set ProtoCardKeyword[226] = "나비저택 · 차지 속도 · 보스"
+        call ProtoSetEffect(225, 10, 5.00, false)
+        call ProtoSetEffect(225, 6, 5.00, false)
+        set ProtoCardKey[226] = "kny_tanjiro_smell"
+        set ProtoCardName[226] = "카마도 탄지로"
+        set ProtoCardEffectName[226] = "겹친 흔적 사이"
+        set ProtoCardKeyword[226] = "나비저택 · 방향 적중 · 관통"
         set ProtoCardHead[226] = 12
         set ProtoCardGrade[226] = 2
-        set ProtoEvolutionKind[226] = 3
+        set ProtoEvolutionKind[226] = 1
         set ProtoEvolutionGoal[226] = 45.00
-        call ProtoSetEffect(226, 11, 7.00, false)
-        call ProtoSetEffect(226, 4, 8.00, false)
-        call ProtoSetEffect(226, 23, 8.00, true)
-        set ProtoCardKey[227] = "kny_inosuke_terrain"
-        set ProtoCardName[227] = "하시비라 이노스케"
-        set ProtoCardEffectName[227] = "먼저 발을 내딛는 길"
-        set ProtoCardKeyword[227] = "나비저택 · 이동 · 일반 적"
+        call ProtoSetEffect(226, 20, 14.00, false)
+        call ProtoSetEffect(226, 12, 5.00, false)
+        call ProtoSetEffect(226, 4, 6.00, true)
+        set ProtoCardKey[227] = "kny_shinobu_points"
+        set ProtoCardName[227] = "코쵸 시노부"
+        set ProtoCardEffectName[227] = "상대를 먼저 알기"
+        set ProtoCardKeyword[227] = "나비저택 · 관통 · 보스"
         set ProtoCardHead[227] = 12
         set ProtoCardGrade[227] = 2
         set ProtoEvolutionKind[227] = 0
         set ProtoEvolutionGoal[227] = 0.00
-        call ProtoSetEffect(227, 10, 5.00, false)
-        call ProtoSetEffect(227, 5, 15.00, false)
-        set ProtoCardKey[228] = "kny_murata_senior"
-        set ProtoCardName[228] = "무라타"
-        set ProtoCardEffectName[228] = "강함과 다른 선배의 몫"
-        set ProtoCardKeyword[228] = "나비저택 · 최대 체력 · 피해 감소"
+        call ProtoSetEffect(227, 12, 8.00, false)
+        call ProtoSetEffect(227, 4, 12.00, false)
+        set ProtoCardKey[228] = "kny_zenitsu_listen"
+        set ProtoCardName[228] = "아가츠마 젠이츠"
+        set ProtoCardEffectName[228] = "소리 사이의 한순간"
+        set ProtoCardKeyword[228] = "나비저택 · 차지 속도 · 보스"
         set ProtoCardHead[228] = 12
         set ProtoCardGrade[228] = 2
-        set ProtoEvolutionKind[228] = 0
-        set ProtoEvolutionGoal[228] = 0.00
-        call ProtoSetEffect(228, 13, 10.00, false)
-        call ProtoSetEffect(228, 14, 3.00, false)
-        set ProtoCardKey[229] = "kny_tanjiro_return"
-        set ProtoCardName[229] = "카마도 탄지로"
-        set ProtoCardEffectName[229] = "돌아오게 하는 꾸준함"
-        set ProtoCardKeyword[229] = "나비저택 · 행동 속도 · 보스"
+        set ProtoEvolutionKind[228] = 3
+        set ProtoEvolutionGoal[228] = 45.00
+        call ProtoSetEffect(228, 11, 7.00, false)
+        call ProtoSetEffect(228, 4, 8.00, false)
+        call ProtoSetEffect(228, 23, 8.00, true)
+        set ProtoCardKey[229] = "kny_inosuke_terrain"
+        set ProtoCardName[229] = "하시비라 이노스케"
+        set ProtoCardEffectName[229] = "먼저 발을 내딛는 길"
+        set ProtoCardKeyword[229] = "나비저택 · 이동 · 일반 적"
         set ProtoCardHead[229] = 12
         set ProtoCardGrade[229] = 2
-        set ProtoEvolutionKind[229] = 2
-        set ProtoEvolutionGoal[229] = 12000.00
-        call ProtoSetEffect(229, 9, 4.00, false)
-        call ProtoSetEffect(229, 4, 8.00, false)
-        call ProtoSetEffect(229, 3, 2.00, true)
-        set ProtoCardKey[230] = "kny_nezuko_will"
-        set ProtoCardName[230] = "카마도 네즈코"
-        set ProtoCardEffectName[230] = "겁내는 이의 앞에서"
-        set ProtoCardKeyword[230] = "나비저택 · 재생 · 고체력"
+        set ProtoEvolutionKind[229] = 0
+        set ProtoEvolutionGoal[229] = 0.00
+        call ProtoSetEffect(229, 10, 5.00, false)
+        call ProtoSetEffect(229, 5, 15.00, false)
+        set ProtoCardKey[230] = "kny_murata_senior"
+        set ProtoCardName[230] = "무라타"
+        set ProtoCardEffectName[230] = "강함과 다른 선배의 몫"
+        set ProtoCardKeyword[230] = "나비저택 · 최대 체력 · 피해 감소"
         set ProtoCardHead[230] = 12
         set ProtoCardGrade[230] = 2
         set ProtoEvolutionKind[230] = 0
         set ProtoEvolutionGoal[230] = 0.00
-        call ProtoSetEffect(230, 16, 0.50, false)
-        call ProtoSetEffect(230, 24, 8.00, false)
-        set ProtoCardKey[231] = "kny_gourd_breath"
+        call ProtoSetEffect(230, 13, 10.00, false)
+        call ProtoSetEffect(230, 14, 3.00, false)
+        set ProtoCardKey[231] = "kny_tanjiro_return"
         set ProtoCardName[231] = "카마도 탄지로"
-        set ProtoCardEffectName[231] = "크기보다 긴 한숨"
-        set ProtoCardKeyword[231] = "나비저택 · 차지 피해 · 행동 속도"
+        set ProtoCardEffectName[231] = "돌아오게 하는 꾸준함"
+        set ProtoCardKeyword[231] = "나비저택 · 행동 속도 · 보스"
         set ProtoCardHead[231] = 12
         set ProtoCardGrade[231] = 2
-        set ProtoEvolutionKind[231] = 0
-        set ProtoEvolutionGoal[231] = 0.00
-        call ProtoSetEffect(231, 23, 14.00, false)
-        call ProtoSetEffect(231, 9, 3.00, false)
-        set ProtoCardKey[232] = "kny_morning_breath"
-        set ProtoCardName[232] = "카마도 탄지로"
-        set ProtoCardEffectName[232] = "인사 다음에도 이어지는 숨"
+        set ProtoEvolutionKind[231] = 2
+        set ProtoEvolutionGoal[231] = 12000.00
+        call ProtoSetEffect(231, 9, 4.00, false)
+        call ProtoSetEffect(231, 4, 8.00, false)
+        call ProtoSetEffect(231, 3, 2.00, true)
+        set ProtoCardKey[232] = "kny_nezuko_will"
+        set ProtoCardName[232] = "카마도 네즈코"
+        set ProtoCardEffectName[232] = "겁내는 이의 앞에서"
         set ProtoCardKeyword[232] = "나비저택 · 재생 · 고체력"
         set ProtoCardHead[232] = 12
         set ProtoCardGrade[232] = 2
         set ProtoEvolutionKind[232] = 0
         set ProtoEvolutionGoal[232] = 0.00
-        call ProtoSetEffect(232, 16, 0.40, false)
-        call ProtoSetEffect(232, 24, 10.00, false)
-        set ProtoCardKey[233] = "kny_kanao_return_hand"
-        set ProtoCardName[233] = "츠유리 카나오"
-        set ProtoCardEffectName[233] = "다음 손을 거두는 때"
-        set ProtoCardKeyword[233] = "나비저택 · 행동 속도 · 방향"
+        call ProtoSetEffect(232, 16, 0.50, false)
+        call ProtoSetEffect(232, 24, 8.00, false)
+        set ProtoCardKey[233] = "kny_gourd_breath"
+        set ProtoCardName[233] = "카마도 탄지로"
+        set ProtoCardEffectName[233] = "크기보다 긴 한숨"
+        set ProtoCardKeyword[233] = "나비저택 · 차지 피해 · 행동 속도"
         set ProtoCardHead[233] = 12
         set ProtoCardGrade[233] = 2
-        set ProtoEvolutionKind[233] = 2
-        set ProtoEvolutionGoal[233] = 8000.00
-        call ProtoSetEffect(233, 9, 6.00, false)
-        call ProtoSetEffect(233, 20, 10.00, false)
-        call ProtoSetEffect(233, 6, 3.00, true)
-        set ProtoCardKey[234] = "kny_kanao_small_motion"
-        set ProtoCardName[234] = "츠유리 카나오"
-        set ProtoCardEffectName[234] = "작게 움직여도 늦지 않게"
-        set ProtoCardKeyword[234] = "나비저택 · 치명타 확률 · 이동 속도"
+        set ProtoEvolutionKind[233] = 0
+        set ProtoEvolutionGoal[233] = 0.00
+        call ProtoSetEffect(233, 23, 14.00, false)
+        call ProtoSetEffect(233, 9, 3.00, false)
+        set ProtoCardKey[234] = "kny_morning_breath"
+        set ProtoCardName[234] = "카마도 탄지로"
+        set ProtoCardEffectName[234] = "인사 다음에도 이어지는 숨"
+        set ProtoCardKeyword[234] = "나비저택 · 재생 · 고체력"
         set ProtoCardHead[234] = 12
         set ProtoCardGrade[234] = 2
         set ProtoEvolutionKind[234] = 0
         set ProtoEvolutionGoal[234] = 0.00
-        call ProtoSetEffect(234, 6, 6.00, false)
-        call ProtoSetEffect(234, 10, 4.00, false)
-        set ProtoCardKey[235] = "kny_inosuke_partition"
-        set ProtoCardName[235] = "하시비라 이노스케"
-        set ProtoCardEffectName[235] = "안 보인다고 없는 것은"
-        set ProtoCardKeyword[235] = "나비저택 · 방어 관통 · 비방향"
+        call ProtoSetEffect(234, 16, 0.40, false)
+        call ProtoSetEffect(234, 24, 10.00, false)
+        set ProtoCardKey[235] = "kny_kanao_return_hand"
+        set ProtoCardName[235] = "츠유리 카나오"
+        set ProtoCardEffectName[235] = "다음 손을 거두는 때"
+        set ProtoCardKeyword[235] = "나비저택 · 행동 속도 · 방향"
         set ProtoCardHead[235] = 12
         set ProtoCardGrade[235] = 2
-        set ProtoEvolutionKind[235] = 0
-        set ProtoEvolutionGoal[235] = 0.00
-        call ProtoSetEffect(235, 12, 8.00, false)
-        call ProtoSetEffect(235, 21, 12.00, false)
-        set ProtoCardKey[236] = "kny_gourd_second"
-        set ProtoCardName[236] = "카마도 탄지로"
-        set ProtoCardEffectName[236] = "터뜨린 뒤에 남은 호흡"
-        set ProtoCardKeyword[236] = "나비저택 · 차지 속도 · 차지 피해"
+        set ProtoEvolutionKind[235] = 2
+        set ProtoEvolutionGoal[235] = 8000.00
+        call ProtoSetEffect(235, 9, 6.00, false)
+        call ProtoSetEffect(235, 20, 10.00, false)
+        call ProtoSetEffect(235, 6, 3.00, true)
+        set ProtoCardKey[236] = "kny_kanao_small_motion"
+        set ProtoCardName[236] = "츠유리 카나오"
+        set ProtoCardEffectName[236] = "작게 움직여도 늦지 않게"
+        set ProtoCardKeyword[236] = "나비저택 · 치명타 확률 · 이동 속도"
         set ProtoCardHead[236] = 12
         set ProtoCardGrade[236] = 2
         set ProtoEvolutionKind[236] = 0
         set ProtoEvolutionGoal[236] = 0.00
-        call ProtoSetEffect(236, 11, 9.00, false)
-        call ProtoSetEffect(236, 23, 10.00, false)
+        call ProtoSetEffect(236, 6, 6.00, false)
+        call ProtoSetEffect(236, 10, 4.00, false)
+        set ProtoCardKey[237] = "kny_inosuke_partition"
+        set ProtoCardName[237] = "하시비라 이노스케"
+        set ProtoCardEffectName[237] = "안 보인다고 없는 것은"
+        set ProtoCardKeyword[237] = "나비저택 · 방어 관통 · 비방향"
+        set ProtoCardHead[237] = 12
+        set ProtoCardGrade[237] = 2
+        set ProtoEvolutionKind[237] = 0
+        set ProtoEvolutionGoal[237] = 0.00
+        call ProtoSetEffect(237, 12, 8.00, false)
+        call ProtoSetEffect(237, 21, 12.00, false)
+        set ProtoCardKey[238] = "kny_gourd_second"
+        set ProtoCardName[238] = "카마도 탄지로"
+        set ProtoCardEffectName[238] = "터뜨린 뒤에 남은 호흡"
+        set ProtoCardKeyword[238] = "나비저택 · 차지 속도 · 차지 피해"
+        set ProtoCardHead[238] = 12
+        set ProtoCardGrade[238] = 2
+        set ProtoEvolutionKind[238] = 0
+        set ProtoEvolutionGoal[238] = 0.00
+        call ProtoSetEffect(238, 11, 9.00, false)
+        call ProtoSetEffect(238, 23, 10.00, false)
         set ProtoEventKey[241] = "kny_night_path"
         set ProtoEventName[241] = "울음 사이로 섞인 발소리"
         set ProtoEventHead[241] = 12
@@ -10814,7 +10824,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[241] = "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다."
         set ProtoBranchLabel[964] = "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다"
         set ProtoBranchResult[964] = "등불과 밧줄에160골드를 내고 소리를 따라 길을 잃은 보급꾼을 찾았다. 젠이츠의 한순간에 힘을 모으는 준비를 기억해 차지 공격과 치명타 피해를 높였지만, 내 사냥의 강함 단계는1올랐다. 보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다."
-        set ProtoBranchCard[964] = 220
+        set ProtoBranchCard[964] = 222
         set ProtoBranchCard2[964] = 0
         set ProtoBranchGold[964] = 0
         set ProtoBranchCost[964] = 160
@@ -10824,7 +10834,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[964] = 70
         set ProtoBranchLabel[965] = "이노스케와 막힌 길을 직접 열어 본다"
         set ProtoBranchResult[965] = "이노스케가 보여 준 자세로 공격을 이어가며 길 일부를 열었다. 적이 드나드는 구역을 더 넓게 맡고 방어의 빈틈도 감수하지만, 보급꾼의 행방은 아직 확인하지 못했다."
-        set ProtoBranchCard[965] = 221
+        set ProtoBranchCard[965] = 223
         set ProtoBranchCard2[965] = 0
         set ProtoBranchGold[965] = 0
         set ProtoBranchCost[965] = 0
@@ -10834,7 +10844,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[965] = 100
         set ProtoBranchLabel[966] = "탄지로와 서두르지 않고 남은 짐을 운반한다"
         set ProtoBranchResult[966] = "탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다."
-        set ProtoBranchCard[966] = 217
+        set ProtoBranchCard[966] = 219
         set ProtoBranchCard2[966] = 0
         set ProtoBranchGold[966] = 0
         set ProtoBranchCost[966] = 220
@@ -10856,7 +10866,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[242] = ""
         set ProtoBranchLabel[968] = "카나오와 반응 훈련을 위한 도구를 마련한다"
         set ProtoBranchResult[968] = "훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다."
-        set ProtoBranchCard[968] = 218
+        set ProtoBranchCard[968] = 220
         set ProtoBranchCard2[968] = 0
         set ProtoBranchGold[968] = 0
         set ProtoBranchCost[968] = 240
@@ -10866,7 +10876,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[968] = 100
         set ProtoBranchLabel[969] = "180골드로 짐을 나눌 도구를 마련하고 카나오가 먼저 비운 발자리를 따라 본다"
         set ProtoBranchResult[969] = "짐을 나눌 도구에180골드를 내고 카나오가 먼저 비운 발자리를 따라 발을 옮겼다. 정확히 움직이는 준비를 기억해 이동속도와 치명타확률을 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약2개를 받았다. 카나오는 짐을 놓은 자리보다 다음에 디딜 자리를 다시 비워 준다."
-        set ProtoBranchCard[969] = 223
+        set ProtoBranchCard[969] = 225
         set ProtoBranchCard2[969] = 0
         set ProtoBranchGold[969] = 0
         set ProtoBranchCost[969] = 180
@@ -10876,7 +10886,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[969] = 100
         set ProtoBranchLabel[970] = "180골드로 짐 소리를 줄일 천을 마련하고 젠이츠와 움직일 순간을 맞춘다"
         set ProtoBranchResult[970] = "짐 소리를 줄일 천에180골드를 내고 젠이츠와 움직일 순간을 맞췄다. 소리 사이의 한순간을 기억해 차지 준비속도와 보스에게 가하는 피해를 높였다. 젠이츠가 다시 귀를 기울일 때 네가 먼저 짐을 들어 소리를 내자, 그는 아직 움직일 때가 아니라고 손을 세운다."
-        set ProtoBranchCard[970] = 226
+        set ProtoBranchCard[970] = 228
         set ProtoBranchCard2[970] = 0
         set ProtoBranchGold[970] = 0
         set ProtoBranchCost[970] = 180
@@ -10898,7 +10908,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[243] = ""
         set ProtoBranchLabel[972] = "시노부와 다음 출발의 회복 준비를 갖춘다"
         set ProtoBranchResult[972] = "새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다."
-        set ProtoBranchCard[972] = 219
+        set ProtoBranchCard[972] = 221
         set ProtoBranchCard2[972] = 0
         set ProtoBranchGold[972] = 0
         set ProtoBranchCost[972] = 160
@@ -10908,7 +10918,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[972] = 100
         set ProtoBranchLabel[973] = "이노스케에게 더 강한 구역을 맡는 자세를 묻는다"
         set ProtoBranchResult[973] = "이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다."
-        set ProtoBranchCard[973] = 221
+        set ProtoBranchCard[973] = 223
         set ProtoBranchCard2[973] = 0
         set ProtoBranchGold[973] = 0
         set ProtoBranchCost[973] = 0
@@ -10918,7 +10928,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[973] = 100
         set ProtoBranchLabel[974] = "180골드로 발판 확인 도구를 마련하고 이노스케와 보이지 않은 쪽의 움직임도 살핀다"
         set ProtoBranchResult[974] = "발판 확인 도구에180골드를 내고 이노스케와 보이지 않는 쪽의 움직임도 살폈다. 그 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 빈 기록지의 같은 길보다 아직 밟지 않은 쪽을 가리킨다."
-        set ProtoBranchCard[974] = 235
+        set ProtoBranchCard[974] = 237
         set ProtoBranchCard2[974] = 0
         set ProtoBranchGold[974] = 0
         set ProtoBranchCost[974] = 180
@@ -10940,7 +10950,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[244] = ""
         set ProtoBranchLabel[976] = "새 이름표를 사서 시노부와 병의 기록을 대조한다"
         set ProtoBranchResult[976] = "이름표 값을 치르고 기록과 맞는 병을 나누었다. 시노부에게 출발 전에 회복 준비를 확인하는 요령을 듣고 챙겼다. 끝내 읽히지 않는 병은 따로 남겨 함부로 사용하지 않는다."
-        set ProtoBranchCard[976] = 219
+        set ProtoBranchCard[976] = 221
         set ProtoBranchCard2[976] = 0
         set ProtoBranchGold[976] = 0
         set ProtoBranchCost[976] = 220
@@ -10950,7 +10960,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[976] = 100
         set ProtoBranchLabel[977] = "포장 재료를 사서 아오이와 확인된 보급만 챙긴다"
         set ProtoBranchResult[977] = "포장 재료를 마련해 확인된 보급만 묶었다. 아오이가 짐을 나누는 순서와 회복 준비를 보여 준다. 기록을 전부 복원하지는 않고, 모르는 병은 다음 확인자에게 남긴다."
-        set ProtoBranchCard[977] = 222
+        set ProtoBranchCard[977] = 224
         set ProtoBranchCard2[977] = 0
         set ProtoBranchGold[977] = 0
         set ProtoBranchCost[977] = 140
@@ -10960,7 +10970,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[977] = 100
         set ProtoBranchLabel[978] = "260골드로 기록 대조 도구를 마련하고 시노부와 다음 상대에 맞는 준비를 구별한다"
         set ProtoBranchResult[978] = "기록 대조 도구에260골드를 내고 시노부와 다음 상대에 맞춰 가져갈 준비를 구별했다. 상대를 먼저 살피는 기억으로 방어관통과 보스에게 가하는 피해를 높였다. 시노부는 끝내 읽히지 않은 병을 네 짐에서 빼고 다음 확인자에게 남겨 둔다."
-        set ProtoBranchCard[978] = 225
+        set ProtoBranchCard[978] = 227
         set ProtoBranchCard2[978] = 0
         set ProtoBranchGold[978] = 0
         set ProtoBranchCost[978] = 260
@@ -10982,7 +10992,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[245] = ""
         set ProtoBranchLabel[980] = "새 천을 마련하고 아오이와 보급 묶음을 나눈다"
         set ProtoBranchResult[980] = "새 천 값을 내고 필요한 몫을 나누어 묶었다. 아오이에게 다시 빠뜨리지 않도록 보급을 정리하는 준비를 배웠다. 젖은 천은 그대로 말려 두고 오늘 쓸 분량부터 건넨다."
-        set ProtoBranchCard[980] = 222
+        set ProtoBranchCard[980] = 224
         set ProtoBranchCard2[980] = 0
         set ProtoBranchGold[980] = 0
         set ProtoBranchCost[980] = 180
@@ -10992,7 +11002,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[980] = 100
         set ProtoBranchLabel[981] = "이노스케와 돌아가는 보급길을 넓게 맡는다"
         set ProtoBranchResult[981] = "이노스케와 돌아가는 길에서 보급을 옮겼다. 길을 살피며 발을 움직이는 요령을 익힌 대신, 넓어진 내 구역에는 적이 더 많이 드나든다. 길 전체가 안전해진 것은 아니다."
-        set ProtoBranchCard[981] = 227
+        set ProtoBranchCard[981] = 229
         set ProtoBranchCard2[981] = 0
         set ProtoBranchGold[981] = 0
         set ProtoBranchCost[981] = 0
@@ -11002,7 +11012,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[981] = 100
         set ProtoBranchLabel[982] = "180골드로 길을 확인할 도구를 마련하고 이노스케와 보이지 않는 구간을 살핀다"
         set ProtoBranchResult[982] = "길을 확인할 도구에180골드를 내고 이노스케와 보이지 않는 구간의 발판을 살폈다. 방어관통과 헤드·백이 없는 공격의 피해를 높이는 기억을 얻고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 젖은 천을 들고도 발을 놓을 곳부터 보라며 다음 길목을 짚는다."
-        set ProtoBranchCard[982] = 235
+        set ProtoBranchCard[982] = 237
         set ProtoBranchCard2[982] = 0
         set ProtoBranchGold[982] = 0
         set ProtoBranchCost[982] = 180
@@ -11024,7 +11034,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[246] = ""
         set ProtoBranchLabel[984] = "기록용품을 사서 탄지로와 맡을 일을 다시 확인한다"
         set ProtoBranchResult[984] = "기록용품을 마련하고 서두를 때도 호흡을 흐트러뜨리지 않으며 안내를 다시 나누어 들었다. 탄지로와 배운 준비를 챙겼지만, 맡기지 않은 임무까지 새로 받지는 않는다."
-        set ProtoBranchCard[984] = 217
+        set ProtoBranchCard[984] = 219
         set ProtoBranchCard2[984] = 0
         set ProtoBranchGold[984] = 0
         set ProtoBranchCost[984] = 160
@@ -11034,7 +11044,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[984] = 100
         set ProtoBranchLabel[985] = "부족한 포장을 마련해 아오이와 출발 목록을 맞춘다"
         set ProtoBranchResult[985] = "부족한 포장 값을 내고 아오이와 가져갈 몫을 나눴다. 출발 중에도 준비를 이어갈 요령을 챙겼다. 까마귀의 긴 안내를 전부 정리하는 일은 다른 사람에게 남긴다."
-        set ProtoBranchCard[985] = 222
+        set ProtoBranchCard[985] = 224
         set ProtoBranchCard2[985] = 0
         set ProtoBranchGold[985] = 0
         set ProtoBranchCost[985] = 200
@@ -11044,7 +11054,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[985] = 100
         set ProtoBranchLabel[986] = "180골드로 반복할 준비를 마련하고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞춘다"
         set ProtoBranchResult[986] = "반복할 준비에180골드를 내고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞췄다. 꾸준히 되짚은 준비를 기억해 일반 행동속도와 보스에게 가하는 피해를 높였다. 까마귀가 안내를 다시 읽자 탄지로는 이번에는 네가 맡을 동작부터 기다린다."
-        set ProtoBranchCard[986] = 229
+        set ProtoBranchCard[986] = 231
         set ProtoBranchCard2[986] = 0
         set ProtoBranchGold[986] = 0
         set ProtoBranchCost[986] = 180
@@ -11066,7 +11076,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[247] = ""
         set ProtoBranchLabel[988] = "완충천을 사서 짐 소리를 줄이고 젠이츠와 움직일 순간을 맞춘다"
         set ProtoBranchResult[988] = "완충천 값을 내고 부딪치는 짐을 다시 묶었다. 남은 소리 사이에서 한 번 움직일 순간에 집중하는 젠이츠의 준비를 챙겼다. 모든 소리를 알아듣는 능력을 얻은 것은 아니다."
-        set ProtoBranchCard[988] = 226
+        set ProtoBranchCard[988] = 228
         set ProtoBranchCard2[988] = 0
         set ProtoBranchGold[988] = 0
         set ProtoBranchCost[988] = 180
@@ -11076,7 +11086,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[988] = 100
         set ProtoBranchLabel[989] = "조사 도구를 사서 탄지로와 주변 흔적부터 확인한다"
         set ProtoBranchResult[989] = "조사 도구를 마련하고 짐에 묻은 것과 주변 자국을 차례로 비교했다. 탄지로가 짚어 준 상대를 관찰하는 요령을 공격 준비에 남겼다. 소리 자체는 남아 있지만 확인할 순서는 정했다."
-        set ProtoBranchCard[989] = 224
+        set ProtoBranchCard[989] = 226
         set ProtoBranchCard2[989] = 0
         set ProtoBranchGold[989] = 0
         set ProtoBranchCost[989] = 220
@@ -11086,7 +11096,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[989] = 100
         set ProtoBranchLabel[990] = "200골드로 반응 연습 도구를 마련하고 젠이츠와 한 번 움직일 순간을 준비한다"
         set ProtoBranchResult[990] = "반응 연습 도구에200골드를 내고 젠이츠와 한 번 움직일 순간을 준비했다. 한순간에 힘을 모으는 기억으로 차지 공격과 치명타 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 짐 소리가 다시 겹쳐도 젠이츠는 네가 힘을 주려는 순간까지 손을 들어 기다린다."
-        set ProtoBranchCard[990] = 220
+        set ProtoBranchCard[990] = 222
         set ProtoBranchCard2[990] = 0
         set ProtoBranchGold[990] = 0
         set ProtoBranchCost[990] = 200
@@ -11108,7 +11118,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[248] = "같은 자국에 겹친 냄새를 끝내 나누지 못했다. 조사비는 돌아오지 않고 보상도 없다. 맡기로 한 더 강한 구역은 남는다."
         set ProtoBranchLabel[992] = "도구를 마련해 탄지로가 짚은 흔적을 조사한다"
         set ProtoBranchResult[992] = "조사 도구에140골드를 내고 탄지로와 서로 다른 흔적을 나누어 확인했다. 그 관찰을 기억해 실제 헤드·백 적중 공격의 피해와 방어관통을 높였지만, 내 사냥의 강함 단계는1올랐다. 탄지로는 한 방향으로 난 자국만 다시 보려는 네게 냄새가 갈라진 곳을 짚어 준다."
-        set ProtoBranchCard[992] = 224
+        set ProtoBranchCard[992] = 226
         set ProtoBranchCard2[992] = 0
         set ProtoBranchGold[992] = 0
         set ProtoBranchCost[992] = 140
@@ -11118,7 +11128,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[992] = 70
         set ProtoBranchLabel[993] = "이노스케와 넓은 주변 길목을 직접 맡는다"
         set ProtoBranchResult[993] = "이노스케와 주변 길목을 넓게 맡았다. 빠르게 길을 살피는 준비를 챙긴 대신 내 구역에 더 많은 적이 드나든다. 냄새가 남은 이유를 전부 밝혀 낸 것은 아니다."
-        set ProtoBranchCard[993] = 227
+        set ProtoBranchCard[993] = 229
         set ProtoBranchCard2[993] = 0
         set ProtoBranchGold[993] = 0
         set ProtoBranchCost[993] = 0
@@ -11128,7 +11138,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[993] = 100
         set ProtoBranchLabel[994] = "180골드로 발판 확인 도구를 마련하고 이노스케와 자국이 끊긴 쪽도 살핀다"
         set ProtoBranchResult[994] = "발판 확인 도구에180골드를 내고 이노스케와 자국이 끊긴 쪽도 살폈다. 보이지 않는 쪽을 놓치지 않는 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮췄다. 이노스케가 다른 길로 발을 옮기자 너는 기록지의 같은 자국에만 표시하려던 손을 거둔다."
-        set ProtoBranchCard[994] = 235
+        set ProtoBranchCard[994] = 237
         set ProtoBranchCard2[994] = 0
         set ProtoBranchGold[994] = 0
         set ProtoBranchCost[994] = 180
@@ -11150,7 +11160,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[249] = ""
         set ProtoBranchLabel[996] = "새 포장을 사서 시노부와 상대에 맞는 준비만 골라 담는다"
         set ProtoBranchResult[996] = "새 포장 값을 내고 상대의 특성을 살펴 가져갈 준비를 추렸다. 시노부의 조언을 관통과 강한 상대를 향한 공격 준비에 남겼다. 모든 적에게 쓸 새 독이나 약을 받은 것은 아니다."
-        set ProtoBranchCard[996] = 225
+        set ProtoBranchCard[996] = 227
         set ProtoBranchCard2[996] = 0
         set ProtoBranchGold[996] = 0
         set ProtoBranchCost[996] = 260
@@ -11160,7 +11170,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[996] = 100
         set ProtoBranchLabel[997] = "운반 도구를 사서 카나오와 움직일 순서에 맞춰 짐을 나눈다"
         set ProtoBranchResult[997] = "운반 도구를 마련해 발에 걸리는 짐을 나누었다. 카나오가 보여 준 움직임에 맞춰 정확히 공격할 준비를 챙겼다. 다른 사람의 짐까지 전부 정리하지는 않았다."
-        set ProtoBranchCard[997] = 223
+        set ProtoBranchCard[997] = 225
         set ProtoBranchCard2[997] = 0
         set ProtoBranchGold[997] = 0
         set ProtoBranchCost[997] = 180
@@ -11170,7 +11180,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[997] = 100
         set ProtoBranchLabel[998] = "이노스케와 큰 짐을 맡고 더 강한 길목도 받는다"
         set ProtoBranchResult[998] = "큰 짐을 모아 맡고 이노스케에게 밀고 나가는 자세를 배웠다. 더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다. 준비물을 모두 새것으로 바꾼 것은 아니다."
-        set ProtoBranchCard[998] = 221
+        set ProtoBranchCard[998] = 223
         set ProtoBranchCard2[998] = 0
         set ProtoBranchGold[998] = 0
         set ProtoBranchCost[998] = 0
@@ -11192,7 +11202,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[250] = ""
         set ProtoBranchLabel[1000] = "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다"
         set ProtoBranchResult[1000] = "180골드로 준비 물품을 마련하고 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 무라타는 큰소리를 낸 사람보다 끝까지 자리를 지킬 사람이 필요할 때도 있다고 말한다. 이노스케는 아직 누가 더 강한지 답을 못 들었다며 다시 묻는다."
-        set ProtoBranchCard[1000] = 228
+        set ProtoBranchCard[1000] = 230
         set ProtoBranchCard2[1000] = 0
         set ProtoBranchGold[1000] = 0
         set ProtoBranchCost[1000] = 180
@@ -11202,7 +11212,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1000] = 100
         set ProtoBranchLabel[1001] = "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다"
         set ProtoBranchResult[1001] = "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 받는 피해가 늘어나는 카드 부담을 얻고 개인 사냥의 적 단계도 1 올랐다. 이노스케가 다음 상대부터 찾자 무라타는 선배라는 호칭은 아직 바뀌지 않는다고 한다."
-        set ProtoBranchCard[1001] = 221
+        set ProtoBranchCard[1001] = 223
         set ProtoBranchCard2[1001] = 0
         set ProtoBranchGold[1001] = 0
         set ProtoBranchCost[1001] = 0
@@ -11212,7 +11222,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1001] = 100
         set ProtoBranchLabel[1002] = "180골드로 연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복한다"
         set ProtoBranchResult[1002] = "연습할 자리에180골드를 내고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복했다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 강함 단계를1낮춘 뒤 물약1개를 받았다. 무라타가 맡을 자리를 묻자 이노스케는 승부 이야기를 아직 접지 않은 채 그 옆을 돌아본다."
-        set ProtoBranchCard[1002] = 229
+        set ProtoBranchCard[1002] = 231
         set ProtoBranchCard2[1002] = 0
         set ProtoBranchGold[1002] = 0
         set ProtoBranchCost[1002] = 180
@@ -11234,7 +11244,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[251] = ""
         set ProtoBranchLabel[1004] = "탄지로와 반복할 자리를 마련해 두 사람을 부른다"
         set ProtoBranchResult[1004] = "160골드로 반복할 자리를 마련하고 빠른 동작과 보스에게 힘을 싣는 요령을 배웠다. 탄지로는 어느 쪽이 먼저 왔는지 묻지 않고 두 사람 몫의 자리를 가리킨다. 젠이츠와 이노스케도 문 앞에서 더 버티지는 않는다."
-        set ProtoBranchCard[1004] = 229
+        set ProtoBranchCard[1004] = 231
         set ProtoBranchCard2[1004] = 0
         set ProtoBranchGold[1004] = 0
         set ProtoBranchCost[1004] = 160
@@ -11244,7 +11254,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1004] = 100
         set ProtoBranchLabel[1005] = "이노스케에게 먼저 도전하라며 맡을 길목을 넓힌다"
         set ProtoBranchResult[1005] = "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 받는 피해가 늘어나는 카드 부담과 함께 개인 사냥의 적 수도 늘었다. 이노스케가 먼저 들어가자 젠이츠는 자기가 뒤처진 것은 아니라며 바로 따라간다."
-        set ProtoBranchCard[1005] = 221
+        set ProtoBranchCard[1005] = 223
         set ProtoBranchCard2[1005] = 0
         set ProtoBranchGold[1005] = 0
         set ProtoBranchCost[1005] = 0
@@ -11254,7 +11264,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1005] = 100
         set ProtoBranchLabel[1006] = "젠이츠에게 반응을 보여 줄 자리를 맡긴다"
         set ProtoBranchResult[1006] = "200골드로 반응을 보여 줄 자리를 마련하고 차지 일격과 치명타에 힘을 모으는 요령을 배웠다. 젠이츠가 보는 사람 앞쪽에 서려 하자 탄지로는 이번에는 끝까지 함께하자고 부른다. 이노스케는 멀리서 보지 말고 같이 들어오라고 한다."
-        set ProtoBranchCard[1006] = 220
+        set ProtoBranchCard[1006] = 222
         set ProtoBranchCard2[1006] = 0
         set ProtoBranchGold[1006] = 0
         set ProtoBranchCost[1006] = 200
@@ -11276,7 +11286,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[252] = ""
         set ProtoBranchLabel[1008] = "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다"
         set ProtoBranchResult[1008] = "네즈코가 움직이지 않는 동안 상대의 놀람에도 동요하지 않고 좋은 몸 상태를 유지하는 요령을 배웠다. 탄지로는 동생에게 사람을 해치지 말라고 다시 명령하지 않는다. 방문객도 아무 일 없는 두 사람 사이에서 발을 한 번 멈춘다."
-        set ProtoBranchCard[1008] = 230
+        set ProtoBranchCard[1008] = 232
         set ProtoBranchCard2[1008] = 0
         set ProtoBranchGold[1008] = 0
         set ProtoBranchCost[1008] = 0
@@ -11286,7 +11296,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1008] = 100
         set ProtoBranchLabel[1009] = "탄지로와 손님이 머무를 자리를 마련한다"
         set ProtoBranchResult[1009] = "180골드로 손님이 머무를 자리를 마련하고 탄지로에게 신속과 좋은 몸 상태에서 힘을 쓰는 요령을 배웠다. 탄지로는 손님에게 먼저 거리를 두어도 된다고 말한다. 네즈코는 손님을 따라 움직이지 않는다."
-        set ProtoBranchCard[1009] = 217
+        set ProtoBranchCard[1009] = 219
         set ProtoBranchCard2[1009] = 0
         set ProtoBranchGold[1009] = 0
         set ProtoBranchCost[1009] = 180
@@ -11296,7 +11306,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1009] = 100
         set ProtoBranchLabel[1010] = "180골드로 이야기할 자리를 마련하고 탄지로와 말 사이에도 자기 숨을 고른다"
         set ProtoBranchResult[1010] = "이야기할 자리에180골드를 내고 탄지로와 말 사이에도 자기 숨을 고르며 손님에게 다음 말을 건넸다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고, 내 사냥의 적 수 단계를1낮췄다. 탄지로가 네 말을 기다리는 동안 너도 손님의 대답을 재촉하지 않는다."
-        set ProtoBranchCard[1010] = 232
+        set ProtoBranchCard[1010] = 234
         set ProtoBranchCard2[1010] = 0
         set ProtoBranchGold[1010] = 0
         set ProtoBranchCost[1010] = 180
@@ -11318,7 +11328,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[253] = "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다."
         set ProtoBranchLabel[1012] = "도구값120골드를 먼저 내고 숨을 불어 표주박을 터뜨려 본다"
         set ProtoBranchResult[1012] = "도구값120골드를 먼저 내고 숨을 이어 표주박을 터뜨렸다. 그 기억으로 차지 공격 대미지14%와일반 행동속도3%가 늘었다. 네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다."
-        set ProtoBranchCard[1012] = 231
+        set ProtoBranchCard[1012] = 233
         set ProtoBranchCard2[1012] = 0
         set ProtoBranchGold[1012] = 0
         set ProtoBranchCost[1012] = 120
@@ -11328,7 +11338,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1012] = 60
         set ProtoBranchLabel[1013] = "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 숨을 계속 잇는 연습을 한다"
         set ProtoBranchResult[1013] = "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 자기 숨을 계속 잇는 연습을 했다. 그 기억으로 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 아오이는 터진 소리를 세기보다 아직 설명하지 않은 다음 숨의 길이를 묻는다."
-        set ProtoBranchCard[1013] = 232
+        set ProtoBranchCard[1013] = 234
         set ProtoBranchCard2[1013] = 0
         set ProtoBranchGold[1013] = 0
         set ProtoBranchCost[1013] = 220
@@ -11338,7 +11348,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1013] = 100
         set ProtoBranchLabel[1014] = "160골드로 반복할 자리를 마련하고 탄지로와 도구를 들고 거두는 순서부터 맞춘다"
         set ProtoBranchResult[1014] = "반복할 자리에160골드를 내고 탄지로와 도구를 들고 거두는 차례부터 맞췄다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 아오이가 다음 도구를 건넬 때 너는 먼저 내려놓을 자리를 비운다."
-        set ProtoBranchCard[1014] = 229
+        set ProtoBranchCard[1014] = 231
         set ProtoBranchCard2[1014] = 0
         set ProtoBranchGold[1014] = 0
         set ProtoBranchCost[1014] = 160
@@ -11360,7 +11370,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[254] = ""
         set ProtoBranchLabel[1016] = "180골드로 내 연습 도구를 마련하고 옆에서 자기 숨을 잇는다"
         set ProtoBranchResult[1016] = "내 연습 도구에180골드를 내고 탄지로 옆에서 자기 숨을 이어 보았다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 탄지로가 남은 질문을 다시 묻자 너도 대답할 말과 이어야 할 숨을 같이 고르게 된다."
-        set ProtoBranchCard[1016] = 232
+        set ProtoBranchCard[1016] = 234
         set ProtoBranchCard2[1016] = 0
         set ProtoBranchGold[1016] = 0
         set ProtoBranchCost[1016] = 180
@@ -11370,7 +11380,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1016] = 100
         set ProtoBranchLabel[1017] = "내 사냥의 강함 단계를1올리고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따른다"
         set ProtoBranchResult[1017] = "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 끊기지 않는 호흡을 기억해 신속이 늘었으며, 현재 체력65%이상에서 가하는 피해도 높아졌다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다."
-        set ProtoBranchCard[1017] = 217
+        set ProtoBranchCard[1017] = 219
         set ProtoBranchCard2[1017] = 0
         set ProtoBranchGold[1017] = 0
         set ProtoBranchCost[1017] = 0
@@ -11380,7 +11390,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1017] = 100
         set ProtoBranchLabel[1018] = "160골드로 연습할 자리를 마련하고 탄지로와 말한 뒤 움직일 차례까지 반복한다"
         set ProtoBranchResult[1018] = "연습할 자리에160골드를 내고 탄지로와 말한 뒤 움직일 차례까지 반복했다. 꾸준히 이어가는 기억으로 일반 행동속도와 보스에게 가하는 피해를 높였다. 질문이 끝났다고 손을 내리자 탄지로는 아직 남은 다음 동작을 가리킨다."
-        set ProtoBranchCard[1018] = 229
+        set ProtoBranchCard[1018] = 231
         set ProtoBranchCard2[1018] = 0
         set ProtoBranchGold[1018] = 0
         set ProtoBranchCost[1018] = 160
@@ -11402,7 +11412,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[255] = ""
         set ProtoBranchLabel[1020] = "200골드로 내 추가 연습 준비를 하고 같은 속도에 다시 맞춘다"
         set ProtoBranchResult[1020] = "추가 연습 준비에200골드를 내고 같은 속도로 손을 다시 거두었다. 일반 행동속도6%와실제 헤드·백 적중 공격의 대미지10%가 늘었다. 아오이는 손을 내밀 때보다 거둘 때를 지켜보고 카나오는 그 손이 돌아온 다음 차례를 시작한다."
-        set ProtoBranchCard[1020] = 233
+        set ProtoBranchCard[1020] = 235
         set ProtoBranchCard2[1020] = 0
         set ProtoBranchGold[1020] = 0
         set ProtoBranchCost[1020] = 200
@@ -11412,7 +11422,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1020] = 100
         set ProtoBranchLabel[1021] = "내 사냥의 적 수 단계를1올리고 손동작을 작게 줄여 다시 본다"
         set ProtoBranchResult[1021] = "개인 사냥의 적 수 단계를1올리는 부담을 맡고 손동작을 작게 줄여 다시 보았다. 치명타확률6%p와이동속도4%가 늘었다. 카나오가 동작을 바꾸자 너는 작은 움직임도 다시 거둬야 한다는 것을 손끝에서 확인한다."
-        set ProtoBranchCard[1021] = 234
+        set ProtoBranchCard[1021] = 236
         set ProtoBranchCard2[1021] = 0
         set ProtoBranchGold[1021] = 0
         set ProtoBranchCost[1021] = 0
@@ -11422,7 +11432,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1021] = 100
         set ProtoBranchLabel[1022] = "180골드로 도구를 다시 묶을 포장을 마련하고 아오이와 다음 차례의 보급을 나눈다"
         set ProtoBranchResult[1022] = "포장에180골드를 내고 아오이와 도구를 다시 묶어 다음 차례의 보급을 나눴다. 필요한 몫부터 챙기는 기억으로 초당 최대체력0.4%재생과이후처치당추가골드2를 얻고 물약1개를 받았다. 카나오는 네 손이 남아 있던 자리를 다음 사람에게 비워 둔다."
-        set ProtoBranchCard[1022] = 222
+        set ProtoBranchCard[1022] = 224
         set ProtoBranchCard2[1022] = 0
         set ProtoBranchGold[1022] = 0
         set ProtoBranchCost[1022] = 180
@@ -11444,7 +11454,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[256] = ""
         set ProtoBranchLabel[1024] = "180골드로 내 연습 준비를 하고 발판의 변화를 살핀다"
         set ProtoBranchResult[1024] = "내 연습 준비에180골드를 내고 가림막 너머 발판의 변화를 살폈다. 방어관통8%와헤드·백이 없는 비방향 공격 대미지12%가 늘었다. 네가 한쪽을 가리키자 이노스케는 방금 전과 다른 곳으로 다시 발을 옮긴다."
-        set ProtoBranchCard[1024] = 235
+        set ProtoBranchCard[1024] = 237
         set ProtoBranchCard2[1024] = 0
         set ProtoBranchGold[1024] = 0
         set ProtoBranchCost[1024] = 180
@@ -11454,7 +11464,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1024] = 100
         set ProtoBranchLabel[1025] = "내 사냥의 적 수 단계를1올리고 이노스케처럼 막힌 쪽을 직접 열어 본다"
         set ProtoBranchResult[1025] = "내 사냥의 적 수 단계를1올리는 부담을 맡고 이노스케처럼 막힌 쪽을 직접 열어 보았다. 일반몬스터에게 가하는 피해와 헤드·백이 없는 공격의 피해를 높이는 돌파를 기억한 대신 받는 피해도 늘어난다. 이노스케는 열린 길을 보더니 다음 막은 누가 맡을 것인지 묻는다."
-        set ProtoBranchCard[1025] = 221
+        set ProtoBranchCard[1025] = 223
         set ProtoBranchCard2[1025] = 0
         set ProtoBranchGold[1025] = 0
         set ProtoBranchCost[1025] = 0
@@ -11464,7 +11474,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1025] = 100
         set ProtoBranchLabel[1026] = "160골드로 길목 표식을 마련하고 이노스케와 돌아갈 보폭을 맞춘다"
         set ProtoBranchResult[1026] = "길목 표식에160골드를 내고 이노스케와 돌아갈 보폭을 맞췄다. 먼저 발을 놓을 길을 살피는 기억으로 이동속도와 일반몬스터에게 가하는 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 방금 남긴 표식을 넘어가려다 네가 돌아올 자리를 다시 짚는 것을 본다."
-        set ProtoBranchCard[1026] = 227
+        set ProtoBranchCard[1026] = 229
         set ProtoBranchCard2[1026] = 0
         set ProtoBranchGold[1026] = 0
         set ProtoBranchCost[1026] = 160
@@ -11486,7 +11496,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[257] = ""
         set ProtoBranchLabel[1028] = "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다"
         set ProtoBranchResult[1028] = "다음 연습 도구에140골드를 내고 터진 소리 뒤에도 숨을 이어 보았다. 차지 준비속도9%와차지 공격 대미지10%가 늘었다. 탄지로는 첫 성공을 다시 세는 대신 방금 잇기 시작한 숨이 어디까지 가는지 기다린다."
-        set ProtoBranchCard[1028] = 236
+        set ProtoBranchCard[1028] = 238
         set ProtoBranchCard2[1028] = 0
         set ProtoBranchGold[1028] = 0
         set ProtoBranchCost[1028] = 140
@@ -11496,7 +11506,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1028] = 100
         set ProtoBranchLabel[1029] = "내 사냥의 강함 단계를1올리고 탄지로가 다음 빈틈을 보는 감각을 기억한다"
         set ProtoBranchResult[1029] = "개인 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 빈틈을 보는 감각을 기억했다. 실제 헤드·백 적중 공격의 대미지14%와방어관통5%가 늘었다. 탄지로는 네가 성공한 쪽만 다시 보자 이번에는 다음 동작이 시작되는 쪽을 가리킨다."
-        set ProtoBranchCard[1029] = 224
+        set ProtoBranchCard[1029] = 226
         set ProtoBranchCard2[1029] = 0
         set ProtoBranchGold[1029] = 0
         set ProtoBranchCost[1029] = 0
@@ -11506,7 +11516,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1029] = 100
         set ProtoBranchLabel[1030] = "180골드로 내 연습 도구를 마련하고 탄지로와 성공 뒤에도 숨을 계속 잇는다"
         set ProtoBranchResult[1030] = "내 연습 도구에180골드를 내고 탄지로와 성공 뒤에도 자기 숨을 계속 이었다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고 물약2개를 받았다. 아오이는 터진 도구를 치우며 이번에는 설명이 끝나기 전에 네가 움직이는지 살핀다."
-        set ProtoBranchCard[1030] = 232
+        set ProtoBranchCard[1030] = 234
         set ProtoBranchCard2[1030] = 0
         set ProtoBranchGold[1030] = 0
         set ProtoBranchCost[1030] = 180
@@ -11521,7 +11531,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadName[13] = "미식전 길드 하우스"
         set ProtoHeadIntro[13] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoHeadIcon[13] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
-        set ProtoHeadEntryCard[13] = 237
+        set ProtoHeadEntryCard[13] = 239
         call SaveReal(ProtoHeadEffectData, 13, 13, 2.00)
         set ProtoEventKey[49] = "gourmet_entry_0"
         set ProtoEventName[49] = "미식전 길드 하우스 방문"
@@ -11555,150 +11565,150 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventStory[52] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIntro[52] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIcon[52] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
-        set ProtoCardKey[237] = "pc_kokkoro_entry"
-        set ProtoCardName[237] = "콧코로"
-        set ProtoCardEffectName[237] = "세심한 준비"
-        set ProtoCardKeyword[237] = "미식전 길드 하우스 · 행동 속도 증가"
-        set ProtoCardHead[237] = 13
-        set ProtoCardGrade[237] = 1
-        set ProtoEvolutionKind[237] = 0
-        set ProtoEvolutionGoal[237] = 0.00
-        call ProtoSetEffect(237, 9, 2.00, false)
-        set ProtoCardKey[238] = "pc_pecorine_meal"
-        set ProtoCardName[238] = "페코린느"
-        set ProtoCardEffectName[238] = "배가 든든할 때"
-        set ProtoCardKeyword[238] = "미식전 길드 하우스 · 최대 체력 · 고체력"
-        set ProtoCardHead[238] = 13
-        set ProtoCardGrade[238] = 2
-        set ProtoEvolutionKind[238] = 1
-        set ProtoEvolutionGoal[238] = 60.00
-        call ProtoSetEffect(238, 13, 12.00, false)
-        call ProtoSetEffect(238, 24, 14.00, false)
-        call ProtoSetEffect(238, 5, 8.00, true)
-        set ProtoCardKey[239] = "pc_pecorine_front"
-        set ProtoCardName[239] = "페코린느"
-        set ProtoCardEffectName[239] = "함께 먹을 몫"
-        set ProtoCardKeyword[239] = "미식전 길드 하우스 · 공격력 및 피해 감소"
+        set ProtoCardKey[239] = "pc_kokkoro_entry"
+        set ProtoCardName[239] = "콧코로"
+        set ProtoCardEffectName[239] = "세심한 준비"
+        set ProtoCardKeyword[239] = "미식전 길드 하우스 · 행동 속도 증가"
         set ProtoCardHead[239] = 13
-        set ProtoCardGrade[239] = 2
+        set ProtoCardGrade[239] = 1
         set ProtoEvolutionKind[239] = 0
         set ProtoEvolutionGoal[239] = 0.00
-        call ProtoSetEffect(239, 1, 12.00, false)
-        call ProtoSetEffect(239, 14, 3.00, false)
-        set ProtoCardKey[240] = "pc_kokkoro_care"
-        set ProtoCardName[240] = "콧코로"
-        set ProtoCardEffectName[240] = "작은 준비를 놓치지 않기"
-        set ProtoCardKeyword[240] = "미식전 길드 하우스 · 지속 회복 및 신속"
+        call ProtoSetEffect(239, 9, 2.00, false)
+        set ProtoCardKey[240] = "pc_pecorine_meal"
+        set ProtoCardName[240] = "페코린느"
+        set ProtoCardEffectName[240] = "배가 든든할 때"
+        set ProtoCardKeyword[240] = "미식전 길드 하우스 · 최대 체력 · 고체력"
         set ProtoCardHead[240] = 13
         set ProtoCardGrade[240] = 2
-        set ProtoEvolutionKind[240] = 0
-        set ProtoEvolutionGoal[240] = 0.00
-        call ProtoSetEffect(240, 16, 0.60, false)
-        call ProtoSetEffect(240, 8, 90.00, false)
-        set ProtoCardKey[241] = "pc_karyl_check"
-        set ProtoCardName[241] = "캬루"
-        set ProtoCardEffectName[241] = "막힌 길을 비우는 마법"
-        set ProtoCardKeyword[241] = "미식전 길드 하우스 · 비방향 · 관통"
+        set ProtoEvolutionKind[240] = 1
+        set ProtoEvolutionGoal[240] = 60.00
+        call ProtoSetEffect(240, 13, 12.00, false)
+        call ProtoSetEffect(240, 24, 14.00, false)
+        call ProtoSetEffect(240, 5, 8.00, true)
+        set ProtoCardKey[241] = "pc_pecorine_front"
+        set ProtoCardName[241] = "페코린느"
+        set ProtoCardEffectName[241] = "함께 먹을 몫"
+        set ProtoCardKeyword[241] = "미식전 길드 하우스 · 공격력 및 피해 감소"
         set ProtoCardHead[241] = 13
         set ProtoCardGrade[241] = 2
-        set ProtoEvolutionKind[241] = 2
-        set ProtoEvolutionGoal[241] = 7000.00
-        call ProtoSetEffect(241, 21, 16.00, false)
-        call ProtoSetEffect(241, 12, 6.00, false)
-        call ProtoSetEffect(241, 4, 8.00, true)
-        set ProtoCardKey[242] = "pc_karyl_resolve"
-        set ProtoCardName[242] = "캬루"
-        set ProtoCardEffectName[242] = "불평은 일을 끝낸 뒤에"
-        set ProtoCardKeyword[242] = "미식전 길드 하우스 · 보스 피해 및 관통"
+        set ProtoEvolutionKind[241] = 0
+        set ProtoEvolutionGoal[241] = 0.00
+        call ProtoSetEffect(241, 1, 12.00, false)
+        call ProtoSetEffect(241, 14, 3.00, false)
+        set ProtoCardKey[242] = "pc_kokkoro_care"
+        set ProtoCardName[242] = "콧코로"
+        set ProtoCardEffectName[242] = "작은 준비를 놓치지 않기"
+        set ProtoCardKeyword[242] = "미식전 길드 하우스 · 지속 회복 및 신속"
         set ProtoCardHead[242] = 13
         set ProtoCardGrade[242] = 2
         set ProtoEvolutionKind[242] = 0
         set ProtoEvolutionGoal[242] = 0.00
-        call ProtoSetEffect(242, 4, 14.00, false)
-        call ProtoSetEffect(242, 12, 8.00, false)
-        set ProtoCardKey[243] = "pc_kokkoro_notes"
-        set ProtoCardName[243] = "콧코로"
-        set ProtoCardEffectName[243] = "빠뜨리지 않은 목록"
-        set ProtoCardKeyword[243] = "미식전 길드 하우스 · 사건 후보 · 처치 골드"
+        call ProtoSetEffect(242, 16, 0.60, false)
+        call ProtoSetEffect(242, 8, 90.00, false)
+        set ProtoCardKey[243] = "pc_karyl_check"
+        set ProtoCardName[243] = "캬루"
+        set ProtoCardEffectName[243] = "막힌 길을 비우는 마법"
+        set ProtoCardKeyword[243] = "미식전 길드 하우스 · 비방향 · 관통"
         set ProtoCardHead[243] = 13
         set ProtoCardGrade[243] = 2
-        set ProtoEvolutionKind[243] = 0
-        set ProtoEvolutionGoal[243] = 0.00
-        call ProtoSetEffect(243, 18, 1.00, false)
-        call ProtoSetEffect(243, 17, 2.00, false)
-        set ProtoCardKey[244] = "pc_pecorine_expedition"
-        set ProtoCardName[244] = "페코린느"
-        set ProtoCardEffectName[244] = "든든히 먹고 한 걸음 더"
-        set ProtoCardKeyword[244] = "미식전 길드 하우스 · 고체력 · 일반 적"
+        set ProtoEvolutionKind[243] = 2
+        set ProtoEvolutionGoal[243] = 7000.00
+        call ProtoSetEffect(243, 21, 16.00, false)
+        call ProtoSetEffect(243, 12, 6.00, false)
+        call ProtoSetEffect(243, 4, 8.00, true)
+        set ProtoCardKey[244] = "pc_karyl_resolve"
+        set ProtoCardName[244] = "캬루"
+        set ProtoCardEffectName[244] = "불평은 일을 끝낸 뒤에"
+        set ProtoCardKeyword[244] = "미식전 길드 하우스 · 보스 피해 및 관통"
         set ProtoCardHead[244] = 13
         set ProtoCardGrade[244] = 2
-        set ProtoEvolutionKind[244] = 1
-        set ProtoEvolutionGoal[244] = 45.00
-        call ProtoSetEffect(244, 24, 18.00, false)
-        call ProtoSetEffect(244, 5, 12.00, false)
-        call ProtoSetEffect(244, 4, 6.00, true)
-        set ProtoCardKey[245] = "pc_aoi_courage"
-        set ProtoCardName[245] = "아오이"
-        set ProtoCardEffectName[245] = "조심스러운 발걸음"
-        set ProtoCardKeyword[245] = "미식전 길드 하우스 · 이동 · 고체력"
+        set ProtoEvolutionKind[244] = 0
+        set ProtoEvolutionGoal[244] = 0.00
+        call ProtoSetEffect(244, 4, 14.00, false)
+        call ProtoSetEffect(244, 12, 8.00, false)
+        set ProtoCardKey[245] = "pc_kokkoro_notes"
+        set ProtoCardName[245] = "콧코로"
+        set ProtoCardEffectName[245] = "빠뜨리지 않은 목록"
+        set ProtoCardKeyword[245] = "미식전 길드 하우스 · 사건 후보 · 처치 골드"
         set ProtoCardHead[245] = 13
         set ProtoCardGrade[245] = 2
-        set ProtoEvolutionKind[245] = 3
-        set ProtoEvolutionGoal[245] = 45.00
-        call ProtoSetEffect(245, 10, 4.00, false)
-        call ProtoSetEffect(245, 24, 12.00, false)
-        call ProtoSetEffect(245, 9, 3.00, true)
-        set ProtoCardKey[246] = "pc_kokkoro_harvest"
-        set ProtoCardName[246] = "콧코로"
-        set ProtoCardEffectName[246] = "차곡차곡 모아 둔 몫"
-        set ProtoCardKeyword[246] = "미식전 길드 하우스 · 최대 체력 · 처치 골드"
+        set ProtoEvolutionKind[245] = 0
+        set ProtoEvolutionGoal[245] = 0.00
+        call ProtoSetEffect(245, 18, 1.00, false)
+        call ProtoSetEffect(245, 17, 2.00, false)
+        set ProtoCardKey[246] = "pc_pecorine_expedition"
+        set ProtoCardName[246] = "페코린느"
+        set ProtoCardEffectName[246] = "든든히 먹고 한 걸음 더"
+        set ProtoCardKeyword[246] = "미식전 길드 하우스 · 고체력 · 일반 적"
         set ProtoCardHead[246] = 13
         set ProtoCardGrade[246] = 2
-        set ProtoEvolutionKind[246] = 0
-        set ProtoEvolutionGoal[246] = 0.00
-        call ProtoSetEffect(246, 13, 8.00, false)
-        call ProtoSetEffect(246, 17, 3.00, false)
-        set ProtoCardKey[247] = "pc_tsumugi_fit"
-        set ProtoCardName[247] = "츠무기"
-        set ProtoCardEffectName[247] = "움직임을 남기는 한 땀"
-        set ProtoCardKeyword[247] = "미식전 길드 하우스 · 행동 · 이동"
+        set ProtoEvolutionKind[246] = 1
+        set ProtoEvolutionGoal[246] = 45.00
+        call ProtoSetEffect(246, 24, 18.00, false)
+        call ProtoSetEffect(246, 5, 12.00, false)
+        call ProtoSetEffect(246, 4, 6.00, true)
+        set ProtoCardKey[247] = "pc_aoi_courage"
+        set ProtoCardName[247] = "아오이"
+        set ProtoCardEffectName[247] = "조심스러운 발걸음"
+        set ProtoCardKeyword[247] = "미식전 길드 하우스 · 이동 · 고체력"
         set ProtoCardHead[247] = 13
         set ProtoCardGrade[247] = 2
-        set ProtoEvolutionKind[247] = 0
-        set ProtoEvolutionGoal[247] = 0.00
-        call ProtoSetEffect(247, 9, 6.00, false)
+        set ProtoEvolutionKind[247] = 3
+        set ProtoEvolutionGoal[247] = 45.00
         call ProtoSetEffect(247, 10, 4.00, false)
-        set ProtoCardKey[248] = "pc_kasumi_compare"
-        set ProtoCardName[248] = "카스미"
-        set ProtoCardEffectName[248] = "빠진 시각을 짚다"
-        set ProtoCardKeyword[248] = "미식전 길드 하우스 · 관통 · 치명타 확률"
+        call ProtoSetEffect(247, 24, 12.00, false)
+        call ProtoSetEffect(247, 9, 3.00, true)
+        set ProtoCardKey[248] = "pc_kokkoro_harvest"
+        set ProtoCardName[248] = "콧코로"
+        set ProtoCardEffectName[248] = "차곡차곡 모아 둔 몫"
+        set ProtoCardKeyword[248] = "미식전 길드 하우스 · 최대 체력 · 처치 골드"
         set ProtoCardHead[248] = 13
         set ProtoCardGrade[248] = 2
-        set ProtoEvolutionKind[248] = 2
-        set ProtoEvolutionGoal[248] = 6500.00
-        call ProtoSetEffect(248, 12, 6.00, false)
-        call ProtoSetEffect(248, 6, 5.00, false)
-        call ProtoSetEffect(248, 4, 5.00, true)
-        set ProtoCardKey[249] = "pc_monica_order"
-        set ProtoCardName[249] = "모니카"
-        set ProtoCardEffectName[249] = "먼저 맡을 자리"
-        set ProtoCardKeyword[249] = "미식전 길드 하우스 · 신속 · 피해 감소"
+        set ProtoEvolutionKind[248] = 0
+        set ProtoEvolutionGoal[248] = 0.00
+        call ProtoSetEffect(248, 13, 8.00, false)
+        call ProtoSetEffect(248, 17, 3.00, false)
+        set ProtoCardKey[249] = "pc_tsumugi_fit"
+        set ProtoCardName[249] = "츠무기"
+        set ProtoCardEffectName[249] = "움직임을 남기는 한 땀"
+        set ProtoCardKeyword[249] = "미식전 길드 하우스 · 행동 · 이동"
         set ProtoCardHead[249] = 13
         set ProtoCardGrade[249] = 2
         set ProtoEvolutionKind[249] = 0
         set ProtoEvolutionGoal[249] = 0.00
-        call ProtoSetEffect(249, 8, 180.00, false)
-        call ProtoSetEffect(249, 14, 2.00, false)
-        set ProtoCardKey[250] = "pc_nozomi_step"
-        set ProtoCardName[250] = "노조미"
-        set ProtoCardEffectName[250] = "발걸음에 맞춘 박자"
-        set ProtoCardKeyword[250] = "미식전 길드 하우스 · 행동 · 최대 체력"
+        call ProtoSetEffect(249, 9, 6.00, false)
+        call ProtoSetEffect(249, 10, 4.00, false)
+        set ProtoCardKey[250] = "pc_kasumi_compare"
+        set ProtoCardName[250] = "카스미"
+        set ProtoCardEffectName[250] = "빠진 시각을 짚다"
+        set ProtoCardKeyword[250] = "미식전 길드 하우스 · 관통 · 치명타 확률"
         set ProtoCardHead[250] = 13
         set ProtoCardGrade[250] = 2
-        set ProtoEvolutionKind[250] = 0
-        set ProtoEvolutionGoal[250] = 0.00
-        call ProtoSetEffect(250, 9, 6.00, false)
-        call ProtoSetEffect(250, 13, 8.00, false)
+        set ProtoEvolutionKind[250] = 2
+        set ProtoEvolutionGoal[250] = 6500.00
+        call ProtoSetEffect(250, 12, 6.00, false)
+        call ProtoSetEffect(250, 6, 5.00, false)
+        call ProtoSetEffect(250, 4, 5.00, true)
+        set ProtoCardKey[251] = "pc_monica_order"
+        set ProtoCardName[251] = "모니카"
+        set ProtoCardEffectName[251] = "먼저 맡을 자리"
+        set ProtoCardKeyword[251] = "미식전 길드 하우스 · 신속 · 피해 감소"
+        set ProtoCardHead[251] = 13
+        set ProtoCardGrade[251] = 2
+        set ProtoEvolutionKind[251] = 0
+        set ProtoEvolutionGoal[251] = 0.00
+        call ProtoSetEffect(251, 8, 180.00, false)
+        call ProtoSetEffect(251, 14, 2.00, false)
+        set ProtoCardKey[252] = "pc_nozomi_step"
+        set ProtoCardName[252] = "노조미"
+        set ProtoCardEffectName[252] = "발걸음에 맞춘 박자"
+        set ProtoCardKeyword[252] = "미식전 길드 하우스 · 행동 · 최대 체력"
+        set ProtoCardHead[252] = 13
+        set ProtoCardGrade[252] = 2
+        set ProtoEvolutionKind[252] = 0
+        set ProtoEvolutionGoal[252] = 0.00
+        call ProtoSetEffect(252, 9, 6.00, false)
+        call ProtoSetEffect(252, 13, 8.00, false)
         set ProtoEventKey[258] = "pc_road_meal"
         set ProtoEventName[258] = "냄비를 올리기 전에"
         set ProtoEventHead[258] = 13
@@ -11713,7 +11723,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[258] = ""
         set ProtoBranchLabel[1032] = "페코린느와 넓은 구역의 재료를 모아 넉넉히 차린다"
         set ProtoBranchResult[1032] = "페코린느와 넓게 돌아 재료를 더 모았다. 그릇마다 넉넉히 담아 먹으며 든든히 준비하는 법을 익혔지만, 맡은 구역에는 적이 더 많이 드나들게 되었다."
-        set ProtoBranchCard[1032] = 238
+        set ProtoBranchCard[1032] = 240
         set ProtoBranchCard2[1032] = 0
         set ProtoBranchGold[1032] = 0
         set ProtoBranchCost[1032] = 0
@@ -11723,7 +11733,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1032] = 100
         set ProtoBranchLabel[1033] = "밀봉된 재료를 구해 콧코로와 끼니를 나누어 준비한다"
         set ProtoBranchResult[1033] = "장보기 비용을 내고 밀봉 재료를 더 샀다. 콧코로와 오늘 먹을 몫과 다음 끼니를 나누어 담으며, 출발 전에 작은 준비를 빠뜨리지 않는 법을 익힌다."
-        set ProtoBranchCard[1033] = 240
+        set ProtoBranchCard[1033] = 242
         set ProtoBranchCard2[1033] = 0
         set ProtoBranchGold[1033] = 0
         set ProtoBranchCost[1033] = 260
@@ -11733,7 +11743,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1033] = 100
         set ProtoBranchLabel[1034] = "캬루와 길목을 확인하고 식사 준비를 좁힌다"
         set ProtoBranchResult[1034] = "도구와 정리 비용을 내고 캬루와 적이 지나는 길 하나를 정리했다. 남은 길목을 놓치지 않고 공격을 준비하는 조언을 듣고, 식사를 차릴 범위도 줄였다."
-        set ProtoBranchCard[1034] = 241
+        set ProtoBranchCard[1034] = 243
         set ProtoBranchCard2[1034] = 0
         set ProtoBranchGold[1034] = 0
         set ProtoBranchCost[1034] = 160
@@ -11765,7 +11775,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[259] = ""
         set ProtoBranchLabel[1036] = "재료값을 보태 페코린느와 남은 사람들의 식사를 차린다"
         set ProtoBranchResult[1036] = "재료값을 보태고 페코린느와 냄비를 다시 채웠다. 처음 먹은 사람들 다음으로 기다리던 사람들에게도 그릇을 건네며, 자기 몫만 세던 준비를 다시 돌아본다."
-        set ProtoBranchCard[1036] = 239
+        set ProtoBranchCard[1036] = 241
         set ProtoBranchCard2[1036] = 0
         set ProtoBranchGold[1036] = 0
         set ProtoBranchCost[1036] = 220
@@ -11775,7 +11785,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1036] = 100
         set ProtoBranchLabel[1037] = "캬루와 한쪽 길을 정리하고 나눠 줄 자리를 좁힌다"
         set ProtoBranchResult[1037] = "정리 비용을 내고 한쪽 길을 좁혀 남은 음식을 나눌 자리를 마련했다. 캬루는 일을 끝내고 나서야 번거로웠다고 투덜거리며, 길을 막은 상대의 빈틈을 짚어 준다."
-        set ProtoBranchCard[1037] = 242
+        set ProtoBranchCard[1037] = 244
         set ProtoBranchCard2[1037] = 0
         set ProtoBranchGold[1037] = 0
         set ProtoBranchCost[1037] = 180
@@ -11807,7 +11817,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[260] = ""
         set ProtoBranchLabel[1040] = "내 몫을 먹고 페코린느와 다음 일의 준비를 한다"
         set ProtoBranchResult[1040] = "내 몫으로 남겨 둔 식사를 먹고 페코린느와 다음 일을 준비했다. 그릇은 비웠지만, 급히 떠나려던 일행에게 건넬 식사는 남지 않았다."
-        set ProtoBranchCard[1040] = 238
+        set ProtoBranchCard[1040] = 240
         set ProtoBranchCard2[1040] = 0
         set ProtoBranchGold[1040] = 0
         set ProtoBranchCost[1040] = 0
@@ -11849,7 +11859,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[261] = ""
         set ProtoBranchLabel[1044] = "제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다"
         set ProtoBranchResult[1044] = "묶음끈과 기록용 종이를 사서 남길 물건을 적었다. 콧코로가 다음에 가져올 물건도 함께 표시한다. 안쪽 상자는 남았지만, 다시 같은 것을 사 오지는 않도록 목록을 챙겼다."
-        set ProtoBranchCard[1044] = 243
+        set ProtoBranchCard[1044] = 245
         set ProtoBranchCard2[1044] = 0
         set ProtoBranchGold[1044] = 0
         set ProtoBranchCost[1044] = 220
@@ -11859,7 +11869,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1044] = 100
         set ProtoBranchLabel[1045] = "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다"
         set ProtoBranchResult[1045] = "페코린느와 큰 상자를 먼저 옮기고 안쪽까지 훑었다. 몸을 든든히 준비하고 움직이는 요령을 배운 대신, 밖에서도 더 넓은 길목을 맡는다. 개인 사냥에는 더 많은 적이 드나든다."
-        set ProtoBranchCard[1045] = 244
+        set ProtoBranchCard[1045] = 246
         set ProtoBranchCard2[1045] = 0
         set ProtoBranchGold[1045] = 0
         set ProtoBranchCost[1045] = 0
@@ -11901,7 +11911,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[262] = "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다."
         set ProtoBranchLabel[1048] = "현장 도구를 마련해 페코린느와 남은 표시를 확인한다"
         set ProtoBranchResult[1048] = "남은 표시를 따라가 채집할 곳을 찾았다. 재료를 의뢰처에 넘겨 값을 받고 페코린느와 든든히 준비하는 요령을 익혔다. 조사하며 맡은 구역은 더 강한 적이 드나드는 곳으로 남는다."
-        set ProtoBranchCard[1048] = 244
+        set ProtoBranchCard[1048] = 246
         set ProtoBranchCard2[1048] = 0
         set ProtoBranchGold[1048] = 280
         set ProtoBranchCost[1048] = 150
@@ -11911,7 +11921,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1048] = 65
         set ProtoBranchLabel[1049] = "확인된 길 안내를 사서 캬루와 출발 준비를 점검한다"
         set ProtoBranchResult[1049] = "안내 자료를 사고 캬루와 서로 맞지 않는 표시를 걸러 냈다. 길을 막는 상대의 빈틈을 짚는 조언을 얻었다. 위험한 원정을 따로 맡지는 않았지만, 앞으로 적을 만나지 않는다는 보장은 없다."
-        set ProtoBranchCard[1049] = 241
+        set ProtoBranchCard[1049] = 243
         set ProtoBranchCard2[1049] = 0
         set ProtoBranchGold[1049] = 0
         set ProtoBranchCost[1049] = 240
@@ -11921,7 +11931,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1049] = 100
         set ProtoBranchLabel[1050] = "기록용품을 사서 콧코로와 의뢰 내용을 다시 나눈다"
         set ProtoBranchResult[1050] = "기록용품 값을 치르고 채집 대상과 맡을 일을 나누어 적었다. 흐린 길을 억지로 확정하지는 않았다. 콧코로의 준비 목록을 챙기고, 지도에 남은 빈칸은 다음 조사자에게 남긴다."
-        set ProtoBranchCard[1050] = 243
+        set ProtoBranchCard[1050] = 245
         set ProtoBranchCard2[1050] = 0
         set ProtoBranchGold[1050] = 0
         set ProtoBranchCost[1050] = 180
@@ -11953,7 +11963,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[263] = ""
         set ProtoBranchLabel[1052] = "연습용 종이를 사고 아오이와 처음 한 문장을 준비한다"
         set ProtoBranchResult[1052] = "연습용 종이 값을 치르고 첫 인사를 함께 고쳤다. 아오이는 접어 둔 안내장을 펴고 자기 말로 한 문장을 건넨다. 모든 사람이 친해진 것은 아니지만, 다음 발걸음을 준비할 작은 용기를 배웠다."
-        set ProtoBranchCard[1052] = 245
+        set ProtoBranchCard[1052] = 247
         set ProtoBranchCard2[1052] = 0
         set ProtoBranchGold[1052] = 0
         set ProtoBranchCost[1052] = 160
@@ -11963,7 +11973,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1052] = 100
         set ProtoBranchLabel[1053] = "빠진 준비물을 사서 콧코로와 모임 목록을 맞춘다"
         set ProtoBranchResult[1053] = "준비물 값을 내고 빠진 항목을 목록에 보탰다. 콧코로와 물건을 맡을 사람도 나누어 적는다. 모임 준비는 도왔지만 아오이가 건넬 말은 아오이에게 남겨 둔다."
-        set ProtoBranchCard[1053] = 243
+        set ProtoBranchCard[1053] = 245
         set ProtoBranchCard2[1053] = 0
         set ProtoBranchGold[1053] = 0
         set ProtoBranchCost[1053] = 200
@@ -12005,7 +12015,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[264] = ""
         set ProtoBranchLabel[1056] = "도구를 빌려 콧코로와 배수부터 돕는다"
         set ProtoBranchResult[1056] = "도구 대여비를 내고 콧코로와 물길부터 열었다. 남은 묶음은 페코린느에게 맡기고, 준비물과 거둘 몫을 나누는 요령을 챙긴다."
-        set ProtoBranchCard[1056] = 246
+        set ProtoBranchCard[1056] = 248
         set ProtoBranchCard2[1056] = 0
         set ProtoBranchGold[1056] = 0
         set ProtoBranchCost[1056] = 220
@@ -12015,7 +12025,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1056] = 100
         set ProtoBranchLabel[1057] = "페코린느와 넓은 보급길까지 맡아 묶음을 옮긴다"
         set ProtoBranchResult[1057] = "페코린느와 묶음을 옮기며 든든히 준비하고 움직이는 요령을 배웠다. 대신 밖의 넓은 보급길도 맡아 개인 사냥의 적 수가 늘었다. 배수 작업은 콧코로에게 남긴다."
-        set ProtoBranchCard[1057] = 244
+        set ProtoBranchCard[1057] = 246
         set ProtoBranchCard2[1057] = 0
         set ProtoBranchGold[1057] = 0
         set ProtoBranchCost[1057] = 0
@@ -12047,7 +12057,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[265] = ""
         set ProtoBranchLabel[1060] = "연락용품과 측정 도구를 마련해 츠무기와 의뢰를 맞춘다"
         set ProtoBranchResult[1060] = "연락용품과 측정 도구 값을 내고 주문한 사람의 조건을 확인했다. 츠무기와 움직일 여유를 남기는 옷의 준비를 배웠다. 맞지 않는 옷을 억지로 수선하지는 않는다."
-        set ProtoBranchCard[1060] = 247
+        set ProtoBranchCard[1060] = 249
         set ProtoBranchCard2[1060] = 0
         set ProtoBranchGold[1060] = 0
         set ProtoBranchCost[1060] = 240
@@ -12079,7 +12089,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[266] = ""
         set ProtoBranchLabel[1064] = "기록 도구를 사서 카스미와 시각부터 대조한다"
         set ProtoBranchResult[1064] = "기록 도구 값을 내고 시각과 길목을 하나씩 맞춰 보았다. 카스미와 섣불리 결론 내리지 않고 빈틈을 짚는 요령을 배웠다. 보행자의 정체는 아직 알 수 없다."
-        set ProtoBranchCard[1064] = 248
+        set ProtoBranchCard[1064] = 250
         set ProtoBranchCard2[1064] = 0
         set ProtoBranchGold[1064] = 0
         set ProtoBranchCost[1064] = 220
@@ -12121,7 +12131,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[267] = ""
         set ProtoBranchLabel[1068] = "표시 도구를 사서 모니카와 맡을 순서를 맞춘다"
         set ProtoBranchResult[1068] = "표시 도구 값을 내고 모니카와 먼저 맡을 자리와 돌아설 순서를 맞췄다. 빠른 지시와 방어 준비를 익혔다. 상인들의 불안이 모두 사라진 것은 아니다."
-        set ProtoBranchCard[1068] = 249
+        set ProtoBranchCard[1068] = 251
         set ProtoBranchCard2[1068] = 0
         set ProtoBranchGold[1068] = 0
         set ProtoBranchCost[1068] = 240
@@ -12131,7 +12141,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1068] = 100
         set ProtoBranchLabel[1069] = "캬루와 더 넓은 길목을 맡아 공격 준비를 챙긴다"
         set ProtoBranchResult[1069] = "캬루와 공격할 자리를 짚으며 더 넓은 길목까지 맡았다. 다음 싸움의 준비를 챙긴 대신 개인 사냥의 적 수가 늘었다. 다른 구역의 안전까지 약속하지 않는다."
-        set ProtoBranchCard[1069] = 242
+        set ProtoBranchCard[1069] = 244
         set ProtoBranchCard2[1069] = 0
         set ProtoBranchGold[1069] = 0
         set ProtoBranchCost[1069] = 0
@@ -12173,7 +12183,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[268] = ""
         set ProtoBranchLabel[1072] = "포장 비용을 내고 콧코로와 전달할 몫을 나눈다"
         set ProtoBranchResult[1072] = "포장 비용을 내고 콧코로와 전달할 몫을 나누었다. 몸과 다음 행동을 오래 돌보는 준비를 배웠다. 모든 목적지에 짐을 전했다고 하지는 않는다."
-        set ProtoBranchCard[1072] = 240
+        set ProtoBranchCard[1072] = 242
         set ProtoBranchCard2[1072] = 0
         set ProtoBranchGold[1072] = 0
         set ProtoBranchCost[1072] = 260
@@ -12183,7 +12193,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1072] = 100
         set ProtoBranchLabel[1073] = "페코린느와 큰 짐과 넓은 길목을 함께 맡는다"
         set ProtoBranchResult[1073] = "페코린느와 큰 짐을 나누어 들며 함께 버티고 나아갈 준비를 배웠다. 넓은 길목까지 맡아 개인 사냥의 적 수가 늘었다. 작은 짐의 배달은 유우키에게 남긴다."
-        set ProtoBranchCard[1073] = 239
+        set ProtoBranchCard[1073] = 241
         set ProtoBranchCard2[1073] = 0
         set ProtoBranchGold[1073] = 0
         set ProtoBranchCost[1073] = 0
@@ -12215,7 +12225,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventFailure[269] = ""
         set ProtoBranchLabel[1076] = "완충재를 마련하고 노조미와 움직일 자리를 맞춘다"
         set ProtoBranchResult[1076] = "완충재 값을 내고 노조미와 짐에 걸리지 않을 발걸음을 맞췄다. 몸을 준비하고 일정하게 움직이는 요령을 배웠다. 이 준비만으로 주민들의 모든 불편이 사라지지는 않는다."
-        set ProtoBranchCard[1076] = 250
+        set ProtoBranchCard[1076] = 252
         set ProtoBranchCard2[1076] = 0
         set ProtoBranchGold[1076] = 0
         set ProtoBranchCost[1076] = 200
@@ -12225,7 +12235,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchChance[1076] = 100
         set ProtoBranchLabel[1077] = "페코린느와 바깥 길까지 맡아 짐을 옮긴다"
         set ProtoBranchResult[1077] = "페코린느와 바깥 길까지 짐을 옮기며 든든히 움직이는 준비를 배웠다. 넓은 길목을 맡은 만큼 개인 사냥의 적 수가 늘었다. 연습 자리의 순서는 노조미에게 남긴다."
-        set ProtoBranchCard[1077] = 244
+        set ProtoBranchCard[1077] = 246
         set ProtoBranchCard2[1077] = 0
         set ProtoBranchGold[1077] = 0
         set ProtoBranchCost[1077] = 0
