@@ -1,0 +1,5634 @@
+{
+  "passed": true,
+  "events": 225,
+  "branches": 703,
+  "forbiddenDataCases": 14,
+  "runs": [
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle_trace",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle_trace",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "school_circle_trace",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "saber_practice",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "saber_practice",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "saber_practice",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "temple_gate",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "temple_gate",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "temple_gate",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_club_inventory",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_club_inventory",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_club_inventory",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_regular_contact",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_regular_contact",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_regular_contact",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shinji_offer",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shinji_offer",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_pause_outside",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_pause_outside",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_pause_outside",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_teacher_statement",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_teacher_statement",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_two_ideals",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_two_ideals",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_two_ideals",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_lancer_crossing",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_lancer_crossing",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_lancer_crossing",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_one_more_blanket",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_one_more_blanket",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_one_more_blanket",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_arrow_on_floor",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_arrow_on_floor",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_arrow_on_floor",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shelter_question",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shelter_question",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_shelter_question",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_after_one_block",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_after_one_block",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_after_one_block",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_next_arrow_wait",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_next_arrow_wait",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_next_arrow_wait",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "01-fuyuki.json",
+      "event": "fy_next_arrow_wait",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_request",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_request",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_request",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_stolen_notice",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_stolen_notice",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_stolen_notice",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_stolen_notice",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_blast_site",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_blast_site",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_blast_site",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_shop_ledger",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_shop_ledger",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_shop_ledger",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_priest_supply",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_priest_supply",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_priest_supply",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_crowded_road",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_crowded_road",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_crowded_road",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_party_water",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_party_water",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_party_water",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_small_figure",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_small_figure",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_small_figure",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rival_target",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rival_target",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rival_target",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_sword_introduction",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_sword_introduction",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_sword_introduction",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_newcomer_questions",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_newcomer_questions",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_newcomer_questions",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_cage_from_shore",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_cage_from_shore",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_cage_from_shore",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_snow_footprints",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_snow_footprints",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_snow_footprints",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_question_cut_short",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_question_cut_short",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_question_cut_short",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_house_threshold",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_house_threshold",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_house_threshold",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rope_after_return",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "02-axel.json",
+      "event": "axel_rope_after_return",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sand_supply",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sand_supply",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sand_supply",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_shift",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_shift",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_shift",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_blackmarket_map",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_blackmarket_map",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_blackmarket_map",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_repair",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_repair",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_ramen_repair",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_desert_watch",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_desert_watch",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_desert_watch",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_missing_senior",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_missing_senior",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_missing_senior",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_pace",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_pace",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_pace",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sleepchair",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sleepchair",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_sleepchair",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_snack_share",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_snack_share",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_snack_share",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_antique_note",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_antique_note",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_antique_note",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_antique_note",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_aquarium_step",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_aquarium_step",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_aquarium_step",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_peroro_line",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_peroro_line",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "abydos_peroro_line",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_big_bill",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_big_bill",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_big_bill",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_disc_before_words",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_disc_before_words",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_disc_before_words",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_weed_hand",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_weed_hand",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_weed_hand",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_two_envelopes",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_two_envelopes",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_two_envelopes",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_two_envelopes",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_name_after_bill",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_name_after_bill",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_name_after_bill",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_name_after_bill",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_reply_after_disc",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_reply_after_disc",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "03-abydos.json",
+      "event": "ab68_reply_after_disc",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_bad_signal",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_bad_signal",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_bad_signal",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_signal_answer",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_signal_answer",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_signal_answer",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_urban_rumor",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_urban_rumor",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_urban_rumor",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_coin_test",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_coin_test",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_coin_test",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_no_ability",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_no_ability",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_no_ability",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_second_route",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_second_route",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_second_route",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_display_window",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_display_window",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_display_window",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_sweet_orders",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_sweet_orders",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_sweet_orders",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pair_step",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pair_step",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pair_step",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pool_bundle",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pool_bundle",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_pool_bundle",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_guts_corner",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_guts_corner",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_guts_corner",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_parade_markers",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_parade_markers",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_parade_markers",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_parade_markers",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_vending_left_coin",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_vending_left_coin",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_vending_left_coin",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_tea_after_call",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_tea_after_call",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_tea_after_call",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unanswered_promise",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unanswered_promise",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unanswered_promise",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_arcade_empty_seat",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_arcade_empty_seat",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_arcade_empty_seat",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_festival_before_stage",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_festival_before_stage",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_festival_before_stage",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_drink_after_vending",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_drink_after_vending",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_drink_after_vending",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_drink_after_vending",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_next_shift",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_next_shift",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_next_shift",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unsealed_list",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unsealed_list",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "04-academy.json",
+      "event": "academy_unsealed_list",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_parking_seed",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_parking_seed",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_parking_seed",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_mentor_return",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_mentor_return",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_mentor_return",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_familiar_trace",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_familiar_trace",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_familiar_trace",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_church_food",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_church_food",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_church_food",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_one_wish",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_one_wish",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_one_wish",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_warning",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_warning",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_warning",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_visit_music",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_visit_music",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_visit_music",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_visit_music",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_home_morning",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_home_morning",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_home_morning",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_afterclass_appts",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_afterclass_appts",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_afterclass_appts",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_transfer_practice",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_transfer_practice",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_transfer_practice",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_room_visit",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_room_visit",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_room_visit",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_boundary_entrance",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_boundary_entrance",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_boundary_entrance",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_folded_edge",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_folded_edge",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "05-mitakihara.json",
+      "event": "madoka_folded_edge",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_metal",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_metal",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_metal",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_return",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_return",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_smith_return",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_companion_herb",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_companion_herb",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_companion_herb",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_rabbit_table",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_rabbit_table",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_rabbit_table",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_boss_warning",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_boss_warning",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_boss_warning",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_safezone_clue",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_safezone_clue",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_safezone_clue",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_counter_labels",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_counter_labels",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_counter_labels",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_guild_roll",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_guild_roll",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_guild_roll",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_middle_lantern",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_middle_lantern",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_middle_lantern",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_lakeside_wait",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_lakeside_wait",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_lakeside_wait",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_lakeside_wait",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_deputy_directions",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_deputy_directions",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_deputy_directions",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_fork",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_fork",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_fork",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_same_answer",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_same_answer",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_same_answer",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_girl_unanswered",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_girl_unanswered",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_girl_unanswered",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_first_party_step",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_first_party_step",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_first_party_step",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_second_question",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_second_question",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_second_question",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_argo_second_question",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_tied_fishing_line",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_tied_fishing_line",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_tied_fishing_line",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_verified_price",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_verified_price",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "06-aincrad.json",
+      "event": "sao_verified_price",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_airship_crate",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_airship_crate",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_airship_crate",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_deck_position",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_deck_position",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_deck_position",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_broken_focus",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_broken_focus",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_broken_focus",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_sealed_report",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_sealed_report",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_sealed_report",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_alchemy_sample",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_alchemy_sample",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_alchemy_sample",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_return_signal",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_return_signal",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_return_signal",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rosetta_dates",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rosetta_dates",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_two_questions",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_two_questions",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_two_questions",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_lancelot_shift",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_lancelot_shift",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_lancelot_shift",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_percival_load",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_percival_load",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_percival_load",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_yodarha_foot",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_yodarha_foot",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_yodarha_foot",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_io_audience",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_io_audience",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_io_audience",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_next_request",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_next_request",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "07-zegagrande.json",
+      "event": "gbf_rolan_next_request",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_five_coin",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_five_coin",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_five_coin",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_shrine_work",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_shrine_work",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_shrine_work",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_lost_address",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_lost_address",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_lost_address",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_fur_scale",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_fur_scale",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_fur_scale",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_fur_scale",
+      "choice": 3,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_fur_scale",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_other_buyer",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_other_buyer",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_other_buyer",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_good_receipt",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_good_receipt",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_good_receipt",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_rain_cargo",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_rain_cargo",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_rain_cargo",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_northern_route",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_northern_route",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_northern_route",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_torn_poster",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_torn_poster",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_torn_poster",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_lowered_blade",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_lowered_blade",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_signal",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_signal",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_signal",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_signal",
+      "choice": 3,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_signal",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_found",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_found",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_found",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_false",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_false",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "08-common.json",
+      "event": "common_nazrin_false",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_request_board",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_request_board",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_request_board",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_timber",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_timber",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_timber",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_receipt",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_receipt",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_receipt",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_fish",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_fish",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_fish",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_new_board",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_new_board",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_new_board",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_armory",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_armory",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_armory",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_river",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_river",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_river",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_river",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_wet_receipt",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_wet_receipt",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_wet_receipt",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_controlled_flame",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_controlled_flame",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_controlled_flame",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_iron_lunch",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_iron_lunch",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_iron_lunch",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_two_umbrellas",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_two_umbrellas",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_two_umbrellas",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_magazine_queue",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_magazine_queue",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_magazine_queue",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_laxus_short_reply",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_laxus_short_reply",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_laxus_short_reply",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_gildarts_wall",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_gildarts_wall",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_gildarts_wall",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_lucy_unfinished",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_lucy_unfinished",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_lucy_unfinished",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_mirajane_next_note",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_mirajane_next_note",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "09-magnolia.json",
+      "event": "ft_mirajane_next_note",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_shop_boxes",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_shop_boxes",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_shop_boxes",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_rooftop_marks",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_rooftop_marks",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_rooftop_marks",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_return_receipt",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_return_receipt",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_return_receipt",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_closed_lane",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_closed_lane",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_closed_lane",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_light_parcel",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_light_parcel",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_light_parcel",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_stray_alarm",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_stray_alarm",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_stray_alarm",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_stray_alarm",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unmarked_corner",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unmarked_corner",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unmarked_corner",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_joint_training",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_joint_training",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_joint_training",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_ripped_sleeve",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_ripped_sleeve",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_ripped_sleeve",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_chad_toy",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_chad_toy",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_chad_toy",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_yuzu_supplies",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_yuzu_supplies",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_yuzu_supplies",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_don_audience",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_don_audience",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_don_audience",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_uncertain_kit",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_uncertain_kit",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_uncertain_kit",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_uncertain_kit",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_tatsuki_space",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_tatsuki_space",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_tatsuki_space",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_empty_bench",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_empty_bench",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_empty_bench",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_welcome_at_door",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_welcome_at_door",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_welcome_at_door",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_small_shop_clerk",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_small_shop_clerk",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_small_shop_clerk",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unasked_invitation",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unasked_invitation",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_unasked_invitation",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_urahara_return_list",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_urahara_return_list",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "10-karakura.json",
+      "event": "bl_urahara_return_list",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dreamy_slots",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dreamy_slots",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dreamy_slots",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dreamy_slots",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_after_win",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_after_win",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_after_loss",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_after_loss",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_sorted_tokens",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_sorted_tokens",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_soulglad",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_soulglad",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_soulglad",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_masked_stage",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_masked_stage",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_masked_stage",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_remembered_exit",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_remembered_exit",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_walking_sign",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_walking_sign",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_walking_sign",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scattered_banknotes",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scattered_banknotes",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scattered_banknotes",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scattered_banknotes",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_floating_treat",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_floating_treat",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_floating_treat",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dream_eye_gap",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dream_eye_gap",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_dream_eye_gap",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scene_after_applause",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scene_after_applause",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scene_after_applause",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_scene_after_applause",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_monster_last_order",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_monster_last_order",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_monster_last_order",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_jade_unwritten_price",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_jade_unwritten_price",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_jade_unwritten_price",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_over_song",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_over_song",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_over_song",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_introduction_left",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_introduction_left",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_introduction_left",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_introduction_left",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_cowboy_in_frame",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_cowboy_in_frame",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_cowboy_in_frame",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_view_without_armor",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_view_without_armor",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_view_without_armor",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_after_poster",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_after_poster",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_name_after_poster",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_photo_missing_caption",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_photo_missing_caption",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "11-penacony.json",
+      "event": "hsr_photo_missing_caption",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_workshop",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_workshop",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_workshop",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_measurement_notes",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_measurement_notes",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_measurement_notes",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_trial_footprints",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_trial_footprints",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_trial_footprints",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_library",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_library",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_library",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_training",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_training",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_training",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_after_large",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_after_large",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_after_crowd",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_after_crowd",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_hayate_commands",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_hayate_commands",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_hayate_commands",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_family_photo",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_family_photo",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_family_photo",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_home_spares",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_home_spares",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_home_spares",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_butcher_counter",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_butcher_counter",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_butcher_counter",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_ling_lunch",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_ling_lunch",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_ling_lunch",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_ling_lunch",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_flame_supplies",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_flame_supplies",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_flame_supplies",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_pie_delivery",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_pie_delivery",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_pie_delivery",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "12-amestris.json",
+      "event": "fma_pie_delivery",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_path",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_path",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_path",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_path",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_found",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_found",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_found",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_wrong",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_wrong",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_night_wrong",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_unread_bottles",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_unread_bottles",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_unread_bottles",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_white_linen",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_white_linen",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_white_linen",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_crow_dispatch",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_crow_dispatch",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_crow_dispatch",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_midday_noise",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_midday_noise",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_midday_noise",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_mixed_traces",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_mixed_traces",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_mixed_traces",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_mixed_traces",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_before_departure",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_before_departure",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_before_departure",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_senior_challenge",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_senior_challenge",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_senior_challenge",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_return_to_training",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_return_to_training",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_return_to_training",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_frightened_visitor",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_frightened_visitor",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_frightened_visitor",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_first_gourd",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_first_gourd",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_first_gourd",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_first_gourd",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_morning_greeting",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_morning_greeting",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_morning_greeting",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_hand_return",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_hand_return",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_hand_return",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_partition_role",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_partition_role",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_partition_role",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_after_first_gourd",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_after_first_gourd",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "13-butterfly.json",
+      "event": "kny_after_first_gourd",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_road_meal",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_road_meal",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_road_meal",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_road_meal",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_feast",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_feast",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_feast",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_portions",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_portions",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_after_portions",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_dusty_room",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_dusty_room",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_dusty_room",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_dusty_room",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_faded_spice_map",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_faded_spice_map",
+      "choice": 1,
+      "success": false,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_faded_spice_map",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_faded_spice_map",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_faded_spice_map",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_tea_invitation",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_tea_invitation",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_tea_invitation",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_tea_invitation",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rainy_harvest",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rainy_harvest",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rainy_harvest",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_wrong_costume_tag",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_wrong_costume_tag",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_witness_hours",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_witness_hours",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_witness_hours",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_monica_market_watch",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_monica_market_watch",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_monica_market_watch",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_monica_market_watch",
+      "choice": 4,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_delivery_divide",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_delivery_divide",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_delivery_divide",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rehearsal_wall",
+      "choice": 1,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rehearsal_wall",
+      "choice": 2,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    },
+    {
+      "file": "14-gourmet.json",
+      "event": "pc_rehearsal_wall",
+      "choice": 3,
+      "success": true,
+      "chargesUnchanged": true,
+      "repeatUnchanged": true
+    }
+  ],
+  "mapCreated": false,
+  "limits": "실제 JASS 변환 함수의 모의 실행이다. 물약 사용과 회복 효과는 기존 별도 회귀로 검증한다. Warcraft·화면·실전 멀티·저장·밸런스는 미검증."
+}

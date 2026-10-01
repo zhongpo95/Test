@@ -14,13 +14,14 @@ check('검토 JSON 전체 참조·단위 검사와 실제 생성 데이터 수 �
  const {e}=fresh(0,true);let cards=0,events=0,heads=0;
  for(const w of worlds){const report=inspect(w);assert.deepEqual(report.errors,[],JSON.stringify(report));cards+=w.cards.length;events+=w.events.length;
   if(w.world.key!=='common')heads++;
-  for(const scene of w.events){const n=id(e,scene.key);assert.equal(e.ProtoEventChoices[n],scene.choices.length);assert.equal(e.ProtoEventStory[n],scene.story);for(const [i,b] of scene.choices.entries()){const k=e.ProtoChoiceKey(n,i+1);assert.equal(e.ProtoBranchChance[k],b.chance);assert.equal(e.ProtoBranchCard[k],b.card?card(e,b.card):0);}}
+  for(const scene of w.events){const n=id(e,scene.key);assert.equal(e.ProtoEventChoices[n],scene.choices.length);assert.equal(e.ProtoEventStory[n],scene.story);for(const [i,b] of scene.choices.entries()){const k=e.ProtoChoiceKey(n,i+1);assert.equal(e.ProtoBranchChance[k],b.chance);assert.equal(e.ProtoBranchCard[k],b.card?card(e,b.card):0);assert.equal(b.potions,0);assert.equal(e.ProtoBranchPotions[k],0);assert(!/물약/.test(b.label+b.result));}}
  }
  assert.equal(e.PROTO_HEAD_COUNT,heads);assert.equal(e.PROTO_CARD_LAST-e.PROTO_CARD_FIRST+1,cards);assert.equal(e.PROTO_EVENT_COUNT,heads*4+events);
 });
-check('잘못된 카드 참조·체력 지불·실패 후속·순환·각성·미지급 카드는 검사에서 탈락',()=>{
+check('잘못된 카드 참조·체력 지불·물약 보상·실패 후속·순환·각성·미지급 카드는 검사에서 탈락',()=>{
  const mutations=[w=>w.events[0].choices[0].card='missing',w=>w.events[0].choices[0].hpCost=1,w=>{w.events[1].previous=w.events[0].key;w.events[1].previousChoice=0;},w=>{w.events[1].previous=w.events[0].key;w.events[1].previousChoice=-1;},w=>{w.events[0].previous=w.events[1].key;w.events[0].previousChoice=1;w.events[1].previous=w.events[0].key;w.events[1].previousChoice=1;},w=>w.cards[0].evolution.kind=4,w=>{const c=structuredClone(w.cards[0]);c.key='unawarded';w.cards.push(c);w.events[0].requiredCard=c.key;},w=>w.world.entryCard='missing'];
  for(const mutate of mutations){const w=structuredClone(worlds[0]);mutate(w);assert(inspect(w).errors.length>0);}
+ const potionReward=structuredClone(worlds[0]);potionReward.events[0].choices[0].potions=1;assert(inspect(potionReward).errors.some(x=>x.reason==='사건에서 물약을 보상으로 지급하지 않음'));
 });
 check('머리 후보 첫 선택에서 행동력 한 번 지불, 즉시 입문 카드와 약한 지역 효과 획득',()=>{
  const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],9);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
@@ -201,7 +202,7 @@ check('나즈린 수색의 60/61 경계는 실패 부담을 유지하고 개인 
   for(const key of ['common_nazrin_found','common_nazrin_false'])assert(!e.ProtoEventEligible(1,id(e,key)));
   const charges=e.GetItemCharges(e.PlayerItem1[0]);e.ProtoResume(0);enter(e,0,success?'common_nazrin_found':'common_nazrin_false');e.ProtoResolve(0,3);
   assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAP[1],10);assert.equal(e.ExpGold[0],success?320:140);assert.equal(e.ProtoLevel[0],level);
-  assert.equal(e.GetItemCharges(e.PlayerItem1[0]),charges+(success?1:0));assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);
+  assert.equal(e.GetItemCharges(e.PlayerItem1[0]),charges);assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?3:-3);
  }
 });

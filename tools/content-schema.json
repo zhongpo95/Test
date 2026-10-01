@@ -10,7 +10,7 @@
     "events":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["key","title","story","intro","previous","previousChoice","requiredCard","choices","failure","canonFact","uncertain"],"properties":{
       "key":{"type":"string"},"title":{"type":"string"},"story":{"type":"string"},"intro":{"type":"string"},"actionCost":{"type":"integer","enum":[0,1]},"previous":{"type":["string","null"]},"previousChoice":{"type":"integer","minimum":-4,"maximum":4},"requiredCard":{"type":["string","null"]},
       "choices":{"type":"array","minItems":2,"maxItems":4,"items":{"type":"object","required":["label","result","card","card2","gold","cost","level","density","potions","chance"],"additionalProperties":false,"properties":{
-        "label":{"type":"string"},"result":{"type":"string"},"card":{"type":["string","null"]},"card2":{"type":["string","null"]},"gold":{"type":"integer","minimum":0},"cost":{"type":"integer","minimum":0},"level":{"type":"integer","minimum":-4,"maximum":4},"density":{"type":"integer","minimum":-6,"maximum":6},"potions":{"type":"integer","minimum":0},"chance":{"type":"integer","minimum":1,"maximum":100}
+        "label":{"type":"string"},"result":{"type":"string"},"card":{"type":["string","null"]},"card2":{"type":["string","null"]},"gold":{"type":"integer","minimum":0},"cost":{"type":"integer","minimum":0},"level":{"type":"integer","minimum":-4,"maximum":4},"density":{"type":"integer","minimum":-6,"maximum":6},"potions":{"type":"integer","minimum":0,"maximum":0},"chance":{"type":"integer","minimum":1,"maximum":100}
       }}},"failure":{"type":["string","null"]},"canonFact":{"type":"string"},"uncertain":{"type":"array","items":{"type":"string"}}
     }}}
   },

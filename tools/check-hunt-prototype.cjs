@@ -266,7 +266,7 @@ check('사건 만료는 후보 AP 미소비 또는 유효 분기, 대기실 이�
   e.ProtoGrantHead(0,2);e.ExpGold[0]=80;e.ProtoOffer(0);e.ProtoCandidates[1]=scene(e,'axel_priest_supply');request(e,0,2101);e.ProtoDeadline[0]=1;
   const potions=e.GetItemCharges(e.PlayerItem1[0]);
   for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],3);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],9);
-  assert(e.ExpCardOwned[e.ExpKey(0,card(e,'axel_aqua_supply'))]);assert.equal(e.GetItemCharges(e.PlayerItem1[0]),potions+2);
+  assert(e.ExpCardOwned[e.ExpKey(0,card(e,'axel_aqua_supply'))]);assert.equal(e.GetItemCharges(e.PlayerItem1[0]),potions);
   const lobby=fresh(0,true).e;lobby.online=[true,true,false,false];request(lobby,0,2001);assert.equal(lobby.ExpState,lobby.EXP_LOBBY);
   lobby.eventPlayer=1;lobby.Leave();assert.equal(lobby.ExpState,lobby.EXP_HUNT);assert.equal(lobby.ExpPlayers,1);
 });

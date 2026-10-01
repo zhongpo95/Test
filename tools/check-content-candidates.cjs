@@ -62,6 +62,7 @@ function inspect(input) {
         if (!Number.isInteger(choice[field])) fail(tag,field+'는 정수여야 함');
       }
       if (choice.cost<0 || choice.potions<0 || choice.gold<0 || choice.chance<1 || choice.chance>100) fail(tag,'비용·보상·성공률 범위 오류');
+      if (choice.potions!==0) fail(tag,'사건에서 물약을 보상으로 지급하지 않음');
       if (choice.health || choice.healthCost || choice.hpCost) fail(tag,'현재 체력 지불·회복은 사건 보상 필드에서 사용하지 않음');
       for (const field of ['card','card2']) if (choice[field]) {
         if (!cards.has(choice[field])) fail(tag,field+' 참조 없음');
