@@ -1,0 +1,32 @@
+{
+  "scope": "머리별 독립 사건 확장 1차",
+  "counts": {
+    "heads": 13,
+    "cards": 124,
+    "events": 100,
+    "independent": 61,
+    "followups": 39
+  },
+  "added": {
+    "cards": 9,
+    "independent": 9
+  },
+  "headPools": {
+    "gourmet": {
+      "independent": 4,
+      "followups": 2
+    },
+    "butterfly": {
+      "independent": 7,
+      "followups": 2
+    }
+  },
+  "candidateChecks": "두 후보 참조·수치·필수 필드 errors0 warnings0",
+  "integrationGroups": 21,
+  "statRecoveryGroups": 8,
+  "newBranchCases": 55,
+  "generatedFilesMatch": true,
+  "compileFile": "compile-14.json",
+  "mapCreated": false,
+  "validation": "정적 분석·JASS 변환 모의 함수·스크립트 전용 컴파일. 실제 Warcraft·화면·멀티플레이·전체 PlayerStatsSet·성능·재미·밸런스 미검증. 원문 보관 파일은 바이트를 그대로 유지하고 공백 검사는 활성 소스·문서와 분리한다."
+}

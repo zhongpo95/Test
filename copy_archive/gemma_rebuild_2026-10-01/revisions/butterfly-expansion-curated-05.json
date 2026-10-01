@@ -184,8 +184,8 @@
     {
       "key": "kny_aoi_supply",
       "name": "칸자키 아오이",
-      "effectName": "필요한 몫을 먼저",
-      "keyword": "재생 · 처치 골드",
+      "effectName": "전투 중 회복 준비와 처치 뒤 수급 정리",
+      "keyword": "재생, 처치골드",
       "grade": 2,
       "effects": [
         {
@@ -208,8 +208,8 @@
     {
       "key": "kny_kanao_quiet",
       "name": "츠유리 카나오",
-      "effectName": "발이 움직이기 전에",
-      "keyword": "이동 · 치명 확률",
+      "effectName": "이동 준비와 정확한 공격",
+      "keyword": "이동속도, 치명확률",
       "grade": 2,
       "effects": [
         {
@@ -232,8 +232,8 @@
     {
       "key": "kny_tanjiro_smell",
       "name": "카마도 탄지로",
-      "effectName": "겹친 흔적 사이",
-      "keyword": "방향 적중 · 관통",
+      "effectName": "방향 적중 피해와 개인 방어 관통",
+      "keyword": "방향적중피해, 관통",
       "grade": 2,
       "effects": [
         {
@@ -261,8 +261,8 @@
     {
       "key": "kny_shinobu_points",
       "name": "코쵸 시노부",
-      "effectName": "상대를 먼저 알기",
-      "keyword": "관통 · 보스",
+      "effectName": "상대 특성에 맞는 공격 준비",
+      "keyword": "관통, 보스피해비율",
       "grade": 2,
       "effects": [
         {
@@ -285,8 +285,8 @@
     {
       "key": "kny_zenitsu_listen",
       "name": "아가츠마 젠이츠",
-      "effectName": "소리 사이의 한순간",
-      "keyword": "차지 속도 · 보스",
+      "effectName": "차지 준비",
+      "keyword": "차지속도, 보스피해비율",
       "grade": 2,
       "effects": [
         {
@@ -314,8 +314,8 @@
     {
       "key": "kny_inosuke_terrain",
       "name": "하시비라 이노스케",
-      "effectName": "먼저 발을 내딛는 길",
-      "keyword": "이동 · 일반 적",
+      "effectName": "길을 읽는 이동 준비와 일반 적 상대 준비",
+      "keyword": "이동속도, 일반적중비율",
       "grade": 2,
       "effects": [
         {

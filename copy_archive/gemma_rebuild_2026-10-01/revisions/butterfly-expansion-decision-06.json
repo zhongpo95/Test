@@ -1,0 +1,100 @@
+{
+  "sourceRevision": "a6b6402",
+  "beforeFile": "copy_archive/gemma_rebuild_2026-10-01/before-butterfly-expansion-06.json",
+  "beforeSha256": "eba88a41549159c28163d64ef24451929fa98c1c18eddbf11720f98b9991c5fa",
+  "review": {
+    "verdict": "Pass",
+    "issues": [],
+    "strengths": [
+      "원작의 핵심 능력(후각, 청각, 신체능력 등)을 게임 메커니즘(방향 피해, 차지 속도, 이동 속도 등)으로 변환할 때 '각색'임을 명시하여 원작 왜곡을 방지함.",
+      "기능회복훈련의 핵심 요소인 '준비', '보급', '수련'의 맥락을 유지하면서도, 실제 퀘스트 아이템이나 신규 기술을 지급하지 않는다는 제약 조건을 모든 이벤트와 카드에 일관되게 적용함.",
+      "수치적 설계(AP 비용, 골드, 확률 등)가 시스템 가이드라인을 정확히 준수하며, 특히 실패 시에도 비용이 남는다는 규칙과 재생 한도 등의 세부 메커니즘이 충돌 없이 반영됨.",
+      "각 이벤트마다 인물별 특성(시노부의 약학, 카나오의 신체능력, 이노스케의 돌파 성향 등)이 서로 다른 선택지와 결과로 구분되어 반복적인 구조 속에서도 변별력을 확보함."
+    ]
+  },
+  "changes": [
+    {
+      "key": "kny_aoi_supply",
+      "before": {
+        "effectName": "전투 중 회복 준비와 처치 뒤 수급 정리",
+        "keyword": "재생, 처치골드"
+      },
+      "after": {
+        "effectName": "필요한 몫을 먼저",
+        "keyword": "재생 · 처치 골드"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    },
+    {
+      "key": "kny_kanao_quiet",
+      "before": {
+        "effectName": "이동 준비와 정확한 공격",
+        "keyword": "이동속도, 치명확률"
+      },
+      "after": {
+        "effectName": "발이 움직이기 전에",
+        "keyword": "이동 · 치명 확률"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    },
+    {
+      "key": "kny_tanjiro_smell",
+      "before": {
+        "effectName": "방향 적중 피해와 개인 방어 관통",
+        "keyword": "방향적중피해, 관통"
+      },
+      "after": {
+        "effectName": "겹친 흔적 사이",
+        "keyword": "방향 적중 · 관통"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    },
+    {
+      "key": "kny_shinobu_points",
+      "before": {
+        "effectName": "상대 특성에 맞는 공격 준비",
+        "keyword": "관통, 보스피해비율"
+      },
+      "after": {
+        "effectName": "상대를 먼저 알기",
+        "keyword": "관통 · 보스"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    },
+    {
+      "key": "kny_zenitsu_listen",
+      "before": {
+        "effectName": "차지 준비",
+        "keyword": "차지속도, 보스피해비율"
+      },
+      "after": {
+        "effectName": "소리 사이의 한순간",
+        "keyword": "차지 속도 · 보스"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    },
+    {
+      "key": "kny_inosuke_terrain",
+      "before": {
+        "effectName": "길을 읽는 이동 준비와 일반 적 상대 준비",
+        "keyword": "이동속도, 일반적중비율"
+      },
+      "after": {
+        "effectName": "먼저 발을 내딛는 길",
+        "keyword": "이동 · 일반 적"
+      },
+      "reason": "스탯 열 이름을 그대로 붙인 초안 대신 사건의 준비·인물 태도를 담고 실제 옵션 단위를 키워드에 남긴다."
+    }
+  ],
+  "decision": "6개 새 독립 사건·관련 카드6개 채택. 반복 사건3개와 원안 출력 오류는 별도 제외 이유와 원문 보존.",
+  "reviewLimits": [
+    "Gemma는 05후보에서 지적 없음. 이후 06은 카드 효과 이름·키워드만 편집했으며 숫자·사건·참조를 바꾸지 않았다.",
+    "실제 Warcraft·화면·멀티플레이·성능·재미·밸런스 검증은 아니다."
+  ],
+  "candidateCheck": {
+    "cards": 12,
+    "events": 9,
+    "errors": [],
+    "warnings": []
+  }
+}
