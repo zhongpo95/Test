@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 155,
+    "events": 137,
+    "roots": 98,
+    "followups": 39
+  },
+  "contentGroups": 21,
+  "statGroups": 8,
+  "ciCommands": 14,
+  "newRootCases": 12,
+  "branchCases": 69,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "db025b6a71c0d38deb9f4904b94aa80e09a1c3bbaa92cb54e1c319d5d23e6a0f",
+  "mapCreated": false,
+  "limits": [
+    "실제 JASS 함수의 변환 모의 실행과 스크립트 컴파일이다. 고정 체력 모형이므로 전체 PlayerStatsSet·체력 비율 실기 검증은 아니다.",
+    "Warcraft·화면·실제 멀티·서버 저장·프레임·재미·밸런스 미검증."
+  ],
+  "usage": {
+    "used": 38,
+    "remaining": 62
+  }
+}

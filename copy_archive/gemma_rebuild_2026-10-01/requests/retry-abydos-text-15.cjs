@@ -1,0 +1,13 @@
+// 고체력 피해를 회복으로 오인한 아비도스 문장 원안을 제외하고 능력치 표를 분리해 재요청한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const fixed=JSON.parse(fs.readFileSync(path.join(root,'requests/abydos-expansion-fixed-14.json'),'utf8'));
+const prior=JSON.parse(fs.readFileSync(path.join(root,'requests/abydos-expansion-text-14.json'),'utf8'));
+const request=structuredClone(prior);
+request.system='한국어 이야기 문장만 쓰는 작가다. story는3문장, intro는1문장, 결과는2~3문장이다. 카드 효과의 수치나 능력치 설명을 쓰지 않는다. 선택 순서와 key를 그대로 복사한다. 결과는 선택이 이미 성공한 뒤의 장면이며 개발 안내·NPC·공식 출처·게임 UI 문구가 아니다.';
+request.brief={events:fixed.events.map(({canonFact,...e})=>e),sourceFacts:fixed.sourceFacts,rules:['결과에는 어느 준비를 배웠는지, 실제 지불한 비용, 수고를 맡긴 사람의 보수·물약을 쓰고 인물 반응을 덧붙인다. card 이름을 무작위로 바꾸지 않는다.','card null이면 카드·강화·능력치 획득이 없다. 100골드 보급 선택은 물약1과 몹 단계-1뿐이다.','고체력 피해는 높은 체력에서 강하게 공격하는 조건이다. 14회복도 재생도 아니다. 여기서는 몸 상태와 앞에 설 자리를 지키는 준비라고만 쓴다.','신속은 동작 준비, 이동 피해는 기본 이동속도400 대비 실제 속도로 받는 효과다. 이동 중에만 추가피해가 켜진다거나 단위를16고정피해로 쓰지 않는다. 수치 대신 움직일 여유를 찾는 준비라고 쓴다.','사건 후보+1은 다음 사건 화면에 후보가 더 보이는 것이다. 행동력·선택 기회·행동 횟수는 늘지 않는다. 여러 부탁과 항목을 더 비교할 준비라고만 쓴다.','level은 개인 사냥의 몹 단계,density는 동시 적 수다. 이후 사냥에 더 강한 적·더 많은 적 또는 감소가 남는 이유를 반드시 쓴다.','노노미와 몫을 챙기면 다음 싸움과 오래 움직일 보급 준비를 배운다. 즉시 체력회복·현재체력지불·NPC가 강해짐은 없다.','골동품70% 성공 결과는 이전 기록을 확인하고 아야네와 기록을 살필 준비를 배우며 가게에게230보수를 받는 장면이다.150연락비는 실제로지불한다. 실패문은 별도로 있다.','휴식·거리·파이·지도만 조정하는 것으로 실제 몹 변화가 빠지면 안된다. 모든 부탁을 끝냈거나 NPC 호위를 성공했다는 보장은 없다.','똑같은 인용 대사와 효율·안전·체계적 준비로 끝내지 않는다. 시로코의 적은 말, 세리카의 잔소리, 호시노의 느긋함, 아야네의 원칙, 노노미의 상냥함, 히후미의 망설임이 다르게 보인다.']};
+const reasons=[{key:'abydos_pace#3',problem:'card null·물약1·적 단계-1 선택인데 아야네 보급 카드의 재생.6·피해감소5를 지급한다고 썼다.',revisit:'지정 카드 없는 실제 보급·필드 변화로 쓸 것.'},{key:'abydos_sleepchair#1 / abydos_aquarium_step#1',problem:'고체력 피해14를 체력14회복으로 잘못 설명했다.',revisit:'높은 체력을 지킨 공격 준비로 표현할 것.'},{key:'abydos_snack_share#2 / abydos_peroro_line#1',problem:'사건 후보 증가를 선택 기회1회로 써 행동력 증가로 읽힌다.',revisit:'사건 화면에서 비교 후보가 늘어나는 준비로 구분할 것.'},{key:'abydos_pace#2 / abydos_aquarium_step#2',problem:'실제 속도로 환산하는 이동 피해를 이동 중만16고정피해처럼 썼고 몹 단계·수 부담을 누락했다.',revisit:'효과 설명은 기존 UI에 맡기고 실제 개인 몹 변화와 이야기 결과를 연결할 것.'},{key:'all',problem:'카드 수치를 불완전하게 나열한 결과 메뉴와 동일한 인용 문단 구조로 썼다.',revisit:'능력치 표를 집필 요청에서 분리하고 실제 행동의 장면을 쓸 것.'}];
+fs.writeFileSync(path.join(root,'revisions/abydos-text-rejection-14.json'),JSON.stringify({raw:'drafts/abydos-expansion-text-14.json',decision:'숫자·효과 설명을 섞은 결과 문장 전체 미채택. 상황·수치 원안6개는 유지하고 재집필한다.',reasons},null,2)+'\n',{flag:'wx'});
+fs.writeFileSync(path.join(root,'requests/abydos-expansion-text-15.json'),JSON.stringify(request,null,2)+'\n',{flag:'wx'});
+console.log('아비도스 효과 오인 원문과 이유를 보존하고 문장 전용 요청15를 준비했다.');
