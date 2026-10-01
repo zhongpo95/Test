@@ -1,0 +1,300 @@
+{
+  "started": "2026-10-01T18:26:03.622Z",
+  "finished": "2026-10-01T18:26:11.086Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "ab68_weed_hand",
+                  "ab68_two_envelopes",
+                  "ab68_name_after_bill",
+                  "ab68_reply_after_disc"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "system": "한국어 사건 작가다. 입력key/index마다 actionText 한 문장과 reactionText 한 문장만 쓴다. actionText는 여행자(너)가 선택label의 행동을 실제로 한 현장이다. reactionText는 원래story의 남은 문제에 관련 인물이 한 작은 반응이다. 숫자·카드획득·보상·능력치·확률·실패·비용·cpu·JSON·메타데이터는 쓰지 않는다. 새 장면이나 원작 기술을 덧붙이지 않고 칭찬·끄덕임만 반복하지 않는다.",
+    "brief": {
+      "events": [
+        {
+          "key": "ab68_weed_hand",
+          "story": "네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다.",
+          "canonFact": "공식 잡초기르기 취미에서 여행자가 먼저 치우려 한 작은 오해를 창작했다. 특정 식물·실제 성장/수확·치유·왕따 해결·원작 라멘 폭파를 보상으로 바꾸지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "action": "내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다",
+              "memory": "먼저 묻는 손"
+            },
+            {
+              "index": 3,
+              "action": "160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다",
+              "memory": "남겨 둔 작은 자리"
+            }
+          ]
+        },
+        {
+          "key": "ab68_two_envelopes",
+          "story": "무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다.",
+          "canonFact": "무츠키의 장난과 아루 허세를 창작 봉투내기로 각색했다. 원작에 이 내기가 있다고 주장하지 않고 폭탄/폭발·사냥 중 추가 처치·새 미니게임·숨은 확률 기능을 만들지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "action": "240골드로 내기 대신 두 봉투의 답을 바로 듣는다",
+              "memory": "답을 듣는 대가"
+            },
+            {
+              "index": 3,
+              "action": "160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다",
+              "memory": "악당의 품격"
+            }
+          ]
+        },
+        {
+          "key": "ab68_name_after_bill",
+          "story": "계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다.",
+          "canonFact": "자기 계산 도움 성공1번 뒤에만 열리는 창작 소개후속이다. 회사 계약·은행 범죄·원작 습격 승패·실제NPC작업은 없다.",
+          "choices": [
+            {
+              "index": 2,
+              "action": "220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다",
+              "memory": "말이 끝나기 전에"
+            }
+          ]
+        },
+        {
+          "key": "ab68_reply_after_disc",
+          "story": "카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다.",
+          "canonFact": "자기CD만남 성공2번 뒤에만 열리는 창작 후속이다. 인물의 모든 오해가 없어졌다고 결론내리지 않고 새 음악·동행·가게 할인 기능을 지급하지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "action": "내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다",
+              "memory": "사과 대신 주문"
+            },
+            {
+              "index": 3,
+              "action": "180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다",
+              "memory": "침묵에도 내용이 있다"
+            }
+          ]
+        }
+      ],
+      "boundary": "라멘교대1/사막방어1/아루계산1/카요코한곡2의 자기 성공후속을 같은 번호로 유지한다. 카요코부모2는새곡카드이며후속은이를다시주지않는다. aru_task/kayoko_reply후속전용을유지한다. 기존 원작 역할과 작은 만남만 사용한다. 여행자 행동의 결과를 NPC의 성장·새 기술·실제 무기·현재체력 지불·빚 해소·큰 결말로 바꾸지 않는다.",
+      "format": "actionText/reactionText만 출력하며 고정된 카드·비용·필드·물약은 코드가 붙인다. 카드와 수치를 별도로 쓰지 않는다."
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "ab68_weed_hand",
+                  "ab68_two_envelopes",
+                  "ab68_name_after_bill",
+                  "ab68_reply_after_disc"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 작가다. 입력key/index마다 actionText 한 문장과 reactionText 한 문장만 쓴다. actionText는 여행자(너)가 선택label의 행동을 실제로 한 현장이다. reactionText는 원래story의 남은 문제에 관련 인물이 한 작은 반응이다. 숫자·카드획득·보상·능력치·확률·실패·비용·cpu·JSON·메타데이터는 쓰지 않는다. 새 장면이나 원작 기술을 덧붙이지 않고 칭찬·끄덕임만 반복하지 않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"events\":[{\"key\":\"ab68_weed_hand\",\"story\":\"네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다.\",\"canonFact\":\"공식 잡초기르기 취미에서 여행자가 먼저 치우려 한 작은 오해를 창작했다. 특정 식물·실제 성장/수확·치유·왕따 해결·원작 라멘 폭파를 보상으로 바꾸지 않는다.\",\"choices\":[{\"index\":2,\"action\":\"내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다\",\"memory\":\"먼저 묻는 손\"},{\"index\":3,\"action\":\"160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다\",\"memory\":\"남겨 둔 작은 자리\"}]},{\"key\":\"ab68_two_envelopes\",\"story\":\"무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다.\",\"canonFact\":\"무츠키의 장난과 아루 허세를 창작 봉투내기로 각색했다. 원작에 이 내기가 있다고 주장하지 않고 폭탄/폭발·사냥 중 추가 처치·새 미니게임·숨은 확률 기능을 만들지 않는다.\",\"choices\":[{\"index\":2,\"action\":\"240골드로 내기 대신 두 봉투의 답을 바로 듣는다\",\"memory\":\"답을 듣는 대가\"},{\"index\":3,\"action\":\"160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다\",\"memory\":\"악당의 품격\"}]},{\"key\":\"ab68_name_after_bill\",\"story\":\"계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다.\",\"canonFact\":\"자기 계산 도움 성공1번 뒤에만 열리는 창작 소개후속이다. 회사 계약·은행 범죄·원작 습격 승패·실제NPC작업은 없다.\",\"choices\":[{\"index\":2,\"action\":\"220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다\",\"memory\":\"말이 끝나기 전에\"}]},{\"key\":\"ab68_reply_after_disc\",\"story\":\"카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다.\",\"canonFact\":\"자기CD만남 성공2번 뒤에만 열리는 창작 후속이다. 인물의 모든 오해가 없어졌다고 결론내리지 않고 새 음악·동행·가게 할인 기능을 지급하지 않는다.\",\"choices\":[{\"index\":2,\"action\":\"내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다\",\"memory\":\"사과 대신 주문\"},{\"index\":3,\"action\":\"180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다\",\"memory\":\"침묵에도 내용이 있다\"}]}],\"boundary\":\"라멘교대1/사막방어1/아루계산1/카요코한곡2의 자기 성공후속을 같은 번호로 유지한다. 카요코부모2는새곡카드이며후속은이를다시주지않는다. aru_task/kayoko_reply후속전용을유지한다. 기존 원작 역할과 작은 만남만 사용한다. 여행자 행동의 결과를 NPC의 성장·새 기술·실제 무기·현재체력 지불·빚 해소·큰 결말로 바꾸지 않는다.\",\"format\":\"actionText/reactionText만 출력하며 고정된 카드·비용·필드·물약은 코드가 붙인다. 카드와 수치를 별도로 쓰지 않는다.\"}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T18:26:11.0823506Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"events\":[{\"key\":\"ab68_weed_hand\",\"choices\": [{\"index\":2,\"actionText\":\"하루카에게 손을 뻗기 전에 어디에 두려던 것인지 먼저 물어본다.\",\"reactionText\":\"하루카는 화분을 더 꽉 붙들며 대답을 기다린다.\"},{\"index\":3,\"actionText\":\"하루카의 작은 자리를 남겨 둔 채 보급을 마련한다.\",\"reactionText\":\"하루카는 네가 남겨둔 공간을 확인하며 안심하는 듯한 표정을 짓는다.\"}]},{\"key\":\"ab68_two_envelopes\",\"choices\": [{\"index\":2,\"actionText\":\"골드를 지불하고 두 봉투의 답을 바로 듣는다.\",\"reactionText\":\"무츠키는 기다렸다는 듯이 입을 열어 답을 들려준다.\"},{\"index\":3,\"actionText\":\"보급을 마련하고 봉투를 고르기 전에 아루의 큰소리를 먼저 듣는다.\",\"reactionText\":\"아루는 당당하게 가슴을 펴며 자신의 이야기를 시작한다.\"}]},{\"key\":\"ab68_name_after_bill\",\"choices\": [{\"index\":2,\"actionText\":\"내 준비를 마치고 무츠키와 아루의 이름 다음 말을 기다린다.\",\"reactionText\":\"아루는 소개의 핵심을 말하려는 듯 입술을 달싹인다.\"}]},{\"key\":\"ab68_reply_after_disc\",\"choices\": [{\"index\":2,\"actionText\":\"말과 말 사이의 박자를 기억하며 다음을 기다린다.\",\"reactionText\":\"카요코는 아까 멈췄던 문장을 이어가기 위해 호흡을 가다듬는다.\"},{\"index\":3,\"actionText\":\"귀환을 준비하며 카요코와 끝난 곡의 박자를 다시 확인한다.\",\"reactionText\":\"카요코는 네가 박자를 되짚는 것을 가만히 지켜본다.\"}]}]}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 7433261000,
+    "load_duration": 2391100,
+    "prompt_eval_count": 1180,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 555007000,
+    "eval_count": 423,
+    "eval_duration": 6732502000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "ab68_weed_hand",
+        "choices": [
+          {
+            "index": 2,
+            "actionText": "하루카에게 손을 뻗기 전에 어디에 두려던 것인지 먼저 물어본다.",
+            "reactionText": "하루카는 화분을 더 꽉 붙들며 대답을 기다린다."
+          },
+          {
+            "index": 3,
+            "actionText": "하루카의 작은 자리를 남겨 둔 채 보급을 마련한다.",
+            "reactionText": "하루카는 네가 남겨둔 공간을 확인하며 안심하는 듯한 표정을 짓는다."
+          }
+        ]
+      },
+      {
+        "key": "ab68_two_envelopes",
+        "choices": [
+          {
+            "index": 2,
+            "actionText": "골드를 지불하고 두 봉투의 답을 바로 듣는다.",
+            "reactionText": "무츠키는 기다렸다는 듯이 입을 열어 답을 들려준다."
+          },
+          {
+            "index": 3,
+            "actionText": "보급을 마련하고 봉투를 고르기 전에 아루의 큰소리를 먼저 듣는다.",
+            "reactionText": "아루는 당당하게 가슴을 펴며 자신의 이야기를 시작한다."
+          }
+        ]
+      },
+      {
+        "key": "ab68_name_after_bill",
+        "choices": [
+          {
+            "index": 2,
+            "actionText": "내 준비를 마치고 무츠키와 아루의 이름 다음 말을 기다린다.",
+            "reactionText": "아루는 소개의 핵심을 말하려는 듯 입술을 달싹인다."
+          }
+        ]
+      },
+      {
+        "key": "ab68_reply_after_disc",
+        "choices": [
+          {
+            "index": 2,
+            "actionText": "말과 말 사이의 박자를 기억하며 다음을 기다린다.",
+            "reactionText": "카요코는 아까 멈췄던 문장을 이어가기 위해 호흡을 가다듬는다."
+          },
+          {
+            "index": 3,
+            "actionText": "귀환을 준비하며 카요코와 끝난 곡의 박자를 다시 확인한다.",
+            "reactionText": "카요코는 네가 박자를 되짚는 것을 가만히 지켜본다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "9bcf06de-0308-4d35-92f8-f22378d2f02a"
+}

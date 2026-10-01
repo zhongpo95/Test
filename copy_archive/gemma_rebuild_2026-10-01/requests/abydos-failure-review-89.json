@@ -1,0 +1,197 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "verdict",
+      "issues",
+      "strengths"
+    ],
+    "properties": {
+      "verdict": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "REVISE"
+        ]
+      },
+      "issues": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "problem",
+            "evidence",
+            "suggestion"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "problem": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "system": "한국어 독립 검토자다. 실제 데이터와 문장의 불일치만 issues에 쓴다. level/density는 초기몬스터강함1/적수4에서의 변화량이다. UI가 카드 이름과 정확한 효과를 덧붙인다. 새밸런스나기능은제안하지않는다.",
+  "brief": {
+    "cards": [
+      {
+        "key": "abydos_ayane_ledger",
+        "name": "오쿠소라 아야네",
+        "effectName": "항목 아래 남은 숫자",
+        "keyword": "처치 골드 · 사건 후보",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 3
+          },
+          {
+            "stat": "event_choices",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "가계부·회계 기록과 서기·규칙 중시를 빠뜨린 수급과 비교 후보를 살피는 성장으로 각색한다. 학교의 큰 빚을 없애거나 실제 회계·대출 시스템을 생성하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "abydos_ayane_route",
+        "name": "오쿠소라 아야네",
+        "effectName": "전달할 곳부터",
+        "keyword": "이동 · 최대 체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 3
+          },
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 서기·지원 역할과 기존 보급 운반에서 전달할 곳과 돌아올 자리를 먼저 확인하는 기억이다. 새 통신 기술·실제 보급차량·NPC 운반·귀환 스킬은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "abydos_ayane_blank",
+        "name": "오쿠소라 아야네",
+        "effectName": "지우지 않은 빈칸",
+        "keyword": "치명 피해 · 받는 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 기록·규칙 중시와 가계부·골동품 취미에서 확인하지 않은 기록을 단정하지 않는 기억이다. 자동 감정·골동품 소유·학교 빚 해소·원작 관통 기술은 없다.",
+        "uncertain": []
+      }
+    ],
+    "events": [
+      {
+        "key": "abydos_antique_note",
+        "title": "낡은 물건의 지워진 항목",
+        "story": "아야네가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 기록까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다.",
+        "intro": "불확실한 기록 확인과 확실한 장부 정리 중 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "label": "150골드의 연락 비용을 내고 지워진 항목을 찾는다",
+            "result": "연락한 기록을 아야네와 대조하고 지워진 항목의 남은 숫자를 확인했다. 150골드를 지불했다. 「항목 아래 남은 숫자」의 기억 카드1장을 얻었다. 가게 주인이 확인한 줄을 가리키자 아야네는 그 아래의 빈칸까지 같은 답으로 채우지 않는다.",
+            "card": "abydos_ayane_ledger",
+            "card2": null,
+            "gold": 0,
+            "cost": 150,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 70
+          },
+          {
+            "label": "220골드로 기록용품을 마련하고 아야네와 아직 확인하지 않은 빈칸을 남긴다",
+            "result": "아야네와 확인하지 않은 빈칸을 그대로 남기고 확실한 줄만 기록에 옮겼다. 220골드를 지불했다. 「지우지 않은 빈칸」의 기억 카드1장을 얻었다. 아야네는 주인이 장담하지 않은 항목 옆에 다음에 물어볼 일을 따로 적는다.",
+            "card": "abydos_ayane_blank",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "160골드로 운반을 준비하고 아야네와 확인된 물건을 전할 곳을 나눈다",
+            "result": "아야네와 확인된 물건을 옮길 준비를 하고 전달할 곳부터 나눴다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 주인이 아직 확인하지 않은 상자를 함께 밀자 아야네는 그 상자는 다른 목록에 남기자고 한다.",
+            "card": "abydos_ayane_route",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "failure": "지워진 항목의 이전 기록을 확인하지 못했다. 연락 비용 150골드는 돌아오지 않고 카드는 받지 못한다. 아야네는 확인되지 않은 숫자를 빈칸으로 남긴다.",
+        "canonFact": "공식 아야네의 골동품 수집·가계부 취미에서 별도 가게 기록 의뢰를 창작한다. 원작 상점·사기·가챠 장면이나 진품 감정 기술을 확인한 것이 아니다. 70%와 보수는 맵의 수치다.",
+        "uncertain": []
+      }
+    ],
+    "mechanics": {
+      "reward": "성공때 지정카드1장과 potions개물약 지급.즉시골드0.이후처치골드·중복100은별개다. result는성공일때만사용한다.",
+      "cost": "cost선지불.실패때도비용/AP/필드유지.실패때카드/물약없음.",
+      "field": "level몬스터강함,density몬스터수 단계의 지속변화량. 초기1/4,최저1,상한5/10. 플레이어능력·피로·시간아님.",
+      "history": "라멘교대1/사막방어1/아루계산1/카요코한곡2의 자기 성공후속을 같은 번호로 유지한다. 카요코부모2는새곡카드이며후속은이를다시주지않는다. aru_task/kayoko_reply후속전용을유지한다.",
+      "stats": "기억은여행자성장이다. 이동3은3%,regen시간회복/흡수합산10%상한이며즉시회복아님. 최대체력증가현재/최대비율유지. 방향은플래그+실제각도,비방향은헤드/백없는공격,보호막조건은새보호막지급아님. healthy65%조건.",
+      "boundary": "대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다. 조깅·낮잠·간식·골동품·수족관 안내·굿즈 문제는 공식 취미와 역할에서 별도로 창작했다. 학교 일상이 이어지던 때의 독립 만남이며 같은 시각의 본편 전개나 실종 해결을 주장하지 않는다. 골동품70%는 맵의 검사 수치이고 히후미는 트리니티 학생이다. 고체력 피해는 즉시 치료가 아니며 후보 증가는 행동력 증가가 아니다. 흥신소68의계산서·카요코CD주문·하루카잡초·무츠키봉투내기는공식역할에서만든별도창작방문이다. 아루후속은자기계산도움성공1번,카요코후속은자기한곡듣기성공2번에서만열린다. 학교빚·은행범죄·가게폭파·인물의큰갈등을해결하거나실제음악/폭발/식물성장기능을지급하지않는다."
+    },
+    "checks": [
+      "모든 사건 서로 다른 지정카드3종이며 직접골드대안/입문카드반복이없는가?",
+      "비용·필드변화·물약·지정기억·성공결과/실패문구·자기후속과 데이터가맞는가?",
+      "공식역할과기존현장행동에서남은문제의반응이이어지고미구현주문/음악/화분기능·NPC성장·학교빚해결은없는가?",
+      "삭제한 기록 확인 골드를 성공이나 실패의 보수로 기대하게 하는 문구가 남아 있는가?"
+    ]
+  }
+}
