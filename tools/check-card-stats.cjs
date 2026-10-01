@@ -17,6 +17,28 @@ function setup(){
   const advance=n=>{for(let i=0;i<n;i++)e.ProtoRecoveryTick();};
   return {e,effects,hit,advance,health:()=>life,setHealth:x=>{life=x;},setAlive:x=>{alive=x;},maximum:()=>maximum};
 }
+check('1023번 카드까지 확장해도 보유 조회는 한 번이며 25개 기본·각성·머리 효과와 초기화 보존',()=>{
+  const {e}=setup(),first=13,last=1023,heads=13;
+  for(let kind=1;kind<=e.PROTO_STAT_LAST;kind++){
+    e.ProtoSetEffect(900,kind,kind,false);e.ProtoSetEffect(900,kind,kind/2,true);
+    e.ProtoSetEffect(1023,kind,kind*2,false);e.SaveReal(e.ProtoHeadEffectData,13,kind,-kind/4);
+  }
+  e.ExpCardOwned[e.ExpKey(0,900)]=e.ExpCardOwned[e.ExpKey(0,1023)]=true;
+  e.ProtoEvolved[e.ExpKey(0,900)]=true;e.ProtoHeadOwned[e.ExpKey(0,13)]=true;
+  let cards=0,regions=0;
+  const owned=e.ExpCardOwned,headOwned=e.ProtoHeadOwned;
+  e.ExpCardOwned=new Proxy(owned,{get(array,key){if(/^\d+$/.test(key))cards++;return array[key];}});
+  e.ProtoHeadOwned=new Proxy(headOwned,{get(array,key){if(/^\d+$/.test(key))regions++;return array[key];}});
+  e.ProtoRebuildCardStats(0,first,last,heads);
+  assert.equal(cards,last-first+1);assert.equal(regions,heads);
+  for(let kind=1;kind<=e.PROTO_STAT_LAST;kind++)close(e.ProtoStatValues[kind],kind*3.25);
+  const maximum=e.ProtoAPMax[0],ap=e.ProtoAP[0];e.ProtoRebuildCardStats(0,first,last,heads);
+  assert.equal(e.ProtoAPMax[0],maximum);assert.equal(e.ProtoAP[0],ap);
+  owned[e.ExpKey(0,900)]=false;e.ProtoRebuildCardStats(0,first,last,heads);
+  for(let kind=1;kind<=e.PROTO_STAT_LAST;kind++)close(e.ProtoStatValues[kind],kind*1.75);
+  e.ProtoRebuildCardStats(1,first,last,heads);
+  for(let kind=1;kind<=e.PROTO_STAT_LAST;kind++){assert.equal(e.ProtoStatValues[32+kind],0);close(e.ProtoStatValues[kind],kind*1.75);}
+});
 check('영구 무기 배율 뒤 런 공격력 배율, 추가·대미지·최종·대상 배율은 서로 곱함',()=>{
   const t=setup(),{e}=t;e.Equip_Damage[0]=100;e.Equip_DamageP[0]=20;
   t.effects([[e.PROTO_STAT_ATTACK,50],[e.PROTO_STAT_DAMAGE,30],[e.PROTO_STAT_FINAL,10],[e.PROTO_STAT_BOSS,25],[e.PROTO_STAT_NORMAL,15]]);

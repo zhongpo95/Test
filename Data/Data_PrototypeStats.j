@@ -107,37 +107,50 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         return result
     endfunction
 
-    // 획득과 각성 때만 전체 카드를 합산한다. 피해 처리에서는 이 결과만 읽는다.
+    // 획득과 각성 때 보유 여부를 한 번만 검사하고 보유한 효과를 합산한다. 피해 처리에서는 이 결과만 읽는다.
     function ProtoRebuildCardStats takes integer pid, integer first, integer last, integer heads returns nothing
         local integer kind = 1
         local integer id
+        local boolean evolved
         local real value
         local integer previousMax = IMaxBJ(10, ProtoAPMax[pid])
         local integer nextMax
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set value = 0.0
-            set id = first
-            loop
-                exitwhen id > last
-                if ExpCardOwned[ExpKey(pid, id)] then
-                    set value = value + LoadReal(ProtoEffectData, id, kind)
-                    if ProtoEvolved[ExpKey(pid, id)] then
+            set ProtoStatValues[pid * 32 + kind] = 0.0
+            set kind = kind + 1
+        endloop
+        // 콘텐츠가 늘어도 미보유 카드를 스탯마다 반복 검사하지 않는다.
+        set id = first
+        loop
+            exitwhen id > last
+            if ExpCardOwned[ExpKey(pid, id)] then
+                set evolved = ProtoEvolved[ExpKey(pid, id)]
+                set kind = 1
+                loop
+                    exitwhen kind > PROTO_STAT_LAST
+                    set value = LoadReal(ProtoEffectData, id, kind)
+                    if evolved then
                         set value = value + LoadReal(ProtoEffectData, id, kind + 32)
                     endif
-                endif
-                set id = id + 1
-            endloop
-            set id = 1
-            loop
-                exitwhen id > heads
-                if ProtoHeadOwned[ExpKey(pid, id)] then
-                    set value = value + LoadReal(ProtoHeadEffectData, id, kind)
-                endif
-                set id = id + 1
-            endloop
-            set ProtoStatValues[pid * 32 + kind] = value
-            set kind = kind + 1
+                    set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + value
+                    set kind = kind + 1
+                endloop
+            endif
+            set id = id + 1
+        endloop
+        set id = 1
+        loop
+            exitwhen id > heads
+            if ProtoHeadOwned[ExpKey(pid, id)] then
+                set kind = 1
+                loop
+                    exitwhen kind > PROTO_STAT_LAST
+                    set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoHeadEffectData, id, kind)
+                    set kind = kind + 1
+                endloop
+            endif
+            set id = id + 1
         endloop
         set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * 32 + PROTO_STAT_GOLD])
         set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))

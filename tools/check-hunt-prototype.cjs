@@ -53,6 +53,29 @@ check('T1 출발 차단, 도감 머리 0~1장 선택과 초기 전투 카드 없
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);
   assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),3);assert(e.ProtoEventEligible(0,scene(e,'school_circle')));assert(!e.ProtoEventEligible(0,scene(e,'abydos_sand_supply')));
 });
+check('페나코니와 모든 머리 후보는 제한된 보유 조회 안에 지급·결과·재개를 끝냄',()=>{
+  const heads=party().e.ProtoHeadKey.slice(1).filter(Boolean);
+  heads.sort((a,b)=>(a==='penacony'?-1:b==='penacony'?1:0));
+  for(const name of heads){
+    const t=party(4),e=t.e,head=e.ProtoHeadKey.indexOf(name),owned=e.ExpCardOwned;
+    let reads=0;
+    // 실제 VM 명령 수가 아닌 회귀용 조회 예산. 미보유 카드를 스탯마다 다시 스캔하면 실패한다.
+    e.ExpCardOwned=new Proxy(owned,{get(array,key){
+      if(/^\d+$/.test(key)&&++reads>12000)throw Error('머리 획득 보유 조회 예산 초과');
+      return array[key];
+    }});
+    for(let pid=0;pid<4;pid++){
+      e.localPlayer=pid;const id=(head-1)*4+pid+1;
+      e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;e.ExpUIOpen(9);t.render();reads=0;
+      t.click(t.common(2101));
+      assert.equal(e.ProtoStage[pid],3,name+' 결과 전환');assert.equal(e.ProtoAP[pid],9);
+      assert(e.ProtoHeadOwned[e.ExpKey(pid,head)]);assert(owned[e.ExpKey(pid,e.ProtoHeadEntryCard[head])]);
+      assert(t.frame(t.common(2400)).enabled);assert(e.ProtoOutcome[pid].includes(e.ProtoCardName[e.ProtoHeadEntryCard[head]]));
+      t.click(t.common(2400));assert.equal(e.ProtoStage[pid],0);assert(!e.ProtoPaused[pid]);
+      for(let other=pid+1;other<4;other++)assert.equal(e.ProtoAP[other],10);
+    }
+  }
+});
 check('4인 개인 구역 1~4와 남은 5~6 구역의 보스 예약, 사용 중이면 출발 보류',()=>{
   const t=fresh(0,true),e=t.e;e.online=[true,true,true,true];e.MapSt[2].caster={};
   for(let pid=0;pid<4;pid++){e.ProtoCodexSlot[pid]=1;request(e,pid,2001);}
