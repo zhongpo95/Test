@@ -1,0 +1,232 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "story",
+            "intro",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "story": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "result"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 사건 작가다. key와 선택 순서를 유지한다. story3문장·intro1문장·각result2~3문장으로 실제 인물의 요구와 반응을 쓴다. expectedSuccess의 비용·배운 카드 효과·골드·물약·개인 적 강함/수를 빠짐없이 구분한다. 원작 대사를 인용하지 않으며, 효율·최적·깊은신뢰라는 추상적 평가로 끝내지 않는다.",
+  "brief": {
+    "sourceFacts": [
+      {
+        "source": "https://pierrot.jp/title/bleach/chara.html",
+        "fact": "카라쿠라는 이치고의 마을. 이치고는 의리 있고 다정하다. 카린은 냉정한 성격과 영감이 있다. 유즈는 가사 전반을 맡는 쌍둥이 동생. 잇신은 의원을 운영하는 아버지로 가족 사랑을 과하게 표현한다. 우라하라는 과자 가게 주인이며 루키아를 지원한다. 진타와 우루루는 상점 점원, 우루루는 외형과 달리 초인적 전투 능력이 있다. 텟사이는 번두 같은 존재이자 고위 귀도 사용자. 케이고는 이치고를 자주 귀찮게 하는 활발한 동급생. 우류는 바느질을 잘하지만 패션 감각은 좋지 않다."
+      }
+    ],
+    "events": [
+      {
+        "key": "bl_empty_bench",
+        "scene": "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다. 이치고가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다.",
+        "choices": [
+          {
+            "action": "카린이 비워 둔 자리를 존중하고 옆으로 옮긴다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "발을 빠르게 옮기고 좋은 몸 상태에서 일격에 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "이치고와 더 강한 길목을 맡아 자리를 비운다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "공격력과 보스에게 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 1,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "손님을 안내하고 맡을 구역을 좁힌다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": null,
+              "receivedGold": 120,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "bl_welcome_at_door",
+        "scene": "이치고를 찾으러 왔다는 말에 잇신이 의원 문 밖까지 나와 반갑게 맞는다. 이치고는 잠깐 물건만 돌려받을 일이라고 말하지만 잇신은 아들과 무슨 일을 같이 했는지부터 묻는다. 유즈가 둘 사이에 설 자리를 내주자 너는 잇신의 걱정을 들을지 이치고의 짧은 용건부터 마칠지 정한다.",
+        "choices": [
+          {
+            "action": "180골드로 머무를 준비를 하고 잇신의 걱정을 듣는다",
+            "expectedSuccess": {
+              "paidGold": 180,
+              "learned": "최대 체력을 늘리고 몸 상태를 천천히 유지하는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "유즈와 손님이 드나들 길목을 더 맡는다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "몸 상태를 천천히 유지하고 처치 보수를 늘리는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 1
+            }
+          },
+          {
+            "action": "용건을 먼저 마치고 잇신이 건넨 물약만 받는다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": null,
+              "receivedGold": 0,
+              "receivedPotions": 2,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          }
+        ]
+      },
+      {
+        "key": "bl_small_shop_clerk",
+        "scene": "우라하라 상점의 손님이 우루루에게 커다란 상자를 밖으로 옮기라며 혼자서는 못 들 것 같다고 비웃는다. 우루루가 상자를 가볍게 들자 진타는 옮겨 달라는 말과 얕보는 말은 다르다고 끼어든다. 손님이 이번에는 더 많은 짐을 밀어 넣으려 하니 네가 어디서 부탁을 멈출지 정한다.",
+        "choices": [
+          {
+            "action": "220골드로 받칠 도구를 마련하고 우루루의 힘을 먼저 묻는다",
+            "expectedSuccess": {
+              "paidGold": 220,
+              "learned": "차지 일격과 치명타에 힘을 모으는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "차드와 더 많은 길목을 맡고 점원에게 미룬 일을 나눈다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "최대 체력을 늘리고 받는 피해를 줄이는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 2
+            }
+          },
+          {
+            "action": "추가 부탁을 거절하고 맡을 길목을 줄인다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": null,
+              "receivedGold": 130,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      },
+      {
+        "key": "bl_unasked_invitation",
+        "scene": "케이고가 네게 이치고와 마을을 둘러보자고 약속했지만 이치고는 그런 말을 들은 적 없다고 한다. 케이고는 친구라면 같이 갈 줄 알았다고 하고 이치고는 남의 약속을 대신 잡지 말라고 한다. 너는 케이고에게 자기 약속부터 맡기거나 이치고와 가능한 범위를 다시 정할 수 있다.",
+        "choices": [
+          {
+            "action": "케이고에게 자신이 한 약속부터 설명하게 한다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "사건의 다른 후보를 더 보고 빠르게 행동을 이어 가는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "이치고와 더 강한 구역을 맡을 수 있는 범위를 정한다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "공격력과 보스에게 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 1,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "140골드로 따로 안내를 구하고 우라하라에게 길을 묻는다",
+            "expectedSuccess": {
+              "paidGold": 140,
+              "learned": "사건의 다른 후보를 더 보고 보스에게 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          }
+        ]
+      }
+    ],
+    "rules": [
+      "모든분기는성공100%. currentHP지불·즉시회복·실제NPC동행·새기술·실물보상없음. 무료카드도사건행동력1을소모한다. 물약은소모가아닌획득.0이나null인추가효과를만들지않는다.",
+      "단계증가는적이강해지는것이며밀도증가는적수가늘어나는것이다. 개인필드수치는이후계속유지되며감소는하한에서적용되는값으로제한된다.",
+      "카린의소란을피하는구체적인말·잇신의방문객환대·케이고약속·점원심부름은창작이며공식사건을재현한다는주장이아니다.",
+      "차드·우라하라·유즈가나오는분기도다른NPC동행/노동/안내기능을추가하지않고해당인물과대화로카드만받는다. 귀도·사신화·영혼변경·실제진료없음."
+    ]
+  }
+}

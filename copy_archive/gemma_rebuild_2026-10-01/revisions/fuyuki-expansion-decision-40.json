@@ -1,0 +1,26 @@
+{
+  "sourceRevision": "95b850d",
+  "beforeFile": "copy_archive/gemma_rebuild_2026-10-01/before-fuyuki-expansion-40.json",
+  "beforeSha256": "d2c46f6618572d8c517a4871db2c1038a49bd01c70990dccc7640cc444606949",
+  "review": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "원작의 '세이버와 대등한 창병 영령'이라는 설정을 기반으로 '간격'과 '방향'이라는 구체적인 전투 메커니즘으로 잘 치환함.",
+      "창작 요소(세이버의 조언, 등불 등)를 명확히 구분하고, 원작에 없는 기술 전수나 마스터의 정체 확정 등의 모순을 배제함.",
+      "수치 성장 비유(개인 사냥 적 단계, 밀도 등)가 시스템과 유기적으로 연결됨."
+    ]
+  },
+  "reviewDisposition": [],
+  "decision": "독립1사건·관련1카드 채택. 피칭34의 나머지7개는 중복과 잘못된 인물 역할로 폐기하고 원문·이유·재검토 조건을 보존한다.",
+  "candidateCheck": {
+    "cards": 14,
+    "events": 11,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": [
+    "공식 UBW 인물 본문을 읽었다. 전체 애니메이션·게임·이미지 픽셀과 한국어 공식 현지화 이름 전체 미검토. 새로운 길목 만남과 대사는 창작이다.",
+    "Warcraft 런타임·화면·멀티·재미·밸런스 미검증. 맵 생성 없음."
+  ]
+}

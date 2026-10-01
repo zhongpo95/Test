@@ -1,0 +1,202 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "story",
+            "intro",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "story": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "result"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 사건 작가다. story3문장·intro1문장·각 result2~3문장. key와 선택 순서를 유지한다. expectedSuccess의 비용·카드 배움·골드·물약·적 강함과 수를 빠짐없이 구분하고 마지막 문장은 인물의 반응을 쓴다. 숫자는 맵 규칙이며 원작 대사를 인용하지 않는다.",
+  "brief": {
+    "sourceFacts": [
+      {
+        "source": "https://kimetsu.com/anime/risshihen/story/?story=24",
+        "fact": "탄지로·이노스케는 혹독한 기능 회복 훈련에 꺾이고, 늦게 온 젠이츠는 소녀들 앞에서 의욕을 보인다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/risshihen/story/?story=25",
+        "fact": "탄지로가 하루 내내 호흡을 유지하려 노력한다. 처음 상대가 되지 못한 동기 카나오와의 훈련에서 탄지로가 조금씩 발전한다. 쉬지 않는 탄지로를 보고 젠이츠·이노스케도 복귀한다. 카나오가 탄지로에게 배워 성장한다는 뜻이 아니다."
+      },
+      {
+        "source": "https://game.kimetsu.com/hinokami/character/",
+        "fact": "본편 탄지로는 마음이 따뜻하다. 네즈코는 자기 의지와 암시로 사람을 해치지 않는다. 젠이츠는 청각이 뛰어나며 전투 중 극도의 공포에서 잠든다. 이노스케는 호전적이고 멧돼지 머리를 쓴다. 시노부는 누구에게도 미소와 정중한 말투를 유지한다. 무라타는 물의 호흡을 쓰는 선배 귀살대원이다. 학원 파생작 설정은 제외한다."
+      }
+    ],
+    "events": [
+      {
+        "key": "kny_senior_challenge",
+        "scene": "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. 탄지로는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다. 무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다.",
+        "choices": [
+          {
+            "action": "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다",
+            "expectedSuccess": {
+              "paidGold": 180,
+              "learned": "최대 체력을 늘리고 받는 피해를 줄이는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "작은 상대와 방향 조건 없는 일격에 힘을 싣는 대신 받는 피해가 늘어나는 성장",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 1,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "승부를 벌이지 않고 맡을 구역을 줄인다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": null,
+              "receivedGold": 0,
+              "receivedPotions": 1,
+              "personalEnemyStrengthChange": -1,
+              "personalEnemyCountChange": 0
+            }
+          }
+        ]
+      },
+      {
+        "key": "kny_return_to_training",
+        "scene": "쉬지 않는 탄지로를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다. 젠이츠는 보는 사람이 있는지 살피고 이노스케는 탄지로보다 먼저 시작한 것처럼 들어가겠다고 한다. 탄지로는 이미 같은 동작을 한 번 더 반복하고 있으니 네가 둘을 부를 말부터 정해야 한다.",
+        "choices": [
+          {
+            "action": "탄지로와 반복할 자리를 마련해 두 사람을 부른다",
+            "expectedSuccess": {
+              "paidGold": 160,
+              "learned": "동작을 빠르게 이어 가고 큰 상대에게 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "이노스케에게 먼저 도전하라며 맡을 길목을 넓힌다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "작은 상대와 방향 조건 없는 일격에 힘을 싣는 대신 받는 피해가 늘어나는 성장",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 1
+            }
+          },
+          {
+            "action": "젠이츠에게 반응을 보여 줄 자리를 맡긴다",
+            "expectedSuccess": {
+              "paidGold": 200,
+              "learned": "차지 일격과 치명타에 힘을 모으는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          }
+        ]
+      },
+      {
+        "key": "kny_frightened_visitor",
+        "scene": "해가 진 뒤 저택을 찾은 방문객이 네즈코를 보고 뒤로 물러난다. 네즈코는 손을 뻗지 않고 가만히 있고 탄지로는 동생을 몰아세우지 않으면서도 손님의 놀람을 가볍게 넘기고 싶지 않다. 네가 양쪽의 거리를 지켜 이야기를 들을지 탄지로와 다른 자리를 안내할지 정한다.",
+        "choices": [
+          {
+            "action": "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": "몸 상태를 천천히 유지하고 좋은 상태에서 일격에 힘을 싣는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "탄지로와 손님이 머무를 자리를 마련한다",
+            "expectedSuccess": {
+              "paidGold": 180,
+              "learned": "신속과 좋은 몸 상태에서 힘을 쓰는 요령",
+              "receivedGold": 0,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": 0
+            }
+          },
+          {
+            "action": "방문객을 안내하고 맡을 바깥 길목을 줄인다",
+            "expectedSuccess": {
+              "paidGold": 0,
+              "learned": null,
+              "receivedGold": 100,
+              "receivedPotions": 0,
+              "personalEnemyStrengthChange": 0,
+              "personalEnemyCountChange": -1
+            }
+          }
+        ]
+      }
+    ],
+    "rules": [
+      "모두성공100%. 사건하나에행동력1. 무료네즈코카드도행동력을쓴다. 물약은소비가아닌획득. 0과null인추가효과를지어내지않는다.",
+      "현재체력지불·즉시치유·암시시험·강제치료·실신·새호흡·귀화·NPC동행·실제대련없음. 이노스케 카드의지속피해감소-4는카드부담이지현재체력소모가아니다.",
+      "25화의훈련성장주체는탄지로다. 카나오를가르치지않는다. 무라타는선배귀살대원이며방문중발언은창작.",
+      "네즈코장면은해가진뒤저택방문. 놀란사람에게공격시험하지않고사람을해치지않는네즈코의의지를존중한다.",
+      "모든선택을골드지불vs유료카드로만만들지않는다. 무료관찰배움·자원준비·필드부담·필드완화라는지정행동을유지한다."
+    ]
+  }
+}

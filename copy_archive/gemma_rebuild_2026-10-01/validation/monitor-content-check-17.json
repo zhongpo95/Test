@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-01T15:27:34.834Z",
+  "checks": [
+    {
+      "file": "drafts/butterfly-pitches-32.json",
+      "recordId": "2fa2d061-ab02-49db-93af-55cbeff3e1cf",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/butterfly-pitches-33.json",
+      "recordId": "377d7014-d145-4905-8866-e292604e4651",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/fuyuki-pitches-34.json",
+      "recordId": "399beeca-c613-4834-b7c6-21fa1851b94d",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/karakura-pitches-35.json",
+      "recordId": "6c29fd2d-1076-4696-a311-c3de54ea73a4",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/butterfly-expansion-text-36.json",
+      "recordId": "dc69ee32-6985-44a7-baa5-dac3ab32cffc",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "reviews/butterfly-expansion-review-37.json",
+      "recordId": "660726dd-6e01-4078-8c53-f3ede1ac7d8b",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/fuyuki-expansion-text-38.json",
+      "recordId": "626d03ae-35ae-4e28-8c4d-0db901667999",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/karakura-expansion-text-39.json",
+      "recordId": "7f059714-3fca-4ccc-9249-0d4267ceb0aa",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "reviews/fuyuki-expansion-review-40.json",
+      "recordId": "cefa3691-e108-4c5e-8591-bff543c2e78d",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "drafts/karakura-expansion-text-41.json",
+      "recordId": "68fb0f82-079d-4df6-b650-02c018001a35",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "reviews/karakura-expansion-review-42.json",
+      "recordId": "d2929245-7d65-4ef3-bb66-4fd38245d0c3",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    },
+    {
+      "file": "reviews/butterfly-fallback-review-43.json",
+      "recordId": "4372b8e9-20e5-467b-a719-a66af68f50cc",
+      "status": "success",
+      "rawMatches": true,
+      "requestMatches": true
+    }
+  ],
+  "storage": {
+    "enabled": true,
+    "directory": "C:\\Users\\ctqho\\AppData\\Local\\ArcanaGemma\\records",
+    "maxRecords": 100,
+    "maxBytes": 134217728
+  },
+  "limits": "성공은 API 처리와 기록 저장을 뜻한다. 초안 내용이나 검토 판단의 정확성을 뜻하지 않는다."
+}

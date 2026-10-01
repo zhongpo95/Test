@@ -1,0 +1,220 @@
+{
+  "cards": [
+    {
+      "key": "kny_murata_senior",
+      "name": "무라타",
+      "effectName": "강함과 다른 선배의 몫",
+      "keyword": "최대 체력 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 소개의 선배 귀살대원이라는 역할을 힘을 과시하지 않고 자기 몫을 버티는 성장으로 각색한다. 물의 호흡·선배 보너스·동행은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_tanjiro_return",
+      "name": "카마도 탄지로",
+      "effectName": "돌아오게 하는 꾸준함",
+      "keyword": "행동 속도 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 2
+          }
+        ]
+      },
+      "canonFact": "공식 25화에서 탄지로의 꾸준함을 보고 동료들이 훈련에 복귀하는 모습을 동작을 이어 가며 큰 상대를 준비하는 성장으로 각색한다. 카나오를 가르치거나 원작의 호흡 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_nezuko_will",
+      "name": "카마도 네즈코",
+      "effectName": "겁내는 이의 앞에서",
+      "keyword": "재생 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.5
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "네즈코가 자기 의지와 암시로 사람을 해치지 않는 특징을 동요 속에서 좋은 상태를 유지하는 성장으로 각색한다. 귀화·암시·즉시 치료·공격 통제·혈귀술은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "kny_senior_challenge",
+      "title": "선배라면 더 강한가",
+      "scene": "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. 탄지로는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다. 무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다.",
+      "choices": [
+        {
+          "action": "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다",
+          "card": "kny_murata_senior",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다",
+          "card": "kny_inosuke",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "승부를 벌이지 않고 맡을 구역을 줄인다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": -1,
+          "density": 0,
+          "gold": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "물의 호흡을 쓰는 선배 귀살대원과 호전적인 이노스케라는 공식 소개에서 방문 중 호칭 갈등을 창작했다. 무라타의 이 발언은 원작 대사가 아니다. 실제 NPC 대련·선후배 게이지·호흡 전수가 없고 카드와 개인 필드만 변한다."
+    },
+    {
+      "key": "kny_return_to_training",
+      "title": "문 안에 먼저 들어갈 사람",
+      "scene": "쉬지 않는 탄지로를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다. 젠이츠는 보는 사람이 있는지 살피고 이노스케는 탄지로보다 먼저 시작한 것처럼 들어가겠다고 한다. 탄지로는 이미 같은 동작을 한 번 더 반복하고 있으니 네가 둘을 부를 말부터 정해야 한다.",
+      "choices": [
+        {
+          "action": "탄지로와 반복할 자리를 마련해 두 사람을 부른다",
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "이노스케에게 먼저 도전하라며 맡을 길목을 넓힌다",
+          "card": "kny_inosuke",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "젠이츠에게 반응을 보여 줄 자리를 맡긴다",
+          "card": "kny_zenitsu",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "24화의 젠이츠 동기와 25화의 탄지로를 보고 훈련에 복귀한 두 동료를 바탕으로 문 앞의 자존심 충돌을 창작했다. 플레이어가 카나오의 스승이 되거나 본편 대련 결과·연애 성취를 결정하지 않는다."
+    },
+    {
+      "key": "kny_frightened_visitor",
+      "title": "물러선 발과 움직이지 않은 손",
+      "scene": "해가 진 뒤 저택을 찾은 방문객이 네즈코를 보고 뒤로 물러난다. 네즈코는 손을 뻗지 않고 가만히 있고 탄지로는 동생을 몰아세우지 않으면서도 손님의 놀람을 가볍게 넘기고 싶지 않다. 네가 양쪽의 거리를 지켜 이야기를 들을지 탄지로와 다른 자리를 안내할지 정한다.",
+      "choices": [
+        {
+          "action": "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다",
+          "card": "kny_nezuko_will",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "탄지로와 손님이 머무를 자리를 마련한다",
+          "card": "kny_tanjiro",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "방문객을 안내하고 맡을 바깥 길목을 줄인다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 100,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "네즈코의 자기 의지와 암시·탄지로의 따뜻함이라는 공식 특징을 저택의 야간 방문에 각색했다. 사람을 공격하는 시험·암시 재주입·새 치료·원작 재판 결과·NPC 동행은 없다. 무료 카드도 사건 행동력 1을 소모한다."
+    }
+  ],
+  "sourceFacts": [
+    {
+      "source": "https://kimetsu.com/anime/risshihen/story/?story=24",
+      "fact": "탄지로·이노스케는 혹독한 기능 회복 훈련에 꺾이고, 늦게 온 젠이츠는 소녀들 앞에서 의욕을 보인다."
+    },
+    {
+      "source": "https://kimetsu.com/anime/risshihen/story/?story=25",
+      "fact": "탄지로가 하루 내내 호흡을 유지하려 노력한다. 처음 상대가 되지 못한 동기 카나오와의 훈련에서 탄지로가 조금씩 발전한다. 쉬지 않는 탄지로를 보고 젠이츠·이노스케도 복귀한다. 카나오가 탄지로에게 배워 성장한다는 뜻이 아니다."
+    },
+    {
+      "source": "https://game.kimetsu.com/hinokami/character/",
+      "fact": "본편 탄지로는 마음이 따뜻하다. 네즈코는 자기 의지와 암시로 사람을 해치지 않는다. 젠이츠는 청각이 뛰어나며 전투 중 극도의 공포에서 잠든다. 이노스케는 호전적이고 멧돼지 머리를 쓴다. 시노부는 누구에게도 미소와 정중한 말투를 유지한다. 무라타는 물의 호흡을 쓰는 선배 귀살대원이다. 학원 파생작 설정은 제외한다."
+    }
+  ]
+}

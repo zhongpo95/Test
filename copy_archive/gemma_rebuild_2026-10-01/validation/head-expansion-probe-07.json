@@ -1,0 +1,566 @@
+{
+  "roots": 8,
+  "branchCases": 43,
+  "runs": [
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "choice": 4,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1100,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1120,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1130,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 960,
+      "level": 1,
+      "density": 4
+    }
+  ],
+  "fallbacks": [
+    {
+      "head": "butterfly",
+      "event": "kny_senior_challenge",
+      "legalChoices": [
+        3
+      ],
+      "gold": 0,
+      "level": 4,
+      "density": 10
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_return_to_training",
+      "legalChoices": [
+        4
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "butterfly",
+      "event": "kny_frightened_visitor",
+      "legalChoices": [
+        1,
+        3
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_lancer_crossing",
+      "legalChoices": [
+        3
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "karakura",
+      "event": "bl_empty_bench",
+      "legalChoices": [
+        1,
+        3
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "karakura",
+      "event": "bl_welcome_at_door",
+      "legalChoices": [
+        3
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "karakura",
+      "event": "bl_small_shop_clerk",
+      "legalChoices": [
+        3
+      ],
+      "gold": 130,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "karakura",
+      "event": "bl_unasked_invitation",
+      "legalChoices": [
+        1
+      ],
+      "gold": 0,
+      "level": 5,
+      "density": 10
+    }
+  ],
+  "passed": true,
+  "mapCreated": false,
+  "validation": "생성된 실제 JASS 사건 함수의 변환 모의 실행. 신규8독립 사건의 머리 소지·초기 기록 불필요·AP1·지정 카드·비용·포션·필드·확률 경계·이미 소지한 카드100골드·빈 골드와 필드 상한을 대조했다. Warcraft 런타임·렌더링·실제 멀티플레이·밸런스·성능·재미 검증은 아니다. 공통 모의 환경의 체력 네이티브는 고정값이므로 이 검사로 체력 비율이나 전체 PlayerStatsSet을 검증하지 않는다."
+}
