@@ -5,7 +5,9 @@ let checks = 0;
 function check(name, test) { test(); checks++; console.log('PASS ' + name); }
 function environment(files, extras = {}, onlyFunctions = null) {
   // 신규 피해/표시 함수의 데이터 의존성도 기존 회귀 환경에 로드한다.
-  if (files.includes('Data/Data_Expedition.j') && !files.includes('Data/Data_Prototype.j')) files = [...files, 'Data/Data_Prototype.j'];
+  if (files.includes('Data/Data_Expedition.j')) {
+    for (const file of ['Data/Data_PrototypeStats.j','Data/Data_PrototypeCatalog.j','Data/Data_Prototype.j','System/CardRecovery.j']) if (!files.includes(file)) files=[...files,file];
+  }
   const env = {}, records = new Map(), saves = [], pauses = new Map();
   let seed = 41, unitId = 100;
   const no = () => {};
@@ -32,6 +34,8 @@ function environment(files, extras = {}, onlyFunctions = null) {
     GetPlayerName: p => 'P' + p, GetTriggerPlayer: () => env.eventPlayer,
     DzGetTriggerSyncPlayer: () => env.eventPlayer, DzGetTriggerSyncData: () => env.syncData,
     JNStringSplit: (s, sep, i) => s.split(sep)[i] || '', I2S: String, S2I: s => parseInt(s) || 0,
+    JNStringReplace: (s, from, to) => s.split(from).join(to),
+    InitHashtable: () => new Map(), SaveReal: (t,a,b,n) => t.set(a+':'+b,n), LoadReal: (t,a,b) => t.get(a+':'+b) || 0,
     I2R: Number, R2I: Math.trunc, IMinBJ: Math.min, IMaxBJ: Math.max,
     RMinBJ: Math.min, RMaxBJ: Math.max, ModuloInteger: (a, b) => a % b, SquareRoot: Math.sqrt,
     GetRandomInt: (a, b) => { seed = (seed * 1664525 + 1013904223) >>> 0; return a + seed % (b - a + 1); },
@@ -90,7 +94,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
   });
   for (const s of sources) for (const block of s.matchAll(/\bglobals\b([\s\S]*?)\bendglobals\b/g)) {
     for (const line of block[1].split(/\r?\n/)) {
-      const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect|texttag) (array )?(\w+)(?:\s*=\s*(.*))?/);
+      const m = line.trim().match(/^(?:private )?(?:constant )?(integer|boolean|real|string|trigger|timer|stash|unit|rect|texttag|hashtable) (array )?(\w+)(?:\s*=\s*(.*))?/);
       if (!m) continue;
       const initial = m[1] === 'boolean' ? false : m[1] === 'string' ? '' : ['unit','texttag'].includes(m[1]) ? null : 0;
       env[m[3]] = m[2] ? Array(8192).fill(initial) : m[4] ? Function('env', 'with(env){return ' + expr(m[4]) + '}')(env) : initial;
@@ -100,7 +104,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
   for (const s of sources) for (const m of s.matchAll(/(?:private )?function (\w+) takes (.*?) returns (\w+)([\s\S]*?)endfunction/g)) {
     const [, name, args, returns, body] = m;
     if (skip.has(name)) continue;
-    if (onlyFunctions && !onlyFunctions.includes(name)) continue;
+    if (onlyFunctions && !onlyFunctions.includes(name) && !/^Proto(?:Stat|SetEffect|EffectText|CardEffects|HeadEffect|RebuildCardStats|LoadWorld|CatalogInit|TargetDamageRate|LeechHit|ClearRecovery|Recovery)/.test(name)) continue;
     const params = args === 'nothing' ? '' : args.split(',').map(p => p.trim().split(/\s+/)[1]).join(',');
     const js = [];
     for (let line of body.split(/\r?\n/)) {

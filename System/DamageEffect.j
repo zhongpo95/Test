@@ -1,4 +1,4 @@
-library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro,ExpeditionEffects
+library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,BossAggro,ExpeditionEffects,CardRecovery
     globals
         constant real HeadBounsDamage = 1.20
         constant real BackBounsDamage = 1.20
@@ -74,7 +74,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local texttag ttag
         local real dmg
         local real DMGRate = 1.0
-        local real crirate = Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid]
+        local real crirate = Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE)
         local real ArmVelue
         local real Arm
         local real WDP = (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0))
@@ -316,7 +316,13 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             set CriBoolean = true
         endif
         
-        if ExpMember[pid] then
+        if ExpPrototypeActive and ExpMember[pid] then
+            // 무기 추가 피해, 대미지, 최종 대미지와 대상별 피해는 각각 곱한다.
+            set WDP = RMaxBJ(0.0, 1.0 + (Equip_ED[pid] + Equip_WDP[pid]) / 100.0)
+            set DP = RMaxBJ(0.0, Equip_DP[pid] + (ExpCardDamage(pid, source, target) + ExpArcanaDamage(pid, source, target, head, back, charge)) / 100.0)
+            set LastDamage = LastDamage * ProtoTargetDamageRate(pid, UnitIndex)
+            set ArcanaRate = 1.0
+        elseif ExpMember[pid] then
             set WDP = WDP + (ExpCardDamage(pid, source, target) + ExpArcanaDamage(pid, source, target, head, back, charge)) / 100.0
             set ArcanaRate = 1.0
         endif
@@ -431,6 +437,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         
         call ProtoRecordDamage(pid, UnitIndex, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
+        call ProtoLeechHit(pid, source, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
         call ExpSyncEnemyLife(target)
         //어그로 시스템
         call PlayerBossAttack(source, target, dmg)

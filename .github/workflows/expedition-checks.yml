@@ -33,6 +33,14 @@ jobs:
         run: node tools/check-expedition-ui.cjs
       - name: Personal hunting prototype lifecycle
         run: node tools/check-hunt-prototype.cjs
+      - name: Reviewed content and generated catalog consistency
+        run: node tools/generate-prototype-content.cjs --check
+      - name: Reader review catalog consistency
+        run: node tools/generate-content-review.cjs --check
+      - name: Content branches and invalid draft rejection
+        run: node tools/check-content-rebuild.cjs
+      - name: Card damage factors and bounded life recovery
+        run: node tools/check-card-stats.cjs
       - name: Chen dash collision and single-hit damage
         run: node tools/check-chen-dash.cjs
       - name: Startup input registration across players

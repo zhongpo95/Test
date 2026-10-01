@@ -5,16 +5,17 @@ const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/
 
 // 기존 로컬 저장소 조회는 별도 경계다. StashLoad의 내부 scratch 변수와 저장 엔진은
 // 이 검사로 증명하지 않는다. 저장/업로드 API는 허용하지 않는다.
-// GetUnitState는 사건의 체력 비용 표시용 읽기다. 비용 차감은 동기화된 ProtoResolve에서만 한다.
+// 회복·카드 정보 조회는 읽기만 허용한다. 카드 지급과 능력치 캐시 갱신은 동기화 경로에서만 한다.
 const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
-  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ JNStringSplit StashLoad LoadInteger GetItemCharges GetUnitState
+  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ RMaxBJ JNStringSplit JNStringReplace StashLoad LoadInteger LoadReal GetItemCharges GetUnitState
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
   DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha DzFrameSetFont
 `.trim().split(/\s+/));
 const allowedWrites = new Set(`
   ExpUIPanel FMap_OnOff
   UIExpeditionPrototype.LoadedSlot
+  UIExpeditionPrototype.HeadPage UIExpeditionPrototype.HoverBranch
   UIExpeditionStats.CardPage
   UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone

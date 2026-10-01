@@ -80,7 +80,7 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon
         if ExpPrototypeActive then
             set i = 1
             loop
-                exitwhen i > 3
+                exitwhen i > PROTO_HEAD_COUNT
                 if ProtoHeadOwned[ExpKey(pid, i)] then
                     set heads = heads + ProtoHeadName[i] + "   "
                 endif
@@ -110,12 +110,25 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon
                 endif
                 set i = i + 1
             endloop
-            set owned = "머리 카드 · " + heads + "|n"
+            call ExpUIText(Points, "머리 카드 · " + heads)
+            call ExpUIText(Crit, "공격력 +" + R2SW(ProtoStat(pid, PROTO_STAT_ATTACK), 0, 1) + "% · 대미지 +" + R2SW(ProtoStat(pid, PROTO_STAT_DAMAGE), 0, 1) + "%|n최종 대미지 +" + R2SW(ProtoStat(pid, PROTO_STAT_FINAL), 0, 1) + "%|n치명 확률 +" + R2SW(ProtoStat(pid, PROTO_STAT_CRIT), 0, 1) + "% · 치명 피해 +" + R2SW(ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE), 0, 1) + "%")
+            call ExpUIText(Swift, "신속 +" + R2SW(ProtoStat(pid, PROTO_STAT_SWIFT), 0, 0) + " · 이동 +" + R2SW(ProtoStat(pid, PROTO_STAT_MOVE), 0, 1) + "%|n최대 체력 +" + R2SW(ProtoStat(pid, PROTO_STAT_HEALTH), 0, 1) + "% · 피해 감소 +" + R2SW(ProtoStat(pid, PROTO_STAT_REDUCTION), 0, 1) + "%|n흡수 " + R2SW(ProtoStat(pid, PROTO_STAT_LEECH), 0, 1) + "% · 재생 " + R2SW(ProtoStat(pid, PROTO_STAT_REGEN), 0, 1) + "%/초")
+            call DzFrameSetSize(Crit, 0.44, 0.046)
+            call DzFrameSetSize(Swift, 0.44, 0.046)
+            call ExpUIText(Hint, "흡수·재생 합산 최대 체력 10%/초")
+            set owned = ""
             if card > 0 then
                 set owned = owned + "보유 카드 " + I2S(count) + "장 · " + I2S(CardPage + 1) + "/" + I2S(count) + "|n[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
             else
                 set owned = owned + "획득한 성장 카드 없음"
             endif
+        endif
+        call DzFrameShow(ExpUIButtons[AddCrit], not ExpPrototypeActive)
+        call DzFrameShow(ExpUIButtons[AddSwift], not ExpPrototypeActive)
+        call DzFrameShow(ExpUIButtons[Reset], not ExpPrototypeActive)
+        if not ExpPrototypeActive then
+            call DzFrameSetSize(Crit, 0.30, 0.046)
+            call DzFrameSetSize(Swift, 0.30, 0.046)
         endif
         call DzFrameShow(ExpUIButtons[PreviousCard], ExpPrototypeActive)
         call DzFrameShow(ExpUIButtons[NextCard], ExpPrototypeActive)

@@ -91,6 +91,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
             if Enemies[i] != null then
                 set index = IndexUnit(Enemies[i])
                 set ExpEnemy[index] = false
+                set ExpEnemyBoss[index] = false
                 call KillUnit(Enemies[i])
                 call RemoveUnit(Enemies[i])
                 set Enemies[i] = null
@@ -216,6 +217,7 @@ library ExpeditionCombat requires DataExpedition, DataMap, DataUnit, DamageEffec
         set Enemies[i] = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), raw, x, y, 270)
         set index = IndexUnit(Enemies[i])
         set ExpEnemy[index] = true
+        set ExpEnemyBoss[index] = EnemyKind[i] == 4
         set UnitHP[index] = EnemyMaximum[i]
         set UnitHPMAX[index] = EnemyMaximum[i]
         if EnemyKind[i] == 4 then

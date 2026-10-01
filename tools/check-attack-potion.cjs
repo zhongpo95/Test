@@ -3,12 +3,12 @@ const assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
 let checks = 0;
 const check = (name, fn) => {fn();checks++;console.log('PASS ' + name);};
-function fresh() {
+function fresh(statsUI = false) {
   const no = () => {}, arcana = new Map(), timers = [], labels = new Map();
   let e, expired, now = 0;
   const {env} = environment(['Data/Native.j','Data/Data_Expedition.j','Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j','System/StatsSetting.j',
     'System/ExpeditionEffects.j','System/Expedition.j','System/DamageEffect.j','Hero/Potion.j','System/ItemPickUp.j'], {
-    InitHashtable: () => arcana,
+    InitHashtable: () => new Map(),
     SaveInteger: (table,a,b,n) => arcana.set(a+':'+b,n), LoadInteger: (table,a,b) => arcana.get(a+':'+b) || 0,
     DzFrameSetText: (id,text) => labels.set(id,text), DzFrameSetTexture: no, DzFrameShow: no,
     F_ArcanaBD: [], F_UIArcana1: [], F_UIArcana2: [], F_UIArcana3: [], F_UIArcana4: [], F_ArcanaStatsText: [], F_ArcanaCheck: [],
@@ -28,11 +28,13 @@ function fresh() {
     FxEffect: {create:()=>({stop(){this.stopped=true;}})},
     JNSetItemName: (item,text) => {item.name=text;}, JNSetItemTooltip: (item,text) => {item.tip=text;},
     JNSetItemExtendedTooltip: (item,text) => {item.description=text;},
-  }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ExpKey','ExpHasCard','ExpCardDamage','ExpArcanaDamage',
+  }, ['AttackPower','FinalDamageBonus','PlayerStatsSet','ItemUIStatsSet','SkillSpeed','SkillSpeed2','Power','ExpKey','ExpHasCard','ExpCardDamage','ExpCardPenetration','ExpArcanaDamage',
     'ProtoDataInit','ProtoSetScene','ProtoSetBranch','ProtoChoiceKey','ProtoCanHit','ProtoRecordDamage','ProtoCardText','ExpSyncEnemyLife','HeroDeal','Main','EffectFunction','DamagePotionText','DrawCard','GrantCard','RefreshStats','Finish',
     'ExpCardName','ExpCardText','ExpGradeGold','ReleaseEvent','ApplyEvent','ExpEventUnavailable','CardsLeft',
     'PrepareEvent','OwnedEventCard','OwnedEventPenalty','SelectCard','ReleaseReward']);
   e=env;
+  // 일반 공격·물약 검사는 UI 프레임을 생성하지 않는다. 능력치 검사는 실제 함수로 따로 실행한다.
+  if (!statsUI) e.ItemUIStatsSet = no;
   e.Eitem[0][0]='ID3;';e.Eitem[0][1]='ID41;';
   e.Eitem[1][0]='ID3;';e.Eitem[1][1]='ID41;';
   e.MainUnit=[0,1,2,3];

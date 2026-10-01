@@ -1,5 +1,8 @@
-library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataExpedition, JNCommon
+library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataPrototypeStats, JNCommon
     function SkillSpeed takes integer pid returns real
+        if ExpPrototypeActive and ExpMember[pid] then
+            return RMinBJ(40.0, RMaxBJ(-80.0, Equip_Swiftness[pid] / 45.0 + Hero_BuffAttackSpeed[pid] + ProtoStat(pid, PROTO_STAT_ACTION)))
+        endif
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00
         endif
@@ -7,6 +10,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
     endfunction
     
     function SkillSpeed2 takes integer pid, real PlusSpeed returns real
+        if ExpPrototypeActive and ExpMember[pid] then
+            return SkillSpeed(pid) + PlusSpeed
+        endif
         if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid] >= 40 then
             return 40.00 + PlusSpeed
         endif
@@ -31,6 +37,14 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         local real penetratedDamageRate
         local real defenseDamageRate
         local real ArcanaRate = 1.0
+
+        if ExpPrototypeActive and ExpMember[pid] then
+            set penetrationRate = RMaxBJ(0.0, RMinBJ(1.0, penetrationRate + ProtoStat(pid, PROTO_STAT_PENETRATION) / 100.0))
+            set remainingDefense = targetDefense * (1.0 - penetrationRate)
+            set defenseDamageRate = (1.0 - remainingDefense / (remainingDefense + 10000.0)) / 0.5
+            // 조건부·대상별 피해는 상대와 전투 상황에 따라 달라 전투력 추정에서 제외한다.
+            return AttackPower(pid) * RMaxBJ(0.0, 1.0 + (Equip_ED[pid] + Equip_WDP[pid]) / 100.0) * RMaxBJ(0.0, Equip_DP[pid] + ProtoStat(pid, PROTO_STAT_DAMAGE) / 100.0) * (1.0 + critical * (Equip_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE) + 100.0) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (1.0 + FinalDamageBonus(pid) / 100.0)
+        endif
 
         if penetrationRate < 0.0 then
             set penetrationRate = 0.0
@@ -154,9 +168,15 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         local integer speed = 0
         local integer i = 0
         set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid] + Arcana_Cri[pid]
-        set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] )
+        if ExpPrototypeActive and ExpMember[pid] then
+            set Stats_Crit[pid] = RMinBJ(100.0, RMaxBJ(0.0, Hero_CriRate[pid] + ProtoStat(pid, PROTO_STAT_CRIT)))
+        endif
+        set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] + ProtoStat(pid, PROTO_STAT_MOVE) )
         if speed > 140 then
             set speed = 140
+        endif
+        if ExpPrototypeActive and ExpMember[pid] then
+            set speed = IMaxBJ(20, speed)
         endif
         if GetLocalPlayer() == Player(pid) then
             call DzFrameSetText(F_ItemStatsText[16], GetPlayerName(Player(pid)) )
@@ -181,9 +201,9 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             //쿨감
             call DzFrameSetText(F_ItemStatsText[10], R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%" )
             //방관
-            call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(  Equip_Penetration[pid] )) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(Equip_Penetration[pid] * 100.0 + ProtoStat(pid, PROTO_STAT_PENETRATION))) + "%" )
             //대미지증가
-            call DzFrameSetText(F_ItemStatsText[12], R2SW(( Equip_DP[pid] - 1) * 100  ,1,2) + "%" ) 
+            call DzFrameSetText(F_ItemStatsText[12], R2SW((Equip_DP[pid] - 1) * 100 + ProtoStat(pid, PROTO_STAT_DAMAGE),1,2) + "%" )
             //카드댐증
             call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
             //최종대미지증가
@@ -424,6 +444,18 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
                     set k = IMinBJ(5, k)
                 endif
                 call SaveInteger(ArcanaData, i, pid, k)
+                set i = i + 1
+            endloop
+        endif
+
+        if ExpPrototypeActive and ExpMember[pid] then
+            // 원정 밖 장비·각인 데이터는 보존한다. 이번 프로토타입에서는 카드 옵션만 소비한다.
+            set Equip_Crit[pid] = 0.0
+            set Equip_Swiftness[pid] = Equip_Swiftness[pid] + ProtoStat(pid, PROTO_STAT_SWIFT)
+            set i = 0
+            loop
+                exitwhen i > 53
+                call SaveInteger(ArcanaData, i, pid, 0)
                 set i = i + 1
             endloop
         endif
@@ -679,6 +711,8 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 32
         endif
 
+        set Arcana_ChargeSpeed[pid] = Arcana_ChargeSpeed[pid] * RMaxBJ(0.20, 1.0 + ProtoStat(pid, PROTO_STAT_CHARGE_SPEED) / 100.0)
+        call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE) * RMaxBJ(0.20, 1.0 + ProtoStat(pid, PROTO_STAT_HEALTH) / 100.0))
     endfunction
                     
     private function EquipON takes nothing returns nothing

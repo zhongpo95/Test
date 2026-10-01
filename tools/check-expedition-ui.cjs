@@ -39,7 +39,7 @@ function fresh(localPlayer = 0, prototype = false) {
   e = env;
   e.localPlayer = localPlayer;
   if(prototype){
-    e.ProtoDataInit();e.ExpPrototypeEnabled=true;
+    e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeEnabled=true;
     e.MapSt[5]=e.MapSt[6]={caster:null};e.MapRectCheck[5]=e.MapRectCheck[6]=true;
     e.EQUIP_SLOT_WEAPON=1;e.MockAttack=100;e.AttackPower=()=>e.MockAttack;e.GetItemTier=()=>2;
     e.AddSpecialEffectTarget=()=>({});e.DestroyEffect=()=>{};

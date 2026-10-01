@@ -1,4 +1,4 @@
-library Native initializer init
+library Native initializer init requires DataPrototypeStats
 
     function CharacterSave takes boolean auto, integer var returns nothing
     endfunction
@@ -86,11 +86,11 @@ library Native initializer init
 
     // 전투와 능력치/스킬 설명에서 같은 공격력 계산을 사용한다.
     function AttackPower takes integer pid returns real
-        return I2R(R2I(Equip_Damage[pid] + Hero_Damage[pid] + Equip_Damage[pid] * Equip_DamageP[pid] / 100.0))
+        return I2R(R2I((Equip_Damage[pid] + Hero_Damage[pid] + Equip_Damage[pid] * Equip_DamageP[pid] / 100.0) * RMaxBJ(0.0, 1.0 + ProtoStat(pid, PROTO_STAT_ATTACK) / 100.0)))
     endfunction
 
     function FinalDamageBonus takes integer pid returns real
-        return Equip_LastDamage[pid] + Hero_Buff2[pid]
+        return Equip_LastDamage[pid] + Hero_Buff2[pid] + ProtoStat(pid, PROTO_STAT_FINAL)
     endfunction
 
 private function init takes nothing returns nothing

@@ -26,11 +26,9 @@ library DamageEffect2 requires DataUnit,UIBossHP,AttackAngle,BuffData,DataProtot
             if ProtoPaused[pid] or ProtoReady[pid] then
                 return
             endif
+            set reduction = ProtoStat(pid, PROTO_STAT_REDUCTION)
             loop
                 exitwhen card > PROTO_CARD_LAST
-                if ExpCardOwned[ExpKey(pid, card)] and ProtoCardKind[card] == 4 then
-                    set reduction = reduction + ProtoCardValue[card]
-                endif
                 if ExpState == EXP_HUNT and rate > 0.0 and ExpCardOwned[ExpKey(pid, card)] and not ProtoEvolved[ExpKey(pid, card)] and ProtoEvolutionKind[card] == 3 then
                     set ProtoCardProgress[ExpKey(pid, card)] = 0.0
                 endif
