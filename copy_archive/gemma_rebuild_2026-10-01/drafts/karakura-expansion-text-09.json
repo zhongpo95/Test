@@ -1,0 +1,739 @@
+{
+  "started": "2026-10-01T13:41:29.129Z",
+  "finished": "2026-10-01T13:41:55.407Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "system": "한국어 게임 화면용 사건 집필자다. 캐릭터의 짧은 반응과 구체적인 물건에서 작은 사건을 쓴다. story3문장, intro는 어느 일을 맡을지 안내하는1문장, result2~3문장. 개발 안내·공식 몇 화·창작·NPC·새 기능 없음 같은 문장은 출력하지 않는다. 각 key를 그대로 복사하고 선택 순서를 유지한다.",
+    "brief": {
+      "content": [
+        {
+          "key": "bl_ripped_sleeve",
+          "title": "바늘 끝에서 멈춘 말",
+          "scene": "우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다.",
+          "choices": [
+            {
+              "action": "천과 실을 마련해 우류와 움직일 여유를 남긴다",
+              "card": "bl_uryu_stitch",
+              "card2": null,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다",
+              "card": "bl_uryu",
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "실타래와 남은 천만 정리해 보수를 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 150,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "bl_chad_toy",
+          "title": "큰 손에 든 작은 인형",
+          "scene": "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다.",
+          "choices": [
+            {
+              "action": "표시 도구를 마련해 차드와 앞에 설 자리를 고른다",
+              "card": "bl_chad",
+              "card2": null,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "사람이 지나갈 구역을 나누고 물약을 챙긴다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "gold": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "action": "가게 앞 짐 정리만 도와 보수를 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 140,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "bl_yuzu_supplies",
+          "title": "비워 둘 수 없는 한 칸",
+          "scene": "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.",
+          "choices": [
+            {
+              "action": "보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다",
+              "card": "bl_yuzu_portion",
+              "card2": null,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "이치고와 더 강한 적이 드나드는 길을 맡는다",
+              "card": "bl_ichigo",
+              "card2": null,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "가까운 보급 정리를 돕고 보수와 물약을 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 150,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "bl_don_audience",
+          "title": "박수 뒤에 가려진 길",
+          "scene": "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.",
+          "choices": [
+            {
+              "action": "표시용품을 사서 칸온지와 보일 신호를 맞춘다",
+              "card": "bl_don_signal",
+              "card2": null,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "이치고와 더 넓은 길목까지 맡는다",
+              "card": "bl_ichigo",
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "맡을 길목을 줄이고 촬영 짐 정리를 돕는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "gold": 130,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "bl_uncertain_kit",
+          "title": "끝까지 채워졌을까",
+          "scene": "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다.",
+          "choices": [
+            {
+              "action": "180골드를 내고 목록이 불완전한 묶음을 확인한다",
+              "card": "bl_urahara",
+              "card2": null,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 2,
+              "chance": 65
+            },
+            {
+              "action": "확인된 물품만 따로 마련해 준비 요령을 배운다",
+              "card": "bl_urahara",
+              "card2": null,
+              "cost": 260,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "action": "구매 대신 창고의 빈 상자를 정리해 보수를 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 140,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "bl_tatsuki_space",
+          "title": "발 하나를 놓을 자리",
+          "scene": "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다.",
+          "choices": [
+            {
+              "action": "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다",
+              "card": "bl_tatsuki_stance",
+              "card2": null,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다",
+              "card": "bl_orihime",
+              "card2": null,
+              "cost": 200,
+              "level": 0,
+              "density": -1,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "연습은 남기고 짐 정리 보수와 물약을 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 130,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "key": "bl_kon",
+          "name": "콘",
+          "effectName": "몸을 맡길 수 있는 동료",
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "bl_ichigo",
+          "name": "쿠로사키 이치고",
+          "effectName": "지키기 위해 들었던 검",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 12
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "key": "bl_uryu",
+          "name": "이시다 우류",
+          "effectName": "흐트러지지 않는 조준",
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 6
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "key": "bl_orihime",
+          "name": "이노우에 오리히메",
+          "effectName": "거절하는 것은 상처",
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.8
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ]
+        },
+        {
+          "key": "bl_yoruichi",
+          "name": "시호인 요루이치",
+          "effectName": "순신의 보법",
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 270
+            },
+            {
+              "stat": "moving_damage",
+              "value": 16
+            }
+          ]
+        },
+        {
+          "key": "bl_rukia",
+          "name": "쿠치키 루키아",
+          "effectName": "현세에서 지켜야 할 간격",
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 6
+            },
+            {
+              "stat": "damage_percent",
+              "value": 12
+            }
+          ]
+        },
+        {
+          "key": "bl_urahara",
+          "name": "우라하라 키스케",
+          "effectName": "준비가 남기는 여유",
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "key": "bl_chad",
+          "name": "사도 야스토라",
+          "effectName": "약한 사람 앞에 서는 팔",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "key": "bl_ichigo_focus",
+          "name": "쿠로사키 이치고",
+          "effectName": "한 번의 틈에 모은 힘",
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 24
+            },
+            {
+              "stat": "attack_percent",
+              "value": 6
+            },
+            {
+              "stat": "action_speed",
+              "value": -3
+            }
+          ]
+        },
+        {
+          "key": "bl_uryu_stitch",
+          "name": "이시다 우류",
+          "effectName": "어긋난 한 땀까지",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            },
+            {
+              "stat": "crit_damage",
+              "value": 15
+            }
+          ]
+        },
+        {
+          "key": "bl_yuzu_portion",
+          "name": "쿠로사키 유즈",
+          "effectName": "돌아올 사람의 몫",
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            },
+            {
+              "stat": "kill_gold",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "bl_tatsuki_stance",
+          "name": "아리사와 타츠키",
+          "effectName": "발을 놓고 나서",
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "bl_don_signal",
+          "name": "돈 칸온지",
+          "effectName": "보이게 전하는 신호",
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "move_speed",
+              "value": 4
+            }
+          ]
+        }
+      ],
+      "canonSources": [
+        {
+          "source": "https://pierrot.jp/title/bleach/chara.html",
+          "fact": "우류의 손재주·바느질, 차드의 약한 사람 보호·귀여운 물건 선호, 콘의 인형과 몸을 지키는 역할, 유즈의 가사, 타츠키의 가라테·이치고와 오리히메 관계, 돈 칸온지 인기 영매 방송, 우라하라 사신용 물품을 확인했다. 후반부 직업·혈통·각성·완결은 사건에 섞지 않는다."
+        },
+        {
+          "source": "https://bleach-anime.com/character/",
+          "fact": "현세의 이치고·오리히메·차드·우라하라·요루이치 역할을 보완 대조했다. 천년혈전 승패와 우류의 신분 변화는 새 사건으로 만들지 않는다."
+        }
+      ],
+      "rules": [
+        "story와intro에 원작 확인 범위와 기술 제한 설명을 복사하지 않는다. 인물·행동·남은 부탁을 쓴다.",
+        "비용은 재료·보급·표시 도구 등에 쓰고 캐릭터와 우정을 사는 돈이 아니다. 보수는 일을 맡긴 가게·촬영 준비자·보급 담당자에게 받고 물약은 보급품이다.",
+        "card가 있는 선택 결과에는 해당 인물에게 배운 준비를 보여 준다. 모든 인형·천·가족·방송·묶음은 이야기 소품이며 추가 인벤토리나 NPC 기능이 아니다.",
+        "level은 개인 몹의 강함,density는 적 수. 증가·감소를 실제 맡을 구역과 개인 사냥의 강함·적 수에 연결한다. 단순 이동거리 증가로만 설명하지 않는다.",
+        "65% 묶음의 result는 성공 결과이며180비용 후 지정 카드·물약2개를 받는 까닭을 쓴다. 실패는 별도 고정문이 있으므로 출력하지 않는다. 확정 묶음은260비용·같은카드·물약1개다.",
+        "한 행동으로 모든 가족·학교·전쟁·부상·군중 문제를 해결하지 않는다. 각각의 남긴 일과 인물 반응을 다르게 쓴다. 새 참백도·빙결·순보·몸 대신 조종·즉시 회복·체력 비용은 없다.",
+        "효율·체계적·전반적 준비라는 문구만 반복하지 않는다. 같은머리의 다른 상황이 같은 이름만 바꾼 보상 메뉴로 보이지 않게 쓴다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 게임 화면용 사건 집필자다. 캐릭터의 짧은 반응과 구체적인 물건에서 작은 사건을 쓴다. story3문장, intro는 어느 일을 맡을지 안내하는1문장, result2~3문장. 개발 안내·공식 몇 화·창작·NPC·새 기능 없음 같은 문장은 출력하지 않는다. 각 key를 그대로 복사하고 선택 순서를 유지한다."
+      },
+      {
+        "role": "user",
+        "content": "{\"content\":[{\"key\":\"bl_ripped_sleeve\",\"title\":\"바늘 끝에서 멈춘 말\",\"scene\":\"우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다.\",\"choices\":[{\"action\":\"천과 실을 마련해 우류와 움직일 여유를 남긴다\",\"card\":\"bl_uryu_stitch\",\"card2\":null,\"cost\":220,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다\",\"card\":\"bl_uryu\",\"card2\":null,\"cost\":0,\"level\":0,\"density\":1,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"실타래와 남은 천만 정리해 보수를 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":150,\"potions\":0,\"chance\":100}]},{\"key\":\"bl_chad_toy\",\"title\":\"큰 손에 든 작은 인형\",\"scene\":\"차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다.\",\"choices\":[{\"action\":\"표시 도구를 마련해 차드와 앞에 설 자리를 고른다\",\"card\":\"bl_chad\",\"card2\":null,\"cost\":240,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"사람이 지나갈 구역을 나누고 물약을 챙긴다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":-1,\"gold\":0,\"potions\":1,\"chance\":100},{\"action\":\"가게 앞 짐 정리만 도와 보수를 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":140,\"potions\":0,\"chance\":100}]},{\"key\":\"bl_yuzu_supplies\",\"title\":\"비워 둘 수 없는 한 칸\",\"scene\":\"유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.\",\"choices\":[{\"action\":\"보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다\",\"card\":\"bl_yuzu_portion\",\"card2\":null,\"cost\":200,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"이치고와 더 강한 적이 드나드는 길을 맡는다\",\"card\":\"bl_ichigo\",\"card2\":null,\"cost\":0,\"level\":1,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"가까운 보급 정리를 돕고 보수와 물약을 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":150,\"potions\":1,\"chance\":100}]},{\"key\":\"bl_don_audience\",\"title\":\"박수 뒤에 가려진 길\",\"scene\":\"돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.\",\"choices\":[{\"action\":\"표시용품을 사서 칸온지와 보일 신호를 맞춘다\",\"card\":\"bl_don_signal\",\"card2\":null,\"cost\":180,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"이치고와 더 넓은 길목까지 맡는다\",\"card\":\"bl_ichigo\",\"card2\":null,\"cost\":0,\"level\":0,\"density\":2,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"맡을 길목을 줄이고 촬영 짐 정리를 돕는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":-1,\"gold\":130,\"potions\":1,\"chance\":100}]},{\"key\":\"bl_uncertain_kit\",\"title\":\"끝까지 채워졌을까\",\"scene\":\"우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다.\",\"choices\":[{\"action\":\"180골드를 내고 목록이 불완전한 묶음을 확인한다\",\"card\":\"bl_urahara\",\"card2\":null,\"cost\":180,\"level\":0,\"density\":0,\"gold\":0,\"potions\":2,\"chance\":65},{\"action\":\"확인된 물품만 따로 마련해 준비 요령을 배운다\",\"card\":\"bl_urahara\",\"card2\":null,\"cost\":260,\"level\":0,\"density\":0,\"gold\":0,\"potions\":1,\"chance\":100},{\"action\":\"구매 대신 창고의 빈 상자를 정리해 보수를 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":140,\"potions\":0,\"chance\":100}]},{\"key\":\"bl_tatsuki_space\",\"title\":\"발 하나를 놓을 자리\",\"scene\":\"타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다.\",\"choices\":[{\"action\":\"연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다\",\"card\":\"bl_tatsuki_stance\",\"card2\":null,\"cost\":220,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다\",\"card\":\"bl_orihime\",\"card2\":null,\"cost\":200,\"level\":0,\"density\":-1,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"연습은 남기고 짐 정리 보수와 물약을 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":130,\"potions\":1,\"chance\":100}]}],\"cards\":[{\"key\":\"bl_kon\",\"name\":\"콘\",\"effectName\":\"몸을 맡길 수 있는 동료\",\"effects\":[{\"stat\":\"move_speed\",\"value\":3}]},{\"key\":\"bl_ichigo\",\"name\":\"쿠로사키 이치고\",\"effectName\":\"지키기 위해 들었던 검\",\"effects\":[{\"stat\":\"attack_percent\",\"value\":12},{\"stat\":\"boss_damage_percent\",\"value\":8}]},{\"key\":\"bl_uryu\",\"name\":\"이시다 우류\",\"effectName\":\"흐트러지지 않는 조준\",\"effects\":[{\"stat\":\"crit_chance\",\"value\":6},{\"stat\":\"penetration\",\"value\":8}]},{\"key\":\"bl_orihime\",\"name\":\"이노우에 오리히메\",\"effectName\":\"거절하는 것은 상처\",\"effects\":[{\"stat\":\"regeneration\",\"value\":0.8},{\"stat\":\"max_health_percent\",\"value\":8}]},{\"key\":\"bl_yoruichi\",\"name\":\"시호인 요루이치\",\"effectName\":\"순신의 보법\",\"effects\":[{\"stat\":\"swift\",\"value\":270},{\"stat\":\"moving_damage\",\"value\":16}]},{\"key\":\"bl_rukia\",\"name\":\"쿠치키 루키아\",\"effectName\":\"현세에서 지켜야 할 간격\",\"effects\":[{\"stat\":\"charge_speed\",\"value\":6},{\"stat\":\"damage_percent\",\"value\":12}]},{\"key\":\"bl_urahara\",\"name\":\"우라하라 키스케\",\"effectName\":\"준비가 남기는 여유\",\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"boss_damage_percent\",\"value\":6}]},{\"key\":\"bl_chad\",\"name\":\"사도 야스토라\",\"effectName\":\"약한 사람 앞에 서는 팔\",\"effects\":[{\"stat\":\"max_health_percent\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":6}]},{\"key\":\"bl_ichigo_focus\",\"name\":\"쿠로사키 이치고\",\"effectName\":\"한 번의 틈에 모은 힘\",\"effects\":[{\"stat\":\"charge_damage\",\"value\":24},{\"stat\":\"attack_percent\",\"value\":6},{\"stat\":\"action_speed\",\"value\":-3}]},{\"key\":\"bl_uryu_stitch\",\"name\":\"이시다 우류\",\"effectName\":\"어긋난 한 땀까지\",\"effects\":[{\"stat\":\"action_speed\",\"value\":3},{\"stat\":\"crit_damage\",\"value\":15}]},{\"key\":\"bl_yuzu_portion\",\"name\":\"쿠로사키 유즈\",\"effectName\":\"돌아올 사람의 몫\",\"effects\":[{\"stat\":\"regeneration\",\"value\":0.4},{\"stat\":\"kill_gold\",\"value\":3}]},{\"key\":\"bl_tatsuki_stance\",\"name\":\"아리사와 타츠키\",\"effectName\":\"발을 놓고 나서\",\"effects\":[{\"stat\":\"directional_damage\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":3}]},{\"key\":\"bl_don_signal\",\"name\":\"돈 칸온지\",\"effectName\":\"보이게 전하는 신호\",\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"move_speed\",\"value\":4}]}],\"canonSources\":[{\"source\":\"https://pierrot.jp/title/bleach/chara.html\",\"fact\":\"우류의 손재주·바느질, 차드의 약한 사람 보호·귀여운 물건 선호, 콘의 인형과 몸을 지키는 역할, 유즈의 가사, 타츠키의 가라테·이치고와 오리히메 관계, 돈 칸온지 인기 영매 방송, 우라하라 사신용 물품을 확인했다. 후반부 직업·혈통·각성·완결은 사건에 섞지 않는다.\"},{\"source\":\"https://bleach-anime.com/character/\",\"fact\":\"현세의 이치고·오리히메·차드·우라하라·요루이치 역할을 보완 대조했다. 천년혈전 승패와 우류의 신분 변화는 새 사건으로 만들지 않는다.\"}],\"rules\":[\"story와intro에 원작 확인 범위와 기술 제한 설명을 복사하지 않는다. 인물·행동·남은 부탁을 쓴다.\",\"비용은 재료·보급·표시 도구 등에 쓰고 캐릭터와 우정을 사는 돈이 아니다. 보수는 일을 맡긴 가게·촬영 준비자·보급 담당자에게 받고 물약은 보급품이다.\",\"card가 있는 선택 결과에는 해당 인물에게 배운 준비를 보여 준다. 모든 인형·천·가족·방송·묶음은 이야기 소품이며 추가 인벤토리나 NPC 기능이 아니다.\",\"level은 개인 몹의 강함,density는 적 수. 증가·감소를 실제 맡을 구역과 개인 사냥의 강함·적 수에 연결한다. 단순 이동거리 증가로만 설명하지 않는다.\",\"65% 묶음의 result는 성공 결과이며180비용 후 지정 카드·물약2개를 받는 까닭을 쓴다. 실패는 별도 고정문이 있으므로 출력하지 않는다. 확정 묶음은260비용·같은카드·물약1개다.\",\"한 행동으로 모든 가족·학교·전쟁·부상·군중 문제를 해결하지 않는다. 각각의 남긴 일과 인물 반응을 다르게 쓴다. 새 참백도·빙결·순보·몸 대신 조종·즉시 회복·체력 비용은 없다.\",\"효율·체계적·전반적 준비라는 문구만 반복하지 않는다. 같은머리의 다른 상황이 같은 이름만 바꾼 보상 메뉴로 보이지 않게 쓴다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T13:41:55.4034571Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"events\":[{\"key\":\"bl_ripped_sleeve\",\"story\":\"우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다.\",\"intro\":\"우류와 콘의 도움을 받아 소매 보수와 길 안내 중 어느 역할을 맡을지 정해줘.\",\"choices\":[{\"label\":\"천과 실을 마련해 우류와 움직일 여유를 남긴다\",\"result\":\"우류가 꼼꼼하게 바느질을 마쳤고, 덕분에 여유로운 걸음으로 길을 나설 수 있게 되었다. 우류는 어긋난 한 땀까지 세밀하게 다루는 법을 알려주었다.\"},{\"label\":\"소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다\",\"result\":\"우류와 함께 탁 트인 길을 먼저 확보하며 전방의 위험 요소를 파악했다. 이치고는 우류의 예리한 시야를 빌려 길목을 익혔다.\"},{\"label\":\"실타래와 남은 천만 정리해 보수를 받는다\",\"result\":\"콘의 불평을 달래며 실타래와 천을 깔끔하게 정리했다. 보급 담당자에게 소정의 보수와 감사를 받았다.\"}]},{\"key\":\"bl_chad_toy\",\"story\":\"차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다.\",\"intro\":\"차드와 협력해 아이를 안전하게 안내하거나 다른 길을 확보할지 결정해줘.\",\"choices\":[{\"label\":\"표시 도구를 마련해 차드와 앞에 설 자리를 고른다\",\"result\":\"차드가 사람들에게 밀리지 않도록 든든한 방벽이 되어주며 아이를 인도했다. 차드는 약한 사람 앞에 서는 법을 몸소 보여주었다.\"},{\"label\":\"사람이 지나갈 구역을 나누고 물약을 챙긴다\",\"result\":\"군중의 흐름을 분산시키는 구역을 설정하고 비상용 물약을 챙겼다. 아이는 안전하게 인파를 빠져나갈 수 있었다.\"},{\"label\":\"가게 앞 짐 정리만 도와 보수를 받는다\",\"result\":\"차드와 함께 가게 앞의 흩어진 짐들을 정리했다. 상인에게 고맙다는 인사와 함께 보수를 받았다.\"}]},{\"key\":\"bl_yuzu_supplies\",\"story\":\"유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.\",\"intro\":\"유즈와 함께 한정된 보급품을 나누고 임무 구역을 배분해줘.\",\"choices\":[{\"label\":\"보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다\",\"result\":\"유즈가 안심하고 보급품을 나누었으며, 돌아올 동료들을 위한 몫이 확보되었다. 유즈는 돌아올 사람의 몫을 챙기는 세심함을 보여주었다.\"},{\"label\":\"이치고와 더 강한 적이 드나드는 길을 맡는다\",\"result\":\"이치고와 짝을 이루어 험한 지형과 강력한 적들이 발생하는 길목을 전담하기로 했다. 더 높은 난이도의 구역을 책임지기로 약속했다.\"},{\"label\":\"가까운 보급 정리를 돕고 보수와 물약을 받는다\",\"result\":\"유즈 옆에서 가까운 거리의 보급품 분류를 도왔다. 보급 담당자에게 보수와 물약을 수령했다.\"}]},{\"key\":\"bl_don_audience\",\"story\":\"돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.\",\"intro\":\"콘을 안전하게 이동시키고 칸온지의 촬영을 돕기 위한 대책을 세워줘.\",\"choices\":[{\"label\":\"표시용품을 사서 칸온지와 보일 신호를 맞춘다\",\"result\":\"멀리서도 확인 가능한 신호를 보내 칸온지와 소통 경로를 확보했다. 칸온지는 보일 신호를 전하는 법을 가르쳐주었다.\"},{\"label\":\"이치고와 더 넓은 길목까지 맡는다\",\"result\":\"콘을 데리고 인파가 적은 넓은 길을 돌아가기로 결정했다. 더 먼 거리의 길목까지 책임지게 되었다.\"},{\"label\":\"맡을 길목을 줄이고 촬영 짐 정리를 돕는다\",\"result\":\"이동 범위를 줄이는 대신 촬영 현장의 짐을 옮기는 일을 도왔다. 촬영 준비자에게 보수와 물약을 받았다.\"}]},{\"key\":\"bl_uncertain_kit\",\"story\":\"우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다.\",\"intro\":\"우라하라가 내놓은 불확실한 묶음을 살지, 확실한 물품을 따로 챙길지 선택해줘.\",\"choices\":[{\"label\":\"180골드를 내고 목록이 불완전한 묶음을 확인한다\",\"result\":\"우라하라의 묶음을 구매해 내용물을 확인했다. 예상치 못한 물품이 섞여 있었지만, 2개의 물약을 챙길 수 있었다.\"},{\"label\":\"확인된 물품만 따로 마련해 준비 요령을 배운다\",\"result\":\"확실한 물품들만 골라 챙기며 효율적인 준비 요령을 익혔다. 우라하라의 꼼꼼한 확인 방식을 배웠다.\"},{\"label\":\"구매 대신 창고의 빈 상자를 정리해 보수를 받는다\",\"result\":\"묶음 구매 대신 창고에 쌓인 빈 상자들을 정리했다. 우라하라에게 보수를 받았다.\"}]},{\"key\":\"bl_tatsuki_space\",\"story\":\"타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다.\",\"intro\":\"타츠키와 오리히메의 의견을 조율해 연습 공간과 이동을 준비해줘.\",\"choices\":[{\"label\":\"연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다\",\"result\":\"타츠키와 발을 딛는 위치를 정확히 맞추어 안정적인 연습 공간을 확보했다. 타츠키는 발을 놓고 나서의 중심 이동을 가르쳐주었다.\"},{\"label\":\"오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다\",\"result\":\"오리히메와 상의하여 담당 구역을 좁히는 대신 장거리 이동에 대비했다. 체력 소모를 줄이는 방향으로 움직임을 조정했다.\"},{\"label\":\"연습은 남기고 짐 정리 보수와 물약을 받는다\",\"result\":\"연습은 뒤로 미루고 밀려 있는 짐들을 정리했다. 연습장 관리자에게 보수와 물약을 받았다.\"}]}]}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 26250608000,
+    "load_duration": 2161800,
+    "prompt_eval_count": 2928,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1201284000,
+    "eval_count": 1705,
+    "eval_duration": 24705278000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "bl_ripped_sleeve",
+        "story": "우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다.",
+        "intro": "우류와 콘의 도움을 받아 소매 보수와 길 안내 중 어느 역할을 맡을지 정해줘.",
+        "choices": [
+          {
+            "label": "천과 실을 마련해 우류와 움직일 여유를 남긴다",
+            "result": "우류가 꼼꼼하게 바느질을 마쳤고, 덕분에 여유로운 걸음으로 길을 나설 수 있게 되었다. 우류는 어긋난 한 땀까지 세밀하게 다루는 법을 알려주었다."
+          },
+          {
+            "label": "소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다",
+            "result": "우류와 함께 탁 트인 길을 먼저 확보하며 전방의 위험 요소를 파악했다. 이치고는 우류의 예리한 시야를 빌려 길목을 익혔다."
+          },
+          {
+            "label": "실타래와 남은 천만 정리해 보수를 받는다",
+            "result": "콘의 불평을 달래며 실타래와 천을 깔끔하게 정리했다. 보급 담당자에게 소정의 보수와 감사를 받았다."
+          }
+        ]
+      },
+      {
+        "key": "bl_chad_toy",
+        "story": "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다.",
+        "intro": "차드와 협력해 아이를 안전하게 안내하거나 다른 길을 확보할지 결정해줘.",
+        "choices": [
+          {
+            "label": "표시 도구를 마련해 차드와 앞에 설 자리를 고른다",
+            "result": "차드가 사람들에게 밀리지 않도록 든든한 방벽이 되어주며 아이를 인도했다. 차드는 약한 사람 앞에 서는 법을 몸소 보여주었다."
+          },
+          {
+            "label": "사람이 지나갈 구역을 나누고 물약을 챙긴다",
+            "result": "군중의 흐름을 분산시키는 구역을 설정하고 비상용 물약을 챙겼다. 아이는 안전하게 인파를 빠져나갈 수 있었다."
+          },
+          {
+            "label": "가게 앞 짐 정리만 도와 보수를 받는다",
+            "result": "차드와 함께 가게 앞의 흩어진 짐들을 정리했다. 상인에게 고맙다는 인사와 함께 보수를 받았다."
+          }
+        ]
+      },
+      {
+        "key": "bl_yuzu_supplies",
+        "story": "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.",
+        "intro": "유즈와 함께 한정된 보급품을 나누고 임무 구역을 배분해줘.",
+        "choices": [
+          {
+            "label": "보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다",
+            "result": "유즈가 안심하고 보급품을 나누었으며, 돌아올 동료들을 위한 몫이 확보되었다. 유즈는 돌아올 사람의 몫을 챙기는 세심함을 보여주었다."
+          },
+          {
+            "label": "이치고와 더 강한 적이 드나드는 길을 맡는다",
+            "result": "이치고와 짝을 이루어 험한 지형과 강력한 적들이 발생하는 길목을 전담하기로 했다. 더 높은 난이도의 구역을 책임지기로 약속했다."
+          },
+          {
+            "label": "가까운 보급 정리를 돕고 보수와 물약을 받는다",
+            "result": "유즈 옆에서 가까운 거리의 보급품 분류를 도왔다. 보급 담당자에게 보수와 물약을 수령했다."
+          }
+        ]
+      },
+      {
+        "key": "bl_don_audience",
+        "story": "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.",
+        "intro": "콘을 안전하게 이동시키고 칸온지의 촬영을 돕기 위한 대책을 세워줘.",
+        "choices": [
+          {
+            "label": "표시용품을 사서 칸온지와 보일 신호를 맞춘다",
+            "result": "멀리서도 확인 가능한 신호를 보내 칸온지와 소통 경로를 확보했다. 칸온지는 보일 신호를 전하는 법을 가르쳐주었다."
+          },
+          {
+            "label": "이치고와 더 넓은 길목까지 맡는다",
+            "result": "콘을 데리고 인파가 적은 넓은 길을 돌아가기로 결정했다. 더 먼 거리의 길목까지 책임지게 되었다."
+          },
+          {
+            "label": "맡을 길목을 줄이고 촬영 짐 정리를 돕는다",
+            "result": "이동 범위를 줄이는 대신 촬영 현장의 짐을 옮기는 일을 도왔다. 촬영 준비자에게 보수와 물약을 받았다."
+          }
+        ]
+      },
+      {
+        "key": "bl_uncertain_kit",
+        "story": "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다.",
+        "intro": "우라하라가 내놓은 불확실한 묶음을 살지, 확실한 물품을 따로 챙길지 선택해줘.",
+        "choices": [
+          {
+            "label": "180골드를 내고 목록이 불완전한 묶음을 확인한다",
+            "result": "우라하라의 묶음을 구매해 내용물을 확인했다. 예상치 못한 물품이 섞여 있었지만, 2개의 물약을 챙길 수 있었다."
+          },
+          {
+            "label": "확인된 물품만 따로 마련해 준비 요령을 배운다",
+            "result": "확실한 물품들만 골라 챙기며 효율적인 준비 요령을 익혔다. 우라하라의 꼼꼼한 확인 방식을 배웠다."
+          },
+          {
+            "label": "구매 대신 창고의 빈 상자를 정리해 보수를 받는다",
+            "result": "묶음 구매 대신 창고에 쌓인 빈 상자들을 정리했다. 우라하라에게 보수를 받았다."
+          }
+        ]
+      },
+      {
+        "key": "bl_tatsuki_space",
+        "story": "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다.",
+        "intro": "타츠키와 오리히메의 의견을 조율해 연습 공간과 이동을 준비해줘.",
+        "choices": [
+          {
+            "label": "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다",
+            "result": "타츠키와 발을 딛는 위치를 정확히 맞추어 안정적인 연습 공간을 확보했다. 타츠키는 발을 놓고 나서의 중심 이동을 가르쳐주었다."
+          },
+          {
+            "label": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다",
+            "result": "오리히메와 상의하여 담당 구역을 좁히는 대신 장거리 이동에 대비했다. 체력 소모를 줄이는 방향으로 움직임을 조정했다."
+          },
+          {
+            "label": "연습은 남기고 짐 정리 보수와 물약을 받는다",
+            "result": "연습은 뒤로 미루고 밀려 있는 짐들을 정리했다. 연습장 관리자에게 보수와 물약을 받았다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null
+}
