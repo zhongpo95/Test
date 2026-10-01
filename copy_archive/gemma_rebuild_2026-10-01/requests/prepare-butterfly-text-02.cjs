@@ -1,0 +1,28 @@
+// 반복적인 훈련 원안을 제외하고 보급꾼을 찾는 밤길 사건의 새 집필 요청을 보존한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const data=JSON.parse(fs.readFileSync(path.join(__dirname,'butterfly-design-01.json'),'utf8'));
+const old=data.events.slice(0,2);
+data.events=data.events.slice(2);
+data.events[0].story='저택으로 향하던 보급꾼이 약속한 때를 넘겨도 돌아오지 않고 길목에는 떨어진 짐만 남았다. 젠이츠는 멀리서 섞여 오는 소리를 듣고 멈추고, 이노스케는 직접 길을 열자고 한다. 탄지로는 무턱대고 달리기 전에 확인한 것을 나누자고 한다.';
+data.events[0].intro='보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다.';
+data.events[0].choices[0].label='등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다';
+data.events[0].choices[0].result='성공. 소리를 따라 돌아갈 길을 잃은 보급꾼을 찾고 정찰 보수를 받는다. 소리가 겹쳐도 움직일 순간에 힘을 모으는 젠이츠의 준비를 배운다. 더 강한 개인 사냥 구역을 맡는 부담은 남는다.';
+data.events[0].choices[1].label='이노스케와 막힌 길을 직접 열어 본다';
+data.events[0].choices[1].result='몰려오는 상대를 끊지 않고 공격하며 길 일부를 연다. 이노스케의 돌파 자세를 배우되 더 많은 적이 드나드는 구역과 방어의 빈틈을 감수한다. 사라진 사람을 찾은 결론은 아니다.';
+data.events[0].choices[2].label='탄지로와 서두르지 않고 남은 짐을 운반한다';
+data.events[0].choices[2].result='짐을 묶을 도구 비용을 내고 멈췄다가 걸을 때도 호흡이 흐트러지지 않게 짐을 옮긴다. 탄지로에게 배운 준비를 가져가지만 사람을 찾았다고 단정하지 않는다. 구역 위험은 늘리지 않는다.';
+data.events[0].choices[3].label='길목의 짐을 수습하고 일당을 받는다';
+data.events[0].choices[3].result='운반할 수 있는 짐을 정리해 한쪽 길의 부담을 줄이고 일당을 받는다. 보급꾼의 행방은 확인하지 못한다. 빈 이야기를 보상 설명으로 끝내지 말고 내려놓은 짐이나 기록을 장면에 남긴다.';
+data.events[0].failure='보급꾼의 목소리라고 생각한 소리는 비슷하게 들리는 다른 울음이었다. 찾는 사람은 확인하지 못하고 준비비는 돌아오지 않는다. 맡은 구역의 더 강한 적 부담은 남는다. 젠이츠가 플레이어에게 새로운 공격 기술을 준 것으로 묘사하지 않는다.';
+data.events[1].story='앞선 수색에서 돌아올 길을 잃은 보급꾼을 찾았다. 그가 남긴 이동 흔적을 옮겨 적던 젠이츠는 소리를 듣는 것과 그 순간 움직이는 것은 다르다고 말한다. 카나오와 반응을 확인하거나 길과 보급품을 정리할 수 있다.';
+data.events[1].choices[0].result='훈련 도구 비용을 내고 정찰 기록을 놓아 발을 옮길 순간을 연습한다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 준비를 배운다. 앞서 젠이츠 카드가 다시 지급되는 결과가 아니다.';
+data.events[2].story='앞선 수색에서 보급꾼을 찾지 못하고 다른 울음만 확인했다. 저택으로 돌아온 기록지에는 같은 길을 맴돈 흔적이 남았다. 시노부는 다음 출발의 준비를, 이노스케는 더 직접적인 돌파를 이야기한다.';
+data.events[2].choices[0].result='새 준비 비용을 내고 다음 전투에 가져갈 약과 회복 방법을 시노부와 정리한다. 실패한 수색의 비용을 되돌리는 장면이 아니며 원작의 질병을 낫게 하지 않는다.';
+data.canonBoundary+=' 보급꾼·짐·등불·밧줄은 이 맵 사건의 창작이며 인벤토리 퀘스트 물품이나 실제 NPC 구출 모드로 구현하지 않는다.';
+const oldRequest=JSON.parse(fs.readFileSync(path.join(__dirname,'butterfly-text-01.json'),'utf8'));
+const request={...oldRequest,system:oldRequest.system+' 제공한 문장은 장면의 의도이며 그대로 복사하지 않는다. 보급꾼 찾기 성공/실패와 다른 두 가지 짐 수습의 결과를 섞지 않는다. intent의 제작 안내는 제외하고 물건·행동·반응으로만 쓴다.',brief:{canonBoundary:data.canonBoundary,events:data.events.map(e=>({key:e.key,title:e.title,situationIntent:e.story,previous:e.previous,previousChoice:e.previousChoice,choices:e.choices.map(b=>({action:b.label,resultIntent:b.result,card:b.card?data.cards.find(c=>c.key===b.card).name:null,cost:b.cost,gold:b.gold,level:b.level,density:b.density,potions:b.potions,chance:b.chance})),failureIntent:e.failure}))}};
+fs.writeFileSync(path.join(__dirname,'butterfly-design-02.json'),JSON.stringify(data,null,2)+'\n',{flag:'wx'});
+fs.writeFileSync(path.join(__dirname,'butterfly-text-02.json'),JSON.stringify(request,null,2)+'\n',{flag:'wx'});
+fs.writeFileSync(path.join(__dirname,'../revisions/butterfly-selection-02.json'),JSON.stringify({removedEvents:old.map(e=>({key:e.key,title:e.title,reason:'아메스트리스의 위험 증가 수련과 비용을 낸 부담 감소 후속을 반복한다. 개수보다 다른 사건 경험을 우선해 제외함.'})),kept:data.events.map(e=>e.key),changes:'훈련 메뉴를 보급꾼의 행방과 남은 짐에 개입하는 밤길 사건으로 변경. 카드·수치·성공률은 유지하고 반복된 사건 두 개만 제외.'},null,2)+'\n',{flag:'wx'});
+console.log('나비저택 6카드·3사건 집필 요청과 제외 이유를 보존했습니다.');

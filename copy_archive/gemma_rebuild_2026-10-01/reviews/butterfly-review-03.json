@@ -1,0 +1,379 @@
+{
+  "started": "2026-10-01T12:15:29.318Z",
+  "finished": "2026-10-01T12:15:36.926Z",
+  "request": {
+    "review": true,
+    "system": "한국어 사건 검토자다. 비용·보상·필드 변화와 결과가 맞는지, 이전 사건에서 이미 끝난 일을 후속에서 다시 하는지, 새 기술·동료·적 종류를 약속하는지 살핀다. 모든 카드 효과는 유지되며 새 카드가 기존 카드를 삭제하지 않는다. 이전 사건 기록은 개인의 성공/실패이고 후속에서 다른 사건을 사이에 겪을 수 있다. NPC는 이야기 인물이며 실제 사냥 동료를 생성하지 않는다. 근거 없이 지적 없음만 반환하지 말고 문제 있으면 issues에 key와 구체적인 이유를 적는다. 좋은 문장으로 다시 집필할 필요는 없다.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issues",
+        "assessment"
+      ],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "reason"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "brief": {
+      "canonBoundary": "24·25화의 나비저택 치료와 기능 회복·호흡 수련, 공식 인물 소개의 카나오 신체 능력·시노부 약학·젠이츠 청각·이노스케 성향을 소재로 삼는다. 원작의 호흡·독·실신·귀화·신규 기술·NPC 동행을 구현하지 않는다. 밤길 의뢰·도구 비용·보급 일당·적 구역 변화는 맵 전용 창작이다. 현재 체력을 지불하지 않는다. 사건의 정찰 판정은 능력치 판정이나 실제 미니게임 입력이 아닌 표시한 확률이다. 보급꾼·짐·등불·밧줄은 이 맵 사건의 창작이며 인벤토리 퀘스트 물품이나 실제 NPC 구출 모드로 구현하지 않는다.",
+      "cards": [
+        {
+          "key": "kny_aoi",
+          "name": "칸자키 아오이",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "kny_tanjiro",
+          "name": "카마도 탄지로",
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 6
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 14
+            }
+          ]
+        },
+        {
+          "key": "kny_kanao",
+          "name": "츠유리 카나오",
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 7
+            },
+            {
+              "stat": "action_speed",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "key": "kny_shinobu",
+          "name": "코쵸 시노부",
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.6
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "kny_zenitsu",
+          "name": "아가츠마 젠이츠",
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 18
+            },
+            {
+              "stat": "crit_damage",
+              "value": 20
+            }
+          ]
+        },
+        {
+          "key": "kny_inosuke",
+          "name": "하시비라 이노스케",
+          "effects": [
+            {
+              "stat": "normal_damage_percent",
+              "value": 15
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 12
+            },
+            {
+              "stat": "damage_reduction",
+              "value": -4
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "key": "kny_night_path",
+          "title": "울음 사이로 섞인 발소리",
+          "story": "약속된 시각이 지났음에도 보급꾼은 나타나지 않았고, 길목에는 주인 잃은 짐더미만 덩그러니 놓여 있다. 젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다. 탄지로는 성급한 행동을 만류하며 눈앞에 놓인 상황들을 먼저 짚어보자고 제안한다.",
+          "intro": "보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다",
+              "result": "소리를 따라 길을 잃은 보급꾼을 찾고 정찰 보수를 받았다. 젠이츠가 소리가 겹쳐도 움직일 순간에 힘을 모으는 준비를 보여 주지만, 맡은 사냥 구역에는 더 강한 적이 남는다.",
+              "card": "kny_zenitsu",
+              "card2": null,
+              "gold": 200,
+              "cost": 160,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 70
+            },
+            {
+              "label": "이노스케와 막힌 길을 직접 열어 본다",
+              "result": "이노스케가 보여 준 자세로 공격을 이어가며 길 일부를 열었다. 적이 드나드는 구역을 더 넓게 맡고 방어의 빈틈도 감수하지만, 보급꾼의 행방은 아직 확인하지 못했다.",
+              "card": "kny_inosuke",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "탄지로와 서두르지 않고 남은 짐을 운반한다",
+              "result": "탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다.",
+              "card": "kny_tanjiro",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "길목의 짐을 수습하고 일당을 받는다",
+              "result": "흩어진 짐을 모아 운반할 길을 좁히고 일당을 받았다. 한쪽 길의 적 부담은 줄였지만, 짐을 내려놓은 기록에는 여전히 보급꾼의 행방이 빈칸으로 남았다.",
+              "card": null,
+              "card2": null,
+              "gold": 160,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.",
+          "canonFact": "공식 인물 소개의 젠이츠 청각·이노스케 감각과 호전성·탄지로 성실한 수련을 쓴다. 밤길 정찰과 판정·비용은 맵 창작이다.",
+          "uncertain": []
+        },
+        {
+          "key": "kny_night_found",
+          "title": "찾은 흔적의 건너편",
+          "story": "앞선 수색에서 찾았던 보급꾼이 돌아온 길을 기록지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다.",
+          "intro": "정찰 뒤 반응 카드·부담 감소와 물약·보수 정리 중 고른다.",
+          "previous": "kny_night_path",
+          "previousChoice": 1,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "카나오와 반응 훈련을 위한 도구를 마련한다",
+              "result": "훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다.",
+              "card": "kny_kanao",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "길 한 곳을 정리하고 출발용 물약을 받는다",
+              "result": "맡은 길의 한쪽을 정리하고 다음 전투에서 사용할 보급 물약을 챙긴다. 적의 위험도는 여전히 존재하지만 새로운 훈련 대신 보급품을 확보한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            },
+            {
+              "label": "확인한 기록을 넘기고 일당을 받는다",
+              "result": "확인한 이동 흔적을 과장 없이 기록지에 남기고 정찰에 대한 일당을 받는다. 기록을 마친 후 현재의 사냥 구역으로 복귀한다.",
+              "card": null,
+              "card2": null,
+              "gold": 200,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "소리를 확인한 자기 성공 기록을 요구하는 맵 전용 후속이다. 실제 청각 스킬·새 적 종족을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "kny_night_wrong",
+          "title": "잘못 짚은 소리의 값",
+          "story": "수색에 실패하고 빈손으로 돌아온 기록지에는 같은 길을 맴돈 흔적만 남았다. 시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다.",
+          "intro": "실패 비용을 환불하지 않고 회복 준비·돌파·안전 보급으로 이어진다.",
+          "previous": "kny_night_path",
+          "previousChoice": -1,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "시노부와 다음 출발의 회복 준비를 갖춘다",
+              "result": "새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다.",
+              "card": "kny_shinobu",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "이노스케에게 더 강한 구역을 맡는 자세를 묻는다",
+              "result": "이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다.",
+              "card": "kny_inosuke",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "확인하지 못한 길을 하나 줄이고 물약을 챙긴다",
+              "result": "현재 맡은 길의 일부를 정리하고 남은 경로에 가져갈 물약을 챙긴다. 찾지 못한 흔적은 기록지에 빈칸으로 남겨두고 다음 전투를 준비한다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "실패 자체를 무료 성장으로 환급하지 않는다. 자기 실패 기록에서 추가 행동력으로 보완하는 창작이다.",
+          "uncertain": []
+        }
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issues",
+        "assessment"
+      ],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "reason"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assessment": {
+          "type": "string"
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 검토자다. 비용·보상·필드 변화와 결과가 맞는지, 이전 사건에서 이미 끝난 일을 후속에서 다시 하는지, 새 기술·동료·적 종류를 약속하는지 살핀다. 모든 카드 효과는 유지되며 새 카드가 기존 카드를 삭제하지 않는다. 이전 사건 기록은 개인의 성공/실패이고 후속에서 다른 사건을 사이에 겪을 수 있다. NPC는 이야기 인물이며 실제 사냥 동료를 생성하지 않는다. 근거 없이 지적 없음만 반환하지 말고 문제 있으면 issues에 key와 구체적인 이유를 적는다. 좋은 문장으로 다시 집필할 필요는 없다."
+      },
+      {
+        "role": "user",
+        "content": "{\"canonBoundary\":\"24·25화의 나비저택 치료와 기능 회복·호흡 수련, 공식 인물 소개의 카나오 신체 능력·시노부 약학·젠이츠 청각·이노스케 성향을 소재로 삼는다. 원작의 호흡·독·실신·귀화·신규 기술·NPC 동행을 구현하지 않는다. 밤길 의뢰·도구 비용·보급 일당·적 구역 변화는 맵 전용 창작이다. 현재 체력을 지불하지 않는다. 사건의 정찰 판정은 능력치 판정이나 실제 미니게임 입력이 아닌 표시한 확률이다. 보급꾼·짐·등불·밧줄은 이 맵 사건의 창작이며 인벤토리 퀘스트 물품이나 실제 NPC 구출 모드로 구현하지 않는다.\",\"cards\":[{\"key\":\"kny_aoi\",\"name\":\"칸자키 아오이\",\"effects\":[{\"stat\":\"action_speed\",\"value\":3}]},{\"key\":\"kny_tanjiro\",\"name\":\"카마도 탄지로\",\"effects\":[{\"stat\":\"swift\",\"value\":6},{\"stat\":\"healthy_damage\",\"value\":14}]},{\"key\":\"kny_kanao\",\"name\":\"츠유리 카나오\",\"effects\":[{\"stat\":\"crit_chance\",\"value\":7},{\"stat\":\"action_speed\",\"value\":6}]},{\"key\":\"kny_shinobu\",\"name\":\"코쵸 시노부\",\"effects\":[{\"stat\":\"regeneration\",\"value\":0.6},{\"stat\":\"damage_reduction\",\"value\":3}]},{\"key\":\"kny_zenitsu\",\"name\":\"아가츠마 젠이츠\",\"effects\":[{\"stat\":\"charge_damage\",\"value\":18},{\"stat\":\"crit_damage\",\"value\":20}]},{\"key\":\"kny_inosuke\",\"name\":\"하시비라 이노스케\",\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":15},{\"stat\":\"nondirectional_damage\",\"value\":12},{\"stat\":\"damage_reduction\",\"value\":-4}]}],\"events\":[{\"key\":\"kny_night_path\",\"title\":\"울음 사이로 섞인 발소리\",\"story\":\"약속된 시각이 지났음에도 보급꾼은 나타나지 않았고, 길목에는 주인 잃은 짐더미만 덩그러니 놓여 있다. 젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다. 탄지로는 성급한 행동을 만류하며 눈앞에 놓인 상황들을 먼저 짚어보자고 제안한다.\",\"intro\":\"보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다\",\"result\":\"소리를 따라 길을 잃은 보급꾼을 찾고 정찰 보수를 받았다. 젠이츠가 소리가 겹쳐도 움직일 순간에 힘을 모으는 준비를 보여 주지만, 맡은 사냥 구역에는 더 강한 적이 남는다.\",\"card\":\"kny_zenitsu\",\"card2\":null,\"gold\":200,\"cost\":160,\"level\":1,\"density\":0,\"potions\":0,\"chance\":70},{\"label\":\"이노스케와 막힌 길을 직접 열어 본다\",\"result\":\"이노스케가 보여 준 자세로 공격을 이어가며 길 일부를 열었다. 적이 드나드는 구역을 더 넓게 맡고 방어의 빈틈도 감수하지만, 보급꾼의 행방은 아직 확인하지 못했다.\",\"card\":\"kny_inosuke\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"탄지로와 서두르지 않고 남은 짐을 운반한다\",\"result\":\"탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다.\",\"card\":\"kny_tanjiro\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"길목의 짐을 수습하고 일당을 받는다\",\"result\":\"흩어진 짐을 모아 운반할 길을 좁히고 일당을 받았다. 한쪽 길의 적 부담은 줄였지만, 짐을 내려놓은 기록에는 여전히 보급꾼의 행방이 빈칸으로 남았다.\",\"card\":null,\"card2\":null,\"gold\":160,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100}],\"failure\":\"보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.\",\"canonFact\":\"공식 인물 소개의 젠이츠 청각·이노스케 감각과 호전성·탄지로 성실한 수련을 쓴다. 밤길 정찰과 판정·비용은 맵 창작이다.\",\"uncertain\":[]},{\"key\":\"kny_night_found\",\"title\":\"찾은 흔적의 건너편\",\"story\":\"앞선 수색에서 찾았던 보급꾼이 돌아온 길을 기록지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다.\",\"intro\":\"정찰 뒤 반응 카드·부담 감소와 물약·보수 정리 중 고른다.\",\"previous\":\"kny_night_path\",\"previousChoice\":1,\"requiredCard\":null,\"choices\":[{\"label\":\"카나오와 반응 훈련을 위한 도구를 마련한다\",\"result\":\"훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다.\",\"card\":\"kny_kanao\",\"card2\":null,\"gold\":0,\"cost\":240,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"길 한 곳을 정리하고 출발용 물약을 받는다\",\"result\":\"맡은 길의 한쪽을 정리하고 다음 전투에서 사용할 보급 물약을 챙긴다. 적의 위험도는 여전히 존재하지만 새로운 훈련 대신 보급품을 확보한다.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":2,\"chance\":100},{\"label\":\"확인한 기록을 넘기고 일당을 받는다\",\"result\":\"확인한 이동 흔적을 과장 없이 기록지에 남기고 정찰에 대한 일당을 받는다. 기록을 마친 후 현재의 사냥 구역으로 복귀한다.\",\"card\":null,\"card2\":null,\"gold\":200,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":null,\"canonFact\":\"소리를 확인한 자기 성공 기록을 요구하는 맵 전용 후속이다. 실제 청각 스킬·새 적 종족을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"kny_night_wrong\",\"title\":\"잘못 짚은 소리의 값\",\"story\":\"수색에 실패하고 빈손으로 돌아온 기록지에는 같은 길을 맴돈 흔적만 남았다. 시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다.\",\"intro\":\"실패 비용을 환불하지 않고 회복 준비·돌파·안전 보급으로 이어진다.\",\"previous\":\"kny_night_path\",\"previousChoice\":-1,\"requiredCard\":null,\"choices\":[{\"label\":\"시노부와 다음 출발의 회복 준비를 갖춘다\",\"result\":\"새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다.\",\"card\":\"kny_shinobu\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"이노스케에게 더 강한 구역을 맡는 자세를 묻는다\",\"result\":\"이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다.\",\"card\":\"kny_inosuke\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"확인하지 못한 길을 하나 줄이고 물약을 챙긴다\",\"result\":\"현재 맡은 길의 일부를 정리하고 남은 경로에 가져갈 물약을 챙긴다. 찾지 못한 흔적은 기록지에 빈칸으로 남겨두고 다음 전투를 준비한다.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"실패 자체를 무료 성장으로 환급하지 않는다. 자기 실패 기록에서 추가 행동력으로 보완하는 창작이다.\",\"uncertain\":[]}]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.15,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T12:15:36.9218681Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"issues\": [\n    {\n      \"key\": \"kny_night_path\",\n      \"reason\": \"선택지 '등불과 밧줄을 마련해...'의 결과에서 '정찰 보수를 받았다'고 명시되어 있으나, 해당 선택지의 gold 수치는 200이며 cost는 160이다. 이는 비용을 지불하고 보수를 받는 구조이나, 실패 문구에서는 '준비비를 쓴 수색은 허탕으로 끝났다'고 기술되어 있어 성공 시 보수 획득과 실패 시 비용 소모 및 보수 미획득의 대조가 명확하다. 다만, '정찰 보수'라는 표현이 시스템상 보상인지 단순 텍스트인지 모호할 수 있으나 비용/보상 구조상 문제는 없다.\"\n    },\n    {\n      \"key\": \"kny_night_found\",\n      \"reason\": \"이전 사건(kny_night_path)의 선택지 1(이노스케와 막힌 길을 직접 열어 본다)을 선택했을 때만 연결되는 후속 사건이다. 이전 사건에서 '보급꾼의 행방은 아직 확인하지 못했다'고 기술되었으나, 본 사건의 스토리에서는 '찾았던 보급꾼이 돌아온 길'이라고 기술되어 있어 이전 사건의 결과와 논리적 충돌이 발생한다. 이전 사건에서 보급꾼을 찾지 못했다면 '찾은 흔적'이 존재할 수 없다.\"\n    }\n  ],\n  \"assessment\": \"전반적으로 비용, 보상, 필드 변화 및 카드 효과 유지 원칙을 잘 준수하고 있습니다. 특히 canonBoundary를 통해 원작의 기술이나 NPC 동행을 배제하고 맵 전용 창작임을 명시한 점이 우수합니다. 다만, 특정 선택지의 결과와 후속 사건의 전제 조건이 일치하지 않는 논리적 오류가 발견되었습니다.\"\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 7580241200,
+    "load_duration": 3591100,
+    "prompt_eval_count": 2388,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1201947000,
+    "eval_count": 427,
+    "eval_duration": 6081209000
+  },
+  "parsed": {
+    "issues": [
+      {
+        "key": "kny_night_path",
+        "reason": "선택지 '등불과 밧줄을 마련해...'의 결과에서 '정찰 보수를 받았다'고 명시되어 있으나, 해당 선택지의 gold 수치는 200이며 cost는 160이다. 이는 비용을 지불하고 보수를 받는 구조이나, 실패 문구에서는 '준비비를 쓴 수색은 허탕으로 끝났다'고 기술되어 있어 성공 시 보수 획득과 실패 시 비용 소모 및 보수 미획득의 대조가 명확하다. 다만, '정찰 보수'라는 표현이 시스템상 보상인지 단순 텍스트인지 모호할 수 있으나 비용/보상 구조상 문제는 없다."
+      },
+      {
+        "key": "kny_night_found",
+        "reason": "이전 사건(kny_night_path)의 선택지 1(이노스케와 막힌 길을 직접 열어 본다)을 선택했을 때만 연결되는 후속 사건이다. 이전 사건에서 '보급꾼의 행방은 아직 확인하지 못했다'고 기술되었으나, 본 사건의 스토리에서는 '찾았던 보급꾼이 돌아온 길'이라고 기술되어 있어 이전 사건의 결과와 논리적 충돌이 발생한다. 이전 사건에서 보급꾼을 찾지 못했다면 '찾은 흔적'이 존재할 수 없다."
+      }
+    ],
+    "assessment": "전반적으로 비용, 보상, 필드 변화 및 카드 효과 유지 원칙을 잘 준수하고 있습니다. 특히 canonBoundary를 통해 원작의 기술이나 NPC 동행을 배제하고 맵 전용 창작임을 명시한 점이 우수합니다. 다만, 특정 선택지의 결과와 후속 사건의 전제 조건이 일치하지 않는 논리적 오류가 발견되었습니다."
+  },
+  "parseError": null
+}
