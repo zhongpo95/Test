@@ -1,0 +1,21 @@
+# 사건·카드 제작 CLI의 모니터링 연결과 원문 응답 보존을 모의 검사한다.
+name: Gemma content client checks
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tools/gemma-content.cjs', 'tools/gemma-content-check.cjs', 'tools/content-schema.json', '.github/workflows/gemma-content-client-checks.yml']
+  push:
+    branches: [main]
+    paths: ['tools/gemma-content.cjs', 'tools/gemma-content-check.cjs', 'tools/content-schema.json', '.github/workflows/gemma-content-client-checks.yml']
+permissions:
+  contents: read
+jobs:
+  gemma-content-client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check tools/gemma-content.cjs
+      - run: node --test tools/gemma-content-check.cjs
