@@ -1,0 +1,19 @@
+// 제가 그랑데 역검토의 단위·조건 오독을 구분하고 이야기만 따로 재검토한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path');const root=path.resolve(__dirname,'..');const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));const save=(p,x)=>fs.writeFileSync(path.join(root,p),JSON.stringify(x,null,2)+'\n',{flag:'wx'});const d=read('revisions/zegagrande-card-choices-curated-111.json');
+const e=d.events.find(e=>e.key==='gbf_rosetta_dates');e.failure='연락 비용160골드를 썼지만 남은 연락처에서 답이 오지 않아 예전 기록의 주인을 찾지 못했다. 날짜 차이는 아직 확인되지 않아 카드를 받지 못한다. 로제타는 답이 없는 부분을 새 기록의 날짜로 덮지 않았다.';
+d.events.find(e=>e.key==='gbf_deck_position').story+=' 칼리오스트로는 장비를 조정할 몫은 따로 맡을 수 있다고 한다.';
+d.events.find(e=>e.key==='gbf_sealed_report').story+=' 오이겐은 조사 장비와 조준할 통로를 한 목록에 넣지 말자고 한다.';
+const sample=d.events.find(e=>e.key==='gbf_alchemy_sample');sample.story='칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 이오는 시험할 장소를, 나루메아는 견본이 움직일 간격을 먼저 본다. 겉모습이 같다는 이유로 다른 견본을 한 결과에 묶으면 다음 준비가 꼬인다. 조정을 맡길지, 시험할 자리를 고를지, 작동을 하나씩 볼지 정한다.';
+save('revisions/zegagrande-card-choices-curated-112.json',d);save('revisions/zegagrande-review-response-112.json',{accepted:[{review:'reviews/zegagrande-card-choices-review-111-1.json',key:'gbf_rosetta_dates',decision:'실패 상황을 구체화하자는 제안은 수용했다.',change:'연락처에서 답이 오지 않은 상황을 명시한다. 성공70%와 비용160,실패시카드없음은 유지하며 추가조건이나새확률은 만들지 않는다.'}],rejected:[
+ {review:1,key:'gbf_rolan_next_request',claim:'guide사건의보유/후속이꼬인다.',reason:'guide는카드다. two_questions1이카드를지급하고새사건은previous=null/requiredCard=guide로개인보유만요구한다. allEventRoutes와일치한다.'},
+ {review:1,key:'gbf_yodarha_spacing',claim:'swift180의단위가불명확하다.',reason:'canonFact에이미고정신속180이며이동속도180%아니라고명시했다. ProtoStatNames/ProtoEffectText도고정신속으로표시한다.'},
+ {review:1,key:'gbf_rosetta_dates',claim:'실제160골드지불이결과에없다.',reason:'111의결과는준비에160골드를썼다고이미추가했다. 행동설명앞부분만읽고나머지를누락한지적이다.'},
+ {review:2,key:'gbf_yodarha_wait',claim:'swift180을400대비속도정규화한다.',reason:'wait의swift는90이며moving_damage는12다. spacing의swift180과서로다른스탯을섞었다. 신속은SkillSpeed의고정능력치,이동조건피해는GetUnitMoveSpeed로별도계산한다.'},
+ {review:2,key:'gbf_io_pause',claim:'healthy_damage5의발동조건이모순이다.',reason:'이카드는max_health_percent8/penetration5다. healthy_damage효과가없다. rosetta_margin의healthy10은65%이상에서만적용한다.'},
+ {review:2,key:'gbf_rolan_next_request',claim:'guide를가지면보유조건에의해접근불가이며재지급된다.',reason:'보유는자격을충족시킨다. 새선택은reply/margin/balance이며guide를재지급하지않는다. 사건선택후공유사용기록때문에다시등장하지않는것과조건보유는별개다.'},
+ {review:2,key:'gbf_rackam_signal',claim:'swift180이항로조작또는이동속도라설정과충돌한다.',reason:'신속은카드의고정성장수치이며항로/교신기능을구현하지않는다. SkillSpeed에연결하고이동속도스탯은별도다.'}
+ ],additionalCuration:'선택에등장하는칼리오스트로/오이겐/이오/나루메아의몫을장면에도명시했다. 수치와후속조건은유지한다.',limits:'모델판정은자문이며실제함수·개인조건·보상분기검사를별도로수행한다.'});
+const schema={type:'object',additionalProperties:false,required:['verdict','issues','strengths'],properties:{verdict:{type:'string',enum:['PASS','REVISE']},issues:{type:'array',items:{type:'object',additionalProperties:false,required:['key','problem','evidence','suggestion'],properties:{key:{type:'string'},problem:{type:'string'},evidence:{type:'string'},suggestion:{type:'string'}}}},strengths:{type:'array',items:{type:'string'}}}};
+save('requests/zegagrande-narrative-review-113.json',{review:true,schema,system:'한국어서사편집자. 원작확인역할과맵의창작장면을구분하고장면에서세행동을고르는이유와반응을검토한다. 수치/스탯공식은이요청범위밖이며추측하지않는다. 원작새능력·아이템·소생·세계해결을요구하지않는다. 구체적인문장모순이나장면누락만지적한다.',brief:{canon:d.canonBoundary,facts:read('requests/zegagrande-card-choices-review-111-1.json').brief.verifiedFacts,events:d.events.map(e=>({key:e.key,title:e.title,story:e.story,failure:e.failure,conditionMemory:e.requiredCard?d.cards.find(c=>c.key===e.requiredCard).effectName:null,choices:e.choices.map((c,i)=>({index:i+1,label:c.label,result:c.result,memory:d.cards.find(k=>k.key===c.card).name+' · '+d.cards.find(k=>k.key===c.card).effectName}))})),rules:['이여행자의방문은원작여러시점역할을활용한별도만남이다. 모든NPC가하루에한장소에모인선형진행으로읽지않는다.','카드는기억의성장보상이며사건/캐릭터의원작능력과동일하지않다.','원작실제사이드퀘스트라고주장하지않는다. 새장면에서선택이유와인물반응이연결되는지본다.','실패이유는로제타의이전기록주인연락에서답이없었다. 실패에도다른원작결말을확정하지않는다.']}});
+console.log('서사 보완과 단위·경로 반려 기록 완료.');
