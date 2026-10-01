@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "file": "drafts/axel-card-choices-text-83-1.json",
+      "recordId": "9540cdd1-cf6b-494c-9190-b2b2b726263c",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/axel-card-choices-text-83-2.json",
+      "recordId": "343bfbfa-8d02-4cf8-ae7c-0dab68af4b4d",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/axel-card-choices-text-83-3.json",
+      "recordId": "cc0f3b2a-11d6-404c-81b4-39e5f1d7983e",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/axel-card-choices-text-83-4.json",
+      "recordId": "c402af68-63f7-4784-b120-930d85ba4fed",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/axel-card-choices-review-84-1.json",
+      "recordId": "eace815c-23e3-43a5-8e18-4ccc7652a0e9",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/axel-card-choices-review-84-2.json",
+      "recordId": "8ac05dd5-aedb-4328-873d-3c3ccc9dd540",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/axel-card-choices-review-84-3.json",
+      "recordId": "56d82c31-c2df-4286-8cf6-cf3c0496aab2",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "입력·원문·ID·저장 성공을 대조했다. 콘텐츠 정확성·재미·밸런스 검증과 구분한다."
+}

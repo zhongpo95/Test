@@ -234,7 +234,8 @@ check('준비 완료 버튼은 AP 0에서만 활성화, 남은 시간 골드 한
   assert(!e.ProtoPaused[0]);assert(!e.ProtoReady[0]);assert.equal(e.HuntUnits.filter(Boolean).length,0);
   const end=party().e;end.ProtoGrantHead(0,2);end.ProtoOffer(0);end.ProtoCandidates[end.ExpKey(0,1)]=scene(end,'axel_shop_ledger');request(end,0,2101);
   end.ExpSeconds=1;for(let i=0;i<4;i++)end.ProtoTick();assert.equal(end.ExpState,end.EXP_BATTLE);
-  assert.equal(end.ProtoStage[0],0);assert.equal(end.ExpGold[0],180);assert.equal(end.ProtoAP[0],9);
+  assert.equal(end.ProtoStage[0],0);assert.equal(end.ExpGold[0],0);assert.equal(end.ProtoAP[0],9);
+  assert(end.ExpCardOwned[end.ExpKey(0,card(end,'axel_vanir'))]);assert.equal(end.ProtoLevel[0],2);
 });
 check('원정 종료·새 출발 때 카드/필드/AP 초기화, 머리 도감만 유지 및 이탈 정리',()=>{
   const {e}=party();choose(e,0,1,1);e.ProtoGrantCard(0,15);e.ProtoLevel[0]=4;e.ProtoDensity[0]=8;e.ExpGold[0]=888;
@@ -259,11 +260,13 @@ check('다른 로컬 플레이어의 클라이언트에서 같은 요청은 같�
   const snapshot=e=>({state:e.ExpState,seconds:e.ExpSeconds,ap:e.ProtoAP.slice(0,4),gold:e.ExpGold.slice(0,4),heads:e.ProtoHeadOwned.slice(),known:e.ProtoHeadKnown.slice(),used:e.ProtoEventUsed.slice(),cards:e.ExpCardOwned.slice(),kills:e.ProtoKills.slice(0,4),damage:e.ProtoDamageBonus.slice(0,4),hp:e.HuntUnits.filter(Boolean).map(u=>e.UnitHP[u.id])});
   assert.deepEqual(snapshot(clients[0].e),snapshot(clients[1].e));
 });
-check('사건 만료는 후보 AP 미소비 또는 무료 분기, 대기실 이탈은 남은 인원으로 새 흐름 출발',()=>{
+check('사건 만료는 후보 AP 미소비 또는 유효 분기, 대기실 이탈은 남은 인원으로 새 흐름 출발',()=>{
   const {e}=party();e.ProtoOffer(0);e.ProtoDeadline[0]=1;for(let i=0;i<4;i++)e.ProtoTick();
   assert.equal(e.ProtoStage[0],0);assert.equal(e.ProtoAP[0],10);
-  e.ProtoGrantHead(0,2);e.ProtoOffer(0);e.ProtoCandidates[1]=scene(e,'axel_priest_supply');request(e,0,2101);e.ProtoDeadline[0]=1;
-  for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],3);assert.equal(e.ExpGold[0],160);assert.equal(e.ProtoAP[0],9);
+  e.ProtoGrantHead(0,2);e.ExpGold[0]=80;e.ProtoOffer(0);e.ProtoCandidates[1]=scene(e,'axel_priest_supply');request(e,0,2101);e.ProtoDeadline[0]=1;
+  const potions=e.GetItemCharges(e.PlayerItem1[0]);
+  for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],3);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],9);
+  assert(e.ExpCardOwned[e.ExpKey(0,card(e,'axel_aqua_supply'))]);assert.equal(e.GetItemCharges(e.PlayerItem1[0]),potions+2);
   const lobby=fresh(0,true).e;lobby.online=[true,true,false,false];request(lobby,0,2001);assert.equal(lobby.ExpState,lobby.EXP_LOBBY);
   lobby.eventPlayer=1;lobby.Leave();assert.equal(lobby.ExpState,lobby.EXP_HUNT);assert.equal(lobby.ExpPlayers,1);
 });
