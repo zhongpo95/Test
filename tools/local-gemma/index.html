@@ -19,6 +19,15 @@
   #imageList { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
   #imageList figure { margin: 0; max-width: 200px; } #imageList img { max-width: 200px; max-height: 140px; object-fit: contain; }
   #imageList figcaption { font-size: 12px; overflow-wrap: anywhere; color: #abb8cb; }
+  #monitorPanel { border: 1px solid #3d4b61; border-radius: 12px; padding: 16px; margin: 22px 0; background: #141c28; }
+  summary { cursor: pointer; font-weight: bold; } #monitorState, #storageState { overflow-wrap: anywhere; }
+  #monitorRecords { max-height: 290px; overflow: auto; }
+  .record { display: grid; grid-template-columns: 145px 130px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid #303d50; font-size: 13px; }
+  .record span { overflow-wrap: anywhere; } .record small { display: block; margin-top: 5px; }
+  dialog { box-sizing: border-box; width: min(900px, 95vw); max-height: 90vh; color: inherit; background: #141c28; border: 1px solid #64748b; border-radius: 12px; padding: 24px; }
+  dialog::backdrop { background: #000a; } dialog pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.7; }
+  #recordImages { display: flex; gap: 16px; flex-wrap: wrap; } #recordImages figure { margin: 0; max-width: 100%; } #recordImages img { max-width: 100%; max-height: 300px; } #recordImages figcaption { font-size: 13px; }
+  @media (max-width: 760px) { .record { grid-template-columns: 1fr auto; } .record .recordPreview { grid-column: 1; } }
   @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } body { margin-top: 20px; } }
 </style>
 <h1>Arcana · 로컬 Gemma</h1>
@@ -66,7 +75,18 @@
   </section>
 </div>
 <div id="message" role="status" aria-live="polite"></div>
-<p><small>Gemma 검토는 오류를 놓칠 수 있습니다. 원작 설정·밸런스·게임 동작은 별도 확인이 필요합니다. 입력·결과·대화는 새로고침하거나 화면을 닫으면 사라지므로 필요한 내용은 저장해 주세요.</small></p>
+<details id="monitorPanel" open>
+  <summary>모니터링 · 처리 기록</summary>
+  <p id="monitorState">처리 상태를 확인하고 있습니다.</p>
+  <small id="storageState"></small>
+  <div class="row"><button id="refreshMonitor">지금 새로고침</button><span id="monitorUpdated"></span></div>
+  <div id="monitorRecords">저장된 기록을 확인하고 있습니다.</div>
+</details>
+<dialog id="recordDialog" aria-labelledby="recordTitle">
+  <div class="row"><strong id="recordTitle">처리 기록</strong><button id="downloadRecord" disabled>기록 JSON 저장</button><button id="closeRecord">닫기</button></div>
+  <p id="recordInfo"></p><pre id="recordInput"></pre><div id="recordImages"></div><pre id="recordOutput"></pre>
+</dialog>
+<p><small>Gemma 검토는 오류를 놓칠 수 있습니다. 원작 설정·밸런스·게임 동작은 별도 확인이 필요합니다. 전송한 자료·답변은 처리 기록에 자동 저장됩니다. 아직 보내지 않은 입력은 새로고침하면 사라집니다.</small></p>
 <script>
   const token = '__SESSION_TOKEN__';
   const $ = id => document.getElementById(id);
@@ -78,6 +98,13 @@
   let reviewCheck;
   let pendingImages = [];
   let imageLoading = false;
+  let remoteBusy = false;
+  let modelState;
+  let monitorRefreshing = false;
+  let selectedRecord;
+  let recordLoad = 0;
+  const stateNames = {running: '처리 중', success: '성공', error: '실패', cancelled: '중단', timeout: '시간 초과', interrupted: '서버 종료'};
+  const modeNames = {translate: '번역', story: '사건 제작', review: '초안 검토', unload: 'GPU 해제'};
   const firstQuestion = $('question').value;
   async function api(url, body, signal) {
     const reply = await fetch(url, {method: body ? 'POST' : 'GET', headers: {'Content-Type': 'application/json', 'X-Session-Token': token}, body: body ? JSON.stringify(body) : undefined, signal});
@@ -86,17 +113,77 @@
     return data;
   }
   async function status() {
-    try { const data = await api('/api/status'); ready = data.ready; $('status').textContent = ready ? 'Gemma 4 12B QAT · 로컬 실행 준비 완료' : '모델 설치가 필요합니다. 설치.cmd를 실행해 주세요.'; }
-    catch (error) { ready = false; $('status').textContent = error.message; }
+    try { const data = await api('/api/status'); modelState = data; ready = data.ready; remoteBusy = data.busy; $('status').textContent = !data.connected ? '모델 서버 연결 실패. 시작.cmd를 확인해 주세요.' : ready ? `Gemma 4 12B QAT · ${remoteBusy ? '요청 처리 중' : '로컬 실행 준비 완료'}` : '모델 설치가 필요합니다. 설치.cmd를 실행해 주세요.'; }
+    catch (error) { ready = false; modelState = undefined; $('status').textContent = error.message; }
     controls();
   }
+  function jobName(item) {
+    return item.mode === 'review' ? `${item.kind === 'image' ? '이미지' : item.kind === 'story' ? '사건' : '번역문'} 검토 · ${item.round}차` : modeNames[item.mode] || item.mode;
+  }
+  function elapsed(milliseconds) { return `${((milliseconds || 0) / 1000).toFixed(1)}초`; }
+  async function refreshMonitor() {
+    if (monitorRefreshing) return;
+    monitorRefreshing = true; $('refreshMonitor').disabled = true;
+    try {
+      const [, data] = await Promise.all([status(), api('/api/monitor')]);
+      const loaded = modelState?.loaded === null || !modelState ? '모델 적재 상태 확인 불가' : modelState.loaded ? `모델 적재됨${modelState.modelVramBytes === undefined ? '' : ' · 모델 GPU 메모리 ' + (modelState.modelVramBytes / 1024 ** 3).toFixed(2) + 'GiB'}${modelState.contextLength ? ' · 컨텍스트 ' + modelState.contextLength.toLocaleString() : ''}` : data.active && data.active.mode !== 'unload' ? '모델 적재·준비 중' : '모델 미적재 · 요청 시 불러옵니다.';
+      $('monitorState').textContent = `${data.active ? `${jobName(data.active)} 처리 중 · 경과 ${elapsed(data.active.elapsedMs)} · 이미지 ${data.active.imageCount}장` : '대기 중 · 진행 중인 요청 없음'}\n${loaded}`;
+      $('storageState').textContent = data.storage.error || (data.storage.enabled ? `자동 기록 ${data.records.length}건 · 최대 ${data.storage.maxRecords}건 / ${data.storage.maxBytes / 1024 ** 2}MiB. 오래된 기록부터 정리합니다.\n저장 폴더. ${data.storage.directory}` : '자동 기록 저장이 꺼져 있습니다.');
+      $('monitorRecords').replaceChildren();
+      if (!data.records.length) $('monitorRecords').textContent = '모니터링 추가 후 전송한 요청부터 기록됩니다. 이전 대화는 저장한 JSON에서 확인해 주세요.';
+      for (const item of data.records) {
+        const row = document.createElement('div'); row.className = 'record';
+        const time = document.createElement('span'); time.textContent = new Date(item.startedAt).toLocaleString('ko-KR');
+        const job = document.createElement('span'); job.textContent = jobName(item);
+        const state = document.createElement('small'); state.textContent = `${stateNames[item.status] || item.status} · ${elapsed(item.status === 'running' && data.active?.id === item.id ? data.active.elapsedMs : item.elapsedMs)}${item.tokensPerSecond === undefined ? '' : ' · ' + item.tokensPerSecond.toFixed(1) + '토큰/초'}`; job.append(state);
+        const preview = document.createElement('span'); preview.className = 'recordPreview'; preview.textContent = item.preview;
+        const note = document.createElement('small'); note.textContent = item.error || `이미지 ${item.imageCount}장`; preview.append(note);
+        const button = document.createElement('button'); button.textContent = '기록 보기'; button.onclick = () => showRecord(item.id);
+        row.append(time, job, preview, button); $('monitorRecords').append(row);
+      }
+      $('monitorUpdated').textContent = `마지막 확인 ${new Date().toLocaleTimeString('ko-KR')} · 3초마다 갱신`;
+    } catch (error) { $('monitorState').textContent = `모니터링 연결 실패. ${error.message}`; }
+    finally { monitorRefreshing = false; $('refreshMonitor').disabled = false; }
+  }
+  async function showRecord(id) {
+    const currentLoad = ++recordLoad;
+    selectedRecord = undefined; $('downloadRecord').disabled = true;
+    $('recordInput').textContent = ''; $('recordOutput').textContent = ''; $('recordImages').replaceChildren();
+    $('recordInfo').textContent = '기록을 불러오고 있습니다.';
+    if (!$('recordDialog').open) $('recordDialog').showModal();
+    try {
+      const record = await api('/api/records/' + id);
+      if (currentLoad !== recordLoad || !$('recordDialog').open) return;
+      selectedRecord = record; $('downloadRecord').disabled = false;
+      const input = record.input;
+      $('recordTitle').textContent = jobName({mode: input.mode, kind: input.kind, round: (input.history?.length || 0) / 2 + 1}) + ' 기록';
+      $('recordInfo').textContent = `${new Date(record.startedAt).toLocaleString('ko-KR')} · ${stateNames[record.status]} · ${elapsed(record.elapsedMs)}${record.result?.seconds === undefined ? '' : ' · 모델 응답 ' + record.result.seconds.toFixed(1) + '초'}`;
+      if (input.language && (input.mode === 'translate' || input.kind === 'translate')) $('recordInfo').textContent += ` · 목표 언어 ${input.language}`;
+      if (input.world && (input.mode === 'story' || input.kind === 'story')) $('recordInfo').textContent += ` · 세계관 ${input.world}`;
+      $('recordInput').textContent = input.mode === 'review' ? `원문 · 원래 요청\n${input.brief}\n\n처음 초안\n${input.draft || '(이미지 첨부)'}\n\n용어집 · 참고 설정\n${input.glossary || '(없음)'}\n\n이전 대화\n${(input.history || []).map(turn => `${turn.role === 'user' ? '나' : 'Gemma'}.\n${turn.content}`).join('\n\n') || '(없음)'}\n\n이번 질문\n${input.text}` : `요청\n${input.text || 'GPU 메모리 해제'}\n\n용어집\n${input.glossary || '(없음)'}`;
+      for (const item of [...(input.history || []).flatMap(turn => turn.images || []), ...(input.images || [])]) {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img'); if (/^data:image\/(png|jpeg);base64,/.test(item.data)) img.src = item.data; img.alt = item.name;
+        const caption = document.createElement('figcaption'); caption.textContent = item.name; figure.append(img, caption); $('recordImages').append(figure);
+      }
+      $('recordOutput').textContent = record.error ? `처리 오류\n${record.error}` : record.result ? `Gemma 답변\n${record.result.text}${record.result.reviewCheck ? '\n\n처음 초안의 서식·수치 검사\n' + JSON.stringify(record.result.reviewCheck, null, 2) : ''}` : '아직 처리 중입니다. 완료 후 기록을 다시 열어 주세요.';
+    } catch (error) { if (currentLoad === recordLoad) $('recordInfo').textContent = error.message; }
+  }
+  $('refreshMonitor').onclick = refreshMonitor;
+  $('closeRecord').onclick = () => $('recordDialog').close();
+  $('recordDialog').onclose = () => { recordLoad++; selectedRecord = undefined; };
+  $('downloadRecord').onclick = () => {
+    if (!selectedRecord) return;
+    const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([JSON.stringify(selectedRecord, null, 2)], {type: 'application/json;charset=utf-8'})); link.download = `gemma-record-${selectedRecord.id}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  };
   function controls() {
     const active = !!controller;
     const working = active || imageLoading;
     const locked = $('mode').value === 'review' && !!reviewSeed;
-    $('run').disabled = !ready || working;
+    $('run').disabled = !ready || working || remoteBusy;
     $('cancel').disabled = !active;
     $('unload').disabled = $('mode').disabled = $('input').disabled = $('question').disabled = $('newReview').disabled = $('images').disabled = working;
+    $('unload').disabled = working || remoteBusy;
     for (const id of ['language', 'world', 'reviewKind', 'brief', 'draft', 'glossary']) $(id).disabled = working || locked;
     for (const button of $('imageList').querySelectorAll('button')) button.disabled = working;
     $('reviewResult').disabled = working || !generated;
@@ -195,7 +282,7 @@
         $('message').textContent = `완료. ${data.seconds.toFixed(1)}초 · ${data.tokensPerSecond.toFixed(1)}토큰/초`;
       }
     } catch (error) { $('message').textContent = error.name === 'AbortError' ? '요청을 중단했습니다.' : error.message; }
-    finally { controller = null; await status(); }
+    finally { controller = null; controls(); await refreshMonitor(); }
   }
   $('run').onclick = () => run(); $('unload').onclick = () => run(true); $('cancel').onclick = () => controller?.abort();
   $('copy').onclick = async () => { try { await navigator.clipboard.writeText($('output').value); $('message').textContent = '결과를 복사했습니다.'; } catch { $('output').select(); $('message').textContent = '결과가 선택됐습니다. Ctrl+C로 복사해 주세요.'; } };
@@ -204,6 +291,7 @@
     const blob = new Blob([review ? JSON.stringify({...reviewSeed, text: $('question').value || firstQuestion, history: reviewHistory}, null, 2) : $('output').value], {type: review ? 'application/json;charset=utf-8' : 'text/plain;charset=utf-8'});
     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `gemma-${review ? 'review' : generated.mode}-${Date.now()}.${review ? 'json' : 'txt'}`; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   };
-  status();
+  async function poll() { await refreshMonitor(); setTimeout(poll, document.hidden ? 10000 : 3000); }
+  poll();
 </script>
 </html>

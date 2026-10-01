@@ -3,6 +3,7 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 const {randomBytes} = require('node:crypto');
+const {createMonitor} = require('./monitor.cjs');
 
 const MODEL = 'gemma4:12b-it-qat';
 const OLLAMA = 'http://127.0.0.1:11435';
@@ -157,10 +158,11 @@ function buildReview(input) {
   return {payload: {model: MODEL, messages, stream: false, think: false, keep_alive: '2m', options: {num_ctx: 16384, num_predict: 2048, temperature: 0.1, top_p: 0.95, top_k: 64}}, reviewCheck};
 }
 
-function createServer({fetchImpl = fetch} = {}) {
+function createServer({fetchImpl = fetch, logDirectory = process.env.LOCALAPPDATA ? path.join(process.env.LOCALAPPDATA, 'ArcanaGemma', 'records') : null, requestTimeoutMs = 300000} = {}) {
   const token = randomBytes(24).toString('hex');
   const page = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8').replace('__SESSION_TOKEN__', token);
   let busy = false;
+  const monitor = createMonitor(logDirectory);
   return http.createServer(async (req, res) => {
     const send = (status, data) => {
       if (res.destroyed) return;
@@ -177,10 +179,23 @@ function createServer({fetchImpl = fetch} = {}) {
     if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}`) return send(403, {error: '다른 사이트에서 호출할 수 없습니다.'});
     try {
       if (req.method === 'GET' && req.url === '/api/status') {
-        const reply = await fetchImpl(`${OLLAMA}/api/tags`, {signal: AbortSignal.timeout(5000)});
-        if (!reply.ok) throw new Error('모델 서버 상태 확인 실패.');
-        const data = await reply.json();
-        return send(200, {model: MODEL, ready: data.models.some(item => item.name === MODEL), busy});
+        const results = await Promise.allSettled(['/api/tags', '/api/ps'].map(async route => {
+          const reply = await fetchImpl(OLLAMA + route, {signal: AbortSignal.timeout(5000)});
+          if (!reply.ok) throw new Error('모델 서버 상태 확인 실패.');
+          const data = await reply.json();
+          if (!Array.isArray(data.models)) throw new Error('모델 서버 상태 형식 오류.');
+          return data.models;
+        }));
+        const installed = results[0].status === 'fulfilled' ? results[0].value : null;
+        const running = results[1].status === 'fulfilled' ? results[1].value.find(item => item.name === MODEL || item.model === MODEL) : undefined;
+        return send(200, {model: MODEL, connected: !!installed, ready: !!installed?.some(item => item.name === MODEL), busy,
+          loaded: results[1].status === 'fulfilled' ? !!running : null, modelVramBytes: running?.size_vram, contextLength: running?.context_length});
+      }
+      if (req.method === 'GET' && req.url === '/api/monitor') return send(200, monitor.list());
+      const detail = req.method === 'GET' && req.url.match(/^\/api\/records\/([a-f0-9-]{36})$/);
+      if (detail) {
+        const record = monitor.read(detail[1]);
+        return record ? send(200, record) : send(404, {error: '저장된 기록을 찾을 수 없습니다.'});
       }
       if (req.method !== 'POST' || !['/api/run', '/api/unload'].includes(req.url)) return send(404, {error: '지원하지 않는 요청입니다.'});
       if (busy) return send(409, {error: '진행 중인 요청이 있습니다. 완료 후 다시 시도해 주세요.'});
@@ -194,27 +209,41 @@ function createServer({fetchImpl = fetch} = {}) {
       }
       const raw = Buffer.concat(chunks).toString('utf8');
       let request;
-      try { request = req.url === '/api/run' ? buildRequest(JSON.parse(raw)) : null; }
+      let input;
+      try { input = req.url === '/api/run' ? JSON.parse(raw) : {mode: 'unload'}; request = req.url === '/api/run' ? buildRequest(input) : null; }
       catch (error) { return send(400, {error: error.message}); }
       // 본문을 읽는 동안 다른 요청이 먼저 시작될 수도 있다.
       if (busy) return send(409, {error: '진행 중인 요청이 있습니다.'});
       busy = true;
+      const record = monitor.begin(input);
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 300000);
+      let timedOut = false;
+      const timer = setTimeout(() => { timedOut = true; controller.abort(); }, requestTimeoutMs);
       const cancel = () => { if (!res.writableEnded) controller.abort(); };
       res.on('close', cancel);
       try {
         const reply = await fetchImpl(`${OLLAMA}/api/chat`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(request ? request.payload : {model: MODEL, messages: [], keep_alive: 0, stream: false}), signal: controller.signal});
         if (!reply.ok) throw new Error(`모델 서버 오류 (${reply.status}). 실행 로그를 확인해 주세요.`);
         const data = await reply.json();
+        if (controller.signal.aborted) throw new DOMException('aborted', 'AbortError');
         if (data.error) throw new Error(data.error);
-        if (!request) return send(200, {text: 'GPU 메모리를 해제했습니다.'});
+        if (!request) {
+          const result = {text: 'GPU 메모리를 해제했습니다.'};
+          monitor.finish(record, 'success', result);
+          return send(200, result);
+        }
         if (data.done_reason === 'length') throw new Error('출력 길이 한도로 답변이 잘렸습니다. 요청을 짧게 나눠 주세요.');
         let output = data.message?.content?.trim();
         if (!output) throw new Error('모델이 빈 답변을 반환했습니다.');
         if (request.protectedText) output = validateTranslation(output, request.protectedText.values);
         const seconds = (data.eval_duration || 0) / 1e9;
-        return send(200, {text: output, seconds: (data.total_duration || 0) / 1e9, tokensPerSecond: seconds ? (data.eval_count || 0) / seconds : 0, reviewCheck: request.reviewCheck});
+        const result = {text: output, seconds: (data.total_duration || 0) / 1e9, tokensPerSecond: seconds ? (data.eval_count || 0) / seconds : 0, reviewCheck: request.reviewCheck};
+        monitor.finish(record, 'success', result);
+        return send(200, result);
+      } catch (error) {
+        const message = controller.signal.aborted ? timedOut ? '5분 요청 제한을 넘었습니다.' : '요청을 중단했습니다.' : error.message === 'fetch failed' ? '모델 서버에 연결할 수 없습니다. 시작.cmd로 실행해 주세요.' : error.message;
+        monitor.finish(record, controller.signal.aborted ? timedOut ? 'timeout' : 'cancelled' : 'error', undefined, message);
+        send(502, {error: message});
       } finally {
         clearTimeout(timer);
         res.off('close', cancel);

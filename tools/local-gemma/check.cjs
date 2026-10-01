@@ -3,12 +3,13 @@ const assert = require('node:assert/strict');
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
+const os = require('node:os');
 const {test} = require('node:test');
 const {createServer, MODEL, protectedValues, validateTranslation} = require('./server.cjs');
 
-async function fixture(t, responder) {
+async function fixture(t, responder, options = {}) {
   const calls = [];
-  const server = createServer({fetchImpl: async (url, options) => {
+  const server = createServer({logDirectory: null, ...options, fetchImpl: async (url, options) => {
     calls.push({url, options, body: options.body ? JSON.parse(options.body) : null});
     return responder(url, options, calls);
   }});
@@ -18,7 +19,14 @@ async function fixture(t, responder) {
   const html = await (await fetch(base)).text();
   const token = html.match(/const token = '([a-f0-9]+)'/)[1];
   const post = (body, headers = {}, route = '/api/run') => fetch(base + route, {method: 'POST', headers: {'Content-Type': 'application/json', 'X-Session-Token': token, ...headers}, body: JSON.stringify(body)});
-  return {base, token, post, calls};
+  const get = route => fetch(base + route, {headers: {'X-Session-Token': token}});
+  return {base, token, post, get, calls};
+}
+function recordsDirectory(t) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'arcana-gemma-monitor-'));
+  assert(path.resolve(directory).startsWith(path.resolve(os.tmpdir()) + path.sep));
+  t.after(() => fs.rmSync(directory, {recursive: true, force: true}));
+  return directory;
 }
 const response = data => new Response(JSON.stringify(data), {headers: {'Content-Type': 'application/json'}});
 const translation = {mode: 'translate', language: 'ko', text: '获得100金币。|n恢复药水+1次。', glossary: '金币=골드'};
@@ -207,4 +215,110 @@ test('화면 요청 취소가 모델 요청까지 전달되고 다음 요청을 
   await assert.rejects(first, {name: 'AbortError'});
   await cancelled;
   assert.equal((await f.post({}, {}, '/api/unload')).status, 200);
+});
+
+test('모니터링은 진행 중 요청과 저장된 자료·이미지·결과를 구분하고 재시작 후 유지', async t => {
+  const logDirectory = recordsDirectory(t);
+  let finish;
+  let entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  const f = await fixture(t, () => { entered(); return new Promise(resolve => { finish = resolve; }); }, {logDirectory});
+  const history = [{role: 'user', content: '첫 이미지', images: [image]}, {role: 'assistant', content: '첫 답변'}];
+  const input = {...review, kind: 'image', brief: '수정 시안 검토', draft: '', images: [{...image, name: '수정본.png'}], history, model: 'cloud', tools: ['shell']};
+  const pending = f.post(input);
+  await started;
+  const running = await (await f.get('/api/monitor')).json();
+  assert.equal(running.active.status, 'running');
+  assert.equal(running.active.round, 2);
+  assert.equal(running.active.imageCount, 2);
+  assert.equal(running.records[0].id, running.active.id);
+  assert.equal(running.records[0].input, undefined);
+  assert(!JSON.stringify(running).includes(image.data));
+  finish(response({message: {content: '수정 시안은 사용 가능'}, eval_duration: 1e9, total_duration: 2e9, eval_count: 70}));
+  assert.equal((await pending).status, 200);
+  const complete = await (await f.get('/api/monitor')).json();
+  assert.equal(complete.active, null);
+  assert.equal(complete.records[0].status, 'success');
+  assert.equal(complete.records[0].tokensPerSecond, 70);
+  const detail = await (await f.get('/api/records/' + running.active.id)).json();
+  assert.equal(detail.input.images[0].data, image.data);
+  assert.deepEqual(detail.input.history, history);
+  assert.equal(detail.input.tools, undefined);
+  assert.equal(detail.result.text, '수정 시안은 사용 가능');
+  assert.equal((await fetch(f.base + '/api/monitor')).status, 403);
+  assert.equal((await fetch(f.base + '/api/records/' + detail.id)).status, 403);
+  assert.equal((await f.get('/api/records/../../server.cjs')).status, 404);
+  const reopened = await fixture(t, () => response({}), {logDirectory});
+  assert.deepEqual((await (await reopened.get('/api/records/' + detail.id)).json()).input, detail.input);
+  assert.equal((await (await reopened.get('/api/monitor')).json()).records[0].status, 'success');
+});
+
+test('모델 중단·시간 초과·서식 오류도 기록하고 설치 상태와 모델 적재 메모리를 구분', async t => {
+  const logDirectory = recordsDirectory(t);
+  const f = await fixture(t, url => url.endsWith('/api/tags') ? response({models: [{name: MODEL}]}) : url.endsWith('/api/ps') ? response({models: [{name: MODEL, size_vram: 123456, context_length: 16384}]}) : response({message: {content: '서식 없는 답변'}}), {logDirectory});
+  assert.equal((await f.post(translation)).status, 502);
+  const failed = (await (await f.get('/api/monitor')).json()).records[0];
+  assert.equal(failed.status, 'error'); assert.match(failed.error, /누락/);
+  const status = await (await f.get('/api/status')).json();
+  assert.equal(status.ready, true); assert.equal(status.loaded, true); assert.equal(status.modelVramBytes, 123456); assert.equal(status.contextLength, 16384);
+  const timeout = await fixture(t, (url, options) => new Promise((resolve, reject) => options.signal.addEventListener('abort', () => reject(new DOMException('timeout', 'AbortError')), {once: true})), {logDirectory, requestTimeoutMs: 25});
+  assert.equal((await timeout.post({...review, kind: 'image', images: [image]})).status, 502);
+  assert.equal((await (await timeout.get('/api/monitor')).json()).records[0].status, 'timeout');
+  let entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  const cancelled = await fixture(t, (url, options) => { entered(); return new Promise((resolve, reject) => options.signal.addEventListener('abort', () => reject(new DOMException('cancel', 'AbortError')), {once: true})); }, {logDirectory});
+  const controller = new AbortController();
+  const pending = fetch(cancelled.base + '/api/run', {method: 'POST', headers: {'Content-Type': 'application/json', 'X-Session-Token': cancelled.token}, body: JSON.stringify(review), signal: controller.signal});
+  await started; controller.abort(); await assert.rejects(pending, {name: 'AbortError'});
+  for (let attempt = 0; attempt < 20; attempt++) {
+    const monitor = await (await cancelled.get('/api/monitor')).json();
+    if (!monitor.active) { assert.equal(monitor.records[0].status, 'cancelled'); break; }
+    if (attempt === 19) assert.fail('취소 상태 기록 실패');
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+});
+
+test('모델 서버가 끊겨도 기록 조회 가능하며 기록 쓰기 실패는 결과를 잃지 않고 알림', async t => {
+  const logDirectory = recordsDirectory(t);
+  const f = await fixture(t, () => { throw new Error('fetch failed'); }, {logDirectory});
+  assert.equal((await f.post(review)).status, 502);
+  const status = await (await f.get('/api/status')).json();
+  assert.equal(status.connected, false); assert.equal(status.ready, false); assert.equal(status.loaded, null);
+  assert.equal((await (await f.get('/api/monitor')).json()).records[0].status, 'error');
+  const blocked = path.join(logDirectory, 'file'); fs.writeFileSync(blocked, '폴더 대신 파일');
+  const failure = await fixture(t, () => response({message: {content: '결과는 반환'}}), {logDirectory: blocked});
+  assert.equal((await failure.post(review)).status, 200);
+  const monitor = await (await failure.get('/api/monitor')).json();
+  assert.match(monitor.storage.error, /실패/); assert.equal(monitor.records.length, 0); assert.equal(monitor.active, null);
+});
+
+test('번역·사건 요청의 무관한 이미지·이력 필드는 기록과 다음 요청을 방해하지 않음', async t => {
+  const f = await fixture(t, () => response({message: {content: '초안'}}), {logDirectory: recordsDirectory(t)});
+  assert.equal((await f.post({mode: 'story', world: 'original', text: '사건', history: '무관한 필드', images: {url: 'https://example.com'}})).status, 200);
+  const item = (await (await f.get('/api/monitor')).json()).records[0];
+  const detail = await (await f.get('/api/records/' + item.id)).json();
+  assert.deepEqual(detail.input, {mode: 'story', world: 'original', text: '사건'});
+  assert.equal((await f.post({}, {}, '/api/unload')).status, 200);
+});
+
+test('서버 종료 기록 복구와 100건·128MiB 보관 한도에 따른 오래된 기록 정리', t => {
+  const {createMonitor} = require('./monitor.cjs');
+  const logDirectory = recordsDirectory(t);
+  let monitor = createMonitor(logDirectory);
+  const running = monitor.begin(review);
+  monitor = createMonitor(logDirectory);
+  assert.equal(monitor.read(running.id).status, 'interrupted');
+  for (let i = 0; i < 105; i++) {
+    const record = monitor.begin({...review, text: `기록 ${i}`});
+    monitor.finish(record, 'success', {text: '답변'});
+  }
+  assert.equal(monitor.list().records.length, 100);
+  assert.equal(monitor.read(running.id), null);
+  const largeDirectory = recordsDirectory(t);
+  assert.equal(monitor.list().storage.maxBytes, 128 * 1024 * 1024);
+  // 같은 용량 정리 경로를 작은 한도로 검증해 대용량 시험 파일을 만들지 않는다.
+  const large = createMonitor(largeDirectory, {maxBytes: 4096});
+  const old = large.begin({...review, text: '이전 자료'.repeat(200)}); large.finish(old, 'success', {text: '답변'});
+  const record = large.begin(review); large.finish(record, 'success', {text: '새 답변'});
+  assert.equal(large.read(old.id), null); assert.equal(large.list().records.length, 1);
 });

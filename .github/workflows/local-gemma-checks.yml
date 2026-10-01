@@ -19,4 +19,5 @@ jobs:
           node-version: '24'
       - run: node --check tools/local-gemma/server.cjs
       - run: node --check tools/local-gemma/review.cjs
+      - run: node --check tools/local-gemma/monitor.cjs
       - run: node --test tools/local-gemma/check.cjs
