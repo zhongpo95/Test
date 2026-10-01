@@ -1,0 +1,1441 @@
+{
+  "events": 16,
+  "choices": 49,
+  "distinctCardsPerEvent": 3,
+  "directGoldChoices": 1,
+  "branchCases": 99,
+  "runs": [
+    {
+      "event": "axel_request",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_request",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_request",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_request",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_request",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 850,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_request",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 950,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 7,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 7,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1230,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 4,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 4,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1020,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_priest_supply",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_party_water",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_sword_introduction",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_snow_footprints",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_question_cut_short",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 830,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 930,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_house_threshold",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 9
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "roll": 75,
+      "success": true,
+      "duplicate": false,
+      "gold": 850,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "roll": 75,
+      "success": true,
+      "duplicate": true,
+      "gold": 950,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "roll": 76,
+      "success": false,
+      "duplicate": false,
+      "gold": 850,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 1,
+      "roll": 76,
+      "success": false,
+      "duplicate": true,
+      "gold": 850,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    },
+    {
+      "event": "axel_rope_after_return",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "actionPoints": 8
+    }
+  ],
+  "availability": [
+    {
+      "event": "axel_request",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_request",
+      "gold": 1000,
+      "legalChoices": [
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_stolen_notice",
+      "gold": 0,
+      "legalChoices": [
+        2
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_stolen_notice",
+      "gold": 1000,
+      "legalChoices": [
+        2,
+        3,
+        4
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_blast_site",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_blast_site",
+      "gold": 1000,
+      "legalChoices": [
+        2,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_shop_ledger",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_shop_ledger",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_priest_supply",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_priest_supply",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        2,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_crowded_road",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_crowded_road",
+      "gold": 1000,
+      "legalChoices": [
+        2,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_party_water",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_party_water",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_small_figure",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_small_figure",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_rival_target",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_rival_target",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_sword_introduction",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_sword_introduction",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_cage_from_shore",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_snow_footprints",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_snow_footprints",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_question_cut_short",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_question_cut_short",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_house_threshold",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_house_threshold",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    },
+    {
+      "event": "axel_rope_after_return",
+      "gold": 0,
+      "legalChoices": [],
+      "excludedWhenNoLegalChoice": true
+    },
+    {
+      "event": "axel_rope_after_return",
+      "gold": 1000,
+      "legalChoices": [
+        1,
+        3
+      ],
+      "excludedWhenNoLegalChoice": false
+    }
+  ],
+  "historyGates": [
+    {
+      "event": "axel_stolen_notice",
+      "previous": "axel_request",
+      "allowedChoice": 1,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    },
+    {
+      "event": "axel_rope_after_return",
+      "previous": "axel_cage_from_shore",
+      "allowedChoice": 1,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    }
+  ],
+  "passed": true,
+  "mapCreated": false,
+  "validation": "실제 생성JASS 함수의 변환모의실행이다. 세지정카드·비용·물약지급·필드변화·확률실패·중복100골드·AP1회·밀린의뢰1/우리고정용품1개인후속·다른플레이어분리·골드0및상한에서유효선택없는사건의후보제외를검사했다. Warcraft실행·시각·멀티플레이·실전밸런스·재미검증은아니다.",
+  "lowerBounds": [
+    {
+      "event": "axel_request",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_stolen_notice",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_blast_site",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_shop_ledger",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_crowded_road",
+      "choice": 2,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_small_figure",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_rival_target",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    },
+    {
+      "event": "axel_newcomer_questions",
+      "choice": 3,
+      "level": 1,
+      "density": 1,
+      "clampAndDetail": true
+    }
+  ],
+  "newMemoryStats": {
+    "expected": {
+      "attack": 12,
+      "crit": 3,
+      "critDamage": 26,
+      "move": 4,
+      "regen": 0.7,
+      "health": 10,
+      "reduction": 16,
+      "chargeSpeed": 12,
+      "direction": 12,
+      "choices": 2,
+      "gold": 1
+    },
+    "duplicateNotStacked": true,
+    "otherPlayerUnchanged": true
+  },
+  "noParentCardRepeat": [
+    "axel_stolen_notice",
+    "axel_rope_after_return"
+  ]
+}

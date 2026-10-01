@@ -1,0 +1,26 @@
+{
+  "sourceRevision": "95b850d",
+  "beforeFile": "copy_archive/gemma_rebuild_2026-10-01/before-karakura-expansion-42.json",
+  "beforeSha256": "33ac80bf619aac10f99d88bb62b03693d6ed3d0f9fd8f572aba688776dbf6710",
+  "review": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "공식 사실(카린의 영감, 잇신의 가족애, 우루루의 초인적 능력, 케이고의 활발함)을 정확히 파악하여 성장 비유로 치환함.",
+      "제약 사항(유령 시야, 즉시 치유, 실제 동행 등 금지 기능)을 'canonFact'와 'mechanics'에 명확히 명시하여 모순을 방지함.",
+      "수치적 정합성(골드 비용, 적 단계 변화, 재생 수치 등)이 기획 의도와 일치함."
+    ]
+  },
+  "reviewDisposition": [],
+  "decision": "독립4사건·관련4카드 채택. 피칭35의4개와 집필39는 미채택하고 재집필41의중복키·잘못된발단·단계표현을수정했다. 원문·이유·재검토조건을보존한다.",
+  "candidateCheck": {
+    "cards": 17,
+    "events": 18,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": [
+    "제작사 블리치 인물 본문을 읽었다. 카린의 냉정함·영감, 잇신의 가족 사랑과 의원, 점원 진타·우루루, 활발한 케이고를 참고했다. 전체 애니메이션·만화·게임·이미지 픽셀과 한국어 공식 현지화 이름 전체 미검토.",
+    "Warcraft 런타임·화면·멀티·재미·밸런스 미검증. 맵 생성 없음."
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "sourceRevision": "5622efe",
+  "beforeFile": "before-academy-card-choices-91.json",
+  "beforeSha256": "7fe9b3b5ee9f446dd5165ee7c0afc271d2382e5271fc8c7af8cda8c6f2a46c9e",
+  "oldCardsUnchanged": 21,
+  "worldUnchanged": true,
+  "newCards": [
+    {
+      "key": "academy_uiharu_order",
+      "name": "우이하루 카자리",
+      "effectName": "확인할 순서",
+      "keyword": "사건 후보 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 지부 기록·정보 지원에서 확인할 대상을 나누는 여행자의 기억이다. 새 해킹·자동 수색·행동력 증가·원작 사건 해결은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_saten_detour",
+      "name": "사텐 루이코",
+      "effectName": "돌아가는 길의 표식",
+      "keyword": "이동 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "능력이 없어도 발품과 생활 속 확인을 이어 가는 기존 역할에서 여행자가 귀환길을 정하는 기억이다. 이동은3%이며 새 이동 기술이나 능력 개발은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_saten_box",
+      "name": "사텐 루이코",
+      "effectName": "짐 아래의 빈칸",
+      "keyword": "공격력 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 12
+        },
+        {
+          "stat": "charge_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 납품·진열 정리에서 짐을 옮기기 전에 남은 항목을 살피는 여행자의 기억이다. 새 무기·물류 자동보수·NPC 능력치 상승은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kuroko_line",
+      "name": "시라이 쿠로코",
+      "effectName": "넘지 않을 선",
+      "keyword": "비방향 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 사격 통로 안내에서 넘어가지 않을 경계를 정하는 여행자의 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 공간이동·보호막·무적을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_touma_address",
+      "name": "카미조 토우마",
+      "effectName": "도착지를 먼저",
+      "keyword": "최대 체력 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 운반과 남은 몫을 먼저 확인하는 역할에서 가져갈 곳을 확인하는 여행자의 기억이다. 실제 실종 해결·불행 면역·이매진 브레이커 전수·즉시 치료는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tessou_seat",
+      "name": "테츠소 츠즈리",
+      "effectName": "빈자리에도 이어질 말",
+      "keyword": "최대 체력 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "crit_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식17화의 좋아하던 게임과 혼자 남은 대화에서 빈자리를 가리지 않고 이야기를 듣는 여행자의 기억이다. 학생의 복귀·게임 승리·NPC 치료·새 미니게임은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tessou_interval",
+      "name": "테츠소 츠즈리",
+      "effectName": "눌러야 할 때까지",
+      "keyword": "차지 속도 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 5
+        },
+        {
+          "stat": "crit_damage",
+          "value": 15
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식17화의 게임센터 만남에서 입력 사이의 간격을 기다리는 여행자의 기억이다. 새로운 게임 기술·콤보 시스템·학생의 다음 선택을 정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_list",
+      "name": "우이하루 카자리",
+      "effectName": "접어 두지 않은 항목",
+      "keyword": "치명 피해 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 12
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "정보와 남은 약속을 확인하는 기존 역할에서 아직 끝내지 않은 항목을 남기는 여행자의 기억이다. 고체력은65%이상이고 즉시 회복·갈등 해소·새 추적 기술은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": 18,
+  "choices": 54,
+  "directGoldChoices": 0,
+  "removedGoldChoices": 16,
+  "history": "구조백업 성공1/현장진입 성공2/다른곳음료 성공1의 자기 후속과 번호를 유지한다. 부모가 준 카드를 후속에서 다시 주지 않는다.",
+  "removedChoices": [
+    {
+      "key": "academy_bad_signal",
+      "index": 4,
+      "choice": {
+        "label": "우회로를 열고 보급품을 옮긴다",
+        "result": "험난한 길을 뚫어 보급로를 확보했다. 이동 경로가 확보되어 보급품을 획득한다.",
+        "card": null,
+        "card2": null,
+        "gold": 0,
+        "cost": 80,
+        "level": 0,
+        "density": -1,
+        "potions": 2,
+        "chance": 100
+      }
+    },
+    {
+      "key": "academy_pair_step",
+      "index": 4,
+      "choice": {
+        "label": "남은 끈과 상자를 정리하고 준비 보수를 받는다",
+        "result": "남은 끈과 상자를 정리하고 준비 담당자에게 작업 보수를 받았다. 미코토는 연습할 자리를 비우고 콘고는 끈을 다시 펴 둔다. 경기 전에 맞출 걸음은 아직 남아 있다.",
+        "card": null,
+        "card2": null,
+        "gold": 150,
+        "cost": 0,
+        "level": 0,
+        "density": 0,
+        "potions": 0,
+        "chance": 100
+      }
+    },
+    {
+      "key": "academy_vending_left_coin",
+      "index": 4,
+      "choice": {
+        "label": "전달할 짐만 옮기고 보급 보수를 받는다",
+        "result": "전달할 짐을 옮긴 보수로110골드와물약1개를 받았다. 자판기 앞에 가려졌던 공간은 비었지만 토우마는 아직 자기 동전의 자리를 보고 있다.",
+        "card": null,
+        "card2": null,
+        "cost": 0,
+        "gold": 110,
+        "level": 0,
+        "density": 0,
+        "potions": 1,
+        "chance": 100
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "recordId": "f5c721eb-2040-47a4-b9e3-412a252ef321",
+      "parsed": {
+        "verdict": "PASS",
+        "issues": [],
+        "strengths": [
+          "모든 사건이 서로 다른 3종의 지정 카드를 제공하며, 직접적인 골드 대안이나 부모 카드의 반복이 없음.",
+          "비용, 물약, 필드(level/density), 확률, 실패 문구가 mechanics의 정의와 정확히 일치함.",
+          "캐릭터의 공식 역할(정보 지원, 공간 이동, 방어 등)을 유지하면서 맵의 상황에 맞는 창작적 개입이 적절히 이루어짐.",
+          "원작의 핵심 설정(시간 정지, 소환, 특정 장비 획득 등)을 왜곡하지 않으면서 게임적 수치로 잘 치환됨."
+        ]
+      }
+    },
+    {
+      "recordId": "cafd6c99-2cd8-4971-a192-736501c2c11a",
+      "parsed": {
+        "verdict": "PASS",
+        "issues": [],
+        "strengths": [
+          "모든 사건이 서로 다른 3종의 지정 카드를 제공하며, 직접 골드 대안이나 부모 카드의 반복이 없음.",
+          "비용, 물약, 필드(level/density), 확률, 실패 문구가 mechanics의 정의와 정확히 일치함.",
+          "캐릭터의 공식 역할과 취향을 기반으로 한 창작 내용이 원작의 핵심 설정(실종, 기억 조작, 초능력 구현 등)을 침해하지 않음."
+        ]
+      }
+    },
+    {
+      "recordId": "fd659f14-5c8a-4e52-b9d2-3228be375368",
+      "parsed": {
+        "verdict": "PASS",
+        "issues": [],
+        "strengths": [
+          "데이터와 글의 일치성이 매우 높음",
+          "몬스터 강함/적수 단계 변화량(field)에 대한 정의를 정확히 준수함",
+          "UI 요구사항에 맞춰 카드 이름과 능력치를 정확히 매칭함",
+          "제안이나 새로운 기능 추가 없이 데이터 기반의 기술만 수행함"
+        ]
+      }
+    }
+  ],
+  "curation": "91집필의반복미소/끄덕임·대사주체·표식버림오독을92에서고쳤다. 별도로폐기된골드보수가실패문구에도남지않도록확인했다.",
+  "limits": [
+    "세PASS는자문이다. 강점에언급한시간정지는이사건의설정근거로사용하지않는다.",
+    "실제조건·수치·자기후속과분기를별도검사한다.",
+    "맵을만들지않고Warcraft·시각·멀티·저장·재미·실전밸런스는미검증이다."
+  ],
+  "check": {
+    "cards": 29,
+    "events": 18,
+    "errors": [],
+    "warnings": []
+  }
+}

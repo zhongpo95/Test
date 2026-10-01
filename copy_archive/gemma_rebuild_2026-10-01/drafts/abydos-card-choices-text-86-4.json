@@ -1,0 +1,670 @@
+{
+  "started": "2026-10-01T18:24:30.558Z",
+  "finished": "2026-10-01T18:24:46.734Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "ab68_weed_hand",
+                  "ab68_two_envelopes",
+                  "ab68_name_after_bill",
+                  "ab68_reply_after_disc"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "label",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "system": "한국어 사건 작가다. events는 입력key마다 별도 객체이며 같은 순서로 한번만 출력한다. choices는 입력index만 쓴다. label그대로, result는 현장행동·지정기억카드와 실제비용/물약/지속필드·인물의 작은 반응을 세 문장으로 쓴다. 다른 사건이나 JSON/메타데이터를 결과문장에 섞지 않는다.",
+    "brief": {
+      "cards": [
+        {
+          "key": "abydos_serika_return",
+          "name": "쿠로미 세리카",
+          "effectName": "다시 열 가게를 위해",
+          "keyword": "고체력 · 수급",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 12
+            },
+            {
+              "stat": "kill_gold",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 40,
+            "effects": [
+              {
+                "stat": "attack_percent",
+                "value": 5
+              }
+            ]
+          },
+          "canonFact": "시바세키 라멘에서 아르바이트하는 세리카의 역할과 가게 복구를 돕는 창작 사건을 연결했다. 멀쩡히 일을 이어 갈 준비를 고체력·수급으로 각색하며 원작 신규 능력이라고 주장하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_aru_bill",
+          "name": "리쿠하치마 아루",
+          "effectName": "악당의 품격",
+          "keyword": "보스 피해 · 일반 피해 손해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 18
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": -6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "허세를 믿고 큰 상대만 바라보는 기억을 보스에게 가하는 피해 증가와 일반 몬스터에게 가하는 피해 감소로 각색한다. 원작 사격·대출·학교 빚 해소·실제 불법사업 기능은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_kayoko_disc",
+          "name": "오니카타 카요코",
+          "effectName": "침묵에도 내용이 있다",
+          "keyword": "차지 속도 · 피해 감소",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 9
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "음악CD수집과 침묵의 오해를 끝까지 듣는 기억으로 각색한다. 차지 준비 속도이며 모든 행동속도·실제 음악버프·공포 상태·적 제압이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_haruka_pot",
+          "name": "이구사 하루카",
+          "effectName": "뽑지 않고 남긴 것",
+          "keyword": "최대 체력 · 재생",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "잡초를 기르는 취미에서 남길 자리를 묻는 기억이다. 최대체력은 현재/최대 비율을 유지하고 재생은 시간에 따른 회복이며 화분장비·즉시치유·원작 상처 해결을 주지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_mutsuki_envelope",
+          "name": "아사기 무츠키",
+          "effectName": "열어 보기 전의 웃음",
+          "keyword": "치명타 피해 · 비방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 20
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 8000,
+            "effects": [
+              {
+                "stat": "normal_damage_percent",
+                "value": 5
+              }
+            ]
+          },
+          "canonFact": "말썽을 즐기는 성격에서 창작 봉투 내기를 만들고 빈틈을 기다리는 성장으로 각색한다. 치명타 확률이 아니라 치명타 피해이며 비방향은 헤드/백 플래그가 없는 공격에만 적용한다. 실제 폭탄·지뢰·폭발·확률 상승은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_aru_task",
+          "name": "리쿠하치마 아루",
+          "effectName": "직함 대신 할 일",
+          "keyword": "치명타 확률 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 5
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "계산을 도왔던 자기 후속에서 말보다 맡을 일을 확인하는 기억이다. 치명확률5%p와 현재체력이 최대의65%이상일 때 가하는 피해8%다. 실제 계약·회사업무·원작 사업 성공은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_kayoko_reply",
+          "name": "오니카타 카요코",
+          "effectName": "말을 기다린 박자",
+          "keyword": "행동 속도 · 방어 관통",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 5
+            },
+            {
+              "stat": "penetration",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "CD를 함께 들었던 자기 후속에서 끊지 않고 대답을 기다리는 기억이다. 일반 행동속도와 방어 관통으로 각색하며 새 음악스킬·침묵해제·공포면역·NPC동행을 주지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_mutsuki_watch",
+          "name": "아사기 무츠키",
+          "effectName": "말이 끝나기 전에",
+          "keyword": "치명 피해 · 보스",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 12
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 장난스러운 성격과 기존 아루의 허세를 지켜보는 관계에서 다음 말을 기다리는 기억을 각색한다. 웃음 게이지·폭탄·심리 피해·원작 사건 승리를 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_kayoko_order",
+          "name": "오니카타 카요코",
+          "effectName": "사과 대신 주문",
+          "keyword": "최대 체력 · 행동 속도",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "action_speed",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 침묵 때문에 생기는 오해에서 사과를 반복하기보다 남은 주문의 말을 듣는 기억이다. 모든 오해 해결·침묵 면역·가게 할인·음악 스킬·즉시 회복은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_haruka_ask",
+          "name": "이구사 하루카",
+          "effectName": "먼저 묻는 손",
+          "keyword": "일반 적 · 받는 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "normal_damage_percent",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 잡초 기르기 취미와 내성적인 성향에서 치우기 전에 묻는 여행자의 기억을 각색한다. 식물 공격·실제 수확·잡초를 몬스터로 바꾸는 기능·상처 완전 해결은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_haruka_space",
+          "name": "이구사 하루카",
+          "effectName": "남겨 둔 작은 자리",
+          "keyword": "최대 체력 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 10
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 잡초 기르기에서 화분을 놓을 자리를 남겨 두는 여행자의 기억이다. 보호막 생성·현재체력 즉시회복·수면·식물 성장 기능은 없다. 고체력 조건은65%이상이다.",
+          "uncertain": []
+        },
+        {
+          "key": "ab68_mutsuki_answer",
+          "name": "아사기 무츠키",
+          "effectName": "답을 듣는 대가",
+          "keyword": "행동 속도 · 비방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 장난을 즐기는 성향에서 창작 봉투의 답을 듣고 다음 말을 준비하는 기억이다. 치명확률을 늘리는 카드가 아니며 실제 내기 미니게임·폭발·원작 능력 전수는 없다.",
+          "uncertain": []
+        }
+      ],
+      "events": [
+        {
+          "key": "ab68_weed_hand",
+          "story": "네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다.",
+          "canonFact": "공식 잡초기르기 취미에서 여행자가 먼저 치우려 한 작은 오해를 창작했다. 특정 식물·실제 성장/수확·치유·왕따 해결·원작 라멘 폭파를 보상으로 바꾸지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "label": "내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다",
+              "result": "",
+              "card": "ab68_haruka_ask",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다",
+              "result": "",
+              "card": "ab68_haruka_space",
+              "card2": null,
+              "cost": 160,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "ab68_two_envelopes",
+          "story": "무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다.",
+          "canonFact": "무츠키의 장난과 아루 허세를 창작 봉투내기로 각색했다. 원작에 이 내기가 있다고 주장하지 않고 폭탄/폭발·사냥 중 추가 처치·새 미니게임·숨은 확률 기능을 만들지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "label": "240골드로 내기 대신 두 봉투의 답을 바로 듣는다",
+              "result": "",
+              "card": "ab68_mutsuki_answer",
+              "card2": null,
+              "cost": 240,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다",
+              "result": "",
+              "card": "ab68_aru_bill",
+              "card2": null,
+              "cost": 160,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "ab68_name_after_bill",
+          "story": "계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다.",
+          "canonFact": "자기 계산 도움 성공1번 뒤에만 열리는 창작 소개후속이다. 회사 계약·은행 범죄·원작 습격 승패·실제NPC작업은 없다.",
+          "choices": [
+            {
+              "index": 2,
+              "label": "220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다",
+              "result": "",
+              "card": "ab68_mutsuki_watch",
+              "card2": null,
+              "cost": 220,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ]
+        },
+        {
+          "key": "ab68_reply_after_disc",
+          "story": "카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다.",
+          "canonFact": "자기CD만남 성공2번 뒤에만 열리는 창작 후속이다. 인물의 모든 오해가 없어졌다고 결론내리지 않고 새 음악·동행·가게 할인 기능을 지급하지 않는다.",
+          "choices": [
+            {
+              "index": 2,
+              "label": "내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다",
+              "result": "",
+              "card": "ab68_kayoko_order",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다",
+              "result": "",
+              "card": "ab68_kayoko_disc",
+              "card2": null,
+              "cost": 180,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ]
+        }
+      ],
+      "mechanics": {
+        "reward": "성공때 지정카드1장과 potions개 물약 지급. 즉시골드0. UI가 정확한 이름·효과를 별도 덧붙인다. result는성공만,70/60/75실패는별도있다.",
+        "cost": "cost지불이며지급아님. 실패때비용/AP/필드환급없음.물약은그개수받는것이며소비아님.",
+        "field": "초기강함1/적수4. level/density는 몬스터강함/적수 단계 변화량. max(1,현재+변화량),상한5/10. 피로/시간/플레이어레벨아님.",
+        "stats": "기억은여행자의성장이다. regen초당최대체력%로흡수합산10%상한,즉시회복아님. maxHP현재/최대비율유지. healthy65%이상. 비방향헤드/백플래그없는공격,보호막조건은기존보호막이며새보호막없음."
+      },
+      "boundary": "대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다. 조깅·낮잠·간식·골동품·수족관 안내·굿즈 문제는 공식 취미와 역할에서 별도로 창작했다. 학교 일상이 이어지던 때의 독립 만남이며 같은 시각의 본편 전개나 실종 해결을 주장하지 않는다. 골동품70%는 맵의 검사 수치이고 히후미는 트리니티 학생이다. 고체력 피해는 즉시 치료가 아니며 후보 증가는 행동력 증가가 아니다. 흥신소68의계산서·카요코CD주문·하루카잡초·무츠키봉투내기는공식역할에서만든별도창작방문이다. 아루후속은자기계산도움성공1번,카요코후속은자기한곡듣기성공2번에서만열린다. 학교빚·은행범죄·가게폭파·인물의큰갈등을해결하거나실제음악/폭발/식물성장기능을지급하지않는다.",
+      "checks": [
+        "원래현장만남에서행동과인물반응을이어간다.",
+        "추가원작기술·장비·큰빚해소·은행돈·NPC성장·즉시치유·실제CD음악효과·식물기능없음.",
+        "칭찬/끄덕임만반복하지않고남은주문·부탁·화분·기록을인물이살핀다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "ab68_weed_hand",
+                  "ab68_two_envelopes",
+                  "ab68_name_after_bill",
+                  "ab68_reply_after_disc"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "label",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 작가다. events는 입력key마다 별도 객체이며 같은 순서로 한번만 출력한다. choices는 입력index만 쓴다. label그대로, result는 현장행동·지정기억카드와 실제비용/물약/지속필드·인물의 작은 반응을 세 문장으로 쓴다. 다른 사건이나 JSON/메타데이터를 결과문장에 섞지 않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"cards\":[{\"key\":\"abydos_serika_return\",\"name\":\"쿠로미 세리카\",\"effectName\":\"다시 열 가게를 위해\",\"keyword\":\"고체력 · 수급\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":12},{\"stat\":\"kill_gold\",\"value\":1}],\"evolution\":{\"kind\":1,\"goal\":40,\"effects\":[{\"stat\":\"attack_percent\",\"value\":5}]},\"canonFact\":\"시바세키 라멘에서 아르바이트하는 세리카의 역할과 가게 복구를 돕는 창작 사건을 연결했다. 멀쩡히 일을 이어 갈 준비를 고체력·수급으로 각색하며 원작 신규 능력이라고 주장하지 않는다.\",\"uncertain\":[]},{\"key\":\"ab68_aru_bill\",\"name\":\"리쿠하치마 아루\",\"effectName\":\"악당의 품격\",\"keyword\":\"보스 피해 · 일반 피해 손해\",\"grade\":2,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":18},{\"stat\":\"normal_damage_percent\",\"value\":-6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"허세를 믿고 큰 상대만 바라보는 기억을 보스에게 가하는 피해 증가와 일반 몬스터에게 가하는 피해 감소로 각색한다. 원작 사격·대출·학교 빚 해소·실제 불법사업 기능은 없다.\",\"uncertain\":[]},{\"key\":\"ab68_kayoko_disc\",\"name\":\"오니카타 카요코\",\"effectName\":\"침묵에도 내용이 있다\",\"keyword\":\"차지 속도 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"charge_speed\",\"value\":9},{\"stat\":\"damage_reduction\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"음악CD수집과 침묵의 오해를 끝까지 듣는 기억으로 각색한다. 차지 준비 속도이며 모든 행동속도·실제 음악버프·공포 상태·적 제압이 아니다.\",\"uncertain\":[]},{\"key\":\"ab68_haruka_pot\",\"name\":\"이구사 하루카\",\"effectName\":\"뽑지 않고 남긴 것\",\"keyword\":\"최대 체력 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"regeneration\",\"value\":0.5}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"잡초를 기르는 취미에서 남길 자리를 묻는 기억이다. 최대체력은 현재/최대 비율을 유지하고 재생은 시간에 따른 회복이며 화분장비·즉시치유·원작 상처 해결을 주지 않는다.\",\"uncertain\":[]},{\"key\":\"ab68_mutsuki_envelope\",\"name\":\"아사기 무츠키\",\"effectName\":\"열어 보기 전의 웃음\",\"keyword\":\"치명타 피해 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"crit_damage\",\"value\":20},{\"stat\":\"nondirectional_damage\",\"value\":10}],\"evolution\":{\"kind\":2,\"goal\":8000,\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":5}]},\"canonFact\":\"말썽을 즐기는 성격에서 창작 봉투 내기를 만들고 빈틈을 기다리는 성장으로 각색한다. 치명타 확률이 아니라 치명타 피해이며 비방향은 헤드/백 플래그가 없는 공격에만 적용한다. 실제 폭탄·지뢰·폭발·확률 상승은 없다.\",\"uncertain\":[]},{\"key\":\"ab68_aru_task\",\"name\":\"리쿠하치마 아루\",\"effectName\":\"직함 대신 할 일\",\"keyword\":\"치명타 확률 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"crit_chance\",\"value\":5},{\"stat\":\"healthy_damage\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"계산을 도왔던 자기 후속에서 말보다 맡을 일을 확인하는 기억이다. 치명확률5%p와 현재체력이 최대의65%이상일 때 가하는 피해8%다. 실제 계약·회사업무·원작 사업 성공은 없다.\",\"uncertain\":[]},{\"key\":\"ab68_kayoko_reply\",\"name\":\"오니카타 카요코\",\"effectName\":\"말을 기다린 박자\",\"keyword\":\"행동 속도 · 방어 관통\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":5},{\"stat\":\"penetration\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"CD를 함께 들었던 자기 후속에서 끊지 않고 대답을 기다리는 기억이다. 일반 행동속도와 방어 관통으로 각색하며 새 음악스킬·침묵해제·공포면역·NPC동행을 주지 않는다.\",\"uncertain\":[]},{\"key\":\"ab68_mutsuki_watch\",\"name\":\"아사기 무츠키\",\"effectName\":\"말이 끝나기 전에\",\"keyword\":\"치명 피해 · 보스\",\"grade\":2,\"effects\":[{\"stat\":\"crit_damage\",\"value\":12},{\"stat\":\"boss_damage_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 장난스러운 성격과 기존 아루의 허세를 지켜보는 관계에서 다음 말을 기다리는 기억을 각색한다. 웃음 게이지·폭탄·심리 피해·원작 사건 승리를 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"ab68_kayoko_order\",\"name\":\"오니카타 카요코\",\"effectName\":\"사과 대신 주문\",\"keyword\":\"최대 체력 · 행동 속도\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"action_speed\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 침묵 때문에 생기는 오해에서 사과를 반복하기보다 남은 주문의 말을 듣는 기억이다. 모든 오해 해결·침묵 면역·가게 할인·음악 스킬·즉시 회복은 없다.\",\"uncertain\":[]},{\"key\":\"ab68_haruka_ask\",\"name\":\"이구사 하루카\",\"effectName\":\"먼저 묻는 손\",\"keyword\":\"일반 적 · 받는 피해\",\"grade\":2,\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 잡초 기르기 취미와 내성적인 성향에서 치우기 전에 묻는 여행자의 기억을 각색한다. 식물 공격·실제 수확·잡초를 몬스터로 바꾸는 기능·상처 완전 해결은 없다.\",\"uncertain\":[]},{\"key\":\"ab68_haruka_space\",\"name\":\"이구사 하루카\",\"effectName\":\"남겨 둔 작은 자리\",\"keyword\":\"최대 체력 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":10},{\"stat\":\"healthy_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 잡초 기르기에서 화분을 놓을 자리를 남겨 두는 여행자의 기억이다. 보호막 생성·현재체력 즉시회복·수면·식물 성장 기능은 없다. 고체력 조건은65%이상이다.\",\"uncertain\":[]},{\"key\":\"ab68_mutsuki_answer\",\"name\":\"아사기 무츠키\",\"effectName\":\"답을 듣는 대가\",\"keyword\":\"행동 속도 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":3},{\"stat\":\"nondirectional_damage\",\"value\":14}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 장난을 즐기는 성향에서 창작 봉투의 답을 듣고 다음 말을 준비하는 기억이다. 치명확률을 늘리는 카드가 아니며 실제 내기 미니게임·폭발·원작 능력 전수는 없다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"ab68_weed_hand\",\"story\":\"네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다.\",\"canonFact\":\"공식 잡초기르기 취미에서 여행자가 먼저 치우려 한 작은 오해를 창작했다. 특정 식물·실제 성장/수확·치유·왕따 해결·원작 라멘 폭파를 보상으로 바꾸지 않는다.\",\"choices\":[{\"index\":2,\"label\":\"내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다\",\"result\":\"\",\"card\":\"ab68_haruka_ask\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다\",\"result\":\"\",\"card\":\"ab68_haruka_space\",\"card2\":null,\"cost\":160,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":2,\"chance\":100}]},{\"key\":\"ab68_two_envelopes\",\"story\":\"무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다.\",\"canonFact\":\"무츠키의 장난과 아루 허세를 창작 봉투내기로 각색했다. 원작에 이 내기가 있다고 주장하지 않고 폭탄/폭발·사냥 중 추가 처치·새 미니게임·숨은 확률 기능을 만들지 않는다.\",\"choices\":[{\"index\":2,\"label\":\"240골드로 내기 대신 두 봉투의 답을 바로 듣는다\",\"result\":\"\",\"card\":\"ab68_mutsuki_answer\",\"card2\":null,\"cost\":240,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다\",\"result\":\"\",\"card\":\"ab68_aru_bill\",\"card2\":null,\"cost\":160,\"gold\":0,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}]},{\"key\":\"ab68_name_after_bill\",\"story\":\"계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다.\",\"canonFact\":\"자기 계산 도움 성공1번 뒤에만 열리는 창작 소개후속이다. 회사 계약·은행 범죄·원작 습격 승패·실제NPC작업은 없다.\",\"choices\":[{\"index\":2,\"label\":\"220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다\",\"result\":\"\",\"card\":\"ab68_mutsuki_watch\",\"card2\":null,\"cost\":220,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}]},{\"key\":\"ab68_reply_after_disc\",\"story\":\"카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다.\",\"canonFact\":\"자기CD만남 성공2번 뒤에만 열리는 창작 후속이다. 인물의 모든 오해가 없어졌다고 결론내리지 않고 새 음악·동행·가게 할인 기능을 지급하지 않는다.\",\"choices\":[{\"index\":2,\"label\":\"내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다\",\"result\":\"\",\"card\":\"ab68_kayoko_order\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다\",\"result\":\"\",\"card\":\"ab68_kayoko_disc\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}]}],\"mechanics\":{\"reward\":\"성공때 지정카드1장과 potions개 물약 지급. 즉시골드0. UI가 정확한 이름·효과를 별도 덧붙인다. result는성공만,70/60/75실패는별도있다.\",\"cost\":\"cost지불이며지급아님. 실패때비용/AP/필드환급없음.물약은그개수받는것이며소비아님.\",\"field\":\"초기강함1/적수4. level/density는 몬스터강함/적수 단계 변화량. max(1,현재+변화량),상한5/10. 피로/시간/플레이어레벨아님.\",\"stats\":\"기억은여행자의성장이다. regen초당최대체력%로흡수합산10%상한,즉시회복아님. maxHP현재/최대비율유지. healthy65%이상. 비방향헤드/백플래그없는공격,보호막조건은기존보호막이며새보호막없음.\"},\"boundary\":\"대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다. 조깅·낮잠·간식·골동품·수족관 안내·굿즈 문제는 공식 취미와 역할에서 별도로 창작했다. 학교 일상이 이어지던 때의 독립 만남이며 같은 시각의 본편 전개나 실종 해결을 주장하지 않는다. 골동품70%는 맵의 검사 수치이고 히후미는 트리니티 학생이다. 고체력 피해는 즉시 치료가 아니며 후보 증가는 행동력 증가가 아니다. 흥신소68의계산서·카요코CD주문·하루카잡초·무츠키봉투내기는공식역할에서만든별도창작방문이다. 아루후속은자기계산도움성공1번,카요코후속은자기한곡듣기성공2번에서만열린다. 학교빚·은행범죄·가게폭파·인물의큰갈등을해결하거나실제음악/폭발/식물성장기능을지급하지않는다.\",\"checks\":[\"원래현장만남에서행동과인물반응을이어간다.\",\"추가원작기술·장비·큰빚해소·은행돈·NPC성장·즉시치유·실제CD음악효과·식물기능없음.\",\"칭찬/끄덕임만반복하지않고남은주문·부탁·화분·기록을인물이살핀다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T18:24:46.7305664Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"events\": [\n    {\n      \"key\": \"ab68_weed_hand\",\n      \"choices\": [\n        {\n          \"index\": 2,\n          \"label\": \"내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다\",\n          \"result\": \"지정기억카드 [먼저 묻는 손]을 획득합니다. 하루카는 당황하며 고개를 끄덕이고, 당신은 식물을 대하는 그녀의 조심스러운 태도를 기억합니다. (적 수 단계 +1)\"\n        },\n        {\n          \"index\": 3,\n          \"label\": \"160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다\",\n          \"result\": \"지정기억카드 [남겨 둔 작은 자리]를 획득하고 물약 2개를 얻습니다. 하루카는 당신이 배려해준 공간을 보며 수줍게 미소 짓습니다. (적 수 단계 -1, 비용 160)\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ab68_two_envelopes\",\n      \"choices\": [\n        {\n          \"index\": 2,\n          \"label\": \"240골드로 내기 대신 두 봉투의 답을 바로 듣는다\",\n          \"result\": \"지정기억카드 [답을 듣는 대가]를 획득합니다. 무츠키는 예상치 못한 정직함에 눈을 동그랗게 뜨며 킥킥거립니다. (비용 240)\"\n        },\n        {\n          \"index\": 3,\n          \"label\": \"160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다\",\n          \"result\": \"지정기억카드 [악당의 품격]을 획득하고 물약 1개를 얻습니다. 아루는 당당하게 가슴을 펴고 당신의 시선을 즐깁니다. (적 수 단계 0, 비용 160)\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ab68_name_after_bill\",\n      \"choices\": [\n        {\n          \"index\": 2,\n          \"label\": \"220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다\",\n          \"result\": \"지정기억카드 [말이 끝나기 전에]를 획득합니다. 무츠키는 장난기 어린 표정으로 당신의 반응을 살피며 다음 말을 고릅니다. (비용 220)\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ab68_reply_after_disc\",\n      \"choices\": [\n        {\n          \"index\": 2,\n          \"label\": \"내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다\",\n          \"result\": \"지정기억카드 [사과 대신 주문]을 획득합니다. 카요코는 잠시 멈췄다가 당신의 눈을 맞추며 남은 말을 이어갑니다. (적 수 단계 +1)\"\n        },\n        {\n          \"index\": 3,\n          \"label\": \"180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다\",\n          \"result\": \"지정기억카드 [침묵에도 내용이 있다]를 획득하고 물약 1개를 얻습니다. 카요코는 조용히 고개를 끄덕이며 당신과 박자를 맞춥니다. (적 수 단계 -1, 비용 180)\"\n        }\n      ]\n    }\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 16158458100,
+    "load_duration": 2307000,
+    "prompt_eval_count": 3694,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1636140000,
+    "eval_count": 864,
+    "eval_duration": 14348856000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "ab68_weed_hand",
+        "choices": [
+          {
+            "index": 2,
+            "label": "내 사냥의 적 수 단계를1올리고 하루카에게 손을 뻗기 전에 먼저 묻는다",
+            "result": "지정기억카드 [먼저 묻는 손]을 획득합니다. 하루카는 당황하며 고개를 끄덕이고, 당신은 식물을 대하는 그녀의 조심스러운 태도를 기억합니다. (적 수 단계 +1)"
+          },
+          {
+            "index": 3,
+            "label": "160골드로 보급을 마련하고 하루카의 작은 자리를 남긴 채 적 수를1낮춘다",
+            "result": "지정기억카드 [남겨 둔 작은 자리]를 획득하고 물약 2개를 얻습니다. 하루카는 당신이 배려해준 공간을 보며 수줍게 미소 짓습니다. (적 수 단계 -1, 비용 160)"
+          }
+        ]
+      },
+      {
+        "key": "ab68_two_envelopes",
+        "choices": [
+          {
+            "index": 2,
+            "label": "240골드로 내기 대신 두 봉투의 답을 바로 듣는다",
+            "result": "지정기억카드 [답을 듣는 대가]를 획득합니다. 무츠키는 예상치 못한 정직함에 눈을 동그랗게 뜨며 킥킥거립니다. (비용 240)"
+          },
+          {
+            "index": 3,
+            "label": "160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다",
+            "result": "지정기억카드 [악당의 품격]을 획득하고 물약 1개를 얻습니다. 아루는 당당하게 가슴을 펴고 당신의 시선을 즐깁니다. (적 수 단계 0, 비용 160)"
+          }
+        ]
+      },
+      {
+        "key": "ab68_name_after_bill",
+        "choices": [
+          {
+            "index": 2,
+            "label": "220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다",
+            "result": "지정기억카드 [말이 끝나기 전에]를 획득합니다. 무츠키는 장난기 어린 표정으로 당신의 반응을 살피며 다음 말을 고릅니다. (비용 220)"
+          }
+        ]
+      },
+      {
+        "key": "ab68_reply_after_disc",
+        "choices": [
+          {
+            "index": 2,
+            "label": "내 사냥의 적 수 단계를1올리고 말과 말 사이의 박자를 기억한다",
+            "result": "지정기억카드 [사과 대신 주문]을 획득합니다. 카요코는 잠시 멈췄다가 당신의 눈을 맞추며 남은 말을 이어갑니다. (적 수 단계 +1)"
+          },
+          {
+            "index": 3,
+            "label": "180골드로 귀환을 준비하고 카요코와 끝난 곡의 박자를 다시 확인한다",
+            "result": "지정기억카드 [침묵에도 내용이 있다]를 획득하고 물약 1개를 얻습니다. 카요코는 조용히 고개를 끄덕이며 당신과 박자를 맞춥니다. (적 수 단계 -1, 비용 180)"
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "21c4d15e-8c45-4e07-8bcc-330121adc134"
+}

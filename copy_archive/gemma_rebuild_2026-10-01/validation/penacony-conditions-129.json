@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "cases": 24,
+  "results": [
+    {
+      "speed": 350,
+      "life": 6499,
+      "shield": 0,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "speed": 350,
+      "life": 6499,
+      "shield": 100,
+      "actual": 18,
+      "expected": 18
+    },
+    {
+      "speed": 350,
+      "life": 6500,
+      "shield": 0,
+      "actual": 10,
+      "expected": 10
+    },
+    {
+      "speed": 350,
+      "life": 6500,
+      "shield": 100,
+      "actual": 28,
+      "expected": 28
+    },
+    {
+      "speed": 400,
+      "life": 6499,
+      "shield": 0,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "speed": 400,
+      "life": 6499,
+      "shield": 100,
+      "actual": 18,
+      "expected": 18
+    },
+    {
+      "speed": 400,
+      "life": 6500,
+      "shield": 0,
+      "actual": 10,
+      "expected": 10
+    },
+    {
+      "speed": 400,
+      "life": 6500,
+      "shield": 100,
+      "actual": 28,
+      "expected": 28
+    },
+    {
+      "speed": 408,
+      "life": 6499,
+      "shield": 0,
+      "actual": 0.7000000000000006,
+      "expected": 0.7000000000000006
+    },
+    {
+      "speed": 408,
+      "life": 6499,
+      "shield": 100,
+      "actual": 18.7,
+      "expected": 18.7
+    },
+    {
+      "speed": 408,
+      "life": 6500,
+      "shield": 0,
+      "actual": 10.700000000000001,
+      "expected": 10.700000000000001
+    },
+    {
+      "speed": 408,
+      "life": 6500,
+      "shield": 100,
+      "actual": 28.7,
+      "expected": 28.700000000000003
+    },
+    {
+      "speed": 480,
+      "life": 6499,
+      "shield": 0,
+      "actual": 6.999999999999998,
+      "expected": 6.999999999999998
+    },
+    {
+      "speed": 480,
+      "life": 6499,
+      "shield": 100,
+      "actual": 25,
+      "expected": 25
+    },
+    {
+      "speed": 480,
+      "life": 6500,
+      "shield": 0,
+      "actual": 17,
+      "expected": 17
+    },
+    {
+      "speed": 480,
+      "life": 6500,
+      "shield": 100,
+      "actual": 35,
+      "expected": 35
+    },
+    {
+      "speed": 560,
+      "life": 6499,
+      "shield": 0,
+      "actual": 13.999999999999996,
+      "expected": 13.999999999999996
+    },
+    {
+      "speed": 560,
+      "life": 6499,
+      "shield": 100,
+      "actual": 31.999999999999996,
+      "expected": 31.999999999999996
+    },
+    {
+      "speed": 560,
+      "life": 6500,
+      "shield": 0,
+      "actual": 23.999999999999996,
+      "expected": 23.999999999999996
+    },
+    {
+      "speed": 560,
+      "life": 6500,
+      "shield": 100,
+      "actual": 42,
+      "expected": 42
+    },
+    {
+      "speed": 600,
+      "life": 6499,
+      "shield": 0,
+      "actual": 14,
+      "expected": 14
+    },
+    {
+      "speed": 600,
+      "life": 6499,
+      "shield": 100,
+      "actual": 32,
+      "expected": 32
+    },
+    {
+      "speed": 600,
+      "life": 6500,
+      "shield": 0,
+      "actual": 24,
+      "expected": 24
+    },
+    {
+      "speed": 600,
+      "life": 6500,
+      "shield": 100,
+      "actual": 42,
+      "expected": 42
+    }
+  ],
+  "capacity": {
+    "maximum": 11,
+    "current": 11,
+    "remainingSeconds": 421,
+    "elapsedSeconds": 179
+  },
+  "regenerationPercentPerSecond": 0.4,
+  "potionChargesUnchanged": true,
+  "mapCreated": false,
+  "limits": "실제 JASS 변환과 카드 데이터의 모의 실행이다. Warcraft·시각·멀티·저장·재미·실전 밸런스는 미검증."
+}

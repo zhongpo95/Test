@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 189,
+    "events": 171,
+    "roots": 132,
+    "followups": 39
+  },
+  "contentGroups": 21,
+  "statGroups": 8,
+  "ciCommands": 15,
+  "newRootCases": 18,
+  "branchCases": 98,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "fb2435ef47db174865463b613296599a8d5a99f247c8ae6a92ed3edab3f8cbcd",
+  "mapCreated": false,
+  "monitorCheckedRequests": 4,
+  "importedHistory": 69,
+  "usage": {
+    "used": 39,
+    "remaining": 61
+  },
+  "limits": [
+    "생성 JASS 함수의 변환 모의 실행과 스크립트 컴파일이다. 체력 네이티브 고정 모형이므로 전체 PlayerStatsSet·체력 비율 실기 검증은 아니다.",
+    "Warcraft·화면·실제 멀티·서버 저장·프레임·재미·밸런스 미검증."
+  ]
+}

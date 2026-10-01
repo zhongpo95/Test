@@ -1,0 +1,97 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 258,
+    "events": 217,
+    "roots": 169,
+    "followups": 48
+  },
+  "rewrittenEvents": 18,
+  "choices": 54,
+  "newCards": 10,
+  "branchCases": 114,
+  "historyGates": [
+    {
+      "event": "abydos_ramen_repair",
+      "previous": "abydos_ramen_shift",
+      "allowedChoice": 1,
+      "requiredCard": null,
+      "requiredCardChecked": true,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    },
+    {
+      "event": "abydos_missing_senior",
+      "previous": "abydos_desert_watch",
+      "allowedChoice": 1,
+      "requiredCard": "abydos_hoshino",
+      "requiredCardChecked": true,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    },
+    {
+      "event": "ab68_name_after_bill",
+      "previous": "ab68_big_bill",
+      "allowedChoice": 1,
+      "requiredCard": null,
+      "requiredCardChecked": true,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    },
+    {
+      "event": "ab68_reply_after_disc",
+      "previous": "ab68_disc_before_words",
+      "allowedChoice": 2,
+      "requiredCard": null,
+      "requiredCardChecked": true,
+      "wrongHistoryExcluded": true,
+      "otherPlayerExcluded": true
+    }
+  ],
+  "newMemoryStats": {
+    "expected": {
+      "attack": 10,
+      "crit": 4,
+      "critDamage": 24,
+      "move": 3,
+      "regen": 0.3,
+      "health": 29,
+      "reduction": 7,
+      "boss": 8,
+      "nondirection": 28,
+      "action": 11,
+      "normal": 26,
+      "healthy": 10,
+      "choices": 1
+    },
+    "duplicateNotStacked": true,
+    "otherPlayerUnchanged": true
+  },
+  "noParentCardRepeat": [
+    "abydos_ramen_repair",
+    "abydos_missing_senior",
+    "ab68_name_after_bill",
+    "ab68_reply_after_disc"
+  ],
+  "directGoldChoices": 0,
+  "removedGoldChoices": 13,
+  "ciCommands": 15,
+  "monitorRecords": 12,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "eb5b1c89ce1d03c9e14e74d2c0faec84579c927115fbbef0bba1c367f3cca104",
+  "mapCreated": false,
+  "usage": {
+    "used": 43,
+    "remaining": 57
+  },
+  "review": "세 역검토 PASS와 실패 문구 추가 검토 PASS",
+  "completedChoiceHeads": 4,
+  "completedChoiceEvents": 67,
+  "completedChoices": 202,
+  "testCorrection": "직접 기록만 넣던 검사에 기존 호시노 카드 보유 조건을 추가했다. 카드 없이는 제외, 카드 보유 뒤 정확한 자기 기록만 허용한다. 실제 진입 조건과 JASS 코드는 바꾸지 않았다.",
+  "limits": [
+    "정적·JASS변환모의·스크립트컴파일이다. Warcraft·시각·멀티·저장·실전밸런스·재미는 미검증이다."
+  ]
+}

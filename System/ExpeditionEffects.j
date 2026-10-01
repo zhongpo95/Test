@@ -21,13 +21,7 @@ library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, Atta
         local real value = 0.0
         local integer card = PROTO_CARD_FIRST
         if ExpPrototypeActive and ExpMember[pid] then
-            loop
-                exitwhen card > PROTO_CARD_LAST
-                if ExpHasCard(pid, card) and ProtoCardKind[card] == 2 then
-                    set value = value + ProtoCardValue[card] / 100.0
-                endif
-                set card = card + 1
-            endloop
+            return ProtoStat(pid, PROTO_STAT_PENETRATION) / 100.0
         endif
         if ExpHasCard(pid, 7) then
             set value = value + 0.20
@@ -47,23 +41,7 @@ library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, Atta
         local real distance = SquareRoot(dx * dx + dy * dy)
         local integer i = 0
         if ExpPrototypeActive and ExpMember[pid] then
-            set value = ProtoDamageBonus[pid]
-            set i = PROTO_CARD_FIRST
-            loop
-                exitwhen i > PROTO_CARD_LAST
-                if ExpHasCard(pid, i) then
-                    if ProtoCardKind[i] == 1 then
-                        set value = value + ProtoCardValue[i]
-                    elseif ProtoCardKind[i] == 7 then
-                        set value = value + RMinBJ(30.0, ExpGold[pid] * 0.03)
-                    endif
-                    if ProtoEvolved[ExpKey(pid, i)] then
-                        set value = value + 25.0
-                    endif
-                endif
-                set i = i + 1
-            endloop
-            return value
+            return ProtoStat(pid, PROTO_STAT_DAMAGE)
         endif
         if UnitHPMAX[index] > 0 then
             set health = UnitHP[index] / UnitHPMAX[index]
@@ -108,6 +86,24 @@ library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, Atta
         local integer i = 0
         local integer lv
         local boolean directional = (head and HeadTrue(AngleWBW(source, target), GetUnitFacing(target))) or (back and BackTrue(AngleWBW(source, target), GetUnitFacing(target)))
+        if ExpPrototypeActive and ExpMember[pid] then
+            set value = ProtoStat(pid, PROTO_STAT_MOVING) * RMinBJ(1.0, RMaxBJ(0.0, (GetUnitMoveSpeed(source) / 400.0 - 1.0) / 0.40))
+            if directional then
+                set value = value + ProtoStat(pid, PROTO_STAT_DIRECTION)
+            elseif not head and not back then
+                set value = value + ProtoStat(pid, PROTO_STAT_NONDIRECTION)
+            endif
+            if UnitSD[IndexUnit(source)] > 0.0 then
+                set value = value + ProtoStat(pid, PROTO_STAT_SHIELDED)
+            endif
+            if charge then
+                set value = value + ProtoStat(pid, PROTO_STAT_CHARGE_DAMAGE)
+            endif
+            if GetUnitState(source, UNIT_STATE_LIFE) >= GetUnitState(source, UNIT_STATE_MAX_LIFE) * 0.65 then
+                set value = value + ProtoStat(pid, PROTO_STAT_HEALTHY)
+            endif
+            return value
+        endif
         loop
             exitwhen i > 10
             set lv = IMinBJ(3, LoadInteger(ArcanaData, i, pid))
@@ -154,5 +150,15 @@ library ExpeditionEffects requires DataExpedition, DataPrototype, DataUnit, Atta
             set i = i + 1
         endloop
         return value
+    endfunction
+
+    function ProtoTargetDamageRate takes integer pid, integer targetIndex returns real
+        if not ExpEnemy[targetIndex] then
+            return 1.0
+        endif
+        if ExpEnemyBoss[targetIndex] then
+            return RMaxBJ(0.0, 1.0 + ProtoStat(pid, PROTO_STAT_BOSS) / 100.0)
+        endif
+        return RMaxBJ(0.0, 1.0 + ProtoStat(pid, PROTO_STAT_NORMAL) / 100.0)
     endfunction
 endlibrary

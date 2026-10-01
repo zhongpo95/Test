@@ -1,0 +1,272 @@
+{
+  "sourceRevision": "3e1d38e",
+  "scope": "같은 머리·등급의 기본 효과 성분별 비교. 수치가 전부 같거나 높은 카드가 한 축 이상 더 높으면 후보로 잡는다. 서로 다른 효과의 환산·각성 달성 시간·획득 비용은 이 비교만으로 결정하지 않는다.",
+  "pairs": [
+    {
+      "file": "07-zegagrande.json",
+      "head": "zegagrande",
+      "stronger": {
+        "key": "gbf_io",
+        "name": "이오",
+        "effectName": "마법사의 집중",
+        "keyword": "차지 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 8
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "재능 있는 어린 마법사 이오의 역할을 집중·차지 준비로 각색했다.",
+        "uncertain": []
+      },
+      "weaker": {
+        "key": "gbf_io_smile",
+        "name": "이오",
+        "effectName": "다시 해 보자는 웃음",
+        "keyword": "고체력 · 차지 준비",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          },
+          {
+            "stat": "charge_speed",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "사람들에게 미소를 전하려는 작은 마법사의 역할을 좋은 몸 상태에서 힘을 모으는 성장으로 각색했다. 즉시 치유·분위기 수치·새 마법·공연 미니게임은 없다.",
+        "uncertain": []
+      },
+      "access": [
+        {
+          "event": "gbf_broken_focus",
+          "previous": null,
+          "card": "gbf_io",
+          "cost": 190,
+          "level": 0,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "gbf_alchemy_sample",
+          "previous": null,
+          "card": "gbf_io",
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "gbf_io_audience",
+          "previous": null,
+          "card": "gbf_io_smile",
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "chance": 100
+        }
+      ]
+    },
+    {
+      "file": "11-penacony.json",
+      "head": "penacony",
+      "stronger": {
+        "key": "hsr_sparkle",
+        "name": "스파클",
+        "effectName": "다음 막은 누구의 차례",
+        "keyword": "행동 · 치명",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 8
+          },
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "신분과 역할을 바꾸며 재미를 추구하는 가면의 우인이다. 원작 행동 게이지·치명 피해 지원을 공통 능력치로 각색한다.",
+        "uncertain": []
+      },
+      "weaker": {
+        "key": "hsr_sparkle_cut",
+        "name": "스파클",
+        "effectName": "박수 뒤의 한 장면",
+        "keyword": "행동 속도 · 치명타 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          },
+          {
+            "stat": "crit_damage",
+            "value": 14
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "역할을 바꾸며 즐거움을 찾는 연극 대가에게 연출의 흐름과 힘을 실을 순간을 배운다. 실제 변신·행동 게이지·영상 편집 기능은 없다.",
+        "uncertain": []
+      },
+      "access": [
+        {
+          "event": "hsr_after_win",
+          "previous": "hsr_dreamy_slots",
+          "card": "hsr_sparkle",
+          "cost": 220,
+          "level": 0,
+          "density": 1,
+          "chance": 100
+        },
+        {
+          "event": "hsr_masked_stage",
+          "previous": null,
+          "card": "hsr_sparkle",
+          "cost": 200,
+          "level": 1,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "hsr_scene_after_applause",
+          "previous": null,
+          "card": "hsr_sparkle_cut",
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "chance": 75
+        },
+        {
+          "event": "hsr_scene_after_applause",
+          "previous": null,
+          "card": "hsr_sparkle",
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "chance": 100
+        }
+      ]
+    },
+    {
+      "file": "12-amestris.json",
+      "head": "amestris",
+      "stronger": {
+        "key": "fma_hughes_notice",
+        "name": "마스 휴즈",
+        "effectName": "보여 주기 전에 살필 것",
+        "keyword": "사건 후보 · 보스",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "가족을 자랑하면서도 빠르게 상황을 읽고 남을 돕는 역할을 확인할 후보와 강한 상대의 대비로 각색한다. 군의 음모를 밝히거나 휴즈의 운명을 바꾸지 않는다.",
+        "uncertain": []
+      },
+      "weaker": {
+        "key": "fma_sheska",
+        "name": "셰스카",
+        "effectName": "한 권도 빠뜨리지 않는 기억",
+        "keyword": "탐색",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "읽은 책을 정확히 기억하는 능력을 더 많은 사건 후보를 비교하는 성장으로 각색한다. 읽지 않은 책이나 미래를 아는 능력이 아니다.",
+        "uncertain": []
+      },
+      "access": [
+        {
+          "event": "fma_measurement_notes",
+          "previous": "fma_workshop",
+          "card": "fma_sheska",
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "fma_library",
+          "previous": null,
+          "card": "fma_sheska",
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "fma_family_photo",
+          "previous": null,
+          "card": "fma_hughes_notice",
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "chance": 100
+        },
+        {
+          "event": "fma_family_photo",
+          "previous": null,
+          "card": "fma_sheska",
+          "cost": 160,
+          "level": 0,
+          "density": 1,
+          "chance": 100
+        },
+        {
+          "event": "fma_pie_delivery",
+          "previous": null,
+          "card": "fma_hughes_notice",
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "chance": 70
+        }
+      ]
+    }
+  ]
+}

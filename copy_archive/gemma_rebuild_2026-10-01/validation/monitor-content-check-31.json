@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "file": "drafts/mitaka-scenes-text-100-1.json",
+      "recordId": "dc98ddce-0691-474d-b31f-2f0cec228c17",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/mitaka-scenes-text-101-2.json",
+      "recordId": "c78f0450-2c6d-4041-b5a3-35e610d72b35",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/mitaka-scenes-text-101-3.json",
+      "recordId": "b5f3eb76-7208-45c2-9255-895970f8d639",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/mitaka-card-choices-review-102-1.json",
+      "recordId": "1bc02b08-319f-4b49-8ab6-693c447223af",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/mitaka-card-choices-review-102-2.json",
+      "recordId": "240cf1cd-18e8-406c-a576-e38f4af899fe",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/mitaka-card-choices-review-103.json",
+      "recordId": "4df7d35e-eb20-42b3-a215-011bac57c672",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "원문·입력·기록ID·저장성공의대조다. 내용정확성·재미·밸런스·실게임증명과구분한다."
+}

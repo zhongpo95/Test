@@ -1,0 +1,1223 @@
+{
+  "events": 13,
+  "choices": 39,
+  "branchCases": 80,
+  "runs": [
+    {
+      "event": "gbf_airship_crate",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_airship_crate",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_airship_crate",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_airship_crate",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_airship_crate",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_airship_crate",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 880,
+      "level": 1,
+      "density": 3,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 980,
+      "level": 1,
+      "density": 3,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 810,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 910,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_broken_focus",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 790,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 890,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 5,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 5,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 850,
+      "level": 2,
+      "density": 3,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 950,
+      "level": 2,
+      "density": 3,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1000,
+      "level": 1,
+      "density": 4,
+      "ap": 8,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "roll": 70,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "roll": 70,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "roll": 71,
+      "success": false,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 1,
+      "roll": 71,
+      "success": false,
+      "duplicate": true,
+      "gold": 840,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1000,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 790,
+      "level": 1,
+      "density": 4,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 890,
+      "level": 1,
+      "density": 4,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 840,
+      "level": 1,
+      "density": 3,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 940,
+      "level": 1,
+      "density": 3,
+      "ap": 10,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 830,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 930,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 860,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_io_audience",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 960,
+      "level": 1,
+      "density": 4,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4,
+      "ap": 10,
+      "max": 11
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4,
+      "ap": 10,
+      "max": 11
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 3,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5,
+      "ap": 9,
+      "max": 10
+    }
+  ],
+  "gates": [
+    {
+      "event": "gbf_deck_position",
+      "previous": "gbf_airship_crate",
+      "allowedChoice": 1
+    },
+    {
+      "event": "gbf_return_signal",
+      "previous": "gbf_sealed_report",
+      "allowedChoice": 1
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "requiredCard": "gbf_rolan_guide",
+      "personal": true
+    }
+  ],
+  "bounds": [
+    {
+      "event": "gbf_airship_crate",
+      "choice": 3
+    },
+    {
+      "event": "gbf_deck_position",
+      "choice": 3
+    },
+    {
+      "event": "gbf_sealed_report",
+      "choice": 3
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 2
+    },
+    {
+      "event": "gbf_return_signal",
+      "choice": 3
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "choice": 3
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "choice": 3
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "choice": 3
+    },
+    {
+      "event": "gbf_percival_load",
+      "choice": 3
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "choice": 3
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "choice": 2
+    }
+  ],
+  "availability": [
+    {
+      "event": "gbf_airship_crate",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_airship_crate",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_deck_position",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_deck_position",
+      "gold": 1000,
+      "legal": [
+        2,
+        3
+      ]
+    },
+    {
+      "event": "gbf_broken_focus",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_broken_focus",
+      "gold": 1000,
+      "legal": [
+        1
+      ]
+    },
+    {
+      "event": "gbf_sealed_report",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_sealed_report",
+      "gold": 1000,
+      "legal": [
+        2,
+        3
+      ]
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_alchemy_sample",
+      "gold": 1000,
+      "legal": [
+        1
+      ]
+    },
+    {
+      "event": "gbf_return_signal",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_return_signal",
+      "gold": 1000,
+      "legal": [
+        2,
+        3
+      ]
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_rosetta_dates",
+      "gold": 1000,
+      "legal": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_rolan_two_questions",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_lancelot_shift",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_percival_load",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_percival_load",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_yodarha_foot",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_io_audience",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_io_audience",
+      "gold": 1000,
+      "legal": [
+        1,
+        3
+      ]
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "gold": 0,
+      "legal": []
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "gold": 1000,
+      "legal": [
+        1,
+        2
+      ]
+    }
+  ],
+  "newMemoryStats": {
+    "move": 6,
+    "nondirection": 12,
+    "chargeSpeed": 6,
+    "reduction": 8,
+    "crit": 4,
+    "healthy": 10,
+    "boss": 13,
+    "attack": 8,
+    "critDamage": 14,
+    "swift": 180,
+    "health": 8,
+    "penetration": 5,
+    "capacity": 1
+  },
+  "noRepeats": [
+    "gbf_deck_position",
+    "gbf_return_signal",
+    "gbf_rolan_next_request"
+  ],
+  "passed": true,
+  "mapCreated": false,
+  "limits": "실제 JASS의 변환 모의 실행이다. Warcraft·시각·멀티·저장·재미·실전 밸런스는 미검증."
+}

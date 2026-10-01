@@ -1,0 +1,1519 @@
+{
+  "started": "2026-10-01T07:58:03.308Z",
+  "finished": "2026-10-01T07:59:18.235Z",
+  "request": {
+    "system": "한국어로 원작 인물을 활용하는 로그라이트 사건을 작성한다. 공급한 사실만 원작으로 취급하고 플레이어 개입은 새 창작으로 구분한다. 제공된 사건 key, 행동 수와 순서, 행동의 카드·금액·사냥터 변화는 바꾸지 않는다. 수치 시스템을 새로 만들지 않는다. 구체적 문제 상황 2~3문장, 행동 이름 25자 이내, 결과 1~2문장, 소개 1문장으로 쓴다. 모든 결과는 실제 행동에서 자연스럽게 이어져야 한다. 무료 보상 vs 무보상, 제작자에게 하는 질문, 메타 설명, NPC 모든 갈등 해결, 구현되지 않은 후속 보상을 금지한다. 원작 대사를 복사하지 않는다. 적 단계 변화는 남은 사냥의 위험, 적 수 변화는 남은 사냥의 규모에 적용된다고 이해한다. 카드 효과 이름은 캐릭터의 경험을 나타내며 실제 시간정지나 동료소환을 구현하지 않는다. 비용이 있는 행동에는 빌릴 장비나 의뢰비 이유를 쓴다.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "title",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "brief": {
+      "worlds": [
+        {
+          "world": {
+            "key": "aincrad",
+            "name": "아인크라드",
+            "work": "소드 아트 온라인",
+            "intro": "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다.",
+            "effects": [
+              {
+                "stat": "normal_damage_percent",
+                "value": 3
+              }
+            ],
+            "entryCard": "sao_agil",
+            "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+          },
+          "sources": [
+            "https://www.swordart-online.net/character/index2.html",
+            "https://www.aniplex.co.jp/lineup/swordartonline/story/"
+          ],
+          "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+          "cards": [
+            {
+              "key": "sao_agil",
+              "name": "에길",
+              "effectName": "거래의 눈",
+              "keyword": "자원",
+              "grade": 1,
+              "effects": [
+                {
+                  "stat": "kill_gold",
+                  "value": 2
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_kirito",
+              "name": "키리토",
+              "effectName": "빈틈을 잇는 검",
+              "keyword": "행동 · 치명",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "action_speed",
+                  "value": 6
+                },
+                {
+                  "stat": "crit_chance",
+                  "value": 4
+                }
+              ],
+              "evolution": {
+                "kind": 2,
+                "goal": 12000,
+                "effects": [
+                  {
+                    "stat": "boss_damage_percent",
+                    "value": 8
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_asuna",
+              "name": "아스나",
+              "effectName": "섬광의 사선",
+              "keyword": "신속 · 방향",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "swift",
+                  "value": 270
+                },
+                {
+                  "stat": "directional_damage",
+                  "value": 12
+                }
+              ],
+              "evolution": {
+                "kind": 3,
+                "goal": 60,
+                "effects": [
+                  {
+                    "stat": "crit_damage",
+                    "value": 15
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_liz",
+              "name": "리즈벳",
+              "effectName": "가공의 완성도",
+              "keyword": "공격 · 관통",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "attack_percent",
+                  "value": 12
+                },
+                {
+                  "stat": "penetration",
+                  "value": 6
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_silica",
+              "name": "시리카",
+              "effectName": "돌아갈 길의 동료",
+              "keyword": "체력 · 재생",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "max_health_percent",
+                  "value": 8
+                },
+                {
+                  "stat": "regeneration",
+                  "value": 0.6
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_klein",
+              "name": "클라인",
+              "effectName": "함께 맞서는 간격",
+              "keyword": "생존 · 비방향",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "damage_reduction",
+                  "value": 6
+                },
+                {
+                  "stat": "nondirectional_damage",
+                  "value": 10
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_asuna_meal",
+              "name": "아스나",
+              "effectName": "공략 전의 식탁",
+              "keyword": "고체력 · 체력",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "healthy_damage",
+                  "value": 14
+                },
+                {
+                  "stat": "max_health_percent",
+                  "value": 8
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_kirito_scout",
+              "name": "키리토",
+              "effectName": "돌아와 전한 경고",
+              "keyword": "보스 · 관통",
+              "grade": 3,
+              "effects": [
+                {
+                  "stat": "boss_damage_percent",
+                  "value": 16
+                },
+                {
+                  "stat": "penetration",
+                  "value": 10
+                }
+              ],
+              "evolution": {
+                "kind": 2,
+                "goal": 15000,
+                "effects": [
+                  {
+                    "stat": "final_damage_percent",
+                    "value": 5
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            }
+          ],
+          "events": [
+            {
+              "key": "sao_smith_metal",
+              "title": "부러진 시험검",
+              "story": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+              "intro": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+              "choices": [
+                {
+                  "label": "금속 수송 장비 비용을 낸다",
+                  "result": "검토 전.",
+                  "card": "sao_liz",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 220,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "키리토와 위험 구역의 재료를 찾는다",
+                  "result": "검토 전.",
+                  "card": "sao_kirito",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "에길에게 남은 부품을 넘긴다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 220,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_smith_return",
+              "title": "공방으로 돌아온 재료",
+              "story": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+              "intro": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+              "choices": [
+                {
+                  "label": "가공을 돕고 키리토의 검 운용을 관찰한다",
+                  "result": "검토 전.",
+                  "card": "sao_kirito",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "아스나에게 안전한 작업 구역을 부탁한다",
+                  "result": "검토 전.",
+                  "card": "sao_asuna",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 200,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "남은 재료를 정리하고 대금을 받는다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 250,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 1,
+                  "chance": 100
+                }
+              ],
+              "previous": "sao_smith_metal",
+              "previousChoice": 1,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_companion_herb",
+              "title": "작은 동료를 위한 꽃",
+              "story": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+              "intro": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+              "choices": [
+                {
+                  "label": "시리카와 보급을 준비한다",
+                  "result": "검토 전.",
+                  "card": "sao_silica",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 180,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "클라인과 주변 몬스터를 다른 길로 유도한다",
+                  "result": "검토 전.",
+                  "card": "sao_klein",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 2,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "키리토와 위험한 길을 먼저 확인한다",
+                  "result": "검토 전.",
+                  "card": "sao_kirito_scout",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "꽃을 운반할 도구를 맡고 대금을 받는다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 230,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_rabbit_table",
+              "title": "요리할 수 없는 희귀 고기",
+              "story": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+              "intro": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+              "choices": [
+                {
+                  "label": "재료비를 내고 아스나와 식탁을 준비한다",
+                  "result": "검토 전.",
+                  "card": "sao_asuna_meal",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 170,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "에길에게 팔고 골드를 챙긴다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 280,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "클라인과 경계 구역을 나눠 식사를 지킨다",
+                  "result": "검토 전.",
+                  "card": "sao_klein",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_boss_warning",
+              "title": "되돌아온 정찰대",
+              "story": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+              "intro": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+              "choices": [
+                {
+                  "label": "키리토와 위험 구역의 정찰을 이어간다",
+                  "result": "검토 전.",
+                  "card": "sao_kirito_scout",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "아스나와 진입 순서를 정리한다",
+                  "result": "검토 전.",
+                  "card": "sao_asuna",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 220,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "추가 보급 비용을 내고 사냥터를 줄인다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 100,
+                  "level": 0,
+                  "density": -1,
+                  "potions": 2,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "sao_safezone_clue",
+              "title": "안전 구역의 모순",
+              "story": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+              "intro": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+              "choices": [
+                {
+                  "label": "장비를 조사하며 가공 비용을 낸다",
+                  "result": "검토 전.",
+                  "card": "sao_liz",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 160,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "아스나와 목격담을 확인한다",
+                  "result": "검토 전.",
+                  "card": "sao_asuna",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "에길에게 확인된 물품을 맡긴다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 200,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            }
+          ],
+          "facts": [
+            "키리토는 솔로 공략자, 아스나는 혈맹기사단 부단장, 에길은 상인 겸 도끼 전사, 리즈벳은 공방을 운영하는 대장장이다.",
+            "공식 7화에 리즈벳의 시험검이 부러지고 희귀 금속을 찾는다.",
+            "4화에 시리카가 피나를 잃고 소생에 필요한 꽃을 찾아간다.",
+            "8화에서 희귀 래빗 고기를 얻은 키리토가 요리 기술 있는 아스나에게 일부 고기를 대가로 요리를 부탁한다.",
+            "9화에 키리토와 아스나는 보스 방을 정찰하고 위험을 경고한다.",
+            "5~6화 안전 구역 사건은 장비와 증언의 모순을 조사하는 사건이다. 진짜 규칙 파괴·부활 버그로 만들지 않는다."
+          ]
+        },
+        {
+          "world": {
+            "key": "zegagrande",
+            "name": "제타 그랑데",
+            "work": "그랑블루 판타지 리링크",
+            "intro": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 3
+              }
+            ],
+            "entryCard": "gbf_rackam",
+            "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+          },
+          "sources": [
+            "https://relink.granbluefantasy.jp/world/",
+            "https://relink.granbluefantasy.jp/characters/detail?chara=id"
+          ],
+          "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+          "cards": [
+            {
+              "key": "gbf_rackam",
+              "name": "라캄",
+              "effectName": "항로 점검",
+              "keyword": "이동 · 자원",
+              "grade": 1,
+              "effects": [
+                {
+                  "stat": "move_speed",
+                  "value": 3
+                },
+                {
+                  "stat": "kill_gold",
+                  "value": 1
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_katalina",
+              "name": "카타리나",
+              "effectName": "곁을 지키는 검",
+              "keyword": "생존 · 보호막",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "damage_reduction",
+                  "value": 6
+                },
+                {
+                  "stat": "shielded_damage",
+                  "value": 16
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_eugen",
+              "name": "오이겐",
+              "effectName": "숙련된 사격점",
+              "keyword": "차지 · 치명",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "charge_damage",
+                  "value": 16
+                },
+                {
+                  "stat": "crit_damage",
+                  "value": 20
+                }
+              ],
+              "evolution": {
+                "kind": 2,
+                "goal": 12000,
+                "effects": [
+                  {
+                    "stat": "penetration",
+                    "value": 6
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_io",
+              "name": "이오",
+              "effectName": "마법사의 집중",
+              "keyword": "차지 · 고체력",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "charge_speed",
+                  "value": 8
+                },
+                {
+                  "stat": "healthy_damage",
+                  "value": 12
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_narmaya",
+              "name": "나루메아",
+              "effectName": "끝없는 검의 수련",
+              "keyword": "방향 · 치명",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "directional_damage",
+                  "value": 16
+                },
+                {
+                  "stat": "crit_chance",
+                  "value": 4
+                }
+              ],
+              "evolution": {
+                "kind": 1,
+                "goal": 45,
+                "effects": [
+                  {
+                    "stat": "action_speed",
+                    "value": 4
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_vane",
+              "name": "베인",
+              "effectName": "친구가 돌아올 자리",
+              "keyword": "체력 · 생존",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "max_health_percent",
+                  "value": 16
+                },
+                {
+                  "stat": "damage_reduction",
+                  "value": 5
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_zeta",
+              "name": "제타",
+              "effectName": "봉인 무기의 사선",
+              "keyword": "보스 · 관통",
+              "grade": 3,
+              "effects": [
+                {
+                  "stat": "boss_damage_percent",
+                  "value": 16
+                },
+                {
+                  "stat": "penetration",
+                  "value": 8
+                }
+              ],
+              "evolution": {
+                "kind": 2,
+                "goal": 15000,
+                "effects": [
+                  {
+                    "stat": "final_damage_percent",
+                    "value": 5
+                  }
+                ]
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_cagliostro",
+              "name": "칼리오스트로",
+              "effectName": "정밀한 연금 조정",
+              "keyword": "공격 · 재생",
+              "grade": 2,
+              "effects": [
+                {
+                  "stat": "attack_percent",
+                  "value": 10
+                },
+                {
+                  "stat": "regeneration",
+                  "value": 0.6
+                }
+              ],
+              "evolution": {
+                "kind": 0,
+                "goal": 0,
+                "effects": []
+              },
+              "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+              "uncertain": []
+            }
+          ],
+          "events": [
+            {
+              "key": "gbf_airship_crate",
+              "title": "묶이지 않은 화물",
+              "story": "라캄이 다음 항로를 확인하는 동안 화물 하나가 선체에서 미끄러졌다. 지금 묶지 않으면 비행 준비가 늦어진다. 사격 장비와 보급 중 먼저 옮길 것을 정한다.",
+              "intro": "라캄이 다음 항로를 확인하는 동안 화물 하나가 선체에서 미끄러졌다. 지금 묶지 않으면 비행 준비가 늦어진다. 사격 장비와 보급 중 먼저 옮길 것을 정한다.",
+              "choices": [
+                {
+                  "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
+                  "result": "검토 전.",
+                  "card": "gbf_katalina",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 200,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
+                  "result": "검토 전.",
+                  "card": "gbf_eugen",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "보급 화물을 정리하고 수고비를 받는다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 220,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 1,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_deck_position",
+              "title": "확보한 갑판의 자리",
+              "story": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+              "intro": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+              "choices": [
+                {
+                  "label": "오이겐과 사격 위치를 넓힌다",
+                  "result": "검토 전.",
+                  "card": "gbf_eugen",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "칼리오스트로에게 장비 조정을 의뢰한다",
+                  "result": "검토 전.",
+                  "card": "gbf_cagliostro",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 240,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "여분의 통로를 닫고 보급을 회수한다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": -1,
+                  "potions": 2,
+                  "chance": 100
+                }
+              ],
+              "previous": "gbf_airship_crate",
+              "previousChoice": 1,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_broken_focus",
+              "title": "흐트러진 집중",
+              "story": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.",
+              "intro": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.",
+              "choices": [
+                {
+                  "label": "이오와 안전한 준비 장소를 마련한다",
+                  "result": "검토 전.",
+                  "card": "gbf_io",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 190,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "나루메아와 넓은 통로를 맡는다",
+                  "result": "검토 전.",
+                  "card": "gbf_narmaya",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 2,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "베인과 돌아올 길을 지킨다",
+                  "result": "검토 전.",
+                  "card": "gbf_vane",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_sealed_report",
+              "title": "봉인 무기의 조사 기록",
+              "story": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+              "intro": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+              "choices": [
+                {
+                  "label": "제타와 위험 구역의 기록을 확인한다",
+                  "result": "검토 전.",
+                  "card": "gbf_zeta",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+                  "result": "검토 전.",
+                  "card": "gbf_eugen",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 220,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "기록을 전달하고 보급을 준비한다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 230,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 1,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_alchemy_sample",
+              "title": "연금 조정의 견본",
+              "story": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+              "intro": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+              "choices": [
+                {
+                  "label": "검증 비용을 내고 정밀 조정을 받는다",
+                  "result": "검토 전.",
+                  "card": "gbf_cagliostro",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 210,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "이오와 위험한 시험 구역을 맡는다",
+                  "result": "검토 전.",
+                  "card": "gbf_io",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 1,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "나루메아와 여러 견본의 작동을 확인한다",
+                  "result": "검토 전.",
+                  "card": "gbf_narmaya",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "분류 작업을 마치고 대금을 받는다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 230,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 0,
+                  "potions": 0,
+                  "chance": 100
+                }
+              ],
+              "previous": null,
+              "previousChoice": 0,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            },
+            {
+              "key": "gbf_return_signal",
+              "title": "돌아올 자리의 신호",
+              "story": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+              "intro": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+              "choices": [
+                {
+                  "label": "베인과 귀환 통로를 지킨다",
+                  "result": "검토 전.",
+                  "card": "gbf_vane",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 0,
+                  "level": 0,
+                  "density": 1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "라캄의 항로 준비를 돕는다",
+                  "result": "검토 전.",
+                  "card": "gbf_rackam",
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 150,
+                  "level": 0,
+                  "density": -1,
+                  "potions": 0,
+                  "chance": 100
+                },
+                {
+                  "label": "자재를 내고 위험 구역 하나를 닫는다",
+                  "result": "검토 전.",
+                  "card": null,
+                  "card2": null,
+                  "gold": 0,
+                  "cost": 100,
+                  "level": -1,
+                  "density": 0,
+                  "potions": 2,
+                  "chance": 100
+                }
+              ],
+              "previous": "gbf_sealed_report",
+              "previousChoice": 1,
+              "requiredCard": null,
+              "failure": null,
+              "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+              "uncertain": []
+            }
+          ],
+          "facts": [
+            "제타 그랑데 공역이 리링크의 무대다. 특정 마을 명칭은 확인하지 않은 상태이므로 사용하지 않는다.",
+            "라캄은 그랑사이퍼의 조타수, 카타리나는 루리아를 지키는 기사, 오이겐은 숙련된 노병, 이오는 마법사다.",
+            "나루메아는 끊임없이 검을 수련한다. 베인은 동료와 조국을 지키는 기사다.",
+            "제타는 성정수 사냥 조직과 봉인 무기 알베스의 창의 계약자다.",
+            "칼리오스트로는 연금술의 개조이며 자신의 육체를 연성한다. 플레이어가 육체를 바꾸거나 영구 무기를 얻는 기능을 약속하지 않는다."
+          ]
+        }
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "title",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어로 원작 인물을 활용하는 로그라이트 사건을 작성한다. 공급한 사실만 원작으로 취급하고 플레이어 개입은 새 창작으로 구분한다. 제공된 사건 key, 행동 수와 순서, 행동의 카드·금액·사냥터 변화는 바꾸지 않는다. 수치 시스템을 새로 만들지 않는다. 구체적 문제 상황 2~3문장, 행동 이름 25자 이내, 결과 1~2문장, 소개 1문장으로 쓴다. 모든 결과는 실제 행동에서 자연스럽게 이어져야 한다. 무료 보상 vs 무보상, 제작자에게 하는 질문, 메타 설명, NPC 모든 갈등 해결, 구현되지 않은 후속 보상을 금지한다. 원작 대사를 복사하지 않는다. 적 단계 변화는 남은 사냥의 위험, 적 수 변화는 남은 사냥의 규모에 적용된다고 이해한다. 카드 효과 이름은 캐릭터의 경험을 나타내며 실제 시간정지나 동료소환을 구현하지 않는다. 비용이 있는 행동에는 빌릴 장비나 의뢰비 이유를 쓴다."
+      },
+      {
+        "role": "user",
+        "content": "{\"worlds\":[{\"world\":{\"key\":\"aincrad\",\"name\":\"아인크라드\",\"work\":\"소드 아트 온라인\",\"intro\":\"안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다.\",\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":3}],\"entryCard\":\"sao_agil\",\"icon\":\"ReplaceableTextures\\\\CommandButtons\\\\BTNTome.blp\"},\"sources\":[\"https://www.swordart-online.net/character/index2.html\",\"https://www.aniplex.co.jp/lineup/swordartonline/story/\"],\"canonBoundary\":\"인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.\",\"cards\":[{\"key\":\"sao_agil\",\"name\":\"에길\",\"effectName\":\"거래의 눈\",\"keyword\":\"자원\",\"grade\":1,\"effects\":[{\"stat\":\"kill_gold\",\"value\":2}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_kirito\",\"name\":\"키리토\",\"effectName\":\"빈틈을 잇는 검\",\"keyword\":\"행동 · 치명\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":6},{\"stat\":\"crit_chance\",\"value\":4}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":8}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_asuna\",\"name\":\"아스나\",\"effectName\":\"섬광의 사선\",\"keyword\":\"신속 · 방향\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":270},{\"stat\":\"directional_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"crit_damage\",\"value\":15}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_liz\",\"name\":\"리즈벳\",\"effectName\":\"가공의 완성도\",\"keyword\":\"공격 · 관통\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":12},{\"stat\":\"penetration\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_silica\",\"name\":\"시리카\",\"effectName\":\"돌아갈 길의 동료\",\"keyword\":\"체력 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"regeneration\",\"value\":0.6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_klein\",\"name\":\"클라인\",\"effectName\":\"함께 맞서는 간격\",\"keyword\":\"생존 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":6},{\"stat\":\"nondirectional_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_asuna_meal\",\"name\":\"아스나\",\"effectName\":\"공략 전의 식탁\",\"keyword\":\"고체력 · 체력\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":14},{\"stat\":\"max_health_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"sao_kirito_scout\",\"name\":\"키리토\",\"effectName\":\"돌아와 전한 경고\",\"keyword\":\"보스 · 관통\",\"grade\":3,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":16},{\"stat\":\"penetration\",\"value\":10}],\"evolution\":{\"kind\":2,\"goal\":15000,\"effects\":[{\"stat\":\"final_damage_percent\",\"value\":5}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"sao_smith_metal\",\"title\":\"부러진 시험검\",\"story\":\"리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.\",\"intro\":\"리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.\",\"choices\":[{\"label\":\"금속 수송 장비 비용을 낸다\",\"result\":\"검토 전.\",\"card\":\"sao_liz\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"키리토와 위험 구역의 재료를 찾는다\",\"result\":\"검토 전.\",\"card\":\"sao_kirito\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"에길에게 남은 부품을 넘긴다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":220,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"sao_smith_return\",\"title\":\"공방으로 돌아온 재료\",\"story\":\"수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.\",\"intro\":\"수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.\",\"choices\":[{\"label\":\"가공을 돕고 키리토의 검 운용을 관찰한다\",\"result\":\"검토 전.\",\"card\":\"sao_kirito\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"아스나에게 안전한 작업 구역을 부탁한다\",\"result\":\"검토 전.\",\"card\":\"sao_asuna\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"남은 재료를 정리하고 대금을 받는다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":250,\"cost\":0,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"previous\":\"sao_smith_metal\",\"previousChoice\":1,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"sao_companion_herb\",\"title\":\"작은 동료를 위한 꽃\",\"story\":\"시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.\",\"intro\":\"시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.\",\"choices\":[{\"label\":\"시리카와 보급을 준비한다\",\"result\":\"검토 전.\",\"card\":\"sao_silica\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"클라인과 주변 몬스터를 다른 길로 유도한다\",\"result\":\"검토 전.\",\"card\":\"sao_klein\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"키리토와 위험한 길을 먼저 확인한다\",\"result\":\"검토 전.\",\"card\":\"sao_kirito_scout\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"꽃을 운반할 도구를 맡고 대금을 받는다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":230,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"sao_rabbit_table\",\"title\":\"요리할 수 없는 희귀 고기\",\"story\":\"희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.\",\"intro\":\"희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.\",\"choices\":[{\"label\":\"재료비를 내고 아스나와 식탁을 준비한다\",\"result\":\"검토 전.\",\"card\":\"sao_asuna_meal\",\"card2\":null,\"gold\":0,\"cost\":170,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"에길에게 팔고 골드를 챙긴다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":280,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"클라인과 경계 구역을 나눠 식사를 지킨다\",\"result\":\"검토 전.\",\"card\":\"sao_klein\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"sao_boss_warning\",\"title\":\"되돌아온 정찰대\",\"story\":\"보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.\",\"intro\":\"보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.\",\"choices\":[{\"label\":\"키리토와 위험 구역의 정찰을 이어간다\",\"result\":\"검토 전.\",\"card\":\"sao_kirito_scout\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"아스나와 진입 순서를 정리한다\",\"result\":\"검토 전.\",\"card\":\"sao_asuna\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"추가 보급 비용을 내고 사냥터를 줄인다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":100,\"level\":0,\"density\":-1,\"potions\":2,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"sao_safezone_clue\",\"title\":\"안전 구역의 모순\",\"story\":\"안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.\",\"intro\":\"안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.\",\"choices\":[{\"label\":\"장비를 조사하며 가공 비용을 낸다\",\"result\":\"검토 전.\",\"card\":\"sao_liz\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"아스나와 목격담을 확인한다\",\"result\":\"검토 전.\",\"card\":\"sao_asuna\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"에길에게 확인된 물품을 맡긴다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":200,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]}],\"facts\":[\"키리토는 솔로 공략자, 아스나는 혈맹기사단 부단장, 에길은 상인 겸 도끼 전사, 리즈벳은 공방을 운영하는 대장장이다.\",\"공식 7화에 리즈벳의 시험검이 부러지고 희귀 금속을 찾는다.\",\"4화에 시리카가 피나를 잃고 소생에 필요한 꽃을 찾아간다.\",\"8화에서 희귀 래빗 고기를 얻은 키리토가 요리 기술 있는 아스나에게 일부 고기를 대가로 요리를 부탁한다.\",\"9화에 키리토와 아스나는 보스 방을 정찰하고 위험을 경고한다.\",\"5~6화 안전 구역 사건은 장비와 증언의 모순을 조사하는 사건이다. 진짜 규칙 파괴·부활 버그로 만들지 않는다.\"]},{\"world\":{\"key\":\"zegagrande\",\"name\":\"제타 그랑데\",\"work\":\"그랑블루 판타지 리링크\",\"intro\":\"섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.\",\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":3}],\"entryCard\":\"gbf_rackam\",\"icon\":\"ReplaceableTextures\\\\CommandButtons\\\\BTNTome.blp\"},\"sources\":[\"https://relink.granbluefantasy.jp/world/\",\"https://relink.granbluefantasy.jp/characters/detail?chara=id\"],\"canonBoundary\":\"인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.\",\"cards\":[{\"key\":\"gbf_rackam\",\"name\":\"라캄\",\"effectName\":\"항로 점검\",\"keyword\":\"이동 · 자원\",\"grade\":1,\"effects\":[{\"stat\":\"move_speed\",\"value\":3},{\"stat\":\"kill_gold\",\"value\":1}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_katalina\",\"name\":\"카타리나\",\"effectName\":\"곁을 지키는 검\",\"keyword\":\"생존 · 보호막\",\"grade\":2,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":6},{\"stat\":\"shielded_damage\",\"value\":16}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_eugen\",\"name\":\"오이겐\",\"effectName\":\"숙련된 사격점\",\"keyword\":\"차지 · 치명\",\"grade\":2,\"effects\":[{\"stat\":\"charge_damage\",\"value\":16},{\"stat\":\"crit_damage\",\"value\":20}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"penetration\",\"value\":6}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_io\",\"name\":\"이오\",\"effectName\":\"마법사의 집중\",\"keyword\":\"차지 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"charge_speed\",\"value\":8},{\"stat\":\"healthy_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_narmaya\",\"name\":\"나루메아\",\"effectName\":\"끝없는 검의 수련\",\"keyword\":\"방향 · 치명\",\"grade\":2,\"effects\":[{\"stat\":\"directional_damage\",\"value\":16},{\"stat\":\"crit_chance\",\"value\":4}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"action_speed\",\"value\":4}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_vane\",\"name\":\"베인\",\"effectName\":\"친구가 돌아올 자리\",\"keyword\":\"체력 · 생존\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":16},{\"stat\":\"damage_reduction\",\"value\":5}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_zeta\",\"name\":\"제타\",\"effectName\":\"봉인 무기의 사선\",\"keyword\":\"보스 · 관통\",\"grade\":3,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":16},{\"stat\":\"penetration\",\"value\":8}],\"evolution\":{\"kind\":2,\"goal\":15000,\"effects\":[{\"stat\":\"final_damage_percent\",\"value\":5}]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"gbf_cagliostro\",\"name\":\"칼리오스트로\",\"effectName\":\"정밀한 연금 조정\",\"keyword\":\"공격 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":10},{\"stat\":\"regeneration\",\"value\":0.6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"gbf_airship_crate\",\"title\":\"묶이지 않은 화물\",\"story\":\"라캄이 다음 항로를 확인하는 동안 화물 하나가 선체에서 미끄러졌다. 지금 묶지 않으면 비행 준비가 늦어진다. 사격 장비와 보급 중 먼저 옮길 것을 정한다.\",\"intro\":\"라캄이 다음 항로를 확인하는 동안 화물 하나가 선체에서 미끄러졌다. 지금 묶지 않으면 비행 준비가 늦어진다. 사격 장비와 보급 중 먼저 옮길 것을 정한다.\",\"choices\":[{\"label\":\"보수 자재를 사고 카타리나와 화물을 고정한다\",\"result\":\"검토 전.\",\"card\":\"gbf_katalina\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"오이겐과 위험한 갑판에서 사격 장비를 옮긴다\",\"result\":\"검토 전.\",\"card\":\"gbf_eugen\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"보급 화물을 정리하고 수고비를 받는다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":220,\"cost\":0,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"gbf_deck_position\",\"title\":\"확보한 갑판의 자리\",\"story\":\"화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.\",\"intro\":\"화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.\",\"choices\":[{\"label\":\"오이겐과 사격 위치를 넓힌다\",\"result\":\"검토 전.\",\"card\":\"gbf_eugen\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"칼리오스트로에게 장비 조정을 의뢰한다\",\"result\":\"검토 전.\",\"card\":\"gbf_cagliostro\",\"card2\":null,\"gold\":0,\"cost\":240,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"여분의 통로를 닫고 보급을 회수한다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":2,\"chance\":100}],\"previous\":\"gbf_airship_crate\",\"previousChoice\":1,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"gbf_broken_focus\",\"title\":\"흐트러진 집중\",\"story\":\"이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.\",\"intro\":\"이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.\",\"choices\":[{\"label\":\"이오와 안전한 준비 장소를 마련한다\",\"result\":\"검토 전.\",\"card\":\"gbf_io\",\"card2\":null,\"gold\":0,\"cost\":190,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"나루메아와 넓은 통로를 맡는다\",\"result\":\"검토 전.\",\"card\":\"gbf_narmaya\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"베인과 돌아올 길을 지킨다\",\"result\":\"검토 전.\",\"card\":\"gbf_vane\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"gbf_sealed_report\",\"title\":\"봉인 무기의 조사 기록\",\"story\":\"제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.\",\"intro\":\"제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.\",\"choices\":[{\"label\":\"제타와 위험 구역의 기록을 확인한다\",\"result\":\"검토 전.\",\"card\":\"gbf_zeta\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"조사 장비 비용을 내고 오이겐을 돕는다\",\"result\":\"검토 전.\",\"card\":\"gbf_eugen\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"기록을 전달하고 보급을 준비한다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":230,\"cost\":0,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"gbf_alchemy_sample\",\"title\":\"연금 조정의 견본\",\"story\":\"칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.\",\"intro\":\"칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.\",\"choices\":[{\"label\":\"검증 비용을 내고 정밀 조정을 받는다\",\"result\":\"검토 전.\",\"card\":\"gbf_cagliostro\",\"card2\":null,\"gold\":0,\"cost\":210,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"이오와 위험한 시험 구역을 맡는다\",\"result\":\"검토 전.\",\"card\":\"gbf_io\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"나루메아와 여러 견본의 작동을 확인한다\",\"result\":\"검토 전.\",\"card\":\"gbf_narmaya\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"분류 작업을 마치고 대금을 받는다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":230,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]},{\"key\":\"gbf_return_signal\",\"title\":\"돌아올 자리의 신호\",\"story\":\"위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.\",\"intro\":\"위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.\",\"choices\":[{\"label\":\"베인과 귀환 통로를 지킨다\",\"result\":\"검토 전.\",\"card\":\"gbf_vane\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"라캄의 항로 준비를 돕는다\",\"result\":\"검토 전.\",\"card\":\"gbf_rackam\",\"card2\":null,\"gold\":0,\"cost\":150,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100},{\"label\":\"자재를 내고 위험 구역 하나를 닫는다\",\"result\":\"검토 전.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":100,\"level\":-1,\"density\":0,\"potions\":2,\"chance\":100}],\"previous\":\"gbf_sealed_report\",\"previousChoice\":1,\"requiredCard\":null,\"failure\":null,\"canonFact\":\"확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.\",\"uncertain\":[]}],\"facts\":[\"제타 그랑데 공역이 리링크의 무대다. 특정 마을 명칭은 확인하지 않은 상태이므로 사용하지 않는다.\",\"라캄은 그랑사이퍼의 조타수, 카타리나는 루리아를 지키는 기사, 오이겐은 숙련된 노병, 이오는 마법사다.\",\"나루메아는 끊임없이 검을 수련한다. 베인은 동료와 조국을 지키는 기사다.\",\"제타는 성정수 사냥 조직과 봉인 무기 알베스의 창의 계약자다.\",\"칼리오스트로는 연금술의 개조이며 자신의 육체를 연성한다. 플레이어가 육체를 바꾸거나 영구 무기를 얻는 기능을 약속하지 않는다.\"]}]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T07:59:18.2304998Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"events\": [\n    {\n      \"key\": \"sao_smith_metal\",\n      \"title\": \"부러진 시험검\",\n      \"story\": \"리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.\",\n      \"intro\": \"리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.\",\n      \"choices\": [\n        {\n          \"label\": \"금속 수송 장비 비용을 낸다\",\n          \"result\": \"수송용 특수 케이스를 확보했다. 리즈벳이 안전한 운송을 위해 필요한 장비를 준비한다. 카드: 리즈벳(가공의 완성도) 획득. [금액: 220 소모]\"\n        },\n        {\n          \"label\": \"키리토와 위험 구역의 재료를 찾는다\",\n          \"result\": \"키리토의 빠른 기동성을 빌려 험난한 지형을 돌파한다. 위험을 무릅쓰고 희귀 재료를 채굴한다. 카드: 키리토(빈틈을 잇는 검) 획득.\"\n        },\n        {\n          \"label\": \"에길에게 남은 부품을 넘긴다\",\n          \"result\": \"쓸모없어진 파편을 에길에게 매각한다. 상인인 그는 이를 가치 있게 평가하며 보상을 건넨다. 카드: 없음. [골드: 220 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"sao_smith_return\",\n      \"title\": \"공방으로 돌아온 재료\",\n      \"story\": \"수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.\",\n      \"intro\": \"수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.\",\n      \"choices\": [\n        {\n          \"label\": \"가공을 돕고 키리토의 검 운용을 관찰한다\",\n          \"result\": \"리즈벳의 손놀림을 돕는 동시에 키리토의 검술을 분석한다. 실전에서 유용한 검술의 궤적을 익힌다. 카드: 키리토(빈틈을 잇는 검) 획득.\"\n        },\n        {\n          \"label\": \"아스나에게 안전한 작업 구역을 부탁한다\",\n          \"result\": \"아스나에게 주변 경계와 안전 확보를 요청한다. 그녀의 지휘 아래 안정적인 작업 환경을 구축한다. 카드: 아스나(섬광의 사선) 획득. [금액: 200 소모]\"\n        },\n        {\n          \"label\": \"남은 재료를 정리하고 대금을 받는다\",\n          \"result\": \"정리된 재료를 최종 검수하고 의뢰비를 수령한다. 깔끔한 뒷정리로 정당한 보상을 얻는다. 카드: 없음. [골드: 250 획득, 포션: 1 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"sao_companion_herb\",\n      \"title\": \"작은 동료를 위한 꽃\",\n      \"story\": \"시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.\",\n      \"intro\": \"시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.\",\n      \"choices\": [\n        {\n          \"label\": \"시리카와 보급을 준비한다\",\n          \"result\": \"시리카와 함께 필요한 물자를 챙기며 이동한다. 그녀의 꼼꼼한 보급 준비로 기반을 다진다. 카드: 시리카(돌아갈 길의 동료) 획득. [금액: 180 소모]\"\n        },\n        {\n          \"label\": \"클라인과 주변 몬스터를 다른 길로 유도한다\",\n          \"result\": \"클라인의 전술을 활용해 적의 시선을 분산시킨다. 동료들이 안전하게 이동할 수 있는 경로를 확보한다. 카드: 클라인(함께 맞서는 간격) 획득.\"\n        },\n        {\n          \"label\": \"키리토와 위험한 길을 먼저 확인한다\",\n          \"result\": \"키리토에게 앞장서서 길을 개척해달라고 요청한다. 그의 정찰을 통해 안전한 경로를 확보한다. 카드: 키리토(돌아와 전한 경고) 획득.\"\n        },\n        {\n          \"label\": \"꽃을 운반할 도구를 맡고 대금을 받는다\",\n          \"result\": \"운반용 수레를 제작하여 대여한다. 효율적인 운반 시스템을 구축하고 수고비를 받는다. 카드: 없음. [골드: 230 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"sao_rabbit_table\",\n      \"title\": \"요리할 수 없는 희귀 고기\",\n      \"story\": \"희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.\",\n      \"intro\": \"희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.\",\n      \"choices\": [\n        {\n          \"label\": \"재료비를 내고 아스나와 식탁을 준비한다\",\n          \"result\": \"아스나에게 재료비를 일부 건네며 요리를 부탁한다. 그녀의 손맛으로 든든한 식사를 준비한다. 카드: 아스나(공략 전의 식탁) 획득. [금액: 170 소모]\"\n        },\n        {\n          \"label\": \"에길에게 팔고 골드를 챙긴다\",\n          \"result\": \"고기를 상인 에길에게 넘겨 현금화한다. 식사는 포기하지만 즉각적인 자금을 확보한다. 카드: 없음. [골드: 280 획득]\"\n        },\n        {\n          \"label\": \"클라인과 경계 구역을 나눠 식사를 지킨다\",\n          \"result\": \"클라인과 역할을 나누어 식사 시간을 확보한다. 경계를 유지하며 안전하게 식사를 마친다. 카드: 클라인(함께 맞서는 간격) 획득.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"sao_boss_warning\",\n      \"title\": \"되돌아온 정찰대\",\n      \"story\": \"보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.\",\n      \"intro\": \"보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.\",\n      \"choices\": [\n        {\n          \"label\": \"키리토와 위험 구역의 정찰을 이어간다\",\n          \"result\": \"키리토와 함께 보스 방 주변을 더 상세히 조사한다. 정확한 위치와 적의 배치를 파악한다. 카드: 키리토(돌아와 전한 경고) 획득.\"\n        },\n        {\n          \"label\": \"아스나와 진입 순서를 정리한다\",\n          \"result\": \"아스나의 지휘 아래 효율적인 진입 동선을 짠다. 체계적인 계획으로 초기 피해를 줄인다. 카드: 아스나(섬광의 사선) 획득. [금액: 220 소모]\"\n        },\n        {\n          \"label\": \"추가 보급 비용을 내고 사냥터를 줄인다\",\n          \"result\": \"추가 자원을 투입해 사냥 범위를 좁힌다. 집중적인 화력을 쏟아부을 수 있는 환경을 만든다. 카드: 없음. [포션: 2 획득, 밀도: -1]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"sao_safezone_clue\",\n      \"title\": \"안전 구역의 모순\",\n      \"story\": \"안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.\",\n      \"intro\": \"안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.\",\n      \"choices\": [\n        {\n          \"label\": \"장비를 조사하며 가공 비용을 낸다\",\n          \"result\": \"의심스러운 장비의 제작 공정을 정밀 조사한다. 리즈벳의 기술을 빌려 조작 여부를 확인한다. 카드: 리즈벳(가공의 완성도) 획득. [금액: 160 소모]\"\n        },\n        {\n          \"label\": \"아스나와 목격담을 확인한다\",\n          \"result\": \"아스나와 함께 현장을 돌며 목격자들을 대조한다. 엇갈리는 증언 사이의 모순을 찾아낸다. 카드: 아스나(섬광의 사선) 획득.\"\n        },\n        {\n          \"label\": \"에길에게 확인된 물품을 맡긴다\",\n          \"result\": \"확보한 증거 물품을 상인 에길에게 전달한다. 그는 물품을 매각하며 정보를 공유해준다. 카드: 없음. [골드: 200 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"zegagrande\",\n      \"title\": \"제타 그랑데\",\n      \"story\": \"섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.\",\n      \"intro\": \"섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.\",\n      \"choices\": [\n        {\n          \"label\": \"보수 자재를 사고 카타리나와 화물을 고정한다\",\n          \"result\": \"카타리나와 협력하여 헐거워진 화물을 고정한다. 선체의 안정성을 확보하기 위한 보수 작업을 마친다. 카드: 카타리나(곁을 지키는 검) 획득. [금액: 200 소모]\"\n        },\n        {\n          \"label\": \"오이겐과 위험한 갑판에서 사격 장비를 옮긴다\",\n          \"result\": \"오이겐의 노련한 움직임으로 무거운 장비를 운반한다. 사격에 최적화된 위치로 장비를 배치한다. 카드: 오이겐(숙련된 사격점) 획득.\"\n        },\n        {\n          \"label\": \"보급 화물을 정리하고 수고비를 받는다\",\n          \"result\": \"적재된 보급품을 질서 있게 정리한다. 정리된 물량에 비례하여 수고비를 받는다. 카드: 없음. [골드: 220 획득, 포션: 1 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"gbf_deck_position\",\n      \"title\": \"확보한 갑판의 자리\",\n      \"story\": \"화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.\",\n      \"intro\": \"화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.\",\n      \"choices\": [\n        {\n          \"label\": \"오이겐과 사격 위치를 넓힌다\",\n          \"result\": \"오이겐과 협력하여 사격 범위를 확장한다. 더 넓은 각도에서 적을 타격할 수 있는 위치를 잡는다. 카드: 오이겐(숙련된 사격점) 획득.\"\n        },\n        {\n          \"label\": \"칼리오스트로에게 장비 조정을 의뢰한다\",\n          \"result\": \"칼리오스트로에게 정밀한 장비 조정을 요청한다. 연금술적 기술로 사격의 정확도를 높인다. 카드: 칼리오스트로(정밀한 연금 조정) 획득. [금액: 240 소모]\"\n        },\n        {\n          \"label\": \"여분의 통로를 닫고 보급을 회수한다\",\n          \"result\": \"불필요한 통로를 차단하여 방어력을 높인다. 동시에 남은 보급품을 안전하게 회수한다. 카드: 없음. [밀도: -1, 포션: 2 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"gbf_broken_focus\",\n      \"title\": \"흐트러진 집중\",\n      \"story\": \"이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.\",\n      \"intro\": \"이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.\",\n      \"choices\": [\n        {\n          \"label\": \"이오와 안전한 준비 장소를 마련한다\",\n          \"result\": \"이오의 마법이 안정적으로 발동하도록 방어적인 위치를 잡는다. 집중된 마력을 효율적으로 방어에 쓴다. 카드: 이오(마법사의 집중) 획득. [금액: 190 소모]\"\n        },\n        {\n          \"label\": \"나루메아와 넓은 통로를 맡는다\",\n          \"result\": \"나루메아와 함께 넓은 구역을 담당한다. 검술을 활용해 광범위한 적의 접근을 차단한다. 카드: 나루메아(끝없는 검의 수련) 획득.\"\n        },\n        {\n          \"label\": \"베인과 돌아올 길을 지킨다\",\n          \"result\": \"베인과 협력하여 퇴각 경로를 확보한다. 동료들이 안전하게 돌아올 수 있는 길을 수호한다. 카드: 베인(친구가 돌아올 자리) 획득.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"gbf_sealed_report\",\n      \"title\": \"봉인 무기의 조사 기록\",\n      \"story\": \"제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.\",\n      \"intro\": \"제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.\",\n      \"choices\": [\n        {\n          \"label\": \"제타와 위험 구역의 기록을 확인한다\",\n          \"result\": \"제타와 함께 위험 구역의 기록을 대조한다. 봉인 무기의 위험성에 대한 정확한 정보를 수집한다. 카드: 제타(봉인 무기의 사선) 획득.\"\n        },\n        {\n          \"label\": \"조사 장비 비용을 내고 오이겐을 돕는다\",\n          \"result\": \"오이겐이 사용할 특수 장비를 지원한다. 노련한 그의 경험과 장비가 시너지를 낸다. 카드: 오이겐(숙련된 사격점) 획득. [금액: 220 소모]\"\n        },\n        {\n          \"label\": \"기록을 전달하고 보급을 준비한다\",\n          \"result\": \"조사된 기록을 정리하여 전달한다. 동시에 필요한 보급품을 확보한다. 카드: 없음. [골드: 230 획득, 포션: 1 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"gbf_alchemy_sample\",\n      \"title\": \"연금 조정의 견본\",\n      \"story\": \"칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.\",\n      \"intro\": \"칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.\",\n      \"choices\": [\n        {\n          \"label\": \"검증 비용을 내고 정밀 조정을 받는다\",\n          \"result\": \"칼리오스트로에게 비용을 지불하고 정밀 조정을 의뢰한다. 연금술적 기술로 장비의 성능을 극대화한다. 카드: 칼리오스트로(정밀한 연금 조정) 획득. [금액: 210 소모]\"\n        },\n        {\n          \"label\": \"이오와 위험한 시험 구역을 맡는다\",\n          \"result\": \"이오와 함께 직접 견본을 테스트한다. 위험을 감수하며 실전적인 데이터들을 수집한다. 카드: 이오(마법사의 집중) 획득.\"\n        },\n        {\n          \"label\": \"나루메아와 여러 견본의 작동을 확인한다\",\n          \"result\": \"나루메아와 함께 여러 견본의 물리적 작동을 확인한다. 검술적 관점에서 장비의 안정성을 체크한다. 카드: 나루메아(끝없는 검의 수련) 획득.\"\n        },\n        {\n          \"label\": \"분류 작업을 마치고 대금을 받는다\",\n          \"result\": \"섞여 있는 견본들을 꼼꼼하게 분류한다. 단순하지만 중요한 기초 작업을 완수하고 보상을 받는다. 카드: 없음. [골드: 230 획득]\"\n        }\n      ]\n    },\n    {\n      \"key\": \"gbf_return_signal\",\n      \"title\": \"돌아올 자리의 신호\",\n      \"story\": \"위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.\",\n      \"intro\": \"위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.\",\n      \"choices\": [\n        {\n          \"label\": \"베인과 귀환 통로를 지킨다\",\n          \"result\": \"베인과 협력하여 귀환 통로를 수호한다. 동료들이 안전하게 복귀할 수 있는 방패가 된다. 카드: 베인(친구가 돌아올 자리) 획득.\"\n        },\n        {\n          \"label\": \"라캄의 항로 준비를 돕는다\",\n          \"result\": \"라캄의 항로 조정을 돕고 신호를 보낸다. 기공단의 원활한 이동을 위해 기초를 다진다. 카드: 없음. [금액: 150 소모, 밀도: -1]\"\n        },\n        {\n          \"label\": \"자재를 내고 위험 구역 하나를 닫는다\",\n          \"result\": \"자재를 사용하여 위험 구역의 입구를 봉쇄한다. 적의 접근을 차단하고 안전을 확보한다. 카드: 없음. [금액: 100 소모, 밀도: -1, 포션: 2 획득]\"\n        }\n      ]\n    }\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 74900313600,
+    "load_duration": 3604900,
+    "prompt_eval_count": 7359,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 2892736000,
+    "eval_count": 4914,
+    "eval_duration": 71697314000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "sao_smith_metal",
+        "title": "부러진 시험검",
+        "story": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+        "intro": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+        "choices": [
+          {
+            "label": "금속 수송 장비 비용을 낸다",
+            "result": "수송용 특수 케이스를 확보했다. 리즈벳이 안전한 운송을 위해 필요한 장비를 준비한다. 카드: 리즈벳(가공의 완성도) 획득. [금액: 220 소모]"
+          },
+          {
+            "label": "키리토와 위험 구역의 재료를 찾는다",
+            "result": "키리토의 빠른 기동성을 빌려 험난한 지형을 돌파한다. 위험을 무릅쓰고 희귀 재료를 채굴한다. 카드: 키리토(빈틈을 잇는 검) 획득."
+          },
+          {
+            "label": "에길에게 남은 부품을 넘긴다",
+            "result": "쓸모없어진 파편을 에길에게 매각한다. 상인인 그는 이를 가치 있게 평가하며 보상을 건넨다. 카드: 없음. [골드: 220 획득]"
+          }
+        ]
+      },
+      {
+        "key": "sao_smith_return",
+        "title": "공방으로 돌아온 재료",
+        "story": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+        "intro": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+        "choices": [
+          {
+            "label": "가공을 돕고 키리토의 검 운용을 관찰한다",
+            "result": "리즈벳의 손놀림을 돕는 동시에 키리토의 검술을 분석한다. 실전에서 유용한 검술의 궤적을 익힌다. 카드: 키리토(빈틈을 잇는 검) 획득."
+          },
+          {
+            "label": "아스나에게 안전한 작업 구역을 부탁한다",
+            "result": "아스나에게 주변 경계와 안전 확보를 요청한다. 그녀의 지휘 아래 안정적인 작업 환경을 구축한다. 카드: 아스나(섬광의 사선) 획득. [금액: 200 소모]"
+          },
+          {
+            "label": "남은 재료를 정리하고 대금을 받는다",
+            "result": "정리된 재료를 최종 검수하고 의뢰비를 수령한다. 깔끔한 뒷정리로 정당한 보상을 얻는다. 카드: 없음. [골드: 250 획득, 포션: 1 획득]"
+          }
+        ]
+      },
+      {
+        "key": "sao_companion_herb",
+        "title": "작은 동료를 위한 꽃",
+        "story": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+        "intro": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 당신이 얻는 카드는 원작 동료를 실제 소환하지 않는다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+        "choices": [
+          {
+            "label": "시리카와 보급을 준비한다",
+            "result": "시리카와 함께 필요한 물자를 챙기며 이동한다. 그녀의 꼼꼼한 보급 준비로 기반을 다진다. 카드: 시리카(돌아갈 길의 동료) 획득. [금액: 180 소모]"
+          },
+          {
+            "label": "클라인과 주변 몬스터를 다른 길로 유도한다",
+            "result": "클라인의 전술을 활용해 적의 시선을 분산시킨다. 동료들이 안전하게 이동할 수 있는 경로를 확보한다. 카드: 클라인(함께 맞서는 간격) 획득."
+          },
+          {
+            "label": "키리토와 위험한 길을 먼저 확인한다",
+            "result": "키리토에게 앞장서서 길을 개척해달라고 요청한다. 그의 정찰을 통해 안전한 경로를 확보한다. 카드: 키리토(돌아와 전한 경고) 획득."
+          },
+          {
+            "label": "꽃을 운반할 도구를 맡고 대금을 받는다",
+            "result": "운반용 수레를 제작하여 대여한다. 효율적인 운반 시스템을 구축하고 수고비를 받는다. 카드: 없음. [골드: 230 획득]"
+          }
+        ]
+      },
+      {
+        "key": "sao_rabbit_table",
+        "title": "요리할 수 없는 희귀 고기",
+        "story": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+        "intro": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+        "choices": [
+          {
+            "label": "재료비를 내고 아스나와 식탁을 준비한다",
+            "result": "아스나에게 재료비를 일부 건네며 요리를 부탁한다. 그녀의 손맛으로 든든한 식사를 준비한다. 카드: 아스나(공략 전의 식탁) 획득. [금액: 170 소모]"
+          },
+          {
+            "label": "에길에게 팔고 골드를 챙긴다",
+            "result": "고기를 상인 에길에게 넘겨 현금화한다. 식사는 포기하지만 즉각적인 자금을 확보한다. 카드: 없음. [골드: 280 획득]"
+          },
+          {
+            "label": "클라인과 경계 구역을 나눠 식사를 지킨다",
+            "result": "클라인과 역할을 나누어 식사 시간을 확보한다. 경계를 유지하며 안전하게 식사를 마친다. 카드: 클라인(함께 맞서는 간격) 획득."
+          }
+        ]
+      },
+      {
+        "key": "sao_boss_warning",
+        "title": "되돌아온 정찰대",
+        "story": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+        "intro": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+        "choices": [
+          {
+            "label": "키리토와 위험 구역의 정찰을 이어간다",
+            "result": "키리토와 함께 보스 방 주변을 더 상세히 조사한다. 정확한 위치와 적의 배치를 파악한다. 카드: 키리토(돌아와 전한 경고) 획득."
+          },
+          {
+            "label": "아스나와 진입 순서를 정리한다",
+            "result": "아스나의 지휘 아래 효율적인 진입 동선을 짠다. 체계적인 계획으로 초기 피해를 줄인다. 카드: 아스나(섬광의 사선) 획득. [금액: 220 소모]"
+          },
+          {
+            "label": "추가 보급 비용을 내고 사냥터를 줄인다",
+            "result": "추가 자원을 투입해 사냥 범위를 좁힌다. 집중적인 화력을 쏟아부을 수 있는 환경을 만든다. 카드: 없음. [포션: 2 획득, 밀도: -1]"
+          }
+        ]
+      },
+      {
+        "key": "sao_safezone_clue",
+        "title": "안전 구역의 모순",
+        "story": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+        "intro": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+        "choices": [
+          {
+            "label": "장비를 조사하며 가공 비용을 낸다",
+            "result": "의심스러운 장비의 제작 공정을 정밀 조사한다. 리즈벳의 기술을 빌려 조작 여부를 확인한다. 카드: 리즈벳(가공의 완성도) 획득. [금액: 160 소모]"
+          },
+          {
+            "label": "아스나와 목격담을 확인한다",
+            "result": "아스나와 함께 현장을 돌며 목격자들을 대조한다. 엇갈리는 증언 사이의 모순을 찾아낸다. 카드: 아스나(섬광의 사선) 획득."
+          },
+          {
+            "label": "에길에게 확인된 물품을 맡긴다",
+            "result": "확보한 증거 물품을 상인 에길에게 전달한다. 그는 물품을 매각하며 정보를 공유해준다. 카드: 없음. [골드: 200 획득]"
+          }
+        ]
+      },
+      {
+        "key": "zegagrande",
+        "title": "제타 그랑데",
+        "story": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+        "intro": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+        "choices": [
+          {
+            "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
+            "result": "카타리나와 협력하여 헐거워진 화물을 고정한다. 선체의 안정성을 확보하기 위한 보수 작업을 마친다. 카드: 카타리나(곁을 지키는 검) 획득. [금액: 200 소모]"
+          },
+          {
+            "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
+            "result": "오이겐의 노련한 움직임으로 무거운 장비를 운반한다. 사격에 최적화된 위치로 장비를 배치한다. 카드: 오이겐(숙련된 사격점) 획득."
+          },
+          {
+            "label": "보급 화물을 정리하고 수고비를 받는다",
+            "result": "적재된 보급품을 질서 있게 정리한다. 정리된 물량에 비례하여 수고비를 받는다. 카드: 없음. [골드: 220 획득, 포션: 1 획득]"
+          }
+        ]
+      },
+      {
+        "key": "gbf_deck_position",
+        "title": "확보한 갑판의 자리",
+        "story": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+        "intro": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+        "choices": [
+          {
+            "label": "오이겐과 사격 위치를 넓힌다",
+            "result": "오이겐과 협력하여 사격 범위를 확장한다. 더 넓은 각도에서 적을 타격할 수 있는 위치를 잡는다. 카드: 오이겐(숙련된 사격점) 획득."
+          },
+          {
+            "label": "칼리오스트로에게 장비 조정을 의뢰한다",
+            "result": "칼리오스트로에게 정밀한 장비 조정을 요청한다. 연금술적 기술로 사격의 정확도를 높인다. 카드: 칼리오스트로(정밀한 연금 조정) 획득. [금액: 240 소모]"
+          },
+          {
+            "label": "여분의 통로를 닫고 보급을 회수한다",
+            "result": "불필요한 통로를 차단하여 방어력을 높인다. 동시에 남은 보급품을 안전하게 회수한다. 카드: 없음. [밀도: -1, 포션: 2 획득]"
+          }
+        ]
+      },
+      {
+        "key": "gbf_broken_focus",
+        "title": "흐트러진 집중",
+        "story": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.",
+        "intro": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 실제 원작 스킬을 새로 얻는 것은 아니다.",
+        "choices": [
+          {
+            "label": "이오와 안전한 준비 장소를 마련한다",
+            "result": "이오의 마법이 안정적으로 발동하도록 방어적인 위치를 잡는다. 집중된 마력을 효율적으로 방어에 쓴다. 카드: 이오(마법사의 집중) 획득. [금액: 190 소모]"
+          },
+          {
+            "label": "나루메아와 넓은 통로를 맡는다",
+            "result": "나루메아와 함께 넓은 구역을 담당한다. 검술을 활용해 광범위한 적의 접근을 차단한다. 카드: 나루메아(끝없는 검의 수련) 획득."
+          },
+          {
+            "label": "베인과 돌아올 길을 지킨다",
+            "result": "베인과 협력하여 퇴각 경로를 확보한다. 동료들이 안전하게 돌아올 수 있는 길을 수호한다. 카드: 베인(친구가 돌아올 자리) 획득."
+          }
+        ]
+      },
+      {
+        "key": "gbf_sealed_report",
+        "title": "봉인 무기의 조사 기록",
+        "story": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+        "intro": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+        "choices": [
+          {
+            "label": "제타와 위험 구역의 기록을 확인한다",
+            "result": "제타와 함께 위험 구역의 기록을 대조한다. 봉인 무기의 위험성에 대한 정확한 정보를 수집한다. 카드: 제타(봉인 무기의 사선) 획득."
+          },
+          {
+            "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+            "result": "오이겐이 사용할 특수 장비를 지원한다. 노련한 그의 경험과 장비가 시너지를 낸다. 카드: 오이겐(숙련된 사격점) 획득. [금액: 220 소모]"
+          },
+          {
+            "label": "기록을 전달하고 보급을 준비한다",
+            "result": "조사된 기록을 정리하여 전달한다. 동시에 필요한 보급품을 확보한다. 카드: 없음. [골드: 230 획득, 포션: 1 획득]"
+          }
+        ]
+      },
+      {
+        "key": "gbf_alchemy_sample",
+        "title": "연금 조정의 견본",
+        "story": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+        "intro": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+        "choices": [
+          {
+            "label": "검증 비용을 내고 정밀 조정을 받는다",
+            "result": "칼리오스트로에게 비용을 지불하고 정밀 조정을 의뢰한다. 연금술적 기술로 장비의 성능을 극대화한다. 카드: 칼리오스트로(정밀한 연금 조정) 획득. [금액: 210 소모]"
+          },
+          {
+            "label": "이오와 위험한 시험 구역을 맡는다",
+            "result": "이오와 함께 직접 견본을 테스트한다. 위험을 감수하며 실전적인 데이터들을 수집한다. 카드: 이오(마법사의 집중) 획득."
+          },
+          {
+            "label": "나루메아와 여러 견본의 작동을 확인한다",
+            "result": "나루메아와 함께 여러 견본의 물리적 작동을 확인한다. 검술적 관점에서 장비의 안정성을 체크한다. 카드: 나루메아(끝없는 검의 수련) 획득."
+          },
+          {
+            "label": "분류 작업을 마치고 대금을 받는다",
+            "result": "섞여 있는 견본들을 꼼꼼하게 분류한다. 단순하지만 중요한 기초 작업을 완수하고 보상을 받는다. 카드: 없음. [골드: 230 획득]"
+          }
+        ]
+      },
+      {
+        "key": "gbf_return_signal",
+        "title": "돌아올 자리의 신호",
+        "story": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+        "intro": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+        "choices": [
+          {
+            "label": "베인과 귀환 통로를 지킨다",
+            "result": "베인과 협력하여 귀환 통로를 수호한다. 동료들이 안전하게 복귀할 수 있는 방패가 된다. 카드: 베인(친구가 돌아올 자리) 획득."
+          },
+          {
+            "label": "라캄의 항로 준비를 돕는다",
+            "result": "라캄의 항로 조정을 돕고 신호를 보낸다. 기공단의 원활한 이동을 위해 기초를 다진다. 카드: 없음. [금액: 150 소모, 밀도: -1]"
+          },
+          {
+            "label": "자재를 내고 위험 구역 하나를 닫는다",
+            "result": "자재를 사용하여 위험 구역의 입구를 봉쇄한다. 적의 접근을 차단하고 안전을 확보한다. 카드: 없음. [금액: 100 소모, 밀도: -1, 포션: 2 획득]"
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null
+}

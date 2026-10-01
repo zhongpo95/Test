@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-01T11:21:34.921Z",
+  "counts": {
+    "heads": 10,
+    "cards": 95,
+    "events": 78,
+    "followups": 31
+  },
+  "checks": [
+    {
+      "name": "check-content-rebuild.cjs",
+      "exit": 0,
+      "groups": 19
+    },
+    {
+      "name": "check-card-stats.cjs",
+      "exit": 0,
+      "groups": 8
+    },
+    {
+      "name": "generate-prototype-content.cjs --check",
+      "exit": 0
+    },
+    {
+      "name": "generate-content-review.cjs --check",
+      "exit": 0
+    },
+    {
+      "name": "git diff --check -- content tools Data md",
+      "exit": 0
+    }
+  ],
+  "repairedTest": {
+    "file": "tools/check-content-rebuild.cjs",
+    "line": 188,
+    "firstExit": 1,
+    "reason": "비용과 필드 변화가 함께 있는 선택의 실제 문구는 실패해도 비용과 사냥터 변화는 적용입니다. 비용만 있는 선택의 문구를 기대했던 테스트를 실제 분기에 맞게 수정했습니다. 런타임 코드를 변경한 것은 아닙니다."
+  },
+  "compile": "compile-09.json",
+  "scope": "실제 JASS 함수를 mock native로 실행한 검사와 소스 정적 검사. Warcraft·멀티플레이·UI 렌더링·서버 저장·재미·실제 성능은 미검증.",
+  "mapCreated": false
+}

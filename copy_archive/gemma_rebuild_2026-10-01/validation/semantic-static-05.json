@@ -1,0 +1,39 @@
+{
+  "recorded": "2026-10-01T10:48:50.586Z",
+  "scope": "7개 지역 사건 문장 대조",
+  "events": 21,
+  "choices": 27,
+  "changedFields": 32,
+  "mechanicsUnchanged": true,
+  "checks": [
+    {
+      "command": "node tools/check-content-rebuild.cjs",
+      "exit": 0,
+      "groups": 17,
+      "mode": "JASS mock"
+    },
+    {
+      "command": "node tools/check-card-stats.cjs",
+      "exit": 0,
+      "groups": 8,
+      "mode": "JASS mock"
+    },
+    {
+      "command": "node tools/generate-prototype-content.cjs --check",
+      "exit": 0
+    },
+    {
+      "command": "node tools/generate-content-review.cjs --check",
+      "exit": 0
+    },
+    {
+      "command": "git diff --check -- Data content md tools System",
+      "exit": 0
+    }
+  ],
+  "compileReport": "compile-08.json",
+  "runtimePerformed": false,
+  "visualPerformed": false,
+  "mapCreated": false,
+  "limits": "모형 편집 대조는 원작·재미·밸런스의 독립 검증이 아니다. 원문 보관 자료는 바이트를 유지한다."
+}

@@ -1,0 +1,12 @@
+{
+  "recordId": "5213df86-4b7b-4c2d-bb1b-a899a41e7aa0",
+  "status": "error",
+  "error": "모델 서버 오류 (500). 실행 로그를 확인해 주세요.",
+  "startedAt": "2026-10-01T16:46:41.736Z",
+  "finishedAt": "2026-10-01T16:46:42.771Z",
+  "elapsedMs": 1035,
+  "sourceFile": "C:/Users/ctqho/AppData/Local/ArcanaGemma/records/5213df86-4b7b-4c2d-bb1b-a899a41e7aa0.json",
+  "sourceSha256": "f8ccbabba1f4bd48bd1cf3de8648e52d5ae59fc7869bd1f26c527e9663a909a3",
+  "evidence": "01:46:42 Ollama /api/chat HTTP500,1.0186976초. 모니터링은1035ms 실패 저장. 상태 API는 연결·모델 적재·유휴 확인. 동일 입력 재시도",
+  "limits": "현재 로그만으로 GPU/캐시/모델 내부 원인을 구분하지 못했다. 실패를 콘텐츠 검토 성공으로 간주하지 않는다."
+}

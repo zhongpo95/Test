@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 203,
+    "events": 185,
+    "roots": 144,
+    "followups": 41
+  },
+  "contentGroups": 21,
+  "statGroups": 8,
+  "ciCommands": 15,
+  "newRootCases": 4,
+  "newFollowupCases": 2,
+  "branchCases": 31,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "ccef078cb16bb7804fb7ee86e6969e10d53ab127d44e99dc5190be20fd89d1e1",
+  "mapCreated": false,
+  "monitorCheckedRequests": 3,
+  "usage": {
+    "used": 40,
+    "remaining": 60
+  },
+  "limits": [
+    "실제 생성 JASS의 변환 모형으로 자기 성공 선택·실패·다른 선택·다른 플레이어의 기록을 대조했다. 고정 체력 네이티브 모형이므로 전체 PlayerStatsSet·체력 비율 실기는 검증하지 않는다.",
+    "Warcraft·화면·실제 멀티·서버 저장·프레임·재미·밸런스는 미검증이다."
+  ]
+}

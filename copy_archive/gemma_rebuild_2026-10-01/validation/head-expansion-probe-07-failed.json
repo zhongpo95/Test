@@ -1,0 +1,27 @@
+{
+  "passed": false,
+  "event": "kny_return_to_training",
+  "state": {
+    "gold": 0,
+    "level": 5,
+    "density": 10
+  },
+  "branches": [
+    {
+      "choice": 1,
+      "available": false
+    },
+    {
+      "choice": 2,
+      "available": false
+    },
+    {
+      "choice": 3,
+      "available": false
+    }
+  ],
+  "eventEligible": false,
+  "reason": "유료 160/200골드 선택을 고를 수 없고 무료 이노스케 선택도 적 밀도 상한 때문에 막힌다. 사건 자체는 후보에서 제외되지만 모든 상태에서 유효 선택을 남기는 설계 검사에 실패했다.",
+  "runtimeChanged": false,
+  "plannedCorrection": "동료를 부르는 전달 일을 맡으며 적 수를 낮추고 물약1개를 받는 무료 네 번째 선택을 추가한다."
+}

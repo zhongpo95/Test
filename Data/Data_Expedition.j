@@ -19,6 +19,7 @@ library DataExpedition
         integer ExpPrototypePid = 0
         integer ExpPrototypeAction = 0
         integer array ProtoAP
+        integer array ProtoAPMax
         integer array ProtoHeadCount
         integer array ProtoStartHead
         boolean array ProtoHeadOwned
@@ -108,6 +109,7 @@ library DataExpedition
         integer array ExpStartCard
         integer array ExpStartCardKind
         boolean array ExpEnemy
+        boolean array ExpEnemyBoss
         integer array ExpConfirmedBattles
         string array ExpResultText
         trigger ExpRefresh = CreateTrigger()
@@ -115,7 +117,7 @@ library DataExpedition
     endglobals
 
     function ExpKey takes integer pid, integer id returns integer
-        return pid * 64 + id
+        return pid * 1024 + id
     endfunction
 
     function ExpLoss takes integer node, real progress returns integer

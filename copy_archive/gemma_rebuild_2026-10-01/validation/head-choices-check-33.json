@@ -1,0 +1,66 @@
+{
+  "heads": 13,
+  "cards": 290,
+  "events": 223,
+  "roots": 175,
+  "followups": 48,
+  "free": [
+    "fy_one_more_blanket",
+    "axel_newcomer_questions",
+    "ab68_big_bill",
+    "academy_no_ability",
+    "academy_unsealed_list",
+    "madoka_afterclass_appts",
+    "sao_counter_labels",
+    "sao_tied_fishing_line",
+    "gbf_yodarha_foot",
+    "kny_morning_greeting"
+  ],
+  "requiredCard": [
+    {
+      "event": "abydos_missing_senior",
+      "card": "abydos_hoshino"
+    },
+    {
+      "event": "academy_next_shift",
+      "card": "academy_uiharu_order"
+    },
+    {
+      "event": "academy_unsealed_list",
+      "card": "academy_uiharu_list"
+    },
+    {
+      "event": "madoka_folded_edge",
+      "card": "madoka_mami_distance"
+    },
+    {
+      "event": "sao_tied_fishing_line",
+      "card": "sao_nishida_wait"
+    },
+    {
+      "event": "sao_verified_price",
+      "card": "sao_agil_shelf"
+    },
+    {
+      "event": "gbf_rolan_next_request",
+      "card": "gbf_rolan_guide"
+    },
+    {
+      "event": "ft_controlled_flame",
+      "card": "ft_natsu"
+    },
+    {
+      "event": "bl_joint_training",
+      "card": "bl_ichigo"
+    }
+  ],
+  "threeChoiceEvents": 191,
+  "directGoldChoices": 78,
+  "commands": 16,
+  "records": 6,
+  "normalCost": 1,
+  "defaultCandidates": 3,
+  "maxCandidates": 4,
+  "statKinds": 25,
+  "limits": "모의실행과정적데이터집계다. 시각·Warcraft·멀티·저장·재미·실전밸런스는미검증."
+}

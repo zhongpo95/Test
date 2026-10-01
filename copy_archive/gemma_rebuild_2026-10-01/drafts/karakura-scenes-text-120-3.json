@@ -1,0 +1,1192 @@
+{
+  "started": "2026-10-01T19:54:31.813Z",
+  "finished": "2026-10-01T19:54:53.189Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "bl_yuzu_supplies",
+                  "bl_don_audience",
+                  "bl_uncertain_kit",
+                  "bl_tatsuki_space",
+                  "bl_empty_bench"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "system": "한국어사건집필자. index/행동/카드/수치는고정한다. actionText는여행자가한일의과거형, reactionText는인물의물건/말과남은문제다. 문자열안에JSON조각/내부키를넣지않는다. 출력사건key만내부식별자를쓴다. 실제기술/동행/승리를지급하지않으며칭찬반복/능력치산문을피한다.",
+    "brief": {
+      "events": [
+        {
+          "key": "bl_yuzu_supplies",
+          "title": "비워 둘 수 없는 한 칸",
+          "story": "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.",
+          "intro": "남겨 둘 보급을 준비할지, 바깥 길을 맡을지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다",
+              "card": "bl_yuzu_portion",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "이치고와 더 강한 적이 드나드는 길을 맡는다",
+              "card": "bl_ichigo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄인다",
+              "card": "bl_yuzu_split",
+              "card2": null,
+              "cost": 180,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "가사를 맡는 유즈와 동료를 지키는 이치고의 공식 역할에서 별도 가족 보급 문제를 창작한다. 실제 가족 상태·부재 타이머·즉시 치료나 불멸은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_don_audience",
+          "title": "박수 뒤에 가려진 길",
+          "story": "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.",
+          "intro": "보일 신호를 맞추거나 통행할 범위를 나누어 맡는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "표시용품을 사서 칸온지와 보일 신호를 맞춘다",
+              "card": "bl_don_signal",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "이치고와 더 넓은 길목까지 맡는다",
+              "card": "bl_ichigo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄인다",
+              "card": "bl_kon_unwind",
+              "card2": null,
+              "cost": 140,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 인기 영매 방송인의 공개 촬영에서 별도 통행 문제를 창작한다. 원작 구호·방송 전체·영혼을 홀로 부활시키는 장면은 재현하지 않는다. 시청률·군중 NPC·시야 변화가 아니라 카드와 개인 필드 결과다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_uncertain_kit",
+          "title": "끝까지 채워졌을까",
+          "story": "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다. 우류는 확인한 목록의 끝을 맞추고 유즈는 돌아갈 보급을 따로 담아 주려 한다.",
+          "intro": "불완전한 묶음에 비용을 걸지, 확인된 물품을 마련할지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "180골드를 내고 목록이 불완전한 묶음을 확인한다",
+              "card": "bl_urahara",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 2,
+              "chance": 65
+            },
+            {
+              "index": 2,
+              "label": "260골드로 확인된 물품을 마련하고 우류와 목록의 끝을 맞춘다",
+              "card": "bl_uryu_fold",
+              "card2": null,
+              "gold": 0,
+              "cost": 260,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "160골드로 보급을 마련하고 유즈와 더 약한 보급 담당 구역을 고른다",
+              "card": "bl_yuzu_split",
+              "card2": null,
+              "cost": 160,
+              "gold": 0,
+              "level": -1,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": "준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. 확인되지 않은 물품을 쓸 수 있다고 하지는 않는다.",
+          "canonFact": "공식 사신용 물품을 제공하는 상점 주인의 역할에서 별도 불완전 보급 묶음을 창작한다. 원작 할인·가챠·사기 장면이 실제 있었음을 주장하지 않는다. 65%는 맵의 고정 검사 확률이다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_tatsuki_space",
+          "title": "발 하나를 놓을 자리",
+          "story": "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다. 차드는 기다리는 사람이 돌아올 쪽도 비워 두자고 한다.",
+          "intro": "발 놓을 자리를 맞출지, 맡을 구역을 줄일지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다",
+              "card": "bl_tatsuki_stance",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다",
+              "card": "bl_orihime",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄인다",
+              "card": "bl_chad_return",
+              "card2": null,
+              "cost": 120,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "타츠키의 공식 가라테와 오리히메의 친구 관계에서 별도 좁은 준비 자리 문제를 창작한다. 인테르하이 승패·친구의 부상·사신 힘의 각성을 해결하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_empty_bench",
+          "title": "비어 보이는 벤치",
+          "story": "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다. 이치고가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다. 루키아는 손님에게 비워 둘 쪽부터 알려 줄지 묻는다.",
+          "intro": "빈 자리의 이유를 방문 행동력 없이 한 번 더 확인한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "카린이 비워 둔 자리를 존중하고 옆으로 옮긴다",
+              "card": "bl_karin_distance",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "이치고와 더 강한 길목을 맡아 자리를 비운다",
+              "card": "bl_ichigo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄인다",
+              "card": "bl_rukia_sketch",
+              "card2": null,
+              "cost": 160,
+              "gold": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 카린의 냉정함과 영감에서 상점 앞의 창작 만남을 만들었다. 보이지 않는 존재의 정체·본편 사건을 확정하지 않고 플레이어에게 유령 시야를 주지 않는다.",
+          "uncertain": [],
+          "actionCost": 0
+        }
+      ],
+      "cards": [
+        {
+          "key": "bl_kon",
+          "name": "콘",
+          "effectName": "몸을 맡길 수 있는 동료",
+          "keyword": "이동",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "인형에 머무는 개조혼백으로 이치고의 몸을 지키는 역할에서 귀환 준비를 각색했다. 플레이어의 몸을 대신 조종하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_ichigo",
+          "name": "쿠로사키 이치고",
+          "effectName": "지키기 위해 들었던 검",
+          "keyword": "공격 · 보스",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 12
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "사신대행으로 동료를 지키는 이치고의 결심을 공격 준비로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_uryu",
+          "name": "이시다 우류",
+          "effectName": "흐트러지지 않는 조준",
+          "keyword": "치명 · 관통",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 6
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 20
+              }
+            ]
+          },
+          "canonFact": "퀸시인 우류의 정밀한 전투와 손재주를 조준 준비로 각색했다. 원작 활을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_orihime",
+          "name": "이노우에 오리히메",
+          "effectName": "거절하는 것은 상처",
+          "keyword": "재생 · 체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.8
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "순순육화로 현상을 거절하는 능력을 완만한 회복 준비로 각색했다. 상처의 즉시 복원이나 새 보호막을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_yoruichi",
+          "name": "시호인 요루이치",
+          "effectName": "순신의 보법",
+          "keyword": "신속 · 이동 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 270
+            },
+            {
+              "stat": "moving_damage",
+              "value": 16
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 5
+              }
+            ]
+          },
+          "canonFact": "보법의 달인인 요루이치의 전투를 이동하며 공격하는 준비로 각색했다. 순간이동을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_rukia",
+          "name": "쿠치키 루키아",
+          "effectName": "현세에서 지켜야 할 간격",
+          "keyword": "차지 · 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 6
+            },
+            {
+              "stat": "damage_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "damage_reduction",
+                "value": 4
+              }
+            ]
+          },
+          "canonFact": "현세에서 사신 임무를 수행하는 루키아의 전투 판단을 차지 간격 조절로 각색했다. 참백도나 빙결 기술을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_urahara",
+          "name": "우라하라 키스케",
+          "effectName": "준비가 남기는 여유",
+          "keyword": "탐색 · 보스",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "사신에게 물품을 제공하며 성장을 돕는 상점 주인의 준비와 정보 역할을 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_chad",
+          "name": "사도 야스토라",
+          "effectName": "약한 사람 앞에 서는 팔",
+          "keyword": "체력 · 방어",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "다른 사람을 몸으로 지키는 차드의 태도를 생존 준비로 각색했다. 새 방패나 팔 기술을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_ichigo_focus",
+          "name": "쿠로사키 이치고",
+          "effectName": "한 번의 틈에 모은 힘",
+          "keyword": "차지 · 공격",
+          "grade": 3,
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 24
+            },
+            {
+              "stat": "attack_percent",
+              "value": 6
+            },
+            {
+              "stat": "action_speed",
+              "value": -3
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 10
+              }
+            ]
+          },
+          "canonFact": "이치고의 칼에 집중하는 준비를 차지 공격의 큰 일격으로 각색했다. 월아천충을 새로 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_uryu_stitch",
+          "name": "이시다 우류",
+          "effectName": "어긋난 한 땀까지",
+          "keyword": "차지 속도 · 치명타 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 6
+            },
+            {
+              "stat": "crit_damage",
+              "value": 15
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 손재주·바느질 특기를 한 번의 움직임을 정확하게 잇는 준비로 각색한다. 실제 옷 장비·신규 활·상태이상 기술은 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_yuzu_portion",
+          "name": "쿠로사키 유즈",
+          "effectName": "돌아올 사람의 몫",
+          "keyword": "재생 · 처치 골드",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            },
+            {
+              "stat": "kill_gold",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 쿠로사키 집의 가사를 맡는 역할을 오래 움직일 보급과 자원 준비로 각색한다. 원작 치유 기술이나 실제 식사 인벤토리가 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_tatsuki_stance",
+          "name": "아리사와 타츠키",
+          "effectName": "발을 놓고 나서",
+          "keyword": "방향 공격 · 피해 감소",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "공식 가라테 달인·정의감 강한 이치고의 소꿉친구와 오리히메의 친구 역할을 자세와 방향 공격 준비로 각색한다. 새 무술 스킬·기절·공격 범위는 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_don_signal",
+          "name": "돈 칸온지",
+          "effectName": "보이게 전하는 신호",
+          "keyword": "사건 후보 · 이동",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "move_speed",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 인기 영매 방송인의 대중 앞 전달 역할을 신호와 이동 준비로 각색한다. 시청률·영혼 소환·퇴마 기술이나 방송 효과를 생성하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_karin_distance",
+          "name": "쿠로사키 카린",
+          "effectName": "보이지 않아도 비울 자리",
+          "keyword": "이동 속도 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 5
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "냉정한 성격과 영감을 지닌 카린에게 다른 이가 보지 못하는 자리를 성급히 채우지 않는 법을 배운다. 영감·유령 시야·사신화·적 탐지 기능을 주지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_isshin_welcome",
+          "name": "쿠로사키 잇신",
+          "effectName": "지나친 환영 뒤의 걱정",
+          "keyword": "최대 체력 · 재생",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 10
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "가족을 과하게 아끼는 의원 운영자의 특징을 오래 버틸 준비로 각색한다. 진료·즉시 치료·사신 능력·물약 무한 공급은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_ururu_lift",
+          "name": "츠무기야 우루루",
+          "effectName": "가볍게 보지 않을 힘",
+          "keyword": "차지 · 치명타 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 16
+            },
+            {
+              "stat": "crit_damage",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "penetration",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "외형과 달리 초인적인 전투 능력이 있는 점원에게 겉모습만 보고 힘을 가늠하지 않는 일격 준비를 배운다. 실제 동행·상자 들기 미니게임·초인화·점원 고용은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_keigo_invitation",
+          "name": "아사노 케이고",
+          "effectName": "아직 묻지 않은 약속",
+          "keyword": "사건 후보 · 행동 속도",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "이치고를 자주 귀찮게 하는 활발한 동급생의 특징을 약속의 다른 갈래를 묻고 행동을 이어 가는 성장으로 각색한다. 우정 수치·새 일정·NPC 가이드·무한 행동력은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_rukia_sketch",
+          "name": "쿠치키 루키아",
+          "effectName": "골목 끝까지 확인하기",
+          "keyword": "신속 · 비방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 180
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 현세에서 동료를 돕는 사신 역할에서 자신의 귀환 간격을 살피는 기억이다. 고정 신속180이며 비방향은 헤드/백 플래그 없는 기존 공격이다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_uryu_fold",
+          "name": "이시다 우류",
+          "effectName": "접기 전에 맞출 끝",
+          "keyword": "치명 피해 · 비방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 14
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 손재주·바느질 역할에서 흐트러진 끝을 맞추는 기억이다. 실재 의류나 조준 스킬이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_orihime_pause",
+          "name": "이노우에 오리히메",
+          "effectName": "아직 지나지 않은 자리",
+          "keyword": "최대 체력 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 6
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 동료를 생각하는 성격에서 자신의 다음 준비를 서두르지 않는 기억이다. 체력증가 비율보존, 고체력은65%이상이며 즉시 상처 복원이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_urahara_margin",
+          "name": "우라하라 키스케",
+          "effectName": "다음 목록의 빈칸",
+          "keyword": "행동력 최대치",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_capacity",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 물품을 제공하며 성장을 돕는 상점주인 역할에서 다음 방문의 몫까지 답하는 기억이다. 최대치와 현재행동력 증가분1만 한번이며 사냥시간은 늘지 않는다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_chad_return",
+          "name": "사도 야스토라",
+          "effectName": "돌아올 쪽도 비워 두기",
+          "keyword": "받는 피해 · 흡수",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            },
+            {
+              "stat": "leech",
+              "value": 1.5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 몸으로 약한 사람을 지키는 역할에서 자신이 버틸 준비와 돌아올 간격을 남기는 기억이다. 흡수는 실제피해1.5%의 지속회복이며 재생과 합산10%/초한도다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_yuzu_split",
+          "name": "쿠로사키 유즈",
+          "effectName": "한 번에 쓰지 않을 몫",
+          "keyword": "재생 · 이동",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            },
+            {
+              "stat": "move_speed",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 집안 일을 맡는 역할에서 자신의 보급을 돌아올 몫까지 나누는 기억이다. 재생은초당최대체력0.4%, 이동3%이며 즉시 물약사용이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_jinta_boundary",
+          "name": "하나카리 진타",
+          "effectName": "더 맡기 전에 물을 것",
+          "keyword": "공격력 · 방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 8
+            },
+            {
+              "stat": "directional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 우라하라 상점 점원 역할에서 자신이 맡을 부탁과 떠넘기는 부탁을 구분하는 기억이다. 런 공격력8%이며 방향은 기존 헤드/백 판정이다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_kon_unwind",
+          "name": "콘",
+          "effectName": "엉킨 발부터 풀기",
+          "keyword": "치명 확률 · 차지 속도",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 4
+            },
+            {
+              "stat": "charge_speed",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 인형에 머무는 개조혼백 역할에서 자신의 움직일 간격을 먼저 살피는 기억이다. 실제 인형장비·몸 대리조종을 지급하지 않는다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "policy": {
+        "cards": "사건마다서로다른지정카드3장. 입문/성공부모/필수카드재지급없음.",
+        "field": "level개인적강함1~5,density동시적수1~10. 초기1/4최저1. 별도원작전투/NPC레벨아님.",
+        "cost": "비용/AP/필드선지불실패유지. 성공만카드와potions개지급. 직접골드0. 물약사용아님.",
+        "ap": "기본후보3최대4,방문AP0/1,잔여AP0이면무료도없음. 최대치증가분만현재AP한번지급.사냥10분그대로.",
+        "history": "상자성공1→지붕/2→주소/3→골목,경보실패-1→표식. 옛4번후속은우류보유새배송. 이치고훈련/우라하라목록도개인보유조건.",
+        "canon": "카라쿠라 마을, 우라하라 상점과 인물의 역할은 공식 소개를 확인했다. 분류되지 않은 짐과 경보·배송 사건은 맵 창작이다. 사신화·영체 이탈·새 참백도 기술·빙결·순보·보호막 생성은 지급하지 않으며 기존 능력치로 각색한다. 시트의 사신 카운트 무한 성장·사망 진화·스킬 교체는 도입하지 않는다. 추가된 소매·인형·가족 보급·공개 촬영·불완전 준비 묶음·연습 자리는 공식 생활과 성격 소재에서 별도 창작한 문제다. 원작 할인 행사가 실제로 있었다고 주장하지 않으며 65%는 맵의 수치다. 군중·가족 상태·옷·장비·호위 NPC를 생성하거나 변형하지 않는다. 카린의 빈 벤치·잇신의 문밖 환영·우루루에게 맡긴 큰 심부름·케이고의 허락 없는 초대는 제작사 인물 특징에서 별도로 만든 독립 만남이다. 카린의 영감과 우루루의 초인성을 플레이어의 시야나 신규 기술로 지급하지 않는다. 잇신은 의원을 운영하지만 선택은 실제 진료나 즉시 회복이 아니다. 케이고의 사건 후보 증가는 행동력이 아니며 최대4후보에 제한된다. 차드와 다른 인물의 대화는 상시 전투 동행 기능이 아니다. 배송상자골드전용4번은제외하고그후속은우류카드보유자의새배송방문으로바꿨다. 빈벤치AP0과우라하라최대치1은방문횟수로사냥시간이아니다. 새기억에는각성이없다. 요루이치의기존이동조건은현재속도400대비추가속도를40%에서정규화하며걷는상태자체를판정하지않는다."
+      },
+      "verifiedFacts": [
+        "이치고는지키기위해검을든사신대행,우류는정밀전투와손재주/바느질,오리히메는동료를생각한다.",
+        "차드는약한사람을몸으로지키며귀여운것을좋아한다. 콘은인형에머무는개조혼백이며이치고의몸을지킨다.",
+        "우라하라는물품을제공하며성장을돕는상점주인,요루이치는보법달인,루키아는현세의동료를돕는사신이다.",
+        "유즈는집안일을맡고카린은냉정하고영감이있다. 잇신은가족을과하게아끼는의원운영자다. 진타/우루루는상점점원이며우루루는겉모습과다른초인적인전투능력이있다.",
+        "타츠키는가라테와정의감,케이고는활발한동급생,돈칸온지는인기영매방송인이다. 새짐/소매/촬영/목록대화는이역할을쓴창작이다."
+      ],
+      "rules": [
+        "옛결과문구는입력에서제외했다. 금액지불/potions획득개수/직접골드0을따른다.",
+        "경보1만70%,불완전묶음1만65%. 다른확정행동에실패나새확률을쓰지않는다.",
+        "NPC가플레이어스탯을얻지않는다. 개인사냥부담은현재장면의추가전투/NPC레벨아님.",
+        "벤치AP0은무료물품아님. 최대치1은시간아님.",
+        "유령시야/빙결/순보/실제의복/철식사/원작활/사신화/몸대리조종을플레이어에주지않는다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "bl_yuzu_supplies",
+                  "bl_don_audience",
+                  "bl_uncertain_kit",
+                  "bl_tatsuki_space",
+                  "bl_empty_bench"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어사건집필자. index/행동/카드/수치는고정한다. actionText는여행자가한일의과거형, reactionText는인물의물건/말과남은문제다. 문자열안에JSON조각/내부키를넣지않는다. 출력사건key만내부식별자를쓴다. 실제기술/동행/승리를지급하지않으며칭찬반복/능력치산문을피한다."
+      },
+      {
+        "role": "user",
+        "content": "{\"events\":[{\"key\":\"bl_yuzu_supplies\",\"title\":\"비워 둘 수 없는 한 칸\",\"story\":\"유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.\",\"intro\":\"남겨 둘 보급을 준비할지, 바깥 길을 맡을지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다\",\"card\":\"bl_yuzu_portion\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"이치고와 더 강한 적이 드나드는 길을 맡는다\",\"card\":\"bl_ichigo\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄인다\",\"card\":\"bl_yuzu_split\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"가사를 맡는 유즈와 동료를 지키는 이치고의 공식 역할에서 별도 가족 보급 문제를 창작한다. 실제 가족 상태·부재 타이머·즉시 치료나 불멸은 없다.\",\"uncertain\":[]},{\"key\":\"bl_don_audience\",\"title\":\"박수 뒤에 가려진 길\",\"story\":\"돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.\",\"intro\":\"보일 신호를 맞추거나 통행할 범위를 나누어 맡는다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"표시용품을 사서 칸온지와 보일 신호를 맞춘다\",\"card\":\"bl_don_signal\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"이치고와 더 넓은 길목까지 맡는다\",\"card\":\"bl_ichigo\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄인다\",\"card\":\"bl_kon_unwind\",\"card2\":null,\"cost\":140,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 인기 영매 방송인의 공개 촬영에서 별도 통행 문제를 창작한다. 원작 구호·방송 전체·영혼을 홀로 부활시키는 장면은 재현하지 않는다. 시청률·군중 NPC·시야 변화가 아니라 카드와 개인 필드 결과다.\",\"uncertain\":[]},{\"key\":\"bl_uncertain_kit\",\"title\":\"끝까지 채워졌을까\",\"story\":\"우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다. 우류는 확인한 목록의 끝을 맞추고 유즈는 돌아갈 보급을 따로 담아 주려 한다.\",\"intro\":\"불완전한 묶음에 비용을 걸지, 확인된 물품을 마련할지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"180골드를 내고 목록이 불완전한 묶음을 확인한다\",\"card\":\"bl_urahara\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":2,\"chance\":65},{\"index\":2,\"label\":\"260골드로 확인된 물품을 마련하고 우류와 목록의 끝을 맞춘다\",\"card\":\"bl_uryu_fold\",\"card2\":null,\"gold\":0,\"cost\":260,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100},{\"index\":3,\"label\":\"160골드로 보급을 마련하고 유즈와 더 약한 보급 담당 구역을 고른다\",\"card\":\"bl_yuzu_split\",\"card2\":null,\"cost\":160,\"gold\":0,\"level\":-1,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":\"준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. 확인되지 않은 물품을 쓸 수 있다고 하지는 않는다.\",\"canonFact\":\"공식 사신용 물품을 제공하는 상점 주인의 역할에서 별도 불완전 보급 묶음을 창작한다. 원작 할인·가챠·사기 장면이 실제 있었음을 주장하지 않는다. 65%는 맵의 고정 검사 확률이다.\",\"uncertain\":[]},{\"key\":\"bl_tatsuki_space\",\"title\":\"발 하나를 놓을 자리\",\"story\":\"타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다. 차드는 기다리는 사람이 돌아올 쪽도 비워 두자고 한다.\",\"intro\":\"발 놓을 자리를 맞출지, 맡을 구역을 줄일지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다\",\"card\":\"bl_tatsuki_stance\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다\",\"card\":\"bl_orihime\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄인다\",\"card\":\"bl_chad_return\",\"card2\":null,\"cost\":120,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"타츠키의 공식 가라테와 오리히메의 친구 관계에서 별도 좁은 준비 자리 문제를 창작한다. 인테르하이 승패·친구의 부상·사신 힘의 각성을 해결하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_empty_bench\",\"title\":\"비어 보이는 벤치\",\"story\":\"상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다. 이치고가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다. 루키아는 손님에게 비워 둘 쪽부터 알려 줄지 묻는다.\",\"intro\":\"빈 자리의 이유를 방문 행동력 없이 한 번 더 확인한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"카린이 비워 둔 자리를 존중하고 옆으로 옮긴다\",\"card\":\"bl_karin_distance\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"이치고와 더 강한 길목을 맡아 자리를 비운다\",\"card\":\"bl_ichigo\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄인다\",\"card\":\"bl_rukia_sketch\",\"card2\":null,\"cost\":160,\"gold\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 카린의 냉정함과 영감에서 상점 앞의 창작 만남을 만들었다. 보이지 않는 존재의 정체·본편 사건을 확정하지 않고 플레이어에게 유령 시야를 주지 않는다.\",\"uncertain\":[],\"actionCost\":0}],\"cards\":[{\"key\":\"bl_kon\",\"name\":\"콘\",\"effectName\":\"몸을 맡길 수 있는 동료\",\"keyword\":\"이동\",\"grade\":1,\"effects\":[{\"stat\":\"move_speed\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"인형에 머무는 개조혼백으로 이치고의 몸을 지키는 역할에서 귀환 준비를 각색했다. 플레이어의 몸을 대신 조종하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_ichigo\",\"name\":\"쿠로사키 이치고\",\"effectName\":\"지키기 위해 들었던 검\",\"keyword\":\"공격 · 보스\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":12},{\"stat\":\"boss_damage_percent\",\"value\":8}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"crit_chance\",\"value\":3}]},\"canonFact\":\"사신대행으로 동료를 지키는 이치고의 결심을 공격 준비로 각색했다.\",\"uncertain\":[]},{\"key\":\"bl_uryu\",\"name\":\"이시다 우류\",\"effectName\":\"흐트러지지 않는 조준\",\"keyword\":\"치명 · 관통\",\"grade\":2,\"effects\":[{\"stat\":\"crit_chance\",\"value\":6},{\"stat\":\"penetration\",\"value\":8}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"crit_damage\",\"value\":20}]},\"canonFact\":\"퀸시인 우류의 정밀한 전투와 손재주를 조준 준비로 각색했다. 원작 활을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_orihime\",\"name\":\"이노우에 오리히메\",\"effectName\":\"거절하는 것은 상처\",\"keyword\":\"재생 · 체력\",\"grade\":2,\"effects\":[{\"stat\":\"regeneration\",\"value\":0.8},{\"stat\":\"max_health_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"순순육화로 현상을 거절하는 능력을 완만한 회복 준비로 각색했다. 상처의 즉시 복원이나 새 보호막을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_yoruichi\",\"name\":\"시호인 요루이치\",\"effectName\":\"순신의 보법\",\"keyword\":\"신속 · 이동 피해\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":270},{\"stat\":\"moving_damage\",\"value\":16}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"action_speed\",\"value\":5}]},\"canonFact\":\"보법의 달인인 요루이치의 전투를 이동하며 공격하는 준비로 각색했다. 순간이동을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_rukia\",\"name\":\"쿠치키 루키아\",\"effectName\":\"현세에서 지켜야 할 간격\",\"keyword\":\"차지 · 피해\",\"grade\":2,\"effects\":[{\"stat\":\"charge_speed\",\"value\":6},{\"stat\":\"damage_percent\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":45,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":4}]},\"canonFact\":\"현세에서 사신 임무를 수행하는 루키아의 전투 판단을 차지 간격 조절로 각색했다. 참백도나 빙결 기술을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_urahara\",\"name\":\"우라하라 키스케\",\"effectName\":\"준비가 남기는 여유\",\"keyword\":\"탐색 · 보스\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"boss_damage_percent\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"사신에게 물품을 제공하며 성장을 돕는 상점 주인의 준비와 정보 역할을 각색했다.\",\"uncertain\":[]},{\"key\":\"bl_chad\",\"name\":\"사도 야스토라\",\"effectName\":\"약한 사람 앞에 서는 팔\",\"keyword\":\"체력 · 방어\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"다른 사람을 몸으로 지키는 차드의 태도를 생존 준비로 각색했다. 새 방패나 팔 기술을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_ichigo_focus\",\"name\":\"쿠로사키 이치고\",\"effectName\":\"한 번의 틈에 모은 힘\",\"keyword\":\"차지 · 공격\",\"grade\":3,\"effects\":[{\"stat\":\"charge_damage\",\"value\":24},{\"stat\":\"attack_percent\",\"value\":6},{\"stat\":\"action_speed\",\"value\":-3}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":10}]},\"canonFact\":\"이치고의 칼에 집중하는 준비를 차지 공격의 큰 일격으로 각색했다. 월아천충을 새로 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_uryu_stitch\",\"name\":\"이시다 우류\",\"effectName\":\"어긋난 한 땀까지\",\"keyword\":\"차지 속도 · 치명타 피해\",\"grade\":2,\"effects\":[{\"stat\":\"charge_speed\",\"value\":6},{\"stat\":\"crit_damage\",\"value\":15}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 손재주·바느질 특기를 한 번의 움직임을 정확하게 잇는 준비로 각색한다. 실제 옷 장비·신규 활·상태이상 기술은 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_yuzu_portion\",\"name\":\"쿠로사키 유즈\",\"effectName\":\"돌아올 사람의 몫\",\"keyword\":\"재생 · 처치 골드\",\"grade\":2,\"effects\":[{\"stat\":\"regeneration\",\"value\":0.4},{\"stat\":\"kill_gold\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 쿠로사키 집의 가사를 맡는 역할을 오래 움직일 보급과 자원 준비로 각색한다. 원작 치유 기술이나 실제 식사 인벤토리가 아니다.\",\"uncertain\":[]},{\"key\":\"bl_tatsuki_stance\",\"name\":\"아리사와 타츠키\",\"effectName\":\"발을 놓고 나서\",\"keyword\":\"방향 공격 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"directional_damage\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":3}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"action_speed\",\"value\":3}]},\"canonFact\":\"공식 가라테 달인·정의감 강한 이치고의 소꿉친구와 오리히메의 친구 역할을 자세와 방향 공격 준비로 각색한다. 새 무술 스킬·기절·공격 범위는 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_don_signal\",\"name\":\"돈 칸온지\",\"effectName\":\"보이게 전하는 신호\",\"keyword\":\"사건 후보 · 이동\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"move_speed\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 인기 영매 방송인의 대중 앞 전달 역할을 신호와 이동 준비로 각색한다. 시청률·영혼 소환·퇴마 기술이나 방송 효과를 생성하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_karin_distance\",\"name\":\"쿠로사키 카린\",\"effectName\":\"보이지 않아도 비울 자리\",\"keyword\":\"이동 속도 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":5},{\"stat\":\"healthy_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"냉정한 성격과 영감을 지닌 카린에게 다른 이가 보지 못하는 자리를 성급히 채우지 않는 법을 배운다. 영감·유령 시야·사신화·적 탐지 기능을 주지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_isshin_welcome\",\"name\":\"쿠로사키 잇신\",\"effectName\":\"지나친 환영 뒤의 걱정\",\"keyword\":\"최대 체력 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":10},{\"stat\":\"regeneration\",\"value\":0.4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"가족을 과하게 아끼는 의원 운영자의 특징을 오래 버틸 준비로 각색한다. 진료·즉시 치료·사신 능력·물약 무한 공급은 없다.\",\"uncertain\":[]},{\"key\":\"bl_ururu_lift\",\"name\":\"츠무기야 우루루\",\"effectName\":\"가볍게 보지 않을 힘\",\"keyword\":\"차지 · 치명타 피해\",\"grade\":2,\"effects\":[{\"stat\":\"charge_damage\",\"value\":16},{\"stat\":\"crit_damage\",\"value\":14}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"penetration\",\"value\":3}]},\"canonFact\":\"외형과 달리 초인적인 전투 능력이 있는 점원에게 겉모습만 보고 힘을 가늠하지 않는 일격 준비를 배운다. 실제 동행·상자 들기 미니게임·초인화·점원 고용은 없다.\",\"uncertain\":[]},{\"key\":\"bl_keigo_invitation\",\"name\":\"아사노 케이고\",\"effectName\":\"아직 묻지 않은 약속\",\"keyword\":\"사건 후보 · 행동 속도\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"action_speed\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"이치고를 자주 귀찮게 하는 활발한 동급생의 특징을 약속의 다른 갈래를 묻고 행동을 이어 가는 성장으로 각색한다. 우정 수치·새 일정·NPC 가이드·무한 행동력은 없다.\",\"uncertain\":[]},{\"key\":\"bl_rukia_sketch\",\"name\":\"쿠치키 루키아\",\"effectName\":\"골목 끝까지 확인하기\",\"keyword\":\"신속 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":180},{\"stat\":\"nondirectional_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 현세에서 동료를 돕는 사신 역할에서 자신의 귀환 간격을 살피는 기억이다. 고정 신속180이며 비방향은 헤드/백 플래그 없는 기존 공격이다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_uryu_fold\",\"name\":\"이시다 우류\",\"effectName\":\"접기 전에 맞출 끝\",\"keyword\":\"치명 피해 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"crit_damage\",\"value\":14},{\"stat\":\"nondirectional_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 손재주·바느질 역할에서 흐트러진 끝을 맞추는 기억이다. 실재 의류나 조준 스킬이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_orihime_pause\",\"name\":\"이노우에 오리히메\",\"effectName\":\"아직 지나지 않은 자리\",\"keyword\":\"최대 체력 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":6},{\"stat\":\"healthy_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 동료를 생각하는 성격에서 자신의 다음 준비를 서두르지 않는 기억이다. 체력증가 비율보존, 고체력은65%이상이며 즉시 상처 복원이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_urahara_margin\",\"name\":\"우라하라 키스케\",\"effectName\":\"다음 목록의 빈칸\",\"keyword\":\"행동력 최대치\",\"grade\":2,\"effects\":[{\"stat\":\"action_capacity\",\"value\":1}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 물품을 제공하며 성장을 돕는 상점주인 역할에서 다음 방문의 몫까지 답하는 기억이다. 최대치와 현재행동력 증가분1만 한번이며 사냥시간은 늘지 않는다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_chad_return\",\"name\":\"사도 야스토라\",\"effectName\":\"돌아올 쪽도 비워 두기\",\"keyword\":\"받는 피해 · 흡수\",\"grade\":2,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":4},{\"stat\":\"leech\",\"value\":1.5}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 몸으로 약한 사람을 지키는 역할에서 자신이 버틸 준비와 돌아올 간격을 남기는 기억이다. 흡수는 실제피해1.5%의 지속회복이며 재생과 합산10%/초한도다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_yuzu_split\",\"name\":\"쿠로사키 유즈\",\"effectName\":\"한 번에 쓰지 않을 몫\",\"keyword\":\"재생 · 이동\",\"grade\":2,\"effects\":[{\"stat\":\"regeneration\",\"value\":0.4},{\"stat\":\"move_speed\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 집안 일을 맡는 역할에서 자신의 보급을 돌아올 몫까지 나누는 기억이다. 재생은초당최대체력0.4%, 이동3%이며 즉시 물약사용이 아니다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_jinta_boundary\",\"name\":\"하나카리 진타\",\"effectName\":\"더 맡기 전에 물을 것\",\"keyword\":\"공격력 · 방향\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":8},{\"stat\":\"directional_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 우라하라 상점 점원 역할에서 자신이 맡을 부탁과 떠넘기는 부탁을 구분하는 기억이다. 런 공격력8%이며 방향은 기존 헤드/백 판정이다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"bl_kon_unwind\",\"name\":\"콘\",\"effectName\":\"엉킨 발부터 풀기\",\"keyword\":\"치명 확률 · 차지 속도\",\"grade\":2,\"effects\":[{\"stat\":\"crit_chance\",\"value\":4},{\"stat\":\"charge_speed\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 인형에 머무는 개조혼백 역할에서 자신의 움직일 간격을 먼저 살피는 기억이다. 실제 인형장비·몸 대리조종을 지급하지 않는다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.\",\"uncertain\":[]}],\"policy\":{\"cards\":\"사건마다서로다른지정카드3장. 입문/성공부모/필수카드재지급없음.\",\"field\":\"level개인적강함1~5,density동시적수1~10. 초기1/4최저1. 별도원작전투/NPC레벨아님.\",\"cost\":\"비용/AP/필드선지불실패유지. 성공만카드와potions개지급. 직접골드0. 물약사용아님.\",\"ap\":\"기본후보3최대4,방문AP0/1,잔여AP0이면무료도없음. 최대치증가분만현재AP한번지급.사냥10분그대로.\",\"history\":\"상자성공1→지붕/2→주소/3→골목,경보실패-1→표식. 옛4번후속은우류보유새배송. 이치고훈련/우라하라목록도개인보유조건.\",\"canon\":\"카라쿠라 마을, 우라하라 상점과 인물의 역할은 공식 소개를 확인했다. 분류되지 않은 짐과 경보·배송 사건은 맵 창작이다. 사신화·영체 이탈·새 참백도 기술·빙결·순보·보호막 생성은 지급하지 않으며 기존 능력치로 각색한다. 시트의 사신 카운트 무한 성장·사망 진화·스킬 교체는 도입하지 않는다. 추가된 소매·인형·가족 보급·공개 촬영·불완전 준비 묶음·연습 자리는 공식 생활과 성격 소재에서 별도 창작한 문제다. 원작 할인 행사가 실제로 있었다고 주장하지 않으며 65%는 맵의 수치다. 군중·가족 상태·옷·장비·호위 NPC를 생성하거나 변형하지 않는다. 카린의 빈 벤치·잇신의 문밖 환영·우루루에게 맡긴 큰 심부름·케이고의 허락 없는 초대는 제작사 인물 특징에서 별도로 만든 독립 만남이다. 카린의 영감과 우루루의 초인성을 플레이어의 시야나 신규 기술로 지급하지 않는다. 잇신은 의원을 운영하지만 선택은 실제 진료나 즉시 회복이 아니다. 케이고의 사건 후보 증가는 행동력이 아니며 최대4후보에 제한된다. 차드와 다른 인물의 대화는 상시 전투 동행 기능이 아니다. 배송상자골드전용4번은제외하고그후속은우류카드보유자의새배송방문으로바꿨다. 빈벤치AP0과우라하라최대치1은방문횟수로사냥시간이아니다. 새기억에는각성이없다. 요루이치의기존이동조건은현재속도400대비추가속도를40%에서정규화하며걷는상태자체를판정하지않는다.\"},\"verifiedFacts\":[\"이치고는지키기위해검을든사신대행,우류는정밀전투와손재주/바느질,오리히메는동료를생각한다.\",\"차드는약한사람을몸으로지키며귀여운것을좋아한다. 콘은인형에머무는개조혼백이며이치고의몸을지킨다.\",\"우라하라는물품을제공하며성장을돕는상점주인,요루이치는보법달인,루키아는현세의동료를돕는사신이다.\",\"유즈는집안일을맡고카린은냉정하고영감이있다. 잇신은가족을과하게아끼는의원운영자다. 진타/우루루는상점점원이며우루루는겉모습과다른초인적인전투능력이있다.\",\"타츠키는가라테와정의감,케이고는활발한동급생,돈칸온지는인기영매방송인이다. 새짐/소매/촬영/목록대화는이역할을쓴창작이다.\"],\"rules\":[\"옛결과문구는입력에서제외했다. 금액지불/potions획득개수/직접골드0을따른다.\",\"경보1만70%,불완전묶음1만65%. 다른확정행동에실패나새확률을쓰지않는다.\",\"NPC가플레이어스탯을얻지않는다. 개인사냥부담은현재장면의추가전투/NPC레벨아님.\",\"벤치AP0은무료물품아님. 최대치1은시간아님.\",\"유령시야/빙결/순보/실제의복/철식사/원작활/사신화/몸대리조종을플레이어에주지않는다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T19:54:53.1862785Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"events\":[{\"key\":\"bl_yuzu_supplies\",\"choices\": [{\"index\":1,\"actionText\":\"보급 비용을 지불하고 유즈와 남겨 둘 몫을 나누었다.\",\"reactionText\":\"유즈가 만족스러운 표정으로 보급품을 챙겼다. 몫이 나뉘어 안심한 듯하다. (카드: bl_yuzu_portion)\"},{\"index\":2,\"actionText\":\"이치고와 더 강한 적이 드나드는 길을 맡았다.\",\"reactionText\":\"이치고가 결연한 표정으로 앞장섰다. 더 험한 길을 책임지기로 했다. (카드: bl_ichigo)\"},{\"index\":3,\"actionText\":\"180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄였다.\",\"reactionText\":\"유즈가 고마워하며 보급품을 챙겼다. 이동해야 할 길목이 좁아졌다. (카드: bl_yuzu_split, 물약 1개)\"}]},{\"key\":\"bl_don_audience\",\"choices\": [{\"index\":1,\"actionText\":\"표시용품을 사서 칸온지와 보일 신호를 맞췄다.\",\"reactionText\":\"칸온지가 신호에 맞춰 인사를 건넸다. 시선이 모이는 지점을 확보했다. (카드: bl_don_signal)\"},{\"index\":2,\"actionText\":\"이치고와 더 넓은 길목까지 맡았다.\",\"reactionText\":\"이치고가 넓은 범위를 확보하며 길을 열었다. 통행 범위가 넓어졌다. (카드: bl_ichigo)\"},{\"index\":3,\"actionText\":\"140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄였다.\",\"reactionText\":\"콘이 짐을 단단히 고정했다. 촬영 짐을 챙기며 이동 경로를 압축했다. (카드: bl_kon_unwind, 물약 1개)\"}]},{\"key\":\"bl_uncertain_kit\",\"choices\": [{\"index\":1,\"actionText\":\"180골드를 내고 목록이 불완전한 묶음을 확인했다.\",\"reactionText\":\"준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. (실패)\"},{\"index\":2,\"actionText\":\"260골드로 확인된 물품을 마련하고 우류와 목록의 끝을 맞췄다.\",\"reactionText\":\"우류가 꼼꼼하게 목록을 대조했다. 확실한 물품을 확보했다. (카드: bl_uryu_fold)\"},{\"index\":3,\"actionText\":\"160골드로 보급을 마련하고 유즈와 더 약한 보급 담당 구역을 골랐다.\",\"reactionText\":\"유즈와 함께 안전한 구역을 선별했다. 보급을 확보하며 담당 구역을 좁혔다. (카드: bl_yuzu_split, 물약 1개)\"}]},{\"key\":\"bl_tatsuki_space\",\"choices\": [{\"index\":1,\"actionText\":\"연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞췄다.\",\"reactionText\":\"타츠키가 정확한 위치에 발을 딛었다. 연습 준비가 완료되었다. (카드: bl_tatsuki_stance)\"},{\"index\":2,\"actionText\":\"오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 했다.\",\"reactionText\":\"오리히메가 이동 범위를 조정했다. 장거리 이동을 위한 준비를 마쳤다. (카드: bl_orihime)\"},{\"index\":3,\"actionText\":\"120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄였다.\",\"reactionText\":\"차드가 돌아올 거리를 계산했다. 보급을 챙기며 길목을 압축했다. (카드: bl_chad_return, 물약 1개)\"}]},{\"key\":\"bl_empty_bench\",\"choices\": [{\"index\":1,\"actionText\":\"카린이 비워 둔 자리를 존중하고 옆으로 옮겼다.\",\"reactionText\":\"카린이 고개를 끄덕였다. 비워 둔 자리를 유지하며 옆으로 이동했다. (카드: bl_karin_distance)\"},{\"index\":2,\"actionText\":\"이치고와 더 강한 길목을 맡아 자리를 비웠다.\",\"reactionText\":\"이치고가 험한 길을 맡기로 했다. 비어 있는 자리를 유지했다. (카드: bl_ichigo)\"},{\"index\":3,\"actionText\":\"160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄였다.\",\"reactionText\":\"루키아가 안내 경로를 확인했다. 표시 용품을 챙기며 길목을 압축했다. (카드: bl_rukia_sketch, 물약 1개)\"}]}]}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 21328464700,
+    "load_duration": 2045000,
+    "prompt_eval_count": 6928,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 2927036000,
+    "eval_count": 1108,
+    "eval_duration": 18217866000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "bl_yuzu_supplies",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "보급 비용을 지불하고 유즈와 남겨 둘 몫을 나누었다.",
+            "reactionText": "유즈가 만족스러운 표정으로 보급품을 챙겼다. 몫이 나뉘어 안심한 듯하다. (카드: bl_yuzu_portion)"
+          },
+          {
+            "index": 2,
+            "actionText": "이치고와 더 강한 적이 드나드는 길을 맡았다.",
+            "reactionText": "이치고가 결연한 표정으로 앞장섰다. 더 험한 길을 책임지기로 했다. (카드: bl_ichigo)"
+          },
+          {
+            "index": 3,
+            "actionText": "180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄였다.",
+            "reactionText": "유즈가 고마워하며 보급품을 챙겼다. 이동해야 할 길목이 좁아졌다. (카드: bl_yuzu_split, 물약 1개)"
+          }
+        ]
+      },
+      {
+        "key": "bl_don_audience",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "표시용품을 사서 칸온지와 보일 신호를 맞췄다.",
+            "reactionText": "칸온지가 신호에 맞춰 인사를 건넸다. 시선이 모이는 지점을 확보했다. (카드: bl_don_signal)"
+          },
+          {
+            "index": 2,
+            "actionText": "이치고와 더 넓은 길목까지 맡았다.",
+            "reactionText": "이치고가 넓은 범위를 확보하며 길을 열었다. 통행 범위가 넓어졌다. (카드: bl_ichigo)"
+          },
+          {
+            "index": 3,
+            "actionText": "140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄였다.",
+            "reactionText": "콘이 짐을 단단히 고정했다. 촬영 짐을 챙기며 이동 경로를 압축했다. (카드: bl_kon_unwind, 물약 1개)"
+          }
+        ]
+      },
+      {
+        "key": "bl_uncertain_kit",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "180골드를 내고 목록이 불완전한 묶음을 확인했다.",
+            "reactionText": "준비 묶음의 목록이 끝까지 맞지 않았다. 지불한 180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. (실패)"
+          },
+          {
+            "index": 2,
+            "actionText": "260골드로 확인된 물품을 마련하고 우류와 목록의 끝을 맞췄다.",
+            "reactionText": "우류가 꼼꼼하게 목록을 대조했다. 확실한 물품을 확보했다. (카드: bl_uryu_fold)"
+          },
+          {
+            "index": 3,
+            "actionText": "160골드로 보급을 마련하고 유즈와 더 약한 보급 담당 구역을 골랐다.",
+            "reactionText": "유즈와 함께 안전한 구역을 선별했다. 보급을 확보하며 담당 구역을 좁혔다. (카드: bl_yuzu_split, 물약 1개)"
+          }
+        ]
+      },
+      {
+        "key": "bl_tatsuki_space",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞췄다.",
+            "reactionText": "타츠키가 정확한 위치에 발을 딛었다. 연습 준비가 완료되었다. (카드: bl_tatsuki_stance)"
+          },
+          {
+            "index": 2,
+            "actionText": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 했다.",
+            "reactionText": "오리히메가 이동 범위를 조정했다. 장거리 이동을 위한 준비를 마쳤다. (카드: bl_orihime)"
+          },
+          {
+            "index": 3,
+            "actionText": "120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄였다.",
+            "reactionText": "차드가 돌아올 거리를 계산했다. 보급을 챙기며 길목을 압축했다. (카드: bl_chad_return, 물약 1개)"
+          }
+        ]
+      },
+      {
+        "key": "bl_empty_bench",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "카린이 비워 둔 자리를 존중하고 옆으로 옮겼다.",
+            "reactionText": "카린이 고개를 끄덕였다. 비워 둔 자리를 유지하며 옆으로 이동했다. (카드: bl_karin_distance)"
+          },
+          {
+            "index": 2,
+            "actionText": "이치고와 더 강한 길목을 맡아 자리를 비웠다.",
+            "reactionText": "이치고가 험한 길을 맡기로 했다. 비어 있는 자리를 유지했다. (카드: bl_ichigo)"
+          },
+          {
+            "index": 3,
+            "actionText": "160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄였다.",
+            "reactionText": "루키아가 안내 경로를 확인했다. 표시 용품을 챙기며 길목을 압축했다. (카드: bl_rukia_sketch, 물약 1개)"
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "07fd1427-7e5a-4e5e-8ceb-a232868e27ae"
+}

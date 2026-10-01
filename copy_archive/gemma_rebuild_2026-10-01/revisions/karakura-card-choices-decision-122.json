@@ -1,0 +1,67 @@
+{
+  "sourceRevision": "0dd632d",
+  "beforeSha256": "8d864e44c4427560f71c36ebf2d10bf972749f695ae1d8419a37b611a0d479b0",
+  "oldCardsUnchanged": 17,
+  "newCards": [
+    "bl_rukia_sketch",
+    "bl_uryu_fold",
+    "bl_orihime_pause",
+    "bl_urahara_margin",
+    "bl_chad_return",
+    "bl_yuzu_split",
+    "bl_jinta_boundary",
+    "bl_kon_unwind"
+  ],
+  "events": 19,
+  "choices": 57,
+  "directGoldChoices": 0,
+  "removedGoldChoices": 10,
+  "freeEvents": 1,
+  "requiredCardEvents": 3,
+  "history": "상자성공1→지붕/2→주소/3→골목,경보실패-1→표식. 옛4번후속은우류보유새배송. 이치고훈련/우라하라목록도개인보유조건.",
+  "reviewResults": [
+    {
+      "file": "reviews/karakura-card-choices-review-121-1.json",
+      "recordId": "7c5bba23-46a0-447a-b6c0-15b7b301f0e9",
+      "verdict": "PASS",
+      "parsed": {
+        "verdict": "PASS",
+        "issues": [],
+        "strengths": [
+          "카드 능력과 사건 필드 부담(level, density)을 명확히 구분하여 설계됨.",
+          "방문 행동력(AP)과 시간(사냥 시간 10분 고정)을 분리하여 정책을 준수함.",
+          "공식 확인 역할 밖의 마법이나 추측성 능력을 배제하고, 원작의 성격/역할을 기반으로 한 각색(배송, 수선 등)을 구체적으로 명시함.",
+          "실패 시 비용 및 필드 유지, 성공 시에만 카드/물약 지급이라는 규칙을 정확히 적용함.",
+          "신속, 재생, 이동 속도 등 수치적 정규화와 한도(10%/초)를 구체적으로 명시하여 모순을 방지함."
+        ]
+      }
+    },
+    {
+      "file": "reviews/karakura-card-choices-review-121-2.json",
+      "recordId": "36ffa13f-3499-4f98-bb0d-13358f23ee25",
+      "verdict": "PASS",
+      "parsed": {
+        "verdict": "PASS",
+        "issues": [],
+        "strengths": [
+          "카드 능력과 사건 필드 부담(level, density)을 명확히 구분하여 설계됨.",
+          "방문 행동력(AP)과 시간(사냥 시간 10분 고정)을 분리하여 정책을 준수함.",
+          "공식 확인 역할 밖의 설정(사신화, 영체 이탈, 보호막 생성 등)을 배제하고 기존 능력치로 각색함.",
+          "실제 입력의 구체적 모순(예: 우라하라 최대치 1이 시간 증가가 아닌 방문 횟수임 등)을 정책에 정확히 반영함."
+        ]
+      }
+    }
+  ],
+  "decision": "두 역검토는PASS이며별도수정지적은없었다. 모델판정은자문이다. 집필의내부키·외국어/JSON조각·실패문의성공복사·카드없음·잘못된적수2반복는121에서반려하고실제전체분기·카드/개인조건/AP를별도로검사한다.",
+  "discarded": "revisions/karakura-card-choices-discarded-121.json",
+  "limits": [
+    "공식인물소개와상점역할으로역할을확인했다. 이배송/소매/인형/목록는여행자용창작방문이며원작실제퀘스트라고주장하지않는다.",
+    "맵생성·Warcraft·시각·멀티·저장·재미·실전밸런스는미검증."
+  ],
+  "check": {
+    "cards": 25,
+    "events": 19,
+    "errors": [],
+    "warnings": []
+  }
+}

@@ -1,0 +1,1293 @@
+{
+  "started": "2026-10-01T19:07:42.920Z",
+  "finished": "2026-10-01T19:07:51.906Z",
+  "request": {
+    "review": true,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "system": "한국어독립검토자. 모든문장은한국어. PASS에맞추지말고지정카드/현재수치/보유조건/자기후속/인물역할의구체적모순을지적한다. 주어진역할이외의원작능력이나결말을추측하지않는다. 골드/AP/시간/적단계를구분한다.",
+    "brief": {
+      "world": {
+        "key": "mitakihara",
+        "name": "미타키하라",
+        "work": "마법소녀 마도카 마기카",
+        "intro": "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다.",
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 3
+          }
+        ],
+        "entryCard": "madoka_care",
+        "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+      },
+      "cards": [
+        {
+          "key": "madoka_care",
+          "name": "카나메 마도카",
+          "effectName": "친구를 위해",
+          "keyword": "고체력 · 생존",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 8
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "마도카가 친구를 걱정하는 성격을 체력을 지키는 성장으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_mami",
+          "name": "토모에 마미",
+          "effectName": "흔들리지 않는 조준",
+          "keyword": "차지 · 관통",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 18
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "charge_speed",
+                "value": 6
+              }
+            ]
+          },
+          "canonFact": "마미의 마법소녀 역할과 총을 활용하는 전투를 조준·차지로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_homura",
+          "name": "아케미 호무라",
+          "effectName": "반복해 세운 준비",
+          "keyword": "행동 · 신속",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 6
+            },
+            {
+              "stat": "swift",
+              "value": 180
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              }
+            ]
+          },
+          "canonFact": "호무라의 반복된 준비를 행동 속도·신속으로 각색했다. 시간을 멈추는 신규 기술은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_sayaka",
+          "name": "미키 사야카",
+          "effectName": "물러서지 않는 결심",
+          "keyword": "체력 · 공격",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 10
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "사야카의 결심과 친구를 지키려는 행동을 공격·최대 체력으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_kyoko",
+          "name": "사쿠라 쿄코",
+          "effectName": "긴 창의 간격",
+          "keyword": "방향 · 이동",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 15
+            },
+            {
+              "stat": "moving_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "crit_damage",
+                "value": 15
+              }
+            ]
+          },
+          "canonFact": "쿄코의 창 전투를 방향 공격과 이동 관련 성장으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_contract",
+          "name": "큐베",
+          "effectName": "힘이라는 소원",
+          "keyword": "공격 · 대가",
+          "grade": 3,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 22
+            },
+            {
+              "stat": "max_health_percent",
+              "value": -10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "큐베가 소원과 계약을 제시하는 특징을 공격 보너스·최대 체력 패널티로 각색했다. 별도 계약 시스템이나 현재 체력 지불은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_guide",
+          "name": "토모에 마미",
+          "effectName": "혼자 두지 않는 안내",
+          "keyword": "탐색 · 생존",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "마미가 후배를 안내하는 역할을 후보 확인·방어 성장으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_resolve",
+          "name": "카나메 마도카",
+          "effectName": "서로의 말을 듣기",
+          "keyword": "생존 · 보스",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "마도카가 인물들의 사정을 듣는 행동을 살아 돌아와 전투를 준비하는 성장으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_junko_choice",
+          "name": "카나메 준코",
+          "effectName": "먼저 정할 한 가지",
+          "keyword": "보스 · 피해 감소",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 12
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "직장인인 마도카의 어머니가 딸과 가까이 대화하는 역할을 큰 상대를 앞두고 무엇을 먼저 지킬지 정하는 준비로 각색했다. 성인 고유 전투 능력·회사 급여·부모 허락 시스템은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_tomohisa_pack",
+          "name": "카나메 토모히사",
+          "effectName": "남겨 놓은 한 사람의 몫",
+          "keyword": "재생 · 최대 체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "취사·세탁·청소를 맡는 전업주부 역할을 다음 일을 오래 이어 갈 보급 습관으로 각색한다. 식사 즉시 치료·주방 장비·무한 음식은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_hitomi_schedule",
+          "name": "시즈키 히토미",
+          "effectName": "약속 사이에 남긴 여백",
+          "keyword": "신속 · 차지 속도",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 180
+            },
+            {
+              "stat": "charge_speed",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "피아노·일본무용·다도 등 여러 활동을 하는 친구의 역할을 다음 동작과 준비를 늦추지 않는 습관으로 각색했다. 음악 버프·다도 기술·추가 시간·친구의 연애 결말은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_sayaka_listen",
+          "name": "미키 사야카",
+          "effectName": "말이 끝날 때까지",
+          "keyword": "치명 확률 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 5
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "친구를 아끼고 쿄스케를 문병하는 행동을 상대를 살피고 몸 상태를 지킬 때 힘을 싣는 준비로 각색한다. 쿄스케의 손 치료·소원 대리 실현·악기 장비는 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_homura_school",
+          "name": "아케미 호무라",
+          "effectName": "먼저 끝내고 기다릴 자리",
+          "keyword": "행동 속도 · 비방향 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 4
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "penetration",
+                "value": 6
+              }
+            ]
+          },
+          "canonFact": "성적과 운동이 뛰어난 전학생의 면모를 다음 동작과 넓은 공격의 준비 습관으로 각색한다. 시간 정지·추가 시간·전학생 성적 시스템은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_mami_distance",
+          "name": "토모에 마미",
+          "effectName": "들어가기 전의 한 걸음",
+          "keyword": "방향 피해 · 피해 감소",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "directional_damage",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 9000,
+            "effects": [
+              {
+                "stat": "charge_speed",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "후배를 안내하는 선배의 역할을 들어가기 전에 적중할 위치와 물러날 자리를 정하는 준비로 각색한다. 리본·새 총기·결계 탈출 보장·원작 생존 결말은 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_return_markers",
+          "name": "카나메 마도카",
+          "effectName": "돌아와 줄 자리",
+          "keyword": "최대 체력 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "친구를 걱정하는 성격에서 돌아올 사람의 자리를 남기는 기억이다. 고체력은65%이상이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_mami_rear",
+          "name": "토모에 마미",
+          "effectName": "내 뒤에 둘 여백",
+          "keyword": "차지 속도 · 받는 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 5
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "후배를 돌보는 선배의 역할에서 자신의 조준과 뒤편의 준비를 구분하는 기억이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_kyoko_unshared",
+          "name": "사쿠라 쿄코",
+          "effectName": "허투루 버리지 않을 것",
+          "keyword": "이동 · 치명 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            },
+            {
+              "stat": "crit_damage",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "음식을 늘 먹는 면모에서 버리지 않고 남길 몫을 확인하는 기억이다. 이동3%와 치명 피해14%p다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_homura_retreat",
+          "name": "아케미 호무라",
+          "effectName": "빈칸으로 남긴 길",
+          "keyword": "치명 피해 · 일반 적",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 12
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "준비와 경계를 세우는 기존 역할에서 확인하지 않은 곳을 함부로 채우지 않는 기억이다. 시간 정지나 제한시간 추가는 없다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_sayaka_carry",
+          "name": "미키 사야카",
+          "effectName": "가방을 닫기 전에",
+          "keyword": "치명 확률 · 비방향",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 4
+            },
+            {
+              "stat": "nondirectional_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "친구를 문병하는 행동에서 준비된 물건부터 챙기는 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 손 치료나 소원 실현을 하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_hitomi_walk",
+          "name": "시즈키 히토미",
+          "effectName": "함께 갈 수 있는 구간",
+          "keyword": "이동 · 최대 체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "여러 습관과 친구 관계에서 함께 갈 구간만 맡는 기억이다. 연애 결말·실제 시간 증가를 뜻하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_mami_next",
+          "name": "토모에 마미",
+          "effectName": "다음에도 들을 이야기",
+          "keyword": "행동력 최대치",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_capacity",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "후배의 선택을 돕는 역할에서 다음 방문에도 맡을 몫을 정하는 기억이다. 행동력 최대치와 현재행동력 증가분1만 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "allEventRoutes": [
+        {
+          "key": "madoka_parking_seed",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_guide",
+              "card2": null
+            },
+            {
+              "card": "madoka_sayaka",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_mentor_return",
+          "previous": "madoka_parking_seed",
+          "previousChoice": 1,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_mami",
+              "card2": null
+            },
+            {
+              "card": "madoka_resolve",
+              "card2": null
+            },
+            {
+              "card": "madoka_mami_rear",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_familiar_trace",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_sayaka",
+              "card2": null
+            },
+            {
+              "card": "madoka_resolve",
+              "card2": null
+            },
+            {
+              "card": "madoka_kyoko",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_church_food",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_kyoko",
+              "card2": null
+            },
+            {
+              "card": "madoka_resolve",
+              "card2": null
+            },
+            {
+              "card": "madoka_kyoko_unshared",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_one_wish",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_contract",
+              "card2": null
+            },
+            {
+              "card": "madoka_sayaka",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_warning",
+          "previous": "madoka_parking_seed",
+          "previousChoice": 3,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_mami",
+              "card2": null
+            },
+            {
+              "card": "madoka_resolve",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura_retreat",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_visit_music",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_sayaka_listen",
+              "card2": null
+            },
+            {
+              "card": "madoka_sayaka_carry",
+              "card2": null
+            },
+            {
+              "card": "madoka_return_markers",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_home_morning",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_junko_choice",
+              "card2": null
+            },
+            {
+              "card": "madoka_tomohisa_pack",
+              "card2": null
+            },
+            {
+              "card": "madoka_return_markers",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_afterclass_appts",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_hitomi_schedule",
+              "card2": null
+            },
+            {
+              "card": "madoka_resolve",
+              "card2": null
+            },
+            {
+              "card": "madoka_hitomi_walk",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_transfer_practice",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_homura_school",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura_retreat",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_room_visit",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_mami_distance",
+              "card2": null
+            },
+            {
+              "card": "madoka_guide",
+              "card2": null
+            },
+            {
+              "card": "madoka_mami_rear",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_boundary_entrance",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "card": "madoka_mami_distance",
+              "card2": null
+            },
+            {
+              "card": "madoka_homura",
+              "card2": null
+            },
+            {
+              "card": "madoka_return_markers",
+              "card2": null
+            }
+          ]
+        },
+        {
+          "key": "madoka_folded_edge",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": "madoka_mami_distance",
+          "choices": [
+            {
+              "card": "madoka_mami_next",
+              "card2": null
+            },
+            {
+              "card": "madoka_mami_rear",
+              "card2": null
+            },
+            {
+              "card": "madoka_return_markers",
+              "card2": null
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "key": "madoka_home_morning",
+          "title": "아침에 서로 찾는 가방",
+          "story": "준코가 출근 가방을 챙기는 사이 토모히사는 아침 식사 몫을 나누고 있었다. 현관에는 여러 개의 봉투가 모여 있어 누구의 것인지 알 수 없었다. 마도카는 누구의 준비를 먼저 도울지 물었다.",
+          "intro": "먼저 끝낼 일과 남겨 둘 몫 중 도울 준비를 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "정리 용품을 보태고 준코와 먼저 할 일을 나눈다",
+              "result": "정리 용품을 보태고 준코와 먼저 할 일을 나눴다. 준비에 160골드를 썼다. 준코는 출근 가방을 들기 전에 마도카 쪽의 봉투를 따로 남긴다.",
+              "card": "madoka_junko_choice",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙긴다",
+              "result": "포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙겼다. 준비에 180골드를 썼다. 토모히사는 봉투에 이름을 쓰고 아직 가져가지 않은 몫은 식탁에 둔다.",
+              "card": "madoka_tomohisa_pack",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "마도카와 적이 더 많은 바깥 배달 길목을 맡는다",
+              "result": "마도카와 적이 더 많은 바깥 배달 길목을 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 토모히사는 가져갈 봉투만 나누고 준코가 아직 챙기지 않은 봉투는 현관에 남긴다.",
+              "card": "madoka_return_markers",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 준코의 직장인·아침에 약함·마도카와 가까운 관계, 토모히사의 가사 역할에서 별도 아침 만남을 만든다. 부부·가정 결말·원작 회사 급여는 바꾸지 않고 바깥 배달과 보급 담당자는 맵의 창작이다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_afterclass_appts",
+          "title": "방과 후에 겹친 약속",
+          "story": "히토미가 피아노와 다도 준비를 점검하자 사야카는 잠깐 같이 가자고 손짓했다. 마도카는 아직 정리하지 못한 안내표를 들고 있었다. 히토미는 빈 시간을 고려해 갈 곳을 나누자고 제안했다.",
+          "intro": "약속 사이의 준비와 학교에 남은 안내 일을 나눈다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "표시 용품을 마련해 히토미와 약속 사이의 준비를 나눈다",
+              "result": "표시 용품을 마련해 히토미와 약속 사이의 준비를 나눴다. 준비에 180골드를 썼다. 히토미가 가방을 챙기자 사야카는 함께 갈 수 있는 구간만 짚는다.",
+              "card": "madoka_hitomi_schedule",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "마도카와 적이 더 많은 안내 길목을 맡는다",
+              "result": "마도카와 적이 더 많은 안내 길목을 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 히토미는 같이 갈 수 없는 구간을 접고 마도카는 남은 안내표를 챙긴다.",
+              "card": "madoka_resolve",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 안내를 마련하고 히토미와 함께 갈 구간만 맡는다",
+              "card": "madoka_hitomi_walk",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100,
+              "result": "160골드로 안내를 마련하고 히토미와 함께 갈 구간만 맡았다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 히토미는 네가 맡지 않은 구간을 따로 접고 사야카에게 어디까지 함께할지 다시 묻는다."
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 히토미의 피아노·일본무용·다도와 친구 관계에서 별도 약속 문제를 만들었다. 히토미·사야카·쿄스케 연애 갈등을 시간표 선택으로 해결하지 않으며 사냥 제한 시간은 증가하지 않는다.",
+          "uncertain": [],
+          "actionCost": 0
+        },
+        {
+          "key": "madoka_transfer_practice",
+          "title": "전학생이 먼저 끝낸 준비",
+          "story": "호무라가 먼저 연습 도구를 정리해둔 것을 보고 사야카가 물었다. 마도카는 남은 준비를 함께 보자고 했지만 호무라는 바깥 일 때문에 서둘러야 했다. 교실 정리와 적이 오가는 길목 중 맡을 일을 정해야 했다.",
+          "intro": "교실 쪽의 준비와 바깥 구역 중 맡을 일을 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "준비 용품을 마련해 호무라와 다음 동작을 맞춘다",
+              "result": "준비 용품을 마련해 호무라와 다음 동작을 맞췄다. 준비에 220골드를 썼다. 사야카가 다시 물으려 하자 호무라는 아직 치우지 않은 도구를 가리킨다.",
+              "card": "madoka_homura_school",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호무라와 더 강한 적이 오가는 길목을 맡는다",
+              "result": "호무라와 더 강한 적이 오가는 길목을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 네가 돌아올 자리를 남기고 호무라는 바깥의 표시만 챙긴다.",
+              "card": "madoka_homura",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 정리를 준비하고 호무라와 확인하지 않은 담당 구역을 줄인다",
+              "card": "madoka_homura_retreat",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100,
+              "result": "160골드로 정리를 준비하고 호무라와 확인하지 않은 담당 구역을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 호무라는 맡지 않은 곳을 확인된 구역으로 칠하지 않고 빈칸으로 남긴다."
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 호무라의 전학생·성적 우수·운동 능력을 별도 방과후 준비로 썼다. 실제 시간이 멈췄다는 설명이나 일상 시점의 과거 반복을 해결하는 결말은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_room_visit",
+          "title": "방문 전에 접지 않은 지도",
+          "story": "마미가 후배들에게 마녀를 쫓는 일을 함께 보자고 제안한 뒤 아직 접지 않은 지도를 펼친다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 준비도 남겨 두자고 한다. 마미는 한 사람이 바깥 길과 입구의 준비를 모두 맡지는 말자고 한다.",
+          "intro": "들어갈 간격을 짚거나 바깥 길목을 맡는다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "표시 용품을 마련해 마미와 입구의 간격을 짚는다",
+              "result": "표시 용품을 마련해 마미와 입구의 간격을 짚었다. 준비에 200골드를 썼다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 곳에 표시를 남긴다.",
+              "card": "madoka_mami_distance",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "마미와 적이 더 많이 오가는 바깥 길목을 맡는다",
+              "result": "마미와 적이 더 많이 오가는 바깥 길목을 맡았다. 내 개인 사냥의 적 수 단계가2늘었다. 마미는 네가 맡은 바깥 구역만 표시하고 입구의 준비는 다른 항목에 남긴다.",
+              "card": "madoka_guide",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 보급을 준비하고 마미의 뒤편에서 맡을 길목을 줄인다",
+              "card": "madoka_mami_rear",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100,
+              "result": "160골드로 보급을 준비하고 마미의 뒤편에서 맡을 길목을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 보급 물약1개를 받았다. 마도카는 줄인 길목을 접고 사야카에게 마미 뒤편의 남은 자리를 가리킨다."
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 원 TV2화의 마미 방 방문·마녀 퇴치 동행 제안에서 별도 사전 준비를 만든다. 병원 주차장 사건과 별개이며 마미의 본편 죽음을 막거나 실제 총기·리본을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_boundary_entrance",
+          "title": "건너기 전에 달라진 입구",
+          "story": "낯선 입구를 발견한 마도카가 안쪽에 사람이 있는지 물었다. 마미는 결계를 모르니 주의를 주었고 호무라는 확인할 곳을 먼저 짚었다. 흔적 확인과 다음 진입 준비를 나누어야 했다.",
+          "intro": "입구에 들어가기 전 확인할 구역을 나눈다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "확인 용품을 마련해 마미와 들어갈 위치를 정한다",
+              "result": "확인 용품을 마련해 마미와 들어갈 위치를 정했다. 준비에 220골드를 썼다. 호무라는 확인하지 않은 안쪽을 그대로 남겨 두라고 한다.",
+              "card": "madoka_mami_distance",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "호무라와 더 강한 적이 오가는 바깥 구역을 맡는다",
+              "result": "호무라와 더 강한 적이 오가는 바깥 구역을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 확인한 바깥 흔적만 적고 안쪽에 사람이 있다고 단정하지 않는다.",
+              "card": "madoka_homura",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡는다",
+              "card": "madoka_return_markers",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": -1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100,
+              "result": "160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 마미는 네가 맡지 않은 안쪽을 다시 표시하고 마도카는 돌아올 자리만 남긴다."
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 결계가 마녀의 이계이며 일반인은 나가기 어렵다는 설정에서 바깥 확인 문제를 만든다. 플레이어가 새 결계 전투를 실제로 시작하거나 평범한 사람을 카드 선택만으로 탈출시키지 않는다. 여러 시점의 만남은 마미가 살아 있던 별도 일상으로 한정한다.",
+          "uncertain": []
+        },
+        {
+          "key": "madoka_folded_edge",
+          "title": "한 걸음 뒤에서 들을 말",
+          "intro": "마미가 네가 표시한 입구의 간격을 알아보고 지도를 다시 편다.",
+          "story": "마미는 네가 들어갈 위치와 물러설 자리를 표시했던 지도를 보며 다음에도 같은 일을 맡을지 묻는다. 마도카는 돌아올 자리부터 남기자고 하고 사야카는 마미의 뒤편 준비도 비어 있다고 한다. 익힌 간격이 있어 입구부터 다시 설명할 필요는 없지만 다음 방문까지 맡을지는 네가 답해야 한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": "madoka_mami_distance",
+          "actionCost": 1,
+          "failure": null,
+          "canonFact": "마미의 후배 안내 역할을 사용한 별도 만남이다. 자신의 들어가기 전의 한 걸음 카드 보유를 조건으로 다음 몫을 정한다. 방문 행동력 추가는 사냥 시간 증가·마미 생존·본편 운명 변경이나 인물의 시간 능력이 아니다.",
+          "uncertain": [],
+          "choices": [
+            {
+              "label": "200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답한다",
+              "card": "madoka_mami_next",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100,
+              "result": "200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답했다. 마미는 이번 항목 옆에 네가 다음에도 맡겠다는 답을 남기고 뒤편 준비는 다시 묻는다."
+            },
+            {
+              "label": "160골드로 보급을 준비하고 마미와 뒤편의 담당 길목을 줄인다",
+              "card": "madoka_mami_rear",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100,
+              "result": "160골드로 보급을 준비하고 마미와 뒤편의 담당 길목을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 사야카는 아직 맡지 않은 준비를 가리키고 마미는 다음 방문까지 맡는지 다시 묻는다."
+            },
+            {
+              "label": "마도카와 더 많은 적이 오가는 귀환길의 자리를 맡는다",
+              "card": "madoka_return_markers",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100,
+              "result": "마도카와 더 많은 적이 오가는 귀환길의 자리를 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 마도카는 귀환길의 표시를 남기지만 마미가 물었던 다음 방문의 답은 비어 있다."
+            }
+          ]
+        }
+      ],
+      "policy": {
+        "cards": "각 사건 서로 다른 지정카드3종. 입문·부모 보상 카드를 후속에서 반복하지 않음.",
+        "cost": "cost선지불. 실패해도 AP/골드/필드 변화 유지. 성공만 카드와 물약 지급.",
+        "field": "level은개인몬스터강함(1~5),density는동시몬스터수(1~10). 초기1/4. 플레이어레벨·NPC능력아님.",
+        "ap": "기본후보3최대4. 방문AP1또는0,잔여AP0이면무료도등장안함. 최대치증가분만현재AP에도한번지급.",
+        "history": "주차장 성공1→mentor_return,성공3→warning의 자기 기록 번호 유지.",
+        "canon": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 새 문병·아침·약속·전학생·방 방문·결계 바깥 문제는 마미 생전의 서로 다른 별도 만남이다. 기존 교회 등 본편의 다른 시점과 같은 날로 연결하지 않는다. 부모와 히토미의 준비는 맵의 창작 성장으로 원작 전투 기술이 아니며 치료·연애 해결·결계 탈출·추가 시간·마미 운명 변경은 없다. 공식 원 TV와 재편집 TV Edition의 화수는 다르다. 새 카드의 행동력 최대치 증가는 여행자의 방문 횟수이며 사냥 제한시간이나 인물의 시간 능력이 아니다. 사전 준비와 이후 교회 장면은 같은 날이 아니다. 병원 자전거 보관소는 원 TV3화, 폐허 교회는 원 TV7화 공식 줄거리로 별도 대조했다."
+      },
+      "verifiedFacts": [
+        "공식인물소개. 마도카는친구를아끼고마미는후배를돌보는선배,호무라는뛰어난전학생,사야카는활발한친구,쿄코는늘무언가를먹는다.",
+        "원TV2화는마미방의설명과동행제안,원TV3화는병원자전거보관소의씨앗과사야카의경계/마도카의도움요청,원TV7화는폐허교회로데려가는쿄코의이야기다.",
+        "히토미는피아노·일본무용·다도. 준코는직장인이며아침에약하고,토모히사는가사를맡는다.",
+        "플레이어의준비/후속/보상은각색이다. 한선택으로마미운명·손치료·교회갈등·연애·결계탈출을확정하지않는다."
+      ],
+      "checks": [
+        "각사건서로다른카드3종이며입문/부모카드재지급없는가?",
+        "직접골드0인데옛보수/가짜물약/새확률이문장에남는가? 비용과성공물약·실패AP/필드가일치하는가?",
+        "최대체력패널티는지속능력치이고현재체력을사건비용으로지불하지않는다. 최대치카드+1은AP증가분만1회,시간추가아님.",
+        "부모성공1/3의자기기록,새입구간격카드조건의기존획득경로가맞는가?",
+        "-1적단계감소를음수체력이나NPC레벨감소로오독하지않는다. 결과의감소량은최저1로제한된다.",
+        "표지에이미인물이있다고모든NPC가실제동행/공격/시간정지한다고해석하지않는다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어독립검토자. 모든문장은한국어. PASS에맞추지말고지정카드/현재수치/보유조건/자기후속/인물역할의구체적모순을지적한다. 주어진역할이외의원작능력이나결말을추측하지않는다. 골드/AP/시간/적단계를구분한다."
+      },
+      {
+        "role": "user",
+        "content": "{\"world\":{\"key\":\"mitakihara\",\"name\":\"미타키하라\",\"work\":\"마법소녀 마도카 마기카\",\"intro\":\"평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다.\",\"effects\":[{\"stat\":\"max_health_percent\",\"value\":3}],\"entryCard\":\"madoka_care\",\"icon\":\"ReplaceableTextures\\\\CommandButtons\\\\BTNTome.blp\"},\"cards\":[{\"key\":\"madoka_care\",\"name\":\"카나메 마도카\",\"effectName\":\"친구를 위해\",\"keyword\":\"고체력 · 생존\",\"grade\":1,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":8},{\"stat\":\"damage_reduction\",\"value\":3}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"마도카가 친구를 걱정하는 성격을 체력을 지키는 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_mami\",\"name\":\"토모에 마미\",\"effectName\":\"흔들리지 않는 조준\",\"keyword\":\"차지 · 관통\",\"grade\":2,\"effects\":[{\"stat\":\"charge_damage\",\"value\":18},{\"stat\":\"penetration\",\"value\":8}],\"evolution\":{\"kind\":2,\"goal\":12000,\"effects\":[{\"stat\":\"charge_speed\",\"value\":6}]},\"canonFact\":\"마미의 마법소녀 역할과 총을 활용하는 전투를 조준·차지로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_homura\",\"name\":\"아케미 호무라\",\"effectName\":\"반복해 세운 준비\",\"keyword\":\"행동 · 신속\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":6},{\"stat\":\"swift\",\"value\":180}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":8}]},\"canonFact\":\"호무라의 반복된 준비를 행동 속도·신속으로 각색했다. 시간을 멈추는 신규 기술은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_sayaka\",\"name\":\"미키 사야카\",\"effectName\":\"물러서지 않는 결심\",\"keyword\":\"체력 · 공격\",\"grade\":2,\"effects\":[{\"stat\":\"attack_percent\",\"value\":10},{\"stat\":\"max_health_percent\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"사야카의 결심과 친구를 지키려는 행동을 공격·최대 체력으로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_kyoko\",\"name\":\"사쿠라 쿄코\",\"effectName\":\"긴 창의 간격\",\"keyword\":\"방향 · 이동\",\"grade\":2,\"effects\":[{\"stat\":\"directional_damage\",\"value\":15},{\"stat\":\"moving_damage\",\"value\":10}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"crit_damage\",\"value\":15}]},\"canonFact\":\"쿄코의 창 전투를 방향 공격과 이동 관련 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_contract\",\"name\":\"큐베\",\"effectName\":\"힘이라는 소원\",\"keyword\":\"공격 · 대가\",\"grade\":3,\"effects\":[{\"stat\":\"attack_percent\",\"value\":22},{\"stat\":\"max_health_percent\",\"value\":-10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"큐베가 소원과 계약을 제시하는 특징을 공격 보너스·최대 체력 패널티로 각색했다. 별도 계약 시스템이나 현재 체력 지불은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_guide\",\"name\":\"토모에 마미\",\"effectName\":\"혼자 두지 않는 안내\",\"keyword\":\"탐색 · 생존\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"마미가 후배를 안내하는 역할을 후보 확인·방어 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_resolve\",\"name\":\"카나메 마도카\",\"effectName\":\"서로의 말을 듣기\",\"keyword\":\"생존 · 보스\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"boss_damage_percent\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"마도카가 인물들의 사정을 듣는 행동을 살아 돌아와 전투를 준비하는 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"madoka_junko_choice\",\"name\":\"카나메 준코\",\"effectName\":\"먼저 정할 한 가지\",\"keyword\":\"보스 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":12},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"직장인인 마도카의 어머니가 딸과 가까이 대화하는 역할을 큰 상대를 앞두고 무엇을 먼저 지킬지 정하는 준비로 각색했다. 성인 고유 전투 능력·회사 급여·부모 허락 시스템은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_tomohisa_pack\",\"name\":\"카나메 토모히사\",\"effectName\":\"남겨 놓은 한 사람의 몫\",\"keyword\":\"재생 · 최대 체력\",\"grade\":2,\"effects\":[{\"stat\":\"regeneration\",\"value\":0.4},{\"stat\":\"max_health_percent\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"취사·세탁·청소를 맡는 전업주부 역할을 다음 일을 오래 이어 갈 보급 습관으로 각색한다. 식사 즉시 치료·주방 장비·무한 음식은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_hitomi_schedule\",\"name\":\"시즈키 히토미\",\"effectName\":\"약속 사이에 남긴 여백\",\"keyword\":\"신속 · 차지 속도\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":180},{\"stat\":\"charge_speed\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"피아노·일본무용·다도 등 여러 활동을 하는 친구의 역할을 다음 동작과 준비를 늦추지 않는 습관으로 각색했다. 음악 버프·다도 기술·추가 시간·친구의 연애 결말은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_sayaka_listen\",\"name\":\"미키 사야카\",\"effectName\":\"말이 끝날 때까지\",\"keyword\":\"치명 확률 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"crit_chance\",\"value\":5},{\"stat\":\"healthy_damage\",\"value\":10}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"친구를 아끼고 쿄스케를 문병하는 행동을 상대를 살피고 몸 상태를 지킬 때 힘을 싣는 준비로 각색한다. 쿄스케의 손 치료·소원 대리 실현·악기 장비는 없다.\",\"uncertain\":[]},{\"key\":\"madoka_homura_school\",\"name\":\"아케미 호무라\",\"effectName\":\"먼저 끝내고 기다릴 자리\",\"keyword\":\"행동 속도 · 비방향 피해\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":4},{\"stat\":\"nondirectional_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"penetration\",\"value\":6}]},\"canonFact\":\"성적과 운동이 뛰어난 전학생의 면모를 다음 동작과 넓은 공격의 준비 습관으로 각색한다. 시간 정지·추가 시간·전학생 성적 시스템은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_mami_distance\",\"name\":\"토모에 마미\",\"effectName\":\"들어가기 전의 한 걸음\",\"keyword\":\"방향 피해 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"directional_damage\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":2,\"goal\":9000,\"effects\":[{\"stat\":\"charge_speed\",\"value\":3}]},\"canonFact\":\"후배를 안내하는 선배의 역할을 들어가기 전에 적중할 위치와 물러날 자리를 정하는 준비로 각색한다. 리본·새 총기·결계 탈출 보장·원작 생존 결말은 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_return_markers\",\"name\":\"카나메 마도카\",\"effectName\":\"돌아와 줄 자리\",\"keyword\":\"최대 체력 · 고체력\",\"grade\":2,\"effects\":[{\"stat\":\"max_health_percent\",\"value\":8},{\"stat\":\"healthy_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"친구를 걱정하는 성격에서 돌아올 사람의 자리를 남기는 기억이다. 고체력은65%이상이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_mami_rear\",\"name\":\"토모에 마미\",\"effectName\":\"내 뒤에 둘 여백\",\"keyword\":\"차지 속도 · 받는 피해\",\"grade\":2,\"effects\":[{\"stat\":\"charge_speed\",\"value\":5},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"후배를 돌보는 선배의 역할에서 자신의 조준과 뒤편의 준비를 구분하는 기억이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_kyoko_unshared\",\"name\":\"사쿠라 쿄코\",\"effectName\":\"허투루 버리지 않을 것\",\"keyword\":\"이동 · 치명 피해\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":3},{\"stat\":\"crit_damage\",\"value\":14}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"음식을 늘 먹는 면모에서 버리지 않고 남길 몫을 확인하는 기억이다. 이동3%와 치명 피해14%p다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_homura_retreat\",\"name\":\"아케미 호무라\",\"effectName\":\"빈칸으로 남긴 길\",\"keyword\":\"치명 피해 · 일반 적\",\"grade\":2,\"effects\":[{\"stat\":\"crit_damage\",\"value\":12},{\"stat\":\"normal_damage_percent\",\"value\":14}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"준비와 경계를 세우는 기존 역할에서 확인하지 않은 곳을 함부로 채우지 않는 기억이다. 시간 정지나 제한시간 추가는 없다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_sayaka_carry\",\"name\":\"미키 사야카\",\"effectName\":\"가방을 닫기 전에\",\"keyword\":\"치명 확률 · 비방향\",\"grade\":2,\"effects\":[{\"stat\":\"crit_chance\",\"value\":4},{\"stat\":\"nondirectional_damage\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"친구를 문병하는 행동에서 준비된 물건부터 챙기는 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 손 치료나 소원 실현을 하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_hitomi_walk\",\"name\":\"시즈키 히토미\",\"effectName\":\"함께 갈 수 있는 구간\",\"keyword\":\"이동 · 최대 체력\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":3},{\"stat\":\"max_health_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"여러 습관과 친구 관계에서 함께 갈 구간만 맡는 기억이다. 연애 결말·실제 시간 증가를 뜻하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_mami_next\",\"name\":\"토모에 마미\",\"effectName\":\"다음에도 들을 이야기\",\"keyword\":\"행동력 최대치\",\"grade\":2,\"effects\":[{\"stat\":\"action_capacity\",\"value\":1}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"후배의 선택을 돕는 역할에서 다음 방문에도 맡을 몫을 정하는 기억이다. 행동력 최대치와 현재행동력 증가분1만 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.\",\"uncertain\":[]}],\"allEventRoutes\":[{\"key\":\"madoka_parking_seed\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_guide\",\"card2\":null},{\"card\":\"madoka_sayaka\",\"card2\":null},{\"card\":\"madoka_homura\",\"card2\":null}]},{\"key\":\"madoka_mentor_return\",\"previous\":\"madoka_parking_seed\",\"previousChoice\":1,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_mami\",\"card2\":null},{\"card\":\"madoka_resolve\",\"card2\":null},{\"card\":\"madoka_mami_rear\",\"card2\":null}]},{\"key\":\"madoka_familiar_trace\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_sayaka\",\"card2\":null},{\"card\":\"madoka_resolve\",\"card2\":null},{\"card\":\"madoka_kyoko\",\"card2\":null}]},{\"key\":\"madoka_church_food\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_kyoko\",\"card2\":null},{\"card\":\"madoka_resolve\",\"card2\":null},{\"card\":\"madoka_kyoko_unshared\",\"card2\":null}]},{\"key\":\"madoka_one_wish\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_contract\",\"card2\":null},{\"card\":\"madoka_sayaka\",\"card2\":null},{\"card\":\"madoka_homura\",\"card2\":null}]},{\"key\":\"madoka_warning\",\"previous\":\"madoka_parking_seed\",\"previousChoice\":3,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_mami\",\"card2\":null},{\"card\":\"madoka_resolve\",\"card2\":null},{\"card\":\"madoka_homura_retreat\",\"card2\":null}]},{\"key\":\"madoka_visit_music\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_sayaka_listen\",\"card2\":null},{\"card\":\"madoka_sayaka_carry\",\"card2\":null},{\"card\":\"madoka_return_markers\",\"card2\":null}]},{\"key\":\"madoka_home_morning\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_junko_choice\",\"card2\":null},{\"card\":\"madoka_tomohisa_pack\",\"card2\":null},{\"card\":\"madoka_return_markers\",\"card2\":null}]},{\"key\":\"madoka_afterclass_appts\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_hitomi_schedule\",\"card2\":null},{\"card\":\"madoka_resolve\",\"card2\":null},{\"card\":\"madoka_hitomi_walk\",\"card2\":null}]},{\"key\":\"madoka_transfer_practice\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_homura_school\",\"card2\":null},{\"card\":\"madoka_homura\",\"card2\":null},{\"card\":\"madoka_homura_retreat\",\"card2\":null}]},{\"key\":\"madoka_room_visit\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_mami_distance\",\"card2\":null},{\"card\":\"madoka_guide\",\"card2\":null},{\"card\":\"madoka_mami_rear\",\"card2\":null}]},{\"key\":\"madoka_boundary_entrance\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"card\":\"madoka_mami_distance\",\"card2\":null},{\"card\":\"madoka_homura\",\"card2\":null},{\"card\":\"madoka_return_markers\",\"card2\":null}]},{\"key\":\"madoka_folded_edge\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":\"madoka_mami_distance\",\"choices\":[{\"card\":\"madoka_mami_next\",\"card2\":null},{\"card\":\"madoka_mami_rear\",\"card2\":null},{\"card\":\"madoka_return_markers\",\"card2\":null}]}],\"events\":[{\"key\":\"madoka_home_morning\",\"title\":\"아침에 서로 찾는 가방\",\"story\":\"준코가 출근 가방을 챙기는 사이 토모히사는 아침 식사 몫을 나누고 있었다. 현관에는 여러 개의 봉투가 모여 있어 누구의 것인지 알 수 없었다. 마도카는 누구의 준비를 먼저 도울지 물었다.\",\"intro\":\"먼저 끝낼 일과 남겨 둘 몫 중 도울 준비를 고른다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"정리 용품을 보태고 준코와 먼저 할 일을 나눈다\",\"result\":\"정리 용품을 보태고 준코와 먼저 할 일을 나눴다. 준비에 160골드를 썼다. 준코는 출근 가방을 들기 전에 마도카 쪽의 봉투를 따로 남긴다.\",\"card\":\"madoka_junko_choice\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙긴다\",\"result\":\"포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙겼다. 준비에 180골드를 썼다. 토모히사는 봉투에 이름을 쓰고 아직 가져가지 않은 몫은 식탁에 둔다.\",\"card\":\"madoka_tomohisa_pack\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"마도카와 적이 더 많은 바깥 배달 길목을 맡는다\",\"result\":\"마도카와 적이 더 많은 바깥 배달 길목을 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 토모히사는 가져갈 봉투만 나누고 준코가 아직 챙기지 않은 봉투는 현관에 남긴다.\",\"card\":\"madoka_return_markers\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 준코의 직장인·아침에 약함·마도카와 가까운 관계, 토모히사의 가사 역할에서 별도 아침 만남을 만든다. 부부·가정 결말·원작 회사 급여는 바꾸지 않고 바깥 배달과 보급 담당자는 맵의 창작이다.\",\"uncertain\":[]},{\"key\":\"madoka_afterclass_appts\",\"title\":\"방과 후에 겹친 약속\",\"story\":\"히토미가 피아노와 다도 준비를 점검하자 사야카는 잠깐 같이 가자고 손짓했다. 마도카는 아직 정리하지 못한 안내표를 들고 있었다. 히토미는 빈 시간을 고려해 갈 곳을 나누자고 제안했다.\",\"intro\":\"약속 사이의 준비와 학교에 남은 안내 일을 나눈다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"표시 용품을 마련해 히토미와 약속 사이의 준비를 나눈다\",\"result\":\"표시 용품을 마련해 히토미와 약속 사이의 준비를 나눴다. 준비에 180골드를 썼다. 히토미가 가방을 챙기자 사야카는 함께 갈 수 있는 구간만 짚는다.\",\"card\":\"madoka_hitomi_schedule\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"마도카와 적이 더 많은 안내 길목을 맡는다\",\"result\":\"마도카와 적이 더 많은 안내 길목을 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 히토미는 같이 갈 수 없는 구간을 접고 마도카는 남은 안내표를 챙긴다.\",\"card\":\"madoka_resolve\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 안내를 마련하고 히토미와 함께 갈 구간만 맡는다\",\"card\":\"madoka_hitomi_walk\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100,\"result\":\"160골드로 안내를 마련하고 히토미와 함께 갈 구간만 맡았다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 히토미는 네가 맡지 않은 구간을 따로 접고 사야카에게 어디까지 함께할지 다시 묻는다.\"}],\"failure\":null,\"canonFact\":\"공식 히토미의 피아노·일본무용·다도와 친구 관계에서 별도 약속 문제를 만들었다. 히토미·사야카·쿄스케 연애 갈등을 시간표 선택으로 해결하지 않으며 사냥 제한 시간은 증가하지 않는다.\",\"uncertain\":[],\"actionCost\":0},{\"key\":\"madoka_transfer_practice\",\"title\":\"전학생이 먼저 끝낸 준비\",\"story\":\"호무라가 먼저 연습 도구를 정리해둔 것을 보고 사야카가 물었다. 마도카는 남은 준비를 함께 보자고 했지만 호무라는 바깥 일 때문에 서둘러야 했다. 교실 정리와 적이 오가는 길목 중 맡을 일을 정해야 했다.\",\"intro\":\"교실 쪽의 준비와 바깥 구역 중 맡을 일을 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"준비 용품을 마련해 호무라와 다음 동작을 맞춘다\",\"result\":\"준비 용품을 마련해 호무라와 다음 동작을 맞췄다. 준비에 220골드를 썼다. 사야카가 다시 물으려 하자 호무라는 아직 치우지 않은 도구를 가리킨다.\",\"card\":\"madoka_homura_school\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"호무라와 더 강한 적이 오가는 길목을 맡는다\",\"result\":\"호무라와 더 강한 적이 오가는 길목을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 네가 돌아올 자리를 남기고 호무라는 바깥의 표시만 챙긴다.\",\"card\":\"madoka_homura\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 정리를 준비하고 호무라와 확인하지 않은 담당 구역을 줄인다\",\"card\":\"madoka_homura_retreat\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100,\"result\":\"160골드로 정리를 준비하고 호무라와 확인하지 않은 담당 구역을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 호무라는 맡지 않은 곳을 확인된 구역으로 칠하지 않고 빈칸으로 남긴다.\"}],\"failure\":null,\"canonFact\":\"공식 호무라의 전학생·성적 우수·운동 능력을 별도 방과후 준비로 썼다. 실제 시간이 멈췄다는 설명이나 일상 시점의 과거 반복을 해결하는 결말은 없다.\",\"uncertain\":[]},{\"key\":\"madoka_room_visit\",\"title\":\"방문 전에 접지 않은 지도\",\"story\":\"마미가 후배들에게 마녀를 쫓는 일을 함께 보자고 제안한 뒤 아직 접지 않은 지도를 펼친다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 준비도 남겨 두자고 한다. 마미는 한 사람이 바깥 길과 입구의 준비를 모두 맡지는 말자고 한다.\",\"intro\":\"들어갈 간격을 짚거나 바깥 길목을 맡는다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"표시 용품을 마련해 마미와 입구의 간격을 짚는다\",\"result\":\"표시 용품을 마련해 마미와 입구의 간격을 짚었다. 준비에 200골드를 썼다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 곳에 표시를 남긴다.\",\"card\":\"madoka_mami_distance\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"마미와 적이 더 많이 오가는 바깥 길목을 맡는다\",\"result\":\"마미와 적이 더 많이 오가는 바깥 길목을 맡았다. 내 개인 사냥의 적 수 단계가2늘었다. 마미는 네가 맡은 바깥 구역만 표시하고 입구의 준비는 다른 항목에 남긴다.\",\"card\":\"madoka_guide\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 보급을 준비하고 마미의 뒤편에서 맡을 길목을 줄인다\",\"card\":\"madoka_mami_rear\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100,\"result\":\"160골드로 보급을 준비하고 마미의 뒤편에서 맡을 길목을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 보급 물약1개를 받았다. 마도카는 줄인 길목을 접고 사야카에게 마미 뒤편의 남은 자리를 가리킨다.\"}],\"failure\":null,\"canonFact\":\"공식 원 TV2화의 마미 방 방문·마녀 퇴치 동행 제안에서 별도 사전 준비를 만든다. 병원 주차장 사건과 별개이며 마미의 본편 죽음을 막거나 실제 총기·리본을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"madoka_boundary_entrance\",\"title\":\"건너기 전에 달라진 입구\",\"story\":\"낯선 입구를 발견한 마도카가 안쪽에 사람이 있는지 물었다. 마미는 결계를 모르니 주의를 주었고 호무라는 확인할 곳을 먼저 짚었다. 흔적 확인과 다음 진입 준비를 나누어야 했다.\",\"intro\":\"입구에 들어가기 전 확인할 구역을 나눈다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"확인 용품을 마련해 마미와 들어갈 위치를 정한다\",\"result\":\"확인 용품을 마련해 마미와 들어갈 위치를 정했다. 준비에 220골드를 썼다. 호무라는 확인하지 않은 안쪽을 그대로 남겨 두라고 한다.\",\"card\":\"madoka_mami_distance\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"호무라와 더 강한 적이 오가는 바깥 구역을 맡는다\",\"result\":\"호무라와 더 강한 적이 오가는 바깥 구역을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 확인한 바깥 흔적만 적고 안쪽에 사람이 있다고 단정하지 않는다.\",\"card\":\"madoka_homura\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡는다\",\"card\":\"madoka_return_markers\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":-1,\"density\":0,\"potions\":0,\"chance\":100,\"result\":\"160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 마미는 네가 맡지 않은 안쪽을 다시 표시하고 마도카는 돌아올 자리만 남긴다.\"}],\"failure\":null,\"canonFact\":\"공식 결계가 마녀의 이계이며 일반인은 나가기 어렵다는 설정에서 바깥 확인 문제를 만든다. 플레이어가 새 결계 전투를 실제로 시작하거나 평범한 사람을 카드 선택만으로 탈출시키지 않는다. 여러 시점의 만남은 마미가 살아 있던 별도 일상으로 한정한다.\",\"uncertain\":[]},{\"key\":\"madoka_folded_edge\",\"title\":\"한 걸음 뒤에서 들을 말\",\"intro\":\"마미가 네가 표시한 입구의 간격을 알아보고 지도를 다시 편다.\",\"story\":\"마미는 네가 들어갈 위치와 물러설 자리를 표시했던 지도를 보며 다음에도 같은 일을 맡을지 묻는다. 마도카는 돌아올 자리부터 남기자고 하고 사야카는 마미의 뒤편 준비도 비어 있다고 한다. 익힌 간격이 있어 입구부터 다시 설명할 필요는 없지만 다음 방문까지 맡을지는 네가 답해야 한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":\"madoka_mami_distance\",\"actionCost\":1,\"failure\":null,\"canonFact\":\"마미의 후배 안내 역할을 사용한 별도 만남이다. 자신의 들어가기 전의 한 걸음 카드 보유를 조건으로 다음 몫을 정한다. 방문 행동력 추가는 사냥 시간 증가·마미 생존·본편 운명 변경이나 인물의 시간 능력이 아니다.\",\"uncertain\":[],\"choices\":[{\"label\":\"200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답한다\",\"card\":\"madoka_mami_next\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100,\"result\":\"200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답했다. 마미는 이번 항목 옆에 네가 다음에도 맡겠다는 답을 남기고 뒤편 준비는 다시 묻는다.\"},{\"label\":\"160골드로 보급을 준비하고 마미와 뒤편의 담당 길목을 줄인다\",\"card\":\"madoka_mami_rear\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100,\"result\":\"160골드로 보급을 준비하고 마미와 뒤편의 담당 길목을 줄였다. 맡을 길목을 줄여 내 개인 사냥의 적 수 단계를1낮췄다(최저1). 사야카는 아직 맡지 않은 준비를 가리키고 마미는 다음 방문까지 맡는지 다시 묻는다.\"},{\"label\":\"마도카와 더 많은 적이 오가는 귀환길의 자리를 맡는다\",\"card\":\"madoka_return_markers\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100,\"result\":\"마도카와 더 많은 적이 오가는 귀환길의 자리를 맡았다. 내 개인 사냥의 적 수 단계가1늘었다. 마도카는 귀환길의 표시를 남기지만 마미가 물었던 다음 방문의 답은 비어 있다.\"}]}],\"policy\":{\"cards\":\"각 사건 서로 다른 지정카드3종. 입문·부모 보상 카드를 후속에서 반복하지 않음.\",\"cost\":\"cost선지불. 실패해도 AP/골드/필드 변화 유지. 성공만 카드와 물약 지급.\",\"field\":\"level은개인몬스터강함(1~5),density는동시몬스터수(1~10). 초기1/4. 플레이어레벨·NPC능력아님.\",\"ap\":\"기본후보3최대4. 방문AP1또는0,잔여AP0이면무료도등장안함. 최대치증가분만현재AP에도한번지급.\",\"history\":\"주차장 성공1→mentor_return,성공3→warning의 자기 기록 번호 유지.\",\"canon\":\"인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 새 문병·아침·약속·전학생·방 방문·결계 바깥 문제는 마미 생전의 서로 다른 별도 만남이다. 기존 교회 등 본편의 다른 시점과 같은 날로 연결하지 않는다. 부모와 히토미의 준비는 맵의 창작 성장으로 원작 전투 기술이 아니며 치료·연애 해결·결계 탈출·추가 시간·마미 운명 변경은 없다. 공식 원 TV와 재편집 TV Edition의 화수는 다르다. 새 카드의 행동력 최대치 증가는 여행자의 방문 횟수이며 사냥 제한시간이나 인물의 시간 능력이 아니다. 사전 준비와 이후 교회 장면은 같은 날이 아니다. 병원 자전거 보관소는 원 TV3화, 폐허 교회는 원 TV7화 공식 줄거리로 별도 대조했다.\"},\"verifiedFacts\":[\"공식인물소개. 마도카는친구를아끼고마미는후배를돌보는선배,호무라는뛰어난전학생,사야카는활발한친구,쿄코는늘무언가를먹는다.\",\"원TV2화는마미방의설명과동행제안,원TV3화는병원자전거보관소의씨앗과사야카의경계/마도카의도움요청,원TV7화는폐허교회로데려가는쿄코의이야기다.\",\"히토미는피아노·일본무용·다도. 준코는직장인이며아침에약하고,토모히사는가사를맡는다.\",\"플레이어의준비/후속/보상은각색이다. 한선택으로마미운명·손치료·교회갈등·연애·결계탈출을확정하지않는다.\"],\"checks\":[\"각사건서로다른카드3종이며입문/부모카드재지급없는가?\",\"직접골드0인데옛보수/가짜물약/새확률이문장에남는가? 비용과성공물약·실패AP/필드가일치하는가?\",\"최대체력패널티는지속능력치이고현재체력을사건비용으로지불하지않는다. 최대치카드+1은AP증가분만1회,시간추가아님.\",\"부모성공1/3의자기기록,새입구간격카드조건의기존획득경로가맞는가?\",\"-1적단계감소를음수체력이나NPC레벨감소로오독하지않는다. 결과의감소량은최저1로제한된다.\",\"표지에이미인물이있다고모든NPC가실제동행/공격/시간정지한다고해석하지않는다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.15,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T19:07:51.9033932Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"PASS\",\n  \"issues\": [],\n  \"strengths\": [\n    \"지정카드 및 현재 수치: 모든 사건에서 서로 다른 3종의 카드가 정확히 제시되었으며, 골드 비용과 결과값(적 단계, 밀도, 물약 등)이 정책에 부합함.\",\n    \"보유 조건 및 자기 후속: 'madoka_folded_edge' 사건의 'madoka_mami_distance' 보유 조건과 'madoka_parking_seed'의 성공 번호(1, 3)에 따른 후속 경로가 정확히 설계됨.\",\n    \"인물 역할의 구체적 모순: 원작의 능력을 직접 구현하지 않으면서(시간 정지, 소원 실현 등 배제), 캐릭터의 성격(마미의 선배 역할, 호무라의 성실함 등)을 게임적 수치(방향 피해, 행동 속도 등)로 적절히 각색함.\",\n    \"구분 준수: 골드, AP, 시간, 적 단계의 개념을 명확히 구분하였으며, 특히 적 단계 감소가 NPC 레벨이나 체력 감소로 오독되지 않도록 제한(최저 1)을 명시함.\"\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 8942462500,
+    "load_duration": 2587400,
+    "prompt_eval_count": 8333,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 3712364000,
+    "eval_count": 284,
+    "eval_duration": 4843324000
+  },
+  "parsed": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "지정카드 및 현재 수치: 모든 사건에서 서로 다른 3종의 카드가 정확히 제시되었으며, 골드 비용과 결과값(적 단계, 밀도, 물약 등)이 정책에 부합함.",
+      "보유 조건 및 자기 후속: 'madoka_folded_edge' 사건의 'madoka_mami_distance' 보유 조건과 'madoka_parking_seed'의 성공 번호(1, 3)에 따른 후속 경로가 정확히 설계됨.",
+      "인물 역할의 구체적 모순: 원작의 능력을 직접 구현하지 않으면서(시간 정지, 소원 실현 등 배제), 캐릭터의 성격(마미의 선배 역할, 호무라의 성실함 등)을 게임적 수치(방향 피해, 행동 속도 등)로 적절히 각색함.",
+      "구분 준수: 골드, AP, 시간, 적 단계의 개념을 명확히 구분하였으며, 특히 적 단계 감소가 NPC 레벨이나 체력 감소로 오독되지 않도록 제한(최저 1)을 명시함."
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "240cf1cd-18e8-406c-a576-e38f4af899fe"
+}

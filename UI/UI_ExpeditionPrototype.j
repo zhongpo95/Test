@@ -5,6 +5,10 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer LobbyInfo
         private integer LobbyReady
         private integer array HeadButtons
+        private integer HeadPage = 0
+        private integer HeadPrevious
+        private integer HeadNext
+        private integer HeadPageText
         private integer EventRoot
         private integer EventTitle
         private integer EventInfo
@@ -25,6 +29,9 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer array CandidateFooter
         private integer array BranchButtons
         private integer array BranchAction
+        private integer array BranchHeader
+        private integer array BranchStrip
+        private integer HoverBranch = 0
         private integer RerollButton
         private integer ResumeButton
         private integer HuntHUD
@@ -32,6 +39,56 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer HuntReady
         private integer LoadedSlot = -1
     endglobals
+
+    private function HeadClick takes nothing returns nothing
+        local integer pid = GetPlayerId(GetLocalPlayer())
+        local integer i = 0
+        local integer head
+        if DzGetTriggerUIEventPlayer() != GetLocalPlayer() or pid > 3 then
+            return
+        endif
+        if DzGetTriggerUIEventFrame() == ExpUIButtons[HeadPrevious] then
+            set HeadPage = IMaxBJ(0, HeadPage - 1)
+        elseif DzGetTriggerUIEventFrame() == ExpUIButtons[HeadNext] then
+            set HeadPage = IMinBJ((PROTO_HEAD_COUNT - 1) / 3, HeadPage + 1)
+        else
+            loop
+                exitwhen i > 3
+                if DzGetTriggerUIEventFrame() == ExpUIButtons[HeadButtons[i]] then
+                    set head = HeadPage * 3 + i
+                    if i == 0 then
+                        set head = 0
+                    endif
+                    if head <= PROTO_HEAD_COUNT and not ExpReady[pid] and (head == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, head)])) then
+                        call ExpUISend(2010 + head)
+                    endif
+                    return
+                endif
+                set i = i + 1
+            endloop
+        endif
+    endfunction
+
+    private function BranchEnter takes nothing returns nothing
+        local integer i = 1
+        if DzGetTriggerUIEventPlayer() != GetLocalPlayer() then
+            return
+        endif
+        loop
+            exitwhen i > 4
+            if DzGetTriggerUIEventFrame() == ExpUIButtons[BranchButtons[i]] then
+                set HoverBranch = i
+                return
+            endif
+            set i = i + 1
+        endloop
+    endfunction
+
+    private function BranchLeave takes nothing returns nothing
+        if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
+            set HoverBranch = 0
+        endif
+    endfunction
 
     private function CoverLabel takes integer parent, real size returns integer
         local integer f = ExpUILabel(parent, 0, 0, 0.279, 0.020, size, "")
@@ -52,13 +109,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         // 후보 수가 바뀌어도 표지와 글자 크기는 유지하고 전체 행만 가운데 정렬한다.
         local real x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (i - 1) * 0.186
         local string tag = "공통 사건"
-        local string action = "사건 만나기"
+        local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
         call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
         call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.030)
         call PlaceCoverPart(CandidateIcon[i], cover, 0.040, 0.052, 0.094, 0.094)
         call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.160, 0.150, 0.043)
-        if opening then
+        if opening or ProtoEventRequiredCard[id] > 0 then
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.214, 0.150, 0.049)
             call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.273, 0.150, 0.059)
         else
@@ -69,16 +126,19 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
         if opening then
             set tag = "지역 개방 · " + tag
-            set action = "머리 카드 획득"
-            call ExpUIText(CandidateBonus[i], "머리 카드 · 관련 사건 개방 · 피해 +5%|n" + ProtoEventCardPreview(pid, ProtoHeadEntryCard[head]))
+            set action = "행동력 1 · 머리 카드 획득"
+            call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoCardName[ProtoHeadEntryCard[head]])
         elseif ProtoEventRequired[id] > 0 then
             set tag = tag + " · 이어지는 사건"
+        endif
+        if not opening and ProtoEventRequiredCard[id] > 0 then
+            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoCardName[ProtoEventRequiredCard[id]] + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
         endif
         call ExpUIText(CandidateRegion[i], tag)
         call ExpUIText(CandidateTitle[i], ProtoEventName[id])
         call ExpUIText(CandidateIntro[i], ProtoEventIntro[id])
         call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
-        call DzFrameShow(CandidateBonus[i], opening)
+        call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0)
         if not ProtoEventEligible(pid, id) then
             set action = "선택 불가 · 후보 갱신 대기"
         endif
@@ -93,6 +153,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local string tag
         local string value
         local string packet
+        local real branchHeight
         if LobbyRoot == 0 or pid > 3 or not PickCheck[pid] then
             return
         endif
@@ -101,8 +162,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set LoadedSlot = PlayerSlotNumber[pid]
             set packet = I2S(PlayerSlotNumber[pid])
             loop
-                exitwhen i > 3
-                set packet = packet + "|" + StashLoad(PLAYER_DATA[pid], "원정.머리도감." + I2S(i), "0")
+                exitwhen i > PROTO_HEAD_COUNT
+                set packet = packet + "|" + StashLoad(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "머리도감." + ProtoHeadKey[i], "0")
                 set i = i + 1
             endloop
             call DzSyncData("ProtoCodex", packet)
@@ -110,21 +171,27 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set i = 0
         loop
             exitwhen i > 3
+            set id = HeadPage * 3 + i
             if i == 0 then
+                set id = 0
                 set value = "머리 카드 없이 출발"
             else
-                set value = ProtoHeadName[i]
-                if not ProtoHeadKnown[ExpKey(pid, i)] then
+                set value = ProtoHeadName[id]
+                if not ProtoHeadKnown[ExpKey(pid, id)] then
                     set value = value + " · 미발견"
                 endif
             endif
-            if ProtoStartHead[pid] == i then
+            if ProtoStartHead[pid] == id then
                 set value = "선택 · " + value
             endif
-            call ExpUISetButton(HeadButtons[i], value, not ExpReady[pid] and (i == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, i)])))
+            call DzFrameShow(ExpUIButtons[HeadButtons[i]], id <= PROTO_HEAD_COUNT)
+            call ExpUISetButton(HeadButtons[i], value, id <= PROTO_HEAD_COUNT and not ExpReady[pid] and (id == 0 or (ProtoCodexSlot[pid] == PlayerSlotNumber[pid] and ProtoHeadKnown[ExpKey(pid, id)])))
             set i = i + 1
         endloop
-        set value = "개인 사냥 10분 · 행동력 10 · 사냥 처치당 기본 10골드|n사건 후보 2개 · 리롤 500골드부터 +100골드|n발견한 머리 카드 0~1장을 들고 출발합니다.|n"
+        call ExpUISetButton(HeadPrevious, "이전 지역", HeadPage > 0)
+        call ExpUISetButton(HeadNext, "다음 지역", (HeadPage + 1) * 3 < PROTO_HEAD_COUNT)
+        call ExpUIText(HeadPageText, "지역 " + I2S(HeadPage + 1) + "/" + I2S((PROTO_HEAD_COUNT + 2) / 3))
+        set value = "개인 사냥 10분 · 행동력 10 · 사냥 처치당 기본 10골드|n사건 후보 3개 (최대 4개) · 리롤 500골드부터 +100골드|n발견한 머리 카드 0~1장을 들고 출발합니다.|n"
         if AttackPower(pid) < 100.0 then
             set value = value + "마을에서 첫 계승으로 공격력 100의 T2 무기를 준비해 주세요."
         else
@@ -151,18 +218,18 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid] and ExpUIPanel != 9)
-        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/10   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
         if ProtoReady[pid] then
             set value = "보스 합류 대기 · " + value
         endif
         call ExpUIText(HuntStatus, value)
         call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
-        call ExpUIText(EventInfo, "사냥 " + I2S(ExpSeconds) + "초 · 선택 " + I2S(ProtoDeadline[pid]) + "초|n행동력 " + I2S(ProtoAP[pid]) + "/10 · 골드 " + I2S(ExpGold[pid]))
+        call ExpUIText(EventInfo, "사냥 " + I2S(ExpSeconds) + "초 · 선택 " + I2S(ProtoDeadline[pid]) + "초|n행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + " · 골드 " + I2S(ExpGold[pid]))
         call DzFrameShow(StoryPanel, ProtoStage[pid] == 2 or ProtoStage[pid] == 3)
         call DzFrameShow(OutcomePanel, ProtoStage[pid] == 3)
         if ProtoStage[pid] == 1 then
             call ExpUIText(EventTitle, "개인 사건 · 사건 선택")
-            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  선택 시 행동력 1 소모  ·  내 공간만 정지합니다.")
+            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call ExpUIText(EventTitle, "개인 사건 · 행동 선택")
             call ExpUIText(EventStory, "상황을 읽고 행동을 선택하세요. 보상과 비용, 사냥터의 변화를 함께 확인할 수 있습니다.")
@@ -194,10 +261,20 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endloop
         set i = 1
         loop
-            exitwhen i > 2
-            call DzFrameShow(ExpUIButtons[BranchButtons[i]], ProtoStage[pid] == 2)
-            if ProtoStage[pid] == 2 then
-                call ExpUISetButton(BranchButtons[i], ProtoBranchText(pid, i), ProtoBranchAllowed(pid, i))
+            exitwhen i > 4
+            call DzFrameShow(ExpUIButtons[BranchButtons[i]], ProtoStage[pid] == 2 and i <= ProtoEventChoices[ProtoSelected[pid]])
+            if ProtoStage[pid] == 2 and i <= ProtoEventChoices[ProtoSelected[pid]] then
+                set branchHeight = (0.426 - 0.010 * (ProtoEventChoices[ProtoSelected[pid]] - 1)) / ProtoEventChoices[ProtoSelected[pid]]
+                call PlaceCoverPart(ExpUIButtons[BranchButtons[i]], EventRoot, 0.356, 0.116 + (i - 1) * (branchHeight + 0.010), 0.412, branchHeight)
+                call ExpUIResizeCover(BranchButtons[i], 0.412, branchHeight)
+                call PlaceCoverPart(ExpUIButtonLabels[BranchButtons[i]], ExpUIButtons[BranchButtons[i]], 0.016, 0.026, 0.380, branchHeight - 0.052)
+                call PlaceCoverPart(BranchStrip[i], ExpUIButtons[BranchButtons[i]], 0.010, branchHeight - 0.021, 0.392, 0.016)
+                call PlaceCoverPart(BranchAction[i], ExpUIButtons[BranchButtons[i]], 0.018, branchHeight - 0.019, 0.376, 0.014)
+                if ProtoEventChoices[ProtoSelected[pid]] >= 3 then
+                    call ExpUISetButton(BranchButtons[i], ProtoBranchSummary(pid, i), ProtoBranchAllowed(pid, i))
+                else
+                    call ExpUISetButton(BranchButtons[i], ProtoBranchText(pid, i), ProtoBranchAllowed(pid, i))
+                endif
                 if ProtoBranchAllowed(pid, i) then
                     call ExpUIText(BranchAction[i], "이 행동을 선택")
                 else
@@ -206,6 +283,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endif
             set i = i + 1
         endloop
+        if ProtoStage[pid] == 2 and HoverBranch > 0 and HoverBranch <= ProtoEventChoices[ProtoSelected[pid]] then
+            call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.0095, 0)
+            call ExpUIText(StoryText, "[행동 상세 · 커서를 옮기면 사건 설명]|n" + ProtoBranchText(pid, HoverBranch))
+        else
+            set HoverBranch = 0
+            call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.011, 0)
+        endif
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
         call ExpUISetButton(RerollButton, "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100)
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
@@ -214,15 +298,21 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
     private function Build takes nothing returns nothing
         local integer f
         local integer i = 0
-        set LobbyRoot = ExpUIRoot(8, 0.54, 0.35, 0.50, true)
+        set LobbyRoot = ExpUIRoot(8, 0.54, 0.38, 0.51, true)
         set f = ExpUIHeader(LobbyRoot, 0.54, "개인 사냥 프로토타입")
         set LobbyInfo = ExpUILabel(LobbyRoot, 0.025, 0.060, 0.49, 0.106, 0.010, "")
         loop
             exitwhen i > 3
             set HeadButtons[i] = ExpUIButton(LobbyRoot, 0.025, 0.174 + i * 0.032, 0.49, 0.027, "", 2010 + i)
+            call DzFrameSetScriptByCode(ExpUIButtons[HeadButtons[i]], JN_FRAMEEVENT_MOUSE_UP, function HeadClick, false)
             set i = i + 1
         endloop
-        set LobbyReady = ExpUIButton(LobbyRoot, 0.025, 0.309, 0.49, 0.029, "출발 준비", 2001)
+        set HeadPrevious = ExpUIButton(LobbyRoot, 0.025, 0.306, 0.12, 0.027, "이전 지역", 0)
+        set HeadNext = ExpUIButton(LobbyRoot, 0.395, 0.306, 0.12, 0.027, "다음 지역", 0)
+        set HeadPageText = ExpUILabel(LobbyRoot, 0.170, 0.312, 0.20, 0.020, 0.010, "")
+        call DzFrameSetScriptByCode(ExpUIButtons[HeadPrevious], JN_FRAMEEVENT_MOUSE_UP, function HeadClick, false)
+        call DzFrameSetScriptByCode(ExpUIButtons[HeadNext], JN_FRAMEEVENT_MOUSE_UP, function HeadClick, false)
+        set LobbyReady = ExpUIButton(LobbyRoot, 0.025, 0.341, 0.49, 0.029, "출발 준비", 2001)
         // 개인 사건은 하단 영웅·스킬 HUD까지 덮는 전체 화면으로 표시한다.
         set EventRoot = ExpUIRoot(9, 0.8, 0.6, 0.6, true)
         set EventTitle = ExpUIHeader(EventRoot, 0.8, "개인 사건")
@@ -259,17 +349,19 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call JNFrameSetTextAlignment(StoryText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set i = 1
         loop
-            exitwhen i > 2
+            exitwhen i > 4
             set BranchButtons[i] = ExpUICoverButton(EventRoot, 2200 + i)
             set f = ExpUIButtons[BranchButtons[i]]
+            call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_ENTER, function BranchEnter, false)
+            call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_LEAVE, function BranchLeave, false)
             call PlaceCoverPart(f, EventRoot, 0.356, 0.138 + (i - 1) * 0.200, 0.412, 0.186)
             call ExpUIResizeCover(BranchButtons[i], 0.412, 0.186)
-            set f = ExpUILabel(f, 0.016, 0.012, 0.380, 0.018, 0.009, "행동 " + I2S(i))
+            set BranchHeader[i] = ExpUILabel(f, 0.016, 0.008, 0.380, 0.016, 0.008, "행동 " + I2S(i))
             set f = ExpUIButtons[BranchButtons[i]]
             call PlaceCoverPart(ExpUIButtonLabels[BranchButtons[i]], f, 0.016, 0.040, 0.380, 0.103)
-            call DzFrameSetFont(ExpUIButtonLabels[BranchButtons[i]], "Fonts\\DFHeiMd.ttf", 0.011, 0)
+            call DzFrameSetFont(ExpUIButtonLabels[BranchButtons[i]], "Fonts\\DFHeiMd.ttf", 0.0095, 0)
             call JNFrameSetTextAlignment(ExpUIButtonLabels[BranchButtons[i]], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
-            set f = ExpUITexture(f, 0.010, 0.150, 0.392, 0.026, "war3mapImported\\UI_Upgrade_Header.tga")
+            set BranchStrip[i] = ExpUITexture(f, 0.010, 0.150, 0.392, 0.026, "war3mapImported\\UI_Upgrade_Header.tga")
             set BranchAction[i] = ExpUILabel(ExpUIButtons[BranchButtons[i]], 0.018, 0.155, 0.376, 0.019, 0.010, "")
             call JNFrameSetTextAlignment(BranchAction[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
             set i = i + 1

@@ -1,0 +1,615 @@
+{
+  "started": "2026-10-01T16:40:07.694Z",
+  "finished": "2026-10-01T16:40:44.098Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "system": "한국어 사건 작가다. story는3문장,intro는현재남은문제1문장,result는성공한내행동·지불/성장/보급·인물에게남은행동의2~3문장이다. key와분기순서를유지한다. 무의미한끄덕임·칭찬·정리·효율설명으로끝내지않는다.",
+    "brief": {
+      "sourceFacts": [
+        {
+          "source": "https://toaru-project.com/index_1_2/story/1st/10.html",
+          "fact": "금서목록1기10화 공식 소개에서 보충수업 뒤 토우마의 돈을 자판기가 삼킨다. 미코토의 비법으로 자판기가 부서지고 두 사람이 도망치다가 미사카 동생을 만난다. 새 사건은 유사한 별도 고장 만남이며 원작 동생 만남·실험·불행의 원인을 해결하거나 재결정하지 않는다."
+        },
+        {
+          "source": "https://toaru-project.com/railgun/story/03.html",
+          "fact": "초전자포1기3화에서 초대받은 우이하루와 사텐이 학사의 정원을 방문하고 쿠로코와 특유의 파티스리에서 케이크를 먹으려는 순간 풍기위원 호출이 온다. 사텐의 본편 피습·범인 체포는 새 사건의 승패로 정하지 않는다."
+        },
+        {
+          "source": "https://toaru-project.com/railgun/story/05.html",
+          "fact": "1기5화에서 우이하루의 지원 요청을 기다리지 않은 쿠로코는 기습을 받고 우이하루도 쓰러진다. 쿠로코의 남탓 태도와 중요한 약속을 잊은 일 때문에 둘이 다툰다. 새 만남은 다른 준비에서 답을 기다리는 문제이며 본편 폭행·약속 내용·화해 결말을 지어내지 않는다."
+        },
+        {
+          "source": "https://toaru-project.com/railgun/story/17.html",
+          "fact": "1기17화에서 안티스킬 테츠소 츠즈리는 업무를 자주 실패해 요미카와에게 질책받는다. 완전하교시간 뒤 게임센터에서 좋아하던 게임을 하는 학생 코노에를 보고 말을 걸지만 그 학생은 플레이 도중 떠난다. 새 만남에서 게임의 승패나 코노에의 사정을 원작 사실로 확정하지 않는다."
+        },
+        {
+          "source": "https://toaru-project.com/railgun/story/19.html",
+          "fact": "1기19화는 기숙사를 초대손님에게 여는 성하제다. 미코토는 우이하루와 사텐을 안내하면서 무대의 어떤 공연을 맡은 일 때문에 긴장한다. 메이드 모습에 미련을 남긴 쿠로코는 업무로 불려간다. 공연 종류는 이 소개에서 확인하지 못해 특정 악기와 곡을 쓰지 않는다."
+        },
+        {
+          "source": "https://toaru-project.com/railgun/story/02.html",
+          "fact": "1기2화에서 쿠로코는 미코토와 같은 방을 쓴 한 달을 둘만의 기념일로 축하하려 한다. 초대손님이 온 상황과 과한 행동 뒤 능력 싸움이 나서 사감이 두 사람에게 수영장 청소를 시킨다. 실제 성적 행동·현재 체력 피해·징계 취소·원작 능력 전투는 새 보상에 넣지 않는다."
+        }
+      ],
+      "events": [
+        {
+          "key": "academy_vending_left_coin",
+          "scene": "토우마가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 미코토는 익숙한 방법이 있다고 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다. 너는 다른 음료를 마련하거나 자기 다음 사냥에 남길 몫을 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "choices": [
+            {
+              "action": "160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 160,
+                "rememberedCard": "academy_touma_coin",
+                "remembered": "처치당골드2추가·받는피해감소5%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_mikoto_drink",
+                "remembered": "차지준비속도8%·최대체력8%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 많은 개인 사냥을 맡고 토우마와 남은 준비를 나눈다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_touma_coin",
+                "remembered": "처치당골드2추가·받는피해감소5%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "전달할 짐만 옮기고 보급 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 110,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "academy_tea_after_call",
+          "scene": "케이크를 막 나누려던 쿠로코가 호출을 듣고 일어서자 우이하루는 아직 들지 못한 자기 찻잔을 본다. 사텐은 돌아올 때도 남아 있겠냐고 묻고 쿠로코는 나갔다 온 뒤의 이야기까지 지금 못 한다고 말한다. 너는 자기 간식과 기다릴 자리, 가져갈 보급 중 무엇을 남길지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "choices": [
+            {
+              "action": "180골드로 포장을 마련하고 돌아올 한 잔을 남긴다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 180,
+                "rememberedCard": "academy_kuroko_return",
+                "remembered": "신속180·체력65%이상일때가하는피해10%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_uiharu_promise",
+                "remembered": "사건후보1개추가(최대4)·보스피해8%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "자기 짐을 옮기고 보급 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 130,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "academy_unanswered_promise",
+          "scene": "쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 여행자는 두 사람의 약속을 대신 정하지 않고 자기 몫을 직접 답할 차례다.",
+          "previous": null,
+          "previousChoice": 0,
+          "choices": [
+            {
+              "action": "180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 180,
+                "rememberedCard": "academy_uiharu_promise",
+                "remembered": "사건후보1개추가(최대4)·보스피해8%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_kuroko_response",
+                "remembered": "행동속도6%·받는피해감소4%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "맡을 사냥을 줄이고 남은 전달물의 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 100,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": -1
+              }
+            }
+          ]
+        },
+        {
+          "key": "academy_arcade_empty_seat",
+          "scene": "오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 너는 자기 동전을 보탤지 손의 다음 움직임을 지켜볼지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "choices": [
+            {
+              "action": "200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 200,
+                "rememberedCard": "academy_tessou_button",
+                "remembered": "행동속도4%·비방향공격피해12%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 많은 개인 사냥을 맡고 테츠소와 다음 입력의 간격을 본다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_tessou_button",
+                "remembered": "행동속도4%·비방향공격피해12%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "반납할 물품을 옮기고 보급 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 140,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "academy_festival_before_stage",
+          "scene": "성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 너는 미코토의 공연을 대신 정하지 않고 자기 구경과 가져갈 준비를 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "choices": [
+            {
+              "action": "210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 210,
+                "rememberedCard": "academy_mikoto_curtain",
+                "remembered": "차지공격피해12%·치명타피해12%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_mikoto_drink",
+                "remembered": "차지준비속도8%·최대체력8%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "안내를 마친 짐을 운반하고 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 150,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "academy_drink_after_vending",
+          "scene": "다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 너는 잃은 동전의 결말보다 자기 준비를 끝낼 때를 정한다.",
+          "previous": "academy_vending_left_coin",
+          "previousChoice": 1,
+          "choices": [
+            {
+              "action": "120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다",
+              "chance": 70,
+              "expectedSuccess": {
+                "paidGold": 120,
+                "rememberedCard": "academy_mikoto_drink",
+                "remembered": "차지준비속도8%·최대체력8%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": "academy_mikoto_curtain",
+                "remembered": "차지공격피해12%·치명타피해12%",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "남은 짐을 반환하고 보급 보수를 받는다",
+              "chance": 100,
+              "expectedSuccess": {
+                "paidGold": 0,
+                "rememberedCard": null,
+                "remembered": null,
+                "receivedGold": 150,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        }
+      ],
+      "rules": [
+        "사건중개인사냥은정지다. 강함/수는이후원정개인사냥에남는부담/완화이고실제몹을지금추가처치하지않는다. NPC동행·미니게임·자판기수리·음료아이템·초능력·화해·동생실험결말없다.",
+        "지불과골드/물약보수는숫자로적고지급없음을새보수로바꾸지않는다.카드기억의성장은고체력가하는피해와받는피해감소를구분한다.최대체력은기존현재/최대비율보존이지즉시치료아니다.",
+        "타인의손과몸을강제로잡아움직이거나기계전원을주인처럼끄지않는다. 각기다른시점의별도만남이며원작자판기파괴·피습·징계·화해·공연승패를플레이어가결정하지않는다.",
+        "70%결과는성공때만서술한다.후속은자기앞선성공1번만.처치골드는실제현재골드지급과다르고사건후보는분기수를바꾸거나확률을늘리는스탯이아니다.추가AP/시간없다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 작가다. story는3문장,intro는현재남은문제1문장,result는성공한내행동·지불/성장/보급·인물에게남은행동의2~3문장이다. key와분기순서를유지한다. 무의미한끄덕임·칭찬·정리·효율설명으로끝내지않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"sourceFacts\":[{\"source\":\"https://toaru-project.com/index_1_2/story/1st/10.html\",\"fact\":\"금서목록1기10화 공식 소개에서 보충수업 뒤 토우마의 돈을 자판기가 삼킨다. 미코토의 비법으로 자판기가 부서지고 두 사람이 도망치다가 미사카 동생을 만난다. 새 사건은 유사한 별도 고장 만남이며 원작 동생 만남·실험·불행의 원인을 해결하거나 재결정하지 않는다.\"},{\"source\":\"https://toaru-project.com/railgun/story/03.html\",\"fact\":\"초전자포1기3화에서 초대받은 우이하루와 사텐이 학사의 정원을 방문하고 쿠로코와 특유의 파티스리에서 케이크를 먹으려는 순간 풍기위원 호출이 온다. 사텐의 본편 피습·범인 체포는 새 사건의 승패로 정하지 않는다.\"},{\"source\":\"https://toaru-project.com/railgun/story/05.html\",\"fact\":\"1기5화에서 우이하루의 지원 요청을 기다리지 않은 쿠로코는 기습을 받고 우이하루도 쓰러진다. 쿠로코의 남탓 태도와 중요한 약속을 잊은 일 때문에 둘이 다툰다. 새 만남은 다른 준비에서 답을 기다리는 문제이며 본편 폭행·약속 내용·화해 결말을 지어내지 않는다.\"},{\"source\":\"https://toaru-project.com/railgun/story/17.html\",\"fact\":\"1기17화에서 안티스킬 테츠소 츠즈리는 업무를 자주 실패해 요미카와에게 질책받는다. 완전하교시간 뒤 게임센터에서 좋아하던 게임을 하는 학생 코노에를 보고 말을 걸지만 그 학생은 플레이 도중 떠난다. 새 만남에서 게임의 승패나 코노에의 사정을 원작 사실로 확정하지 않는다.\"},{\"source\":\"https://toaru-project.com/railgun/story/19.html\",\"fact\":\"1기19화는 기숙사를 초대손님에게 여는 성하제다. 미코토는 우이하루와 사텐을 안내하면서 무대의 어떤 공연을 맡은 일 때문에 긴장한다. 메이드 모습에 미련을 남긴 쿠로코는 업무로 불려간다. 공연 종류는 이 소개에서 확인하지 못해 특정 악기와 곡을 쓰지 않는다.\"},{\"source\":\"https://toaru-project.com/railgun/story/02.html\",\"fact\":\"1기2화에서 쿠로코는 미코토와 같은 방을 쓴 한 달을 둘만의 기념일로 축하하려 한다. 초대손님이 온 상황과 과한 행동 뒤 능력 싸움이 나서 사감이 두 사람에게 수영장 청소를 시킨다. 실제 성적 행동·현재 체력 피해·징계 취소·원작 능력 전투는 새 보상에 넣지 않는다.\"}],\"events\":[{\"key\":\"academy_vending_left_coin\",\"scene\":\"토우마가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 미코토는 익숙한 방법이 있다고 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다. 너는 다른 음료를 마련하거나 자기 다음 사냥에 남길 몫을 정한다.\",\"previous\":null,\"previousChoice\":0,\"choices\":[{\"action\":\"160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":160,\"rememberedCard\":\"academy_touma_coin\",\"remembered\":\"처치당골드2추가·받는피해감소5%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_mikoto_drink\",\"remembered\":\"차지준비속도8%·최대체력8%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"더 많은 개인 사냥을 맡고 토우마와 남은 준비를 나눈다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_touma_coin\",\"remembered\":\"처치당골드2추가·받는피해감소5%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"전달할 짐만 옮기고 보급 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":110,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"academy_tea_after_call\",\"scene\":\"케이크를 막 나누려던 쿠로코가 호출을 듣고 일어서자 우이하루는 아직 들지 못한 자기 찻잔을 본다. 사텐은 돌아올 때도 남아 있겠냐고 묻고 쿠로코는 나갔다 온 뒤의 이야기까지 지금 못 한다고 말한다. 너는 자기 간식과 기다릴 자리, 가져갈 보급 중 무엇을 남길지 정한다.\",\"previous\":null,\"previousChoice\":0,\"choices\":[{\"action\":\"180골드로 포장을 마련하고 돌아올 한 잔을 남긴다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":180,\"rememberedCard\":\"academy_kuroko_return\",\"remembered\":\"신속180·체력65%이상일때가하는피해10%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_uiharu_promise\",\"remembered\":\"사건후보1개추가(최대4)·보스피해8%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"자기 짐을 옮기고 보급 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":130,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"academy_unanswered_promise\",\"scene\":\"쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 여행자는 두 사람의 약속을 대신 정하지 않고 자기 몫을 직접 답할 차례다.\",\"previous\":null,\"previousChoice\":0,\"choices\":[{\"action\":\"180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":180,\"rememberedCard\":\"academy_uiharu_promise\",\"remembered\":\"사건후보1개추가(최대4)·보스피해8%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_kuroko_response\",\"remembered\":\"행동속도6%·받는피해감소4%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"맡을 사냥을 줄이고 남은 전달물의 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":100,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":-1}}]},{\"key\":\"academy_arcade_empty_seat\",\"scene\":\"오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 너는 자기 동전을 보탤지 손의 다음 움직임을 지켜볼지 정한다.\",\"previous\":null,\"previousChoice\":0,\"choices\":[{\"action\":\"200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":200,\"rememberedCard\":\"academy_tessou_button\",\"remembered\":\"행동속도4%·비방향공격피해12%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 많은 개인 사냥을 맡고 테츠소와 다음 입력의 간격을 본다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_tessou_button\",\"remembered\":\"행동속도4%·비방향공격피해12%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"반납할 물품을 옮기고 보급 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":140,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"academy_festival_before_stage\",\"scene\":\"성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 너는 미코토의 공연을 대신 정하지 않고 자기 구경과 가져갈 준비를 고른다.\",\"previous\":null,\"previousChoice\":0,\"choices\":[{\"action\":\"210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":210,\"rememberedCard\":\"academy_mikoto_curtain\",\"remembered\":\"차지공격피해12%·치명타피해12%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_mikoto_drink\",\"remembered\":\"차지준비속도8%·최대체력8%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"안내를 마친 짐을 운반하고 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":150,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"academy_drink_after_vending\",\"scene\":\"다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 너는 잃은 동전의 결말보다 자기 준비를 끝낼 때를 정한다.\",\"previous\":\"academy_vending_left_coin\",\"previousChoice\":1,\"choices\":[{\"action\":\"120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다\",\"chance\":70,\"expectedSuccess\":{\"paidGold\":120,\"rememberedCard\":\"academy_mikoto_drink\",\"remembered\":\"차지준비속도8%·최대체력8%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":\"academy_mikoto_curtain\",\"remembered\":\"차지공격피해12%·치명타피해12%\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"남은 짐을 반환하고 보급 보수를 받는다\",\"chance\":100,\"expectedSuccess\":{\"paidGold\":0,\"rememberedCard\":null,\"remembered\":null,\"receivedGold\":150,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]}],\"rules\":[\"사건중개인사냥은정지다. 강함/수는이후원정개인사냥에남는부담/완화이고실제몹을지금추가처치하지않는다. NPC동행·미니게임·자판기수리·음료아이템·초능력·화해·동생실험결말없다.\",\"지불과골드/물약보수는숫자로적고지급없음을새보수로바꾸지않는다.카드기억의성장은고체력가하는피해와받는피해감소를구분한다.최대체력은기존현재/최대비율보존이지즉시치료아니다.\",\"타인의손과몸을강제로잡아움직이거나기계전원을주인처럼끄지않는다. 각기다른시점의별도만남이며원작자판기파괴·피습·징계·화해·공연승패를플레이어가결정하지않는다.\",\"70%결과는성공때만서술한다.후속은자기앞선성공1번만.처치골드는실제현재골드지급과다르고사건후보는분기수를바꾸거나확률을늘리는스탯이아니다.추가AP/시간없다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T16:40:44.0936014Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n\"events\": [\n{\n\"key\": \"academy_vending_left_coin\",\n\"story\": \"토우마의 동전을 삼킨 자판기 앞에서 미코토가 비법을 제안한다. 그녀는 아직 마시지 못한 음료값이 남았음을 상기시키며 대안을 제시한다. 너는 남은 몫을 챙길지 혹은 다음 사냥을 위한 준비를 할지 결정해야 한다.\",\n\"intro\": \"자판기에 남은 동전과 네 손에 든 음료값 중 무엇을 우선할지 선택해야 한다.\",\n\"choices\": [\n{\n\"label\": \"160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다\",\n\"result\": \"160골드를 지불하여 다른 음료를 확보하고 네 몫을 챙겼다. 'academy_touma_coin' 카드를 획득했으며, 처치당 골드 2 추가 및 받는 피해 감소 5%의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다\",\n\"result\": \"더 강한 개인 사냥을 맡기로 결정하며 미코토와 기다린다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다.\"\n},\n{\n\"label\": \"더 많은 개인 사냥을 맡고 토우마와 남은 준비를 나눈다\",\n\"result\": \"더 많은 개인 사냥을 맡으면서 토우마와 남은 준비를 분담했다. 'academy_touma_coin' 카드를 획득했으며, 처치당 골드 2 추가 및 받는 피해 감소 5%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다.\"\n},\n{\n\"label\": \"전달할 짐만 옮기고 보급 보수를 받는다\",\n\"result\": \"전달할 짐을 옮기는 업무를 수행했다. 110골드와 물약 1개를 보수로 받았다.\"\n}\n]\n},\n{\n\"key\": \"academy_tea_after_call\",\n\"story\": \"쿠로코가 호출을 받고 일어서자 우이하루는 아직 마시지 못한 찻잔을 바라본다. 사텐은 나중에 돌아올 때도 남을지 물으며 상황을 살핀다. 너는 자기 간식과 자리, 혹은 가져갈 보급 중 무엇을 우선할지 선택해야 한다.\",\n\"intro\": \"쿠로코의 부재 상황에서 간식과 자리, 보급 중 무엇을 남길지 결정해야 한다.\",\n\"choices\": [\n{\n\"label\": \"180골드로 포장을 마련하고 돌아올 한 잔을 남긴다\",\n\"result\": \"180골드를 지불하여 포장을 마련하고 자리를 확보했다. 'academy_kuroko_return' 카드를 획득했으며, 신속 180 및 체력 65% 이상일 때 받는 피해 10% 감소의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다\",\n\"result\": \"더 많은 개인 사냥을 맡으며 우이하루의 답을 기다린다. 'academy_uiharu_promise' 카드를 획득했으며, 사건 후보 1개 추가 및 보스 피해 8%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다.\"\n},\n{\n\"label\": \"자기 짐을 옮기고 보급 보수를 받는다\",\n\"result\": \"자기 짐을 옮기는 업무를 수행했다. 130골드와 물약 1개를 보수로 받았다.\"\n}\n]\n},\n{\n\"key\": \"academy_unanswered_promise\",\n\"story\": \"쿠로코가 먼저 나설 준비를 하자 우이하루는 아직 듣지 못한 대답에 대해 의문을 제기한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 상황은 교착 상태에 빠진다. 너는 두 사람의 약속을 대신 정하지 않고 자기 몫을 직접 답해야 한다.\",\n\"intro\": \"두 사람의 약속을 대신 정하지 않고 네가 맡을 일을 직접 답해야 한다.\",\n\"choices\": [\n{\n\"label\": \"180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다\",\n\"result\": \"180골드를 지불하여 준비를 마치고 네 할 일을 명확히 답했다. 'academy_uiharu_promise' 카드를 획득했으며, 사건 후보 1개 추가 및 보스 피해 8%의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다\",\n\"result\": \"더 강한 개인 사냥을 맡으며 쿠로코의 행동을 기억했다. 'academy_kuroko_response' 카드를 획득했으며, 행동 속도 6% 및 받는 피해 감소 4%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다.\"\n},\n{\n\"label\": \"맡을 사냥을 줄이고 남은 전달물의 보수를 받는다\",\n\"result\": \"맡은 사냥의 수를 줄이고 남은 전달물 보수를 받았다. 100골드를 보수로 받았으며, 개인 사냥의 수가 1만큼 감소했다.\"\n}\n]\n},\n{\n\"key\": \"academy_arcade_empty_seat\",\n\"story\": \"학생이 떠난 오락실에서 테츠소는 버튼 사이에 손을 멈춘 채 빈 의자를 바라본다. 좋아하던 게임이지만 누구에게 말을 이어야 할지 몰라 망설이는 상황이다. 너는 자기 동전을 보탤지 혹은 그의 다음 움직임을 지켜볼지 결정해야 한다.\",\n\"intro\": \"테츠소의 망설임 속에서 동전을 보탤지 혹은 그의 움직임을 지켜볼지 결정해야 한다.\",\n\"choices\": [\n{\n\"label\": \"200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다\",\n\"result\": \"200골드를 지불하여 다음 차례를 마련하고 버튼을 지켜보았다. 'academy_tessou_button' 카드를 획득했으며, 행동 속도 4% 및 비방향 공격 피해 12%의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 많은 개인 사냥을 맡고 테츠소와 다음 입력의 간격을 본다\",\n\"result\": \"더 많은 개인 사냥을 맡으며 테츠소의 입력을 관찰했다. 'academy_tessou_button' 카드를 획득했으며, 행동 속도 4% 및 비방향 공격 피해 12%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다.\"\n},\n{\n\"label\": \"반납할 물품을 옮기고 보급 보수를 받는다\",\n\"result\": \"반납할 물품을 운반하는 업무를 수행했다. 140골드와 물약 1개를 보수로 받았다.\"\n}\n]\n},\n{\n\"key\": \"academy_festival_before_stage\",\n\"story\": \"성하제에서 미코토가 다음 전시를 가리키다 자신의 무대 차례를 떠올리며 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토의 자리를 묻는다. 너는 미코토의 공연을 대신 정하지 않고 자기 구경과 준비를 선택해야 한다.\",\n\"intro\": \"미코토의 공연을 대신 정하지 않고 네 구경과 준비를 선택해야 한다.\",\n\"choices\": [\n{\n\"label\": \"210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다\",\n\"result\": \"210골드를 지불하여 기다릴 준비를 마쳤다. 'academy_mikoto_curtain' 카드를 획득했으며, 차지 공격 피해 12% 및 치명타 피해 12%의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다\",\n\"result\": \"더 강한 개인 사냥을 맡으며 미코토와 기다린다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다.\"\n},\n{\n\"label\": \"안내를 마친 짐을 운반하고 보수를 받는다\",\n\"result\": \"안내 업무를 마친 후 짐을 운반했다. 150골드와 물약 1개를 보수로 받았다.\"\n}\n]\n},\n{\n\"key\": \"academy_drink_after_vending\",\n\"story\": \"다른 곳에서 음료를 마련한 네 앞에서 미코토가 뜯지 않은 자기 몫을 내려놓는다. 토우마의 동전을 떠올리는 미코토는 네가 지금 손의 것을 마시기 전에 또 자판기를 볼 것인지 묻는다. 너는 잃은 동전의 결말보다 자기 준비를 끝낼 때를 정해야 한다.\",\n\"intro\": \"미코토의 질문에 대해 잃은 동전보다 네 준비를 끝낼 때를 결정해야 한다.\",\n\"choices\": [\n{\n\"label\": \"120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다\",\n\"result\": \"120골드를 지불하여 다음 보급을 마련했다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다.\"\n},\n{\n\"label\": \"더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다\",\n\"result\": \"더 많은 개인 사냥을 맡으며 미코토의 호흡을 기억했다. 'academy_mikoto_curtain' 카드를 획득했으며, 차지 공격 피해 12% 및 치명타 피해 12%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다.\"\n},\n{\n\"label\": \"남은 짐을 반환하고 보급 보수를 받는다\",\n\"result\": \"남은 짐을 반환하는 업무를 수행했다. 150골드와 물약 1개를 보수로 받았다.\"\n}\n]\n}\n]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 36353752500,
+    "load_duration": 2587200,
+    "prompt_eval_count": 3405,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1359511000,
+    "eval_count": 2399,
+    "eval_duration": 34705791000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "academy_vending_left_coin",
+        "story": "토우마의 동전을 삼킨 자판기 앞에서 미코토가 비법을 제안한다. 그녀는 아직 마시지 못한 음료값이 남았음을 상기시키며 대안을 제시한다. 너는 남은 몫을 챙길지 혹은 다음 사냥을 위한 준비를 할지 결정해야 한다.",
+        "intro": "자판기에 남은 동전과 네 손에 든 음료값 중 무엇을 우선할지 선택해야 한다.",
+        "choices": [
+          {
+            "label": "160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다",
+            "result": "160골드를 지불하여 다른 음료를 확보하고 네 몫을 챙겼다. 'academy_touma_coin' 카드를 획득했으며, 처치당 골드 2 추가 및 받는 피해 감소 5%의 성장을 얻었다."
+          },
+          {
+            "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+            "result": "더 강한 개인 사냥을 맡기로 결정하며 미코토와 기다린다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다."
+          },
+          {
+            "label": "더 많은 개인 사냥을 맡고 토우마와 남은 준비를 나눈다",
+            "result": "더 많은 개인 사냥을 맡으면서 토우마와 남은 준비를 분담했다. 'academy_touma_coin' 카드를 획득했으며, 처치당 골드 2 추가 및 받는 피해 감소 5%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다."
+          },
+          {
+            "label": "전달할 짐만 옮기고 보급 보수를 받는다",
+            "result": "전달할 짐을 옮기는 업무를 수행했다. 110골드와 물약 1개를 보수로 받았다."
+          }
+        ]
+      },
+      {
+        "key": "academy_tea_after_call",
+        "story": "쿠로코가 호출을 받고 일어서자 우이하루는 아직 마시지 못한 찻잔을 바라본다. 사텐은 나중에 돌아올 때도 남을지 물으며 상황을 살핀다. 너는 자기 간식과 자리, 혹은 가져갈 보급 중 무엇을 우선할지 선택해야 한다.",
+        "intro": "쿠로코의 부재 상황에서 간식과 자리, 보급 중 무엇을 남길지 결정해야 한다.",
+        "choices": [
+          {
+            "label": "180골드로 포장을 마련하고 돌아올 한 잔을 남긴다",
+            "result": "180골드를 지불하여 포장을 마련하고 자리를 확보했다. 'academy_kuroko_return' 카드를 획득했으며, 신속 180 및 체력 65% 이상일 때 받는 피해 10% 감소의 성장을 얻었다."
+          },
+          {
+            "label": "더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다",
+            "result": "더 많은 개인 사냥을 맡으며 우이하루의 답을 기다린다. 'academy_uiharu_promise' 카드를 획득했으며, 사건 후보 1개 추가 및 보스 피해 8%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다."
+          },
+          {
+            "label": "자기 짐을 옮기고 보급 보수를 받는다",
+            "result": "자기 짐을 옮기는 업무를 수행했다. 130골드와 물약 1개를 보수로 받았다."
+          }
+        ]
+      },
+      {
+        "key": "academy_unanswered_promise",
+        "story": "쿠로코가 먼저 나설 준비를 하자 우이하루는 아직 듣지 못한 대답에 대해 의문을 제기한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 상황은 교착 상태에 빠진다. 너는 두 사람의 약속을 대신 정하지 않고 자기 몫을 직접 답해야 한다.",
+        "intro": "두 사람의 약속을 대신 정하지 않고 네가 맡을 일을 직접 답해야 한다.",
+        "choices": [
+          {
+            "label": "180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다",
+            "result": "180골드를 지불하여 준비를 마치고 네 할 일을 명확히 답했다. 'academy_uiharu_promise' 카드를 획득했으며, 사건 후보 1개 추가 및 보스 피해 8%의 성장을 얻었다."
+          },
+          {
+            "label": "더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다",
+            "result": "더 강한 개인 사냥을 맡으며 쿠로코의 행동을 기억했다. 'academy_kuroko_response' 카드를 획득했으며, 행동 속도 6% 및 받는 피해 감소 4%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다."
+          },
+          {
+            "label": "맡을 사냥을 줄이고 남은 전달물의 보수를 받는다",
+            "result": "맡은 사냥의 수를 줄이고 남은 전달물 보수를 받았다. 100골드를 보수로 받았으며, 개인 사냥의 수가 1만큼 감소했다."
+          }
+        ]
+      },
+      {
+        "key": "academy_arcade_empty_seat",
+        "story": "학생이 떠난 오락실에서 테츠소는 버튼 사이에 손을 멈춘 채 빈 의자를 바라본다. 좋아하던 게임이지만 누구에게 말을 이어야 할지 몰라 망설이는 상황이다. 너는 자기 동전을 보탤지 혹은 그의 다음 움직임을 지켜볼지 결정해야 한다.",
+        "intro": "테츠소의 망설임 속에서 동전을 보탤지 혹은 그의 움직임을 지켜볼지 결정해야 한다.",
+        "choices": [
+          {
+            "label": "200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다",
+            "result": "200골드를 지불하여 다음 차례를 마련하고 버튼을 지켜보았다. 'academy_tessou_button' 카드를 획득했으며, 행동 속도 4% 및 비방향 공격 피해 12%의 성장을 얻었다."
+          },
+          {
+            "label": "더 많은 개인 사냥을 맡고 테츠소와 다음 입력의 간격을 본다",
+            "result": "더 많은 개인 사냥을 맡으며 테츠소의 입력을 관찰했다. 'academy_tessou_button' 카드를 획득했으며, 행동 속도 4% 및 비방향 공격 피해 12%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다."
+          },
+          {
+            "label": "반납할 물품을 옮기고 보급 보수를 받는다",
+            "result": "반납할 물품을 운반하는 업무를 수행했다. 140골드와 물약 1개를 보수로 받았다."
+          }
+        ]
+      },
+      {
+        "key": "academy_festival_before_stage",
+        "story": "성하제에서 미코토가 다음 전시를 가리키다 자신의 무대 차례를 떠올리며 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토의 자리를 묻는다. 너는 미코토의 공연을 대신 정하지 않고 자기 구경과 준비를 선택해야 한다.",
+        "intro": "미코토의 공연을 대신 정하지 않고 네 구경과 준비를 선택해야 한다.",
+        "choices": [
+          {
+            "label": "210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다",
+            "result": "210골드를 지불하여 기다릴 준비를 마쳤다. 'academy_mikoto_curtain' 카드를 획득했으며, 차지 공격 피해 12% 및 치명타 피해 12%의 성장을 얻었다."
+          },
+          {
+            "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+            "result": "더 강한 개인 사냥을 맡으며 미코토와 기다린다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다. 개인 사냥의 강도가 1만큼 상승했다."
+          },
+          {
+            "label": "안내를 마친 짐을 운반하고 보수를 받는다",
+            "result": "안내 업무를 마친 후 짐을 운반했다. 150골드와 물약 1개를 보수로 받았다."
+          }
+        ]
+      },
+      {
+        "key": "academy_drink_after_vending",
+        "story": "다른 곳에서 음료를 마련한 네 앞에서 미코토가 뜯지 않은 자기 몫을 내려놓는다. 토우마의 동전을 떠올리는 미코토는 네가 지금 손의 것을 마시기 전에 또 자판기를 볼 것인지 묻는다. 너는 잃은 동전의 결말보다 자기 준비를 끝낼 때를 정해야 한다.",
+        "intro": "미코토의 질문에 대해 잃은 동전보다 네 준비를 끝낼 때를 결정해야 한다.",
+        "choices": [
+          {
+            "label": "120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다",
+            "result": "120골드를 지불하여 다음 보급을 마련했다. 'academy_mikoto_drink' 카드를 획득했으며, 차지 준비 속도 8% 및 최대 체력 8%의 성장을 얻었다."
+          },
+          {
+            "label": "더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다",
+            "result": "더 많은 개인 사냥을 맡으며 미코토의 호흡을 기억했다. 'academy_mikoto_curtain' 카드를 획득했으며, 차지 공격 피해 12% 및 치명타 피해 12%의 성장을 얻었다. 개인 사냥의 수가 1만큼 증가했다."
+          },
+          {
+            "label": "남은 짐을 반환하고 보급 보수를 받는다",
+            "result": "남은 짐을 반환하는 업무를 수행했다. 150골드와 물약 1개를 보수로 받았다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "035e2c74-f643-428b-9ae5-ccf584fbc3fd"
+}

@@ -1,0 +1,197 @@
+{
+  "sourceRevision": "8c8ff709",
+  "beforeFile": "before-academy-expansion-61.json",
+  "beforeSha256": "f0b8daa5d0a5fcee3e81f956eab40624c86583e276c51bc846530972207faa85",
+  "reviews": [
+    {
+      "verdict": "REVISE",
+      "issues": [
+        {
+          "key": "academy_vending_left_coin",
+          "problem": "선택지 3번의 density 값이 1로 설정되어 있으나, 결과 텍스트에는 '나누었다'는 표현만 있을 뿐 수량적 증가나 지속 효과에 대한 명확한 설명이 부족함.",
+          "evidence": "choices[2].density: 1 / result: '토우마와 남은 몫을 나누었다.'",
+          "suggestion": "density가 1인 경우, 결과 텍스트에 '나눈 몫의 비중이 늘어' 또는 '나눈 몫의 효과가 강화되어'와 같은 수량적/질적 변화를 명시할 것."
+        },
+        {
+          "key": "academy_unanswered_promise",
+          "problem": "선택지 3번의 density 값이 -1로 설정되어 있음. 시스템 정의상 density는 지속 강함/수를 의미하는데 음수 값은 정의되지 않음.",
+          "evidence": "choices[2].density: -1",
+          "suggestion": "density를 0으로 수정하거나, 수량적 감소를 의미한다면 시스템 정의에 부합하는 수치로 조정할 것."
+        },
+        {
+          "key": "academy_drink_after_vending",
+          "problem": "선택지 1번의 chance가 70%이나, 실패 시 결과(failure)에 '준비 비용도 돌아오지 않는다'고 명시되어 있음. 비용이 소모되는 방식과 확률적 실패의 상관관계가 모호함.",
+          "evidence": "choices[0].chance: 70 / failure: '준비 비용도 돌아오지 않는다.'",
+          "suggestion": "비용이 이미 지불된 상태에서 확률에 따른 성공/실패를 판정하는 것인지, 아니면 비용 지불 자체가 실패의 조건인지 명확히 할 것."
+        }
+      ],
+      "strengths": [
+        "원작의 핵심 사건(자판기 파괴, 피습, 화해 등)을 플레이어가 결정하지 않도록 엄격하게 제한한 점이 우수함.",
+        "카드 효과가 원작의 초능력이나 구체적인 아이템으로 변질되지 않고, '기억'이나 '준비'라는 추상적 개념으로 잘 치환됨.",
+        "후속 사건(academy_drink_after_vending)의 트리거 조건(특정 선택지 성공 시)이 정확하게 설계됨."
+      ]
+    },
+    {
+      "verdict": "REVISE",
+      "issues": [
+        {
+          "key": "academy_mikoto_curtain",
+          "problem": "카드 효과와 결과의 불일치",
+          "evidence": "카드 효과는 '차지 피해(charge_damage)'와 '치명타 피해(crit_damage)'를 부여하지만, 사건 'academy_festival_before_stage'의 첫 번째 선택지 결과에서는 '차지 공격 피해와 치명타 피해가 늘었다'고 기술되어 있어 수치적 변화가 명확히 매칭되지 않음. 또한, 'academy_drink_after_vending' 사건의 두 번째 선택지 결과에서는 '차지 공격 피해와 치명타 피해가 늘었다'고 기술되어 있으나, 해당 카드는 '차지 피해'와 '치명타 피해'를 부여하는 것이므로 결과 문구의 '공격' 수식어와 카드 스탯 명칭의 일관성 검토 필요.",
+          "suggestion": "결과 문구의 '차지 공격 피해'를 카드 스탯과 동일하게 '차지 피해'로 통일할 것."
+        },
+        {
+          "key": "academy_mikoto_drink",
+          "problem": "카드 효과와 결과의 불일치",
+          "evidence": "카드 효과는 '차지 속도(charge_speed)'와 '최대 체력(max_health_percent)'을 부여하지만, 사건 'academy_festival_before_stage'의 두 번째 선택지 결과에서는 '차지 준비 속도와 최대 체력이 늘었다'고 기술되어 있음. '차지 속도'와 '차지 준비 속도'가 동일한 스탯인지 명확하지 않음.",
+          "suggestion": "카드 스탯 명칭을 '차지 준비 속도'로 변경하거나, 결과 문구를 '차지 속도'로 통일할 것."
+        },
+        {
+          "key": "academy_kuroko_return",
+          "problem": "카드 효과와 결과의 불일치",
+          "evidence": "카드 효과는 '신속(swift)'과 '고체력(healthy_damage)'을 부여하지만, 사건 'academy_tea_after_call'의 첫 번째 선택지 결과에서는 '신속과 체력65%이상일 때 가하는 피해가 늘었다'고 기술되어 있음. '고체력' 스탯이 '체력65%이상일 때 가하는 피해'를 의미하는지 명확한 정의가 필요함.",
+          "suggestion": "카드 스탯 명칭을 '체력65%이상_피해증가'로 변경하거나 결과 문구를 '고체력'으로 통일할 것."
+        }
+      ],
+      "strengths": [
+        "원작의 핵심 요소(불행, 화해, 기술 등)를 플레이어가 결정하지 않도록 엄격하게 제한함.",
+        "실제 아이템 지급이나 초능력 구현 대신 스탯 변화로 치환하여 설정 오류를 방지함.",
+        "사건 간의 인과관계(자판기 성공 후 음료 후속)를 메커니즘으로 잘 구현함."
+      ]
+    }
+  ],
+  "reviewDecisions": [
+    {
+      "review": {
+        "verdict": "REVISE",
+        "issues": [
+          {
+            "key": "academy_vending_left_coin",
+            "problem": "선택지 3번의 density 값이 1로 설정되어 있으나, 결과 텍스트에는 '나누었다'는 표현만 있을 뿐 수량적 증가나 지속 효과에 대한 명확한 설명이 부족함.",
+            "evidence": "choices[2].density: 1 / result: '토우마와 남은 몫을 나누었다.'",
+            "suggestion": "density가 1인 경우, 결과 텍스트에 '나눈 몫의 비중이 늘어' 또는 '나눈 몫의 효과가 강화되어'와 같은 수량적/질적 변화를 명시할 것."
+          },
+          {
+            "key": "academy_unanswered_promise",
+            "problem": "선택지 3번의 density 값이 -1로 설정되어 있음. 시스템 정의상 density는 지속 강함/수를 의미하는데 음수 값은 정의되지 않음.",
+            "evidence": "choices[2].density: -1",
+            "suggestion": "density를 0으로 수정하거나, 수량적 감소를 의미한다면 시스템 정의에 부합하는 수치로 조정할 것."
+          },
+          {
+            "key": "academy_drink_after_vending",
+            "problem": "선택지 1번의 chance가 70%이나, 실패 시 결과(failure)에 '준비 비용도 돌아오지 않는다'고 명시되어 있음. 비용이 소모되는 방식과 확률적 실패의 상관관계가 모호함.",
+            "evidence": "choices[0].chance: 70 / failure: '준비 비용도 돌아오지 않는다.'",
+            "suggestion": "비용이 이미 지불된 상태에서 확률에 따른 성공/실패를 판정하는 것인지, 아니면 비용 지불 자체가 실패의 조건인지 명확히 할 것."
+          }
+        ],
+        "strengths": [
+          "원작의 핵심 사건(자판기 파괴, 피습, 화해 등)을 플레이어가 결정하지 않도록 엄격하게 제한한 점이 우수함.",
+          "카드 효과가 원작의 초능력이나 구체적인 아이템으로 변질되지 않고, '기억'이나 '준비'라는 추상적 개념으로 잘 치환됨.",
+          "후속 사건(academy_drink_after_vending)의 트리거 조건(특정 선택지 성공 시)이 정확하게 설계됨."
+        ]
+      },
+      "decisions": [
+        {
+          "key": "academy_vending_left_coin",
+          "decision": "표현 명확화",
+          "reason": "이미 더 많은 개인 사냥이라고 적혀 있지만 단계+1을 명시한다. 카드의 효과 강화로 바꾸지 않는다."
+        },
+        {
+          "key": "academy_unanswered_promise",
+          "decision": "제안 기각",
+          "reason": "density는 현재 수가 아니라 변화량이다. ProtoResolve는 음수 변화량을 더하고 최저1로 제한한다. -1은 적 수 단계 감소이며 결과도 감소로 적혀 있다. 0으로 바꾸면 선택지의 약속을 훼손한다."
+        },
+        {
+          "key": "academy_drink_after_vending",
+          "decision": "표현 명확화",
+          "reason": "현재 함수가 비용을 먼저 차감한 뒤 확률 판정한다. 실패 문장에 먼저 지불했다는 순서를 명시하고120골드 차감은 유지한다."
+        }
+      ],
+      "changes": [
+        {
+          "key": "academy_vending_left_coin#3",
+          "field": "result",
+          "before": "더 많은 개인 사냥을 맡는 부담을 택하고 토우마와 남은 몫을 나누었다. 처치 골드가 늘고 받는 피해가 줄었다. 토우마는 자기 동전까지 같은 몫으로 세지 말라며 한 닢을 다시 쥔다.",
+          "after": "개인 사냥의 몬스터 수 단계를1올리는 부담을 택하고 토우마와 남은 몫을 나누었다. 처치 골드가 늘고 받는 피해가 줄었다. 토우마는 자기 동전까지 같은 몫으로 세지 말라며 한 닢을 다시 쥔다.",
+          "reason": "더 많은 개인 사냥이 지속 밀도+1임을 명시한다. 나눈 몫의 카드 효과 자체가 강화된다는 모델 제안은 실제 지급과 달라 쓰지 않는다."
+        },
+        {
+          "key": "academy_drink_after_vending",
+          "field": "failure",
+          "before": "다음 보급값120골드를 썼지만 준비를 끝낼 때를 맞추지 못했다. 카드는 얻지 못하고 준비 비용도 돌아오지 않는다. 미코토는 아직 뜯지 않은 음료를 내려놓고 토우마는 남은 짐부터 본다.",
+          "after": "다음 보급값120골드를 먼저 낸 뒤 준비를 끝낼 때를 맞추지 못했다. 카드는 얻지 못하고 지불한120골드는 돌아오지 않는다. 미코토는 아직 뜯지 않은 음료를 내려놓고 토우마는 남은 짐부터 본다.",
+          "reason": "확률 판정 전에 지불한 비용이 실패에도 유지된다고 명시한다."
+        }
+      ],
+      "numericExceptions": [],
+      "limits": "원문 REVISE를 보존하며 판정의 근거를 별도 기록한다. 실제 Warcraft 검증은 아니다."
+    },
+    {
+      "review": {
+        "verdict": "REVISE",
+        "issues": [
+          {
+            "key": "academy_mikoto_curtain",
+            "problem": "카드 효과와 결과의 불일치",
+            "evidence": "카드 효과는 '차지 피해(charge_damage)'와 '치명타 피해(crit_damage)'를 부여하지만, 사건 'academy_festival_before_stage'의 첫 번째 선택지 결과에서는 '차지 공격 피해와 치명타 피해가 늘었다'고 기술되어 있어 수치적 변화가 명확히 매칭되지 않음. 또한, 'academy_drink_after_vending' 사건의 두 번째 선택지 결과에서는 '차지 공격 피해와 치명타 피해가 늘었다'고 기술되어 있으나, 해당 카드는 '차지 피해'와 '치명타 피해'를 부여하는 것이므로 결과 문구의 '공격' 수식어와 카드 스탯 명칭의 일관성 검토 필요.",
+            "suggestion": "결과 문구의 '차지 공격 피해'를 카드 스탯과 동일하게 '차지 피해'로 통일할 것."
+          },
+          {
+            "key": "academy_mikoto_drink",
+            "problem": "카드 효과와 결과의 불일치",
+            "evidence": "카드 효과는 '차지 속도(charge_speed)'와 '최대 체력(max_health_percent)'을 부여하지만, 사건 'academy_festival_before_stage'의 두 번째 선택지 결과에서는 '차지 준비 속도와 최대 체력이 늘었다'고 기술되어 있음. '차지 속도'와 '차지 준비 속도'가 동일한 스탯인지 명확하지 않음.",
+            "suggestion": "카드 스탯 명칭을 '차지 준비 속도'로 변경하거나, 결과 문구를 '차지 속도'로 통일할 것."
+          },
+          {
+            "key": "academy_kuroko_return",
+            "problem": "카드 효과와 결과의 불일치",
+            "evidence": "카드 효과는 '신속(swift)'과 '고체력(healthy_damage)'을 부여하지만, 사건 'academy_tea_after_call'의 첫 번째 선택지 결과에서는 '신속과 체력65%이상일 때 가하는 피해가 늘었다'고 기술되어 있음. '고체력' 스탯이 '체력65%이상일 때 가하는 피해'를 의미하는지 명확한 정의가 필요함.",
+            "suggestion": "카드 스탯 명칭을 '체력65%이상_피해증가'로 변경하거나 결과 문구를 '고체력'으로 통일할 것."
+          }
+        ],
+        "strengths": [
+          "원작의 핵심 요소(불행, 화해, 기술 등)를 플레이어가 결정하지 않도록 엄격하게 제한함.",
+          "실제 아이템 지급이나 초능력 구현 대신 스탯 변화로 치환하여 설정 오류를 방지함.",
+          "사건 간의 인과관계(자판기 성공 후 음료 후속)를 메커니즘으로 잘 구현함."
+        ]
+      },
+      "decision": "세 지적 모두 실제 스탯 불일치로 확인되지 않아 기각한다. charge_damage는 프로젝트 표시에 차지 공격 대미지 증가이며 healthy_damage는 체력65%이상일 때 가하는 피해다. 차지 준비 속도는 차지 속도의 적용 대상을 설명한다. 영어 내부키나 키워드의 짧은 표현을 이야기 결과에 강요하지 않는다.",
+      "evidence": [
+        "Data/Data_PrototypeStats.j의 PROTO_STAT_CHARGE_DAMAGE 표시가 차지 공격 대미지 증가다.",
+        "Data/Data_PrototypeStats.j의 PROTO_STAT_HEALTHY 표시가 체력65%이상에서 대미지 증가다.",
+        "System/ExpeditionEffects.j는 source현재체력>=source최대체력*0.65일 때 고체력 효과를 적용한다.",
+        "charge_speed의 준비 속도 의미는 기존 카드 능력치 문서·스탯·차지 스킬 적용에서 별도로 검증했다."
+      ],
+      "numericExceptions": [],
+      "revisit": "실제 카드 함수가 다른 스탯을 지급하거나 조건이 다른 실행 증거가 나오면 재검토한다.",
+      "limits": "Gemma의 REVISE 원문을 PASS로 바꾸지 않았다. Codex의 스탯 표시·조건·고정안 대조와 별도 분기 모의를 근거로 채택한다."
+    }
+  ],
+  "serverFailure": {
+    "recordId": "5213df86-4b7b-4c2d-bb1b-a899a41e7aa0",
+    "status": "error",
+    "error": "모델 서버 오류 (500). 실행 로그를 확인해 주세요.",
+    "startedAt": "2026-10-01T16:46:41.736Z",
+    "finishedAt": "2026-10-01T16:46:42.771Z",
+    "elapsedMs": 1035,
+    "sourceFile": "C:/Users/ctqho/AppData/Local/ArcanaGemma/records/5213df86-4b7b-4c2d-bb1b-a899a41e7aa0.json",
+    "sourceSha256": "f8ccbabba1f4bd48bd1cf3de8648e52d5ae59fc7869bd1f26c527e9663a909a3",
+    "evidence": "01:46:42 Ollama /api/chat HTTP500,1.0186976초. 모니터링은1035ms 실패 저장. 상태 API는 연결·모델 적재·유휴 확인. 동일 입력 재시도",
+    "limits": "현재 로그만으로 GPU/캐시/모델 내부 원인을 구분하지 못했다. 실패를 콘텐츠 검토 성공으로 간주하지 않는다."
+  },
+  "decision": "별도 방문의 독립5사건·자신의 자판기 성공1번 음료후속1사건·카드6장 채택. 기존 카드15장·사건12개는 모든 필드를 그대로 보존한다.",
+  "candidateCheck": {
+    "cards": 21,
+    "events": 18,
+    "errors": [],
+    "warnings": []
+  },
+  "numericExceptions": [],
+  "limits": [
+    "두 Gemma 검토는 REVISE다. 밀도와 선지불의 표현은 명확히 하고 실제 지원되는 감소와 프로젝트 스탯 설명을 불일치로 분류한 판단은 기각했다.",
+    "공식 줄거리 본문을 읽었으며 원작 전편·영상 전체·게임 전체를 확인한 것은 아니다.",
+    "음료·찻잔·여행자의 답·버튼 앞 기다림·무대 준비·성장 기억·맵 방문·골드·확률은 창작이다. 원작 실험·피습·화해·학생 사정·공연의 종류와 결말을 여행자가 바꾸지 않는다.",
+    "게임기 조작·전원 차단·미니게임·원작 초능력·NPC동행·음료 아이템·현재체력 회복·사냥 중 추가 처치 기능은 없다.",
+    "실제 Warcraft·렌더링·멀티플레이·재미·밸런스는 미검증이다."
+  ]
+}

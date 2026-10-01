@@ -1,0 +1,311 @@
+{
+  "beforeFile": "before-butterfly-card-choices-76.json",
+  "beforeSha256": "a1eba094daa72e1aea93b0c66f6d66f8934853e5651546622c48d0b64324b9eb",
+  "rawReviews": [
+    {
+      "monitorRecordId": "4053cb1e-4ea1-4097-bfcc-8ddbe5d07da8",
+      "parsed": {
+        "verdict": "REVISE",
+        "issues": [
+          {
+            "key": "kny_night_path",
+            "problem": "실제 명시된 보상(카드 1장)과 결과 문구의 불일치",
+            "evidence": "mechanics에서 '성공때지정카드1장'을 보상으로 명시했으나, kny_night_path의 선택지 결과 문구에는 카드 획득에 대한 언급이 전혀 없음.",
+            "suggestion": "각 선택지의 result 문구에 '지정된 카드를 획득했다'는 내용을 추가할 것."
+          },
+          {
+            "key": "kny_night_found",
+            "problem": "변화량-1의 최종값 처리 오류",
+            "evidence": "kny_kanao_quiet 선택지에서 density 변화량이 -1이며, mechanics에서 '최종값은 max(1,현재+변화량)'으로 정의됨. 현재 density가 0인 상태에서 -1이 적용되면 최종값은 1이 되어야 하나, 문구에는 '적 수 단계를 1 낮춘 뒤'라고 되어 있어 감소의 의미가 모호함.",
+            "suggestion": "현재 density가 0인 상태에서 -1이 적용되어 1이 되는 논리적 흐름을 문구에 명확히 하거나, 감소의 의미라면 초기 density를 1 이상으로 설정할 것."
+          },
+          {
+            "key": "kny_night_wrong",
+            "problem": "변화량-1의 최종값 처리 오류",
+            "evidence": "kny_inosuke_partition 선택지에서 density 변화량이 -1이며, 현재 density가 0인 상태임. mechanics에 따라 최종값은 1이 되어야 함.",
+            "suggestion": "density가 0에서 -1이 되어 1이 되는 과정을 문구에 반영하거나 초기값을 조정할 것."
+          },
+          {
+            "key": "kny_white_linen",
+            "problem": "변화량-1의 최종값 처리 오류",
+            "evidence": "kny_inosuke_partition 선택지에서 density 변화량이 -1이며, 현재 density가 0인 상태임. mechanics에 따라 최종값은 1이 되어야 함.",
+            "suggestion": "density가 0에서 -1이 되어 1이 되는 과정을 문구에 반영하거나 초기값을 조정할 것."
+          },
+          {
+            "key": "kny_crow_dispatch",
+            "problem": "실제 명시된 보상(카드 1장)과 결과 문구의 불일치",
+            "evidence": "mechanics에서 '성공때지정카드1장'을 보상으로 명시했으나, kny_crow_dispatch의 선택지 결과 문구에는 카드 획득에 대한 언급이 전혀 없음.",
+            "suggestion": "각 선택지의 result 문구에 '지정된 카드를 획득했다'는 내용을 추가할 것."
+          }
+        ],
+        "strengths": [
+          "sourceFacts를 기반으로 한 창작 범위 제한(스킬 지급 금지, 원작 결말 회피 등)이 매우 정확하게 준수됨.",
+          "mechanics의 복잡한 수치 계산(max 함수, 상한선 등)이 체계적으로 설계됨.",
+          "카드별 canonFact가 원작의 핵심 요소와 게임적 허용 사이의 균형을 잘 잡고 있음."
+        ]
+      }
+    },
+    {
+      "monitorRecordId": "fe039fa1-7863-4e04-91ae-48f805086518",
+      "parsed": {
+        "verdict": "REVISE",
+        "issues": [
+          {
+            "key": "kny_midday_noise",
+            "problem": "선택지 3의 'density' 값이 -1로 표기되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)' 규칙에 따라 실제 수치는 감소하지 않으며, 결과 문구에서도 '적 수 단계를 1 낮춘'으로 명시되어 있어 시스템 로직과 텍스트 간의 불일치가 발생할 수 있음.",
+            "evidence": "density: -1 / result: '내 사냥의 적 수 단계를1낮춘'",
+            "suggestion": "density 값을 0으로 수정하거나, 시스템이 -1을 인식하더라도 결과 문구와 일치하도록 확인 필요."
+          },
+          {
+            "key": "kny_mixed_traces",
+            "problem": "선택지 1의 'level'이 1로 표기되어 있으나, mechanics의 'level'은 '강함'을 의미하며 결과 문구에서는 '사냥의 강함 단계는 1올랐다'고 되어 있어 수치적 일치는 하나, 다른 선택지들과 비교 시 레벨 상승이 보상으로 명확히 구분되는지 검토 필요.",
+            "evidence": "level: 1 / result: '내 사냥의 강함 단계는1올랐다.'",
+            "suggestion": "레벨 상승이 의도된 보상이라면 유지하되, 다른 선택지와의 밸런스 확인."
+          },
+          {
+            "key": "kny_before_departure",
+            "problem": "선택지 3의 'level'이 1로 표기되어 있으나, 결과 문구에는 '강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다'고 되어 있어 레벨(강함) 상승이 실제로는 페널티 성격의 묘사로 읽힐 수 있음.",
+            "evidence": "level: 1 / result: '더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다.'",
+            "suggestion": "강함 단계 상승이 '강한 적을 상대할 수 있는 능력'인지 '강한 적이 오는 환경'인지 명확히 구분하여 묘사할 것."
+          },
+          {
+            "key": "kny_senior_challenge",
+            "problem": "선택지 3의 'level'이 -1로 표기되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)' 규칙에 따라 실제 수치는 1 미만으로 내려가지 않음. 결과 문구와 시스템 로직의 괴리 발생.",
+            "evidence": "level: -1 / result: '내 사냥의 강함 단계를1낮춘'",
+            "suggestion": "density와 마찬가지로 level 변화량과 결과 문구의 일치 여부를 재확인하고 시스템 규칙에 따른 최종값 반영 확인."
+          },
+          {
+            "key": "kny_frightened_visitor",
+            "problem": "선택지 3의 'density'가 -1로 표기되어 있으나, 결과 문구에서는 '내 사냥의 적 수 단계를1낮췄다'고 되어 있어 시스템 로직(max(1, 현재+변화량))과 충돌함.",
+            "evidence": "density: -1 / result: '내 사냥의 적 수 단계를1낮췄다.'",
+            "suggestion": "density 값을 0으로 수정하거나 시스템 로직에 따른 실제 변화량 반영."
+          }
+        ],
+        "strengths": [
+          "sourceFacts에 기반하여 원작의 핵심 요소(호흡, 후각, 촉각 등)를 게임적 스탯(신속, 관통, 이동 등)으로 적절히 치환함.",
+          "mechanics에 명시된 '변화량-1을 최종값-1로 읽지 않는다'는 규칙을 준수하여 수치 계산의 오류를 방지함.",
+          "원작의 중요한 장면(동전, 결말 등)을 재현하지 않겠다는 제약 사항을 준수함."
+        ]
+      }
+    },
+    {
+      "monitorRecordId": "d36d443b-0f8f-40b8-b654-530673a1a5ca",
+      "parsed": {
+        "verdict": "REVISE",
+        "issues": [
+          {
+            "key": "kny_first_gourd",
+            "problem": "선택지 3번의 density 변화량(-1)이 mechanics의 '최종값은 max(1, 현재+변화량)' 규칙과 충돌하여 의도와 다르게 작동할 수 있음.",
+            "evidence": "density: -1 / mechanics: 최종값은 max(1, 현재+변화량)",
+            "suggestion": "density가 1인 상태에서 -1이 적용될 경우 1로 고정되므로, '단계 하락'이 명확히 표현되려면 현재 단계가 2 이상일 때만 작동하도록 설계하거나 수치를 재검토해야 함."
+          },
+          {
+            "key": "kny_morning_greeting",
+            "problem": "선택지 2번의 result 문구에서 '신속' 효과가 언급되었으나, 실제 부여되는 카드는 'kny_tanjiro'이며 해당 카드의 효과는 'swift(신속)'와 'healthy_damage'임. 문구상으로는 일치하나, '신속'이 '현재체력65%이상에서 가하는 피해'를 의미하는지 모호함.",
+            "evidence": "card: kny_tanjiro / effect: swift: 180, healthy_damage: 14 / result: 신속과현재체력65%이상에서 가하는 피해를 높였다.",
+            "suggestion": "신속(swift)과 현재체력 피해(healthy_damage)가 별개의 능력치임을 명확히 하거나, 문구를 능력치 명칭에 맞춰 정교화할 것."
+          },
+          {
+            "key": "kny_partition_role",
+            "problem": "선택지 3번의 result 문구에서 '내 사냥의 적 수 단계를1낮춘 뒤'라고 명시되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)'에 따라 현재 단계가 1일 경우 변화가 발생하지 않음.",
+            "evidence": "density: -1 / mechanics: 최종값은 max(1, 현재+변화량)",
+            "suggestion": "단계가 1 미만으로 내려가지 않는다는 점을 고려하여, '단계가 낮아질 경우' 등의 조건부 표현을 검토하거나 최소 단계를 확인 필요."
+          }
+        ],
+        "strengths": [
+          "sourceFacts의 제한 사항(원작 성취 금지, 특정 기술 미지급 등)을 준수하여 창작된 카드 효과와 문장을 잘 구성함.",
+          "mechanics에 정의된 복잡한 수치 계산(max 함수, 필드 변화량 등)을 선택지 결과에 일관되게 반영함.",
+          "카드별 canonFact를 통해 원작의 범위를 벗어난 창작 요소임을 명확히 고지함."
+        ]
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "batch": 1,
+      "issue": {
+        "key": "kny_night_path",
+        "problem": "실제 명시된 보상(카드 1장)과 결과 문구의 불일치",
+        "evidence": "mechanics에서 '성공때지정카드1장'을 보상으로 명시했으나, kny_night_path의 선택지 결과 문구에는 카드 획득에 대한 언급이 전혀 없음.",
+        "suggestion": "각 선택지의 result 문구에 '지정된 카드를 획득했다'는 내용을 추가할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "결과문장은행동과기억을쓰고ProtoResolve의ProtoGrantEventCard가실제지정카드이름/등급/효과를획득보상에덧붙인다. 카드가없다는의견은서술과UI책임을혼동했다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 1,
+      "issue": {
+        "key": "kny_night_found",
+        "problem": "변화량-1의 최종값 처리 오류",
+        "evidence": "kny_kanao_quiet 선택지에서 density 변화량이 -1이며, mechanics에서 '최종값은 max(1,현재+변화량)'으로 정의됨. 현재 density가 0인 상태에서 -1이 적용되면 최종값은 1이 되어야 하나, 문구에는 '적 수 단계를 1 낮춘 뒤'라고 되어 있어 감소의 의미가 모호함.",
+        "suggestion": "현재 density가 0인 상태에서 -1이 적용되어 1이 되는 논리적 흐름을 문구에 명확히 하거나, 감소의 의미라면 초기 density를 1 이상으로 설정할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 1,
+      "issue": {
+        "key": "kny_night_wrong",
+        "problem": "변화량-1의 최종값 처리 오류",
+        "evidence": "kny_inosuke_partition 선택지에서 density 변화량이 -1이며, 현재 density가 0인 상태임. mechanics에 따라 최종값은 1이 되어야 함.",
+        "suggestion": "density가 0에서 -1이 되어 1이 되는 과정을 문구에 반영하거나 초기값을 조정할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 1,
+      "issue": {
+        "key": "kny_white_linen",
+        "problem": "변화량-1의 최종값 처리 오류",
+        "evidence": "kny_inosuke_partition 선택지에서 density 변화량이 -1이며, 현재 density가 0인 상태임. mechanics에 따라 최종값은 1이 되어야 함.",
+        "suggestion": "density가 0에서 -1이 되어 1이 되는 과정을 문구에 반영하거나 초기값을 조정할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 1,
+      "issue": {
+        "key": "kny_crow_dispatch",
+        "problem": "실제 명시된 보상(카드 1장)과 결과 문구의 불일치",
+        "evidence": "mechanics에서 '성공때지정카드1장'을 보상으로 명시했으나, kny_crow_dispatch의 선택지 결과 문구에는 카드 획득에 대한 언급이 전혀 없음.",
+        "suggestion": "각 선택지의 result 문구에 '지정된 카드를 획득했다'는 내용을 추가할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "결과문장은행동과기억을쓰고ProtoResolve의ProtoGrantEventCard가실제지정카드이름/등급/효과를획득보상에덧붙인다. 카드가없다는의견은서술과UI책임을혼동했다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 2,
+      "issue": {
+        "key": "kny_midday_noise",
+        "problem": "선택지 3의 'density' 값이 -1로 표기되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)' 규칙에 따라 실제 수치는 감소하지 않으며, 결과 문구에서도 '적 수 단계를 1 낮춘'으로 명시되어 있어 시스템 로직과 텍스트 간의 불일치가 발생할 수 있음.",
+        "evidence": "density: -1 / result: '내 사냥의 적 수 단계를1낮춘'",
+        "suggestion": "density 값을 0으로 수정하거나, 시스템이 -1을 인식하더라도 결과 문구와 일치하도록 확인 필요."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 2,
+      "issue": {
+        "key": "kny_mixed_traces",
+        "problem": "선택지 1의 'level'이 1로 표기되어 있으나, mechanics의 'level'은 '강함'을 의미하며 결과 문구에서는 '사냥의 강함 단계는 1올랐다'고 되어 있어 수치적 일치는 하나, 다른 선택지들과 비교 시 레벨 상승이 보상으로 명확히 구분되는지 검토 필요.",
+        "evidence": "level: 1 / result: '내 사냥의 강함 단계는1올랐다.'",
+        "suggestion": "레벨 상승이 의도된 보상이라면 유지하되, 다른 선택지와의 밸런스 확인."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "level은플레이어성장레벨이아니라사냥몬스터강함의지속변화량이다. 문장도강한적의부담으로썼고ProtoApplyField와결과의적체력/공격피해변화가별도로표시된다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 2,
+      "issue": {
+        "key": "kny_before_departure",
+        "problem": "선택지 3의 'level'이 1로 표기되어 있으나, 결과 문구에는 '강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다'고 되어 있어 레벨(강함) 상승이 실제로는 페널티 성격의 묘사로 읽힐 수 있음.",
+        "evidence": "level: 1 / result: '더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다.'",
+        "suggestion": "강함 단계 상승이 '강한 적을 상대할 수 있는 능력'인지 '강한 적이 오는 환경'인지 명확히 구분하여 묘사할 것."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "level은플레이어성장레벨이아니라사냥몬스터강함의지속변화량이다. 문장도강한적의부담으로썼고ProtoApplyField와결과의적체력/공격피해변화가별도로표시된다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 2,
+      "issue": {
+        "key": "kny_senior_challenge",
+        "problem": "선택지 3의 'level'이 -1로 표기되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)' 규칙에 따라 실제 수치는 1 미만으로 내려가지 않음. 결과 문구와 시스템 로직의 괴리 발생.",
+        "evidence": "level: -1 / result: '내 사냥의 강함 단계를1낮춘'",
+        "suggestion": "density와 마찬가지로 level 변화량과 결과 문구의 일치 여부를 재확인하고 시스템 규칙에 따른 최종값 반영 확인."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 2,
+      "issue": {
+        "key": "kny_frightened_visitor",
+        "problem": "선택지 3의 'density'가 -1로 표기되어 있으나, 결과 문구에서는 '내 사냥의 적 수 단계를1낮췄다'고 되어 있어 시스템 로직(max(1, 현재+변화량))과 충돌함.",
+        "evidence": "density: -1 / result: '내 사냥의 적 수 단계를1낮췄다.'",
+        "suggestion": "density 값을 0으로 수정하거나 시스템 로직에 따른 실제 변화량 반영."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 3,
+      "issue": {
+        "key": "kny_first_gourd",
+        "problem": "선택지 3번의 density 변화량(-1)이 mechanics의 '최종값은 max(1, 현재+변화량)' 규칙과 충돌하여 의도와 다르게 작동할 수 있음.",
+        "evidence": "density: -1 / mechanics: 최종값은 max(1, 현재+변화량)",
+        "suggestion": "density가 1인 상태에서 -1이 적용될 경우 1로 고정되므로, '단계 하락'이 명확히 표현되려면 현재 단계가 2 이상일 때만 작동하도록 설계하거나 수치를 재검토해야 함."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 3,
+      "issue": {
+        "key": "kny_morning_greeting",
+        "problem": "선택지 2번의 result 문구에서 '신속' 효과가 언급되었으나, 실제 부여되는 카드는 'kny_tanjiro'이며 해당 카드의 효과는 'swift(신속)'와 'healthy_damage'임. 문구상으로는 일치하나, '신속'이 '현재체력65%이상에서 가하는 피해'를 의미하는지 모호함.",
+        "evidence": "card: kny_tanjiro / effect: swift: 180, healthy_damage: 14 / result: 신속과현재체력65%이상에서 가하는 피해를 높였다.",
+        "suggestion": "신속(swift)과 현재체력 피해(healthy_damage)가 별개의 능력치임을 명확히 하거나, 문구를 능력치 명칭에 맞춰 정교화할 것."
+      },
+      "decision": "표현 보완, 수치와 참조 유지",
+      "evidence": "신속과현재체력65%이상피해는이미별개효과였다. 두효과의띄어쓰기와접속을더분명하게보완한다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    },
+    {
+      "batch": 3,
+      "issue": {
+        "key": "kny_partition_role",
+        "problem": "선택지 3번의 result 문구에서 '내 사냥의 적 수 단계를1낮춘 뒤'라고 명시되어 있으나, mechanics의 '최종값은 max(1, 현재+변화량)'에 따라 현재 단계가 1일 경우 변화가 발생하지 않음.",
+        "evidence": "density: -1 / mechanics: 최종값은 max(1, 현재+변화량)",
+        "suggestion": "단계가 1 미만으로 내려가지 않는다는 점을 고려하여, '단계가 낮아질 경우' 등의 조건부 표현을 검토하거나 최소 단계를 확인 필요."
+      },
+      "decision": "검토 의견 반려",
+      "evidence": "density와level은최종값이아닌변화량이다. density초기4,하한1이고3→2등감소가가능하다. 하한에서유지됨은기존상세[사냥터]의최저1과실제전후표시로안내된다. 음수변화량을0으로바꾸거나임의의초기0을가정하지않는다.",
+      "validation": "validation/head-card-choices-probe-15.json에실제JASS변환의108분기·자기성공/실패후속·상한/하한·유효선택없음후보제외를검사한다."
+    }
+  ],
+  "wordingCorrection": {
+    "key": "kny_morning_greeting#2",
+    "before": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 끊기지 않는 호흡을 기억해 신속과현재체력65%이상에서 가하는 피해를 높였다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다.",
+    "after": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 끊기지 않는 호흡을 기억해 신속이 늘었으며, 현재 체력65%이상에서 가하는 피해도 높아졌다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다."
+  },
+  "events": 17,
+  "choices": 51,
+  "distinctCardsPerEvent": 3,
+  "directGoldChoices": 0,
+  "unchanged": [
+    "카드21장의수치와참조",
+    "머리효과",
+    "사건후보2~4개",
+    "사냥기본10골드",
+    "리롤500+100",
+    "흡수/재생합산10%상한",
+    "중복카드100골드",
+    "개인성공/실패후속"
+  ],
+  "limits": [
+    "Gemma세REVISE는그대로보존하고오독반증과표현수정은분리한다.",
+    "이번세카드재구성은나비저택먼저이며다른머리는계속작업한다.",
+    "Warcraft·렌더링·실전멀티·재미·밸런스는미검증이며맵은만들지않는다."
+  ],
+  "check": {
+    "cards": 21,
+    "events": 17,
+    "errors": [],
+    "warnings": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 240,
+    "events": 217,
+    "roots": 169,
+    "followups": 48
+  },
+  "rewrittenEvents": 16,
+  "choices": 48,
+  "newCards": 2,
+  "branchCases": 102,
+  "newMemoryStats": {
+    "entryAttack": 11,
+    "structureAttack": 23,
+    "togetherAttack": 35,
+    "action": 3,
+    "reduction": 2,
+    "duplicateNotStacked": true,
+    "otherPlayerUnchanged": true
+  },
+  "lowerBounds": 8,
+  "ciCommands": 15,
+  "monitorRecords": 9,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "7564c658a734c38c05fb7a3b3e1f167d7a5d8c3d41d90213b6753d1cfb6ee76f",
+  "mapCreated": false,
+  "usage": {
+    "used": 42,
+    "remaining": 58
+  },
+  "review": "PASS/PASS/PASS",
+  "scope": "후유키16개와나비저택17개는서로다른세카드선택.다른머리계속작업.",
+  "probeCorrection": "ProtoGrantHead만직접호출한모형은입문카드를주지않는것이정상이다. 새능력치검사에서실제머리후보선택/ProtoResolve를거쳐입문공격8+머리3을얻고23/35합산을검사했다. 실제코드는변경하지않았다.",
+  "limits": [
+    "정적·실제JASS함수의변환모의·스크립트컴파일이다.",
+    "Warcraft·화면·실전멀티·서버저장·재미·밸런스는미검증이다."
+  ]
+}

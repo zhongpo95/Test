@@ -1,0 +1,376 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "verdict",
+      "issues",
+      "strengths"
+    ],
+    "properties": {
+      "verdict": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "REVISE"
+        ]
+      },
+      "issues": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "problem",
+            "evidence",
+            "suggestion"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "problem": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "system": "한국어 독립 검토자다. 제공 공식 사실과 새 창작의 구분·수치·인물의 요구·새 기능의 실제 모순만 issues에 쓴다. 카드 요령은 성장 비유다. PASS나REVISE를 반환한다.",
+  "brief": {
+    "sourceFacts": [
+      {
+        "source": "https://pierrot.jp/title/bleach/chara.html",
+        "fact": "카라쿠라는 이치고의 마을. 이치고는 의리 있고 다정하다. 카린은 냉정한 성격과 영감이 있다. 유즈는 가사 전반을 맡는 쌍둥이 동생. 잇신은 의원을 운영하는 아버지로 가족 사랑을 과하게 표현한다. 우라하라는 과자 가게 주인이며 루키아를 지원한다. 진타와 우루루는 상점 점원, 우루루는 외형과 달리 초인적 전투 능력이 있다. 텟사이는 번두 같은 존재이자 고위 귀도 사용자. 케이고는 이치고를 자주 귀찮게 하는 활발한 동급생. 우류는 바느질을 잘하지만 패션 감각은 좋지 않다."
+      }
+    ],
+    "newContent": {
+      "cards": [
+        {
+          "key": "bl_karin_distance",
+          "name": "쿠로사키 카린",
+          "effectName": "보이지 않아도 비울 자리",
+          "keyword": "이동 속도 · 고체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 5
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "냉정한 성격과 영감을 지닌 카린에게 다른 이가 보지 못하는 자리를 성급히 채우지 않는 법을 배운다. 영감·유령 시야·사신화·적 탐지 기능을 주지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_isshin_welcome",
+          "name": "쿠로사키 잇신",
+          "effectName": "지나친 환영 뒤의 걱정",
+          "keyword": "최대 체력 · 재생",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 10
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "가족을 과하게 아끼는 의원 운영자의 특징을 오래 버틸 준비로 각색한다. 진료·즉시 치료·사신 능력·물약 무한 공급은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_ururu_lift",
+          "name": "츠무기야 우루루",
+          "effectName": "가볍게 보지 않을 힘",
+          "keyword": "차지 · 치명타 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 16
+            },
+            {
+              "stat": "crit_damage",
+              "value": 14
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 12000,
+            "effects": [
+              {
+                "stat": "penetration",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "외형과 달리 초인적인 전투 능력이 있는 점원에게 겉모습만 보고 힘을 가늠하지 않는 일격 준비를 배운다. 실제 동행·상자 들기 미니게임·초인화·점원 고용은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_keigo_invitation",
+          "name": "아사노 케이고",
+          "effectName": "아직 묻지 않은 약속",
+          "keyword": "사건 후보 · 행동 속도",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "이치고를 자주 귀찮게 하는 활발한 동급생의 특징을 약속의 다른 갈래를 묻고 행동을 이어 가는 성장으로 각색한다. 우정 수치·새 일정·NPC 가이드·무한 행동력은 없다.",
+          "uncertain": []
+        }
+      ],
+      "events": [
+        {
+          "key": "bl_empty_bench",
+          "title": "비어 보이는 벤치",
+          "story": "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다. 이치고가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다.",
+          "intro": "왜 비워 두었는지 묻기 전에 옆으로 옮길까?",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "카린이 비워 둔 자리를 존중하고 옆으로 옮긴다",
+              "result": "카린이 비워 둔 자리 옆으로 움직이며 빠른 발과 좋은 몸 상태에서 일격에 힘을 싣는 요령을 배웠다. 카린은 비켜 주면 되는 일을 모두 설명할 필요는 없다고 한다. 손님이 다시 앉으려 하자 이치고는 자기가 내준 자리를 가리킨다.",
+              "card": "bl_karin_distance",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "이치고와 더 강한 길목을 맡아 자리를 비운다",
+              "result": "이치고에게 공격력과 보스에게 힘을 싣는 요령을 배우고 개인 사냥의 적 단계를 1 올렸다. 카린은 자리를 옮기라는 말이 위험을 찾아가라는 뜻은 아니었다고 한다. 이치고는 네가 맡을 범위까지만 다시 짚는다.",
+              "card": "bl_ichigo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "손님을 안내하고 맡을 구역을 좁힌다",
+              "result": "손님 안내의 보수 120골드를 받고 개인 사냥의 적 수를 줄였다. 카린은 사람이 앉은 쪽을 한 번 더 보고 말을 줄인다. 이치고는 빈 곳을 굳이 다시 채우지 않는다.",
+              "card": null,
+              "card2": null,
+              "gold": 120,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 카린의 냉정함과 영감에서 상점 앞의 창작 만남을 만들었다. 보이지 않는 존재의 정체·본편 사건을 확정하지 않고 플레이어에게 유령 시야를 주지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_welcome_at_door",
+          "title": "친구가 왔다는 한마디",
+          "story": "이치고를 찾으러 왔다는 말에 잇신이 의원 문 밖까지 나와 반갑게 맞는다. 이치고는 잠깐 물건만 돌려받을 일이라고 말하지만 잇신은 아들과 무슨 일을 같이 했는지부터 묻는다. 유즈가 둘 사이에 설 자리를 내주자 너는 잇신의 걱정을 들을지 이치고의 짧은 용건부터 마칠지 정한다.",
+          "intro": "잇신의 걱정을 듣거나 이치고의 용건부터 마칠지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "180골드로 머무를 준비를 하고 잇신의 걱정을 듣는다",
+              "result": "180골드로 머무를 준비를 하고 최대 체력을 늘려 몸 상태를 천천히 유지하는 요령을 배웠다. 잇신이 아들과 무엇을 했냐고 다시 묻자 이치고는 물건만 돌려받는 일이라고 한 번 더 말한다. 유즈는 용건이 끝나면 안쪽 이야기까지 길어질 것 같다며 웃는다.",
+              "card": "bl_isshin_welcome",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "유즈와 손님이 드나들 길목을 더 맡는다",
+              "result": "유즈에게 몸 상태를 천천히 유지하며 처치 보수를 챙기는 요령을 배웠다. 맡을 길목을 넓혀 개인 사냥의 적 수가 늘었다. 유즈가 문을 비켜 주는 사이에도 잇신은 이치고의 친구가 온 이유부터 묻고 있다.",
+              "card": "bl_yuzu_portion",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "용건을 먼저 마치고 잇신이 건넨 물약만 받는다",
+              "result": "이치고의 짧은 용건을 마치고 물약 2개를 받았다. 잇신은 다음에는 앉을 시간도 남겨 오라고 한다. 이치고는 다음 약속까지 대신 만들지는 말라며 물건을 챙긴다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 2,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 잇신의 가족 사랑과 과한 응대·유즈의 가사 역할에서 의원 문 앞 환영을 창작했다. 친척 편입·진료 결과·즉시 체력 회복·원작 가족의 비밀을 결정하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_small_shop_clerk",
+          "title": "작은 점원에게 맡긴 큰 짐",
+          "story": "우라하라 상점의 손님이 우루루에게 커다란 상자를 밖으로 옮기라며 혼자서는 못 들 것 같다고 비웃는다. 우루루가 상자를 가볍게 들자 진타는 옮겨 달라는 말과 얕보는 말은 다르다고 끼어든다. 손님이 이번에는 더 많은 짐을 밀어 넣으려 하니 네가 어디서 부탁을 멈출지 정한다.",
+          "intro": "들 수 있다는 이유로 부탁을 계속 늘려도 될까?",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "220골드로 받칠 도구를 마련하고 우루루의 힘을 먼저 묻는다",
+              "result": "220골드로 받칠 도구를 마련하고 우루루에게 차지 일격과 치명타에 힘을 모으는 요령을 배웠다. 우루루는 도구를 어디에 놓을지부터 묻는다. 진타는 들 수 있다고 모든 부탁을 받아야 하는 것은 아니라며 추가 상자를 뒤로 민다.",
+              "card": "bl_ururu_lift",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "차드와 더 많은 길목을 맡고 점원에게 미룬 일을 나눈다",
+              "result": "차드에게 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 점원에게 미룬 길목을 나눠 맡아 개인 사냥의 적 수가 더 늘었다. 차드는 맡을 몫을 짧게 말하고 진타는 손님에게 그보다 더 맡긴 적은 없다고 한다.",
+              "card": "bl_chad",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "추가 부탁을 거절하고 맡을 길목을 줄인다",
+              "result": "추가 심부름을 받지 않고 마친 안내의 보수 130골드를 받았다. 맡을 길목을 줄여 개인 사냥의 적 수가 줄었다. 진타가 상자를 더 받지 않자 우루루도 지금 들고 있던 것부터 내려놓는다.",
+              "card": null,
+              "card2": null,
+              "gold": 130,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 우루루의 점원 역할과 외형과 다른 초인적 능력에서 큰 심부름의 경계 문제를 창작했다. 차드는 부탁을 나누는 대화 인물이며 플레이어의 상시 동행이 아니다. 실제 상자 운반·노동 게이지·점원 고용은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "bl_unasked_invitation",
+          "title": "초대받았다는 사람",
+          "story": "케이고가 네게 이치고와 마을을 둘러보자고 약속했지만 이치고는 그런 말을 들은 적 없다고 한다. 케이고는 친구라면 같이 갈 줄 알았다고 하고 이치고는 남의 약속을 대신 잡지 말라고 한다. 너는 케이고에게 자기 약속부터 맡기거나 이치고와 가능한 범위를 다시 정할 수 있다.",
+          "intro": "케이고가 허락받지 않은 약속을 누가 맡을지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "케이고에게 자신이 한 약속부터 설명하게 한다",
+              "result": "케이고의 말을 끝까지 듣고 사건의 다른 후보를 살피며 빠르게 행동을 이어 가는 요령을 배웠다. 케이고는 같이 갈 줄 알았다는 말과 같이 가기로 했다는 말이 다르다는 지적을 듣는다. 이치고는 이번에는 물어보고 약속하라고 한다.",
+              "card": "bl_keigo_invitation",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "이치고와 더 강한 구역을 맡을 수 있는 범위를 정한다",
+              "result": "이치고에게 공격력과 보스에게 힘을 싣는 요령을 배우고 개인 사냥의 적 단계를 1 올렸다. 이치고는 정한 범위 밖까지 약속한 것은 아니라고 케이고에게 말한다. 케이고도 이번에는 네가 맡기로 한 범위만 전한다.",
+              "card": "bl_ichigo",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "140골드로 따로 안내를 구하고 우라하라에게 길을 묻는다",
+              "result": "140골드로 따로 안내를 구하고 우라하라에게 사건의 다른 후보와 보스에게 힘을 싣는 요령을 배웠다. 우라하라는 먼저 누구와 한 약속인지 묻는다. 케이고는 이번 안내까지 이치고와 함께 가기로 했다고 덧붙이지 않는다.",
+              "card": "bl_urahara",
+              "card2": null,
+              "gold": 0,
+              "cost": 140,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 활발하고 이치고에게 자주 말을 거는 케이고와 의리 있는 이치고에서 허락 없는 초대를 창작했다. 실제 동행 경로·방문 타이머·무한 사건·우정 수치·원작 관계 결말은 없다.",
+          "uncertain": []
+        }
+      ]
+    },
+    "mechanics": "독립4사건,100%성공,행동력1. 비용·적단계/밀도는선적용,성공카드/골드/물약지급. 필드는지속변경이며감소는하한제한. 현재HP코스트·즉시치유·진료·유령시야·실제NPC동행·새기술없음. 사건후보는최대4이며행동력아님. 흡수재생합10%/초,물약별도.",
+    "questions": [
+      "카린의영감을플레이어에게주거나사냥필드의적단계를한명만강해지는것처럼쓰는가?",
+      "무료성장/골드지불/필드부담/완화·보수·물약·지정카드가수치와맞는가?",
+      "사건을이미선택한뒤의결과로시작하거나깨진내부필드목록을노출하는가?"
+    ]
+  }
+}

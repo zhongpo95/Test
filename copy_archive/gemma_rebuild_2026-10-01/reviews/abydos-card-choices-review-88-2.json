@@ -1,0 +1,759 @@
+{
+  "started": "2026-10-01T18:27:28.008Z",
+  "finished": "2026-10-01T18:27:33.625Z",
+  "request": {
+    "review": true,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "system": "한국어 독립 검토자다. 실제 데이터와 문장의 불일치만 issues에 쓴다. level/density는 초기몬스터강함1/적수4에서의 변화량이다. UI가 카드 이름과 정확한 효과를 덧붙인다. 새밸런스나기능은제안하지않는다.",
+    "brief": {
+      "cards": [
+        {
+          "key": "abydos_shiroko",
+          "name": "스나오오카미 시로코",
+          "effectName": "조용한 정찰",
+          "keyword": "이동 · 전투",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 5
+            },
+            {
+              "stat": "moving_damage",
+              "value": 16
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 60,
+            "effects": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              }
+            ]
+          },
+          "canonFact": "시로코의 정찰과 몸을 움직이는 취미를 이동에 따른 성장으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_nonomi",
+          "name": "이자요이 노노미",
+          "effectName": "넓게 펼친 엄호",
+          "keyword": "일반전",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "normal_damage_percent",
+              "value": 18
+            },
+            {
+              "stat": "attack_percent",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 40,
+            "effects": [
+              {
+                "stat": "normal_damage_percent",
+                "value": 10
+              }
+            ]
+          },
+          "canonFact": "노노미의 기관총 엄호 역할을 일반 몬스터 대응으로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_hifumi",
+          "name": "아지타니 히후미",
+          "effectName": "함께 찾은 출구",
+          "keyword": "생존 · 이동",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 4
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "아비도스 학생들과 함께 행동하는 히후미의 역할을 귀환 준비로 각색했다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_shiroko_pace",
+          "name": "스나오오카미 시로코",
+          "effectName": "같은 속도로 한 바퀴",
+          "keyword": "신속 · 일반 적",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 180
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 10
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 3
+              }
+            ]
+          },
+          "canonFact": "조깅·체력 훈련·로드바이크 취미를 동작의 박자와 반복 사냥 준비로 각색한다. 자전거 탈것·거리 기록·새 사격이나 영구 신속을 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_hoshino_wake",
+          "name": "타카나시 호시노",
+          "effectName": "쉬는 자리의 앞쪽",
+          "keyword": "고체력 · 피해 감소",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 14
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "낮잠을 즐기지만 임무에서 앞에 서는 역할을 몸 상태를 지키고 버티는 준비로 각색한다. 낮잠 즉시 회복·수면 상태·새 보호막은 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_nonomi_share",
+          "name": "이자요이 노노미",
+          "effectName": "빠뜨린 몫은 없나요",
+          "keyword": "대미지 · 재생",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 8
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "동료를 묶어 주고 간식을 보태는 역할을 다음 싸움과 오래 움직일 보급 준비로 각색한다. 실제 간식 슬롯·원작 재생 기술·친밀도는 생성하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_ayane_ledger",
+          "name": "오쿠소라 아야네",
+          "effectName": "항목 아래 남은 숫자",
+          "keyword": "처치 골드 · 사건 후보",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "kill_gold",
+              "value": 3
+            },
+            {
+              "stat": "event_choices",
+              "value": 1
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "가계부·회계 기록과 서기·규칙 중시를 빠뜨린 수급과 비교 후보를 살피는 성장으로 각색한다. 학교의 큰 빚을 없애거나 실제 회계·대출 시스템을 생성하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_hifumi_stall",
+          "name": "아지타니 히후미",
+          "effectName": "들어 보고 고르는 것",
+          "keyword": "사건 후보 · 최대 체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 6
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "페로로 굿즈 수집과 상담을 잘 듣는 성격을 후보를 더 비교하고 오래 버틸 준비로 각색한다. 페로로 소환·도발·굿즈 장비·동료 NPC를 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_serika_order",
+          "name": "쿠로미 세리카",
+          "effectName": "먼저 받은 주문",
+          "keyword": "행동 속도 · 일반 적",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 4
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 회계·아르바이트 역할과 기존 주문 정리에서 차례를 맞추는 여행자의 기억이다. 가게 소유·무료 물약 제작·학교 빚 해소·원작 사격 기술은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_ayane_route",
+          "name": "오쿠소라 아야네",
+          "effectName": "전달할 곳부터",
+          "keyword": "이동 · 최대 체력",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 3
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 서기·지원 역할과 기존 보급 운반에서 전달할 곳과 돌아올 자리를 먼저 확인하는 기억이다. 새 통신 기술·실제 보급차량·NPC 운반·귀환 스킬은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_ayane_blank",
+          "name": "오쿠소라 아야네",
+          "effectName": "지우지 않은 빈칸",
+          "keyword": "치명 피해 · 받는 피해",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 12
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 기록·규칙 중시와 가계부·골동품 취미에서 확인하지 않은 기록을 단정하지 않는 기억이다. 자동 감정·골동품 소유·학교 빚 해소·원작 관통 기술은 없다.",
+          "uncertain": []
+        }
+      ],
+      "events": [
+        {
+          "key": "abydos_pace",
+          "title": "한 바퀴가 같은 한 바퀴일까",
+          "story": "시로코가 조깅 경로와 로드바이크를 세울 곳을 가리킨다. 세리카는 그 한 바퀴가 자기에게도 같은 거리냐며 지도를 다시 펼친다. 네가 준비할 경로와 맡을 바깥 구역을 나누어야 한다.",
+          "intro": "박자를 맞출지, 더 넓은 길목을 맡을지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "준비 도구를 마련해 시로코와 한 바퀴의 박자를 맞춘다",
+              "result": "준비 도구 값을 내고 시로코와 다음 동작을 늦추지 않을 박자를 맞췄다. 반복해서 마주칠 상대를 넘기는 준비도 배웠다. 세리카는 지도에 표시된 한 바퀴 끝을 손가락으로 다시 짚는다.",
+              "card": "abydos_shiroko_pace",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "시로코와 더 넓은 정찰 길목을 맡는다",
+              "result": "시로코와 더 넓은 길목을 맡으며 움직일 자리를 먼저 보는 요령을 배웠다. 맡을 범위가 늘어 개인 사냥의 적 수가 많아졌다. 시로코는 지도를 접고 짧게 출발하자고 한다.",
+              "card": "abydos_shiroko",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "100골드로 보급을 마련하고 세리카와 더 약한 구역의 차례를 맞춘다",
+              "result": "세리카와 더 약한 구역을 먼저 맡을 차례를 나누고 시로코가 펼친 지도에 표시했다. 100골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 세리카는 시로코의 한 바퀴가 자기에게도 같은 거리인지 다시 물으며 맡은 구역부터 접는다.",
+              "card": "abydos_serika_order",
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": -1,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 시로코의 조깅·체력 훈련·로드바이크와 말 적은 성향에서 별도 경로 분배를 만든다. 실제 자전거·랩타임·체력 지불·경기 승패는 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_sleepchair",
+          "title": "잠든 자리와 비워 둘 앞자리",
+          "story": "호시노가 의자에서 눈을 감으려는데 아야네는 앞에 쌓인 준비 가방을 가리킨다. 노노미는 맡을 길목을 나누고 호시노가 일어날 자리도 남기자고 한다. 잠을 깨우기보다 먼저 네가 맡을 구역을 정해야 한다.",
+          "intro": "앞에 설 자리를 준비하거나 맡을 길목을 나눈다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "준비 비용을 내고 호시노와 앞에 설 자리를 비운다",
+              "result": "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 자리를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 비워진 의자 앞을 보고 가방을 옆으로 당긴다.",
+              "card": "abydos_hoshino_wake",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "노노미와 더 넓은 길목을 맡는다",
+              "result": "노노미와 더 넓은 길목에서 반복해서 마주칠 상대를 짚었다. 공격을 넓게 준비하는 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 노노미는 호시노가 일어날 자리를 하나 남긴다.",
+              "card": "abydos_nonomi",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 가방을 준비하고 아야네와 돌아올 통로를 비운다",
+              "result": "아야네와 준비 가방을 옮기고 호시노가 일어날 자리 옆에 돌아올 통로를 남겼다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 노노미가 다음 가방을 내려놓으려 하자 아야네는 방금 남긴 통로는 비워 두자고 한다.",
+              "card": "abydos_ayane_route",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 호시노의 낮잠과 임무 최전선·노노미의 동료 지원을 별도 일상으로 각색한다. 낮잠으로 현재 체력 회복·호시노의 부재 해결·보호막 생성은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_snack_share",
+          "title": "남는 간식이 아니라 남길 간식",
+          "story": "노노미가 간식 몫을 나누는데 아야네는 바깥에 가져갈 보급 항목도 남았다고 한다. 세리카는 장부의 빈칸이 간식보다 먼저라며 주문서를 펼친다. 지금 나눌 몫과 이후 쓸 기록을 모두 네가 챙길 수는 없다.",
+          "intro": "지금 나눌 몫과 다음에 쓸 기록 중 맡을 일을 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "포장 비용을 보태고 노노미와 빠뜨린 몫을 살핀다",
+              "result": "포장 비용을 보태고 노노미와 빠뜨린 몫을 살폈다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미가 마지막 봉투를 내밀자 세리카는 장부도 봐 달라며 주문서를 당긴다.",
+              "card": "abydos_nonomi_share",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "기록용품을 마련해 아야네와 남은 항목을 대조한다",
+              "result": "기록용품 값을 내고 아야네와 남은 항목을 대조했다. 얻을 몫을 놓치지 않고 여러 부탁을 더 비교하는 준비를 배웠다. 아야네는 아직 확인하지 않은 항목에는 숫자를 적지 않는다.",
+              "card": "abydos_ayane_ledger",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 정리를 준비하고 세리카와 간식보다 먼저 온 주문을 나눈다",
+              "result": "세리카와 간식보다 먼저 받은 주문을 나누고 빈칸이 남은 주문서를 다시 펼쳤다. 160골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 물약1개를 받았다. 노노미는 아직 못 받은 간식 몫을 묻고 세리카는 주문이 끝난 줄과 남은 줄을 다른 쪽에 놓는다.",
+              "card": "abydos_serika_order",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 노노미의 간식 비용 지원과 동료의 중심 역할·아야네의 기록·세리카의 회계에서 별도 보급 분배를 창작한다. 부자의 돈 무제한 획득·학교 빚 전액 해소·간식 즉시 회복은 없다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_antique_note",
+          "title": "낡은 물건의 지워진 항목",
+          "story": "아야네가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 기록까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다.",
+          "intro": "불확실한 기록 확인과 확실한 장부 정리 중 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "150골드의 연락 비용을 내고 지워진 항목을 찾는다",
+              "result": "연락한 기록을 아야네와 대조하고 지워진 항목의 남은 숫자를 확인했다. 150골드를 지불했다. 「항목 아래 남은 숫자」의 기억 카드1장을 얻었다. 가게 주인이 확인한 줄을 가리키자 아야네는 그 아래의 빈칸까지 같은 답으로 채우지 않는다.",
+              "card": "abydos_ayane_ledger",
+              "card2": null,
+              "gold": 0,
+              "cost": 150,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 70
+            },
+            {
+              "label": "220골드로 기록용품을 마련하고 아야네와 아직 확인하지 않은 빈칸을 남긴다",
+              "result": "아야네와 확인하지 않은 빈칸을 그대로 남기고 확실한 줄만 기록에 옮겼다. 220골드를 지불했다. 「지우지 않은 빈칸」의 기억 카드1장을 얻었다. 아야네는 주인이 장담하지 않은 항목 옆에 다음에 물어볼 일을 따로 적는다.",
+              "card": "abydos_ayane_blank",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 운반을 준비하고 아야네와 확인된 물건을 전할 곳을 나눈다",
+              "result": "아야네와 확인된 물건을 옮길 준비를 하고 전달할 곳부터 나눴다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 주인이 아직 확인하지 않은 상자를 함께 밀자 아야네는 그 상자는 다른 목록에 남기자고 한다.",
+              "card": "abydos_ayane_route",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": "지워진 항목의 이전 기록을 확인하지 못했다. 연락 비용 150골드는 돌아오지 않고 카드와 기록 확인 보수도 받지 못한다. 아야네는 확인되지 않은 숫자를 빈칸으로 남긴다.",
+          "canonFact": "공식 아야네의 골동품 수집·가계부 취미에서 별도 가게 기록 의뢰를 창작한다. 원작 상점·사기·가챠 장면이나 진품 감정 기술을 확인한 것이 아니다. 70%와 보수는 맵의 수치다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_aquarium_step",
+          "title": "안내판 앞의 다음 발걸음",
+          "story": "수족관에 가려던 호시노가 안내판 앞에서 다음에 갈 곳을 가리킨다. 시로코는 돌아갈 길도 봐 두겠다며 바깥 지도를 펼치고 아야네는 아직 남은 보급 일을 적는다. 외출 전에 어디까지 맡을지 나누어야 한다.",
+          "intro": "외출 전에 앞에 설 자리와 귀환길의 부담을 나눈다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "준비 비용을 내고 호시노와 앞에 설 자리를 정한다",
+              "result": "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 위치를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 안내판 쪽으로 몸을 돌리고 아야네는 남은 보급 일을 적는다.",
+              "card": "abydos_hoshino_wake",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "시로코와 더 강한 적이 드나드는 귀환길을 맡는다",
+              "result": "시로코와 더 강한 적이 드나드는 귀환길을 맡았다. 움직일 자리를 먼저 보는 요령을 배우고 개인 사냥의 적 단계가 올라갔다. 시로코는 돌아갈 길의 표시를 따로 접어 둔다.",
+              "card": "abydos_shiroko",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "160골드로 안내를 준비하고 아야네와 돌아올 통로를 비운다",
+              "result": "아야네와 돌아올 통로를 비우고 외출 전에 맡을 길목을 한 곳 줄였다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 호시노가 다음에 볼 곳을 묻자 시로코는 안내판과 따로 접어 둔 귀환길을 번갈아 가리킨다.",
+              "card": "abydos_ayane_route",
+              "card2": null,
+              "gold": 0,
+              "cost": 160,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 애니메이션8화 호시노 제안의 수족관 외출에서 별도 안내·귀환 준비를 만든다. 원작 호시노의 비밀·실종·구출을 외출 보상으로 해결하지 않는다. 수족관 공간·수중 몹·실제 입장권은 생성하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "abydos_peroro_line",
+          "title": "페로로 앞에서 듣는 부탁",
+          "story": "히후미가 페로로 굿즈 진열을 보는데 노노미는 기다리는 사람의 부탁도 들어 보자고 한다. 히후미는 어느 이야기를 먼저 들을지 망설이고 시로코는 빠져나갈 길부터 가리킨다. 진열 앞에서 모두의 부탁을 한 번에 맡을 수는 없다.",
+          "intro": "부탁을 들을지, 가져갈 몫과 통행 구역을 나눌지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "진열 준비물을 마련해 히후미와 부탁을 하나씩 듣는다",
+              "result": "진열 준비물 값을 내고 히후미와 부탁을 하나씩 들었다. 더 비교할 후보를 놓치지 않고 오래 버틸 준비를 배웠다. 히후미는 진열된 페로로를 다시 보다가 아직 남은 사람 쪽으로 고개를 돌린다.",
+              "card": "abydos_hifumi_stall",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "포장 비용을 보태고 노노미와 가져갈 몫을 나눈다",
+              "result": "포장 비용을 보태고 노노미와 가져갈 몫을 나누었다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미는 기다리는 사람의 봉투도 한쪽에 남겨 둔다.",
+              "card": "abydos_nonomi_share",
+              "card2": null,
+              "gold": 0,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "히후미와 맡을 통행 구역을 줄인다",
+              "result": "히후미와 맡을 길목을 한 곳 줄였다. 움직일 자리를 찾고 버티는 요령을 배웠고 개인 사냥의 적 수가 줄었다. 시로코는 줄인 구역 바깥의 표시를 지운다.",
+              "card": "abydos_hifumi",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "공식 히후미의 페로로 굿즈·쇼핑·상담 취미와 노노미의 쇼핑·동료 지원에서 별도 가게 만남을 만든다. 히후미를 아비도스 학생으로 바꾸거나 물품 소환·NPC 호위·빚 해결을 하지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "mechanics": {
+        "reward": "성공때 지정카드1장과 potions개물약 지급.즉시골드0.이후처치골드·중복100은별개다. result는성공일때만사용한다.",
+        "cost": "cost선지불.실패때도비용/AP/필드유지.실패때카드/물약없음.",
+        "field": "level몬스터강함,density몬스터수 단계의 지속변화량. 초기1/4,최저1,상한5/10. 플레이어능력·피로·시간아님.",
+        "history": "라멘교대1/사막방어1/아루계산1/카요코한곡2의 자기 성공후속을 같은 번호로 유지한다. 카요코부모2는새곡카드이며후속은이를다시주지않는다. aru_task/kayoko_reply후속전용을유지한다.",
+        "stats": "기억은여행자성장이다. 이동3은3%,regen시간회복/흡수합산10%상한이며즉시회복아님. 최대체력증가현재/최대비율유지. 방향은플래그+실제각도,비방향은헤드/백없는공격,보호막조건은새보호막지급아님. healthy65%조건.",
+        "boundary": "대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다. 조깅·낮잠·간식·골동품·수족관 안내·굿즈 문제는 공식 취미와 역할에서 별도로 창작했다. 학교 일상이 이어지던 때의 독립 만남이며 같은 시각의 본편 전개나 실종 해결을 주장하지 않는다. 골동품70%는 맵의 검사 수치이고 히후미는 트리니티 학생이다. 고체력 피해는 즉시 치료가 아니며 후보 증가는 행동력 증가가 아니다. 흥신소68의계산서·카요코CD주문·하루카잡초·무츠키봉투내기는공식역할에서만든별도창작방문이다. 아루후속은자기계산도움성공1번,카요코후속은자기한곡듣기성공2번에서만열린다. 학교빚·은행범죄·가게폭파·인물의큰갈등을해결하거나실제음악/폭발/식물성장기능을지급하지않는다."
+      },
+      "checks": [
+        "모든 사건 서로 다른 지정카드3종이며 직접골드대안/입문카드반복이없는가?",
+        "비용·필드변화·물약·지정기억·성공결과/실패문구·자기후속과 데이터가맞는가?",
+        "공식역할과기존현장행동에서남은문제의반응이이어지고미구현주문/음악/화분기능·NPC성장·학교빚해결은없는가?"
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "issues",
+        "strengths"
+      ],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "REVISE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "problem",
+              "evidence",
+              "suggestion"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "problem": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "suggestion": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 독립 검토자다. 실제 데이터와 문장의 불일치만 issues에 쓴다. level/density는 초기몬스터강함1/적수4에서의 변화량이다. UI가 카드 이름과 정확한 효과를 덧붙인다. 새밸런스나기능은제안하지않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"cards\":[{\"key\":\"abydos_shiroko\",\"name\":\"스나오오카미 시로코\",\"effectName\":\"조용한 정찰\",\"keyword\":\"이동 · 전투\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":5},{\"stat\":\"moving_damage\",\"value\":16}],\"evolution\":{\"kind\":3,\"goal\":60,\"effects\":[{\"stat\":\"crit_chance\",\"value\":4}]},\"canonFact\":\"시로코의 정찰과 몸을 움직이는 취미를 이동에 따른 성장으로 각색했다.\",\"uncertain\":[]},{\"key\":\"abydos_nonomi\",\"name\":\"이자요이 노노미\",\"effectName\":\"넓게 펼친 엄호\",\"keyword\":\"일반전\",\"grade\":2,\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":18},{\"stat\":\"attack_percent\",\"value\":5}],\"evolution\":{\"kind\":1,\"goal\":40,\"effects\":[{\"stat\":\"normal_damage_percent\",\"value\":10}]},\"canonFact\":\"노노미의 기관총 엄호 역할을 일반 몬스터 대응으로 각색했다.\",\"uncertain\":[]},{\"key\":\"abydos_hifumi\",\"name\":\"아지타니 히후미\",\"effectName\":\"함께 찾은 출구\",\"keyword\":\"생존 · 이동\",\"grade\":1,\"effects\":[{\"stat\":\"move_speed\",\"value\":4},{\"stat\":\"damage_reduction\",\"value\":5}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"아비도스 학생들과 함께 행동하는 히후미의 역할을 귀환 준비로 각색했다.\",\"uncertain\":[]},{\"key\":\"abydos_shiroko_pace\",\"name\":\"스나오오카미 시로코\",\"effectName\":\"같은 속도로 한 바퀴\",\"keyword\":\"신속 · 일반 적\",\"grade\":2,\"effects\":[{\"stat\":\"swift\",\"value\":180},{\"stat\":\"normal_damage_percent\",\"value\":10}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"action_speed\",\"value\":3}]},\"canonFact\":\"조깅·체력 훈련·로드바이크 취미를 동작의 박자와 반복 사냥 준비로 각색한다. 자전거 탈것·거리 기록·새 사격이나 영구 신속을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_hoshino_wake\",\"name\":\"타카나시 호시노\",\"effectName\":\"쉬는 자리의 앞쪽\",\"keyword\":\"고체력 · 피해 감소\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":14},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"낮잠을 즐기지만 임무에서 앞에 서는 역할을 몸 상태를 지키고 버티는 준비로 각색한다. 낮잠 즉시 회복·수면 상태·새 보호막은 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_nonomi_share\",\"name\":\"이자요이 노노미\",\"effectName\":\"빠뜨린 몫은 없나요\",\"keyword\":\"대미지 · 재생\",\"grade\":2,\"effects\":[{\"stat\":\"damage_percent\",\"value\":8},{\"stat\":\"regeneration\",\"value\":0.4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"동료를 묶어 주고 간식을 보태는 역할을 다음 싸움과 오래 움직일 보급 준비로 각색한다. 실제 간식 슬롯·원작 재생 기술·친밀도는 생성하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_ayane_ledger\",\"name\":\"오쿠소라 아야네\",\"effectName\":\"항목 아래 남은 숫자\",\"keyword\":\"처치 골드 · 사건 후보\",\"grade\":2,\"effects\":[{\"stat\":\"kill_gold\",\"value\":3},{\"stat\":\"event_choices\",\"value\":1}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"가계부·회계 기록과 서기·규칙 중시를 빠뜨린 수급과 비교 후보를 살피는 성장으로 각색한다. 학교의 큰 빚을 없애거나 실제 회계·대출 시스템을 생성하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_hifumi_stall\",\"name\":\"아지타니 히후미\",\"effectName\":\"들어 보고 고르는 것\",\"keyword\":\"사건 후보 · 최대 체력\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"max_health_percent\",\"value\":6}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"페로로 굿즈 수집과 상담을 잘 듣는 성격을 후보를 더 비교하고 오래 버틸 준비로 각색한다. 페로로 소환·도발·굿즈 장비·동료 NPC를 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_serika_order\",\"name\":\"쿠로미 세리카\",\"effectName\":\"먼저 받은 주문\",\"keyword\":\"행동 속도 · 일반 적\",\"grade\":2,\"effects\":[{\"stat\":\"action_speed\",\"value\":4},{\"stat\":\"normal_damage_percent\",\"value\":12}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 회계·아르바이트 역할과 기존 주문 정리에서 차례를 맞추는 여행자의 기억이다. 가게 소유·무료 물약 제작·학교 빚 해소·원작 사격 기술은 없다.\",\"uncertain\":[]},{\"key\":\"abydos_ayane_route\",\"name\":\"오쿠소라 아야네\",\"effectName\":\"전달할 곳부터\",\"keyword\":\"이동 · 최대 체력\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":3},{\"stat\":\"max_health_percent\",\"value\":8}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 서기·지원 역할과 기존 보급 운반에서 전달할 곳과 돌아올 자리를 먼저 확인하는 기억이다. 새 통신 기술·실제 보급차량·NPC 운반·귀환 스킬은 없다.\",\"uncertain\":[]},{\"key\":\"abydos_ayane_blank\",\"name\":\"오쿠소라 아야네\",\"effectName\":\"지우지 않은 빈칸\",\"keyword\":\"치명 피해 · 받는 피해\",\"grade\":2,\"effects\":[{\"stat\":\"crit_damage\",\"value\":12},{\"stat\":\"damage_reduction\",\"value\":4}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"공식 기록·규칙 중시와 가계부·골동품 취미에서 확인하지 않은 기록을 단정하지 않는 기억이다. 자동 감정·골동품 소유·학교 빚 해소·원작 관통 기술은 없다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"abydos_pace\",\"title\":\"한 바퀴가 같은 한 바퀴일까\",\"story\":\"시로코가 조깅 경로와 로드바이크를 세울 곳을 가리킨다. 세리카는 그 한 바퀴가 자기에게도 같은 거리냐며 지도를 다시 펼친다. 네가 준비할 경로와 맡을 바깥 구역을 나누어야 한다.\",\"intro\":\"박자를 맞출지, 더 넓은 길목을 맡을지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"준비 도구를 마련해 시로코와 한 바퀴의 박자를 맞춘다\",\"result\":\"준비 도구 값을 내고 시로코와 다음 동작을 늦추지 않을 박자를 맞췄다. 반복해서 마주칠 상대를 넘기는 준비도 배웠다. 세리카는 지도에 표시된 한 바퀴 끝을 손가락으로 다시 짚는다.\",\"card\":\"abydos_shiroko_pace\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"시로코와 더 넓은 정찰 길목을 맡는다\",\"result\":\"시로코와 더 넓은 길목을 맡으며 움직일 자리를 먼저 보는 요령을 배웠다. 맡을 범위가 늘어 개인 사냥의 적 수가 많아졌다. 시로코는 지도를 접고 짧게 출발하자고 한다.\",\"card\":\"abydos_shiroko\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"100골드로 보급을 마련하고 세리카와 더 약한 구역의 차례를 맞춘다\",\"result\":\"세리카와 더 약한 구역을 먼저 맡을 차례를 나누고 시로코가 펼친 지도에 표시했다. 100골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 세리카는 시로코의 한 바퀴가 자기에게도 같은 거리인지 다시 물으며 맡은 구역부터 접는다.\",\"card\":\"abydos_serika_order\",\"card2\":null,\"gold\":0,\"cost\":100,\"level\":-1,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 시로코의 조깅·체력 훈련·로드바이크와 말 적은 성향에서 별도 경로 분배를 만든다. 실제 자전거·랩타임·체력 지불·경기 승패는 없다.\",\"uncertain\":[]},{\"key\":\"abydos_sleepchair\",\"title\":\"잠든 자리와 비워 둘 앞자리\",\"story\":\"호시노가 의자에서 눈을 감으려는데 아야네는 앞에 쌓인 준비 가방을 가리킨다. 노노미는 맡을 길목을 나누고 호시노가 일어날 자리도 남기자고 한다. 잠을 깨우기보다 먼저 네가 맡을 구역을 정해야 한다.\",\"intro\":\"앞에 설 자리를 준비하거나 맡을 길목을 나눈다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"준비 비용을 내고 호시노와 앞에 설 자리를 비운다\",\"result\":\"준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 자리를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 비워진 의자 앞을 보고 가방을 옆으로 당긴다.\",\"card\":\"abydos_hoshino_wake\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"노노미와 더 넓은 길목을 맡는다\",\"result\":\"노노미와 더 넓은 길목에서 반복해서 마주칠 상대를 짚었다. 공격을 넓게 준비하는 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 노노미는 호시노가 일어날 자리를 하나 남긴다.\",\"card\":\"abydos_nonomi\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 가방을 준비하고 아야네와 돌아올 통로를 비운다\",\"result\":\"아야네와 준비 가방을 옮기고 호시노가 일어날 자리 옆에 돌아올 통로를 남겼다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 노노미가 다음 가방을 내려놓으려 하자 아야네는 방금 남긴 통로는 비워 두자고 한다.\",\"card\":\"abydos_ayane_route\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 호시노의 낮잠과 임무 최전선·노노미의 동료 지원을 별도 일상으로 각색한다. 낮잠으로 현재 체력 회복·호시노의 부재 해결·보호막 생성은 없다.\",\"uncertain\":[]},{\"key\":\"abydos_snack_share\",\"title\":\"남는 간식이 아니라 남길 간식\",\"story\":\"노노미가 간식 몫을 나누는데 아야네는 바깥에 가져갈 보급 항목도 남았다고 한다. 세리카는 장부의 빈칸이 간식보다 먼저라며 주문서를 펼친다. 지금 나눌 몫과 이후 쓸 기록을 모두 네가 챙길 수는 없다.\",\"intro\":\"지금 나눌 몫과 다음에 쓸 기록 중 맡을 일을 고른다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"포장 비용을 보태고 노노미와 빠뜨린 몫을 살핀다\",\"result\":\"포장 비용을 보태고 노노미와 빠뜨린 몫을 살폈다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미가 마지막 봉투를 내밀자 세리카는 장부도 봐 달라며 주문서를 당긴다.\",\"card\":\"abydos_nonomi_share\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"기록용품을 마련해 아야네와 남은 항목을 대조한다\",\"result\":\"기록용품 값을 내고 아야네와 남은 항목을 대조했다. 얻을 몫을 놓치지 않고 여러 부탁을 더 비교하는 준비를 배웠다. 아야네는 아직 확인하지 않은 항목에는 숫자를 적지 않는다.\",\"card\":\"abydos_ayane_ledger\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 정리를 준비하고 세리카와 간식보다 먼저 온 주문을 나눈다\",\"result\":\"세리카와 간식보다 먼저 받은 주문을 나누고 빈칸이 남은 주문서를 다시 펼쳤다. 160골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 물약1개를 받았다. 노노미는 아직 못 받은 간식 몫을 묻고 세리카는 주문이 끝난 줄과 남은 줄을 다른 쪽에 놓는다.\",\"card\":\"abydos_serika_order\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 노노미의 간식 비용 지원과 동료의 중심 역할·아야네의 기록·세리카의 회계에서 별도 보급 분배를 창작한다. 부자의 돈 무제한 획득·학교 빚 전액 해소·간식 즉시 회복은 없다.\",\"uncertain\":[]},{\"key\":\"abydos_antique_note\",\"title\":\"낡은 물건의 지워진 항목\",\"story\":\"아야네가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 기록까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다.\",\"intro\":\"불확실한 기록 확인과 확실한 장부 정리 중 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"150골드의 연락 비용을 내고 지워진 항목을 찾는다\",\"result\":\"연락한 기록을 아야네와 대조하고 지워진 항목의 남은 숫자를 확인했다. 150골드를 지불했다. 「항목 아래 남은 숫자」의 기억 카드1장을 얻었다. 가게 주인이 확인한 줄을 가리키자 아야네는 그 아래의 빈칸까지 같은 답으로 채우지 않는다.\",\"card\":\"abydos_ayane_ledger\",\"card2\":null,\"gold\":0,\"cost\":150,\"level\":0,\"density\":0,\"potions\":0,\"chance\":70},{\"label\":\"220골드로 기록용품을 마련하고 아야네와 아직 확인하지 않은 빈칸을 남긴다\",\"result\":\"아야네와 확인하지 않은 빈칸을 그대로 남기고 확실한 줄만 기록에 옮겼다. 220골드를 지불했다. 「지우지 않은 빈칸」의 기억 카드1장을 얻었다. 아야네는 주인이 장담하지 않은 항목 옆에 다음에 물어볼 일을 따로 적는다.\",\"card\":\"abydos_ayane_blank\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 운반을 준비하고 아야네와 확인된 물건을 전할 곳을 나눈다\",\"result\":\"아야네와 확인된 물건을 옮길 준비를 하고 전달할 곳부터 나눴다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 주인이 아직 확인하지 않은 상자를 함께 밀자 아야네는 그 상자는 다른 목록에 남기자고 한다.\",\"card\":\"abydos_ayane_route\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":\"지워진 항목의 이전 기록을 확인하지 못했다. 연락 비용 150골드는 돌아오지 않고 카드와 기록 확인 보수도 받지 못한다. 아야네는 확인되지 않은 숫자를 빈칸으로 남긴다.\",\"canonFact\":\"공식 아야네의 골동품 수집·가계부 취미에서 별도 가게 기록 의뢰를 창작한다. 원작 상점·사기·가챠 장면이나 진품 감정 기술을 확인한 것이 아니다. 70%와 보수는 맵의 수치다.\",\"uncertain\":[]},{\"key\":\"abydos_aquarium_step\",\"title\":\"안내판 앞의 다음 발걸음\",\"story\":\"수족관에 가려던 호시노가 안내판 앞에서 다음에 갈 곳을 가리킨다. 시로코는 돌아갈 길도 봐 두겠다며 바깥 지도를 펼치고 아야네는 아직 남은 보급 일을 적는다. 외출 전에 어디까지 맡을지 나누어야 한다.\",\"intro\":\"외출 전에 앞에 설 자리와 귀환길의 부담을 나눈다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"준비 비용을 내고 호시노와 앞에 설 자리를 정한다\",\"result\":\"준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 위치를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 안내판 쪽으로 몸을 돌리고 아야네는 남은 보급 일을 적는다.\",\"card\":\"abydos_hoshino_wake\",\"card2\":null,\"gold\":0,\"cost\":240,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"시로코와 더 강한 적이 드나드는 귀환길을 맡는다\",\"result\":\"시로코와 더 강한 적이 드나드는 귀환길을 맡았다. 움직일 자리를 먼저 보는 요령을 배우고 개인 사냥의 적 단계가 올라갔다. 시로코는 돌아갈 길의 표시를 따로 접어 둔다.\",\"card\":\"abydos_shiroko\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"160골드로 안내를 준비하고 아야네와 돌아올 통로를 비운다\",\"result\":\"아야네와 돌아올 통로를 비우고 외출 전에 맡을 길목을 한 곳 줄였다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 호시노가 다음에 볼 곳을 묻자 시로코는 안내판과 따로 접어 둔 귀환길을 번갈아 가리킨다.\",\"card\":\"abydos_ayane_route\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 애니메이션8화 호시노 제안의 수족관 외출에서 별도 안내·귀환 준비를 만든다. 원작 호시노의 비밀·실종·구출을 외출 보상으로 해결하지 않는다. 수족관 공간·수중 몹·실제 입장권은 생성하지 않는다.\",\"uncertain\":[]},{\"key\":\"abydos_peroro_line\",\"title\":\"페로로 앞에서 듣는 부탁\",\"story\":\"히후미가 페로로 굿즈 진열을 보는데 노노미는 기다리는 사람의 부탁도 들어 보자고 한다. 히후미는 어느 이야기를 먼저 들을지 망설이고 시로코는 빠져나갈 길부터 가리킨다. 진열 앞에서 모두의 부탁을 한 번에 맡을 수는 없다.\",\"intro\":\"부탁을 들을지, 가져갈 몫과 통행 구역을 나눌지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"진열 준비물을 마련해 히후미와 부탁을 하나씩 듣는다\",\"result\":\"진열 준비물 값을 내고 히후미와 부탁을 하나씩 들었다. 더 비교할 후보를 놓치지 않고 오래 버틸 준비를 배웠다. 히후미는 진열된 페로로를 다시 보다가 아직 남은 사람 쪽으로 고개를 돌린다.\",\"card\":\"abydos_hifumi_stall\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"포장 비용을 보태고 노노미와 가져갈 몫을 나눈다\",\"result\":\"포장 비용을 보태고 노노미와 가져갈 몫을 나누었다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미는 기다리는 사람의 봉투도 한쪽에 남겨 둔다.\",\"card\":\"abydos_nonomi_share\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"히후미와 맡을 통행 구역을 줄인다\",\"result\":\"히후미와 맡을 길목을 한 곳 줄였다. 움직일 자리를 찾고 버티는 요령을 배웠고 개인 사냥의 적 수가 줄었다. 시로코는 줄인 구역 바깥의 표시를 지운다.\",\"card\":\"abydos_hifumi\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":0,\"chance\":100}],\"failure\":null,\"canonFact\":\"공식 히후미의 페로로 굿즈·쇼핑·상담 취미와 노노미의 쇼핑·동료 지원에서 별도 가게 만남을 만든다. 히후미를 아비도스 학생으로 바꾸거나 물품 소환·NPC 호위·빚 해결을 하지 않는다.\",\"uncertain\":[]}],\"mechanics\":{\"reward\":\"성공때 지정카드1장과 potions개물약 지급.즉시골드0.이후처치골드·중복100은별개다. result는성공일때만사용한다.\",\"cost\":\"cost선지불.실패때도비용/AP/필드유지.실패때카드/물약없음.\",\"field\":\"level몬스터강함,density몬스터수 단계의 지속변화량. 초기1/4,최저1,상한5/10. 플레이어능력·피로·시간아님.\",\"history\":\"라멘교대1/사막방어1/아루계산1/카요코한곡2의 자기 성공후속을 같은 번호로 유지한다. 카요코부모2는새곡카드이며후속은이를다시주지않는다. aru_task/kayoko_reply후속전용을유지한다.\",\"stats\":\"기억은여행자성장이다. 이동3은3%,regen시간회복/흡수합산10%상한이며즉시회복아님. 최대체력증가현재/최대비율유지. 방향은플래그+실제각도,비방향은헤드/백없는공격,보호막조건은새보호막지급아님. healthy65%조건.\",\"boundary\":\"대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다. 조깅·낮잠·간식·골동품·수족관 안내·굿즈 문제는 공식 취미와 역할에서 별도로 창작했다. 학교 일상이 이어지던 때의 독립 만남이며 같은 시각의 본편 전개나 실종 해결을 주장하지 않는다. 골동품70%는 맵의 검사 수치이고 히후미는 트리니티 학생이다. 고체력 피해는 즉시 치료가 아니며 후보 증가는 행동력 증가가 아니다. 흥신소68의계산서·카요코CD주문·하루카잡초·무츠키봉투내기는공식역할에서만든별도창작방문이다. 아루후속은자기계산도움성공1번,카요코후속은자기한곡듣기성공2번에서만열린다. 학교빚·은행범죄·가게폭파·인물의큰갈등을해결하거나실제음악/폭발/식물성장기능을지급하지않는다.\"},\"checks\":[\"모든 사건 서로 다른 지정카드3종이며 직접골드대안/입문카드반복이없는가?\",\"비용·필드변화·물약·지정기억·성공결과/실패문구·자기후속과 데이터가맞는가?\",\"공식역할과기존현장행동에서남은문제의반응이이어지고미구현주문/음악/화분기능·NPC성장·학교빚해결은없는가?\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.15,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T18:27:33.6210785Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"PASS\",\n  \"issues\": [],\n  \"strengths\": [\n    \"모든 사건이 서로 다른 지정 카드 3종을 포함하며, 직접 골드 대안이나 입문 카드 반복이 없음.\",\n    \"비용, 필드 변화량(level/density), 물약 지급, 지정 기억 카드, 성공/실패 문구 및 자기 후속 데이터가 JSON 수치와 일치함.\",\n    \"공식 역할과 기존 현장 행동에서 파생된 반응이 논리적으로 이어지며, 미구현 주문/음악/화분 기능, NPC 성장, 학교 빚 해결 등의 금지 사항을 준수함.\"\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 5590962200,
+    "load_duration": 2573600,
+    "prompt_eval_count": 6107,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 2599989000,
+    "eval_count": 160,
+    "eval_duration": 2811649000
+  },
+  "parsed": {
+    "verdict": "PASS",
+    "issues": [],
+    "strengths": [
+      "모든 사건이 서로 다른 지정 카드 3종을 포함하며, 직접 골드 대안이나 입문 카드 반복이 없음.",
+      "비용, 필드 변화량(level/density), 물약 지급, 지정 기억 카드, 성공/실패 문구 및 자기 후속 데이터가 JSON 수치와 일치함.",
+      "공식 역할과 기존 현장 행동에서 파생된 반응이 논리적으로 이어지며, 미구현 주문/음악/화분 기능, NPC 성장, 학교 빚 해결 등의 금지 사항을 준수함."
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "2f694d91-541c-47bb-beff-b22e5fd9ea87"
+}

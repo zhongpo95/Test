@@ -1,0 +1,275 @@
+{
+  "started": "2026-10-01T18:38:44.853Z",
+  "finished": "2026-10-01T18:38:51.130Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "academy_unanswered_promise",
+                  "academy_arcade_empty_seat",
+                  "academy_festival_before_stage",
+                  "academy_drink_after_vending"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "system": "한국어 사건 작가다. 입력key/index마다 여행자가 직접 한 행동 actionText 한 문장과 원래 인물의 남은 문제에 대한 reactionText 한 문장을 쓴다. 숫자·비용·카드·보상·능력치·확률·실패·내부키를 문장에 쓰지 않는다. 행동 주체는 플레이어이며 칭찬/끄덕임을 반복하지 않는다. 원작 기술·결말·미니게임을 추가하지 않는다.",
+    "brief": {
+      "events": [
+        {
+          "key": "academy_unanswered_promise",
+          "story": "쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 너는 아직 자기 몫을 말하지 않았고 두 사람 사이에도 답하지 못한 말이 남아 있다.",
+          "canonFact": "초전자포1기5화의 지원을 기다리지 않음과 잊은 약속의 갈등에서 별도 준비를 창작했다. 원작의 약속 내용·폭행·화해와 둘의 신뢰를 여행자가 해결하거나 판정하지 않는다.",
+          "choices": [
+            {
+              "index": 3,
+              "action": "우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남긴다"
+            }
+          ]
+        },
+        {
+          "key": "academy_arcade_empty_seat",
+          "story": "오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 네 다음 동전과 아직 누르지 않은 버튼이 같은 자리에서 기다리고 있다.",
+          "canonFact": "초전자포1기17화에서 코노에가 플레이 도중 떠나 테츠소가 혼자 남는 상황을 작은 별도 만남으로 각색했다. 학생의 이유·게임 종류·승패·손을 대신 움직이는 선택·전원 차단·실제 미니게임은 없다.",
+          "choices": [
+            {
+              "index": 2,
+              "action": "테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다린다"
+            },
+            {
+              "index": 3,
+              "action": "빈 의자를 가리지 않게 자기 짐을 옮기고 테츠소가 하려던 말을 듣는다"
+            }
+          ]
+        },
+        {
+          "key": "academy_festival_before_stage",
+          "story": "성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 네가 더 구경할 전시와 미코토가 기다리는 무대의 방향이 갈라진다.",
+          "canonFact": "초전자포1기19화의 미코토 안내와 무대 부담을 각색했다. 공연의 종류·악기·곡·성공평가를 공식 소개로 확인하지 않아 정하지 않고 쿠로코를 업무에 불려간 뒤 현장에 남기지 않는다.",
+          "choices": [
+            {
+              "index": 3,
+              "action": "우이하루와 더 볼 전시를 적되 미코토가 돌아갈 무대 차례는 따로 남긴다"
+            }
+          ]
+        },
+        {
+          "key": "academy_drink_after_vending",
+          "story": "다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 네가 마련한 보급은 손에 있는데 다음 준비는 아직 끝나지 않았다.",
+          "canonFact": "자판기 앞에서 자신이 다른 음료를 마련한 성공1번에서만 열리는 창작 후속이다. 원작 자판기를 수리하거나 삼킨 동전을 돌려주지 않고 실제 음료 소모·전기 기술·소모품 차감·현재 체력 회복은 없다.",
+          "choices": [
+            {
+              "index": 3,
+              "action": "토우마와 손에 든 보급을 가져갈 곳을 정하고 삼켜진 동전을 다시 찾을 일은 남긴다"
+            }
+          ]
+        }
+      ],
+      "boundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 귀여운 소품·단것·대회 준비·수영부·짐 정리·야간 표식은 공식 취향과 역할에서 별도로 창작한 만남이다. 이인삼각과 밤 퍼레이드는 공식2·4화 배경을 참고하되 경기 승패·본편 실종·기억 조작은 바꾸지 않는다. 아와츠키의 부력은 물의 밀도가 아니며 군하 능력의 상세 원리는 확정하지 않는다. 새 카드의 최대 체력 패널티는 지속 능력치로 현재 체력 지불 사건이 아니다. 자판기에남은동전·호출뒤간식·여행자가답할약속·오락실빈의자·성하제의무대준비는공식소개에서각색한서로다른방문이다. 자판기뒤음료후속은자신이별도음료를마련한성공1번에서만열린다. 원작자판기파괴·미사카동생실험·쿠로코와우이하루의화해·피습·성하제공연종류/승패를바꾸지않고실제NPC동행/미니게임/원작초능력/음료아이템/사냥중추가처치가생기지않는다.",
+      "format": "actionText/reactionText만 쓴다. 실제 기억·비용·지속 필드·물약은 고정 데이터에서 별도로 결합한다. 테츠소의 학생 복귀·우이하루와쿠로코완전화해·자판기돈반환·미코토연주/원작큰범죄의결과를 확정하지 않는다."
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "academy_unanswered_promise",
+                  "academy_arcade_empty_seat",
+                  "academy_festival_before_stage",
+                  "academy_drink_after_vending"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "key",
+              "choices"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 작가다. 입력key/index마다 여행자가 직접 한 행동 actionText 한 문장과 원래 인물의 남은 문제에 대한 reactionText 한 문장을 쓴다. 숫자·비용·카드·보상·능력치·확률·실패·내부키를 문장에 쓰지 않는다. 행동 주체는 플레이어이며 칭찬/끄덕임을 반복하지 않는다. 원작 기술·결말·미니게임을 추가하지 않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"events\":[{\"key\":\"academy_unanswered_promise\",\"story\":\"쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 너는 아직 자기 몫을 말하지 않았고 두 사람 사이에도 답하지 못한 말이 남아 있다.\",\"canonFact\":\"초전자포1기5화의 지원을 기다리지 않음과 잊은 약속의 갈등에서 별도 준비를 창작했다. 원작의 약속 내용·폭행·화해와 둘의 신뢰를 여행자가 해결하거나 판정하지 않는다.\",\"choices\":[{\"index\":3,\"action\":\"우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남긴다\"}]},{\"key\":\"academy_arcade_empty_seat\",\"story\":\"오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 네 다음 동전과 아직 누르지 않은 버튼이 같은 자리에서 기다리고 있다.\",\"canonFact\":\"초전자포1기17화에서 코노에가 플레이 도중 떠나 테츠소가 혼자 남는 상황을 작은 별도 만남으로 각색했다. 학생의 이유·게임 종류·승패·손을 대신 움직이는 선택·전원 차단·실제 미니게임은 없다.\",\"choices\":[{\"index\":2,\"action\":\"테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다린다\"},{\"index\":3,\"action\":\"빈 의자를 가리지 않게 자기 짐을 옮기고 테츠소가 하려던 말을 듣는다\"}]},{\"key\":\"academy_festival_before_stage\",\"story\":\"성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 네가 더 구경할 전시와 미코토가 기다리는 무대의 방향이 갈라진다.\",\"canonFact\":\"초전자포1기19화의 미코토 안내와 무대 부담을 각색했다. 공연의 종류·악기·곡·성공평가를 공식 소개로 확인하지 않아 정하지 않고 쿠로코를 업무에 불려간 뒤 현장에 남기지 않는다.\",\"choices\":[{\"index\":3,\"action\":\"우이하루와 더 볼 전시를 적되 미코토가 돌아갈 무대 차례는 따로 남긴다\"}]},{\"key\":\"academy_drink_after_vending\",\"story\":\"다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 네가 마련한 보급은 손에 있는데 다음 준비는 아직 끝나지 않았다.\",\"canonFact\":\"자판기 앞에서 자신이 다른 음료를 마련한 성공1번에서만 열리는 창작 후속이다. 원작 자판기를 수리하거나 삼킨 동전을 돌려주지 않고 실제 음료 소모·전기 기술·소모품 차감·현재 체력 회복은 없다.\",\"choices\":[{\"index\":3,\"action\":\"토우마와 손에 든 보급을 가져갈 곳을 정하고 삼켜진 동전을 다시 찾을 일은 남긴다\"}]}],\"boundary\":\"인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 귀여운 소품·단것·대회 준비·수영부·짐 정리·야간 표식은 공식 취향과 역할에서 별도로 창작한 만남이다. 이인삼각과 밤 퍼레이드는 공식2·4화 배경을 참고하되 경기 승패·본편 실종·기억 조작은 바꾸지 않는다. 아와츠키의 부력은 물의 밀도가 아니며 군하 능력의 상세 원리는 확정하지 않는다. 새 카드의 최대 체력 패널티는 지속 능력치로 현재 체력 지불 사건이 아니다. 자판기에남은동전·호출뒤간식·여행자가답할약속·오락실빈의자·성하제의무대준비는공식소개에서각색한서로다른방문이다. 자판기뒤음료후속은자신이별도음료를마련한성공1번에서만열린다. 원작자판기파괴·미사카동생실험·쿠로코와우이하루의화해·피습·성하제공연종류/승패를바꾸지않고실제NPC동행/미니게임/원작초능력/음료아이템/사냥중추가처치가생기지않는다.\",\"format\":\"actionText/reactionText만 쓴다. 실제 기억·비용·지속 필드·물약은 고정 데이터에서 별도로 결합한다. 테츠소의 학생 복귀·우이하루와쿠로코완전화해·자판기돈반환·미코토연주/원작큰범죄의결과를 확정하지 않는다.\"}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T18:38:51.1254621Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"events\":[{\"key\":\"academy_unanswered_promise\",\"choices\":[{\"index\":3,\"actionText\":\"우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남긴다\",\"reactionText\":\"쿠로코는 여전히 대답을 듣지 못한 일들에 대해 말없이 앞을 주시한다.\"}]},{\"key\":\"academy_arcade_empty_seat\",\"choices\":[{\"index\":2,\"actionText\":\"테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다린다\",\"reactionText\":\"테츠소는 멈춘 손을 떼지 못한 채 빈 의자 쪽으로 시선을 던진다.\"},{\"index\":3,\"actionText\":\"빈 의자를 가리지 않게 자기 짐을 옮기고 테츠소가 하려던 말을 듣는다\",\"reactionText\":\"테츠소는 갑작스러운 시선 변화에 당황하며 입술을 달싹인다.\"}]},{\"key\":\"academy_festival_before_stage\",\"choices\":[{\"index\":3,\"actionText\":\"우이하루와 더 볼 전시를 적되 미코토가 돌아갈 무대 차례는 따로 남긴다\",\"reactionText\":\"미코토는 갈림길 앞에서 자신의 차례를 생각하며 복잡한 표정을 짓는다.\"}]},{\"key\":\"academy_drink_after_vending\",\"choices\":[{\"index\":3,\"actionText\":\"토우마와 손에 든 보급을 가져갈 곳을 정하고 삼켜진 동전을 다시 찾을 일은 남긴다\",\"reactionText\":\"토우마는 자판기를 바라보며 마른 입술을 축이고 미코토는 묘한 표정으로 너를 본다.\"}]}]}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 6241364100,
+    "load_duration": 2577700,
+    "prompt_eval_count": 1373,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 619130000,
+    "eval_count": 361,
+    "eval_duration": 5499589000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "academy_unanswered_promise",
+        "choices": [
+          {
+            "index": 3,
+            "actionText": "우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남긴다",
+            "reactionText": "쿠로코는 여전히 대답을 듣지 못한 일들에 대해 말없이 앞을 주시한다."
+          }
+        ]
+      },
+      {
+        "key": "academy_arcade_empty_seat",
+        "choices": [
+          {
+            "index": 2,
+            "actionText": "테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다린다",
+            "reactionText": "테츠소는 멈춘 손을 떼지 못한 채 빈 의자 쪽으로 시선을 던진다."
+          },
+          {
+            "index": 3,
+            "actionText": "빈 의자를 가리지 않게 자기 짐을 옮기고 테츠소가 하려던 말을 듣는다",
+            "reactionText": "테츠소는 갑작스러운 시선 변화에 당황하며 입술을 달싹인다."
+          }
+        ]
+      },
+      {
+        "key": "academy_festival_before_stage",
+        "choices": [
+          {
+            "index": 3,
+            "actionText": "우이하루와 더 볼 전시를 적되 미코토가 돌아갈 무대 차례는 따로 남긴다",
+            "reactionText": "미코토는 갈림길 앞에서 자신의 차례를 생각하며 복잡한 표정을 짓는다."
+          }
+        ]
+      },
+      {
+        "key": "academy_drink_after_vending",
+        "choices": [
+          {
+            "index": 3,
+            "actionText": "토우마와 손에 든 보급을 가져갈 곳을 정하고 삼켜진 동전을 다시 찾을 일은 남긴다",
+            "reactionText": "토우마는 자판기를 바라보며 마른 입술을 축이고 미코토는 묘한 표정으로 너를 본다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "57a3a00b-c082-421b-b0a3-a87bcaeba50c"
+}

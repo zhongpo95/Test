@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "gourd": {
+    "chargeDamage": 14,
+    "actionSpeed": 3,
+    "chargeSpeed": 0
+  },
+  "direction": {
+    "angles": [
+      {
+        "angle": 180,
+        "head": true,
+        "back": false,
+        "expected": 10
+      },
+      {
+        "angle": 135,
+        "head": true,
+        "back": false,
+        "expected": 10
+      },
+      {
+        "angle": 225,
+        "head": true,
+        "back": false,
+        "expected": 10
+      },
+      {
+        "angle": 134,
+        "head": true,
+        "back": false,
+        "expected": 0
+      },
+      {
+        "angle": 226,
+        "head": true,
+        "back": false,
+        "expected": 0
+      },
+      {
+        "angle": 90,
+        "head": true,
+        "back": false,
+        "expected": 0
+      },
+      {
+        "angle": 0,
+        "head": false,
+        "back": true,
+        "expected": 10
+      },
+      {
+        "angle": 45,
+        "head": false,
+        "back": true,
+        "expected": 10
+      },
+      {
+        "angle": 46,
+        "head": false,
+        "back": true,
+        "expected": 0
+      },
+      {
+        "angle": 180,
+        "head": false,
+        "back": false,
+        "expected": 0
+      }
+    ],
+    "actionSpeed": 6,
+    "flagAloneInsufficient": true
+  },
+  "partition": {
+    "penetration": 8,
+    "noFlags": 12,
+    "eitherFlag": 0
+  },
+  "morning": {
+    "regeneration": 0.4,
+    "health": [
+      {
+        "ratio": 0.6499,
+        "expected": 0
+      },
+      {
+        "ratio": 0.65,
+        "expected": 10
+      },
+      {
+        "ratio": 0.7,
+        "expected": 10
+      }
+    ],
+    "ratioRefreshStable": true
+  },
+  "second": {
+    "chargeSpeed": 9,
+    "chargeDamage": 10,
+    "actionSpeed": 0
+  },
+  "mapCreated": false,
+  "limits": "실제 카드 지급·스탯 재계산·ExpArcanaDamage와AttackAngle 변환 함수를 실행했다. 좌표 대신AngleWBW의 각도/대상방향0 네이티브를 모의한다. Warcraft·실제화면·멀티·실시간재생·차지시전·재미·밸런스 검증은 아니다."
+}

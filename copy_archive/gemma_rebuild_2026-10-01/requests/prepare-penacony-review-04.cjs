@@ -1,0 +1,9 @@
+// 페나코니 사건의 결과·역할·후속 연결을 Gemma의 별도 편집 검토에 전달한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'../../..'),w=JSON.parse(fs.readFileSync(path.join(root,'content/roguelite/11-penacony.json'),'utf8'));
+const schema={type:'object',properties:{findings:{type:'array',maxItems:5,items:{type:'object',properties:{key:{type:'string'},choice:{type:'integer'},reason:{type:'string'},suggestion:{type:'string'}},required:['key','choice','reason','suggestion'],additionalProperties:false}}},required:['findings'],additionalProperties:false};
+const system='한국어 사건의 서사 편집자다. 최대5개 실제 문제만 찾고 없으면 빈 배열을 쓴다. 숫자 밸런스나 능력치 계산은 평가하지 않는다. 확인 사실, 맵 창작 상황, 실제 지급 효과를 구분한다. 원작 임무가 그대로 일어났다고 주장하지 않는다. 성공과 실패의 후속은 서로 다른 기록일 때만 열린다. 판돈은 실패해도 반환되지 않고 다시 얻는 후속도 다른 행동력과 비용이 든다. 미샤를 일반 손님 모두가 보고 대화하는 현실 직원이라고 단정하지 않는다. 솔글래드는 음료 브랜드이며 술이나 치료약으로 전제하지 않는다. 블랙 스완은 당첨을 예언하지 않는다. 스파클은 다른 배역을 즐긴다. 이야기에만 등장하는 NPC 행위를 플레이어 신규 스킬로 오독하지 않는다. 선택 행동이 결과로 이어지는지, 아직 남길 귀환 위험을 이미 없앴다고 적었는지, 후속의 문제가 앞 사건과 모순인지 검토한다. 근거 없는 신규 인연·시간·물건 추적 시스템을 제안하지 않는다.';
+const brief={canonBoundary:w.canonBoundary,facts:w.cards.map(c=>c.canonFact),events:w.events.map(e=>({key:e.key,problem:e.story,previous:e.previous?{key:e.previous,failed:e.previousChoice<0,result:e.previousChoice<0?w.events.find(p=>p.key===e.previous).failure:w.events.find(p=>p.key===e.previous).choices[e.previousChoice-1].result}:null,choices:e.choices.map(b=>({action:b.label,result:b.result,reward:b.card?w.cards.find(c=>c.key===b.card).name+'의 전투 준비':b.gold?'플레이어에게 수고비와 표시된 보급품':'없음',field:b.level>0?'귀환길에 더 강한 적을 감수':b.density>0?'귀환길에 더 많은 적을 감수':b.level<0?'더 강한 적이 있는 길을 피함':b.density<0?'통로를 나누거나 무리를 피해서 상대 수를 줄임':'필드 변화 없음'})),failure:e.failure}))};
+fs.writeFileSync(path.join(__dirname,'penacony-review-04.json'),JSON.stringify({review:true,schema,system,brief},null,2)+'\n',{flag:'wx'});
+console.log('페나코니 역검토 요청을 보존했습니다.');

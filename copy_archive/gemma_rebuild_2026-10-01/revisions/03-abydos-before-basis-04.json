@@ -1,0 +1,528 @@
+{
+  "world": {
+    "key": "abydos",
+    "name": "아비도스",
+    "work": "블루 아카이브",
+    "intro": "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다.",
+    "effects": [
+      {
+        "stat": "max_health_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "abydos_ayane",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+  },
+  "sources": [
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/"
+  ],
+  "canonBoundary": "대책위원회, 빚 추적, 라멘 가게, 카이저와의 관계는 원작 자료를 따른다. 플레이어가 참여하는 보급·정찰·복구와 카드 능력치는 원작 외 사건이다. 라멘 가게는 세리카의 소유가 아니라 아르바이트하는 가게다.",
+  "cards": [
+    {
+      "key": "abydos_ayane",
+      "name": "오쿠소라 아야네",
+      "effectName": "작전 기록",
+      "keyword": "탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_shiroko",
+      "name": "스나오오카미 시로코",
+      "effectName": "조용한 정찰",
+      "keyword": "이동 · 전투",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "moving_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ]
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_serika",
+      "name": "쿠로미 세리카",
+      "effectName": "남은 일까지",
+      "keyword": "수급 · 전투",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 2
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_nonomi",
+      "name": "이자요이 노노미",
+      "effectName": "넓게 펼친 엄호",
+      "keyword": "일반전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 10
+          }
+        ]
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hoshino",
+      "name": "타카나시 호시노",
+      "effectName": "선배의 방패",
+      "keyword": "보호막",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "shielded_damage",
+          "value": 18
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ayane_supply",
+      "name": "오쿠소라 아야네",
+      "effectName": "끊기지 않는 보급",
+      "keyword": "생존",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hifumi",
+      "name": "아지타니 히후미",
+      "effectName": "함께 찾은 출구",
+      "keyword": "생존 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hoshino_rescue",
+      "name": "타카나시 호시노",
+      "effectName": "돌아올 자리",
+      "keyword": "보스 · 생존",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 16
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
+      },
+      "canonFact": "공식 인물 소개를 바탕으로 플레이어의 성장 효과를 각색했다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "abydos_sand_supply",
+      "title": "모래에 묻힌 보급로",
+      "story": "학교로 오는 보급품이 모래에 막혔다. 아야네의 지도에는 시로코가 확인한 지름길과 적이 모이는 큰길이 표시돼 있다. 노노미는 필요한 물건을 놓치지 않도록 뒤에서 엄호하겠다고 한다.",
+      "intro": "아야네가 보급로 두 곳 중 맡을 길을 묻는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "시로코와 지름길을 정찰한다",
+          "result": "가벼운 발걸음으로 통로를 확인했다. 장비를 빌리는 비용을 내고 정찰 요령을 얻었다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미와 큰길의 물자를 옮긴다",
+          "result": "수송대가 지나갈 공간을 만들었다. 적이 많은 길을 맡는 대신 넓게 공격하는 경험을 얻었다.",
+          "card": "abydos_nonomi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "운송비를 내고 학교 안 보급을 정리한다",
+          "result": "외부 전투 대신 아야네의 보급 계획을 도왔다. 비용은 들었지만 다음 사냥을 안전하게 준비했다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ramen_shift",
+      "title": "세리카의 교대 시간",
+      "story": "시바세키 라멘에 손님이 몰렸는데 세리카는 대책위원회 일도 마쳐야 한다. 그녀는 가게가 자신의 것이 아니어도 피해를 주고 싶지 않다며 주문서를 붙잡는다. 배달과 주문 정리, 재료 운송 중 나눠 맡을 일을 고른다.",
+      "intro": "라멘 가게 아르바이트와 학교 일이 겹친 세리카.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "가까운 배달을 대신한다",
+          "result": "가게 주인의 부탁을 받아 세리카의 일을 나눴다. 배달길의 적 수는 늘지만 처치와 수입을 함께 챙기는 요령을 얻었다.",
+          "card": "abydos_serika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "밀린 주문을 계산하고 일당을 받는다",
+          "result": "가게 안에서 주문서를 정리했다. 학교의 빚을 없앤 것은 아니지만, 이번 사냥에 쓸 골드를 벌었다.",
+          "card": null,
+          "card2": null,
+          "gold": 240,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "재료 운송비를 내고 보급품을 챙긴다",
+          "result": "부족한 재료가 도착하도록 도왔다. 카드 대신 물약과 덜 붐비는 사냥터를 준비했다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_blackmarket_map",
+      "title": "블랙마켓의 잘못된 지도",
+      "story": "빚의 흐름을 조사하던 대책위원회가 블랙마켓 골목에서 길을 잃었다. 히후미가 건넨 안내에는 위험한 통로가 표시돼 있고, 시로코는 먼 곳을 확인하러 가겠다고 한다. 수상한 은행의 돈을 보상처럼 가져올 수는 없다.",
+      "intro": "히후미와 출구를 찾으며 조사 기록을 지켜야 한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "히후미와 사람들을 먼저 안내한다",
+          "result": "모두가 빠져나갈 통로를 확보했다. 조사 속도 대신 안전을 택해 적 수가 줄었다.",
+          "card": "abydos_hifumi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시로코와 위험한 골목을 조사한다",
+          "result": "위험한 길목의 움직임을 파악했다. 정찰 요령을 얻지만 더 높은 단계의 적이 사냥터에 접근한다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "장비를 빌려 기록을 안전하게 운반한다",
+          "result": "대책위원회의 자료를 지켜 학교로 돌아갈 준비를 했다. 운반 비용을 내고 보급품을 받았다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 130,
+          "level": 0,
+          "density": 0,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ramen_repair",
+      "title": "남아 있는 라멘 가게의 간판",
+      "story": "라멘 가게가 파괴된 뒤 가게 주인은 치료를 받고 있다. 세리카가 멀쩡한 도구를 모으고, 아야네는 필요한 물자를 적는다. 범인을 한 번 처치하면 원래대로 돌아올 문제가 아니다. 지금 할 수 있는 복구부터 맡아야 한다.",
+      "intro": "파괴된 가게 앞에서 도구와 복구 자재를 나눈다.",
+      "previous": "abydos_ramen_shift",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "세리카와 쓸 수 있는 물건을 회수한다",
+          "result": "잔해 속에서 필요한 도구를 구분했다. 세리카의 끈기를 배우고 주변을 살피는 적을 더 받아들인다.",
+          "card": "abydos_serika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "복구 자재 비용을 보탠다",
+          "result": "아야네가 필요한 물자를 확보했다. 지출은 있었지만 보급을 이어가는 방식을 배웠다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "위험한 길목을 비우고 병문안 물품을 옮긴다",
+          "result": "가게 주인에게 물품을 전달할 길을 만들었다. 카드 대신 낮아진 적 단계와 물약을 받았다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_desert_watch",
+      "title": "카이저 소유의 사막",
+      "story": "학교 주변 사막이 카이저 소유라는 사실을 확인한 뒤에도 보급로는 필요하다. 호시노는 무리한 진입을 막고, 노노미는 엄호 범위를 살핀다. 오늘의 정찰 한 번으로 토지 소유권을 바꿀 수는 없지만 학교를 지킬 준비는 할 수 있다.",
+      "intro": "사막의 경계에서 정찰과 방어 준비를 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "호시노와 엄호할 위치를 고른다",
+          "result": "호시노의 방어 지침을 듣고 엄호 장비를 준비했다. 장비 비용을 내고 동료가 돌아올 위치를 지키는 경험을 얻었다.",
+          "card": "abydos_hoshino",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미와 순찰 경로를 밀어 낸다",
+          "result": "더 넓은 구역의 적을 받아들이며 엄호선을 확보했다. 학교의 문제는 남지만 일반전을 준비할 경험을 얻었다.",
+          "card": "abydos_nonomi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네에게 돌아갈 경로를 전달한다",
+          "result": "깊이 들어가지 않고 통로를 정리했다. 적 단계를 낮추고 보급품을 챙겼다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_missing_senior",
+      "title": "호시노의 빈 자리",
+      "story": "학교로 돌아오자 호시노의 자리가 비어 있다. 대책위원회는 편지와 남은 기록을 확인하며 그녀를 찾을 준비를 한다. 앞서 확보한 방어 위치가 있다면 위험한 구출 준비에도 도움을 줄 수 있다.",
+      "intro": "호시노가 떠난 뒤, 남은 대책위원회가 준비를 시작한다.",
+      "previous": "abydos_desert_watch",
+      "previousChoice": 1,
+      "requiredCard": "abydos_hoshino",
+      "choices": [
+        {
+          "label": "노노미와 위험 구역의 구조 경로를 준비한다",
+          "result": "한 번에 구출했다고 단정하지 않고 돌아올 길을 만들었다. 강한 적을 상대할 준비를 얻는 대신 적 단계가 올라간다.",
+          "card": "abydos_hoshino_rescue",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네의 통신과 보급을 지원한다",
+          "result": "수색대의 연락이 끊기지 않도록 장비를 준비했다. 지출을 감수하고 지속적인 생존을 준비했다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "학교에 남아 귀환 지점을 지킨다",
+          "result": "돌아오는 사람들을 맞을 안전한 지점을 확보했다. 이번에는 강한 카드를 얻지 않고 적 수와 소모품을 정리했다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    }
+  ]
+}

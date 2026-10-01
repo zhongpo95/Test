@@ -1,0 +1,390 @@
+{
+  "sourceRevision": "233aa7c",
+  "cards": [
+    {
+      "key": "kny_gourd_breath",
+      "name": "카마도 탄지로",
+      "effectName": "크기보다 긴 한숨",
+      "keyword": "차지 피해 · 행동 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 14
+        },
+        {
+          "stat": "action_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "표주박과 전집중 상중 훈련 관계에서 여행자의 힘을 급히 쓰지 않는 기억으로 각색한다. 실제 표주박 장비·호흡 스킬·차지속도·현재체력 소모를 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_morning_breath",
+      "name": "카마도 탄지로",
+      "effectName": "인사 다음에도 이어지는 숨",
+      "keyword": "재생 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "온종일 호흡을 유지하려는 훈련을 여행자의 계속 잇는 기억으로 각색한다. 초당 최대체력0.4%재생과 현재체력65%이상에서 가하는피해10%이며 즉시회복·원작 호흡완성·새 지속호흡 스킬은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao_return_hand",
+      "name": "츠유리 카나오",
+      "effectName": "다음 손을 거두는 때",
+      "keyword": "행동 속도 · 방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 6
+        },
+        {
+          "stat": "directional_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 8000,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "회복 훈련 상대 카나오와 여행자가 손을 다시 거두는 창작 기억이다. 일반 행동속도와 헤드/백 플래그가 있는 공격의 피해다. 실제 카운터/회피/차 승부/동전으로 마음을 해방하는 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao_small_motion",
+      "name": "츠유리 카나오",
+      "effectName": "작게 움직여도 늦지 않게",
+      "keyword": "치명타 확률 · 이동 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 6
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "창작 손동작의 범위를 줄여 타이밍을 보는 기억이다. 치명확률6%p와 이동속도4%이며 모든 공격이 치명/회피가 되는 것이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_inosuke_partition",
+      "name": "하시비라 이노스케",
+      "effectName": "안 보인다고 없는 것은",
+      "keyword": "방어 관통 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 8
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "촉각으로 시야 밖 위치도 아는 설정에서 가림막 역할을 바꿔 보는 창작 기억이다. 헤드/백 플래그 없는 공격 대미지12%와방관8%이며 실제투시·적감지·자동조준·새스킬을 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_gourd_second",
+      "name": "카마도 탄지로",
+      "effectName": "터뜨린 뒤에 남은 호흡",
+      "keyword": "차지 속도 · 차지 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 9
+        },
+        {
+          "stat": "charge_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "자기 표주박 첫 도전 성공1번 뒤에만 남는 창작 훈련 기억이다. 차지 준비속도9%와차지태그공격피해10%이며 일반행동속도·실제표주박장비·탄지로원작성취완성은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "kny_first_gourd",
+      "title": "큰 표주박을 고른 손",
+      "scene": "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다. 탄지로가 자기 도구에 숨을 잇는 동안 너는 크기가 곧 실력이라는 말을 삼킨다. 한 번에 도전할지 도구값을 충분히 내고 차근차근 연습할지 손을 내려놓을지 정한다.",
+      "choices": [
+        {
+          "action": "도구값120골드를 먼저 내고 한 번에 표주박을 울려 본다",
+          "card": "kny_gourd_breath",
+          "card2": null,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 60
+        },
+        {
+          "action": "도구값220골드를 내고 탄지로의 박자를 따라 충분히 연습한다",
+          "card": "kny_gourd_breath",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "표주박을 내려놓고 내 사냥의 적 수 단계를1낮춘 뒤 보급을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다.",
+      "canonFact": "공식 협업 자료의 표주박/전집중상중관계에서 만든 별도 창작 시험이다. 크기·소리·도구값·60%확률은 원작규칙이 아니고 현재체력지불이나 새미니게임은 없다."
+    },
+    {
+      "key": "kny_morning_greeting",
+      "title": "아직 끝나지 않은 인사",
+      "scene": "탄지로에게 아침 인사를 하려는데 그가 대답하다가 자기 호흡의 박자를 다시 잇는다. 하루 종일 유지하려는 연습이라고 듣고 나니 네 다음 질문이 입끝에 남는다. 너는 옆에서 자기 숨의 박자를 맞출지 질문을 잠깐 미룰지 자기 일을 먼저 할지 정한다.",
+      "choices": [
+        {
+          "action": "180골드로 내 연습 도구를 마련하고 옆에서 자기 숨을 잇는다",
+          "card": "kny_morning_breath",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "내 사냥의 강함 단계를1올리고 탄지로 옆에서 끊긴 박자를 다시 잇는다",
+          "card": "kny_morning_breath",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "질문을 미루고 내가 맡은 짧은 일을 마친다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 100,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식25화의 온종일 호흡유지연습을 별도 아침 인사로 각색했다. 실제아침대사·원작훈련완성·탄지로구출·새호흡스킬은 확정하지 않는다."
+    },
+    {
+      "key": "kny_hand_return",
+      "title": "거두지 못한 마지막 손",
+      "scene": "카나오와 손동작으로 반응을 맞추던 네가 끝났다고 생각한 순간에도 손은 앞으로 남아 있다. 카나오는 다음 차례를 준비하고 아오이는 손을 거둘 때도 훈련이라고 말한다. 너는 같은 속도를 다시 따라갈지 동작을 줄여 볼지 오늘 차례를 마칠지 정한다.",
+      "choices": [
+        {
+          "action": "200골드로 내 추가 연습 준비를 하고 같은 속도에 다시 맞춘다",
+          "card": "kny_kanao_return_hand",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "내 사냥의 적 수 단계를1올리고 손동작을 작게 줄여 다시 본다",
+          "card": "kny_kanao_small_motion",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "오늘 차례를 마치고 짧은 일의 보수와 보급을 챙긴다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 100,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식25화의 회복훈련상대카나오를 바탕으로 만든 손동작 연습이다. 원작 찻잔승부규칙/특정대사·동전유래·카나오마음의큰결말을 확정하지 않는다."
+    },
+    {
+      "key": "kny_partition_role",
+      "title": "가림막 뒤의 네 차례",
+      "scene": "이노스케가 가림막 뒤로 옮겨 간 네 위치를 가리키고는 이제 네가 맞혀 보라고 한다. 눈앞의 막만 보던 네가 발을 움직이자 이노스케도 다른 쪽으로 발판을 바꾼다. 먼저 막을 걷을지 발판과 움직임을 더 살필지 승부를 접을지 정한다.",
+      "choices": [
+        {
+          "action": "180골드로 내 연습 준비를 하고 발판의 변화를 살핀다",
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "내 사냥의 적 수 단계를1올리고 눈에 안 보이는 움직임을 다시 살핀다",
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "가림막 승부를 접고 내 사냥의 적 수 단계를1낮춘 뒤 보급을 챙긴다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 90,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 인물소개 이노스케의 호전성과 촉각에서 만든 별도 가림막놀이이다. 실제맵투시·감지·자동조준·이노스케동료소환은 없다."
+    },
+    {
+      "key": "kny_after_first_gourd",
+      "title": "터진 소리 다음에는",
+      "previous": "kny_first_gourd",
+      "previousChoice": 1,
+      "scene": "첫 표주박 도전이 끝난 뒤 네가 도구를 내려놓으려는데 탄지로는 아직 숨을 잇고 있다. 아오이가 터진 소리만 세면 다음 박자를 놓친다고 네 손을 본다. 한 번의 성공을 내세울지 다음 동작까지 이어 볼지 오늘은 여기서 마칠지 정한다.",
+      "choices": [
+        {
+          "action": "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다",
+          "card": "kny_gourd_second",
+          "card2": null,
+          "cost": 140,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "내 사냥의 강함 단계를1올리고 탄지로가 다음 빈틈을 보는 감각을 기억한다",
+          "card": "kny_tanjiro_smell",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "오늘 연습을 마치고 짧은 일의 보수와 보급을 챙긴다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 100,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "canonFact": "자기첫표주박도전성공1번 뒤에만열리는 창작후속이다. 다른플레이어성공/자기실패/자기2번으로열리지않으며 부모카드를반복보상하지않는다."
+    }
+  ],
+  "sourceFacts": [
+    {
+      "source": "https://kimetsu.com/anime/risshihen/story/?story=24",
+      "fact": "공식24화는 시노부의 저택에서 치료받던 탄지로와 이노스케가 회복 훈련을 시작하지만 혹독함에 마음이 꺾이고, 뒤늦게 시작한 젠이츠는 여자를 보고 의욕을 낸다고 설명한다. 아오이는 출연자로 확인했다. 개별 훈련 도구와 아래 대사는 별도 창작이다."
+    },
+    {
+      "source": "https://kimetsu.com/anime/risshihen/story/?story=25",
+      "fact": "공식25화는 탄지로가 온종일 전집중의 호흡을 유지하려 연습하고 그 결과 카나오에게 점점 맞설 수 있게 되며 젠이츠와 이노스케도 매일 연습하는 모습을 보고 훈련으로 돌아온다고 설명한다. 맵 선택으로 탄지로의 원작 성취를 대신 완료하지 않는다."
+    },
+    {
+      "source": "https://www.usj.co.jp/company/news/2024/pdf/0513.pdf",
+      "fact": "공식 협업 보도자료2쪽은 탄지로가 나비저택에서 전집중 상중을 익히려고 사용한 표주박을 상품의 모티브로 설명한다. 여기서 확인한 것은 표주박과 훈련의 관계다. 새 크기 선택·값·소리·성공률은 창작이며 게임 내 표주박 장비나 새 미니게임을 구현하지 않는다."
+    },
+    {
+      "source": "https://kimetsu.com/anime/risshihen/character/?chara=tanjiro",
+      "fact": "탄지로는 마음이 따뜻하고 냄새로 귀신과 상대의 급소를 구별할 수 있다. 새 대화가 원작 호흡/탐지 기술을 실제 스킬로 주는 것은 아니다."
+    },
+    {
+      "source": "https://kimetsu.com/anime/risshihen/character/?chara=inosuke",
+      "fact": "이노스케는 멧돼지 머리를 쓰고 호전적이며 산에서 자라 촉각이 예민해 시야에 없는 상대의 위치도 잡는다. 새 가림막 놀이와 여행자의 선택은 창작이다. 실제 맵 투시·감지·적 자동조준·동료 소환은 없다."
+    },
+    {
+      "source": "https://kimetsu.com/anime/risshihen/character/?chara=kanawo",
+      "fact": "카나오는 탄지로와 함께 최종선별을 살아남은 검사다. 공식25화에서 회복 훈련 상대인 것도 확인했다. 동전의 정확한 유래·의사결정 장면은 이번 공식 소개에서 확인하지 못했으므로 원작의 중요한 마음/동전 장면을 다시 결말짓지 않는다."
+    }
+  ]
+}

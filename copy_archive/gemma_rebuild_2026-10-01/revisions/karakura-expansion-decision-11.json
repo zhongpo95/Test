@@ -1,0 +1,72 @@
+{
+  "sourceRevision": "6d4b0d8",
+  "beforeFile": "copy_archive/gemma_rebuild_2026-10-01/before-karakura-expansion-11.json",
+  "beforeSha256": "7c0375986b8a9c0b3f6beddea786ca646ac72116683cf856f0370f834104886e",
+  "review": {
+    "verdict": "PASS",
+    "issues": [
+      {
+        "key": "bl_uryu_stitch",
+        "problem": "none",
+        "evidence": "The card explicitly states it does not provide actual sewing equipment, new bows, or status effects, aligning with the instruction to avoid misinterpreting map-specific stats as canon abilities.",
+        "suggestion": "Maintain current description."
+      },
+      {
+        "key": "bl_yuzu_portion",
+        "problem": "none",
+        "evidence": "The card clarifies it is not a real meal inventory or canon healing skill, but a creative adaptation of her domestic role.",
+        "suggestion": "Maintain current description."
+      },
+      {
+        "key": "bl_uncertain_kit",
+        "problem": "none",
+        "evidence": "The 65% chance is correctly identified as a map-fixed check, not a canon discount event or a guarantee of loot.",
+        "suggestion": "Maintain current description."
+      }
+    ],
+    "strengths": [
+      "Strict adherence to the 'no new skills' rule (no instant healing, no teleportation, no actual bows).",
+      "Successful creative adaptation of character traits (Uryu's sewing, Yuzu's housework, Chad's protective nature) into game mechanics without violating canon facts.",
+      "Clear distinction between map-specific mechanics (density, gold, potions) and original character abilities.",
+      "Consistent logic in event results where costs and levels are applied before card/gold acquisition."
+    ]
+  },
+  "reviewDisposition": [
+    {
+      "key": "bl_uryu_stitch",
+      "decision": "기존 설명 유지.",
+      "reason": "problem none은 수정 요청이 아니라 유지 권고다. 원문 issues 배열의 세 항목을 그대로 보존한다."
+    },
+    {
+      "key": "bl_yuzu_portion",
+      "decision": "기존 설명 유지.",
+      "reason": "problem none은 수정 요청이 아니라 유지 권고다. 원문 issues 배열의 세 항목을 그대로 보존한다."
+    },
+    {
+      "key": "bl_uncertain_kit",
+      "decision": "기존 설명 유지.",
+      "reason": "problem none은 수정 요청이 아니라 유지 권고다. 원문 issues 배열의 세 항목을 그대로 보존한다."
+    }
+  ],
+  "changes": [
+    {
+      "key": "bl_uncertain_kit#3",
+      "field": "label",
+      "before": "구매 대신 창고의 빈 상자를 정리해 보수를 받는다",
+      "after": "묶음은 남기고 창고의 빈 상자를 정리해 보수를 받는다",
+      "reason": "구매 대신이라는 부정 표현을 비용 검사기가 구매로 인식했다. 무료 창고 작업임을 직접 표현하고 수치와 실제 동작은 유지한다."
+    }
+  ],
+  "decision": "독립6사건·관련4카드 채택. 우류 신규 카드의 차지 속도 변경은 curation-10 원안 비교 기록을 따른다.",
+  "candidateCheck": {
+    "cards": 13,
+    "events": 14,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": [
+    "원작 생활 소재의 별도 창작이다. 한국어 공식 전체 대사·후반부 결말을 대조한 것은 아니다.",
+    "Gemma PASS의 issues에는 유지 권고 세 개가 있다.",
+    "Warcraft 런타임·화면·멀티플레이·재미·밸런스 미검증."
+  ]
+}

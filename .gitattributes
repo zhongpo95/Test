@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# 폐기 원본과 모델 응답은 보관 바이트를 줄바꿈 변환 없이 보존한다.
+copy_archive/gemma_rebuild_2026-10-01/** -text

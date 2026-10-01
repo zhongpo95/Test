@@ -1,0 +1,53 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 232,
+    "events": 212,
+    "roots": 165,
+    "followups": 47
+  },
+  "contentGroups": 21,
+  "statGroups": 8,
+  "ciCommands": 15,
+  "newRootCases": 4,
+  "newFollowupCases": 2,
+  "branchCases": 38,
+  "cardConditions": {
+    "passed": true,
+    "aru": {
+      "bossRate": 1.18,
+      "normalRate": 0.94,
+      "otherPlayerUnchanged": true
+    },
+    "mutsuki": {
+      "critDamage": 20,
+      "critChance": 0,
+      "withoutHeadBackFlags": 10,
+      "withEitherFlag": 0
+    },
+    "haruka": {
+      "life": 7559.999999999999,
+      "maximum": 10800,
+      "ratio": 0.7,
+      "regeneration": 0.5,
+      "repeatRefreshStable": true
+    },
+    "limits": "실제 카드 지급·스탯 재계산·조건부 피해 함수의 변환 모의 실행이다. Warcraft·실제 화면·멀티플레이·재미·밸런스·실시간 재생 검증은 아니다.",
+    "mapCreated": false
+  },
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "046a6782f62071cc13daafbadefa867e063f48a86d97ebb6607b4a79270cb521",
+  "mapCreated": false,
+  "monitorCheckedRequests": 3,
+  "usage": {
+    "used": 42,
+    "remaining": 58
+  },
+  "modelReview": "PASS",
+  "limits": [
+    "Gemma PASS는 자문이고 정적·JASS 변환 모의 실행·스크립트 컴파일과 분리한다.",
+    "Warcraft·실제 화면·멀티플레이·서버 저장·재미·밸런스는 미검증이다."
+  ]
+}

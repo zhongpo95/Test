@@ -1,0 +1,369 @@
+{
+  "cards": [
+    {
+      "key": "bl_uryu_stitch",
+      "name": "이시다 우류",
+      "effectName": "어긋난 한 땀까지",
+      "keyword": "행동 · 치명타 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 15
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 손재주·바느질 특기를 한 번의 움직임을 정확하게 잇는 준비로 각색한다. 실제 옷 장비·신규 활·상태이상 기술은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "bl_yuzu_portion",
+      "name": "쿠로사키 유즈",
+      "effectName": "돌아올 사람의 몫",
+      "keyword": "재생 · 처치 골드",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        },
+        {
+          "stat": "kill_gold",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 쿠로사키 집의 가사를 맡는 역할을 오래 움직일 보급과 자원 준비로 각색한다. 원작 치유 기술이나 실제 식사 인벤토리가 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "bl_tatsuki_stance",
+      "name": "아리사와 타츠키",
+      "effectName": "발을 놓고 나서",
+      "keyword": "방향 공격 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 14
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "공식 가라테 달인·정의감 강한 이치고의 소꿉친구와 오리히메의 친구 역할을 자세와 방향 공격 준비로 각색한다. 새 무술 스킬·기절·공격 범위는 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "bl_don_signal",
+      "name": "돈 칸온지",
+      "effectName": "보이게 전하는 신호",
+      "keyword": "사건 후보 · 이동",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 인기 영매 방송인의 대중 앞 전달 역할을 신호와 이동 준비로 각색한다. 시청률·영혼 소환·퇴마 기술이나 방송 효과를 생성하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "bl_ripped_sleeve",
+      "title": "바늘 끝에서 멈춘 말",
+      "scene": "우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다.",
+      "choices": [
+        {
+          "action": "천과 실을 마련해 우류와 움직일 여유를 남긴다",
+          "card": "bl_uryu_stitch",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다",
+          "card": "bl_uryu",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "실타래와 남은 천만 정리해 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 150,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "우류의 바느질·손재주와 콘의 인형 생활에서 별도 소매·실타래 문제를 창작한다. 실제 장비 내구도·수선·아이템은 없다."
+    },
+    {
+      "key": "bl_chad_toy",
+      "title": "큰 손에 든 작은 인형",
+      "scene": "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다.",
+      "choices": [
+        {
+          "action": "표시 도구를 마련해 차드와 앞에 설 자리를 고른다",
+          "card": "bl_chad",
+          "card2": null,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "사람이 지나갈 구역을 나누고 물약을 챙긴다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 0,
+          "potions": 1,
+          "chance": 100
+        },
+        {
+          "action": "가게 앞 짐 정리만 도와 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 140,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "차드의 약한 사람 보호와 귀여운 물건 선호를 바탕으로 별도 인형을 창작한다. 아이 NPC 호위·장난감 슬롯·모든 주민 보호는 새 기능이 아니다."
+    },
+    {
+      "key": "bl_yuzu_supplies",
+      "title": "비워 둘 수 없는 한 칸",
+      "scene": "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다.",
+      "choices": [
+        {
+          "action": "보급 비용을 내고 유즈와 남겨 둘 몫을 나눈다",
+          "card": "bl_yuzu_portion",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "이치고와 더 강한 적이 드나드는 길을 맡는다",
+          "card": "bl_ichigo",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "가까운 보급 정리를 돕고 보수와 물약을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 150,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "가사를 맡는 유즈와 동료를 지키는 이치고의 공식 역할에서 별도 가족 보급 문제를 창작한다. 실제 가족 상태·부재 타이머·즉시 치료나 불멸은 없다."
+    },
+    {
+      "key": "bl_don_audience",
+      "title": "박수 뒤에 가려진 길",
+      "scene": "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다.",
+      "choices": [
+        {
+          "action": "표시용품을 사서 칸온지와 보일 신호를 맞춘다",
+          "card": "bl_don_signal",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "이치고와 더 넓은 길목까지 맡는다",
+          "card": "bl_ichigo",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "맡을 길목을 줄이고 촬영 짐 정리를 돕는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 130,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인기 영매 방송인의 공개 촬영에서 별도 통행 문제를 창작한다. 원작 구호·방송 전체·영혼을 홀로 부활시키는 장면은 재현하지 않는다. 시청률·군중 NPC·시야 변화가 아니라 카드와 개인 필드 결과다."
+    },
+    {
+      "key": "bl_uncertain_kit",
+      "title": "끝까지 채워졌을까",
+      "scene": "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다.",
+      "choices": [
+        {
+          "action": "180골드를 내고 목록이 불완전한 묶음을 확인한다",
+          "card": "bl_urahara",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 2,
+          "chance": 65
+        },
+        {
+          "action": "확인된 물품만 따로 마련해 준비 요령을 배운다",
+          "card": "bl_urahara",
+          "card2": null,
+          "cost": 260,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 1,
+          "chance": 100
+        },
+        {
+          "action": "구매 대신 창고의 빈 상자를 정리해 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 140,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "준비 묶음의 목록이 끝까지 맞지 않았다. 지불한180골드는 돌아오지 않고 카드와 보급 물약도 받지 못한다. 확인되지 않은 물품을 사용할 수 있다고 하지는 않는다.",
+      "canonFact": "공식 사신용 물품을 제공하는 상점 주인의 역할에서 별도 불완전 보급 묶음을 창작한다. 원작 할인·가챠·사기 장면이 실제 있었음을 주장하지 않는다. 65%는 맵의 고정 검사 확률이다."
+    },
+    {
+      "key": "bl_tatsuki_space",
+      "title": "발 하나를 놓을 자리",
+      "scene": "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다.",
+      "choices": [
+        {
+          "action": "연습 준비물을 마련해 타츠키와 발 놓을 자리를 맞춘다",
+          "card": "bl_tatsuki_stance",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다",
+          "card": "bl_orihime",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": -1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "연습은 남기고 짐 정리 보수와 물약을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 130,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "타츠키의 공식 가라테와 오리히메의 친구 관계에서 별도 좁은 준비 자리 문제를 창작한다. 인테르하이 승패·친구의 부상·사신 힘의 각성을 해결하지 않는다."
+    }
+  ],
+  "sourceFacts": [
+    {
+      "source": "https://pierrot.jp/title/bleach/chara.html",
+      "fact": "우류의 손재주·바느질, 차드의 약한 사람 보호·귀여운 물건 선호, 콘의 인형과 몸을 지키는 역할, 유즈의 가사, 타츠키의 가라테·이치고와 오리히메 관계, 돈 칸온지 인기 영매 방송, 우라하라 사신용 물품을 확인했다. 후반부 직업·혈통·각성·완결은 사건에 섞지 않는다."
+    },
+    {
+      "source": "https://bleach-anime.com/character/",
+      "fact": "현세의 이치고·오리히메·차드·우라하라·요루이치 역할을 보완 대조했다. 천년혈전 승패와 우류의 신분 변화는 새 사건으로 만들지 않는다."
+    }
+  ]
+}

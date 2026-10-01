@@ -1,0 +1,704 @@
+{
+  "review": true,
+  "system": "독립 내용 검토자다. JSON {verdict,issues:[{key,problem,evidence,suggestion}],strengths:[string]}로 답한다. 숫자와 원작 사실, 행동과 결과가 충돌하는 구체적인 항목을 찾는다. 맵 전용 각색을 실제 NPC 기능으로 오해하지 않는다.",
+  "brief": {
+    "sourceFacts": [
+      {
+        "source": "https://anime.priconne-redive.jp/story/ep_02.html",
+        "fact": "미식전이 물건배달을간유우키를찾아갔더니인기아이돌길드카르미나의츠무기가가게에서옷을입히고있었다. 사건전체결말이나스킬은여기서확인하지않았다."
+      },
+      {
+        "source": "https://anime.priconne-redive.jp/story/ep_04.html",
+        "fact": "미식전이괴수섬에서카스미·마코토와만나며자경단이섀도출몰을조사하고있다. 카스미는조사역할에서만쓴다. 본편섀도진상·성공결말을새사건으로완료하지않는다."
+      },
+      {
+        "source": "https://anime.priconne-redive.jp/story/ep_06.html",
+        "fact": "주민을해치는수수께끼기사때문에모두가밥을먹기어렵다며페코린느가화를낸다. 미식전이의뢰에나서며자칭군인인작은여자아이와만난다. 제목의모니카·공식인물목록을함께확인했다."
+      },
+      {
+        "source": "https://anime.priconne-redive.jp/story/ep_07.html",
+        "fact": "미식전은쌀농사를한다. 길에서쓰러진치카를발견하고같은카르미나의노조미를불러보살핀다. 농사·다른길드의연락과도움만소재로하며본편치카문제를해결하지않는다."
+      },
+      {
+        "source": "https://anime.priconne-redive.jp/music/",
+        "fact": "카르미나의노조미·치카·츠무기가노래에참여한다. 노래의가사를재현하거나새전투스킬로지급하지않는다."
+      },
+      {
+        "source": "https://priconne.kakaogames.com/character.html",
+        "fact": "한국어표기노조미·츠무기·카스미·모니카를명단에서확인했다. 명단만으로모든능력을읽었다고하지않는다."
+      }
+    ],
+    "newContent": {
+      "cards": [
+        {
+          "key": "pc_kokkoro_harvest",
+          "name": "콧코로",
+          "effectName": "차곡차곡 모아 둔 몫",
+          "keyword": "최대 체력 · 처치 골드",
+          "canonFact": "미식전 쌀농사와 생활 지원을 든든한 준비·자원 정리로 각색. 쌀 인벤토리·영구 성장·즉시 치료는 아니다.",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            },
+            {
+              "stat": "kill_gold",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "uncertain": []
+        },
+        {
+          "key": "pc_tsumugi_fit",
+          "name": "츠무기",
+          "effectName": "움직임을 남기는 한 땀",
+          "keyword": "행동 · 이동",
+          "canonFact": "공식 의상 가게와 아이돌의 활동을 움직임에 맞는 준비로 각색한다. 실제 옷 장비·새 실 기술·호감 게이지는 생성하지 않는다.",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 6
+            },
+            {
+              "stat": "move_speed",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "uncertain": []
+        },
+        {
+          "key": "pc_kasumi_compare",
+          "name": "카스미",
+          "effectName": "빠진 시각을 짚다",
+          "keyword": "관통 · 치명타 확률",
+          "canonFact": "자경단 조사 역할에서 서로 다른 흔적을 대조하는 준비를 개인 관통·정확한 일격으로 각색. 실제 조사 마법·적 방어 디버프·본편 진상을 지급하지 않는다.",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "penetration",
+              "value": 6
+            },
+            {
+              "stat": "crit_chance",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 2,
+            "goal": 6500,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 5
+              }
+            ]
+          },
+          "uncertain": []
+        },
+        {
+          "key": "pc_monica_order",
+          "name": "모니카",
+          "effectName": "먼저 맡을 자리",
+          "keyword": "신속 · 피해 감소",
+          "canonFact": "자칭 군인과 주민 보호 의뢰 소재를 빠른 지시·방어 준비로 각색. 원작 스킬 수치나 동료 버프·부대 NPC 생성은 아니다.",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 180
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "uncertain": []
+        },
+        {
+          "key": "pc_nozomi_step",
+          "name": "노조미",
+          "effectName": "발걸음에 맞춘 박자",
+          "keyword": "행동 · 최대 체력",
+          "canonFact": "카르미나 가수와 동료를 돕는 역할을 일정한 움직임·든든한 준비로 각색. 실제 공연·노래 스킬·즉시 회복·민심 변화는 없다.",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 6
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 8
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "uncertain": []
+        }
+      ],
+      "events": [
+        {
+          "key": "pc_rainy_harvest",
+          "title": "빗물보다 먼저 거둘 것",
+          "story": "논가에 묶어 둔 곡식 옆으로 빗방울이 떨어진다. 콧코로는 막힌 배수길과 남은 묶음을 번갈아 보고, 페코린느는 들 수 있는 것부터 옮기자고 한다. 둘 다 끝내기에는 손이 부족하다.",
+          "intro": "배수 도구를 마련할지, 곡식을 옮길지, 맡을 범위를 줄일지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "도구를 빌려 콧코로와 배수부터 돕는다",
+              "result": "도구 대여비를 내고 콧코로와 물길부터 열었다. 남은 묶음은 페코린느에게 맡기고, 준비물과 거둘 몫을 나누는 요령을 챙긴다.",
+              "card": "pc_kokkoro_harvest",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "페코린느와 넓은 보급길까지 맡아 묶음을 옮긴다",
+              "result": "페코린느와 묶음을 옮기며 든든히 준비하고 움직이는 요령을 배웠다. 대신 밖의 넓은 보급길도 맡아 개인 사냥의 적 수가 늘었다. 배수 작업은 콧코로에게 남긴다.",
+              "card": "pc_pecorine_expedition",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "좁은 구역의 정리만 돕고 일당과 물약을 받는다",
+              "result": "필요한 곳의 정리만 돕고 작업 보수와 보급 물약을 받았다. 맡을 길목을 한 곳 줄여 개인 사냥의 적 수도 줄었다. 다른 논의 일까지 마친 것은 아니다.",
+              "card": null,
+              "card2": null,
+              "gold": 150,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "미식전의 쌀농사에서 별도 비오는작업일을창작한다. 비가오려는데논가에묶어둔곡식과막힌배수길이함께남았다. 콧코로는필요한도구를세고페코린느는옮길수있는것부터들자고한다. 한행동으로수확·배수둘다완전히해결하지않고다른일을남긴다. 1 도구비를내고준비·자원정리요령을얻는다.곡물재고·영구골드능력없음.2더많은적이드나들구역을맡고지정페코린느준비.3범위와보급만;모든논을구했다는결말없음.",
+          "uncertain": []
+        },
+        {
+          "key": "pc_wrong_costume_tag",
+          "title": "옷에 묶인 다른 이름",
+          "story": "츠무기가 옷에 묶인 이름표를 의뢰서 옆에 놓는다. 받는 사람이 서로 다르자 유우키도 배달 종이를 다시 펼친다. 츠무기는 허락도 받지 않고 자를 수는 없다며 가위를 내려놓는다.",
+          "intro": "확인을 도울지, 맞지 않는 옷을 되돌릴 준비를 할지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "연락용품과 측정 도구를 마련해 츠무기와 의뢰를 맞춘다",
+              "result": "연락용품과 측정 도구 값을 내고 주문한 사람의 조건을 확인했다. 츠무기와 움직일 여유를 남기는 옷의 준비를 배웠다. 맞지 않는 옷을 억지로 수선하지는 않는다.",
+              "card": "pc_tsumugi_fit",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "맞지 않는 옷은 돌려보내고 포장 일을 돕는다",
+              "result": "이름표를 그대로 묶어 반송할 옷을 포장하고 다른 짐도 정리했다. 가게에서 작업 보수와 보급 물약을 받았다. 새 옷을 누구에게 맞출지는 츠무기에게 남긴다.",
+              "card": null,
+              "card2": null,
+              "gold": 180,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "츠무기가게로배달된옷의이름표와의뢰서받을사람이서로다르다. 유우키는종이를번갈아보고츠무기는허락없이자르면돌릴수없다며가위를내려놓는다. 옷을수선해버리는것이정답이아니고확인·반송범위를고른다. 1확인할수있는연락·측정준비에서배운요령을카드로.실제옷장비없음.2일당과확인된보급물약.유우키에게호감·모든배송완료를주는결말아님.",
+          "uncertain": []
+        },
+        {
+          "key": "pc_witness_hours",
+          "title": "같은 길의 다른 시각",
+          "story": "카스미가 두 주민의 진술을 나란히 펼친다. 한 사람은 짐수레를, 다른 사람은 어두운 보행자를 보았지만 적힌 시각이 다르다. 카스미는 둘 중 누구를 거짓말쟁이라 부르기 전에 시각부터 확인하자고 한다.",
+          "intro": "어느 부분을 확인하고 어디까지 기록할지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "기록 도구를 사서 카스미와 시각부터 대조한다",
+              "result": "기록 도구 값을 내고 시각과 길목을 하나씩 맞춰 보았다. 카스미와 섣불리 결론 내리지 않고 빈틈을 짚는 요령을 배웠다. 보행자의 정체는 아직 알 수 없다.",
+              "card": "pc_kasumi_compare",
+              "card2": null,
+              "gold": 0,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "확인할 길목을 줄이고 보급품을 다시 묶는다",
+              "result": "포장 비용을 내고 확인할 길목 하나를 덜어 보급을 다시 묶었다. 자경단에서 물약 두 개를 받고 개인 사냥의 적 수를 줄였다. 남은 진술의 대조는 카스미에게 맡긴다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": 0,
+              "density": -1,
+              "potions": 2,
+              "chance": 100
+            },
+            {
+              "label": "확인된 문장만 옮겨 적고 기록 보수를 받는다",
+              "result": "확인된 시각과 문장만 따로 옮겨 기록 보수를 받았다. 서로 맞지 않는 부분은 빈칸으로 남긴다. 누구의 말이 전부 옳다고 결론 내리지는 않았다.",
+              "card": null,
+              "card2": null,
+              "gold": 170,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "카스미가자경단에들어온두주민의평범한길목목격담을나란히놓는다. 한사람은짐수레를다른이는어두운보행자를봤지만진술한시각이다르다. 서로거짓말한다고단정하기전에어느부분을확인할지결정한다.섀도정체·본편괴수섬사건을해결하지않는다. 조사는관통·치명준비로각색하나원작주문없음.2보급포장비100·적수-1·물약2.3판단하지않은빈칸을남긴다.시각표는실제시간소모·NPC판정이아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "pc_monica_market_watch",
+          "title": "닫힌 가게 앞의 지시",
+          "story": "불안해진 상인들이 저녁도 준비하기 전에 문을 닫으려 한다. 모니카는 지킬 길목을 나누자고 하고, 페코린느는 식사할 사람들의 몫도 걱정한다. 캬루는 넓게 맡을수록 놓칠 구석이 늘어난다고 말한다.",
+          "intro": "길목을 준비하거나 맡을 범위를 바꿀 수 있다. 폐점 일을 돕는 방법도 있다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "표시 도구를 사서 모니카와 맡을 순서를 맞춘다",
+              "result": "표시 도구 값을 내고 모니카와 먼저 맡을 자리와 돌아설 순서를 맞췄다. 빠른 지시와 방어 준비를 익혔다. 상인들의 불안이 모두 사라진 것은 아니다.",
+              "card": "pc_monica_order",
+              "card2": null,
+              "gold": 0,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "캬루와 더 넓은 길목을 맡아 공격 준비를 챙긴다",
+              "result": "캬루와 공격할 자리를 짚으며 더 넓은 길목까지 맡았다. 다음 싸움의 준비를 챙긴 대신 개인 사냥의 적 수가 늘었다. 다른 구역의 안전까지 약속하지 않는다.",
+              "card": "pc_karyl_resolve",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "맡을 위험한 길을 줄이고 보급품을 다시 마련한다",
+              "result": "보급 비용을 내고 강한 적이 드나들던 길을 맡을 범위에서 덜었다. 개인 사냥의 적 단계가 내려가고 물약 하나를 받았다. 남은 경계는 다른 사람에게 맡긴다.",
+              "card": null,
+              "card2": null,
+              "gold": 0,
+              "cost": 100,
+              "level": -1,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "label": "폐점 정리만 돕고 일당을 받는다",
+              "result": "가게의 물건을 안으로 옮기고 폐점 정리 보수를 받았다. 상인들이 문을 닫는 결정은 바꾸지 못했다. 경계할 길목을 정하는 일은 모니카에게 남긴다.",
+              "card": null,
+              "card2": null,
+              "gold": 170,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "주민을해치는일이생겨가게들이일찍문을닫으려한다. 모니카는지킬길목을정하자고하고페코린느는상인들이저녁준비를못하는것을걱정한다. 캬루는넓게맡을수록놓칠구석도늘어난다고말한다.공식6화의주민보호동기를참고한새작은시장준비문제이고수수께끼기사를쓰러뜨리지않는다. 1순서준비에서고정신속180과감소2만.2무료이지만적수+2;기사처치·주민완전안전없음.3적강함-1하한1·물약1·비용100.4상인일당이며폐점자체해결아님.",
+          "uncertain": []
+        },
+        {
+          "key": "pc_delivery_divide",
+          "title": "갈라지는 배달길",
+          "story": "유우키의 배달 짐과 미식전의 보급품이 같은 수레에 실렸다. 목적지가 달라 첫 갈림길에서 그대로 나아갈 수는 없다. 콧코로는 나눌 몫을 표시하고 페코린느는 큰 짐부터 들자고 한다.",
+          "intro": "다시 포장할지, 큰 몫을 맡을지, 좁은 범위만 도울지 정한다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "포장 비용을 내고 콧코로와 전달할 몫을 나눈다",
+              "result": "포장 비용을 내고 콧코로와 전달할 몫을 나누었다. 몸과 다음 행동을 오래 돌보는 준비를 배웠다. 모든 목적지에 짐을 전했다고 하지는 않는다.",
+              "card": "pc_kokkoro_care",
+              "card2": null,
+              "gold": 0,
+              "cost": 260,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "페코린느와 큰 짐과 넓은 길목을 함께 맡는다",
+              "result": "페코린느와 큰 짐을 나누어 들며 함께 버티고 나아갈 준비를 배웠다. 넓은 길목까지 맡아 개인 사냥의 적 수가 늘었다. 작은 짐의 배달은 유우키에게 남긴다.",
+              "card": "pc_pecorine_front",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "내가 맡을 구역만 줄이고 짐 분류 보수를 받는다",
+              "result": "짐 분류를 도운 보수를 받고 맡을 길목을 한 곳 덜었다. 개인 사냥의 적 수는 줄었지만 남의 배달까지 끝내지는 않았다. 목적지별 꾸러미는 수레에 나누어 둔다.",
+              "card": null,
+              "card2": null,
+              "gold": 160,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "유우키가전할짐과미식전이들고갈보급의목적지가다르다.같은수레에올렸는데첫갈림길부터어느짐을누가맡을지정해야한다.콧코로는다시포장할몫을표시하고페코린느는큰짐을먼저들자고한다.플레이어의실제NPC동행이나목적지이동없음. 1지속회복·신속준비를유지해다음전투로간다.2동료와몫을나누는공격방어준비,적수+1.3목적지에짐전부배달했다고하지않는다.책임기록·물품인벤토리생성없음.",
+          "uncertain": []
+        },
+        {
+          "key": "pc_rehearsal_wall",
+          "title": "벽 너머까지 들린 연습",
+          "story": "카르미나의 연습 자리에서 움직일 때마다 벽 쪽 짐이 덜컹거린다. 벽 너머에서는 주민들이 쉬고 있고, 노조미는 연습도 부탁도 전부 한 번에 맡기는 어렵다고 말한다. 페코린느는 바깥에 쌓인 짐부터 들어 보려 한다.",
+          "intro": "연습 자리의 움직임을 맞추거나 짐을 옮기는 일을 도울 수 있다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "label": "완충재를 마련하고 노조미와 움직일 자리를 맞춘다",
+              "result": "완충재 값을 내고 노조미와 짐에 걸리지 않을 발걸음을 맞췄다. 몸을 준비하고 일정하게 움직이는 요령을 배웠다. 이 준비만으로 주민들의 모든 불편이 사라지지는 않는다.",
+              "card": "pc_nozomi_step",
+              "card2": null,
+              "gold": 0,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "페코린느와 바깥 길까지 맡아 짐을 옮긴다",
+              "result": "페코린느와 바깥 길까지 짐을 옮기며 든든히 움직이는 준비를 배웠다. 넓은 길목을 맡은 만큼 개인 사냥의 적 수가 늘었다. 연습 자리의 순서는 노조미에게 남긴다.",
+              "card": "pc_pecorine_expedition",
+              "card2": null,
+              "gold": 0,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "label": "짐 정리만 돕고 일당과 물약을 받는다",
+              "result": "연습에는 끼어들지 않고 필요한 짐만 정리했다. 작업 보수와 보급 물약을 받았다. 노조미가 연습과 주민의 부탁을 조율할 자리는 남겨 둔다.",
+              "card": null,
+              "card2": null,
+              "gold": 130,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "failure": null,
+          "canonFact": "카르미나의연습자리에둔짐이좁은벽쪽을막고,바로너머에서는주민들이쉬려한다.노조미는연습을준비하되모든부탁을한번에들어줄수없다며상황을살핀다. 미식전은벽쪽짐을정리할지바깥길까지맡을지정한다.구성원실력상하·정치갈등·주민마음을수치화하지않는다. 1동작·든든한준비만.새노래스킬·민심·연습시간연장없음.2더많은개인적수.3소음문제를전체해결하지않고제한된실무만한다.",
+          "uncertain": []
+        }
+      ]
+    },
+    "existingCardRoles": [
+      {
+        "key": "pc_kokkoro_entry",
+        "name": "콧코로",
+        "effectName": "세심한 준비",
+        "keyword": "행동 속도 증가",
+        "grade": 1,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "출발 준비와 생활을 세심하게 돌보는 성격을 맵 전용 행동 준비로 각색.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_pecorine_meal",
+        "name": "페코린느",
+        "effectName": "배가 든든할 때",
+        "keyword": "최대 체력 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 12
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 14
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 60,
+          "effects": [
+            {
+              "stat": "normal_damage_percent",
+              "value": 8
+            }
+          ]
+        },
+        "canonFact": "밝은 대식가이자 검사라는 성격을 든든한 준비와 고체력 조건으로 각색.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_pecorine_front",
+        "name": "페코린느",
+        "effectName": "함께 먹을 몫",
+        "keyword": "공격력 및 피해 감소",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "먹는 즐거움과 동료들과 함께 모험하는 검사의 적극성을 공격과 방어 준비로 각색.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_kokkoro_care",
+        "name": "콧코로",
+        "effectName": "작은 준비를 놓치지 않기",
+        "keyword": "지속 회복 및 신속",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.6
+          },
+          {
+            "stat": "swift",
+            "value": 90
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "식사와 수선 등 세심한 생활 지원을 지속 회복과 고정 신속으로 각색.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_karyl_check",
+        "name": "캬루",
+        "effectName": "막힌 길을 비우는 마법",
+        "keyword": "비방향 · 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "nondirectional_damage",
+            "value": 16
+          },
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 7000,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ]
+        },
+        "canonFact": "기본 캬루의 공식 조정 공지에 있는 방어력 감소 역할을 개인 방어력 관통으로 각색한다. 비방향·보스 조건과 수치는 맵 전용이며 적 전체 디버프나 원작 마법을 새로 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_karyl_resolve",
+        "name": "캬루",
+        "effectName": "불평은 일을 끝낸 뒤에",
+        "keyword": "보스 피해 및 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 14
+          },
+          {
+            "stat": "penetration",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기본 캬루의 방어력 감소 역할을 개인 관통으로 옮기고 사건의 길목 정리를 보스전 준비로 각색한다. 보스 피해 수치는 맵 전용이며 새 공격 기술·적 디버프를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_kokkoro_notes",
+        "name": "콧코로",
+        "effectName": "빠뜨리지 않은 목록",
+        "keyword": "사건 후보 · 처치 골드",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "kill_gold",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_pecorine_expedition",
+        "name": "페코린느",
+        "effectName": "든든히 먹고 한 걸음 더",
+        "keyword": "고체력 · 일반 적",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 18
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 6
+            }
+          ]
+        },
+        "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_aoi_courage",
+        "name": "아오이",
+        "effectName": "조심스러운 발걸음",
+        "keyword": "이동 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 4
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ]
+        },
+        "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
+        "uncertain": []
+      }
+    ],
+    "mechanics": "골드 비용·level/density는 먼저 적용. 성공 때 card/gold/potions. 모든 새 선택100%. 머리 보유만으로 열리는 독립6사건. 이미 가진 카드100골드. level1..5,density1..10. HP 비용 없음. 최대체력 상승은 현재 비율 유지. 골드·지정 카드·물약·개인 필드 외 실제 옷·곡식·관계·NPC·공연 기능 없음.",
+    "questions": [
+      "각 선택의 비용 사용처와 보상 제공자를 설명하는가?",
+      "농사·의상·조사·군인·카르미나를 원작 사실 이상으로 부풀리는가?",
+      "개인 필드 변화·지정 카드와 행동이 모순되는가?",
+      "이름만 다른 식사 또는 정리 선택 반복으로 전부 해결되는가?"
+    ]
+  }
+}

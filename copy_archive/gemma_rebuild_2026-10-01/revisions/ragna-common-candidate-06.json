@@ -1,0 +1,147 @@
+{
+  "cards": [
+    {
+      "key": "common_ragna_eater",
+      "name": "라그나 더 블러드엣지",
+      "effectName": "소울 이터",
+      "keyword": "공통 · 흡수 · 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "공식 가이드의 소울 이터는 상대 체력을 흡수하는 공격이다. 맵에서는 실제 피해에 비례한 지연 흡수로 각색하며 원작 드라이브 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_ragna_break",
+      "name": "라그나 더 블러드엣지",
+      "effectName": "정면 돌파",
+      "keyword": "공통 · 방향 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 16
+        },
+        {
+          "stat": "penetration",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "라그나가 거칠게 정면을 돌파하는 성향을 기존 헤드·백 적중과 방어 관통 준비로 각색했다. 새로운 연속 기술이나 회피 행동을 지급하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "common_torn_poster",
+      "title": "얼굴이 지워진 수배서",
+      "story": "막힌 길의 안내판에 찢어진 수배서가 붙어 있다. 그림과 닮은 남자가 종이를 구겨 주머니에 넣고, 짐이 쌓인 쪽을 보며 길부터 비우라고 말한다. 라그나의 칼이 지나갈 앞길을 맡을지, 옆에서 틈을 살필지, 사람들을 다른 길로 보낼지 정해야 한다.",
+      "intro": "수배서 속 얼굴과 닮은 남자가 막힌 길 앞에서 칼을 고쳐 쥔다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "라그나와 막힌 길의 앞쪽을 맡는다",
+          "result": "라그나가 짐이 지나갈 틈을 먼저 열었다. 검이 닿은 뒤에도 움직임을 끊지 않는 모습을 따라 보지만, 길 끝에 남은 큰 흔적까지 맡아야 한다.",
+          "card": "common_ragna_eater",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "옆길의 짐을 묶고 칼이 닿을 자리를 살핀다",
+          "result": "운반 끈을 바꿔 짐을 옆으로 옮기자 라그나의 칼이 들어갈 각도가 보였다. 좁은 옆길을 쓰는 동안 그쪽으로 더 많은 흔적이 모였다.",
+          "card": "common_ragna_break",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사람들이 돌아갈 우회로를 알린다",
+          "result": "수배서는 접어 두고 안내판의 화살표를 돌렸다. 보급 담당자가 수고비와 약품을 건넸고, 한곳에 몰렸던 사람들이 다른 길로 흩어졌다.",
+          "card": null,
+          "card2": null,
+          "gold": 180,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "수배자이며 정면 돌파를 자주 하는 라그나의 소개를 참고했다. 길을 막은 짐과 보급 담당자는 맵 창작이고 원작의 고액 현상금을 받는 사건이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "common_lowered_blade",
+      "title": "갈림길 앞에서 내린 검",
+      "story": "앞길을 맡은 뒤 라그나가 갈림길에서 잠깐 검을 내렸다. 짐을 통과시키기에는 폭이 모자라지만, 뒤쪽에는 사람들을 돌려보낼 보급 담당자가 도착했다. 좁은 길을 손봐 다시 칼이 들어갈 각도를 찾을지, 큰 흔적을 피해 보급품을 먼저 옮길지 정할 수 있다.",
+      "intro": "라그나가 좁은 갈림길을 보고 검을 내린다.",
+      "previous": "common_torn_poster",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "좁은 길을 손보고 라그나와 각도를 다시 잡는다",
+          "result": "새 지지대로 짐을 묶어 옆으로 밀었다. 라그나는 비워진 길에서 칼을 다시 들었고, 돌아갈 때는 같은 병목에 멈출 필요가 줄었다.",
+          "card": "common_ragna_break",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "큰 흔적을 피해 보급품을 담당자에게 옮긴다",
+          "result": "보급 담당자에게 짐을 인계하고 위험한 갈림길을 닫았다. 약품과 운반비를 받은 뒤, 큰 흔적을 따라가려던 길 대신 돌아갈 길을 택했다.",
+          "card": null,
+          "card2": null,
+          "gold": 230,
+          "cost": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "거친 행동과 달리 근본적으로 악인이 아니라는 공식 소개를 참고한 공동 통행 사건이다. 칼의 각도·보급품 인계는 맵 창작이고 실제 NPC 전투·원작 장소 이동을 추가하지 않는다.",
+      "uncertain": []
+    }
+  ]
+}

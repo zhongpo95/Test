@@ -1,0 +1,89 @@
+{
+  "checks": [
+    {
+      "file": "drafts/abydos-card-choices-text-86-1.json",
+      "recordId": "e96436e6-6ed3-41c8-a42c-0d8cfc2550dd",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-card-choices-text-86-2.json",
+      "recordId": "c0656a77-3fd2-434b-8a8c-7ccf5f006579",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-card-choices-text-86-3.json",
+      "recordId": "655ecba5-fb2f-4dc6-9c26-bab686348789",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-card-choices-text-86-4.json",
+      "recordId": "21c4d15e-8c45-4e07-8bcc-330121adc134",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-scenes-text-87-1.json",
+      "recordId": "7ae6b6a6-34d6-47f1-8a64-38a280b79b26",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-scenes-text-87-2.json",
+      "recordId": "17607afa-8e93-4136-8404-03ccba750741",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-scenes-text-87-3.json",
+      "recordId": "52330160-3ffb-4b47-b368-27fa1991f258",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "drafts/abydos-scenes-text-87-4.json",
+      "recordId": "9bcf06de-0308-4d35-92f8-f22378d2f02a",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/abydos-card-choices-review-88-1.json",
+      "recordId": "df0b0e45-0e47-449b-ad64-2f1dcfea674d",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/abydos-card-choices-review-88-2.json",
+      "recordId": "2f694d91-541c-47bb-beff-b22e5fd9ea87",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/abydos-card-choices-review-88-3.json",
+      "recordId": "d42fbfa8-2517-46ce-b8aa-565347641247",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    },
+    {
+      "file": "reviews/abydos-failure-review-89.json",
+      "recordId": "336fa9d2-e060-4c69-ae16-b096d23b8683",
+      "status": "success",
+      "inputMatches": true,
+      "rawMatches": true
+    }
+  ],
+  "limits": "입력·원문·ID·저장 성공을 대조했다. 콘텐츠 정확성·재미·밸런스 검증과 구분한다."
+}

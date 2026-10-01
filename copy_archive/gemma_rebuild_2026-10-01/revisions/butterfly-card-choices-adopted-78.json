@@ -1,0 +1,1422 @@
+{
+  "world": {
+    "key": "butterfly",
+    "name": "나비저택",
+    "work": "귀멸의 칼날",
+    "intro": "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다.",
+    "effects": [
+      {
+        "stat": "healthy_damage",
+        "value": 2
+      }
+    ],
+    "entryCard": "kny_aoi",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
+  },
+  "sources": [
+    "https://kimetsu.com/anime/risshihen/story/?story=24",
+    "https://kimetsu.com/anime/risshihen/story/?story=25",
+    "https://kimetsu.com/anime/hashirageikohen/character/",
+    "https://kimetsu.com/anime/risshihen/story/?story=26",
+    "https://kimetsu.com/anime/character/?chara=kanawo",
+    "https://game.kimetsu.com/hinokami/character/",
+    "https://www.usj.co.jp/company/news/2024/pdf/0513.pdf",
+    "https://kimetsu.com/anime/risshihen/character/?chara=tanjiro",
+    "https://kimetsu.com/anime/risshihen/character/?chara=inosuke",
+    "https://kimetsu.com/anime/risshihen/character/?chara=kanawo"
+  ],
+  "canonBoundary": "24·25화의 나비저택 치료와 기능 회복·호흡 수련, 공식 인물 소개의 카나오 신체 능력·시노부 약학·젠이츠 청각·이노스케 성향을 소재로 삼는다. 원작의 호흡·독·실신·귀화·신규 기술·NPC 동행을 구현하지 않는다. 밤길 의뢰·도구 비용·보급 일당·적 구역 변화는 맵 전용 창작이다. 현재 체력을 지불하지 않는다. 사건의 정찰 판정은 능력치 판정이나 실제 미니게임 입력이 아닌 표시한 확률이다. 보급꾼·짐·등불·밧줄은 이 맵 사건의 창작이며 인벤토리 퀘스트 물품이나 실제 NPC 구출 모드로 구현하지 않는다. 젖은 병 이름표·흰 천·안내 혼선·소란스러운 짐·갈라진 흔적·벌어진 보급낭은 공식 역할에서 별도로 창작한 독립 문제다. 이름 모를 병을 사용하거나 환자 상태를 바꾸지 않는다. 등장한 물건은 퀘스트 인벤토리에 저장되지 않고 지정 카드·골드·물약·개인 필드 값만 변한다. 무라타의 선배 호칭과 이노스케의 도전·복귀 직전의 두 동료·네즈코를 두려워하는 방문객은 공식 특징에서 새로 만든 짧은 만남이다. 25화의 발전 주체는 탄지로이며 카나오가 플레이어에게 배우는 장면이 아니다. 무라타의 말은 창작 대사이며 실제 대련이나 NPC 동행이 없다. 네즈코 만남은 해가 진 뒤의 방문으로 한정하고 자기 의지를 지우는 암시 시험·공격 통제·즉시 치료는 없다. 표주박 크기/시험·아침인사·손을거두는반응·가림막승부는공식훈련/감각소개에서만든별도창작방문이다. 표주박후속은자기60%도전성공1번에서만열리고확정2번/실패/타인기록은열지않는다. 실제미니게임·호흡/감지스킬·장비·동행·탄지로원작성취나카나오마음의결말을지급하지않는다.",
+  "cards": [
+    {
+      "key": "kny_aoi",
+      "name": "칸자키 아오이",
+      "effectName": "다시 시작할 준비",
+      "keyword": "행동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "나비저택 수련의 준비를 작은 입문 효과로 각색한다. 신규 기술이나 현재 체력 즉시 회복이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_tanjiro",
+      "name": "카마도 탄지로",
+      "effectName": "끊기지 않는 호흡",
+      "keyword": "신속 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "일상에도 전집중 호흡을 이어가는 수련을 행동 준비와 고체력 조건으로 각색한다. 호흡 기술을 새로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao",
+      "name": "츠유리 카나오",
+      "effectName": "먼저 읽는 움직임",
+      "keyword": "치명 · 행동",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 7
+        },
+        {
+          "stat": "action_speed",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 6000,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
+      },
+      "canonFact": "높은 신체 능력과 탄지로의 수련 상대 역할을 반응과 정확한 공격 준비로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_shinobu",
+      "name": "코쵸 시노부",
+      "effectName": "출발 전에 남긴 당부",
+      "keyword": "재생 · 생존",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "약학 지식과 저택의 치료 역할을 전투 중 재생 준비로 각색한다. 독 기술·부활·즉시 완전 회복을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_zenitsu",
+      "name": "아가츠마 젠이츠",
+      "effectName": "한순간에 모은 힘",
+      "keyword": "차지 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_damage",
+          "value": 20
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "날카로운 청각과 번개의 호흡을 집중한 한 번의 공격 준비로 각색한다. 플레이어의 실신·수면이나 신규 돌진을 요구하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_inosuke",
+      "name": "하시비라 이노스케",
+      "effectName": "머뭇거리지 않는 돌파",
+      "keyword": "일반 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 15
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        },
+        {
+          "stat": "damage_reduction",
+          "value": -4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "돌진하는 호전성을 일반 적·비방향 공격과 방어 부담으로 각색한다. 실제 쌍검 기술이나 방향 적중 공격 보너스는 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_aoi_supply",
+      "name": "칸자키 아오이",
+      "effectName": "필요한 몫을 먼저",
+      "keyword": "재생 · 처치 골드",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        },
+        {
+          "stat": "kill_gold",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "저택의 치료·수련 지원을 전투 중 회복 준비와 처치 뒤 수급 정리로 각색. 원작에 처치골드 능력이 있다는 뜻이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao_quiet",
+      "name": "츠유리 카나오",
+      "effectName": "발이 움직이기 전에",
+      "keyword": "이동 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "높은 신체 능력과 반응 수련 상대 역할을 이동 준비와 정확한 공격으로 각색. 실제 회피 확률·동전·자동 이동 없음.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_tanjiro_smell",
+      "name": "카마도 탄지로",
+      "effectName": "겹친 흔적 사이",
+      "keyword": "방향 적중 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 14
+        },
+        {
+          "stat": "penetration",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
+      },
+      "canonFact": "후각과 상대 급소를 읽는 공식 인물 소재를 방향 적중 피해와 개인 방어 관통으로 각색. 냄새 탐지 UI·새 호흡 기술 없음.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_shinobu_points",
+      "name": "코쵸 시노부",
+      "effectName": "상대를 먼저 알기",
+      "keyword": "관통 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 8
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 약학·독 전투의 소재를 상대 특성에 맞는 공격 준비로 각색. 실제 독·지속피해·전염·즉사 기술 지급 없음.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_zenitsu_listen",
+      "name": "아가츠마 젠이츠",
+      "effectName": "소리 사이의 한순간",
+      "keyword": "차지 속도 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 7
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "charge_damage",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "공식 청각과 한순간 집중한 공격의 소재를 차지 준비로 각색. 새 소리 감지 기능·실신 필요 없음.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_inosuke_terrain",
+      "name": "하시비라 이노스케",
+      "effectName": "먼저 발을 내딛는 길",
+      "keyword": "이동 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 15
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "산에서 자란 감각과 돌파 성향을 길을 읽는 이동 준비와 일반 적 상대 준비로 각색. 실제 벽 통과·쌍검 기술 없음.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_murata_senior",
+      "name": "무라타",
+      "effectName": "강함과 다른 선배의 몫",
+      "keyword": "최대 체력 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 소개의 선배 귀살대원이라는 역할을 힘을 과시하지 않고 자기 몫을 버티는 성장으로 각색한다. 물의 호흡·선배 보너스·동행은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_tanjiro_return",
+      "name": "카마도 탄지로",
+      "effectName": "돌아오게 하는 꾸준함",
+      "keyword": "행동 속도 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 2
+          }
+        ]
+      },
+      "canonFact": "공식 25화에서 탄지로의 꾸준함을 보고 동료들이 훈련에 복귀하는 모습을 동작을 이어 가며 큰 상대를 준비하는 성장으로 각색한다. 카나오를 가르치거나 원작의 호흡 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_nezuko_will",
+      "name": "카마도 네즈코",
+      "effectName": "겁내는 이의 앞에서",
+      "keyword": "재생 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.5
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "네즈코가 자기 의지와 암시로 사람을 해치지 않는 특징을 동요 속에서 좋은 상태를 유지하는 성장으로 각색한다. 귀화·암시·즉시 치료·공격 통제·혈귀술은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_gourd_breath",
+      "name": "카마도 탄지로",
+      "effectName": "크기보다 긴 한숨",
+      "keyword": "차지 피해 · 행동 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 14
+        },
+        {
+          "stat": "action_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "표주박과 전집중 상중 훈련 관계에서 여행자의 힘을 급히 쓰지 않는 기억으로 각색한다. 실제 표주박 장비·호흡 스킬·차지속도·현재체력 소모를 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_morning_breath",
+      "name": "카마도 탄지로",
+      "effectName": "인사 다음에도 이어지는 숨",
+      "keyword": "재생 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "온종일 호흡을 유지하려는 훈련을 여행자의 계속 잇는 기억으로 각색한다. 초당 최대체력0.4%재생과 현재체력65%이상에서 가하는피해10%이며 즉시회복·원작 호흡완성·새 지속호흡 스킬은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao_return_hand",
+      "name": "츠유리 카나오",
+      "effectName": "다음 손을 거두는 때",
+      "keyword": "행동 속도 · 방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 6
+        },
+        {
+          "stat": "directional_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 8000,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "회복 훈련 상대 카나오와 여행자가 손을 다시 거두는 창작 기억이다. 일반 행동속도와 헤드/백 플래그와 해당 위치의 유효 각도가 함께 맞아 실제 헤드·백 적중한 공격의 피해다. 실제 카운터/회피/차 승부/동전으로 마음을 해방하는 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_kanao_small_motion",
+      "name": "츠유리 카나오",
+      "effectName": "작게 움직여도 늦지 않게",
+      "keyword": "치명타 확률 · 이동 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 6
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "창작 손동작의 범위를 줄여 타이밍을 보는 기억이다. 치명확률6%p와 이동속도4%이며 모든 공격이 치명/회피가 되는 것이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_inosuke_partition",
+      "name": "하시비라 이노스케",
+      "effectName": "안 보인다고 없는 것은",
+      "keyword": "방어 관통 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 8
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "촉각으로 시야 밖 위치도 아는 설정에서 가림막 역할을 바꿔 보는 창작 기억이다. 헤드/백 플래그 없는 공격 대미지12%와방관8%이며 실제투시·적감지·자동조준·새스킬을 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_gourd_second",
+      "name": "카마도 탄지로",
+      "effectName": "터뜨린 뒤에 남은 호흡",
+      "keyword": "차지 속도 · 차지 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 9
+        },
+        {
+          "stat": "charge_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "자기 표주박 첫 도전 성공1번 뒤에만 남는 창작 훈련 기억이다. 차지 준비속도9%와차지태그공격피해10%이며 일반행동속도·실제표주박장비·탄지로원작성취완성은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "kny_night_path",
+      "title": "울음 사이로 섞인 발소리",
+      "story": "약속된 시각이 지났음에도 보급꾼은 나타나지 않았고, 길목에는 주인 잃은 짐더미만 덩그러니 놓여 있다. 젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다. 탄지로는 성급한 행동을 만류하며 눈앞에 놓인 상황들을 먼저 짚어보자고 제안한다.",
+      "intro": "보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_zenitsu",
+          "card2": null,
+          "label": "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다",
+          "result": "등불과 밧줄에160골드를 내고 소리를 따라 길을 잃은 보급꾼을 찾았다. 젠이츠의 한순간에 힘을 모으는 준비를 기억해 차지 공격과 치명타 피해를 높였지만, 내 사냥의 강함 단계는1올랐다. 보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 70,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke",
+          "card2": null,
+          "label": "이노스케와 막힌 길을 직접 열어 본다",
+          "result": "이노스케가 보여 준 자세로 공격을 이어가며 길 일부를 열었다. 적이 드나드는 구역을 더 넓게 맡고 방어의 빈틈도 감수하지만, 보급꾼의 행방은 아직 확인하지 못했다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 2,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro",
+          "card2": null,
+          "label": "탄지로와 서두르지 않고 남은 짐을 운반한다",
+          "result": "탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다.",
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.",
+      "canonFact": "공식 인물 소개의 젠이츠 청각·이노스케 감각과 호전성·탄지로 성실한 수련을 쓴다. 밤길 정찰과 판정·비용은 맵 창작이다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_night_found",
+      "title": "찾은 흔적의 건너편",
+      "story": "앞선 수색에서 찾았던 보급꾼이 돌아온 길을 기록지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다.",
+      "intro": "돌아온 길은 확인했지만 다음에는 언제 발을 움직일까?",
+      "previous": "kny_night_path",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_kanao",
+          "card2": null,
+          "label": "카나오와 반응 훈련을 위한 도구를 마련한다",
+          "result": "훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다.",
+          "cost": 240,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_kanao_quiet",
+          "card2": null,
+          "label": "180골드로 짐을 나눌 도구를 마련하고 카나오가 먼저 비운 발자리를 따라 본다",
+          "result": "짐을 나눌 도구에180골드를 내고 카나오가 먼저 비운 발자리를 따라 발을 옮겼다. 정확히 움직이는 준비를 기억해 이동속도와 치명타확률을 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약2개를 받았다. 카나오는 짐을 놓은 자리보다 다음에 디딜 자리를 다시 비워 준다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 2
+        },
+        {
+          "card": "kny_zenitsu_listen",
+          "card2": null,
+          "label": "180골드로 짐 소리를 줄일 천을 마련하고 젠이츠와 움직일 순간을 맞춘다",
+          "result": "짐 소리를 줄일 천에180골드를 내고 젠이츠와 움직일 순간을 맞췄다. 소리 사이의 한순간을 기억해 차지 준비속도와 보스에게 가하는 피해를 높였다. 젠이츠가 다시 귀를 기울일 때 네가 먼저 짐을 들어 소리를 내자, 그는 아직 움직일 때가 아니라고 손을 세운다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": null,
+      "canonFact": "소리를 확인한 자기 성공 기록을 요구하는 맵 전용 후속이다. 실제 청각 스킬·새 적 종족을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_night_wrong",
+      "title": "잘못 짚은 소리의 값",
+      "story": "수색에 실패하고 빈손으로 돌아온 기록지에는 같은 길을 맴돈 흔적만 남았다. 시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다.",
+      "intro": "다시 나설 준비를 갖출지, 위험을 감수하고 돌파할지, 남은 길을 줄일지 정한다.",
+      "previous": "kny_night_path",
+      "previousChoice": -1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_shinobu",
+          "card2": null,
+          "label": "시노부와 다음 출발의 회복 준비를 갖춘다",
+          "result": "새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke",
+          "card2": null,
+          "label": "이노스케에게 더 강한 구역을 맡는 자세를 묻는다",
+          "result": "이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "label": "180골드로 발판 확인 도구를 마련하고 이노스케와 보이지 않은 쪽의 움직임도 살핀다",
+          "result": "발판 확인 도구에180골드를 내고 이노스케와 보이지 않는 쪽의 움직임도 살폈다. 그 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 빈 기록지의 같은 길보다 아직 밟지 않은 쪽을 가리킨다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "실패 자체를 무료 성장으로 환급하지 않는다. 자기 실패 기록에서 추가 행동력으로 보완하는 창작이다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_unread_bottles",
+      "title": "지워진 병의 이름",
+      "story": "비에 젖은 보급 상자를 열자 병의 이름표가 번져 있다. 시노부는 이름을 모르는 것을 먼저 쓰지 말라고 하고, 아오이는 확인한 병과 빈 용기부터 따로 놓는다. 젖지 않은 기록지가 있기는 하지만 전부 대조하려면 준비물이 더 필요하다.",
+      "intro": "기록까지 확인할지, 확실한 보급만 챙길지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_shinobu",
+          "card2": null,
+          "label": "새 이름표를 사서 시노부와 병의 기록을 대조한다",
+          "result": "이름표 값을 치르고 기록과 맞는 병을 나누었다. 시노부에게 출발 전에 회복 준비를 확인하는 요령을 듣고 챙겼다. 끝내 읽히지 않는 병은 따로 남겨 함부로 사용하지 않는다.",
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_aoi_supply",
+          "card2": null,
+          "label": "포장 재료를 사서 아오이와 확인된 보급만 챙긴다",
+          "result": "포장 재료를 마련해 확인된 보급만 묶었다. 아오이가 짐을 나누는 순서와 회복 준비를 보여 준다. 기록을 전부 복원하지는 않고, 모르는 병은 다음 확인자에게 남긴다.",
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_shinobu_points",
+          "card2": null,
+          "label": "260골드로 기록 대조 도구를 마련하고 시노부와 다음 상대에 맞는 준비를 구별한다",
+          "result": "기록 대조 도구에260골드를 내고 시노부와 다음 상대에 맞춰 가져갈 준비를 구별했다. 상대를 먼저 살피는 기억으로 방어관통과 보스에게 가하는 피해를 높였다. 시노부는 끝내 읽히지 않은 병을 네 짐에서 빼고 다음 확인자에게 남겨 둔다.",
+          "cost": 260,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 저택 치료·시노부 약학·아오이 지원에서 별도 젖은 보급 문제를 창작한다. 보급병·기록지는 실제 퀘스트 물품이 아니며 미확인 약 사용이나 즉시 치료를 구현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_white_linen",
+      "title": "마르지 않은 흰 천",
+      "story": "회복 중인 사람들에게 건넬 흰 천을 말리려는데 비가 그치지 않는다. 아오이는 아직 마르지 않은 묶음을 펼쳐 보이고, 이노스케는 돌아가면 마른 보급을 가져올 길이 있다고 나선다. 오늘 맡을 길목을 넓혀 가져올지, 필요한 만큼만 새로 구할지 정해야 한다.",
+      "intro": "새 천을 구하거나 돌아가는 길을 맡거나 필요한 범위만 줄인다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_aoi_supply",
+          "card2": null,
+          "label": "새 천을 마련하고 아오이와 보급 묶음을 나눈다",
+          "result": "새 천 값을 내고 필요한 몫을 나누어 묶었다. 아오이에게 다시 빠뜨리지 않도록 보급을 정리하는 준비를 배웠다. 젖은 천은 그대로 말려 두고 오늘 쓸 분량부터 건넨다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_terrain",
+          "card2": null,
+          "label": "이노스케와 돌아가는 보급길을 넓게 맡는다",
+          "result": "이노스케와 돌아가는 길에서 보급을 옮겼다. 길을 살피며 발을 움직이는 요령을 익힌 대신, 넓어진 내 구역에는 적이 더 많이 드나든다. 길 전체가 안전해진 것은 아니다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "label": "180골드로 길을 확인할 도구를 마련하고 이노스케와 보이지 않는 구간을 살핀다",
+          "result": "길을 확인할 도구에180골드를 내고 이노스케와 보이지 않는 구간의 발판을 살폈다. 방어관통과 헤드·백이 없는 공격의 피해를 높이는 기억을 얻고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 젖은 천을 들고도 발을 놓을 곳부터 보라며 다음 길목을 짚는다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 나비저택 치료와 아오이 지원, 이노스케 산 감각에서 마르지 않은 천과 돌아가는 보급길을 별도로 창작한다. 환자 상태·옷 장비·NPC 운반은 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_crow_dispatch",
+      "title": "까마귀가 두 번 읽은 문장",
+      "story": "전령 까마귀가 새 임무를 빠르게 읽는다. 맡을 일을 놓쳐 같은 문장을 다시 듣자 탄지로가 숨을 고르고 확인할 순서를 정하자고 한다. 아오이는 설명을 듣는 동안 출발할 보급을 묶고 있지만, 아직 빠진 준비물이 있다.",
+      "intro": "길게 읽은 안내 뒤에 아직 맡지 않은 준비가 남아 있다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_tanjiro",
+          "card2": null,
+          "label": "기록용품을 사서 탄지로와 맡을 일을 다시 확인한다",
+          "result": "기록용품을 마련하고 서두를 때도 호흡을 흐트러뜨리지 않으며 안내를 다시 나누어 들었다. 탄지로와 배운 준비를 챙겼지만, 맡기지 않은 임무까지 새로 받지는 않는다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_aoi_supply",
+          "card2": null,
+          "label": "부족한 포장을 마련해 아오이와 출발 목록을 맞춘다",
+          "result": "부족한 포장 값을 내고 아오이와 가져갈 몫을 나눴다. 출발 중에도 준비를 이어갈 요령을 챙겼다. 까마귀의 긴 안내를 전부 정리하는 일은 다른 사람에게 남긴다.",
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "label": "180골드로 반복할 준비를 마련하고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞춘다",
+          "result": "반복할 준비에180골드를 내고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞췄다. 꾸준히 되짚은 준비를 기억해 일반 행동속도와 보스에게 가하는 피해를 높였다. 까마귀가 안내를 다시 읽자 탄지로는 이번에는 네가 맡을 동작부터 기다린다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 26화의 전령 까마귀와 새 임무 안내에서 별도 기록 혼선을 창작한다. 특정 본편 임무를 해결하거나 실제 목적지·남은 시간을 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_midday_noise",
+      "title": "너무 많은 소리가 나는 낮",
+      "story": "출발할 짐을 묶는 소리와 발소리가 뒤섞이자 젠이츠가 문턱에서 멈춘다. 한꺼번에 들린 소리 중 무엇을 먼저 확인할지 망설이는 사이, 탄지로는 짐 자루에 묻은 풀을 살핀다. 모든 소리를 없앨 수는 없으니 소리를 줄이거나 확인할 순서를 바꿀 수 있다.",
+      "intro": "짐 소리를 줄이거나 주변 흔적을 먼저 보거나 맡을 범위를 줄인다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_zenitsu_listen",
+          "card2": null,
+          "label": "완충천을 사서 짐 소리를 줄이고 젠이츠와 움직일 순간을 맞춘다",
+          "result": "완충천 값을 내고 부딪치는 짐을 다시 묶었다. 남은 소리 사이에서 한 번 움직일 순간에 집중하는 젠이츠의 준비를 챙겼다. 모든 소리를 알아듣는 능력을 얻은 것은 아니다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_smell",
+          "card2": null,
+          "label": "조사 도구를 사서 탄지로와 주변 흔적부터 확인한다",
+          "result": "조사 도구를 마련하고 짐에 묻은 것과 주변 자국을 차례로 비교했다. 탄지로가 짚어 준 상대를 관찰하는 요령을 공격 준비에 남겼다. 소리 자체는 남아 있지만 확인할 순서는 정했다.",
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_zenitsu",
+          "card2": null,
+          "label": "200골드로 반응 연습 도구를 마련하고 젠이츠와 한 번 움직일 순간을 준비한다",
+          "result": "반응 연습 도구에200골드를 내고 젠이츠와 한 번 움직일 순간을 준비했다. 한순간에 힘을 모으는 기억으로 차지 공격과 치명타 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 짐 소리가 다시 겹쳐도 젠이츠는 네가 힘을 주려는 순간까지 손을 들어 기다린다.",
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 젠이츠 청각과 탄지로 후각을 별도 소란스러운 출발 장면으로 각색한다. 실종자·밤길 수색을 반복하거나 소리 탐지 UI를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_mixed_traces",
+      "title": "같은 자리에 남은 다른 냄새",
+      "story": "저택 밖 보급길의 자국은 한 방향으로 이어지는데, 젖은 짐과 풀 냄새는 서로 다르게 남아 있다. 탄지로는 보이는 자국만 곧장 따르지 않고 냄새가 갈라지는 곳을 짚는다. 이노스케는 주변 길까지 직접 맡으면 알 수 있다고 나선다.",
+      "intro": "조사비와 강한 구역을 감수해 확인할지, 넓은 길을 맡을지, 확인한 곳만 남길지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_tanjiro_smell",
+          "card2": null,
+          "label": "도구를 마련해 탄지로가 짚은 흔적을 조사한다",
+          "result": "조사 도구에140골드를 내고 탄지로와 서로 다른 흔적을 나누어 확인했다. 그 관찰을 기억해 실제 헤드·백 적중 공격의 피해와 방어관통을 높였지만, 내 사냥의 강함 단계는1올랐다. 탄지로는 한 방향으로 난 자국만 다시 보려는 네게 냄새가 갈라진 곳을 짚어 준다.",
+          "cost": 140,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 70,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_terrain",
+          "card2": null,
+          "label": "이노스케와 넓은 주변 길목을 직접 맡는다",
+          "result": "이노스케와 주변 길목을 넓게 맡았다. 빠르게 길을 살피는 준비를 챙긴 대신 내 구역에 더 많은 적이 드나든다. 냄새가 남은 이유를 전부 밝혀 낸 것은 아니다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 2,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "label": "180골드로 발판 확인 도구를 마련하고 이노스케와 자국이 끊긴 쪽도 살핀다",
+          "result": "발판 확인 도구에180골드를 내고 이노스케와 자국이 끊긴 쪽도 살폈다. 보이지 않는 쪽을 놓치지 않는 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮췄다. 이노스케가 다른 길로 발을 옮기자 너는 기록지의 같은 자국에만 표시하려던 손을 거둔다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": "같은 자국에 겹친 냄새를 끝내 나누지 못했다. 조사비는 돌아오지 않고 보상도 없다. 맡기로 한 더 강한 구역은 남는다.",
+      "canonFact": "공식 탄지로 후각·이노스케 산 감각에서 별도 보급길 흔적을 창작한다. 확률 70은 맵 판정이며 원작 감각이 실패했다는 본편 장면을 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_before_departure",
+      "title": "문턱에 남겨 둔 당부",
+      "story": "떠나려던 순간 보급낭의 바닥이 벌어져 준비한 것들이 떨어졌다. 시노부는 상대에 맞춰 가져갈 것을 다시 고르자고 하고, 카나오는 짐을 나누면 발을 옮기는 데 덜 걸린다고 몸으로 보여 준다. 이노스케는 큰 짐을 한쪽으로 모아 들 테니 강한 길을 맡자고 재촉한다.",
+      "intro": "벌어진 보급낭을 계기로 가져갈 준비와 맡을 부담을 다시 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "새 포장을 사서 시노부와 상대에 맞는 준비만 골라 담는다",
+          "result": "새 포장 값을 내고 상대의 특성을 살펴 가져갈 준비를 추렸다. 시노부의 조언을 관통과 강한 상대를 향한 공격 준비에 남겼다. 모든 적에게 쓸 새 독이나 약을 받은 것은 아니다.",
+          "card": "kny_shinobu_points",
+          "card2": null,
+          "gold": 0,
+          "cost": 260,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "운반 도구를 사서 카나오와 움직일 순서에 맞춰 짐을 나눈다",
+          "result": "운반 도구를 마련해 발에 걸리는 짐을 나누었다. 카나오가 보여 준 움직임에 맞춰 정확히 공격할 준비를 챙겼다. 다른 사람의 짐까지 전부 정리하지는 않았다.",
+          "card": "kny_kanao_quiet",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이노스케와 큰 짐을 맡고 더 강한 길목도 받는다",
+          "result": "큰 짐을 모아 맡고 이노스케에게 밀고 나가는 자세를 배웠다. 더 강한 적이 드나드는 내 구역과 방어의 빈틈은 감수해야 한다. 준비물을 모두 새것으로 바꾼 것은 아니다.",
+          "card": "kny_inosuke",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 저택 치료·출발과 시노부 약학·카나오 신체 능력·이노스케 성향을 별도 보급낭 파손으로 각색한다. 새 독 기술·장비 수선 기능·실제 임무 전환은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_senior_challenge",
+      "title": "선배라면 더 강한가",
+      "story": "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. 탄지로는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다. 무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다.",
+      "intro": "선배의 몫과 승부, 인사 뒤의 반복은 서로 다른 준비가 된다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_murata_senior",
+          "card2": null,
+          "label": "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다",
+          "result": "180골드로 준비 물품을 마련하고 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 무라타는 큰소리를 낸 사람보다 끝까지 자리를 지킬 사람이 필요할 때도 있다고 말한다. 이노스케는 아직 누가 더 강한지 답을 못 들었다며 다시 묻는다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke",
+          "card2": null,
+          "label": "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다",
+          "result": "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 받는 피해가 늘어나는 카드 부담을 얻고 개인 사냥의 적 단계도 1 올랐다. 이노스케가 다음 상대부터 찾자 무라타는 선배라는 호칭은 아직 바뀌지 않는다고 한다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "label": "180골드로 연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복한다",
+          "result": "연습할 자리에180골드를 내고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복했다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 강함 단계를1낮춘 뒤 물약1개를 받았다. 무라타가 맡을 자리를 묻자 이노스케는 승부 이야기를 아직 접지 않은 채 그 옆을 돌아본다.",
+          "cost": 180,
+          "gold": 0,
+          "level": -1,
+          "density": 0,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "물의 호흡을 쓰는 선배 귀살대원과 호전적인 이노스케라는 공식 소개에서 방문 중 호칭 갈등을 창작했다. 무라타의 이 발언은 원작 대사가 아니다. 실제 NPC 대련·선후배 게이지·호흡 전수가 없고 카드와 개인 필드만 변한다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_return_to_training",
+      "title": "문 안에 먼저 들어갈 사람",
+      "story": "쉬지 않는 탄지로를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다. 젠이츠는 보는 사람이 있는지 살피고 이노스케는 탄지로보다 먼저 시작한 것처럼 들어가겠다고 한다. 탄지로는 이미 같은 동작을 한 번 더 반복하고 있으니 네가 둘을 부를 말부터 정해야 한다.",
+      "intro": "두 사람을 부를 때 꾸준함을 보여 줄지 승부나 관심을 앞세울지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "탄지로와 반복할 자리를 마련해 두 사람을 부른다",
+          "result": "160골드로 반복할 자리를 마련하고 빠른 동작과 보스에게 힘을 싣는 요령을 배웠다. 탄지로는 어느 쪽이 먼저 왔는지 묻지 않고 두 사람 몫의 자리를 가리킨다. 젠이츠와 이노스케도 문 앞에서 더 버티지는 않는다.",
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이노스케에게 먼저 도전하라며 맡을 길목을 넓힌다",
+          "result": "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 받는 피해가 늘어나는 카드 부담과 함께 개인 사냥의 적 수도 늘었다. 이노스케가 먼저 들어가자 젠이츠는 자기가 뒤처진 것은 아니라며 바로 따라간다.",
+          "card": "kny_inosuke",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "젠이츠에게 반응을 보여 줄 자리를 맡긴다",
+          "result": "200골드로 반응을 보여 줄 자리를 마련하고 차지 일격과 치명타에 힘을 모으는 요령을 배웠다. 젠이츠가 보는 사람 앞쪽에 서려 하자 탄지로는 이번에는 끝까지 함께하자고 부른다. 이노스케는 멀리서 보지 말고 같이 들어오라고 한다.",
+          "card": "kny_zenitsu",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "24화의 젠이츠 동기와 25화의 탄지로를 보고 훈련에 복귀한 두 동료를 바탕으로 문 앞의 자존심 충돌을 창작했다. 플레이어가 카나오의 스승이 되거나 본편 대련 결과·연애 성취를 결정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_frightened_visitor",
+      "title": "물러선 발과 움직이지 않은 손",
+      "story": "해가 진 뒤 저택을 찾은 방문객이 네즈코를 보고 뒤로 물러난다. 네즈코는 손을 뻗지 않고 가만히 있고 탄지로는 동생을 몰아세우지 않으면서도 손님의 놀람을 가볍게 넘기고 싶지 않다. 네가 양쪽의 거리를 지켜 이야기를 들을지 탄지로와 다른 자리를 안내할지 정한다.",
+      "intro": "놀란 사람을 안심시키는 동안 네즈코의 의지를 어떻게 지킬까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_nezuko_will",
+          "card2": null,
+          "label": "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다",
+          "result": "네즈코가 움직이지 않는 동안 상대의 놀람에도 동요하지 않고 좋은 몸 상태를 유지하는 요령을 배웠다. 탄지로는 동생에게 사람을 해치지 말라고 다시 명령하지 않는다. 방문객도 아무 일 없는 두 사람 사이에서 발을 한 번 멈춘다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro",
+          "card2": null,
+          "label": "탄지로와 손님이 머무를 자리를 마련한다",
+          "result": "180골드로 손님이 머무를 자리를 마련하고 탄지로에게 신속과 좋은 몸 상태에서 힘을 쓰는 요령을 배웠다. 탄지로는 손님에게 먼저 거리를 두어도 된다고 말한다. 네즈코는 손님을 따라 움직이지 않는다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_morning_breath",
+          "card2": null,
+          "label": "180골드로 이야기할 자리를 마련하고 탄지로와 말 사이에도 자기 숨을 고른다",
+          "result": "이야기할 자리에180골드를 내고 탄지로와 말 사이에도 자기 숨을 고르며 손님에게 다음 말을 건넸다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고, 내 사냥의 적 수 단계를1낮췄다. 탄지로가 네 말을 기다리는 동안 너도 손님의 대답을 재촉하지 않는다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": null,
+      "canonFact": "네즈코의 자기 의지와 암시·탄지로의 따뜻함이라는 공식 특징을 저택의 야간 방문에 각색했다. 사람을 공격하는 시험·암시 재주입·새 치료·원작 재판 결과·NPC 동행은 없다. 무료 카드도 사건 행동력 1을 소모한다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_first_gourd",
+      "title": "큰 표주박을 고른 손",
+      "story": "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다. 탄지로가 자기 도구에 숨을 잇는 동안 너는 크기가 곧 실력이라는 말을 삼킨다. 아오이는 네가 불어 볼 도구를 내려놓고 설명부터 들을 것인지 묻는다.",
+      "intro": "큰 도구를 골랐지만 설명은 아직 못 들었다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_gourd_breath",
+          "card2": null,
+          "label": "도구값120골드를 먼저 내고 숨을 불어 표주박을 터뜨려 본다",
+          "result": "도구값120골드를 먼저 내고 숨을 이어 표주박을 터뜨렸다. 그 기억으로 차지 공격 대미지14%와일반 행동속도3%가 늘었다. 네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다.",
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 60,
+          "potions": 0
+        },
+        {
+          "card": "kny_morning_breath",
+          "card2": null,
+          "label": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 숨을 계속 잇는 연습을 한다",
+          "result": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 자기 숨을 계속 잇는 연습을 했다. 그 기억으로 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 아오이는 터진 소리를 세기보다 아직 설명하지 않은 다음 숨의 길이를 묻는다.",
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "label": "160골드로 반복할 자리를 마련하고 탄지로와 도구를 들고 거두는 순서부터 맞춘다",
+          "result": "반복할 자리에160골드를 내고 탄지로와 도구를 들고 거두는 차례부터 맞췄다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 아오이가 다음 도구를 건넬 때 너는 먼저 내려놓을 자리를 비운다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다.",
+      "canonFact": "공식 협업 자료의 표주박/전집중상중관계에서 만든 별도 창작 시험이다. 크기·소리·도구값·60%확률은 원작규칙이 아니고 현재체력지불이나 새미니게임은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_morning_greeting",
+      "title": "아직 끝나지 않은 인사",
+      "story": "탄지로에게 아침 인사를 하려는데 그가 대답하다가 자기 호흡의 박자를 다시 잇는다. 하루 종일 유지하려는 연습이라고 듣고 나니 네 다음 질문이 입끝에 남는다. 탄지로는 질문도 듣겠다면서 그 말을 하는 동안에도 자기 숨의 길이를 다시 맞춘다.",
+      "intro": "질문은 남았고 탄지로의 연습도 계속되고 있다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_morning_breath",
+          "card2": null,
+          "label": "180골드로 내 연습 도구를 마련하고 옆에서 자기 숨을 잇는다",
+          "result": "내 연습 도구에180골드를 내고 탄지로 옆에서 자기 숨을 이어 보았다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 탄지로가 남은 질문을 다시 묻자 너도 대답할 말과 이어야 할 숨을 같이 고르게 된다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro",
+          "card2": null,
+          "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따른다",
+          "result": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 끊기지 않는 호흡을 기억해 신속이 늘었으며, 현재 체력65%이상에서 가하는 피해도 높아졌다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_return",
+          "card2": null,
+          "label": "160골드로 연습할 자리를 마련하고 탄지로와 말한 뒤 움직일 차례까지 반복한다",
+          "result": "연습할 자리에160골드를 내고 탄지로와 말한 뒤 움직일 차례까지 반복했다. 꾸준히 이어가는 기억으로 일반 행동속도와 보스에게 가하는 피해를 높였다. 질문이 끝났다고 손을 내리자 탄지로는 아직 남은 다음 동작을 가리킨다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식25화의 온종일 호흡유지연습을 별도 아침 인사로 각색했다. 실제아침대사·원작훈련완성·탄지로구출·새호흡스킬은 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_hand_return",
+      "title": "거두지 못한 마지막 손",
+      "story": "카나오와 손동작으로 반응을 맞추던 네가 끝났다고 생각한 순간에도 손은 앞으로 남아 있다. 카나오는 다음 차례를 준비하고 아오이는 손을 거둘 때도 훈련이라고 말한다. 네가 손을 당기는 사이 카나오는 다음 동작을 이미 기다리고 있다.",
+      "intro": "끝났다고 생각한 손은 아직 돌아오지 않았다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_kanao_return_hand",
+          "card2": null,
+          "label": "200골드로 내 추가 연습 준비를 하고 같은 속도에 다시 맞춘다",
+          "result": "추가 연습 준비에200골드를 내고 같은 속도로 손을 다시 거두었다. 일반 행동속도6%와실제 헤드·백 적중 공격의 대미지10%가 늘었다. 아오이는 손을 내밀 때보다 거둘 때를 지켜보고 카나오는 그 손이 돌아온 다음 차례를 시작한다.",
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_kanao_small_motion",
+          "card2": null,
+          "label": "내 사냥의 적 수 단계를1올리고 손동작을 작게 줄여 다시 본다",
+          "result": "개인 사냥의 적 수 단계를1올리는 부담을 맡고 손동작을 작게 줄여 다시 보았다. 치명타확률6%p와이동속도4%가 늘었다. 카나오가 동작을 바꾸자 너는 작은 움직임도 다시 거둬야 한다는 것을 손끝에서 확인한다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_aoi_supply",
+          "card2": null,
+          "label": "180골드로 도구를 다시 묶을 포장을 마련하고 아오이와 다음 차례의 보급을 나눈다",
+          "result": "포장에180골드를 내고 아오이와 도구를 다시 묶어 다음 차례의 보급을 나눴다. 필요한 몫부터 챙기는 기억으로 초당 최대체력0.4%재생과이후처치당추가골드2를 얻고 물약1개를 받았다. 카나오는 네 손이 남아 있던 자리를 다음 사람에게 비워 둔다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식25화의 회복훈련상대카나오를 바탕으로 만든 손동작 연습이다. 원작 찻잔승부규칙/특정대사·동전유래·카나오마음의큰결말을 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_partition_role",
+      "title": "가림막 뒤의 네 차례",
+      "story": "이노스케가 가림막 뒤로 옮겨 간 네 위치를 가리키고는 이제 네가 맞혀 보라고 한다. 눈앞의 막만 보던 네가 발을 움직이자 이노스케도 다른 쪽으로 발판을 바꾼다. 먼저 막을 걷으려는 네 손을 보고 이노스케는 아직 승부가 끝난 게 아니라고 한다.",
+      "intro": "눈앞의 막을 걷으면 승부도 끝나는 걸까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_inosuke_partition",
+          "card2": null,
+          "label": "180골드로 내 연습 준비를 하고 발판의 변화를 살핀다",
+          "result": "내 연습 준비에180골드를 내고 가림막 너머 발판의 변화를 살폈다. 방어관통8%와헤드·백이 없는 비방향 공격 대미지12%가 늘었다. 네가 한쪽을 가리키자 이노스케는 방금 전과 다른 곳으로 다시 발을 옮긴다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke",
+          "card2": null,
+          "label": "내 사냥의 적 수 단계를1올리고 이노스케처럼 막힌 쪽을 직접 열어 본다",
+          "result": "내 사냥의 적 수 단계를1올리는 부담을 맡고 이노스케처럼 막힌 쪽을 직접 열어 보았다. 일반몬스터에게 가하는 피해와 헤드·백이 없는 공격의 피해를 높이는 돌파를 기억한 대신 받는 피해도 늘어난다. 이노스케는 열린 길을 보더니 다음 막은 누가 맡을 것인지 묻는다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_inosuke_terrain",
+          "card2": null,
+          "label": "160골드로 길목 표식을 마련하고 이노스케와 돌아갈 보폭을 맞춘다",
+          "result": "길목 표식에160골드를 내고 이노스케와 돌아갈 보폭을 맞췄다. 먼저 발을 놓을 길을 살피는 기억으로 이동속도와 일반몬스터에게 가하는 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 방금 남긴 표식을 넘어가려다 네가 돌아올 자리를 다시 짚는 것을 본다.",
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "chance": 100,
+          "potions": 1
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물소개 이노스케의 호전성과 촉각에서 만든 별도 가림막놀이이다. 실제맵투시·감지·자동조준·이노스케동료소환은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "kny_after_first_gourd",
+      "title": "터진 소리 다음에는",
+      "story": "첫 표주박 도전이 끝난 뒤 네가 도구를 내려놓으려는데 탄지로는 아직 숨을 잇고 있다. 아오이가 터진 소리만 세면 다음 박자를 놓친다고 네 손을 본다. 네가 첫 성공을 다시 말하려 하자 탄지로는 다음 숨은 언제 시작할 것인지 묻는다.",
+      "intro": "첫 소리는 끝났지만 숨은 아직 이어진다.",
+      "previous": "kny_first_gourd",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "card": "kny_gourd_second",
+          "card2": null,
+          "label": "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다",
+          "result": "다음 연습 도구에140골드를 내고 터진 소리 뒤에도 숨을 이어 보았다. 차지 준비속도9%와차지 공격 대미지10%가 늘었다. 탄지로는 첫 성공을 다시 세는 대신 방금 잇기 시작한 숨이 어디까지 가는지 기다린다.",
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_tanjiro_smell",
+          "card2": null,
+          "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 빈틈을 보는 감각을 기억한다",
+          "result": "개인 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 빈틈을 보는 감각을 기억했다. 실제 헤드·백 적중 공격의 대미지14%와방어관통5%가 늘었다. 탄지로는 네가 성공한 쪽만 다시 보자 이번에는 다음 동작이 시작되는 쪽을 가리킨다.",
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "chance": 100,
+          "potions": 0
+        },
+        {
+          "card": "kny_morning_breath",
+          "card2": null,
+          "label": "180골드로 내 연습 도구를 마련하고 탄지로와 성공 뒤에도 숨을 계속 잇는다",
+          "result": "내 연습 도구에180골드를 내고 탄지로와 성공 뒤에도 자기 숨을 계속 이었다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고 물약2개를 받았다. 아오이는 터진 도구를 치우며 이번에는 설명이 끝나기 전에 네가 움직이는지 살핀다.",
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "chance": 100,
+          "potions": 2
+        }
+      ],
+      "failure": null,
+      "canonFact": "자기첫표주박도전성공1번 뒤에만열리는 창작후속이다. 다른플레이어성공/자기실패/자기2번으로열리지않으며 부모카드를반복보상하지않는다.",
+      "uncertain": []
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 134,
+    "events": 112,
+    "roots": 73,
+    "followups": 39
+  },
+  "contentGroups": 21,
+  "catalogMatches": true,
+  "reviewDocumentMatches": true,
+  "newRootCases": 12,
+  "branchCases": 62,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "c345c6dfb60bdc34109987cf49a8969cf32b7f3c7f8217a669f1d4407637b933",
+  "mapCreated": false,
+  "limits": [
+    "모의 네이티브 환경이다.",
+    "실제 Warcraft·멀티플레이·UI·저장·프레임·플레이 재미와 밸런스는 미검증이다."
+  ],
+  "usage": {
+    "used": 37,
+    "remaining": 63
+  }
+}

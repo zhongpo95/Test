@@ -1,0 +1,26 @@
+{
+  "counts": {
+    "heads": 13,
+    "cards": 144,
+    "events": 125,
+    "roots": 86,
+    "followups": 39
+  },
+  "contentGroups": 21,
+  "statGroups": 8,
+  "newRootCases": 13,
+  "branchCases": 69,
+  "compilerExit": 0,
+  "pjassExit": 0,
+  "ignoredErrors": 24,
+  "scriptSha256": "ee98e3b7cc0dca2c133a4ed836cc81b826cab6303736c378264819e1058e65dd",
+  "mapCreated": false,
+  "limits": [
+    "실제 JASS 함수의 모의 실행과 스크립트 컴파일이다.",
+    "Warcraft·화면·실제 멀티·서버 저장·프레임·재미·밸런스 미검증."
+  ],
+  "usage": {
+    "used": 37,
+    "remaining": 63
+  }
+}

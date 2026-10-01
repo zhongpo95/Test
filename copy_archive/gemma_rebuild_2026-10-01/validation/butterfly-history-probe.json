@@ -1,0 +1,24 @@
+{
+  "scope": "선택 1의 성공·실패 후속, 개인 기록, 추가 행동력과 기존 카드 유지",
+  "runs": [
+    {
+      "roll": 70,
+      "history": 1,
+      "followup": "kny_night_found",
+      "gold": 800,
+      "actionPoints": 8,
+      "previousCardRetained": true
+    },
+    {
+      "roll": 71,
+      "history": -1,
+      "followup": "kny_night_wrong",
+      "gold": 680,
+      "actionPoints": 8,
+      "previousCardRetained": null
+    }
+  ],
+  "passed": true,
+  "mapCreated": false,
+  "validation": "JASS 변환 모의 실행. Warcraft 런타임·화면·멀티플레이 미검증."
+}

@@ -1,0 +1,22 @@
+{
+  "requested": {
+    "spreadsheet_id": "1_NkRRjECX_Evlgl2u7RAi5r-HGXGRpXNAd2i9yccAkM",
+    "range": "A41:H90",
+    "sheet_name": "카드",
+    "value_render_option": "FORMATTED_VALUE"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "range": "'카드'!A41:H90",
+      "majorDimension": "ROWS",
+      "values": []
+    },
+    "isError": false
+  }
+}

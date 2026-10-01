@@ -1,0 +1,438 @@
+{
+  "review": false,
+  "system": "한국어 캐릭터 카드 집필자다. 제공한6개를모두반환하고 key·name·grade·effects·evolution을정확히복사한다. 효과이름은인물의준비나태도이며정책·밸런스항목이름이아니다. 지정숫자를추정하지않는다.",
+  "schema": {
+    "type": "object",
+    "required": [
+      "cards",
+      "events"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "cards": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "name",
+            "effectName",
+            "keyword",
+            "grade",
+            "effects",
+            "evolution",
+            "canonFact",
+            "uncertain"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "effectName": {
+              "type": "string"
+            },
+            "keyword": {
+              "type": "string"
+            },
+            "grade": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4
+            },
+            "effects": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/effect"
+              }
+            },
+            "evolution": {
+              "type": "object",
+              "required": [
+                "kind",
+                "goal",
+                "effects"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "goal": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "effects": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/effect"
+                  }
+                }
+              }
+            },
+            "canonFact": {
+              "type": "string"
+            },
+            "uncertain": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "title",
+            "story",
+            "intro",
+            "previous",
+            "previousChoice",
+            "requiredCard",
+            "choices",
+            "failure",
+            "canonFact",
+            "uncertain"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "story": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "previous": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "previousChoice": {
+              "type": "integer",
+              "minimum": -4,
+              "maximum": 4
+            },
+            "requiredCard": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "result",
+                  "card",
+                  "card2",
+                  "gold",
+                  "cost",
+                  "level",
+                  "density",
+                  "potions",
+                  "chance"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  },
+                  "card": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "card2": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "gold": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "cost": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "level": {
+                    "type": "integer",
+                    "minimum": -4,
+                    "maximum": 4
+                  },
+                  "density": {
+                    "type": "integer",
+                    "minimum": -6,
+                    "maximum": 6
+                  },
+                  "potions": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "chance": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100
+                  }
+                }
+              }
+            },
+            "failure": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "canonFact": {
+              "type": "string"
+            },
+            "uncertain": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "$defs": {
+      "effect": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stat",
+          "value"
+        ],
+        "properties": {
+          "stat": {
+            "type": "string",
+            "enum": [
+              "attack_percent",
+              "damage_percent",
+              "final_damage_percent",
+              "boss_damage_percent",
+              "normal_damage_percent",
+              "crit_chance",
+              "crit_damage",
+              "swift",
+              "action_speed",
+              "move_speed",
+              "charge_speed",
+              "penetration",
+              "max_health_percent",
+              "damage_reduction",
+              "leech",
+              "regeneration",
+              "kill_gold",
+              "event_choices",
+              "moving_damage",
+              "directional_damage",
+              "nondirectional_damage",
+              "shielded_damage",
+              "charge_damage",
+              "healthy_damage"
+            ]
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "brief": {
+    "cards": [
+      {
+        "key": "kny_aoi_supply",
+        "name": "칸자키 아오이",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.4
+          },
+          {
+            "stat": "kill_gold",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "fact": "저택의 치료·수련 지원을 전투 중 회복 준비와 처치 뒤 수급 정리로 각색. 원작에 처치골드 능력이 있다는 뜻이 아니다."
+      },
+      {
+        "key": "kny_kanao_quiet",
+        "name": "츠유리 카나오",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 5
+          },
+          {
+            "stat": "crit_chance",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "fact": "높은 신체 능력과 반응 수련 상대 역할을 이동 준비와 정확한 공격으로 각색. 실제 회피 확률·동전·자동 이동 없음."
+      },
+      {
+        "key": "kny_tanjiro_smell",
+        "name": "카마도 탄지로",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "directional_damage",
+            "value": 14
+          },
+          {
+            "stat": "penetration",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 6
+            }
+          ]
+        },
+        "fact": "후각과 상대 급소를 읽는 공식 인물 소재를 방향 적중 피해와 개인 방어 관통으로 각색. 냄새 탐지 UI·새 호흡 기술 없음."
+      },
+      {
+        "key": "kny_shinobu_points",
+        "name": "코쵸 시노부",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 8
+          },
+          {
+            "stat": "boss_damage_percent",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "fact": "공식 약학·독 전투의 소재를 상대 특성에 맞는 공격 준비로 각색. 실제 독·지속피해·전염·즉사 기술 지급 없음."
+      },
+      {
+        "key": "kny_zenitsu_listen",
+        "name": "아가츠마 젠이츠",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 7
+          },
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "charge_damage",
+              "value": 8
+            }
+          ]
+        },
+        "fact": "공식 청각과 한순간 집중한 공격의 소재를 차지 준비로 각색. 새 소리 감지 기능·실신 필요 없음."
+      },
+      {
+        "key": "kny_inosuke_terrain",
+        "name": "하시비라 이노스케",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 5
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 15
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "fact": "산에서 자란 감각과 돌파 성향을 길을 읽는 이동 준비와 일반 적 상대 준비로 각색. 실제 벽 통과·쌍검 기술 없음."
+      }
+    ],
+    "sourceFacts": [
+      {
+        "source": "https://kimetsu.com/anime/risshihen/story/?story=24",
+        "fact": "부상당한 탄지로·젠이츠·이노스케가 시노부 저택에서 치료받고 기능회복훈련을 한다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/risshihen/story/?story=25",
+        "fact": "탄지로는 호흡을 하루내내 이어가는 수련을 하며 카나오와의 훈련에 점차 성과를 얻는다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/risshihen/story/?story=26",
+        "fact": "훈련을 마무리하던 탄지로에게 전령 까마귀가 새 임무를 전한다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/hashirageikohen/character/",
+        "fact": "탄지로후각, 젠이츠청각, 이노스케산감각·돌파, 카나오신체능력, 시노부약학·독 전투 역할. 네즈코햇빛극복 등 후기줄거리변화는 초기저택소재에 혼합하지않는다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/character/?chara=kanawo",
+        "fact": "공식 인물 포털은 탄지로가 상대 급소의 냄새를 나눈다고 소개한다. URL은 아래 sources에 정정해 사용한다."
+      },
+      {
+        "source": "https://kimetsu.com/anime/risshihen/news/?id=53319",
+        "fact": "공식뉴스는 기능회복훈련의 반사·전신훈련 및 박을 소재로 한 행사를 소개하며 칸자키아오이·테라우치키요의 지원역할을 언급한다. 우리맵에는그행사나게임을구현하지않는다."
+      }
+    ],
+    "format": "cards길이6,events는빈배열[]. key/name/grade/effects/evolution은입력값그대로. effectName/keyword/canonFact/uncertain[]만작성한다. 차지속도와이동속도는%,치명확률은%p,재생은maxHP%/초,처치골드는고정골드다. 신규스킬·독·호흡·일격즉사·자동회피·실제NPC·탐지UI가추가되는효과로쓰지않는다."
+  }
+}

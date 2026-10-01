@@ -1,0 +1,18 @@
+{
+  "type":"object","required":["cards","events"],"additionalProperties":false,
+  "properties":{
+    "cards":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["key","name","effectName","keyword","grade","effects","evolution","canonFact","uncertain"],"properties":{
+      "key":{"type":"string"},"name":{"type":"string"},"effectName":{"type":"string"},"keyword":{"type":"string"},"grade":{"type":"integer","minimum":1,"maximum":4},
+      "effects":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/effect"}},
+      "evolution":{"type":"object","required":["kind","goal","effects"],"additionalProperties":false,"properties":{"kind":{"type":"integer","minimum":0,"maximum":3},"goal":{"type":"number","minimum":0},"effects":{"type":"array","items":{"$ref":"#/$defs/effect"}}}},
+      "canonFact":{"type":"string"},"uncertain":{"type":"array","items":{"type":"string"}}
+    }}},
+    "events":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["key","title","story","intro","previous","previousChoice","requiredCard","choices","failure","canonFact","uncertain"],"properties":{
+      "key":{"type":"string"},"title":{"type":"string"},"story":{"type":"string"},"intro":{"type":"string"},"actionCost":{"type":"integer","enum":[0,1]},"previous":{"type":["string","null"]},"previousChoice":{"type":"integer","minimum":-4,"maximum":4},"requiredCard":{"type":["string","null"]},
+      "choices":{"type":"array","minItems":2,"maxItems":4,"items":{"type":"object","required":["label","result","card","card2","gold","cost","level","density","potions","chance"],"additionalProperties":false,"properties":{
+        "label":{"type":"string"},"result":{"type":"string"},"card":{"type":["string","null"]},"card2":{"type":["string","null"]},"gold":{"type":"integer","minimum":0},"cost":{"type":"integer","minimum":0},"level":{"type":"integer","minimum":-4,"maximum":4},"density":{"type":"integer","minimum":-6,"maximum":6},"potions":{"type":"integer","minimum":0,"maximum":0},"chance":{"type":"integer","minimum":1,"maximum":100}
+      }}},"failure":{"type":["string","null"]},"canonFact":{"type":"string"},"uncertain":{"type":"array","items":{"type":"string"}}
+    }}}
+  },
+  "$defs":{"effect":{"type":"object","additionalProperties":false,"required":["stat","value"],"properties":{"stat":{"type":"string","enum":["attack_percent","damage_percent","final_damage_percent","boss_damage_percent","normal_damage_percent","crit_chance","crit_damage","swift","action_speed","move_speed","charge_speed","penetration","max_health_percent","damage_reduction","leech","regeneration","kill_gold","event_choices","moving_damage","directional_damage","nondirectional_damage","shielded_damage","charge_damage","healthy_damage","action_capacity"]},"value":{"type":"number"}}}}
+}

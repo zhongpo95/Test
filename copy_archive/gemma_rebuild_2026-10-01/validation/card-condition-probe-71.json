@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "aru": {
+    "bossRate": 1.18,
+    "normalRate": 0.94,
+    "otherPlayerUnchanged": true
+  },
+  "mutsuki": {
+    "critDamage": 20,
+    "critChance": 0,
+    "withoutHeadBackFlags": 10,
+    "withEitherFlag": 0
+  },
+  "haruka": {
+    "life": 7559.999999999999,
+    "maximum": 10800,
+    "ratio": 0.7,
+    "regeneration": 0.5,
+    "repeatRefreshStable": true
+  },
+  "limits": "실제 카드 지급·스탯 재계산·조건부 피해 함수의 변환 모의 실행이다. Warcraft·실제 화면·멀티플레이·재미·밸런스·실시간 재생 검증은 아니다.",
+  "mapCreated": false
+}

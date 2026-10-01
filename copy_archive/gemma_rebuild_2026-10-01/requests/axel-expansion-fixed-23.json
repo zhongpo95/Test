@@ -1,0 +1,346 @@
+{
+  "cards": [
+    {
+      "key": "axel_aqua_stage",
+      "name": "아쿠아",
+      "effectName": "박수가 끝난 뒤의 준비",
+      "keyword": "사건 후보 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "연회 재주와 지원 역할을 여러 부탁을 비교하고 오래 움직일 준비로 각색한다. 공연 미니게임·박수 자원·즉시 회복·부활은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_darkness_small",
+      "name": "다크니스",
+      "effectName": "갑옷 옆에 남긴 작은 자리",
+      "keyword": "최대 체력 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "귀여운 물건 취향과 방어 역할을 몸 상태를 지키고 다음 싸움을 오래 이어 갈 준비로 각색한다. 인형 장비·NPC 호위·명중 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_yunyun_practice",
+      "name": "융융",
+      "effectName": "다른 마법도 준비할 시간",
+      "keyword": "차지 · 비방향 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 12
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 10000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "능력 높고 상식적인 홍마족 아크 위저드·메구밍의 라이벌 역할을 힘을 모으고 주변을 넓게 볼 준비로 각색한다. 추가 마법·시전 자원·우정 게이지·사냥 시간 증가는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_mitsurugi_stance",
+      "name": "미츠루기",
+      "effectName": "이름을 말하기 전의 자세",
+      "keyword": "방향 피해 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "정의감 강한 소드마스터와 마검 그람 사용을 큰 상대에게 공격 방향을 고르는 준비로 각색한다. 마검 그람을 실제 영구 무기로 지급하거나 새 검 기술을 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_luna_arrival",
+      "name": "루나",
+      "effectName": "처음 온 사람의 다음 질문",
+      "keyword": "사건 후보 · 수급 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "kill_gold",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "길드에서 모험가를 안내하는 역할을 여러 부탁과 얻을 몫을 확인하며 오래 움직일 준비로 각색한다. 접수창구 기능·신규 의뢰 시스템·길드원 동행은 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "axel_party_water",
+      "title": "박수 뒤에 남은 물자리",
+      "scene": "아쿠아가 연회 재주를 보여 주겠다며 빈 자리를 찾는다. 카즈마는 물을 쓰기 전에 옆의 보급 상자부터 치우라고 하고 루나는 막 들어온 모험가의 안내도 남았다고 한다. 무대를 준비할지 바깥 일을 맡을지 정해야 한다.",
+      "choices": [
+        {
+          "action": "준비물 값을 보태고 아쿠아와 보급 상자를 먼저 나눈다",
+          "card": "axel_aqua_stage",
+          "card2": null,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "카즈마와 더 많은 적이 오가는 바깥 길목을 맡는다",
+          "card": "axel_kazuma",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "남은 상자를 치우고 정리 보수와 물약을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 130,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 아쿠아의 연회 재주·루나의 안내와 카즈마 모험가 역할에서 별도 공연 전 준비를 만든다. 물 공연의 실제 연출·미니게임·보급품 손실·구경꾼 NPC는 생성하지 않는다."
+    },
+    {
+      "key": "axel_small_figure",
+      "title": "갑옷보다 작은 진열품",
+      "scene": "다크니스가 귀여운 진열품 앞에서 걸음을 멈추자 크리스는 갑옷으로 통행까지 막겠냐며 옆을 가리킨다. 카즈마는 빈 상자를 치우는 일부터 끝내자고 한다. 진열을 나눌지 더 많은 적이 오가는 바깥 자리를 맡을지 정한다.",
+      "choices": [
+        {
+          "action": "포장 용품을 마련해 다크니스와 진열 옆의 자리를 비운다",
+          "card": "axel_darkness_small",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "다크니스와 더 많은 적이 오가는 바깥 자리를 맡는다",
+          "card": "axel_darkness",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "크리스와 통행 구역을 줄이고 도구를 정리한다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 140,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 다크니스의 귀여운 물건 선호·방어 역할, 크리스와 친구 관계에서 별도 진열 문제를 만들었다. 성적 취향을 사건 자원으로 쓰거나 인형·갑옷을 새 영구 장비로 주지 않는다."
+    },
+    {
+      "key": "axel_rival_target",
+      "title": "표적 하나에 다른 연습",
+      "scene": "융융이 메구밍에게 표적과 순서를 나누자고 제안한다. 메구밍은 폭렬 마법을 쓸 자리부터 보자고 하고 카즈마는 빈 표적 하나에 모두 몰리지 말라고 한다. 네가 맡을 준비를 정하자 융융은 아직 꺼내지 않은 도구를 펼친다.",
+      "choices": [
+        {
+          "action": "준비 도구를 마련해 융융과 다른 공격의 간격을 짚는다",
+          "card": "axel_yunyun_practice",
+          "card2": null,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "메구밍과 더 강한 적이 접근하는 바깥 자리를 맡는다",
+          "card": "axel_megumin",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "맡을 구역을 줄이고 표적 정리 보수와 물약을 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 120,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 융융의 상식적 성격·높은 능력·메구밍 라이벌과 메구밍의 폭렬 마법 선호에서 별도 표적 준비를 만든다. 실제 추가 마법·폭발·사냥 시간 연장·승부 판정은 없다."
+    },
+    {
+      "key": "axel_sword_introduction",
+      "title": "검의 이름보다 먼저 할 말",
+      "scene": "미츠루기가 아쿠아에게 마검 그람을 설명하려는데 카즈마는 옆길을 막은 준비물부터 가리킨다. 아쿠아는 이야기를 듣기 전에 어디에 설지 먼저 묻는다. 미츠루기는 이름을 말하려다 멈추고 바깥에서 맡을 자리를 다시 본다.",
+      "choices": [
+        {
+          "action": "표시 용품을 마련해 미츠루기와 공격 방향을 짚는다",
+          "card": "axel_mitsurugi_stance",
+          "card2": null,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "크리스와 더 많은 적이 드나드는 바깥 길목을 맡는다",
+          "card": "axel_chris",
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "준비물을 옮기고 작업 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "gold": 150,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 미츠루기의 마검 그람·정의감·아쿠아 존숭에서 별도 자기소개 준비를 창작한다. 그람 탈취·반환의 원작 사건을 재현했다고 주장하지 않으며 플레이어에게 그람을 지급하지 않는다."
+    },
+    {
+      "key": "axel_newcomer_questions",
+      "title": "처음 온 사람의 두 번째 질문",
+      "scene": "루나가 새로 온 모험가에게 길을 알려 주는데 안내표 한 장이 남은 보급 상자 아래에 깔려 있다. 길드에서 늘 모험가를 맞는 남자는 먼저 들어올 자리부터 비우자고 한다. 카즈마는 바깥의 더 강한 적이 오가는 길과 창구의 질문을 한 사람이 다 맡지 말자고 한다.",
+      "choices": [
+        {
+          "action": "기록용품을 마련해 루나와 남은 질문을 나눈다",
+          "card": "axel_luna_arrival",
+          "card2": null,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "카즈마와 더 강한 적이 오가는 안내 길목을 맡는다",
+          "card": "axel_kazuma",
+          "card2": null,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "gold": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "action": "맡을 길목을 줄이고 안내표 정리 보수를 받는다",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "gold": 130,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonFact": "공식 루나의 액셀 길드 안내와 길드의 거친 남자가 모험가를 환영하는 역할에서 별도 신참 안내를 만들었다. 새 의뢰를 자동 완수하거나 대책 없는 NPC 출격을 생성하지 않는다."
+    }
+  ],
+  "sourceFacts": [
+    {
+      "source": "https://konosuba.com/3rd/character/",
+      "fact": "공식 본문의 아쿠아 연회 재주, 다크니스의 귀여운 물건 취향·방어 역할과 크리스의 친구 관계, 융융의 상식적인 홍마족·메구밍 라이벌, 미츠루기의 마검 그람·아쿠아 존숭, 루나의 안내와 모험가를 환영하는 거친 남자를 확인했다. 새 다섯 준비 문제는 별도 창작이다."
+    }
+  ]
+}

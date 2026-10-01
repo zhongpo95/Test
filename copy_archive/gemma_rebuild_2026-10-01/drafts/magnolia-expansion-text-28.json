@@ -1,0 +1,565 @@
+{
+  "started": "2026-10-01T14:47:04.261Z",
+  "finished": "2026-10-01T14:47:44.475Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "system": "한국어 사건 작가다. story3문장·intro1문장·result2~3문장이다. key와 선택 순서를 유지한다. 각 expectedSuccess의 지불·배운 요령·보수·물약·개인 적 강함과 수 변화를 빠짐없이 설명하며 인물의 다음 행동을 덧붙인다. 공식 대사를 인용하지 않는다. 칭찬·효율·최적·깊은신뢰·체계적준비만 반복하지 않는다.",
+    "brief": {
+      "sourceFacts": [
+        {
+          "source": "https://www.gamecity.ne.jp/fairytail/characters-gajeel.html",
+          "fact": "철을 먹어 힘을 얻는 멸룡마도사이며 파트너가 리리라는 공식 소개를 읽었다. 철 식사 혼동은 창작이다."
+        },
+        {
+          "source": "https://www.gamecity.ne.jp/fairytail/characters-juvia.html",
+          "fact": "수류 마법을 쓰며 그레이를 좋아해 길드에 합류한 공식 소개를 읽었다. 우산 분배는 창작이다."
+        },
+        {
+          "source": "https://www.gamecity.ne.jp/fairytail/characters-mirajane.html",
+          "fact": "잡지에도 등장하며 길드 업무를 돕는 간판 인물, 전 S급의 공식 소개를 읽었다. 방문객 혼동은 창작이다."
+        },
+        {
+          "source": "https://www.gamecity.ne.jp/fairytail/characters-laxus.html",
+          "fact": "소통에 서툴고 동료를 강하게 아끼는 S급 마도사라는 소개를 읽었다. 새 사건은 복귀 뒤의 독립 만남이며 과거 파문을 다시 결정하지 않는다."
+        },
+        {
+          "source": "https://www.gamecity.ne.jp/fairytail/characters-gildarts.html",
+          "fact": "파괴 마법을 다루며 무심코 주변 건물을 부수는 특징을 읽었다. 벽 파손 장면은 글로 창작했다."
+        },
+        {
+          "source": "https://www.fairytail100yq.com/character/lucy-heartfilia.html",
+          "fact": "공식 100년 퀘스트 인물 본문에서 신인 소설가라는 소개를 확인했다. 창작 소설과 독자의 질문은 맵 각색이다. 서로 다른 인물 소개의 사건 시점을 한 날짜로 묶지 않는다."
+        }
+      ],
+      "events": [
+        {
+          "key": "ft_iron_lunch",
+          "scene": "가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다.",
+          "choices": [
+            {
+              "action": "분류 용품을 마련해 가질과 먹을 철을 나눈다",
+              "expectedSuccess": {
+                "paidGold": 200,
+                "learned": "공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "나츠와 더 강한 적이 오가는 부품 길목을 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "공격에 힘을 싣고 작은 상대를 처리하는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "사용할 부품만 정리하고 작업 보수를 받는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 140,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "ft_two_umbrellas",
+          "scene": "쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다.",
+          "choices": [
+            {
+              "action": "우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다",
+              "expectedSuccess": {
+                "paidGold": 180,
+                "learned": "몸 상태를 오래 유지하는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "그레이와 더 많은 적이 오가는 바깥 길목을 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "힘을 모으며 넓은 범위를 살피는 공격 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "맡을 길목을 줄이고 남은 우산을 정리한다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 120,
+                "receivedPotions": 1,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": -1
+              }
+            }
+          ]
+        },
+        {
+          "key": "ft_magazine_queue",
+          "scene": "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다.",
+          "choices": [
+            {
+              "action": "표시 용품을 내고 미라젠과 방문 목적을 구분한다",
+              "expectedSuccess": {
+                "paidGold": 210,
+                "learned": "여러 부탁을 비교하고 빈틈에 힘을 싣는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "여러 부탁과 얻을 몫을 기록하는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 2
+              }
+            },
+            {
+              "action": "사진을 돌려주고 방문 정리 보수를 받는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 150,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "ft_laxus_short_reply",
+          "scene": "렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 루시는 두 사람이 다른 답을 들었다고 한다. 먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다.",
+          "choices": [
+            {
+              "action": "표시 용품을 내고 렉서스가 남긴 뒤쪽을 확인한다",
+              "expectedSuccess": {
+                "paidGold": 220,
+                "learned": "큰 상대의 빈틈에 힘을 집중하는 대신 공격력 일부를 낮춘 성장",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "나츠와 더 강한 적이 오가는 앞쪽을 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "공격에 힘을 싣고 작은 상대를 처리하는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "맡을 구역을 줄이고 남은 연락을 전달한다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 130,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": -1
+              }
+            }
+          ]
+        },
+        {
+          "key": "ft_gildarts_wall",
+          "scene": "길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다.",
+          "choices": [
+            {
+              "action": "표시 용품을 내고 길다트와 손이 닿는 간격을 짚는다",
+              "expectedSuccess": {
+                "paidGold": 240,
+                "learned": "간격을 재며 강한 방어에 힘을 모으는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "엘자와 더 강한 적이 오가는 바깥 자리를 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "공격 방향과 빈틈을 고르는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "강한 적이 오는 입구를 줄이고 파편 정리 보수를 받는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 140,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": -1,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "안쪽 파편만 정리하고 물약을 받는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 0,
+                "receivedPotions": 2,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        },
+        {
+          "key": "ft_lucy_unfinished",
+          "scene": "루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다. 해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다.",
+          "choices": [
+            {
+              "action": "종이 값을 내고 루시와 독자가 멈춘 갈래를 읽는다",
+              "expectedSuccess": {
+                "paidGold": 170,
+                "learned": "다른 갈래를 읽고 빈틈을 찾는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            },
+            {
+              "action": "루시와 다른 부탁을 기록하고 더 많은 길목을 맡는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": "여러 부탁과 얻을 몫을 기록하는 요령",
+                "receivedGold": 0,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 1
+              }
+            },
+            {
+              "action": "읽은 종이를 정리하고 전달 보수를 받는다",
+              "expectedSuccess": {
+                "paidGold": 0,
+                "learned": null,
+                "receivedGold": 120,
+                "receivedPotions": 0,
+                "personalEnemyStrengthChange": 0,
+                "personalEnemyCountChange": 0
+              }
+            }
+          ]
+        }
+      ],
+      "rules": [
+        "전부성공100%.카드는사건에서플레이어가배운성장,비용은분류·우산표시·방문표시·연락표시·간격표시·종이다. 물약은소비하지않고보급품으로받는다.0이나null은추가효과없음.",
+        "흡수·재생은성장카드이며사건에서현재체력을지불하거나즉시치유하지않는다. NPC가잘움직인일로플레이어의카드효과를대신하지않는다.",
+        "그레이원작기술·성령소환·철을플레이어가먹는기능·사진자원·렉서스번개·길다트의파괴마법은지급하지않는다.개인사냥의적강함과수는선택뒤계속유지된다.",
+        "같은풀에들어있어도여러시점이다.렉서스복귀후·루시소설의성장시점과기존길드재건을모두같은날로묶지않는다.서로다른작품단계의결말·길드해산·도시파괴를해결하지않는다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "story",
+              "intro",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "label",
+                    "result"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 작가다. story3문장·intro1문장·result2~3문장이다. key와 선택 순서를 유지한다. 각 expectedSuccess의 지불·배운 요령·보수·물약·개인 적 강함과 수 변화를 빠짐없이 설명하며 인물의 다음 행동을 덧붙인다. 공식 대사를 인용하지 않는다. 칭찬·효율·최적·깊은신뢰·체계적준비만 반복하지 않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"sourceFacts\":[{\"source\":\"https://www.gamecity.ne.jp/fairytail/characters-gajeel.html\",\"fact\":\"철을 먹어 힘을 얻는 멸룡마도사이며 파트너가 리리라는 공식 소개를 읽었다. 철 식사 혼동은 창작이다.\"},{\"source\":\"https://www.gamecity.ne.jp/fairytail/characters-juvia.html\",\"fact\":\"수류 마법을 쓰며 그레이를 좋아해 길드에 합류한 공식 소개를 읽었다. 우산 분배는 창작이다.\"},{\"source\":\"https://www.gamecity.ne.jp/fairytail/characters-mirajane.html\",\"fact\":\"잡지에도 등장하며 길드 업무를 돕는 간판 인물, 전 S급의 공식 소개를 읽었다. 방문객 혼동은 창작이다.\"},{\"source\":\"https://www.gamecity.ne.jp/fairytail/characters-laxus.html\",\"fact\":\"소통에 서툴고 동료를 강하게 아끼는 S급 마도사라는 소개를 읽었다. 새 사건은 복귀 뒤의 독립 만남이며 과거 파문을 다시 결정하지 않는다.\"},{\"source\":\"https://www.gamecity.ne.jp/fairytail/characters-gildarts.html\",\"fact\":\"파괴 마법을 다루며 무심코 주변 건물을 부수는 특징을 읽었다. 벽 파손 장면은 글로 창작했다.\"},{\"source\":\"https://www.fairytail100yq.com/character/lucy-heartfilia.html\",\"fact\":\"공식 100년 퀘스트 인물 본문에서 신인 소설가라는 소개를 확인했다. 창작 소설과 독자의 질문은 맵 각색이다. 서로 다른 인물 소개의 사건 시점을 한 날짜로 묶지 않는다.\"}],\"events\":[{\"key\":\"ft_iron_lunch\",\"scene\":\"가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다.\",\"choices\":[{\"action\":\"분류 용품을 마련해 가질과 먹을 철을 나눈다\",\"expectedSuccess\":{\"paidGold\":200,\"learned\":\"공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"나츠와 더 강한 적이 오가는 부품 길목을 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"공격에 힘을 싣고 작은 상대를 처리하는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"사용할 부품만 정리하고 작업 보수를 받는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":140,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"ft_two_umbrellas\",\"scene\":\"쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다.\",\"choices\":[{\"action\":\"우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다\",\"expectedSuccess\":{\"paidGold\":180,\"learned\":\"몸 상태를 오래 유지하는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"그레이와 더 많은 적이 오가는 바깥 길목을 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"힘을 모으며 넓은 범위를 살피는 공격 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"맡을 길목을 줄이고 남은 우산을 정리한다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":120,\"receivedPotions\":1,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":-1}}]},{\"key\":\"ft_magazine_queue\",\"scene\":\"길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다.\",\"choices\":[{\"action\":\"표시 용품을 내고 미라젠과 방문 목적을 구분한다\",\"expectedSuccess\":{\"paidGold\":210,\"learned\":\"여러 부탁을 비교하고 빈틈에 힘을 싣는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"여러 부탁과 얻을 몫을 기록하는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":2}},{\"action\":\"사진을 돌려주고 방문 정리 보수를 받는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":150,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"ft_laxus_short_reply\",\"scene\":\"렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 루시는 두 사람이 다른 답을 들었다고 한다. 먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다.\",\"choices\":[{\"action\":\"표시 용품을 내고 렉서스가 남긴 뒤쪽을 확인한다\",\"expectedSuccess\":{\"paidGold\":220,\"learned\":\"큰 상대의 빈틈에 힘을 집중하는 대신 공격력 일부를 낮춘 성장\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"나츠와 더 강한 적이 오가는 앞쪽을 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"공격에 힘을 싣고 작은 상대를 처리하는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"맡을 구역을 줄이고 남은 연락을 전달한다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":130,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":-1}}]},{\"key\":\"ft_gildarts_wall\",\"scene\":\"길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다.\",\"choices\":[{\"action\":\"표시 용품을 내고 길다트와 손이 닿는 간격을 짚는다\",\"expectedSuccess\":{\"paidGold\":240,\"learned\":\"간격을 재며 강한 방어에 힘을 모으는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"엘자와 더 강한 적이 오가는 바깥 자리를 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"공격 방향과 빈틈을 고르는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":1,\"personalEnemyCountChange\":0}},{\"action\":\"강한 적이 오는 입구를 줄이고 파편 정리 보수를 받는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":140,\"receivedPotions\":0,\"personalEnemyStrengthChange\":-1,\"personalEnemyCountChange\":0}},{\"action\":\"안쪽 파편만 정리하고 물약을 받는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":0,\"receivedPotions\":2,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]},{\"key\":\"ft_lucy_unfinished\",\"scene\":\"루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다. 해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다.\",\"choices\":[{\"action\":\"종이 값을 내고 루시와 독자가 멈춘 갈래를 읽는다\",\"expectedSuccess\":{\"paidGold\":170,\"learned\":\"다른 갈래를 읽고 빈틈을 찾는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}},{\"action\":\"루시와 다른 부탁을 기록하고 더 많은 길목을 맡는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":\"여러 부탁과 얻을 몫을 기록하는 요령\",\"receivedGold\":0,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":1}},{\"action\":\"읽은 종이를 정리하고 전달 보수를 받는다\",\"expectedSuccess\":{\"paidGold\":0,\"learned\":null,\"receivedGold\":120,\"receivedPotions\":0,\"personalEnemyStrengthChange\":0,\"personalEnemyCountChange\":0}}]}],\"rules\":[\"전부성공100%.카드는사건에서플레이어가배운성장,비용은분류·우산표시·방문표시·연락표시·간격표시·종이다. 물약은소비하지않고보급품으로받는다.0이나null은추가효과없음.\",\"흡수·재생은성장카드이며사건에서현재체력을지불하거나즉시치유하지않는다. NPC가잘움직인일로플레이어의카드효과를대신하지않는다.\",\"그레이원작기술·성령소환·철을플레이어가먹는기능·사진자원·렉서스번개·길다트의파괴마법은지급하지않는다.개인사냥의적강함과수는선택뒤계속유지된다.\",\"같은풀에들어있어도여러시점이다.렉서스복귀후·루시소설의성장시점과기존길드재건을모두같은날로묶지않는다.서로다른작품단계의결말·길드해산·도시파괴를해결하지않는다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T14:47:44.4725672Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"events\": [\n    {\n      \"key\": \"ft_iron_lunch\",\n      \"story\": \"가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다.\",\n      \"intro\": \"길드 내의 분주한 분위기 속에서 가질의 식사 준비가 시작된다.\",\n      \"choices\": [\n        {\n          \"label\": \"분류 용품을 마련해 가질과 먹을 철을 나눈다\",\n          \"result\": \"분류 용품을 지불하고 가질의 식사 재료를 명확히 구분하였다. 공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령을 배웠으며, 200골드를 지불했다. 가질의 식사가 정리되는 것을 확인하며 다음 구역을 살핀다.\"\n        },\n        {\n          \"label\": \"나츠와 더 강한 적이 오가는 부품 길목을 맡는다\",\n          \"result\": \"외부에서 부품을 가져오는 역할을 맡아 나츠와 함께 이동한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 부품을 확보하며 주변을 경계한다.\"\n        },\n        {\n          \"label\": \"사용할 부품만 정리하고 작업 보수를 받는다\",\n          \"result\": \"부품을 정리하는 작업에 집중하여 보수를 챙긴다. 140골드를 받았으며 추가적인 요령이나 변화는 없다. 정리가 끝난 후 미라젠에게 보고한다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ft_two_umbrellas\",\n      \"story\": \"쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다.\",\n      \"intro\": \"쥬비아의 세심한 배려와 미라젠의 현실적인 조율이 겹치는 상황이다.\",\n      \"choices\": [\n        {\n          \"label\": \"우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다\",\n          \"result\": \"우산 표시 용품을 지불하고 쥬비아의 요청에 따라 물량을 배분한다. 몸 상태를 오래 유지하는 요령을 배웠으며 180골드를 지불했다. 배분이 완료된 후 우산 거치대를 확인한다.\"\n        },\n        {\n          \"label\": \"그레이와 더 많은 적이 오가는 바깥 길목을 맡는다\",\n          \"result\": \"그레이와 동행하며 외부의 위험 요소에 대비한다. 힘을 모으며 넓은 범위를 살피는 공격 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 외곽을 순찰하며 길을 확보한다.\"\n        },\n        {\n          \"label\": \"맡을 길목을 줄이고 남은 우산을 정리한다\",\n          \"result\": \"담당 구역을 좁히는 대신 남은 우산 수량을 정리한다. 120골드를 받았으며 물약 1개를 획득했다. 적의 수가 1명 줄어들었으며 정리가 끝난 후 휴식을 취한다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ft_magazine_queue\",\n      \"story\": \"길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다.\",\n      \"intro\": \"미라젠의 인지도 때문에 엉켜버린 방문객들의 의뢰를 정리해야 한다.\",\n      \"choices\": [\n        {\n          \"label\": \"표시 용품을 내고 미라젠과 방문 목적을 구분한다\",\n          \"result\": \"표시 용품을 지불하여 방문객들의 목적을 체계적으로 분류한다. 여러 부탁을 비교하고 빈틈에 힘을 싣는 요령을 배웠으며 210골드를 지불했다. 분류된 의뢰서를 미라젠에게 전달한다.\"\n        },\n        {\n          \"label\": \"루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다\",\n          \"result\": \"루시를 도와 밀린 의뢰 내용을 파악하며 외곽을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 적의 강함은 그대로이나 적의 수가 2명 늘어났다. 기록을 마친 후 외곽을 계속 살핀다.\"\n        },\n        {\n          \"label\": \"사진을 돌려주고 방문 정리 보수를 받는다\",\n          \"result\": \"사진을 돌려주며 방문객들의 안내를 마무리하고 보수를 챙긴다. 150골드를 받았으며 추가적인 요령이나 변화는 없다. 다음 방문객을 맞이할 준비를 한다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ft_laxus_short_reply\",\n      \"story\": \"렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 루시는 두 사람이 다른 답을 들었다고 한다. 먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다.\",\n      \"intro\": \"렉서스의 짧은 의사소통으로 인해 발생한 오해를 바로잡아야 한다.\",\n      \"choices\": [\n        {\n          \"label\": \"표시 용품을 내고 렉서스가 남긴 뒤쪽을 확인한다\",\n          \"result\": \"표시 용품을 지불하고 렉서스의 의도를 정확히 파악하기 위해 뒤쪽을 확인한다. 큰 상대의 빈틈에 힘을 집중하는 대신 공격력 일부를 낮춘 성장 요령을 배웠으며 220골드를 지불했다. 확인된 내용을 나츠에게 전달한다.\"\n        },\n        {\n          \"label\": \"나츠와 더 강한 적이 오가는 앞쪽을 맡는다\",\n          \"result\": \"나츠와 협력하여 앞쪽의 위협에 대응한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 전방을 방어하며 나츠와 호흡을 맞춘다.\"\n        },\n        {\n          \"label\": \"맡을 구역을 줄이고 남은 연락을 전달한다\",\n          \"result\": \"담당 구역을 축소하는 대신 남은 연락 사항을 전달하는 데 집중한다. 130골드를 받았으며 추가적인 요령이나 변화는 없다. 연락이 완료된 후 주변 상황을 정리한다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ft_gildarts_wall\",\n      \"story\": \"길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다.\",\n      \"intro\": \"길다트의 파괴적인 힘으로 인해 발생한 파손 부위를 수습해야 한다.\",\n      \"choices\": [\n        {\n          \"label\": \"표시 용품을 내고 길다트와 손이 닿는 간격을 짚는다\",\n          \"result\": \"표시 용품을 지불하고 길다트의 이동 경로와 안전 거리를 확보한다. 간격을 재며 강한 방어에 힘을 모으는 요령을 배웠으며 240골드를 지불했다. 안전 거리를 확보한 후 이동 경로를 안내한다.\"\n        },\n        {\n          \"label\": \"엘자와 더 강한 적이 오가는 바깥 자리를 맡는다\",\n          \"result\": \"엘자와 협력하여 외곽의 강력한 적들을 상대한다. 공격 방향과 빈틈을 고르는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 외곽 경계에 집중한다.\"\n        },\n        {\n          \"label\": \"강한 적이 오는 입구를 줄이고 파편 정리 보수를 받는다\",\n          \"result\": \"입구 쪽 방어 범위를 좁히는 대신 파편을 정리하여 보수를 받는다. 140골드를 받았으며 개인 적의 강함이 1 감소했다. 파편 정리를 마친 후 입구를 재점검한다.\"\n        },\n        {\n          \"label\": \"안쪽 파편만 정리하고 물약을 받는다\",\n          \"result\": \"내부의 파편을 정리하는 데 집중한다. 물약 2개를 보급받았으며 추가적인 요령이나 변화는 없다. 파편 정리를 끝내고 내부를 재정비한다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"ft_lucy_unfinished\",\n      \"story\": \"루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다. 해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다.\",\n      \"intro\": \"루시의 소설을 읽는 독자와의 소통에서 발생하는 흐름을 조율한다.\",\n      \"choices\": [\n        {\n          \"label\": \"종이 값을 내고 루시와 독자가 멈춘 갈래를 읽는다\",\n          \"result\": \"종이 값을 지불하고 독자가 궁금해하는 지점을 함께 읽어준다. 다른 갈래를 읽고 빈틈을 찾는 요령을 배웠으며 170골드를 지불했다. 독자의 질문에 답하며 이야기를 이어간다.\"\n        },\n        {\n          \"label\": \"루시와 다른 부탁을 기록하고 더 많은 길목을 맡는다\",\n          \"result\": \"루시를 도와 다른 의뢰를 기록하며 외곽 길목을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 적의 강함은 그대로이나 적의 수가 1명 늘어났다. 기록을 마친 후 외곽을 감시한다.\"\n        },\n        {\n          \"label\": \"읽은 종이를 정리하고 전달 보수를 받는다\",\n          \"result\": \"읽은 종이들을 정리하고 관련 보수를 챙긴다. 120골드를 받았으며 추가적인 요령이나 변화는 없다. 정리가 끝난 후 다음 의뢰를 확인한다.\"\n        }\n      ]\n    }\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 40180259300,
+    "load_duration": 2201800,
+    "prompt_eval_count": 2592,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1220331000,
+    "eval_count": 2586,
+    "eval_duration": 38611869000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "ft_iron_lunch",
+        "story": "가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다.",
+        "intro": "길드 내의 분주한 분위기 속에서 가질의 식사 준비가 시작된다.",
+        "choices": [
+          {
+            "label": "분류 용품을 마련해 가질과 먹을 철을 나눈다",
+            "result": "분류 용품을 지불하고 가질의 식사 재료를 명확히 구분하였다. 공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령을 배웠으며, 200골드를 지불했다. 가질의 식사가 정리되는 것을 확인하며 다음 구역을 살핀다."
+          },
+          {
+            "label": "나츠와 더 강한 적이 오가는 부품 길목을 맡는다",
+            "result": "외부에서 부품을 가져오는 역할을 맡아 나츠와 함께 이동한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 부품을 확보하며 주변을 경계한다."
+          },
+          {
+            "label": "사용할 부품만 정리하고 작업 보수를 받는다",
+            "result": "부품을 정리하는 작업에 집중하여 보수를 챙긴다. 140골드를 받았으며 추가적인 요령이나 변화는 없다. 정리가 끝난 후 미라젠에게 보고한다."
+          }
+        ]
+      },
+      {
+        "key": "ft_two_umbrellas",
+        "story": "쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다.",
+        "intro": "쥬비아의 세심한 배려와 미라젠의 현실적인 조율이 겹치는 상황이다.",
+        "choices": [
+          {
+            "label": "우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다",
+            "result": "우산 표시 용품을 지불하고 쥬비아의 요청에 따라 물량을 배분한다. 몸 상태를 오래 유지하는 요령을 배웠으며 180골드를 지불했다. 배분이 완료된 후 우산 거치대를 확인한다."
+          },
+          {
+            "label": "그레이와 더 많은 적이 오가는 바깥 길목을 맡는다",
+            "result": "그레이와 동행하며 외부의 위험 요소에 대비한다. 힘을 모으며 넓은 범위를 살피는 공격 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 외곽을 순찰하며 길을 확보한다."
+          },
+          {
+            "label": "맡을 길목을 줄이고 남은 우산을 정리한다",
+            "result": "담당 구역을 좁히는 대신 남은 우산 수량을 정리한다. 120골드를 받았으며 물약 1개를 획득했다. 적의 수가 1명 줄어들었으며 정리가 끝난 후 휴식을 취한다."
+          }
+        ]
+      },
+      {
+        "key": "ft_magazine_queue",
+        "story": "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다.",
+        "intro": "미라젠의 인지도 때문에 엉켜버린 방문객들의 의뢰를 정리해야 한다.",
+        "choices": [
+          {
+            "label": "표시 용품을 내고 미라젠과 방문 목적을 구분한다",
+            "result": "표시 용품을 지불하여 방문객들의 목적을 체계적으로 분류한다. 여러 부탁을 비교하고 빈틈에 힘을 싣는 요령을 배웠으며 210골드를 지불했다. 분류된 의뢰서를 미라젠에게 전달한다."
+          },
+          {
+            "label": "루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다",
+            "result": "루시를 도와 밀린 의뢰 내용을 파악하며 외곽을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 적의 강함은 그대로이나 적의 수가 2명 늘어났다. 기록을 마친 후 외곽을 계속 살핀다."
+          },
+          {
+            "label": "사진을 돌려주고 방문 정리 보수를 받는다",
+            "result": "사진을 돌려주며 방문객들의 안내를 마무리하고 보수를 챙긴다. 150골드를 받았으며 추가적인 요령이나 변화는 없다. 다음 방문객을 맞이할 준비를 한다."
+          }
+        ]
+      },
+      {
+        "key": "ft_laxus_short_reply",
+        "story": "렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 루시는 두 사람이 다른 답을 들었다고 한다. 먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다.",
+        "intro": "렉서스의 짧은 의사소통으로 인해 발생한 오해를 바로잡아야 한다.",
+        "choices": [
+          {
+            "label": "표시 용품을 내고 렉서스가 남긴 뒤쪽을 확인한다",
+            "result": "표시 용품을 지불하고 렉서스의 의도를 정확히 파악하기 위해 뒤쪽을 확인한다. 큰 상대의 빈틈에 힘을 집중하는 대신 공격력 일부를 낮춘 성장 요령을 배웠으며 220골드를 지불했다. 확인된 내용을 나츠에게 전달한다."
+          },
+          {
+            "label": "나츠와 더 강한 적이 오가는 앞쪽을 맡는다",
+            "result": "나츠와 협력하여 앞쪽의 위협에 대응한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 전방을 방어하며 나츠와 호흡을 맞춘다."
+          },
+          {
+            "label": "맡을 구역을 줄이고 남은 연락을 전달한다",
+            "result": "담당 구역을 축소하는 대신 남은 연락 사항을 전달하는 데 집중한다. 130골드를 받았으며 추가적인 요령이나 변화는 없다. 연락이 완료된 후 주변 상황을 정리한다."
+          }
+        ]
+      },
+      {
+        "key": "ft_gildarts_wall",
+        "story": "길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다.",
+        "intro": "길다트의 파괴적인 힘으로 인해 발생한 파손 부위를 수습해야 한다.",
+        "choices": [
+          {
+            "label": "표시 용품을 내고 길다트와 손이 닿는 간격을 짚는다",
+            "result": "표시 용품을 지불하고 길다트의 이동 경로와 안전 거리를 확보한다. 간격을 재며 강한 방어에 힘을 모으는 요령을 배웠으며 240골드를 지불했다. 안전 거리를 확보한 후 이동 경로를 안내한다."
+          },
+          {
+            "label": "엘자와 더 강한 적이 오가는 바깥 자리를 맡는다",
+            "result": "엘자와 협력하여 외곽의 강력한 적들을 상대한다. 공격 방향과 빈틈을 고르는 요령을 배웠고, 개인 적의 강함이 1 상승했으며 적의 수가 1명 늘어났다. 외곽 경계에 집중한다."
+          },
+          {
+            "label": "강한 적이 오는 입구를 줄이고 파편 정리 보수를 받는다",
+            "result": "입구 쪽 방어 범위를 좁히는 대신 파편을 정리하여 보수를 받는다. 140골드를 받았으며 개인 적의 강함이 1 감소했다. 파편 정리를 마친 후 입구를 재점검한다."
+          },
+          {
+            "label": "안쪽 파편만 정리하고 물약을 받는다",
+            "result": "내부의 파편을 정리하는 데 집중한다. 물약 2개를 보급받았으며 추가적인 요령이나 변화는 없다. 파편 정리를 끝내고 내부를 재정비한다."
+          }
+        ]
+      },
+      {
+        "key": "ft_lucy_unfinished",
+        "story": "루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다. 해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다.",
+        "intro": "루시의 소설을 읽는 독자와의 소통에서 발생하는 흐름을 조율한다.",
+        "choices": [
+          {
+            "label": "종이 값을 내고 루시와 독자가 멈춘 갈래를 읽는다",
+            "result": "종이 값을 지불하고 독자가 궁금해하는 지점을 함께 읽어준다. 다른 갈래를 읽고 빈틈을 찾는 요령을 배웠으며 170골드를 지불했다. 독자의 질문에 답하며 이야기를 이어간다."
+          },
+          {
+            "label": "루시와 다른 부탁을 기록하고 더 많은 길목을 맡는다",
+            "result": "루시를 도와 다른 의뢰를 기록하며 외곽 길목을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 적의 강함은 그대로이나 적의 수가 1명 늘어났다. 기록을 마친 후 외곽을 감시한다."
+          },
+          {
+            "label": "읽은 종이를 정리하고 전달 보수를 받는다",
+            "result": "읽은 종이들을 정리하고 관련 보수를 챙긴다. 120골드를 받았으며 추가적인 요령이나 변화는 없다. 정리가 끝난 후 다음 의뢰를 확인한다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "94202cc1-5c32-42ef-9dfa-abcd43cb28da"
+}

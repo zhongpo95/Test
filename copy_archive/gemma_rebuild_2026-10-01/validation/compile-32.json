@@ -1,0 +1,9 @@
+{
+  "template": "C:\\Users\\ctqho\\AppData\\Local\\Temp\\arcana-rl06-prototype-20260929\\input.j",
+  "template_sha256": "637072615fdc57e906555dac734622a98bd149b3003ebc746587444868f4bad7",
+  "compiler_exit": 0,
+  "map_created": false,
+  "pjass_exit": 0,
+  "script_sha256": "eb5b1c89ce1d03c9e14e74d2c0faec84579c927115fbbef0bba1c367f3cca104",
+  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:    88207 lines: war3map.j\r\nParse successful:   100116 lines: <total>\r\n24 errors ignored\r\n"
+}

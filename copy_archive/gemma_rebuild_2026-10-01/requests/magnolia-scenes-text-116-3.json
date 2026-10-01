@@ -1,0 +1,889 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "ft_controlled_flame",
+                "ft_iron_lunch",
+                "ft_two_umbrellas",
+                "ft_magazine_queue"
+              ]
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "index",
+                  "actionText",
+                  "reactionText"
+                ],
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "actionText": {
+                    "type": "string"
+                  },
+                  "reactionText": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어사건집필자. index/카드/행동/수치는고정하며각결과의actionText는자신이한일의과거형,reactionText는인물의물건/말과남은문제다. 문자열안에JSON조각/내부키를넣지않는다. 실제원작능력/장비/동행/승리를지급하지않으며칭찬반복과능력치산문을피한다.",
+  "brief": {
+    "events": [
+      {
+        "key": "ft_controlled_flame",
+        "title": "잘못 태우면 안 되는 것",
+        "story": "나츠와 공격 준비를 해 본 뒤 운반할 짐 옆에서 다시 힘을 맞춘다. 나츠는 크게 힘을 싣는 쪽을 권하지만, 엘자는 옆의 짐을 가리키며 한 번 더 간격을 확인하라고 한다. 강한 일격과 정확한 간격 중 무엇을 준비할까?",
+        "intro": "나츠와 엘자가 서로 다른 방식의 공격 준비를 제안하며 짐을 살피고 있다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": "ft_natsu",
+        "choices": [
+          {
+            "index": 1,
+            "label": "나츠와 한 번의 일격에 힘을 싣는다",
+            "result": "가림막과 훈련 도구를 마련해 나츠를 따라 한 번의 일격에 힘을 모으자, 다음 움직임은 늦어졌다. 커진 소리를 듣고 큰 짐승까지 다가오기 시작했다.",
+            "card": "ft_natsu_focus",
+            "card2": null,
+            "gold": 0,
+            "cost": 260,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "엘자와 빗나갈 간격을 줄인다",
+            "result": "엘자는 옆의 짐을 건드리지 않고 검을 멈춰 보라고 했다. 훈련 도구를 마련해 다시 간격을 맞추자, 힘을 더 싣기 전에 볼 자리를 찾았다.",
+            "card": "ft_erza_blade",
+            "card2": null,
+            "gold": 0,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "100골드로 보급을 마련하고 엘자와 검을 잡을 쪽만 남겨 담당 길목을 줄인다",
+            "card": "ft_erza_balance",
+            "card2": null,
+            "cost": 100,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100,
+            "result": ""
+          }
+        ],
+        "failure": null,
+        "canonFact": "나츠의 열정과 동료를 생각하는 성격, 엘자의 검·무구 준비를 각색했다. 원작 고유 기술이나 실제 NPC전투를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_iron_lunch",
+        "title": "아직 쓰는 철과 먹을 철",
+        "story": "가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다.",
+        "intro": "식사할 철과 아직 쓸 부품을 어떻게 나눌까?",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "분류 용품을 마련해 가질과 먹을 철을 나눈다",
+            "result": "분류 용품을 마련해 가질의 식사 재료를 명확히 구분하였다. 공격을 이어 가며 버틸 힘을 얻고 일격에 힘을 싣는 요령을 배웠으며, 200골드를 지불했다. 가질은 의자에 끼울 부품 쪽을 밀어 놓고 먹을 철만 자기 앞으로 당긴다. 미라젠은 아직 쓸 철을 식사로 내놓지 않게 표시를 남긴다.",
+            "card": "ft_gajeel_meal",
+            "card2": null,
+            "gold": 0,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "나츠와 더 강한 적이 오가는 부품 길목을 맡는다",
+            "result": "외부에서 부품을 가져오는 역할을 맡아 나츠와 함께 이동한다. 공격에 힘을 싣고 작은 상대를 처리하는 요령을 배웠고, 개인 사냥의 적 단계가 1 올라갔다. 나츠는 부품을 가져올 길을 가리키고 가질은 이번에는 먹을 철과 바꿔 들지 말라고 한다.",
+            "card": "ft_natsu",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "160골드로 표시 도구를 마련하고 가질과 아직 쓸 철만 맡아 길목을 줄인다",
+            "card": "ft_gajeel_mark",
+            "card2": null,
+            "cost": 160,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100,
+            "result": ""
+          }
+        ],
+        "failure": null,
+        "canonFact": "공식 가질의 철을 먹는 특징에서 식사용 철과 수리 부품의 혼동을 창작했다. 플레이어에게 철 소비·의자 수리 시스템·원작 기술을 만들지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_two_umbrellas",
+        "title": "한 사람에게 모인 두 우산",
+        "story": "쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다. 웬디는 돌아오는 길에서 쓸 보급도 함께 나눠 둘지 묻는다.",
+        "intro": "그레이 몫을 먼저 챙길지 돌아올 사람부터 셀지 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "우산 표시 용품을 내고 쥬비아와 돌아올 몫을 나눈다",
+            "result": "우산 표시 용품을 마련해 쥬비아의 요청에 따라 물량을 배분한다. 몸 상태를 오래 유지하는 요령을 배웠으며 180골드를 지불했다. 쥬비아가 그레이 쪽에 두었던 우산 하나를 옮기자 미라젠은 아직 돌아오지 않은 사람의 몫을 짚는다.",
+            "card": "ft_juvia_umbrella",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "그레이와 더 많은 적이 오가는 바깥 길목을 맡는다",
+            "result": "그레이와 동행하며 외부의 위험 요소에 대비한다. 힘을 모으며 넓은 범위를 살피는 공격 요령을 배웠고, 개인 사냥의 적 수가 늘었다. 그레이는 자기 우산을 더 늘리지 말자고 하고 쥬비아는 돌아올 자리에 하나만 남겨 둔다.",
+            "card": "ft_gray",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "120골드로 보급을 마련하고 웬디와 돌아올 길목을 줄인다",
+            "card": "ft_wendy_pace",
+            "card2": null,
+            "cost": 120,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100,
+            "result": ""
+          }
+        ],
+        "failure": null,
+        "canonFact": "공식 쥬비아의 그레이를 따르는 성격과 수류 마법 설정에서 별도 우산 분배를 창작했다. 연애 결말을 바꾸거나 수류 신체·즉시 회복을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_magazine_queue",
+        "title": "의뢰보다 먼저 내민 잡지",
+        "story": "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다.",
+        "intro": "사진을 가져온 손님과 의뢰인을 같은 줄에 둘지 정한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "index": 1,
+            "label": "표시 용품을 내고 미라젠과 방문 목적을 구분한다",
+            "result": "표시 용품을 마련해 방문객들의 목적을 따로 듣는다. 여러 부탁을 비교하고 빈틈에 힘을 싣는 요령을 배웠으며 210골드를 지불했다. 미라젠은 사진을 내민 사람에게 먼저 보고 싶던 것이 무엇인지 묻는다. 루시는 뒤에서 기다리던 의뢰인의 서류를 따로 받는다.",
+            "card": "ft_mirajane_visitors",
+            "card2": null,
+            "gold": 0,
+            "cost": 210,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 2,
+            "label": "루시와 밀린 부탁을 읽고 더 많은 길목을 맡는다",
+            "result": "루시를 도와 밀린 의뢰 내용을 파악하며 외곽을 방어한다. 여러 부탁과 얻을 몫을 기록하는 요령을 배웠고, 개인 사냥의 적 수가 늘었다. 루시는 부탁의 첫 줄을 다시 읽고 미라젠은 사진을 가져온 손님에게 지금은 이야기를 길게 듣기 어렵다고 말한다.",
+            "card": "ft_lucy",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 2,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "120골드로 보급을 마련하고 미라젠과 다음 손님을 위해 맡을 길목을 줄인다",
+            "card": "ft_mirajane_stock",
+            "card2": null,
+            "cost": 120,
+            "gold": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100,
+            "result": ""
+          }
+        ],
+        "failure": null,
+        "canonFact": "공식 잡지에도 등장하는 미라젠과 길드 일을 돕는 역할에서 방문객의 혼동을 창작했다. 사진 판매·인기도·팬 동행·성적 연출은 없다.",
+        "uncertain": []
+      }
+    ],
+    "cards": [
+      {
+        "key": "ft_happy",
+        "name": "해피",
+        "effectName": "하늘에서 찾은 귀환길",
+        "keyword": "이동",
+        "grade": 1,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "날개 마법으로 비행하는 나츠의 동료이며 생선을 좋아한다. 카드 효과는 정찰한 길을 활용하는 이동 준비다. 실제 비행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_natsu",
+        "name": "나츠 드래그닐",
+        "effectName": "화룡의 철권",
+        "keyword": "공격 · 일반 몬스터",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 12
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 12000,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 8
+            }
+          ]
+        },
+        "canonFact": "불의 멸룡마도사인 나츠의 공격적인 전투를 각색했다. 별도 화염 공격·원작 기술은 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_lucy",
+        "name": "루시 하트필리아",
+        "effectName": "의뢰를 잇는 기록",
+        "keyword": "탐색 · 수급",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "kill_gold",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "성령마도사이며 글을 쓰는 루시의 역할을 의뢰 기록과 수급으로 각색했다. 성령 소환을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_gray",
+        "name": "그레이 풀버스터",
+        "effectName": "아이스 메이크",
+        "keyword": "차지 · 비방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "charge_damage",
+            "value": 18
+          },
+          {
+            "stat": "nondirectional_damage",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 12000,
+          "effects": [
+            {
+              "stat": "charge_speed",
+              "value": 6
+            }
+          ]
+        },
+        "canonFact": "얼음을 여러 형태의 무기로 만드는 조형마법을 차지와 비방향 공격으로 각색했다. 차지·비방향 판정이 있는 기존 스킬에 적용된다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_erza_blade",
+        "name": "엘자 스칼렛",
+        "effectName": "검 하나에 실은 결심",
+        "keyword": "방향 · 치명",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "directional_damage",
+            "value": 16
+          },
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 15
+            }
+          ]
+        },
+        "canonFact": "무기와 갑옷을 순간적으로 환장하는 엘자의 전투를 방향 적중 준비로 각색했다. 원작 갑옷 이름이나 신규 무기를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_erza_guard",
+        "name": "엘자 스칼렛",
+        "effectName": "갑옷을 고르는 이유",
+        "keyword": "체력 · 보호막",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 10
+          },
+          {
+            "stat": "shielded_damage",
+            "value": 16
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "엘자가 여러 갑옷을 준비한다는 설정에서 방어 태세를 각색했다. 카드는 보호막을 생성하지 않으며 기존 보호막 중에만 피해 보너스가 적용된다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_wendy",
+        "name": "웬디 마벨",
+        "effectName": "하늘의 부가술",
+        "keyword": "재생 · 공격",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.7
+          },
+          {
+            "stat": "attack_percent",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공기를 힘의 근원으로 삼으며 부가마법과 치유를 다루는 웬디의 역할을 재생·공격력으로 표현했다. 흡수·재생 합산 한도를 따른다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_charles",
+        "name": "샤를",
+        "effectName": "놓치지 않는 징후",
+        "keyword": "고체력 · 생존",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 60,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 4
+            }
+          ]
+        },
+        "canonFact": "웬디의 동료이며 때때로 예지 능력을 보이는 샤를을 위험 징후에 주의를 기울이는 준비로 각색했다. 확정 예언·실제 다음 보스 정보 기능은 제공하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_natsu_focus",
+        "name": "나츠 드래그닐",
+        "effectName": "동료를 향한 불꽃",
+        "keyword": "공격 · 최종 대미지",
+        "grade": 3,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 10
+          },
+          {
+            "stat": "final_damage_percent",
+            "value": 6
+          },
+          {
+            "stat": "action_speed",
+            "value": -4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "감정이 격해지기 쉽고 동료를 생각하는 나츠의 성격을 일격에 힘을 싣는 성장으로 각색했다. 드래곤 포스나 신규 발동 스킬을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_gajeel_meal",
+        "name": "가질 레드폭스",
+        "effectName": "먹을 몫과 남길 몫",
+        "keyword": "흡수 · 공격",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "leech",
+            "value": 1.5
+          },
+          {
+            "stat": "attack_percent",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 50,
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.3
+            }
+          ]
+        },
+        "canonFact": "철을 먹어 힘을 얻는 멸룡마도사의 설정을 공격을 이어 가며 버틸 힘을 얻는 성장으로 각색한다. 플레이어의 철 식사·재료 소모·원작 기술은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_juvia_umbrella",
+        "name": "쥬비아 록서",
+        "effectName": "하나 더 남긴 우산",
+        "keyword": "재생 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.4
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "그레이를 한결같이 따르는 수류 마도사의 배려를 좋은 몸 상태를 유지하는 성장으로 각색한다. 연애 성취·물의 신체·즉시 치료는 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_mirajane_visitors",
+        "name": "미라젠 스트라우스",
+        "effectName": "사진 밖의 부탁",
+        "keyword": "사건 후보 · 치명타 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "crit_damage",
+            "value": 14
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "잡지에도 등장하는 길드의 간판 인물과 길드 업무를 돕는 역할을 부탁 구분과 빈틈에 힘을 싣는 성장으로 각색한다. 사진 자원·변신·사탄 소울·인기 게이지는 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_laxus_reply",
+        "name": "렉서스 드레아",
+        "effectName": "짧은 말의 뒷자리",
+        "keyword": "보스 · 치명타 피해 · 패널티",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 10
+          },
+          {
+            "stat": "crit_damage",
+            "value": 18
+          },
+          {
+            "stat": "attack_percent",
+            "value": -3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "소통에 서툴지만 동료를 아끼는 S급 마도사의 힘과 책임을 보스 집중·일격 준비와 공격력 패널티로 각색한다. 과거 파문 사건·번개 기술·본편 관계 해결은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_gildarts_distance",
+        "name": "길다트 클라이브",
+        "effectName": "손이 닿기 전에",
+        "keyword": "관통 · 차지",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 6
+          },
+          {
+            "stat": "charge_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 14000,
+          "effects": [
+            {
+              "stat": "penetration",
+              "value": 3
+            }
+          ]
+        },
+        "canonFact": "파괴 마법과 무심코 주변을 부수는 특징을 간격·강한 방어에 힘을 싣는 성장으로 각색한다. 플레이어의 파괴 마법·건물 파손·실제 무구를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_lucy_reader",
+        "name": "루시 하트필리아",
+        "effectName": "결말 앞의 다른 길",
+        "keyword": "사건 후보 · 치명타 확률",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "신인 소설가라는 소개를 다른 갈래를 읽고 빈틈을 찾는 성장으로 각색한다. 실제 출판·새 보상표·성령 소환·미래 확정 기능은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_gray_joint",
+        "name": "그레이 풀버스터",
+        "effectName": "형태를 잡기 전의 틈",
+        "keyword": "치명 피해 · 비방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 14
+          },
+          {
+            "stat": "nondirectional_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 얼음 조형마도사 역할에서 받침을 맞추기 전에 틈을 살피는 기억이다. 비방향은 헤드/백 플래그가 없는 기존 공격이다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_wendy_pace",
+        "name": "웬디 마벨",
+        "effectName": "서두르지 않을 발",
+        "keyword": "이동 · 재생",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 3
+          },
+          {
+            "stat": "regeneration",
+            "value": 0.4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 부가마법·치유 역할에서 돌아갈 준비를 자신의 걸음과 몸 상태에 맞추는 기억이다. 재생은 초당 최대체력0.4%이고 흡수와 합산10%한도를 따른다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_erza_balance",
+        "name": "엘자 스칼렛",
+        "effectName": "검을 잡을 쪽은 비워 두기",
+        "keyword": "방향 · 받는 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "directional_damage",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 무기·갑옷 환장 역할에서 자신의 짐과 공격할 자리를 구분하는 기억이다. 방향은 기존 헤드/백 판정, 받는 피해는4%감소다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_lucy_copy",
+        "name": "루시 하트필리아",
+        "effectName": "다시 적기 전에 읽을 줄",
+        "keyword": "행동 속도 · 치명 확률",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          },
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 글을 쓰는 성령마도사 역할에서 다음 줄을 서두르기 전에 확인하는 기억이다. 런의 행동속도와 치명확률이며 미래나 출판을 확정하지 않는다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_charles_check",
+        "name": "샤를",
+        "effectName": "아직 보지 않은 쪽",
+        "keyword": "신속 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "swift",
+            "value": 180
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 때때로 예지를 보이는 웬디의 동료 역할에서 확인한 방향과 아직 모르는 방향을 나누는 기억이다. 고정 신속180, 고체력은 최대체력65%이상이며 확정 예언은 아니다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_mirajane_stock",
+        "name": "미라젠 스트라우스",
+        "effectName": "돌아온 뒤에도 남길 것",
+        "keyword": "최대 체력 · 재생",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          },
+          {
+            "stat": "regeneration",
+            "value": 0.4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 길드 업무를 돕는 역할에서 자신의 보급을 한 번에 모두 쓰지 않는 기억이다. 최대체력 증가 시 비율 보존, 재생은초당0.4%이며 즉시 완전회복이 아니다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_gajeel_mark",
+        "name": "가질 레드폭스",
+        "effectName": "아직 쓸 철의 표시",
+        "keyword": "흡수 · 관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "leech",
+            "value": 1.5
+          },
+          {
+            "stat": "penetration",
+            "value": 5
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 철을 먹어 힘을 얻는 역할에서 자신이 맡을 부품과 먹을 몫을 구분하는 기억이다. 흡수는 실제 피해1.5%의 지속 회복이고 관통5%다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "ft_mirajane_next",
+        "name": "미라젠 스트라우스",
+        "effectName": "다음 손님에게도 물어보기",
+        "keyword": "행동력 최대치",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_capacity",
+            "value": 1
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "공식 길드 업무를 돕는 역할에서 다음 방문에서 맡을 몫까지 답하는 기억이다. 최대치와 현재행동력의 증가분1만 한번 지급하며10분 사냥시간을 늘리지 않는다. 여행자가 배운 기억으로 각색한다. 원작 마법·철 식사·비행·환장·성령·NPC 동행을 지급하지 않는다.",
+        "uncertain": []
+      }
+    ],
+    "policy": {
+      "cards": "사건마다서로다른지정카드3장. 입문/성공부모/필수카드재지급없음. 새8기억은각성없음.",
+      "field": "level개인적강함1~5,density동시적수1~10. 초기1/4최저1. 장면의추가전투나NPC레벨이아니다.",
+      "cost": "비용/AP/필드는선지불실패유지. 성공만카드와potions개지급. 직접골드0. 물약사용아님.",
+      "ap": "기본후보3최대4,방문AP0/1. AP0이면무료도없음. 최대치증가분만현재AP한번지급. 사냥10분그대로.",
+      "history": "게시판성공1→목재/2→주소/3→생선,물길실패-1→번진글씨. 옛4번후속은루시기록보유의새방문. 나츠훈련·미라젠다음방문은각기개인보유조건.",
+      "canon": "마그놀리아의 길드 재건과 의뢰 게시판, 인물의 능력·역할은 공식 자료를 참고했다. 맵의 짐·주소·물길 사건은 별도 창작이며 원작 특정 회차 전체나 길드 순위 시스템을 재현하지 않는다. 원작 스킬, 실제 비행·환장·성령 소환을 지급하지 않는다. 철 식사와 수리 부품·우산의 몫·잡지 방문객·짧은 답의 오해·벽 파손·소설 독자는 공식 인물 소개에서 별도로 창작했다. 렉서스 사건은 복귀 이후, 루시의 소설 사건은 신인 소설가 소개를 참고한 독립 만남이다. 모든 사건이 길드 재건의 같은 날짜에 일어난다는 뜻은 아니다. 가질의 철 식사·쥬비아의 물 신체·실제 벽 파손·NPC 전투 동행·새 원작 마법은 플레이어 기능이 아니다. 렉서스 카드의 공격력 감소는 지속 스탯이며 현재 체력을 지불하지 않는다. 게시판의골드전용4번은제외하며그후속은루시의의뢰기록을이미익힌사람의독립방문으로바꿨다. 마당과목재의인물역할은창작갈림이며실제추가전투를실행하지않는다. 원고읽기AP0도잔여AP가있을때만한번등장한다. 미라젠최대치증가는시간이아니고방문횟수다."
+    },
+    "verifiedFacts": [
+      "나츠는불의멸룡마도사이며동료를강하게생각한다. 그레이는얼음조형,엘자는무기/갑옷환장이다.",
+      "웬디는공기를힘의근원으로하는부가마법/치유,샤를은웬디의동료이며때때로예지,해피는비행하며생선을좋아하는나츠동료다.",
+      "루시는성령마도사이며신인소설가,미라젠은잡지에도등장하며길드업무를돕는다.",
+      "가질은철을먹어힘을얻고,쥬비아는물을다루며그레이를좋아한다. 렉서스는소통서툼/동료애,길다트는무심코건물을부술때가있다.",
+      "새의뢰/목재/원고/철/줄서기대화는이역할에서만든창작방문이다. 본편에실재한퀘스트나NPC기술지급이아니다."
+    ],
+    "rules": [
+      "금액은지불·potions는획득개수,직접골드0. 새확률/골드보수를만들지않는다.",
+      "그레이물길1만70%다. 실패해도비용/AP/개인사냥적수+1유지.",
+      "NPC가플레이어스탯을얻지않는다. 개인성장과사냥장변경은원작전투장면이아니다.",
+      "원고AP0은공짜물품아님. 최대치+1은방문횟수,시간아님.",
+      "미라젠사진/가질철은수집자원아님. 루시의성령이나원작소설결말을완성하지않는다."
+    ]
+  }
+}

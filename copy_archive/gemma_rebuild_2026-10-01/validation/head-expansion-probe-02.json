@@ -1,0 +1,813 @@
+{
+  "roots": 12,
+  "branchCases": 62,
+  "runs": [
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1150,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_wrong_costume_tag",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_wrong_costume_tag",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_wrong_costume_tag",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1180,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_witness_hours",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 780,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_witness_hours",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_witness_hours",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_witness_hours",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1170,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 6
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "choice": 4,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1170,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 740,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 840,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1160,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1130,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1150,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 800,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 900,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 900,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1000,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1150,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "roll": 60,
+      "success": true,
+      "duplicate": false,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "roll": 60,
+      "success": true,
+      "duplicate": true,
+      "gold": 1200,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "roll": 61,
+      "success": false,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 1,
+      "roll": 61,
+      "success": false,
+      "duplicate": true,
+      "gold": 820,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1170,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1130,
+      "level": 1,
+      "density": 3
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "roll": 70,
+      "success": true,
+      "duplicate": false,
+      "gold": 1100,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "roll": 70,
+      "success": true,
+      "duplicate": true,
+      "gold": 1200,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "roll": 71,
+      "success": false,
+      "duplicate": false,
+      "gold": 880,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 1,
+      "roll": 71,
+      "success": false,
+      "duplicate": true,
+      "gold": 880,
+      "level": 1,
+      "density": 5
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 820,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 920,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1160,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1000,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "choice": 1,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 1100,
+      "level": 2,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 760,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "choice": 2,
+      "roll": 1,
+      "success": true,
+      "duplicate": true,
+      "gold": 860,
+      "level": 1,
+      "density": 4
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "choice": 3,
+      "roll": 1,
+      "success": true,
+      "duplicate": false,
+      "gold": 1180,
+      "level": 1,
+      "density": 4
+    }
+  ],
+  "fallbacks": [
+    {
+      "head": "gourmet",
+      "event": "pc_rainy_harvest",
+      "legalChoices": [
+        3
+      ],
+      "gold": 150,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_wrong_costume_tag",
+      "legalChoices": [
+        2
+      ],
+      "gold": 180,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_witness_hours",
+      "legalChoices": [
+        3
+      ],
+      "gold": 170,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_monica_market_watch",
+      "legalChoices": [
+        4
+      ],
+      "gold": 170,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_delivery_divide",
+      "legalChoices": [
+        3
+      ],
+      "gold": 160,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "gourmet",
+      "event": "pc_rehearsal_wall",
+      "legalChoices": [
+        3
+      ],
+      "gold": 130,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_club_inventory",
+      "legalChoices": [
+        3
+      ],
+      "gold": 150,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_regular_contact",
+      "legalChoices": [
+        3
+      ],
+      "gold": 150,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_shinji_offer",
+      "legalChoices": [
+        3
+      ],
+      "gold": 170,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_pause_outside",
+      "legalChoices": [
+        3
+      ],
+      "gold": 130,
+      "level": 5,
+      "density": 9
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_teacher_statement",
+      "legalChoices": [
+        3
+      ],
+      "gold": 160,
+      "level": 5,
+      "density": 10
+    },
+    {
+      "head": "fuyuki",
+      "event": "fy_two_ideals",
+      "legalChoices": [
+        3
+      ],
+      "gold": 180,
+      "level": 5,
+      "density": 10
+    }
+  ],
+  "passed": true,
+  "mapCreated": false,
+  "validation": "생성된 실제 JASS 사건 함수의 변환 모의 실행. 신규12독립 사건의 머리 소지·초기 기록 불필요·AP1·지정 카드·비용·포션·필드·확률 경계·이미 소지한 카드100골드·빈 골드와 필드 상한을 대조했다. Warcraft 런타임·렌더링·실제 멀티플레이·밸런스·성능·재미 검증은 아니다. 공통 모의 환경의 체력 네이티브는 고정값이므로 이 검사로 체력 비율이나 전체 PlayerStatsSet을 검증하지 않는다."
+}

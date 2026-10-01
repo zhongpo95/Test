@@ -1,0 +1,621 @@
+{
+  "started": "2026-10-01T20:26:04.920Z",
+  "finished": "2026-10-01T20:26:33.197Z",
+  "request": {
+    "review": false,
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "fma_workshop",
+                  "fma_measurement_notes",
+                  "fma_trial_footprints",
+                  "fma_library",
+                  "fma_training",
+                  "fma_after_large"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "system": "한국어 사건 집필자. 여행자가 한 행동의 과거형과 인물의 반응/남은 문제만 쓰라. 내부키/JSON조각/수치표/카드이름/통계 설명은 문자열에 절대 쓰지 마라. 성공한 장면만 집필하며 실패는 별도다. 같은 제한문을 모든 반응에 반복하지 마라.",
+    "brief": {
+      "events": [
+        {
+          "key": "fma_workshop",
+          "title": "떠나려는 손, 붙잡는 손",
+          "story": "에드워드가 정비를 마친 팔을 움직이자 윈리가 손목에서 나는 미세한 소리에 귀를 기울인다. 에드는 밖에서 시험하면 금방 알 수 있다고 말하고, 알폰스는 우선 넘어지지 않을 자세부터 점검하자고 제안한다. 누구의 확인을 도울지 결정해야 한다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "정밀 공구를 빌려 윈리의 점검을 돕는다",
+              "card": "fma_winry_precision",
+              "card2": null,
+              "cost": 200,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "에드워드와 더 강한 적이 있는 구역을 시험한다",
+              "card": "fma_edward",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "알폰스와 막고 물러서는 자세를 익힌다",
+              "card": "fma_alphonse",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "fma_measurement_notes",
+          "title": "빈칸이 남은 정비 기록",
+          "story": "함께 점검했던 손목은 이제 부드럽게 움직인다. 윈리가 기록지를 넘기다 낡은 정비서의 치수가 번진 부분을 발견한다. 그 책을 읽은 셰스카의 도움을 받을지, 에드와 실제 움직임을 더 확인할지 정한다. 휴즈는 지난 기록과 이번에 확인한 기록이 겹쳐 있으면 남이 읽을 때도 헷갈린다며 차례를 물었다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": "fma_workshop",
+          "previousChoice": 1,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "종이와 제본비를 마련해 셰스카의 기억을 기록한다",
+              "card": "fma_sheska",
+              "card2": null,
+              "cost": 180,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "에드워드와 강한 상대를 기준으로 다시 시험한다",
+              "card": "fma_edward",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "휴즈와 확인한 기록의 차례를 나누고 더 많은 확인 구역을 맡는다",
+              "card": "fma_hughes_sequence",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "fma_trial_footprints",
+          "title": "버틴 자리와 밀린 자리",
+          "story": "강한 적을 상대로 한 시험이 끝나자 에드워드가 땅에 남은 발자국을 내려다본다. 공격은 닿았지만 너는 생각보다 멀리 밀려났다. 알폰스는 뒤로 빠질 자리를, 함께 시험을 지켜본 암스트롱은 힘을 모으는 자세를 짚어 준다. 지나던 리자는 다음에 통행할 사람의 자리도 비워야 한다고 덧붙인다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": "fma_workshop",
+          "previousChoice": 2,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "정리 비용을 내고 알폰스와 강한 구역을 줄인다",
+              "card": "fma_alphonse",
+              "card2": null,
+              "cost": 160,
+              "gold": 0,
+              "level": -1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "암스트롱과 더 많은 적 사이에서 자세를 시험한다",
+              "card": "fma_armstrong",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "180골드로 표시 도구를 마련하고 리자와 다음 통행의 선을 남긴다",
+              "card": "fma_riza_pause",
+              "card2": null,
+              "cost": 180,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "fma_library",
+          "title": "사라진 페이지의 무게",
+          "story": "셰스카가 물에 젖어 읽을 수 없게 된 기술서의 한 페이지를 막힘없이 적어 내려간다. 에드워드는 그 옆에서 글자를 베끼는 것과 구조를 이해하는 것은 다르다며 도면을 가리킨다. 책을 온전히 남길지, 당장 필요한 원리를 배울지 정한다. 윈리는 도면의 숫자와 직접 측정한 숫자를 다른 줄에 적자며 자기 기록지를 펼친다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "필사 비용을 마련하고 한 권 전체를 함께 정리한다",
+              "card": "fma_sheska",
+              "card2": null,
+              "cost": 240,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "실습 재료를 사서 에드워드와 도면의 원리를 확인한다",
+              "card": "fma_edward",
+              "card2": null,
+              "cost": 80,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "윈리와 복원한 숫자를 직접 대조하고 더 넓은 시험 구역을 맡는다",
+              "card": "fma_winry_verify",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "fma_training",
+          "title": "손을 모으기 전에",
+          "story": "이즈미는 사냥터의 발자국과 먹다 남은 열매를 가리키며, 강한 기술부터 찾는 너를 멈춰 세운다. 더 강한 적이 있는 구역도, 적이 여러 방향에서 다니는 구역도 있다. 알폰스는 기본 자세를 되풀이할 자리에서 기다린다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "큰 적이 있는 구역에서 자세를 지키며 수련한다",
+              "card": "fma_izumi",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 2,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "더 많은 적이 지나는 구역에서 암스트롱과 힘을 모은다",
+              "card": "fma_armstrong",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 2,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "알폰스와 기본 방어 자세부터 되풀이한다",
+              "card": "fma_alphonse",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        },
+        {
+          "key": "fma_after_large",
+          "title": "쓰러뜨린 뒤에 남은 것",
+          "story": "큰 적을 넘긴 자리에서 이즈미가 네 등 뒤의 발자국을 가리킨다. 눈앞에 집중하는 동안 다른 적이 지나갈 길을 놓쳤다. 힘을 내는 법 다음에는 움직일 자리를 읽어야 한다. 시그는 다음날 쓸 준비물과 지금 운반할 묶음을 같은 짐에 넣지 말라고 한다.",
+          "intro": "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.",
+          "previous": "fma_training",
+          "previousChoice": 1,
+          "requiredCard": null,
+          "choices": [
+            {
+              "index": 1,
+              "label": "이즈미와 주변 흐름까지 살피며 수련을 넓힌다",
+              "card": "fma_izumi_flow",
+              "card2": null,
+              "cost": 0,
+              "gold": 0,
+              "level": 0,
+              "density": 1,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 2,
+              "label": "정리 비용을 내고 알폰스와 맡은 구역을 줄인다",
+              "card": "fma_alphonse",
+              "card2": null,
+              "cost": 240,
+              "gold": 0,
+              "level": -1,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "index": 3,
+              "label": "180골드로 준비물을 마련하고 시그와 다음 수련의 몫을 나눈다",
+              "card": "fma_sig_portions",
+              "card2": null,
+              "cost": 180,
+              "gold": 0,
+              "level": 0,
+              "density": 0,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "canonFact": "공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.",
+          "uncertain": []
+        }
+      ],
+      "policy": {
+        "cards": "세 지정 카드. 입문/성공 부모/필수 카드 재지급 없음. 새9장은 각성 없음.",
+        "cost": "골드·필드 선적용. 파이 연락70%는 성공만 카드. 직접골드0·물약0. 기본 사냥/중복 교환은 별개.",
+        "ap": "기본 후보3최대4. 방문AP0/1. 현재AP0이면 무료도없음. 최대치 증가분1을 현재AP에 한 번만 더함. 사냥10분 고정.",
+        "field": "강함1~5·적수1~10. 개인사냥 변화이며 민간인이 몬스터로 바뀌거나 NPC가 동행하지 않음.",
+        "canon": "2009년 FULLMETAL ALCHEMIST의 인물 소개와 6·7·9·12화 줄거리에서 정비·기록 복원·수련 소재를 확인했다. 이 사건의 기술서·치수·의뢰·수련 구역·비용과 보상은 맵의 창작이며 본편 장면을 대신 해결하지 않는다. 인체 연성·현재 체력 지불·팀 라이프 소모·플레이어 오토메일·연금술 신규 기술·NPC 전투 능력·퀘스트 물품을 구현하지 않는다. 사냥터 부담은 사건 이후 남는 플레이어 개인 구역의 변화다. 시트는 풀 연결의 참고이며 원작 자료가 아니다. 추가된 반려견 기다림·가족 사진·귀가 보급·정육점 무게·식사 계산·발화포 준비·파이 표시 문제는 공식 인물의 생활에서 별도로 창작했다. 휴즈는 생전, 하보크는 부상 전의 서로 독립된 만남이다. 모든 사건이 본편 같은 시각·장소에 일어났다고 주장하지 않는다. 알폰스는 먹지 않으며 흡수는 린의 원작 흡혈 능력이 아니다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다. 이번 재구성은 지정 카드 세 장, 직접 골드0, 물약0이다. 기다림 방문은 AP0이지만 도구 비용은 실제 지불한다. 셰스카 기록/피나코 귀환 기억의 새 방문은 개인 카드 보유 조건이다. 새 아홉 카드는 각성 없음이 의도된 구성이다."
+      },
+      "verifiedFacts": [
+        "윈리는 오토메일 정비사, 셰스카는 읽은 책을 기억하며 휴즈는 가족애와 배려가 강하다. 피나코는 숙련된 정비사로 돌아갈 장소를 지킨다.",
+        "리자는 냉정한 보좌와 정확한 사격, 블랙 하야테를 기른다. 암스트롱은 체술과 조형, 이즈미는 엄격한 수련, 시그는 세심한 정육점 일을 한다.",
+        "린은 큰 식욕과 적응력을 지닌 검사다. 로이는 발화포 장갑을 사용하며 하보크는 경호와 양동 실무를 맡는다. 알폰스는 먹거나 잠들지 못한다.",
+        "새 사건은 별도 창작이며 휴즈 생전/하보크 부상 전 만남이다. 시간·장소를 본편의 한 시점으로 합치지 않는다."
+      ],
+      "rules": [
+        "행동은 고정 선택 번호와 비용·필드에 맞춘다. 보상을 복창하지 말고 말/물건/남은 문제를 쓴다.",
+        "현재 체력 지불·물약·즉시 치유·골드보수·새 기술·NPC 동행은 없다.",
+        "AP와 행동/차지 속도는 다른 단위다. 최대치1은 사냥 시간 증가가 아니다.",
+        "알폰스가 먹거나 잠들지 않는다. 휴즈/하보크의 본편 운명을 바꾸지 않는다."
+      ]
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "choices"
+            ],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": [
+                  "fma_workshop",
+                  "fma_measurement_notes",
+                  "fma_trial_footprints",
+                  "fma_library",
+                  "fma_training",
+                  "fma_after_large"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "index",
+                    "actionText",
+                    "reactionText"
+                  ],
+                  "properties": {
+                    "index": {
+                      "type": "integer",
+                      "enum": [
+                        1,
+                        2,
+                        3
+                      ]
+                    },
+                    "actionText": {
+                      "type": "string"
+                    },
+                    "reactionText": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건 집필자. 여행자가 한 행동의 과거형과 인물의 반응/남은 문제만 쓰라. 내부키/JSON조각/수치표/카드이름/통계 설명은 문자열에 절대 쓰지 마라. 성공한 장면만 집필하며 실패는 별도다. 같은 제한문을 모든 반응에 반복하지 마라."
+      },
+      {
+        "role": "user",
+        "content": "{\"events\":[{\"key\":\"fma_workshop\",\"title\":\"떠나려는 손, 붙잡는 손\",\"story\":\"에드워드가 정비를 마친 팔을 움직이자 윈리가 손목에서 나는 미세한 소리에 귀를 기울인다. 에드는 밖에서 시험하면 금방 알 수 있다고 말하고, 알폰스는 우선 넘어지지 않을 자세부터 점검하자고 제안한다. 누구의 확인을 도울지 결정해야 한다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"정밀 공구를 빌려 윈리의 점검을 돕는다\",\"card\":\"fma_winry_precision\",\"card2\":null,\"cost\":200,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"에드워드와 더 강한 적이 있는 구역을 시험한다\",\"card\":\"fma_edward\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"알폰스와 막고 물러서는 자세를 익힌다\",\"card\":\"fma_alphonse\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]},{\"key\":\"fma_measurement_notes\",\"title\":\"빈칸이 남은 정비 기록\",\"story\":\"함께 점검했던 손목은 이제 부드럽게 움직인다. 윈리가 기록지를 넘기다 낡은 정비서의 치수가 번진 부분을 발견한다. 그 책을 읽은 셰스카의 도움을 받을지, 에드와 실제 움직임을 더 확인할지 정한다. 휴즈는 지난 기록과 이번에 확인한 기록이 겹쳐 있으면 남이 읽을 때도 헷갈린다며 차례를 물었다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":\"fma_workshop\",\"previousChoice\":1,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"종이와 제본비를 마련해 셰스카의 기억을 기록한다\",\"card\":\"fma_sheska\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"에드워드와 강한 상대를 기준으로 다시 시험한다\",\"card\":\"fma_edward\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"휴즈와 확인한 기록의 차례를 나누고 더 많은 확인 구역을 맡는다\",\"card\":\"fma_hughes_sequence\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]},{\"key\":\"fma_trial_footprints\",\"title\":\"버틴 자리와 밀린 자리\",\"story\":\"강한 적을 상대로 한 시험이 끝나자 에드워드가 땅에 남은 발자국을 내려다본다. 공격은 닿았지만 너는 생각보다 멀리 밀려났다. 알폰스는 뒤로 빠질 자리를, 함께 시험을 지켜본 암스트롱은 힘을 모으는 자세를 짚어 준다. 지나던 리자는 다음에 통행할 사람의 자리도 비워야 한다고 덧붙인다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":\"fma_workshop\",\"previousChoice\":2,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"정리 비용을 내고 알폰스와 강한 구역을 줄인다\",\"card\":\"fma_alphonse\",\"card2\":null,\"cost\":160,\"gold\":0,\"level\":-1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"암스트롱과 더 많은 적 사이에서 자세를 시험한다\",\"card\":\"fma_armstrong\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"180골드로 표시 도구를 마련하고 리자와 다음 통행의 선을 남긴다\",\"card\":\"fma_riza_pause\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]},{\"key\":\"fma_library\",\"title\":\"사라진 페이지의 무게\",\"story\":\"셰스카가 물에 젖어 읽을 수 없게 된 기술서의 한 페이지를 막힘없이 적어 내려간다. 에드워드는 그 옆에서 글자를 베끼는 것과 구조를 이해하는 것은 다르다며 도면을 가리킨다. 책을 온전히 남길지, 당장 필요한 원리를 배울지 정한다. 윈리는 도면의 숫자와 직접 측정한 숫자를 다른 줄에 적자며 자기 기록지를 펼친다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"필사 비용을 마련하고 한 권 전체를 함께 정리한다\",\"card\":\"fma_sheska\",\"card2\":null,\"cost\":240,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"실습 재료를 사서 에드워드와 도면의 원리를 확인한다\",\"card\":\"fma_edward\",\"card2\":null,\"cost\":80,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"윈리와 복원한 숫자를 직접 대조하고 더 넓은 시험 구역을 맡는다\",\"card\":\"fma_winry_verify\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]},{\"key\":\"fma_training\",\"title\":\"손을 모으기 전에\",\"story\":\"이즈미는 사냥터의 발자국과 먹다 남은 열매를 가리키며, 강한 기술부터 찾는 너를 멈춰 세운다. 더 강한 적이 있는 구역도, 적이 여러 방향에서 다니는 구역도 있다. 알폰스는 기본 자세를 되풀이할 자리에서 기다린다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"큰 적이 있는 구역에서 자세를 지키며 수련한다\",\"card\":\"fma_izumi\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":2,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"더 많은 적이 지나는 구역에서 암스트롱과 힘을 모은다\",\"card\":\"fma_armstrong\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"알폰스와 기본 방어 자세부터 되풀이한다\",\"card\":\"fma_alphonse\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]},{\"key\":\"fma_after_large\",\"title\":\"쓰러뜨린 뒤에 남은 것\",\"story\":\"큰 적을 넘긴 자리에서 이즈미가 네 등 뒤의 발자국을 가리킨다. 눈앞에 집중하는 동안 다른 적이 지나갈 길을 놓쳤다. 힘을 내는 법 다음에는 움직일 자리를 읽어야 한다. 시그는 다음날 쓸 준비물과 지금 운반할 묶음을 같은 짐에 넣지 말라고 한다.\",\"intro\":\"서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다.\",\"previous\":\"fma_training\",\"previousChoice\":1,\"requiredCard\":null,\"choices\":[{\"index\":1,\"label\":\"이즈미와 주변 흐름까지 살피며 수련을 넓힌다\",\"card\":\"fma_izumi_flow\",\"card2\":null,\"cost\":0,\"gold\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"index\":2,\"label\":\"정리 비용을 내고 알폰스와 맡은 구역을 줄인다\",\"card\":\"fma_alphonse\",\"card2\":null,\"cost\":240,\"gold\":0,\"level\":-1,\"density\":0,\"potions\":0,\"chance\":100},{\"index\":3,\"label\":\"180골드로 준비물을 마련하고 시그와 다음 수련의 몫을 나눈다\",\"card\":\"fma_sig_portions\",\"card2\":null,\"cost\":180,\"gold\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"canonFact\":\"공식 인물의 역할과 수련·정비·기록 소재를 바탕으로 한 맵 전용 만남이다. 본편 사건의 재현이나 결말 해결이 아니다.\",\"uncertain\":[]}],\"policy\":{\"cards\":\"세 지정 카드. 입문/성공 부모/필수 카드 재지급 없음. 새9장은 각성 없음.\",\"cost\":\"골드·필드 선적용. 파이 연락70%는 성공만 카드. 직접골드0·물약0. 기본 사냥/중복 교환은 별개.\",\"ap\":\"기본 후보3최대4. 방문AP0/1. 현재AP0이면 무료도없음. 최대치 증가분1을 현재AP에 한 번만 더함. 사냥10분 고정.\",\"field\":\"강함1~5·적수1~10. 개인사냥 변화이며 민간인이 몬스터로 바뀌거나 NPC가 동행하지 않음.\",\"canon\":\"2009년 FULLMETAL ALCHEMIST의 인물 소개와 6·7·9·12화 줄거리에서 정비·기록 복원·수련 소재를 확인했다. 이 사건의 기술서·치수·의뢰·수련 구역·비용과 보상은 맵의 창작이며 본편 장면을 대신 해결하지 않는다. 인체 연성·현재 체력 지불·팀 라이프 소모·플레이어 오토메일·연금술 신규 기술·NPC 전투 능력·퀘스트 물품을 구현하지 않는다. 사냥터 부담은 사건 이후 남는 플레이어 개인 구역의 변화다. 시트는 풀 연결의 참고이며 원작 자료가 아니다. 추가된 반려견 기다림·가족 사진·귀가 보급·정육점 무게·식사 계산·발화포 준비·파이 표시 문제는 공식 인물의 생활에서 별도로 창작했다. 휴즈는 생전, 하보크는 부상 전의 서로 독립된 만남이다. 모든 사건이 본편 같은 시각·장소에 일어났다고 주장하지 않는다. 알폰스는 먹지 않으며 흡수는 린의 원작 흡혈 능력이 아니다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다. 이번 재구성은 지정 카드 세 장, 직접 골드0, 물약0이다. 기다림 방문은 AP0이지만 도구 비용은 실제 지불한다. 셰스카 기록/피나코 귀환 기억의 새 방문은 개인 카드 보유 조건이다. 새 아홉 카드는 각성 없음이 의도된 구성이다.\"},\"verifiedFacts\":[\"윈리는 오토메일 정비사, 셰스카는 읽은 책을 기억하며 휴즈는 가족애와 배려가 강하다. 피나코는 숙련된 정비사로 돌아갈 장소를 지킨다.\",\"리자는 냉정한 보좌와 정확한 사격, 블랙 하야테를 기른다. 암스트롱은 체술과 조형, 이즈미는 엄격한 수련, 시그는 세심한 정육점 일을 한다.\",\"린은 큰 식욕과 적응력을 지닌 검사다. 로이는 발화포 장갑을 사용하며 하보크는 경호와 양동 실무를 맡는다. 알폰스는 먹거나 잠들지 못한다.\",\"새 사건은 별도 창작이며 휴즈 생전/하보크 부상 전 만남이다. 시간·장소를 본편의 한 시점으로 합치지 않는다.\"],\"rules\":[\"행동은 고정 선택 번호와 비용·필드에 맞춘다. 보상을 복창하지 말고 말/물건/남은 문제를 쓴다.\",\"현재 체력 지불·물약·즉시 치유·골드보수·새 기술·NPC 동행은 없다.\",\"AP와 행동/차지 속도는 다른 단위다. 최대치1은 사냥 시간 증가가 아니다.\",\"알폰스가 먹거나 잠들지 않는다. 휴즈/하보크의 본편 운명을 바꾸지 않는다.\"]}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T20:26:33.1935695Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\n  \"events\": [\n    {\n      \"key\": \"fma_workshop\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"정밀 공구를 빌려 윈리의 점검을 도왔다.\",\n          \"reactionText\": \"윈리는 세밀한 수치를 확인하며 만족스러운 미소를 지었으나, 수리된 부위의 내구성을 완벽히 보장하기 위해 추가적인 반복 테스트가 필요하다고 언급했다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"에드워드와 더 강한 적이 있는 구역을 시험했다.\",\n          \"reactionText\": \"에드워드는 거친 움직임 속에서도 중심을 잡는 네 모습에 고개를 끄덕였지만, 특정 각도에서 발생하는 빈틈을 보완해야 한다고 지적했다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"알폰스와 막고 물러서는 자세를 익혔다.\",\n          \"reactionText\": \"알폰스는 네 보법이 안정적이라고 칭찬했으나, 무게 중심이 한쪽으로 쏠리는 습관을 고쳐야 함을 강조했다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"fma_measurement_notes\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"종이와 제본비를 마련해 셰스카의 기억을 기록했다.\",\n          \"reactionText\": \"셰스카는 기록된 내용이 정확하다며 안도했으나, 훼손된 다른 페이지의 내용도 언젠가 복원해야 한다는 과제를 남겼다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"에드워드와 강한 상대를 기준으로 다시 시험했다.\",\n          \"reactionText\": \"에드워드는 네 반응 속도가 개선된 것을 확인했으나, 체력 소모를 줄이는 효율적인 힘의 배분이 여전히 부족하다고 말했다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"휴즈와 확인한 기록의 차례를 나누고 더 많은 확인 구역을 맡았다.\",\n          \"reactionText\": \"휴즈는 네 책임감 있는 태도에 칭찬을 건넸으나, 방대한 확인 구역 때문에 예정보다 정비 시간이 길어질 것을 우려했다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"fma_trial_footprints\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"정리 비용을 내고 알폰스와 강한 구역을 줄였다.\",\n          \"reactionText\": \"알폰스는 네가 무리하지 않게 배려해 주어 고마워했으나, 줄어든 구역만큼의 숙련도를 채워야 한다고 덧붙였다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"암스트롱과 더 많은 적 사이에서 자세를 시험했다.\",\n          \"reactionText\": \"암스트롱은 네 근력이 일시적으로 상승한 것을 확인했으나, 다수의 적을 상대할 때 시야가 좁아지는 문제를 지적했다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"180골드로 표시 도구를 마련하고 리자와 다음 통행의 선을 남겼다.\",\n          \"reactionText\": \"리자는 정확한 선 긋기에 만족하며 감사를 표했으나, 통행량이 몰리는 시간대의 혼잡도를 해결해야 한다는 과제를 남겼다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"fma_library\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"필사 비용을 마련하고 한 권 전체를 함께 정리했다.\",\n          \"reactionText\": \"셰스카는 정성스러운 기록에 감동했으나, 아직 완벽히 복원되지 못한 일부 문단은 여전히 미지의 영역으로 남았다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"실습 재료를 사서 에드워드와 도면의 원리를 확인했다.\",\n          \"reactionText\": \"에드워드는 네 이해도가 높다고 칭찬했으나, 실제 응용 시 발생할 변수에 대한 대비가 더 필요하다고 말했다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"윈리와 복원한 숫자를 직접 대조하고 더 넓은 시험 구역을 맡았다.\",\n          \"reactionText\": \"윈리는 네 꼼꼼함에 신뢰를 보냈으나, 넓어진 구역의 수많은 변수를 모두 통제하기엔 시간이 부족하다고 우려했다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"fma_training\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"큰 적이 있는 구역에서 자세를 지키며 수련했다.\",\n          \"reactionText\": \"이즈미는 네 방어 자세가 견고해졌음을 인정했으나, 적의 돌진 속도에 대응하는 반동 제어를 더 연습해야 한다고 일갈했다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"더 많은 적이 지나는 구역에서 암스트롱과 힘을 모았다.\",\n          \"reactionText\": \"암스트롱은 네 파괴력을 높게 평가했으나, 힘을 집중할 때 발생하는 신체적 과부하를 조절해야 한다고 조언했다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"알폰스와 기본 방어 자세부터 되풀이했다.\",\n          \"reactionText\": \"알폰스는 네 기초가 단단해지는 것을 흐뭇하게 지켜보았으나, 반복 훈련으로 인한 집중력 저하를 경계하라고 말했다.\"\n        }\n      ]\n    },\n    {\n      \"key\": \"fma_after_large\",\n      \"choices\": [\n        {\n          \"index\": 1,\n          \"actionText\": \"이즈미와 주변 흐름까지 살피며 수련을 넓혔다.\",\n          \"reactionText\": \"이즈미는 네 시야가 확장된 것을 확인했으나, 예상치 못한 변수가 겹칠 때의 즉각적인 판단력을 더 키워야 한다고 강조했다.\"\n        },\n        {\n          \"index\": 2,\n          \"actionText\": \"정리 비용을 내고 알폰스와 맡은 구역을 줄였다.\",\n          \"reactionText\": \"알폰스는 네 휴식을 배려해 주어 고마워했으나, 줄어든 구역에 대한 숙련도를 보강해야 함을 상기시켰다.\"\n        },\n        {\n          \"index\": 3,\n          \"actionText\": \"180골드로 준비물을 마련하고 시그와 다음 수련의 몫을 나눴다.\",\n          \"reactionText\": \"시그는 네 세심한 배분에 만족하며 고마워했으나, 다음 수련 시 짐의 무게 배분이 여전히 균형이 맞지 않는다고 언급했다.\"\n        }\n      ]\n    }\n  ]\n}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 28241327800,
+    "load_duration": 3134513400,
+    "prompt_eval_count": 3324,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1294066000,
+    "eval_count": 1669,
+    "eval_duration": 23805864000
+  },
+  "parsed": {
+    "events": [
+      {
+        "key": "fma_workshop",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "정밀 공구를 빌려 윈리의 점검을 도왔다.",
+            "reactionText": "윈리는 세밀한 수치를 확인하며 만족스러운 미소를 지었으나, 수리된 부위의 내구성을 완벽히 보장하기 위해 추가적인 반복 테스트가 필요하다고 언급했다."
+          },
+          {
+            "index": 2,
+            "actionText": "에드워드와 더 강한 적이 있는 구역을 시험했다.",
+            "reactionText": "에드워드는 거친 움직임 속에서도 중심을 잡는 네 모습에 고개를 끄덕였지만, 특정 각도에서 발생하는 빈틈을 보완해야 한다고 지적했다."
+          },
+          {
+            "index": 3,
+            "actionText": "알폰스와 막고 물러서는 자세를 익혔다.",
+            "reactionText": "알폰스는 네 보법이 안정적이라고 칭찬했으나, 무게 중심이 한쪽으로 쏠리는 습관을 고쳐야 함을 강조했다."
+          }
+        ]
+      },
+      {
+        "key": "fma_measurement_notes",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "종이와 제본비를 마련해 셰스카의 기억을 기록했다.",
+            "reactionText": "셰스카는 기록된 내용이 정확하다며 안도했으나, 훼손된 다른 페이지의 내용도 언젠가 복원해야 한다는 과제를 남겼다."
+          },
+          {
+            "index": 2,
+            "actionText": "에드워드와 강한 상대를 기준으로 다시 시험했다.",
+            "reactionText": "에드워드는 네 반응 속도가 개선된 것을 확인했으나, 체력 소모를 줄이는 효율적인 힘의 배분이 여전히 부족하다고 말했다."
+          },
+          {
+            "index": 3,
+            "actionText": "휴즈와 확인한 기록의 차례를 나누고 더 많은 확인 구역을 맡았다.",
+            "reactionText": "휴즈는 네 책임감 있는 태도에 칭찬을 건넸으나, 방대한 확인 구역 때문에 예정보다 정비 시간이 길어질 것을 우려했다."
+          }
+        ]
+      },
+      {
+        "key": "fma_trial_footprints",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "정리 비용을 내고 알폰스와 강한 구역을 줄였다.",
+            "reactionText": "알폰스는 네가 무리하지 않게 배려해 주어 고마워했으나, 줄어든 구역만큼의 숙련도를 채워야 한다고 덧붙였다."
+          },
+          {
+            "index": 2,
+            "actionText": "암스트롱과 더 많은 적 사이에서 자세를 시험했다.",
+            "reactionText": "암스트롱은 네 근력이 일시적으로 상승한 것을 확인했으나, 다수의 적을 상대할 때 시야가 좁아지는 문제를 지적했다."
+          },
+          {
+            "index": 3,
+            "actionText": "180골드로 표시 도구를 마련하고 리자와 다음 통행의 선을 남겼다.",
+            "reactionText": "리자는 정확한 선 긋기에 만족하며 감사를 표했으나, 통행량이 몰리는 시간대의 혼잡도를 해결해야 한다는 과제를 남겼다."
+          }
+        ]
+      },
+      {
+        "key": "fma_library",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "필사 비용을 마련하고 한 권 전체를 함께 정리했다.",
+            "reactionText": "셰스카는 정성스러운 기록에 감동했으나, 아직 완벽히 복원되지 못한 일부 문단은 여전히 미지의 영역으로 남았다."
+          },
+          {
+            "index": 2,
+            "actionText": "실습 재료를 사서 에드워드와 도면의 원리를 확인했다.",
+            "reactionText": "에드워드는 네 이해도가 높다고 칭찬했으나, 실제 응용 시 발생할 변수에 대한 대비가 더 필요하다고 말했다."
+          },
+          {
+            "index": 3,
+            "actionText": "윈리와 복원한 숫자를 직접 대조하고 더 넓은 시험 구역을 맡았다.",
+            "reactionText": "윈리는 네 꼼꼼함에 신뢰를 보냈으나, 넓어진 구역의 수많은 변수를 모두 통제하기엔 시간이 부족하다고 우려했다."
+          }
+        ]
+      },
+      {
+        "key": "fma_training",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "큰 적이 있는 구역에서 자세를 지키며 수련했다.",
+            "reactionText": "이즈미는 네 방어 자세가 견고해졌음을 인정했으나, 적의 돌진 속도에 대응하는 반동 제어를 더 연습해야 한다고 일갈했다."
+          },
+          {
+            "index": 2,
+            "actionText": "더 많은 적이 지나는 구역에서 암스트롱과 힘을 모았다.",
+            "reactionText": "암스트롱은 네 파괴력을 높게 평가했으나, 힘을 집중할 때 발생하는 신체적 과부하를 조절해야 한다고 조언했다."
+          },
+          {
+            "index": 3,
+            "actionText": "알폰스와 기본 방어 자세부터 되풀이했다.",
+            "reactionText": "알폰스는 네 기초가 단단해지는 것을 흐뭇하게 지켜보았으나, 반복 훈련으로 인한 집중력 저하를 경계하라고 말했다."
+          }
+        ]
+      },
+      {
+        "key": "fma_after_large",
+        "choices": [
+          {
+            "index": 1,
+            "actionText": "이즈미와 주변 흐름까지 살피며 수련을 넓혔다.",
+            "reactionText": "이즈미는 네 시야가 확장된 것을 확인했으나, 예상치 못한 변수가 겹칠 때의 즉각적인 판단력을 더 키워야 한다고 강조했다."
+          },
+          {
+            "index": 2,
+            "actionText": "정리 비용을 내고 알폰스와 맡은 구역을 줄였다.",
+            "reactionText": "알폰스는 네 휴식을 배려해 주어 고마워했으나, 줄어든 구역에 대한 숙련도를 보강해야 함을 상기시켰다."
+          },
+          {
+            "index": 3,
+            "actionText": "180골드로 준비물을 마련하고 시그와 다음 수련의 몫을 나눴다.",
+            "reactionText": "시그는 네 세심한 배분에 만족하며 고마워했으나, 다음 수련 시 짐의 무게 배분이 여전히 균형이 맞지 않는다고 언급했다."
+          }
+        ]
+      }
+    ]
+  },
+  "parseError": null,
+  "monitorRecordId": "76ecc55b-71ae-47d7-86ef-a100055b46ce"
+}

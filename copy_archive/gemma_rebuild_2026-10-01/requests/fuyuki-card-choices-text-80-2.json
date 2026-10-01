@@ -1,0 +1,301 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "enum": [
+                "fy_regular_contact",
+                "fy_shinji_offer",
+                "fy_pause_outside",
+                "fy_teacher_statement"
+              ]
+            },
+            "choices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "index",
+                  "label",
+                  "result"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "key",
+            "choices"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 4,
+        "maxItems": 4
+      }
+    },
+    "required": [
+      "events"
+    ],
+    "additionalProperties": false
+  },
+  "system": "한국어 사건 작가다. events에각요청key를별도객체로한번씩같은순서로출력한다. 각사건의choices는입력에주어진index만출력한다. label은입력그대로,result는한국어행동/기억/비용/부담/지급/작은반응3문장만쓴다. result에JSON·key·ReplaceCard·메타데이터·다른사건을붙이지않는다. 변경하지않는선택은출력하지않는다.",
+  "brief": {
+    "cards": [
+      {
+        "key": "rin_disarm",
+        "name": "토오사카 린",
+        "effectName": "술식의 취약점",
+        "keyword": "관통",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 10
+          },
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "린의 마술사 역할을 상대 술식의 취약점을 살피는 경험으로 각색했다."
+      },
+      {
+        "key": "fy_rin_timing",
+        "name": "토오사카 린",
+        "effectName": "답을 기다리는 순서",
+        "keyword": "치명타 확률 · 신속",
+        "canonFact": "정기 연락을 빠뜨린 시로를 방문하는 공식 역할에서 확인 순서와 판단 준비로 각색한다. 신속은 고정 수치이며 실제 연락 일정·새 마술·회복을 생성하지 않는다.",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          },
+          {
+            "stat": "swift",
+            "value": 135
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "uncertain": []
+      },
+      {
+        "key": "fy_shiro_structure",
+        "name": "에미야 시로",
+        "effectName": "맞춰 본 빈칸",
+        "keyword": "공격력 · 행동 속도",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 12
+          },
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기존 구조를 살피는 시로의 소개에서 문의 구조·확인한 길·화살을 받는 준비를 살피는 별도 기억을 만든다. 즉시 물건 수리·새 투영무기·활 기술·원작성취를 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "fy_shiro_request",
+        "name": "에미야 시로",
+        "effectName": "이름 없이 맡긴 부탁",
+        "keyword": "공격력 · 받는 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기존 남의 일을 돕는 시로의 성향과 이상에서 누가 맡길지 남은 일을 자기 몫으로 나누는 별도 기억을 만든다. 시로의 이상을 정답으로 완성하거나 모든 사람을 구하지 않는다.",
+        "uncertain": []
+      }
+    ],
+    "events": [
+      {
+        "key": "fy_regular_contact",
+        "story": "린이 빈 연락 기록을 시로 앞에 놓는다. 시로는 다른 사람의 일을 돕다 잊었다고 한다. 세이버는 확인할 곳을 나누면 될지 묻는다.",
+        "canonFact": "정기 연락을 확인하러 온 린이 아무 내용도 없는 기록을 발견한다. 시로는 다른 일을 돕느라 연락을 미뤘다고 설명하고 세이버는 어디까지 직접 확인할지 묻는다. 전화·방문 기록과 누락 원인은 별도 창작이며 공식11화의 시로 증상을 치료하는 사건이 아니다.",
+        "choices": [
+          {
+            "index": 3,
+            "label": "160골드로 연락할 준비를 마련하고 시로와 아직 답 없는 일을 나눈다",
+            "result": "",
+            "card": "fy_shiro_request",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 1,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "fy_shinji_offer",
+        "story": "신지는 자신이 라이더의 마스터라는 말을 먼저 꺼내고 협력을 제안한다. 린은 원하는 조건이 빠져 있다고 지적한다. 시로는 받아들일지보다 먼저 무엇을 확인할지 망설인다.",
+        "canonFact": "신지가 자신이 라이더의 마스터라며 협력을 제안한다. 린은 그가 원하는 조건과 확인된 사실을 나누어 보려 하고 시로는 제안을 그냥 지나칠 수 없다고 망설인다. 공식6화 제안을 소재로 별도 준비를 고르며 협력 체결·신지나 라이더 탈락·캐스터 진상·계약 양도를 해결하지 않는다.",
+        "choices": [
+          {
+            "index": 1,
+            "label": "연락 비용을 내고 더 넓은 구역에서 제안의 근거를 찾는다",
+            "result": "",
+            "card": "rin_disarm",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 60
+          },
+          {
+            "index": 3,
+            "label": "160골드로 확인할 준비를 갖추고 시로와 답하기 전 맡을 일을 나눈다",
+            "result": "",
+            "card": "fy_shiro_request",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "fy_pause_outside",
+        "story": "린이 오늘은 잠깐 바깥을 둘러보자고 한다. 세이버는 낯선 길에서 자꾸 주위를 살피고 시로의 걸음이 앞서간다. 준비할 물건과 걸을 범위를 골라야 한다.",
+        "canonFact": "린이 잠시 전투 생각을 내려놓고 바깥을 둘러보자고 한다. 세이버는 낯선 길에서 시로와 보폭을 맞추지만, 셋이 살 물건과 둘러볼 길은 아직 정하지 않았다. 공식12화 외출 동기에서 별도 준비를 창작하며 데이트·피랍·령주나 세이버 탈취 본편을 재현하지 않는다.",
+        "choices": [
+          {
+            "index": 3,
+            "label": "160골드로 가까운 길의 준비를 갖추고 시로와 남은 몫을 나눈다",
+            "result": "",
+            "card": "fy_shiro_request",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "fy_teacher_statement",
+        "story": "잇세이의 진술에는 직접 본 일과 들은 일이 같은 줄에 적혀 있다. 린은 어느 말이 어느 쪽인지 다시 묻고 싶어 한다. 시로는 같은 학교 선생님이라는 이유만으로 결론 내릴 수 없다고 말한다.",
+        "canonFact": "잇세이의 증언을 읽던 린이 확인된 행동과 추측이 한 문장에 섞인 것을 발견한다. 시로는 같은 학교의 교사라는 이유만으로 무조건 믿거나 의심할 수는 없다고 말한다. 공식10화 증언 소재에서 새 기록 문제를 만들며 쿠즈키의 정체를 즉시 밝히거나 공격하지 않는다.",
+        "choices": [
+          {
+            "index": 1,
+            "label": "조사 비용을 내고 더 넓은 길목에서 빠진 사실을 확인한다",
+            "result": "",
+            "card": "fy_rin_timing",
+            "card2": null,
+            "gold": 0,
+            "cost": 120,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 70
+          },
+          {
+            "index": 2,
+            "label": "기록 도구를 마련해 시로와 확인된 길의 구조를 살핀다",
+            "result": "",
+            "card": "fy_shiro_structure",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "index": 3,
+            "label": "160골드로 물어볼 준비를 하고 시로와 확인되지 않은 일을 남겨 둔다",
+            "result": "",
+            "card": "fy_shiro_request",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ]
+      }
+    ],
+    "mechanics": {
+      "reward": "지정카드1장 성공때지급. 즉시골드0. kill_gold는이후처치수급이다. UI가이름/등급/효과를별도덧붙임.",
+      "cost": "cost만큼선지불. 실패에도환급/AP환급없음. potions는지급이고소비아님.",
+      "field": "level강함/density적수의지속변화량이다. 사냥몬스터가강해지거나많아지는부담이다. 초기강함1/적수4,최저1,상한5/10. -1은감소이며최종값아님.",
+      "chance": "result는성공일때만쓴다. 실패서술은별도로고친다. 60/70/75를확정성공으로쓰지않는다.",
+      "stats": "attack_percent공격력%,action_speed일반행동속도,DR받는피해감소,swift고정신속,directional플래그+실제유효각도,healthy현재체력65%이상,regen초당최대체력%/흡수합산10%상한/즉시회복아님"
+    },
+    "boundary": "각canonFact와기존장면에서만창작한다. 새NPC/새스킬/장비/동행/무적/현재체력지불/시로이상완성/학교사건본편완결없음. 이후전용타이가interval은앞선arrow사건에주지않는다.",
+    "checks": [
+      "4개이하사건마다key와지정index를나눈다. 결과문장에기술메타데이터없음.",
+      "density±1은사냥몬스터수의지속변화고피로/시간/정보량아님. level±1은몬스터강함이고여행자능력아님.",
+      "potions1/2는물약그개수지급이고사용/소비/즉시회복아님.",
+      "추가골드·칭찬반복·새인물·가벼워진마나/새스킬을만들지않음."
+    ]
+  }
+}

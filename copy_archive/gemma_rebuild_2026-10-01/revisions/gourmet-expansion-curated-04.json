@@ -1,0 +1,612 @@
+{
+  "cards": [
+    {
+      "key": "pc_kokkoro_entry",
+      "name": "콧코로",
+      "effectName": "세심한 준비",
+      "keyword": "행동 속도 증가",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "출발 준비와 생활을 세심하게 돌보는 성격을 맵 전용 행동 준비로 각색.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_pecorine_meal",
+      "name": "페코린느",
+      "effectName": "배가 든든할 때",
+      "keyword": "최대 체력 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 12
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "밝은 대식가이자 검사라는 성격을 든든한 준비와 고체력 조건으로 각색.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_pecorine_front",
+      "name": "페코린느",
+      "effectName": "함께 먹을 몫",
+      "keyword": "공격력 및 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 12
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "먹는 즐거움과 동료들과 함께 모험하는 검사의 적극성을 공격과 방어 준비로 각색.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_kokkoro_care",
+      "name": "콧코로",
+      "effectName": "작은 준비를 놓치지 않기",
+      "keyword": "지속 회복 및 신속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "식사와 수선 등 세심한 생활 지원을 지속 회복과 고정 신속으로 각색.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_karyl_check",
+      "name": "캬루",
+      "effectName": "막힌 길을 비우는 마법",
+      "keyword": "비방향 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 16
+        },
+        {
+          "stat": "penetration",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 7000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "기본 캬루의 공식 조정 공지에 있는 방어력 감소 역할을 개인 방어력 관통으로 각색한다. 비방향·보스 조건과 수치는 맵 전용이며 적 전체 디버프나 원작 마법을 새로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_karyl_resolve",
+      "name": "캬루",
+      "effectName": "불평은 일을 끝낸 뒤에",
+      "keyword": "보스 피해 및 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 14
+        },
+        {
+          "stat": "penetration",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기본 캬루의 방어력 감소 역할을 개인 관통으로 옮기고 사건의 길목 정리를 보스전 준비로 각색한다. 보스 피해 수치는 맵 전용이며 새 공격 기술·적 디버프를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_kokkoro_notes",
+      "name": "콧코로",
+      "effectName": "빠뜨리지 않은 목록",
+      "keyword": "사건 후보 · 처치 골드",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "kill_gold",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_pecorine_expedition",
+      "name": "페코린느",
+      "effectName": "든든히 먹고 한 걸음 더",
+      "keyword": "고체력 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 18
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
+      },
+      "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_aoi_courage",
+      "name": "아오이",
+      "effectName": "조심스러운 발걸음",
+      "keyword": "이동 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "pc_road_meal",
+      "title": "냄비를 올리기 전에",
+      "story": "의뢰를 마친 미식전이 길가에 냄비를 내려놓는다. 페코린느는 식재료 바구니를 들여다보며 자기 몫을 몇 번이고 다시 세고, 콧코로는 다음 끼니에 쓸 재료를 따로 묶는다. 캬루는 잘린 재료 냄새를 따라 다가오는 적을 가리키며, 먹기 전에 자리부터 정하자고 투덜거린다.",
+      "intro": "더 모아 함께 먹을지, 다음 끼니를 준비할지, 식사 자리를 줄일지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "페코린느와 넓은 구역의 재료를 모아 넉넉히 차린다",
+          "result": "페코린느와 넓게 돌아 재료를 더 모았다. 그릇마다 넉넉히 담아 먹으며 든든히 준비하는 법을 익혔지만, 맡은 구역에는 적이 더 많이 드나들게 되었다.",
+          "card": "pc_pecorine_meal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "밀봉된 재료를 구해 콧코로와 끼니를 나누어 준비한다",
+          "result": "장보기 비용을 내고 밀봉 재료를 더 샀다. 콧코로와 오늘 먹을 몫과 다음 끼니를 나누어 담으며, 출발 전에 작은 준비를 빠뜨리지 않는 법을 익힌다.",
+          "card": "pc_kokkoro_care",
+          "card2": null,
+          "gold": 0,
+          "cost": 260,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "캬루와 길목을 확인하고 식사 준비를 좁힌다",
+          "result": "도구와 정리 비용을 내고 캬루와 적이 지나는 길 하나를 정리했다. 남은 길목을 놓치지 않고 공격을 준비하는 조언을 듣고, 식사를 차릴 범위도 줄였다.",
+          "card": "pc_karyl_check",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "식사는 다음으로 미루고 남은 재료를 매입상에게 판다",
+          "result": "재료를 매입상에게 넘기고 값을 받았다. 페코린느가 빈 바구니를 아쉬운 눈으로 보지만, 오늘 이 자리에서 먹을 식사는 다음으로 미룬다.",
+          "card": null,
+          "card2": null,
+          "gold": 180,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_after_feast",
+      "title": "빈 그릇과 늘어난 몫",
+      "story": "앞서 넉넉히 먹은 자리에서 그릇을 거두던 중, 근처 일을 돕던 사람들이 한 끼를 부탁한다. 페코린느는 비어 가는 냄비를 보고 재료를 더 보태자고 하고, 캬루는 남은 음식부터 나눌 자리를 정하자고 한다.",
+      "intro": "재료를 더 보태거나 남은 음식을 나눌 자리를 마련한다.",
+      "previous": "pc_road_meal",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "재료값을 보태 페코린느와 남은 사람들의 식사를 차린다",
+          "result": "재료값을 보태고 페코린느와 냄비를 다시 채웠다. 처음 먹은 사람들 다음으로 기다리던 사람들에게도 그릇을 건네며, 자기 몫만 세던 준비를 다시 돌아본다.",
+          "card": "pc_pecorine_front",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "캬루와 한쪽 길을 정리하고 나눠 줄 자리를 좁힌다",
+          "result": "정리 비용을 내고 한쪽 길을 좁혀 남은 음식을 나눌 자리를 마련했다. 캬루는 일을 끝내고 나서야 번거로웠다고 투덜거리며, 길을 막은 상대의 빈틈을 짚어 준다.",
+          "card": "pc_karyl_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "설거지와 정리만 맡고 보수를 받는다",
+          "result": "추가 식사 부탁은 맡지 않고 그릇을 씻고 주변을 정리했다. 보수를 받아 떠나지만, 기다리던 사람들에게 더 내줄 음식은 마련하지 못했다.",
+          "card": null,
+          "card2": null,
+          "gold": 160,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_after_portions",
+      "title": "남겨 둔 한 끼",
+      "story": "앞서 콧코로와 나누어 둔 밀봉 식사 한 끼가 남았다. 다시 만난 자리에서 길을 서둘러 떠나려는 일행이 식사를 부탁한다. 페코린느는 묶어 둔 그릇을 바라보다가, 이번에는 네 몫을 먼저 정해 달라고 한다.",
+      "intro": "남겨 둔 한 끼를 먹거나 건네거나 판다.",
+      "previous": "pc_road_meal",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "내 몫을 먹고 페코린느와 다음 일의 준비를 한다",
+          "result": "내 몫으로 남겨 둔 식사를 먹고 페코린느와 다음 일을 준비했다. 그릇은 비웠지만, 급히 떠나려던 일행에게 건넬 식사는 남지 않았다.",
+          "card": "pc_pecorine_meal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남겨 둔 식사를 건네고 포장 재료를 다시 마련한다",
+          "result": "식사를 건넨 일행이 고마움의 표시로 보급용 물약을 남겼다. 새 포장 재료는 상인에게 값을 치르고 마련해 두었다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "potions": 2,
+          "chance": 100
+        },
+        {
+          "label": "식사를 매입상에게 넘기고 정리 비용을 받는다",
+          "result": "남은 식사를 매입상에게 넘기고 값을 받았다. 정리할 그릇은 줄었지만, 내 끼니도 길 떠날 일행의 부탁도 이 자리에서는 해결하지 않았다.",
+          "card": null,
+          "card2": null,
+          "gold": 220,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "미식전의 함께 먹고 모험하는 활동을 별도 길가 식사 문제로 각색한다. 재료·골드·적 수와 식사 부탁은 맵 전용이며 원작 본편 장면을 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_dusty_room",
+      "title": "먼지 뒤에 남은 방",
+      "story": "길드 하우스를 정리하다가 오래 닫혀 있던 작은 방을 열었다. 빈 상자와 쓸 만한 그릇, 부러진 선반이 한데 쌓여 있다. 콧코로는 버릴 것부터 구분하자고 하고, 페코린느는 큰 상자를 들어내면 안쪽까지 볼 수 있다고 말한다. 오늘 맡기로 한 길목 정리도 아직 남았다.",
+      "intro": "어질러진 방 안에서 두 사람의 의견이 엇갈린다. 어떻게 정리하는 것이 좋을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다",
+          "result": "묶음끈과 기록용 종이를 사서 남길 물건을 적었다. 콧코로가 다음에 가져올 물건도 함께 표시한다. 안쪽 상자는 남았지만, 다시 같은 것을 사 오지는 않도록 목록을 챙겼다.",
+          "card": "pc_kokkoro_notes",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다",
+          "result": "페코린느와 큰 상자를 먼저 옮기고 안쪽까지 훑었다. 몸을 든든히 준비하고 움직이는 요령을 배운 대신, 밖에서도 더 넓은 길목을 맡는다. 개인 사냥에는 더 많은 적이 드나든다.",
+          "card": "pc_pecorine_expedition",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "보급품을 챙긴 뒤 맡을 길목도 한 곳 줄인다",
+          "result": "보급용 물약을 챙기고 맡을 길목 하나를 다른 일행에게 넘겼다. 정리는 필요한 만큼만 마쳤고 안쪽 상자는 남겨 두었다. 내 구역의 적 수는 줄지만 적이 없어지지는 않는다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100
+        },
+        {
+          "label": "빈 상자와 고철을 매입상에게 넘긴다",
+          "result": "쓸 수 없는 상자와 고철을 골라 매입상에게 넘겼다. 값을 받았지만, 남길 그릇과 선반의 배치를 정하는 일은 다음 사람에게 맡긴다.",
+          "card": null,
+          "card2": null,
+          "gold": 170,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 길드 하우스 청소 활동에서 별도 작은 방 정리 문제를 창작한다. 방·물건·길목 배정과 거래는 맵 전용이다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_faded_spice_map",
+      "title": "색이 번진 향신료 지도",
+      "story": "습기에 번진 향신료 채집 지도에는 단 한 길만 표시되어 있다. 페코린느는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다. 콧코로는 오늘 필요한 최소한의 보급품을 챙기고 있다.",
+      "intro": "희미한 지도를 보며 다음 행선지를 고민한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "현장 도구를 마련해 페코린느와 남은 표시를 확인한다",
+          "result": "남은 표시를 따라가 채집할 곳을 찾았다. 재료를 의뢰처에 넘겨 값을 받고 페코린느와 든든히 준비하는 요령을 익혔다. 조사하며 맡은 구역은 더 강한 적이 드나드는 곳으로 남는다.",
+          "card": "pc_pecorine_expedition",
+          "card2": null,
+          "gold": 280,
+          "cost": 150,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 65
+        },
+        {
+          "label": "확인된 길 안내를 사서 캬루와 출발 준비를 점검한다",
+          "result": "안내 자료를 사고 캬루와 서로 맞지 않는 표시를 걸러 냈다. 길을 막는 상대의 빈틈을 짚는 조언을 얻었다. 위험한 원정을 따로 맡지는 않았지만, 앞으로 적을 만나지 않는다는 보장은 없다.",
+          "card": "pc_karyl_check",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기록용품을 사서 콧코로와 의뢰 내용을 다시 나눈다",
+          "result": "기록용품 값을 치르고 채집 대상과 맡을 일을 나누어 적었다. 흐린 길을 억지로 확정하지는 않았다. 콧코로의 준비 목록을 챙기고, 지도에 남은 빈칸은 다음 조사자에게 남긴다.",
+          "card": "pc_kokkoro_notes",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다",
+          "result": "채집은 맡지 않고 의뢰처의 보급품 정리를 도왔다. 정리 보수와 물약 한 개를 받았다. 흐린 지도와 그 길의 재료는 직접 확인하지 못했다.",
+          "card": null,
+          "card2": null,
+          "gold": 120,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
+      "canonFact": "공식 향신료 수확 의뢰와 불확실한 조미료 지도 모험에서 별도 평범한 채집 지도를 창작한다. 본편 마을·섀도 실종이나 궁극 조미료를 해결하는 사건은 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "pc_tea_invitation",
+      "title": "접힌 채 남은 초대장",
+      "story": "아오이가 작은 차 모임 안내장을 들고 문 앞을 서성인다. 건네려던 말을 적었다 지우다 종이만 여러 번 접었다. 콧코로는 모임 준비물을 살펴보다 빠진 것을 가리킨다. 아오이는 부탁할 말을 네가 전부 대신하기보다, 처음 한 문장만 함께 정리해 주면 좋겠다고 한다.",
+      "intro": "건넬 말을 함께 준비할지, 모임의 실무를 도울지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "연습용 종이를 사고 아오이와 처음 한 문장을 준비한다",
+          "result": "연습용 종이 값을 치르고 첫 인사를 함께 고쳤다. 아오이는 접어 둔 안내장을 펴고 자기 말로 한 문장을 건넨다. 모든 사람이 친해진 것은 아니지만, 다음 발걸음을 준비할 작은 용기를 배웠다.",
+          "card": "pc_aoi_courage",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "빠진 준비물을 사서 콧코로와 모임 목록을 맞춘다",
+          "result": "준비물 값을 내고 빠진 항목을 목록에 보탰다. 콧코로와 물건을 맡을 사람도 나누어 적는다. 모임 준비는 도왔지만 아오이가 건넬 말은 아오이에게 남겨 둔다.",
+          "card": "pc_kokkoro_notes",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "연습은 맡지 않고 보급 정리와 좁은 길목만 돕는다",
+          "result": "보급 정리를 돕고 물약 하나를 받았다. 오늘 맡을 길목을 한 곳 줄여 내 구역의 적 수도 줄었다. 아오이의 첫 인사는 대신하지 않고, 모임 안내는 다른 사람에게 맡긴다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100
+        },
+        {
+          "label": "안내장 정리와 봉투 작업만 맡고 보수를 받는다",
+          "result": "안내장을 정리하고 봉투를 접어 모임 준비 보수를 받았다. 아오이는 아직 말을 고르고 있다. 손에 맡은 일은 끝냈지만 그 인사를 대신 건네지는 않았다.",
+          "card": null,
+          "card2": null,
+          "gold": 160,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "학교 분위기에 적응하기 어려운 아오이를 유우키·콧코로가 돕는 공식 소재에서 별도 작은 모임 안내장 문제를 창작한다. 초대장과 결과는 맵 전용이다.",
+      "uncertain": []
+    }
+  ],
+  "world": {
+    "key": "gourmet",
+    "name": "미식전 길드 하우스",
+    "work": "프린세스 커넥트! Re:Dive",
+    "intro": "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다.",
+    "effects": [
+      {
+        "stat": "max_health_percent",
+        "value": 2
+      }
+    ],
+    "entryCard": "pc_kokkoro_entry",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
+  },
+  "sources": [
+    "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
+    "https://anime.priconne-redive.jp/archive/1st/story/id_03.html",
+    "https://anime.priconne-redive.jp/archive/1st/story/id_04.html",
+    "https://anime.priconne-redive.jp/archive/1st/story/id_11.html",
+    "https://anime.priconne-redive.jp/story/ep_01.html",
+    "https://dmg.priconne-redive.jp/news/detail.php?id=35036",
+    "https://priconne.kakaogames.com/character.html",
+    "https://anime.priconne-redive.jp/archive/1st/story/id_06.html",
+    "https://anime.priconne-redive.jp/story/ep_03.html"
+  ],
+  "canonBoundary": "미식전의 대식가 검사·세심한 생활 지원·길드 활동과 기본 캬루의 방어력 감소 역할을 소재로 삼는다. 길가 식사·재료 비용·부탁한 사람·보급품 교환은 맵 전용 창작이다. 원작의 검 분실·식당 재료 고갈·인형 파손을 대신 해결하지 않는다. 현재 체력 비용·새 기술·적 전체 디버프·감정 수치·실제 NPC 호위·퀘스트 물품·식사 재고는 생성하지 않는다. 식사는 자기 이전 선택 기록으로 이어지는 이야기이며 후속 사건은 별도 행동력을 쓰고 등장을 보장하지 않는다. 식사로 현재 체력을 즉시 회복하지 않고 최대 체력 증가에도 현재 체력 비율을 유지한다. 기본 캬루의 공식 조정 역할을 참고했으며 오버로드·프린세스 버전의 고유 효과를 혼합하지 않는다. 추가된 작은 방·채집 지도·차 모임은 공식 생활·의뢰·학교 적응 소재에서 따로 창작한 문제다. 이야기 속 물건과 NPC는 실제 인벤토리나 AI로 생성되지 않으며 골드·지정 카드·물약·개인 필드 수치만 적용된다. 확률 선택은 비용과 필드 부담이 실패 때도 남는다."
+}

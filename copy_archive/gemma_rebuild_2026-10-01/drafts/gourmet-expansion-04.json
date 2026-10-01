@@ -1,0 +1,1211 @@
+{
+  "started": "2026-10-01T12:56:25.224Z",
+  "finished": "2026-10-01T12:57:04.625Z",
+  "request": {
+    "review": false,
+    "system": "한국어 사건·캐릭터 카드 집필자다. 기존 머리 안에서 서로 다른 문제를 해결하는 독립 사건을 만든다. 지정한 key·수치·이전기록·카드 보상을 정확히 보존한다. 원작 사실과 별도 창작을 구분하며 새 기술이나 현재 체력 비용을 추가하지 않는다. 제작용 안내를 플레이어 이야기 문장에 복사하지 않는다.",
+    "schema": {
+      "type": "object",
+      "required": [
+        "cards",
+        "events"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "name",
+              "effectName",
+              "keyword",
+              "grade",
+              "effects",
+              "evolution",
+              "canonFact",
+              "uncertain"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "effectName": {
+                "type": "string"
+              },
+              "keyword": {
+                "type": "string"
+              },
+              "grade": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "effects": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/effect"
+                }
+              },
+              "evolution": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "goal",
+                  "effects"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  },
+                  "goal": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "effects": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/effect"
+                    }
+                  }
+                }
+              },
+              "canonFact": {
+                "type": "string"
+              },
+              "uncertain": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "title",
+              "story",
+              "intro",
+              "previous",
+              "previousChoice",
+              "requiredCard",
+              "choices",
+              "failure",
+              "canonFact",
+              "uncertain"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "previous": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "previousChoice": {
+                "type": "integer",
+                "minimum": -4,
+                "maximum": 4
+              },
+              "requiredCard": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "result",
+                    "card",
+                    "card2",
+                    "gold",
+                    "cost",
+                    "level",
+                    "density",
+                    "potions",
+                    "chance"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    },
+                    "card": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "card2": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "gold": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "cost": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "level": {
+                      "type": "integer",
+                      "minimum": -4,
+                      "maximum": 4
+                    },
+                    "density": {
+                      "type": "integer",
+                      "minimum": -6,
+                      "maximum": 6
+                    },
+                    "potions": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "chance": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    }
+                  }
+                }
+              },
+              "failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "canonFact": {
+                "type": "string"
+              },
+              "uncertain": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "$defs": {
+        "effect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "stat",
+            "value"
+          ],
+          "properties": {
+            "stat": {
+              "type": "string",
+              "enum": [
+                "attack_percent",
+                "damage_percent",
+                "final_damage_percent",
+                "boss_damage_percent",
+                "normal_damage_percent",
+                "crit_chance",
+                "crit_damage",
+                "swift",
+                "action_speed",
+                "move_speed",
+                "charge_speed",
+                "penetration",
+                "max_health_percent",
+                "damage_reduction",
+                "leech",
+                "regeneration",
+                "kill_gold",
+                "event_choices",
+                "moving_damage",
+                "directional_damage",
+                "nondirectional_damage",
+                "shielded_damage",
+                "charge_damage",
+                "healthy_damage"
+              ]
+            },
+            "value": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "brief": {
+      "existingCardKeys": [
+        {
+          "key": "pc_kokkoro_entry",
+          "name": "콧코로",
+          "effectName": "세심한 준비",
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "key": "pc_pecorine_meal",
+          "name": "페코린느",
+          "effectName": "배가 든든할 때",
+          "effects": [
+            {
+              "stat": "max_health_percent",
+              "value": 12
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 14
+            }
+          ]
+        },
+        {
+          "key": "pc_pecorine_front",
+          "name": "페코린느",
+          "effectName": "함께 먹을 몫",
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 12
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "key": "pc_kokkoro_care",
+          "name": "콧코로",
+          "effectName": "작은 준비를 놓치지 않기",
+          "effects": [
+            {
+              "stat": "regeneration",
+              "value": 0.6
+            },
+            {
+              "stat": "swift",
+              "value": 90
+            }
+          ]
+        },
+        {
+          "key": "pc_karyl_check",
+          "name": "캬루",
+          "effectName": "막힌 길을 비우는 마법",
+          "effects": [
+            {
+              "stat": "nondirectional_damage",
+              "value": 16
+            },
+            {
+              "stat": "penetration",
+              "value": 6
+            }
+          ]
+        },
+        {
+          "key": "pc_karyl_resolve",
+          "name": "캬루",
+          "effectName": "불평은 일을 끝낸 뒤에",
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 14
+            },
+            {
+              "stat": "penetration",
+              "value": 8
+            }
+          ]
+        }
+      ],
+      "newCards": [
+        {
+          "key": "pc_kokkoro_notes",
+          "name": "콧코로",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "event_choices",
+              "value": 1
+            },
+            {
+              "stat": "kill_gold",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "fact": "기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다. 후보 추가는 총4개 한도이며 행동력·리롤 할인·무한 재고가 아니다."
+        },
+        {
+          "key": "pc_pecorine_expedition",
+          "name": "페코린느",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 18
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 1,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              }
+            ]
+          },
+          "fact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다. 흡혈·고유 검 기술·재료 인벤토리를 생성하지 않는다."
+        },
+        {
+          "key": "pc_aoi_courage",
+          "name": "아오이",
+          "grade": 2,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 4
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 12
+            }
+          ],
+          "evolution": {
+            "kind": 3,
+            "goal": 45,
+            "effects": [
+              {
+                "stat": "action_speed",
+                "value": 3
+              }
+            ]
+          },
+          "fact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다. 원작 고유 전투 기술이나 친구 수 게이지를 만든 것이 아니다."
+        }
+      ],
+      "plans": [
+        {
+          "key": "pc_dusty_room",
+          "title": "먼지 뒤에 남은 방",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "situation": "길드 하우스 대청소의 공식 소재에서 별도 작은 방 정리를 창작한다. 오래된 재료 상자와 깨진 선반, 쓸 수 있는 수납공간이 한 방에 뒤섞여 있다. 콧코로는 남길 물건을 기록하자고 하고 페코린느는 큰 상자를 먼저 들어내려 한다. 무엇을 보존하고 어디까지 정리할지 정한다.",
+          "choices": [
+            {
+              "action": "제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다",
+              "card": "pc_kokkoro_notes",
+              "card2": null,
+              "cost": 220,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다",
+              "card": "pc_pecorine_front",
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 1,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "필요한 보급품만 챙기고 쓰지 않을 공간은 닫는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "gold": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "action": "빈 상자와 고철을 매입상에게 넘긴다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 170,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "boundaries": "1. 물건과 맡을 일의 기록을 챙긴다. 새 인벤토리 물품·창고 확장 없음. 2. 큰 상자를 치우는 힘쓴 자세를 준비한다. 개인 사냥에 더 많은 적이 남고 방 실제 지형 변경은 없음. 3. 물약1·적 수-1. 전체 문제가 해결되었다고 하지 않는다. 4. 돈을 받고 남겨 둘 물건을 구분한 결론으로 쓰지 않는다."
+        },
+        {
+          "key": "pc_faded_spice_map",
+          "title": "색이 번진 향신료 지도",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "situation": "식재료 의뢰에 나서는 활동과 불확실한 지도 모험을 참고하되 원작의 궁극 조미료·타르굼 마을·섀도 사건을 재연하지 않는다. 습기에 번진 평범한 향신료 채집 지도에서 한 길만 표시가 남았다. 페코린느는 확인해 보고 싶어 하고 캬루는 정확한지 먼저 보자고 한다. 콧코로는 오늘 필요한 보급만 따로 챙기고 있다.",
+          "choices": [
+            {
+              "action": "현장 도구를 마련해 페코린느와 남은 표시를 확인한다",
+              "card": "pc_pecorine_expedition",
+              "card2": null,
+              "cost": 150,
+              "level": 1,
+              "density": 0,
+              "gold": 280,
+              "potions": 0,
+              "chance": 65
+            },
+            {
+              "action": "확인된 길 안내를 사서 캬루와 출발 준비를 점검한다",
+              "card": "pc_karyl_check",
+              "card2": null,
+              "cost": 240,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "콩알만 한 글씨를 다시 정리하고 콧코로와 의뢰를 나눈다",
+              "card": "pc_kokkoro_notes",
+              "card2": null,
+              "cost": 180,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 120,
+              "potions": 1,
+              "chance": 100
+            }
+          ],
+          "boundaries": "1. 65% 성공 때만 지정 페코린느 카드·280골드. 실패면 보상 없음, 도구비150·적 단계+1은 이미 적용되어 남는다. 큰 악역·원작 고유 보물·새 식재료 아이템 없음. 2. 보스나 주요 원작 사건 결말을 알아내지 않는다. 3. 이미 가진 지도/불확실한 보고를 정리할 뿐 미래나 정답을 완벽히 예언하지 않는다. 4. 그리운 원작 도구를 신규아이템으로 지급하지 않고 물약1·골드120만 받는다.",
+          "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다."
+        },
+        {
+          "key": "pc_tea_invitation",
+          "title": "접힌 채 남은 초대장",
+          "previous": null,
+          "previousChoice": 0,
+          "requiredCard": null,
+          "situation": "성 테레사 여학원 분위기에 적응하기 어려운 아오이와 유우키·콧코로의 도움이라는 공식 소재에서 별도 작은 초대장 문제를 만든다. 아오이가 가벼운 차 모임 안내장을 들고 있지만 건네려던 말을 적다가 종이만 접어 두었다. 콧코로는 먼저 준비할 물건부터 고르자고 하고 아오이는 네가 대신 모든 말을 해버리는 것은 바라지 않는다. 학교 전체 관계나 인생 문제를 한 번의 선택으로 해결하지 않는다.",
+          "choices": [
+            {
+              "action": "아오이와 건넬 말 한 문장부터 정리해 함께 문 앞에 선다",
+              "card": "pc_aoi_courage",
+              "card2": null,
+              "cost": 160,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "모임의 준비 목록을 정리해 콧코로와 빠진 것을 챙긴다",
+              "card": "pc_kokkoro_notes",
+              "card2": null,
+              "cost": 200,
+              "level": 0,
+              "density": 0,
+              "gold": 0,
+              "potions": 0,
+              "chance": 100
+            },
+            {
+              "action": "전달할 범위를 줄이고 보급 준비만 돕는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": -1,
+              "gold": 0,
+              "potions": 1,
+              "chance": 100
+            },
+            {
+              "action": "안내장 정리와 봉투 작업만 맡고 보수를 받는다",
+              "card": null,
+              "card2": null,
+              "cost": 0,
+              "level": 0,
+              "density": 0,
+              "gold": 160,
+              "potions": 0,
+              "chance": 100
+            }
+          ],
+          "boundaries": "유료1은 연습 종이·준비물 비용160. 마음조작·확정 친구획득 없음. 말과 준비 중 어느것을 맡았는지 다르게 남겨라. 3번의 전달 범위는 맵 전용 배정 사냥 범위와 대응하여 적 수-1, 실제NPC배달·호위·지도순간이동 없다. 4번은 보수만 받고 아오이 대신 관계를 완성하지 않는다. 병든인물·거짓왕족·SNS시스템 만들지 않는다."
+        }
+      ],
+      "sourceFacts": [
+        {
+          "source": "https://anime.priconne-redive.jp/archive/1st/story/id_04.html",
+          "fact": "미식전 네 사람이 길드 하우스를 빌려 함께 청소한다."
+        },
+        {
+          "source": "https://anime.priconne-redive.jp/archive/1st/story/id_06.html",
+          "fact": "길드 관리 협회 의뢰로 향신료 원료 수확에 나선다. 타르굼 주변에서 섀도에 따른 실종 사건이 일어나지만 이 요청에서 본편 실종을 해결하지 않는다."
+        },
+        {
+          "source": "https://anime.priconne-redive.jp/story/ep_01.html",
+          "fact": "불확실한 조미료 지도를 보고 새로운 모험에 나선다. 특정 보물 이름과 본편 결과를 쓰지 않는다."
+        },
+        {
+          "source": "https://anime.priconne-redive.jp/story/ep_03.html",
+          "fact": "랜드솔의 아오이는 성 테레사 여학원에 다니지만 분위기에 적응하기 어려워한다. 유우키·콧코로가 돕고자 학교로 함께 간다."
+        }
+      ],
+      "format": "cards에는 새 카드 세 개만, events에는 위의 새 독립 사건 세 개만 작성한다. 기존 카드를 복사하지 않는다. effectName·keyword·canonFact·uncertain[]와 story·intro·label·result를 채운다. card2=null. 모든 기존카드 참조는 existingCardKeys를 사용한다. 자유로운 랜덤 카드 지급으로 바꾸지 않는다.",
+      "mechanics": "각 사건 후보 선택은AP1, 방문과후속구분. 비용은선택시차감. 확률65는1~100난수판정이며성공카드·골드만확률, 비용과필드변화는성공/실패둘다적용. level은적강함, density는동시적수. 변화는사냥에남지만하한1·강함상한5·수상한10. 포션은기존소모품, 카드중복은100골드. 신속고정단위, 치명p, regenmaxHP%/초, event_choices후보총4한도, 무피격각성은연속초다. 새스킬·NPCAI·감정/관계게이지·퀘스트아이템·행동력증감·체력비용없음.",
+      "quality": "기존 냄비 식사와 남은 끼니 후속은 반복하지 않는다. 대청소/불확실한자료확인/대화준비라는 세 문제의 차이를 인물·물건·남은 부탁으로 보여라. 모든 선택을 돈을내고기술배우기 또는모두해결했다로 끝내지 않는다. 실제재미·원작전수검증했다고 주장하지 않는다."
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "required": [
+        "cards",
+        "events"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "cards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "name",
+              "effectName",
+              "keyword",
+              "grade",
+              "effects",
+              "evolution",
+              "canonFact",
+              "uncertain"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "effectName": {
+                "type": "string"
+              },
+              "keyword": {
+                "type": "string"
+              },
+              "grade": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "effects": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/effect"
+                }
+              },
+              "evolution": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "goal",
+                  "effects"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  },
+                  "goal": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "effects": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/effect"
+                    }
+                  }
+                }
+              },
+              "canonFact": {
+                "type": "string"
+              },
+              "uncertain": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "title",
+              "story",
+              "intro",
+              "previous",
+              "previousChoice",
+              "requiredCard",
+              "choices",
+              "failure",
+              "canonFact",
+              "uncertain"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "story": {
+                "type": "string"
+              },
+              "intro": {
+                "type": "string"
+              },
+              "previous": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "previousChoice": {
+                "type": "integer",
+                "minimum": -4,
+                "maximum": 4
+              },
+              "requiredCard": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "choices": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 4,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "result",
+                    "card",
+                    "card2",
+                    "gold",
+                    "cost",
+                    "level",
+                    "density",
+                    "potions",
+                    "chance"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    },
+                    "card": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "card2": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "gold": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "cost": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "level": {
+                      "type": "integer",
+                      "minimum": -4,
+                      "maximum": 4
+                    },
+                    "density": {
+                      "type": "integer",
+                      "minimum": -6,
+                      "maximum": 6
+                    },
+                    "potions": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "chance": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 100
+                    }
+                  }
+                }
+              },
+              "failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "canonFact": {
+                "type": "string"
+              },
+              "uncertain": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "$defs": {
+        "effect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "stat",
+            "value"
+          ],
+          "properties": {
+            "stat": {
+              "type": "string",
+              "enum": [
+                "attack_percent",
+                "damage_percent",
+                "final_damage_percent",
+                "boss_damage_percent",
+                "normal_damage_percent",
+                "crit_chance",
+                "crit_damage",
+                "swift",
+                "action_speed",
+                "move_speed",
+                "charge_speed",
+                "penetration",
+                "max_health_percent",
+                "damage_reduction",
+                "leech",
+                "regeneration",
+                "kill_gold",
+                "event_choices",
+                "moving_damage",
+                "directional_damage",
+                "nondirectional_damage",
+                "shielded_damage",
+                "charge_damage",
+                "healthy_damage"
+              ]
+            },
+            "value": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어 사건·캐릭터 카드 집필자다. 기존 머리 안에서 서로 다른 문제를 해결하는 독립 사건을 만든다. 지정한 key·수치·이전기록·카드 보상을 정확히 보존한다. 원작 사실과 별도 창작을 구분하며 새 기술이나 현재 체력 비용을 추가하지 않는다. 제작용 안내를 플레이어 이야기 문장에 복사하지 않는다."
+      },
+      {
+        "role": "user",
+        "content": "{\"existingCardKeys\":[{\"key\":\"pc_kokkoro_entry\",\"name\":\"콧코로\",\"effectName\":\"세심한 준비\",\"effects\":[{\"stat\":\"action_speed\",\"value\":2}]},{\"key\":\"pc_pecorine_meal\",\"name\":\"페코린느\",\"effectName\":\"배가 든든할 때\",\"effects\":[{\"stat\":\"max_health_percent\",\"value\":12},{\"stat\":\"healthy_damage\",\"value\":14}]},{\"key\":\"pc_pecorine_front\",\"name\":\"페코린느\",\"effectName\":\"함께 먹을 몫\",\"effects\":[{\"stat\":\"attack_percent\",\"value\":12},{\"stat\":\"damage_reduction\",\"value\":3}]},{\"key\":\"pc_kokkoro_care\",\"name\":\"콧코로\",\"effectName\":\"작은 준비를 놓치지 않기\",\"effects\":[{\"stat\":\"regeneration\",\"value\":0.6},{\"stat\":\"swift\",\"value\":90}]},{\"key\":\"pc_karyl_check\",\"name\":\"캬루\",\"effectName\":\"막힌 길을 비우는 마법\",\"effects\":[{\"stat\":\"nondirectional_damage\",\"value\":16},{\"stat\":\"penetration\",\"value\":6}]},{\"key\":\"pc_karyl_resolve\",\"name\":\"캬루\",\"effectName\":\"불평은 일을 끝낸 뒤에\",\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":14},{\"stat\":\"penetration\",\"value\":8}]}],\"newCards\":[{\"key\":\"pc_kokkoro_notes\",\"name\":\"콧코로\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"kill_gold\",\"value\":2}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"fact\":\"기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다. 후보 추가는 총4개 한도이며 행동력·리롤 할인·무한 재고가 아니다.\"},{\"key\":\"pc_pecorine_expedition\",\"name\":\"페코린느\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":18},{\"stat\":\"normal_damage_percent\",\"value\":12}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":6}]},\"fact\":\"배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다. 흡혈·고유 검 기술·재료 인벤토리를 생성하지 않는다.\"},{\"key\":\"pc_aoi_courage\",\"name\":\"아오이\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":4},{\"stat\":\"healthy_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":45,\"effects\":[{\"stat\":\"action_speed\",\"value\":3}]},\"fact\":\"낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다. 원작 고유 전투 기술이나 친구 수 게이지를 만든 것이 아니다.\"}],\"plans\":[{\"key\":\"pc_dusty_room\",\"title\":\"먼지 뒤에 남은 방\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"situation\":\"길드 하우스 대청소의 공식 소재에서 별도 작은 방 정리를 창작한다. 오래된 재료 상자와 깨진 선반, 쓸 수 있는 수납공간이 한 방에 뒤섞여 있다. 콧코로는 남길 물건을 기록하자고 하고 페코린느는 큰 상자를 먼저 들어내려 한다. 무엇을 보존하고 어디까지 정리할지 정한다.\",\"choices\":[{\"action\":\"제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"cost\":220,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다\",\"card\":\"pc_pecorine_front\",\"card2\":null,\"cost\":0,\"level\":0,\"density\":1,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"필요한 보급품만 챙기고 쓰지 않을 공간은 닫는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":-1,\"gold\":0,\"potions\":1,\"chance\":100},{\"action\":\"빈 상자와 고철을 매입상에게 넘긴다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":170,\"potions\":0,\"chance\":100}],\"boundaries\":\"1. 물건과 맡을 일의 기록을 챙긴다. 새 인벤토리 물품·창고 확장 없음. 2. 큰 상자를 치우는 힘쓴 자세를 준비한다. 개인 사냥에 더 많은 적이 남고 방 실제 지형 변경은 없음. 3. 물약1·적 수-1. 전체 문제가 해결되었다고 하지 않는다. 4. 돈을 받고 남겨 둘 물건을 구분한 결론으로 쓰지 않는다.\"},{\"key\":\"pc_faded_spice_map\",\"title\":\"색이 번진 향신료 지도\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"situation\":\"식재료 의뢰에 나서는 활동과 불확실한 지도 모험을 참고하되 원작의 궁극 조미료·타르굼 마을·섀도 사건을 재연하지 않는다. 습기에 번진 평범한 향신료 채집 지도에서 한 길만 표시가 남았다. 페코린느는 확인해 보고 싶어 하고 캬루는 정확한지 먼저 보자고 한다. 콧코로는 오늘 필요한 보급만 따로 챙기고 있다.\",\"choices\":[{\"action\":\"현장 도구를 마련해 페코린느와 남은 표시를 확인한다\",\"card\":\"pc_pecorine_expedition\",\"card2\":null,\"cost\":150,\"level\":1,\"density\":0,\"gold\":280,\"potions\":0,\"chance\":65},{\"action\":\"확인된 길 안내를 사서 캬루와 출발 준비를 점검한다\",\"card\":\"pc_karyl_check\",\"card2\":null,\"cost\":240,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"콩알만 한 글씨를 다시 정리하고 콧코로와 의뢰를 나눈다\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"cost\":180,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":120,\"potions\":1,\"chance\":100}],\"boundaries\":\"1. 65% 성공 때만 지정 페코린느 카드·280골드. 실패면 보상 없음, 도구비150·적 단계+1은 이미 적용되어 남는다. 큰 악역·원작 고유 보물·새 식재료 아이템 없음. 2. 보스나 주요 원작 사건 결말을 알아내지 않는다. 3. 이미 가진 지도/불확실한 보고를 정리할 뿐 미래나 정답을 완벽히 예언하지 않는다. 4. 그리운 원작 도구를 신규아이템으로 지급하지 않고 물약1·골드120만 받는다.\",\"failure\":\"표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.\"},{\"key\":\"pc_tea_invitation\",\"title\":\"접힌 채 남은 초대장\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"situation\":\"성 테레사 여학원 분위기에 적응하기 어려운 아오이와 유우키·콧코로의 도움이라는 공식 소재에서 별도 작은 초대장 문제를 만든다. 아오이가 가벼운 차 모임 안내장을 들고 있지만 건네려던 말을 적다가 종이만 접어 두었다. 콧코로는 먼저 준비할 물건부터 고르자고 하고 아오이는 네가 대신 모든 말을 해버리는 것은 바라지 않는다. 학교 전체 관계나 인생 문제를 한 번의 선택으로 해결하지 않는다.\",\"choices\":[{\"action\":\"아오이와 건넬 말 한 문장부터 정리해 함께 문 앞에 선다\",\"card\":\"pc_aoi_courage\",\"card2\":null,\"cost\":160,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"모임의 준비 목록을 정리해 콧코로와 빠진 것을 챙긴다\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"cost\":200,\"level\":0,\"density\":0,\"gold\":0,\"potions\":0,\"chance\":100},{\"action\":\"전달할 범위를 줄이고 보급 준비만 돕는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":-1,\"gold\":0,\"potions\":1,\"chance\":100},{\"action\":\"안내장 정리와 봉투 작업만 맡고 보수를 받는다\",\"card\":null,\"card2\":null,\"cost\":0,\"level\":0,\"density\":0,\"gold\":160,\"potions\":0,\"chance\":100}],\"boundaries\":\"유료1은 연습 종이·준비물 비용160. 마음조작·확정 친구획득 없음. 말과 준비 중 어느것을 맡았는지 다르게 남겨라. 3번의 전달 범위는 맵 전용 배정 사냥 범위와 대응하여 적 수-1, 실제NPC배달·호위·지도순간이동 없다. 4번은 보수만 받고 아오이 대신 관계를 완성하지 않는다. 병든인물·거짓왕족·SNS시스템 만들지 않는다.\"}],\"sourceFacts\":[{\"source\":\"https://anime.priconne-redive.jp/archive/1st/story/id_04.html\",\"fact\":\"미식전 네 사람이 길드 하우스를 빌려 함께 청소한다.\"},{\"source\":\"https://anime.priconne-redive.jp/archive/1st/story/id_06.html\",\"fact\":\"길드 관리 협회 의뢰로 향신료 원료 수확에 나선다. 타르굼 주변에서 섀도에 따른 실종 사건이 일어나지만 이 요청에서 본편 실종을 해결하지 않는다.\"},{\"source\":\"https://anime.priconne-redive.jp/story/ep_01.html\",\"fact\":\"불확실한 조미료 지도를 보고 새로운 모험에 나선다. 특정 보물 이름과 본편 결과를 쓰지 않는다.\"},{\"source\":\"https://anime.priconne-redive.jp/story/ep_03.html\",\"fact\":\"랜드솔의 아오이는 성 테레사 여학원에 다니지만 분위기에 적응하기 어려워한다. 유우키·콧코로가 돕고자 학교로 함께 간다.\"}],\"format\":\"cards에는 새 카드 세 개만, events에는 위의 새 독립 사건 세 개만 작성한다. 기존 카드를 복사하지 않는다. effectName·keyword·canonFact·uncertain[]와 story·intro·label·result를 채운다. card2=null. 모든 기존카드 참조는 existingCardKeys를 사용한다. 자유로운 랜덤 카드 지급으로 바꾸지 않는다.\",\"mechanics\":\"각 사건 후보 선택은AP1, 방문과후속구분. 비용은선택시차감. 확률65는1~100난수판정이며성공카드·골드만확률, 비용과필드변화는성공/실패둘다적용. level은적강함, density는동시적수. 변화는사냥에남지만하한1·강함상한5·수상한10. 포션은기존소모품, 카드중복은100골드. 신속고정단위, 치명p, regenmaxHP%/초, event_choices후보총4한도, 무피격각성은연속초다. 새스킬·NPCAI·감정/관계게이지·퀘스트아이템·행동력증감·체력비용없음.\",\"quality\":\"기존 냄비 식사와 남은 끼니 후속은 반복하지 않는다. 대청소/불확실한자료확인/대화준비라는 세 문제의 차이를 인물·물건·남은 부탁으로 보여라. 모든 선택을 돈을내고기술배우기 또는모두해결했다로 끝내지 않는다. 실제재미·원작전수검증했다고 주장하지 않는다.\"}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T12:57:04.6208498Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"cards\":[{\"key\":\"pc_kokkoro_notes\",\"name\":\"콧코로\",\"effectName\":\"기록과 수급\",\"keyword\":\"기록\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"kill_gold\",\"value\":2}],\"evolution\":{\"kind\":0,\"goal\":0,\"effects\":[]},\"canonFact\":\"기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다.\",\"uncertain\":[]},{\"key\":\"pc_pecorine_expedition\",\"name\":\"페코린느\",\"effectName\":\"식재료 탐색\",\"keyword\":\"탐색\",\"grade\":2,\"effects\":[{\"stat\":\"healthy_damage\",\"value\":18},{\"stat\":\"normal_damage_percent\",\"value\":12}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"boss_damage_percent\",\"value\":6}]},\"canonFact\":\"배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.\",\"uncertain\":[]},{\"key\":\"pc_aoi_courage\",\"name\":\"아오이\",\"effectName\":\"조심스러운 발걸음\",\"keyword\":\"적응\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":4},{\"stat\":\"healthy_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":45,\"effects\":[{\"stat\":\"action_speed\",\"value\":3}]},\"canonFact\":\"낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"pc_dusty_room\",\"title\":\"먼지 뒤에 남은 방\",\"story\":\"길드 하우스 대청소 중 발견한 작은 방의 정리 작업이다. 오래된 재료 상자와 깨진 선반이 한데 뒤섞여 있어 정리가 쉽지 않다. 콧코로는 보존할 물건을 기록하자고 제안하고, 페코린느는 일단 큰 상자부터 치워 공간을 확보하자고 나선다.\",\"intro\":\"어질러진 방 안에서 두 사람의 의견이 엇갈린다. 어떻게 정리하는 것이 좋을까?\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다\",\"result\":\"정확한 기록이 남았지만 정리는 미진하다.\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"gold\":0,\"cost\":220,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다\",\"result\":\"공간은 확보했지만 물건의 위치는 뒤섞였다.\",\"card\":\"pc_pecorine_front\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"필요한 보급품만 챙기고 쓰지 않을 공간은 닫는다\",\"result\":\"최소한의 정리로 끝냈다.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100},{\"label\":\"빈 상자와 고철을 매입상에게 넘긴다\",\"result\":\"방은 비었지만 소소한 이득을 얻었다.\",\"card\":null,\"card2\":null,\"gold\":170,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":\"표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.\",\"canonFact\":\"미식전 네 사람이 길드 하우스를 빌려 함께 청소한다.\",\"uncertain\":[]},{\"key\":\"pc_faded_spice_map\",\"title\":\"색이 번진 향신료 지도\",\"story\":\"습기에 번진 향신료 채집 지도에는 단 한 길만 표시되어 있다. 페코린느는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다. 콧코로는 오늘 필요한 최소한의 보급품을 챙기고 있다.\",\"intro\":\"희미한 지도를 보며 다음 행선지를 고민한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"현장 도구를 마련해 페코린느와 남은 표시를 확인한다\",\"result\":\"지도의 경로를 일부 확인했다.\",\"card\":\"pc_pecorine_expedition\",\"card2\":null,\"gold\":280,\"cost\":150,\"level\":1,\"density\":0,\"potions\":0,\"chance\":65},{\"label\":\"확인된 길 안내를 사서 캬루와 출발 준비를 점검한다\",\"result\":\"안전한 경로를 확보했다.\",\"card\":\"pc_karyl_check\",\"card2\":null,\"gold\":0,\"cost\":240,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"콩알만 한 글씨를 다시 정리하고 콧코로와 의뢰를 나눈다\",\"result\":\"의뢰 내용이 명확해졌다.\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"gold\":0,\"cost\":180,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다\",\"result\":\"위험을 피하고 보급에 집중했다.\",\"card\":null,\"card2\":null,\"gold\":120,\"cost\":0,\"level\":0,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":\"표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.\",\"canonFact\":\"길드 관리 협회 의뢰로 향신료 원료 수확에 나선다. 불확실한 조미료 지도를 보고 새로운 모험에 나선다.\",\"uncertain\":[]},{\"key\":\"pc_tea_invitation\",\"title\":\"접힌 채 남은 초대장\",\"story\":\"아오이가 학교 모임 안내장을 들고 있지만, 건넬 말을 고민하다 종이만 접어둔 채 멈춰 있다. 콧코로는 준비물부터 챙기자고 하고, 아오는 네가 모든 말을 대신해주기를 바라지 않는다고 덧붙인다.\",\"intro\":\"아오이의 망설임을 도와 모임 준비를 마쳐야 한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"아오이와 건넬 말 한 문장부터 정리해 함께 문 앞에 선다\",\"result\":\"아오이와 함께 용기를 내어 문 앞에 섰다.\",\"card\":\"pc_aoi_courage\",\"card2\":null,\"gold\":0,\"cost\":160,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"모임의 준비 목록을 정리해 콧코로와 빠진 것을 챙긴다\",\"result\":\"꼼꼼한 준비로 완벽한 리스트를 만들었다.\",\"card\":\"pc_kokkoro_notes\",\"card2\":null,\"gold\":0,\"cost\":200,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"전달할 범위를 줄이고 보급 준비만 돕는다\",\"result\":\"실수를 방지하기 위해 보급에 집중했다.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":-1,\"potions\":1,\"chance\":100},{\"label\":\"안내장 정리와 봉투 작업만 맡고 보수를 받는다\",\"result\":\"실무적인 도움을 주고 보상을 받았다.\",\"card\":null,\"card2\":null,\"gold\":160,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":\"표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.\",\"canonFact\":\"랜드솔의 아오이는 성 테레사 여학원에 다니지만 분위기에 적응하기 어려워한다.\",\"uncertain\":[]}]}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 39372817000,
+    "load_duration": 5108035400,
+    "prompt_eval_count": 2983,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1336056000,
+    "eval_count": 1939,
+    "eval_duration": 32920447000
+  },
+  "parsed": {
+    "cards": [
+      {
+        "key": "pc_kokkoro_notes",
+        "name": "콧코로",
+        "effectName": "기록과 수급",
+        "keyword": "기록",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "kill_gold",
+            "value": 2
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기록과 출발 준비를 챙기는 길드 활동을 사건 후보와 처치 수급으로 각색한다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_pecorine_expedition",
+        "name": "페코린느",
+        "effectName": "식재료 탐색",
+        "keyword": "탐색",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 18
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 6
+            }
+          ]
+        },
+        "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_aoi_courage",
+        "name": "아오이",
+        "effectName": "조심스러운 발걸음",
+        "keyword": "적응",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 4
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 3
+            }
+          ]
+        },
+        "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
+        "uncertain": []
+      }
+    ],
+    "events": [
+      {
+        "key": "pc_dusty_room",
+        "title": "먼지 뒤에 남은 방",
+        "story": "길드 하우스 대청소 중 발견한 작은 방의 정리 작업이다. 오래된 재료 상자와 깨진 선반이 한데 뒤섞여 있어 정리가 쉽지 않다. 콧코로는 보존할 물건을 기록하자고 제안하고, 페코린느는 일단 큰 상자부터 치워 공간을 확보하자고 나선다.",
+        "intro": "어질러진 방 안에서 두 사람의 의견이 엇갈린다. 어떻게 정리하는 것이 좋을까?",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "label": "제본과 정리 비용을 내고 콧코로와 남길 물건을 기록한다",
+            "result": "정확한 기록이 남았지만 정리는 미진하다.",
+            "card": "pc_kokkoro_notes",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다",
+            "result": "공간은 확보했지만 물건의 위치는 뒤섞였다.",
+            "card": "pc_pecorine_front",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "필요한 보급품만 챙기고 쓰지 않을 공간은 닫는다",
+            "result": "최소한의 정리로 끝냈다.",
+            "card": null,
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100
+          },
+          {
+            "label": "빈 상자와 고철을 매입상에게 넘긴다",
+            "result": "방은 비었지만 소소한 이득을 얻었다.",
+            "card": null,
+            "card2": null,
+            "gold": 170,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
+        "canonFact": "미식전 네 사람이 길드 하우스를 빌려 함께 청소한다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_faded_spice_map",
+        "title": "색이 번진 향신료 지도",
+        "story": "습기에 번진 향신료 채집 지도에는 단 한 길만 표시되어 있다. 페코린느는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다. 콧코로는 오늘 필요한 최소한의 보급품을 챙기고 있다.",
+        "intro": "희미한 지도를 보며 다음 행선지를 고민한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "label": "현장 도구를 마련해 페코린느와 남은 표시를 확인한다",
+            "result": "지도의 경로를 일부 확인했다.",
+            "card": "pc_pecorine_expedition",
+            "card2": null,
+            "gold": 280,
+            "cost": 150,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 65
+          },
+          {
+            "label": "확인된 길 안내를 사서 캬루와 출발 준비를 점검한다",
+            "result": "안전한 경로를 확보했다.",
+            "card": "pc_karyl_check",
+            "card2": null,
+            "gold": 0,
+            "cost": 240,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "콩알만 한 글씨를 다시 정리하고 콧코로와 의뢰를 나눈다",
+            "result": "의뢰 내용이 명확해졌다.",
+            "card": "pc_kokkoro_notes",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다",
+            "result": "위험을 피하고 보급에 집중했다.",
+            "card": null,
+            "card2": null,
+            "gold": 120,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "potions": 1,
+            "chance": 100
+          }
+        ],
+        "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
+        "canonFact": "길드 관리 협회 의뢰로 향신료 원료 수확에 나선다. 불확실한 조미료 지도를 보고 새로운 모험에 나선다.",
+        "uncertain": []
+      },
+      {
+        "key": "pc_tea_invitation",
+        "title": "접힌 채 남은 초대장",
+        "story": "아오이가 학교 모임 안내장을 들고 있지만, 건넬 말을 고민하다 종이만 접어둔 채 멈춰 있다. 콧코로는 준비물부터 챙기자고 하고, 아오는 네가 모든 말을 대신해주기를 바라지 않는다고 덧붙인다.",
+        "intro": "아오이의 망설임을 도와 모임 준비를 마쳐야 한다.",
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "choices": [
+          {
+            "label": "아오이와 건넬 말 한 문장부터 정리해 함께 문 앞에 선다",
+            "result": "아오이와 함께 용기를 내어 문 앞에 섰다.",
+            "card": "pc_aoi_courage",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "모임의 준비 목록을 정리해 콧코로와 빠진 것을 챙긴다",
+            "result": "꼼꼼한 준비로 완벽한 리스트를 만들었다.",
+            "card": "pc_kokkoro_notes",
+            "card2": null,
+            "gold": 0,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "전달할 범위를 줄이고 보급 준비만 돕는다",
+            "result": "실수를 방지하기 위해 보급에 집중했다.",
+            "card": null,
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": -1,
+            "potions": 1,
+            "chance": 100
+          },
+          {
+            "label": "안내장 정리와 봉투 작업만 맡고 보수를 받는다",
+            "result": "실무적인 도움을 주고 보상을 받았다.",
+            "card": null,
+            "card2": null,
+            "gold": 160,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
+        "canonFact": "랜드솔의 아오이는 성 테레사 여학원에 다니지만 분위기에 적응하기 어려워한다.",
+        "uncertain": []
+      }
+    ]
+  },
+  "parseError": null
+}

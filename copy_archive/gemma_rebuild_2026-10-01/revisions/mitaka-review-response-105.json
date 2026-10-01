@@ -1,0 +1,38 @@
+{
+  "recordId": "4df7d35e-eb20-42b3-a215-011bac57c672",
+  "accepted": {
+    "key": "madoka_warning",
+    "before": {
+      "label": "100골드로 보급을 마련하고 호무라와 확인하지 않은 강한 구역을 맡지 않는다",
+      "card": "madoka_homura_retreat",
+      "card2": null,
+      "gold": 0,
+      "cost": 100,
+      "level": -1,
+      "density": 0,
+      "potions": 2,
+      "chance": 100,
+      "result": "100골드로 보급을 마련하고 호무라와 확인하지 않은 강한 구역을 맡지 않았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 보급 물약2개를 받았다. 호무라는 확인하지 않은 곳에 선을 긋지 않고 보급을 둔 바깥부터 살핀다."
+    },
+    "after": {
+      "label": "100골드로 보급을 마련하고 호무라와 더 약한 바깥 구역만 맡는다",
+      "card": "madoka_homura_retreat",
+      "card2": null,
+      "gold": 0,
+      "cost": 100,
+      "level": -1,
+      "density": 0,
+      "potions": 2,
+      "chance": 100,
+      "result": "100골드로 보급을 마련하고 호무라와 더 약한 바깥 구역만 맡았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 보급 물약2개를 받았다. 호무라는 확인하지 않은 안쪽은 빈칸으로 두고 맡은 바깥 구역부터 살핀다."
+    },
+    "why": "더약한담당구역을선택한다는인과를명시했다. 실제비용·카드·필드·물약은같다."
+  },
+  "rejected": {
+    "key": "madoka_mami_distance",
+    "why": "보유카드는다른만남의기억이다. requiredCard는개인보유판정이고동일날짜·선형후속강제가아니다. 요청된카드조건사건을없애지않는다.",
+    "clarified": "story와canonFact에다른만남의기억이라고보완했다.",
+    "revisit": "실제기획에원작날짜·에피소드순서에따라진입을제한하는시스템을넣을때."
+  },
+  "mechanicsChanged": false
+}

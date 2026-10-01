@@ -1,0 +1,32 @@
+{
+  "checked": "2026-10-01",
+  "scope": "아메스트리스 추가분과 기존 콘텐츠·능력치 회귀 검사",
+  "counts": {
+    "heads": 11,
+    "cards": 103,
+    "incidents": 85,
+    "followups": 35,
+    "grades": {
+      "1": 18,
+      "2": 74,
+      "3": 11
+    }
+  },
+  "checks": {
+    "contentMockGroups": 21,
+    "cardStatMockGroups": 8,
+    "generatedCatalog": "pass",
+    "generatedReview": "pass",
+    "activeDiff": "pass"
+  },
+  "compileReport": "compile-10.json",
+  "mapCreated": false,
+  "unverified": [
+    "Warcraft 실행",
+    "멀티플레이",
+    "실제 UI 가독성",
+    "서버 저장",
+    "프레임 성능",
+    "재미·밸런스"
+  ]
+}

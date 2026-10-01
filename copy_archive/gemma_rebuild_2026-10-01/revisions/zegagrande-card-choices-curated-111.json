@@ -1,0 +1,1259 @@
+{
+  "world": {
+    "key": "zegagrande",
+    "name": "제가 그랑데 공역",
+    "work": "그랑블루 판타지 리링크",
+    "intro": "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다.",
+    "effects": [
+      {
+        "stat": "boss_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "gbf_rackam",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+  },
+  "sources": [
+    "https://relink.granbluefantasy.jp/world/",
+    "https://relink.granbluefantasy.jp/characters/detail?chara=id",
+    "https://asia.sega.com/relink.granbluefantasy/kr/world/",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=eugen",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=rolan",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=rackam",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=rosetta",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=yodarha",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=percival",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=lancelot",
+    "https://asia.sega.com/relink.granbluefantasy/kr/characters/detail/?chara=io"
+  ],
+  "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 안내 날짜·여행자의 목적·교대·짐의 부담·낚시꾼의 발 움직임·관객 자리는 인물 소개에서 별도 창작했다. 요달라하에게서 낚시 결과가 아니라 몸놀림을 배운다. 롤란의 비밀·교회 직업·루리아의 운명·세계 위기는 새 선택으로 해결하지 않는다. 같은 풀의 만남은 여러 여행 시점이며 모든 인물이 동시에 한 장소에 모였다는 뜻은 아니다. 화물·조준의쉼·교대발·매듭·관객빈자리·다음부탁은 공식인물역할에서 만든 새 방문이다. 무료AP와최대치증가는여행자의방문횟수이며사냥시간이아니다. 롤란의기존안내기억을조건으로하며기존카드를재지급하지않는다. 요달라하의기존이동조건피해는실제로현재이동속도400대비추가속도비율을40%에서정규화한다. 걷고있는지판정하는효과가아니다.",
+  "cards": [
+    {
+      "key": "gbf_rackam",
+      "name": "라캄",
+      "effectName": "항로 점검",
+      "keyword": "이동 · 자원",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기공정의 조타사 라캄을 항로·수송 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_katalina",
+      "name": "카타리나",
+      "effectName": "곁을 지키는 검",
+      "keyword": "생존 · 보호막",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "shielded_damage",
+          "value": 16
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "루리아를 지키는 기사라는 카타리나의 역할을 방어·보호막 유지로 각색했다. 새 보호막은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_eugen",
+      "name": "오이겐",
+      "effectName": "숙련된 사격점",
+      "keyword": "차지 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 16
+        },
+        {
+          "stat": "crit_damage",
+          "value": 20
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ]
+      },
+      "canonFact": "숙련된 노병 오이겐의 사격을 차지·치명 보너스로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_io",
+      "name": "이오",
+      "effectName": "마법사의 집중",
+      "keyword": "차지 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 8
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "재능 있는 어린 마법사 이오의 역할을 집중·차지 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_narmaya",
+      "name": "나루메아",
+      "effectName": "끝없는 검의 수련",
+      "keyword": "방향 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 16
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          }
+        ]
+      },
+      "canonFact": "무예를 수련하는 검호 나루메아의 역할을 방향 적중·치명 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_vane",
+      "name": "베인",
+      "effectName": "친구가 돌아올 자리",
+      "keyword": "체력 · 생존",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 16
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동료와 나라를 지키는 베인의 역할을 최대 체력·피해 감소로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_zeta",
+      "name": "제타",
+      "effectName": "봉인 무기의 사선",
+      "keyword": "보스 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 16
+        },
+        {
+          "stat": "penetration",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
+      },
+      "canonFact": "성정수를 사냥하는 조직과 알베스의 창을 사용하는 제타의 역할을 보스·관통 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_cagliostro",
+      "name": "칼리오스트로",
+      "effectName": "정밀한 연금 조정",
+      "keyword": "공격 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 10
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "연금술을 창시하고 육체를 연성하는 칼리오스트로의 역할을 공격·재생 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rackam_signal",
+      "name": "라캄",
+      "effectName": "끊기지 않는 귀환 신호",
+      "keyword": "신속 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기공정 조타수인 라캄의 항로·귀환 역할을 신속과 체력을 유지한 준비로 각색했다. 입문 항로 점검과 다른 후속이며 실제 항로·교신 조작 기능은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rosetta_trace",
+      "name": "로제타",
+      "effectName": "같은 길에 남은 차이",
+      "keyword": "사건 후보 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "과거와 현재를 잇는 관찰자 역할을 단서 비교와 큰 상대의 차이를 찾는 성장으로 각색했다. 시간 여행·미래 확정·장미 소환 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rolan_guide",
+      "name": "롤란",
+      "effectName": "함께 걸으며 들은 질문",
+      "keyword": "사건 후보 · 이동",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "서쪽 하늘의 붙임성 좋은 임시 동행자라는 소개를 여러 부탁을 비교하고 이동 동선을 읽는 성장으로 각색했다. 숨겨진 정체·신관 직업·영구 NPC 동행을 단정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_lancelot_roles",
+      "name": "랜슬롯",
+      "effectName": "교대 뒤의 한 걸음",
+      "keyword": "행동 속도 · 방향 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
+      },
+      "canonFact": "기사단장의 병사 통솔을 역할 교대와 공격 위치의 성장으로 각색했다. 군대·쌍검·새 전격 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_percival_share",
+      "name": "퍼시벌",
+      "effectName": "약한 쪽에 남길 몫",
+      "keyword": "보스 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 12
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "약자를 돕는 이상 국가를 추구하는 성격을 상대에 맞는 힘과 책임 배분으로 각색했다. 영구 국가 건설·불 공격·계급 자원은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_yodarha_wait",
+      "name": "요달라하",
+      "effectName": "찌보다 먼저 움직인 발",
+      "keyword": "신속 · 이동 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
+      },
+      "canonFact": "낚시꾼을 자처하는 숨은 검호를 몸놀림과 움직임에 비례한 공격 요령으로 각색했다. 낚시 성공·물고기 자원·검 장비·원작 검 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_io_smile",
+      "name": "이오",
+      "effectName": "다시 해 보자는 웃음",
+      "keyword": "고체력 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사람들에게 미소를 전하려는 작은 마법사의 역할을 좋은 몸 상태에서 힘을 쓰고 최대 체력을 늘리는 성장으로 각색했다. 기존 이오의 차지 준비와 구분하며 체력 비율 자체의 회복·새 마법·분위기 수치·공연 미니게임은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rackam_balance",
+      "name": "라캄",
+      "effectName": "움직이기 전에 묶을 것",
+      "keyword": "이동 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 조타사 역할에서 기공정이 움직이기 전에 자신의 짐과 통로를 구분하는 기억이다. 비방향은 헤드/백 플래그 없는 공격이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_eugen_rest",
+      "name": "오이겐",
+      "effectName": "다음 조준까지의 쉼",
+      "keyword": "차지 속도 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 숙련된 노병 역할에서 다음 조준 전에 자신의 자리와 장비를 정돈하는 기억이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rosetta_margin",
+      "name": "로제타",
+      "effectName": "알고 있는 말의 바깥",
+      "keyword": "치명 확률 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 과거와 현재를 잇는 관찰자 역할에서 알고 있는 말과 아직 듣지 못한 말을 나누는 기억이다. 고체력은 최대체력65%이상이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rolan_reply",
+      "name": "롤란",
+      "effectName": "다음 부탁까지 물어보기",
+      "keyword": "행동력 최대치",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 붙임성 좋은 임시 동행자 역할에서 다음 방문에 맡을 몫을 답하는 기억이다. 최대치와 현재행동력의 증가분1만 한번 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_lancelot_side",
+      "name": "랜슬롯",
+      "effectName": "뒤에서 이어받을 발",
+      "keyword": "이동 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 병사를 통솔하는 기사단장 역할에서 앞자리 다음에 자신의 발을 옮길 준비를 나누는 기억이다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_percival_tie",
+      "name": "퍼시벌",
+      "effectName": "풀지 않을 매듭",
+      "keyword": "공격력 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 8
+        },
+        {
+          "stat": "crit_damage",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 약자를 돕는 이상을 추구하는 역할에서 같은 무게가 아닌 맡을 부담을 나누는 기억이다. 런 공격력8%이며 영구 무기 공격력 강화가 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_yodarha_spacing",
+      "name": "요달라하",
+      "effectName": "서 있을 곳부터 비우기",
+      "keyword": "신속 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 낚시꾼을 자처하는 검호 역할에서 자신의 자리를 비우고 다시 서는 기억이다. 고정 신속180이며 이동속도180%가 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_io_pause",
+      "name": "이오",
+      "effectName": "크게 보이기 전에",
+      "keyword": "최대 체력 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "penetration",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사람들에게 웃음을 전하려는 작은 마법사 역할에서 보일 자리를 먼저 정하는 기억이다. 현재체력 즉시회복이나 공연 미니게임이 아니다. 여행자의 기억으로 각색하며 원작 무기·새 기술·NPC 동행·세계 위기 해결을 지급하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "gbf_airship_crate",
+      "title": "묶이지 않은 화물",
+      "story": "그랑사이퍼 갑판에서 풀린 화물 끈이 오이겐의 장비를 밀고 있다. 라캄은 움직이기 전에 무거운 상자를 먼저 묶자고 하고 카타리나는 루리아 곁의 통로를 비워 두려 한다. 장비를 옮길 곳과 비워 둘 통로가 겹쳐 네가 맡을 몫부터 정해야 한다.",
+      "intro": "화물이 미끄러져 다음 비행 준비가 늦어진다.",
+      "choices": [
+        {
+          "label": "보수 자재를 사고 카타리나와 화물을 고정한다",
+          "result": "보수 자재를 사고 카타리나와 화물을 고정했다. 준비에 200골드를 썼다. 카타리나는 묶인 상자와 루리아 쪽의 비워 둔 통로를 따로 확인했다.",
+          "card": "gbf_katalina",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "오이겐과 위험한 갑판에서 사격 장비를 옮긴다",
+          "result": "오이겐과 위험한 갑판에서 사격 장비를 옮겼다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 오이겐은 장비를 밀던 끈을 거뒀지만 네가 맡지 않은 상자는 갑판에 남았다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 고정 도구를 마련하고 라캄과 맡을 통로를 줄인다",
+          "card": "gbf_rackam_balance",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100,
+          "result": "160골드로 고정 도구를 마련하고 라캄과 맡을 통로를 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 보급 물약 1개를 받았다. 라캄은 통로에서 빠진 화물을 한쪽에 묶고 아직 움직이지 않은 배의 방향을 살폈다."
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "공식 기공정 조타사 라캄·루리아를 지키는 카타리나·숙련된 오이겐의 역할을 활용한 창작 화물 사건이다. 실제 갑판 전투·기공정 운전·루리아의 운명을 구현하거나 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_deck_position",
+      "title": "확보한 갑판의 자리",
+      "story": "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다.",
+      "intro": "안정된 갑판에 공격 위치를 정한다.",
+      "choices": [
+        {
+          "label": "오이겐과 사격 위치를 넓힌다",
+          "result": "오이겐과 사격 위치를 넓혔다. 내 개인 사냥의 적 수 단계가 1 늘었다. 오이겐은 장비 앞의 사선을 짚었고 카타리나가 남긴 통로는 가리지 않았다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "칼리오스트로에게 장비 조정을 의뢰한다",
+          "result": "칼리오스트로에게 장비 조정을 의뢰했다. 준비에 240골드를 썼다. 칼리오스트로는 조정할 장비만 따로 두고 갑판의 어느 자리를 맡을지는 네 답을 기다렸다.",
+          "card": "gbf_cagliostro",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "120골드로 보급을 마련하고 오이겐과 다음 조준에 필요한 통로만 남긴다",
+          "card": "gbf_eugen_rest",
+          "card2": null,
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100,
+          "result": "120골드로 보급을 마련하고 오이겐과 다음 조준에 필요한 통로만 남겼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 보급 물약 2개를 받았다. 오이겐은 남은 통로 옆에 장비를 두었고 비워 둔 사선을 다른 짐으로 채우지 않았다."
+        }
+      ],
+      "previous": "gbf_airship_crate",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_broken_focus",
+      "title": "흐트러진 집중",
+      "story": "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 다음 구역에 들어갈 준비가 아직 끝나지 않았다. 나루메아는 바깥의 간격을 살피고 베인은 돌아올 사람이 서 있을 곳부터 남기자고 한다.",
+      "intro": "이오의 집중을 지킬 통로를 골라야 한다.",
+      "choices": [
+        {
+          "label": "이오와 안전한 준비 장소를 마련한다",
+          "result": "이오와 안전한 준비 장소를 마련했다. 준비에 190골드를 썼다. 이오는 작은 준비 장소를 다시 살폈지만 더 큰 마법을 쓰겠다고 답하지 않았다.",
+          "card": "gbf_io",
+          "card2": null,
+          "gold": 0,
+          "cost": 190,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "나루메아와 넓은 통로를 맡는다",
+          "result": "나루메아와 넓은 통로를 맡았다. 내 개인 사냥의 적 수 단계가 2 늘었다. 나루메아는 넓힌 통로의 간격을 짚었고 이오의 준비 자리는 따로 남겼다.",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "베인과 돌아올 길을 지킨다",
+          "result": "베인과 돌아올 길을 지켰다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 베인은 돌아오는 사람의 자리를 먼저 두고 바깥 통로의 몫은 아직 묻지 않았다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_sealed_report",
+      "title": "봉인 무기의 조사 기록",
+      "story": "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다.",
+      "intro": "제타의 성정수 조사 기록에 빈 부분이 있다.",
+      "choices": [
+        {
+          "label": "제타와 위험 구역의 기록을 확인한다",
+          "result": "제타와 위험 구역의 기록을 확인했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 제타는 확인할 항목만 표시하고 알베스의 창을 네 짐 목록에 넣지 않았다.",
+          "card": "gbf_zeta",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "조사 장비 비용을 내고 오이겐을 돕는다",
+          "result": "조사 장비 비용을 내고 오이겐을 도왔다. 준비에 220골드를 썼다. 오이겐은 조사 장비를 내려놓았지만 기록의 빈칸을 확인된 사실로 채우지 않았다.",
+          "card": "gbf_eugen",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반 도구를 마련하고 오이겐과 조준할 통로의 몫을 줄인다",
+          "card": "gbf_eugen_rest",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100,
+          "result": "160골드로 운반 도구를 마련하고 오이겐과 조준할 통로의 몫을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 보급 물약 1개를 받았다. 오이겐은 줄인 통로를 따로 접었고 제타는 아직 확인하지 않은 기록을 남겨 두었다."
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_alchemy_sample",
+      "title": "연금 조정의 견본",
+      "story": "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 겉모습이 같은 것을 제대로 구분해야 다음 준비가 꼬이지 않는다. 유료 조정과 직접 시험 중 하나를 맡는다.",
+      "intro": "연금 조정 전후의 견본이 섞였다.",
+      "choices": [
+        {
+          "label": "검증 비용을 내고 정밀 조정을 받는다",
+          "result": "검증 비용을 내고 정밀 조정을 받았다. 준비에 210골드를 썼다. 칼리오스트로는 조정할 견본을 골라 놓았지만 나머지까지 같은 결과라고 말하지 않았다.",
+          "card": "gbf_cagliostro",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이오와 위험한 시험 구역을 맡는다",
+          "result": "이오와 위험한 시험 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 이오는 시험에 쓸 자리를 짚었고 칼리오스트로는 비교할 견본 하나를 따로 남겼다.",
+          "card": "gbf_io",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "나루메아와 여러 견본의 작동을 확인한다",
+          "result": "나루메아와 여러 견본의 작동을 확인했다. 내 개인 사냥의 적 수 단계가 1 늘었다. 나루메아는 눈앞의 작동부터 보았지만 서로 다른 견본의 이름을 바꾸지는 않았다.",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_return_signal",
+      "title": "돌아올 자리의 신호",
+      "story": "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다.",
+      "intro": "조사를 마친 일행의 귀환 신호를 보낸다.",
+      "choices": [
+        {
+          "label": "베인과 귀환 통로를 지킨다",
+          "result": "베인과 귀환 통로를 지켰다. 내 개인 사냥의 적 수 단계가 1 늘었다. 베인은 돌아오는 사람이 지나갈 간격을 남겼고 라캄은 아직 보내지 않은 신호를 챙겼다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "라캄의 항로 준비를 돕는다",
+          "result": "라캄의 항로 준비를 도왔다. 준비에 150골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 라캄은 확인한 항로 쪽만 표시하고 제타가 남긴 조사 기록은 따로 두었다.",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "100골드로 보급을 마련하고 라캄과 더 약한 귀환 담당 구역을 고른다",
+          "card": "gbf_rackam_balance",
+          "card2": null,
+          "cost": 100,
+          "gold": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 2,
+          "chance": 100,
+          "result": "100골드로 보급을 마련하고 라캄과 더 약한 귀환 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 보급 물약 2개를 받았다. 라캄은 더 약한 구역을 맡을 표식을 남겼지만 네가 안쪽을 확인했다고 적지는 않았다."
+        }
+      ],
+      "previous": "gbf_sealed_report",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rosetta_dates",
+      "title": "같은 길에 다른 날짜",
+      "story": "한 여행자가 이미 지나온 길을 오늘 열린 길이라며 알려 준다. 로제타는 두 안내의 날짜가 다르다며 네가 직접 무엇을 확인했는지 묻는다. 라캄은 확인되지 않은 말을 항로에 적기 전에 낡은 기록부터 대조하자고 한다.",
+      "intro": "서로 다른 날짜의 안내 중 무엇을 확인할지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "연락 비용을 내고 예전 기록의 주인을 찾는다",
+          "result": "연락 비용을 내고 예전 기록의 주인을 찾았다. 준비에 160골드를 썼다. 로제타는 확인된 날짜와 네가 아직 지나가지 않은 길을 서로 다른 줄에 놓았다.",
+          "card": "gbf_rosetta_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "복사 용품을 마련해 로제타와 남은 두 기록을 대조한다",
+          "result": "복사 용품을 마련해 로제타와 남은 두 기록을 대조했다. 준비에 220골드를 썼다. 로제타는 남은 기록을 나란히 두었지만 주인을 만났다는 표시를 덧붙이지 않았다.",
+          "card": "gbf_rosetta_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 표시 용품을 마련하고 라캄과 확인한 길만 맡는다",
+          "card": "gbf_rackam_balance",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100,
+          "result": "160골드로 표시 용품을 마련하고 라캄과 확인한 길만 맡았다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 라캄은 네가 확인한 길만 남겼고 오래된 기록의 날짜는 새 항로로 옮기지 않았다."
+        }
+      ],
+      "failure": "연락 비용160골드를 썼지만 예전 기록의 주인을 찾지 못했다. 날짜 차이는 아직 확인되지 않아 카드를 받지 못한다. 로제타는 답이 없는 부분을 새 기록의 날짜로 덮지 않았다.",
+      "canonFact": "과거와 현재를 잇는 공식 로제타와 조타사 라캄에서 별도 기록의 날짜 문제를 만들었다. 로제타가 미래를 보거나 거짓말 탐지 기능을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rolan_two_questions",
+      "title": "가려던 곳과 물어본 곳",
+      "story": "롤란이 여행자에게 길을 알려 주는데 여행자는 가려던 곳과 물어본 곳이 다르다고 뒤늦게 말한다. 비는 앞에서 설명한 길을 벌써 가리켰고 롤란은 먼저 무엇을 하러 왔는지 다시 묻는다. 안내를 다시 들을지 바깥에서 길을 확인할지 정해야 한다. 로제타는 말했던 목적과 가리킨 길을 따로 기억해 두자고 한다.",
+      "intro": "먼저 목적을 물을지 바깥 길을 확인할지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표시 용품을 내고 롤란과 목적부터 다시 확인한다",
+          "result": "표시 용품을 내고 롤란과 목적부터 다시 확인했다. 준비에 180골드를 썼다. 롤란은 먼저 들은 목적을 다시 물었고 비는 아직 바꾸지 않은 길의 표시를 거뒀다.",
+          "card": "gbf_rolan_guide",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "라캄과 더 강한 적이 오가는 바깥 길을 확인한다",
+          "result": "라캄과 더 강한 적이 오가는 바깥 길을 확인했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 라캄은 네가 맡을 바깥의 표시만 챙겼고 롤란의 다른 안내를 그 답에 섞지 않았다.",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 보급을 마련하고 로제타와 말했던 목적만 남겨 담당 길목을 줄인다",
+          "card": "gbf_rosetta_margin",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100,
+          "result": "160골드로 보급을 마련하고 로제타와 말했던 목적만 남겨 담당 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 보급 물약 1개를 받았다. 로제타는 네가 말했던 목적을 남겼지만 가려던 곳까지 확인된 길로 적지는 않았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 롤란의 붙임성과 임시 동행, 비의 여행 파트너와 라캄의 조타 역할에서 창작했다. 롤란의 숨겨진 정체·교회·실제 동행 유닛은 등장시키지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_lancelot_shift",
+      "title": "교대할 사람이 없는 자리",
+      "story": "앞쪽을 먼저 맡겠다는 사람이 모이자 돌아올 사람을 받을 자리가 비었다. 랜슬롯은 앞에 몇 명이 서는지보다 뒤를 누가 이어받는지 먼저 묻고 베인은 돌아오는 쪽을 남기자고 한다. 네가 맡을 자리가 정해져야 교대가 시작된다.",
+      "intro": "비어 있는 교대 자리와 돌아올 길을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표시 용품을 내고 랜슬롯과 교대 순서를 정한다",
+          "result": "표시 용품을 내고 랜슬롯과 교대 순서를 정했다. 준비에 220골드를 썼다. 랜슬롯은 뒤에서 이어받을 자리에도 이름을 적었고 앞에 모인 사람을 다시 나눴다.",
+          "card": "gbf_lancelot_roles",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "베인과 적이 많은 돌아올 길목을 맡는다",
+          "result": "베인과 적이 많은 돌아올 길목을 맡았다. 내 개인 사냥의 적 수 단계가 2 늘었다. 베인은 돌아올 쪽의 몫을 맡았지만 앞자리의 빈 교대 이름은 그대로 두었다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "100골드로 보급을 마련하고 랜슬롯과 더 약한 교대 담당 구역을 고른다",
+          "card": "gbf_lancelot_side",
+          "card2": null,
+          "cost": 100,
+          "gold": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 1,
+          "chance": 100,
+          "result": "100골드로 보급을 마련하고 랜슬롯과 더 약한 교대 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 보급 물약 1개를 받았다. 랜슬롯은 더 약한 구역을 따로 표시했고 베인은 돌아오는 사람을 받을 자리를 남겼다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 기사단장 랜슬롯의 통솔과 동료를 지키는 베인에서 별도 교대 문제를 만들었다. 실제 병사 소환·호위 임무·자동 전투 승리는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_percival_load",
+      "title": "가벼운 짐의 무거운 몫",
+      "story": "짐을 나누던 사람들은 힘없는 여행자에게도 같은 무게를 들라며 서두른다. 퍼시벌은 같은 수로 나누었다고 같은 부담이 되는 것은 아니라고 말한다. 너는 맡을 짐과 적이 있는 길을 다시 나누거나 운반만 마칠 수 있다.",
+      "intro": "같은 묶음에 다른 부담을 다시 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눈다",
+          "result": "묶을 용품을 내고 퍼시벌과 부담을 다시 나눴다. 준비에 200골드를 썼다. 퍼시벌은 같은 개수의 짐이라도 사람마다 다르게 묶고 아직 맡지 않은 무게를 남겼다.",
+          "card": "gbf_percival_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "베인과 더 강한 적이 드나드는 길목을 맡는다",
+          "result": "베인과 더 강한 적이 드나드는 길목을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 베인은 네가 고른 바깥 길을 짚었고 퍼시벌은 약한 여행자의 짐을 그 몫에 더하지 않았다.",
+          "card": "gbf_vane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 묶을 도구를 마련하고 퍼시벌과 맡을 짐과 길목을 줄인다",
+          "card": "gbf_percival_tie",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100,
+          "result": "160골드로 묶을 도구를 마련하고 퍼시벌과 맡을 짐과 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 보급 물약 1개를 받았다. 퍼시벌은 줄인 몫의 매듭을 다시 묶었지만 다른 여행자의 부담까지 해결했다고 말하지 않았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 퍼시벌의 약자를 돕는 이상과 베인의 보호 역할에서 창작한 짐의 부담 문제다. 실제 국가 정책·체력 지불·노동자 시스템·원작 결말을 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_yodarha_foot",
+      "title": "낚싯대보다 먼저 피한 발",
+      "story": "낚시꾼을 자처하는 요달라하 옆으로 긴 짐을 든 여행자가 지나가자 그는 낚싯대보다 발을 먼저 옮겨 비켜 준다. 너는 그 짧은 움직임이 낚시 자세와 어울리지 않아 다시 보게 된다. 요달라하는 낚시할 자리는 남겨 두라며 네가 어디에 설 것인지 묻는다. 나루메아도 바깥 통로를 살피지만 요달라하는 발을 옮기기 전에 서 있을 곳을 먼저 비운다.",
+      "intro": "옆에서 본 짧은 몸놀림을 방문 행동력 없이 한 번 더 짚을 수 있다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚는다",
+          "result": "도구 값을 내고 요달라하와 발을 옮길 간격을 짚었다. 준비에 210골드를 썼다. 요달라하는 발을 놓을 곳부터 비웠고 낚싯대의 끝은 여전히 물가 쪽에 두었다.",
+          "card": "gbf_yodarha_wait",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "나루메아와 적이 많은 바깥 통로를 맡는다",
+          "result": "나루메아와 적이 많은 바깥 통로를 맡았다. 내 개인 사냥의 적 수 단계가 2 늘었다. 나루메아는 바깥 통로의 간격을 짚었지만 요달라하가 낚시할 자리는 남겨 두었다.",
+          "card": "gbf_narmaya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 도구를 마련하고 요달라하와 서 있을 길목을 줄인다",
+          "card": "gbf_yodarha_spacing",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100,
+          "result": "160골드로 도구를 마련하고 요달라하와 서 있을 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 요달라하는 비워 둔 자리에 다시 발을 놓고 지나가는 짐의 끝을 한 번 더 보았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 낚시꾼을 자처하는 검호의 숨은 기량에서 별도 짐을 피하는 장면을 창작했다. 실제 낚시 결과·물고기 판매·비밀 강제 공개·원작 검법은 지급하지 않는다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "gbf_io_audience",
+      "title": "다른 쪽을 보고 있던 관객",
+      "story": "이오가 사람들에게 웃음을 주려고 작은 시범을 준비하는데 앞줄은 서로의 어깨에 가려 보이지 않는다. 이오는 더 큰 마법이면 잘 보이겠냐고 묻고 비는 먼저 사람들이 어디를 보고 있는지 살펴보자고 한다. 네가 자리를 나눌지 바깥 일을 맡을지 고른다. 라캄은 바깥 길의 짐을 맡고 이오는 작은 시범을 더 크게 할지 아직 정하지 못했다.",
+      "intro": "더 큰 시범보다 먼저 보는 자리를 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "바닥 표시 용품을 내고 이오와 보는 자리를 나눈다",
+          "result": "바닥 표시 용품을 내고 이오와 보는 자리를 나눴다. 준비에 170골드를 썼다. 이오는 앞줄을 나눠 놓고 관객이 보는 방향부터 다시 물었다.",
+          "card": "gbf_io_smile",
+          "card2": null,
+          "gold": 0,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "라캄과 더 많은 적이 오가는 바깥 길을 확인한다",
+          "result": "라캄과 더 많은 적이 오가는 바깥 길을 확인했다. 내 개인 사냥의 적 수 단계가 1 늘었다. 라캄은 바깥 짐을 맡았고 비는 아직 돌아보지 않은 앞줄의 사람에게 말을 걸었다.",
+          "card": "gbf_rackam_signal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "140골드로 보급을 마련하고 이오와 크게 보이기 전에 남은 자리를 나눈다",
+          "card": "gbf_io_pause",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100,
+          "result": "140골드로 보급을 마련하고 이오와 크게 보이기 전에 남은 자리를 나눴다. 보급 물약 1개를 받았다. 이오는 남은 자리를 짚었지만 작은 시범을 더 크게 한다는 답은 아직 하지 않았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 이오의 미소를 전하려는 바람과 비의 여행 파트너 역할에서 관객 자리 문제를 창작했다. 추가 마법·관객 유닛·공연 성공 판정·즉시 회복을 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "gbf_rolan_next_request",
+      "title": "먼저 물었던 목적의 다음 줄",
+      "story": "다른 방문에서 목적부터 말했던 너를 롤란이 알아보고 새 부탁의 목록을 펼친다. 비는 이번에도 목적을 먼저 묻고 로제타는 전에 들은 답과 지금의 부탁을 나란히 둔다. 라캄은 맡을 길의 짐부터 묶자고 한다. 이미 익힌 안내를 다시 듣는 대신 이번에 어디까지 맡을지 답할 차례다.",
+      "intro": "익힌 안내 경험으로 다음 부탁의 몫을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "gbf_rolan_guide",
+      "actionCost": 1,
+      "failure": null,
+      "canonFact": "공식 임시 동행자 롤란·길을 함께하는 비·관찰자 로제타·조타사 라캄의 역할을 활용한 별도 부탁이다. 자신의 안내카드 보유가 개인 자격이며 같은 날의 선형 본편 진행이나 비밀·신관 직업·세계 위기 해결은 아니다. 행동력 추가는 방문 횟수이며 사냥 제한시간은 늘지 않는다.",
+      "uncertain": [],
+      "choices": [
+        {
+          "label": "220골드로 내 준비를 마련하고 롤란에게 다음 부탁의 몫까지 답한다",
+          "card": "gbf_rolan_reply",
+          "card2": null,
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "220골드로 내 준비를 마련하고 롤란에게 다음 부탁의 몫까지 답했다. 롤란은 다음에도 맡겠다는 네 답을 남겼고 비는 이번 부탁의 목적을 다시 물었다."
+        },
+        {
+          "label": "180골드로 기록 도구를 마련하고 로제타와 새 부탁의 담당 길목을 줄인다",
+          "card": "gbf_rosetta_margin",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100,
+          "result": "180골드로 기록 도구를 마련하고 로제타와 새 부탁의 담당 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 로제타는 새 부탁의 줄인 몫만 표시했고 롤란이 물었던 다음 방문의 답은 비워 두었다."
+        },
+        {
+          "label": "라캄과 더 많은 적이 오가는 바깥 길의 짐을 맡는다",
+          "card": "gbf_rackam_balance",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100,
+          "result": "라캄과 더 많은 적이 오가는 바깥 길의 짐을 맡았다. 내 개인 사냥의 적 수 단계가 1 늘었다. 라캄은 네 몫의 짐을 묶었지만 롤란의 다음 부탁까지 대신 답하지 않았다."
+        }
+      ]
+    }
+  ]
+}

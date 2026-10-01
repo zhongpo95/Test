@@ -1,0 +1,45 @@
+{
+  "sourceRevision": "863696e",
+  "original": "before-amestris-card-choices-130.json",
+  "oldCardsUnchanged": 14,
+  "newCards": [
+    "fma_sheska_margin",
+    "fma_hughes_sequence",
+    "fma_riza_pause",
+    "fma_pinako_measure",
+    "fma_sig_portions",
+    "fma_ling_budget",
+    "fma_winry_verify",
+    "fma_havoc_load",
+    "fma_armstrong_space"
+  ],
+  "events": 16,
+  "choices": 48,
+  "directGoldChoices": 0,
+  "removedGoldChoices": 11,
+  "potionRewardChoices": 0,
+  "freeEvents": 1,
+  "requiredCardEvents": 2,
+  "historyEvents": 4,
+  "reviewResults": [
+    {
+      "file": "reviews/amestris-card-choices-review-131-1.json",
+      "recordId": "2e25da36-40b8-4e96-8aab-7c4e2041beb2",
+      "verdict": "REVISE"
+    },
+    {
+      "file": "reviews/amestris-card-choices-review-131-2.json",
+      "recordId": "d54afb32-03c6-4e23-a6ae-9eff13a9731d",
+      "verdict": "REVISE"
+    }
+  ],
+  "discarded": "revisions/amestris-card-choices-discarded-131.json",
+  "reviewDecisions": "revisions/amestris-review-decisions-132.json",
+  "check": {
+    "cards": 23,
+    "events": 16,
+    "errors": [],
+    "warnings": []
+  },
+  "limits": "정적·모의 검증을 이어서 수행한다. 맵 생성·Warcraft·화면·실전 멀티·저장·재미·밸런스는 미검증."
+}

@@ -1,0 +1,717 @@
+{
+  "drafts": [
+    {
+      "file": "drafts/penacony-scenes-text-125-1.json",
+      "recordId": "23c2c33c-9047-4a61-b8ab-15e34a14cad0"
+    },
+    {
+      "file": "drafts/penacony-scenes-text-125-2.json",
+      "recordId": "c1a9bdcc-45e4-4139-8221-b166e1002e7a"
+    },
+    {
+      "file": "drafts/penacony-scenes-text-125-3.json",
+      "recordId": "eaf20a7e-10d9-4532-8292-1d304d4d10ec"
+    },
+    {
+      "file": "drafts/penacony-scenes-text-125-4.json",
+      "recordId": "ccab0be6-f4e0-42f0-9c09-af9ef0fa4019"
+    }
+  ],
+  "rejected": [
+    {
+      "event": "hsr_dreamy_slots",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "코인을 바꾸고 어벤츄린과 한 번만 돌렸다",
+        "reactionText": "어벤츄린이 만족스러운 미소를 지으며 당첨된 코인을 챙겼고, 너는 [hsr_aventurine_fortune]을 획득했다. (당첨금 600골드)"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_dreamy_slots",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "놀이 대신 어벤츄린과 귀환 준비를 챙겼다",
+        "reactionText": "어벤츄린이 효율적인 동선을 짚어주었고, 너는 [hsr_aventurine_reserve]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_dreamy_slots",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "코인을 정리하고 미샤가 짚은 추가 귀환 안내를 맡았다",
+        "reactionText": "미샤가 네게 지도를 건네주었고, 너는 [hsr_misha_reach]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_win",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "스파클의 배역에 맞추고 손님들을 먼 출구로 안내했다",
+        "reactionText": "스파클이 화려하게 손을 흔들었고, 너는 [hsr_sparkle]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_win",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "갤러거와 조용한 귀환 통로를 확보했다",
+        "reactionText": "갤러거가 무거운 짐을 들어주었으며, 너는 [hsr_gallagher]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_win",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 블랙 스완과 더 약한 귀환 담당 구역을 골랐다",
+        "reactionText": "블랙 스완이 기억의 조각을 맞춰주었고, 너는 [hsr_black_swan_compare]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_loss",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "블랙 스완과 결정을 망설인 장면을 돌아보았다",
+        "reactionText": "블랙 스완이 네 기억 속의 찰나를 짚어주었고, 너는 [hsr_black_swan_archive]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_loss",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "갤러거와 붐비는 길을 피해 돌아갈 준비를 했다",
+        "reactionText": "갤러거가 안전한 길을 안내해주었으며, 너는 [hsr_gallagher]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_after_loss",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 준비물을 마련하고 미샤와 더 많은 귀환 담당 길목을 살폈다",
+        "reactionText": "미샤가 다음 경로를 상세히 설명해주었고, 너는 [hsr_misha_route]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_sorted_tokens",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "미샤가 짚은 호텔 귀환길을 다시 확인했다",
+        "reactionText": "미샤가 네게 확신을 주었고, 너는 [hsr_misha_route]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_sorted_tokens",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "어벤츄린과 귀환길에 쓸 준비물을 따로 챙겼다",
+        "reactionText": "어벤츄린이 꼼꼼하게 짐을 분류해주었으며, 너는 [hsr_aventurine_reserve]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_sorted_tokens",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "120골드로 보급을 마련하고 스파클과 아직 맡지 않을 귀환 길목을 줄였다",
+        "reactionText": "스파클이 요란하게 경로를 쳐냈고, 너는 [hsr_sparkle_exit]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_soulglad",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "갤러거와 되풀이되는 안내를 확인했다",
+        "reactionText": "갤러거가 의심스러운 정보를 걸러주었으며, 너는 [hsr_gallagher]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_soulglad",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "미샤가 짚은 호텔 안내를 광고와 구분했다",
+        "reactionText": "미샤가 진짜 길을 가리켰고, 너는 [hsr_misha_route]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_soulglad",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "갤러거와 보급 짐을 나누고 더 많은 귀환 안내를 맡았다",
+        "reactionText": "갤러거가 짐을 나누어 들어주었으며, 너는 [hsr_gallagher_portion]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_masked_stage",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "스파클의 바뀐 배역에 맞춰 무대를 빠져나갔다",
+        "reactionText": "스파클이 속삭이며 길을 열어주었고, 너는 [hsr_sparkle]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_masked_stage",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "블랙 스완과 두 안내가 갈린 순간을 대조했다",
+        "reactionText": "블랙 스완이 기억의 모순을 찾아냈으며, 너는 [hsr_black_swan_trace]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_masked_stage",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "블랙 스완과 지나온 길의 순서부터 정리했다",
+        "reactionText": "블랙 스완이 네 발자취를 재구성해주었고, 너는 [hsr_black_swan_archive]을 획득했다."
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_remembered_exit",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "어벤츄린과 넓은 통로를 준비했다.",
+        "reactionText": "hsr_aventurine_reserve\n카드 보상: 보호막 18, 치명 피해 15\n남은 문제: 넓은 통로의 안전 확보"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_remembered_exit",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "갤러거와 경비가 확인한 우회로를 택했다.",
+        "reactionText": "hsr_gallagher\n카드 보상: 흡수 5, 피해 감소 4\n남은 문제: 경비 경로의 정확한 파악"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_remembered_exit",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 아케론과 맡을 좁은 길목을 줄였다.",
+        "reactionText": "hsr_acheron_pause\n카드 보상: 관통 5, 피해 감소 4\n남은 문제: 좁은 길목의 통과 간격 조정"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_walking_sign",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "미샤와 호텔 입구를 기준으로 길을 다시 표시했다.",
+        "reactionText": "hsr_misha_route\n카드 보상: 행동 속도 5, 일반 몬스터 피해 10%\n남은 문제: 반복되는 광고판의 위치 파악"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_walking_sign",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "블랙 스완과 반복해서 본 간판을 대조했다.",
+        "reactionText": "hsr_black_swan_trace\n카드 보상: 피해 12%, 보스 피해 8%\n남은 문제: 실제 귀환길과 광고판 구분"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_walking_sign",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 미샤와 광고를 따라갈 길목을 줄였다.",
+        "reactionText": "hsr_misha_reach\n카드 보상: 차지 속도 6, 고체력 12\n남은 문제: 움직이는 광고판의 추적 경로"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scattered_banknotes",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "200골드를 걸고 흩어진 지폐 끝까지 따라갔다.",
+        "reactionText": "hsr_aventurine_scattered\n카드 보상: 처치 골드 1, 치명타 피해 16, 이동 속도 -2\n당첨금: 260골드\n남은 문제: 흩어진 판돈의 수거 범위"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scattered_banknotes",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "어벤츄린과 위험이 늘어날 길까지 계산했다.",
+        "reactionText": "hsr_aventurine_fortune\n카드 보상: 치명 확률 5, 치명 피해 18\n남은 문제: 리스크 대비 수익의 비율"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scattered_banknotes",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 어벤츄린과 맡을 지폐 길목을 줄였다.",
+        "reactionText": "hsr_aventurine_reserve\n카드 보상: 보호막 18, 치명 피해 15\n남은 문제: 머니 머신 지폐의 확산 범위"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_floating_treat",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "미샤와 발을 둘 자리부터 보고 손을 뻗었다.",
+        "reactionText": "hsr_misha_reach\n카드 보상: 차지 속도 6, 고체력 12\n남은 문제: 빈 자리의 안전한 확보"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_floating_treat",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "150골드로 다른 간식을 고르고 여행 이야기를 들려줬다.",
+        "reactionText": "hsr_misha_route\n카드 보상: 행동 속도 5, 일반 몬스터 피해 10%\n남은 문제: 다른 별의 간식 정보"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_floating_treat",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "160골드로 보급을 마련하고 반디와 아직 맡지 않을 전달 길목을 줄였다.",
+        "reactionText": "hsr_firefly_moment\n카드 보상: 차지 속도 6, 비방향 피해 12\n남은 문제: 풍경과 간식 사이의 거리"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_dream_eye_gap",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "아케론과 더 강한 적이 오가는 바깥 통로의 간격을 짚었다.",
+        "reactionText": "hsr_acheron_gap\n카드 보상: 관통 6, 방향 피해 12\n남은 문제: 도면과 실제 통로의 오차 확인"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_dream_eye_gap",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "180골드로 도면 사본을 받아 다른 연결을 비교했다.",
+        "reactionText": "hsr_black_swan_archive\n카드 보상: 사건 선택 1, 고체력 8\n남은 문제: 꿈 건축 경계의 시각적 불일치"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_dream_eye_gap",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "120골드로 보급을 마련하고 아케론과 맡을 바깥 통로를 줄였다.",
+        "reactionText": "hsr_acheron_pause\n카드 보상: 관통 5, 피해 감소 4\n남은 문제: 공사장 외부 통로의 이동 간격"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scene_after_applause",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "150골드를 내고 스파클의 마지막 장면을 다시 맞췄다.",
+        "reactionText": "hsr_sparkle_cut\n카드 보상: 차지 속도 12, 치명 피해 14\n남은 문제: 촬영 체험의 종료 시점"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scene_after_applause",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 많은 적이 오가는 역할을 맡아 직접 장면을 이어 갔다.",
+        "reactionText": "hsr_sparkle\n카드 보상: 행동 속도 8, 치명 피해 15\n남은 문제: 다음 장면의 배역 전환"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_scene_after_applause",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "180골드로 보급을 마련하고 블랙 스완과 맡을 촬영 담당 길목을 줄였다.",
+        "reactionText": "hsr_black_swan_compare\n카드 보상: 신속 180, 비방향 피해 12\n남은 문제: 끝났다는 표시와 이어진 장면의 구분"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_monster_last_order",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "200골드를 지불하여 새 잔을 마련하고 갤러거와 손님의 대화를 경청했다",
+        "reactionText": "갤러거의 세심한 배려와 손님의 고충이 담긴 이야기가 섞인 한 잔이 준비되었다. [hsr_gallagher_order]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_monster_last_order",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 많은 적을 상대하는 대신 갤러거에게 버티는 요령을 배웠다",
+        "reactionText": "갤러거의 조언으로 경계 태세를 유지하며 적의 압박을 견디는 법을 익혔다. [hsr_gallagher]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_monster_last_order",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 갤러거와 남겨 둘 주문 길목을 줄였다",
+        "reactionText": "보급품을 챙기며 갤러거와 함께 처리해야 할 업무 범위를 효율적으로 조정했다. [hsr_gallagher_portion]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_jade_unwritten_price",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "230골드와 느려질 이동을 지불하고 제이드와 거래를 마쳤다",
+        "reactionText": "제이드가 제시한 조건에 합의하여 거래를 성사시켰다. [hsr_jade_terms]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_jade_unwritten_price",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 강한 개인 사냥을 맡고 제이드에게 감당할 몫까지 답했다",
+        "reactionText": "자신의 역할을 명확히 정의하며 제이드의 신뢰를 얻고 고난도 사냥을 수락했다. [hsr_jade_limit]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_jade_unwritten_price",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 블랙 스완과 아직 맡지 않을 전달 길목을 줄였다",
+        "reactionText": "보급을 확보하며 블랙 스완과 협의해 향후 이동 경로의 부담을 덜었다. [hsr_black_swan_compare]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_over_song",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "160골드로 다른 자리를 마련하고 뒤편 관객과 먼저 듣도록 도왔다",
+        "reactionText": "관객을 위한 배려로 로빈의 안내를 함께 들을 수 있는 환경을 조성했다. [hsr_robin_listen]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_over_song",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 많은 개인 사냥을 맡고 친구와 기다릴 첫마디를 정했다",
+        "reactionText": "친구를 위한 배려와 자신의 임무를 조율하며 첫인상을 위한 준비를 마쳤다. [hsr_robin_voice]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_over_song",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "120골드로 보급을 마련하고 갤러거와 맡을 안내 길목을 줄였다",
+        "reactionText": "보급을 챙기며 갤러거와 협력해 안내해야 할 구간을 효율적으로 조정했다. [hsr_gallagher_portion]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_introduction_left",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "150골드로 새 소개지를 마련하고 이름부터 말할 시도를 도왔다",
+        "reactionText": "참가자가 당황하지 않고 이름을 먼저 언급할 수 있도록 서포트했다. [hsr_robin_voice]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_introduction_left",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "200골드로 안내 자리를 마련해 먼저 들어 줄 사람을 찾았다",
+        "reactionText": "참가자의 소개를 경청해 줄 관객을 확보하여 무대의 흐름을 도왔다. [hsr_robin_listen]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_introduction_left",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "스파클과 이름을 나눠 적고 더 많은 안내 담당 길목을 맡았다",
+        "reactionText": "스파클과 역할을 분담하며 안내해야 할 범위를 넓혔다. [hsr_sparkle_exit]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_cowboy_in_frame",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "180골드로 별도 사진 자리를 마련하고 배경을 고른 이유를 적었다",
+        "reactionText": "관광객의 의도를 존중하며 사진의 배경에 대한 설명을 덧붙였다. [hsr_boothill_focus]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_cowboy_in_frame",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "부트힐이 알리려는 말을 듣고 더 강한 개인 사냥을 맡았다",
+        "reactionText": "부트힐의 의도를 파악하고 그에 걸맞은 고난도 임무를 수락했다. [hsr_boothill_attention]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_cowboy_in_frame",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 부트힐과 맡을 촬영 담당 길목을 줄였다",
+        "reactionText": "보급을 챙기며 부트힐과 협의해 촬영 업무의 범위를 조정했다. [hsr_boothill_line]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_view_without_armor",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "170골드로 풍경 안내를 마련하고 반디가 보고 싶은 곳을 물었다",
+        "reactionText": "반디가 원하는 풍경을 우선적으로 고려한 안내를 준비했다. [hsr_firefly_visit]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_view_without_armor",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "미샤에게 풍경 이야기를 들려주고 더 많은 안내 담당 길목을 맡았다",
+        "reactionText": "미샤와 이야기를 나누며 더 넓은 지역의 안내를 담당하기로 했다. [hsr_misha_reach]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_view_without_armor",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 반디와 아직 맡지 않을 안내 길목을 줄였다",
+        "reactionText": "보급을 확보하며 반디와 협의해 안내 경로의 부담을 줄였다. [hsr_firefly_moment]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_after_poster",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "130골드로 안내를 고쳐 참가자의 이름을 분명히 남겼다",
+        "reactionText": "로빈은 이름이 섞이지 않도록 꼼꼼히 확인했고, 갤러거는 네가 돌아갈 몫까지 짐으로 쓰지 말라고 경고했다. [hsr_robin_listen]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_after_poster",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 강한 개인 사냥을 맡고 로빈과 참가자가 말할 간격을 남겼다",
+        "reactionText": "로빈은 공연의 흐름을 조절했고, 갤러거는 네가 돌아갈 자리를 비워두라고 했다. [hsr_robin_pause]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_name_after_poster",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 갤러거와 맡을 안내 길목을 줄였다",
+        "reactionText": "갤러거는 네가 돌아갈 몫을 챙겼고, 안내 길목은 더 간결해졌다. [hsr_gallagher_portion]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_photo_missing_caption",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "140골드로 설명지를 다시 마련하고 빠진 이유를 적었다",
+        "reactionText": "부트힐은 네가 적은 이유를 확인했고, 블랙 스완은 네가 배경을 바꾼 기억을 들었다. [hsr_boothill_caption]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_photo_missing_caption",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "더 강한 개인 사냥을 맡고 부트힐이 숨기지 않을 말을 전했다",
+        "reactionText": "부트힐은 네가 전한 말을 확인했고, 블랙 스완은 배경이 바뀐 기억을 들었다. [hsr_boothill_attention]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_photo_missing_caption",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 블랙 스완과 맡을 설명 전달 길목을 줄였다",
+        "reactionText": "블랙 스완은 네가 배경을 바꾼 기억을 들었고, 설명 전달 길목은 줄어들었다. [hsr_black_swan_compare]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_misha_second_page",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "200골드로 준비물을 마련하고 미샤에게 다음 이야기의 몫까지 답했다",
+        "reactionText": "미샤는 네가 답한 이야기를 여백에 남기려 했고, 갤러거와 블랙 스완은 길의 일치 여부를 물었다. [hsr_misha_margin]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_misha_second_page",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "160골드로 보급을 마련하고 갤러거와 맡을 귀환 길목을 줄였다",
+        "reactionText": "갤러거는 보급을 나누었고, 블랙 스완은 전에 본 길과 이번 길을 비교했다. [hsr_gallagher_portion]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_misha_second_page",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "블랙 스완과 두 안내를 나누고 더 강한 확인 담당 구역을 맡았다",
+        "reactionText": "블랙 스완은 안내를 나누었고, 미샤는 아직 떠나지 않은 길을 배려했다. [hsr_black_swan_compare]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_robin_next_row",
+      "choice": 1,
+      "raw": {
+        "index": 1,
+        "actionText": "180골드로 안내지를 마련하고 로빈과 첫마디 전의 간격을 남겼다",
+        "reactionText": "로빈은 첫마디 전의 간격을 확인했고, 반디는 다른 자리를 살폈다. [hsr_robin_pause]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_robin_next_row",
+      "choice": 2,
+      "raw": {
+        "index": 2,
+        "actionText": "반디와 다른 풍경을 살피고 더 많은 안내 담당 길목을 맡았다",
+        "reactionText": "반디는 다른 풍경을 살폈고, 갤러거는 관객의 보급을 나누었다. [hsr_firefly_moment]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    },
+    {
+      "event": "hsr_robin_next_row",
+      "choice": 3,
+      "raw": {
+        "index": 3,
+        "actionText": "140골드로 보급을 마련하고 갤러거와 맡을 귀환 길목을 줄였다",
+        "reactionText": "갤러거는 보급을 나누었고, 로빈은 아직 노래가 시작되지 않았음을 인지했다. [hsr_gallagher_portion]"
+      },
+      "reason": "내부키 노출·보상표 복사이며 보호막 조건을 생성으로 오독할 여지가 있다. 장면의 말·물건·남은 문제로 대체한다."
+    }
+  ],
+  "decision": "성공/실패 입력을 분리하여 가짜 실패의 성공문 복사는 사라졌다. 그러나66결과 모두 내부키 또는 보상표를 썼고 안전 길 확정·제이드 신뢰·로빈의 공연 흐름 조정까지 확대했다. 전면 문장 검토로 실제 비용/필드와 각 장면의 남은 문제를 분리했다.",
+  "discarded": [
+    {
+      "what": "제이드와 반디의 같은 카드·다른 가격 선택",
+      "why": "돈과 적 수만 바꾸면 빌드를 비교하는 세 카드가 아니다.",
+      "replacement": "제이드의 조건 읽기/반디의 다른 풍경 기억과 기존 카드로 분화했다.",
+      "revisit": "사용자가 같은 카드의 비용 비교를 별도로 요청할 때."
+    },
+    {
+      "what": "16일반 골드와 모든 물약 보상",
+      "why": "사용자의 보상 제거 지시다.",
+      "replacement": "지정 카드와 기존 필드 부담으로 정리했다. 두 돈 핵심 당첨금은 유지한다.",
+      "revisit": "사용자가 해당 보상을 명시적으로 재도입할 때."
+    },
+    {
+      "what": "모든 길의 안전 확정·제이드 신뢰·로빈 공연 조정",
+      "why": "카드 기억과 원정 필드 변화에서 본편 결과나 관계 시스템을 확정할 근거가 없다.",
+      "replacement": "확인한 안내/아직 답하지 않은 몫·아직 시작하지 않은 노래를 남겼다.",
+      "revisit": "해당 기믹과 원작 근거를 별도로 요청하고 검증할 때."
+    }
+  ],
+  "adoptedAfterEditing": [
+    {
+      "draft": 4,
+      "event": "hsr_photo_missing_caption",
+      "idea": "배경을 바꾼 이유를 먼저 다시 듣는다.",
+      "boundary": "내부키는 삭제하고 관광객의 잘못된 IPC 설명과 아직 적지 않은 다음 말을 남긴다."
+    },
+    {
+      "draft": 4,
+      "event": "hsr_misha_second_page",
+      "idea": "여백에 다음 이야기를 남기려 한다.",
+      "boundary": "꿈속 여행자와의 대화이며 여행 완수/시간 증가가 아니다."
+    }
+  ]
+}

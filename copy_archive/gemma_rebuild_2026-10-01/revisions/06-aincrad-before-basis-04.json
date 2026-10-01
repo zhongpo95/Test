@@ -1,0 +1,540 @@
+{
+  "world": {
+    "key": "aincrad",
+    "name": "아인크라드",
+    "work": "소드 아트 온라인",
+    "intro": "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다.",
+    "effects": [
+      {
+        "stat": "normal_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "sao_agil",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+  },
+  "sources": [
+    "https://www.swordart-online.net/character/index2.html",
+    "https://www.aniplex.co.jp/lineup/swordartonline/story/"
+  ],
+  "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다.",
+  "cards": [
+    {
+      "key": "sao_agil",
+      "name": "에길",
+      "effectName": "거래의 눈",
+      "keyword": "자원",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_kirito",
+      "name": "키리토",
+      "effectName": "빈틈을 잇는 검",
+      "keyword": "행동 · 치명",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 6
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_asuna",
+      "name": "아스나",
+      "effectName": "섬광의 사선",
+      "keyword": "신속 · 방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 270
+        },
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_liz",
+      "name": "리즈벳",
+      "effectName": "가공의 완성도",
+      "keyword": "공격 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 12
+        },
+        {
+          "stat": "penetration",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_silica",
+      "name": "시리카",
+      "effectName": "돌아갈 길의 동료",
+      "keyword": "체력 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_klein",
+      "name": "클라인",
+      "effectName": "함께 맞서는 간격",
+      "keyword": "생존 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_asuna_meal",
+      "name": "아스나",
+      "effectName": "공략 전의 식탁",
+      "keyword": "고체력 · 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 14
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_kirito_scout",
+      "name": "키리토",
+      "effectName": "돌아와 전한 경고",
+      "keyword": "보스 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 16
+        },
+        {
+          "stat": "penetration",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
+      },
+      "canonFact": "인물의 확인된 특징을 바탕으로 한 맵 전용 성장 효과다. 원작의 전투 수치를 재현하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "sao_smith_metal",
+      "title": "부러진 시험검",
+      "story": "리즈벳의 공방에서 시험하던 검이 부러졌다. 바로 더 강한 검을 달라고 해도 재료는 저절로 생기지 않는다. 희귀 금속을 찾는 의뢰에서 당신이 맡을 일을 정한다.",
+      "intro": "부러진 시험검을 대신할 금속이 필요하다.",
+      "choices": [
+        {
+          "label": "금속 수송 장비 비용을 낸다",
+          "result": "수송용 특수 케이스를 확보했다. 리즈벳이 안전한 운송을 위해 필요한 장비를 준비한다.",
+          "card": "sao_liz",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키리토와 위험 구역의 재료를 찾는다",
+          "result": "키리토의 빠른 기동성을 빌려 험난한 지형을 돌파한다. 위험을 무릅쓰고 희귀 재료를 채굴한다.",
+          "card": "sao_kirito",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "에길에게 남은 부품을 넘긴다",
+          "result": "쓸모없어진 파편을 에길에게 매각한다. 상인인 그는 이를 가치 있게 평가하며 보상을 건넨다.",
+          "card": null,
+          "card2": null,
+          "gold": 220,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_smith_return",
+      "title": "공방으로 돌아온 재료",
+      "story": "수송을 준비한 재료가 공방에 도착했다. 리즈벳은 가공을 맡고 당신에게는 작업장의 다른 일이 남았다. 완성된 경험을 어디에 쓸지 정한다.",
+      "intro": "수송한 재료가 공방에 도착했다.",
+      "choices": [
+        {
+          "label": "가공을 돕고 키리토의 검 운용을 관찰한다",
+          "result": "리즈벳의 손놀림을 돕는 동시에 키리토의 검술을 분석한다. 실전에서 유용한 검술의 궤적을 익힌다.",
+          "card": "sao_kirito",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아스나에게 안전한 작업 구역을 부탁한다",
+          "result": "아스나에게 주변 경계와 안전 확보를 요청한다. 그녀의 지휘 아래 안정적인 작업 환경을 구축한다.",
+          "card": "sao_asuna",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남은 재료를 정리하고 대금을 받는다",
+          "result": "정리된 재료를 최종 검수하고 의뢰비를 수령한다. 깔끔한 뒷정리로 정당한 보상을 얻는다.",
+          "card": null,
+          "card2": null,
+          "gold": 250,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "previous": "sao_smith_metal",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_companion_herb",
+      "title": "작은 동료를 위한 꽃",
+      "story": "시리카는 잃은 피나를 되찾을 수 있다는 꽃을 찾아야 한다. 길을 함께 열지, 돌아올 준비를 맡을지 정한다.",
+      "intro": "시리카가 피나를 되찾을 꽃을 찾아간다.",
+      "choices": [
+        {
+          "label": "시리카와 보급을 준비한다",
+          "result": "시리카와 함께 필요한 물자를 챙기며 이동한다. 그녀의 꼼꼼한 보급 준비로 기반을 다진다.",
+          "card": "sao_silica",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "클라인과 주변 몬스터를 다른 길로 유도한다",
+          "result": "클라인의 전술을 활용해 적의 시선을 분산시킨다. 동료들이 안전하게 이동할 수 있는 경로를 확보한다.",
+          "card": "sao_klein",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키리토와 위험한 길을 먼저 확인한다",
+          "result": "키리토에게 앞장서서 길을 개척해달라고 요청한다. 그의 정찰을 통해 안전한 경로를 확보한다.",
+          "card": "sao_kirito_scout",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "꽃을 운반할 도구를 맡고 대금을 받는다",
+          "result": "시리카가 돌아올 때 꽃을 안전하게 옮길 용기를 준비했다. 필요한 도구를 전달하고 수고비를 받았다.",
+          "card": null,
+          "card2": null,
+          "gold": 230,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_rabbit_table",
+      "title": "요리할 수 없는 희귀 고기",
+      "story": "희귀한 래빗의 고기를 얻었지만 당신은 제대로 요리할 수 없다. 아스나는 일부를 함께 먹는 조건으로 요리를 맡을 수 있다고 한다. 모두가 칼을 갈기 전에 식탁을 준비한다.",
+      "intro": "희귀 고기를 요리할 사람이 필요하다.",
+      "choices": [
+        {
+          "label": "재료비를 내고 아스나와 식탁을 준비한다",
+          "result": "아스나에게 재료비를 일부 건네며 요리를 부탁한다. 그녀의 손맛으로 든든한 식사를 준비한다.",
+          "card": "sao_asuna_meal",
+          "card2": null,
+          "gold": 0,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "에길에게 팔고 골드를 챙긴다",
+          "result": "고기를 상인 에길에게 넘겨 현금화한다. 식사는 포기하지만 즉각적인 자금을 확보한다.",
+          "card": null,
+          "card2": null,
+          "gold": 280,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "클라인과 경계 구역을 나눠 식사를 지킨다",
+          "result": "클라인과 역할을 나누어 식사 시간을 확보한다. 경계를 유지하며 안전하게 식사를 마친다.",
+          "card": "sao_klein",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_boss_warning",
+      "title": "되돌아온 정찰대",
+      "story": "보스 방을 살펴본 키리토와 아스나가 준비 없이 들어가지 말라고 경고한다. 경고를 듣고도 진입하려는 사람들에게 필요한 것은 허세가 아니라 정찰 결과와 보급이다.",
+      "intro": "정찰대가 보스 방의 위험을 경고한다.",
+      "choices": [
+        {
+          "label": "키리토와 위험 구역의 정찰을 이어간다",
+          "result": "키리토와 함께 보스 방 주변을 더 상세히 조사한다. 정확한 위치와 적의 배치를 파악한다.",
+          "card": "sao_kirito_scout",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아스나와 진입 순서를 정리한다",
+          "result": "아스나의 지휘 아래 효율적인 진입 동선을 짠다. 체계적인 계획으로 초기 피해를 줄인다.",
+          "card": "sao_asuna",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "추가 보급 비용을 내고 사냥터를 줄인다",
+          "result": "보급 비용을 내고 진입 통로 하나를 닫았다. 사냥할 적 수는 줄지만 물약을 챙겨 다음 전투를 준비했다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": 0,
+          "density": -1,
+          "potions": 2,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "sao_safezone_clue",
+      "title": "안전 구역의 모순",
+      "story": "안전 구역에서 공격을 받았다는 증언이 돌았다. 증언만으로 규칙이 사라졌다고 단정할 수는 없다. 키리토와 아스나는 장비와 목격담을 따로 확인한다.",
+      "intro": "안전 구역의 증언과 장비가 서로 맞지 않는다.",
+      "choices": [
+        {
+          "label": "장비를 조사하며 가공 비용을 낸다",
+          "result": "의심스러운 장비의 제작 공정을 정밀 조사한다. 리즈벳의 기술을 빌려 조작 여부를 확인한다.",
+          "card": "sao_liz",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아스나와 목격담을 확인한다",
+          "result": "아스나와 함께 현장을 돌며 목격자들을 대조한다. 엇갈리는 증언 사이의 모순을 찾아낸다.",
+          "card": "sao_asuna",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "에길에게 확인된 물품을 맡긴다",
+          "result": "에길에게 물품 확인을 맡기고 거래 기록을 정리했다. 증거를 팔아 없애지 않고 조사에 필요한 수고비를 받았다.",
+          "card": null,
+          "card2": null,
+          "gold": 200,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    }
+  ]
+}

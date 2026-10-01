@@ -1,0 +1,368 @@
+{
+  "started": "2026-10-01T11:15:52.165Z",
+  "finished": "2026-10-01T11:15:56.342Z",
+  "request": {
+    "review": true,
+    "system": "한국어로 제시된 후보를 편집 검토한다. 원작의 전체 설정을 별도로 확인한 것처럼 답하지 않는다. 최대 4개 문제이며 없다면 빈 배열로 반환한다. 각 지적은 실제 key와 짧은 문장 인용을 적고, 선택 행동·성공과 실패·이미 지출한 비용·남아 있는 적의 부담·지급하는 효과와 모순되는 구절을 짚는다. 기존 stats의 서사적 각색은 허용하지만 쥐 소환·새 회피 기술·의뢰 아이템·치유를 플레이어에게 지급하지 않는다. failure는 최초 선택의 작업비와 적 단계 증가가 남고 카드와 골드는 주지 않는다. 개인 후속은 성공 또는 실패 중 하나만 열리고 추가 행동력을 소모한다.",
+    "schema": {
+      "type": "object",
+      "required": [
+        "issues",
+        "overall"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "issues": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "key",
+              "quote",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "quote": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "overall": {
+          "type": "string"
+        }
+      }
+    },
+    "brief": {
+      "candidate": {
+        "world": {
+          "key": "common",
+          "name": "여행길",
+          "work": "동방프로젝트",
+          "intro": "",
+          "effects": [],
+          "entryCard": null
+        },
+        "sources": [
+          "https://en.touhouwiki.net/index.php?mobileaction=toggle_view_desktop&title=Nazrin",
+          "https://touhou.fandom.com/wiki/Symposium_of_Post-mysticism%3A_Nazrin"
+        ],
+        "canonBoundary": "나즈린의 원작 설정문·구문구수 전재에서 탐색, 들쥐의 먹이 제한, 불리한 전투를 피하는 성향을 확인했다. 개발사 사이트 직접 열기는 실패했다. 상인·상자·비용·보수·남은 적과 개인 후속은 맵의 창작이며 쥐 소환·탐지 스킬·원작 보탑을 지급하지 않는다.",
+        "cards": [
+          {
+            "key": "common_nazrin_search",
+            "name": "나즈린",
+            "effectName": "작은 다우저의 눈",
+            "keyword": "탐색 · 수급",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "event_choices",
+                "value": 1
+              },
+              {
+                "stat": "kill_gold",
+                "value": 2
+              }
+            ],
+            "evolution": {
+              "kind": 1,
+              "goal": 45,
+              "effects": [
+                {
+                  "stat": "kill_gold",
+                  "value": 1
+                }
+              ]
+            },
+            "canonFact": "물건을 찾는 다우저와 들쥐를 이용한 탐색을 더 많은 사건 후보와 처치 수급으로 각색했다. 새 탐지 기술이나 쥐 소환을 지급하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "common_nazrin_retreat",
+            "name": "나즈린",
+            "effectName": "돌아갈 틈을 남기기",
+            "keyword": "이동 · 이동 피해",
+            "grade": 2,
+            "effects": [
+              {
+                "stat": "move_speed",
+                "value": 5
+              },
+              {
+                "stat": "moving_damage",
+                "value": 12
+              }
+            ],
+            "evolution": {
+              "kind": 3,
+              "goal": 45,
+              "effects": [
+                {
+                  "stat": "damage_reduction",
+                  "value": 3
+                }
+              ]
+            },
+            "canonFact": "자신보다 강한 상대 앞에서는 재빨리 달아나는 성향을 물러날 위치를 지키는 성장으로 각색했다. 즉시 회피·무적·귀환 기술을 지급하지 않는다.",
+            "uncertain": []
+          }
+        ],
+        "events": [
+          {
+            "key": "common_nazrin_signal",
+            "title": "진흙 아래의 반응",
+            "story": "상인이 비탈에서 빠뜨린 운반 상자를 찾아 달라며 길가에 의뢰 쪽지를 남겼다. 나즈린의 다우징 막대는 진흙 아래를 가리키지만 나무 상자인지 고철인지는 아직 알 수 없다. 들쥐들이 먹을 것부터 먹어 버렸다는 말에, 남은 반응과 수색 범위를 따로 살핀다.",
+            "intro": "탐색을 배우거나 넓은 구역을 맡을지, 불확실한 반응에 비용을 쓸지 정한다.",
+            "previous": null,
+            "previousChoice": 0,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "측정 자재를 보태고 나즈린과 반응을 대조한다",
+                "result": "비에 젖은 표시를 다시 세우고 나즈린과 여러 반응의 방향을 대조했다. 상자를 찾았다고 단정하지 않고 어떤 자리를 먼저 살필지 구분하는 경험을 남겼다.",
+                "card": "common_nazrin_search",
+                "card2": null,
+                "gold": 0,
+                "cost": 170,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "나즈린의 퇴로를 남기고 넓은 수색 구역을 맡는다",
+                "result": "강한 기척을 피하는 나즈린이 빠져나갈 자리를 남기고 넓은 구역을 맡았다. 더 많은 적을 상대해야 하지만 좁은 곳에 몰리기 전에 돌아갈 간격을 확인했다.",
+                "card": "common_nazrin_retreat",
+                "card2": null,
+                "gold": 0,
+                "cost": 0,
+                "level": 0,
+                "density": 2,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "작업비를 내고 강한 적이 남은 깊은 자리를 판다",
+                "result": "고철 옆에서 의뢰 쪽지의 표식이 붙은 상자를 찾아 상인에게 넘겼다. 약속한 보수와 탐색 경험을 얻었지만 깊은 구역에 남은 강한 적까지 사라지지는 않았다.",
+                "card": "common_nazrin_search",
+                "card2": null,
+                "gold": 420,
+                "cost": 150,
+                "level": 1,
+                "density": 0,
+                "potions": 0,
+                "chance": 60
+              },
+              {
+                "label": "수색 대신 빈 상자 운반을 맡고 일당을 받는다",
+                "result": "입구에 쌓인 빈 상자를 운반하고 정해진 일당을 받았다. 나즈린은 비탈의 반응을 더 살피고, 당신은 운반한 물건의 수를 확인하고 일을 마쳤다.",
+                "card": null,
+                "card2": null,
+                "gold": 180,
+                "cost": 0,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              }
+            ],
+            "failure": "진흙을 걷어 냈지만 막대가 가리킨 자리에서는 고철만 나왔다. 작업비는 돌아오지 않았고 깊은 구역의 강한 적도 그대로 남아, 의뢰 보수를 받지 못한 채 젖은 표시를 다시 살폈다.",
+            "canonFact": "물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "common_nazrin_found",
+            "title": "상자를 연 뒤의 흔적",
+            "story": "의뢰 상자를 넘긴 자리에서 나즈린의 막대가 다른 방향으로 흔들린다. 첫 상자를 찾았어도 새 반응의 정체까지 알 수는 없고, 비탈에는 열린 구덩이와 강한 적이 남아 있다. 나즈린은 더 깊이 들어가기 전에 돌아갈 자리가 있는지 확인한다.",
+            "intro": "의뢰 물건을 찾은 뒤 새 반응을 좇거나, 뒷정리의 보수와 위험을 정한다.",
+            "previous": "common_nazrin_signal",
+            "previousChoice": 3,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "나즈린의 퇴로를 맡고 더 강한 구역을 살핀다",
+                "result": "나즈린이 빠져나갈 비탈을 지키며 한층 강한 적이 다니는 구역을 맡았다. 끝낸 수색의 작은 추가 보수와 물러날 간격을 남겼지만 새 구역의 부담은 계속됐다.",
+                "card": "common_nazrin_retreat",
+                "card2": null,
+                "gold": 60,
+                "cost": 0,
+                "level": 1,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "더 넓은 뒷정리 구역을 맡고 추가 일당을 받는다",
+                "result": "남은 상자를 옮기고 흩어진 작업 도구를 수거하여 추가 일당을 받았다. 더 넓은 뒷정리 구역을 맡은 만큼 오가는 적도 늘었다.",
+                "card": null,
+                "card2": null,
+                "gold": 260,
+                "cost": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "자재비를 내고 위험한 길 한 곳을 닫는다",
+                "result": "울타리 자재를 사서 위험한 길 한 곳을 닫고 작업장에 남은 보급 물약을 챙겼다. 강한 구역 하나를 덜 맡게 되었지만 다른 수색 길의 적은 남았다.",
+                "card": null,
+                "card2": null,
+                "gold": 0,
+                "cost": 100,
+                "level": -1,
+                "density": 0,
+                "potions": 1,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.",
+            "uncertain": []
+          },
+          {
+            "key": "common_nazrin_false",
+            "title": "고철 옆에 남은 표시",
+            "story": "의뢰 상자를 찾지 못한 자리에서 나즈린이 젖은 측정 끈을 펼친다. 표시했던 깊이와 방향을 다시 확인해야 하지만 이미 쓴 작업비는 돌아오지 않는다. 강한 적이 남은 구역을 바라보며 재측정과 남은 작업을 나눈다.",
+            "intro": "실패한 수색 뒤 다시 측정할지, 넓은 구역을 맡을지, 빈 상자를 옮길지 고른다.",
+            "previous": "common_nazrin_signal",
+            "previousChoice": -3,
+            "requiredCard": null,
+            "choices": [
+              {
+                "label": "측정 끈을 새로 마련하고 나즈린과 방향을 다시 잰다",
+                "result": "새 끈을 마련해 젖은 표시를 다시 세우고 나즈린과 반응을 구분했다. 이번에는 상자나 보수를 되찾은 것이 아니라 방향을 재는 경험을 남겼다.",
+                "card": "common_nazrin_search",
+                "card2": null,
+                "gold": 0,
+                "cost": 170,
+                "level": 0,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "나즈린이 물러날 더 넓은 구역을 맡는다",
+                "result": "나즈린이 물러날 자리를 남기고 주변의 넓은 구역을 추가로 맡았다. 적은 더 늘었지만 돌아갈 틈을 놓치지 않는 간격을 확인했다.",
+                "card": "common_nazrin_retreat",
+                "card2": null,
+                "gold": 0,
+                "cost": 0,
+                "level": 0,
+                "density": 1,
+                "potions": 0,
+                "chance": 100
+              },
+              {
+                "label": "빈 상자를 옮기고 위험한 길 하나의 뒷정리를 끝낸다",
+                "result": "빈 상자를 옮기고 깊은 구역으로 이어진 작업 길 한 곳을 정리했다. 끝낸 작업의 일당을 받았으며 그 길의 강한 적까지 계속 맡지는 않게 됐다.",
+                "card": null,
+                "card2": null,
+                "gold": 140,
+                "cost": 0,
+                "level": -1,
+                "density": 0,
+                "potions": 0,
+                "chance": 100
+              }
+            ],
+            "failure": null,
+            "canonFact": "물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.",
+            "uncertain": []
+          }
+        ]
+      }
+    }
+  },
+  "payload": {
+    "model": "gemma4:12b-it-qat",
+    "stream": false,
+    "think": false,
+    "format": {
+      "type": "object",
+      "required": [
+        "issues",
+        "overall"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "issues": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "key",
+              "quote",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "quote": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "overall": {
+          "type": "string"
+        }
+      }
+    },
+    "keep_alive": "10m",
+    "messages": [
+      {
+        "role": "system",
+        "content": "한국어로 제시된 후보를 편집 검토한다. 원작의 전체 설정을 별도로 확인한 것처럼 답하지 않는다. 최대 4개 문제이며 없다면 빈 배열로 반환한다. 각 지적은 실제 key와 짧은 문장 인용을 적고, 선택 행동·성공과 실패·이미 지출한 비용·남아 있는 적의 부담·지급하는 효과와 모순되는 구절을 짚는다. 기존 stats의 서사적 각색은 허용하지만 쥐 소환·새 회피 기술·의뢰 아이템·치유를 플레이어에게 지급하지 않는다. failure는 최초 선택의 작업비와 적 단계 증가가 남고 카드와 골드는 주지 않는다. 개인 후속은 성공 또는 실패 중 하나만 열리고 추가 행동력을 소모한다."
+      },
+      {
+        "role": "user",
+        "content": "{\"candidate\":{\"world\":{\"key\":\"common\",\"name\":\"여행길\",\"work\":\"동방프로젝트\",\"intro\":\"\",\"effects\":[],\"entryCard\":null},\"sources\":[\"https://en.touhouwiki.net/index.php?mobileaction=toggle_view_desktop&title=Nazrin\",\"https://touhou.fandom.com/wiki/Symposium_of_Post-mysticism%3A_Nazrin\"],\"canonBoundary\":\"나즈린의 원작 설정문·구문구수 전재에서 탐색, 들쥐의 먹이 제한, 불리한 전투를 피하는 성향을 확인했다. 개발사 사이트 직접 열기는 실패했다. 상인·상자·비용·보수·남은 적과 개인 후속은 맵의 창작이며 쥐 소환·탐지 스킬·원작 보탑을 지급하지 않는다.\",\"cards\":[{\"key\":\"common_nazrin_search\",\"name\":\"나즈린\",\"effectName\":\"작은 다우저의 눈\",\"keyword\":\"탐색 · 수급\",\"grade\":2,\"effects\":[{\"stat\":\"event_choices\",\"value\":1},{\"stat\":\"kill_gold\",\"value\":2}],\"evolution\":{\"kind\":1,\"goal\":45,\"effects\":[{\"stat\":\"kill_gold\",\"value\":1}]},\"canonFact\":\"물건을 찾는 다우저와 들쥐를 이용한 탐색을 더 많은 사건 후보와 처치 수급으로 각색했다. 새 탐지 기술이나 쥐 소환을 지급하지 않는다.\",\"uncertain\":[]},{\"key\":\"common_nazrin_retreat\",\"name\":\"나즈린\",\"effectName\":\"돌아갈 틈을 남기기\",\"keyword\":\"이동 · 이동 피해\",\"grade\":2,\"effects\":[{\"stat\":\"move_speed\",\"value\":5},{\"stat\":\"moving_damage\",\"value\":12}],\"evolution\":{\"kind\":3,\"goal\":45,\"effects\":[{\"stat\":\"damage_reduction\",\"value\":3}]},\"canonFact\":\"자신보다 강한 상대 앞에서는 재빨리 달아나는 성향을 물러날 위치를 지키는 성장으로 각색했다. 즉시 회피·무적·귀환 기술을 지급하지 않는다.\",\"uncertain\":[]}],\"events\":[{\"key\":\"common_nazrin_signal\",\"title\":\"진흙 아래의 반응\",\"story\":\"상인이 비탈에서 빠뜨린 운반 상자를 찾아 달라며 길가에 의뢰 쪽지를 남겼다. 나즈린의 다우징 막대는 진흙 아래를 가리키지만 나무 상자인지 고철인지는 아직 알 수 없다. 들쥐들이 먹을 것부터 먹어 버렸다는 말에, 남은 반응과 수색 범위를 따로 살핀다.\",\"intro\":\"탐색을 배우거나 넓은 구역을 맡을지, 불확실한 반응에 비용을 쓸지 정한다.\",\"previous\":null,\"previousChoice\":0,\"requiredCard\":null,\"choices\":[{\"label\":\"측정 자재를 보태고 나즈린과 반응을 대조한다\",\"result\":\"비에 젖은 표시를 다시 세우고 나즈린과 여러 반응의 방향을 대조했다. 상자를 찾았다고 단정하지 않고 어떤 자리를 먼저 살필지 구분하는 경험을 남겼다.\",\"card\":\"common_nazrin_search\",\"card2\":null,\"gold\":0,\"cost\":170,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"나즈린의 퇴로를 남기고 넓은 수색 구역을 맡는다\",\"result\":\"강한 기척을 피하는 나즈린이 빠져나갈 자리를 남기고 넓은 구역을 맡았다. 더 많은 적을 상대해야 하지만 좁은 곳에 몰리기 전에 돌아갈 간격을 확인했다.\",\"card\":\"common_nazrin_retreat\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":2,\"potions\":0,\"chance\":100},{\"label\":\"작업비를 내고 강한 적이 남은 깊은 자리를 판다\",\"result\":\"고철 옆에서 의뢰 쪽지의 표식이 붙은 상자를 찾아 상인에게 넘겼다. 약속한 보수와 탐색 경험을 얻었지만 깊은 구역에 남은 강한 적까지 사라지지는 않았다.\",\"card\":\"common_nazrin_search\",\"card2\":null,\"gold\":420,\"cost\":150,\"level\":1,\"density\":0,\"potions\":0,\"chance\":60},{\"label\":\"수색 대신 빈 상자 운반을 맡고 일당을 받는다\",\"result\":\"입구에 쌓인 빈 상자를 운반하고 정해진 일당을 받았다. 나즈린은 비탈의 반응을 더 살피고, 당신은 운반한 물건의 수를 확인하고 일을 마쳤다.\",\"card\":null,\"card2\":null,\"gold\":180,\"cost\":0,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":\"진흙을 걷어 냈지만 막대가 가리킨 자리에서는 고철만 나왔다. 작업비는 돌아오지 않았고 깊은 구역의 강한 적도 그대로 남아, 의뢰 보수를 받지 못한 채 젖은 표시를 다시 살폈다.\",\"canonFact\":\"물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"common_nazrin_found\",\"title\":\"상자를 연 뒤의 흔적\",\"story\":\"의뢰 상자를 넘긴 자리에서 나즈린의 막대가 다른 방향으로 흔들린다. 첫 상자를 찾았어도 새 반응의 정체까지 알 수는 없고, 비탈에는 열린 구덩이와 강한 적이 남아 있다. 나즈린은 더 깊이 들어가기 전에 돌아갈 자리가 있는지 확인한다.\",\"intro\":\"의뢰 물건을 찾은 뒤 새 반응을 좇거나, 뒷정리의 보수와 위험을 정한다.\",\"previous\":\"common_nazrin_signal\",\"previousChoice\":3,\"requiredCard\":null,\"choices\":[{\"label\":\"나즈린의 퇴로를 맡고 더 강한 구역을 살핀다\",\"result\":\"나즈린이 빠져나갈 비탈을 지키며 한층 강한 적이 다니는 구역을 맡았다. 끝낸 수색의 작은 추가 보수와 물러날 간격을 남겼지만 새 구역의 부담은 계속됐다.\",\"card\":\"common_nazrin_retreat\",\"card2\":null,\"gold\":60,\"cost\":0,\"level\":1,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"더 넓은 뒷정리 구역을 맡고 추가 일당을 받는다\",\"result\":\"남은 상자를 옮기고 흩어진 작업 도구를 수거하여 추가 일당을 받았다. 더 넓은 뒷정리 구역을 맡은 만큼 오가는 적도 늘었다.\",\"card\":null,\"card2\":null,\"gold\":260,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"자재비를 내고 위험한 길 한 곳을 닫는다\",\"result\":\"울타리 자재를 사서 위험한 길 한 곳을 닫고 작업장에 남은 보급 물약을 챙겼다. 강한 구역 하나를 덜 맡게 되었지만 다른 수색 길의 적은 남았다.\",\"card\":null,\"card2\":null,\"gold\":0,\"cost\":100,\"level\":-1,\"density\":0,\"potions\":1,\"chance\":100}],\"failure\":null,\"canonFact\":\"물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.\",\"uncertain\":[]},{\"key\":\"common_nazrin_false\",\"title\":\"고철 옆에 남은 표시\",\"story\":\"의뢰 상자를 찾지 못한 자리에서 나즈린이 젖은 측정 끈을 펼친다. 표시했던 깊이와 방향을 다시 확인해야 하지만 이미 쓴 작업비는 돌아오지 않는다. 강한 적이 남은 구역을 바라보며 재측정과 남은 작업을 나눈다.\",\"intro\":\"실패한 수색 뒤 다시 측정할지, 넓은 구역을 맡을지, 빈 상자를 옮길지 고른다.\",\"previous\":\"common_nazrin_signal\",\"previousChoice\":-3,\"requiredCard\":null,\"choices\":[{\"label\":\"측정 끈을 새로 마련하고 나즈린과 방향을 다시 잰다\",\"result\":\"새 끈을 마련해 젖은 표시를 다시 세우고 나즈린과 반응을 구분했다. 이번에는 상자나 보수를 되찾은 것이 아니라 방향을 재는 경험을 남겼다.\",\"card\":\"common_nazrin_search\",\"card2\":null,\"gold\":0,\"cost\":170,\"level\":0,\"density\":0,\"potions\":0,\"chance\":100},{\"label\":\"나즈린이 물러날 더 넓은 구역을 맡는다\",\"result\":\"나즈린이 물러날 자리를 남기고 주변의 넓은 구역을 추가로 맡았다. 적은 더 늘었지만 돌아갈 틈을 놓치지 않는 간격을 확인했다.\",\"card\":\"common_nazrin_retreat\",\"card2\":null,\"gold\":0,\"cost\":0,\"level\":0,\"density\":1,\"potions\":0,\"chance\":100},{\"label\":\"빈 상자를 옮기고 위험한 길 하나의 뒷정리를 끝낸다\",\"result\":\"빈 상자를 옮기고 깊은 구역으로 이어진 작업 길 한 곳을 정리했다. 끝낸 작업의 일당을 받았으며 그 길의 강한 적까지 계속 맡지는 않게 됐다.\",\"card\":null,\"card2\":null,\"gold\":140,\"cost\":0,\"level\":-1,\"density\":0,\"potions\":0,\"chance\":100}],\"failure\":null,\"canonFact\":\"물건 탐색·들쥐의 제한·강한 상대를 피하는 원작 특징을 이용한 맵 전용 의뢰다. 보탑·비창의 원작 수색이나 성련선 결말을 재현하지 않는다.\",\"uncertain\":[]}]}}"
+      }
+    ],
+    "options": {
+      "num_ctx": 16384,
+      "num_predict": 8192,
+      "temperature": 0.15,
+      "top_p": 0.95,
+      "top_k": 64
+    }
+  },
+  "raw": {
+    "model": "gemma4:12b-it-qat",
+    "created_at": "2026-10-01T11:15:56.3366897Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"issues\": [], \"overall\": \"제시된 후보는 모든 제약 사항을 준수하고 있습니다. 나즈린의 원작 설정을 기반으로 한 서사적 각색이 적절하며, 쥐 소환이나 회피 기술 등 금지된 효과를 지급하지 않습니다. 실패 시 작업비와 적 단계가 유지되는 규칙, 개인 후속의 단일 경로 및 행동력 소모 조건도 모두 충족합니다.\"}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 4143662100,
+    "load_duration": 3350200,
+    "prompt_eval_count": 2467,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 1327877000,
+    "eval_count": 96,
+    "eval_duration": 2576451000
+  },
+  "parsed": {
+    "issues": [],
+    "overall": "제시된 후보는 모든 제약 사항을 준수하고 있습니다. 나즈린의 원작 설정을 기반으로 한 서사적 각색이 적절하며, 쥐 소환이나 회피 기술 등 금지된 효과를 지급하지 않습니다. 실패 시 작업비와 적 단계가 유지되는 규칙, 개인 후속의 단일 경로 및 행동력 소모 조건도 모두 충족합니다."
+  },
+  "parseError": null
+}

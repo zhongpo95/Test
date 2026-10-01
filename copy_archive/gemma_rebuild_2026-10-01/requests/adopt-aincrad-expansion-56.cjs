@@ -1,0 +1,21 @@
+// 수치 일치를 인정하며 REVISE를 반환한 모델 기록을 보존하고 고정안 대조로 아인크라드만 채택한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),repo=path.resolve(__dirname,'../../..');
+const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const write=(p,x)=>fs.writeFileSync(path.join(root,p),JSON.stringify(x,null,2)+'\n',{flag:'wx'});
+const file=path.join(repo,'content/roguelite/06-aincrad.json'),bytes=fs.readFileSync(file),before=JSON.parse(bytes),candidate=read('revisions/aincrad-expansion-curated-54.json'),fixed=read('requests/aincrad-expansion-fixed-52.json'),review=read('reviews/aincrad-focused-review-55.json').parsed;
+assert.equal(review.verdict,'REVISE');assert.equal(review.issues.length,2);
+const focused=read('requests/aincrad-focused-review-55.json').brief.events;
+for(const e of focused){assert.equal(e.calculation.successNetGold,e.firstChoice.gold-e.firstChoice.cost);assert.equal(e.calculation.failureNetGold,-e.firstChoice.cost);assert.equal(e.firstChoice.chance,e.key==='sao_lakeside_wait'?65:70);}
+write('revisions/aincrad-review-decision-55.json',{review,decision:'모델의 두 문제 모두 증거에서 현재 수치가 일치한다고 인정한다. 확인되지 않은 계산 오류와 재검토 반복 요청은 기각하며 실제 JASS 분기를 별도로 실행한다.',cases:focused.map(e=>({key:e.key,...e.calculation,arithmeticChecked:true})),numericExceptions:[],revisit:'실제 성공·실패 분기의 비용과 보수가 고정안에 어긋나는 실행 증거가 발생했을 때만 수치나 함수를 검토한다.',limits:'Gemma의 세 검토 verdict는 모두 REVISE다. PASS로 바꾸거나 리뷰 원문을 편집하지 않았다. Codex의 원문/고정안 대조와 모의 실행을 별도 근거로 삼는다.'});
+assert.deepEqual(candidate.world,before.world);
+for(const c of before.cards){const after=candidate.cards.find(x=>x.key===c.key);if(c.key==='sao_silica')assert.deepEqual({...after,canonFact:c.canonFact},c);else assert.deepEqual(after,c);}
+for(const c of fixed.cards)assert.deepEqual(candidate.cards.find(x=>x.key===c.key),c);
+const preserved=before.events.filter(e=>!fixed.rewrites.some(p=>p.key===e.key));for(const e of preserved)assert.deepEqual(candidate.events.find(x=>x.key===e.key),e);
+for(const p of [...fixed.events,...fixed.rewrites]){const e=candidate.events.find(x=>x.key===p.key);assert.equal(e.previous,p.previous||null);assert.equal(e.previousChoice,p.previousChoice||0);assert.equal(e.requiredCard,null);assert.equal(e.choices.length,p.choices.length);p.choices.forEach((b,i)=>{for(const k of ['card','card2','cost','gold','level','density','potions','chance'])assert.equal(e.choices[i][k],b[k]);});}
+const oldBoundary=candidate.canonBoundary;assert(oldBoundary.includes('낚시 기록'));candidate.canonBoundary=oldBoundary.replace('낚시 기록','작은 낚시');
+const check=require(path.join(repo,'tools/check-content-candidates.cjs')).inspect(candidate);assert.deepEqual(check.errors,[]);assert.deepEqual(check.warnings,[]);
+fs.writeFileSync(path.join(root,'before-aincrad-expansion-56.json'),bytes,{flag:'wx'});
+write('revisions/aincrad-expansion-decision-56.json',{sourceRevision:'115324d',beforeFile:'before-aincrad-expansion-56.json',beforeSha256:crypto.createHash('sha256').update(bytes).digest('hex'),reviews:[read('reviews/aincrad-expansion-review-53.json').parsed,read('reviews/aincrad-expansion-review-54.json').parsed,review],reviewDecisions:[read('revisions/aincrad-review-decision-53.json'),read('revisions/aincrad-review-decision-54.json'),read('revisions/aincrad-review-decision-55.json')],decision:'독립4사건·자신의 귀환 질문 성공1번 후속1사건·카드5장 채택. 기존5사건은 모든 수치·판정·지급 참조를 유지하고 문장만 정정한다.',boundaryCorrection:{before:oldBoundary,after:candidate.canonBoundary,reason:'활성 낚시가 기록 분류에서 작은 입질로 바뀌어 총괄 설명의 소재도 맞춘다.'},candidateCheck:check,numericExceptions:[],limits:['Gemma의 세 검토는 REVISE다. 첫 검토의 문장 모호함은 수정했고 둘째의 사건 수치 혼동과 셋째의 일치하는 계산을 오류로 분류한 판단은 기각했다.','공식 소개 본문을 읽었으며 애니메이션 전체 영상·원작 전편·관련 게임 전체를 검토한 것은 아니다.','아르고는 공식 게임의 정보상 역할만 가져오고 베타에서 만난 게임 주인공이나 고유 전개를 애니메이션에 옮기지 않는다.','꽃의 명칭·층·소생 시간 제한은 확인한 공식 소개에서 확인하지 않아 새 문장에 쓰지 않았다. 비공식 요약은 공식 출처로 바꾸지 않는다.','작은 입질·미끼·낚시 보수·정보 독점 오해·외투·준비물·수치·확률·방문은 창작이다. 실제 낚시·정보시장·NPC동행·원작장비·관리자기능·소생을 구현하지 않는다.','Warcraft·실제 화면·멀티플레이·재미·밸런스 미검증.']});
+fs.writeFileSync(file,JSON.stringify(candidate,null,2)+'\n');console.log(JSON.stringify({newCards:5,newRoots:4,newFollowups:1,rewrites:5,totalCards:candidate.cards.length,totalEvents:candidate.events.length,check}));

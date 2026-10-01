@@ -1,0 +1,44 @@
+{
+  "review": {
+    "verdict": "REVISE",
+    "issues": [
+      {
+        "key": "sao_lakeside_wait",
+        "problem": "successNetGold 계산 오류",
+        "evidence": "firstChoice의 cost는 150이고 gold는 240입니다. 규칙에 따라 성공 시 순이익(successNetGold)은 240 - 150 = 90이 되어야 하나, calculation의 successNetGold가 90으로 표기되어 있어 수치상으로는 일치하나, calculation의 구조적 검토 시 cost(150)와 gold(240)의 차액이 정확히 반영되었는지 재확인 필요. (현재 수치는 일치함)",
+        "suggestion": "해당 사건의 수치는 일치하므로 PASS로 판단될 수 있으나, 계산 로직의 일관성을 위해 재검토 요망."
+      },
+      {
+        "key": "sao_argo_second_question",
+        "problem": "successNetGold 계산 오류",
+        "evidence": "firstChoice의 cost는 120이고 gold는 120입니다. 성공 시 순이익(successNetGold)은 120 - 120 = 0이 되어야 합니다. calculation의 successNetGold가 0으로 표기되어 있어 수치상으로는 일치합니다.",
+        "suggestion": "수치상 오류 없음."
+      }
+    ],
+    "strengths": [
+      "두 사건 모두 cost와 gold의 차액이 successNetGold에 정확히 반영되어 있습니다."
+    ]
+  },
+  "decision": "모델의 두 문제 모두 증거에서 현재 수치가 일치한다고 인정한다. 확인되지 않은 계산 오류와 재검토 반복 요청은 기각하며 실제 JASS 분기를 별도로 실행한다.",
+  "cases": [
+    {
+      "key": "sao_lakeside_wait",
+      "paidBeforeRoll": 150,
+      "receivedOnlyOnSuccess": 240,
+      "successNetGold": 90,
+      "failureNetGold": -150,
+      "arithmeticChecked": true
+    },
+    {
+      "key": "sao_argo_second_question",
+      "paidBeforeRoll": 120,
+      "receivedOnlyOnSuccess": 120,
+      "successNetGold": 0,
+      "failureNetGold": -120,
+      "arithmeticChecked": true
+    }
+  ],
+  "numericExceptions": [],
+  "revisit": "실제 성공·실패 분기의 비용과 보수가 고정안에 어긋나는 실행 증거가 발생했을 때만 수치나 함수를 검토한다.",
+  "limits": "Gemma의 세 검토 verdict는 모두 REVISE다. PASS로 바꾸거나 리뷰 원문을 편집하지 않았다. Codex의 원문/고정안 대조와 모의 실행을 별도 근거로 삼는다."
+}

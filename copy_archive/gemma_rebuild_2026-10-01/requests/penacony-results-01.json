@@ -1,0 +1,270 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 210
+              }
+            },
+            "failure": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "key",
+            "results",
+            "failure"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "events"
+    ],
+    "additionalProperties": false
+  },
+  "system": "한국어 게임 사건의 결과를 공동 집필한다. 제공된 문제·행동·선행 결과와 일치하는 짧은 결과를 행동 순서대로 쓴다. 성공 결과에서 아직 감수해야 할 위험을 이미 없앴다고 쓰지 않는다. 실패는 보상 없이 끝나고 판돈이 소모되지만 당첨을 보장하거나 잃은 돈을 자동으로 돌려주지 않는다. 능력치·카드·숫자·제작용 요약을 그대로 베끼지 말고 인물과 물건, 남은 길이 구체적으로 어떻게 바뀌었는지 1~2문장으로 쓴다. 원작 특정 임무가 일어났다고 주장하거나 설정을 새로 확정하지 않는다. 솔글래드를 술·치료제로 쓰지 않는다. 블랙 스완이 당첨을 예언하지 않으며 스파클은 환락을 위한 배역 놀이를 한다. 원작 보호막·분신·기억 조작·디버프 기술을 플레이어가 얻는다고 쓰지 않는다. 말투를 흉내 낸 인용 대사보다 행동 서술을 쓴다. 모든 문장은 콜론으로 끝내지 않는다.",
+  "brief": {
+    "facts": [
+      "미샤는 레버리 호텔의 벨보이며 손님들의 모험담을 좋아한다.",
+      "어벤츄린은 위험을 즐기지만 속마음을 읽기 어려운 투자 부서의 고위 간부다.",
+      "스파클은 배역과 신분을 바꾸며 재미를 추구한다.",
+      "블랙 스완은 기억을 경청하고 정리하는 기억하는 자다. 미래 당첨을 보장하지 않는다.",
+      "갤러거는 경계를 놓지 않는 보안관 겸 바텐더다.",
+      "황금의 순간에는 움직이는 광고판과 오락시설이 있고 에이딘 공원은 솔글래드 음료 브랜드의 후원으로 세워졌다."
+    ],
+    "events": [
+      {
+        "key": "hsr_dreamy_slots",
+        "problem": "에이딘 공원의 슬롯머신 앞에서 코인을 쥔 손님들이 다음 차례를 기다린다. 어벤츄린은 손에 남길 돈부터 정하라며 빈 기계 옆에 선다. 옆줄에서는 쏟아진 코인이 통로까지 굴러 나와 사람들이 몰리고 있다.",
+        "previous": null,
+        "actions": [
+          {
+            "action": "코인을 바꾸고 어벤츄린과 한 번만 돌린다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "플레이어가 수고비 또는 당첨금을 받음",
+            "uncertain": true
+          },
+          {
+            "action": "놀이 대신 어벤츄린과 귀환 준비를 챙긴다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "쏟아진 코인을 모아 통로 밖으로 옮긴다",
+            "spending": false,
+            "remainingRisk": "귀환길에 더 많은 상대의 흔적",
+            "payment": "플레이어가 수고비 또는 당첨금을 받음",
+            "uncertain": false
+          }
+        ],
+        "failure": "회전판은 맞지 않은 그림에서 멈췄다. 바꿔 넣은 코인은 돌아오지 않았고 어벤츄린은 다음 판을 대신 돌려주지 않는다. 조용한 쪽으로 걸어가 잠깐 전의 선택을 돌아본다."
+      },
+      {
+        "key": "hsr_after_win",
+        "problem": "한 번의 놀이를 끝내고 코인을 정리하는데 스파클이 박수 소리를 흉내 낸다. 같은 얼굴을 따라온 손님들이 출구를 막자 갤러거가 놀이가 끝난 사람부터 밖으로 안내한다.",
+        "previous": {
+          "action": "코인을 바꾸고 어벤츄린과 한 번만 돌린다",
+          "failure": false
+        },
+        "actions": [
+          {
+            "action": "스파클과 손님들의 시선을 다른 무대로 돌린다",
+            "spending": true,
+            "remainingRisk": "귀환길에 더 많은 상대의 흔적",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "갤러거와 조용한 귀환 통로를 확보한다",
+            "spending": true,
+            "remainingRisk": "혼잡한 통로를 나눠 상대가 몰리지 않는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_after_loss",
+        "problem": "당첨되지 않은 회전판의 그림이 자꾸 떠오른다. 블랙 스완은 기억 속 손이 언제 멈칫했는지 함께 살피자고 한다. 갤러거는 또 돌리러 가기 전에 돌아갈 길부터 정하라고 권한다.",
+        "previous": {
+          "action": "코인을 바꾸고 어벤츄린과 한 번만 돌린다",
+          "failure": true
+        },
+        "actions": [
+          {
+            "action": "블랙 스완과 결정을 망설인 장면을 돌아본다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "갤러거와 붐비는 길을 피해 돌아갈 준비를 한다",
+            "spending": true,
+            "remainingRisk": "혼잡한 통로를 나눠 상대가 몰리지 않는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_sorted_tokens",
+        "problem": "코인을 모은 자루는 통로 밖으로 옮겼지만 몰려든 사람들은 다른 쪽 출구로 흩어졌다. 미샤는 호텔로 돌아갈 손님을 따로 안내하고, 어벤츄린은 남은 준비물을 빽빽한 길과 나눠 쓰지 말자고 한다.",
+        "previous": {
+          "action": "쏟아진 코인을 모아 통로 밖으로 옮긴다",
+          "failure": false
+        },
+        "actions": [
+          {
+            "action": "미샤와 호텔로 돌아갈 손님을 나눠 안내한다",
+            "spending": true,
+            "remainingRisk": "강한 상대를 피하는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "어벤츄린과 귀환길에 쓸 준비물을 따로 챙긴다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_soulglad",
+        "problem": "커다란 솔글래드 광고 아래에서 음료를 받은 손님들이 서로 다른 방향을 가리킨다. 갤러거는 유난히 같은 말만 반복하는 사람을 경계하고, 미샤는 호텔로 돌아오지 않은 손님을 찾는다. 쉬지 않고 손님을 모으는 안내대에는 돌아갈 사람의 짐도 쌓여 있다.",
+        "previous": null,
+        "actions": [
+          {
+            "action": "갤러거와 되풀이되는 안내를 확인한다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "미샤와 호텔로 돌아갈 손님을 찾아 나선다",
+            "spending": true,
+            "remainingRisk": "혼잡한 통로를 나눠 상대가 몰리지 않는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "안내대의 보급 짐을 정리하고 수고비를 받는다",
+            "spending": false,
+            "remainingRisk": "귀환길에 더 많은 상대의 흔적",
+            "payment": "플레이어가 수고비 또는 당첨금을 받음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_masked_stage",
+        "problem": "무대 앞에서 같은 안내인이 한 번은 오른쪽을, 다음에는 왼쪽을 가리킨다. 스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, 블랙 스완은 두 안내를 들었을 때의 기억을 따로 살펴보자고 한다.",
+        "previous": null,
+        "actions": [
+          {
+            "action": "스파클의 바뀐 배역에 맞춰 무대를 빠져나간다",
+            "spending": true,
+            "remainingRisk": "더 강한 상대와 마주치는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "블랙 스완과 두 안내가 갈린 순간을 대조한다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "블랙 스완과 지나온 길의 순서부터 정리한다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_remembered_exit",
+        "problem": "서로 달랐던 안내를 기억과 대조한 뒤, 사람들의 걸음이 꺾이는 자리를 찾았다. 어벤츄린은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다.",
+        "previous": {
+          "action": "블랙 스완과 두 안내가 갈린 순간을 대조한다",
+          "failure": false
+        },
+        "actions": [
+          {
+            "action": "어벤츄린과 넓은 통로를 준비한다",
+            "spending": true,
+            "remainingRisk": "혼잡한 통로를 나눠 상대가 몰리지 않는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "갤러거와 경비가 확인한 우회로를 택한다",
+            "spending": true,
+            "remainingRisk": "강한 상대를 피하는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      },
+      {
+        "key": "hsr_walking_sign",
+        "problem": "뛰어다니는 광고판을 따라가자 같은 가게 앞을 다시 지나쳤다. 미샤는 호텔 입구의 시계판이 있는 쪽을 짚고, 블랙 스완은 방금 본 간판과 기억 속 간판의 차이를 찾는다.",
+        "previous": null,
+        "actions": [
+          {
+            "action": "미샤와 호텔 입구를 기준으로 길을 다시 표시한다",
+            "spending": true,
+            "remainingRisk": "혼잡한 통로를 나눠 상대가 몰리지 않는 길",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "블랙 스완과 반복해서 본 간판을 대조한다",
+            "spending": true,
+            "remainingRisk": "통행 부담 변화 없음",
+            "payment": "수고비 없음",
+            "uncertain": false
+          },
+          {
+            "action": "광고판을 따라온 손님을 모아 안내대를 돕는다",
+            "spending": false,
+            "remainingRisk": "귀환길에 더 많은 상대의 흔적",
+            "payment": "플레이어가 수고비 또는 당첨금을 받음",
+            "uncertain": false
+          }
+        ],
+        "failure": null
+      }
+    ]
+  }
+}
