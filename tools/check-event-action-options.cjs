@@ -40,10 +40,11 @@ check('지정 카드 조건은 개인 소유로 열리고 AP가 하나 남아도
  for(let i=0;i<5;i++)e.ProtoRefreshStats(0);e.ProtoGrantCard(0,plan);request(e,0,2201);assert.equal(e.ProtoAP[0],1);assert.equal(e.ProtoAPMax[0],11);assert.equal(e.ProtoAPMax[1],10);
 });
 check('행동력 최대치의 새 카드와 각성 증가분만 지급하고 반복 처치·재집계는 충전하지 않음',()=>{
- const {e}=party(),plan=card(e,'academy_uiharu_plan'),second=card(e,'academy_saten_box');e.ProtoAP[0]=4;e.ProtoGrantCard(0,plan);assert.equal(e.ProtoAP[0],5);
- // 아직 제작하지 않은 각성 콘텐츠를 추가하지 않고 실제 합산·각성 경계만 통제한다.
- e.ProtoSetEffect(second,e.PROTO_STAT_CAPACITY,2,false);e.ProtoGrantCard(0,second);assert.equal(e.ProtoAPMax[0],13);assert.equal(e.ProtoAP[0],7);
+ const {e}=party(),plan=card(e,'academy_uiharu_plan'),second=card(e,'academy_saten_box');
+ // 실제 카탈로그처럼 각성 조건을 획득 전에 정한다. 새로운 콘텐츠는 추가하지 않는다.
  e.ProtoEvolutionKind[plan]=1;e.ProtoEvolutionGoal[plan]=2;e.ProtoSetEffect(plan,e.PROTO_STAT_CAPACITY,1,true);
+ e.ProtoAP[0]=4;e.ProtoGrantCard(0,plan);assert.equal(e.ProtoAP[0],5);
+ e.ProtoSetEffect(second,e.PROTO_STAT_CAPACITY,2,false);e.ProtoGrantCard(0,second);assert.equal(e.ProtoAPMax[0],13);assert.equal(e.ProtoAP[0],7);
  e.ProtoKill(0);e.ProtoEvolutionTick(0);assert.equal(e.ProtoAP[0],7);e.ProtoKill(0);e.ProtoEvolutionTick(0);assert(e.ProtoEvolved[e.ExpKey(0,plan)]);assert.equal(e.ProtoAPMax[0],14);assert.equal(e.ProtoAP[0],8);
  e.ProtoKill(0);e.ProtoEvolutionTick(0);e.ProtoRefreshStats(0);assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAPMax[1],10);
 });

@@ -185,7 +185,7 @@ check('획득 이후부터만 처치·실제 피해·무피격 각성 진행, �
   }).env;
   // 별도 실제 BossDeal 실행. 차감한 보호막에도 무피격 조건은 깨진다.
   defense.ProtoStatsInit();defense.ProtoCatalogInit();defense.ExpPrototypeActive=true;defense.ExpMember[0]=true;defense.ExpState=defense.EXP_HUNT;
-  defense.ExpCardOwned[safe]=true;defense.ExpCardOwned[card(defense,'saber_guard')]=true;defense.ProtoRebuildCardStats(0,defense.PROTO_CARD_FIRST,defense.PROTO_CARD_LAST,defense.PROTO_HEAD_COUNT);
+  defense.ExpCardOwned[safe]=true;defense.ProtoEvolutionRegister(0,safe);defense.ProtoStatAddCard(0,card(defense,'saber_guard'),false);
   defense.ProtoCardProgress[safe]=30;defense.UnitSD[0]=100;
   defense.BossDeal(99,0,50,false);assert.equal(defense.ProtoCardProgress[safe],0);assert.equal(defense.UnitSD[0],53);
   defense.ProtoPaused[0]=true;defense.BossDeal(99,0,50,false);assert.equal(defense.UnitSD[0],53);
@@ -195,7 +195,7 @@ check('획득 이후부터만 처치·실제 피해·무피격 각성 진행, �
 });
 check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피해를 각성에 더하지 않음',()=>{
   const {e}=combat();e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeActive=true;e.ExpMember[0]=true;e.ExpState=e.EXP_HUNT;
-  const id=card(e,'shiro_analysis');e.ProtoHuntOwner[2]=1;e.ExpEnemy[2]=true;e.ExpCardOwned[id]=true;e.UnitHP[2]=30;
+  const id=card(e,'shiro_analysis');e.ProtoHuntOwner[2]=1;e.ExpEnemy[2]=true;e.ExpCardOwned[id]=true;e.ProtoEvolutionRegister(0,id);e.UnitHP[2]=30;
   e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.ProtoDamage[0],30);assert.equal(e.ProtoCardProgress[id],30);
   e.UnitHP[2]=100;e.ProtoPaused[0]=true;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
   e.ProtoPaused[0]=false;e.ProtoHuntOwner[2]=2;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
@@ -257,7 +257,7 @@ check('다른 로컬 플레이어의 클라이언트에서 같은 요청은 같�
     choose(e,0,1,1);choose(e,1,6,1);choose(e,0,scene(e,'school_circle'),2);
     e.UnitHP[e.HuntUnits[1].id]=0;e.ProtoTick();
   }
-  const snapshot=e=>({state:e.ExpState,seconds:e.ExpSeconds,ap:e.ProtoAP.slice(0,4),gold:e.ExpGold.slice(0,4),heads:e.ProtoHeadOwned.slice(),known:e.ProtoHeadKnown.slice(),used:e.ProtoEventUsed.slice(),cards:e.ExpCardOwned.slice(),kills:e.ProtoKills.slice(0,4),damage:e.ProtoDamageBonus.slice(0,4),hp:e.HuntUnits.filter(Boolean).map(u=>e.UnitHP[u.id])});
+  const snapshot=e=>({state:e.ExpState,seconds:e.ExpSeconds,ap:e.ProtoAP.slice(0,4),gold:e.ExpGold.slice(0,4),heads:e.ProtoHeadOwned.slice(),known:e.ProtoHeadKnown.slice(),used:e.ProtoEventUsed.slice(),cards:e.ExpCardOwned.slice(),stats:e.ProtoStatValues.slice(),pending:e.ProtoEvolutionFirst.slice(),links:e.ProtoEvolutionNext.slice(),progress:e.ProtoCardProgress.slice(),evolved:e.ProtoEvolved.slice(),kills:e.ProtoKills.slice(0,4),damage:e.ProtoDamageBonus.slice(0,4),hp:e.HuntUnits.filter(Boolean).map(u=>e.UnitHP[u.id])});
   assert.deepEqual(snapshot(clients[0].e),snapshot(clients[1].e));
 });
 check('사건 만료는 후보 AP 미소비 또는 유효 분기, 대기실 이탈은 남은 인원으로 새 흐름 출발',()=>{
