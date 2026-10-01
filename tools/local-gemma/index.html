@@ -118,6 +118,7 @@
     controls();
   }
   function jobName(item) {
+    if (item.mode === 'content') return item.contentReview ? '제작 도구 · JSON 검토' : '제작 도구 · 사건·카드';
     return item.mode === 'review' ? `${item.kind === 'image' ? '이미지' : item.kind === 'story' ? '사건' : '번역문'} 검토 · ${item.round}차` : modeNames[item.mode] || item.mode;
   }
   function elapsed(milliseconds) { return `${((milliseconds || 0) / 1000).toFixed(1)}초`; }
@@ -137,7 +138,7 @@
         const job = document.createElement('span'); job.textContent = jobName(item);
         const state = document.createElement('small'); state.textContent = `${stateNames[item.status] || item.status} · ${elapsed(item.status === 'running' && data.active?.id === item.id ? data.active.elapsedMs : item.elapsedMs)}${item.tokensPerSecond === undefined ? '' : ' · ' + item.tokensPerSecond.toFixed(1) + '토큰/초'}`; job.append(state);
         const preview = document.createElement('span'); preview.className = 'recordPreview'; preview.textContent = item.preview;
-        const note = document.createElement('small'); note.textContent = item.error || `이미지 ${item.imageCount}장`; preview.append(note);
+        const note = document.createElement('small'); note.textContent = (item.archived ? '가져온 기록 · ' : '') + (item.error || `이미지 ${item.imageCount}장`); preview.append(note);
         const button = document.createElement('button'); button.textContent = '기록 보기'; button.onclick = () => showRecord(item.id);
         row.append(time, job, preview, button); $('monitorRecords').append(row);
       }
@@ -156,17 +157,18 @@
       if (currentLoad !== recordLoad || !$('recordDialog').open) return;
       selectedRecord = record; $('downloadRecord').disabled = false;
       const input = record.input;
-      $('recordTitle').textContent = jobName({mode: input.mode, kind: input.kind, round: (input.history?.length || 0) / 2 + 1}) + ' 기록';
+      $('recordTitle').textContent = jobName({mode: input.mode, kind: input.kind, contentReview: input.review, round: (input.history?.length || 0) / 2 + 1}) + ' 기록';
       $('recordInfo').textContent = `${new Date(record.startedAt).toLocaleString('ko-KR')} · ${stateNames[record.status]} · ${elapsed(record.elapsedMs)}${record.result?.seconds === undefined ? '' : ' · 모델 응답 ' + record.result.seconds.toFixed(1) + '초'}`;
       if (input.language && (input.mode === 'translate' || input.kind === 'translate')) $('recordInfo').textContent += ` · 목표 언어 ${input.language}`;
       if (input.world && (input.mode === 'story' || input.kind === 'story')) $('recordInfo').textContent += ` · 세계관 ${input.world}`;
-      $('recordInput').textContent = input.mode === 'review' ? `원문 · 원래 요청\n${input.brief}\n\n처음 초안\n${input.draft || '(이미지 첨부)'}\n\n용어집 · 참고 설정\n${input.glossary || '(없음)'}\n\n이전 대화\n${(input.history || []).map(turn => `${turn.role === 'user' ? '나' : 'Gemma'}.\n${turn.content}`).join('\n\n') || '(없음)'}\n\n이번 질문\n${input.text}` : `요청\n${input.text || 'GPU 메모리 해제'}\n\n용어집\n${input.glossary || '(없음)'}`;
+      if (record.archive) $('recordInfo').textContent += `\n가져온 원본 파일. ${record.archive.file}`;
+      $('recordInput').textContent = input.mode === 'content' ? `자료 이름\n${input.text}\n\n작성·검토 지침\n${input.system}\n\n요청 자료\n${JSON.stringify(input.brief, null, 2)}` : input.mode === 'review' ? `원문 · 원래 요청\n${input.brief}\n\n처음 초안\n${input.draft || '(이미지 첨부)'}\n\n용어집 · 참고 설정\n${input.glossary || '(없음)'}\n\n이전 대화\n${(input.history || []).map(turn => `${turn.role === 'user' ? '나' : 'Gemma'}.\n${turn.content}`).join('\n\n') || '(없음)'}\n\n이번 질문\n${input.text}` : `요청\n${input.text || 'GPU 메모리 해제'}\n\n용어집\n${input.glossary || '(없음)'}`;
       for (const item of [...(input.history || []).flatMap(turn => turn.images || []), ...(input.images || [])]) {
         const figure = document.createElement('figure');
         const img = document.createElement('img'); if (/^data:image\/(png|jpeg);base64,/.test(item.data)) img.src = item.data; img.alt = item.name;
         const caption = document.createElement('figcaption'); caption.textContent = item.name; figure.append(img, caption); $('recordImages').append(figure);
       }
-      $('recordOutput').textContent = record.error ? `처리 오류\n${record.error}` : record.result ? `Gemma 답변\n${record.result.text}${record.result.reviewCheck ? '\n\n처음 초안의 서식·수치 검사\n' + JSON.stringify(record.result.reviewCheck, null, 2) : ''}` : '아직 처리 중입니다. 완료 후 기록을 다시 열어 주세요.';
+      $('recordOutput').textContent = (record.error ? `처리 오류\n${record.error}\n\n` : '') + (record.result ? `Gemma 답변\n${record.result.parsed !== undefined && record.result.parsed !== null ? JSON.stringify(record.result.parsed, null, 2) : record.result.text}${record.result.reviewCheck ? '\n\n처음 초안의 서식·수치 검사\n' + JSON.stringify(record.result.reviewCheck, null, 2) : ''}` : record.error ? '' : '아직 처리 중입니다. 완료 후 기록을 다시 열어 주세요.');
     } catch (error) { if (currentLoad === recordLoad) $('recordInfo').textContent = error.message; }
   }
   $('refreshMonitor').onclick = refreshMonitor;

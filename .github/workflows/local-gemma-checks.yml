@@ -20,4 +20,6 @@ jobs:
       - run: node --check tools/local-gemma/server.cjs
       - run: node --check tools/local-gemma/review.cjs
       - run: node --check tools/local-gemma/monitor.cjs
+      - run: node --check tools/local-gemma/content.cjs
+      - run: node --check tools/local-gemma/import-content.cjs
       - run: node --test tools/local-gemma/check.cjs

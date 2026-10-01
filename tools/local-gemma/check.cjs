@@ -322,3 +322,75 @@ test('서버 종료 기록 복구와 100건·128MiB 보관 한도에 따른 오�
   const record = large.begin(review); large.finish(record, 'success', {text: '새 답변'});
   assert.equal(large.read(old.id), null); assert.equal(large.list().records.length, 1);
 });
+
+const contentRequest = {sourceName: 'academy-text-01.json', review: false, system: '사건·카드 초안을 JSON으로 작성한다.', brief: {world: '학원도시', choices: ['A 100골드', 'B 개인 50골드', 'C 무료']}, schema: {type: 'object', properties: {story: {type: 'string'}}}};
+
+test('제작 CLI의 긴 JSON 요청을 고정 모델·기존 추론 설정으로 기록하고 원문 응답 유지', async t => {
+  const raw = {model: MODEL, message: {content: '{"story":"100골드 사건 초안"}'}, done_reason: 'stop', total_duration: 3e9, eval_duration: 1e9, eval_count: 65};
+  const f = await fixture(t, () => response(raw), {logDirectory: recordsDirectory(t)});
+  const input = {...contentRequest, brief: {text: '조건 '.repeat(1600)}, model: 'cloud', tools: ['shell'], stream: true, options: {num_ctx: 1}};
+  const reply = await f.post(input, {}, '/api/content');
+  assert.equal(reply.status, 200);
+  const data = await reply.json(); assert.deepEqual(data.raw, raw);
+  const payload = f.calls[0].body;
+  assert.equal(payload.model, MODEL); assert.equal(payload.stream, false); assert.equal(payload.think, false); assert.equal(payload.keep_alive, '10m');
+  assert.deepEqual(payload.options, {num_ctx: 16384, num_predict: 8192, temperature: 0.7, top_p: 0.95, top_k: 64});
+  assert.deepEqual(JSON.parse(payload.messages[1].content), input.brief); assert.deepEqual(payload.format, input.schema); assert.equal(payload.tools, undefined);
+  const detail = await (await f.get('/api/records/' + data.recordId)).json();
+  assert.equal(detail.input.mode, 'content'); assert.equal(detail.status, 'success'); assert.deepEqual(detail.input.brief, input.brief); assert.deepEqual(detail.result.raw, raw);
+  assert.equal((await f.post({...contentRequest, review: true}, {}, '/api/content')).status, 200);
+  assert.equal(f.calls[1].body.options.temperature, 0.15);
+});
+
+test('잘린 제작 JSON·파싱 오류·모델 오류는 실패로 기록하며 CLI가 원문을 보존할 수 있게 반환', async t => {
+  for (const raw of [{message: {content: '{"story":'}, done_reason: 'length'}, {message: {content: '잘못된 JSON'}}, {error: 'model failed'}]) {
+    const f = await fixture(t, () => response(raw), {logDirectory: recordsDirectory(t)});
+    const reply = await f.post(contentRequest, {}, '/api/content');
+    assert.equal(reply.status, 200);
+    const data = await reply.json(); assert.deepEqual(data.raw, raw);
+    const detail = await (await f.get('/api/records/' + data.recordId)).json();
+    assert.equal(detail.status, 'error'); assert(detail.error); assert.deepEqual(detail.result.raw, raw);
+  }
+});
+
+test('제작 API도 인증·출처·자료 한도를 검사하고 동시 호출을 기존 요청과 함께 제한', async t => {
+  const f = await fixture(t, () => response({}));
+  assert.equal((await f.post(contentRequest, {'X-Session-Token': ''}, '/api/content')).status, 403);
+  assert.equal((await f.post(contentRequest, {Origin: 'https://example.com'}, '/api/content')).status, 403);
+  for (const patch of [{system: ''}, {brief: null}, {brief: {text: 'x'.repeat(256 * 1024)}}, {schema: null}, {schema: 'not-json'}, {schema: []}, {review: 'true'}, {sourceName: '../file.json'}]) assert.equal((await f.post({...contentRequest, ...patch}, {}, '/api/content')).status, 400);
+  assert.equal(f.calls.length, 0);
+  let finish;
+  let entered;
+  const started = new Promise(resolve => { entered = resolve; });
+  const blocked = await fixture(t, () => { entered(); return new Promise(resolve => { finish = resolve; }); }, {logDirectory: recordsDirectory(t)});
+  const pending = blocked.post(contentRequest, {}, '/api/content'); await started;
+  const active = (await (await blocked.get('/api/monitor')).json()).active;
+  assert.equal(active.mode, 'content'); assert.equal(active.preview, contentRequest.sourceName);
+  assert.equal((await blocked.post(review)).status, 409);
+  finish(response({message: {content: '{}'}})); assert.equal((await pending).status, 200);
+});
+
+test('기존 제작·검토 응답을 시각과 원문을 유지해 가져오고 중복·가공본·다른 모델 제외', t => {
+  const {createMonitor} = require('./monitor.cjs');
+  const {importContentArchive} = require('./content.cjs');
+  const archive = recordsDirectory(t); const logDirectory = recordsDirectory(t);
+  for (const group of ['drafts', 'reviews']) fs.mkdirSync(path.join(archive, group));
+  const item = {started: '2026-10-01T01:00:00Z', finished: '2026-10-01T01:00:03Z', request: contentRequest, payload: {model: MODEL, format: contentRequest.schema}, raw: {message: {content: '{"story":"元の出力"}'}, done_reason: 'stop', total_duration: 3e9}};
+  const file = path.join(archive, 'drafts', 'old.json'); fs.writeFileSync(file, JSON.stringify(item));
+  fs.writeFileSync(path.join(archive, 'reviews', 'truncated.json'), JSON.stringify({...item, raw: {message: {content: '{'}, done_reason: 'length'}}));
+  fs.writeFileSync(path.join(archive, 'drafts', 'curated.json'), JSON.stringify({story: '수정 원고'}));
+  fs.writeFileSync(path.join(archive, 'drafts', 'other-model.json'), JSON.stringify({...item, payload: {...item.payload, model: 'other'}}));
+  const monitor = createMonitor(logDirectory);
+  const first = importContentArchive(monitor, archive, MODEL);
+  assert.deepEqual(first, {imported: 2, skipped: 2, errors: []});
+  const old = monitor.list().records.find(record => record.preview === 'old.json');
+  assert.equal(old.archived, true); assert.equal(old.elapsedMs, 3000);
+  const detail = monitor.read(old.id); assert.deepEqual(detail.result.raw, item.raw); assert.equal(detail.startedAt, item.started); assert.equal(detail.archive.file, file);
+  assert.deepEqual(importContentArchive(monitor, archive, MODEL), {imported: 0, skipped: 4, errors: []});
+  const live = monitor.begin(contentRequest);
+  fs.writeFileSync(path.join(archive, 'drafts', 'already-monitored.json'), JSON.stringify({...item, monitorRecordId: live.id}));
+  assert.equal(importContentArchive(monitor, archive, MODEL).imported, 0);
+  assert.equal(monitor.list().active.id, live.id);
+  const reopened = createMonitor(logDirectory, {recoverInterrupted: false}); assert.equal(reopened.read(live.id).status, 'running');
+  assert.equal(fs.readFileSync(file, 'utf8'), JSON.stringify(item));
+});

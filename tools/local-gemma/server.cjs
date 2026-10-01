@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {randomBytes} = require('node:crypto');
 const {createMonitor} = require('./monitor.cjs');
+const {buildContent, contentPayload, contentResult} = require('./content.cjs');
 
 const MODEL = 'gemma4:12b-it-qat';
 const OLLAMA = 'http://127.0.0.1:11435';
@@ -197,7 +198,7 @@ function createServer({fetchImpl = fetch, logDirectory = process.env.LOCALAPPDAT
         const record = monitor.read(detail[1]);
         return record ? send(200, record) : send(404, {error: '저장된 기록을 찾을 수 없습니다.'});
       }
-      if (req.method !== 'POST' || !['/api/run', '/api/unload'].includes(req.url)) return send(404, {error: '지원하지 않는 요청입니다.'});
+      if (req.method !== 'POST' || !['/api/run', '/api/content', '/api/unload'].includes(req.url)) return send(404, {error: '지원하지 않는 요청입니다.'});
       if (busy) return send(409, {error: '진행 중인 요청이 있습니다. 완료 후 다시 시도해 주세요.'});
       if (!(req.headers['content-type'] || '').startsWith('application/json')) return send(415, {error: 'JSON 요청만 지원합니다.'});
       const chunks = [];
@@ -210,7 +211,10 @@ function createServer({fetchImpl = fetch, logDirectory = process.env.LOCALAPPDAT
       const raw = Buffer.concat(chunks).toString('utf8');
       let request;
       let input;
-      try { input = req.url === '/api/run' ? JSON.parse(raw) : {mode: 'unload'}; request = req.url === '/api/run' ? buildRequest(input) : null; }
+      try {
+        if (req.url === '/api/content') { input = buildContent(JSON.parse(raw)); request = {payload: contentPayload(input, MODEL)}; }
+        else { input = req.url === '/api/run' ? JSON.parse(raw) : {mode: 'unload'}; request = req.url === '/api/run' ? buildRequest(input) : null; }
+      }
       catch (error) { return send(400, {error: error.message}); }
       // 본문을 읽는 동안 다른 요청이 먼저 시작될 수도 있다.
       if (busy) return send(409, {error: '진행 중인 요청이 있습니다.'});
@@ -226,6 +230,12 @@ function createServer({fetchImpl = fetch, logDirectory = process.env.LOCALAPPDAT
         if (!reply.ok) throw new Error(`모델 서버 오류 (${reply.status}). 실행 로그를 확인해 주세요.`);
         const data = await reply.json();
         if (controller.signal.aborted) throw new DOMException('aborted', 'AbortError');
+        if (input.mode === 'content') {
+          const {result, error} = contentResult(data);
+          monitor.finish(record, error ? 'error' : 'success', result, error);
+          // 제작 CLI가 잘림·JSON 오류 원문도 기존 출력 파일에 보존할 수 있게 반환한다.
+          return send(200, {raw: data, recordId: record.id, recordWarning: monitor.list().storage.error});
+        }
         if (data.error) throw new Error(data.error);
         if (!request) {
           const result = {text: 'GPU 메모리를 해제했습니다.'};
