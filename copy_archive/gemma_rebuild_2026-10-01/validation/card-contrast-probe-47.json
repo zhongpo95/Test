@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cards": 3,
+  "io": {
+    "maximum": 10800,
+    "current": 7000,
+    "healthyThresholdTradeoff": true
+  },
+  "sparkle": {
+    "ordinaryOriginal": 1.08,
+    "ordinaryCut": 1,
+    "chargedOriginal": 1.08,
+    "chargedCut": 1.12
+  },
+  "sheska": {
+    "ownKillGold": 11,
+    "otherKillGold": 10,
+    "ownCandidates": 3,
+    "candidateCap": 4
+  },
+  "mapCreated": false,
+  "limits": [
+    "실제 PlayerStatsSet·SkillSpeed·카드 합산·사건 카드 지급·ProtoKill 함수의 변환 모의 실행이다. 첸R/나루메아F의 준비 배율 식과 대조했으며 실제 스킬 시전과 프레임은 실행하지 않았다.",
+    "최대 체력 증가는 현재 체력 회복이 아니다. 현재 체력이 같은 경우 65% 조건에 미달할 수 있음을 확인했다.",
+    "Warcraft·화면·실제 멀티플레이·재미·밸런스 미검증."
+  ]
+}
