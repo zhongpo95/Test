@@ -109,13 +109,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         // 후보 수가 바뀌어도 표지와 글자 크기는 유지하고 전체 행만 가운데 정렬한다.
         local real x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (i - 1) * 0.186
         local string tag = "공통 사건"
-        local string action = "사건 만나기"
+        local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
         call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
         call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.030)
         call PlaceCoverPart(CandidateIcon[i], cover, 0.040, 0.052, 0.094, 0.094)
         call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.160, 0.150, 0.043)
-        if opening then
+        if opening or ProtoEventRequiredCard[id] > 0 then
             call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.214, 0.150, 0.049)
             call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.273, 0.150, 0.059)
         else
@@ -126,16 +126,19 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endif
         if opening then
             set tag = "지역 개방 · " + tag
-            set action = "머리 카드 획득"
+            set action = "행동력 1 · 머리 카드 획득"
             call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoCardName[ProtoHeadEntryCard[head]])
         elseif ProtoEventRequired[id] > 0 then
             set tag = tag + " · 이어지는 사건"
+        endif
+        if not opening and ProtoEventRequiredCard[id] > 0 then
+            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoCardName[ProtoEventRequiredCard[id]] + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
         endif
         call ExpUIText(CandidateRegion[i], tag)
         call ExpUIText(CandidateTitle[i], ProtoEventName[id])
         call ExpUIText(CandidateIntro[i], ProtoEventIntro[id])
         call DzFrameSetTexture(CandidateIcon[i], ProtoEventIcon[id], 0)
-        call DzFrameShow(CandidateBonus[i], opening)
+        call DzFrameShow(CandidateBonus[i], opening or ProtoEventRequiredCard[id] > 0)
         if not ProtoEventEligible(pid, id) then
             set action = "선택 불가 · 후보 갱신 대기"
         endif
@@ -188,7 +191,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call ExpUISetButton(HeadPrevious, "이전 지역", HeadPage > 0)
         call ExpUISetButton(HeadNext, "다음 지역", (HeadPage + 1) * 3 < PROTO_HEAD_COUNT)
         call ExpUIText(HeadPageText, "지역 " + I2S(HeadPage + 1) + "/" + I2S((PROTO_HEAD_COUNT + 2) / 3))
-        set value = "개인 사냥 10분 · 행동력 10 · 사냥 처치당 기본 10골드|n사건 후보 2개 · 리롤 500골드부터 +100골드|n발견한 머리 카드 0~1장을 들고 출발합니다.|n"
+        set value = "개인 사냥 10분 · 행동력 10 · 사냥 처치당 기본 10골드|n사건 후보 3개 (최대 4개) · 리롤 500골드부터 +100골드|n발견한 머리 카드 0~1장을 들고 출발합니다.|n"
         if AttackPower(pid) < 100.0 then
             set value = value + "마을에서 첫 계승으로 공격력 100의 T2 무기를 준비해 주세요."
         else
@@ -215,18 +218,18 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid] and ExpUIPanel != 9)
-        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/10   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
         if ProtoReady[pid] then
             set value = "보스 합류 대기 · " + value
         endif
         call ExpUIText(HuntStatus, value)
         call ExpUISetButton(HuntReady, "준비 완료", ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and not ProtoReady[pid] and UnitAlive(MainUnit[pid]))
-        call ExpUIText(EventInfo, "사냥 " + I2S(ExpSeconds) + "초 · 선택 " + I2S(ProtoDeadline[pid]) + "초|n행동력 " + I2S(ProtoAP[pid]) + "/10 · 골드 " + I2S(ExpGold[pid]))
+        call ExpUIText(EventInfo, "사냥 " + I2S(ExpSeconds) + "초 · 선택 " + I2S(ProtoDeadline[pid]) + "초|n행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + " · 골드 " + I2S(ExpGold[pid]))
         call DzFrameShow(StoryPanel, ProtoStage[pid] == 2 or ProtoStage[pid] == 3)
         call DzFrameShow(OutcomePanel, ProtoStage[pid] == 3)
         if ProtoStage[pid] == 1 then
             call ExpUIText(EventTitle, "개인 사건 · 사건 선택")
-            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  선택 시 행동력 1 소모  ·  내 공간만 정지합니다.")
+            call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call ExpUIText(EventTitle, "개인 사건 · 행동 선택")
             call ExpUIText(EventStory, "상황을 읽고 행동을 선택하세요. 보상과 비용, 사냥터의 변화를 함께 확인할 수 있습니다.")

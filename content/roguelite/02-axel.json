@@ -1239,7 +1239,8 @@
       ],
       "failure": null,
       "canonFact": "공식 루나의 액셀 길드 안내와 길드의 거친 남자가 모험가를 환영하는 역할에서 별도 신참 안내를 만들었다. 새 의뢰를 자동 완수하거나 대책 없는 NPC 출격을 생성하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "actionCost": 0
     },
     {
       "key": "axel_cage_from_shore",

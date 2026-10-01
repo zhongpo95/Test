@@ -1185,7 +1185,8 @@
       ],
       "failure": null,
       "canonFact": "공식4화의 영체화 불가와 숙박을 별도 방문으로 각색한다. 누가 어디서 자는지·원작 신분 설명·인물 관계를 여행자가 대신 정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "actionCost": 0
     },
     {
       "key": "fy_arrow_on_floor",

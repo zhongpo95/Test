@@ -33,6 +33,8 @@ jobs:
         run: node tools/check-expedition-ui.cjs
       - name: Personal hunting prototype lifecycle
         run: node tools/check-hunt-prototype.cjs
+      - name: Event action budgets and personal card conditions
+        run: node tools/check-event-action-options.cjs
       - name: Reviewed content and generated catalog consistency
         run: node tools/generate-prototype-content.cjs --check
       - name: Reader review catalog consistency

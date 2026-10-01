@@ -1266,7 +1266,8 @@
       ],
       "failure": null,
       "canonFact": "공식25화의 온종일 호흡유지연습을 별도 아침 인사로 각색했다. 실제아침대사·원작훈련완성·탄지로구출·새호흡스킬은 확정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "actionCost": 0
     },
     {
       "key": "kny_hand_return",

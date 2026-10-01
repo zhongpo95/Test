@@ -136,7 +136,7 @@ check('내 사건 중에는 내 공간만 정지하고 공통 최대시간과 �
 });
 check('사건 선택만 AP 소모, 500/600골드 리롤과 다음 화면 500골드 복귀',()=>{
   const t=party(),e=t.e;e.ExpGold[0]=2000;e.ProtoOffer(0);t.render();
-  assert.equal(e.ProtoChoices[0],2);t.click(t.common(2300));assert.equal(e.ExpGold[0],1500);assert.equal(e.ProtoAP[0],10);
+  assert.equal(e.ProtoChoices[0],3);t.click(t.common(2300));assert.equal(e.ExpGold[0],1500);assert.equal(e.ProtoAP[0],10);
   t.click(t.common(2300));assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoRerolls[0],2);
   const id=e.ProtoCandidates[e.ExpKey(0,1)];t.click(t.common(2101));assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],9);
   if(e.ProtoStage[0]===2)t.click(t.common(2202));const after=e.ExpGold[0];request(e,0,2202);assert.equal(e.ExpGold[0],after);

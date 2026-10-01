@@ -1,7 +1,7 @@
 // 사건·카드 초안의 참조, 단위, 무효 선택과 후속 연결을 실행 데이터 반영 전에 검사한다.
 'use strict';
 const fs = require('node:fs');
-const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity']);
+const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage']);
 
 function inspect(input) {
   const data = input.parsed || input;
@@ -32,7 +32,6 @@ function inspect(input) {
       if (effect.stat==='regeneration' && effect.value>1) warnings.push({key,reason:'카드 하나의 초당 재생이 최대체력 1%를 넘음. 별도 밸런스 검토 필요'});
       if (effect.stat==='swift' && effect.value!==0 && Math.abs(effect.value)<45) warnings.push({key,reason:'신속은 고정 수치다. '+effect.value+'는 행동 속도 '+(effect.value/45).toFixed(3)+'%, 쿨타임 감소 '+(effect.value/46).toFixed(3)+'%p에 해당하므로 단위와 선택 가치를 재검토해야 함'});
       if (effect.stat==='event_choices' && !Number.isInteger(effect.value)) fail(key,'사건 후보 증가는 정수여야 함');
-      if (effect.stat==='action_capacity' && (!Number.isInteger(effect.value) || effect.value<0)) fail(key,'행동력 최대치 증가는 음수가 아닌 정수여야 함');
     }
   }
   effects('world',data.world?.effects || [data.world?.bonus]);
@@ -46,7 +45,6 @@ function inspect(input) {
   }
   for (const [key,event] of events) {
     if (!event.title || !event.story || !event.intro || event.effects) fail(key,'사건 필수 필드 누락 또는 카드 객체가 events에 들어감');
-    if (event.actionCost!==undefined && ![0,1].includes(event.actionCost)) fail(key,'사건 행동력 비용은 0 또는 1이어야 함');
     if (!Array.isArray(event.choices) || event.choices.length<2 || event.choices.length>4) {fail(key,'선택지는 2~4개여야 함');continue;}
     if (event.requiredCard && !cards.has(event.requiredCard)) fail(key,'requiredCard 참조 없음');
     if (event.previous) {

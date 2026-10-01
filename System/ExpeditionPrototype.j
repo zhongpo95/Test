@@ -125,7 +125,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer previous
         local integer choice = 1
         local boolean available = false
-        if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventUsed[id] or ProtoEventKind[id] < 0 then
+        if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventUsed[id] or ProtoEventKind[id] < 0 or ProtoAP[pid] <= 0 or ProtoAP[pid] < ProtoEventAPCost[id] then
             return false
         endif
         set head = ProtoEventHead[id]
@@ -640,12 +640,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ExpResultText[pid] = ""
             set ExpEventDeadline[pid] = 0
             set ProtoAP[pid] = 10
+            set ProtoAPMax[pid] = 10
             set ProtoStage[pid] = 0
             set ProtoSelected[pid] = 0
             set ProtoDeadline[pid] = 0
             set ProtoOutcome[pid] = ""
             set ProtoHeadCount[pid] = 0
-            set ProtoChoices[pid] = 2
+            set ProtoChoices[pid] = 3
             set ProtoLevel[pid] = 1
             set ProtoDensity[pid] = 4
             set ProtoKills[pid] = 0
@@ -744,7 +745,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             endif
             set ProtoEventUsed[id] = true
             set ProtoSelected[pid] = id
-            set ProtoAP[pid] = ProtoAP[pid] - 1
+            set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
             set ProtoStage[pid] = 2
             set ProtoDeadline[pid] = 45
             set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1

@@ -25,8 +25,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         constant integer PROTO_STAT_SHIELDED = 22
         constant integer PROTO_STAT_CHARGE_DAMAGE = 23
         constant integer PROTO_STAT_HEALTHY = 24
-        constant integer PROTO_STAT_CAPACITY = 25
-        constant integer PROTO_STAT_LAST = 25
+        constant integer PROTO_STAT_LAST = 24
         hashtable ProtoEffectData = InitHashtable()
         hashtable ProtoHeadEffectData = InitHashtable()
         real array ProtoStatValues
@@ -60,8 +59,6 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
             set unitText = "골드"
         elseif kind == PROTO_STAT_CHOICES then
             set unitText = " (최대 4개)"
-        elseif kind == PROTO_STAT_CAPACITY then
-            set unitText = " (증가분 행동력 지급)"
         elseif kind == PROTO_STAT_REGEN then
             set unitText = "%/초"
         endif
@@ -112,8 +109,6 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         local integer kind = 1
         local integer id
         local real value
-        local integer previousMax = IMaxBJ(10, ProtoAPMax[pid])
-        local integer nextMax
         loop
             exitwhen kind > PROTO_STAT_LAST
             set value = 0.0
@@ -140,13 +135,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
             set kind = kind + 1
         endloop
         set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * 32 + PROTO_STAT_GOLD])
-        set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))
-        set nextMax = 10 + IMaxBJ(0, R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CAPACITY]))
-        // 같은 카드의 재합산으로 행동력을 다시 충전하지 않는다.
-        if ExpPrototypeActive and ExpMember[pid] then
-            set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid] + IMaxBJ(0, nextMax - previousMax)))
-        endif
-        set ProtoAPMax[pid] = nextMax
+        set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(2, 2 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))
     endfunction
 
     function ProtoStatsInit takes nothing returns nothing
@@ -174,6 +163,5 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         set ProtoStatNames[PROTO_STAT_SHIELDED] = "보호막 유지 중 대미지 증가"
         set ProtoStatNames[PROTO_STAT_CHARGE_DAMAGE] = "차지 공격 대미지 증가"
         set ProtoStatNames[PROTO_STAT_HEALTHY] = "체력 65% 이상에서 대미지 증가"
-        set ProtoStatNames[PROTO_STAT_CAPACITY] = "행동력 최대치"
     endfunction
 endlibrary

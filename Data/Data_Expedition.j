@@ -19,6 +19,7 @@ library DataExpedition
         integer ExpPrototypePid = 0
         integer ExpPrototypeAction = 0
         integer array ProtoAP
+        integer array ProtoAPMax
         integer array ProtoHeadCount
         integer array ProtoStartHead
         boolean array ProtoHeadOwned

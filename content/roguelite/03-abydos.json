@@ -1426,7 +1426,8 @@
       ],
       "failure": null,
       "canonFact": "공식3화의 라멘 만남과 아루 허세·무츠키 관계를 별도 계산 사건으로 각색했다. 원작 계산서 액수·가게 공격·학교 빚·사업 성공을 확정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "actionCost": 0
     },
     {
       "key": "ab68_disc_before_words",
