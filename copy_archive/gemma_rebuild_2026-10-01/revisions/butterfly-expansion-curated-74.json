@@ -578,40 +578,52 @@
       "requiredCard": null,
       "choices": [
         {
+          "label": "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다",
+          "result": "소리를 따라 길을 잃은 보급꾼을 찾고 정찰 보수를 받았다. 젠이츠가 소리가 겹쳐도 움직일 순간에 힘을 모으는 준비를 보여 주지만, 맡은 사냥 구역에는 더 강한 적이 남는다.",
           "card": "kny_zenitsu",
           "card2": null,
-          "label": "등불과 밧줄을 마련해 젠이츠가 짚은 길을 확인한다",
-          "result": "등불과 밧줄에160골드를 내고 소리를 따라 길을 잃은 보급꾼을 찾았다. 젠이츠의 한순간에 힘을 모으는 준비를 기억해 차지 공격과 치명타 피해를 높였지만, 내 사냥의 강함 단계는1올랐다. 보급꾼이 돌아갈 길을 묻자 젠이츠는 들어온 소리와 나갈 발소리를 다시 나누어 듣는다.",
+          "gold": 200,
           "cost": 160,
-          "gold": 0,
           "level": 1,
           "density": 0,
-          "chance": 70,
-          "potions": 0
+          "potions": 0,
+          "chance": 70
         },
         {
-          "card": "kny_inosuke",
-          "card2": null,
           "label": "이노스케와 막힌 길을 직접 열어 본다",
           "result": "이노스케가 보여 준 자세로 공격을 이어가며 길 일부를 열었다. 적이 드나드는 구역을 더 넓게 맡고 방어의 빈틈도 감수하지만, 보급꾼의 행방은 아직 확인하지 못했다.",
-          "cost": 0,
+          "card": "kny_inosuke",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": 2,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro",
-          "card2": null,
           "label": "탄지로와 서두르지 않고 남은 짐을 운반한다",
           "result": "탄지로의 조언대로 서두르지 않고 짐을 묶는 도구를 사용해 무거운 짐을 안정적으로 옮긴다. 짐을 운반하는 동안 호흡이 흐트러지지 않는 법을 배우지만, 보급꾼의 소재는 파악되지 않는다.",
-          "cost": 220,
+          "card": "kny_tanjiro",
+          "card2": null,
           "gold": 0,
+          "cost": 220,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "길목의 짐을 수습하고 일당을 받는다",
+          "result": "흩어진 짐을 모아 운반할 길을 좁히고 일당을 받았다. 한쪽 길의 적 부담은 줄였지만, 짐을 내려놓은 기록에는 여전히 보급꾼의 행방이 빈칸으로 남았다.",
+          "card": null,
+          "card2": null,
+          "gold": 160,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.",
@@ -622,46 +634,46 @@
       "key": "kny_night_found",
       "title": "찾은 흔적의 건너편",
       "story": "앞선 수색에서 찾았던 보급꾼이 돌아온 길을 기록지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다.",
-      "intro": "돌아온 길은 확인했지만 다음에는 언제 발을 움직일까?",
+      "intro": "정찰 뒤 반응 카드·부담 감소와 물약·보수 정리 중 고른다.",
       "previous": "kny_night_path",
       "previousChoice": 1,
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_kanao",
-          "card2": null,
           "label": "카나오와 반응 훈련을 위한 도구를 마련한다",
           "result": "훈련 도구를 마련하고 정찰 기록에 맞춰 발을 옮길 순간을 연습했다. 카나오에게 상대의 움직임을 읽고 정확히 반응하는 법을 배워 앞서 익힌 준비에 더했다.",
-          "cost": 240,
+          "card": "kny_kanao",
+          "card2": null,
           "gold": 0,
+          "cost": 240,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_kanao_quiet",
+          "label": "길 한 곳을 정리하고 출발용 물약을 받는다",
+          "result": "맡은 길의 한쪽을 정리하고 다음 전투에서 사용할 보급 물약을 챙긴다. 적의 위험도는 여전히 존재하지만 새로운 훈련 대신 보급품을 확보한다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 짐을 나눌 도구를 마련하고 카나오가 먼저 비운 발자리를 따라 본다",
-          "result": "짐을 나눌 도구에180골드를 내고 카나오가 먼저 비운 발자리를 따라 발을 옮겼다. 정확히 움직이는 준비를 기억해 이동속도와 치명타확률을 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약2개를 받았다. 카나오는 짐을 놓은 자리보다 다음에 디딜 자리를 다시 비워 준다.",
-          "cost": 180,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 2
+          "potions": 2,
+          "chance": 100
         },
         {
-          "card": "kny_zenitsu_listen",
+          "label": "확인한 기록을 넘기고 일당을 받는다",
+          "result": "확인한 이동 흔적을 과장 없이 기록지에 남기고 정찰에 대한 일당을 받는다. 기록을 마친 후 현재의 사냥 구역으로 복귀한다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 짐 소리를 줄일 천을 마련하고 젠이츠와 움직일 순간을 맞춘다",
-          "result": "짐 소리를 줄일 천에180골드를 내고 젠이츠와 움직일 순간을 맞췄다. 소리 사이의 한순간을 기억해 차지 준비속도와 보스에게 가하는 피해를 높였다. 젠이츠가 다시 귀를 기울일 때 네가 먼저 짐을 들어 소리를 내자, 그는 아직 움직일 때가 아니라고 손을 세운다.",
-          "cost": 180,
-          "gold": 0,
+          "gold": 200,
+          "cost": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -678,40 +690,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_shinobu",
-          "card2": null,
           "label": "시노부와 다음 출발의 회복 준비를 갖춘다",
           "result": "새 준비 비용을 내고 시노부와 다음 전투에 가져갈 약을 정리했다. 비어 있는 수색 기록은 덮어 두고, 무리하게 버티기 전에 회복을 이어갈 준비를 챙긴다.",
-          "cost": 160,
+          "card": "kny_shinobu",
+          "card2": null,
           "gold": 0,
+          "cost": 160,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke",
-          "card2": null,
           "label": "이노스케에게 더 강한 구역을 맡는 자세를 묻는다",
           "result": "이노스케에게 몸을 사리는 대신 공격을 이어가는 순서를 전수받는다. 현재보다 강한 적을 상대해야 하는 위험과 방어의 빈틈이 생기지만 돌파력은 강화된다.",
-          "cost": 0,
+          "card": "kny_inosuke",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 1,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke_partition",
+          "label": "확인하지 못한 길을 하나 줄이고 물약을 챙긴다",
+          "result": "현재 맡은 길의 일부를 정리하고 남은 경로에 가져갈 물약을 챙긴다. 찾지 못한 흔적은 기록지에 빈칸으로 남겨두고 다음 전투를 준비한다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 발판 확인 도구를 마련하고 이노스케와 보이지 않은 쪽의 움직임도 살핀다",
-          "result": "발판 확인 도구에180골드를 내고 이노스케와 보이지 않는 쪽의 움직임도 살폈다. 그 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 빈 기록지의 같은 길보다 아직 밟지 않은 쪽을 가리킨다.",
-          "cost": 180,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -728,40 +740,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_shinobu",
-          "card2": null,
           "label": "새 이름표를 사서 시노부와 병의 기록을 대조한다",
           "result": "이름표 값을 치르고 기록과 맞는 병을 나누었다. 시노부에게 출발 전에 회복 준비를 확인하는 요령을 듣고 챙겼다. 끝내 읽히지 않는 병은 따로 남겨 함부로 사용하지 않는다.",
-          "cost": 220,
+          "card": "kny_shinobu",
+          "card2": null,
           "gold": 0,
+          "cost": 220,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_aoi_supply",
-          "card2": null,
           "label": "포장 재료를 사서 아오이와 확인된 보급만 챙긴다",
           "result": "포장 재료를 마련해 확인된 보급만 묶었다. 아오이가 짐을 나누는 순서와 회복 준비를 보여 준다. 기록을 전부 복원하지는 않고, 모르는 병은 다음 확인자에게 남긴다.",
-          "cost": 140,
+          "card": "kny_aoi_supply",
+          "card2": null,
           "gold": 0,
+          "cost": 140,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_shinobu_points",
+          "label": "빈 용기 운반만 돕고 일당과 확인된 물약을 받는다",
+          "result": "빈 용기를 옮기고 운반 일당과 이름이 확인된 물약 하나를 받았다. 번진 이름표는 손대지 않고 내려놓았다. 병의 사용법을 새로 익히지는 못했다.",
+          "card": null,
           "card2": null,
-          "label": "260골드로 기록 대조 도구를 마련하고 시노부와 다음 상대에 맞는 준비를 구별한다",
-          "result": "기록 대조 도구에260골드를 내고 시노부와 다음 상대에 맞춰 가져갈 준비를 구별했다. 상대를 먼저 살피는 기억으로 방어관통과 보스에게 가하는 피해를 높였다. 시노부는 끝내 읽히지 않은 병을 네 짐에서 빼고 다음 확인자에게 남겨 둔다.",
-          "cost": 260,
-          "gold": 0,
+          "gold": 120,
+          "cost": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -778,40 +790,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_aoi_supply",
-          "card2": null,
           "label": "새 천을 마련하고 아오이와 보급 묶음을 나눈다",
           "result": "새 천 값을 내고 필요한 몫을 나누어 묶었다. 아오이에게 다시 빠뜨리지 않도록 보급을 정리하는 준비를 배웠다. 젖은 천은 그대로 말려 두고 오늘 쓸 분량부터 건넨다.",
-          "cost": 180,
+          "card": "kny_aoi_supply",
+          "card2": null,
           "gold": 0,
+          "cost": 180,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke_terrain",
-          "card2": null,
           "label": "이노스케와 돌아가는 보급길을 넓게 맡는다",
           "result": "이노스케와 돌아가는 길에서 보급을 옮겼다. 길을 살피며 발을 움직이는 요령을 익힌 대신, 넓어진 내 구역에는 적이 더 많이 드나든다. 길 전체가 안전해진 것은 아니다.",
-          "cost": 0,
+          "card": "kny_inosuke_terrain",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": 1,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke_partition",
+          "label": "좁은 길목만 맡고 남은 물약을 챙긴다",
+          "result": "좁은 길목만 맡기로 하고 출발용 물약 하나를 챙겼다. 내 구역의 적 수는 줄지만 새 천을 모두 마련하지는 못했다. 남은 묶음은 저택에 두고 필요한 일만 돕는다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 길을 확인할 도구를 마련하고 이노스케와 보이지 않는 구간을 살핀다",
-          "result": "길을 확인할 도구에180골드를 내고 이노스케와 보이지 않는 구간의 발판을 살폈다. 방어관통과 헤드·백이 없는 공격의 피해를 높이는 기억을 얻고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 젖은 천을 들고도 발을 놓을 곳부터 보라며 다음 길목을 짚는다.",
-          "cost": 180,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -822,46 +834,46 @@
       "key": "kny_crow_dispatch",
       "title": "까마귀가 두 번 읽은 문장",
       "story": "전령 까마귀가 새 임무를 빠르게 읽는다. 맡을 일을 놓쳐 같은 문장을 다시 듣자 탄지로가 숨을 고르고 확인할 순서를 정하자고 한다. 아오이는 설명을 듣는 동안 출발할 보급을 묶고 있지만, 아직 빠진 준비물이 있다.",
-      "intro": "길게 읽은 안내 뒤에 아직 맡지 않은 준비가 남아 있다.",
+      "intro": "안내를 확인할지, 보급을 맞출지, 기록만 맡을지 정한다.",
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_tanjiro",
-          "card2": null,
           "label": "기록용품을 사서 탄지로와 맡을 일을 다시 확인한다",
           "result": "기록용품을 마련하고 서두를 때도 호흡을 흐트러뜨리지 않으며 안내를 다시 나누어 들었다. 탄지로와 배운 준비를 챙겼지만, 맡기지 않은 임무까지 새로 받지는 않는다.",
-          "cost": 160,
+          "card": "kny_tanjiro",
+          "card2": null,
           "gold": 0,
+          "cost": 160,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_aoi_supply",
-          "card2": null,
           "label": "부족한 포장을 마련해 아오이와 출발 목록을 맞춘다",
           "result": "부족한 포장 값을 내고 아오이와 가져갈 몫을 나눴다. 출발 중에도 준비를 이어갈 요령을 챙겼다. 까마귀의 긴 안내를 전부 정리하는 일은 다른 사람에게 남긴다.",
-          "cost": 200,
+          "card": "kny_aoi_supply",
+          "card2": null,
           "gold": 0,
+          "cost": 200,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_return",
+          "label": "안내를 옮겨 적는 일만 맡고 보수를 받는다",
+          "result": "까마귀가 읽는 안내를 기록지에 옮기고 기록 일당을 받았다. 기록을 넘긴 뒤 보급 준비는 떠날 사람에게 맡긴다. 새 임무 장소로 이동하지 않고 현재 구역으로 돌아간다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 반복할 준비를 마련하고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞춘다",
-          "result": "반복할 준비에180골드를 내고 탄지로와 임무를 들은 뒤 움직일 차례까지 맞췄다. 꾸준히 되짚은 준비를 기억해 일반 행동속도와 보스에게 가하는 피해를 높였다. 까마귀가 안내를 다시 읽자 탄지로는 이번에는 네가 맡을 동작부터 기다린다.",
-          "cost": 180,
-          "gold": 0,
+          "gold": 150,
+          "cost": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -878,40 +890,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_zenitsu_listen",
-          "card2": null,
           "label": "완충천을 사서 짐 소리를 줄이고 젠이츠와 움직일 순간을 맞춘다",
           "result": "완충천 값을 내고 부딪치는 짐을 다시 묶었다. 남은 소리 사이에서 한 번 움직일 순간에 집중하는 젠이츠의 준비를 챙겼다. 모든 소리를 알아듣는 능력을 얻은 것은 아니다.",
-          "cost": 180,
+          "card": "kny_zenitsu_listen",
+          "card2": null,
           "gold": 0,
+          "cost": 180,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_smell",
-          "card2": null,
           "label": "조사 도구를 사서 탄지로와 주변 흔적부터 확인한다",
           "result": "조사 도구를 마련하고 짐에 묻은 것과 주변 자국을 차례로 비교했다. 탄지로가 짚어 준 상대를 관찰하는 요령을 공격 준비에 남겼다. 소리 자체는 남아 있지만 확인할 순서는 정했다.",
-          "cost": 220,
+          "card": "kny_tanjiro_smell",
+          "card2": null,
           "gold": 0,
+          "cost": 220,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_zenitsu",
+          "label": "맡을 길목을 한 곳 줄이고 물약을 챙긴다",
+          "result": "맡을 길목을 하나 넘겨 내 구역의 적 부담을 줄이고 보급 물약을 받았다. 많은 소리를 구분하는 일은 남겨 두었다. 출발 전 챙기는 범위만 줄인 것이다.",
+          "card": null,
           "card2": null,
-          "label": "200골드로 반응 연습 도구를 마련하고 젠이츠와 한 번 움직일 순간을 준비한다",
-          "result": "반응 연습 도구에200골드를 내고 젠이츠와 한 번 움직일 순간을 준비했다. 한순간에 힘을 모으는 기억으로 차지 공격과 치명타 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 짐 소리가 다시 겹쳐도 젠이츠는 네가 힘을 주려는 순간까지 손을 들어 기다린다.",
-          "cost": 200,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -928,40 +940,40 @@
       "requiredCard": null,
       "choices": [
         {
+          "label": "도구를 마련해 탄지로가 짚은 흔적을 조사한다",
+          "result": "탄지로와 남은 흔적을 나누어 확인하고 조사 보수를 받았다. 관찰한 약점을 공격 준비로 남겼지만, 조사하며 맡기로 한 구역에는 더 강한 적이 남는다. 잃어버린 사람을 찾은 사건은 아니다.",
           "card": "kny_tanjiro_smell",
           "card2": null,
-          "label": "도구를 마련해 탄지로가 짚은 흔적을 조사한다",
-          "result": "조사 도구에140골드를 내고 탄지로와 서로 다른 흔적을 나누어 확인했다. 그 관찰을 기억해 실제 헤드·백 적중 공격의 피해와 방어관통을 높였지만, 내 사냥의 강함 단계는1올랐다. 탄지로는 한 방향으로 난 자국만 다시 보려는 네게 냄새가 갈라진 곳을 짚어 준다.",
+          "gold": 220,
           "cost": 140,
-          "gold": 0,
           "level": 1,
           "density": 0,
-          "chance": 70,
-          "potions": 0
+          "potions": 0,
+          "chance": 70
         },
         {
-          "card": "kny_inosuke_terrain",
-          "card2": null,
           "label": "이노스케와 넓은 주변 길목을 직접 맡는다",
           "result": "이노스케와 주변 길목을 넓게 맡았다. 빠르게 길을 살피는 준비를 챙긴 대신 내 구역에 더 많은 적이 드나든다. 냄새가 남은 이유를 전부 밝혀 낸 것은 아니다.",
-          "cost": 0,
+          "card": "kny_inosuke_terrain",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": 2,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke_partition",
+          "label": "확인된 범위만 남기고 조사 기록 보수를 받는다",
+          "result": "확인한 곳만 기록에 남기고 조사 일당을 받았다. 맡을 길목을 한 곳 줄였지만 다른 흔적은 더 따라가지 않았다. 적이 없어지는 대신 내 구역의 부담만 줄어든다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 발판 확인 도구를 마련하고 이노스케와 자국이 끊긴 쪽도 살핀다",
-          "result": "발판 확인 도구에180골드를 내고 이노스케와 자국이 끊긴 쪽도 살폈다. 보이지 않는 쪽을 놓치지 않는 기억으로 방어관통과 헤드·백이 없는 공격의 피해를 높이고, 내 사냥의 적 수 단계를1낮췄다. 이노스케가 다른 길로 발을 옮기자 너는 기록지의 같은 자국에만 표시하려던 손을 거둔다.",
-          "cost": 180,
-          "gold": 0,
+          "gold": 120,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": "같은 자국에 겹친 냄새를 끝내 나누지 못했다. 조사비는 돌아오지 않고 보상도 없다. 맡기로 한 더 강한 구역은 남는다.",
@@ -1012,6 +1024,18 @@
           "density": 0,
           "potions": 0,
           "chance": 100
+        },
+        {
+          "label": "보급 정리만 돕고 일당과 물약을 받는다",
+          "result": "떨어진 보급을 거두고 정리 일당과 물약 하나를 받았다. 벌어진 보급낭을 다시 꾸릴 일은 떠날 사람에게 남겼다. 다른 공격 자세는 새로 챙기지 않았다.",
+          "card": null,
+          "card2": null,
+          "gold": 100,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1022,46 +1046,46 @@
       "key": "kny_senior_challenge",
       "title": "선배라면 더 강한가",
       "story": "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. 탄지로는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다. 무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다.",
-      "intro": "선배의 몫과 승부, 인사 뒤의 반복은 서로 다른 준비가 된다.",
+      "intro": "선배에게 버틸 몫을 배울지 이노스케의 도전을 맡을지 정한다.",
       "previous": null,
       "previousChoice": 0,
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_murata_senior",
-          "card2": null,
           "label": "무라타에게 버틸 몫을 묻고 준비 물품을 마련한다",
           "result": "180골드로 준비 물품을 마련하고 최대 체력을 늘려 받는 피해를 줄이는 요령을 배웠다. 무라타는 큰소리를 낸 사람보다 끝까지 자리를 지킬 사람이 필요할 때도 있다고 말한다. 이노스케는 아직 누가 더 강한지 답을 못 들었다며 다시 묻는다.",
-          "cost": 180,
+          "card": "kny_murata_senior",
+          "card2": null,
           "gold": 0,
+          "cost": 180,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke",
-          "card2": null,
           "label": "이노스케의 승부를 대신 맡고 더 강한 사냥을 준비한다",
           "result": "이노스케와 작은 상대와 방향 조건 없는 일격에 힘을 싣는 요령을 배웠다. 받는 피해가 늘어나는 카드 부담을 얻고 개인 사냥의 적 단계도 1 올랐다. 이노스케가 다음 상대부터 찾자 무라타는 선배라는 호칭은 아직 바뀌지 않는다고 한다.",
-          "cost": 0,
+          "card": "kny_inosuke",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 1,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_return",
+          "label": "승부를 벌이지 않고 맡을 구역을 줄인다",
+          "result": "개인 사냥의 적 단계를 1 낮추고 물약 1개를 받았다. 무라타는 승부를 벌일 대신 맡을 자리부터 확인하자고 한다. 이노스케는 빈 자리를 누가 맡을 거냐고 돌아본다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 연습할 자리를 마련하고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복한다",
-          "result": "연습할 자리에180골드를 내고 탄지로와 먼저 인사한 뒤 각자 맡을 동작을 반복했다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 강함 단계를1낮춘 뒤 물약1개를 받았다. 무라타가 맡을 자리를 묻자 이노스케는 승부 이야기를 아직 접지 않은 채 그 옆을 돌아본다.",
-          "cost": 180,
           "gold": 0,
+          "cost": 0,
           "level": -1,
           "density": 0,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1112,6 +1136,18 @@
           "density": 0,
           "potions": 0,
           "chance": 100
+        },
+        {
+          "label": "두 사람을 부르는 일만 맡고 준비할 길목을 줄인다",
+          "result": "두 사람을 부르는 일만 맡고 개인 사냥의 적 수를 줄였다. 출발 준비용 물약 1개를 받고 탄지로에게 두 사람이 돌아왔다는 말을 전한다. 탄지로가 자리에서 손을 흔들자 젠이츠와 이노스케도 누가 먼저인지 더 묻지 않는다.",
+          "card": null,
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1128,40 +1164,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_nezuko_will",
-          "card2": null,
           "label": "두 사람 사이를 비워 두고 네즈코의 행동을 지켜본다",
           "result": "네즈코가 움직이지 않는 동안 상대의 놀람에도 동요하지 않고 좋은 몸 상태를 유지하는 요령을 배웠다. 탄지로는 동생에게 사람을 해치지 말라고 다시 명령하지 않는다. 방문객도 아무 일 없는 두 사람 사이에서 발을 한 번 멈춘다.",
-          "cost": 0,
+          "card": "kny_nezuko_will",
+          "card2": null,
           "gold": 0,
+          "cost": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro",
-          "card2": null,
           "label": "탄지로와 손님이 머무를 자리를 마련한다",
           "result": "180골드로 손님이 머무를 자리를 마련하고 탄지로에게 신속과 좋은 몸 상태에서 힘을 쓰는 요령을 배웠다. 탄지로는 손님에게 먼저 거리를 두어도 된다고 말한다. 네즈코는 손님을 따라 움직이지 않는다.",
-          "cost": 180,
+          "card": "kny_tanjiro",
+          "card2": null,
           "gold": 0,
+          "cost": 180,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_morning_breath",
+          "label": "방문객을 안내하고 맡을 바깥 길목을 줄인다",
+          "result": "방문 안내의 보수 100골드를 받고 개인 사냥의 적 수를 줄였다. 탄지로는 다음에 놀라지 않을 수 있도록 입구에서 먼저 설명하겠다고 한다. 방문객은 네즈코에게 가까이 오라는 요구 없이 돌아간다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 이야기할 자리를 마련하고 탄지로와 말 사이에도 자기 숨을 고른다",
-          "result": "이야기할 자리에180골드를 내고 탄지로와 말 사이에도 자기 숨을 고르며 손님에게 다음 말을 건넸다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고, 내 사냥의 적 수 단계를1낮췄다. 탄지로가 네 말을 기다리는 동안 너도 손님의 대답을 재촉하지 않는다.",
-          "cost": 180,
-          "gold": 0,
+          "gold": 100,
+          "cost": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1178,40 +1214,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_gourd_breath",
-          "card2": null,
           "label": "도구값120골드를 먼저 내고 숨을 불어 표주박을 터뜨려 본다",
           "result": "도구값120골드를 먼저 내고 숨을 이어 표주박을 터뜨렸다. 그 기억으로 차지 공격 대미지14%와일반 행동속도3%가 늘었다. 네가 터진 소리를 자랑하려 하자 아오이는 다음에는 설명부터 끝까지 들으라고 한다.",
+          "card": "kny_gourd_breath",
+          "card2": null,
           "cost": 120,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 60,
-          "potions": 0
+          "potions": 0,
+          "chance": 60
         },
         {
-          "card": "kny_morning_breath",
+          "label": "도구값220골드를 내고 탄지로의 박자를 따라 충분히 연습한다",
+          "result": "도구값220골드를 내고 탄지로의 박자를 따라 충분히 연습했다. 차지 공격 대미지14%와일반 행동속도3%가 늘었다. 아오이는 네가 큰 도구를 다시 집으려는지 작은 도구의 다음 숨을 잇는지 손부터 본다.",
+          "card": "kny_gourd_breath",
           "card2": null,
-          "label": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 숨을 계속 잇는 연습을 한다",
-          "result": "도구값220골드를 내고 탄지로와 한 번에 힘주기보다 자기 숨을 계속 잇는 연습을 했다. 그 기억으로 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 아오이는 터진 소리를 세기보다 아직 설명하지 않은 다음 숨의 길이를 묻는다.",
           "cost": 220,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_return",
+          "label": "표주박을 내려놓고 내 사냥의 적 수 단계를1낮춘 뒤 보급을 받는다",
+          "result": "표주박을 내려놓고 개인 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 탄지로가 연습을 계속하자 아오이는 네가 내려놓은 도구를 옆에 두고 아직 듣지 않은 설명을 마친다.",
+          "card": null,
           "card2": null,
-          "label": "160골드로 반복할 자리를 마련하고 탄지로와 도구를 들고 거두는 순서부터 맞춘다",
-          "result": "반복할 자리에160골드를 내고 탄지로와 도구를 들고 거두는 차례부터 맞췄다. 일반 행동속도와 보스에게 가하는 피해를 높이는 꾸준함을 기억하고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 아오이가 다음 도구를 건넬 때 너는 먼저 내려놓을 자리를 비운다.",
-          "cost": 160,
+          "cost": 0,
           "gold": 0,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다.",
@@ -1228,40 +1264,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_morning_breath",
-          "card2": null,
           "label": "180골드로 내 연습 도구를 마련하고 옆에서 자기 숨을 잇는다",
           "result": "내 연습 도구에180골드를 내고 탄지로 옆에서 자기 숨을 이어 보았다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻었다. 탄지로가 남은 질문을 다시 묻자 너도 대답할 말과 이어야 할 숨을 같이 고르게 된다.",
+          "card": "kny_morning_breath",
+          "card2": null,
           "cost": 180,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro",
+          "label": "내 사냥의 강함 단계를1올리고 탄지로 옆에서 끊긴 박자를 다시 잇는다",
+          "result": "개인 사냥의 강함 단계를1올리는 부담을 맡고 끊긴 호흡의 박자를 다시 이었다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%가 늘었다. 탄지로는 네 숨이 끊길 때마다 자기 박자도 다시 시작하며 남은 질문을 잊지 않는다.",
+          "card": "kny_morning_breath",
           "card2": null,
-          "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따른다",
-          "result": "내 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 동작에서도 숨을 잇는 보폭을 따랐다. 끊기지 않는 호흡을 기억해 신속이 늘었으며, 현재 체력65%이상에서 가하는 피해도 높아졌다. 탄지로가 아침 인사에 다시 답하자 너도 아직 남은 질문을 잊지 않는다.",
           "cost": 0,
           "gold": 0,
           "level": 1,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_return",
+          "label": "질문을 미루고 내가 맡은 짧은 일을 마친다",
+          "result": "질문을 미루고 네가 맡은 짧은 일을 마쳐100골드를 받았다. 돌아오자 탄지로의 연습은 여전히 이어지고 네가 하지 않은 질문도 다시 입끝에 남는다.",
+          "card": null,
           "card2": null,
-          "label": "160골드로 연습할 자리를 마련하고 탄지로와 말한 뒤 움직일 차례까지 반복한다",
-          "result": "연습할 자리에160골드를 내고 탄지로와 말한 뒤 움직일 차례까지 반복했다. 꾸준히 이어가는 기억으로 일반 행동속도와 보스에게 가하는 피해를 높였다. 질문이 끝났다고 손을 내리자 탄지로는 아직 남은 다음 동작을 가리킨다.",
-          "cost": 160,
-          "gold": 0,
+          "cost": 0,
+          "gold": 100,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1278,40 +1314,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_kanao_return_hand",
-          "card2": null,
           "label": "200골드로 내 추가 연습 준비를 하고 같은 속도에 다시 맞춘다",
           "result": "추가 연습 준비에200골드를 내고 같은 속도로 손을 다시 거두었다. 일반 행동속도6%와실제 헤드·백 적중 공격의 대미지10%가 늘었다. 아오이는 손을 내밀 때보다 거둘 때를 지켜보고 카나오는 그 손이 돌아온 다음 차례를 시작한다.",
+          "card": "kny_kanao_return_hand",
+          "card2": null,
           "cost": 200,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_kanao_small_motion",
-          "card2": null,
           "label": "내 사냥의 적 수 단계를1올리고 손동작을 작게 줄여 다시 본다",
           "result": "개인 사냥의 적 수 단계를1올리는 부담을 맡고 손동작을 작게 줄여 다시 보았다. 치명타확률6%p와이동속도4%가 늘었다. 카나오가 동작을 바꾸자 너는 작은 움직임도 다시 거둬야 한다는 것을 손끝에서 확인한다.",
+          "card": "kny_kanao_small_motion",
+          "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 1,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_aoi_supply",
+          "label": "오늘 차례를 마치고 짧은 일의 보수와 보급을 챙긴다",
+          "result": "오늘 차례를 마치고 짧은 일의 보수100골드와물약1개를 챙겼다. 아오이가 도구를 정리하는 동안 카나오는 네 손이 남았던 자리를 비워 두고 다음 사람의 차례를 기다린다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 도구를 다시 묶을 포장을 마련하고 아오이와 다음 차례의 보급을 나눈다",
-          "result": "포장에180골드를 내고 아오이와 도구를 다시 묶어 다음 차례의 보급을 나눴다. 필요한 몫부터 챙기는 기억으로 초당 최대체력0.4%재생과이후처치당추가골드2를 얻고 물약1개를 받았다. 카나오는 네 손이 남아 있던 자리를 다음 사람에게 비워 둔다.",
-          "cost": 180,
-          "gold": 0,
+          "cost": 0,
+          "gold": 100,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1328,40 +1364,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_inosuke_partition",
-          "card2": null,
           "label": "180골드로 내 연습 준비를 하고 발판의 변화를 살핀다",
           "result": "내 연습 준비에180골드를 내고 가림막 너머 발판의 변화를 살폈다. 방어관통8%와헤드·백이 없는 비방향 공격 대미지12%가 늘었다. 네가 한쪽을 가리키자 이노스케는 방금 전과 다른 곳으로 다시 발을 옮긴다.",
+          "card": "kny_inosuke_partition",
+          "card2": null,
           "cost": 180,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke",
+          "label": "내 사냥의 적 수 단계를1올리고 눈에 안 보이는 움직임을 다시 살핀다",
+          "result": "개인 사냥의 적 수 단계를1올리는 부담을 맡고 눈에 안 보이는 움직임을 다시 살폈다. 방어관통8%와헤드·백이 없는 비방향 공격 대미지12%가 늘었다. 이노스케는 한 번 맞혔다고 끝내지 말라며 네가 가리킨 쪽에서 다시 움직인다.",
+          "card": "kny_inosuke_partition",
           "card2": null,
-          "label": "내 사냥의 적 수 단계를1올리고 이노스케처럼 막힌 쪽을 직접 열어 본다",
-          "result": "내 사냥의 적 수 단계를1올리는 부담을 맡고 이노스케처럼 막힌 쪽을 직접 열어 보았다. 일반몬스터에게 가하는 피해와 헤드·백이 없는 공격의 피해를 높이는 돌파를 기억한 대신 받는 피해도 늘어난다. 이노스케는 열린 길을 보더니 다음 막은 누가 맡을 것인지 묻는다.",
           "cost": 0,
           "gold": 0,
           "level": 0,
           "density": 1,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_inosuke_terrain",
+          "label": "가림막 승부를 접고 내 사냥의 적 수 단계를1낮춘 뒤 보급을 챙긴다",
+          "result": "가림막 승부를 접고 개인 사냥의 적 수 단계를1낮춘 뒤90골드와물약1개를 챙겼다. 이노스케는 네가 보급을 든 손을 보더니 이번에는 그 짐을 든 채로 해 보라고 승부를 다시 꺼낸다.",
+          "card": null,
           "card2": null,
-          "label": "160골드로 길목 표식을 마련하고 이노스케와 돌아갈 보폭을 맞춘다",
-          "result": "길목 표식에160골드를 내고 이노스케와 돌아갈 보폭을 맞췄다. 먼저 발을 놓을 길을 살피는 기억으로 이동속도와 일반몬스터에게 가하는 피해를 높이고, 내 사냥의 적 수 단계를1낮춘 뒤 물약1개를 받았다. 이노스케는 방금 남긴 표식을 넘어가려다 네가 돌아올 자리를 다시 짚는 것을 본다.",
-          "cost": 160,
-          "gold": 0,
+          "cost": 0,
+          "gold": 90,
           "level": 0,
           "density": -1,
-          "chance": 100,
-          "potions": 1
+          "potions": 1,
+          "chance": 100
         }
       ],
       "failure": null,
@@ -1378,40 +1414,40 @@
       "requiredCard": null,
       "choices": [
         {
-          "card": "kny_gourd_second",
-          "card2": null,
           "label": "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다",
           "result": "다음 연습 도구에140골드를 내고 터진 소리 뒤에도 숨을 이어 보았다. 차지 준비속도9%와차지 공격 대미지10%가 늘었다. 탄지로는 첫 성공을 다시 세는 대신 방금 잇기 시작한 숨이 어디까지 가는지 기다린다.",
+          "card": "kny_gourd_second",
+          "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_tanjiro_smell",
-          "card2": null,
           "label": "내 사냥의 강함 단계를1올리고 탄지로가 다음 빈틈을 보는 감각을 기억한다",
           "result": "개인 사냥의 강함 단계를1올리는 부담을 맡고 탄지로가 다음 빈틈을 보는 감각을 기억했다. 실제 헤드·백 적중 공격의 대미지14%와방어관통5%가 늘었다. 탄지로는 네가 성공한 쪽만 다시 보자 이번에는 다음 동작이 시작되는 쪽을 가리킨다.",
+          "card": "kny_tanjiro_smell",
+          "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 1,
           "density": 0,
-          "chance": 100,
-          "potions": 0
+          "potions": 0,
+          "chance": 100
         },
         {
-          "card": "kny_morning_breath",
+          "label": "오늘 연습을 마치고 짧은 일의 보수와 보급을 챙긴다",
+          "result": "오늘 연습을 마치고 짧은 일의 보수100골드와물약2개를 챙겼다. 아오이는 터진 도구를 옮기며 내일 설명부터 들을 것인지 묻고 탄지로의 숨은 네가 대답한 뒤에도 이어진다.",
+          "card": null,
           "card2": null,
-          "label": "180골드로 내 연습 도구를 마련하고 탄지로와 성공 뒤에도 숨을 계속 잇는다",
-          "result": "내 연습 도구에180골드를 내고 탄지로와 성공 뒤에도 자기 숨을 계속 이었다. 초당 최대체력0.4%재생과현재체력65%이상에서 가하는 피해10%를 얻고 물약2개를 받았다. 아오이는 터진 도구를 치우며 이번에는 설명이 끝나기 전에 네가 움직이는지 살핀다.",
-          "cost": 180,
-          "gold": 0,
+          "cost": 0,
+          "gold": 100,
           "level": 0,
           "density": 0,
-          "chance": 100,
-          "potions": 2
+          "potions": 2,
+          "chance": 100
         }
       ],
       "failure": null,
