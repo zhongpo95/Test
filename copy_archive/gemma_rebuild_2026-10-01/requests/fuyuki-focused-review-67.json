@@ -1,0 +1,162 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "verdict",
+      "issues",
+      "strengths"
+    ],
+    "properties": {
+      "verdict": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "REVISE"
+        ]
+      },
+      "issues": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "problem",
+            "evidence",
+            "suggestion"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "problem": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "system": "한국어 독립 검토자다. 제공한 실제 JASS 함수와 표시·예시를 기준으로 카드와 사건 결과의 실제 불일치만 검토한다. 이전 이동중이라는 기준은 잘못되었으니 따르지 않는다. 스탯이나 필드 수치를 바꾸지 말고 PASS 또는 REVISE로 판단한다.",
+  "brief": {
+    "card": {
+      "key": "fy_lancer_second",
+      "name": "랜서",
+      "effectName": "창끝 다음의 발",
+      "keyword": "이동속도 비례 피해 · 방어 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "moving_damage",
+          "value": 12
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "강한 대응 뒤 다음 발을 살피는 창작 만남이다. 이동속도 비례 피해는 기본400대비 추가 이동속도에 따라 커지며 추가40%에서 카드의12%가 전부 적용된다. 이동 중이라는 판정으로 켜지지 않는다. 원작 보구의 필중·즉사·방패 파괴·새 돌진을 지급하지 않는다.",
+      "uncertain": []
+    },
+    "event": {
+      "key": "fy_after_one_block",
+      "title": "한 번 막은 뒤의 발자리",
+      "story": "아처가 막아낸 다음에도 상대의 손을 보는 사이 너는 대응이 끝났다고 한 발을 내놓는다. 랜서는 창을 고쳐 쥐며 그 발자리도 다음 움직임 안에 들어갈 수 있다고 말한다. 아처는 눈을 상대의 손에서 떼지 않은 채 네가 어디에 발을 둘 것인지 묻는다.",
+      "intro": "막아 냈다고 이 발자리도 안전할까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "220골드로 내 방어 준비를 마련하고 아처의 다음 대응을 기억한다",
+          "result": "방어 준비값220골드를 내고 막은 다음까지 보는 대응을 기억했다. 받는 피해가 줄고 이미 보호막을 유지하고 있을 때의 가하는 피해가 늘었다. 아처는 네가 뒤로 뺀 발보다 상대가 아직 움직이지 않은 손을 본다.",
+          "card": "fy_archer_brace",
+          "card2": null,
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 랜서의 창끝 다음 발을 본다",
+          "result": "개인 사냥의 적 강함 단계를1올리는 부담을 맡고 랜서의 창끝 다음 발을 봤다. 추가 이동속도에 따라 가하는 피해와 방어 관통이 늘었다. 랜서는 네가 고른 발자리를 보지만 다음에 어느 쪽으로 움직일지는 아직 말하지 않는다.",
+          "card": "fy_lancer_second",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 사냥의 적 수를 줄이고 뒤로 물러날 보급을 챙긴다",
+          "result": "개인 사냥의 몬스터 수 단계를1낮추고 뒤로 물러날 준비의 물약1개를 챙겼다. 자기 발은 뺐지만 아처와 랜서가 보는 다음 움직임은 여전히 남아 있다.",
+          "card": null,
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 1,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식17화의 강한 보구와 방패 대응에서 역할만 가져온 별도 만남이다. 본편 충돌 직후 방패가 계속 유지된다고 확정하지 않고 실제 원작 결투·방패 생성·보구 지급은 없다.",
+      "uncertain": []
+    },
+    "evidence": {
+      "file": "System/ExpeditionEffects.j",
+      "expression": "12 * min(1,max(0,(이동속도/400-1)/0.40))",
+      "examples": [
+        {
+          "moveSpeed": 400,
+          "damagePercent": 0
+        },
+        {
+          "moveSpeed": 480,
+          "damagePercent": 6
+        },
+        {
+          "moveSpeed": 560,
+          "damagePercent": 12
+        }
+      ],
+      "display": "Data/Data_PrototypeStats.j의 추가 이동속도40%에서 대미지 증가",
+      "document": "md/roguelite/카드 능력치 단위와 검토 기준.md의 이동중 판정으로 활성화되지 않음"
+    },
+    "mechanics": {
+      "moving": "moving_damage는 기본400에서 추가된 이동속도 비례 가하는 피해다. 이동 여부 조건이 아니다. 추가속도40%에서12%전부 적용된다.",
+      "field": "이 사건 선택지2의level+1은 이후 개인사냥의적강함단계다. moving카드가 이동속도스탯을 새로 더하는 효과는 없다.",
+      "penetration": "penetration4는방어관통4%다. 원작 필중·즉사기술이 아니다.",
+      "shielded": "선택지1의shielded_damage는이미보호막있을때피해이며새보호막은없다."
+    },
+    "checks": [
+      "결과의추가이동속도에따른피해가코드와다른가?",
+      "이동속도자체상승·움직일때만발동·새돌진·자동방패를약속하는가?",
+      "400/480/560예시의0/6/12가식과다른가?"
+    ]
+  }
+}

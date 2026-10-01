@@ -1,0 +1,21 @@
+// 후유키 검토의 두 표현을 명확히 하고 수량 변화는 사건 분기에서 유지해 원본 보존 뒤 채택한다.
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),repo=path.resolve(__dirname,'../../..');
+const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const write=(p,x)=>fs.writeFileSync(path.join(root,p),JSON.stringify(x,null,2)+'\n',{flag:'wx'});
+const file=path.join(repo,'content/roguelite/01-fuyuki.json'),bytes=fs.readFileSync(file),before=JSON.parse(bytes),candidate=read('revisions/fuyuki-expansion-curated-64.json'),fixed=read('requests/fuyuki-expansion-fixed-64.json'),review=read('reviews/fuyuki-expansion-review-64.json').parsed;
+assert.equal(review.verdict,'REVISE');
+const kirei=candidate.cards.find(c=>c.key==='fy_kirei_shelter'),oldCanon=kirei.canonFact;
+kirei.canonFact=kirei.canonFact.replace('받는피해감소와 일반몬스터피해손해','받는 피해 감소와 일반 몬스터에게 가하는 피해 감소');assert.notEqual(kirei.canonFact,oldCanon);
+const follow=candidate.events.find(e=>e.key==='fy_next_arrow_wait'),oldResult=follow.choices[2].result;
+follow.choices[2].result=oldResult.replace('사건 후보와 이후 처치당 골드가 늘었다.','다음에 고를 사건 후보가1개 늘어 최대4개가 되고 이후 처치당 골드도 늘었다.');assert.notEqual(follow.choices[2].result,oldResult);
+const countChoice=candidate.events.find(e=>e.key==='fy_arrow_on_floor').choices[1];assert.equal(countChoice.density,1);assert(countChoice.result.includes('몬스터 수 단계를1올리는'));
+const check=require(path.join(repo,'tools/check-content-candidates.cjs')).inspect(candidate);assert.deepEqual(check.errors,[]);assert.deepEqual(check.warnings,[]);
+assert.deepEqual(candidate.world,before.world);for(const c of before.cards)assert.deepEqual(candidate.cards.find(x=>x.key===c.key),c);for(const e of before.events)assert.deepEqual(candidate.events.find(x=>x.key===e.key),e);
+for(const c of fixed.cards){const next=candidate.cards.find(x=>x.key===c.key);assert.deepEqual(c.key==='fy_kirei_shelter'?{...next,canonFact:c.canonFact}:next,c);}
+for(const p of fixed.events){const e=candidate.events.find(x=>x.key===p.key);assert.equal(e.previous,p.previous||null);assert.equal(e.previousChoice,p.previousChoice||0);assert.equal(e.requiredCard,null);assert.equal(e.choices.length,p.choices.length);p.choices.forEach((b,i)=>{for(const k of ['card','card2','cost','gold','level','density','potions','chance'])assert.equal(e.choices[i][k],b[k]);});}
+write('revisions/fuyuki-review-decision-64.json',{review,decisions:[{key:'fy_kirei_shelter',decision:'표현 명확화',reason:'실제 -4효과와 결과는 이미 일치한다. 고증 메타정보의 피해손해 표현을 일반 몬스터에게 가하는 피해 감소로 쓴다.',before:oldCanon,after:kirei.canonFact},{key:'fy_taiga_arrow',decision:'추가 변경 기각',reason:'결과에 이미 몬스터 수 단계+1이 명시되어 있고 선택지 density=1이다. 카드 효과에 density를 넣으면 같은 카드의 골드 선택에도 부담이 붙는 다른 기능이 된다. 수량 부담은 그 사건 분기에만 유지한다.'},{key:'fy_taiga_list',decision:'후속 결과 명확화',reason:'event_choices는 다음 사건 선택 화면의 후보+1이며 최대4다. 특정 원작 사건을 새로 지정하는 효과가 아니다. 기존 카드 메타정보는 그대로 두고 이번 후속 결과를 명확히 쓴다.',before:oldResult,after:follow.choices[2].result}],numericExceptions:[],limits:'모델 verdict REVISE를 보존한다. 두 표현 수정과 나머지 지적의 기각은 별도 데이터 대조이며 실제 Warcraft 검증이 아니다.'});
+write('revisions/fuyuki-expansion-curated-65.json',candidate);fs.writeFileSync(path.join(root,'before-fuyuki-expansion-65.json'),bytes,{flag:'wx'});
+write('revisions/fuyuki-expansion-decision-65.json',{sourceRevision:'5d5efd949',beforeFile:'before-fuyuki-expansion-65.json',beforeSha256:crypto.createHash('sha256').update(bytes).digest('hex'),review,reviewDecision:read('revisions/fuyuki-review-decision-64.json'),rewardReferenceCorrection:read('revisions/fuyuki-expansion-curation-64.json').rewardReferenceCorrections,decision:'독립4사건·자신의 궁도 질문 성공1번 후속1사건·카드7장 채택. 기존14카드·11사건은 모든 필드를 유지한다.',candidateCheck:check,numericExceptions:[],limits:['공식 줄거리와 인물 소개를 읽었으며 원작 전편·전체 영상을 확인한 것은 아니다.','숙박의 한 몫·여행자의 화살 실패·감독자에게 묻는 말·대응 뒤 발자리는 별도 창작 방문이다. 타인의 방 배정·원작 인질·영체화·계약·승패를 결정하지 않는다.','대가·보급·확률·새 대사·성장 기억은 창작이며 실제 원작 활·보구·자동방패·미니게임·NPC순찰·현재체력 비용·추가처치는 없다.','Gemma의 REVISE 원문을 유지했다. 고정안 대조·정적·모의 실행을 근거로 채택하며 실전 화면·Warcraft·멀티·재미·밸런스는 미검증이다.']});
+fs.writeFileSync(file,JSON.stringify(candidate,null,2)+'\n');console.log(JSON.stringify({newCards:7,newRoots:4,newFollowups:1,totalCards:candidate.cards.length,totalEvents:candidate.events.length,check}));
