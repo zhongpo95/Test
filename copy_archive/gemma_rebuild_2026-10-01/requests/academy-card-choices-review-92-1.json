@@ -1,0 +1,658 @@
+{
+  "review": true,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "verdict",
+      "issues",
+      "strengths"
+    ],
+    "properties": {
+      "verdict": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "REVISE"
+        ]
+      },
+      "issues": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "problem",
+            "evidence",
+            "suggestion"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "problem": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "suggestion": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "system": "한국어 독립 검토자다. 실제 데이터와 글의 불일치만 issues에 쓴다. 몬스터강함/적수는 지속 단계 변화량이며 캐릭터 레벨이 아니다. UI가 정확한 카드 이름·능력치를 덧붙인다. 새로운 기능이나 밸런스를 제안하지 않는다.",
+  "brief": {
+    "cards": [
+      {
+        "key": "academy_mikoto",
+        "name": "미사카 미코토",
+        "effectName": "정밀한 전자기 제어",
+        "keyword": "관통 · 차지",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 10
+          },
+          {
+            "stat": "charge_damage",
+            "value": 14
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 12000,
+          "effects": [
+            {
+              "stat": "crit_damage",
+              "value": 15
+            }
+          ]
+        },
+        "canonFact": "미코토의 전자기 능력과 동전 레일건을 집중·관통 역할로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_kuroko",
+        "name": "시라이 쿠로코",
+        "effectName": "공간의 사각",
+        "keyword": "이동 · 방향",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 5
+          },
+          {
+            "stat": "directional_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 3,
+          "goal": 60,
+          "effects": [
+            {
+              "stat": "action_speed",
+              "value": 4
+            }
+          ]
+        },
+        "canonFact": "쿠로코의 공간이동과 저지먼트 역할을 이동·사각 성장으로 각색했다. 순간이동 스킬을 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_touma",
+        "name": "카미조 토우마",
+        "effectName": "이매진 브레이커",
+        "keyword": "생존 · 보스",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "damage_reduction",
+            "value": 6
+          },
+          {
+            "stat": "boss_damage_percent",
+            "value": 10
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "토우마의 오른손이 이능을 지우는 특징을 방어 경험으로 각색했다. 물리 무적이나 모든 공격 취소는 아니다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_saten",
+        "name": "사텐 루이코",
+        "effectName": "발로 찾은 단서",
+        "keyword": "자원 · 탐색",
+        "grade": 1,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 2
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 6
+          }
+        ],
+        "evolution": {
+          "kind": 1,
+          "goal": 45,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            }
+          ]
+        },
+        "canonFact": "사텐의 레벨 0과 소문을 좋아하는 특징을 현장 탐색·수급으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_dispatch",
+        "name": "우이하루 카자리",
+        "effectName": "백업 통신",
+        "keyword": "행동 · 신속",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 5
+          },
+          {
+            "stat": "swift",
+            "value": 180
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "우이하루의 정보 처리·현장 지원을 다음 행동 준비로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_focus",
+        "name": "미사카 미코토",
+        "effectName": "한 점의 레일건",
+        "keyword": "보스 · 차지",
+        "grade": 3,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 14
+          },
+          {
+            "stat": "charge_speed",
+            "value": 8
+          }
+        ],
+        "evolution": {
+          "kind": 2,
+          "goal": 15000,
+          "effects": [
+            {
+              "stat": "final_damage_percent",
+              "value": 5
+            }
+          ]
+        },
+        "canonFact": "동전을 사출하는 레일건의 이미지를 차지 준비와 보스 공격으로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_persevere",
+        "name": "사텐 루이코",
+        "effectName": "능력 밖의 용기",
+        "keyword": "체력 · 고체력",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 10
+          },
+          {
+            "stat": "healthy_damage",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "사텐이 능력자 외의 입장에서 참여하는 모습을 생존·고체력 보너스로 각색했다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_kuroko_response",
+        "name": "시라이 쿠로코",
+        "effectName": "현장에서 정할 다음 행동",
+        "keyword": "행동 · 생존",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 6
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "저지먼트에서 현장을 맡는 쿠로코의 역할을 즉응·방어 준비로 각색했다. 입문 공간 이동 요령과 다른 후속이며 실제 순간이동은 지급하지 않는다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_uiharu_order",
+        "name": "우이하루 카자리",
+        "effectName": "확인할 순서",
+        "keyword": "사건 후보 · 일반 적",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "event_choices",
+            "value": 1
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 12
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기존 지부 기록·정보 지원에서 확인할 대상을 나누는 여행자의 기억이다. 새 해킹·자동 수색·행동력 증가·원작 사건 해결은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_saten_detour",
+        "name": "사텐 루이코",
+        "effectName": "돌아가는 길의 표식",
+        "keyword": "이동 · 일반 적",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "move_speed",
+            "value": 3
+          },
+          {
+            "stat": "normal_damage_percent",
+            "value": 14
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "능력이 없어도 발품과 생활 속 확인을 이어 가는 기존 역할에서 여행자가 귀환길을 정하는 기억이다. 이동은3%이며 새 이동 기술이나 능력 개발은 없다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_kuroko_line",
+        "name": "시라이 쿠로코",
+        "effectName": "넘지 않을 선",
+        "keyword": "비방향 · 받는 피해",
+        "grade": 2,
+        "effects": [
+          {
+            "stat": "nondirectional_damage",
+            "value": 12
+          },
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ],
+        "evolution": {
+          "kind": 0,
+          "goal": 0,
+          "effects": []
+        },
+        "canonFact": "기존 사격 통로 안내에서 넘어가지 않을 경계를 정하는 여행자의 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 공간이동·보호막·무적을 지급하지 않는다.",
+        "uncertain": []
+      }
+    ],
+    "events": [
+      {
+        "key": "academy_bad_signal",
+        "title": "끊어진 구조 신호",
+        "story": "풍기위원 지부에서 구조 신호가 끊겼다. 우이하루는 기록을 복구하고 쿠로코는 현장으로 갈 준비를 한다. 통신선을 살리는 일과 사람을 먼저 찾는 일 중 어디를 맡을까?",
+        "intro": "구조 신호와 현장 수색 중 맡을 일을 정한다.",
+        "choices": [
+          {
+            "label": "수리 자재를 사고 우이하루의 백업을 돕는다",
+            "result": "자재를 사서 끊어진 통신선을 이었다. 우이하루가 나눠 준 기록으로 당신도 다음 행동을 준비할 여유를 얻었다.",
+            "card": "academy_dispatch",
+            "card2": null,
+            "gold": 0,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "쿠로코와 위험한 현장으로 간다",
+            "result": "쿠로코와 현장에 들어가 끊긴 신호의 위치를 찾았다. 빠르게 도착하는 데서 그치지 않고 물러날 공간까지 짚었지만, 안쪽에는 더 강한 상대가 기다리고 있었다.",
+            "card": "academy_kuroko",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "80골드로 우회 보급을 준비하고 사텐과 돌아올 골목의 표식을 남긴다",
+            "result": "사텐과 보급이 돌아올 골목을 확인하고 우회로에 표식을 남겼다. 80골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 물약2개를 받았다. 사텐이 표식을 가리키자 우이하루는 아직 연락이 닿지 않은 집을 그 길과 다른 줄에 남긴다.",
+            "card": "academy_saten_detour",
+            "card2": null,
+            "gold": 0,
+            "cost": 80,
+            "level": 0,
+            "density": -1,
+            "potions": 2,
+            "chance": 100
+          }
+        ],
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_signal_answer",
+        "title": "신호가 가리킨 장소",
+        "story": "복구한 신호의 좌표가 도착했다. 한 번의 단서로 도시의 큰 사건을 끝내지는 못한다. 미코토가 전원 시설을 확인하는 동안 토우마는 구조 대상에게 다가가려 한다.",
+        "intro": "복구한 신호에서 새로운 구조 장소를 찾았다.",
+        "choices": [
+          {
+            "label": "미코토에게 절연 장비를 빌린다",
+            "result": "절연 장비 대여비를 내고 전원 시설을 확인했다. 미코토가 한 지점에 힘을 모으는 과정을 보며 공격 기회를 준비했다.",
+            "card": "academy_mikoto",
+            "card2": null,
+            "gold": 0,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "토우마와 구조 경로를 확보한다",
+            "result": "토우마와 구조 대상에게 닿을 통로를 열었다. 사람들을 먼저 내보내고 당신이 뒤쪽을 맡으면서, 더 많은 상대가 남은 구간을 경계할 준비를 했다.",
+            "card": "academy_touma",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "160골드로 기록용품을 마련하고 우이하루에게 확인할 대상을 나눠 전한다",
+            "result": "우이하루에게 현장 기록을 나눠 전하고 아직 확인하지 않은 대상을 남겼다. 160골드를 지불했다. 「확인할 순서」의 기억 카드1장을 얻었다. 토우마는 먼저 내보낼 사람을 짚고 미코토는 전원 확인이 끝나지 않은 쪽을 따로 가리킨다.",
+            "card": "academy_uiharu_order",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "previous": "academy_bad_signal",
+        "previousChoice": 1,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_urban_rumor",
+        "title": "소문이 앞선 조사",
+        "story": "사텐이 들은 능력 개발 소문이 사람들을 한 골목으로 모았다. 우이하루는 사실 확인이 먼저라고 하고 미코토는 수상한 장치에 시선을 둔다. 소문을 퍼뜨리는 대신 확인할 일을 정한다.",
+        "intro": "사텐이 모은 소문을 실제 단서로 바꿔야 한다.",
+        "choices": [
+          {
+            "label": "조사 장비를 준비하고 미코토와 장치를 확인한다",
+            "result": "조사 장비를 준비해 미코토가 장치의 반응을 살피는 동안 주변 표시를 기록했다. 소문으로 들은 힘을 얻은 것이 아니라 전류가 집중되는 지점과 다가가지 말아야 할 자리를 구분했다.",
+            "card": "academy_mikoto",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "사텐과 모인 사람들의 이야기를 듣는다",
+            "result": "사텐과 함께 현장 목격자들의 진술을 청취했다. 인내심을 가지고 정보를 수집한다.",
+            "card": "academy_persevere",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "160골드로 안내를 준비하고 사텐과 돌아갈 골목을 비운다",
+            "result": "사텐과 모인 사람들의 돌아갈 방향을 나누고 골목의 표식을 확인했다. 160골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐은 마지막으로 들은 소문을 메모하되 확인한 표식 옆에는 아직 쓰지 않는다.",
+            "card": "academy_saten_detour",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": -1,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_coin_test",
+        "title": "표적 뒤의 빈 공간",
+        "story": "미코토는 코인으로 작은 표적을 겨누지만 뒤편에는 작업자 통로가 있다. 발사 위력을 높이는 일보다 통로를 비우고 안전한 각도를 찾는 일이 먼저다.",
+        "intro": "미코토의 표적 뒤로 작업자가 지나간다.",
+        "choices": [
+          {
+            "label": "위험 구역을 맡고 정밀 사격을 관찰한다",
+            "result": "통로 끝을 맡아 작업자들이 사선에 들어오지 않도록 알렸다. 미코토가 표적을 꿰뚫는 순간을 지켜봤지만, 더 강한 상대가 접근하는 구간까지 계속 지켜야 한다.",
+            "card": "academy_focus",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "안전 장비 비용을 내고 사선을 표시한다",
+            "result": "안전 가이드라인을 설치해 사격 구역을 명확히 했다. 쿠로코의 이동 경로를 보조한다.",
+            "card": "academy_kuroko",
+            "card2": null,
+            "gold": 0,
+            "cost": 210,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "160골드로 안내를 준비하고 쿠로코와 넘어가지 않을 사선을 정한다",
+            "result": "쿠로코와 작업자 통로의 경계를 표시하고 사선 밖으로 안내했다. 160골드를 지불했다. 「넘지 않을 선」의 기억 카드1장을 얻었다. 물약1개를 받았다. 미코토는 작업자가 사선 밖으로 나간 것을 보고도 마지막 사람이 지날 방향부터 다시 확인한다.",
+            "card": "academy_kuroko_line",
+            "card2": null,
+            "gold": 0,
+            "cost": 160,
+            "level": 0,
+            "density": 0,
+            "potions": 1,
+            "chance": 100
+          }
+        ],
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_no_ability",
+        "title": "능력 없이 남은 사람",
+        "story": "모두가 능력자를 따라간 뒤 사텐과 당신 앞에는 옮기지 못한 물자가 남았다. 능력이 없어도 지금 할 수 있는 일이 있다. 어느 쪽을 먼저 챙길까?",
+        "intro": "능력자들이 떠난 뒤에도 옮길 물자가 남았다.",
+        "choices": [
+          {
+            "label": "사텐과 물자를 나르며 길을 익힌다",
+            "result": "사텐과 남은 물자를 나르며 골목마다 돌아올 표식을 남겼다. 한 번 더 확인할 길을 맡은 만큼 오가는 무리도 늘었지만, 힘이 없어 멈춰 있던 짐은 목적지에 닿았다.",
+            "card": "academy_saten",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "운송비를 내고 사텐과 피난 장소를 정리한다",
+            "result": "운송 비용을 지불하고 체계적으로 물자를 정리했다. 생존을 위한 안정성을 확보한다.",
+            "card": "academy_persevere",
+            "card2": null,
+            "gold": 0,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "토우마를 따라 남은 사람을 찾는다",
+            "result": "토우마를 따라 실종된 시민들을 수색했다. 위험 지역에서의 생존력이 높아진다.",
+            "card": "academy_touma",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "previous": null,
+        "previousChoice": 0,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      },
+      {
+        "key": "academy_second_route",
+        "title": "복구된 두 번째 통로",
+        "story": "현장에 들어간 쿠로코가 처음 보지 못한 통로를 알려 왔다. 우이하루와 백업 통신을 연결할지, 위험한 길 하나를 닫을지, 쿠로코와 도착한 자리에서 할 일을 정할지 고른다. 더 많은 길을 맡으면 오가는 상대도 늘어난다.",
+        "intro": "쿠로코가 새 통로를 확인했다.",
+        "choices": [
+          {
+            "label": "새 통로를 조사하고 백업 통신을 연결한다",
+            "result": "새 통로를 확인하고 우이하루에게 위치를 전달했다. 더 많은 상대가 오가는 길을 맡는 동안, 다음 연락을 기다리기보다 필요한 정보를 먼저 주고받았다.",
+            "card": "academy_dispatch",
+            "card2": null,
+            "gold": 0,
+            "cost": 0,
+            "level": 0,
+            "density": 2,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "label": "120골드로 봉쇄를 준비하고 우이하루와 남길 통로의 기록을 나눈다",
+            "result": "우이하루에게 닫은 통로와 남길 통로의 기록을 따로 전했다. 120골드를 지불했다. 「확인할 순서」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 물약1개를 받았다. 쿠로코는 닫은 통로보다 아직 남겨 둔 통로에 누가 있을 것인지 묻는다.",
+            "card": "academy_uiharu_order",
+            "card2": null,
+            "gold": 0,
+            "cost": 120,
+            "level": -1,
+            "density": 0,
+            "potions": 1,
+            "chance": 100
+          },
+          {
+            "label": "쿠로코와 현장 대응 순서를 점검한다",
+            "result": "쿠로코와 현장 장비를 준비하고 연락이 들어왔을 때 움직일 순서를 맞췄다. 길을 빠르게 건너는 데서 그치지 않고 도착한 자리에서 할 일을 확인했다.",
+            "card": "academy_kuroko_response",
+            "card2": null,
+            "gold": 0,
+            "cost": 170,
+            "level": 0,
+            "density": 0,
+            "potions": 0,
+            "chance": 100
+          }
+        ],
+        "previous": "academy_bad_signal",
+        "previousChoice": 2,
+        "requiredCard": null,
+        "failure": null,
+        "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+        "uncertain": []
+      }
+    ],
+    "mechanics": {
+      "reward": "성공때 지정카드1장과potions개물약 지급. 즉시골드0. 처치골드능력치와중복100골드는별개다. result는성공만이다.",
+      "cost": "cost선지불.실패때비용/AP/필드는유지되고카드/물약지급없음.",
+      "field": "level몬스터강함,density몬스터수 단계의 변화량. 초기1/4,최저1,상한5/10. 플레이어능력·피로·시간아님.",
+      "history": "구조백업 성공1/현장진입 성공2/다른곳음료 성공1의 자기 후속과 번호를 유지한다. 부모가 준 카드를 후속에서 다시 주지 않는다.",
+      "stats": "기억은여행자성장. move3은3%. regen시간회복/흡수합산10%상한,즉시회복아님. maxHP현재/최대비율유지. healthy65%이상. 비방향은헤드/백플래그없는공격이며공간이동/새보호막없음.",
+      "boundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 귀여운 소품·단것·대회 준비·수영부·짐 정리·야간 표식은 공식 취향과 역할에서 별도로 창작한 만남이다. 이인삼각과 밤 퍼레이드는 공식2·4화 배경을 참고하되 경기 승패·본편 실종·기억 조작은 바꾸지 않는다. 아와츠키의 부력은 물의 밀도가 아니며 군하 능력의 상세 원리는 확정하지 않는다. 새 카드의 최대 체력 패널티는 지속 능력치로 현재 체력 지불 사건이 아니다. 자판기에남은동전·호출뒤간식·여행자가답할약속·오락실빈의자·성하제의무대준비는공식소개에서각색한서로다른방문이다. 자판기뒤음료후속은자신이별도음료를마련한성공1번에서만열린다. 원작자판기파괴·미사카동생실험·쿠로코와우이하루의화해·피습·성하제공연종류/승패를바꾸지않고실제NPC동행/미니게임/원작초능력/음료아이템/사냥중추가처치가생기지않는다."
+    },
+    "checks": [
+      "모든사건서로다른지정카드3종이며직접골드대안/부모카드반복없는가?",
+      "비용·물약·필드·확률·실패와문장일치하는가?",
+      "장면의대사주체·남은문제와원래공식역할을따르며갈등완화/학생복귀/자판기돈반환/큰범죄/연주결과확정없는가?"
+    ]
+  }
+}
