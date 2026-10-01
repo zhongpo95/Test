@@ -1,0 +1,383 @@
+{
+  "review": false,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "events"
+    ],
+    "properties": {
+      "events": {
+        "type": "array",
+        "minItems": 5,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "key",
+            "story",
+            "intro",
+            "choices"
+          ],
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "story": {
+              "type": "string"
+            },
+            "intro": {
+              "type": "string"
+            },
+            "choices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "label",
+                  "result"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "result": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": "한국어 게임 사건 작가다. story3문장·intro1문장·result2~3문장으로 인물 행동과 맡을 일을 쓴다. key와 선택 순서는 그대로 유지한다. 화면에 출처·몇 화·NPC·개발 제약은 넣지 않는다.",
+  "brief": {
+    "events": [
+      {
+        "key": "sao_counter_labels",
+        "title": "에길의 값표 두 장",
+        "scene": "에길의 물품 상자에 값표가 두 장 붙어 있어 다음 거래가 멈췄다. 키리토는 바깥에서 물건을 더 가져오기 전에 지금 놓인 것부터 나누자고 한다. 에길은 값을 다시 붙일 사람과 바깥 운반을 맡을 사람을 따로 정하자고 한다.",
+        "choices": [
+          {
+            "action": "기록용품 값을 내고 에길과 겹친 값표를 맞춘다",
+            "card": "sao_agil_shelf",
+            "card2": null,
+            "cost": 180,
+            "level": 0,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "키리토와 더 강한 적이 오가는 운반 길목을 맡는다",
+            "card": "sao_kirito",
+            "card2": null,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "110골드의 보급 비용을 내고 물약 두 개를 챙긴다",
+            "card": null,
+            "card2": null,
+            "cost": 110,
+            "level": 0,
+            "density": 0,
+            "gold": 0,
+            "potions": 2,
+            "chance": 100
+          },
+          {
+            "action": "빈 상자만 정리하고 작업 보수를 받는다",
+            "card": null,
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "gold": 150,
+            "potions": 0,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "sao_guild_roll",
+        "title": "풍림화산의 빈 뒷자리",
+        "scene": "클라인이 풍림화산의 다음 준비를 나누는데 모두 먼저 나설 자리만 가리킨다. 키리토는 뒤에 남길 몫도 빠지지 말자고 말한다. 클라인은 빈 뒷자리와 더 많은 적이 드나드는 옆길 중 네가 맡을 일을 묻는다.",
+        "choices": [
+          {
+            "action": "준비 도구를 마련해 클라인과 앞뒤 역할을 나눈다",
+            "card": "sao_klein_roles",
+            "card2": null,
+            "cost": 200,
+            "level": 0,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "클라인과 더 많은 적이 오가는 옆길을 맡는다",
+            "card": "sao_klein",
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 2,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "맡을 구역을 줄이고 보급 정리 보수와 물약을 받는다",
+            "card": null,
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": -1,
+            "gold": 140,
+            "potions": 1,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "sao_middle_lantern",
+        "title": "중층에서 꺼내 놓은 등불",
+        "scene": "중층의 생활 자리에서 사치가 바깥 준비물을 들고도 바로 나서지 않는다. 키리토는 급히 답을 요구하지 않고 먼저 맡을 구역을 나누자고 한다. 사치는 남겨 둘 등불과 돌아올 자리를 하나씩 확인한다.",
+        "choices": [
+          {
+            "action": "준비물 값을 내고 사치와 더 약한 담당 구역을 정한다",
+            "card": "sao_sachi_lantern",
+            "card2": null,
+            "cost": 220,
+            "level": -1,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "키리토와 더 강한 적이 오가는 바깥 길목을 맡는다",
+            "card": "sao_kirito",
+            "card2": null,
+            "cost": 0,
+            "level": 1,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "맡을 길목을 줄이고 등불 정리 보수를 받는다",
+            "card": null,
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": -1,
+            "gold": 120,
+            "potions": 0,
+            "chance": 100
+          }
+        ]
+      },
+      {
+        "key": "sao_lakeside_wait",
+        "title": "호숫가에서 기다릴 사람",
+        "scene": "호숫가의 니시다가 키리토에게 낚시를 좋아하느냐고 묻는다. 아스나는 가져온 준비물이 섞였다며 묶음부터 나누자고 한다. 니시다는 오래된 낚시 자리 기록을 확인할 사람과 지금 남은 도구를 정리할 사람을 따로 정한다.",
+        "choices": [
+          {
+            "action": "150골드의 연락 비용을 내고 예전 낚시 자리 기록을 찾는다",
+            "card": "sao_nishida_wait",
+            "card2": null,
+            "cost": 150,
+            "level": 0,
+            "density": 0,
+            "gold": 240,
+            "potions": 0,
+            "chance": 65
+          },
+          {
+            "action": "준비 도구를 마련해 니시다와 기다릴 자리를 나눈다",
+            "card": "sao_nishida_wait",
+            "card2": null,
+            "cost": 210,
+            "level": 0,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "아스나와 적이 더 많은 바깥 안내 구역을 맡는다",
+            "card": "sao_asuna_meal",
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 1,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "도구를 정리하고 작업 보수와 보급 물약을 받는다",
+            "card": null,
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "gold": 130,
+            "potions": 1,
+            "chance": 100
+          }
+        ],
+        "failure": "예전 낚시 자리의 기록을 찾지 못했다. 연락 비용150골드는 돌아오지 않고 카드와 확인 보수도 받지 못한다. 니시다는 확인되지 않은 위치를 적지 않고 지금 펼친 도구부터 정리한다."
+      },
+      {
+        "key": "sao_deputy_directions",
+        "title": "부단장이 남긴 두 갈래 지시",
+        "scene": "아스나가 다음 준비를 나눈 뒤 한 곳에만 사람이 모였다는 보고를 받는다. 클라인은 아직 빈 길목부터 가리키고 키리토는 누구에게 어떤 연락을 남길지 묻는다. 아스나는 먼저 맡은 범위부터 다시 말해 달라고 한다.",
+        "choices": [
+          {
+            "action": "표시 용품을 마련해 아스나와 남은 지시를 나눈다",
+            "card": "sao_asuna_dispatch",
+            "card2": null,
+            "cost": 220,
+            "level": 0,
+            "density": 0,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "클라인과 더 많은 적이 오가는 빈 길목을 맡는다",
+            "card": "sao_klein_roles",
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 2,
+            "gold": 0,
+            "potions": 0,
+            "chance": 100
+          },
+          {
+            "action": "100골드의 보급 비용을 내고 더 약한 구역과 물약을 챙긴다",
+            "card": null,
+            "card2": null,
+            "cost": 100,
+            "level": -1,
+            "density": 0,
+            "gold": 0,
+            "potions": 1,
+            "chance": 100
+          },
+          {
+            "action": "남은 안내표를 정리하고 준비 보수를 받는다",
+            "card": null,
+            "card2": null,
+            "cost": 0,
+            "level": 0,
+            "density": 0,
+            "gold": 150,
+            "potions": 0,
+            "chance": 100
+          }
+        ]
+      }
+    ],
+    "cards": [
+      {
+        "key": "sao_agil",
+        "name": "에길",
+        "effectName": "거래의 눈"
+      },
+      {
+        "key": "sao_kirito",
+        "name": "키리토",
+        "effectName": "빈틈을 잇는 검"
+      },
+      {
+        "key": "sao_asuna",
+        "name": "아스나",
+        "effectName": "섬광의 사선"
+      },
+      {
+        "key": "sao_liz",
+        "name": "리즈벳",
+        "effectName": "가공의 완성도"
+      },
+      {
+        "key": "sao_silica",
+        "name": "시리카",
+        "effectName": "돌아갈 길의 동료"
+      },
+      {
+        "key": "sao_klein",
+        "name": "클라인",
+        "effectName": "함께 맞서는 간격"
+      },
+      {
+        "key": "sao_asuna_meal",
+        "name": "아스나",
+        "effectName": "공략 전의 식탁"
+      },
+      {
+        "key": "sao_kirito_scout",
+        "name": "키리토",
+        "effectName": "돌아와 전한 경고"
+      },
+      {
+        "key": "sao_agil_shelf",
+        "name": "에길",
+        "effectName": "값표 아래 남은 항목"
+      },
+      {
+        "key": "sao_klein_roles",
+        "name": "클라인",
+        "effectName": "뒤쪽에 남겨 둘 사람"
+      },
+      {
+        "key": "sao_sachi_lantern",
+        "name": "사치",
+        "effectName": "대답을 기다릴 자리"
+      },
+      {
+        "key": "sao_nishida_wait",
+        "name": "니시다",
+        "effectName": "당기기 전에 기다리기"
+      },
+      {
+        "key": "sao_asuna_dispatch",
+        "name": "아스나",
+        "effectName": "지시 뒤의 빈 자리"
+      }
+    ],
+    "sourceFacts": [
+      {
+        "source": "https://www.swordart-online.net/character/index2.html",
+        "fact": "공식 인물 이미지 대체 텍스트. 키리토는 솔로 플레이어, 아스나는 혈맹기사단 부단장, 클라인은 풍림화산 길드장·친근한 친구, 에길은 상인이자 도끼 전사, 사치는 중층에서 길드 동료와 생활한다."
+      },
+      {
+        "source": "https://www.aniplex.co.jp/lineup/swordartonline/story/",
+        "fact": "공식3화의 중층 생활·죽음을 두려워하는 사치,13화의 호숫가에서 만난 낚시 취미의 니시다와 키리토를 새 사건의 소재로 확인했다. 사치 생전과 니시다 만남은 서로 다른 독립 시점이다."
+      }
+    ],
+    "rules": [
+      "우정과 카드를 사는 돈이 아니라 기록·표시·보급·준비 도구 비용이다. 비용과 실제 맡은 일을 결과에 넣는다. 보수는 가게·준비 담당자가 제공하고 물약은 보급품이다.",
+      "사치의 두려움이 사라지고 영원히 살아남는 결말·본편 길드 비극 해결·실제 등불 장비·물고기 아이템·길드원 소환·퀘스트 물품·영구 무기 성장·보스 격파를 지급하지 않는다.",
+      "낚시 첫 선택은150연락비후65%성공니시다카드240보수, 실패는비용만이다. 성공 결과만 출력하며 원작 낚시 성공률이 아니다.",
+      "level은 개인 적의 강함,density는 개인 적 수. 위험한 길이 실제 개인 적 강함과 수 증가로 남는다고 쓴다. 약한 구역과 줄인 길도 감소를 명시한다. 맵의 필드 변화가 원작 마을 압박·안전 구역 해제가 됐다고 주장하지 않는다.",
+      "에길수급과비교후보·클라인큰상대와버틸자리·사치몸상태와지속준비·니시다오래움직이며넓게보는준비·아스나큰상대공격순간을 배운다. 카드 효과 수치나 초능력을 새로 만들지 않는다.",
+      "모든 인물이 감탄·깊은 신뢰·고마움으로 끝내지 않는다. 효율·체계·완벽한계획 대신 남은 물건·짧은 말·나눈 역할을 쓴다. 기존 희귀 고기·공방 시험검·보스 경고 사건과는 별개다."
+    ]
+  }
+}
