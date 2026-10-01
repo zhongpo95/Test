@@ -1,0 +1,27 @@
+{
+  "scope": "미식전 최종 수치·기록과 집필 요청의 대조",
+  "newContent": {
+    "heads": 1,
+    "cards": 6,
+    "incidents": 3,
+    "personalFollowups": 2
+  },
+  "counts": {
+    "heads": 13,
+    "cards": 115,
+    "incidents": 91,
+    "personalFollowups": 39,
+    "normal": 20,
+    "rare": 84,
+    "epic": 11,
+    "prism": 0
+  },
+  "cardEffectException": "pc_karyl_check 기본 치명7·치명피해18에서 비방향16·관통6으로 변경, 나머지 카드 효과·등급·각성 보존",
+  "allEventMechanicsPreserved": true,
+  "contentIntegrationGroups": 21,
+  "cardStatRecoveryGroups": 8,
+  "generatedFilesMatch": true,
+  "mapCreated": false,
+  "validation": "정적 대조·JASS 변환 모의 함수 실행·스크립트 컴파일. Warcraft·전체 PlayerStatsSet·실제 멀티플레이·시각·성능·재미 미검증.",
+  "initialDeliveryCheck": "문서 끝 빈 줄 두 곳으로 diff --check 실패. 새 기능 또는 소스 오류가 아니며 마지막 줄 공백만 정리 후 통과."
+}
