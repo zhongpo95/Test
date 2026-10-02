@@ -111,7 +111,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
         // 사건 결과 창에 이미 표시할 때는 채팅 알림이 본문을 덮지 않도록 한다.
         if ProtoStage[pid] != 2 then
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 획득 · [" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n성장·카드 창에서 효과와 각성 조건을 확인할 수 있습니다.")
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 획득 · [" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + "|n성장·카드 창에서 효과를 확인할 수 있습니다.")
         endif
         call ProtoRememberCard(pid, card)
         call ProtoRefreshStats(pid)

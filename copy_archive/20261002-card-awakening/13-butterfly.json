@@ -64,9 +64,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "일상에도 전집중 호흡을 이어가는 수련을 행동 준비와 고체력 조건으로 각색한다. 호흡 기술을 새로 지급하지 않는다.",
       "uncertain": []
@@ -88,9 +93,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 6000,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "높은 신체 능력과 탄지로의 수련 상대 역할을 반응과 정확한 공격 준비로 각색한다.",
       "uncertain": []
@@ -136,9 +146,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "날카로운 청각과 번개의 호흡을 집중한 한 번의 공격 준비로 각색한다. 플레이어의 실신·수면이나 신규 돌진을 요구하지 않는다.",
       "uncertain": []
@@ -236,9 +251,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "후각과 상대 급소를 읽는 공식 인물 소재를 방향 적중 피해와 개인 방어 관통으로 각색. 냄새 탐지 UI·새 호흡 기술 없음.",
       "uncertain": []
@@ -284,9 +304,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "charge_damage",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "공식 청각과 한순간 집중한 공격의 소재를 차지 준비로 각색. 새 소리 감지 기능·실신 필요 없음.",
       "uncertain": []
@@ -356,9 +381,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 2
+          }
+        ]
       },
       "canonFact": "공식 25화에서 탄지로의 꾸준함을 보고 동료들이 훈련에 복귀하는 모습을 동작을 이어 가며 큰 상대를 준비하는 성장으로 각색한다. 카나오를 가르치거나 원작의 호흡 기술을 지급하지 않는다.",
       "uncertain": []
@@ -452,9 +482,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 8000,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "회복 훈련 상대 카나오와 여행자가 손을 다시 거두는 창작 기억이다. 일반 행동속도와 헤드/백 플래그와 해당 위치의 유효 각도가 함께 맞아 실제 헤드·백 적중한 공격의 피해다. 실제 카운터/회피/차 승부/동전으로 마음을 해방하는 기능은 없다.",
       "uncertain": []

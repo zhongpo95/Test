@@ -59,9 +59,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "야토의 신기인 유키네의 검 역할을 방향 적중·관통으로 각색했다.",
       "uncertain": []
@@ -131,9 +136,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 1
+          }
+        ]
       },
       "canonFact": "여행하며 장사하는 로렌스의 역할을 수급·거래 성장으로 각색했다.",
       "uncertain": []
@@ -155,9 +165,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "호로의 협상과 상대 의도를 읽는 특징을 공격 기회 준비로 각색했다.",
       "uncertain": []
@@ -179,9 +194,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "max_health_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "공식 가이드의 소울 이터는 상대 체력을 흡수하는 공격이다. 맵에서는 실제 피해에 비례한 지연 흡수로 각색하며 원작 드라이브 기술을 지급하지 않는다.",
       "uncertain": []
@@ -227,9 +247,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "kill_gold",
+            "value": 1
+          }
+        ]
       },
       "canonFact": "물건을 찾는 다우저와 들쥐를 이용한 탐색을 더 많은 사건 후보와 처치 수급으로 각색했다. 새 탐지 기술이나 쥐 소환을 지급하지 않는다.",
       "uncertain": []
@@ -251,9 +276,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "damage_reduction",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "자신보다 강한 상대 앞에서는 재빨리 달아나는 성향을 물러날 위치를 지키는 성장으로 각색했다. 즉시 회피·무적·귀환 기술을 지급하지 않는다.",
       "uncertain": []

@@ -71,9 +71,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "마미의 마법소녀 역할과 총을 활용하는 전투를 조준·차지로 각색했다.",
       "uncertain": []
@@ -95,9 +100,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "호무라의 반복된 준비를 행동 속도·신속으로 각색했다. 시간을 멈추는 신규 기술은 없다.",
       "uncertain": []
@@ -143,9 +153,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "쿄코의 창 전투를 방향 공격과 이동 관련 성장으로 각색했다.",
       "uncertain": []
@@ -335,9 +350,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "성적과 운동이 뛰어난 전학생의 면모를 다음 동작과 넓은 공격의 준비 습관으로 각색한다. 시간 정지·추가 시간·전학생 성적 시스템은 없다.",
       "uncertain": []
@@ -359,9 +379,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 9000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "후배를 안내하는 선배의 역할을 들어가기 전에 적중할 위치와 물러날 자리를 정하는 준비로 각색한다. 리본·새 총기·결계 탈출 보장·원작 생존 결말은 지급하지 않는다.",
       "uncertain": []
