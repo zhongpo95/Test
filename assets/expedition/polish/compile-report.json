@@ -4,7 +4,7 @@
   "compiler_exit": 0,
   "map_created": false,
   "pjass_exit": 0,
-  "script_sha256": "d8ca46ba8bafea9f73471ff64d443d7a6fd3cd08c2feaa6dd22ebd9a09f172f1",
-  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:    90530 lines: war3map.j\r\nParse successful:   102439 lines: <total>\r\n24 errors ignored\r\n",
+  "script_sha256": "7e674dc4ae41db7294f72c35fcbff2b98f7fc1273bdc6954cee7ff0fb0a26248",
+  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:    90531 lines: war3map.j\r\nParse successful:   102440 lines: <total>\r\n24 errors ignored\r\n",
   "verification_scope": "JassHelper/PJass script-only; native game and multiplayer untested"
 }

@@ -2,6 +2,7 @@
 library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIPrototypeStatus
     globals
         private integer Root
+        private integer LegacyBackground
         private integer LegacyPanel
         private integer Points
         private integer Crit
@@ -41,10 +42,11 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
             return
         endif
         call DzFrameShow(LegacyPanel, not ExpPrototypeEnabled)
+        call DzFrameShow(LegacyBackground, not ExpPrototypeEnabled)
         call ProtoStatusRender(pid)
         if ExpPrototypeEnabled then
-            call DzFrameSetSize(Root, 0.8, 0.6)
-            call DzFrameSetAbsolutePoint(Root, JN_FRAMEPOINT_TOPLEFT, 0, 0.6)
+            call DzFrameSetSize(Root, 0.60, 0.37)
+            call DzFrameSetAbsolutePoint(Root, JN_FRAMEPOINT_TOPLEFT, 0.10, 0.50)
             return
         endif
         set remaining = ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]
@@ -160,7 +162,8 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
 
     private function Build takes nothing returns nothing
         local integer f
-        set Root = ExpUIRoot(EXP_UI_STATS, 0.52, 0.435, 0.540, true)
+        set Root = ExpUIRoot(EXP_UI_STATS, 0.52, 0.435, 0.540, false)
+        set LegacyBackground = ExpUITexture(Root, 0, 0, 0.52, 0.435, "war3mapImported\\UI_Upgrade_Background.tga")
         set f = ExpUIHeader(Root, 0.52, "원정 성장·카드")
         set LegacyPanel = DzCreateFrameByTagName("FRAME", "", Root, "", FrameCount())
         call DzFrameSetPoint(LegacyPanel, JN_FRAMEPOINT_TOPLEFT, Root, JN_FRAMEPOINT_TOPLEFT, 0, 0)

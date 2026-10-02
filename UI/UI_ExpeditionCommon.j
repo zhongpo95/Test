@@ -380,7 +380,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                 endif
                 if i == EXP_UI_STATS and ExpPrototypeEnabled then
                     call DzFrameClearAllPoints(ExpUIButtons[PanelToggles[i]])
-                    call DzFrameSetPoint(ExpUIButtons[PanelToggles[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIRoots[i], JN_FRAMEPOINT_TOPLEFT, 0.752, -0.008)
+                    call DzFrameSetPoint(ExpUIButtons[PanelToggles[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIRoots[i], JN_FRAMEPOINT_TOPLEFT, 0.552, -0.008)
                 endif
                 call DzFrameShow(ExpUIButtons[PanelToggles[i]], visible and (ExpUIPanel == i or (ExpUIPanel == 0 and FoldedPanel == i)))
                 if ExpUIPanel == i then

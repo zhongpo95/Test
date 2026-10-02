@@ -111,4 +111,13 @@ check('50칸의 끝 행·열 툴팁은 화면 안에 있고 페이지·닫기·�
   t.event(cell(1),2);t.render();t.click(e.ExpUIButtons[e.UIPrototypeCards_Next]);assert(!t.visible(e.UIPrototypeCards_Tooltip));
   t.event(cell(1),2);t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert(!t.visible(e.UIPrototypeCards_Tooltip));
 });
+check('Tab 중앙 패널은 배경과 닫기 버튼까지 경계 안에 표시',()=>{
+  const t=fresh(0,true),e=t.e;t.start();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
+  const root=t.frame(e.ExpUIRoots[e.EXP_UI_STATS]),canvas=t.frame(e.UIPrototypeStatus_Canvas);
+  assert.equal(root.w,.60);assert.equal(root.h,.37);assert.equal(root.x,.10);assert.equal(root.y,.50);
+  assert.equal(canvas.w,root.w);assert.equal(canvas.h,root.h);
+  assert(!t.visible(e.UIExpeditionStats_LegacyBackground));
+  const close=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]],f=t.frame(close);
+  assert(f.x+f.w<=root.w);assert.equal(f.parent,canvas.id);t.click(close);assert(!t.visible(canvas.id));
+});
 console.log(`${checks} hunt UI groups passed. Static/mock checks; Warcraft UI and multiplayer remain untested.`);
