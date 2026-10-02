@@ -30,15 +30,15 @@ for i,g in enumerate(pose['geosets']):
   for li in p.loop_indices:uv.data[li].uv=g['uv'][mesh.loops[li].vertex_index]
  mesh.use_auto_smooth=True;mesh.normals_split_custom_set_from_vertices(g['normals'])
  obj=bpy.data.objects.new('Geo_'+str(i),mesh);scene.collection.objects.link(obj);mesh.materials.append(materials[g['material']]);objects.append(obj)
-for location,energy in [((-220,180,270),2.0),((-100,-250,200),0.65)]:
+for location,energy in [((-220,180,270),2.0),((-100,-250,200),0.65),((-250,0,120),0.65)]:
  light=bpy.data.lights.new('Studio','SUN');light.energy=energy;light.angle=0.5
  obj=bpy.data.objects.new('Studio',light);scene.collection.objects.link(obj);obj.location=location;obj.rotation_euler=(Vector((-27,-3,75))-obj.location).to_track_quat('-Z','Y').to_euler()
 camera=bpy.data.cameras.new('Camera');cam=bpy.data.objects.new('Camera',camera);scene.collection.objects.link(cam);scene.camera=cam;camera.type='ORTHO'
-for filename in ['cross-0','hmm-0','hmm-3.2','hmm-4.2']:
+for filename in ['cross-0','hmm-0','hmm-1.8','hmm-2.2','hmm-3.2','hmm-4.2']:
  pose=json.loads((folder/(filename+'.json')).read_text())
  for obj,g in zip(objects,pose['geosets']):
   obj.data.vertices.foreach_set('co',[x for v in g['vertices'] for x in v]);obj.data.update();obj.data.normals_split_custom_set_from_vertices(g['normals'])
- for label,scale,target,offset in [('front',142,(-20,-3,61),(-260,30,50)),('close',57,(-28,-3,91),(-180,25,8))]:
+ for label,scale,target,offset in [('front',142,(-20,-3,61),(-260,30,50)),('close',64,(-28,-3,89),(-180,25,8))]:
   camera.ortho_scale=scale;target=Vector(target);cam.location=target+Vector(offset);cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler()
   scene.render.filepath=str(folder/(filename+'-'+label+'.png'));bpy.ops.render.render(write_still=True)
  print('RENDERED',filename,flush=True)
@@ -60,7 +60,12 @@ if '--animate' in sys.argv:
     j=max(0,bisect.bisect_right(a['frames'],time)-1);q=a['values'][j];rotation=Quaternion((q[3],q[0],q[1],q[2]))
     if j+1<len(a['frames']) and time>a['frames'][j]:
      q=a['values'][j+1];rotation=rotation.slerp(Quaternion((q[3],q[0],q[1],q[2])),(time-a['frames'][j])/(a['frames'][j+1]-a['frames'][j]))
-   local=np.eye(4);local[:3,:3]=np.array(rotation.to_matrix());p=np.array(node['pivot']);local[:3,3]=p-local[:3,:3]@p
+   translation=np.zeros(3);a=node.get('translation')
+   if a:
+    j=max(0,bisect.bisect_right(a['frames'],time)-1);translation=np.array(a['values'][j])
+    if j+1<len(a['frames']) and time>a['frames'][j]:
+     fraction=(time-a['frames'][j])/(a['frames'][j+1]-a['frames'][j]);translation=translation*(1-fraction)+np.array(a['values'][j+1])*fraction
+   local=np.eye(4);local[:3,:3]=np.array(rotation.to_matrix());p=np.array(node['pivot']);local[:3,3]=p-local[:3,:3]@p+translation
    matrices[i]=matrices[parent]@local if parent>=0 else local
   for i in range(len(nodes)):resolve(i)
   return np.array(matrices)
