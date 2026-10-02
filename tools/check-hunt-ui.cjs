@@ -85,6 +85,24 @@ check('상태창 공통 메뉴 숨김, 아이콘 툴팁의 경계·타인 입력
   t.click(t.common(-e.EXP_UI_STATS));assert(!t.visible(e.UIPrototypeStatus_Tooltip));
   assert.equal(JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]),snapshot);assert.equal(t.packets.length,0);
 });
+check('전체 상태창 내용 패널 크기·배경 위 표시 순서와 닫기 버튼 우선순위',()=>{
+  const t=fresh(0,true),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));
+  const canvas=t.frame(e.UIPrototypeStatus_Canvas),close=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]];
+  for(const id of [e.UIPrototypeStatus_StatsPanel,e.UIPrototypeStatus_CardsPanel]){
+    const panel=t.frame(id);assert.equal(panel.w,.8);assert.equal(panel.h,.6);
+    assert.equal(panel.parent,canvas.id);assert(panel.priority>canvas.priority);
+    assert(t.frame(close).priority>panel.priority);
+  }
+  assert(t.visible(e.UIPrototypeStatus_StatsPanel));assert(!t.visible(e.UIPrototypeStatus_CardsPanel));assert(t.visible(close));assert.equal(e.UIPrototypeStatus_RenderStep,6);
+  t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
+  assert(!t.visible(e.UIPrototypeStatus_StatsPanel));assert(t.visible(e.UIPrototypeStatus_CardsPanel));
+  assert.equal(e.UIPrototypeStatus_ClickCount,1);assert.equal(e.UIPrototypeStatus_ClickStep,122);assert.equal(e.UIPrototypeStatus_RenderStep,7);
+  t.click(close);assert(!t.visible(canvas.id));
+  const lines=[];e.DisplayTimedTextToPlayer=(...args)=>lines.push(args[4]);
+  e.eventPlayer=1;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,0);
+  e.eventPlayer=0;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,2);assert(lines[0].includes('clickStep=122'));
+
+});
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
   const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;
