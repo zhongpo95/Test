@@ -1,8 +1,7 @@
 // 원정 스탯 배분과 획득한 성장 효과를 선택지와 분리하여 표시한다.
-library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIPrototypeStatus
+library UIExpeditionStats initializer Init requires UIExpeditionCommon
     globals
         private integer Root
-        private integer LegacyPanel
         private integer Points
         private integer Crit
         private integer Swift
@@ -38,13 +37,6 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
         local boolean editable
         local string owned = ""
         if Root == 0 or pid > 3 or not PickCheck[pid] then
-            return
-        endif
-        call DzFrameShow(LegacyPanel, not ExpPrototypeEnabled)
-        call ProtoStatusRender(pid)
-        if ExpPrototypeEnabled then
-            call DzFrameSetSize(Root, 0.8, 0.6)
-            call DzFrameSetAbsolutePoint(Root, JN_FRAMEPOINT_TOPLEFT, 0, 0.6)
             return
         endif
         set remaining = ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]
@@ -162,24 +154,21 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
         local integer f
         set Root = ExpUIRoot(EXP_UI_STATS, 0.52, 0.435, 0.540, true)
         set f = ExpUIHeader(Root, 0.52, "원정 성장·카드")
-        set LegacyPanel = DzCreateFrameByTagName("FRAME", "", Root, "", FrameCount())
-        call DzFrameSetPoint(LegacyPanel, JN_FRAMEPOINT_TOPLEFT, Root, JN_FRAMEPOINT_TOPLEFT, 0, 0)
-        set Points = ExpUILabel(LegacyPanel, 0.024, 0.062, 0.47, 0.030, 0.013, "")
-        set f = ExpUITexture(LegacyPanel, 0.020, 0.103, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
-        set Crit = ExpUILabel(LegacyPanel, 0.037, 0.114, 0.30, 0.046, 0.011, "")
-        set AddCrit = ExpUIButton(LegacyPanel, 0.358, 0.120, 0.125, 0.028, "+1 포인트", 101)
-        set f = ExpUITexture(LegacyPanel, 0.020, 0.174, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
-        set Swift = ExpUILabel(LegacyPanel, 0.037, 0.185, 0.30, 0.046, 0.011, "")
-        set AddSwift = ExpUIButton(LegacyPanel, 0.358, 0.191, 0.125, 0.028, "+1 포인트", 102)
-        set f = ExpUILabel(LegacyPanel, 0.024, 0.251, 0.46, 0.020, 0.011, "이번 원정에서 획득한 효과")
-        set Effects = ExpUILabel(LegacyPanel, 0.024, 0.278, 0.47, 0.105, 0.009, "")
-        set PreviousCard = ExpUIButton(LegacyPanel, 0.024, 0.390, 0.060, 0.028, "이전", 0)
-        set NextCard = ExpUIButton(LegacyPanel, 0.090, 0.390, 0.060, 0.028, "다음", 0)
+        set Points = ExpUILabel(Root, 0.024, 0.062, 0.47, 0.030, 0.013, "")
+        set f = ExpUITexture(Root, 0.020, 0.103, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
+        set Crit = ExpUILabel(Root, 0.037, 0.114, 0.30, 0.046, 0.011, "")
+        set AddCrit = ExpUIButton(Root, 0.358, 0.120, 0.125, 0.028, "+1 포인트", 101)
+        set f = ExpUITexture(Root, 0.020, 0.174, 0.48, 0.062, "war3mapImported\\UI_Upgrade_Card.tga")
+        set Swift = ExpUILabel(Root, 0.037, 0.185, 0.30, 0.046, 0.011, "")
+        set AddSwift = ExpUIButton(Root, 0.358, 0.191, 0.125, 0.028, "+1 포인트", 102)
+        set f = ExpUILabel(Root, 0.024, 0.251, 0.46, 0.020, 0.011, "이번 원정에서 획득한 효과")
+        set Effects = ExpUILabel(Root, 0.024, 0.278, 0.47, 0.105, 0.009, "")
+        set PreviousCard = ExpUIButton(Root, 0.024, 0.390, 0.060, 0.028, "이전", 0)
+        set NextCard = ExpUIButton(Root, 0.090, 0.390, 0.060, 0.028, "다음", 0)
         call DzFrameSetScriptByCode(ExpUIButtons[PreviousCard], JN_FRAMEEVENT_MOUSE_UP, function CardPageClick, false)
         call DzFrameSetScriptByCode(ExpUIButtons[NextCard], JN_FRAMEEVENT_MOUSE_UP, function CardPageClick, false)
-        set Reset = ExpUIButton(LegacyPanel, 0.164, 0.390, 0.115, 0.028, "배분 초기화", 103)
-        set Hint = ExpUILabel(LegacyPanel, 0.294, 0.395, 0.202, 0.030, 0.0085, "")
-        call ProtoStatusBuild(Root)
+        set Reset = ExpUIButton(Root, 0.164, 0.390, 0.115, 0.028, "배분 초기화", 103)
+        set Hint = ExpUILabel(Root, 0.294, 0.395, 0.202, 0.030, 0.0085, "")
         call TriggerAddAction(ExpRefresh, function Render)
     endfunction
 

@@ -2,7 +2,7 @@
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
 const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
-  'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
+  'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_PrototypeStatus.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 function fresh(localPlayer = 0, prototype = false) {
@@ -12,6 +12,8 @@ function fresh(localPlayer = 0, prototype = false) {
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(prototypeFiles, {
     F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
+    Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[100,100,100,100], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
+    Arcana_CriDeal:[0,0,0,0], Equip_ED:[0,0,0,0], Equip_WDP:[0,0,0,0], Equip_DP:[1,1,1,1], FinalDamageBonus:pid=>env.ProtoStat(pid,env.PROTO_STAT_FINAL),
     JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
@@ -38,6 +40,7 @@ function fresh(localPlayer = 0, prototype = false) {
   });
   e = env;
   e.localPlayer = localPlayer;
+  e.ExpPrototypeEnabled=prototype;
   if(prototype){
     e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeEnabled=true;
     e.MapSt[5]=e.MapSt[6]={caster:null};e.MapRectCheck[5]=e.MapRectCheck[6]=true;
@@ -64,7 +67,7 @@ function fresh(localPlayer = 0, prototype = false) {
     throw Error('No visible button for action '+action);
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
-  const start = () => {render();click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
+  const start = () => {render();if(prototype && e.ExpUIPanel!==8){click(common(-98));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
   const roots = () => Array.from({length:9},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
   if(prototype){flush();render();}
@@ -183,7 +186,7 @@ check('선택·투표·사건·상점의 같은 버튼으로 접기/열기, 전�
     for(let repeat=0;repeat<2;repeat++){
       t.click(button);assert.deepEqual(t.roots(),[]);assert(t.visible(button));assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('열기'));
       t.render();assert(t.visible(button));assert.deepEqual([f.parent,f.relative,f.x,f.y,f.w,f.h],geometry);
-      t.click(button);assert.deepEqual(t.roots(),[panel]);assert(t.frame(e.ExpUIButtonLabels[index]).text.includes('접기'));
+      t.click(button);assert.deepEqual(t.roots(),[panel]);assert.equal(t.frame(e.ExpUIButtonLabels[index]).text.replace(/\|c[0-9a-f]{8}|\|r/gi,''),'X');
     }
     t.click(button);e.F_UpgradeOnOff[0]=true;t.render();assert(!t.visible(button));
     e.F_UpgradeOnOff[0]=false;t.render();assert(t.visible(button));

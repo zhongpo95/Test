@@ -27,6 +27,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         integer array ProtoCardGrade
         integer array ProtoEvolutionKind
         integer array ProtoEventHead
+        integer array ProtoEventGrade
         integer array ProtoEventKind
         integer array ProtoEventAPCost
         integer array ProtoEventRequired
@@ -57,7 +58,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[1] = 1
         set ProtoEventKind[1] = 0
         set ProtoEventChoices[1] = 1
-        set ProtoEventAPCost[1] = 1
+        set ProtoEventAPCost[1] = 0
+        set ProtoEventGrade[1] = 1
         set ProtoEventStory[1] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIntro[1] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIcon[1] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -66,7 +68,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[2] = 1
         set ProtoEventKind[2] = 0
         set ProtoEventChoices[2] = 1
-        set ProtoEventAPCost[2] = 1
+        set ProtoEventAPCost[2] = 0
+        set ProtoEventGrade[2] = 1
         set ProtoEventStory[2] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIntro[2] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIcon[2] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -75,7 +78,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[3] = 1
         set ProtoEventKind[3] = 0
         set ProtoEventChoices[3] = 1
-        set ProtoEventAPCost[3] = 1
+        set ProtoEventAPCost[3] = 0
+        set ProtoEventGrade[3] = 1
         set ProtoEventStory[3] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIntro[3] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIcon[3] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -84,7 +88,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[4] = 1
         set ProtoEventKind[4] = 0
         set ProtoEventChoices[4] = 1
-        set ProtoEventAPCost[4] = 1
+        set ProtoEventAPCost[4] = 0
+        set ProtoEventGrade[4] = 1
         set ProtoEventStory[4] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIntro[4] = "학교에 남은 술식과 류도사의 검술가. 시로와 린의 판단이 엇갈리는 후유키에서, 다음 전투를 준비할 방법을 고른다."
         set ProtoEventIcon[4] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -329,6 +334,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[53] = 1
         set ProtoEventChoices[53] = 3
         set ProtoEventAPCost[53] = 1
+        set ProtoEventGrade[53] = 2
         set ProtoEventStory[53] = "수업이 끝난 복도에 학생들이 주저앉아 있다. 린은 바닥에 남은 술식의 흔적을 짚고, 먼저 발동을 막을지 근원을 추적할지 묻는다. 시로는 흩어진 학생부터 내보내려 한다."
         set ProtoEventIntro[53] = "린과 시로가 학교의 술식 앞에서 서로 다른 준비를 제안한다."
         set ProtoEventIcon[53] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -372,6 +378,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[54] = 1
         set ProtoEventChoices[54] = 3
         set ProtoEventAPCost[54] = 1
+        set ProtoEventGrade[54] = 2
         set ProtoEventStory[54] = "학교의 기록을 정리한 린이 가스 누출 사고 현장에 남은 다른 마력 흔적을 보여 준다. 아처는 그 흔적에 이끌려 깊이 들어가기보다 다음 큰 전투에 대비하라고 한다. 현장을 더 살필지, 아처에게 상대를 관찰할 자리를 물을지 정한다."
         set ProtoEventIntro[54] = "학교 조사 뒤 린이 따로 찾아낸 흔적. 추적과 다음 전투의 준비 중 하나를 맡는다."
         set ProtoEventIcon[54] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -415,6 +422,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[55] = 1
         set ProtoEventChoices[55] = 3
         set ProtoEventAPCost[55] = 1
+        set ProtoEventGrade[55] = 2
         set ProtoEventStory[55] = "아침 수련에서 세이버는 네 발이 검보다 먼저 나가는 버릇을 지적한다. 방어 자세부터 고칠 수도 있고, 상대의 검끝을 지나치는 순간을 연습할 수도 있다. 옆에서 시로가 수련에 필요한 준비물을 챙긴다."
         set ProtoEventIntro[55] = "세이버의 수련에서 버틸 자세와 공격할 간격을 고른다."
         set ProtoEventIcon[55] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -458,6 +466,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[56] = 1
         set ProtoEventChoices[56] = 3
         set ProtoEventAPCost[56] = 1
+        set ProtoEventGrade[56] = 2
         set ProtoEventStory[56] = "류도사의 돌계단 끝에서 어새신이 칼을 낮게 든다. 세이버는 이 계단에서 무작정 돌진하면 간격을 잃는다고 경고한다. 검술가의 발을 읽으며 다가갈지, 세이버와 통과할 틈을 만들지 결정해야 한다."
         set ProtoEventIntro[56] = "류도사 산문에서 검의 간격을 읽거나 통과할 준비를 한다."
         set ProtoEventIcon[56] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -501,6 +510,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[57] = 1
         set ProtoEventChoices[57] = 3
         set ProtoEventAPCost[57] = 1
+        set ProtoEventGrade[57] = 2
         set ProtoEventStory[57] = "타이가는 부실의 상자를 손가락으로 세다가 목록을 다시 편다. 한 상자에는 가져온 사람의 이름이 없다. 시로는 먼저 학생들에게 물어보자고 한다."
         set ProtoEventIntro[57] = "누락된 상자의 주인을 찾을지, 다른 구역의 확인을 도울지 결정한다."
         set ProtoEventIcon[57] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -544,6 +554,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[58] = 1
         set ProtoEventChoices[58] = 3
         set ProtoEventAPCost[58] = 1
+        set ProtoEventGrade[58] = 2
         set ProtoEventStory[58] = "린이 빈 연락 기록을 시로 앞에 놓는다. 시로는 다른 사람의 일을 돕다 잊었다고 한다. 세이버는 확인할 곳을 나누면 될지 묻는다."
         set ProtoEventIntro[58] = "빠진 연락을 확인할지, 맡을 구역을 줄일지 정한다."
         set ProtoEventIcon[58] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -587,6 +598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[59] = 1
         set ProtoEventChoices[59] = 3
         set ProtoEventAPCost[59] = 1
+        set ProtoEventGrade[59] = 2
         set ProtoEventStory[59] = "신지는 자신이 라이더의 마스터라는 말을 먼저 꺼내고 협력을 제안한다. 린은 원하는 조건이 빠져 있다고 지적한다. 시로는 받아들일지보다 먼저 무엇을 확인할지 망설인다."
         set ProtoEventIntro[59] = "제안의 근거를 찾을지, 아처와 요구사항을 파악할지 결정한다."
         set ProtoEventIcon[59] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -630,6 +642,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[60] = 1
         set ProtoEventChoices[60] = 3
         set ProtoEventAPCost[60] = 1
+        set ProtoEventGrade[60] = 2
         set ProtoEventStory[60] = "린이 오늘은 잠깐 바깥을 둘러보자고 한다. 세이버는 낯선 길에서 자꾸 주위를 살피고 시로의 걸음이 앞서간다. 준비할 물건과 걸을 범위를 골라야 한다."
         set ProtoEventIntro[60] = "세이버와 보폭을 맞출지, 린과 기록을 정리할지 결정한다."
         set ProtoEventIcon[60] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -673,6 +686,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[61] = 1
         set ProtoEventChoices[61] = 3
         set ProtoEventAPCost[61] = 1
+        set ProtoEventGrade[61] = 2
         set ProtoEventStory[61] = "잇세이의 진술에는 직접 본 일과 들은 일이 같은 줄에 적혀 있다. 린은 어느 말이 어느 쪽인지 다시 묻고 싶어 한다. 시로는 같은 학교 선생님이라는 이유만으로 결론 내릴 수 없다고 말한다."
         set ProtoEventIntro[61] = "더 넓은 구역을 확인해 사실을 파악할지, 시로와 구조를 살필지 선택한다."
         set ProtoEventIcon[61] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -716,6 +730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[62] = 1
         set ProtoEventChoices[62] = 3
         set ProtoEventAPCost[62] = 1
+        set ProtoEventGrade[62] = 2
         set ProtoEventStory[62] = "시로와 아처는 다음 싸움에서 무엇을 먼저 맡을지 다르게 생각한다. 시로는 놓치게 될 사람을, 아처는 감당할 결과를 짚는다. 누구에게 맞추더라도 둘의 의견 차이는 남는다."
         set ProtoEventIntro[62] = "시로의 뜻에 따라 강한 상대를 맡을지, 아처의 뜻에 따라 전장의 부담을 나눌지 결정한다."
         set ProtoEventIcon[62] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -759,6 +774,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[63] = 1
         set ProtoEventChoices[63] = 3
         set ProtoEventAPCost[63] = 1
+        set ProtoEventGrade[63] = 2
         set ProtoEventStory[63] = "좁은 길 끝에 선 랜서가 창을 한쪽으로 돌리자 너는 빈 쪽으로 지나갈 수 있다고 생각한다. 뒤에서 지켜보던 세이버는 창끝이 비었다고 발을 둘 자리까지 빈 것은 아니라고 말한다. 랜서는 겁을 주려는지 길을 열어 준 것인지 답하지 않고 네가 먼저 고를 쪽을 본다."
         set ProtoEventIntro[63] = "창이 비킨 쪽을 택할지 발을 둘 간격부터 볼지 정한다."
         set ProtoEventIcon[63] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -802,6 +818,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[64] = 1
         set ProtoEventChoices[64] = 3
         set ProtoEventAPCost[64] = 0
+        set ProtoEventGrade[64] = 2
         set ProtoEventStory[64] = "타이가와 사쿠라가 묵을 준비를 하는데 시로의 손에 펼치지 않은 이불 하나가 남아 있다. 세이버는 사라져 자리를 비울 수 없고 타이가는 네가 아직 외투를 벗지 않은 것을 본다. 사쿠라가 이불 끝을 받아 들자 너는 자기 외투와 아직 남은 한 사람 몫을 번갈아 본다."
         set ProtoEventIntro[64] = "내 이불을 펼칠까, 외투를 챙길까?"
         set ProtoEventIcon[64] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -845,6 +862,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[65] = 1
         set ProtoEventChoices[65] = 3
         set ProtoEventAPCost[65] = 1
+        set ProtoEventGrade[65] = 2
         set ProtoEventStory[65] = "네가 놓은 화살이 표적에 닿기 전에 바닥에 내려앉자 타이가는 다음 화살보다 네 손부터 보라고 한다. 시로가 화살을 가져오지만 너는 이미 다시 쏠 자세를 잡고 있다. 타이가는 가져온 화살을 아직 받지도 않았는데 무엇부터 서두르는지 묻는다."
         set ProtoEventIntro[65] = "다음 화살을 받기 전에 무엇을 물을까?"
         set ProtoEventIcon[65] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -888,6 +906,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[66] = 1
         set ProtoEventChoices[66] = 3
         set ProtoEventAPCost[66] = 1
+        set ProtoEventGrade[66] = 2
         set ProtoEventStory[66] = "교회에서 키레이가 보호를 설명하자 너는 문 안에 있으면 다음 위험도 사라질 것이라 생각한다. 린은 감독자가 말한 범위에 네 다음 사냥까지 들어 있었냐고 묻는다. 키레이는 먼저 네가 무엇을 보호받으려는지 말하라며 대답을 기다린다."
         set ProtoEventIntro[66] = "이 말에 내 다음 사냥도 들어 있었을까?"
         set ProtoEventIcon[66] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -931,6 +950,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[67] = 1
         set ProtoEventChoices[67] = 3
         set ProtoEventAPCost[67] = 1
+        set ProtoEventGrade[67] = 2
         set ProtoEventStory[67] = "아처가 막아낸 다음에도 상대의 손을 보는 사이 너는 대응이 끝났다고 한 발을 내놓는다. 랜서는 창을 고쳐 쥐며 그 발자리도 다음 움직임 안에 들어갈 수 있다고 말한다. 아처는 눈을 상대의 손에서 떼지 않은 채 네가 어디에 발을 둘 것인지 묻는다."
         set ProtoEventIntro[67] = "막아 냈다고 이 발자리도 안전할까?"
         set ProtoEventIcon[67] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -974,6 +994,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[68] = 1
         set ProtoEventChoices[68] = 3
         set ProtoEventAPCost[68] = 1
+        set ProtoEventGrade[68] = 2
         set ProtoEventStory[68] = "타이가에게 성급한 동작을 물었던 네 앞에 시로가 다음 화살을 놓는다. 타이가는 아직 줄을 당기지 않았는데 네 눈이 벌써 표적에 가 있다고 말한다. 시로가 가져온 화살은 손 닿을 곳에 있지만 네 손은 그것을 받기 전에 다시 앞을 향한다."
         set ProtoEventIntro[68] = "놓지 않은 손보다 결과가 먼저 앞서갔다."
         set ProtoEventIcon[68] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -1025,7 +1046,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[5] = 2
         set ProtoEventKind[5] = 0
         set ProtoEventChoices[5] = 1
-        set ProtoEventAPCost[5] = 1
+        set ProtoEventAPCost[5] = 0
+        set ProtoEventGrade[5] = 1
         set ProtoEventStory[5] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIntro[5] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIcon[5] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1034,7 +1056,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[6] = 2
         set ProtoEventKind[6] = 0
         set ProtoEventChoices[6] = 1
-        set ProtoEventAPCost[6] = 1
+        set ProtoEventAPCost[6] = 0
+        set ProtoEventGrade[6] = 1
         set ProtoEventStory[6] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIntro[6] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIcon[6] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1043,7 +1066,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[7] = 2
         set ProtoEventKind[7] = 0
         set ProtoEventChoices[7] = 1
-        set ProtoEventAPCost[7] = 1
+        set ProtoEventAPCost[7] = 0
+        set ProtoEventGrade[7] = 1
         set ProtoEventStory[7] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIntro[7] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIcon[7] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1052,7 +1076,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[8] = 2
         set ProtoEventKind[8] = 0
         set ProtoEventChoices[8] = 1
-        set ProtoEventAPCost[8] = 1
+        set ProtoEventAPCost[8] = 0
+        set ProtoEventGrade[8] = 1
         set ProtoEventStory[8] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIntro[8] = "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자."
         set ProtoEventIcon[8] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1329,6 +1354,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[69] = 1
         set ProtoEventChoices[69] = 3
         set ProtoEventAPCost[69] = 1
+        set ProtoEventGrade[69] = 2
         set ProtoEventStory[69] = "루나가 손님이 몰리는 시간에 의뢰서를 놓쳤다. 약한 몬스터 무리가 방치된 길과 강한 몬스터가 남은 길을 모두 정리해야 하지만, 한 사람이 두 곳을 맡기는 어렵다. 카즈마는 보수가 큰 쪽을, 다크니스는 맞아 줄 일이 많은 쪽을 가리킨다."
         set ProtoEventIntro[69] = "길드 의뢰 두 개가 겹쳤다. 어느 쪽을 맡을까?"
         set ProtoEventIcon[69] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1372,6 +1398,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[70] = 1
         set ProtoEventChoices[70] = 4
         set ProtoEventAPCost[70] = 1
+        set ProtoEventGrade[70] = 2
         set ProtoEventStory[70] = "처리한 의뢰의 보수 명세서가 보이지 않는다. 카즈마가 주머니를 뒤지자 크리스가 도적에게는 물건을 찾는 방법도 중요하다며 웃는다. 급히 사냥을 다시 시작할지, 그녀와 흔적을 찾을지 정해야 한다."
         set ProtoEventIntro[70] = "완료한 의뢰의 보수 명세서가 사라졌다."
         set ProtoEventIcon[70] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1425,6 +1452,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[71] = 1
         set ProtoEventChoices[71] = 3
         set ProtoEventAPCost[71] = 1
+        set ProtoEventGrade[71] = 3
         set ProtoEventStory[71] = "메구밍이 오늘 사용할 폭렬 마법의 장소를 찾는다. 당신의 사냥터 근처에는 무너져도 되는 빈 암벽이 있지만, 큰 소리에 강한 몬스터까지 접근할 수 있다. 위즈는 안전 거리를 계산해 주겠다고 한다."
         set ProtoEventIntro[71] = "폭렬 마법을 쓸 장소를 확보해 달라는 부탁."
         set ProtoEventIcon[71] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1468,6 +1496,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[72] = 1
         set ProtoEventChoices[72] = 3
         set ProtoEventAPCost[72] = 1
+        set ProtoEventGrade[72] = 3
         set ProtoEventStory[72] = "위즈의 장부에는 물건이 팔렸는데도 적자가 남아 있다. 바니르는 원가를 세는 방식부터 잘못됐다며 장부를 내민다. 고장 난 마도구를 확인하는 일과 물건의 가치를 가려내는 일을 한꺼번에 할 수는 없다."
         set ProtoEventIntro[72] = "위즈의 마도구 가게에서 장부와 불량품이 엉켰다."
         set ProtoEventIcon[72] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1511,6 +1540,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[73] = 1
         set ProtoEventChoices[73] = 3
         set ProtoEventAPCost[73] = 1
+        set ProtoEventGrade[73] = 2
         set ProtoEventStory[73] = "아쿠아가 맛있는 음식과 특이한 돌을 골랐다가 소모품 예산을 다 썼다. 마침 사냥 전 보급을 준비하던 당신에게 축복을 해 주겠다며 도움을 청한다. 지금 회복 수단을 늘릴지, 앞으로 조금씩 회복할지 고민할 때다."
         set ProtoEventIntro[73] = "아쿠아가 보급 예산을 써 버렸다."
         set ProtoEventIcon[73] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1554,6 +1584,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[74] = 1
         set ProtoEventChoices[74] = 3
         set ProtoEventAPCost[74] = 1
+        set ProtoEventGrade[74] = 2
         set ProtoEventStory[74] = "길에서 만난 몬스터들이 유독 다크니스의 갑옷으로 달려든다. 그녀는 버틸 수 있다고 하지만, 당신이 공격할 공간까지 사라지고 있다. 한곳에 더 모아 쓰러뜨릴지, 통로부터 비울지 판단해야 한다."
         set ProtoEventIntro[74] = "몬스터들이 다크니스에게 몰려 공격할 틈이 없다."
         set ProtoEventIcon[74] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1597,6 +1628,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[75] = 1
         set ProtoEventChoices[75] = 3
         set ProtoEventAPCost[75] = 1
+        set ProtoEventGrade[75] = 2
         set ProtoEventStory[75] = "아쿠아가 물을 쓰는 연회 재주를 보여 주겠다며 자리를 잡는다. 카즈마는 바로 옆에 모험가들의 짐이 쌓였는데도 박수부터 바라느냐고 타박하고, 루나는 젖으면 곤란한 짐을 먼저 나누자고 한다. 아쿠아는 자리를 비우면 더 멋진 것을 보여 줄 수 있다고 물러서지 않는다."
         set ProtoEventIntro[75] = "공연 자리를 도울지, 밖의 일을 맡을지 정한다."
         set ProtoEventIcon[75] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1640,6 +1672,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[76] = 1
         set ProtoEventChoices[76] = 3
         set ProtoEventAPCost[76] = 1
+        set ProtoEventGrade[76] = 2
         set ProtoEventStory[76] = "다크니스가 귀여운 진열품 앞에서 멈추는 바람에 뒤의 사람들이 지나가지 못한다. 크리스가 슬쩍 옆으로 비키라고 하자 다크니스는 관심 없는 척하다가 같은 물건을 다시 본다. 카즈마는 갑옷을 입고 서 있으면 작은 물건보다 네가 더 눈에 띈다고 말한다."
         set ProtoEventIntro[76] = "작은 진열품 앞의 정체를 풀어 보자."
         set ProtoEventIcon[76] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1683,6 +1716,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[77] = 1
         set ProtoEventChoices[77] = 3
         set ProtoEventAPCost[77] = 1
+        set ProtoEventGrade[77] = 3
         set ProtoEventStory[77] = "융융이 여러 공격을 연습할 표적을 가져왔는데 메구밍은 폭렬 마법 하나로 끝낼 수 있는 자리를 고른다. 융융은 먼저 작은 표적의 간격도 보자고 하고 메구밍은 큰 자리부터 보자고 맞선다. 카즈마는 연습 전에 둘이 같은 표적을 노리지 않도록 네가 맡을 쪽을 정하라고 한다."
         set ProtoEventIntro[77] = "한 번의 큰 공격과 여러 공격의 간격을 비교한다."
         set ProtoEventIcon[77] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1726,6 +1760,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[78] = 1
         set ProtoEventChoices[78] = 3
         set ProtoEventAPCost[78] = 1
+        set ProtoEventGrade[78] = 2
         set ProtoEventStory[78] = "미츠루기가 아쿠아에게 마검 그람의 이름부터 설명하려는데 크리스는 검보다 먼저 어느 쪽을 맡을지 묻는다. 카즈마는 소개를 듣는 동안 바깥 길목은 누가 볼 것이냐고 끼어든다. 아쿠아가 자기를 위한 설명이 얼마나 남았냐고 묻자 미츠루기는 다시 자세를 고쳐 선다."
         set ProtoEventIntro[78] = "검의 이름을 듣기 전에 맡을 자리를 정한다."
         set ProtoEventIcon[78] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1769,6 +1804,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[79] = 1
         set ProtoEventChoices[79] = 3
         set ProtoEventAPCost[79] = 0
+        set ProtoEventGrade[79] = 2
         set ProtoEventStory[79] = "새 모험가가 루나에게 어느 길로 나가야 하냐고 묻다가, 적을 만나면 누구에게 물어야 하냐고 다시 묻는다. 길드에서 늘 모험가를 맞는 거친 남자는 일단 들어올 자리부터 비우자고 한다. 카즈마는 창구에서 답을 듣는 일과 바깥의 강한 적을 확인하는 일을 한 사람이 전부 맡지 말자고 한다."
         set ProtoEventIntro[79] = "신참의 다음 질문까지 맡을지, 바깥을 맡을지 정한다."
         set ProtoEventIcon[79] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1812,6 +1848,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[80] = 1
         set ProtoEventChoices[80] = 3
         set ProtoEventAPCost[80] = 1
+        set ProtoEventGrade[80] = 2
         set ProtoEventStory[80] = "호숫가에서 아쿠아가 든 우리를 보던 구경꾼이 사람을 버리는 것 아니냐며 네 앞을 막는다. 카즈마는 정화 의뢰라고 해명하는 동안 줄을 잡아 줄 손을 찾고, 우리 안의 아쿠아는 해명보다 끌어올리는 때를 놓치지 말라고 외친다. 너는 구경꾼과 줄 사이에서 지금 자기 손을 어디에 쓸지 정한다."
         set ProtoEventIntro[80] = "해명하는 말과 끌어올리는 손 중 어디에 힘을 보탤까?"
         set ProtoEventIcon[80] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1855,6 +1892,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[81] = 1
         set ProtoEventChoices[81] = 3
         set ProtoEventAPCost[81] = 1
+        set ProtoEventGrade[81] = 2
         set ProtoEventStory[81] = "눈의 정령을 쫓던 카즈마가 저쪽에도 더 있다며 손가락을 뻗는다. 뒤돌아보니 네가 남긴 발자국은 겹쳐 있어 어디서 내려왔는지 바로 보이지 않고, 아쿠아는 쉬운 의뢰라도 돌아갈 길을 놓치지 말라고 말한다. 너는 더 멀리 쫓을 발걸음과 지금 확보할 보급 중 자기 몫을 정한다."
         set ProtoEventIntro[81] = "더 쫓아갈 발걸음과 돌아올 보급 중 무엇을 맡을까?"
         set ProtoEventIcon[81] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1898,6 +1936,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[82] = 1
         set ProtoEventChoices[82] = 3
         set ProtoEventAPCost[82] = 1
+        set ProtoEventGrade[82] = 2
         set ProtoEventStory[82] = "위즈가 카즈마의 질문에 답하려는데 아쿠아가 제령 의뢰가 왔다며 말을 끊는다. 카즈마는 아직 질문이 끝나지 않았다고 하고 위즈는 답하던 손을 멈춘 채 너도 무엇을 물으러 왔는지 묻는다. 네가 마치려던 질문은 아직 남았고 문밖에는 옮겨야 할 보급품도 기다리고 있다."
         set ProtoEventIntro[82] = "남은 질문을 마칠까, 밖의 준비를 맡을까?"
         set ProtoEventIcon[82] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1941,6 +1980,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[83] = 1
         set ProtoEventChoices[83] = 3
         set ProtoEventAPCost[83] = 1
+        set ProtoEventGrade[83] = 2
         set ProtoEventStory[83] = "제령 의뢰의 저택 앞에서 아쿠아가 기운이 난다는 창문을 가리키자 카즈마는 먼저 의뢰인을 만나야 하지 않냐고 묻는다. 위즈는 두 사람이 서로 다른 문턱에 서 있는 동안에도 의뢰받은 집인지 다시 확인하고 있다. 너는 아직 열리지 않은 문과 바깥에 남은 발자국 사이에서 자기 일을 고른다."
         set ProtoEventIntro[83] = "아직 열린 문이 없다. 먼저 무엇을 확인할까?"
         set ProtoEventIcon[83] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -1984,6 +2024,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[84] = 1
         set ProtoEventChoices[84] = 3
         set ProtoEventAPCost[84] = 1
+        set ProtoEventGrade[84] = 2
         set ProtoEventStory[84] = "줄을 붙들었던 네 앞에 우리를 올려놓을 자리가 마련되었는데도 구경꾼이 이제 놓아도 되냐고 묻는다. 카즈마는 먼저 발 디딜 자리를 보자고 하고 아쿠아는 밖에 나와도 다시 물속에 넣지 말라며 손을 뻗는다. 너는 손을 떼기 전의 짧은 준비와 돌아올 보급 중 무엇을 맡을지 정한다."
         set ProtoEventIntro[84] = "우리를 내려놓기 전, 손을 언제 뗄 수 있을까?"
         set ProtoEventIcon[84] = "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
@@ -2035,7 +2076,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[9] = 3
         set ProtoEventKind[9] = 0
         set ProtoEventChoices[9] = 1
-        set ProtoEventAPCost[9] = 1
+        set ProtoEventAPCost[9] = 0
+        set ProtoEventGrade[9] = 1
         set ProtoEventStory[9] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIntro[9] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIcon[9] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2044,7 +2086,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[10] = 3
         set ProtoEventKind[10] = 0
         set ProtoEventChoices[10] = 1
-        set ProtoEventAPCost[10] = 1
+        set ProtoEventAPCost[10] = 0
+        set ProtoEventGrade[10] = 1
         set ProtoEventStory[10] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIntro[10] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIcon[10] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2053,7 +2096,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[11] = 3
         set ProtoEventKind[11] = 0
         set ProtoEventChoices[11] = 1
-        set ProtoEventAPCost[11] = 1
+        set ProtoEventAPCost[11] = 0
+        set ProtoEventGrade[11] = 1
         set ProtoEventStory[11] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIntro[11] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIcon[11] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2062,7 +2106,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[12] = 3
         set ProtoEventKind[12] = 0
         set ProtoEventChoices[12] = 1
-        set ProtoEventAPCost[12] = 1
+        set ProtoEventAPCost[12] = 0
+        set ProtoEventGrade[12] = 1
         set ProtoEventStory[12] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIntro[12] = "사막에 둘러싸인 학교에서 대책위원회가 마지막 교실을 지킨다. 학교의 빚을 한 번에 없애지는 못해도, 보급과 조사에서 당신이 맡을 일은 있다."
         set ProtoEventIcon[12] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2377,6 +2422,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[85] = 1
         set ProtoEventChoices[85] = 3
         set ProtoEventAPCost[85] = 1
+        set ProtoEventGrade[85] = 2
         set ProtoEventStory[85] = "학교로 오는 보급품이 모래에 막혔다. 아야네의 지도에는 시로코가 확인한 지름길과 적이 모이는 큰길이 표시돼 있다. 노노미는 필요한 물건을 놓치지 않도록 뒤에서 엄호하겠다고 한다."
         set ProtoEventIntro[85] = "아야네가 보급로 두 곳 중 맡을 길을 묻는다."
         set ProtoEventIcon[85] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2420,6 +2466,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[86] = 1
         set ProtoEventChoices[86] = 3
         set ProtoEventAPCost[86] = 1
+        set ProtoEventGrade[86] = 2
         set ProtoEventStory[86] = "시바세키 라멘에 손님이 몰렸는데 세리카는 대책위원회 일도 마쳐야 한다. 그녀는 가게가 자신의 것이 아니어도 피해를 주고 싶지 않다며 주문서를 붙잡는다. 배달과 주문 정리, 재료 운송 중 나눠 맡을 일을 고른다."
         set ProtoEventIntro[86] = "라멘 가게 아르바이트와 학교 일이 겹친 세리카."
         set ProtoEventIcon[86] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2463,6 +2510,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[87] = 1
         set ProtoEventChoices[87] = 3
         set ProtoEventAPCost[87] = 1
+        set ProtoEventGrade[87] = 2
         set ProtoEventStory[87] = "빚의 흐름을 조사하던 대책위원회가 블랙마켓 골목에서 길을 잃었다. 히후미가 건넨 안내에는 위험한 통로가 표시돼 있고, 시로코는 먼 곳을 확인하러 가겠다고 한다. 수상한 은행의 돈을 보상처럼 가져올 수는 없다."
         set ProtoEventIntro[87] = "히후미와 출구를 찾으며 조사 기록을 지켜야 한다."
         set ProtoEventIcon[87] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2506,6 +2554,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[88] = 1
         set ProtoEventChoices[88] = 3
         set ProtoEventAPCost[88] = 1
+        set ProtoEventGrade[88] = 2
         set ProtoEventStory[88] = "라멘 가게가 파괴된 뒤 가게 주인은 치료를 받고 있다. 세리카가 멀쩡한 도구를 모으고, 아야네는 필요한 물자를 적는다. 범인을 한 번 처치하면 원래대로 돌아올 문제가 아니다. 지금 할 수 있는 복구부터 맡아야 한다."
         set ProtoEventIntro[88] = "파괴된 가게 앞에서 도구와 복구 자재를 나눈다."
         set ProtoEventIcon[88] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2549,6 +2598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[89] = 1
         set ProtoEventChoices[89] = 3
         set ProtoEventAPCost[89] = 1
+        set ProtoEventGrade[89] = 2
         set ProtoEventStory[89] = "학교 주변 사막이 카이저 소유라는 사실을 확인한 뒤에도 보급로는 필요하다. 호시노는 무리한 진입을 막고, 노노미는 엄호 범위를 살핀다. 오늘의 정찰 한 번으로 토지 소유권을 바꿀 수는 없지만 학교를 지킬 준비는 할 수 있다."
         set ProtoEventIntro[89] = "사막의 경계에서 정찰과 방어 준비를 나눈다."
         set ProtoEventIcon[89] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2592,6 +2642,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[90] = 1
         set ProtoEventChoices[90] = 3
         set ProtoEventAPCost[90] = 1
+        set ProtoEventGrade[90] = 3
         set ProtoEventStory[90] = "학교로 돌아오자 호시노의 자리가 비어 있다. 대책위원회는 편지와 남은 기록을 확인하며 그녀를 찾을 준비를 한다. 앞서 확보한 방어 위치가 있다면 위험한 구출 준비에도 도움을 줄 수 있다."
         set ProtoEventIntro[90] = "호시노가 떠난 뒤, 남은 대책위원회가 준비를 시작한다."
         set ProtoEventIcon[90] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2635,6 +2686,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[91] = 1
         set ProtoEventChoices[91] = 3
         set ProtoEventAPCost[91] = 1
+        set ProtoEventGrade[91] = 2
         set ProtoEventStory[91] = "시로코가 조깅 경로와 로드바이크를 세울 곳을 가리킨다. 세리카는 그 한 바퀴가 자기에게도 같은 거리냐며 지도를 다시 펼친다. 네가 준비할 경로와 맡을 바깥 구역을 나누어야 한다."
         set ProtoEventIntro[91] = "박자를 맞출지, 더 넓은 길목을 맡을지 정한다."
         set ProtoEventIcon[91] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2678,6 +2730,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[92] = 1
         set ProtoEventChoices[92] = 3
         set ProtoEventAPCost[92] = 1
+        set ProtoEventGrade[92] = 2
         set ProtoEventStory[92] = "호시노가 의자에서 눈을 감으려는데 아야네는 앞에 쌓인 준비 가방을 가리킨다. 노노미는 맡을 길목을 나누고 호시노가 일어날 자리도 남기자고 한다. 잠을 깨우기보다 먼저 네가 맡을 구역을 정해야 한다."
         set ProtoEventIntro[92] = "앞에 설 자리를 준비하거나 맡을 길목을 나눈다."
         set ProtoEventIcon[92] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2721,6 +2774,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[93] = 1
         set ProtoEventChoices[93] = 3
         set ProtoEventAPCost[93] = 1
+        set ProtoEventGrade[93] = 2
         set ProtoEventStory[93] = "노노미가 간식 몫을 나누는데 아야네는 바깥에 가져갈 보급 항목도 남았다고 한다. 세리카는 장부의 빈칸이 간식보다 먼저라며 주문서를 펼친다. 지금 나눌 몫과 이후 쓸 기록을 모두 네가 챙길 수는 없다."
         set ProtoEventIntro[93] = "지금 나눌 몫과 다음에 쓸 기록 중 맡을 일을 고른다."
         set ProtoEventIcon[93] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2764,6 +2818,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[94] = 1
         set ProtoEventChoices[94] = 3
         set ProtoEventAPCost[94] = 1
+        set ProtoEventGrade[94] = 2
         set ProtoEventStory[94] = "아야네가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 기록까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다."
         set ProtoEventIntro[94] = "불확실한 기록 확인과 확실한 장부 정리 중 정한다."
         set ProtoEventIcon[94] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2807,6 +2862,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[95] = 1
         set ProtoEventChoices[95] = 3
         set ProtoEventAPCost[95] = 1
+        set ProtoEventGrade[95] = 2
         set ProtoEventStory[95] = "수족관에 가려던 호시노가 안내판 앞에서 다음에 갈 곳을 가리킨다. 시로코는 돌아갈 길도 봐 두겠다며 바깥 지도를 펼치고 아야네는 아직 남은 보급 일을 적는다. 외출 전에 어디까지 맡을지 나누어야 한다."
         set ProtoEventIntro[95] = "외출 전에 앞에 설 자리와 귀환길의 부담을 나눈다."
         set ProtoEventIcon[95] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2850,6 +2906,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[96] = 1
         set ProtoEventChoices[96] = 3
         set ProtoEventAPCost[96] = 1
+        set ProtoEventGrade[96] = 2
         set ProtoEventStory[96] = "히후미가 페로로 굿즈 진열을 보는데 노노미는 기다리는 사람의 부탁도 들어 보자고 한다. 히후미는 어느 이야기를 먼저 들을지 망설이고 시로코는 빠져나갈 길부터 가리킨다. 진열 앞에서 모두의 부탁을 한 번에 맡을 수는 없다."
         set ProtoEventIntro[96] = "부탁을 들을지, 가져갈 몫과 통행 구역을 나눌지 정한다."
         set ProtoEventIcon[96] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2893,6 +2950,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[97] = 1
         set ProtoEventChoices[97] = 3
         set ProtoEventAPCost[97] = 0
+        set ProtoEventGrade[97] = 2
         set ProtoEventStory[97] = "아루가 라멘 계산서를 집어 들며 오늘은 자신이 계산하겠다고 한다. 세리카가 기다리는 동안 아루의 손가락은 계산서 끝에 멈추고 무츠키는 사장님의 멋진 모습을 더 보고 싶다며 웃는다. 계산서를 덮으려는 아루 앞에서 세리카는 마감에 쓸 빈 그릇을 모은다."
         set ProtoEventIntro[97] = "계산서 끝을 넘기면 사장님 체면도 넘어갈까?"
         set ProtoEventIcon[97] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2936,6 +2994,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[98] = 1
         set ProtoEventChoices[98] = 3
         set ProtoEventAPCost[98] = 1
+        set ProtoEventGrade[98] = 2
         set ProtoEventStory[98] = "카요코가 찾는CD를 물으려는데 가게 주인은 그녀가 말하기 전에 먼저 사과한다. 카요코가 잠깐 입을 다물자 주인은 사과를 하나 더 붙이고 그 틈에 주문할 말은 더 멀어진다. 카요코는 사과를 요구한 적 없다는 말까지 꺼내려다 찾던CD쪽을 다시 가리킨다."
         set ProtoEventIntro[98] = "사과를 듣고 싶은 사람이 아무도 없는데 말은 끊겼다."
         set ProtoEventIcon[98] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -2979,6 +3038,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[99] = 1
         set ProtoEventChoices[99] = 3
         set ProtoEventAPCost[99] = 1
+        set ProtoEventGrade[99] = 2
         set ProtoEventStory[99] = "네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다."
         set ProtoEventIntro[99] = "치우려던 것이 누군가에게는 기르는 것이었다."
         set ProtoEventIcon[99] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -3022,6 +3082,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[100] = 1
         set ProtoEventChoices[100] = 3
         set ProtoEventAPCost[100] = 1
+        set ProtoEventGrade[100] = 2
         set ProtoEventStory[100] = "무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다."
         set ProtoEventIntro[100] = "답을 아는 사람만 먼저 웃고 있다."
         set ProtoEventIcon[100] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -3065,6 +3126,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[101] = 1
         set ProtoEventChoices[101] = 3
         set ProtoEventAPCost[101] = 1
+        set ProtoEventGrade[101] = 2
         set ProtoEventStory[101] = "계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다."
         set ProtoEventIntro[101] = "이름을 들었지만 아직 할 일은 못 들었다."
         set ProtoEventIcon[101] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -3108,6 +3170,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[102] = 1
         set ProtoEventChoices[102] = 3
         set ProtoEventAPCost[102] = 1
+        set ProtoEventGrade[102] = 2
         set ProtoEventStory[102] = "카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다."
         set ProtoEventIntro[102] = "이번에는 누구의 말이 먼저였을까?"
         set ProtoEventIcon[102] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
@@ -3159,7 +3222,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[13] = 4
         set ProtoEventKind[13] = 0
         set ProtoEventChoices[13] = 1
-        set ProtoEventAPCost[13] = 1
+        set ProtoEventAPCost[13] = 0
+        set ProtoEventGrade[13] = 1
         set ProtoEventStory[13] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIntro[13] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIcon[13] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3168,7 +3232,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[14] = 4
         set ProtoEventKind[14] = 0
         set ProtoEventChoices[14] = 1
-        set ProtoEventAPCost[14] = 1
+        set ProtoEventAPCost[14] = 0
+        set ProtoEventGrade[14] = 1
         set ProtoEventStory[14] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIntro[14] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIcon[14] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3177,7 +3242,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[15] = 4
         set ProtoEventKind[15] = 0
         set ProtoEventChoices[15] = 1
-        set ProtoEventAPCost[15] = 1
+        set ProtoEventAPCost[15] = 0
+        set ProtoEventGrade[15] = 1
         set ProtoEventStory[15] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIntro[15] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIcon[15] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3186,7 +3252,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[16] = 4
         set ProtoEventKind[16] = 0
         set ProtoEventChoices[16] = 1
-        set ProtoEventAPCost[16] = 1
+        set ProtoEventAPCost[16] = 0
+        set ProtoEventGrade[16] = 1
         set ProtoEventStory[16] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIntro[16] = "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다."
         set ProtoEventIcon[16] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3501,6 +3568,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[103] = 1
         set ProtoEventChoices[103] = 3
         set ProtoEventAPCost[103] = 1
+        set ProtoEventGrade[103] = 2
         set ProtoEventStory[103] = "풍기위원 지부에서 구조 신호가 끊겼다. 우이하루는 기록을 복구하고 쿠로코는 현장으로 갈 준비를 한다. 통신선을 살리는 일과 사람을 먼저 찾는 일 중 어디를 맡을까?"
         set ProtoEventIntro[103] = "구조 신호와 현장 수색 중 맡을 일을 정한다."
         set ProtoEventIcon[103] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3544,6 +3612,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[104] = 1
         set ProtoEventChoices[104] = 3
         set ProtoEventAPCost[104] = 1
+        set ProtoEventGrade[104] = 2
         set ProtoEventStory[104] = "복구한 신호의 좌표가 도착했다. 한 번의 단서로 도시의 큰 사건을 끝내지는 못한다. 미코토가 전원 시설을 확인하는 동안 토우마는 구조 대상에게 다가가려 한다."
         set ProtoEventIntro[104] = "복구한 신호에서 새로운 구조 장소를 찾았다."
         set ProtoEventIcon[104] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3587,6 +3656,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[105] = 1
         set ProtoEventChoices[105] = 3
         set ProtoEventAPCost[105] = 1
+        set ProtoEventGrade[105] = 2
         set ProtoEventStory[105] = "사텐이 들은 능력 개발 소문이 사람들을 한 골목으로 모았다. 우이하루는 사실 확인이 먼저라고 하고 미코토는 수상한 장치에 시선을 둔다. 소문을 퍼뜨리는 대신 확인할 일을 정한다."
         set ProtoEventIntro[105] = "사텐이 모은 소문을 실제 단서로 바꿔야 한다."
         set ProtoEventIcon[105] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3630,6 +3700,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[106] = 1
         set ProtoEventChoices[106] = 3
         set ProtoEventAPCost[106] = 1
+        set ProtoEventGrade[106] = 3
         set ProtoEventStory[106] = "미코토는 코인으로 작은 표적을 겨누지만 뒤편에는 작업자 통로가 있다. 발사 위력을 높이는 일보다 통로를 비우고 안전한 각도를 찾는 일이 먼저다."
         set ProtoEventIntro[106] = "미코토의 표적 뒤로 작업자가 지나간다."
         set ProtoEventIcon[106] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3673,6 +3744,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[107] = 1
         set ProtoEventChoices[107] = 3
         set ProtoEventAPCost[107] = 0
+        set ProtoEventGrade[107] = 2
         set ProtoEventStory[107] = "모두가 능력자를 따라간 뒤 사텐과 당신 앞에는 옮기지 못한 물자가 남았다. 능력이 없어도 지금 할 수 있는 일이 있다. 어느 쪽을 먼저 챙길까?"
         set ProtoEventIntro[107] = "능력자들이 떠난 뒤에도 옮길 물자가 남았다."
         set ProtoEventIcon[107] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3716,6 +3788,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[108] = 1
         set ProtoEventChoices[108] = 3
         set ProtoEventAPCost[108] = 1
+        set ProtoEventGrade[108] = 2
         set ProtoEventStory[108] = "현장에 들어간 쿠로코가 처음 보지 못한 통로를 알려 왔다. 우이하루와 백업 통신을 연결할지, 위험한 길 하나를 닫을지, 쿠로코와 도착한 자리에서 할 일을 정할지 고른다. 더 많은 길을 맡으면 오가는 상대도 늘어난다."
         set ProtoEventIntro[108] = "쿠로코가 새 통로를 확인했다."
         set ProtoEventIcon[108] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3759,6 +3832,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[109] = 1
         set ProtoEventChoices[109] = 3
         set ProtoEventAPCost[109] = 1
+        set ProtoEventGrade[109] = 2
         set ProtoEventStory[109] = "미코토가 귀여운 소품 진열을 보다가 한 발 물러선다. 쿠로코는 약속한 순찰 시간이 다가온다고 알리고 가게 주인은 새 상자 때문에 가려진 진열창을 가리킨다. 쿠로코의 부탁과 가게 정리를 한 번에 맡기에는 손이 부족하다."
         set ProtoEventIntro[109] = "가려진 진열창과 순찰 길목 중 맡을 일을 고른다."
         set ProtoEventIcon[109] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3802,6 +3876,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[110] = 1
         set ProtoEventChoices[110] = 3
         set ProtoEventAPCost[110] = 1
+        set ProtoEventGrade[110] = 2
         set ProtoEventStory[110] = "우이하루가 간식을 고르던 중 점원으로부터 중복 주문이라는 안내를 받는다. 사텐은 아직 정리되지 않은 납품 상자를 가리키며 눈치를 준다. 주문 확인과 상자 정리 중 하나를 우선해야 한다."
         set ProtoEventIntro[110] = "겹친 주문을 맞추거나 납품 경로의 연락을 맡는다."
         set ProtoEventIcon[110] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3845,6 +3920,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[111] = 1
         set ProtoEventChoices[111] = 3
         set ProtoEventAPCost[111] = 1
+        set ProtoEventGrade[111] = 2
         set ProtoEventStory[111] = "대패성제의 이인삼각 준비 자리에서 콘고가 미코토에게 먼저 출발 순서를 묻는다. 미코토가 보폭을 짚자 콘고는 자기 쪽만 크게 내디뎠던 발을 멈춘다. 완나이는 바깥 준비물도 아직 나누지 못했다고 알린다."
         set ProtoEventIntro[111] = "옆 사람의 보폭과 바깥 준비 구역 중 맡을 일을 정한다."
         set ProtoEventIcon[111] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3888,6 +3964,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[112] = 1
         set ProtoEventChoices[112] = 3
         set ProtoEventAPCost[112] = 1
+        set ProtoEventGrade[112] = 2
         set ProtoEventStory[112] = "수영부 준비물 꾸러미가 풀 가장자리에 한꺼번에 모였다. 완나이는 물이 흐르는 쪽부터 보자고 하고 아와츠키는 잠깐 뜨게 할 물건을 따로 나눈다. 콘고가 바깥 통행까지 맡겠다고 나서자 완나이는 먼저 맡을 범위를 적자고 한다."
         set ProtoEventIntro[112] = "흐름을 살필지, 뜨는 물건의 균형을 맞출지 고른다."
         set ProtoEventIcon[112] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3931,6 +4008,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[113] = 1
         set ProtoEventChoices[113] = 3
         set ProtoEventAPCost[113] = 1
+        set ProtoEventGrade[113] = 2
         set ProtoEventStory[113] = "길목을 막은 짐을 보고 군하가 곤란한 사람을 돕겠다며 앞으로 나선다. 토우마는 도착지를 먼저 확인하자고 제안하고 군하는 이미 한쪽을 들 준비를 한다. 짐을 옮긴 후 담당할 길목을 결정해야 한다."
         set ProtoEventIntro[113] = "더 강한 적이 오가는 길목과 남은 짐 정리 중 맡을 일을 정한다."
         set ProtoEventIcon[113] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -3974,6 +4052,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[114] = 1
         set ProtoEventChoices[114] = 3
         set ProtoEventAPCost[114] = 1
+        set ProtoEventGrade[114] = 2
         set ProtoEventStory[114] = "밤 퍼레이드 준비 중 예전 안내표와 새 표식이 섞여 나온다. 우이하루는 기록 대조를 요청하고, 쿠로코는 확인되지 않은 표식의 설치를 만류한다. 사텐은 당일용과 내일용 표식을 구분한다."
         set ProtoEventIntro[114] = "예전 기록의 확인과 새 표식 준비 중 맡을 일을 고른다."
         set ProtoEventIcon[114] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4017,6 +4096,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[115] = 1
         set ProtoEventChoices[115] = 3
         set ProtoEventAPCost[115] = 1
+        set ProtoEventGrade[115] = 2
         set ProtoEventStory[115] = "토우마가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 미코토는 익숙한 방법이 있다며 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다. 다른 가게는 아직 열려 있지만 자판기 앞의 두 사람은 그쪽을 보고 있지 않다."
         set ProtoEventIntro[115] = "남은 동전도 같은 자판기에 넣어야 할까?"
         set ProtoEventIcon[115] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4060,6 +4140,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[116] = 1
         set ProtoEventChoices[116] = 3
         set ProtoEventAPCost[116] = 1
+        set ProtoEventGrade[116] = 2
         set ProtoEventStory[116] = "케이크를 막 나누려던 쿠로코가 호출을 듣고 일어서자 우이하루는 아직 들지 못한 자기 찻잔을 본다. 사텐은 돌아올 때도 남아 있겠냐고 묻고 쿠로코는 나갔다 온 뒤의 이야기까지 지금 못 한다고 말한다. 네 손에는 포장하지 않은 간식과 가져갈 짐이 남아 있다."
         set ProtoEventIntro[116] = "돌아올 한 잔과 가져갈 짐 중 자기 몫을 정한다."
         set ProtoEventIcon[116] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4103,6 +4184,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[117] = 1
         set ProtoEventChoices[117] = 3
         set ProtoEventAPCost[117] = 1
+        set ProtoEventGrade[117] = 2
         set ProtoEventStory[117] = "쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 너는 아직 자기 몫을 말하지 않았고 두 사람 사이에도 답하지 못한 말이 남아 있다."
         set ProtoEventIntro[117] = "들은 대답과 내가 하지 않은 대답이 어긋났다."
         set ProtoEventIcon[117] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4146,6 +4228,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[118] = 1
         set ProtoEventChoices[118] = 3
         set ProtoEventAPCost[118] = 1
+        set ProtoEventGrade[118] = 2
         set ProtoEventStory[118] = "오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 네 다음 동전과 아직 누르지 않은 버튼이 같은 자리에서 기다리고 있다."
         set ProtoEventIntro[118] = "빈 의자 옆에서 내 다음 동전을 쓸까?"
         set ProtoEventIcon[118] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4189,6 +4272,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[119] = 1
         set ProtoEventChoices[119] = 3
         set ProtoEventAPCost[119] = 1
+        set ProtoEventGrade[119] = 2
         set ProtoEventStory[119] = "성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 네가 더 구경할 전시와 미코토가 기다리는 무대의 방향이 갈라진다."
         set ProtoEventIntro[119] = "전시를 더 볼까, 무대 앞에서 기다릴까?"
         set ProtoEventIcon[119] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4232,6 +4316,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[120] = 1
         set ProtoEventChoices[120] = 3
         set ProtoEventAPCost[120] = 1
+        set ProtoEventGrade[120] = 2
         set ProtoEventStory[120] = "다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 네가 마련한 보급은 손에 있는데 다음 준비는 아직 끝나지 않았다."
         set ProtoEventIntro[120] = "손에 든 음료를 열기 전에 남은 준비를 정한다."
         set ProtoEventIcon[120] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4275,6 +4360,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[121] = 1
         set ProtoEventChoices[121] = 3
         set ProtoEventAPCost[121] = 1
+        set ProtoEventGrade[121] = 2
         set ProtoEventStory[121] = "우이하루가 네가 남긴 확인 순서 옆에 아직 맡을 사람을 적지 못한 항목을 붙인다. 사텐은 돌아갈 골목을 알려 줄 수 있다고 하고 쿠로코는 통행을 막지 않을 경계를 먼저 정하자고 한다. 앞서 기록을 정리한 너도 이번에는 어디까지 맡을지 답해야 한다."
         set ProtoEventIntro[121] = "우이하루가 확인할 순서를 적어 둔 네 기록을 다시 펼친다."
         set ProtoEventIcon[121] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4318,6 +4404,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[122] = 1
         set ProtoEventChoices[122] = 3
         set ProtoEventAPCost[122] = 0
+        set ProtoEventGrade[122] = 2
         set ProtoEventStory[122] = "우이하루가 네가 접어 두지 않은 항목을 보며 확인된 내용과 다시 물어야 할 내용을 나눈다. 토우마는 짐의 도착지가 아직 비어 있다고 하고 사텐은 먼저 나를 상자를 가리킨다. 쿠로코는 나가기 전에 돌아올 자리도 남겨 달라고 한다. 이미 남긴 기록이 있어 처음부터 묻지는 않아도 된다. 다만 모두의 일을 한꺼번에 맡을 수는 없다."
         set ProtoEventIntro[122] = "남겨 둔 항목에 돌아갈 곳과 전할 말이 붙었다."
         set ProtoEventIcon[122] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4369,7 +4456,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[17] = 5
         set ProtoEventKind[17] = 0
         set ProtoEventChoices[17] = 1
-        set ProtoEventAPCost[17] = 1
+        set ProtoEventAPCost[17] = 0
+        set ProtoEventGrade[17] = 1
         set ProtoEventStory[17] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIntro[17] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIcon[17] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4378,7 +4466,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[18] = 5
         set ProtoEventKind[18] = 0
         set ProtoEventChoices[18] = 1
-        set ProtoEventAPCost[18] = 1
+        set ProtoEventAPCost[18] = 0
+        set ProtoEventGrade[18] = 1
         set ProtoEventStory[18] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIntro[18] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIcon[18] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4387,7 +4476,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[19] = 5
         set ProtoEventKind[19] = 0
         set ProtoEventChoices[19] = 1
-        set ProtoEventAPCost[19] = 1
+        set ProtoEventAPCost[19] = 0
+        set ProtoEventGrade[19] = 1
         set ProtoEventStory[19] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIntro[19] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIcon[19] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4396,7 +4486,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[20] = 5
         set ProtoEventKind[20] = 0
         set ProtoEventChoices[20] = 1
-        set ProtoEventAPCost[20] = 1
+        set ProtoEventAPCost[20] = 0
+        set ProtoEventGrade[20] = 1
         set ProtoEventStory[20] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIntro[20] = "평범한 도시의 귀갓길에서 들리지 않을 목소리가 당신을 부른다. 결계 앞에서 사람을 지키는 일과 힘을 얻는 일은 늘 같은 선택이 아니다."
         set ProtoEventIcon[20] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4620,6 +4711,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[123] = 1
         set ProtoEventChoices[123] = 3
         set ProtoEventAPCost[123] = 1
+        set ProtoEventGrade[123] = 2
         set ProtoEventStory[123] = "병원 자전거 보관소에서 부화 직전의 그리프 시드를 발견했다. 마도카는 마미에게 도움을 청하고 사야카는 시민들이 접근하지 못하도록 경계한다. 연락을 받은 호무라는 다른 길로 돌아가라고 한다. 도움을 기다리는 동안 너도 맡을 일을 정해야 한다."
         set ProtoEventIntro[123] = "도움을 기다리는 자전거 보관소에서 맡을 일을 정한다."
         set ProtoEventIcon[123] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4663,6 +4755,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[124] = 1
         set ProtoEventChoices[124] = 3
         set ProtoEventAPCost[124] = 1
+        set ProtoEventGrade[124] = 2
         set ProtoEventStory[124] = "마미를 기다리는 길목에서 다음 작전을 논의한다. 마미는 결계의 위험을 경고하며 사격 위치와 퇴로를 함께 정하자고 제안한다. 마도카는 돌아올 표시를 남기고 마미는 뒤편 준비까지 혼자 맡지 말자고 한다."
         set ProtoEventIntro[124] = "마미와 사격 위치와 퇴로를 함께 정한다."
         set ProtoEventIcon[124] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4706,6 +4799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[125] = 1
         set ProtoEventChoices[125] = 3
         set ProtoEventAPCost[125] = 1
+        set ProtoEventGrade[125] = 2
         set ProtoEventStory[125] = "마법소녀들의 충돌 이후 놓친 사역마의 흔적이 발견되었다. 사야카는 추적을 원하지만, 마도카는 서로 대화하며 상황을 풀길 바란다. 쿄코는 같은 흔적을 다른 쪽에서 살피며 추적할 구역을 나누라고 한다."
         set ProtoEventIntro[125] = "추적을 계속할지 먼저 대화할지 의견이 갈린다."
         set ProtoEventIcon[125] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4749,6 +4843,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[126] = 1
         set ProtoEventChoices[126] = 3
         set ProtoEventAPCost[126] = 1
+        set ProtoEventGrade[126] = 2
         set ProtoEventStory[126] = "쿄코가 사야카를 데리고 폐허가 된 교회로 향했다. 쿄코가 내민 음식을 두고 두 사람의 태도가 엇갈리는 상황에서 당신은 어떻게 행동할까?"
         set ProtoEventIntro[126] = "쿄코의 이야기를 듣는 동안 귀환도 준비한다."
         set ProtoEventIcon[126] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4792,6 +4887,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[127] = 1
         set ProtoEventChoices[127] = 3
         set ProtoEventAPCost[127] = 1
+        set ProtoEventGrade[127] = 3
         set ProtoEventStory[127] = "큐베가 당신의 소원 한 가지를 이루어 주겠다고 한다. 큰 힘을 바라면 그 힘을 감당할 준비도 필요하다. 사야카와 호무라가 곁에서 당신의 답을 기다린다."
         set ProtoEventIntro[127] = "큐베의 한 가지 소원에 답해야 한다."
         set ProtoEventIcon[127] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4835,6 +4931,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[128] = 1
         set ProtoEventChoices[128] = 3
         set ProtoEventAPCost[128] = 1
+        set ProtoEventGrade[128] = 2
         set ProtoEventStory[128] = "호무라가 준비한 지도에 아직 파악되지 않은 빈 구역이 존재한다. 한 곳에 대비를 집중할지 아니면 사람들을 우선적으로 안내할지 결정해야 한다. 마미는 먼 거리에서 볼 자리를, 마도카는 남은 사람들의 귀환길을 가리킨다."
         set ProtoEventIntro[128] = "호무라의 지도에 아직 비어 있는 구역이 있다."
         set ProtoEventIcon[128] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4878,6 +4975,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[129] = 1
         set ProtoEventChoices[129] = 3
         set ProtoEventAPCost[129] = 1
+        set ProtoEventGrade[129] = 2
         set ProtoEventStory[129] = "사야카가 가방을 닫기 전 지워진 쪽지를 꺼내 들었다. 마도카는 이름을 확인하려 했지만, 쪽지에는 음악 제목만 흐릿하게 남아 있었다. 병실 밖 담당자는 이전 목록을 확인해 줄 수 있다고 전했다."
         set ProtoEventIntro[129] = "쪽지의 제목을 확인할지, 가져갈 가방부터 나눌지 정한다."
         set ProtoEventIcon[129] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4921,6 +5019,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[130] = 1
         set ProtoEventChoices[130] = 3
         set ProtoEventAPCost[130] = 1
+        set ProtoEventGrade[130] = 2
         set ProtoEventStory[130] = "준코가 출근 가방을 챙기는 사이 토모히사는 아침 식사 몫을 나누고 있었다. 현관에는 여러 개의 봉투가 모여 있어 누구의 것인지 알 수 없었다. 마도카는 누구의 준비를 먼저 도울지 물었다."
         set ProtoEventIntro[130] = "먼저 끝낼 일과 남겨 둘 몫 중 도울 준비를 고른다."
         set ProtoEventIcon[130] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -4964,6 +5063,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[131] = 1
         set ProtoEventChoices[131] = 3
         set ProtoEventAPCost[131] = 0
+        set ProtoEventGrade[131] = 2
         set ProtoEventStory[131] = "히토미가 피아노와 다도 준비를 점검하자 사야카는 잠깐 같이 가자고 손짓했다. 마도카는 아직 정리하지 못한 안내표를 들고 있었다. 히토미는 빈 시간을 고려해 갈 곳을 나누자고 제안했다."
         set ProtoEventIntro[131] = "약속 사이의 준비와 학교에 남은 안내 일을 나눈다."
         set ProtoEventIcon[131] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5007,6 +5107,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[132] = 1
         set ProtoEventChoices[132] = 3
         set ProtoEventAPCost[132] = 1
+        set ProtoEventGrade[132] = 2
         set ProtoEventStory[132] = "호무라가 먼저 연습 도구를 정리해둔 것을 보고 사야카가 물었다. 마도카는 남은 준비를 함께 보자고 했지만 호무라는 바깥 일 때문에 서둘러야 했다. 교실 정리와 적이 오가는 길목 중 맡을 일을 정해야 했다."
         set ProtoEventIntro[132] = "교실 쪽의 준비와 바깥 구역 중 맡을 일을 정한다."
         set ProtoEventIcon[132] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5050,6 +5151,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[133] = 1
         set ProtoEventChoices[133] = 3
         set ProtoEventAPCost[133] = 1
+        set ProtoEventGrade[133] = 2
         set ProtoEventStory[133] = "마미가 후배들에게 마녀를 쫓는 일을 함께 보자고 제안한 뒤 아직 접지 않은 지도를 펼친다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 준비도 남겨 두자고 한다. 마미는 한 사람이 바깥 길과 입구의 준비를 모두 맡지는 말자고 한다."
         set ProtoEventIntro[133] = "들어갈 간격을 짚거나 바깥 길목을 맡는다."
         set ProtoEventIcon[133] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5093,6 +5195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[134] = 1
         set ProtoEventChoices[134] = 3
         set ProtoEventAPCost[134] = 1
+        set ProtoEventGrade[134] = 2
         set ProtoEventStory[134] = "낯선 입구를 발견한 마도카가 안쪽에 사람이 있는지 물었다. 마미는 결계를 모르니 주의를 주었고 호무라는 확인할 곳을 먼저 짚었다. 흔적 확인과 다음 진입 준비를 나누어야 했다."
         set ProtoEventIntro[134] = "입구에 들어가기 전 확인할 구역을 나눈다."
         set ProtoEventIcon[134] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5136,6 +5239,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[135] = 1
         set ProtoEventChoices[135] = 3
         set ProtoEventAPCost[135] = 1
+        set ProtoEventGrade[135] = 2
         set ProtoEventStory[135] = "마미는 다른 만남에서 네가 들어갈 위치와 물러설 자리를 표시했던 지도를 보며 다음에도 같은 일을 맡을지 묻는다. 마도카는 돌아올 자리부터 남기자고 하고 사야카는 마미의 뒤편 준비도 비어 있다고 한다. 익힌 간격이 있어 입구부터 다시 설명할 필요는 없지만 다음 방문까지 맡을지는 네가 답해야 한다."
         set ProtoEventIntro[135] = "마미가 네가 표시한 입구의 간격을 알아보고 지도를 다시 편다."
         set ProtoEventIcon[135] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5187,7 +5291,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[21] = 6
         set ProtoEventKind[21] = 0
         set ProtoEventChoices[21] = 1
-        set ProtoEventAPCost[21] = 1
+        set ProtoEventAPCost[21] = 0
+        set ProtoEventGrade[21] = 1
         set ProtoEventStory[21] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIntro[21] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIcon[21] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5196,7 +5301,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[22] = 6
         set ProtoEventKind[22] = 0
         set ProtoEventChoices[22] = 1
-        set ProtoEventAPCost[22] = 1
+        set ProtoEventAPCost[22] = 0
+        set ProtoEventGrade[22] = 1
         set ProtoEventStory[22] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIntro[22] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIcon[22] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5205,7 +5311,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[23] = 6
         set ProtoEventKind[23] = 0
         set ProtoEventChoices[23] = 1
-        set ProtoEventAPCost[23] = 1
+        set ProtoEventAPCost[23] = 0
+        set ProtoEventGrade[23] = 1
         set ProtoEventStory[23] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIntro[23] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIcon[23] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5214,7 +5321,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[24] = 6
         set ProtoEventKind[24] = 0
         set ProtoEventChoices[24] = 1
-        set ProtoEventAPCost[24] = 1
+        set ProtoEventAPCost[24] = 0
+        set ProtoEventGrade[24] = 1
         set ProtoEventStory[24] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIntro[24] = "안전한 거리와 미지의 공략 구역 사이에서 돌아올 길을 준비한다. 장비 의뢰, 수송, 단서 조사에서 얻은 경험으로 다음 보스를 맞는다."
         set ProtoEventIcon[24] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5487,6 +5595,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[136] = 1
         set ProtoEventChoices[136] = 3
         set ProtoEventAPCost[136] = 1
+        set ProtoEventGrade[136] = 2
         set ProtoEventStory[136] = "키리토가 내민 희귀 검과 비교하던 리즈벳의 시험검이 부러져 공방의 말이 잠깐 끊긴다. 리즈벳은 희귀 재료만 있다면 원하는 검을 만들 수 있다고 하고 키리토는 아직 남은 파편을 본다. 네게 새 검을 달라는 의뢰는 아니지만 공방에 필요한 수송 준비와 남은 부품을 맡을 수 있다. 리즈벳은 휘어진 면까지 한데 버리지 말라며 네 앞에 작은 쟁반을 둔다."
         set ProtoEventIntro[136] = "부러진 검을 대신 요구하지 않고 무엇을 맡을까?"
         set ProtoEventIcon[136] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5530,6 +5639,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[137] = 1
         set ProtoEventChoices[137] = 3
         set ProtoEventAPCost[137] = 1
+        set ProtoEventGrade[137] = 2
         set ProtoEventStory[137] = "네가 마련했던 수송 준비가 공방에 닿자 리즈벳은 이제 검을 만드는 쪽은 자기 일이라고 말한다. 키리토는 다음 동작을 살피고 아스나는 친구가 작업할 공간을 비우며 네가 아직 들고 있는 짐을 본다. 너는 직접 내려놓을 자리와 더 맡을 준비 중 자기 몫을 정한다."
         set ProtoEventIntro[137] = "수송 준비를 마친 손에 아직 짐이 남아 있다."
         set ProtoEventIcon[137] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5573,6 +5683,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[138] = 1
         set ProtoEventChoices[138] = 3
         set ProtoEventAPCost[138] = 1
+        set ProtoEventGrade[138] = 3
         set ProtoEventStory[138] = "피나를 잃은 시리카에게 키리토가 소생을 위한 방법과 길을 설명하고 있다. 시리카는 돌아올 준비물을 만지다가 아직 피나가 없는 쪽을 돌아본다. 네 손에 남은 보급과 운반 준비는 그 길을 떠나기 전에도 필요하다. 클라인은 운반할 짐을 내려놓고 출발 전에 맡을 길목부터 나누자고 한다."
         set ProtoEventIntro[138] = "소생의 길을 앞두고 내 손에 남은 준비를 정한다."
         set ProtoEventIcon[138] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5616,6 +5727,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[139] = 1
         set ProtoEventChoices[139] = 3
         set ProtoEventAPCost[139] = 1
+        set ProtoEventGrade[139] = 2
         set ProtoEventStory[139] = "에길의 가게에서 키리토가 희귀한 라구 래빗 고기를 내밀지만 자기 요리 실력으로는 아깝다고 말한다. 아스나는 반을 나누는 조건으로 맡겠다고 하다가 요리 도구는 자기 방에 있다고 덧붙인다. 네가 보탤 식탁 준비와 에길에게 옮길 물품이 남아 있다. 클라인은 들고 온 짐을 내려놓고 가게 바깥의 운반 길목을 맡겠다고 한다."
         set ProtoEventIntro[139] = "고기의 주인이 정한 식사에 어떤 준비를 보탤까?"
         set ProtoEventIcon[139] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5659,6 +5771,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[140] = 1
         set ProtoEventChoices[140] = 3
         set ProtoEventAPCost[140] = 1
+        set ProtoEventGrade[140] = 3
         set ProtoEventStory[140] = "보스 방의 상대를 보고 돌아온 키리토와 아스나가 안전 구역에서 경고를 전한다. 정보만 들으면 바로 들어가도 된다고 여기는 사람들 때문에 두 사람의 설명이 끊긴다. 키리토는 방 안에서 확인한 위험을, 아스나는 물러설 순서를 짚는다. 너는 아직 출발하지 않은 자신의 담당 구역과 보급을 다시 정한다."
         set ProtoEventIntro[140] = "정찰대가 보스 방의 위험을 경고한다."
         set ProtoEventIcon[140] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5702,6 +5815,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[141] = 1
         set ProtoEventChoices[141] = 3
         set ProtoEventAPCost[141] = 1
+        set ProtoEventGrade[141] = 2
         set ProtoEventStory[141] = "몬스터가 들어올 수 없는 마을에서 사망했다는 목격담이 퍼진다. 키리토와 아스나는 결투로 설명되지 않는 현장을 조사하지만 아직 누구의 말이 맞는지 정하지 않는다. 공방에 보낸 장비 질문과 증언이 서로 다른 순서로 돌아와 네 앞의 메모가 겹친다. 장비의 면, 증언의 순서, 확인된 흔적 중 무엇부터 맡을까?"
         set ProtoEventIntro[141] = "안전 구역의 증언과 장비가 서로 맞지 않는다."
         set ProtoEventIcon[141] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5745,6 +5859,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[142] = 1
         set ProtoEventChoices[142] = 3
         set ProtoEventAPCost[142] = 0
+        set ProtoEventGrade[142] = 2
         set ProtoEventStory[142] = "에길의 물품 상자에 값표가 겹쳐 있어 거래가 중단되었다. 키리토는 현재 물건부터 나누자고 제안하며 업무를 분담한다. 에길은 값표를 재부착할 인원과 외부 운반을 맡을 인원을 구분한다."
         set ProtoEventIntro[142] = "겹친 값표를 이미 펼쳐 두어 방문 행동력 없이 한 가지 일을 맡을 수 있다."
         set ProtoEventIcon[142] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5788,6 +5903,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[143] = 1
         set ProtoEventChoices[143] = 3
         set ProtoEventAPCost[143] = 1
+        set ProtoEventGrade[143] = 2
         set ProtoEventStory[143] = "클라인이 풍림화산의 다음 준비를 나누는데 모두 먼저 나설 자리만 가리킨다. 키리토는 뒤에 남길 몫도 빠지지 말자고 말한다. 클라인은 빈 뒷자리와 더 많은 적이 드나드는 옆길 중 네가 맡을 일을 묻는다."
         set ProtoEventIntro[143] = "빈 뒷자리와 적이 많은 옆길 중 맡을 일을 정한다."
         set ProtoEventIcon[143] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5831,6 +5947,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[144] = 1
         set ProtoEventChoices[144] = 3
         set ProtoEventAPCost[144] = 1
+        set ProtoEventGrade[144] = 2
         set ProtoEventStory[144] = "중층에서 사치가 준비물을 들고도 바로 나서지 못해 머뭇거린다. 키리토는 재촉 대신 먼저 담당 구역을 나누자고 말한다. 사치는 남겨둘 등불과 돌아올 자리를 확인한다."
         set ProtoEventIntro[144] = "사치의 답을 재촉하지 않고 먼저 맡을 구역을 나눈다."
         set ProtoEventIcon[144] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5874,6 +5991,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[145] = 1
         set ProtoEventChoices[145] = 3
         set ProtoEventAPCost[145] = 1
+        set ProtoEventGrade[145] = 2
         set ProtoEventStory[145] = "니시다가 찌를 보는 동안 키리토의 손은 한 번 더 당겨 보려는 쪽으로 움직인다. 니시다는 빨리 다음 일을 찾는 것과 입질을 기다리는 것은 다르다고 말하고 아스나는 두 사람 옆에 앉을 자리를 잡는다. 너는 작은 입질을 노려 볼 준비와 오래 기다릴 자리 중 자기 몫을 정한다."
         set ProtoEventIntro[145] = "작은 입질을 노려 볼까, 기다릴 자리를 마련할까?"
         set ProtoEventIcon[145] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5917,6 +6035,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[146] = 1
         set ProtoEventChoices[146] = 3
         set ProtoEventAPCost[146] = 1
+        set ProtoEventGrade[146] = 2
         set ProtoEventStory[146] = "아스나가 다음 준비를 나누던 중 인원이 한곳에만 모였다는 보고를 받는다. 클라인은 빈 길목을 가리키고 키리토는 연락을 묻는다. 아스나는 맡은 범위부터 다시 확인을 요청한다."
         set ProtoEventIntro[146] = "한 곳에 몰린 준비와 빈 길목의 역할을 다시 나눈다."
         set ProtoEventIcon[146] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -5960,6 +6079,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[147] = 1
         set ProtoEventChoices[147] = 3
         set ProtoEventAPCost[147] = 1
+        set ProtoEventGrade[147] = 2
         set ProtoEventStory[147] = "아르고에게 그 길은 어떠냐고 묻자 상대의 위험부터 답이 돌아온다. 네가 궁금했던 것은 사냥을 마친 뒤 어느 갈림길로 돌아오는가였고 아르고는 처음부터 무엇을 알고 싶은지 말했어야 한다고 손을 펼친다. 다음 상대와 돌아올 길 중 네 질문에 빠진 것이 남아 있다. 아르고는 접혀 있던 종이를 펴며 물을 범위를 먼저 가리키라고 한다."
         set ProtoEventIntro[147] = "돌아올 길을 사서 들을까, 자기 간격부터 익힐까?"
         set ProtoEventIcon[147] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6003,6 +6123,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[148] = 1
         set ProtoEventChoices[148] = 3
         set ProtoEventAPCost[148] = 1
+        set ProtoEventGrade[148] = 2
         set ProtoEventStory[148] = "아르고가 옆 손님에게 방금 네가 들은 이야기를 다시 전하자 그 손님이 먼저 산 쪽만 아는 정보 아니냐며 너를 돌아본다. 아르고는 혼자만 들을 권리를 판 적은 없다며 너에게도 무엇을 살 것인지 묻는다. 너는 남의 입을 막는 대신 자기 질문과 맡을 사냥의 몫을 정한다."
         set ProtoEventIntro[148] = "같은 답을 들은 뒤 내게 남은 질문은 무엇일까?"
         set ProtoEventIcon[148] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6046,6 +6167,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[149] = 1
         set ProtoEventChoices[149] = 3
         set ProtoEventAPCost[149] = 1
+        set ProtoEventGrade[149] = 2
         set ProtoEventStory[149] = "네가 앉아 있는 소녀에게 어디서 왔냐고 묻자 키리토도 막 같은 질문을 했다고 말한다. 아스나는 더 묻기 전에 앉을 곳부터 비우고 있지만 기억을 잃은 소녀에게는 아직 이어서 할 말이 없다. 네 손에는 자기 외투와 전달할 담요가 남아 있다."
         set ProtoEventIntro[149] = "질문이 멈춘 자리에서 무엇을 먼저 내놓을까?"
         set ProtoEventIcon[149] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6089,6 +6211,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[150] = 1
         set ProtoEventChoices[150] = 3
         set ProtoEventAPCost[150] = 1
+        set ProtoEventGrade[150] = 2
         set ProtoEventStory[150] = "첫 공략 회의 뒤 출발 준비를 지켜보는데 키리토와 아스나가 각자 걷던 간격 때문에 자꾸 서로를 돌아본다. 키리토가 옆의 빈 자리를 보자 네 발도 혼자 다닐 때의 보폭을 따라 움직인다. 너는 두 사람의 파티를 대신하지 않고 자기 다음 싸움에서 남길 간격을 생각한다. 에길은 회의 뒤 남은 보급 상자를 길가에 놓으며 들 수 있는 무게부터 확인하라고 한다."
         set ProtoEventIntro[150] = "혼자 걷던 보폭으로 다음 싸움을 맞아도 될까?"
         set ProtoEventIcon[150] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6132,6 +6255,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[151] = 1
         set ProtoEventChoices[151] = 3
         set ProtoEventAPCost[151] = 1
+        set ProtoEventGrade[151] = 2
         set ProtoEventStory[151] = "돌아올 갈림길을 물었던 너를 아르고가 알아보고 이번에는 무엇이 빠졌냐고 묻는다. 네가 그 길에서 버텨야 할 상대도 알아야 한다고 말하자 아르고는 처음 질문과 이번 질문은 값이 다르다고 손가락을 편다. 앞선 답을 무효로 만들지 않고 이번 질문에 자기 몫을 보탤 차례다."
         set ProtoEventIntro[151] = "돌아갈 길은 들었다. 상대에 관한 질문도 보탤까?"
         set ProtoEventIcon[151] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6175,6 +6299,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[152] = 1
         set ProtoEventChoices[152] = 3
         set ProtoEventAPCost[152] = 0
+        set ProtoEventGrade[152] = 2
         set ProtoEventStory[152] = "다른 방문에서 찌를 기다린 너를 니시다가 알아보고 이번에도 같은 자리에 앉을지 묻는다. 네 낚싯줄은 이미 풀려 있어 입질을 기다리는 설명부터 되풀이할 필요는 없다. 아스나는 떠날 사람들의 준비를 챙기며 먼저 맡을 몫만 답해 두자고 한다. 다음 자리, 지금의 기다림, 바깥 구역 중 어디에 힘을 남길까?"
         set ProtoEventIntro[152] = "익힌 기다림을 알아본 니시다가 옆에 남은 자리를 가리킨다."
         set ProtoEventIcon[152] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6218,6 +6343,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[153] = 1
         set ProtoEventChoices[153] = 3
         set ProtoEventAPCost[153] = 1
+        set ProtoEventGrade[153] = 2
         set ProtoEventStory[153] = "에길의 상점에서 전에 나눠 둔 값표와 새로 온 물품이 한데 놓여 있다. 가격이 같다고 용도까지 같지는 않다는 에길의 말에 리즈벳은 휘어진 면부터 보자고 한다. 전달할 물품을 기다리던 아르고는 물어볼 항목을 먼저 펴 두라고 덧붙인다. 익힌 비교 순서로 이번에는 무엇을 따로 확인할까?"
         set ProtoEventIntro[153] = "에길이 네가 나눠 두었던 값표를 다시 꺼내 보인다."
         set ProtoEventIcon[153] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6269,7 +6395,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[25] = 7
         set ProtoEventKind[25] = 0
         set ProtoEventChoices[25] = 1
-        set ProtoEventAPCost[25] = 1
+        set ProtoEventAPCost[25] = 0
+        set ProtoEventGrade[25] = 1
         set ProtoEventStory[25] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIntro[25] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIcon[25] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6278,7 +6405,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[26] = 7
         set ProtoEventKind[26] = 0
         set ProtoEventChoices[26] = 1
-        set ProtoEventAPCost[26] = 1
+        set ProtoEventAPCost[26] = 0
+        set ProtoEventGrade[26] = 1
         set ProtoEventStory[26] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIntro[26] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIcon[26] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6287,7 +6415,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[27] = 7
         set ProtoEventKind[27] = 0
         set ProtoEventChoices[27] = 1
-        set ProtoEventAPCost[27] = 1
+        set ProtoEventAPCost[27] = 0
+        set ProtoEventGrade[27] = 1
         set ProtoEventStory[27] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIntro[27] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIcon[27] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6296,7 +6425,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[28] = 7
         set ProtoEventKind[28] = 0
         set ProtoEventChoices[28] = 1
-        set ProtoEventAPCost[28] = 1
+        set ProtoEventAPCost[28] = 0
+        set ProtoEventGrade[28] = 1
         set ProtoEventStory[28] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIntro[28] = "섬과 섬 사이를 오가는 기공단의 항로에 보급과 의뢰가 쌓인다. 다음 보스를 앞두고 사격 위치, 선체의 안전, 동료의 준비를 나눠 맡는다."
         set ProtoEventIcon[28] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6540,6 +6670,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[154] = 1
         set ProtoEventChoices[154] = 3
         set ProtoEventAPCost[154] = 1
+        set ProtoEventGrade[154] = 2
         set ProtoEventStory[154] = "그랑사이퍼 갑판에서 풀린 화물 끈이 오이겐의 장비를 밀고 있다. 라캄은 움직이기 전에 무거운 상자를 먼저 묶자고 하고 카타리나는 루리아 곁의 통로를 비워 두려 한다. 장비를 옮길 곳과 비워 둘 통로가 겹쳐 네가 맡을 몫부터 정해야 한다."
         set ProtoEventIntro[154] = "화물이 미끄러져 다음 비행 준비가 늦어진다."
         set ProtoEventIcon[154] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6583,6 +6714,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[155] = 1
         set ProtoEventChoices[155] = 3
         set ProtoEventAPCost[155] = 1
+        set ProtoEventGrade[155] = 2
         set ProtoEventStory[155] = "화물을 고정한 갑판에 공격 위치가 생겼다. 카타리나는 루리아 곁을 지켜야 하고, 오이겐은 사선이 겹치지 않게 장비를 두려 한다. 당신이 맡을 자리를 고른다. 칼리오스트로는 장비를 조정할 몫은 따로 맡을 수 있다고 한다."
         set ProtoEventIntro[155] = "안정된 갑판에 공격 위치를 정한다."
         set ProtoEventIcon[155] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6626,6 +6758,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[156] = 1
         set ProtoEventChoices[156] = 3
         set ProtoEventAPCost[156] = 1
+        set ProtoEventGrade[156] = 2
         set ProtoEventStory[156] = "이오가 마법 준비를 다시 하는 동안 적이 모일 통로가 둘로 갈렸다. 힘을 집중할 장소를 넓힐지 안전한 한 곳만 남길지 결정한다. 다음 구역에 들어갈 준비가 아직 끝나지 않았다. 나루메아는 바깥의 간격을 살피고 베인은 돌아올 사람이 서 있을 곳부터 남기자고 한다."
         set ProtoEventIntro[156] = "이오의 집중을 지킬 통로를 골라야 한다."
         set ProtoEventIcon[156] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6669,6 +6802,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[157] = 1
         set ProtoEventChoices[157] = 3
         set ProtoEventAPCost[157] = 1
+        set ProtoEventGrade[157] = 3
         set ProtoEventStory[157] = "제타가 성정수 조사 기록의 빈 부분을 확인하자고 한다. 조사 대상의 위험을 모른 채 강한 무기만 요구할 수는 없다. 무엇을 맡을지 선택한다. 오이겐은 조사 장비와 조준할 통로를 한 목록에 넣지 말자고 한다."
         set ProtoEventIntro[157] = "제타의 성정수 조사 기록에 빈 부분이 있다."
         set ProtoEventIcon[157] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6712,6 +6846,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[158] = 1
         set ProtoEventChoices[158] = 3
         set ProtoEventAPCost[158] = 1
+        set ProtoEventGrade[158] = 2
         set ProtoEventStory[158] = "칼리오스트로 앞에 조정 전후가 섞인 견본이 놓였다. 이오는 시험할 장소를, 나루메아는 견본이 움직일 간격을 먼저 본다. 겉모습이 같다는 이유로 다른 견본을 한 결과에 묶으면 다음 준비가 꼬인다. 조정을 맡길지, 시험할 자리를 고를지, 작동을 하나씩 볼지 정한다."
         set ProtoEventIntro[158] = "연금 조정 전후의 견본이 섞였다."
         set ProtoEventIcon[158] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6755,6 +6890,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[159] = 1
         set ProtoEventChoices[159] = 3
         set ProtoEventAPCost[159] = 1
+        set ProtoEventGrade[159] = 2
         set ProtoEventStory[159] = "위험 구역을 조사한 뒤 라캄에게 귀환 신호를 보내야 한다. 베인은 돌아오는 동료가 쉴 자리를 만들고 제타는 조사 기록을 마무리하려 한다."
         set ProtoEventIntro[159] = "조사를 마친 일행의 귀환 신호를 보낸다."
         set ProtoEventIcon[159] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6798,6 +6934,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[160] = 1
         set ProtoEventChoices[160] = 3
         set ProtoEventAPCost[160] = 1
+        set ProtoEventGrade[160] = 2
         set ProtoEventStory[160] = "한 여행자가 이미 지나온 길을 오늘 열린 길이라며 알려 준다. 로제타는 두 안내의 날짜가 다르다며 네가 직접 무엇을 확인했는지 묻는다. 라캄은 확인되지 않은 말을 항로에 적기 전에 낡은 기록부터 대조하자고 한다."
         set ProtoEventIntro[160] = "서로 다른 날짜의 안내 중 무엇을 확인할지 정한다."
         set ProtoEventIcon[160] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6841,6 +6978,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[161] = 1
         set ProtoEventChoices[161] = 3
         set ProtoEventAPCost[161] = 1
+        set ProtoEventGrade[161] = 2
         set ProtoEventStory[161] = "롤란이 여행자에게 길을 알려 주는데 여행자는 가려던 곳과 물어본 곳이 다르다고 뒤늦게 말한다. 비는 앞에서 설명한 길을 벌써 가리켰고 롤란은 먼저 무엇을 하러 왔는지 다시 묻는다. 안내를 다시 들을지 바깥에서 길을 확인할지 정해야 한다. 로제타는 말했던 목적과 가리킨 길을 따로 기억해 두자고 한다."
         set ProtoEventIntro[161] = "먼저 목적을 물을지 바깥 길을 확인할지 정한다."
         set ProtoEventIcon[161] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6884,6 +7022,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[162] = 1
         set ProtoEventChoices[162] = 3
         set ProtoEventAPCost[162] = 1
+        set ProtoEventGrade[162] = 2
         set ProtoEventStory[162] = "앞쪽을 먼저 맡겠다는 사람이 모이자 돌아올 사람을 받을 자리가 비었다. 랜슬롯은 앞에 몇 명이 서는지보다 뒤를 누가 이어받는지 먼저 묻고 베인은 돌아오는 쪽을 남기자고 한다. 네가 맡을 자리가 정해져야 교대가 시작된다."
         set ProtoEventIntro[162] = "비어 있는 교대 자리와 돌아올 길을 나눈다."
         set ProtoEventIcon[162] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6927,6 +7066,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[163] = 1
         set ProtoEventChoices[163] = 3
         set ProtoEventAPCost[163] = 1
+        set ProtoEventGrade[163] = 2
         set ProtoEventStory[163] = "짐을 나누던 사람들은 힘없는 여행자에게도 같은 무게를 들라며 서두른다. 퍼시벌은 같은 수로 나누었다고 같은 부담이 되는 것은 아니라고 말한다. 너는 맡을 짐과 적이 있는 길을 다시 나누거나 운반만 마칠 수 있다."
         set ProtoEventIntro[163] = "같은 묶음에 다른 부담을 다시 나눈다."
         set ProtoEventIcon[163] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -6970,6 +7110,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[164] = 1
         set ProtoEventChoices[164] = 3
         set ProtoEventAPCost[164] = 0
+        set ProtoEventGrade[164] = 2
         set ProtoEventStory[164] = "낚시꾼을 자처하는 요달라하 옆으로 긴 짐을 든 여행자가 지나가자 그는 낚싯대보다 발을 먼저 옮겨 비켜 준다. 너는 그 짧은 움직임이 낚시 자세와 어울리지 않아 다시 보게 된다. 요달라하는 낚시할 자리는 남겨 두라며 네가 어디에 설 것인지 묻는다. 나루메아도 바깥 통로를 살피지만 요달라하는 발을 옮기기 전에 서 있을 곳을 먼저 비운다."
         set ProtoEventIntro[164] = "옆에서 본 짧은 몸놀림을 방문 행동력 없이 한 번 더 짚을 수 있다."
         set ProtoEventIcon[164] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7013,6 +7154,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[165] = 1
         set ProtoEventChoices[165] = 3
         set ProtoEventAPCost[165] = 1
+        set ProtoEventGrade[165] = 2
         set ProtoEventStory[165] = "이오가 사람들에게 웃음을 주려고 작은 시범을 준비하는데 앞줄은 서로의 어깨에 가려 보이지 않는다. 이오는 더 큰 마법이면 잘 보이겠냐고 묻고 비는 먼저 사람들이 어디를 보고 있는지 살펴보자고 한다. 네가 자리를 나눌지 바깥 일을 맡을지 고른다. 라캄은 바깥 길의 짐을 맡고 이오는 작은 시범을 더 크게 할지 아직 정하지 못했다."
         set ProtoEventIntro[165] = "더 큰 시범보다 먼저 보는 자리를 나눈다."
         set ProtoEventIcon[165] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7056,6 +7198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[166] = 1
         set ProtoEventChoices[166] = 3
         set ProtoEventAPCost[166] = 1
+        set ProtoEventGrade[166] = 2
         set ProtoEventStory[166] = "다른 방문에서 목적부터 말했던 너를 롤란이 알아보고 새 부탁의 목록을 펼친다. 비는 이번에도 목적을 먼저 묻고 로제타는 전에 들은 답과 지금의 부탁을 나란히 둔다. 라캄은 맡을 길의 짐부터 묶자고 한다. 이미 익힌 안내를 다시 듣는 대신 이번에 어디까지 맡을지 답할 차례다."
         set ProtoEventIntro[166] = "익힌 안내 경험으로 다음 부탁의 몫을 정한다."
         set ProtoEventIcon[166] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7208,6 +7351,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[167] = 1
         set ProtoEventChoices[167] = 3
         set ProtoEventAPCost[167] = 1
+        set ProtoEventGrade[167] = 2
         set ProtoEventStory[167] = "길목의 벽에 5엔이면 의뢰를 받는다는 번호가 적혀 있다. 전화를 받은 야토는 놓친 물건을 찾아 주겠다고 하지만 길은 안전하지 않다. 당신도 의뢰의 한 부분을 맡을 수 있다."
         set ProtoEventIntro[167] = "벽의 전화번호로 작은 의뢰를 맡길 수 있다."
         set ProtoEventIcon[167] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7251,6 +7395,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[168] = 1
         set ProtoEventChoices[168] = 3
         set ProtoEventAPCost[168] = 1
+        set ProtoEventGrade[168] = 2
         set ProtoEventStory[168] = "텐진의 신사에 일이 몰려 야토가 도움을 부탁받았다. 히요리는 종이와 물자를 정리하고 유키네는 바깥 통로를 확인한다. 가장 요란한 일을 맡아야만 도움이 되는 것은 아니다."
         set ProtoEventIntro[168] = "시험철의 신사에 심부름이 몰렸다."
         set ProtoEventIcon[168] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7294,6 +7439,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[169] = 1
         set ProtoEventChoices[169] = 3
         set ProtoEventAPCost[169] = 1
+        set ProtoEventGrade[169] = 2
         set ProtoEventStory[169] = "야토와 함께 정리한 길목 끝에서 의뢰인의 주소가 틀렸다는 사실을 알았다. 작업은 했지만 연락할 사람이 없어 마무리가 남았다. 히요리는 근처 사람들이 기억하는 길부터 확인하자고 한다."
         set ProtoEventIntro[169] = "정리한 길목 끝에서 주소가 틀린 것을 알았다."
         set ProtoEventIcon[169] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7337,6 +7483,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[170] = 1
         set ProtoEventChoices[170] = 4
         set ProtoEventAPCost[170] = 1
+        set ProtoEventGrade[170] = 3
         set ProtoEventStory[170] = "로렌스가 모피를 팔려는데 저울을 놓는 순서부터 이야기가 엇갈린다. 호로는 가격보다 상대가 무엇을 숨기는지 들어 보라고 한다. 급히 현금화할지 확인 비용을 쓸지 정한다."
         set ProtoEventIntro[170] = "모피를 재는 저울과 설명이 서로 맞지 않는다."
         set ProtoEventIcon[170] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7390,6 +7537,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[171] = 1
         set ProtoEventChoices[171] = 3
         set ProtoEventAPCost[171] = 1
+        set ProtoEventGrade[171] = 2
         set ProtoEventStory[171] = "재협상을 거절당한 거래 내역을 다시 펼쳤다. 로렌스는 손실을 숨기기보다 다른 구매자의 비용을 비교하자고 한다. 이번에는 약속만 좋은 거래와 확정된 정리 대금을 구분한다."
         set ProtoEventIntro[171] = "거절당한 거래를 다른 구매자와 다시 따져 본다."
         set ProtoEventIcon[171] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7433,6 +7581,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[172] = 1
         set ProtoEventChoices[172] = 3
         set ProtoEventAPCost[172] = 1
+        set ProtoEventGrade[172] = 2
         set ProtoEventStory[172] = "재협상이 성사된 뒤에도 호로는 서류를 살펴보라고 한다. 앞서 들은 말과 적힌 조건이 다르면 다음 여행에서 문제가 된다. 지금 정리를 맡을지 다음 운송을 맡을지 고른다."
         set ProtoEventIntro[172] = "성사된 협상의 말과 영수증을 대조한다."
         set ProtoEventIcon[172] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7476,6 +7625,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[173] = 1
         set ProtoEventChoices[173] = 3
         set ProtoEventAPCost[173] = 1
+        set ProtoEventGrade[173] = 3
         set ProtoEventStory[173] = "여행길의 비로 로렌스의 화물 덮개가 젖었다. 호로는 그 상태로 가격을 말해도 상대가 믿지 않을 거라고 한다. 화물의 상태를 확인하거나 우회 운송을 맡는다."
         set ProtoEventIntro[173] = "젖은 화물 덮개를 그대로 둘 수 없다."
         set ProtoEventIcon[173] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7519,6 +7669,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[174] = 1
         set ProtoEventChoices[174] = 3
         set ProtoEventAPCost[174] = 1
+        set ProtoEventGrade[174] = 2
         set ProtoEventStory[174] = "호로는 고향으로 돌아갈 길을 찾고 로렌스는 다음 도시의 거래를 생각한다. 어느 길도 지금의 여행을 한 번에 끝내지는 않는다. 남은 물자를 어떻게 나눌지 묻는다."
         set ProtoEventIntro[174] = "호로의 귀향길과 다음 거래를 함께 준비한다."
         set ProtoEventIcon[174] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7562,6 +7713,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[175] = 1
         set ProtoEventChoices[175] = 3
         set ProtoEventAPCost[175] = 1
+        set ProtoEventGrade[175] = 2
         set ProtoEventStory[175] = "막힌 길의 안내판에 찢어진 수배서가 붙어 있다. 그림과 닮은 남자가 종이를 구겨 주머니에 넣고, 짐이 쌓인 쪽을 보며 길부터 비우라고 말한다. 라그나의 칼이 지나갈 앞길을 맡을지, 옆에서 틈을 살필지, 사람들을 다른 길로 보낼지 정해야 한다."
         set ProtoEventIntro[175] = "수배서 속 얼굴과 닮은 남자가 막힌 길 앞에서 칼을 고쳐 쥔다."
         set ProtoEventIcon[175] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7605,6 +7757,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[176] = 1
         set ProtoEventChoices[176] = 2
         set ProtoEventAPCost[176] = 1
+        set ProtoEventGrade[176] = 2
         set ProtoEventStory[176] = "앞길을 맡은 뒤 라그나가 갈림길에서 잠깐 검을 내렸다. 짐을 통과시키기에는 폭이 모자라지만, 뒤쪽에는 사람들을 돌려보낼 보급 담당자가 도착했다. 좁은 길을 손봐 다시 칼이 들어갈 각도를 찾을지, 큰 흔적을 피해 보급품을 먼저 옮길지 정할 수 있다."
         set ProtoEventIntro[176] = "라그나가 좁은 갈림길을 보고 검을 내린다."
         set ProtoEventIcon[176] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7638,6 +7791,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[177] = 1
         set ProtoEventChoices[177] = 4
         set ProtoEventAPCost[177] = 1
+        set ProtoEventGrade[177] = 2
         set ProtoEventStory[177] = "상인이 비탈에서 빠뜨린 운반 상자를 찾아 달라며 길가에 의뢰 쪽지를 남겼다. 나즈린의 다우징 막대는 진흙 아래를 가리키지만 나무 상자인지 고철인지는 아직 알 수 없다. 들쥐들이 먹을 것부터 먹어 버렸다는 말에, 남은 반응과 수색 범위를 따로 살핀다."
         set ProtoEventIntro[177] = "탐색을 배우거나 넓은 구역을 맡을지, 불확실한 반응에 비용을 쓸지 정한다."
         set ProtoEventIcon[177] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7691,6 +7845,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[178] = 1
         set ProtoEventChoices[178] = 3
         set ProtoEventAPCost[178] = 1
+        set ProtoEventGrade[178] = 2
         set ProtoEventStory[178] = "의뢰 상자를 넘긴 자리에서 나즈린의 막대가 다른 방향으로 흔들린다. 첫 상자를 찾았어도 새 반응의 정체까지 알 수는 없고, 비탈에는 열린 구덩이와 강한 적이 남아 있다. 나즈린은 더 깊이 들어가기 전에 돌아갈 자리가 있는지 확인한다."
         set ProtoEventIntro[178] = "의뢰 물건을 찾은 뒤 새 반응을 좇거나, 뒷정리의 보수와 위험을 정한다."
         set ProtoEventIcon[178] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7734,6 +7889,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[179] = 1
         set ProtoEventChoices[179] = 3
         set ProtoEventAPCost[179] = 1
+        set ProtoEventGrade[179] = 2
         set ProtoEventStory[179] = "의뢰 상자를 찾지 못한 자리에서 나즈린이 젖은 측정 끈을 펼친다. 표시했던 깊이와 방향을 다시 확인해야 하지만 이미 쓴 작업비는 돌아오지 않는다. 강한 적이 남은 구역을 바라보며 재측정과 남은 작업을 나눈다."
         set ProtoEventIntro[179] = "실패한 수색 뒤 다시 측정할지, 넓은 구역을 맡을지, 빈 상자를 옮길지 고른다."
         set ProtoEventIcon[179] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7785,7 +7941,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[29] = 8
         set ProtoEventKind[29] = 0
         set ProtoEventChoices[29] = 1
-        set ProtoEventAPCost[29] = 1
+        set ProtoEventAPCost[29] = 0
+        set ProtoEventGrade[29] = 1
         set ProtoEventStory[29] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIntro[29] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIcon[29] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7794,7 +7951,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[30] = 8
         set ProtoEventKind[30] = 0
         set ProtoEventChoices[30] = 1
-        set ProtoEventAPCost[30] = 1
+        set ProtoEventAPCost[30] = 0
+        set ProtoEventGrade[30] = 1
         set ProtoEventStory[30] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIntro[30] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIcon[30] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7803,7 +7961,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[31] = 8
         set ProtoEventKind[31] = 0
         set ProtoEventChoices[31] = 1
-        set ProtoEventAPCost[31] = 1
+        set ProtoEventAPCost[31] = 0
+        set ProtoEventGrade[31] = 1
         set ProtoEventStory[31] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIntro[31] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIcon[31] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -7812,7 +7971,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[32] = 8
         set ProtoEventKind[32] = 0
         set ProtoEventChoices[32] = 1
-        set ProtoEventAPCost[32] = 1
+        set ProtoEventAPCost[32] = 0
+        set ProtoEventGrade[32] = 1
         set ProtoEventStory[32] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIntro[32] = "길드에 다시 모인 사람들이 의뢰서를 정리하고 돌아올 길을 준비하고 있다. 해피가 길드까지 안내한다."
         set ProtoEventIcon[32] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8058,6 +8218,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[180] = 1
         set ProtoEventChoices[180] = 3
         set ProtoEventAPCost[180] = 1
+        set ProtoEventGrade[180] = 2
         set ProtoEventStory[180] = "길드를 다시 정리하던 중 의뢰서와 수송 짐이 뒤섞여 있다. 나츠는 짐을 치울 테니 밖의 위험을 맡아 달라고 하고 루시는 주소부터 대조하자고 한다. 샤를은 해피가 옮길 짐의 무게와 지나갈 곳을 먼저 살핀다. 같은 마당에서 운반 길·의뢰서·수송 동선 중 무엇부터 맡을까?"
         set ProtoEventIntro[180] = "길드 마당에 흩어진 물건들 사이로 엉킨 의뢰서들이 널브러져 있다."
         set ProtoEventIcon[180] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8101,6 +8262,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[181] = 1
         set ProtoEventChoices[181] = 3
         set ProtoEventAPCost[181] = 1
+        set ProtoEventGrade[181] = 2
         set ProtoEventStory[181] = "나츠와 운반 길을 열고 돌아오니 맡아 둔 목재를 어디에 쓸지 묻는 사람들이 있다. 그레이는 위험한 길목의 방어물을 만들려 하고, 웬디는 운반을 마친 사람들의 회복을 돕고 있다. 엘자는 더 약한 담당 구역을 고르더라도 검을 잡을 쪽은 비워 두자고 한다."
         set ProtoEventIntro[181] = "목재를 짊어지고 돌아온 일행들이 다음 행동을 결정하지 못해 멈춰 서 있다."
         set ProtoEventIcon[181] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8144,6 +8306,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[182] = 1
         set ProtoEventChoices[182] = 3
         set ProtoEventAPCost[182] = 1
+        set ProtoEventGrade[182] = 2
         set ProtoEventStory[182] = "루시와 주소를 대조해 놓은 의뢰서 중 같은 물품에 서로 다른 수령인이 적혀 있다. 접수 실수인지 확인하는 동안, 엘자가 필요한 짐을 나눠 들겠다고 한다. 어느 수령인에게 어떤 준비를 보내야 할까?"
         set ProtoEventIntro[182] = "동일한 물품을 요구하는 두 개의 의뢰서가 책상 위에 놓여 있다."
         set ProtoEventIcon[182] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8187,6 +8350,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[183] = 1
         set ProtoEventChoices[183] = 3
         set ProtoEventAPCost[183] = 1
+        set ProtoEventGrade[183] = 2
         set ProtoEventStory[183] = "해피가 수송할 짐 옆에서 생선 봉지를 발견했다. 모두 가져가고 싶다는 말에 샤를은 짐의 무게부터 보라고 한다. 엘자와 웬디가 도울 준비를 하는 동안, 짐을 나눠 보내거나 지상 운반을 맡을 수 있다."
         set ProtoEventIntro[183] = "해피가 챙기려는 생선과 수송해야 할 물품들이 한데 섞여 있다."
         set ProtoEventIcon[183] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8230,6 +8394,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[184] = 1
         set ProtoEventChoices[184] = 3
         set ProtoEventAPCost[184] = 1
+        set ProtoEventGrade[184] = 2
         set ProtoEventStory[184] = "다른 방문에서 의뢰서를 구분했던 너를 루시가 알아보고 새로 붙은 의뢰의 첫 줄을 가리킨다. 그레이는 좁은 통로의 받침을 확인하자고 하고 엘자는 돌아올 사람을 위한 경계를 맡으려 한다. 미라젠은 맡을 길을 줄이더라도 돌아온 뒤의 보급을 남겨 두자고 한다. 익힌 기록을 다시 받는 대신 이번에는 어디까지 맡을까?"
         set ProtoEventIntro[184] = "의뢰 기록의 경험으로 새 게시판에서 맡을 몫을 고른다."
         set ProtoEventIcon[184] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8273,6 +8438,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[185] = 1
         set ProtoEventChoices[185] = 3
         set ProtoEventAPCost[185] = 1
+        set ProtoEventGrade[185] = 2
         set ProtoEventStory[185] = "엘자는 여행 가방을 금세 닫았지만, 내 짐은 아직 바닥에 널려 있다. 무구를 환장하는 엘자와 달리 나는 다 들고 갈 수 없다. 엘자는 검을 잡을 공간부터 남기라 하고, 웬디는 오래 버틸 준비를 권한다."
         set ProtoEventIntro[185] = "가볍게 떠나는 엘자 옆에서 아직 바닥에 널린 내 짐을 고른다."
         set ProtoEventIcon[185] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8316,6 +8482,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[186] = 1
         set ProtoEventChoices[186] = 3
         set ProtoEventAPCost[186] = 1
+        set ProtoEventGrade[186] = 2
         set ProtoEventStory[186] = "비로 불어난 물가에서 돌아갈 짐이 멈춰 있다. 그레이는 간단한 구조물을 만들 수 있지만 물살 속에 고정할지는 장담하지 않는다. 힘을 보태 빠른 길을 시도할지, 웬디와 짐을 나눠 안전하게 돌아갈지 고른다. 샤를은 물가가 아닌 바깥 쪽을 더 적게 맡는 길도 먼저 살펴보라고 한다."
         set ProtoEventIntro[186] = "강물이 불어나 길을 막고 있고, 수송 짐이 물가에 멈춰 서 있다."
         set ProtoEventIcon[186] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8359,6 +8526,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[187] = 1
         set ProtoEventChoices[187] = 3
         set ProtoEventAPCost[187] = 1
+        set ProtoEventGrade[187] = 2
         set ProtoEventStory[187] = "빠른 물길에서 짐이 젖은 뒤 루시가 번진 글씨를 살피고 있다. 원래 받는 사람을 찾아 남은 짐을 보내거나 웬디와 젖은 물품부터 정리할 수 있다. 어느 쪽이든 흠뻑 젖은 포장을 그대로 둘 수는 없다. 미라젠은 돌려보낼 젖은 포장과 다음 방문에 쓸 보급을 따로 두자고 한다."
         set ProtoEventIntro[187] = "물에 젖어 글씨가 번진 의뢰서를 루시가 유심히 살펴보고 있다."
         set ProtoEventIcon[187] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8402,6 +8570,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[188] = 1
         set ProtoEventChoices[188] = 3
         set ProtoEventAPCost[188] = 1
+        set ProtoEventGrade[188] = 3
         set ProtoEventStory[188] = "나츠와 공격 준비를 해 본 뒤 운반할 짐 옆에서 다시 힘을 맞춘다. 나츠는 크게 힘을 싣는 쪽을 권하지만, 엘자는 옆의 짐을 가리키며 한 번 더 간격을 확인하라고 한다. 강한 일격과 정확한 간격 중 무엇을 준비할까?"
         set ProtoEventIntro[188] = "나츠와 엘자가 서로 다른 방식의 공격 준비를 제안하며 짐을 살피고 있다."
         set ProtoEventIcon[188] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8445,6 +8614,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[189] = 1
         set ProtoEventChoices[189] = 3
         set ProtoEventAPCost[189] = 1
+        set ProtoEventGrade[189] = 2
         set ProtoEventStory[189] = "가질이 식사할 철을 고르던 자리에 아직 의자에 끼워야 할 부품이 섞여 있다. 미라젠은 먹어도 되는 철을 먼저 나누자고 하고 가질은 어느 쪽이 식사인지 표시부터 하라고 한다. 너는 구분을 돕거나 바깥에서 부품을 가져오는 쪽을 맡을 수 있다."
         set ProtoEventIntro[189] = "식사할 철과 아직 쓸 부품을 어떻게 나눌까?"
         set ProtoEventIcon[189] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8488,6 +8658,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[190] = 1
         set ProtoEventChoices[190] = 3
         set ProtoEventAPCost[190] = 1
+        set ProtoEventGrade[190] = 2
         set ProtoEventStory[190] = "쥬비아가 그레이가 돌아올 쪽에 우산을 챙겨 두자 다른 사람이 쓸 것은 남았냐는 말이 나온다. 쥬비아는 그레이 몫을 먼저 보려 하고 미라젠은 돌아오는 사람의 수부터 세자고 한다. 그레이는 자신에게 두 개가 필요하지는 않다며 다른 쪽을 가리킨다. 웬디는 돌아오는 길에서 쓸 보급도 함께 나눠 둘지 묻는다."
         set ProtoEventIntro[190] = "그레이 몫을 먼저 챙길지 돌아올 사람부터 셀지 정한다."
         set ProtoEventIcon[190] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8531,6 +8702,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[191] = 1
         set ProtoEventChoices[191] = 3
         set ProtoEventAPCost[191] = 1
+        set ProtoEventGrade[191] = 2
         set ProtoEventStory[191] = "길드를 찾아온 방문객이 미라젠의 잡지 사진을 내밀자 뒤의 의뢰인은 자기 부탁도 들을 차례라고 한다. 미라젠은 사진을 보고 온 사람과 일 때문에 온 사람이 뒤섞였다고 말한다. 루시는 의뢰서를 받아 놓고 먼저 어떤 말을 하러 왔는지 나누자고 한다."
         set ProtoEventIntro[191] = "사진을 가져온 손님과 의뢰인을 같은 줄에 둘지 정한다."
         set ProtoEventIcon[191] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8574,6 +8746,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[192] = 1
         set ProtoEventChoices[192] = 3
         set ProtoEventAPCost[192] = 1
+        set ProtoEventGrade[192] = 2
         set ProtoEventStory[192] = "렉서스가 뒤쪽은 자신이 맡겠다고 짧게 말하자 나츠는 먼저 가라는 말이냐며 돌아선다. 렉서스는 아직 돌아올 쪽의 이야기를 끝내지 않았다고 하고 루시는 두 사람이 다른 답을 들었다고 한다. 먼저 말의 끝을 확인할지 바깥 일을 맡을지 정한다."
         set ProtoEventIntro[192] = "먼저 가라는 뜻이었는지 돌아올 쪽을 맡겠다는 뜻인지 다시 묻는다."
         set ProtoEventIcon[192] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8617,6 +8790,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[193] = 1
         set ProtoEventChoices[193] = 3
         set ProtoEventAPCost[193] = 1
+        set ProtoEventGrade[193] = 2
         set ProtoEventStory[193] = "길다트가 무심코 지나간 쪽의 벽이 부서져 사람들이 문이 어디였는지 묻는다. 미라젠은 남은 문틀 옆으로 짐을 모으지 말자고 하고 길다트는 자신이 지나온 쪽을 돌아본다. 네가 파손 자리를 정리할지 바깥 길을 맡을지 정해야 한다."
         set ProtoEventIntro[193] = "부서진 벽 옆을 정리할지 바깥 일을 맡을지 정한다."
         set ProtoEventIcon[193] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8660,6 +8834,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[194] = 1
         set ProtoEventChoices[194] = 3
         set ProtoEventAPCost[194] = 0
+        set ProtoEventGrade[194] = 2
         set ProtoEventStory[194] = "루시가 쓴 이야기를 읽던 사람이 결말보다 앞에서 왜 그 길을 택했냐고 묻는다. 루시는 뒤에 답이 있다며 넘기려다가 독자가 멈춘 줄을 다시 본다. 해피는 다음 페이지가 아니라 방금 줄부터 읽어 보자고 한다. 그레이는 다른 의뢰에서 가져온 원고를 돌려주려다 멈춰 서고 누구의 다음 줄부터 읽을지 묻는다."
         set ProtoEventIntro[194] = "독자가 멈춘 줄을 방문 행동력 없이 함께 읽는다."
         set ProtoEventIcon[194] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8703,6 +8878,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[195] = 1
         set ProtoEventChoices[195] = 3
         set ProtoEventAPCost[195] = 1
+        set ProtoEventGrade[195] = 2
         set ProtoEventStory[195] = "다른 방문에서 손님의 목적을 구분했던 너를 미라젠이 알아본다. 새 손님이 사진을 꺼내기 전에 루시가 의뢰인지 먼저 묻고 가질은 쓰는 철을 가져온 사람은 다른 줄로 보내 달라고 한다. 미라젠은 이번 줄만 정리할지 다음 손님에게 물을 몫도 맡을지 네 답을 기다린다."
         set ProtoEventIntro[195] = "익힌 방문 목적의 구분으로 이번과 다음의 몫을 나눈다."
         set ProtoEventIcon[195] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8754,7 +8930,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[33] = 9
         set ProtoEventKind[33] = 0
         set ProtoEventChoices[33] = 1
-        set ProtoEventAPCost[33] = 1
+        set ProtoEventAPCost[33] = 0
+        set ProtoEventGrade[33] = 1
         set ProtoEventStory[33] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIntro[33] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIcon[33] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8763,7 +8940,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[34] = 9
         set ProtoEventKind[34] = 0
         set ProtoEventChoices[34] = 1
-        set ProtoEventAPCost[34] = 1
+        set ProtoEventAPCost[34] = 0
+        set ProtoEventGrade[34] = 1
         set ProtoEventStory[34] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIntro[34] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIcon[34] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8772,7 +8950,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[35] = 9
         set ProtoEventKind[35] = 0
         set ProtoEventChoices[35] = 1
-        set ProtoEventAPCost[35] = 1
+        set ProtoEventAPCost[35] = 0
+        set ProtoEventGrade[35] = 1
         set ProtoEventStory[35] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIntro[35] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIcon[35] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -8781,7 +8960,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[36] = 9
         set ProtoEventKind[36] = 0
         set ProtoEventChoices[36] = 1
-        set ProtoEventAPCost[36] = 1
+        set ProtoEventAPCost[36] = 0
+        set ProtoEventGrade[36] = 1
         set ProtoEventStory[36] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIntro[36] = "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다."
         set ProtoEventIcon[36] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9047,6 +9227,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[196] = 1
         set ProtoEventChoices[196] = 3
         set ProtoEventAPCost[196] = 1
+        set ProtoEventGrade[196] = 2
         set ProtoEventStory[196] = "우라하라 상점 앞에 세 갈래 길로 보낼 짐이 쌓였다. 콘이 끼어든 상자에는 수취인 이름이 가려져 있고, 젖어 갈라진 배송 쪽지를 이치고와 우류가 서로 다르게 읽는다. 오리히메는 부서진 운반대 때문에 뒷길의 짐이 멈췄다는 점을 알아챈다."
         set ProtoEventIntro[196] = "우라하라 상점 앞에 네 갈래 길로 보낼 짐이 쌓여 있다."
         set ProtoEventIcon[196] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9090,6 +9271,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[197] = 1
         set ProtoEventChoices[197] = 3
         set ProtoEventAPCost[197] = 1
+        set ProtoEventGrade[197] = 2
         set ProtoEventStory[197] = "이치고가 짚었던 귀환길 입구 위로 같은 발자국이 이어진다. 요루이치는 그 입구 옆의 좁은 발판을 통해 거리를 벌리자고 하고, 루키아는 아래 골목에 적이 몰리기 전에 입구를 맡자고 한다."
         set ProtoEventIntro[197] = "앞길의 짐을 옮긴 뒤, 돌아가는 길 위로 같은 발자국이 이어진다."
         set ProtoEventIcon[197] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9133,6 +9315,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[198] = 1
         set ProtoEventChoices[198] = 3
         set ProtoEventAPCost[198] = 1
+        set ProtoEventGrade[198] = 2
         set ProtoEventStory[198] = "배송 쪽지의 글씨를 되살렸지만 짐을 보내야 할 집까지는 위험한 구간이 남았다. 우라하라는 약속한 준비물을 펼치고, 차드는 짐을 한 번에 나눠 들어 좁은 길을 비우려 한다. 우류는 주소를 다시 복구하는 대신 이번에는 접을 메모의 끝만 맞추자고 한다."
         set ProtoEventIntro[198] = "배송 쪽지의 글씨를 되살렸지만 짐을 보내야 할 집까지는 위험한 구간이 남았다."
         set ProtoEventIcon[198] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9176,6 +9359,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[199] = 1
         set ProtoEventChoices[199] = 3
         set ProtoEventAPCost[199] = 1
+        set ProtoEventGrade[199] = 2
         set ProtoEventStory[199] = "오리히메가 운반대를 복구한 뒤 짐이 통과한 뒷길은 조용해졌다. 하지만 바깥 골목의 흔적은 아직 남아 있어 루키아가 그쪽을 맡으려 한다. 차드는 돌아오는 사람이 길을 잃지 않게 표식을 더 세우자고 한다. 콘이 표식 끈에 발이 걸려 불평하자 차드는 끈을 당기기 전에 발부터 빼라고 한다."
         set ProtoEventIntro[199] = "복원한 운반대가 지나간 길 바깥에 다른 흔적이 이어진다."
         set ProtoEventIcon[199] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9219,6 +9403,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[200] = 1
         set ProtoEventChoices[200] = 3
         set ProtoEventAPCost[200] = 1
+        set ProtoEventGrade[200] = 2
         set ProtoEventStory[200] = "다른 방문에서 젖은 배송 쪽지를 읽었던 너를 우류가 알아보고 새 상자 앞의 콘을 가리킨다. 인형이 짐에 섞인 채 메모를 가리고 있어 우라하라는 목적지별 물품부터 추리자고 한다. 오리히메는 늦어진 운반대를 살피고 유즈는 돌아갈 보급을 따로 묶으려 한다. 익힌 조준을 다시 받는 대신 어디까지 맡을까?"
         set ProtoEventIntro[200] = "배송 쪽지를 읽은 경험으로 새 짐 앞에서 맡을 몫을 고른다."
         set ProtoEventIcon[200] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9262,6 +9447,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[201] = 1
         set ProtoEventChoices[201] = 3
         set ProtoEventAPCost[201] = 1
+        set ProtoEventGrade[201] = 2
         set ProtoEventStory[201] = "경보가 서로 다른 골목에서 엇갈려 울린다. 요루이치는 가장 가까운 신호를 따라 좁은 길로 들어가려 하고, 차드는 사람들이 지나는 길을 먼저 확보한다. 우류는 흩어진 표시를 대조해 잘못된 신호를 가리려 한다."
         set ProtoEventIntro[201] = "경보가 서로 다른 골목에서 엇갈려 울린다."
         set ProtoEventIcon[201] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9305,6 +9491,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[202] = 1
         set ProtoEventChoices[202] = 3
         set ProtoEventAPCost[202] = 1
+        set ProtoEventGrade[202] = 2
         set ProtoEventStory[202] = "추적했던 경보는 빈 골목에서 끊겼고 쓸 수 있는 표식도 줄었다. 루키아는 돌아갈 갈림길을 다시 확인하고, 우라하라는 경보 기록에서 빼먹은 지점을 짚는다. 차드는 돌아오는 사람이 설 간격을 비워 두자고 한다."
         set ProtoEventIntro[202] = "추적했던 경보는 빈 골목에서 끊겼고 쓸 수 있는 표식도 줄었다."
         set ProtoEventIcon[202] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9348,6 +9535,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[203] = 1
         set ProtoEventChoices[203] = 3
         set ProtoEventAPCost[203] = 1
+        set ProtoEventGrade[203] = 3
         set ProtoEventStory[203] = "이치고와 앞길을 맡아 본 뒤, 칼을 너무 빨리 뻗으면 다음 동작이 흐트러진다는 점을 알게 된다. 이치고는 더 강한 상대의 틈을 기다려 한 번에 힘을 모으려 한다. 차드는 길을 넓혀 다음 공격을 버틸 자리를 먼저 고르자고 한다."
         set ProtoEventIntro[203] = "이치고와 앞길을 맡아 본 뒤, 칼을 너무 빨리 뻗으면 다음 동작이 흐트러진다는 점을 알게 된다."
         set ProtoEventIcon[203] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9391,6 +9579,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[204] = 1
         set ProtoEventChoices[204] = 3
         set ProtoEventAPCost[204] = 1
+        set ProtoEventGrade[204] = 2
         set ProtoEventStory[204] = "우류가 찢어진 소매를 펼치고 이치고에게 천을 그렇게 잡아당기면 다시 벌어진다고 말한다. 콘은 옆의 실타래에 발이 묶여 불평한다. 급한 길 확인과 소매 정리 중 어느 일을 맡을지 나누어야 한다."
         set ProtoEventIntro[204] = "소매를 준비할지, 바깥 길목을 살필지 정한다."
         set ProtoEventIcon[204] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9434,6 +9623,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[205] = 1
         set ProtoEventChoices[205] = 3
         set ProtoEventAPCost[205] = 1
+        set ProtoEventGrade[205] = 2
         set ProtoEventStory[205] = "차드가 길가에 떨어진 작은 인형을 들고 주인을 찾던 아이 앞에 멈춘다. 아이는 사람 많은 길을 가리키지만 차드는 큰 몸을 급하게 움직이면 누군가 밀릴까 조심한다. 이치고는 다른 쪽 길목도 살펴야 한다고 말한다."
         set ProtoEventIntro[205] = "아이 앞에 설 자리를 준비하거나 통행할 범위만 정리할 수 있다."
         set ProtoEventIcon[205] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9477,6 +9667,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[206] = 1
         set ProtoEventChoices[206] = 3
         set ProtoEventAPCost[206] = 1
+        set ProtoEventGrade[206] = 2
         set ProtoEventStory[206] = "유즈가 돌아올 사람들의 보급을 나누다가 한 칸을 비워 둔다. 이치고는 잠깐이면 돌아온다고 하지만 유즈는 필요한 것을 지금 정해야 한다고 한다. 멀리 나갈 준비와 집에 남길 몫을 모두 네가 맡을 수는 없다."
         set ProtoEventIntro[206] = "남겨 둘 보급을 준비할지, 바깥 길을 맡을지 정한다."
         set ProtoEventIcon[206] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9520,6 +9711,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[207] = 1
         set ProtoEventChoices[207] = 3
         set ProtoEventAPCost[207] = 1
+        set ProtoEventGrade[207] = 2
         set ProtoEventStory[207] = "돈 칸온지의 촬영을 보려는 사람들이 좁은 길에 몰린다. 칸온지는 멀리도 들리게 인사하지만 콘은 사람들 사이에서 발을 빼지 못한다. 이치고는 먼저 지나갈 자리를 만들어야 한다고 말한다."
         set ProtoEventIntro[207] = "보일 신호를 맞추거나 통행할 범위를 나누어 맡는다."
         set ProtoEventIcon[207] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9563,6 +9755,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[208] = 1
         set ProtoEventChoices[208] = 3
         set ProtoEventAPCost[208] = 1
+        set ProtoEventGrade[208] = 2
         set ProtoEventStory[208] = "우라하라가 오래 보관한 준비 묶음을 정가보다 싸게 내놓는다. 안의 목록이 끝까지 맞는지는 장담하지 않는다며, 확실한 물품을 따로 챙길 수도 있다고 덧붙인다. 콘은 값부터 보지만 우라하라는 빈칸도 읽으라고 한다. 우류는 확인한 목록의 끝을 맞추고 유즈는 돌아갈 보급을 따로 담아 주려 한다."
         set ProtoEventIntro[208] = "불완전한 묶음에 비용을 걸지, 확인된 물품을 마련할지 정한다."
         set ProtoEventIcon[208] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9606,6 +9799,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[209] = 1
         set ProtoEventChoices[209] = 3
         set ProtoEventAPCost[209] = 1
+        set ProtoEventGrade[209] = 2
         set ProtoEventStory[209] = "타츠키가 연습 자리를 확인하다가 모서리에 밀린 짐을 발로 가리킨다. 오리히메는 기다리는 사람들도 있어 자리를 더 넓힐 수는 없다고 한다. 타츠키는 발부터 놓고 움직임을 맞추자고 한다. 차드는 기다리는 사람이 돌아올 쪽도 비워 두자고 한다."
         set ProtoEventIntro[209] = "발 놓을 자리를 맞출지, 맡을 구역을 줄일지 정한다."
         set ProtoEventIcon[209] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9649,6 +9843,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[210] = 1
         set ProtoEventChoices[210] = 3
         set ProtoEventAPCost[210] = 0
+        set ProtoEventGrade[210] = 2
         set ProtoEventStory[210] = "상점 앞에서 쉬려는 손님을 카린이 벤치의 반대편으로 짧게 부른다. 손님은 아무도 앉지 않은 자리를 왜 비워 두냐고 묻고 카린은 남들이 못 보는 것을 떠들어 봐야 더 시끄러워진다고 한다. 이치고가 옆자리를 내주려 하니 너는 설명을 캐물을지 먼저 자리를 옮길지 고른다. 루키아는 손님에게 비워 둘 쪽부터 알려 줄지 묻는다."
         set ProtoEventIntro[210] = "빈 자리의 이유를 방문 행동력 없이 한 번 더 확인한다."
         set ProtoEventIcon[210] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9692,6 +9887,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[211] = 1
         set ProtoEventChoices[211] = 3
         set ProtoEventAPCost[211] = 1
+        set ProtoEventGrade[211] = 2
         set ProtoEventStory[211] = "이치고를 찾으러 왔다는 말에 잇신이 의원 문 밖까지 나와 반갑게 맞는다. 이치고는 잠깐 물건만 돌려받을 일이라고 말하지만 잇신은 아들과 무슨 일을 같이 했는지부터 묻는다. 유즈가 둘 사이에 설 자리를 내주자 너는 잇신의 걱정을 들을지 이치고의 짧은 용건부터 마칠지 정한다."
         set ProtoEventIntro[211] = "잇신의 걱정을 듣거나 이치고의 용건부터 마칠지 정한다."
         set ProtoEventIcon[211] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9735,6 +9931,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[212] = 1
         set ProtoEventChoices[212] = 3
         set ProtoEventAPCost[212] = 1
+        set ProtoEventGrade[212] = 2
         set ProtoEventStory[212] = "우라하라 상점의 손님이 우루루에게 커다란 상자를 밖으로 옮기라며 혼자서는 못 들 것 같다고 비웃는다. 우루루가 상자를 가볍게 들자 진타는 옮겨 달라는 말과 얕보는 말은 다르다고 끼어든다. 손님이 이번에는 더 많은 짐을 밀어 넣으려 하니 네가 어디서 부탁을 멈출지 정한다."
         set ProtoEventIntro[212] = "들 수 있다는 이유로 부탁을 계속 늘려도 될까?"
         set ProtoEventIcon[212] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9778,6 +9975,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[213] = 1
         set ProtoEventChoices[213] = 3
         set ProtoEventAPCost[213] = 1
+        set ProtoEventGrade[213] = 2
         set ProtoEventStory[213] = "케이고가 네게 이치고와 마을을 둘러보자고 약속했지만 이치고는 그런 말을 들은 적 없다고 한다. 케이고는 친구라면 같이 갈 줄 알았다고 하고 이치고는 남의 약속을 대신 잡지 말라고 한다. 너는 케이고에게 자기 약속부터 맡기거나 이치고와 가능한 범위를 다시 정할 수 있다."
         set ProtoEventIntro[213] = "케이고가 허락받지 않은 약속을 누가 맡을지 정한다."
         set ProtoEventIcon[213] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9821,6 +10019,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[214] = 1
         set ProtoEventChoices[214] = 3
         set ProtoEventAPCost[214] = 1
+        set ProtoEventGrade[214] = 2
         set ProtoEventStory[214] = "다른 방문에서 준비 요령을 익힌 너를 우라하라가 알아보고 새 목록을 펼친다. 콘은 전에 채운 것과 같은 물건이면 그냥 넣자고 하지만 우류는 이번 받는 사람의 줄부터 보자고 한다. 루키아는 아직 지나지 않은 골목을 표시된 길과 섞지 말라고 한다. 전에 받은 준비를 반복하는 대신 이번과 다음에 맡을 몫을 답할 차례다."
         set ProtoEventIntro[214] = "상점에서 익힌 준비로 새 목록의 현재와 다음을 나눈다."
         set ProtoEventIcon[214] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9872,7 +10071,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[37] = 10
         set ProtoEventKind[37] = 0
         set ProtoEventChoices[37] = 1
-        set ProtoEventAPCost[37] = 1
+        set ProtoEventAPCost[37] = 0
+        set ProtoEventGrade[37] = 1
         set ProtoEventStory[37] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIntro[37] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIcon[37] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9881,7 +10081,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[38] = 10
         set ProtoEventKind[38] = 0
         set ProtoEventChoices[38] = 1
-        set ProtoEventAPCost[38] = 1
+        set ProtoEventAPCost[38] = 0
+        set ProtoEventGrade[38] = 1
         set ProtoEventStory[38] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIntro[38] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIcon[38] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9890,7 +10091,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[39] = 10
         set ProtoEventKind[39] = 0
         set ProtoEventChoices[39] = 1
-        set ProtoEventAPCost[39] = 1
+        set ProtoEventAPCost[39] = 0
+        set ProtoEventGrade[39] = 1
         set ProtoEventStory[39] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIntro[39] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIcon[39] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -9899,7 +10101,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[40] = 10
         set ProtoEventKind[40] = 0
         set ProtoEventChoices[40] = 1
-        set ProtoEventAPCost[40] = 1
+        set ProtoEventAPCost[40] = 0
+        set ProtoEventGrade[40] = 1
         set ProtoEventStory[40] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIntro[40] = "황금의 순간에 들어서자 레버리 호텔의 미샤가 돌아갈 길을 짚어 준다. 오락시설의 불빛과 솔글래드 광고 사이에서 꿈세계의 안내를 살핀다."
         set ProtoEventIcon[40] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10209,6 +10412,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[215] = 1
         set ProtoEventChoices[215] = 3
         set ProtoEventAPCost[215] = 1
+        set ProtoEventGrade[215] = 2
         set ProtoEventStory[215] = "에이딘 공원의 슬롯머신 앞에서 코인을 쥔 손님들이 다음 차례를 기다린다. 어벤츄린은 손에 남길 돈부터 정하라며 빈 기계 옆에 선다. 옆줄에서는 쏟아진 코인이 통로까지 굴러 나와 사람들이 몰리고 있다. 너에게 말을 건 미샤는 줄이 바뀌기 전에 돌아갈 표식을 먼저 보자고 한다."
         set ProtoEventIntro[215] = "판돈을 정할지, 어벤츄린의 준비를 살필지, 막힌 통로를 도울지 정한다."
         set ProtoEventIcon[215] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10252,6 +10456,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[216] = 1
         set ProtoEventChoices[216] = 3
         set ProtoEventAPCost[216] = 1
+        set ProtoEventGrade[216] = 2
         set ProtoEventStory[216] = "한 번의 놀이를 끝내고 코인을 정리하는데 스파클이 박수 소리를 흉내 낸다. 같은 얼굴을 따라온 손님들이 출구를 막자 갤러거가 놀이가 끝난 사람부터 밖으로 안내한다. 블랙 스완은 떠난 사람과 아직 같은 박수를 따라오는 사람의 기억을 나눠 듣는다."
         set ProtoEventIntro[216] = "당첨 뒤 모인 손님 사이에서 누구와 출구를 정리할지 고른다."
         set ProtoEventIcon[216] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10295,6 +10500,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[217] = 1
         set ProtoEventChoices[217] = 3
         set ProtoEventAPCost[217] = 1
+        set ProtoEventGrade[217] = 2
         set ProtoEventStory[217] = "당첨되지 않은 회전판의 그림이 자꾸 떠오른다. 블랙 스완은 기억 속 손이 언제 멈칫했는지 함께 살피자고 한다. 갤러거는 또 돌리러 가기 전에 돌아갈 길부터 정하라고 권한다. 미샤는 너에게 다음 놀이가 아닌 다음 귀환 이야기부터 들려 달라고 한다."
         set ProtoEventIntro[217] = "틀린 그림을 다시 돌리는 대신 남은 준비를 정한다."
         set ProtoEventIcon[217] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10338,6 +10544,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[218] = 1
         set ProtoEventChoices[218] = 3
         set ProtoEventAPCost[218] = 1
+        set ProtoEventGrade[218] = 2
         set ProtoEventStory[218] = "코인을 모은 자루는 통로 밖으로 옮겼지만 몰려든 사람들은 다른 쪽 출구로 흩어졌다. 미샤는 호텔로 돌아갈 길에서 강한 흔적이 남은 방향을 짚고, 어벤츄린은 남은 준비물을 빽빽한 길과 나눠 쓰지 말자고 한다. 스파클은 같은 줄에서 다시 시작할 이유가 있냐며 박수의 방향을 바꾼다."
         set ProtoEventIntro[218] = "정리한 통로 끝에서 다음 길의 준비를 고른다."
         set ProtoEventIcon[218] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10381,6 +10588,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[219] = 1
         set ProtoEventChoices[219] = 3
         set ProtoEventAPCost[219] = 1
+        set ProtoEventGrade[219] = 2
         set ProtoEventStory[219] = "커다란 솔글래드 광고 아래에서 음료를 받은 손님들이 서로 다른 방향을 가리킨다. 갤러거는 유난히 같은 말만 반복하는 사람을 경계하고, 미샤는 광고에 가려진 호텔 쪽 안내를 짚는다. 쉬지 않고 손님을 모으는 안내대에는 돌아갈 사람의 짐도 쌓여 있다."
         set ProtoEventIntro[219] = "환한 음료 광고 아래의 손님과 귀환 준비를 살핀다."
         set ProtoEventIcon[219] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10424,6 +10632,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[220] = 1
         set ProtoEventChoices[220] = 3
         set ProtoEventAPCost[220] = 1
+        set ProtoEventGrade[220] = 2
         set ProtoEventStory[220] = "무대 앞에서 같은 안내인이 한 번은 오른쪽을, 다음에는 왼쪽을 가리킨다. 스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, 블랙 스완은 두 안내를 들었을 때의 기억을 따로 살펴보자고 한다."
         set ProtoEventIntro[220] = "스파클의 연극에 맞출지, 들었던 안내를 기억으로 대조할지 정한다."
         set ProtoEventIcon[220] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10467,6 +10676,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[221] = 1
         set ProtoEventChoices[221] = 3
         set ProtoEventAPCost[221] = 1
+        set ProtoEventGrade[221] = 2
         set ProtoEventStory[221] = "서로 달랐던 안내를 기억과 대조한 뒤, 사람들의 걸음이 꺾이는 자리를 찾았다. 어벤츄린은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다. 아케론은 아직 지나지 않은 좁은 자리 앞에서 검을 뽑기보다 간격을 남긴다."
         set ProtoEventIntro[221] = "찾아낸 출구의 빈틈을 안전한 준비로 바꾼다."
         set ProtoEventIcon[221] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10510,6 +10720,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[222] = 1
         set ProtoEventChoices[222] = 3
         set ProtoEventAPCost[222] = 1
+        set ProtoEventGrade[222] = 2
         set ProtoEventStory[222] = "뛰어다니는 광고판을 따라가자 같은 가게 앞을 다시 지나쳤다. 미샤는 호텔 입구의 시계판이 있는 쪽을 짚고, 블랙 스완은 방금 본 간판과 기억 속 간판의 차이를 찾는다."
         set ProtoEventIntro[222] = "움직이는 광고판과 실제 귀환길을 구분한다."
         set ProtoEventIcon[222] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10553,6 +10764,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[223] = 1
         set ProtoEventChoices[223] = 3
         set ProtoEventAPCost[223] = 1
+        set ProtoEventGrade[223] = 2
         set ProtoEventStory[223] = "황금의 순간의 머니 머신에서 쏟아진 지폐를 따라가던 손님들이 서로 다른 골목으로 흩어진다. 어벤츄린은 돈이 나오는 것과 쫓아가서 챙길 수 있는 것은 다르다며 네가 얼마를 걸지 묻는다. 너는 작은 판돈을 걸어 먼 쪽까지 따라가거나 눈앞에서 받은 몫만 챙길 수 있다."
         set ProtoEventIntro[223] = "눈앞의 몫으로 멈출지 더 먼 돈을 쫓을지 정한다."
         set ProtoEventIcon[223] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10596,6 +10808,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[224] = 1
         set ProtoEventChoices[224] = 3
         set ProtoEventAPCost[224] = 0
+        set ProtoEventGrade[224] = 2
         set ProtoEventStory[224] = "꿈속 황금의 순간에서 아이스크림을 잡으려 손을 뻗을 때마다 바로 앞의 빈 자리가 눈에 들어온다. 너에게만 말을 건 미샤는 다른 별에서도 이런 간식을 먹는지 묻다가 네가 먼저 내디딘 발을 본다. 넌 급히 손을 뻗을지 발을 둘 자리부터 살필지 정한다. 곁을 지나던 반디는 간식을 잡는 사진보다 그곳에서 보이는 풍경을 가리킨다."
         set ProtoEventIntro[224] = "방문 행동력 없이 한 번 더 간식 앞의 발자리를 살핀다."
         set ProtoEventIcon[224] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10639,6 +10852,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[225] = 1
         set ProtoEventChoices[225] = 3
         set ProtoEventAPCost[225] = 1
+        set ProtoEventGrade[225] = 2
         set ProtoEventStory[225] = "꿈 건축 경계의 막힌 입구에서 꿈 건축가가 꿈의 눈으로 이어 보이는 길의 도면만 보여 준다. 아케론은 장검을 든 채 그림의 연결 부분과 실제 발을 둘 간격이 같은지 묻는다. 외부인인 너는 공사장으로 들어가는 대신 도면 밖의 통로에서 그 간격을 확인해야 한다. 네가 바깥 통로에서 돌아올 때 블랙 스완은 그림에서 본 길과 실제로 본 길을 따로 듣는다."
         set ProtoEventIntro[225] = "이어 보이는 도면과 실제 통로를 어떻게 대조할까?"
         set ProtoEventIcon[225] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10682,6 +10896,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[226] = 1
         set ProtoEventChoices[226] = 3
         set ProtoEventAPCost[226] = 1
+        set ProtoEventGrade[226] = 2
         set ProtoEventStory[226] = "클락 스튜디오 테마파크의 촬영 체험에서 끝났다는 표시 뒤에도 한 배우가 다른 역을 이어 간다. 스파클은 지금 웃는 사람이 누구의 편인지부터 물으며 아직 남은 장면이 있다고 한다. 촬영 안내인은 다음 체험 손님이 기다린다며 네가 마칠 장면을 정해 달라고 한다. 블랙 스완은 끝났다는 표시와 아직 이어진 장면을 같은 기억으로 적지 말자고 한다."
         set ProtoEventIntro[226] = "끝났다는 표시 뒤에도 역을 이어 갈지 정한다."
         set ProtoEventIcon[226] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10725,6 +10940,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[227] = 1
         set ProtoEventChoices[227] = 3
         set ProtoEventAPCost[227] = 1
+        set ProtoEventGrade[227] = 2
         set ProtoEventStory[227] = "꿈세계 몬스터들을 위한 바에서 잔을 내민 손님이 단맛이 싫다고 뒤늦게 말한다. 음료를 살피던 갤러거는 손님을 예의 있게 대하면서도 왜 처음에는 다른 주문을 했는지 다시 묻는다. 너는 새 잔을 마련할지 손님 말을 먼저 들을지 다른 주문을 맡을지 정한다."
         set ProtoEventIntro[227] = "손님이 뒤늦게 바꾼 주문부터 다시 묻는다."
         set ProtoEventIcon[227] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10768,6 +10984,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[228] = 1
         set ProtoEventChoices[228] = 3
         set ProtoEventAPCost[228] = 1
+        set ProtoEventGrade[228] = 2
         set ProtoEventStory[228] = "제이드는 네가 골라 온 물건보다 그것을 고른 이유를 오래 듣는다. 너는 골드만 내면 끝나는 거래인지 묻지만 제이드는 더 큰 수입을 고르면 앞으로의 움직임도 무거워질 수 있다고 한다. 값과 남을 부담을 모두 읽고 거래할지 지금 가진 몫으로 돌아갈지 정한다. 블랙 스완은 네가 들은 조건과 아직 답하지 않은 조건을 따로 듣는다."
         set ProtoEventIntro[228] = "골드와 거래 뒤에 남을 부담을 함께 읽는다."
         set ProtoEventIcon[228] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10811,6 +11028,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[229] = 1
         set ProtoEventChoices[229] = 3
         set ProtoEventAPCost[229] = 1
+        set ProtoEventGrade[229] = 2
         set ProtoEventStory[229] = "대극장의 사전 공연 안내 자리에서 네 앞의 관객들이 로빈의 이름을 번갈아 외쳐 뒤쪽 사람은 시작 안내를 듣지 못한다. 로빈은 아직 노래를 시작하지 않고 뒤편에서도 안내가 들렸는지 묻는다. 너는 함께 이름을 외치려던 친구에게 기다릴 이유를 말할지, 다른 자리에서 듣도록 도울지 정한다. 갤러거는 돌아갈 관객의 보급을 아직 시작하지 않은 공연과 나누려 한다."
         set ProtoEventIntro[229] = "이름을 부르는 친구와 안내를 듣지 못한 관객 사이에서 맡을 일을 정한다."
         set ProtoEventIcon[229] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10854,6 +11072,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[230] = 1
         set ProtoEventChoices[230] = 3
         set ProtoEventAPCost[230] = 1
+        set ProtoEventGrade[230] = 2
         set ProtoEventStory[230] = "솔글래드 후원 오디션 참가자가 소개를 연습하고 있지만, 광고 문구는 끝까지 읽고도 정작 자기 이름은 말하지 못해 당황한다. 옆을 지나던 로빈이 네가 내민 소개지에서 이름이 어디에 있는지 묻자 참가자는 빈 여백을 가리킨다. 너는 이름을 다시 적을 준비를 도울지, 순서를 바꾸지 않고 들릴 위치를 찾을지 정한다. 스파클은 광고 속 주인공의 이름과 참가자의 이름이 같은지 되묻는다."
         set ProtoEventIntro[230] = "광고를 읽은 참가자가 자기 이름도 말할 수 있게 어떤 도움을 줄까?"
         set ProtoEventIcon[230] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10897,6 +11116,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[231] = 1
         set ProtoEventChoices[231] = 3
         set ProtoEventAPCost[231] = 1
+        set ProtoEventGrade[231] = 2
         set ProtoEventStory[231] = "한 관광객이 IPC 광고 앞에서 부트힐의 기념사진을 찍어 달라며 네게 카메라를 건넨다. 부트힐은 광고의 로고가 자기 뒤에 들어오는 것을 보고 그 사진을 누가 어떤 의도로 보게 될지 먼저 묻는다. 관광객은 멋진 사이보그를 남기고 싶었을 뿐이라며 광고를 빼면 어떤 말을 붙여야 할지 되묻는다."
         set ProtoEventIntro[231] = "멋진 사진과 그 사진을 본 사람이 이해할 뜻은 같을까?"
         set ProtoEventIcon[231] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10940,6 +11160,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[232] = 1
         set ProtoEventChoices[232] = 3
         set ProtoEventAPCost[232] = 1
+        set ProtoEventGrade[232] = 2
         set ProtoEventStory[232] = "꿈속 관광 안내 자리에서 여행자가 반디에게 SAM의 모습을 보여 달라고 부탁한다. 반디는 바로 답하지 않고 네가 펼친 풍경 안내의 한쪽을 보고 있는데 여행자는 갑옷 사진이 없으면 무엇을 보러 가냐고 묻는다. 너는 반디에게 보고 싶은 풍경을 물을지, 안내만 전달하고 다른 준비를 할지 정한다. 너에게 말을 건 미샤는 남이 고른 사진 대신 듣고 싶은 여행 이야기를 묻는다."
         set ProtoEventIntro[232] = "갑옷을 기다리는 사람 곁에서 반디에게 먼저 무엇을 물을까?"
         set ProtoEventIcon[232] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -10983,6 +11204,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[233] = 1
         set ProtoEventChoices[233] = 3
         set ProtoEventAPCost[233] = 1
+        set ProtoEventGrade[233] = 2
         set ProtoEventStory[233] = "참가자가 첫 소개를 마친 뒤 이름을 적은 안내지에 준비를 도운 네 자리까지 출연석으로 표시되었다. 다음 손님은 그 표시를 보고 네게 공연을 부탁한다. 로빈은 누가 소개를 준비했고 누가 이름을 말했는지 다시 구분하자고 한다. 갤러거는 네가 돌아갈 몫까지 관객 자리의 짐으로 쓰지 말라고 한다."
         set ProtoEventIntro[233] = "도움을 준 자리와 무대에 설 자리가 함께 표시되었다."
         set ProtoEventIcon[233] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -11026,6 +11248,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[234] = 1
         set ProtoEventChoices[234] = 3
         set ProtoEventAPCost[234] = 1
+        set ProtoEventGrade[234] = 2
         set ProtoEventStory[234] = "광고가 빠진 사진을 넘긴 뒤 관광객이 붙인 설명에는 IPC의 수호자라는 말이 적혀 있다. 부트힐은 배경만 바꾸면 같은 뜻도 바뀌는 줄 알았냐며 네가 앞서 적은 이유를 보여 준다. 관광객은 사진은 마음에 든다며 설명만 어디부터 고칠지 묻는다. 블랙 스완은 네가 왜 배경을 바꿨는지 기억부터 들려 달라고 한다."
         set ProtoEventIntro[234] = "광고를 뺀 사진에 반대 뜻의 설명이 붙었다."
         set ProtoEventIcon[234] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -11069,6 +11292,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[235] = 1
         set ProtoEventChoices[235] = 3
         set ProtoEventAPCost[235] = 1
+        set ProtoEventGrade[235] = 2
         set ProtoEventStory[235] = "전에 꿈속에서 길을 함께 살폈던 미샤가 네게 새 안내지를 보여 준다. 지난 귀환 표시 옆에는 다음 여행의 이야기를 적을 여백이 남아 있다. 갤러거는 지금 쓸 보급부터 나누고 블랙 스완은 전에 본 길과 이번에 들은 길이 같은지 묻는다. 미샤는 아직 떠나지 않은 길을 벌써 끝난 이야기로 적지 않으려 한다."
         set ProtoEventIntro[235] = "익힌 귀환 준비로 이번과 다음에 맡을 몫을 나눈다."
         set ProtoEventIcon[235] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -11112,6 +11336,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[236] = 1
         set ProtoEventChoices[236] = 3
         set ProtoEventAPCost[236] = 1
+        set ProtoEventGrade[236] = 2
         set ProtoEventStory[236] = "다른 방문에서 뒤편의 안내를 함께 들었던 너를 로빈이 알아본다. 이번 안내지에는 앞줄에서 이름을 외칠 자리만 표시되어 뒤편의 친구는 어디서 기다려야 할지 묻는다. 반디는 멀리서 보는 풍경도 괜찮다며 다른 자리를 살피고 갤러거는 돌아갈 관객의 보급을 나눈다. 아직 노래가 시작되지 않았는데 모두 들었다고 답할 수는 없다."
         set ProtoEventIntro[236] = "전에 먼저 들었던 기억으로 새 관객의 기다릴 자리를 고른다."
         set ProtoEventIcon[236] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
@@ -11163,7 +11388,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[41] = 11
         set ProtoEventKind[41] = 0
         set ProtoEventChoices[41] = 1
-        set ProtoEventAPCost[41] = 1
+        set ProtoEventAPCost[41] = 0
+        set ProtoEventGrade[41] = 1
         set ProtoEventStory[41] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIntro[41] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIcon[41] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11172,7 +11398,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[42] = 11
         set ProtoEventKind[42] = 0
         set ProtoEventChoices[42] = 1
-        set ProtoEventAPCost[42] = 1
+        set ProtoEventAPCost[42] = 0
+        set ProtoEventGrade[42] = 1
         set ProtoEventStory[42] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIntro[42] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIcon[42] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11181,7 +11408,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[43] = 11
         set ProtoEventKind[43] = 0
         set ProtoEventChoices[43] = 1
-        set ProtoEventAPCost[43] = 1
+        set ProtoEventAPCost[43] = 0
+        set ProtoEventGrade[43] = 1
         set ProtoEventStory[43] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIntro[43] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIcon[43] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11190,7 +11418,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[44] = 11
         set ProtoEventKind[44] = 0
         set ProtoEventChoices[44] = 1
-        set ProtoEventAPCost[44] = 1
+        set ProtoEventAPCost[44] = 0
+        set ProtoEventGrade[44] = 1
         set ProtoEventStory[44] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIntro[44] = "기차에서 내리자 정비 도구를 챙긴 윈리가 여행 준비를 살핀다. 연금술과 오토메일, 오래된 기록과 수련의 길을 따라갈 준비를 한다."
         set ProtoEventIcon[44] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11431,6 +11660,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[237] = 1
         set ProtoEventChoices[237] = 3
         set ProtoEventAPCost[237] = 1
+        set ProtoEventGrade[237] = 2
         set ProtoEventStory[237] = "에드워드가 정비를 마친 팔을 움직이자 윈리가 손목에서 나는 미세한 소리에 귀를 기울인다. 에드는 밖에서 시험하면 금방 알 수 있다고 말하고, 알폰스는 우선 넘어지지 않을 자세부터 점검하자고 제안한다. 누구의 확인을 도울지 결정해야 한다."
         set ProtoEventIntro[237] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[237] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11474,6 +11704,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[238] = 1
         set ProtoEventChoices[238] = 3
         set ProtoEventAPCost[238] = 1
+        set ProtoEventGrade[238] = 2
         set ProtoEventStory[238] = "함께 점검했던 손목은 이제 부드럽게 움직인다. 윈리가 기록지를 넘기다 낡은 정비서의 치수가 번진 부분을 발견한다. 그 책을 읽은 셰스카의 도움을 받을지, 에드와 실제 움직임을 더 확인할지 정한다. 휴즈는 지난 기록과 이번에 확인한 기록이 겹쳐 있으면 남이 읽을 때도 헷갈린다며 차례를 물었다."
         set ProtoEventIntro[238] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[238] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11517,6 +11748,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[239] = 1
         set ProtoEventChoices[239] = 3
         set ProtoEventAPCost[239] = 1
+        set ProtoEventGrade[239] = 2
         set ProtoEventStory[239] = "강한 적을 상대로 한 시험이 끝나자 에드워드가 땅에 남은 발자국을 내려다본다. 공격은 닿았지만 너는 생각보다 멀리 밀려났다. 알폰스는 뒤로 빠질 자리를, 함께 시험을 지켜본 암스트롱은 힘을 모으는 자세를 짚어 준다. 지나던 리자는 다음에 통행할 사람의 자리도 비워야 한다고 덧붙인다."
         set ProtoEventIntro[239] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[239] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11560,6 +11792,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[240] = 1
         set ProtoEventChoices[240] = 3
         set ProtoEventAPCost[240] = 1
+        set ProtoEventGrade[240] = 2
         set ProtoEventStory[240] = "셰스카가 물에 젖어 읽을 수 없게 된 기술서의 한 페이지를 막힘없이 적어 내려간다. 에드워드는 그 옆에서 글자를 베끼는 것과 구조를 이해하는 것은 다르다며 도면을 가리킨다. 책을 온전히 남길지, 당장 필요한 원리를 배울지 정한다. 윈리는 도면의 숫자와 직접 측정한 숫자를 다른 줄에 적자며 자기 기록지를 펼친다."
         set ProtoEventIntro[240] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[240] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11603,6 +11836,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[241] = 1
         set ProtoEventChoices[241] = 3
         set ProtoEventAPCost[241] = 1
+        set ProtoEventGrade[241] = 3
         set ProtoEventStory[241] = "이즈미는 사냥터의 발자국과 먹다 남은 열매를 가리키며, 강한 기술부터 찾는 너를 멈춰 세운다. 더 강한 적이 있는 구역도, 적이 여러 방향에서 다니는 구역도 있다. 알폰스는 기본 자세를 되풀이할 자리에서 기다린다."
         set ProtoEventIntro[241] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[241] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11646,6 +11880,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[242] = 1
         set ProtoEventChoices[242] = 3
         set ProtoEventAPCost[242] = 1
+        set ProtoEventGrade[242] = 2
         set ProtoEventStory[242] = "큰 적을 넘긴 자리에서 이즈미가 네 등 뒤의 발자국을 가리킨다. 눈앞에 집중하는 동안 다른 적이 지나갈 길을 놓쳤다. 힘을 내는 법 다음에는 움직일 자리를 읽어야 한다. 시그는 다음날 쓸 준비물과 지금 운반할 묶음을 같은 짐에 넣지 말라고 한다."
         set ProtoEventIntro[242] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[242] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11689,6 +11924,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[243] = 1
         set ProtoEventChoices[243] = 3
         set ProtoEventAPCost[243] = 1
+        set ProtoEventGrade[243] = 2
         set ProtoEventStory[243] = "여러 적 사이에서 힘을 모으던 연습이 끝나자 이즈미가 발밑을 보게 한다. 공격할 자리는 찾았지만 다음 발을 둘 공간을 자꾸 잃었다. 알폰스는 넓게 맡은 구역부터 줄여 보자고 한다. 암스트롱은 힘을 모으던 자리 옆에 다음 사람이 지나갈 자리를 남겨 보자고 한다."
         set ProtoEventIntro[243] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[243] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11732,6 +11968,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[244] = 1
         set ProtoEventChoices[244] = 3
         set ProtoEventAPCost[244] = 0
+        set ProtoEventGrade[244] = 2
         set ProtoEventStory[244] = "리자가 블랙 하야테에게 낮은 목소리로 기다리라고 한다. 에드워드는 앞길을 살피려 움직이고, 개는 준비 가방 쪽을 빤히 쳐다본다. 리자는 가방을 든 네 손을 낮추고 지나갈 선부터 비우라고 말한다."
         set ProtoEventIntro[244] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[244] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11775,6 +12012,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[245] = 1
         set ProtoEventChoices[245] = 3
         set ProtoEventAPCost[245] = 1
+        set ProtoEventGrade[245] = 2
         set ProtoEventStory[245] = "휴즈가 소중한 가족 사진을 보여주려 하자, 셰스카가 들고 온 보고서가 그 아래로 겹쳐 깔린다. 휴즈는 보고서의 미세한 차이를 단번에 짚어내면서도 다시 딸 이야기를 꺼내려 한다. 지금은 어느 쪽을 먼저 정리해야 할지 결정해야 한다."
         set ProtoEventIntro[245] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[245] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11818,6 +12056,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[246] = 1
         set ProtoEventChoices[246] = 3
         set ProtoEventAPCost[246] = 1
+        set ProtoEventGrade[246] = 2
         set ProtoEventStory[246] = "윈리가 준비한 소모품을 가방에 전부 넣으려 하자, 피나코가 돌아왔을 때 쓸 몫을 가리키며 만류한다. 에드워드는 밖에서 확인할 곳이 많다며 문 옆에서 팔짱을 낀 채 기다린다. 지금 더 챙길지 아니면 남겨 둘지 정해야 한다."
         set ProtoEventIntro[246] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[246] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11861,6 +12100,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[247] = 1
         set ProtoEventChoices[247] = 3
         set ProtoEventAPCost[247] = 1
+        set ProtoEventGrade[247] = 2
         set ProtoEventStory[247] = "시그가 정육점의 같은 무게 묶음을 나누다가 작은 묶음을 다시 저울에 올린다. 이즈미는 에드워드에게 단순히 힘만 주는 것이 아니라고 주의를 준다. 가게 일을 돕거나 바깥의 더 강한 상대를 맡을 수 있다."
         set ProtoEventIntro[247] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[247] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11904,6 +12144,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[248] = 1
         set ProtoEventChoices[248] = 3
         set ProtoEventAPCost[248] = 1
+        set ProtoEventGrade[248] = 2
         set ProtoEventStory[248] = "린이 식사 접시를 깨끗이 비운 뒤 계산서를 보고 환하게 웃는다. 에드워드는 떠날 준비를 먼저 해야 한다고 재촉하고, 알폰스는 식탁에 앉아 두 사람의 대화를 듣는다. 식사비를 거들거나 다른 준비 일을 맡아야 한다."
         set ProtoEventIntro[248] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[248] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11947,6 +12188,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[249] = 1
         set ProtoEventChoices[249] = 3
         set ProtoEventAPCost[249] = 1
+        set ProtoEventGrade[249] = 2
         set ProtoEventStory[249] = "로이가 준비 목록을 보며 발화포를 챙기려는데 리자가 먼저 사람들이 지나갈 곳을 가리킨다. 하보크는 운반할 상자가 아직 남았다고 말하며 짐을 챙긴다. 불을 시험하기 전에 무엇을 맡을지 나누어야 한다."
         set ProtoEventIntro[249] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[249] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -11990,6 +12232,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[250] = 1
         set ProtoEventChoices[250] = 3
         set ProtoEventAPCost[250] = 1
+        set ProtoEventGrade[250] = 2
         set ProtoEventStory[250] = "그레이시아가 나눌 애플파이를 상자에 넣는데 휴즈가 설명하던 받는 사람의 이름 둘이 겹친다. 알폰스는 서두르기 전에 상자의 표시부터 나누자고 제안한다. 불확실한 연락을 맡거나 확인된 준비만 도울 수 있다."
         set ProtoEventIntro[250] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[250] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -12033,6 +12276,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[251] = 1
         set ProtoEventChoices[251] = 3
         set ProtoEventAPCost[251] = 1
+        set ProtoEventGrade[251] = 2
         set ProtoEventStory[251] = "전에 함께 기록을 비교했던 너를 셰스카가 알아본다. 새 페이지에는 읽었던 내용과 지금 직접 재야 할 치수가 한 줄에 겹쳐 있다. 윈리는 숫자를 적기 전에 어디서 나온 숫자인지 묻고 휴즈는 이번 작업 뒤의 부탁까지 모두 맡을 수 있는지 물었다. 빈칸을 무턱대고 채울 수는 없다."
         set ProtoEventIntro[251] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[251] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -12076,6 +12320,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[252] = 1
         set ProtoEventChoices[252] = 3
         set ProtoEventAPCost[252] = 1
+        set ProtoEventGrade[252] = 2
         set ProtoEventStory[252] = "귀환의 몫을 남기는 일을 익혔던 너에게 피나코가 지난번 표시를 보여 준다. 오늘 가방에는 비슷한 크기의 다른 묶음이 들어 있다. 윈리는 지난 숫자를 그대로 쓰지 말라고 하고 시그는 운반할 무게부터 나누자고 한다. 돌아왔다는 이유만으로 다음 준비가 끝난 것은 아니다."
         set ProtoEventIntro[252] = "서로 다른 준비와 카드 세 장 중 이번에 맡을 일을 고른다."
         set ProtoEventIcon[252] = "ReplaceableTextures\\CommandButtons\\BTNManual.blp"
@@ -12127,7 +12372,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[45] = 12
         set ProtoEventKind[45] = 0
         set ProtoEventChoices[45] = 1
-        set ProtoEventAPCost[45] = 1
+        set ProtoEventAPCost[45] = 0
+        set ProtoEventGrade[45] = 1
         set ProtoEventStory[45] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIntro[45] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIcon[45] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12136,7 +12382,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[46] = 12
         set ProtoEventKind[46] = 0
         set ProtoEventChoices[46] = 1
-        set ProtoEventAPCost[46] = 1
+        set ProtoEventAPCost[46] = 0
+        set ProtoEventGrade[46] = 1
         set ProtoEventStory[46] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIntro[46] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIcon[46] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12145,7 +12392,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[47] = 12
         set ProtoEventKind[47] = 0
         set ProtoEventChoices[47] = 1
-        set ProtoEventAPCost[47] = 1
+        set ProtoEventAPCost[47] = 0
+        set ProtoEventGrade[47] = 1
         set ProtoEventStory[47] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIntro[47] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIcon[47] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12154,7 +12402,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[48] = 12
         set ProtoEventKind[48] = 0
         set ProtoEventChoices[48] = 1
-        set ProtoEventAPCost[48] = 1
+        set ProtoEventAPCost[48] = 0
+        set ProtoEventGrade[48] = 1
         set ProtoEventStory[48] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIntro[48] = "아오이가 훈련 도구를 놓고 출발 준비를 살핀다. 몸의 반응과 호흡, 약학과 길을 읽는 준비를 배울 자리가 열린다."
         set ProtoEventIcon[48] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12381,6 +12630,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[253] = 1
         set ProtoEventChoices[253] = 3
         set ProtoEventAPCost[253] = 1
+        set ProtoEventGrade[253] = 2
         set ProtoEventStory[253] = "약속된 시각이 지났음에도 보급꾼은 나타나지 않았고, 길목에는 주인 잃은 짐더미만 덩그러니 놓여 있다. 젠이츠는 멀리서 들려오는 기묘한 소리에 귀를 기울이며 멈춰 서고, 이노스케는 거칠게 앞길을 가로막는 수풀을 헤치며 나아가려 한다. 탄지로는 성급한 행동을 만류하며 눈앞에 놓인 상황들을 먼저 짚어보자고 제안한다."
         set ProtoEventIntro[253] = "보급꾼을 찾을지, 길을 뚫을지, 남은 짐을 먼저 수습할지 정한다."
         set ProtoEventIcon[253] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12424,6 +12674,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[254] = 1
         set ProtoEventChoices[254] = 3
         set ProtoEventAPCost[254] = 1
+        set ProtoEventGrade[254] = 2
         set ProtoEventStory[254] = "앞선 수색에서 찾았던 보급꾼이 돌아온 길을 기록지에 짚는다. 젠이츠는 소리를 듣는 것과 그 순간 몸을 움직이는 것은 다르다고 말하고, 카나오가 반응을 확인할 자리를 가리킨다. 정찰 뒤 어떤 준비를 더할지 정한다."
         set ProtoEventIntro[254] = "돌아온 길은 확인했지만 다음에는 언제 발을 움직일까?"
         set ProtoEventIcon[254] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12467,6 +12718,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[255] = 1
         set ProtoEventChoices[255] = 3
         set ProtoEventAPCost[255] = 1
+        set ProtoEventGrade[255] = 2
         set ProtoEventStory[255] = "수색에 실패하고 빈손으로 돌아온 기록지에는 같은 길을 맴돈 흔적만 남았다. 시노부는 다음 임무를 위한 회복 준비를 강조하고, 이노스케는 더욱 직접적인 돌파 방식을 요구한다."
         set ProtoEventIntro[255] = "다시 나설 준비를 갖출지, 위험을 감수하고 돌파할지, 남은 길을 줄일지 정한다."
         set ProtoEventIcon[255] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12510,6 +12762,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[256] = 1
         set ProtoEventChoices[256] = 3
         set ProtoEventAPCost[256] = 1
+        set ProtoEventGrade[256] = 2
         set ProtoEventStory[256] = "비에 젖은 보급 상자를 열자 병의 이름표가 번져 있다. 시노부는 이름을 모르는 것을 먼저 쓰지 말라고 하고, 아오이는 확인한 병과 빈 용기부터 따로 놓는다. 젖지 않은 기록지가 있기는 하지만 전부 대조하려면 준비물이 더 필요하다."
         set ProtoEventIntro[256] = "기록까지 확인할지, 확실한 보급만 챙길지 정한다."
         set ProtoEventIcon[256] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12553,6 +12806,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[257] = 1
         set ProtoEventChoices[257] = 3
         set ProtoEventAPCost[257] = 1
+        set ProtoEventGrade[257] = 2
         set ProtoEventStory[257] = "회복 중인 사람들에게 건넬 흰 천을 말리려는데 비가 그치지 않는다. 아오이는 아직 마르지 않은 묶음을 펼쳐 보이고, 이노스케는 돌아가면 마른 보급을 가져올 길이 있다고 나선다. 오늘 맡을 길목을 넓혀 가져올지, 필요한 만큼만 새로 구할지 정해야 한다."
         set ProtoEventIntro[257] = "새 천을 구하거나 돌아가는 길을 맡거나 필요한 범위만 줄인다."
         set ProtoEventIcon[257] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12596,6 +12850,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[258] = 1
         set ProtoEventChoices[258] = 3
         set ProtoEventAPCost[258] = 1
+        set ProtoEventGrade[258] = 2
         set ProtoEventStory[258] = "전령 까마귀가 새 임무를 빠르게 읽는다. 맡을 일을 놓쳐 같은 문장을 다시 듣자 탄지로가 숨을 고르고 확인할 순서를 정하자고 한다. 아오이는 설명을 듣는 동안 출발할 보급을 묶고 있지만, 아직 빠진 준비물이 있다."
         set ProtoEventIntro[258] = "길게 읽은 안내 뒤에 아직 맡지 않은 준비가 남아 있다."
         set ProtoEventIcon[258] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12639,6 +12894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[259] = 1
         set ProtoEventChoices[259] = 3
         set ProtoEventAPCost[259] = 1
+        set ProtoEventGrade[259] = 2
         set ProtoEventStory[259] = "출발할 짐을 묶는 소리와 발소리가 뒤섞이자 젠이츠가 문턱에서 멈춘다. 한꺼번에 들린 소리 중 무엇을 먼저 확인할지 망설이는 사이, 탄지로는 짐 자루에 묻은 풀을 살핀다. 모든 소리를 없앨 수는 없으니 소리를 줄이거나 확인할 순서를 바꿀 수 있다."
         set ProtoEventIntro[259] = "짐 소리를 줄이거나 주변 흔적을 먼저 보거나 맡을 범위를 줄인다."
         set ProtoEventIcon[259] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12682,6 +12938,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[260] = 1
         set ProtoEventChoices[260] = 3
         set ProtoEventAPCost[260] = 1
+        set ProtoEventGrade[260] = 2
         set ProtoEventStory[260] = "저택 밖 보급길의 자국은 한 방향으로 이어지는데, 젖은 짐과 풀 냄새는 서로 다르게 남아 있다. 탄지로는 보이는 자국만 곧장 따르지 않고 냄새가 갈라지는 곳을 짚는다. 이노스케는 주변 길까지 직접 맡으면 알 수 있다고 나선다."
         set ProtoEventIntro[260] = "조사비와 강한 구역을 감수해 확인할지, 넓은 길을 맡을지, 확인한 곳만 남길지 정한다."
         set ProtoEventIcon[260] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12725,6 +12982,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[261] = 1
         set ProtoEventChoices[261] = 3
         set ProtoEventAPCost[261] = 1
+        set ProtoEventGrade[261] = 2
         set ProtoEventStory[261] = "떠나려던 순간 보급낭의 바닥이 벌어져 준비한 것들이 떨어졌다. 시노부는 상대에 맞춰 가져갈 것을 다시 고르자고 하고, 카나오는 짐을 나누면 발을 옮기는 데 덜 걸린다고 몸으로 보여 준다. 이노스케는 큰 짐을 한쪽으로 모아 들 테니 강한 길을 맡자고 재촉한다."
         set ProtoEventIntro[261] = "벌어진 보급낭을 계기로 가져갈 준비와 맡을 부담을 다시 고른다."
         set ProtoEventIcon[261] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12768,6 +13026,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[262] = 1
         set ProtoEventChoices[262] = 3
         set ProtoEventAPCost[262] = 1
+        set ProtoEventGrade[262] = 2
         set ProtoEventStory[262] = "저택을 찾은 무라타를 선배라고 소개하자 이노스케가 자기보다 강한지부터 묻는다. 탄지로는 먼저 인사하자고 하지만 이노스케는 선배라는 말이 승부를 피할 이유는 되지 않는다고 한다. 무라타는 사람을 오래 지켜 온 것과 싸움에서 이기는 것을 같은 말로 묶지 말라며 네가 어떤 준비를 택할지 묻는다."
         set ProtoEventIntro[262] = "선배의 몫과 승부, 인사 뒤의 반복은 서로 다른 준비가 된다."
         set ProtoEventIcon[262] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12811,6 +13070,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[263] = 1
         set ProtoEventChoices[263] = 3
         set ProtoEventAPCost[263] = 1
+        set ProtoEventGrade[263] = 2
         set ProtoEventStory[263] = "쉬지 않는 탄지로를 보고 돌아온 젠이츠와 이노스케가 훈련장 문 앞에서 서로 먼저 들어가라며 버틴다. 젠이츠는 보는 사람이 있는지 살피고 이노스케는 탄지로보다 먼저 시작한 것처럼 들어가겠다고 한다. 탄지로는 이미 같은 동작을 한 번 더 반복하고 있으니 네가 둘을 부를 말부터 정해야 한다."
         set ProtoEventIntro[263] = "두 사람을 부를 때 꾸준함을 보여 줄지 승부나 관심을 앞세울지 정한다."
         set ProtoEventIcon[263] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12854,6 +13114,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[264] = 1
         set ProtoEventChoices[264] = 3
         set ProtoEventAPCost[264] = 1
+        set ProtoEventGrade[264] = 2
         set ProtoEventStory[264] = "해가 진 뒤 저택을 찾은 방문객이 네즈코를 보고 뒤로 물러난다. 네즈코는 손을 뻗지 않고 가만히 있고 탄지로는 동생을 몰아세우지 않으면서도 손님의 놀람을 가볍게 넘기고 싶지 않다. 네가 양쪽의 거리를 지켜 이야기를 들을지 탄지로와 다른 자리를 안내할지 정한다."
         set ProtoEventIntro[264] = "놀란 사람을 안심시키는 동안 네즈코의 의지를 어떻게 지킬까?"
         set ProtoEventIcon[264] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12897,6 +13158,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[265] = 1
         set ProtoEventChoices[265] = 3
         set ProtoEventAPCost[265] = 1
+        set ProtoEventGrade[265] = 2
         set ProtoEventStory[265] = "표주박을 보고 네가 먼저 큰 것을 집자 아오이가 아직 설명을 끝내지 않았다고 손을 멈춘다. 탄지로가 자기 도구에 숨을 잇는 동안 너는 크기가 곧 실력이라는 말을 삼킨다. 아오이는 네가 불어 볼 도구를 내려놓고 설명부터 들을 것인지 묻는다."
         set ProtoEventIntro[265] = "큰 도구를 골랐지만 설명은 아직 못 들었다."
         set ProtoEventIcon[265] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12940,6 +13202,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[266] = 1
         set ProtoEventChoices[266] = 3
         set ProtoEventAPCost[266] = 0
+        set ProtoEventGrade[266] = 2
         set ProtoEventStory[266] = "탄지로에게 아침 인사를 하려는데 그가 대답하다가 자기 호흡의 박자를 다시 잇는다. 하루 종일 유지하려는 연습이라고 듣고 나니 네 다음 질문이 입끝에 남는다. 탄지로는 질문도 듣겠다면서 그 말을 하는 동안에도 자기 숨의 길이를 다시 맞춘다."
         set ProtoEventIntro[266] = "질문은 남았고 탄지로의 연습도 계속되고 있다."
         set ProtoEventIcon[266] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -12983,6 +13246,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[267] = 1
         set ProtoEventChoices[267] = 3
         set ProtoEventAPCost[267] = 1
+        set ProtoEventGrade[267] = 2
         set ProtoEventStory[267] = "카나오와 손동작으로 반응을 맞추던 네가 끝났다고 생각한 순간에도 손은 앞으로 남아 있다. 카나오는 다음 차례를 준비하고 아오이는 손을 거둘 때도 훈련이라고 말한다. 네가 손을 당기는 사이 카나오는 다음 동작을 이미 기다리고 있다."
         set ProtoEventIntro[267] = "끝났다고 생각한 손은 아직 돌아오지 않았다."
         set ProtoEventIcon[267] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -13026,6 +13290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[268] = 1
         set ProtoEventChoices[268] = 3
         set ProtoEventAPCost[268] = 1
+        set ProtoEventGrade[268] = 2
         set ProtoEventStory[268] = "이노스케가 가림막 뒤로 옮겨 간 네 위치를 가리키고는 이제 네가 맞혀 보라고 한다. 눈앞의 막만 보던 네가 발을 움직이자 이노스케도 다른 쪽으로 발판을 바꾼다. 먼저 막을 걷으려는 네 손을 보고 이노스케는 아직 승부가 끝난 게 아니라고 한다."
         set ProtoEventIntro[268] = "눈앞의 막을 걷으면 승부도 끝나는 걸까?"
         set ProtoEventIcon[268] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -13069,6 +13334,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[269] = 1
         set ProtoEventChoices[269] = 3
         set ProtoEventAPCost[269] = 1
+        set ProtoEventGrade[269] = 2
         set ProtoEventStory[269] = "첫 표주박 도전이 끝난 뒤 네가 도구를 내려놓으려는데 탄지로는 아직 숨을 잇고 있다. 아오이가 터진 소리만 세면 다음 박자를 놓친다고 네 손을 본다. 네가 첫 성공을 다시 말하려 하자 탄지로는 다음 숨은 언제 시작할 것인지 묻는다."
         set ProtoEventIntro[269] = "첫 소리는 끝났지만 숨은 아직 이어진다."
         set ProtoEventIcon[269] = "ReplaceableTextures\\CommandButtons\\BTNInnerFire.blp"
@@ -13120,7 +13386,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[49] = 13
         set ProtoEventKind[49] = 0
         set ProtoEventChoices[49] = 1
-        set ProtoEventAPCost[49] = 1
+        set ProtoEventAPCost[49] = 0
+        set ProtoEventGrade[49] = 1
         set ProtoEventStory[49] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIntro[49] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIcon[49] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13129,7 +13396,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[50] = 13
         set ProtoEventKind[50] = 0
         set ProtoEventChoices[50] = 1
-        set ProtoEventAPCost[50] = 1
+        set ProtoEventAPCost[50] = 0
+        set ProtoEventGrade[50] = 1
         set ProtoEventStory[50] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIntro[50] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIcon[50] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13138,7 +13406,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[51] = 13
         set ProtoEventKind[51] = 0
         set ProtoEventChoices[51] = 1
-        set ProtoEventAPCost[51] = 1
+        set ProtoEventAPCost[51] = 0
+        set ProtoEventGrade[51] = 1
         set ProtoEventStory[51] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIntro[51] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIcon[51] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13147,7 +13416,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventHead[52] = 13
         set ProtoEventKind[52] = 0
         set ProtoEventChoices[52] = 1
-        set ProtoEventAPCost[52] = 1
+        set ProtoEventAPCost[52] = 0
+        set ProtoEventGrade[52] = 1
         set ProtoEventStory[52] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIntro[52] = "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다."
         set ProtoEventIcon[52] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13301,6 +13571,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[270] = 1
         set ProtoEventChoices[270] = 4
         set ProtoEventAPCost[270] = 1
+        set ProtoEventGrade[270] = 2
         set ProtoEventStory[270] = "의뢰를 마친 미식전이 길가에 냄비를 내려놓는다. 페코린느는 식재료 바구니를 들여다보며 자기 몫을 몇 번이고 다시 세고, 콧코로는 다음 끼니에 쓸 재료를 따로 묶는다. 캬루는 잘린 재료 냄새를 따라 다가오는 적을 가리키며, 먹기 전에 자리부터 정하자고 투덜거린다."
         set ProtoEventIntro[270] = "더 모아 함께 먹을지, 다음 끼니를 준비할지, 식사 자리를 줄일지 정한다."
         set ProtoEventIcon[270] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13354,6 +13625,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[271] = 1
         set ProtoEventChoices[271] = 3
         set ProtoEventAPCost[271] = 1
+        set ProtoEventGrade[271] = 2
         set ProtoEventStory[271] = "앞서 넉넉히 먹은 자리에서 그릇을 거두던 중, 근처 일을 돕던 사람들이 한 끼를 부탁한다. 페코린느는 비어 가는 냄비를 보고 재료를 더 보태자고 하고, 캬루는 남은 음식부터 나눌 자리를 정하자고 한다."
         set ProtoEventIntro[271] = "재료를 더 보태거나 남은 음식을 나눌 자리를 마련한다."
         set ProtoEventIcon[271] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13397,6 +13669,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[272] = 1
         set ProtoEventChoices[272] = 3
         set ProtoEventAPCost[272] = 1
+        set ProtoEventGrade[272] = 2
         set ProtoEventStory[272] = "앞서 콧코로와 나누어 둔 밀봉 식사 한 끼가 남았다. 다시 만난 자리에서 길을 서둘러 떠나려는 일행이 식사를 부탁한다. 페코린느는 묶어 둔 그릇을 바라보다가, 이번에는 네 몫을 먼저 정해 달라고 한다."
         set ProtoEventIntro[272] = "남겨 둔 한 끼를 먹거나 건네거나 판다."
         set ProtoEventIcon[272] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13440,6 +13713,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[273] = 1
         set ProtoEventChoices[273] = 4
         set ProtoEventAPCost[273] = 1
+        set ProtoEventGrade[273] = 2
         set ProtoEventStory[273] = "길드 하우스를 정리하다가 오래 닫혀 있던 작은 방을 열었다. 빈 상자와 쓸 만한 그릇, 부러진 선반이 한데 쌓여 있다. 콧코로는 버릴 것부터 구분하자고 하고, 페코린느는 큰 상자를 들어내면 안쪽까지 볼 수 있다고 말한다. 오늘 맡기로 한 길목 정리도 아직 남았다."
         set ProtoEventIntro[273] = "어질러진 방 안에서 두 사람의 의견이 엇갈린다. 어떻게 정리하는 것이 좋을까?"
         set ProtoEventIcon[273] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13493,6 +13767,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[274] = 1
         set ProtoEventChoices[274] = 4
         set ProtoEventAPCost[274] = 1
+        set ProtoEventGrade[274] = 2
         set ProtoEventStory[274] = "습기에 번진 향신료 채집 지도에는 단 한 길만 표시되어 있다. 페코린느는 직접 확인하고 싶어 하고, 캬루는 지도의 정확성을 먼저 의심한다. 콧코로는 오늘 필요한 최소한의 보급품을 챙기고 있다."
         set ProtoEventIntro[274] = "희미한 지도를 보며 다음 행선지를 고민한다."
         set ProtoEventIcon[274] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13546,6 +13821,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[275] = 1
         set ProtoEventChoices[275] = 4
         set ProtoEventAPCost[275] = 1
+        set ProtoEventGrade[275] = 2
         set ProtoEventStory[275] = "아오이가 작은 차 모임 안내장을 들고 문 앞을 서성인다. 건네려던 말을 적었다 지우다 종이만 여러 번 접었다. 콧코로는 모임 준비물을 살펴보다 빠진 것을 가리킨다. 아오이는 부탁할 말을 네가 전부 대신하기보다, 처음 한 문장만 함께 정리해 주면 좋겠다고 한다."
         set ProtoEventIntro[275] = "건넬 말을 함께 준비할지, 모임의 실무를 도울지 정한다."
         set ProtoEventIcon[275] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13599,6 +13875,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[276] = 1
         set ProtoEventChoices[276] = 3
         set ProtoEventAPCost[276] = 1
+        set ProtoEventGrade[276] = 2
         set ProtoEventStory[276] = "논가에 묶어 둔 곡식 옆으로 빗방울이 떨어진다. 콧코로는 막힌 배수길과 남은 묶음을 번갈아 보고, 페코린느는 들 수 있는 것부터 옮기자고 한다. 둘 다 끝내기에는 손이 부족하다."
         set ProtoEventIntro[276] = "배수 도구를 마련할지, 곡식을 옮길지, 맡을 범위를 줄일지 정한다."
         set ProtoEventIcon[276] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13642,6 +13919,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[277] = 1
         set ProtoEventChoices[277] = 2
         set ProtoEventAPCost[277] = 1
+        set ProtoEventGrade[277] = 2
         set ProtoEventStory[277] = "츠무기가 옷에 묶인 이름표를 의뢰서 옆에 놓는다. 받는 사람이 서로 다르자 유우키도 배달 종이를 다시 펼친다. 츠무기는 허락도 받지 않고 자를 수는 없다며 가위를 내려놓는다."
         set ProtoEventIntro[277] = "확인을 도울지, 맞지 않는 옷을 되돌릴 준비를 할지 정한다."
         set ProtoEventIcon[277] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13675,6 +13953,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[278] = 1
         set ProtoEventChoices[278] = 3
         set ProtoEventAPCost[278] = 1
+        set ProtoEventGrade[278] = 2
         set ProtoEventStory[278] = "카스미가 두 주민의 진술을 나란히 펼친다. 한 사람은 짐수레를, 다른 사람은 어두운 보행자를 보았지만 적힌 시각이 다르다. 카스미는 둘 중 누구를 거짓말쟁이라 부르기 전에 시각부터 확인하자고 한다."
         set ProtoEventIntro[278] = "어느 부분을 확인하고 어디까지 기록할지 정한다."
         set ProtoEventIcon[278] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13718,6 +13997,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[279] = 1
         set ProtoEventChoices[279] = 4
         set ProtoEventAPCost[279] = 1
+        set ProtoEventGrade[279] = 2
         set ProtoEventStory[279] = "불안해진 상인들이 저녁도 준비하기 전에 문을 닫으려 한다. 모니카는 지킬 길목을 나누자고 하고, 페코린느는 식사할 사람들의 몫도 걱정한다. 캬루는 넓게 맡을수록 놓칠 구석이 늘어난다고 말한다."
         set ProtoEventIntro[279] = "길목을 준비하거나 맡을 범위를 바꿀 수 있다. 폐점 일을 돕는 방법도 있다."
         set ProtoEventIcon[279] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13771,6 +14051,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[280] = 1
         set ProtoEventChoices[280] = 3
         set ProtoEventAPCost[280] = 1
+        set ProtoEventGrade[280] = 2
         set ProtoEventStory[280] = "유우키의 배달 짐과 미식전의 보급품이 같은 수레에 실렸다. 목적지가 달라 첫 갈림길에서 그대로 나아갈 수는 없다. 콧코로는 나눌 몫을 표시하고 페코린느는 큰 짐부터 들자고 한다."
         set ProtoEventIntro[280] = "다시 포장할지, 큰 몫을 맡을지, 좁은 범위만 도울지 정한다."
         set ProtoEventIcon[280] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
@@ -13814,6 +14095,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventKind[281] = 1
         set ProtoEventChoices[281] = 3
         set ProtoEventAPCost[281] = 1
+        set ProtoEventGrade[281] = 2
         set ProtoEventStory[281] = "카르미나의 연습 자리에서 움직일 때마다 벽 쪽 짐이 덜컹거린다. 벽 너머에서는 주민들이 쉬고 있고, 노조미는 연습도 부탁도 전부 한 번에 맡기는 어렵다고 말한다. 페코린느는 바깥에 쌓인 짐부터 들어 보려 한다."
         set ProtoEventIntro[281] = "연습 자리의 움직임을 맞추거나 짐을 옮기는 일을 도울 수 있다."
         set ProtoEventIcon[281] = "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
