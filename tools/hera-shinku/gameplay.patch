@@ -1,0 +1,22 @@
+--- a/scripts/combat/damagemonster.lua
++++ b/scripts/combat/damagemonster.lua
+@@ -155,2 +155,5 @@
+   local u = damageinfo.u
++  if u:hasdata("BOSS-真红") and (u:hasdata("永恒之轮") or u:hasdata("真红永恒") or u:hasdata("真红-世界之羽永恒")) then
++    return true
++  end
+   local hero = damageinfo.hero
+--- a/scripts/jh/ac/unit.lua
++++ b/scripts/jh/ac/unit.lua
+@@ -542,2 +542,5 @@
+ function unit:losshp(soc, dehp, perdehp, perdemaxhp)
++  if self:hasdata("BOSS-真红") and (self:hasdata("永恒之轮") or self:hasdata("真红永恒") or self:hasdata("真红-世界之羽永恒")) then
++    return
++  end
+   if not self:isalive() or self:hasdata("免疫生命损耗") or self:hasdata("生命值-损耗判定中") or self:hasdata("生命值-数值设定中") or self:hasbuff("永恒") or self:hasbuff("停滞") then
+@@ -840,2 +843,5 @@
+ function unit:damagelosshp(dehp, soc)
++  if dehp > 0 and self:hasdata("BOSS-真红") and (self:hasdata("永恒之轮") or self:hasdata("真红永恒") or self:hasdata("真红-世界之羽永恒")) then
++    return
++  end
+   if not self:isalive() then
