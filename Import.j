@@ -14,6 +14,7 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionCommon.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionChoice.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_PrototypeStatus.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_PrototypeCards.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\UI\UI_ExpeditionStats.j"
 
 // === UI ===

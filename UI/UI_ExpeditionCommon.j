@@ -8,6 +8,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         constant integer EXP_UI_STATS = 5
         constant integer EXP_UI_MAP = 6
         constant integer EXP_UI_RESULT = 7
+        constant integer EXP_UI_CARDS = 10
         integer ExpUIPanel = 0
         integer array ExpUIRoots
         integer array ExpUIButtons
@@ -116,7 +117,13 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
 
     private function ButtonStyle takes integer i returns nothing
         if ButtonTheme[i] > 0 then
-            if ButtonTheme[i] == 1 then
+            if ButtonTheme[i] == 3 then
+                if Hovered == i or ButtonSelected[i] then
+                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
+                else
+                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Slot.tga", 0)
+                endif
+            elseif ButtonTheme[i] == 1 then
                 if (Hovered == i or ButtonSelected[i]) and ButtonEnabled[i] then
                     if ButtonCover[i] then
                         call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
@@ -135,7 +142,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                     call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Sheet.tga", 0)
                 endif
             endif
-            if ButtonEnabled[i] then
+            if ButtonEnabled[i] or ButtonTheme[i] == 3 then
                 call DzFrameSetAlpha(ExpUIButtons[i], 255)
             else
                 call DzFrameSetAlpha(ExpUIButtons[i], 150)
@@ -173,7 +180,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     function ExpUISetButton takes integer i, string value, boolean enabled returns nothing
         set ButtonEnabled[i] = enabled
         call DzFrameSetEnable(ExpUIButtons[i], enabled)
-        if ButtonTheme[i] == 1 then
+        if ButtonTheme[i] == 1 or ButtonTheme[i] == 3 then
             call DzFrameSetText(ExpUIButtonLabels[i], "|cffe7edf3" + JNStringReplace(value, "|r", "|cffe7edf3") + "|r")
         elseif enabled then
             call DzFrameSetText(ExpUIButtonLabels[i], "|cff163848" + JNStringReplace(value, "|r", "|cff163848") + "|r")
@@ -266,10 +273,10 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         local integer panel = 1
         local integer i
         loop
-            exitwhen panel > 9 or ExpUIRoots[panel] == parent
+            exitwhen panel > 10 or ExpUIRoots[panel] == parent
             set panel = panel + 1
         endloop
-        if panel > 9 then
+        if panel > 10 then
             return 0
         endif
         // 창을 숨겨도 버튼은 같은 위치에서 입력을 받도록 별도 부모에 둔다.
@@ -334,7 +341,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set ShownRun = ExpRun
         set ShownRevision = ExpRevision
         set ShownOffer = ExpOfferVersion[pid]
-        call DzFrameShow(Navigation, visible and not (ExpPrototypeEnabled and (ExpUIPanel == EXP_UI_STATS or ExpUIPanel == 8)))
+        call DzFrameShow(Navigation, visible and not (ExpPrototypeEnabled and (ExpUIPanel == EXP_UI_STATS or ExpUIPanel == EXP_UI_CARDS or ExpUIPanel == 8)))
         call DzFrameShow(ExpUIButtons[ActivityButton], activity != 0)
         call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid] or ExpPrototypeEnabled)
         // 선택 버튼이 없는 전투 중에는 스탯 버튼을 당겨 보스 체력바 자리를 비운다.
@@ -354,12 +361,12 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
             call ExpUISetButton(ActivityButton, "선택지", true)
         endif
         if ExpPrototypeEnabled then
-            call ExpUISetButton(StatsButton, "성장·카드", true)
+            call ExpUISetButton(StatsButton, "능력치 [Tab]", true)
         else
             call ExpUISetButton(StatsButton, "스탯  " + I2S(ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]), true)
         endif
         loop
-            exitwhen i > 9
+            exitwhen i > 10
             if ExpUIRoots[i] != 0 then
                 call DzFrameShow(ExpUIRoots[i], visible and ExpUIPanel == i)
             endif

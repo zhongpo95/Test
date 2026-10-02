@@ -1,5 +1,14 @@
 [
   {
+    "file": "UI_Arcana_Slot.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Slot.tga",
+    "size": [
+      128,
+      128
+    ],
+    "sha256": "2eaf9ed0fa07cf73da6324f4c364fa8d49b7abe8d263fe28ec5fd8620960534a"
+  },
+  {
     "file": "UI_Arcana_Ink.tga",
     "import_path": "war3mapImported\\UI_Arcana_Ink.tga",
     "size": [

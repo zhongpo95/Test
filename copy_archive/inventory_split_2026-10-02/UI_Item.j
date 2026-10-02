@@ -1,7 +1,5 @@
-// 기존 가방 UI 진입은 비활성화하고 장착·저장 데이터가 참조하는 공용 처리를 보존한다.
 library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, FrameCount, UIInputGate
     globals
-        constant boolean LEGACY_INVENTORY_UI_ENABLED = false
         hashtable Hash = InitHashtable()
         //아이템창 여는 버튼 백드롭
         integer F_ItemOpenButtonBD
@@ -544,9 +542,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
     endfunction
     
     private function ShowMenu takes nothing returns nothing
-        if not LEGACY_INVENTORY_UI_ENABLED then
-            return
-        endif
         //메뉴 버튼을 누르면 메뉴 버튼 비활설화 + 메뉴 배경 표시
         //다시 메뉴 버튼을 누르면 메뉴버튼 활성화 + 메뉴 배경 숨김
         if F_ItemOnOff[GetPlayerId(DzGetTriggerUIEventPlayer())] == true then
@@ -1878,6 +1873,42 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
 
     endfunction
     
+    private function IKey takes nothing returns nothing
+        local integer key = DzGetTriggerKey()
+        local integer i = 0
+        local integer j = GetPlayerId(DzGetTriggerKeyPlayer())
+        
+        if DzGetTriggerKeyPlayer()==GetLocalPlayer() then
+            set i = JNMemoryGetByte(JNGetModuleHandle("Game.dll")+0xD04FEC)
+        endif
+        
+        if i==1 then
+        else
+            if PickCheck[j] == true then
+                if key == 'I' then
+                    if F_ItemOnOff[j] == true then
+                        call DzFrameShow(F_ItemBackDrop, false)
+                        set F_ItemClickNumber = 200
+                        set F_ItemOnOff[j] = false
+                    else
+                        call DzFrameShow(F_ItemBackDrop, true)
+                        set F_ItemClickNumber = 200
+                        set F_ItemOnOff[j] = true
+                    endif
+                endif
+            endif
+        endif
+    endfunction
+    
+    private function BindInput takes nothing returns boolean
+        if F_ItemBackDrop == 0 then
+            return false
+        endif
+        call DzTriggerRegisterKeyEventByCode(null, 'I', 0, false, function IKey)
+        call DzTriggerRegisterMouseEventByCode(null, JN_MOUSE_BUTTON_TYPE_MIDDLE, 0, false, function MouseRightClick)
+        return true
+    endfunction
+
     private function Init takes nothing returns nothing
         local trigger t = CreateTrigger()
         local integer index
@@ -1887,6 +1918,6 @@ library UIItem initializer Init requires DataItem, StatsSet, UIShop, ITEM, Frame
         
         //I버튼으로 인벤토리 열기 및 닫기
         set t = null
-        // 기존 I키 및 가운데 클릭 입력은 폐기했다. 보유 카드 입력은 UIPrototypeCards가 담당한다.
+        call UIInputAfterPick(function BindInput)
     endfunction
 endlibrary

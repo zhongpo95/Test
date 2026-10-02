@@ -39,9 +39,6 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
 
 
     function ShopShow takes integer pid returns nothing
-        if not LEGACY_INVENTORY_UI_ENABLED then
-            return
-        endif
         call DzFrameShow(F_Storage_BackDrop, false)
         set F_Storage_OnOff[pid] = false
 
@@ -64,9 +61,6 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
     endfunction
 
     function Shop2Show takes integer pid returns nothing
-        if not LEGACY_INVENTORY_UI_ENABLED then
-            return
-        endif
         call DzFrameShow(F_Storage_BackDrop, false)
         set F_Storage_OnOff[pid] = false
 
@@ -82,9 +76,6 @@ library UIOFF initializer init requires UIInfo, UIItem, UIShop, UISkillLevel, UI
     endfunction
 
     function StorageShow takes integer pid returns nothing
-        if not LEGACY_INVENTORY_UI_ENABLED then
-            return
-        endif
         call DzFrameShow(SHOP_BackDrop, false)
         set SHOP_OnOff[pid] = false
         call DzFrameShow(SHOP2_BackDrop, false)

@@ -203,11 +203,11 @@ check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피�
 });
 check('보유 카드 격자와 상세·강화·각성 정보, 난이도 HUD 갱신',()=>{
   const t=party(),e=t.e;for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
-  t.click(t.common(-e.EXP_UI_STATS));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
-  assert.equal(e.UIPrototypeStatus_Count,25);assert(t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[20]]));
-  t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[24]]);assert.equal(e.UIPrototypeStatus_Page,1);
-  assert(!t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[6]]));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[1]]);
-  assert(t.frame(e.UIPrototypeStatus_Detail).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
+  e.ExpUIOpen(e.EXP_UI_CARDS);t.render();
+  assert.equal(e.UIPrototypeCards_Count,25);assert(t.visible(e.ExpUIButtons[e.UIPrototypeCards_Cells[25]]));
+  assert(!t.frame(e.ExpUIButtons[e.UIPrototypeCards_Cells[26]]).enabled);
+  t.event(e.ExpUIButtons[e.UIPrototypeCards_Cells[21]],2);t.render();
+  assert(t.frame(e.UIPrototypeCards_TooltipText).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
   e.ProtoLevel[0]=2;t.render();assert(t.frame(e.UIExpeditionPrototype_HuntStatus).text.includes('5.0%'));
 });
 

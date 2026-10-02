@@ -20,6 +20,7 @@ def panel(name, size, color, border, accent=None):
     return name, im
 
 textures = [
+    panel('UI_Arcana_Slot', (128,128), '#13212b', '#050c12'),
     panel('UI_Arcana_Ink', (256,256), '#111e2b', '#111e2b'),
     panel('UI_Arcana_Panel', (512,512), '#1a2b3b', '#35495b', '#b6a178'),
     panel('UI_Arcana_Selected', (512,512), '#243d50', '#70c9c2', '#b5eee0'),
