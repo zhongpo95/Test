@@ -285,6 +285,50 @@ check('머리 후보는 AP 한 번으로 바로 성장, 4인 각자의 같은 �
     assert(!e.ProtoEventEligible(pid,id));assert(e.ProtoEventEligible(pid,scene(e,'school_circle')));
   }
 });
+check('13개 머리 획득 후 4인 동시 다음 사건은 처치·정체·시간 조건에서 한 번의 조건 검사로 재개',()=>{
+  for(let head=1;head<=13;head++)for(const reason of ['kills','stalled','time']){
+    const t=party(4),e=t.e;
+    for(let pid=0;pid<4;pid++){
+      choose(e,pid,(head-1)*4+pid+1);assert.equal(e.ProtoAP[pid],9);assert(!e.ProtoPaused[pid]);
+      e.HuntSeconds[pid]=reason==='kills'?19:reason==='stalled'?24:44;
+      e.ProtoLastKill[pid]=reason==='stalled'?0:e.HuntSeconds[pid];
+      if(reason==='kills')e.ProtoKills[pid]=12;
+    }
+    const original=e.ProtoEventEligible,counts=[0,0,0,0];
+    e.ProtoEventEligible=(pid,id)=>{counts[pid]++;assert(counts[pid]<=e.PROTO_EVENT_COUNT,'후보별 전체 조건 재검사');return original(pid,id);};
+    for(let i=0;i<3;i++)e.ProtoTick();for(let pid=0;pid<4;pid++)assert.equal(e.ProtoStage[pid],0);
+    e.ProtoTick();
+    for(let pid=0;pid<4;pid++){
+      assert.equal(e.ProtoStage[pid],1,head+' '+reason+' '+pid);assert(e.ProtoPaused[pid]);assert.equal(e.ProtoAP[pid],9);
+      assert.equal(counts[pid],e.PROTO_EVENT_COUNT);
+      const candidates=e.ProtoCandidates.slice(e.ExpKey(pid,1),e.ExpKey(pid,1)+e.ProtoChoices[pid]);
+      assert(candidates.every(id=>id>0&&original(pid,id)));assert.equal(new Set(candidates).size,candidates.length);
+    }
+    e.ProtoEventEligible=original;t.render();assert.deepEqual(t.roots(),[9]);assert(!t.visible(e.UIExpeditionPrototype_HuntHUD));
+  }
+});
+check('머리 획득 결과를 접고 만료시켜도 사냥 재개와 다음 사건 표시가 이어짐',()=>{
+  const t=party(),e=t.e;e.ProtoOffer(0);e.ProtoCandidates[1]=17;t.render();t.click(t.common(2101));
+  assert.equal(e.ProtoStage[0],3);t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[9]]);assert.deepEqual(t.roots(),[]);
+  const original=e.ProtoEventEligible;let count=0;
+  e.ProtoEventEligible=(pid,id)=>{count++;assert(count<=e.PROTO_EVENT_COUNT);return original(pid,id);};
+  for(let i=0;i<30*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);
+  for(let i=0;i<25*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],1);assert.equal(count,e.PROTO_EVENT_COUNT);
+  e.ProtoEventEligible=original;t.render();assert.deepEqual(t.roots(),[9]);assert(t.visible(e.ExpUIButtons[e.UIExpeditionPrototype_CandidateButtons[1]]));
+});
+check('추첨은 기존 80·12·3·1 가중치를 유지하고 후보 중복과 비어 있는 목록을 처리',()=>{
+  const {e}=party(),ids=[1,e.ProtoEventRequired.findIndex(x=>x>0),e.ProtoEventHead.findIndex((h,id)=>h>0&&e.ProtoEventKind[id]===1&&e.ProtoEventRequired[id]===0),e.ProtoEventHead.findIndex((h,id)=>id>0&&h===0&&e.ProtoEventKind[id]===1)];
+  assert.equal(new Set(ids).size,4);assert(ids.every(id=>id>0));e.ProtoChoices[0]=4;
+  const allowed=new Set(ids),counts=new Map(ids.map(id=>[id,0]));e.ProtoEventEligible=(pid,id)=>allowed.has(id);
+  for(let ticket=1;ticket<=96;ticket++){
+    let rolls=0;e.GetRandomInt=(low,high)=>{const roll=rolls++===0?ticket:1;assert(roll>=low&&roll<=high);return roll;};
+    e.ProtoOffer(0);const candidates=e.ProtoCandidates.slice(1,5);assert.equal(rolls,4);assert.deepEqual(new Set(candidates),allowed);
+    counts.set(candidates[0],counts.get(candidates[0])+1);
+  }
+  assert.deepEqual(ids.map(id=>counts.get(id)),[80,12,3,1]);
+  allowed.clear();e.GetRandomInt=()=>assert.fail('빈 후보 목록에서 난수 호출');e.ProtoOffer(0);
+  assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);assert.deepEqual(e.ProtoCandidates.slice(1,5),[0,0,0,0]);assert.equal(e.ProtoAP[0],10);
+});
 check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
   const t=party(),e=t.e;e.ProtoGrantHead(0,1);e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
   const root=t.frame(e.ExpUIRoots[9]);

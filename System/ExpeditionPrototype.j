@@ -12,6 +12,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         private real array MoveX
         private real array MoveY
         private boolean array ReservedRegion
+        // 한 번의 추첨에서만 사용하는 유효 사건 목록. 동기화 경로에서 순차적으로 채운다.
+        private integer array OfferEvents
+        private integer array OfferWeights
     endglobals
 
     function ProtoRefreshStats takes integer pid returns nothing
@@ -127,7 +130,6 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local integer head
         local integer previous
         local integer choice = 1
-        local boolean available = false
         if id <= 0 or id > PROTO_EVENT_COUNT or ProtoEventUsed[id] or ProtoEventKind[id] < 0 or ProtoAP[pid] <= 0 or ProtoAP[pid] < ProtoEventAPCost[id] then
             return false
         endif
@@ -135,6 +137,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoEventKind[id] == 0 then
             // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
             return id == (head - 1) * 4 + pid + 1 and ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, head)]
+        endif
+        // 잠긴 지역의 사건은 분기 조건까지 검사하지 않는다.
+        if head > 0 and not ProtoHeadOwned[ExpKey(pid, head)] then
+            return false
         endif
         set previous = ProtoEventRequired[id]
         if previous > 0 and ProtoEventHistory[ProtoStoryKey(pid, previous)] != ProtoEventRequiredChoice[id] then
@@ -146,11 +152,11 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         loop
             exitwhen choice > ProtoEventChoices[id]
             if ProtoBranchAvailable(pid, id, choice) then
-                set available = true
+                return true
             endif
             set choice = choice + 1
         endloop
-        return available and (head == 0 or ProtoHeadOwned[ExpKey(pid, head)])
+        return false
     endfunction
 
     function ProtoSetPause takes integer pid, boolean paused returns nothing
@@ -171,49 +177,56 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoOffer takes integer pid returns nothing
         local integer slot = 1
-        local integer id
+        local integer id = 1
         local integer j
-        local integer total
+        local integer count = 0
+        local integer total = 0
         local integer selected
         local integer weight
-        local boolean duplicate
+        local integer roll
         if ProtoAP[pid] <= 0 or ProtoReady[pid] then
             return
         endif
+        // 조건 검사는 사건마다 한 번만 한다. 후보 수가 늘어도 전체 분기를 다시 훑지 않는다.
+        loop
+            exitwhen id > PROTO_EVENT_COUNT
+            if ProtoEventEligible(pid, id) then
+                set weight = 1
+                if ProtoEventKind[id] == 0 then
+                    set weight = 80
+                elseif ProtoEventRequired[id] > 0 then
+                    // 이미 시작한 이야기는 이어질 가능성을 높이되 강제로 등장시키지 않는다.
+                    set weight = 12
+                elseif ProtoEventHead[id] > 0 then
+                    set weight = 3
+                endif
+                set count = count + 1
+                set OfferEvents[count] = id
+                set OfferWeights[count] = weight
+                set total = total + weight
+            endif
+            set id = id + 1
+        endloop
         loop
             exitwhen slot > 4
             set ProtoCandidates[ExpKey(pid, slot)] = 0
-            if slot <= ProtoChoices[pid] then
-                set id = 1
-                set total = 0
+            if slot <= ProtoChoices[pid] and total > 0 then
+                set roll = GetRandomInt(1, total)
+                set j = 1
                 set selected = 0
                 loop
-                    exitwhen id > PROTO_EVENT_COUNT
-                    set duplicate = false
-                    set j = 1
-                    loop
-                        exitwhen j >= slot
-                        if ProtoCandidates[ExpKey(pid, j)] == id then
-                            set duplicate = true
-                        endif
-                        set j = j + 1
-                    endloop
-                    if not duplicate and ProtoEventEligible(pid, id) then
-                        set weight = 1
-                        if ProtoEventKind[id] == 0 then
-                            set weight = 80
-                        elseif ProtoEventRequired[id] > 0 then
-                            // 이미 시작한 이야기는 이어질 가능성을 높이되 강제로 등장시키지 않는다.
-                            set weight = 12
-                        elseif ProtoEventHead[id] > 0 then
-                            set weight = 3
-                        endif
-                        set total = total + weight
-                        if GetRandomInt(1, total) <= weight then
-                            set selected = id
-                        endif
+                    exitwhen j > count
+                    if roll <= OfferWeights[j] then
+                        set selected = OfferEvents[j]
+                        // 같은 가중치로 중복 없이 뽑는다. 선택한 사건은 이번 목록에서만 제거한다.
+                        set total = total - OfferWeights[j]
+                        set OfferEvents[j] = OfferEvents[count]
+                        set OfferWeights[j] = OfferWeights[count]
+                        set count = count - 1
+                        exitwhen true
                     endif
-                    set id = id + 1
+                    set roll = roll - OfferWeights[j]
+                    set j = j + 1
                 endloop
                 set ProtoCandidates[ExpKey(pid, slot)] = selected
             endif
