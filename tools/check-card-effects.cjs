@@ -39,8 +39,9 @@ function expected(e,pid){
   return Array.from({length:25},(_,i)=>{
     const kind=i+1;let total=0;
     for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)if(e.ExpCardOwned[e.ExpKey(pid,id)]){
-      total+=e.LoadReal(e.ProtoEffectData,id,kind);
-      if(e.ProtoEvolved[e.ExpKey(pid,id)])total+=e.LoadReal(e.ProtoEffectData,id,kind+32);
+      const scale=1+.5*e.ProtoCardStacks[e.ExpKey(pid,id)];
+      total+=e.LoadReal(e.ProtoEffectData,id,kind)*scale;
+      if(e.ProtoEvolved[e.ExpKey(pid,id)])total+=e.LoadReal(e.ProtoEffectData,id,kind+32)*scale;
     }
     for(let head=1;head<=e.PROTO_HEAD_COUNT;head++)if(e.ProtoHeadOwned[e.ExpKey(pid,head)])total+=e.LoadReal(e.ProtoHeadEffectData,head,kind);
     return total;
@@ -152,10 +153,42 @@ check('13개 지역 입구는 4인 전부 결과까지 완료하며 갱신 중 �
     const e=setup(),owned=observe(e,'ExpCardOwned'),entry=e.ProtoHeadEntryCard[head];
     for(let pid=0;pid<4;pid++){
       const id=(head-1)*4+pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;owned.accesses.length=0;
-      e.ProtoAction(pid,2101);assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],9);assert(e.ProtoHeadOwned[e.ExpKey(pid,head)]);
+      e.ProtoAction(pid,2101);assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert(e.ProtoHeadOwned[e.ExpKey(pid,head)]);
       assert(owned.array[e.ExpKey(pid,entry)]);assert(owned.accesses.every(key=>key===e.ExpKey(pid,entry)));
       expected(e,pid).forEach((value,i)=>close(e.ProtoStat(pid,i+1),value));
     }
   }
+});
+check('중복 강화는 원래 효과의 50%씩 가산하며 각성 전후 순서와 진행을 보존',()=>{
+  const results=[];
+  for(const awakeFirst of [false,true]){
+    const e=setup(),id=e.PROTO_CARD_FIRST;synthetic(e,id,1,10);
+    for(let kind=1;kind<=25;kind++){e.ProtoSetEffect(id,kind,kind,false);e.ProtoSetEffect(id,kind,kind/2,true);}
+    e.ProtoGrantCard(0,id);e.ProtoCardProgress[id]=4;
+    if(awakeFirst){e.ProtoCardProgress[id]=10;e.ProtoEvolutionTick(0);}
+    const before=e.ProtoCardProgress[id],revision=e.ProtoCardRevision[0];
+    e.ProtoGrantEventCard(0,id);assert.equal(e.ProtoCardProgress[id],before);assert.equal(e.ProtoCardStacks[id],1);
+    for(let kind=1;kind<=25;kind++)close(e.ProtoStat(0,kind),kind*(awakeFirst?2.25:1.5));
+    e.ProtoGrantEventCard(0,id);assert.equal(e.ProtoCardStacks[id],2);assert.equal(e.ProtoCardRevision[0],revision+2);
+    assert(e.ProtoCardText(0,id).includes('효과 200%'));assert(e.ProtoOutcome[0].includes('강화 완료'));assert.equal(e.ExpGold[0],0);
+    if(!awakeFirst){e.ProtoCardProgress[id]=10;e.ProtoEvolutionTick(0);}
+    for(let kind=1;kind<=25;kind++)close(e.ProtoStat(0,kind),kind*3);
+    results.push(e.ProtoStatValues.slice(1,26));assert.deepEqual(pending(e,0,1),[]);
+    for(let pid=1;pid<4;pid++)for(let kind=1;kind<=25;kind++)assert.equal(e.ProtoStat(pid,kind),0);
+  }
+  assert.deepEqual(results[0],results[1]);
+});
+check('중복은 해당 카드만 읽으며 선택·결과 배율과 정수 옵션 상한, 새 런 초기화가 일치',()=>{
+  const e=setup(),id=e.PROTO_CARD_FIRST;synthetic(e,id,0);
+  e.ProtoSetEffect(id,e.PROTO_STAT_DAMAGE,10,false);e.ProtoSetEffect(id,e.PROTO_STAT_CHOICES,1,false);e.ProtoSetEffect(id,e.PROTO_STAT_CAPACITY,1,false);
+  e.ProtoGrantCard(0,id);e.ProtoAP[0]=2;e.ProtoSelected[0]=53;const key=e.ProtoChoiceKey(53,1);e.ProtoBranchCard[key]=id;
+  assert(e.ProtoBranchText(0,1).includes('대미지 증가 +15.0%'));assert(e.ProtoBranchSummary(0,1).includes('원래 효과 +50%'));
+  const reads=[],load=e.LoadReal;e.LoadReal=(table,card,kind)=>{if(table===e.ProtoEffectData)reads.push(card);return load(table,card,kind);};
+  e.ProtoGrantEventCard(0,id);assert(reads.every(card=>card===id));assert.equal(reads.length,50); // 누적25 + 결과표시25.
+  e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],11);assert.equal(e.ProtoAP[0],2);
+  e.ProtoGrantEventCard(0,id);e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],12);assert.equal(e.ProtoAP[0],3);
+  e.ProtoRefreshStats(0);assert.equal(e.ProtoAP[0],3);
+  const t=fresh(0,true),run=t.e;t.start();run.ProtoGrantCard(0,id);run.ProtoGrantEventCard(0,id);run.ProtoGrantEventCard(0,id);
+  assert.equal(run.ProtoCardStacks[id],2);run.Finish(false);run.ProtoAction(0,2001);assert.equal(run.ProtoCardStacks[id],0);assert.equal(run.ProtoStat(0,run.PROTO_STAT_DAMAGE),0);
 });
 console.log(`${checks} incremental effect/awakening groups passed. Actual JASS with mock natives; Warcraft runtime, multiplayer and frame-time performance remain untested.`);

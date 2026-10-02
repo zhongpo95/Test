@@ -27,6 +27,8 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         constant integer PROTO_STAT_HEALTHY = 24
         constant integer PROTO_STAT_CAPACITY = 25
         constant integer PROTO_STAT_LAST = 25
+        integer array ProtoCardStacks
+        integer array ProtoCardRevision
         hashtable ProtoEffectData = InitHashtable()
         hashtable ProtoHeadEffectData = InitHashtable()
         real array ProtoStatValues
@@ -68,7 +70,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         return ProtoStatNames[kind] + " " + sign + R2SW(value, 0, 1) + unitText
     endfunction
 
-    function ProtoCardEffectsText takes integer card, boolean evolved returns string
+    function ProtoCardEffectsScaled takes integer card, boolean evolved, real scale returns string
         local integer kind = 1
         local real value
         local string result = ""
@@ -82,11 +84,15 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
                 if result != "" then
                     set result = result + "|n"
                 endif
-                set result = result + ProtoEffectText(kind, value)
+                set result = result + ProtoEffectText(kind, value * scale)
             endif
             set kind = kind + 1
         endloop
         return result
+    endfunction
+
+    function ProtoCardEffectsText takes integer card, boolean evolved returns string
+        return ProtoCardEffectsScaled(card, evolved, 1.0)
     endfunction
 
     function ProtoHeadEffectText takes integer head returns string
@@ -125,7 +131,7 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         endif
         loop
             exitwhen kind > PROTO_STAT_LAST
-            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoEffectData, card, kind + offset)
+            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoEffectData, card, kind + offset) * (1.0 + 0.5 * ProtoCardStacks[ExpKey(pid, card)])
             set kind = kind + 1
         endloop
     endfunction

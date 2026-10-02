@@ -55,7 +55,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
     endfunction
 
     function ProtoGrantHead takes integer pid, integer head returns nothing
-        if head < 1 or head > PROTO_HEAD_COUNT or ProtoHeadCount[pid] >= 3 or ProtoHeadOwned[ExpKey(pid, head)] then
+        if head < 1 or head > PROTO_HEAD_COUNT or ProtoHeadCount[pid] >= 2 or ProtoHeadOwned[ExpKey(pid, head)] then
             return
         endif
         set ProtoHeadOwned[ExpKey(pid, head)] = true
@@ -101,6 +101,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ExpCardOwned[ExpKey(pid, card)] then
             return
         endif
+        set ProtoCardStacks[ExpKey(pid, card)] = 0
+        set ProtoCardRevision[pid] = ProtoCardRevision[pid] + 1
         set ExpCardOwned[ExpKey(pid, card)] = true
         set ProtoCardProgress[ExpKey(pid, card)] = 0.0
         set ProtoEvolved[ExpKey(pid, card)] = false
@@ -121,7 +123,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             return false
         endif
         if ProtoEventKind[id] == 0 then
-            return choice == 1 and ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
+            return choice == 1 and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, ProtoEventHead[id])]
         endif
         return ExpGold[pid] >= ProtoBranchCost[key] and ProtoLevel[pid] + ProtoBranchLevel[key] <= 5 and ProtoDensity[pid] + ProtoBranchDensity[key] <= 10
     endfunction
@@ -136,7 +138,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         set head = ProtoEventHead[id]
         if ProtoEventKind[id] == 0 then
             // 입구 ID는 플레이어별로 하나씩 배정한다. 다른 사람의 머리 획득이 내 입구를 소진하지 않는다.
-            return id == (head - 1) * 4 + pid + 1 and ProtoHeadCount[pid] < 3 and not ProtoHeadOwned[ExpKey(pid, head)]
+            return id == (head - 1) * 4 + pid + 1 and ProtoHeadCount[pid] < 2 and not ProtoHeadOwned[ExpKey(pid, head)]
         endif
         // 잠긴 지역의 사건은 분기 조건까지 검사하지 않는다.
         if head > 0 and not ProtoHeadOwned[ExpKey(pid, head)] then
@@ -251,7 +253,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoEventCardPreview takes integer pid, integer card returns string
         if ExpCardOwned[ExpKey(pid, card)] then
-            return ProtoCardName[card] + " 이미 보유 · 골드 +100으로 교환"
+            return ProtoCardName[card] + " 강화 +" + I2S(ProtoCardStacks[ExpKey(pid, card)] + 1) + " · 원래 효과 +50%|n" + ProtoCardEffectsScaled(card, ProtoEvolved[ExpKey(pid, card)], 1.5 + 0.5 * ProtoCardStacks[ExpKey(pid, card)])
         endif
         return "[" + ExpEventGradeName(ProtoCardGrade[card]) + "] " + ProtoCardName[card] + " · " + ProtoCardEffectName[card] + "|n" + JNStringReplace(ProtoCardEffectsText(card, false), "|n", " · ")
     endfunction
@@ -331,13 +333,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoBranchCard[key] > 0 then
             set reward = ProtoCardName[ProtoBranchCard[key]]
             if ExpCardOwned[ExpKey(pid, ProtoBranchCard[key])] then
-                set reward = reward + " (보유 · 100골드)"
+                set reward = reward + " (강화 · 원래 효과 +50%)"
             endif
         endif
         if ProtoBranchCard2[key] > 0 then
             set reward = reward + " · " + ProtoCardName[ProtoBranchCard2[key]]
             if ExpCardOwned[ExpKey(pid, ProtoBranchCard2[key])] then
-                set reward = reward + " (보유 · 100골드)"
+                set reward = reward + " (강화 · 원래 효과 +50%)"
             endif
         endif
         if ProtoBranchGold[key] > 0 then
@@ -361,14 +363,30 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         return value + "|n" + reward + "|n" + cost
     endfunction
 
+    function ProtoUpgradeCard takes integer pid, integer card returns nothing
+        local integer kind = 1
+        local real value
+        loop
+            exitwhen kind > PROTO_STAT_LAST
+            set value = LoadReal(ProtoEffectData, card, kind)
+            if ProtoEvolved[ExpKey(pid, card)] then
+                set value = value + LoadReal(ProtoEffectData, card, kind + 32)
+            endif
+            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + value * 0.5
+            set kind = kind + 1
+        endloop
+        set ProtoCardStacks[ExpKey(pid, card)] = ProtoCardStacks[ExpKey(pid, card)] + 1
+        set ProtoCardRevision[pid] = ProtoCardRevision[pid] + 1
+        set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoCardName[card] + " 강화 완료|n" + ProtoCardText(pid, card)
+    endfunction
+
     function ProtoGrantEventCard takes integer pid, integer card returns nothing
         if card <= 0 then
             return
         endif
         // 사건의 정체성을 유지한다. 중복 카드를 다른 작품의 카드로 다시 뽑지 않는다.
         if ExpCardOwned[ExpKey(pid, card)] then
-            set ExpGold[pid] = ExpGold[pid] + 100
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoCardName[card] + " 이미 보유 · 골드 +100."
+            call ProtoUpgradeCard(pid, card)
         else
             call ProtoGrantCard(pid, card)
         endif
@@ -691,6 +709,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set ExpCardReserved[ExpKey(pid, id)] = false
                 set ProtoCardProgress[ExpKey(pid, id)] = 0.0
                 set ProtoEvolved[ExpKey(pid, id)] = false
+                set ProtoCardStacks[ExpKey(pid, id)] = 0
                 set ProtoHeadOwned[ExpKey(pid, id)] = false
                 set ProtoCandidates[ExpKey(pid, id)] = 0
                 set id = id + 1
@@ -997,9 +1016,10 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     endif
                     set ProtoEvolutionNext[ExpKey(pid, id)] = 0
                     set ProtoEvolved[ExpKey(pid, id)] = true
+                    set ProtoCardRevision[pid] = ProtoCardRevision[pid] + 1
                     call ProtoStatAddCard(pid, id, true)
                     set changed = true
-                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoCardName[id] + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCardEffectsText(id, true))
+                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoCardName[id] + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCardEffectsScaled(id, true, 1.0 + 0.5 * ProtoCardStacks[ExpKey(pid, id)]))
                     if GetLocalPlayer() == Player(pid) then
                         call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
                     endif

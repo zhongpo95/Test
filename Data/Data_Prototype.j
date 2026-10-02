@@ -6,6 +6,17 @@ library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
         integer array ProtoEvolutionNext
     endglobals
 
+    function ProtoGradeColor takes integer grade returns string
+        if grade == 4 then
+            return "|cffb84ca5"
+        elseif grade == 3 then
+            return "|cff8042ad"
+        elseif grade == 2 then
+            return "|cff0877ae"
+        endif
+        return "|cff315a70"
+    endfunction
+
     function ProtoEvolutionReset takes integer pid returns nothing
         local integer kind = 1
         loop
@@ -26,7 +37,7 @@ library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
 
     function ProtoCardText takes integer pid, integer id returns string
         local string value = "[" + ProtoCardKeyword[id] + "] " + ProtoCardEffectName[id] + "|n"
-        set value = value + ProtoCardEffectsText(id, ProtoEvolved[ExpKey(pid, id)])
+        set value = value + "강화 +" + I2S(ProtoCardStacks[ExpKey(pid, id)]) + " · 효과 " + I2S(100 + 50 * ProtoCardStacks[ExpKey(pid, id)]) + "%|n" + ProtoCardEffectsScaled(id, ProtoEvolved[ExpKey(pid, id)], 1.0 + 0.5 * ProtoCardStacks[ExpKey(pid, id)])
         if ProtoEvolutionKind[id] > 0 then
             if ProtoEvolved[ExpKey(pid, id)] then
                 set value = value + "|n|cffc781ff각성 완료|r"
