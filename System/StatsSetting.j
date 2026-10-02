@@ -39,7 +39,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         local real ArcanaRate = 1.0
 
         if ExpPrototypeActive and ExpMember[pid] then
-            set penetrationRate = RMaxBJ(0.0, RMinBJ(1.0, penetrationRate + ProtoStat(pid, PROTO_STAT_PENETRATION) / 100.0))
+            set penetrationRate = RMaxBJ(0.0, RMinBJ(0.60, Penetration[pid] + penetrationRate + ProtoStat(pid, PROTO_STAT_PENETRATION) / 100.0))
             set remainingDefense = targetDefense * (1.0 - penetrationRate)
             set defenseDamageRate = (1.0 - remainingDefense / (remainingDefense + 10000.0)) / 0.5
             // 조건부·대상별 피해는 상대와 전투 상황에 따라 달라 전투력 추정에서 제외한다.

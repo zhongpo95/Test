@@ -32,6 +32,7 @@ function inspect(input) {
       if (effect.stat==='regeneration' && effect.value>1) warnings.push({key,reason:'카드 하나의 초당 재생이 최대체력 1%를 넘음. 별도 밸런스 검토 필요'});
       if (effect.stat==='swift' && effect.value!==0 && Math.abs(effect.value)<45) warnings.push({key,reason:'신속은 고정 수치다. '+effect.value+'는 행동 속도 '+(effect.value/45).toFixed(3)+'%, 쿨타임 감소 '+(effect.value/46).toFixed(3)+'%p에 해당하므로 단위와 선택 가치를 재검토해야 함'});
       if (effect.stat==='event_choices' && !Number.isInteger(effect.value)) fail(key,'사건 후보 증가는 정수여야 함');
+      if (effect.stat==='event_choices' && effect.value && data.world?.key!=='common') fail(key,'사건 후보 증가는 공용 카드에서만 사용함');
       if (effect.stat==='action_capacity' && (!Number.isInteger(effect.value) || effect.value<0)) fail(key,'행동력 최대치 증가는 음수가 아닌 정수여야 함');
     }
   }
@@ -44,10 +45,33 @@ function inspect(input) {
     if (card.evolution.kind===0 && (card.evolution.goal!==0 || card.evolution.effects?.length)) fail(key,'각성 없음인데 목표 또는 효과가 존재함');
     if (card.evolution.kind>0 && (!Number.isFinite(card.evolution.goal) || !(card.evolution.goal>0) || !card.evolution.effects?.length)) fail(key,'각성 목표와 추가 효과가 필요함');
   }
+  const mainEvents=data.events.filter(e=>e.mainStage);
+  if (mainEvents.length || data.world?.mainStory) {
+    const length=data.world?.mainStory?.length;
+    if (data.world?.key==='common' || !Number.isInteger(length) || length<1) fail('world','메인 길이는 지역별 양의 정수여야 함');
+    if (!data.world?.mainStory?.title) fail('world','메인 이야기 제목이 필요함');
+    if (mainEvents.length!==length || new Set(mainEvents.map(e=>e.mainStage)).size!==length) fail('world','메인 장 수가 맞지 않거나 중복 장이 있음');
+    for(let n=1;n<=length;n++)if(!mainEvents.some(e=>e.mainStage===n))fail('world','메인 단계 누락 '+n);
+  }
   for (const [key,event] of events) {
     if (!event.title || !event.story || !event.intro || event.effects) fail(key,'사건 필수 필드 누락 또는 카드 객체가 events에 들어감');
+    if (event.epilogue!==undefined && typeof event.epilogue!=='boolean') fail(key,'후일담 표시는 참 또는 거짓이어야 함');
     if (event.actionCost!==undefined && ![0,1].includes(event.actionCost)) fail(key,'사건 행동력 비용은 0 또는 1이어야 함');
     if (!Array.isArray(event.choices) || event.choices.length<2 || event.choices.length>4) {fail(key,'선택지는 2~4개여야 함');continue;}
+    if (event.epilogue && (!data.world?.mainStory || event.mainStage)) fail(key,'후일담에는 지역 메인이 필요하며 메인 단계와 겹칠 수 없음');
+    if (event.mainStage) {
+      if (!Number.isInteger(event.mainStage) || event.mainStage<1 || event.mainStage>data.world?.mainStory?.length) fail(key,'메인 단계 범위 오류');
+      if (event.previous || event.requiredCard || event.actionCost!==1 || event.choices.length!==3) fail(key,'메인은 개인 단계로 연결하며 AP 1과 세 행동을 사용함');
+      const grades=new Set();
+      for(const b of event.choices){
+        if(!b.card || b.card2 || b.chance!==100 || b.cost || b.gold || b.density || b.level)fail(key,'메인 세 행동은 비용·확률 차이 없이 카드 하나씩 지급함');
+        if(cards.has(b.card)){
+          grades.add(cards.get(b.card).grade);
+          if(cards.get(b.card).evolution.kind!==0)fail(key,'메인 보상은 각성을 임시 제거한 기본 카드여야 함');
+        }
+      }
+      if(grades.size!==1)fail(key,'같은 메인 사건의 세 보상은 동급이어야 함');
+    }
     if (event.requiredCard && !cards.has(event.requiredCard)) fail(key,'requiredCard 참조 없음');
     if (event.previous) {
       const previous=events.get(event.previous);
@@ -63,6 +87,7 @@ function inspect(input) {
       }
       if (choice.cost<0 || choice.potions<0 || choice.gold<0 || choice.chance<1 || choice.chance>100) fail(tag,'비용·보상·성공률 범위 오류');
       if (choice.potions!==0) fail(tag,'사건에서 물약을 보상으로 지급하지 않음');
+      if (choice.density!==0) fail(tag,'사건에서 몬스터 수를 변경하지 않음');
       if (choice.health || choice.healthCost || choice.hpCost) fail(tag,'현재 체력 지불·회복은 사건 보상 필드에서 사용하지 않음');
       for (const field of ['card','card2']) if (choice[field]) {
         if (!cards.has(choice[field])) fail(tag,field+' 참조 없음');

@@ -820,7 +820,11 @@ library Expedition initializer Init requires DataExpedition, DataExpeditionEvent
                     set pid = pid + 1
                 endloop
             endif
-            call Finish(ExpWon)
+            if ExpWon and ProtoBossRound < ProtoBossLimit then
+                call TriggerExecute(ExpPrototypeNextHunt)
+            else
+                call Finish(ExpWon)
+            endif
             return
         endif
         if not ExpWon then

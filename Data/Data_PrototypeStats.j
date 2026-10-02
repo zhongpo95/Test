@@ -146,11 +146,11 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
     endfunction
 
     function ProtoStatRefreshDerived takes integer pid returns nothing
-        local integer previousMax = IMaxBJ(10, ProtoAPMax[pid])
+        local integer previousMax = IMaxBJ(PROTO_BASE_AP, ProtoAPMax[pid])
         local integer nextMax
         set ProtoGoldBonus[pid] = R2I(ProtoStatValues[pid * 32 + PROTO_STAT_GOLD])
         set ProtoChoices[pid] = IMinBJ(4, IMaxBJ(3, 3 + R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CHOICES])))
-        set nextMax = 10 + IMaxBJ(0, R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CAPACITY]))
+        set nextMax = PROTO_BASE_AP + IMaxBJ(0, R2I(ProtoStatValues[pid * 32 + PROTO_STAT_CAPACITY]))
         // 화면과 유닛 능력치 갱신으로 행동력을 다시 충전하지 않는다.
         if ExpPrototypeActive and ExpMember[pid] then
             set ProtoAP[pid] = IMinBJ(nextMax, IMaxBJ(0, ProtoAP[pid] + IMaxBJ(0, nextMax - previousMax)))

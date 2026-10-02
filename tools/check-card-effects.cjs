@@ -33,6 +33,9 @@ function pending(e,pid,kind){
 }
 function synthetic(e,id,kind,goal=1){
   e.ProtoCardName[id]='검사 카드 '+id;e.ProtoCardKey[id]='test_'+id;e.ProtoCardGrade[id]=1;
+  e.ProtoCardHead[id]=0;
+  // 실제 카탈로그가 검사 번호까지 늘어나도 합성 카드에 기존 효과가 섞이지 않게 한다.
+  for(let stat=1;stat<=25;stat++){e.ProtoSetEffect(id,stat,0,false);e.ProtoSetEffect(id,stat,0,true);}
   e.ProtoEvolutionKind[id]=kind;e.ProtoEvolutionGoal[id]=goal;
 }
 function expected(e,pid){
@@ -150,7 +153,7 @@ check('새 원정에서 이전 능력치를 비우며 실제 카드 재획득에
   e.Finish(false);for(let kind=1;kind<=3;kind++)assert.deepEqual(pending(e,0,kind),[]);
   e.ProtoAction(0,2001);assert.equal(e.ExpState,e.EXP_HUNT);
   for(let kind=1;kind<=25;kind++)assert.equal(e.ProtoStat(0,kind),0);
-  assert.equal(e.ProtoAP[0],10);assert.equal(e.ProtoAPMax[0],10);assert.equal(e.ProtoChoices[0],3);assert.equal(e.ProtoGoldBonus[0],0);
+  assert.equal(e.ProtoAP[0],20);assert.equal(e.ProtoAPMax[0],20);assert.equal(e.ProtoChoices[0],3);assert.equal(e.ProtoGoldBonus[0],0);
   for(const id of ids){assert(!e.ExpCardOwned[id]);assert(!e.ProtoEvolved[id]);assert.equal(e.ProtoCardProgress[id],0);e.ProtoGrantCard(0,id);}
   for(let kind=1;kind<=3;kind++)assert.equal(pending(e,0,kind).length,0);
   e.ProtoKill(0);assert.equal(e.ProtoCardProgress[ids[0]],0);
@@ -160,7 +163,7 @@ check('13개 지역 입구는 4인 전부 결과까지 완료하며 갱신 중 �
     const e=setup(),owned=observe(e,'ExpCardOwned'),entry=e.ProtoHeadEntryCard[head];
     for(let pid=0;pid<4;pid++){
       const id=(head-1)*4+pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;owned.accesses.length=0;
-      e.ProtoAction(pid,2101);assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert(e.ProtoHeadOwned[e.ExpKey(pid,head)]);
+      e.ProtoAction(pid,2101);assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],20);assert(e.ProtoHeadOwned[e.ExpKey(pid,head)]);
       assert(owned.array[e.ExpKey(pid,entry)]);assert(owned.accesses.every(key=>key===e.ExpKey(pid,entry)));
       expected(e,pid).forEach((value,i)=>close(e.ProtoStat(pid,i+1),value));
     }
@@ -192,8 +195,8 @@ check('중복은 해당 카드만 읽으며 선택·결과 배율과 정수 옵�
   assert(e.ProtoBranchText(0,1).includes('대미지 증가 +15.0%'));assert(e.ProtoBranchSummary(0,1).includes('원래 효과 +50%'));
   const reads=[],load=e.LoadReal;e.LoadReal=(table,card,kind)=>{if(table===e.ProtoEffectData)reads.push(card);return load(table,card,kind);};
   e.ProtoGrantEventCard(0,id);assert(reads.every(card=>card===id));assert.equal(reads.length,50); // 누적25 + 결과표시25.
-  e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],11);assert.equal(e.ProtoAP[0],2);
-  e.ProtoGrantEventCard(0,id);e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],12);assert.equal(e.ProtoAP[0],3);
+  e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],21);assert.equal(e.ProtoAP[0],2);
+  e.ProtoGrantEventCard(0,id);e.ProtoRefreshStats(0);assert.equal(e.ProtoChoices[0],4);assert.equal(e.ProtoAPMax[0],22);assert.equal(e.ProtoAP[0],3);
   e.ProtoRefreshStats(0);assert.equal(e.ProtoAP[0],3);
   const t=fresh(0,true),run=t.e;t.start();run.ProtoGrantCard(0,id);run.ProtoGrantEventCard(0,id);run.ProtoGrantEventCard(0,id);
   assert.equal(run.ProtoCardStacks[id],2);run.Finish(false);run.ProtoAction(0,2001);assert.equal(run.ProtoCardStacks[id],0);assert.equal(run.ProtoStat(0,run.PROTO_STAT_DAMAGE),0);

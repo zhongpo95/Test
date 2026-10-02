@@ -12,7 +12,7 @@ function setup(){
   e.SetUnitState=(u,state,value)=>{if(u===0){if(state===e.UNIT_STATE_MAX_LIFE)maximum=value;else if(state===e.UNIT_STATE_LIFE)life=value;}};
   e.GetUnitStatePercent=(u,state)=>100*e.GetUnitState(u,state)/e.GetUnitState(u,e.UNIT_STATE_MAX_LIFE);
   e.UnitAlive=u=>u!==0||alive;e.RefreshHP=()=>{};
-  const effects=values=>{for(const [stat,value] of values)e.ProtoSetEffect(900,stat,value,false);e.ProtoStatAddCard(0,900,false);e.ProtoStatRefreshDerived(0);};
+  const effects=values=>{for(const [stat,value] of values)e.ProtoSetEffect(1023,stat,value,false);e.ProtoStatAddCard(0,1023,false);e.ProtoStatRefreshDerived(0);};
   const hit=(flags=[false,false,false,false])=>{e.UnitHP[2]=100000;e.UnitHPMAX[2]=100000;e.ExpEnemy[2]=true;e.ProtoHuntOwner[2]=1;e.HeroDeal(1,0,2,1,...flags);return 100000-e.UnitHP[2];};
   const advance=n=>{for(let i=0;i<n;i++)e.ProtoRecoveryTick();};
   return {e,effects,hit,advance,health:()=>life,setHealth:x=>{life=x;},setAlive:x=>{alive=x;},maximum:()=>maximum};
@@ -40,6 +40,12 @@ check('방관은 방어력에만 적용, 방향·비방향·차지·보호막·�
   e.HeadTrue=()=>false;close(e.ExpArcanaDamage(0,0,2,true,false,true),10+10+15+9);
   close(e.ExpArcanaDamage(0,0,2,false,false,false),10+8+10+9);
   e.GetUnitMoveSpeed=()=>600;t.setHealth(6499);e.UnitSD[0]=0;close(e.ExpArcanaDamage(0,0,2,false,false,false),20+8);
+});
+check('관통 주력의 전투력 추정은 실제 타격과 같은 60% 상한을 사용',()=>{
+ const t=setup(),{e}=t;e.Equip_DP[0]=1;e.Equip_ED[0]=e.Equip_WDP[0]=0;e.Stats_Crit[0]=0;e.CooldownRate=()=>1;
+ t.effects([[e.PROTO_STAT_PENETRATION,80]]);e.UnitArm[2]=10000;
+ close(t.hit(),120*10000/14000);close(e.Power(0),120*20000/14000);
+ e.Penetration[0]=.20;e.Equip_Penetration[0]=.20;close(t.hit(),120*10000/14000);close(e.Power(0),120*20000/14000);
 });
 check('흡수는 실제 피해의 비율을 저장하며 한 타격 10%, 초당 2%, 최대 5초',()=>{
   const t=setup(),{e}=t;t.effects([[e.PROTO_STAT_LEECH,100]]);e.ProtoLeechHit(0,0,100000);

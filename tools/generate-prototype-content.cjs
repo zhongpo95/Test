@@ -23,7 +23,7 @@ function generate(worlds) {
   }
   if (nextCard>1024 || nextEvent>1024 || head>80) throw Error('플레이어별 JASS 키 공간을 초과합니다. 저장 구조를 확장한 뒤 다시 생성하세요.');
   const strings = ['ProtoHeadKey','ProtoHeadName','ProtoHeadIntro','ProtoHeadIcon','ProtoCardKey','ProtoCardName','ProtoCardEffectName','ProtoCardKeyword','ProtoEventKey','ProtoEventName','ProtoEventStory','ProtoEventIntro','ProtoEventIcon','ProtoEventFailure','ProtoBranchLabel','ProtoBranchResult'];
-  const integers = ['ProtoHeadEntryCard','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
+  const integers = ['ProtoHeadEntryCard','ProtoHeadMainLength','ProtoCardHead','ProtoCardGrade','ProtoEvolutionKind','ProtoEventHead','ProtoEventMainStage','ProtoEventEpilogue','ProtoEventGrade','ProtoEventKind','ProtoEventAPCost','ProtoEventRequired','ProtoEventRequiredChoice','ProtoEventRequiredCard','ProtoEventHistory','ProtoEventChoices','ProtoBranchCard','ProtoBranchCard2','ProtoBranchGold','ProtoBranchCost','ProtoBranchLevel','ProtoBranchDensity','ProtoBranchPotions','ProtoBranchChance'];
   lines.push('// 검토된 머리 카드, 캐릭터 카드와 사건 콘텐츠를 로드한다. 생성 도구로 갱신한다.', 'library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototypeStats','    globals',
     '        constant integer PROTO_HEAD_COUNT = '+head,
     '        constant integer PROTO_EVENT_COUNT = '+(nextEvent-1),
@@ -43,7 +43,7 @@ function generate(worlds) {
     if (h) {
       set('ProtoHeadKey',h,w.world.key);set('ProtoHeadName',h,w.world.name); set('ProtoHeadIntro',h,w.world.intro);
       set('ProtoHeadIcon',h,w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
-      set('ProtoHeadEntryCard',h,cards.get(w.world.entryCard));
+      set('ProtoHeadEntryCard',h,cards.get(w.world.entryCard));set('ProtoHeadMainLength',h,w.world.mainStory?.length || 0);
       for (const e of w.world.effects || [w.world.bonus]) {
         if (!e || !statNames.includes(e.stat) || !Number.isFinite(e.value)) throw Error('머리 카드 효과 오류. '+w.world.key);
         lines.push('        call SaveReal(ProtoHeadEffectData, '+h+', '+(statNames.indexOf(e.stat)+1)+', '+Number(e.value).toFixed(2)+')');
@@ -65,7 +65,7 @@ function generate(worlds) {
     for (const e of w.events) {
       const id=events.get(e.key);
       set('ProtoEventKey',id,e.key);set('ProtoEventName',id,e.title);set('ProtoEventHead',id,h);set('ProtoEventKind',id,1);set('ProtoEventChoices',id,e.choices.length);
-      set('ProtoEventAPCost',id,e.actionCost ?? 1);
+      set('ProtoEventAPCost',id,e.actionCost ?? 1);set('ProtoEventMainStage',id,e.mainStage || 0);set('ProtoEventEpilogue',id,e.epilogue ? 1 : 0);
       // 분기 최고 카드 등급은 가능한 보상의 기준이며 성공률은 각 분기에 별도 표시한다.
       set('ProtoEventGrade',id,Math.max(1,...e.choices.flatMap(b=>[b.card,b.card2]).filter(Boolean).map(key=>worlds.flatMap(x=>x.cards).find(c=>c.key===key).grade)));
       set('ProtoEventStory',id,e.story);set('ProtoEventIntro',id,e.intro);set('ProtoEventIcon',id,w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNTome.blp');
@@ -79,7 +79,8 @@ function generate(worlds) {
     }
     lines.push('    endfunction','');
   }
-  lines.push('    function ProtoCatalogInit takes nothing returns nothing',...worlds.map((_,i)=>'        call ProtoLoadWorld'+i+'()'),'    endfunction','endlibrary','');
+  // 지역별 초기화를 별도 실행하여 늘어난 전체 카탈로그가 한 스레드의 실행 한도를 공유하지 않게 한다.
+  lines.push('    function ProtoCatalogInit takes nothing returns nothing',...worlds.map((_,i)=>'        call ExecuteFunc("ProtoLoadWorld'+i+'")'),'    endfunction','endlibrary','');
   return lines.join('\n');
 }
 function run() {

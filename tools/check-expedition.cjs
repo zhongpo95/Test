@@ -58,6 +58,7 @@ function environment(files, extras = {}, onlyFunctions = null) {
     SetUnitCreepGuard: (u,v) => {u.creepGuard=v;}, RemoveGuardPosition: u => {u.guardRemoved=true;},
     OrderId: s => s, GetUnitCurrentOrder: u => u.order || '',
     CreateTimer: () => ({}), CreateTrigger: () => ({}), TriggerExecute: no,
+    ExecuteFunc: name => {if(typeof env[name]!=='function')throw Error('등록되지 않은 초기화 함수 '+name);env[name]();},
     PauseUnit: (u, v) => pauses.set(u, v), GetRectCenterX: () => 0, GetRectCenterY: () => 0,
     GetRectMinX:r=>r.minX, GetRectMinY:r=>r.minY, GetRectMaxX:r=>r.maxX, GetRectMaxY:r=>r.maxY,
     MapRectReturn: x => x, MapResetAll: no, MapReset: (x) => {env.MapRectCheck[x] = true;},

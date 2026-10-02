@@ -14,12 +14,22 @@ library DataExpedition
         // 개인 사냥 프로토타입의 동기화 상태. 도감만 원정 간 유지한다.
         boolean ExpPrototypeActive = false
         boolean ExpPrototypeEnabled = false
+        constant integer PROTO_BASE_AP = 20
+        constant integer PROTO_HUNT_SECONDS = 1200
+        constant integer PROTO_CHOICE_SECONDS = 90
+        constant integer PROTO_DEFAULT_DENSITY = 8
+        constant real PROTO_BASE_HIT_PERCENT = 2.0
+        // 현재 테스트 보스는 하나다. 보스 목록 확장 시 런의 사냥 구간 수를 함께 설정한다.
+        integer ProtoBossLimit = 1
+        integer ProtoBossRound = 1
+        trigger ExpPrototypeNextHunt = CreateTrigger()
         trigger ExpPrototypeRequest = CreateTrigger()
         trigger ExpPrototypeCleanup = CreateTrigger()
         integer ExpPrototypePid = 0
         integer ExpPrototypeAction = 0
         integer array ProtoAP
         integer array ProtoAPMax
+        integer array ProtoMainProgress
         integer array ProtoHeadCount
         integer array ProtoStartHead
         boolean array ProtoHeadOwned

@@ -22,7 +22,7 @@ check('머리 두 장은 AP 무료이며 세 번째는 후보와 직접 지급�
     const t=fresh(pid,true),e=t.e;e.online=[true,true,true,true];for(let p=0;p<4;p++)e.ProtoAction(p,2001);
     for(let h=1;h<=2;h++){
       const id=(h-1)*4+pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;e.ProtoAction(pid,2101);
-      assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoHeadCount[pid],h);
+      assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],20);assert.equal(e.ProtoHeadCount[pid],h);
       const stack=e.ProtoCardStacks[e.ExpKey(pid,e.ProtoHeadEntryCard[h])];e.ProtoAction(pid,2101);assert.equal(e.ProtoCardStacks[e.ExpKey(pid,e.ProtoHeadEntryCard[h])],stack);
       e.ProtoAction(pid,2400);
     }

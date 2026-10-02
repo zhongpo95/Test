@@ -50,6 +50,7 @@ function fresh(localPlayer = 0, prototype = false) {
     e.AddSpecialEffectTarget=()=>({});e.DestroyEffect=()=>{};
     e.TriggerAddAction(e.ExpPrototypeRequest,e.ProtoDispatch);
     e.TriggerAddAction(e.ExpPrototypeCleanup,e.ProtoCleanup);
+    e.TriggerAddAction(e.ExpPrototypeNextHunt,e.ProtoBeginNextHunt);
   }
   e.UIMainQuest_Init();
   for(const lib of ['UIExpeditionCommon','UIExpeditionChoice','UIExpeditionStats','UIMap'])e[lib+'_Build']();

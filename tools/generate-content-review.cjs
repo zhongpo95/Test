@@ -14,9 +14,10 @@ for(const w of worlds)lines.push(`| ${w.world.name} | ${effects(w.world.effects|
 for(const w of worlds){
  lines.push('','## '+w.world.name,'',w.world.work,'',w.canonBoundary||'확인한 인물의 역할과 맵 전용 창작을 구분한다.','','### 카드','','| 카드 | 효과 이름 | 등급 | 기본 효과 | 각성 목표와 추가 효과 | 원작과 각색 근거 |','| --- | --- | --- | --- | --- | --- |');
  for(const c of w.cards){const ev=c.evolution,goal=ev.kind===1?ev.goal+'처치':ev.kind===2?'실제 피해 '+ev.goal:ev.kind===3?'연속 무피격 '+ev.goal+'초':'없음';lines.push(`| ${c.name} | ${c.effectName} | ${grade[c.grade]} | ${effects(c.effects)} | ${goal}${ev.kind?' → '+effects(ev.effects):''} | ${c.canonFact} |`);}
+ if(w.world.mainStory)lines.push('','메인 이야기. '+w.world.mainStory.length+'장. 세 대화는 같은 다음 장과 결말에 이어지고 카드 보상은 달라진다. 완결 뒤 이 지역의 일반 사건은 후보에서 빠지고 후일담만 남는다.','');
  lines.push('','### 사건','');
  for(const e of w.events){
-  lines.push('#### '+e.title,'',e.story,'','원작과 각색 근거. '+e.canonFact,'');
+  lines.push('#### '+(e.mainStage?'[메인 '+e.mainStage+'/'+w.world.mainStory.length+'] ':e.epilogue?'[후일담] ':'')+e.title,'',e.story,'','원작과 각색 근거. '+e.canonFact,'');
   lines.push('사건 행동력. '+(e.actionCost??1)+(e.actionCost===0?' (무료)':'')+'.','');
   if(e.previous){const parent=events.get(e.previous);lines.push(`등장 조건. 「${parent.title}」의 ${Math.abs(e.previousChoice)}번 행동 ${e.previousChoice<0?'실패':'성공'} 기록.`, '');}
   if(e.requiredCard)lines.push('보유 조건. '+cards.get(e.requiredCard).name+' · '+cards.get(e.requiredCard).effectName+'.','');

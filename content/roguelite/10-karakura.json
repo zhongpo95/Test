@@ -3,22 +3,36 @@
     "key": "karakura",
     "name": "카라쿠라 마을",
     "work": "블리치",
-    "intro": "우라하라 상점에서 콘이 배달 짐에 매달려 있다. 현세의 길을 정리하며 사신과 동료들의 준비를 접한다.",
+    "intro": "이치고와 루키아의 만남이 평범한 마을의 밤을 바꾼다. 구해 낸 삶이 고르는 자리의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
     "effects": [
       {
-        "stat": "damage_reduction",
-        "value": 3
+        "stat": "crit_damage",
+        "value": 6
       }
     ],
     "entryCard": "bl_kon",
-    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp",
+    "mainStory": {
+      "title": "구해 낸 삶이 고르는 자리",
+      "length": 16,
+      "focus": [
+        "crit_damage",
+        "penetration"
+      ],
+      "source": "사신대행 도입과 소울 소사이어티 루키아 구출",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    }
   },
   "sources": [
     "https://pierrot.jp/title/bleach/chara.html",
     "https://bleach-anime.com/character/",
-    "https://en.bandainamcoent.eu/bleach-rebirth-of-souls-soul-society"
+    "https://en.bandainamcoent.eu/bleach-rebirth-of-souls-soul-society",
+    "https://www.shonenjump.com/xmedia/bleach/story/",
+    "https://www.shonenjump.com/xmedia/bleach/story/index2.html",
+    "https://www.shonenjump.com/xmedia/bleach/story/index3.html",
+    "https://www.shonenjump.com/xmedia/bleach/story/index4.html"
   ],
-  "canonBoundary": "카라쿠라 마을, 우라하라 상점과 인물의 역할은 공식 소개를 확인했다. 분류되지 않은 짐과 경보·배송 사건은 맵 창작이다. 사신화·영체 이탈·새 참백도 기술·빙결·순보·보호막 생성은 지급하지 않으며 기존 능력치로 각색한다. 시트의 사신 카운트 무한 성장·사망 진화·스킬 교체는 도입하지 않는다. 추가된 소매·인형·가족 보급·공개 촬영·불완전 준비 묶음·연습 자리는 공식 생활과 성격 소재에서 별도 창작한 문제다. 원작 할인 행사가 실제로 있었다고 주장하지 않으며 65%는 맵의 수치다. 군중·가족 상태·옷·장비·호위 NPC를 생성하거나 변형하지 않는다. 카린의 빈 벤치·잇신의 문밖 환영·우루루에게 맡긴 큰 심부름·케이고의 허락 없는 초대는 제작사 인물 특징에서 별도로 만든 독립 만남이다. 카린의 영감과 우루루의 초인성을 플레이어의 시야나 신규 기술로 지급하지 않는다. 잇신은 의원을 운영하지만 선택은 실제 진료나 즉시 회복이 아니다. 케이고의 사건 후보 증가는 행동력이 아니며 최대4후보에 제한된다. 차드와 다른 인물의 대화는 상시 전투 동행 기능이 아니다. 배송상자골드전용4번은제외하고그후속은우류카드보유자의새배송방문으로바꿨다. 빈벤치AP0과우라하라최대치1은방문횟수로사냥시간이아니다. 새기억에는각성이없다. 요루이치의기존이동조건은현재속도400대비추가속도를40%에서정규화하며걷는상태자체를판정하지않는다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다.",
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다.",
   "cards": [
     {
       "key": "bl_kon",
@@ -28,8 +42,8 @@
       "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 3
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -45,15 +59,15 @@
       "name": "쿠로사키 이치고",
       "effectName": "지키기 위해 들었던 검",
       "keyword": "공격 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 12
+          "value": 3
         },
         {
           "stat": "boss_damage_percent",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -69,15 +83,15 @@
       "name": "이시다 우류",
       "effectName": "흐트러지지 않는 조준",
       "keyword": "치명 · 관통",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_chance",
-          "value": 6
+          "value": 2
         },
         {
           "stat": "penetration",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -93,15 +107,19 @@
       "name": "이노우에 오리히메",
       "effectName": "거절하는 것은 상처",
       "keyword": "재생 · 체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.8
+          "value": 0.2
         },
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -117,15 +135,15 @@
       "name": "시호인 요루이치",
       "effectName": "순신의 보법",
       "keyword": "신속 · 이동 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "swift",
-          "value": 270
+          "value": 90
         },
         {
           "stat": "moving_damage",
-          "value": 16
+          "value": 4
         }
       ],
       "evolution": {
@@ -141,15 +159,15 @@
       "name": "쿠치키 루키아",
       "effectName": "현세에서 지켜야 할 간격",
       "keyword": "차지 · 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 6
+          "value": 4
         },
         {
           "stat": "damage_percent",
-          "value": 12
+          "value": 3
         }
       ],
       "evolution": {
@@ -165,15 +183,15 @@
       "name": "우라하라 키스케",
       "effectName": "준비가 남기는 여유",
       "keyword": "탐색 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "boss_damage_percent",
-          "value": 6
+          "value": 4
         }
       ],
       "evolution": {
@@ -189,15 +207,19 @@
       "name": "사도 야스토라",
       "effectName": "약한 사람 앞에 서는 팔",
       "keyword": "체력 · 방어",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 14
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 6
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -213,19 +235,19 @@
       "name": "쿠로사키 이치고",
       "effectName": "한 번의 틈에 모은 힘",
       "keyword": "차지 · 공격",
-      "grade": 3,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_damage",
-          "value": 24
+          "value": 4
         },
         {
           "stat": "attack_percent",
-          "value": 6
+          "value": 3
         },
         {
-          "stat": "action_speed",
-          "value": -3
+          "stat": "swift",
+          "value": -90
         }
       ],
       "evolution": {
@@ -241,15 +263,19 @@
       "name": "이시다 우류",
       "effectName": "어긋난 한 땀까지",
       "keyword": "차지 속도 · 치명타 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 6
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 15
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -265,15 +291,19 @@
       "name": "쿠로사키 유즈",
       "effectName": "돌아올 사람의 몫",
       "keyword": "재생 · 처치 골드",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.4
+          "value": 0.2
         },
         {
           "stat": "kill_gold",
-          "value": 3
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -289,15 +319,15 @@
       "name": "아리사와 타츠키",
       "effectName": "발을 놓고 나서",
       "keyword": "방향 공격 · 피해 감소",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "directional_damage",
-          "value": 14
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 3
+          "value": 2
         }
       ],
       "evolution": {
@@ -313,15 +343,11 @@
       "name": "돈 칸온지",
       "effectName": "보이게 전하는 신호",
       "keyword": "사건 후보 · 이동",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
-        },
-        {
-          "stat": "move_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -337,15 +363,15 @@
       "name": "쿠로사키 카린",
       "effectName": "보이지 않아도 비울 자리",
       "keyword": "이동 속도 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 5
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "healthy_damage",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -361,15 +387,19 @@
       "name": "쿠로사키 잇신",
       "effectName": "지나친 환영 뒤의 걱정",
       "keyword": "최대 체력 · 재생",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "regeneration",
-          "value": 0.4
+          "value": 0.2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -385,15 +415,19 @@
       "name": "츠무기야 우루루",
       "effectName": "가볍게 보지 않을 힘",
       "keyword": "차지 · 치명타 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_damage",
-          "value": 16
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 14
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -409,15 +443,11 @@
       "name": "아사노 케이고",
       "effectName": "아직 묻지 않은 약속",
       "keyword": "사건 후보 · 행동 속도",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
-        },
-        {
-          "stat": "action_speed",
-          "value": 3
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -433,15 +463,15 @@
       "name": "쿠치키 루키아",
       "effectName": "골목 끝까지 확인하기",
       "keyword": "신속 · 비방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "swift",
-          "value": 180
+          "value": 90
         },
         {
           "stat": "nondirectional_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -457,15 +487,19 @@
       "name": "이시다 우류",
       "effectName": "접기 전에 맞출 끝",
       "keyword": "치명 피해 · 비방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 14
+          "value": 8
         },
         {
           "stat": "nondirectional_damage",
-          "value": 12
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -481,15 +515,15 @@
       "name": "이노우에 오리히메",
       "effectName": "아직 지나지 않은 자리",
       "keyword": "최대 체력 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 6
+          "value": 4
         },
         {
           "stat": "healthy_damage",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -505,11 +539,15 @@
       "name": "우라하라 키스케",
       "effectName": "다음 목록의 빈칸",
       "keyword": "행동력 최대치",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "action_capacity",
           "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -525,15 +563,19 @@
       "name": "사도 야스토라",
       "effectName": "돌아올 쪽도 비워 두기",
       "keyword": "받는 피해 · 흡수",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "damage_reduction",
-          "value": 4
+          "value": 2
         },
         {
           "stat": "leech",
           "value": 1.5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -549,15 +591,15 @@
       "name": "쿠로사키 유즈",
       "effectName": "한 번에 쓰지 않을 몫",
       "keyword": "재생 · 이동",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.4
+          "value": 0.2
         },
         {
-          "stat": "move_speed",
-          "value": 3
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -573,15 +615,15 @@
       "name": "하나카리 진타",
       "effectName": "더 맡기 전에 물을 것",
       "keyword": "공격력 · 방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 8
+          "value": 3
         },
         {
           "stat": "directional_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -597,15 +639,15 @@
       "name": "콘",
       "effectName": "엉킨 발부터 풀기",
       "keyword": "치명 확률 · 차지 속도",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_chance",
-          "value": 4
+          "value": 2
         },
         {
           "stat": "charge_speed",
-          "value": 6
+          "value": 4
         }
       ],
       "evolution": {
@@ -614,6 +656,1234 @@
         "effects": []
       },
       "canonFact": "공식 인형에 머무는 개조혼백 역할에서 자신의 움직일 간격을 먼저 살피는 기억이다. 실제 인형장비·몸 대리조종을 지급하지 않는다. 여행자의 기억으로 각색하며 원작 참백도·활·순보·귀도·영체 이탈·NPC 동행을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_01_1",
+      "name": "쿠치키 루키아",
+      "effectName": "카라쿠라의 첫 만남 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_01_2",
+      "name": "쿠치키 루키아",
+      "effectName": "카라쿠라의 첫 만남 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_01_3",
+      "name": "쿠치키 루키아",
+      "effectName": "카라쿠라의 첫 만남 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_02_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "대행의 하루 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_02_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "대행의 하루 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_02_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "대행의 하루 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_03_1",
+      "name": "이노우에 오리히메",
+      "effectName": "친구들이 알게 된 세계 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_03_2",
+      "name": "이노우에 오리히메",
+      "effectName": "친구들이 알게 된 세계 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_03_3",
+      "name": "이노우에 오리히메",
+      "effectName": "친구들이 알게 된 세계 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_04_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "되돌아간 루키아 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_04_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "되돌아간 루키아 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_04_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "되돌아간 루키아 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_05_1",
+      "name": "우라하라 키스케",
+      "effectName": "우라하라가 여는 준비 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_05_2",
+      "name": "우라하라 키스케",
+      "effectName": "우라하라가 여는 준비 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_05_3",
+      "name": "우라하라 키스케",
+      "effectName": "우라하라가 여는 준비 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_06_1",
+      "name": "시호인 요루이치",
+      "effectName": "다른 세계의 문턱 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_06_2",
+      "name": "시호인 요루이치",
+      "effectName": "다른 세계의 문턱 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_06_3",
+      "name": "시호인 요루이치",
+      "effectName": "다른 세계의 문턱 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_07_1",
+      "name": "야마다 하나타로",
+      "effectName": "길에서 만난 협력자 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_07_2",
+      "name": "야마다 하나타로",
+      "effectName": "길에서 만난 협력자 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_07_3",
+      "name": "야마다 하나타로",
+      "effectName": "길에서 만난 협력자 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_08_1",
+      "name": "아바라이 렌지",
+      "effectName": "렌지가 놓지 못한 이름 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_08_2",
+      "name": "아바라이 렌지",
+      "effectName": "렌지가 놓지 못한 이름 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_08_3",
+      "name": "아바라이 렌지",
+      "effectName": "렌지가 놓지 못한 이름 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_09_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "켄파치가 막아선 길 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_09_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "켄파치가 막아선 길 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_09_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "켄파치가 막아선 길 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_10_1",
+      "name": "쿠치키 루키아",
+      "effectName": "갇힌 사람이 남긴 마음 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_10_2",
+      "name": "쿠치키 루키아",
+      "effectName": "갇힌 사람이 남긴 마음 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_10_3",
+      "name": "쿠치키 루키아",
+      "effectName": "갇힌 사람이 남긴 마음 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_11_1",
+      "name": "시호인 요루이치",
+      "effectName": "요루이치와 기다리는 시간 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_11_2",
+      "name": "시호인 요루이치",
+      "effectName": "요루이치와 기다리는 시간 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_11_3",
+      "name": "시호인 요루이치",
+      "effectName": "요루이치와 기다리는 시간 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_12_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "처형대에서 부른 이름 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 22
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_12_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "처형대에서 부른 이름 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_12_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "처형대에서 부른 이름 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_13_1",
+      "name": "쿠치키 뱌쿠야",
+      "effectName": "뱌쿠야가 지키던 약속 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 22
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_13_2",
+      "name": "쿠치키 뱌쿠야",
+      "effectName": "뱌쿠야가 지키던 약속 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_13_3",
+      "name": "쿠치키 뱌쿠야",
+      "effectName": "뱌쿠야가 지키던 약속 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_14_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "아이젠이 드러낸 목적 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 22
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_14_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "아이젠이 드러낸 목적 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_14_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "아이젠이 드러낸 목적 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_15_1",
+      "name": "쿠치키 루키아",
+      "effectName": "루키아가 고르는 자리 · 결의",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 22
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_15_2",
+      "name": "쿠치키 루키아",
+      "effectName": "루키아가 고르는 자리 · 물음",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_15_3",
+      "name": "쿠치키 루키아",
+      "effectName": "루키아가 고르는 자리 · 인연",
+      "keyword": "메인 · 구해 낸 삶이 고르는 자리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_16_1",
+      "name": "쿠로사키 이치고",
+      "effectName": "다시 함께 지킬 일상",
+      "keyword": "메인 완결 · 구해 낸 삶이 고르는 자리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 28
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_16_2",
+      "name": "쿠로사키 이치고",
+      "effectName": "각자의 자리에서 맺은 약속",
+      "keyword": "메인 완결 · 구해 낸 삶이 고르는 자리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_16_3",
+      "name": "쿠로사키 이치고",
+      "effectName": "스스로 고른 삶의 자리",
+      "keyword": "메인 완결 · 구해 낸 삶이 고르는 자리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 18
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": []
     }
   ],
@@ -652,14 +1922,14 @@
           "chance": 100
         },
         {
-          "label": "오리히메와 부서진 운반대를 복구한다",
-          "result": "오리히메와 부서진 운반대를 복구했다. 준비에 160골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 오리히메는 운반대에 올릴 짐과 아직 멈춘 짐을 따로 놓고 수취인을 찾는 일은 우류 쪽에 남겼다.",
+          "label": "오리히메에게 운반대 수리를 부탁한다",
+          "result": "오리히메가 정성스럽게 운반대를 고치며 배송 경로를 확보한다. 그녀의 세심한 손길 덕분에 잊혔던 과거의 조각이 떠오른다.",
           "card": "bl_orihime",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -678,26 +1948,26 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "요루이치가 짚은 발판을 정비한다",
-          "result": "요루이치가 짚은 발판을 정비했다. 준비에 200골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 요루이치는 정비한 발판 옆의 간격을 짚었지만 이어진 발자국의 주인까지 알았다고 하지는 않았다.",
+          "label": "요루이치에게 발판을 고르는 법을 묻는다",
+          "result": "요루이치는 빠르게 움직이기 전에 다음 발을 놓을 곳을 짚어 준다. 그녀의 이동을 지켜보며 속도보다 먼저 간격을 읽는 습관을 익힌다.",
           "card": "bl_yoruichi",
           "card2": null,
           "gold": 0,
           "cost": 200,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "루키아와 골목 입구를 맡는다",
-          "result": "루키아와 골목 입구를 맡았다. 내 개인 사냥의 적 수 단계가 2 늘었다. 루키아는 맡을 입구를 표시했고 요루이치가 본 지붕 위의 흔적은 다른 줄에 남겼다.",
+          "label": "루키아와 함께 골목 입구를 지킨다",
+          "result": "루키아가 차분하게 골목 입구를 통제하며 아군의 진입을 돕는다. 그녀의 단호한 태도 속에서 과거의 책임감이 묻어난다.",
           "card": "bl_rukia",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -740,28 +2010,28 @@
           "chance": 100
         },
         {
-          "label": "차드와 짐을 나눠 안전 통로를 만든다",
-          "result": "차드와 짐을 나눠 안전 통로를 만들었다. 준비에 180골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 차드는 돌아갈 사람이 지나갈 간격을 남겼고 우류가 읽은 주소를 다른 짐과 섞지 않았다.",
+          "label": "차드와 협력하여 짐을 나누어 운반한다",
+          "result": "차드가 묵묵히 짐을 나누어 들어 좁은 길의 장애물을 제거한다. 그의 든든한 어깨 위로 잊고 있던 기억이 겹쳐진다.",
           "card": "bl_chad",
           "card2": null,
           "gold": 0,
           "cost": 180,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "140골드로 보급을 마련하고 우류와 맡을 주소의 메모만 접어 길목을 줄인다",
+          "label": "우류에게 메모의 끝을 맞출 것을 부탁한다",
           "card": "bl_uryu_fold",
           "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 우류와 맡을 주소의 메모만 접어 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 우류는 맡을 메모의 끝을 접었지만 아직 보내지 않은 집에도 전달이 끝났다고 표시하지 않았다."
+          "result": "우류가 메모의 끝부분을 정교하게 접어 배송 경로를 간소화한다. 그의 섬세한 손동작에서 과거의 기록이 되살아난다."
         }
       ],
       "failure": null,
@@ -802,16 +2072,16 @@
           "chance": 100
         },
         {
-          "label": "120골드로 보급을 마련하고 콘과 엉킨 표식만 맡아 길목을 줄인다",
+          "label": "콘과 함께 엉킨 표식을 정리한다",
           "card": "bl_kon_unwind",
           "card2": null,
           "cost": 120,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "120골드로 보급을 마련하고 콘과 엉킨 표식만 맡아 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 콘은 풀린 발부터 움직였고 차드는 남겨 둔 표식을 콘이 지나갈 쪽에 다시 묶지 않았다."
+          "result": "콘이 표식 끈에 걸려 쩔쩔매는 사이 차드가 이를 조심스럽게 풀어준다. 투덜거리는 콘의 목소리에서 옛 추억이 느껴진다."
         }
       ],
       "failure": null,
@@ -852,16 +2122,16 @@
           "chance": 100
         },
         {
-          "label": "140골드로 보급을 마련하고 유즈와 아직 맡지 않을 배송 길목을 줄인다",
+          "label": "유즈와 배송 범위를 나누고 보급을 챙긴다",
           "card": "bl_yuzu_split",
           "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 유즈와 아직 맡지 않을 배송 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 유즈는 돌아갈 보급을 따로 묶었지만 아직 맡지 않은 배송 짐까지 네 몫으로 올리지는 않았다."
+          "result": "유즈가 짐을 나누어 챙기는 동안 흩어진 메모의 내용이 머릿속에 선명해진다. 배송 경로의 단편적인 정보가 연결되며 다음 목적지를 확정한다."
         }
       ],
       "failure": null,
@@ -878,26 +2148,26 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "요루이치와 가까운 신호를 추적한다",
-          "result": "요루이치와 가까운 신호를 추적했다. 준비에 100골드를 썼다. 내 개인 사냥의 적 수 단계가 2 늘었다. 요루이치는 확인한 신호의 골목만 짚었고 우류는 다른 쪽에서 울린 표시를 아직 남겨 두었다.",
+          "label": "요루이치의 신호를 따라 좁은 길을 탐색한다",
+          "result": "요루이치가 신속하게 이동하며 남긴 흔적을 따라가며 지형을 파악한다. 좁은 골목 사이의 숨겨진 통로에 대한 기억이 떠오른다.",
           "card": "bl_yoruichi",
           "card2": null,
           "gold": 0,
           "cost": 100,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 70
         },
         {
-          "label": "차드와 통행로의 짐을 치운다",
-          "result": "차드와 통행로의 짐을 치웠다. 준비에 220골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 차드는 치운 짐을 통행로 옆으로 옮겼지만 엇갈린 신호의 주인을 찾았다고 말하지 않았다.",
+          "label": "차드와 협력하여 통행로의 장애물을 치운다",
+          "result": "차드가 묵직한 힘으로 길을 터주는 동안 주변의 구조를 세밀하게 관찰한다. 막혔던 길 너머에 있는 중요 지점들이 기억 속에 각인된다.",
           "card": "bl_chad",
           "card2": null,
           "gold": 0,
           "cost": 220,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -914,7 +2184,7 @@
           "chance": 100
         }
       ],
-      "failure": "표시에100골드를 썼지만 먼저 울린 신호가 빈 골목에서 끊겼다. 내 개인 사냥의 적 수 단계+2는 유지되며 카드는 받지 못했다. 요루이치는 지나온 길과 아직 보지 못한 갈림을 따로 짚고 루키아는 돌아갈 표식부터 다시 보자고 한다.",
+      "failure": "표시에 100골드를 썼지만 먼저 울린 신호가 빈 골목에서 끊겼다. 카드는 받지 못했다. 요루이치는 지나온 길과 아직 보지 못한 갈림을 따로 짚고 루키아는 돌아갈 표식부터 다시 보자고 한다.",
       "canonFact": "우라하라 상점과 인물의 역할을 참고한 맵 창작 사건이다. 해당 사건이 원작에서 그대로 일어났다고 주장하지 않는다.",
       "uncertain": []
     },
@@ -928,14 +2198,14 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "루키아와 갈림길을 다시 표시한다",
-          "result": "루키아와 갈림길을 다시 표시했다. 준비에 160골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 루키아는 돌아갈 갈림의 표식을 새로 놓고 잘못 따라간 경보를 확인된 주소로 바꾸지 않았다.",
+          "label": "루키아와 함께 갈림길의 표식을 갱신한다",
+          "result": "루키아의 안내에 따라 갈림길마다 표식을 남기며 지도를 뇌리에 새긴다. 복잡했던 경로가 단순한 선으로 정리되며 기억이 정교해진다.",
           "card": "bl_rukia",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -990,14 +2260,14 @@
           "chance": 100
         },
         {
-          "label": "차드와 버틸 자리를 고른다",
-          "result": "차드와 버틸 자리를 골랐다. 준비에 180골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 차드는 버틸 자리와 돌아올 쪽을 나눴고 이치고의 칼이 닿을 간격을 짐으로 채우지 않았다.",
+          "label": "차드와 상의하며 방어할 위치를 선정한다",
+          "result": "차드가 버틸 자리를 고르는 방식에서 거리 조절에 대한 단서를 얻는다. 적의 공격을 흘려보낼 수 있는 최적의 위치가 머릿속에 그려진다.",
           "card": "bl_chad",
           "card2": null,
           "gold": 0,
           "cost": 180,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1040,28 +2310,28 @@
           "chance": 100
         },
         {
-          "label": "소매 정리는 남기고 우류와 넓은 길목을 먼저 살핀다",
-          "result": "소매 정리는 남기고 우류와 넓은 길목을 먼저 살폈다. 내 개인 사냥의 적 수 단계가 1 늘었다. 우류는 먼저 맡을 길을 표시했지만 아직 꿰매지 않은 소매를 끝난 일로 접지는 않았다.",
+          "label": "우류와 길목을 확인하고 소매를 정리한다",
+          "result": "우류가 길을 살피는 사이 찢어진 소매의 흔적에서 과거의 이동 경로를 떠올린다. 분산되었던 정보들이 하나로 모이며 이동 계획이 구체화된다.",
           "card": "bl_uryu",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "120골드로 보급을 마련하고 콘과 엉킨 실타래만 맡아 길목을 줄인다",
+          "label": "콘의 엉킨 발부터 풀고 소매를 정리하자",
           "card": "bl_kon_unwind",
           "card2": null,
           "cost": 120,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "120골드로 보급을 마련하고 콘과 엉킨 실타래만 맡아 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 콘은 발에서 풀린 실을 옆으로 밀었고 우류는 남은 천과 실타래를 다시 같은 뭉치에 넣지 않았다."
+          "result": "콘이 실타래에서 빠져나오며 길을 비켜준다. 우류의 소매를 고정하며 이동 경로를 확보한다."
         }
       ],
       "failure": null,
@@ -1102,16 +2372,16 @@
           "result": "이치고와 더 강한 적이 오가는 인형 전달 담당 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 이치고는 네가 맡을 바깥 쪽을 짚었지만 차드가 들고 있던 인형의 주인을 대신 정하지 않았다."
         },
         {
-          "label": "140골드로 보급을 마련하고 차드와 돌아올 길목을 줄인다",
+          "label": "차드와 함께 돌아올 길목을 먼저 확보하자",
           "card": "bl_chad_return",
           "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 차드와 돌아올 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 차드는 돌아올 간격을 남겼고 아이가 아직 가리키지 않은 길을 네가 다녀온 곳처럼 표시하지 않았다."
+          "result": "차드가 아이를 안전하게 이동시키며 길을 안내한다. 복귀 경로를 미리 확보하여 이동 효율을 높인다."
         }
       ],
       "failure": null,
@@ -1152,16 +2422,16 @@
           "chance": 100
         },
         {
-          "label": "180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄인다",
+          "label": "유즈와 보급품을 나누어 짐을 덜어내자",
           "card": "bl_yuzu_split",
           "card2": null,
           "cost": 180,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "180골드로 보급을 마련하고 유즈와 가까운 몫만 남겨 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 유즈는 가까운 몫과 돌아올 보급을 나눴지만 비워 둔 한 칸에 다른 사람의 짐을 채우지는 않았다."
+          "result": "유즈가 보급품을 분배하며 짐의 무게를 줄여준다. 남은 몫을 명확히 구분하여 이동 부담을 덜어낸다."
         }
       ],
       "failure": null,
@@ -1190,28 +2460,28 @@
           "chance": 100
         },
         {
-          "label": "이치고와 더 넓은 길목까지 맡는다",
-          "result": "이치고와 더 넓은 길목까지 맡았다. 내 개인 사냥의 적 수 단계가 2 늘었다. 이치고는 넓힐 몫을 먼저 나눴고 칸온지는 그 길을 촬영 짐으로 다시 가리지 않았다.",
+          "label": "이치고에게 관객을 먼저 안내하자고 말한다",
+          "result": "이치고는 사람들을 밀어붙이려던 말을 거두고 촬영 공간을 가리킨다. 소동을 키우지 않고 길을 비우는 그의 판단을 기억한다.",
           "card": "bl_ichigo",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄인다",
+          "label": "콘의 발을 먼저 풀어 촬영 짐을 옮기자",
           "card": "bl_kon_unwind",
           "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 콘과 촬영 짐만 맡아 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 콘은 비워진 간격으로 발을 뺐고 아직 듣지 않은 칸온지의 인사를 대신 끝내지는 않았다."
+          "result": "콘이 엉킨 발을 풀고 촬영 장비를 능숙하게 옮긴다. 좁은 공간에서 짐을 정리하며 길을 확보한다."
         }
       ],
       "failure": null,
@@ -1290,28 +2560,28 @@
           "chance": 100
         },
         {
-          "label": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 한다",
-          "result": "오리히메와 맡을 구역을 줄이고 오래 움직일 준비를 했다. 준비에 200골드를 썼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 오리히메는 줄인 구역의 준비를 나눴지만 타츠키가 연습할 간격까지 네 짐으로 채우지는 않았다.",
+          "label": "오리히메와 구역을 좁히고 이동을 맞추자",
+          "result": "오리히메가 짐을 고정하며 최소한의 공간을 확보한다. 타츠키와 발을 맞추며 효율적인 이동 경로를 확보한다.",
           "card": "bl_orihime",
           "card2": null,
           "gold": 0,
           "cost": 200,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄인다",
+          "label": "차드에게 돌아올 간격도 남겨 두자고 한다",
           "card": "bl_chad_return",
           "card2": null,
           "cost": 120,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "120골드로 보급을 마련하고 차드와 돌아올 간격만 남겨 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 차드는 돌아올 사람의 간격을 비웠고 아직 시작하지 않은 타츠키의 연습을 끝난 일로 적지 않았다."
+          "result": "차드는 짐을 옆으로 옮기고 일행이 돌아설 자리를 확인한다. 함께 움직일 때 비워 두어야 할 간격을 그의 손짓에서 익힌다."
         }
       ],
       "failure": null,
@@ -1352,16 +2622,16 @@
           "chance": 100
         },
         {
-          "label": "160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄인다",
+          "label": "루키아에게 어떤 말로 안내하면 좋을지 묻는다",
           "card": "bl_rukia_sketch",
           "card2": null,
           "cost": 160,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "160골드로 표시 용품을 마련하고 루키아와 맡을 안내 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 루키아는 줄인 안내 몫을 표시했지만 손님에게 보이지 않던 것을 네가 볼 수 있다고 말하지 않았다."
+          "result": "루키아는 남에게 보이지 않는 사정을 모두 설명할 필요는 없다고 한다. 짧은 안내에도 상대가 움직일 여유를 남기는 태도를 기억한다."
         }
       ],
       "failure": null,
@@ -1391,28 +2661,28 @@
           "chance": 100
         },
         {
-          "label": "유즈와 손님이 드나들 길목을 더 맡는다",
-          "result": "유즈와 손님이 드나들 길목을 더 맡았다. 내 개인 사냥의 적 수 단계가 1 늘었다. 유즈는 손님이 지날 간격을 남겼고 잇신이 묻던 다른 용건까지 대신 답하지 않았다.",
+          "label": "유즈에게 함께 손님을 맞이하겠다고 말한다",
+          "result": "유즈는 짐을 내려놓고 손님에게 앉을 곳부터 권한다. 용건을 묻기 전에 낯선 사람의 자리를 챙기는 모습을 기억한다.",
           "card": "bl_yuzu_portion",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "100골드로 보급을 마련하고 유즈와 용건을 마칠 길목만 남긴다",
+          "label": "유즈에게 급한 용건부터 들어보자고 말한다",
           "card": "bl_yuzu_split",
           "card2": null,
           "cost": 100,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "100골드로 보급을 마련하고 유즈와 용건을 마칠 길목만 남겼다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 유즈는 짧은 용건의 보급을 나눴지만 잇신이 듣고 싶어 하던 이야기를 끝난 일로 적지는 않았다."
+          "result": "유즈는 상대가 말하기 어려워하는 부분을 기다리며 질문을 줄인다. 길게 묻지 않아도 필요한 이야기를 놓치지 않는 배려를 익힌다."
         }
       ],
       "failure": null,
@@ -1441,28 +2711,28 @@
           "chance": 100
         },
         {
-          "label": "차드와 더 많은 길목을 맡고 점원에게 미룬 일을 나눈다",
-          "result": "차드와 더 많은 길목을 맡고 점원에게 미룬 일을 나눴다. 내 개인 사냥의 적 수 단계가 2 늘었다. 차드는 네가 맡을 몫과 점원에게 남은 일을 나눴고 손님이 밀던 상자를 모두 우루루 앞에 놓지 않았다.",
+          "label": "차드에게 짐을 나누어 들자고 말한다",
+          "result": "차드는 가장 무거운 상자를 들어 옆사람이 움직일 공간을 만든다. 묵묵히 손을 내미는 그의 방식이 기억에 남는다.",
           "card": "bl_chad",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "140골드로 보급을 마련하고 진타와 추가 부탁을 거절해 길목을 줄인다",
+          "label": "진타에게 지금 맡은 일부터 끝내자고 한다",
           "card": "bl_jinta_boundary",
           "card2": null,
           "cost": 140,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "140골드로 보급을 마련하고 진타와 추가 부탁을 거절해 길목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 진타는 거절한 추가 짐을 따로 남겼고 손님에게 옮겨 달라는 말과 얕보는 말은 다르다고 다시 말했다."
+          "result": "진타는 투덜거리면서도 미뤄 둔 상자의 이름표를 확인한다. 추가 부탁을 받기 전에 지금 책임질 몫을 분명히 하는 태도를 익힌다."
         }
       ],
       "failure": null,
@@ -1545,16 +2815,16 @@
           "result": "220골드로 내 준비를 마련하고 우라하라에게 다음 목록의 몫까지 답했다. 우라하라는 다음에도 맡겠다는 네 답을 남겼고 우류는 이번 받는 사람의 줄부터 다시 맞췄다."
         },
         {
-          "label": "180골드로 보급을 마련하고 루키아와 아직 맡지 않을 골목을 줄인다",
+          "label": "루키아의 지시에 따라 아직 처리하지 않은 골목을 정확히 구분한다",
           "card": "bl_rukia_sketch",
           "card2": null,
           "cost": 180,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "180골드로 보급을 마련하고 루키아와 아직 맡지 않을 골목을 줄였다. 내 개인 사냥의 적 수 단계를 1 낮췄다(최저 1). 루키아는 아직 맡지 않을 골목을 나눴고 콘은 예전 목록의 물건을 새 빈칸에 먼저 넣지 않았다."
+          "result": "루키아의 세심한 지시를 따르며 헷갈리기 쉬운 경로를 명확히 정리했다. 덕분에 우라하라의 목록에서 다음 임무 구간을 정확히 파악하며 기록을 갱신한다."
         },
         {
           "label": "우류와 더 강한 적이 오가는 확인 담당 구역을 맡는다",
@@ -1569,6 +2839,890 @@
           "result": "우류와 더 강한 적이 오가는 확인 담당 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 우류는 더 강한 확인 몫의 목록만 펼쳤지만 루키아가 아직 보지 않은 골목의 답은 적지 않았다."
         }
       ]
+    },
+    {
+      "key": "karakura_main_01",
+      "title": "카라쿠라의 첫 만남",
+      "intro": "이치고와 루키아의 만남이 평범한 마을의 밤을 바꾼다.",
+      "story": "이치고와 루키아의 만남이 평범한 마을의 밤을 바꾼다. 보이지 않던 일을 함께 보게 된 사람에게 책임도 따라온다. 힘을 얻었다는 말보다 눈앞의 사람을 지키려던 시작을 기억한다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“처음 지키려던 사람을 잊지 말자.”",
+          "result": "“처음 지키려던 사람을 잊지 말자.” 카라쿠라의 첫 만남의 기억에 자신의 답을 남긴다. 이치고가 사신대행의 일을 하며 루키아와 보내는 시간이 늘어난다.",
+          "card": "karakura_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“알게 된 일에는 모른 척하기 어려운 것도 있네.”",
+          "result": "“알게 된 일에는 모른 척하기 어려운 것도 있네.” 카라쿠라의 첫 만남의 기억에 자신의 답을 남긴다. 이치고가 사신대행의 일을 하며 루키아와 보내는 시간이 늘어난다.",
+          "card": "karakura_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“당장 모든 답을 알아야 함께할 수 있는 것은 아니야.”",
+          "result": "“당장 모든 답을 알아야 함께할 수 있는 것은 아니야.” 카라쿠라의 첫 만남의 기억에 자신의 답을 남긴다. 이치고가 사신대행의 일을 하며 루키아와 보내는 시간이 늘어난다.",
+          "card": "karakura_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_02",
+      "title": "대행의 하루",
+      "intro": "이치고가 사신대행의 일을 하며 루키아와 보내는 시간이 늘어난다.",
+      "story": "이치고가 사신대행의 일을 하며 루키아와 보내는 시간이 늘어난다. 서로의 설명과 엉뚱한 반응도 익숙해진다. 위험한 밤 사이에 나눈 평범한 대화가 다시 만나고 싶은 이유가 된다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“임무가 없어도 나눌 이야기는 남았네.”",
+          "result": "“임무가 없어도 나눌 이야기는 남았네.” 대행의 하루의 기억에 자신의 답을 남긴다. 오리히메와 차드, 우류도 이치고의 변화와 연결된다.",
+          "card": "karakura_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서로 다른 상식을 다시 들려줘.”",
+          "result": "“서로 다른 상식을 다시 들려줘.” 대행의 하루의 기억에 자신의 답을 남긴다. 오리히메와 차드, 우류도 이치고의 변화와 연결된다.",
+          "card": "karakura_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에는 별일 없는 날에도 인사하자.”",
+          "result": "“다음에는 별일 없는 날에도 인사하자.” 대행의 하루의 기억에 자신의 답을 남긴다. 오리히메와 차드, 우류도 이치고의 변화와 연결된다.",
+          "card": "karakura_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_03",
+      "title": "친구들이 알게 된 세계",
+      "intro": "오리히메와 차드, 우류도 이치고의 변화와 연결된다.",
+      "story": "오리히메와 차드, 우류도 이치고의 변화와 연결된다. 혼자 떠맡는 책임은 곁의 사람에게도 걱정으로 닿는다. 함께할 사람이 있다는 사실을 강해진 뒤에야 인정할 필요는 없다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이미 곁에 있는 사람의 마음도 들어 보자.”",
+          "result": "“이미 곁에 있는 사람의 마음도 들어 보자.” 친구들이 알게 된 세계의 기억에 자신의 답을 남긴다. 루키아가 소울 소사이어티로 끌려가자 이치고는 자신의 한계를 마주한다.",
+          "card": "karakura_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“도움을 주고 싶다는 뜻을 밀어내진 말자.”",
+          "result": "“도움을 주고 싶다는 뜻을 밀어내진 말자.” 친구들이 알게 된 세계의 기억에 자신의 답을 남긴다. 루키아가 소울 소사이어티로 끌려가자 이치고는 자신의 한계를 마주한다.",
+          "card": "karakura_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같이 알게 된 일을 함께 이야기하자.”",
+          "result": "“같이 알게 된 일을 함께 이야기하자.” 친구들이 알게 된 세계의 기억에 자신의 답을 남긴다. 루키아가 소울 소사이어티로 끌려가자 이치고는 자신의 한계를 마주한다.",
+          "card": "karakura_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_04",
+      "title": "되돌아간 루키아",
+      "intro": "루키아가 소울 소사이어티로 끌려가자 이치고는 자신의 한계를 마주한다.",
+      "story": "루키아가 소울 소사이어티로 끌려가자 이치고는 자신의 한계를 마주한다. 힘을 빌렸던 관계는 이제 그 사람을 찾을 이유가 되었다. 구하겠다는 말이 루키아의 뜻을 지우지 않도록 다음 만남을 준비한다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“빚을 갚는다는 말만으로 널 찾지는 않아.”",
+          "result": "“빚을 갚는다는 말만으로 널 찾지는 않아.” 되돌아간 루키아의 기억에 자신의 답을 남긴다. 우라하라의 도움 아래 이치고와 동료들은 구출을 준비한다.",
+          "card": "karakura_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 만나서 네 대답도 듣고 싶어.”",
+          "result": "“다시 만나서 네 대답도 듣고 싶어.” 되돌아간 루키아의 기억에 자신의 답을 남긴다. 우라하라의 도움 아래 이치고와 동료들은 구출을 준비한다.",
+          "card": "karakura_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“혼자 남겨 둔 결말을 그대로 받아들이진 않을게.”",
+          "result": "“혼자 남겨 둔 결말을 그대로 받아들이진 않을게.” 되돌아간 루키아의 기억에 자신의 답을 남긴다. 우라하라의 도움 아래 이치고와 동료들은 구출을 준비한다.",
+          "card": "karakura_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_05",
+      "title": "우라하라가 여는 준비",
+      "intro": "우라하라의 도움 아래 이치고와 동료들은 구출을 준비한다.",
+      "story": "우라하라의 도움 아래 이치고와 동료들은 구출을 준비한다. 힘을 되찾는 과정에도 왜 가는지 묻는 시간이 필요하다. 서로 다른 이유가 같은 사람의 귀환을 향해 모인다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“강해질 이유를 사람의 이름으로 남겨 두자.”",
+          "result": "“강해질 이유를 사람의 이름으로 남겨 두자.” 우라하라가 여는 준비의 기억에 자신의 답을 남긴다. 소울 소사이어티에 들어선 일행은 현세의 규칙이 통하지 않는 길을 만난다.",
+          "card": "karakura_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“함께 갈 동료의 뜻도 확인하자.”",
+          "result": "“함께 갈 동료의 뜻도 확인하자.” 우라하라가 여는 준비의 기억에 자신의 답을 남긴다. 소울 소사이어티에 들어선 일행은 현세의 규칙이 통하지 않는 길을 만난다.",
+          "card": "karakura_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“돌아온 뒤의 삶까지 생각하고 가겠어.”",
+          "result": "“돌아온 뒤의 삶까지 생각하고 가겠어.” 우라하라가 여는 준비의 기억에 자신의 답을 남긴다. 소울 소사이어티에 들어선 일행은 현세의 규칙이 통하지 않는 길을 만난다.",
+          "card": "karakura_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_06",
+      "title": "다른 세계의 문턱",
+      "intro": "소울 소사이어티에 들어선 일행은 현세의 규칙이 통하지 않는 길을 만난다.",
+      "story": "소울 소사이어티에 들어선 일행은 현세의 규칙이 통하지 않는 길을 만난다. 요루이치의 안내를 받으며 모르는 일을 인정한다. 낯선 곳에서도 찾고 있는 사람의 이름은 변하지 않는다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“모르는 길은 함께 확인하고 가자.”",
+          "result": "“모르는 길은 함께 확인하고 가자.” 다른 세계의 문턱의 기억에 자신의 답을 남긴다. 낯선 곳의 사람들이 구출에 손을 보탠다.",
+          "card": "karakura_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서두르는 마음 때문에 동료를 놓치진 말자.”",
+          "result": "“서두르는 마음 때문에 동료를 놓치진 말자.” 다른 세계의 문턱의 기억에 자신의 답을 남긴다. 낯선 곳의 사람들이 구출에 손을 보탠다.",
+          "card": "karakura_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“이곳에서도 루키아의 뜻을 들을 자리를 남기자.”",
+          "result": "“이곳에서도 루키아의 뜻을 들을 자리를 남기자.” 다른 세계의 문턱의 기억에 자신의 답을 남긴다. 낯선 곳의 사람들이 구출에 손을 보탠다.",
+          "card": "karakura_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_07",
+      "title": "길에서 만난 협력자",
+      "intro": "낯선 곳의 사람들이 구출에 손을 보탠다.",
+      "story": "낯선 곳의 사람들이 구출에 손을 보탠다. 같은 세계에서 살았다고 같은 생각을 가진 것은 아니다. 정해진 명령과 직접 만난 사람 사이에서 고른 친절을 기억한다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 직접 내민 손을 기억할게.”",
+          "result": "“네가 직접 내민 손을 기억할게.” 길에서 만난 협력자의 기억에 자신의 답을 남긴다. 렌지와 이치고의 충돌 뒤에는 루키아와 함께한 지난 시간이 있다.",
+          "card": "karakura_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“명령 말고 사람을 본 이유도 듣고 싶어.”",
+          "result": "“명령 말고 사람을 본 이유도 듣고 싶어.” 길에서 만난 협력자의 기억에 자신의 답을 남긴다. 렌지와 이치고의 충돌 뒤에는 루키아와 함께한 지난 시간이 있다.",
+          "card": "karakura_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝나면 도움을 받았다는 말을 다시 전하자.”",
+          "result": "“끝나면 도움을 받았다는 말을 다시 전하자.” 길에서 만난 협력자의 기억에 자신의 답을 남긴다. 렌지와 이치고의 충돌 뒤에는 루키아와 함께한 지난 시간이 있다.",
+          "card": "karakura_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_08",
+      "title": "렌지가 놓지 못한 이름",
+      "intro": "렌지와 이치고의 충돌 뒤에는 루키아와 함께한 지난 시간이 있다.",
+      "story": "렌지와 이치고의 충돌 뒤에는 루키아와 함께한 지난 시간이 있다. 적으로 마주했다고 그 마음까지 하나의 명령으로 줄일 수는 없다. 구출이라는 말에 서로의 오래된 관계가 닿기 시작한다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 알고 있는 루키아의 이야기도 듣고 싶어.”",
+          "result": "“네가 알고 있는 루키아의 이야기도 듣고 싶어.” 렌지가 놓지 못한 이름의 기억에 자신의 답을 남긴다. 켄파치와 맞서는 이치고는 자신의 힘과 앞으로의 길을 다시 본다.",
+          "card": "karakura_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“못 했던 부탁을 지금 해도 괜찮아.”",
+          "result": "“못 했던 부탁을 지금 해도 괜찮아.” 렌지가 놓지 못한 이름의 기억에 자신의 답을 남긴다. 켄파치와 맞서는 이치고는 자신의 힘과 앞으로의 길을 다시 본다.",
+          "card": "karakura_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“지키고 싶었던 이름을 다시 부르자.”",
+          "result": "“지키고 싶었던 이름을 다시 부르자.” 렌지가 놓지 못한 이름의 기억에 자신의 답을 남긴다. 켄파치와 맞서는 이치고는 자신의 힘과 앞으로의 길을 다시 본다.",
+          "card": "karakura_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_09",
+      "title": "켄파치가 막아선 길",
+      "intro": "켄파치와 맞서는 이치고는 자신의 힘과 앞으로의 길을 다시 본다.",
+      "story": "켄파치와 맞서는 이치고는 자신의 힘과 앞으로의 길을 다시 본다. 강한 상대를 이겼다는 일만으로 구출의 뜻이 채워지지는 않는다. 기다리는 사람에게 닿기 위해 무엇을 더 준비해야 할지 생각한다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이긴 뒤에도 가야 할 사람이 남아 있어.”",
+          "result": "“이긴 뒤에도 가야 할 사람이 남아 있어.” 켄파치가 막아선 길의 기억에 자신의 답을 남긴다. 루키아가 품은 죄책감과 포기하려는 마음을 되짚는다.",
+          "card": "karakura_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“힘을 확인하는 일과 목적을 같이 두자.”",
+          "result": "“힘을 확인하는 일과 목적을 같이 두자.” 켄파치가 막아선 길의 기억에 자신의 답을 남긴다. 루키아가 품은 죄책감과 포기하려는 마음을 되짚는다.",
+          "card": "karakura_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“함께 들어온 동료들의 길도 잊지 말자.”",
+          "result": "“함께 들어온 동료들의 길도 잊지 말자.” 켄파치가 막아선 길의 기억에 자신의 답을 남긴다. 루키아가 품은 죄책감과 포기하려는 마음을 되짚는다.",
+          "card": "karakura_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_10",
+      "title": "갇힌 사람이 남긴 마음",
+      "intro": "루키아가 품은 죄책감과 포기하려는 마음을 되짚는다.",
+      "story": "루키아가 품은 죄책감과 포기하려는 마음을 되짚는다. 소울 소사이어티의 법과 지난 죄책감 속에서, 죽음을 받아들이겠다는 말이 자유로운 답인지 묻게 된다. 곁에 없던 사람이 그 마음을 쉽게 대신 결론 내리지 않는다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 무엇을 겪었는지 먼저 듣고 싶어.”",
+          "result": "“네가 무엇을 겪었는지 먼저 듣고 싶어.” 갇힌 사람이 남긴 마음의 기억에 자신의 답을 남긴다. 마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다.",
+          "card": "karakura_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“포기하는 말이 전부 네 뜻이라고 단정하진 않을게.”",
+          "result": "“포기하는 말이 전부 네 뜻이라고 단정하진 않을게.” 갇힌 사람이 남긴 마음의 기억에 자신의 답을 남긴다. 마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다.",
+          "card": "karakura_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“살아 있는 네 대답을 다시 듣고 싶어.”",
+          "result": "“살아 있는 네 대답을 다시 듣고 싶어.” 갇힌 사람이 남긴 마음의 기억에 자신의 답을 남긴다. 마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다.",
+          "card": "karakura_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_11",
+      "title": "요루이치와 기다리는 시간",
+      "intro": "마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다.",
+      "story": "마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다. 요루이치의 도움은 강함보다 준비할 기회를 남긴다. 아직 닿지 못한 사람에게 건넬 인사를 함께 생각한다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“기다리는 동안에도 약속을 놓지 않을게.”",
+          "result": "“기다리는 동안에도 약속을 놓지 않을게.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다.",
+          "card": "karakura_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“네가 내어 준 시간에 우리가 할 몫을 담자.”",
+          "result": "“네가 내어 준 시간에 우리가 할 몫을 담자.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다.",
+          "card": "karakura_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝나면 누구와 다시 이야기할지 기억하자.”",
+          "result": "“끝나면 누구와 다시 이야기할지 기억하자.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다.",
+          "card": "karakura_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_12",
+      "title": "처형대에서 부른 이름",
+      "intro": "루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다.",
+      "story": "루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다. 모여든 사람들의 판단은 같은 명령을 따르지 않는다. 살아 돌아올 사람의 이름을 소리 내어 부르는 일이 먼저다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이제 살아서 대답해 줘.”",
+          "result": "“이제 살아서 대답해 줘.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다.",
+          "card": "karakura_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“여기까지 온 사람들의 뜻도 함께 기억하자.”",
+          "result": "“여기까지 온 사람들의 뜻도 함께 기억하자.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다.",
+          "card": "karakura_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝이라고 불린 자리에서 다음 만남을 남기자.”",
+          "result": "“끝이라고 불린 자리에서 다음 만남을 남기자.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다.",
+          "card": "karakura_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_13",
+      "title": "뱌쿠야가 지키던 약속",
+      "intro": "이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다.",
+      "story": "이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다. 규칙과 약속을 지킨다는 말은 쉬운 하나의 답이 아니었다. 상대의 사정을 들었다고 루키아의 삶을 다시 대신 정하지 않는다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 지키려던 약속도 이제 들을게.”",
+          "result": "“네가 지키려던 약속도 이제 들을게.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다.",
+          "card": "karakura_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“그 사정과 루키아의 내일은 함께 생각하자.”",
+          "result": "“그 사정과 루키아의 내일은 함께 생각하자.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다.",
+          "card": "karakura_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“틀렸던 결론을 바꿀 자리도 남아 있어.”",
+          "result": "“틀렸던 결론을 바꿀 자리도 남아 있어.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다.",
+          "card": "karakura_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_14",
+      "title": "아이젠이 드러낸 목적",
+      "intro": "아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다.",
+      "story": "아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다. 처형의 명분을 믿었던 사람들도 자신들이 놓친 것을 보게 된다. 진실을 알게 되었다고 구출한 삶의 의미가 줄어들지는 않는다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“진실을 알게 된 뒤에도 사람을 먼저 보자.”",
+          "result": "“진실을 알게 된 뒤에도 사람을 먼저 보자.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다.",
+          "card": "karakura_main_14_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“그럴듯한 명분은 다시 확인해야겠어.”",
+          "result": "“그럴듯한 명분은 다시 확인해야겠어.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다.",
+          "card": "karakura_main_14_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“우리가 찾으러 온 이름은 바뀌지 않았어.”",
+          "result": "“우리가 찾으러 온 이름은 바뀌지 않았어.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다.",
+          "card": "karakura_main_14_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_15",
+      "title": "루키아가 고르는 자리",
+      "intro": "위기를 넘긴 루키아는 소울 소사이어티에 남는다.",
+      "story": "위기를 넘긴 루키아는 소울 소사이어티에 남는다. 구했다는 이유로 그 사람의 다음 삶까지 데려갈 수는 없다. 다시 만날 수 있는 관계를 남기며 서로의 자리에서 인사한다.",
+      "mainStage": 15,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“구했다는 이유로 네 길을 정하진 않을게.”",
+          "result": "“구했다는 이유로 네 길을 정하진 않을게.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다.",
+          "card": "karakura_main_15_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“남기로 한 뜻도 네 목소리로 기억하겠어.”",
+          "result": "“남기로 한 뜻도 네 목소리로 기억하겠어.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다.",
+          "card": "karakura_main_15_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에 만날 때 각자의 이야기를 들려주자.”",
+          "result": "“다음에 만날 때 각자의 이야기를 들려주자.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다.",
+          "card": "karakura_main_15_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_main_16",
+      "title": "마을에 돌아온 대행",
+      "intro": "현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다.",
+      "story": "현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다. 루키아가 곁에 없다고 함께 겪은 시간이 사라지지는 않는다. 처음 힘을 얻었던 밤의 책임을 다른 사람의 삶을 존중하는 약속으로 이어 간다.",
+      "mainStage": 16,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“다시 돌아온 일상도 같이 지키고 싶어.”",
+          "result": "익숙한 거리의 불빛과 학교의 소란이 다시 이어진다. 루키아와 겪은 밤을 잊지 않은 채 돌아온 일상에도 동료의 자리를 남긴다.",
+          "card": "karakura_main_16_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“각자의 자리에서 다음 만남을 기다리자.”",
+          "result": "함께 돌아가야만 관계가 남는 것은 아니라는 답을 가져간다. 소울 소사이어티와 현세에서 각자의 이야기를 살아가며 다음 만남을 기다린다.",
+          "card": "karakura_main_16_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“구해 낸 삶이 스스로 고를 수 있었음을 기억할게.”",
+          "result": "구한 사람의 다음 삶을 대신 정하지 않았음을 기억한다. 루키아가 남기로 한 뜻과 처음의 구출 약속을 함께 남기며 카라쿠라로 돌아온다.",
+          "card": "karakura_main_16_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "사신대행 도입과 소울 소사이어티 루키아 구출의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "karakura_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "구해 낸 삶이 고르는 자리의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "bl_kon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "bl_ichigo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "bl_uryu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
+      "uncertain": []
     }
   ]
 }

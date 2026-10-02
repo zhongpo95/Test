@@ -3,22 +3,32 @@
     "key": "axel",
     "name": "액셀",
     "work": "이 멋진 세계에 축복을!",
-    "intro": "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자.",
+    "intro": "카즈마와 아쿠아가 액셀에서 모험가의 생활을 시작한다. 이상한 동료들과 돌아올 집의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
     "effects": [
       {
-        "stat": "kill_gold",
-        "value": 1
+        "stat": "swift",
+        "value": 90
       }
     ],
     "entryCard": "axel_luna",
-    "icon": "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp",
+    "mainStory": {
+      "title": "이상한 동료들과 돌아올 집",
+      "length": 12,
+      "focus": [
+        "swift",
+        "attack_percent"
+      ],
+      "source": "애니메이션 1기 액셀 모험부터 디스트로이어",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    }
   },
   "sources": [
     "https://konosuba.com/3rd/character/",
     "https://konosuba.com/2nd/story/",
     "https://konosuba.com/1st/story/"
   ],
-  "canonBoundary": "인물의 특징과 관계만 원작에서 가져왔다. 플레이어 의뢰, 골드 금액, 사냥터 변화, 카드 효과는 이 맵의 각색이다. 단순한 모험으로 마왕군을 쓰러뜨리거나 학교 빚을 해결했다고 단정하지 않는다. 연회 자리·귀여운 진열품·서로 다른 표적 연습·검 자기소개·신참의 질문은 공식 인물 성격에서 별도 창작했다. 환영하는 거친 남자를 길드 직원으로 단정하지 않는다. 그람·새 마법·인형 장비·NPC 동행·자동 의뢰 완수·부활은 지급하지 않는다. 물 공연과 NPC 행동은 사건 글이며 추가 필드 전투나 미니게임이 아니다. 호수의 구경꾼·줄 고정과 받침·눈의 겹친 발자국·질문을 끝낼 방문·저택의 서로 다른 문턱은 공식 1기 5·7·8화 소개에서 각색한 독립 만남이다. 현재 체력의 추위 비용·겨울 장군 전투와 사망 결말·새 원작 기술·유령의 신원과 성불 방법은 추가하지 않는다. 사건 결과는 그 만남의 기억으로 카드 성장과 원정 개인 사냥 조건을 얻는 것이며 실제 NPC·정령·수중 전투·제령 주문·물가 장비가 생기지 않는다. 카드 지급 시 최대 체력이 늘면 기존 현재 체력 비율을 보존하며 물약처럼 체력 비율을 회복하는 효과는 아니다. 줄 후속은 자신이 고정용품을 마련한 성공1번에서만 열린다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다.",
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다.",
   "cards": [
     {
       "key": "axel_luna",
@@ -28,8 +38,8 @@
       "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -45,11 +55,11 @@
       "name": "사토 카즈마",
       "effectName": "운 좋은 모험가",
       "keyword": "치명 · 수급",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_chance",
-          "value": 5
+          "value": 2
         },
         {
           "stat": "kill_gold",
@@ -69,15 +79,15 @@
       "name": "크리스",
       "effectName": "도적의 손놀림",
       "keyword": "신속",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "swift",
-          "value": 180
+          "value": 90
         },
         {
           "stat": "directional_damage",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -93,19 +103,19 @@
       "name": "메구밍",
       "effectName": "폭렬 마법에 올인",
       "keyword": "차지 · 패널티",
-      "grade": 3,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_damage",
-          "value": 24
+          "value": 4
         },
         {
           "stat": "charge_speed",
-          "value": 8
+          "value": 4
         },
         {
-          "stat": "action_speed",
-          "value": -3
+          "stat": "swift",
+          "value": -90
         }
       ],
       "evolution": {
@@ -121,19 +131,19 @@
       "name": "다크니스",
       "effectName": "서툰 검과 단단한 갑옷",
       "keyword": "생존 · 패널티",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 18
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 8
+          "value": 2
         },
         {
           "stat": "attack_percent",
-          "value": -5
+          "value": 2
         }
       ],
       "evolution": {
@@ -149,15 +159,15 @@
       "name": "아쿠아",
       "effectName": "아크 프리스트의 축복",
       "keyword": "재생",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.7
+          "value": 0.2
         },
         {
           "stat": "healthy_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -173,15 +183,15 @@
       "name": "위즈",
       "effectName": "마도구 감정",
       "keyword": "공격",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 10
+          "value": 3
         },
         {
           "stat": "nondirectional_damage",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -197,15 +207,15 @@
       "name": "바니르",
       "effectName": "가면 너머의 계산",
       "keyword": "보스 · 관통",
-      "grade": 3,
+      "grade": 1,
       "effects": [
         {
           "stat": "boss_damage_percent",
-          "value": 14
+          "value": 4
         },
         {
           "stat": "penetration",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -221,15 +231,15 @@
       "name": "아쿠아",
       "effectName": "박수가 끝난 뒤의 준비",
       "keyword": "사건 후보 · 재생",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "regeneration",
-          "value": 0.3
+          "value": 0.2
         }
       ],
       "evolution": {
@@ -245,15 +255,15 @@
       "name": "다크니스",
       "effectName": "갑옷 옆에 남긴 작은 자리",
       "keyword": "최대 체력 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "healthy_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -269,15 +279,15 @@
       "name": "융융",
       "effectName": "다른 마법도 준비할 시간",
       "keyword": "차지 · 비방향 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "nondirectional_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -293,15 +303,15 @@
       "name": "미츠루기",
       "effectName": "이름을 말하기 전의 자세",
       "keyword": "방향 피해 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "directional_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "boss_damage_percent",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -317,15 +327,15 @@
       "name": "루나",
       "effectName": "처음 온 사람의 다음 질문",
       "keyword": "사건 후보 · 수급 · 최대 체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "kill_gold",
-          "value": 2
+          "value": 1
         },
         {
           "stat": "max_health_percent",
@@ -345,15 +355,19 @@
       "name": "아쿠아",
       "effectName": "끌어올릴 때까지 놓지 않기",
       "keyword": "최대 체력 · 피해 감소",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 6
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -369,15 +383,15 @@
       "name": "사토 카즈마",
       "effectName": "먼 발자국을 따라갈 때",
       "keyword": "이동 · 일반 적",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 5
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "normal_damage_percent",
-          "value": 12
+          "value": 5
         }
       ],
       "evolution": {
@@ -393,15 +407,15 @@
       "name": "위즈",
       "effectName": "질문이 끝나는 순간",
       "keyword": "차지 속도 · 비방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 8
+          "value": 4
         },
         {
           "stat": "nondirectional_damage",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -417,15 +431,15 @@
       "name": "아쿠아",
       "effectName": "의뢰받은 문부터",
       "keyword": "일반 적 · 재생",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "normal_damage_percent",
-          "value": 14
+          "value": 5
         },
         {
           "stat": "regeneration",
-          "value": 0.3
+          "value": 0.2
         }
       ],
       "evolution": {
@@ -441,15 +455,15 @@
       "name": "사토 카즈마",
       "effectName": "손을 떼는 순서",
       "keyword": "이동 · 차지 속도",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "charge_speed",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -465,15 +479,19 @@
       "name": "크리스",
       "effectName": "흔적을 밟기 전에",
       "keyword": "이동 · 치명 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "crit_damage",
-          "value": 14
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -489,15 +507,15 @@
       "name": "사토 카즈마",
       "effectName": "먼저 따져 볼 몫",
       "keyword": "공격력 · 치명 확률",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 12
+          "value": 3
         },
         {
           "stat": "crit_chance",
-          "value": 3
+          "value": 2
         }
       ],
       "evolution": {
@@ -513,15 +531,19 @@
       "name": "아쿠아",
       "effectName": "남겨 둔 비상분",
       "keyword": "최대 체력 · 재생",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "regeneration",
-          "value": 0.3
+          "value": 0.2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -537,15 +559,19 @@
       "name": "아쿠아",
       "effectName": "돌아갈 곳부터",
       "keyword": "재생 · 받는 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.4
+          "value": 0.2
         },
         {
           "stat": "damage_reduction",
-          "value": 4
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -561,15 +587,15 @@
       "name": "루나",
       "effectName": "창구 밖의 빈자리",
       "keyword": "사건 후보 · 받는 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "damage_reduction",
-          "value": 3
+          "value": 2
         }
       ],
       "evolution": {
@@ -585,15 +611,19 @@
       "name": "융융",
       "effectName": "서로 다른 표적",
       "keyword": "차지 속도 · 치명 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 7
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -609,15 +639,15 @@
       "name": "다크니스",
       "effectName": "검보다 먼저 선 자리",
       "keyword": "방향 피해 · 받는 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "directional_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 5
+          "value": 2
         }
       ],
       "evolution": {
@@ -633,11 +663,721 @@
       "name": "위즈",
       "effectName": "작은 실패부터 살피기",
       "keyword": "차지 속도 · 받는 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마도구점 주인과 기존 감정·시범 준비에서 작은 실패를 먼저 확인하는 기억을 각색한다. 장비 수리·원작 주문·새 마도구를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_stolen_notice_memory_1",
+      "name": "루나",
+      "effectName": "놓치지 않은 보수",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "axel_main_01_1",
+      "name": "아쿠아",
+      "effectName": "처음 적는 모험가 이름 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_01_2",
+      "name": "아쿠아",
+      "effectName": "처음 적는 모험가 이름 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_01_3",
+      "name": "아쿠아",
+      "effectName": "처음 적는 모험가 이름 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_02_1",
+      "name": "메구밍",
+      "effectName": "폭렬 마법 한 번의 약속 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_02_2",
+      "name": "메구밍",
+      "effectName": "폭렬 마법 한 번의 약속 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_02_3",
+      "name": "메구밍",
+      "effectName": "폭렬 마법 한 번의 약속 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_03_1",
+      "name": "다크니스",
+      "effectName": "앞에 서고 싶은 사람 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_03_2",
+      "name": "다크니스",
+      "effectName": "앞에 서고 싶은 사람 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_03_3",
+      "name": "다크니스",
+      "effectName": "앞에 서고 싶은 사람 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_04_1",
+      "name": "메구밍",
+      "effectName": "매일 같은 언덕 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_04_2",
+      "name": "메구밍",
+      "effectName": "매일 같은 언덕 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_04_3",
+      "name": "메구밍",
+      "effectName": "매일 같은 언덕 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_05_1",
+      "name": "카즈마",
+      "effectName": "화가 난 성의 주인 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_05_2",
+      "name": "카즈마",
+      "effectName": "화가 난 성의 주인 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_05_3",
+      "name": "카즈마",
+      "effectName": "화가 난 성의 주인 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_06_1",
+      "name": "아쿠아",
+      "effectName": "호수에서 배운 기대의 크기 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_06_2",
+      "name": "아쿠아",
+      "effectName": "호수에서 배운 기대의 크기 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_06_3",
+      "name": "아쿠아",
+      "effectName": "호수에서 배운 기대의 크기 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_07_1",
+      "name": "다크니스",
+      "effectName": "마을을 지키는 서툰 합 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_07_2",
+      "name": "다크니스",
+      "effectName": "마을을 지키는 서툰 합 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_07_3",
+      "name": "다크니스",
+      "effectName": "마을을 지키는 서툰 합 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_08_1",
+      "name": "카즈마",
+      "effectName": "겨울에 걸린 의뢰 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_08_2",
+      "name": "카즈마",
+      "effectName": "겨울에 걸린 의뢰 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_08_3",
+      "name": "카즈마",
+      "effectName": "겨울에 걸린 의뢰 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_09_1",
+      "name": "위즈",
+      "effectName": "위즈의 조용한 가게 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_09_2",
+      "name": "위즈",
+      "effectName": "위즈의 조용한 가게 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
           "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_09_3",
+      "name": "위즈",
+      "effectName": "위즈의 조용한 가게 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
         },
         {
           "stat": "damage_reduction",
@@ -649,7 +1389,247 @@
         "goal": 0,
         "effects": []
       },
-      "canonFact": "공식 마도구점 주인과 기존 감정·시범 준비에서 작은 실패를 먼저 확인하는 기억을 각색한다. 장비 수리·원작 주문·새 마도구를 지급하지 않는다.",
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_10_1",
+      "name": "아쿠아",
+      "effectName": "처음 생긴 돌아올 집 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_10_2",
+      "name": "아쿠아",
+      "effectName": "처음 생긴 돌아올 집 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_10_3",
+      "name": "아쿠아",
+      "effectName": "처음 생긴 돌아올 집 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_11_1",
+      "name": "메구밍",
+      "effectName": "디스트로이어가 다가오는 날 · 결의",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_11_2",
+      "name": "메구밍",
+      "effectName": "디스트로이어가 다가오는 날 · 물음",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_11_3",
+      "name": "메구밍",
+      "effectName": "디스트로이어가 다가오는 날 · 인연",
+      "keyword": "메인 · 이상한 동료들과 돌아올 집",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_12_1",
+      "name": "카즈마",
+      "effectName": "투덜대며 돌아온 집",
+      "keyword": "메인 완결 · 이상한 동료들과 돌아올 집",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 225
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_12_2",
+      "name": "카즈마",
+      "effectName": "무용담보다 남은 식탁",
+      "keyword": "메인 완결 · 이상한 동료들과 돌아올 집",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 7
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_12_3",
+      "name": "카즈마",
+      "effectName": "다음 의뢰의 동료들",
+      "keyword": "메인 완결 · 이상한 동료들과 돌아올 집",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": []
     }
   ],
@@ -664,14 +1644,14 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "카즈마와 몬스터 무리를 맡는다",
-          "result": "카즈마와 몬스터 수가 많은 의뢰를 골랐다. 서류의 수고비부터 확인했지만, 약속된 자리에는 상대해야 할 무리도 더 기다리고 있었다.",
+          "label": "카즈마에게 의뢰의 보수를 먼저 물어본다",
+          "result": "카즈마는 의뢰서의 작은 글씨를 짚으며 위험보다 보수부터 확인한다. 투덜거리면서도 동료들의 몫을 계산하는 그의 판단을 기억한다.",
           "card": "axel_kazuma",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -688,14 +1668,14 @@
           "chance": 100
         },
         {
-          "label": "150골드로 운송을 준비하고 루나와 의뢰를 나눠 맡는다",
-          "result": "루나와 의뢰를 나눠 맡고 다른 모험가가 지나갈 운송 길부터 비웠다. 150골드를 지불했다. 「처음 온 사람의 다음 질문」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 루나는 두 의뢰서를 다시 겹쳐 놓지 않고 네가 맡은 쪽 옆에 다음 질문을 적는다.",
+          "label": "150골드를 내고 루나와 의뢰를 분담한다",
+          "result": "루나는 비용을 받고 당신과 협력하기로 한다. 그녀와 협동하며 효율적인 동선에 대한 기억을 얻다.",
           "card": "axel_luna_arrival",
           "card2": null,
           "gold": 0,
           "cost": 150,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -714,23 +1694,23 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "크리스에게 수색을 배운다",
-          "result": "크리스와 사라진 게시물의 흔적을 따라갔다. 물건을 되찾는 데 급급하기보다 누가 지나갔는지부터 구분했다.",
+          "label": "크리스에게 물건을 찾는 법을 배운다",
+          "result": "크리스는 도적의 흔적을 쫓는 요령을 가르쳐줍니다. 물건을 추적하는 섬세한 감각에 대한 기억이 생깁니다.",
           "card": "axel_chris",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "길드에 보수 재발행을 요청한다",
-          "result": "카즈마와 완료한 의뢰의 번호를 대조해 길드에 명세서 재발행을 요청했다. 루나가 기록을 확인하고 빠져 있던 보수를 건넸다.",
-          "card": null,
+          "label": "루나에게 의뢰 번호를 다시 확인해 달라고 한다",
+          "result": "루나는 번호가 겹친 의뢰서를 따로 놓고 빠진 항목을 찾는다. 보수만큼이나 기록을 끝까지 확인해야 한다는 그녀의 준비를 기억한다.",
+          "card": "axel_stolen_notice_memory_1",
           "card2": null,
-          "gold": 230,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -800,14 +1780,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 표식을 마련하고 위즈와 대피 통로부터 살핀다",
-          "result": "위즈와 암벽을 등지고 대피할 길에 표식을 놓으며 작은 위험부터 살폈다. 160골드를 지불했다. 「작은 실패부터 살피기」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 메구밍이 시연할 자리를 가리키자 위즈는 그곳을 볼 자리와 돌아설 길을 다른 표시로 남긴다.",
+          "label": "160골드로 위즈와 대피 통로를 살핀다",
+          "result": "위즈는 비용을 받고 안전 거리를 계산해 줍니다. 폭발의 여파를 피하는 지형 파악법을 기억하게 된다.",
           "card": "axel_wiz_small",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -850,14 +1830,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 분류 용품을 마련하고 위즈와 작은 고장부터 나눈다",
-          "result": "위즈와 마도구를 분류하고 작은 고장부터 장부의 다른 줄에 적었다. 160골드를 지불했다. 「작은 실패부터 살피기」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 바니르는 아직 팔 수 없는 물건까지 매출로 적지 말라며 위즈의 장부를 다시 펼친다.",
+          "label": "160골드로 위즈와 장부의 오류를 분석한다",
+          "result": "위즈는 비용을 받고 가치 산정 방식을 설명한다. 물건의 적정 가치를 판단하는 안목을 얻는다.",
           "card": "axel_wiz_small",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -926,26 +1906,26 @@
       "requiredCard": null,
       "choices": [
         {
-          "label": "다크니스 뒤에서 공격할 자리를 만든다",
-          "result": "다크니스의 방어 뒤에서 공격할 자리를 잡았다. 좁은 곳에 몰린 상대까지 맡아야 했지만, 정면에서 버틸 사람이 있다는 차이를 배웠다.",
+          "label": "다크니스 뒤에서 유리한 공격 위치를 잡는다",
+          "result": "다크니스는 당신의 전술에 맞춰 방어를 견고히 한다. 좁은 공간에서 효율을 내는 위치 선정법을 얻다.",
           "card": "axel_darkness",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "크리스와 몬스터를 흩어 놓는다",
-          "result": "크리스와 장비를 마련하고 몬스터가 한꺼번에 몰리지 않도록 통로를 나눴다. 적은 수를 마주하는 동안 몸을 빼며 옆을 잡을 자리를 확인했다.",
+          "label": "크리스에게 어디에 서면 좋을지 묻는다",
+          "result": "크리스는 움직일 공간을 남겨 두라며 진열대 옆을 가리킨다. 물건과 사람 사이의 간격을 재는 그녀의 손놀림이 기억에 남는다.",
           "card": "axel_chris",
           "card2": null,
           "gold": 0,
           "cost": 200,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -988,14 +1968,14 @@
           "chance": 100
         },
         {
-          "label": "카즈마와 적이 많은 바깥 길목을 맡는다",
-          "result": "카즈마와 더 많은 적이 오가는 바깥 길목을 맡았다. 빈틈을 노리고 얻을 몫을 놓치지 않는 요령을 배웠고 개인 사냥의 적 수가 늘었다. 카즈마는 안에서 박수만 치는 것보다는 벌이가 있어야 한다며 너와 맡을 자리를 나눈다.",
+          "label": "카즈마에게 짐부터 정리하자고 말한다",
+          "result": "카즈마는 물통을 찾다가 자신이 쌓아 둔 짐에 막혀 한숨을 쉰다. 불평 끝에 하나씩 자리를 비우는 그의 순서를 함께 익힌다.",
           "card": "axel_kazuma",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1038,26 +2018,26 @@
           "chance": 100
         },
         {
-          "label": "다크니스와 적이 많은 바깥 자리를 맡는다",
-          "result": "다크니스와 더 많은 적이 드나드는 바깥 자리를 맡았다. 오래 버틸 준비를 배웠지만 공격의 부담도 남고 개인 사냥의 적 수가 늘었다. 다크니스는 진열품을 다시 보고 싶어 하면서도 먼저 맡을 자리를 가리킨다.",
+          "label": "다크니스에게 진열품이 보이지 않는다고 말한다",
+          "result": "다크니스가 뒤늦게 진열대 앞을 막고 있었다는 걸 깨닫고 물러선다. 머쓱하게 고개를 돌리면서도 다른 사람을 먼저 살피는 모습이 기억에 남는다.",
           "card": "axel_darkness",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "160골드로 진열을 준비하고 크리스와 사람들이 지나갈 길을 나눈다",
-          "result": "크리스와 진열품 옆의 흔적을 살피고 뒤에 선 사람들이 지나갈 길을 나눴다. 160골드를 지불했다. 「흔적을 밟기 전에」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 다크니스는 길을 비켰지만 눈은 같은 진열품에 남아 있고 크리스는 다시 멈출 자리부터 묻는다.",
+          "label": "크리스에게 안내를 맡기고 진열을 돕는다",
+          "result": "크리스는 당신의 신뢰에 기뻐하며 사람들을 친절하게 안내한다. 그녀는 인파 속에서 중요한 이동 경로를 기억해낸다.",
           "card": "axel_chris_trace",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1100,14 +2080,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 표시 용품을 마련하고 융융과 서로 다른 표적을 나눈다",
-          "result": "융융과 표적의 간격을 표시하고 메구밍이 고른 큰 자리와 다른 쪽을 맡았다. 160골드를 지불했다. 「서로 다른 표적」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 메구밍이 한 번에 끝낼 수 있다며 큰 자리를 가리키자 융융은 네가 아직 보지 않은 작은 표적을 남긴다.",
+          "label": "융융에게 표적을 함께 나누어 보자고 한다",
+          "result": "융융은 함께 연습하자는 말에 잠깐 굳었다가 서둘러 고개를 끄덕인다. 같은 표적을 번갈아 가리키며 상대가 준비할 시간을 남기는 호흡을 익힌다.",
           "card": "axel_yunyun_gap",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1138,14 +2118,14 @@
           "chance": 100
         },
         {
-          "label": "크리스와 적이 많은 바깥 길목을 맡는다",
-          "result": "크리스와 더 많은 적이 드나드는 바깥 길목을 맡았다. 빠르게 움직이며 공격 방향을 고르는 요령을 익혔고 개인 사냥의 적 수가 늘었다. 크리스는 미츠루기의 소개가 끝나기를 기다리면 늦겠다며 갈 쪽을 먼저 짚는다.",
+          "label": "크리스에게 바깥쪽 방어를 맡긴다",
+          "result": "크리스는 단호한 목소리로 바깥쪽을 책임지겠다고 대답한다. 그녀는 경계 태세 속에서 주변 지형의 특징을 기억해낸다.",
           "card": "axel_chris",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1200,14 +2180,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 안내를 준비하고 루나와 신참이 돌아올 길을 비운다",
-          "result": "루나와 신참이 돌아올 길에 표식을 남기고 맡을 길목을 한 곳 줄였다. 160골드를 지불했다. 「창구 밖의 빈자리」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 신참이 돌아와도 같은 창구를 찾을 수 있냐고 묻자 루나는 아직 받지 않은 다음 질문을 펼친다.",
+          "label": "루나에게 신참의 길을 안내할 준비를 하고 자리를 비운다",
+          "result": "루나는 신참이 길을 잃지 않도록 배려하는 너의 태도를 높게 평가한다. 너는 길드 안내 체계에 대한 중요한 정보를 얻는다.",
           "card": "axel_luna_space",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1239,14 +2219,14 @@
           "chance": 100
         },
         {
-          "label": "정화 의뢰의 목적을 설명하고 더 많은 개인 사냥을 맡는다",
-          "result": "구경꾼에게 정화 의뢰와 우리를 쓰는 이유를 설명하고 더 많은 개인 사냥을 맡는 부담을 택했다. 의뢰받은 일을 확인하는 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 카즈마는 설명이 끝난 손도 줄을 잡을 수 있냐고 묻는다.",
+          "label": "정화 의뢰의 목적을 설명하며 구경꾼의 시선을 돌린다",
+          "result": "너의 명확한 설명 덕분에 주변 사람들의 오해가 풀리고 평판이 상승한다. 아쿠아는 의뢰의 핵심적인 진행 방식을 하나 더 기억해낸다.",
           "card": "axel_aqua_threshold",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1278,7 +2258,7 @@
       "choices": [
         {
           "label": "180골드로 길 표시 용품을 마련하고 발자국 사이를 따라간다",
-          "result": "길 표시 용품 값 180골드를 내고 겹친 발자국 사이에 돌아올 표식을 남겼다. 추격의 발걸음을 기억해 이동속도와 일반 몬스터에게 가하는 피해가 늘었다. 카즈마는 멀어진 정령과 네가 남긴 표식을 번갈아 본다.",
+          "result": "길 표시 용품 값 180골드를 내고 겹친 발자국 사이에 돌아올 표식을 남겼다. 카즈마는 멀어진 정령과 네가 남긴 표식을 번갈아 본다.",
           "card": "axel_kazuma_snow",
           "card2": null,
           "gold": 0,
@@ -1289,14 +2269,14 @@
           "chance": 100
         },
         {
-          "label": "더 많은 개인 사냥을 맡고 카즈마와 더 쫓아갈 범위를 나눈다",
-          "result": "카즈마와 더 쫓아갈 범위를 나누되 돌아올 표식은 따로 남겼다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가2올랐다. 카즈마는 저쪽도 자기 몫이냐고 묻고 아쿠아는 더 간 만큼 돌아올 길도 보라고 한다.",
+          "label": "카즈마와 협력하여 눈 위에서 쫓을 범위를 나눈다",
+          "result": "카즈마는 네가 전략적으로 범위를 나누는 모습에 깊은 신뢰를 보낸다. 너는 정령의 이동 경로에 대한 핵심적인 단서를 손에 넣는다.",
           "card": "axel_kazuma_share",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1328,7 +2308,7 @@
       "choices": [
         {
           "label": "200골드로 시범 소모품을 마련하고 내 질문을 먼저 마친다",
-          "result": "시범 소모품 값 200골드를 내고 내 질문을 끝까지 마쳤다. 질문과 시범이 끝날 때를 기다린 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 답하던 손을 다시 들고 아쿠아는 아직 문밖의 의뢰를 가리킨다.",
+          "result": "시범 소모품 값 200골드를 내고 내 질문을 끝까지 마쳤다. 위즈는 답하던 손을 다시 들고 아쿠아는 아직 문밖의 의뢰를 가리킨다.",
           "card": "axel_wiz_question",
           "card2": null,
           "gold": 0,
@@ -1378,7 +2358,7 @@
       "choices": [
         {
           "label": "170골드로 의뢰 안내를 대조하고 열릴 문을 기다린다",
-          "result": "의뢰 안내를 마련한 값 170골드를 내고 문턱을 대조했다. 의뢰받은 곳부터 확인한 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 아쿠아는 먼저 본 창문에서 문 쪽으로 시선을 옮긴다.",
+          "result": "의뢰 안내를 마련한 값 170골드를 내고 문턱을 대조했다. 아쿠아는 먼저 본 창문에서 문 쪽으로 시선을 옮긴다.",
           "card": "axel_aqua_threshold",
           "card2": null,
           "gold": 0,
@@ -1390,7 +2370,7 @@
         },
         {
           "label": "더 강한 개인 사냥을 맡으며 위즈와 바깥 흔적을 살핀다",
-          "result": "위즈와 바깥의 발자국을 살피고 더 강한 개인 사냥을 맡는 부담을 택했다. 끝까지 설명을 듣고 준비한 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 흔적만으로 집 안의 주인을 안다고 단정하지 않고 다시 문을 본다.",
+          "result": "위즈와 바깥의 발자국을 살피고 더 강한 개인 사냥을 맡는 부담을 택했다. 위즈는 흔적만으로 집 안의 주인을 안다고 단정하지 않고 다시 문을 본다.",
           "card": "axel_wiz_question",
           "card2": null,
           "gold": 0,
@@ -1428,7 +2408,7 @@
       "choices": [
         {
           "label": "150골드로 내려놓을 받침을 마련하고 손을 뗄 때를 맞춘다",
-          "result": "받침 값 150골드를 내고 내려놓는 때를 맞춰 줄에서 손을 뗐다. 카즈마와 짧은 준비의 끝을 기다린 기억으로 이동속도와 차지 준비 속도가 늘었다. 아쿠아는 받침을 보자 다시 물속에 넣는 용도는 아니냐고 묻는다.",
+          "result": "받침 값 150골드를 내고 내려놓는 때를 맞춰 줄에서 손을 뗐다. 아쿠아는 받침을 보자 다시 물속에 넣는 용도는 아니냐고 묻는다.",
           "card": "axel_kazuma_release",
           "card2": null,
           "gold": 0,
@@ -1439,14 +2419,14 @@
           "chance": 75
         },
         {
-          "label": "더 많은 개인 사냥을 맡고 아쿠아와 물 밖에 남길 자리를 살핀다",
-          "result": "아쿠아와 물 밖에 남길 자리를 살피고 줄에서 손을 떼기 전에 발 디딜 곳을 나눴다. 「돌아갈 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 아쿠아는 바깥 자리가 보여도 우리를 다시 물속에 넣는 것은 아니냐고 확인한다.",
+          "label": "아쿠아와 상의하여 물 밖의 안전한 거처를 확보한다",
+          "result": "아쿠아는 네가 안전을 우선시하는 세심함에 감동하며 고마워한다. 너는 다음 이동 시 필요한 환경에 대한 기억을 얻는다.",
           "card": "axel_aqua_return",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1465,6 +2445,682 @@
       ],
       "failure": "150골드를 내고 받침을 준비했지만 내려놓는 때를 맞추지 못했다. 기다리던 손은 아직 줄을 잡고 있고 카드는 얻지 못했다.",
       "canonFact": "줄 고정용품을 마련한 자신의 성공한 1번 선택에서만 열리는 창작 후속이다. 우리를 끌어올렸다는 앞선 행동의 연속이며 호수의 모든 정화·원작 이후 사건·실제 장비를 해결하거나 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_01",
+      "title": "처음 적는 모험가 이름",
+      "intro": "카즈마와 아쿠아가 액셀에서 모험가의 생활을 시작한다.",
+      "story": "카즈마와 아쿠아가 액셀에서 모험가의 생활을 시작한다. 카즈마는 오늘 잘 곳부터 걱정하고 아쿠아는 여신을 이런 일에 쓴다며 투덜댄다. 길드에 적은 이름이 언젠가 돌아올 자리를 만들 수 있을지 이야기한다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“당장 할 수 있는 일부터 같이 해 보자.”",
+          "result": "“당장 할 수 있는 일부터 같이 해 보자.” 처음 적는 모험가 이름의 기억에 자신의 답을 남긴다. 메구밍은 폭렬 마법에 대한 고집을 숨기지 않는다.",
+          "card": "axel_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“대단한 모험가가 아니어도 시작은 할 수 있겠지.”",
+          "result": "“대단한 모험가가 아니어도 시작은 할 수 있겠지.” 처음 적는 모험가 이름의 기억에 자신의 답을 남긴다. 메구밍은 폭렬 마법에 대한 고집을 숨기지 않는다.",
+          "card": "axel_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“돌아오면 오늘 이야기를 웃으며 하자.”",
+          "result": "“돌아오면 오늘 이야기를 웃으며 하자.” 처음 적는 모험가 이름의 기억에 자신의 답을 남긴다. 메구밍은 폭렬 마법에 대한 고집을 숨기지 않는다.",
+          "card": "axel_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_02",
+      "title": "폭렬 마법 한 번의 약속",
+      "intro": "메구밍은 폭렬 마법에 대한 고집을 숨기지 않는다.",
+      "story": "메구밍은 폭렬 마법에 대한 고집을 숨기지 않는다. 효율만 따지면 이해하기 어려운 선택이지만 그 말에는 자신이 되고 싶은 모습이 있다. 카즈마의 당혹스러움과 메구밍의 기대 사이에서 동료의 취향을 듣는다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“한 번뿐이어도 왜 좋아하는지 듣고 싶어.”",
+          "result": "“한 번뿐이어도 왜 좋아하는지 듣고 싶어.” 폭렬 마법 한 번의 약속의 기억에 자신의 답을 남긴다. 다크니스가 일행에 합류하려 한다.",
+          "card": "axel_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“좋아하는 일을 같이 오래 할 방법을 찾자.”",
+          "result": "“좋아하는 일을 같이 오래 할 방법을 찾자.” 폭렬 마법 한 번의 약속의 기억에 자신의 답을 남긴다. 다크니스가 일행에 합류하려 한다.",
+          "card": "axel_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝나고 돌아가는 길은 함께 생각하자.”",
+          "result": "“끝나고 돌아가는 길은 함께 생각하자.” 폭렬 마법 한 번의 약속의 기억에 자신의 답을 남긴다. 다크니스가 일행에 합류하려 한다.",
+          "card": "axel_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_03",
+      "title": "앞에 서고 싶은 사람",
+      "intro": "다크니스가 일행에 합류하려 한다.",
+      "story": "다크니스가 일행에 합류하려 한다. 적의 공격을 막겠다는 진지한 말 뒤에 너무 들뜬 반응이 이어져 카즈마를 당황하게 한다. 완벽한 동료를 골랐기 때문에 같이 가는 것은 아니라는 생각이 든다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“서툰 부분도 서로 알고 가자.”",
+          "result": "“서툰 부분도 서로 알고 가자.” 앞에 서고 싶은 사람의 기억에 자신의 답을 남긴다. 폭렬 마법 연습을 따라간 길에서 메구밍은 오늘도 자신의 마법을 자랑한다.",
+          "card": "axel_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“앞에 서려는 이유는 가볍게 듣지 않을게.”",
+          "result": "“앞에 서려는 이유는 가볍게 듣지 않을게.” 앞에 서고 싶은 사람의 기억에 자신의 답을 남긴다. 폭렬 마법 연습을 따라간 길에서 메구밍은 오늘도 자신의 마법을 자랑한다.",
+          "card": "axel_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“누가 더 이상한지는 돌아와서 이야기하자.”",
+          "result": "“누가 더 이상한지는 돌아와서 이야기하자.” 앞에 서고 싶은 사람의 기억에 자신의 답을 남긴다. 폭렬 마법 연습을 따라간 길에서 메구밍은 오늘도 자신의 마법을 자랑한다.",
+          "card": "axel_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_04",
+      "title": "매일 같은 언덕",
+      "intro": "폭렬 마법 연습을 따라간 길에서 메구밍은 오늘도 자신의 마법을 자랑한다.",
+      "story": "폭렬 마법 연습을 따라간 길에서 메구밍은 오늘도 자신의 마법을 자랑한다. 같은 풍경이 반복되어도 함께 걸으며 나누는 이야기는 조금씩 달라진다. 아무 일도 없던 하루가 동료가 되는 시간을 쌓는다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“오늘은 어느 부분이 가장 마음에 들었어?”",
+          "result": "“오늘은 어느 부분이 가장 마음에 들었어?” 매일 같은 언덕의 기억에 자신의 답을 남긴다. 메구밍이 매일 성을 향해 쏜 폭렬 마법에 베르디아가 화를 내며 찾아온다.",
+          "card": "axel_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같은 길인데도 네 설명은 매번 다르네.”",
+          "result": "“같은 길인데도 네 설명은 매번 다르네.” 매일 같은 언덕의 기억에 자신의 답을 남긴다. 메구밍이 매일 성을 향해 쏜 폭렬 마법에 베르디아가 화를 내며 찾아온다.",
+          "card": "axel_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“내일도 함께 돌아올 수 있으면 좋겠어.”",
+          "result": "“내일도 함께 돌아올 수 있으면 좋겠어.” 매일 같은 언덕의 기억에 자신의 답을 남긴다. 메구밍이 매일 성을 향해 쏜 폭렬 마법에 베르디아가 화를 내며 찾아온다.",
+          "card": "axel_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_05",
+      "title": "화가 난 성의 주인",
+      "intro": "메구밍이 매일 성을 향해 쏜 폭렬 마법에 베르디아가 화를 내며 찾아온다.",
+      "story": "메구밍이 매일 성을 향해 쏜 폭렬 마법에 베르디아가 화를 내며 찾아온다. 일행의 작은 습관이 마을의 문제와 연결되어 버렸다. 잘못을 웃어넘기는 것과 책임을 피하는 것이 같지 않음을 이야기한다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“우리가 한 일은 먼저 인정하자.”",
+          "result": "“우리가 한 일은 먼저 인정하자.” 화가 난 성의 주인의 기억에 자신의 답을 남긴다. 호수 의뢰를 맡은 아쿠아는 여신이라는 이름과 실제 노동 사이를 오간다.",
+          "card": "axel_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“겁나도 마을 사람에게 등을 돌리진 말자.”",
+          "result": "“겁나도 마을 사람에게 등을 돌리진 말자.” 화가 난 성의 주인의 기억에 자신의 답을 남긴다. 호수 의뢰를 맡은 아쿠아는 여신이라는 이름과 실제 노동 사이를 오간다.",
+          "card": "axel_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“이 일을 끝내고 연습 장소도 다시 정하자.”",
+          "result": "“이 일을 끝내고 연습 장소도 다시 정하자.” 화가 난 성의 주인의 기억에 자신의 답을 남긴다. 호수 의뢰를 맡은 아쿠아는 여신이라는 이름과 실제 노동 사이를 오간다.",
+          "card": "axel_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_06",
+      "title": "호수에서 배운 기대의 크기",
+      "intro": "호수 의뢰를 맡은 아쿠아는 여신이라는 이름과 실제 노동 사이를 오간다.",
+      "story": "호수 의뢰를 맡은 아쿠아는 여신이라는 이름과 실제 노동 사이를 오간다. 일행이 바라던 보상과 현장의 어려움은 생각처럼 맞지 않는다. 아쿠아가 더 칭찬하라고 재촉하자 카즈마는 일단 젖은 옷부터 말리자고 한다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“불평하면서도 해낸 것은 기억할게.”",
+          "result": "“불평하면서도 해낸 것은 기억할게.” 호수에서 배운 기대의 크기의 기억에 자신의 답을 남긴다. 베르디아와 맞서는 날, 일행은 각자의 서툰 장점으로 마을을 지킨다.",
+          "card": "axel_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“기대가 컸다고 수고를 작게 보진 않을래.”",
+          "result": "“기대가 컸다고 수고를 작게 보진 않을래.” 호수에서 배운 기대의 크기의 기억에 자신의 답을 남긴다. 베르디아와 맞서는 날, 일행은 각자의 서툰 장점으로 마을을 지킨다.",
+          "card": "axel_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“일단 옷부터 말리자. 여신도 감기는 싫겠지?”",
+          "result": "“일단 옷부터 말리자. 여신도 감기는 싫겠지?” 호수에서 배운 기대의 크기의 기억에 자신의 답을 남긴다. 베르디아와 맞서는 날, 일행은 각자의 서툰 장점으로 마을을 지킨다.",
+          "card": "axel_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_07",
+      "title": "마을을 지키는 서툰 합",
+      "intro": "베르디아와 맞서는 날, 일행은 각자의 서툰 장점으로 마을을 지킨다.",
+      "story": "베르디아와 맞서는 날, 일행은 각자의 서툰 장점으로 마을을 지킨다. 아쿠아와 메구밍, 다크니스의 힘도 카즈마의 판단도 혼자서는 같은 결과를 내지 못한다. 잘한 일과 생긴 문제를 함께 기억한다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“한 사람의 활약으로만 끝내진 말자.”",
+          "result": "“한 사람의 활약으로만 끝내진 말자.” 마을을 지키는 서툰 합의 기억에 자신의 답을 남긴다. 겨울 의뢰는 따뜻한 길드 안에서 읽을 때보다 훨씬 거칠다.",
+          "card": "axel_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서로의 빈틈을 알았으니 다음에는 더 잘 맞추자.”",
+          "result": "“서로의 빈틈을 알았으니 다음에는 더 잘 맞추자.” 마을을 지키는 서툰 합의 기억에 자신의 답을 남긴다. 겨울 의뢰는 따뜻한 길드 안에서 읽을 때보다 훨씬 거칠다.",
+          "card": "axel_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“살아 돌아와서 떠들 수 있다는 게 좋네.”",
+          "result": "“살아 돌아와서 떠들 수 있다는 게 좋네.” 마을을 지키는 서툰 합의 기억에 자신의 답을 남긴다. 겨울 의뢰는 따뜻한 길드 안에서 읽을 때보다 훨씬 거칠다.",
+          "card": "axel_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_08",
+      "title": "겨울에 걸린 의뢰",
+      "intro": "겨울 의뢰는 따뜻한 길드 안에서 읽을 때보다 훨씬 거칠다.",
+      "story": "겨울 의뢰는 따뜻한 길드 안에서 읽을 때보다 훨씬 거칠다. 쉬운 의뢰라던 카즈마의 자신감이 겨울의 위험 앞에서 줄어든다. 이번에는 근사한 무용담보다 돌아와 나눌 대화를 먼저 떠올린다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“쉬운 일이라고 단정한 건 취소할게.”",
+          "result": "“쉬운 일이라고 단정한 건 취소할게.” 겨울에 걸린 의뢰의 기억에 자신의 답을 남긴다. 위즈의 가게에서는 무서운 이름과 다정한 사람의 모습이 맞지 않는다.",
+          "card": "axel_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서로 힘들다는 말도 들어 주자.”",
+          "result": "“서로 힘들다는 말도 들어 주자.” 겨울에 걸린 의뢰의 기억에 자신의 답을 남긴다. 위즈의 가게에서는 무서운 이름과 다정한 사람의 모습이 맞지 않는다.",
+          "card": "axel_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“따뜻한 곳에서 이 일을 다시 이야기하자.”",
+          "result": "“따뜻한 곳에서 이 일을 다시 이야기하자.” 겨울에 걸린 의뢰의 기억에 자신의 답을 남긴다. 위즈의 가게에서는 무서운 이름과 다정한 사람의 모습이 맞지 않는다.",
+          "card": "axel_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_09",
+      "title": "위즈의 조용한 가게",
+      "intro": "위즈의 가게에서는 무서운 이름과 다정한 사람의 모습이 맞지 않는다.",
+      "story": "위즈의 가게에서는 무서운 이름과 다정한 사람의 모습이 맞지 않는다. 카즈마 일행은 먼저 붙인 판단이 틀릴 수 있음을 느낀다. 동료가 되는 데는 얼마나 강한지 말고도 물어볼 것이 많다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“소문보다 직접 만난 사람을 기억할게.”",
+          "result": "“소문보다 직접 만난 사람을 기억할게.” 위즈의 조용한 가게의 기억에 자신의 답을 남긴다. 일행에게 머무를 집이 생기자 바쁜 모험 사이에 같은 식탁이 남는다.",
+          "card": "axel_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“무엇을 도울 수 있는지부터 물어보자.”",
+          "result": "“무엇을 도울 수 있는지부터 물어보자.” 위즈의 조용한 가게의 기억에 자신의 답을 남긴다. 일행에게 머무를 집이 생기자 바쁜 모험 사이에 같은 식탁이 남는다.",
+          "card": "axel_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에도 그냥 인사하러 와도 될까?”",
+          "result": "“다음에도 그냥 인사하러 와도 될까?” 위즈의 조용한 가게의 기억에 자신의 답을 남긴다. 일행에게 머무를 집이 생기자 바쁜 모험 사이에 같은 식탁이 남는다.",
+          "card": "axel_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_10",
+      "title": "처음 생긴 돌아올 집",
+      "intro": "일행에게 머무를 집이 생기자 바쁜 모험 사이에 같은 식탁이 남는다.",
+      "story": "일행에게 머무를 집이 생기자 바쁜 모험 사이에 같은 식탁이 남는다. 서로를 못마땅해하면서도 다시 모일 자리가 있다. 이 집이야말로 처음 길드에 이름을 적을 때 바라던 것이었는지 묻는다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“집에서는 모험가가 아니어도 괜찮겠지.”",
+          "result": "“집에서는 모험가가 아니어도 괜찮겠지.” 처음 생긴 돌아올 집의 기억에 자신의 답을 남긴다. 디스트로이어가 액셀을 향하자 마을과 모험가들이 함께 준비한다.",
+          "card": "axel_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“시끄러워도 아무도 빠지지 않았으면 좋겠어.”",
+          "result": "“시끄러워도 아무도 빠지지 않았으면 좋겠어.” 처음 생긴 돌아올 집의 기억에 자신의 답을 남긴다. 디스트로이어가 액셀을 향하자 마을과 모험가들이 함께 준비한다.",
+          "card": "axel_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에 돌아오면 뭘 먹을지 정해 두자.”",
+          "result": "“다음에 돌아오면 뭘 먹을지 정해 두자.” 처음 생긴 돌아올 집의 기억에 자신의 답을 남긴다. 디스트로이어가 액셀을 향하자 마을과 모험가들이 함께 준비한다.",
+          "card": "axel_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_11",
+      "title": "디스트로이어가 다가오는 날",
+      "intro": "디스트로이어가 액셀을 향하자 마을과 모험가들이 함께 준비한다.",
+      "story": "디스트로이어가 액셀을 향하자 마을과 모험가들이 함께 준비한다. 아쿠아의 역할, 메구밍과 위즈의 마법, 카즈마의 판단이 한 일에 모인다. 집을 잃기 싫다는 카즈마의 현실적인 이유가 동료들의 엉뚱한 능력과 맞물린다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“그동안 함께한 일이 오늘도 도움이 될 거야.”",
+          "result": "“그동안 함께한 일이 오늘도 도움이 될 거야.” 디스트로이어가 다가오는 날의 기억에 자신의 답을 남긴다. 디스트로이어의 위협을 넘기고 액셀의 일상이 다시 시작된다.",
+          "card": "axel_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“대단한 이름보다 서로 맡은 일을 믿자.”",
+          "result": "“대단한 이름보다 서로 맡은 일을 믿자.” 디스트로이어가 다가오는 날의 기억에 자신의 답을 남긴다. 디스트로이어의 위협을 넘기고 액셀의 일상이 다시 시작된다.",
+          "card": "axel_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝나면 그 집에 모두 같이 돌아가자.”",
+          "result": "“끝나면 그 집에 모두 같이 돌아가자.” 디스트로이어가 다가오는 날의 기억에 자신의 답을 남긴다. 디스트로이어의 위협을 넘기고 액셀의 일상이 다시 시작된다.",
+          "card": "axel_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_main_12",
+      "title": "자랑보다 먼저 떠오른 얼굴",
+      "intro": "디스트로이어의 위협을 넘기고 액셀의 일상이 다시 시작된다.",
+      "story": "디스트로이어의 위협을 넘기고 액셀의 일상이 다시 시작된다. 문제를 전부 해결한 완벽한 영웅이 되지는 않았다. 그래도 처음에는 낯설었던 동료와 마을이 이제 돌아올 곳이 되었다는 사실을 기억한다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“영웅 대접보다 집 수리부터 끝났으면 좋겠어.”",
+          "result": "처음 잠잘 곳부터 걱정하던 카즈마가 이제 집 수리를 투덜댄다. 위협을 넘기고도 그대로인 그 목소리가 함께 돌아왔다는 인사가 된다.",
+          "card": "axel_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“잘난 모험담보다 같이 버틴 시간을 이야기하자.”",
+          "result": "길드의 큰 무용담보다 돌아온 집에서 나눌 저녁 이야기를 떠올린다. 서툰 사람들과 겪은 시간을 대단한 영웅의 이름 하나로 줄이지 않는다.",
+          "card": "axel_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음 의뢰도 이 사람들과 고르고 싶어.”",
+          "result": "처음 길드에 적었던 이름들이 이제 다음 의뢰를 함께 고를 동료의 이름이 된다. 또 생길 소란을 웃으며 기다리는 마음으로 액셀의 이야기를 끝낸다.",
+          "card": "axel_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 1기 액셀 모험부터 디스트로이어의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "이상한 동료들과 돌아올 집의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "axel_luna",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "axel_kazuma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "axel_chris",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
       "uncertain": []
     }
   ]

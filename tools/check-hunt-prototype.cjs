@@ -50,7 +50,7 @@ check('T1 출발 차단, 도감 머리 0~1장 선택과 초기 전투 카드 없
   e.MockAttack=100;e.GetItemTier=()=>1;request(e,0,2001);assert.equal(e.ExpRun,0);
   e.GetItemTier=()=>2;e.ProtoHeadKnown[e.ExpKey(0,1)]=true;t.render();request(e,0,2011);
   assert.equal(e.ProtoStartHead[0],1);t.start();assert.equal(e.ProtoHeadCount[0],1);
-  assert.equal(e.ProtoAP[0],10);assert.equal(e.ExpSeconds,600);assert.equal(e.ExpGold[0],0);
+  assert.equal(e.ProtoAP[0],20);assert.equal(e.ExpSeconds,1200);assert.equal(e.ExpGold[0],0);
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);
   assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),3);assert(e.ProtoEventEligible(0,scene(e,'school_circle')));assert(!e.ProtoEventEligible(0,scene(e,'abydos_sand_supply')));
 });
@@ -64,12 +64,12 @@ check('4인 개인 구역 1~4와 남은 5~6 구역의 보스 예약, 사용 중�
 });
 check('기본 근접 몬스터 체력 300, 처치당 10골드와 지속 재생성',()=>{
   const {e}=party();e.ProtoHuntUpdate(0);
-  assert(e.HuntUnits.slice(1,5).every(Boolean));assert.equal(e.HuntUnits[5],null);
-  for(let slot=1;slot<=4;slot++){const u=e.HuntUnits[slot];assert.equal(e.UnitHPMAX[u.id],300);assert.equal(e.UnitArm[u.id],0);assert.equal(u.engineArmor,0);assert.equal(e.ProtoHuntOwner[u.id],1);assert(!u.abilities.has('Aatk'));}
+  assert(e.HuntUnits.slice(1,9).every(Boolean));assert.equal(e.HuntUnits[9],null);
+  for(let slot=1;slot<=8;slot++){const u=e.HuntUnits[slot];assert.equal(e.UnitHPMAX[u.id],300);assert.equal(e.UnitArm[u.id],0);assert.equal(u.engineArmor,0);assert.equal(e.ProtoHuntOwner[u.id],1);assert(!u.abilities.has('Aatk'));}
   const old=e.HuntUnits[1];e.UnitHP[old.id]=0;e.ProtoHuntUpdate(0);
   assert(old.removed);assert.notEqual(e.HuntUnits[1],old);assert.equal(e.ExpGold[0],10);assert.equal(e.ProtoKills[0],1);
   assert.equal(e.UnitArm[e.HuntUnits[1].id],0);assert.equal(e.HuntUnits[1].engineArmor,0);
-  assert.equal(e.ExpCardOwned.filter(Boolean).length,0);assert.equal(e.ProtoAP[0],10);
+  assert.equal(e.ExpCardOwned.filter(Boolean).length,0);assert.equal(e.ProtoAP[0],20);
 });
 check('일반 전투 근접·원거리·위험 몬스터 방어력 0, 보스 방어력 유지',()=>{
   const {env:e}=environment(['System/ExpeditionCombat.j'],{
@@ -113,7 +113,7 @@ check('중립 귀환 AI 차단, 동일 목적지 추적 유지와 사건 재개 
   const hits=[];e.BossDeal=(source,target,damage)=>hits.push({source,target,damage});u.x=250;
   e.ProtoHuntUpdate(0);assert(e.AttackWarning[1]);assert.equal(u.order,'stop');
   e.ProtoHuntUpdate(0);e.ProtoHuntUpdate(0);assert.equal(hits.filter(h=>h.source===u).length,1);
-  assert.equal(hits.find(h=>h.source===u).damage,400);
+  assert.equal(hits.find(h=>h.source===u).damage,200);
 });
 check('HeroDeal에서 체력바와 치명적 타격의 사망을 즉시 반영하고 각성 피해는 실제 체력만 집계',()=>{
   const {e}=combat(),life=[],kills=[];e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeActive=true;e.ExpMember[0]=true;e.ExpState=e.EXP_HUNT;
@@ -131,15 +131,15 @@ check('내 사건 중에는 내 공간만 정지하고 공통 최대시간과 �
   assert(!e.ProtoCanHit(0,e.HuntUnits[1].id));assert(!e.ProtoCanHit(1,e.HuntUnits[1].id));
   const own=e.HuntUnits[1];e.UnitHP[own.id]=0;
   for(let i=0;i<4;i++)e.ProtoTick();
-  assert.equal(e.ExpSeconds,599);assert.equal(e.HuntSeconds[0],0);assert.equal(e.HuntSeconds[1],1);
+  assert.equal(e.ExpSeconds,1199);assert.equal(e.HuntSeconds[0],0);assert.equal(e.HuntSeconds[1],1);
   assert.equal(e.ProtoKills[0],0);assert.equal(e.ExpGold[0],0);
   e.ProtoResume(0);e.ProtoHuntUpdate(0);assert.equal(e.ProtoKills[0],1);
 });
 check('사건 선택만 AP 소모, 500/600골드 리롤과 다음 화면 500골드 복귀',()=>{
   const t=party(),e=t.e;e.ExpGold[0]=2000;e.ProtoOffer(0);t.render();
-  assert.equal(e.ProtoChoices[0],3);t.click(t.common(2300));assert.equal(e.ExpGold[0],1500);assert.equal(e.ProtoAP[0],10);
+  assert.equal(e.ProtoChoices[0],3);t.click(t.common(2300));assert.equal(e.ExpGold[0],1500);assert.equal(e.ProtoAP[0],20);
   t.click(t.common(2300));assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoRerolls[0],2);
-  const id=e.ProtoCandidates[e.ExpKey(0,1)];t.click(t.common(2101));assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],10-e.ProtoEventAPCost[id]);
+  const id=e.ProtoCandidates[e.ExpKey(0,1)];t.click(t.common(2101));assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],20-e.ProtoEventAPCost[id]);
   if(e.ProtoStage[0]===2)t.click(t.common(2202));const after=e.ExpGold[0];request(e,0,2202);assert.equal(e.ExpGold[0],after);
   t.click(t.common(2400));assert(!e.ProtoPaused[0]);assert.equal(e.ProtoRerolls[0],0);
   e.ProtoOffer(0);assert.equal(500+e.ProtoRerolls[0]*100,500);assert(!e.ProtoEventEligible(0,id));
@@ -148,17 +148,17 @@ check('표시만 된 사건은 미소비, 동시 선택은 파티 중복 차단�
   const {e}=party(2);e.ProtoGrantHead(0,1);e.ProtoGrantHead(1,1);e.ProtoOffer(0);e.ProtoOffer(1);const id=scene(e,'school_circle');
   e.ProtoCandidates[e.ExpKey(0,1)]=id;e.ProtoCandidates[e.ExpKey(1,1)]=id;
   assert(!e.ProtoEventUsed[id]);const old=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[1]}|2101`;
-  request(e,0,2101);assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],9);
+  request(e,0,2101);assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],19);
   assert(![1,2].some(i=>e.ProtoCandidates[e.ExpKey(1,i)]===id));
-  request(e,1,2101,old);assert.equal(e.ProtoAP[1],10);assert.equal(e.ProtoStage[1],1);
+  request(e,1,2101,old);assert.equal(e.ProtoAP[1],20);assert.equal(e.ProtoStage[1],1);
 });
-check('처치·시간·정체 사건의 쿨다운, AP 0일 때 사냥만 계속',()=>{
-  for(const reason of ['kills','time','stalled']){
-    const {e}=party();e.HuntSeconds[0]=reason==='time'?44:24;e.ProtoLastKill[0]=reason==='stalled'?0:e.HuntSeconds[0];
-    if(reason==='kills')e.ProtoKills[0]=12;
-    for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],1,reason);
-    e.ProtoResume(0);for(let i=0;i<19*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],0);
-  }
+check('최소 대기 없이 12처치로 사건을 열고 시간·정체만으로는 열지 않으며 AP 0은 사냥만 계속',()=>{
+  const kills=party().e;kills.ProtoKills[0]=12;
+  for(let i=0;i<4;i++)kills.ProtoTick();assert.equal(kills.ProtoStage[0],1);
+  kills.ProtoResume(0);for(let i=0;i<60*4;i++)kills.ProtoTick();assert.equal(kills.ProtoStage[0],0);
+  kills.ProtoKills[0]+=12;for(let i=0;i<4;i++)kills.ProtoTick();assert.equal(kills.ProtoStage[0],1);
+  const stalled=party().e;stalled.HuntSeconds[0]=100;stalled.ProtoLastKill[0]=0;
+  for(let i=0;i<120*4;i++)stalled.ProtoTick();assert.equal(stalled.ProtoStage[0],0);
   const {e}=party();e.ProtoAP[0]=0;e.ProtoKills[0]=100;
   for(let i=0;i<60*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],0);
   const before=e.ExpGold[0];e.UnitHP[e.HuntUnits[1].id]=0;e.ProtoTick();assert.equal(e.ExpGold[0],before+10);
@@ -168,10 +168,12 @@ check('사건 필드 변경은 기존 몬스터에도 HP 비율을 보존하고 
   e.ProtoGrantHead(0,2);const id=scene(e,'axel_request');
   choose(e,0,id,2);assert.equal(e.ProtoLevel[0],2);assert.equal(e.UnitHPMAX[u.id],390);assert.equal(e.UnitHP[u.id],195);
   assert(e.ProtoOutcome[0].includes('적 단계 1 → 2'));assert(e.ProtoOutcome[0].includes('몬스터 체력 300 → 390'));
-  assert(e.ProtoOutcome[0].includes('4.0% → 5.0%'));
+  assert(e.ProtoOutcome[0].includes('2.0% → 2.5%'));
   e.ProtoSelected[0]=id;e.ProtoLevel[0]=5;assert(!e.ProtoBranchAllowed(0,2));
-  e.ProtoLevel[0]=2;e.ProtoStage[0]=2;e.ProtoResolve(0,1);assert.equal(e.ProtoDensity[0],6);e.ProtoHuntUpdate(0);assert(e.HuntUnits[6]);
-  assert(e.ProtoOutcome[0].includes('동시 몬스터 수 4 → 6'));
+  // 활성 콘텐츠에서는 제거할 수 옵션의 하위 호환만 가상 입력으로 검사한다.
+  e.ProtoBranchDensity[e.ProtoChoiceKey(id,1)]=2;
+  e.ProtoLevel[0]=2;e.ProtoStage[0]=2;e.ProtoResolve(0,1);assert.equal(e.ProtoDensity[0],10);e.ProtoHuntUpdate(0);assert(e.HuntUnits[10]);
+  assert(e.ProtoOutcome[0].includes('동시 몬스터 수 8 → 10'));
   e.ProtoDensity[0]=9;e.ProtoSelected[0]=id;assert(!e.ProtoBranchAllowed(0,1));
 });
 check('실제 카드는 처치·피해·시간으로 각성하지 않고 기본 효과와 사건 후보 상한을 유지',()=>{
@@ -188,11 +190,11 @@ check('실제 카드는 처치·피해·시간으로 각성하지 않고 기본 
   defense.ProtoStatsInit();defense.ProtoCatalogInit();defense.ExpPrototypeActive=true;defense.ExpMember[0]=true;defense.ExpState=defense.EXP_HUNT;
   defense.ExpCardOwned[safe]=true;defense.ProtoEvolutionRegister(0,safe);defense.ProtoStatAddCard(0,card(defense,'saber_guard'),false);
   defense.UnitSD[0]=100;
-  defense.BossDeal(99,0,50,false);assert.equal(defense.ProtoCardProgress[safe],0);assert.equal(defense.UnitSD[0],53);
-  defense.ProtoPaused[0]=true;defense.BossDeal(99,0,50,false);assert.equal(defense.UnitSD[0],53);
+  defense.BossDeal(99,0,50,false);assert.equal(defense.ProtoCardProgress[safe],0);assert.equal(defense.UnitSD[0],51);
+  defense.ProtoPaused[0]=true;defense.BossDeal(99,0,50,false);assert.equal(defense.UnitSD[0],51);
   e.ProtoGrantCard(0,card(e,'axel_luna'));e.ProtoGrantCard(0,card(e,'abydos_ayane'));
-  assert.equal(e.ProtoChoices[0],4);e.ProtoGrantHead(0,1);e.ProtoOffer(0);assert(e.ProtoCandidates[e.ExpKey(0,4)]>0);
-  e.ProtoGrantCard(0,card(e,'rin_disarm'));assert.equal(e.ExpCardPenetration(0),.20);
+  assert.equal(e.ProtoChoices[0],3);e.ProtoGrantCard(0,card(e,'common_holo'));e.ProtoGrantHead(0,1);e.ProtoOffer(0);assert(e.ProtoCandidates[e.ExpKey(0,4)]>0);
+  e.ProtoGrantCard(0,card(e,'rin_disarm'));assert.equal(e.ExpCardPenetration(0),.08);
 });
 check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 실제 피해만 기록하고 각성 진행 없음',()=>{
   const {e}=combat();e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeActive=true;e.ExpMember[0]=true;e.ExpState=e.EXP_HUNT;
@@ -208,7 +210,7 @@ check('보유 카드 격자와 상세·강화·각성 정보, 난이도 HUD 갱�
   assert(!t.frame(e.ExpUIButtons[e.UIPrototypeCards_Cells[26]]).enabled);
   t.event(e.ExpUIButtons[e.UIPrototypeCards_Cells[21]],2);t.render();
   assert(t.frame(e.UIPrototypeCards_TooltipText).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
-  e.ProtoLevel[0]=2;t.render();assert(t.frame(e.UIExpeditionPrototype_HuntStatus).text.includes('5.0%'));
+  e.ProtoLevel[0]=2;t.render();assert(t.frame(e.UIExpeditionPrototype_HuntStatus).text.includes('2.5%'));
 });
 
 check('사냥 사망 15초 부활, 사망 중 사건·각성 진행 차단과 골드 패널티 없음',()=>{
@@ -217,7 +219,7 @@ check('사냥 사망 15초 부활, 사망 중 사건·각성 진행 차단과 �
   for(let i=0;i<59;i++)e.ProtoTick();assert.equal(revives,0);assert.equal(e.ProtoCardProgress[safe],0);
   e.ProtoTick();assert.equal(revives,1);assert.equal(e.ExpGold[0],321);assert.equal(e.ProtoStage[0],0);
 });
-check('준비 완료 버튼은 AP 0에서만 활성화, 남은 시간 골드 한 번 지급, 전원 준비 또는 10분 뒤 합류',()=>{
+check('준비 완료 버튼은 AP 0에서만 활성화, 남은 시간 골드 한 번 지급, 전원 준비 또는 20분 뒤 합류',()=>{
   const t=party(2),e=t.e;e.ExpSeconds=400;request(e,0,2500);assert(!e.ProtoReady[0]);
   e.ProtoAP[0]=0;t.render();t.click(t.common(2500));assert(e.ProtoReady[0]);assert.equal(e.ExpGold[0],400);
   request(e,0,2500);assert.equal(e.ExpGold[0],400);e.ProtoTick();assert.equal(e.ExpState,e.EXP_HUNT);
@@ -225,7 +227,7 @@ check('준비 완료 버튼은 AP 0에서만 활성화, 남은 시간 골드 한
   assert(!e.ProtoPaused[0]);assert(!e.ProtoReady[0]);assert.equal(e.HuntUnits.filter(Boolean).length,0);
   const end=party().e;end.ProtoGrantHead(0,2);end.ProtoOffer(0);end.ProtoCandidates[end.ExpKey(0,1)]=scene(end,'axel_shop_ledger');request(end,0,2101);
   end.ExpSeconds=1;for(let i=0;i<4;i++)end.ProtoTick();assert.equal(end.ExpState,end.EXP_BATTLE);
-  assert.equal(end.ProtoStage[0],0);assert.equal(end.ExpGold[0],0);assert.equal(end.ProtoAP[0],9);
+  assert.equal(end.ProtoStage[0],0);assert.equal(end.ExpGold[0],0);assert.equal(end.ProtoAP[0],19);
   assert(end.ExpCardOwned[end.ExpKey(0,card(end,'axel_vanir'))]);assert.equal(end.ProtoLevel[0],2);
 });
 check('원정 종료·새 출발 때 카드/필드/AP 초기화, 머리 도감만 유지 및 이탈 정리',()=>{
@@ -234,8 +236,8 @@ check('원정 종료·새 출발 때 카드/필드/AP 초기화, 머리 도감�
   assert.equal(e.HuntUnits.filter(Boolean).length,0);assert(e.MapRectCheck.slice(1,7).every(Boolean));
   assert(e.ProtoHeadKnown[1]);assert.equal(e.StashLoad(0,e.PROTO_SAVE_PREFIX+'머리도감.'+e.ProtoHeadKey[1],'0'),'1');
   e.eventPlayer=0;e.syncData='1|0|0|0';e.ProtoCodexSync();assert(e.ProtoHeadKnown[1]);
-  request(e,0,2001);assert.equal(e.ExpState,e.EXP_HUNT);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],10);
-  assert.equal(e.ProtoLevel[0],1);assert.equal(e.ProtoDensity[0],4);assert.equal(e.ExpCardOwned.filter(Boolean).length,0);
+  request(e,0,2001);assert.equal(e.ExpState,e.EXP_HUNT);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],20);
+  assert.equal(e.ProtoLevel[0],1);assert.equal(e.ProtoDensity[0],8);assert.equal(e.ExpCardOwned.filter(Boolean).length,0);
   assert.equal(e.ProtoHeadCount[0],0);assert(!e.ProtoEventUsed[1]);assert.equal(e.ProtoKills[0],0);assert(e.ProtoHeadKnown[1]);
   e.eventPlayer=0;e.Leave();assert.equal(e.ExpState,e.EXP_RESULT);assert.equal(e.HuntUnits.filter(Boolean).length,0);
 });
@@ -253,10 +255,10 @@ check('다른 로컬 플레이어의 클라이언트에서 같은 요청은 같�
 });
 check('사건 만료는 후보 AP 미소비 또는 유효 분기, 대기실 이탈은 남은 인원으로 새 흐름 출발',()=>{
   const {e}=party();e.ProtoOffer(0);e.ProtoDeadline[0]=1;for(let i=0;i<4;i++)e.ProtoTick();
-  assert.equal(e.ProtoStage[0],0);assert.equal(e.ProtoAP[0],10);
+  assert.equal(e.ProtoStage[0],0);assert.equal(e.ProtoAP[0],20);
   e.ProtoGrantHead(0,2);e.ExpGold[0]=80;e.ProtoOffer(0);e.ProtoCandidates[1]=scene(e,'axel_priest_supply');request(e,0,2101);e.ProtoDeadline[0]=1;
   const potions=e.GetItemCharges(e.PlayerItem1[0]);
-  for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],3);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],9);
+  for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],3);assert.equal(e.ExpGold[0],0);assert.equal(e.ProtoAP[0],19);
   assert(e.ExpCardOwned[e.ExpKey(0,card(e,'axel_aqua_supply'))]);assert.equal(e.GetItemCharges(e.PlayerItem1[0]),potions);
   const lobby=fresh(0,true).e;lobby.online=[true,true,false,false];request(lobby,0,2001);assert.equal(lobby.ExpState,lobby.EXP_LOBBY);
   lobby.eventPlayer=1;lobby.Leave();assert.equal(lobby.ExpState,lobby.EXP_HUNT);assert.equal(lobby.ExpPlayers,1);
@@ -268,29 +270,27 @@ check('머리 후보는 AP 무료로 바로 성장, 4인 각자의 같은 지역
     assert(e.ProtoEventEligible(pid,id));assert(!e.ProtoEventEligible(pid,(pid+1)%4+1));
     const packet=''+e.ExpRun+'|'+e.ExpRevision+'|'+e.ExpOfferVersion[pid]+'|2101';
     request(e,pid,2101,packet);
-    assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoHeadCount[pid],1);
-    assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),11);assert(e.ExpCardOwned[e.ExpKey(pid,card(e,'shiro_analysis'))]);
+    assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],20);assert.equal(e.ProtoHeadCount[pid],1);
+    assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),6);assert(e.ExpCardOwned[e.ExpKey(pid,card(e,'shiro_analysis'))]);
     assert(e.ProtoOutcome[pid].includes('공격력 증가 +3.0%'));
     request(e,pid,2101,packet);request(e,pid,2201);
-    assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),11);
+    assert.equal(e.ProtoAP[pid],20);assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),6);
     assert(!e.ProtoEventEligible(pid,id));assert(e.ProtoEventEligible(pid,scene(e,'school_circle')));
   }
 });
-check('13개 머리 획득 후 4인 동시 다음 사건은 처치·정체·시간 조건에서 한 번의 조건 검사로 재개',()=>{
-  for(let head=1;head<=13;head++)for(const reason of ['kills','stalled','time']){
+check('13개 머리 획득 후 4인 동시 다음 사건은 12처치에서 한 번의 조건 검사로 재개',()=>{
+  for(let head=1;head<=13;head++){
     const t=party(4),e=t.e;
     for(let pid=0;pid<4;pid++){
-      choose(e,pid,(head-1)*4+pid+1);assert.equal(e.ProtoAP[pid],10);assert(!e.ProtoPaused[pid]);
-      e.HuntSeconds[pid]=reason==='kills'?19:reason==='stalled'?24:44;
-      e.ProtoLastKill[pid]=reason==='stalled'?0:e.HuntSeconds[pid];
-      if(reason==='kills')e.ProtoKills[pid]=12;
+      choose(e,pid,(head-1)*4+pid+1);assert.equal(e.ProtoAP[pid],20);assert(!e.ProtoPaused[pid]);
+      e.HuntSeconds[pid]=0;e.ProtoLastKill[pid]=0;e.ProtoKills[pid]=12;
     }
     const original=e.ProtoEventEligible,counts=[0,0,0,0];
     e.ProtoEventEligible=(pid,id)=>{counts[pid]++;assert(counts[pid]<=e.PROTO_EVENT_COUNT,'후보별 전체 조건 재검사');return original(pid,id);};
     for(let i=0;i<3;i++)e.ProtoTick();for(let pid=0;pid<4;pid++)assert.equal(e.ProtoStage[pid],0);
     e.ProtoTick();
     for(let pid=0;pid<4;pid++){
-      assert.equal(e.ProtoStage[pid],1,head+' '+reason+' '+pid);assert(e.ProtoPaused[pid]);assert.equal(e.ProtoAP[pid],10);
+      assert.equal(e.ProtoStage[pid],1,head+' '+pid);assert(e.ProtoPaused[pid]);assert.equal(e.ProtoAP[pid],20);
       assert.equal(counts[pid],e.PROTO_EVENT_COUNT);
       const candidates=e.ProtoCandidates.slice(e.ExpKey(pid,1),e.ExpKey(pid,1)+e.ProtoChoices[pid]);
       assert(candidates.every(id=>id>0&&original(pid,id)));assert.equal(new Set(candidates).size,candidates.length);
@@ -303,8 +303,8 @@ check('머리 획득 결과를 접고 만료시켜도 사냥 재개와 다음 �
   assert.equal(e.ProtoStage[0],3);t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[9]]);assert.deepEqual(t.roots(),[]);
   const original=e.ProtoEventEligible;let count=0;
   e.ProtoEventEligible=(pid,id)=>{count++;assert(count<=e.PROTO_EVENT_COUNT);return original(pid,id);};
-  for(let i=0;i<30*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);
-  for(let i=0;i<25*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],1);assert.equal(count,e.PROTO_EVENT_COUNT);
+  for(let i=0;i<60*4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);
+  e.ProtoKills[0]+=12;for(let i=0;i<4;i++)e.ProtoTick();assert.equal(e.ProtoStage[0],1);assert.equal(count,e.PROTO_EVENT_COUNT);
   e.ProtoEventEligible=original;t.render();assert.deepEqual(t.roots(),[9]);assert(t.visible(e.ExpUIButtons[e.UIExpeditionPrototype_CandidateButtons[1]]));
 });
 check('추첨은 기존 80·12·3·1 가중치를 유지하고 후보 중복과 비어 있는 목록을 처리',()=>{
@@ -318,7 +318,7 @@ check('추첨은 기존 80·12·3·1 가중치를 유지하고 후보 중복과 
   }
   assert.deepEqual(ids.map(id=>counts.get(id)),[80,12,3,1]);
   allowed.clear();e.GetRandomInt=()=>assert.fail('빈 후보 목록에서 난수 호출');e.ProtoOffer(0);
-  assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);assert.deepEqual(e.ProtoCandidates.slice(1,5),[0,0,0,0]);assert.equal(e.ProtoAP[0],10);
+  assert.equal(e.ProtoStage[0],0);assert(!e.ProtoPaused[0]);assert.deepEqual(e.ProtoCandidates.slice(1,5),[0,0,0,0]);assert.equal(e.ProtoAP[0],20);
 });
 check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
   const t=party(),e=t.e;e.ProtoGrantHead(0,1);e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
