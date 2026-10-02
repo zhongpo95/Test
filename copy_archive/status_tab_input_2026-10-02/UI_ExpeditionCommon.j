@@ -21,7 +21,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         private integer Navigation
         private integer ActivityButton
         private integer StatsButton
-        private integer array ToggleOverlay
         private integer array PanelToggles
         private integer FoldedPanel = 0
         private integer SeenRevision = -1
@@ -245,10 +244,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         return i
     endfunction
 
-    function ExpUISetToggleOverlay takes integer panel, integer overlay returns nothing
-        set ToggleOverlay[panel] = overlay
-    endfunction
-
     function ExpUIHeader takes integer parent, real width, string title returns integer
         local integer f = ExpUITexture(parent, 0, 0, width, 0.044, "war3mapImported\\UI_Upgrade_Header.tga")
         local integer close = ExpUIPanelToggle(parent, width - 0.048, 0.008, 0.033, 0.026)
@@ -324,13 +319,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                 call DzFrameShow(ExpUIRoots[i], visible and ExpUIPanel == i)
             endif
             if PanelToggles[i] != 0 then
-                if ToggleOverlay[i] != 0 then
-                    if ExpPrototypeEnabled and ExpUIPanel == i then
-                        call DzFrameSetParent(ExpUIButtons[PanelToggles[i]], ToggleOverlay[i])
-                    else
-                        call DzFrameSetParent(ExpUIButtons[PanelToggles[i]], DzGetGameUI())
-                    endif
-                endif
                 if i == EXP_UI_STATS and ExpPrototypeEnabled then
                     call DzFrameClearAllPoints(ExpUIButtons[PanelToggles[i]])
                     call DzFrameSetPoint(ExpUIButtons[PanelToggles[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIRoots[i], JN_FRAMEPOINT_TOPLEFT, 0.752, -0.008)
