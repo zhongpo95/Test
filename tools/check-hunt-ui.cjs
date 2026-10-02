@@ -93,10 +93,15 @@ check('전체 상태창 내용 패널 크기·배경 위 표시 순서와 닫기
     assert.equal(panel.parent,canvas.id);assert(panel.priority>canvas.priority);
     assert(t.frame(close).priority>panel.priority);
   }
-  assert(t.visible(e.UIPrototypeStatus_StatsPanel));assert(!t.visible(e.UIPrototypeStatus_CardsPanel));assert(t.visible(close));
+  assert(t.visible(e.UIPrototypeStatus_StatsPanel));assert(!t.visible(e.UIPrototypeStatus_CardsPanel));assert(t.visible(close));assert.equal(e.UIPrototypeStatus_RenderStep,6);
   t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
   assert(!t.visible(e.UIPrototypeStatus_StatsPanel));assert(t.visible(e.UIPrototypeStatus_CardsPanel));
+  assert.equal(e.UIPrototypeStatus_ClickCount,1);assert.equal(e.UIPrototypeStatus_ClickStep,122);assert.equal(e.UIPrototypeStatus_RenderStep,7);
   t.click(close);assert(!t.visible(canvas.id));
+  const lines=[];e.DisplayTimedTextToPlayer=(...args)=>lines.push(args[4]);
+  e.eventPlayer=1;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,0);
+  e.eventPlayer=0;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,2);assert(lines[0].includes('clickStep=122'));
+
 });
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
   const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;

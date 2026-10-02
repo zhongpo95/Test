@@ -1,5 +1,5 @@
 // 개인 사냥의 실제 능력치와 보유 카드 격자 및 강화·각성 상세를 표시한다.
-library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
+library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
     globals
         private integer Canvas
         private integer StatsPanel
@@ -13,6 +13,9 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         private integer array Hotspots
         private integer Detail
         private integer PageText
+        private integer ClickCount = 0
+        private integer ClickStep = 0
+        private integer RenderStep = 0
         private integer Tab = 0
         private integer Page = 0
         private integer Selected = 0
@@ -62,11 +65,15 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         if DzGetTriggerUIEventPlayer() != GetLocalPlayer() then
             return
         endif
+        set ClickCount = ClickCount + 1
+        set ClickStep = 1
         set Hover = 0
         call DzFrameShow(Tooltip, false)
+        set ClickStep = 2
         loop
             exitwhen i > 26
             if f == ExpUIButtons[Cells[i]] or (i <= 20 and f == Hotspots[i]) then
+                set ClickStep = 100 + i
                 if i <= 20 then
                     set Selected = Cards[Page * 20 + i]
                 elseif i == 21 then
@@ -99,6 +106,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         local string icon
         local real x
         local real y
+        set RenderStep = 1
         call DzFrameShow(Canvas, ExpPrototypeEnabled)
         if not ExpPrototypeEnabled or ExpUIPanel != EXP_UI_STATS then
             set Hover = 0
@@ -136,9 +144,13 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             set Page = IMaxBJ(0, IMinBJ(Page, R2I((Count - 1) / 20)))
         endif
         call ExpUIText(Summary, "보유 카드 " + I2S(Count) + "장 · 머리 " + I2S(ProtoHeadCount[pid]) + "/2 · 행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]))
+        set RenderStep = 2
         call DzFrameShow(StatsPanel, Tab == 0)
+        set RenderStep = 3
         call DzFrameShow(CardsPanel, Tab == 1)
+        set RenderStep = 4
         call DzFrameShow(Tooltip, false)
+        set RenderStep = 5
         if Tab == 0 then
             set Hover = 0
             set value = "현재 적용 능력치|n|n무기 공격력 " + I2S(R2I(Equip_Damage[pid])) + "|n무기 공격력 증가 " + R2SW(Equip_DamageP[pid], 0, 1) + "%|n최종 공격력 " + I2S(R2I(AttackPower(pid))) + "|n치명타 확률 " + R2SW(Stats_Crit[pid], 0, 1) + "%|n치명타 피해 ×" + R2SW(1.0 + (Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE)) / 100.0, 0, 2)
@@ -158,6 +170,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
                 call ExpUIText(Columns[column], value)
                 set column = column + 1
             endloop
+            set RenderStep = 6
             return
         endif
         set i = 1
@@ -191,6 +204,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             call DzFrameSetTexture(Artwork, CardArt(Selected), 0)
             set value = ProtoGradeColor(ProtoCardGrade[Selected]) + "[" + ExpEventGradeName(ProtoCardGrade[Selected]) + "] " + ProtoCardName[Selected] + "|r|n" + ProtoCardEffectName[Selected] + "|n강화 +" + I2S(ProtoCardStacks[ExpKey(pid, Selected)])
         endif
+        set RenderStep = 7
         call ExpUIText(Detail, value)
         if Hover > 0 and Page * 20 + Hover <= Count then
             set id = Cards[Page * 20 + Hover]
@@ -205,6 +219,27 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             call ExpUIText(TooltipText, ProtoGradeColor(ProtoCardGrade[id]) + "[" + ExpEventGradeName(ProtoCardGrade[id]) + "] " + ProtoCardName[id] + "|r|n|n" + ProtoCardText(pid, id))
             call DzFrameShow(Tooltip, true)
         endif
+    endfunction
+
+    // 진단은 요청한 클라이언트에서 UI 상태만 읽으며 전투 데이터나 동기화 명령을 바꾸지 않는다.
+    private function Diagnose takes nothing returns nothing
+        if GetTriggerPlayer() != GetLocalPlayer() then
+            return
+        endif
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "상태창 진단 · panel=" + I2S(ExpUIPanel) + " tab=" + I2S(Tab) + " clicks=" + I2S(ClickCount) + " clickStep=" + I2S(ClickStep) + " renderStep=" + I2S(RenderStep))
+        call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 30, "frame · stats=" + I2S(StatsPanel) + " cards=" + I2S(CardsPanel) + " tip=" + I2S(Tooltip) + " tabButton=" + I2S(ExpUIButtons[Cells[22]]))
+    endfunction
+
+    private function Init takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        local integer i = 0
+        loop
+            exitwhen i > 3
+            call TriggerRegisterPlayerChatEvent(t, Player(i), "-상태진단", true)
+            set i = i + 1
+        endloop
+        call TriggerAddAction(t, function Diagnose)
+        set t = null
     endfunction
 
     function ProtoStatusBuild takes integer parent returns nothing
