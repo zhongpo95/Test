@@ -215,7 +215,6 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         set Canvas = DzCreateFrameByTagName("FRAME", "", parent, "", FrameCount())
         call DzFrameSetPoint(Canvas, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, 0, 0)
         call DzFrameSetSize(Canvas, 0.8, 0.6)
-        call DzFrameSetPriority(Canvas, 90)
         set f = ExpUITexture(Canvas, 0, 0, 0.8, 0.6, "war3mapImported\\UI_Upgrade_Background.tga")
         set f = ExpUITexture(Canvas, 0, 0, 0.8, 0.044, "war3mapImported\\UI_Upgrade_Header.tga")
         set f = ExpUILabel(Canvas, 0.025, 0.012, 0.60, 0.025, 0.015, "캐릭터 상태 · Tab")
@@ -224,11 +223,6 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         set CardsPanel = DzCreateFrameByTagName("FRAME", "", Canvas, "", FrameCount())
         call DzFrameSetPoint(StatsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, 0)
         call DzFrameSetPoint(CardsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, 0)
-        // 크기 없는 내용 컨테이너와 기본 우선순위에 의존하지 않는다.
-        call DzFrameSetSize(StatsPanel, 0.8, 0.6)
-        call DzFrameSetSize(CardsPanel, 0.8, 0.6)
-        call DzFrameSetPriority(StatsPanel, 91)
-        call DzFrameSetPriority(CardsPanel, 91)
         set i = 0
         loop
             exitwhen i > 2
