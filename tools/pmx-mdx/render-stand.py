@@ -71,7 +71,7 @@ if '--animate' in sys.argv:
   return np.array(matrices)
  for clip in data['clips']:
   frame_folder=folder/(clip['kind']+'-frames');frame_folder.mkdir(exist_ok=False)
-  target=Vector((-26,-3,78));cam.location=target+Vector((-210,30,12));cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler();camera.ortho_scale=96
+  target=Vector((-24,-3,61));cam.location=target+Vector((-260,30,32));cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler();camera.ortho_scale=142
   scene.render.resolution_x=480;scene.render.resolution_y=600;scene.eevee.taa_render_samples=16
   for frame in range(round(clip['duration']/1000*20)):
    matrices=sampled(clip['start']+frame*50)

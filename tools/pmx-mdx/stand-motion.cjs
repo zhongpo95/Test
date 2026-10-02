@@ -63,7 +63,7 @@ const inv=a=>quat.invert([],a);
 const axis=(a,deg)=>quat.setAxisAngle([],norm(a),deg*Math.PI/180);
 const identity=[0,0,0,1];
 const sourceAxis=(id,key)=>rig.axes[geometry.bones.findIndex(b=>b.name===nodes[id].name)]?.[key];
-const chest=pivot(get('上半身2')),centre=chest[1];
+const chest=pivot(get('上半身2'));
 function basis(direction,width){
  const y=norm(direction),x=norm(sub(width,scale(y,vec3.dot(width,y)))),z=norm(vec3.cross([],x,y));
  return mat3.fromValues(...x,...y,...z);
@@ -86,6 +86,7 @@ function envelope(t,keys){
  return keys.at(-1)[1];
 }
 const gestureKeys=[[0,0],[0.85,0],[2.5,1],[3.65,1],[5,0],[7,0]];
+const stance=side=>add(pivot(get(side+'足首D')),side==='左'?[-3.2,1.2,0]:[0.4,-0.3,0]);
 const arms=['左','右'].map((side,index)=>{
  const prefix=index===0?'L':'R';
  const joint={side,prefix,index,upper:get(side+'腕'),elbow:get(side+'ひじ'),wrist:get(side+'手首'),twist:get(side+'腕捩'),halfTwist:get(side+'腕捩1'),foreTwist:get(side+'手捩'),halfForeTwist:get(side+'手捩1')};
@@ -110,46 +111,65 @@ function author(t,kind){
  }
  function setWorld(i,q){const parent=nodes[i].parentId;if(parent>=0)resolve(parent);rotations[i]=parent>=0?mul(inv(worldQ[parent]),q):q;reset();}
  function transformed(i){resolve(i);return vec3.transformMat4([],pivot(i),worldM[i]);}
- rotations[get('上半身1')]=axis([0,1,0],0.25*breathe);
- rotations[get('上半身2')]=axis([0,1,0],0.35*breathe);
- rotations[get('首')]=axis([0,1,0],kind==='hmm'?(-2.5*gesture-1.2*bob):0.35*breathe);
- rotations[get('頭')]=mul(axis([0,0,1],kind==='hmm'?-1.5*gesture:5+0.3*breathe),axis([0,1,0],kind==='hmm'?-1.8*gesture-0.8*bob:0));
+ // 오른발에 체중을 두고 골반과 가슴을 다르게 기울여 발바닥을 고정한 편한 자세를 만듭니다.
+ translations[get('腰')]=[0.25,-3.0+0.24*breathe-0.35*gesture,-0.85-0.05*breathe-0.22*gesture];
+ rotations[get('下半身')]=mul(axis([0,0,1],4),axis([1,0,0],-5));
+ rotations[get('上半身')]=mul(axis([0,0,1],kind==='cross'?14:6+1.5*gesture),mul(axis([1,0,0],-5.0+0.45*breathe),axis([0,1,0],-1.5-1.5*gesture)));
+ rotations[get('上半身1')]=mul(axis([1,0,0],0.8+0.20*breathe),axis([0,1,0],0.45*breathe-1.0*gesture));
+ rotations[get('上半身2')]=mul(axis([1,0,0],0.8+0.25*breathe-0.7*gesture),axis([0,1,0],0.45*breathe));
+ rotations[get('首')]=mul(axis([1,0,0],kind==='hmm'?-1.5-1.8*gesture:1.0),axis([0,1,0],kind==='hmm'?(-0.8-2.5*gesture-1.2*bob):-0.8));
+ rotations[get('頭')]=mul(axis([0,0,1],kind==='hmm'?1-5.5*gesture:3+0.3*breathe),mul(axis([1,0,0],kind==='hmm'?-0.8-1.5*gesture:0.8),axis([0,1,0],kind==='hmm'?-1.0-1.8*gesture-0.8*bob:0.5)));
+ for(const [side,sign] of [['左',1],['右',-1]])rotations[get(side+'肩')]=mul(axis([1,0,0],-sign*(6-(kind==='hmm'&&side==='左'?3*gesture:0))),axis([0,0,1],-sign*2));
+ reset();
+ for(const side of ['左','右'])for(const suffix of ['','D']){
+  const thigh=get(side+'足'+suffix),knee=get(side+'ひざ'+suffix),ankle=get(side+'足首'+suffix);
+  const hip=transformed(thigh),target=stance(side),restHip=pivot(thigh),restKnee=pivot(knee),restAnkle=pivot(ankle);
+  const pole=add(hip,[-20,side==='左'?1:-1,-25]);
+  const solved=solveArm(hip,restKnee,restAnkle,target,pole,restHip);
+  check(vec3.distance(solved.wrist,target)<0.0001,'Stance foot target unreachable');
+  setWorld(thigh,orient(sub(restKnee,restHip),[-1,0,0],sub(solved.elbow,hip),[-1,0,0]));
+  setWorld(knee,orient(sub(restAnkle,restKnee),[-1,0,0],sub(target,solved.elbow),[-1,0,0]));
+  setWorld(ankle,axis([0,0,1],side==='左'?8:-3));
+ }
+ resolve(get('上半身2'));const bodyRotation=worldQ[get('上半身2')];
+ const bodyVector=v=>vec3.transformQuat([],v,bodyRotation);
+ const bodyPoint=v=>{resolve(get('上半身2'));return vec3.transformMat4([],v,worldM[get('上半身2')]);};
+ const mouthPoint=()=>{resolve(get('頭'));return vec3.transformMat4([],add(chest,[-6.8,2.5,12.3]),worldM[get('頭')]);};
  for(const arm of arms){
   const left=arm.index===0,sign=left?1:-1;
   const s=transformed(arm.upper),e=pivot(arm.elbow),w=pivot(arm.wrist);
   let target,pole,fingers,width,curl;
   if(kind==='cross'){
-   target=left?[chest[0]-6.7,centre-7.0,chest[2]+0.4]:[chest[0]-7.6,centre+4.5,chest[2]+4.2];
-   pole=[chest[0]-6.5,centre+sign*15,chest[2]-6.8];
-   fingers=left?[0.85,-0.65,0.28]:[0.3,1,0.35];width=[0,0,sign];curl=left?0.75:0.4;
+   target=bodyPoint(add(chest,left?[-6.7,-7.0,0.4]:[-7.6,4.5,4.2]));
+   pole=bodyPoint(add(chest,[-6.5,sign*15,-6.8]));
+   fingers=bodyVector(left?[0.85,-0.65,0.28]:[0.3,1,0.35]);width=bodyVector([0,0,sign]);curl=left?0.75:0.4;
   }else{
-   curl=left?0.22+0.78*envelope(t,[[0,0],[0.9,0],[1.8,1],[3.8,1],[5.2,0],[7,0]]):0.22;
+   curl=left?0.16+0.84*envelope(t,[[0,0],[0.9,0],[1.8,1],[3.8,1],[5.2,0],[7,0]]):0.16;
   }
   let solved;
   if(kind==='cross'){target[2]+=0.12*breathe;solved=solveArm(s,e,w,target,pole,pivot(arm.upper));}
   else{
    // 팔꿈치를 낮게 유지하고 아래팔을 앞으로 돌려 IK의 굽힘 방향 반전을 없앱니다.
    const upperLength=vec3.distance(pivot(arm.upper),e),foreLength=vec3.distance(e,w),amount=left?gesture:0;
-   const down=norm([-0.12,sign*0.03,-1]),raised=norm([-0.5,sign*0.05,-0.866]);
-   const elbowDown=add(s,scale(down,upperLength)),elbowRaised=add(s,scale(raised,upperLength));
-   const idleDirection=norm(sub([chest[0]-0.8,centre+sign*10,chest[2]-20.5],elbowDown));
-   const raisedDirection=norm(sub([chest[0]-6.8,centre+2.5,chest[2]+12.3],elbowRaised));
+   const down=norm([-0.18,sign*(left?0.22:0.28),-1]),raised=norm([-0.5,sign*0.05,-0.866]);
+   const elbowDown=add(s,scale(bodyVector(down),upperLength)),elbowRaised=add(s,scale(bodyVector(raised),upperLength));
+   const idleDirection=vec3.transformQuat([],norm(sub(bodyPoint(add(chest,[-3.0,sign*(left?11.8:12.6),-20.5])),elbowDown)),inv(bodyRotation));
+   const raisedDirection=vec3.transformQuat([],norm(sub(mouthPoint(),elbowRaised)),inv(bodyRotation));
    const startAngle=Math.atan2(-idleDirection[0],-idleDirection[2]),endAngle=Math.atan2(-raisedDirection[0],-raisedDirection[2]);
    const angle=startAngle+((endAngle<0?endAngle+2*Math.PI:endAngle)-startAngle)*amount;
    const lateral=idleDirection[1]+(raisedDirection[1]-idleDirection[1])*amount,planar=Math.sqrt(1-lateral*lateral);
    const fore=[-Math.sin(angle)*planar,lateral,-Math.cos(angle)*planar];
-   const elbow=add(s,scale(norm(vec3.lerp([],down,raised,amount)),upperLength));
-   solved={elbow,wrist:add(elbow,scale(fore,foreLength))};
+   const elbow=add(s,scale(bodyVector(norm(vec3.lerp([],down,raised,amount))),upperLength));
+   solved={elbow,wrist:add(elbow,scale(bodyVector(fore),foreLength))};
   }
-  const upperRotation=orient(sub(e,pivot(arm.upper)),[-1,0,0],sub(solved.elbow,s),[-1,0,0]);
+  const upperRotation=orient(sub(e,pivot(arm.upper)),[-1,0,0],sub(solved.elbow,s),bodyVector([-1,0,0]));
   setWorld(arm.upper,upperRotation);
-  resolve(get('上半身2'));const bodyRotation=worldQ[get('上半身2')];
   for(const ornament of ['cloudA_01_jnt','cloudB_01_jnt'])setWorld(get(arm.prefix+'_'+ornament),bodyRotation);
   const hangingSleeve=orient(sub(e,pivot(arm.upper)),[-1,0,0],[0.03,sign*0.12,-1],[-1,0,0]);
   const sleeveRotation=quat.slerp([],hangingSleeve,upperRotation,0.18);
   for(const part of ['sleeveA_01_jnt','sleeveB_01_jnt','sleeveC_jnt','sleeveF_01_jnt','sleeve_all_jnt'])setWorld(get(arm.prefix+'_'+part),sleeveRotation);
   const foreDirection=norm(sub(solved.wrist,solved.elbow));
-  const foreWidth=kind==='hmm'?norm(vec3.cross([],[0,-sign,0],foreDirection)):[1,0,0];
+  const foreWidth=kind==='hmm'?norm(vec3.cross([],bodyVector([0,-sign,0]),foreDirection)):bodyVector([1,0,0]);
   const foreRotation=orient(sub(w,e),arm.width,foreDirection,foreWidth);
   setWorld(arm.elbow,foreRotation);
   if(kind==='hmm'){width=vec3.transformQuat([],foreWidth,axis(foreDirection,left?90*gesture:0));fingers=foreDirection;}
@@ -249,22 +269,40 @@ function decodedPose(time){
 const baseline=JSON.parse(fs.readFileSync(path.join(input,'pose.json'),'utf8'));
 const preview={name:geometry.model,materials:baseline.materials,textures:baseline.textures};
 fs.writeFileSync(path.join(output,'render-motion.json'),JSON.stringify({...preview,nodes:decodedNodes.map((n,i)=>{const channel=name=>{const a=n.animations.find(a=>a.name===name);return a?{frames:a.frames,values:a.values.map(q=>Array.from(q))}:null;};return {parent:n.parentId,pivot:Array.from(decoded.pivotPoints[i]),rotation:channel('KGRT'),translation:channel('KGTR')};}),geosets:decoded.geosets.map(g=>({vertices:Array.from(g.vertices),normals:Array.from(g.normals),uv:Array.from(g.uvSets[0]),faces:Array.from(g.faces),material:g.materialId,vertexGroups:Array.from(g.vertexGroups),matrixGroups:Array.from(g.matrixGroups),matrixIndices:Array.from(g.matrixIndices)})),clips}));
+const footNodes=new Set(['左','右'].flatMap(side=>['足首','つま先','足首D','足先EX'].map(part=>get(side+part))));
+const footVertices=[];
+for(const g of model.geosets){
+ const groups=[];let offset=0;for(const count of g.matrixGroups){groups.push(Array.from(g.matrixIndices.slice(offset,offset+count)));offset+=count;}
+ for(let j=0;j<g.vertexGroups.length;j++){
+  const group=groups[g.vertexGroups[j]],point=Array.from(g.vertices.slice(j*3,j*3+3));
+  if(point[2]<pivot(get('左足首D'))[2]&&group.every(id=>footNodes.has(id)))footVertices.push({point,group});
+ }
+}
+check(footVertices.length>100,'Too few planted foot skin vertices');
+const footSkin=matrices=>footVertices.map(({point,group})=>scale(group.reduce((sum,id)=>add(sum,vec3.transformMat4([],point,matrices[id])),[0,0,0]),1/group.length));
 const checks=[];let maxRoundtrip=0;
 for(const clip of clips){
- const first=skin(decodedPose(clip.start)),last=skin(decodedPose(clip.start+clip.duration));let seam=0;
+ const first=skin(decodedPose(clip.start)),last=skin(decodedPose(clip.start+clip.duration));let seam=0,footError=0,pelvisShift=0,footSkinError=0;const firstFeet=footSkin(decodedPose(clip.start));
  first.forEach((g,i)=>g.vertices.forEach((v,j)=>v.forEach((x,k)=>seam=Math.max(seam,Math.abs(x-last[i].vertices[j][k])))));
  check(seam<0.001,'Loop seam '+clip.name);
  for(let ms=0;ms<=clip.duration;ms+=25){
   const matrices=decodedPose(clip.start+ms);check(matrices.every(m=>m.every(Number.isFinite)),'Non-finite animated matrix');
-  for(const root of ['全ての親','センター','下半身','右足首D','左足首D']){
+  for(const root of ['全ての親','センター']){
    const id=get(root),point=vec3.transformMat4([],pivot(id),matrices[id]);check(vec3.distance(point,pivot(id))<0.001,'Root/foot displacement '+root);
   }
+  for(const side of ['左','右']){
+   const id=get(side+'足首D'),point=vec3.transformMat4([],pivot(id),matrices[id]);
+   footError=Math.max(footError,vec3.distance(point,stance(side)));
+  }
+  const pelvis=get('下半身');pelvisShift=Math.max(pelvisShift,vec3.distance(vec3.transformMat4([],pivot(pelvis),matrices[pelvis]),pivot(pelvis)));
+  footSkin(matrices).forEach((point,i)=>{footSkinError=Math.max(footSkinError,vec3.distance(point,firstFeet[i]));});
+  check(footSkinError<0.01,'Planted foot skin drift');check(footError<0.01,'Stance foot contact drift');check(pelvisShift<4.5,'Excessive pelvis shift');
   if(ms%500===0){
    const actual=skin(matrices),expected=skin(author(ms/1000,clip.kind).matrices);
    actual.forEach((g,i)=>g.vertices.forEach((v,j)=>v.forEach((x,k)=>{check(Number.isFinite(x),'Non-finite skinned position');maxRoundtrip=Math.max(maxRoundtrip,Math.abs(x-expected[i].vertices[j][k]));})));
   }
  }
- checks.push({name:clip.name,interval:[clip.start,clip.start+clip.duration],loop_seam_max_error:seam,root_and_feet_fixed:true});
+ checks.push({name:clip.name,interval:[clip.start,clip.start+clip.duration],loop_seam_max_error:seam,root_and_feet_fixed:true,foot_contact_max_error:footError,planted_foot_vertex_count:footVertices.length,planted_foot_skin_max_error:footSkinError,pelvis_shift_from_rest_max:pelvisShift,asymmetric_stance:true});
  const samples=clip.kind==='hmm'?[0,1.4,1.8,2.2,2.7,3.2,4.2,4.6,5.5]:[0,1,2,3];
  for(const t of samples)fs.writeFileSync(path.join(output,clip.kind+'-'+t+'.json'),JSON.stringify({...preview,geosets:skin(decodedPose(clip.start+t*1000))}));
 }
@@ -282,5 +320,5 @@ for(let i=0;i<decoded.geosets.length;i++){
  for(const j of altered.get(i))check(decoded.geosets[i].vertices[j*3+2]>pivot(get('頭'))[2]+0.5,'Blink changes mouth or lower face');
 }
 check(decoded.textures.every((t,i)=>t.path===inputModel.textures[i].path),'Source texture paths changed');
-const report={model:geometry.model,triangles:decoded.geosets.reduce((s,g)=>s+g.faces.length/3,0),rotation_tracks:tracks,translation_tracks:translationTracks,blink_vertices:blinkVertices,blink_error_max:rig.blink_error_max,max_key_rotation_degrees:maxKeyRotation,sequences:checks,roundtrip_identical:true,animated_pose_max_error:maxRoundtrip,reference_url:'https://www.youtube.com/watch?v=3E3QgXVwTeA',reference_clips:clips.map(c=>({name:c.name,seconds:c.reference})),motion_source:'Hand-authored skeletal reconstruction from user-specified video and image; source PMX blink morph baked into eye-only translation bones',mouth_animation:false,warcraft_runtime_tested:false,sanity:{errors:sanity.errors,severe:sanity.severe,warnings:sanity.warnings,unused:sanity.unused}};
+const report={model:geometry.model,triangles:decoded.geosets.reduce((s,g)=>s+g.faces.length/3,0),rotation_tracks:tracks,translation_tracks:translationTracks,blink_vertices:blinkVertices,blink_error_max:rig.blink_error_max,max_key_rotation_degrees:maxKeyRotation,sequences:checks,roundtrip_identical:true,animated_pose_max_error:maxRoundtrip,reference_url:'https://www.youtube.com/watch?v=3E3QgXVwTeA',reference_clips:clips.map(c=>({name:c.name,seconds:c.reference})),stance:'Asymmetric right-leg weight bearing, counter-tilted torso, planted ankle IK, relaxed elbows',motion_source:'Hand-authored skeletal reconstruction from user-specified video and image; source PMX blink morph baked into eye-only translation bones',mouth_animation:false,warcraft_runtime_tested:false,sanity:{errors:sanity.errors,severe:sanity.severe,warnings:sanity.warnings,unused:sanity.unused}};
 fs.writeFileSync(path.join(output,'motion-validation.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report));
