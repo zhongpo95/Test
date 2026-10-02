@@ -96,7 +96,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -124,7 +124,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -152,7 +152,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -256,7 +256,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "swift",
@@ -336,7 +336,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -544,7 +544,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -744,7 +744,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         }
       ],
       "evolution": {
@@ -808,7 +808,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -876,7 +876,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -944,7 +944,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -1012,7 +1012,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1080,7 +1080,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1148,7 +1148,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1216,7 +1216,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1284,7 +1284,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1352,7 +1352,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1420,7 +1420,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1488,7 +1488,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1556,7 +1556,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1624,7 +1624,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1692,7 +1692,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1764,7 +1764,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 24
         },
         {
           "stat": "final_damage_percent",

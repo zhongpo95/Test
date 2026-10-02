@@ -12,7 +12,7 @@ function fresh(localPlayer = 0, prototype = false) {
   const no = () => {}, frame = id => {assert(frames.has(id), 'Unknown frame ' + id);return frames.get(id);};
   const {env} = environment(prototypeFiles, {
     F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
-    Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[100,100,100,100], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
+    Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[50,50,50,50], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
     Arcana_CriDeal:[0,0,0,0], Equip_ED:[0,0,0,0], Equip_WDP:[0,0,0,0], Equip_DP:[1,1,1,1], FinalDamageBonus:pid=>env.ProtoStat(pid,env.PROTO_STAT_FINAL),
     JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,

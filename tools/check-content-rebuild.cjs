@@ -25,6 +25,36 @@ check('잘못된 카드 참조·체력 지불·물약 보상·실패 후속·순
  const density=structuredClone(worlds[0]);density.events[0].choices[0].density=1;assert(inspect(density).errors.some(x=>x.reason==='사건에서 몬스터 수를 변경하지 않음'));
  const regional=structuredClone(worlds[0]);regional.cards[0].effects.push({stat:'event_choices',value:1});assert(inspect(regional).errors.some(x=>x.reason==='사건 후보 증가는 공용 카드에서만 사용함'));
 });
+check('치명 확률 1 대 치명 피해 2의 보상 기준과 초과 수치 거부',()=>{
+ const penacony=worlds.find(w=>w.world.key==='penacony'),cards=new Map(penacony.cards.map(c=>[c.key,c]));
+ for(const scene of penacony.events.filter(e=>e.mainStage)){
+  const chance=cards.get(scene.choices[0].card).effects.find(e=>e.stat==='crit_chance').value;
+  const damage=cards.get(scene.choices[1].card).effects.find(e=>e.stat==='crit_damage').value;
+  assert.equal(damage,chance*2);
+  const draft=structuredClone(penacony),reward=draft.cards.find(c=>c.key===scene.choices[1].card);
+  reward.effects.find(e=>e.stat==='crit_damage').value=damage+1;
+  assert(inspect(draft).errors.some(x=>x.reason.includes('치명 피해가')));
+ }
+ const side=structuredClone(penacony),sideCard=side.cards.find(c=>c.key==='hsr_aventurine_fortune');
+ assert.equal(sideCard.effects.find(e=>e.stat==='crit_chance').value,2);assert.equal(sideCard.effects.find(e=>e.stat==='crit_damage').value,4);
+ sideCard.effects.find(e=>e.stat==='crit_damage').value=5;assert(inspect(side).errors.some(x=>x.reason.includes('치명 피해가')));
+ const head=structuredClone(worlds.find(w=>w.world.key==='aincrad'));assert.equal(head.world.effects[0].value,4);
+ head.world.effects[0].value=5;assert(inspect(head).errors.some(x=>x.key==='world'&&x.reason.includes('치명 피해가')));
+});
+check('두 치명 피해 메인의 실제 카드 지급·재계산·중복 강화는 조정한 수치를 누적',()=>{
+ const {e}=party();let damage=0,chance=0;
+ for(const key of ['aincrad','karakura']){
+  const w=worlds.find(w=>w.world.key===key);e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf(key));
+  for(const scene of w.events.filter(e=>e.mainStage))e.ProtoGrantEventCard(0,card(e,scene.choices[0].card));
+  damage+=w.world.effects.find(x=>x.stat==='crit_damage').value;
+  const rewards=new Map(w.cards.map(c=>[c.key,c]));
+  for(const scene of w.events.filter(e=>e.mainStage))for(const x of rewards.get(scene.choices[0].card).effects){if(x.stat==='crit_damage')damage+=x.value;if(x.stat==='crit_chance')chance+=x.value;}
+ }
+ assert.equal(damage,258);assert.equal(chance,86);assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),damage);
+ e.PlayerStatsSet(0);e.PlayerStatsSet(0);assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),258);
+ const first=worlds.find(w=>w.world.key==='aincrad').events.find(ev=>ev.mainStage===1).choices[0].card;
+ e.ProtoGrantEventCard(0,card(e,first));assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),261);
+});
 check('머리 후보 첫 선택은 행동력 무료, 즉시 입문 카드와 약한 지역 효과 획득',()=>{
  const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],20);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
  assert.equal(e.ProtoAP[1],20);assert(!e.ProtoHeadOwned[e.ExpKey(1,1)]);

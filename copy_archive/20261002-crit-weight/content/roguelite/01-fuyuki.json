@@ -130,7 +130,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -153,7 +153,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "swift",

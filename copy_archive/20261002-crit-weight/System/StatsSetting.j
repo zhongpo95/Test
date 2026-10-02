@@ -1,0 +1,756 @@
+library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, DataPrototypeStats, JNCommon
+    function SkillSpeed takes integer pid returns real
+        if ExpPrototypeActive and ExpMember[pid] then
+            return RMinBJ(40.0, RMaxBJ(-80.0, Equip_Swiftness[pid] / 45.0 + Hero_BuffAttackSpeed[pid] + ProtoStat(pid, PROTO_STAT_ACTION)))
+        endif
+        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid] + Arcana_SkillSpeed2[pid] >= 40 then
+            return 40.00
+        endif
+        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
+    endfunction
+    
+    function SkillSpeed2 takes integer pid, real PlusSpeed returns real
+        if ExpPrototypeActive and ExpMember[pid] then
+            return SkillSpeed(pid) + PlusSpeed
+        endif
+        if (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid] >= 40 then
+            return 40.00 + PlusSpeed
+        endif
+        return (Equip_Swiftness[pid]/45) + Hero_BuffAttackSpeed[pid] + PlusSpeed + Arcana_SkillSpeed[pid]+ Arcana_SkillSpeed2[pid]
+    endfunction
+
+    function SwiftnessSpeed takes integer pid returns real
+        if (Equip_Swiftness[pid]/45) >= 40 then
+            return 40.00
+        endif
+        return (Equip_Swiftness[pid]/45)
+    endfunction
+
+    //전투력
+    function Power takes integer pid returns real
+        local real cooldownRate = CooldownRate(pid)
+        local real critical = Stats_Crit[pid] / 100.0
+        local real targetDefense = 10000.0
+        local real penetrationRate = Equip_Penetration[pid]
+        local real remainingDefense
+        local real baseDamageRate
+        local real penetratedDamageRate
+        local real defenseDamageRate
+        local real ArcanaRate = 1.0
+
+        if ExpPrototypeActive and ExpMember[pid] then
+            set penetrationRate = RMaxBJ(0.0, RMinBJ(0.60, Penetration[pid] + penetrationRate + ProtoStat(pid, PROTO_STAT_PENETRATION) / 100.0))
+            set remainingDefense = targetDefense * (1.0 - penetrationRate)
+            set defenseDamageRate = (1.0 - remainingDefense / (remainingDefense + 10000.0)) / 0.5
+            // 조건부·대상별 피해는 상대와 전투 상황에 따라 달라 전투력 추정에서 제외한다.
+            return AttackPower(pid) * RMaxBJ(0.0, 1.0 + (Equip_ED[pid] + Equip_WDP[pid]) / 100.0) * RMaxBJ(0.0, Equip_DP[pid] + ProtoStat(pid, PROTO_STAT_DAMAGE) / 100.0) * (1.0 + critical * (Equip_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE) + 100.0) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (1.0 + FinalDamageBonus(pid) / 100.0)
+        endif
+
+        if penetrationRate < 0.0 then
+            set penetrationRate = 0.0
+        elseif penetrationRate > 1.0 then
+            set penetrationRate = 1.0
+        endif
+
+        set remainingDefense = targetDefense * (1.0 - penetrationRate)
+        set baseDamageRate = 1.0 - targetDefense / (targetDefense + 10000.0)
+        set penetratedDamageRate = 1.0 - remainingDefense / (remainingDefense + 10000.0)
+        set defenseDamageRate = penetratedDamageRate / baseDamageRate
+
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(0,LoadInteger(ArcanaData, 0, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(1,LoadInteger(ArcanaData, 1, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(2,LoadInteger(ArcanaData, 2, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(3,LoadInteger(ArcanaData, 3, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(4,LoadInteger(ArcanaData, 4, pid)) / 100))
+        //슈차는 차지 스킬 전용이라 전투력에서 제외
+        //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(5,LoadInteger(ArcanaData, 5, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(6,LoadInteger(ArcanaData, 6, pid)) / 100))
+        //정단
+        //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(7,LoadInteger(ArcanaData, 7, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(8,LoadInteger(ArcanaData, 8, pid)) / 100))
+        set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(9,LoadInteger(ArcanaData, 9, pid)) / 100))
+        //예둔
+        //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(10,LoadInteger(ArcanaData, 10, pid)) / 100))
+        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid]+Arcana_CriDeal[pid]+ 100) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) * ArcanaRate
+    endfunction
+
+
+    globals
+        //개척력 10% 성장 구간 기준값
+        private real TRAIL_POWER_0 = 500.00
+        private real TRAIL_POWER_20 = 3363.75
+        private real TRAIL_POWER_40 = 22629.63
+        private real TRAIL_POWER_60 = 152240.82
+        private real TRAIL_POWER_80 = 1024200.11
+        private real TRAIL_POWER_100 = 6890306.17
+        private real TRAIL_POWER_120 = 46354534.41
+
+        private integer TRAIL_FAME_0 = 10000
+        private integer TRAIL_FAME_20 = 30000
+        private integer TRAIL_FAME_40 = 50000
+        private integer TRAIL_FAME_60 = 70000
+        private integer TRAIL_FAME_80 = 90000
+        private integer TRAIL_FAME_100 = 110000
+        private integer TRAIL_FAME_120 = 130000
+    endglobals
+
+
+    private function ln takes real x returns real
+        local real result = 0.0
+        local real term = 0.0
+        local integer n = 1
+    
+        if x <= 0.0 then
+            return 0.0
+        endif
+    
+        if x == 1.0 then
+            return 0.0
+        endif
+    
+        if x > 2.0 then
+            return -ln(1.0 / x)
+        endif
+    
+        set x = x - 1.0
+        set term = x
+    
+        loop
+            set result = result + term / n
+            set term = -term * x
+            set n = n + 1
+            exitwhen SquareRoot(term * term) < 0.000001
+        endloop
+    
+        return result
+    endfunction
+    
+    private function log1_1 takes real x returns real
+        local real LN_1_1 = 0.09531
+        return ln(x) / LN_1_1
+    endfunction
+
+    //개척력
+    function TrailblazePower takes real x returns integer
+        local real log_val
+    
+        if x <= 0.0 then
+            return 0
+        elseif x < TRAIL_POWER_0 then
+            return R2I(TRAIL_FAME_0 * x / TRAIL_POWER_0 + 0.5)
+        elseif x >= TRAIL_POWER_120 then
+            set log_val = log1_1(x / TRAIL_POWER_120)
+            return TRAIL_FAME_120 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_100 then
+            set log_val = log1_1(x / TRAIL_POWER_100)
+            return TRAIL_FAME_100 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_80 then
+            set log_val = log1_1(x / TRAIL_POWER_80)
+            return TRAIL_FAME_80 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_60 then
+            set log_val = log1_1(x / TRAIL_POWER_60)
+            return TRAIL_FAME_60 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_40 then
+            set log_val = log1_1(x / TRAIL_POWER_40)
+            return TRAIL_FAME_40 + R2I(1000.0 * log_val + 0.5)
+        elseif x >= TRAIL_POWER_20 then
+            set log_val = log1_1(x / TRAIL_POWER_20)
+            return TRAIL_FAME_20 + R2I(1000.0 * log_val + 0.5)
+        else
+            set log_val = log1_1(x / TRAIL_POWER_0)
+            return TRAIL_FAME_0 + R2I(1000.0 * log_val + 0.5)
+        endif
+    endfunction
+
+    
+    function ItemUIStatsSet takes integer pid returns nothing
+        local real r =0
+        local integer speed = 0
+        local integer i = 0
+        set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid] + Arcana_Cri[pid]
+        if ExpPrototypeActive and ExpMember[pid] then
+            set Stats_Crit[pid] = RMinBJ(100.0, RMaxBJ(0.0, Hero_CriRate[pid] + ProtoStat(pid, PROTO_STAT_CRIT)))
+        endif
+        set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] + ProtoStat(pid, PROTO_STAT_MOVE) )
+        if speed > 140 then
+            set speed = 140
+        endif
+        if ExpPrototypeActive and ExpMember[pid] then
+            set speed = IMaxBJ(20, speed)
+        endif
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameSetText(F_ItemStatsText[16], GetPlayerName(Player(pid)) )
+            //공격력
+            call DzFrameSetText(F_ItemStatsText[0], I2S(R2I(AttackPower(pid))))
+            //방어등급
+            //call DzFrameSetText(F_ItemStatsText[1], I2S(R2I( Equip_Defense[pid] + Arcana_Defense[pid] )) )
+            //치명
+            call DzFrameSetText(F_ItemStatsText[2], I2S(R2I( Equip_Crit[pid] )) )
+            //신속
+            call DzFrameSetText(F_ItemStatsText[3], I2S(R2I( Equip_Swiftness[pid] )) )
+            //추가피해
+            call DzFrameSetText(F_ItemStatsText[4], I2S(R2I( Equip_WDP[pid] + Arcana_DP[pid] + Equip_ED[pid] )) + "%" )
+            //치명타확률
+            call DzFrameSetText(F_ItemStatsText[5], I2S(R2I( Stats_Crit[pid] )) + "%")
+            //공격속도
+            call DzFrameSetText(F_ItemStatsText[6], I2S(R2I( 100 + SkillSpeed(pid) )) + "%" )
+            //이동속도
+            call DzFrameSetText(F_ItemStatsText[7], I2S(speed) + "%" )
+            //공퍼
+            call DzFrameSetText(F_ItemStatsText[9], I2S(R2I(  Equip_DamageP[pid] )) + "%" ) 
+            //쿨감
+            call DzFrameSetText(F_ItemStatsText[10], R2SW(  (1.0 - CooldownRate(pid)) * 100.0  ,1,2) + "%" )
+            //방관
+            call DzFrameSetText(F_ItemStatsText[11], I2S(R2I(Equip_Penetration[pid] * 100.0 + ProtoStat(pid, PROTO_STAT_PENETRATION))) + "%" )
+            //대미지증가
+            call DzFrameSetText(F_ItemStatsText[12], R2SW((Equip_DP[pid] - 1) * 100 + ProtoStat(pid, PROTO_STAT_DAMAGE),1,2) + "%" )
+            //카드댐증
+            call DzFrameSetText(F_ArcanaStatsText[9], R2SW( ((100 + Equip_CardDamage1[pid]) * (100 + Equip_CardDamage2[pid]) - 10000 ) / 100 ,1,2)  + "%" ) 
+            //최종대미지증가
+            call DzFrameSetText(F_ItemStatsText[13], I2S(R2I(FinalDamageBonus(pid))) + "%" )
+            //개척력
+            set r = Power(pid)
+            call DzFrameSetText(F_ItemStatsText[14], R2SW(TrailblazePower(r), 1, 2))
+            set i = 0
+            loop
+                if IsEmptyItem(Eitem[pid][i]) then
+                    call DzFrameSetTexture(F_EItemButtonsBackDrop[i], GetEquipSlotEmptyArt(i), 0)
+                else
+                    call DzFrameSetTexture(F_EItemButtonsBackDrop[i], GetItemArt(Eitem[pid][i]), 0)
+                endif
+                exitwhen i == EQUIP_SLOT_MAX
+                set i = i + 1
+            endloop
+        endif
+        call SetUnitMoveSpeed( MainUnit[pid], 4 * speed )
+    endfunction
+    
+    function PlayerStatsSet takes integer pid returns nothing
+        local string items
+        local integer tier
+        local integer up
+        local integer i = 0
+        local integer j = 0
+        local integer k = 0
+        local integer load = 0
+        local integer itemty = 0
+        local integer qr = 0
+        local integer quality = 0
+        local real a = 0
+        local real b = 0
+        local real gemValue = 0
+        local real GemDamageRate = 1.0
+        
+        call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, 10000 )
+        //set Equip_Defense[pid] = 0
+        set Equip_Damage[pid] = 0
+        set Equip_Crit[pid] = 0
+        set Equip_Swiftness[pid] = 0
+        set Equip_CardDamage1[pid] = 0
+        set Equip_CardDamage2[pid] = 0
+        set Equip_DamageP[pid] = 0
+        set Equip_DP[pid] = 1
+        set Equip_GemCooldown[pid] = 0
+        set Equip_GemDamage[pid] = 0
+        set Arcana_MoveSpeed[pid] = 0
+        set Arcana_SkillSpeed2[pid] = 0
+        set Arcana_HP[pid] = 1
+        set Arcana_Cri[pid] = 0
+        set Arcana_SkillSpeed[pid] = 0
+        set Arcana_CriDeal[pid] = 0
+        set Arcana_ChargeSpeed[pid] = 1
+
+        call SaveInteger(ArcanaData, 0, pid, 0)
+        call SaveInteger(ArcanaData, 1, pid, 0)
+        call SaveInteger(ArcanaData, 2, pid, 0)
+        call SaveInteger(ArcanaData, 3, pid, 0)
+        call SaveInteger(ArcanaData, 4, pid, 0)
+        call SaveInteger(ArcanaData, 5, pid, 0)
+        call SaveInteger(ArcanaData, 6, pid, 0)
+        call SaveInteger(ArcanaData, 7, pid, 0)
+        call SaveInteger(ArcanaData, 8, pid, 0)
+        call SaveInteger(ArcanaData, 9, pid, 0)
+        call SaveInteger(ArcanaData, 10, pid, 0)
+        //패널티
+        call SaveInteger(ArcanaData, 50, pid, 0)
+        call SaveInteger(ArcanaData, 51, pid, 0)
+        call SaveInteger(ArcanaData, 52, pid, 0)
+        call SaveInteger(ArcanaData, 53, pid, 0)
+        if GetLocalPlayer() == Player(pid) then
+            call DzFrameShow(F_ArcanaBD[0],false)
+            call DzFrameShow(F_ArcanaBD[1],false)
+            call DzFrameShow(F_ArcanaBD[2],false)
+            call DzFrameShow(F_ArcanaBD[3],false)
+            call DzFrameShow(F_ArcanaBD[4],false)
+            call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana1[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana2[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana3[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana4[3], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetTexture(F_UIArcana4[4], "UI_Arcana_Work3.blp", 0)
+            call DzFrameSetText( F_ArcanaStatsText[4], "Lv 0")
+            call DzFrameSetText( F_ArcanaStatsText[5], "Lv 0")
+            call DzFrameSetText( F_ArcanaStatsText[6], "Lv 0")
+            call DzFrameSetText( F_ArcanaStatsText[7], "Lv 0")
+            call DzFrameSetText( F_ArcanaStatsText[8], "Lv 0")
+        endif
+        
+        loop
+            if GetItemIDs(Eitem[pid][i]) != 0 then
+                set load = 0
+                set items = Eitem[pid][i]
+                set itemty = GetItemTypes(items)
+                set tier = GetItemTier(items)
+                set up = GetItemUp(items)
+                
+                // 아이템 타입: 0엘릭서, 1무기, 2목걸이, 3귀걸이, 4반지, 5팔찌, 6카드, 7보석
+                //장비 0아이템아이디, 1강화수치, 2품질, 3특성, 4각인1, 5각인2, 6각인P
+                //목걸이 0품0, 1품질 5당 추가량
+                //기타 0아이템아이디, 1중첩수
+                
+                //무기
+                if itemty == ITEM_TYPE_WEAPON then
+                    set quality = GetItemQuality(items)
+                    set Equip_Damage[pid] = Equip_Damage[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", up ))
+                    set Equip_WDP[pid] = ItemWeaponQuality[quality]
+                //엘릭서
+                elseif itemty == ITEM_TYPE_ELIXIR  then
+                    set Equip_Damage[pid] = Equip_Damage[pid] + GetItemElixirLevel1(items) + GetItemElixirLevel2(items)
+                //목걸이
+                elseif itemty == ITEM_TYPE_NECKLACE then
+                //목걸이 0품0, 1품질 5당 추가량
+                    // j특성
+                    set j = GetItemCombatStats(items)
+                    set k = GetItemCombatBonus1(items)
+                    //치신
+                    if j == 1 then
+                        // j품질
+                        set j = GetItemQuality(items)
+                        set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                        set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    //치치
+                    elseif j == 2 then
+                        set j = GetItemQuality(items)
+                        set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                        set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    //신신
+                    elseif j == 3 then
+                        set j = GetItemQuality(items)
+                        set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                        set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    endif
+                    if GetItemCombatBonus2(items) > 0 then
+                        call SaveInteger(ArcanaData, k, pid, LoadInteger(ArcanaData, k, pid) + GetItemCombatBonus2(items) )
+                    endif
+                    if GetItemCombatPenalty2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatPenalty(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
+                    endif
+                    set j = 0
+                //귀걸이,반지
+                elseif itemty == ITEM_TYPE_EARRING or itemty == ITEM_TYPE_RING then
+                    // j특성
+                    set j = GetItemCombatStats(items)
+                    set k = GetItemCombatBonus1(items)
+                    //치
+                    if j == 1 then
+                        // j품질
+                        set j = GetItemQuality(items)
+                        set Equip_Crit[pid] = Equip_Crit[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    //신
+                    elseif j == 2 then
+                        set j = GetItemQuality(items)
+                        set Equip_Swiftness[pid] = Equip_Swiftness[pid] + S2I(JNStringSplit(ItemStats[itemty][tier],";", 0 )) + ( j * S2I(JNStringSplit(ItemStats[itemty][tier],";", 1 )))
+                    endif
+                    if GetItemCombatBonus2(items) > 0 then
+                        call SaveInteger(ArcanaData, k, pid, LoadInteger(ArcanaData, k, pid) + GetItemCombatBonus2(items) )
+                    endif
+                    if GetItemCombatPenalty2(items) > 0 then
+                        call SaveInteger(ArcanaData, GetItemCombatPenalty(items), pid, LoadInteger(ArcanaData, GetItemCombatPenalty(items), pid) + GetItemCombatPenalty2(items) )
+                    endif
+                    set j = 0
+                elseif itemty == ITEM_TYPE_CARD then
+                    set j = GetItemCardBonus1(items)
+                    set k = GetItemCardBonus2(items)
+                    if j == 0 then
+                        set Equip_CardDamage1[pid] = 0.00
+                    elseif j == 1 then
+                        set Equip_CardDamage1[pid] = 6.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0600
+                    elseif j == 2 then
+                        set Equip_CardDamage1[pid] = 7.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0750
+                    elseif j == 3 then
+                        set Equip_CardDamage1[pid] = 10.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1050
+                    elseif j == 4 then
+                        set Equip_CardDamage1[pid] = 12.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1200
+                    endif
+                    if k == 0 then
+                        set Equip_CardDamage2[pid] = 0.00
+                    elseif k == 1 then
+                        set Equip_CardDamage2[pid] = 6.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0600
+                    elseif k == 2 then
+                        set Equip_CardDamage2[pid] = 7.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.0750
+                    elseif k == 3 then
+                        set Equip_CardDamage2[pid] = 10.50
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1050
+                    elseif k == 4 then
+                        set Equip_CardDamage2[pid] = 12.00
+                        set Equip_DP[pid] = Equip_DP[pid] * 1.1200
+                    endif
+                    call SaveInteger(ArcanaData, 50, pid, LoadInteger(ArcanaData, 50, pid) + GetItemCardBonus3(items) )
+                    set j = 0
+                    set k = 0
+                elseif itemty == ITEM_TYPE_GEM then
+                    set gemValue = GetItemGemLevel(items) * 2.00
+                    set Equip_GemCooldown[pid] = Equip_GemCooldown[pid] + gemValue
+                    set Equip_GemDamage[pid] = Equip_GemDamage[pid] + gemValue
+                endif
+                //각인추가
+            endif
+        exitwhen i == EQUIP_SLOT_MAX
+            set i = i + 1
+        endloop
+        
+        // 원정 임시 성장은 장비 저장 문자열에 기록하지 않고 재계산 때 합산한다.
+        if ExpMember[pid] then
+            set Equip_Crit[pid] = Equip_Crit[pid] + ExpCritPoints[pid] * 60 + ExpFixedCrit[pid]
+            set Equip_Swiftness[pid] = Equip_Swiftness[pid] + ExpSwiftPoints[pid] * 60 + ExpFixedSwift[pid]
+            if ExpCardOwned[ExpKey(pid, 1)] then
+                set Equip_DamageP[pid] = Equip_DamageP[pid] + 20.0
+            endif
+            set i = 0
+            loop
+                exitwhen i > 53
+                set k = LoadInteger(ArcanaData, i, pid) + ExpArcana[ExpKey(pid, i)]
+                if i >= 50 then
+                    set k = IMinBJ(5, k)
+                endif
+                call SaveInteger(ArcanaData, i, pid, k)
+                set i = i + 1
+            endloop
+        endif
+
+        if ExpPrototypeActive and ExpMember[pid] then
+            // 원정 밖 장비·각인 데이터는 보존한다. 이번 프로토타입에서는 카드 옵션만 소비한다.
+            set Equip_Crit[pid] = 0.0
+            set Equip_Swiftness[pid] = Equip_Swiftness[pid] + ProtoStat(pid, PROTO_STAT_SWIFT)
+            set i = 0
+            loop
+                exitwhen i > 53
+                call SaveInteger(ArcanaData, i, pid, 0)
+                set i = i + 1
+            endloop
+        endif
+
+        //보석 피해증가
+        set GemDamageRate = GemDamageRate * (1.0 + Equip_GemDamage[pid] / 100.0)
+        set Equip_DP[pid] = Equip_DP[pid] * GemDamageRate
+
+        //보너스
+        set i = 0
+        set j = 0
+        loop
+            set k = LoadInteger(ArcanaData, i, pid)
+            if k >= 3 then
+                set k = 3
+            endif
+
+            if k > 0 then
+                //질증
+                if i == 6 then
+                    set Arcana_SkillSpeed[pid] = -10
+                endif
+                //정단
+                if i == 7 then
+                    if k == 1 then
+                        set Arcana_Cri[pid] = Arcana_Cri[pid] + 15
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] - 6
+                    elseif k == 2 then
+                        set Arcana_Cri[pid] = Arcana_Cri[pid] + 18
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] - 6
+                    elseif k == 3 then
+                        set Arcana_Cri[pid] = Arcana_Cri[pid] + 21
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] - 6
+                    endif
+                endif
+                //예둔
+                if i == 10 then
+                    if k == 1 then
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 36
+                    elseif k == 2 then
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 44
+                    elseif k == 3 then
+                        set Arcana_CriDeal[pid] = Arcana_CriDeal[pid] + 52
+                    endif
+                endif
+                // 원정 슈퍼 차지는 실제 각인 번호 5를 사용한다.
+                if (ExpMember[pid] and i == 5) or (not ExpMember[pid] and i == 10) then
+                    if k == 1 then
+                        set Arcana_ChargeSpeed[pid] = 1.32
+                    elseif k == 2 then
+                        set Arcana_ChargeSpeed[pid] = 1.40
+                    elseif k == 3 then
+                        set Arcana_ChargeSpeed[pid] = 1.48
+                    endif
+                endif
+                if GetLocalPlayer() == Player(pid) and j < 5 then
+                    if i < 9 then
+                        call DzFrameSetTexture(F_ArcanaBD[j], "Arcana00"+I2S(i+1)+".blp", 0)
+                    elseif i >= 9 then
+                        call DzFrameSetTexture(F_ArcanaBD[j], "Arcana0"+I2S(i+1)+".blp", 0)
+                    endif
+                    call DzFrameShow(F_ArcanaBD[j],true)
+                    call DzFrameSetText(F_ArcanaStatsText[4+j], "Lv " + I2S(k))
+                    set F_ArcanaCheck[j] = i
+                endif
+                set j = j + 1
+            endif
+        exitwhen i == 10
+            set i = i + 1
+        endloop
+
+        //패널티
+        set j = LoadInteger(ArcanaData, 50, pid)
+        if j == 0 then
+            call DzFrameSetText(F_ArcanaStatsText[0],"0%")
+        elseif j == 1 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[0],"0%")
+            endif
+        elseif j == 2 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00004%|r")
+            endif
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 4
+        elseif j == 3 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff00008%|r")
+            endif
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 8
+        elseif j == 4 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000016%|r")
+            endif
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 16
+        elseif j == 5 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana1[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana1[4], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[0], "|cffff000032%|r")
+            endif
+            set Equip_DamageP[pid] = Equip_DamageP[pid] - 32
+        endif
+
+        //체깎
+        set j = LoadInteger(ArcanaData, 51, pid)
+        if j == 0 then
+            call DzFrameSetText(F_ArcanaStatsText[1],"0%")
+        elseif j == 1 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[1],"0%")
+            endif
+        elseif j == 2 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000010%|r")
+            endif
+            set Arcana_HP[pid] = 0.90
+            call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
+        elseif j == 3 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000020%|r")
+            endif
+            set Arcana_HP[pid] = 0.80
+            call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
+        elseif j == 4 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000030%|r")
+            endif
+            set Arcana_HP[pid] = 0.70
+            call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
+        elseif j == 5 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana2[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana2[4], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[1], "|cffff000060%|r")
+            endif
+            set Arcana_HP[pid] = 0.40
+            call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid],UNIT_STATE_MAX_LIFE) * Arcana_HP[pid] )
+        endif
+        call RefreshHP(MainUnit[pid])
+
+        //공속
+        set j = LoadInteger(ArcanaData, 52, pid)
+        if j == 0 then
+            call DzFrameSetText(F_ArcanaStatsText[2],"0%")
+        elseif j == 1 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[2],"0%")
+            endif
+        elseif j == 2 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00004%|r")
+            endif
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 4
+        elseif j == 3 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff00008%|r")
+            endif
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 8
+        elseif j == 4 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff000016%|r")
+            endif
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 16
+        elseif j == 5 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana3[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana3[4], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[2], "|cffff000032%|r")
+            endif
+            set Arcana_SkillSpeed2[pid] = Arcana_SkillSpeed2[pid] - 32
+        endif
+        //이속
+        set j = LoadInteger(ArcanaData, 53, pid)
+        if j == 0 then
+            call DzFrameSetText(F_ArcanaStatsText[3],"0%")
+        elseif j == 1 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[3],"0%")
+            endif
+        elseif j == 2 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00004%|r")
+            endif
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 4
+        elseif j == 3 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff00008%|r")
+            endif
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 8
+        elseif j == 4 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff000016%|r")
+            endif
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 16
+        elseif j == 5 then
+            if GetLocalPlayer() == Player(pid) then
+                call DzFrameSetTexture(F_UIArcana4[0], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[1], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[2], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[3], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetTexture(F_UIArcana4[4], "UI_Arcana_Work4.blp", 0)
+                call DzFrameSetText(F_ArcanaStatsText[3], "|cffff000032%|r")
+            endif
+            set Arcana_MoveSpeed[pid] = Arcana_MoveSpeed[pid] - 32
+        endif
+
+        set Arcana_ChargeSpeed[pid] = Arcana_ChargeSpeed[pid] * RMaxBJ(0.20, 1.0 + ProtoStat(pid, PROTO_STAT_CHARGE_SPEED) / 100.0)
+        call SetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE, GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE) * RMaxBJ(0.20, 1.0 + ProtoStat(pid, PROTO_STAT_HEALTH) / 100.0))
+    endfunction
+                    
+    private function EquipON takes nothing returns nothing
+        local string s = JNStringSplit(DzGetTriggerSyncData(), "\t", 2)
+        set Eitem[S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0))][S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 1))] = s
+        call PlayerStatsSet( S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0)) )
+        call ItemUIStatsSet(GetPlayerId(DzGetTriggerSyncPlayer()))
+    endfunction
+    
+    private function EquipOFF takes nothing returns nothing
+        set Eitem[S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0))][S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 1))] = ""
+        call PlayerStatsSet( S2I(JNStringSplit(DzGetTriggerSyncData(), "\t", 0)) )
+        call ItemUIStatsSet(GetPlayerId(DzGetTriggerSyncPlayer()))
+    endfunction
+    
+    private function EquipReset takes nothing returns nothing
+        call JNWriteLog("[ARC-PICK-v1] client=" + I2S(GetPlayerId(GetLocalPlayer())) + " pid=" + I2S(GetPlayerId(DzGetTriggerSyncPlayer())) + " phase=reset-begin target=" + I2S(S2I(DzGetTriggerSyncData())))
+        call PlayerStatsSet( S2I(DzGetTriggerSyncData()) )
+        call ItemUIStatsSet(GetPlayerId(DzGetTriggerSyncPlayer()))
+        call JNWriteLog("[ARC-PICK-v1] client=" + I2S(GetPlayerId(GetLocalPlayer())) + " phase=reset-end")
+    endfunction
+    
+    
+    private function init takes nothing returns nothing
+        local trigger t
+        //리셋 싱크
+        set t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, "리셋",false)
+        call TriggerAddAction(t,function EquipReset)
+        
+        //장착 싱크
+        set t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, "장착",false)
+        call TriggerAddAction(t,function EquipON)
+        
+        //해제 싱크
+        set t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, "해제",false)
+        call TriggerAddAction(t,function EquipOFF)
+    endfunction
+endlibrary

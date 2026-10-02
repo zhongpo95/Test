@@ -43,7 +43,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
             set remainingDefense = targetDefense * (1.0 - penetrationRate)
             set defenseDamageRate = (1.0 - remainingDefense / (remainingDefense + 10000.0)) / 0.5
             // 조건부·대상별 피해는 상대와 전투 상황에 따라 달라 전투력 추정에서 제외한다.
-            return AttackPower(pid) * RMaxBJ(0.0, 1.0 + (Equip_ED[pid] + Equip_WDP[pid]) / 100.0) * RMaxBJ(0.0, Equip_DP[pid] + ProtoStat(pid, PROTO_STAT_DAMAGE) / 100.0) * (1.0 + critical * (Equip_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE) + 100.0) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (1.0 + FinalDamageBonus(pid) / 100.0)
+            return AttackPower(pid) * RMaxBJ(0.0, 1.0 + (Equip_ED[pid] + Equip_WDP[pid]) / 100.0) * RMaxBJ(0.0, Equip_DP[pid] + ProtoStat(pid, PROTO_STAT_DAMAGE) / 100.0) * (1.0 + critical * (Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE)) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (1.0 + FinalDamageBonus(pid) / 100.0)
         endif
 
         if penetrationRate < 0.0 then
@@ -71,7 +71,7 @@ library StatsSet initializer init requires UIHP, ITEM, DataArcana, Cooldown, Dat
         set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(9,LoadInteger(ArcanaData, 9, pid)) / 100))
         //예둔
         //set ArcanaRate = ArcanaRate * (1 + (GetItemCombatPower(10,LoadInteger(ArcanaData, 10, pid)) / 100))
-        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Equip_CriDeal[pid]+Arcana_CriDeal[pid]+ 100) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) * ArcanaRate
+        return Equip_Damage[pid] * (1.0 + Equip_DamageP[pid] / 100.0) * (1.0 + ((Equip_ED[pid] + Arcana_DP[pid] + Equip_WDP[pid]) / 100.0)) * (1.0 + critical * (Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid]) / 100.0) * (1.0 / cooldownRate) * defenseDamageRate * (Equip_DP[pid]) * (1.0 + Equip_LastDamage[pid] / 100.0) * ArcanaRate
     endfunction
 
 

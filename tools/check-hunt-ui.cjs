@@ -42,10 +42,12 @@ check('사건 희귀도는 최고 가능 보상의 등급이며 성공 확률은
   t.click(t.common(2101));assert(t.frame(e.ExpUIButtonLabels[e.UIExpeditionPrototype_BranchButtons[3]]).text.includes('성공 65%'));
 });
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
-  const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
+  const t=fresh(0,true),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));
+  assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[4]).text),'×1.50');
+  e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;
-  t.click(t.common(-e.EXP_UI_STATS));
-  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.50'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
+  t.render();
+  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.00'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
     assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[slot]).text),value);
     assert.equal(t.frame(e.UIPrototypeStatus_ActualValues[slot]).horizontal,5);
   }

@@ -465,7 +465,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "nondirectional_damage",
@@ -613,7 +613,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "damage_reduction",
@@ -641,7 +641,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "boss_damage_percent",

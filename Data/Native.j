@@ -103,7 +103,7 @@ private function init takes nothing returns nothing
     loop
         set Hero_Damage[pid] = 0
         set Hero_CriRate[pid] = 5
-        set Hero_CriDeal[pid] = 100
+        set Hero_CriDeal[pid] = 50
         //set Hero_Hp[pid] = 10000
         set Hero_Buff[pid] = 0
         set Hero_Buff2[pid] = 0

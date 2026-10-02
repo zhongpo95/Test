@@ -2,6 +2,9 @@
 'use strict';
 const fs = require('node:fs');
 const stats = new Set(['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity']);
+// 같은 수치 예산에서 치명 확률 1%p와 치명 피해 2%p를 대응시킨다.
+const critDamagePerChance = 2;
+const mainCritChance = [0,3,4,5,6];
 
 function inspect(input) {
   const data = input.parsed || input;
@@ -20,7 +23,8 @@ function inspect(input) {
   if (!data.world || !/^[a-z][a-z0-9_]*$/.test(data.world.key || '') || !data.world.name || !data.world.work) fail('world','작품의 key·이름·원작이 필요함');
   if (data.world?.key!=='common' && !cards.has(data.world?.entryCard)) fail('world','지역 입문 카드 참조 없음');
   const seen = new Set();
-  function effects(key, list) {
+  const mainCards = new Set(data.events.filter(e=>e.mainStage).flatMap(e=>(e.choices || []).flatMap(b=>[b.card,b.card2]).filter(Boolean)));
+  function effects(key, list, critChanceLimit = 2) {
     if (!Array.isArray(list)) {fail(key,'effects 배열이 없음');return;}
     const used = new Set();
     for (const effect of list) {
@@ -28,6 +32,8 @@ function inspect(input) {
       if (used.has(effect.stat)) fail(key,'같은 스탯을 한 효과 목록에 중복 정의함');
       used.add(effect.stat);
       if (!stats.has(effect.stat) || !Number.isFinite(effect.value)) fail(key,'허용되지 않은 스탯 또는 비정상 수치');
+      if (effect.stat==='crit_chance' && effect.value>critChanceLimit) fail(key,'치명 확률이 현재 보상 수치 기준을 초과함');
+      if (effect.stat==='crit_damage' && effect.value>critChanceLimit*critDamagePerChance) fail(key,'치명 피해가 치명 확률 1 대 2의 보상 수치 기준을 초과함');
       if (['regeneration','leech','kill_gold','event_choices'].includes(effect.stat) && effect.value < 0) fail(key,'음수로 구현하지 않는 수급·회복 스탯');
       if (effect.stat==='regeneration' && effect.value>1) warnings.push({key,reason:'카드 하나의 초당 재생이 최대체력 1%를 넘음. 별도 밸런스 검토 필요'});
       if (effect.stat==='swift' && effect.value!==0 && Math.abs(effect.value)<45) warnings.push({key,reason:'신속은 고정 수치다. '+effect.value+'는 행동 속도 '+(effect.value/45).toFixed(3)+'%, 쿨타임 감소 '+(effect.value/46).toFixed(3)+'%p에 해당하므로 단위와 선택 가치를 재검토해야 함'});
@@ -39,7 +45,8 @@ function inspect(input) {
   effects('world',data.world?.effects || [data.world?.bonus]);
   for (const [key, card] of cards) {
     if (!card.name || !card.effectName || !card.keyword || !Number.isInteger(card.grade) || card.grade<1 || card.grade>4 || card.choices) fail(key,'카드 필수 필드 누락 또는 사건 객체가 cards에 들어감');
-    effects(key,card.effects);
+    const critChanceLimit = mainCards.has(key) ? mainCritChance[card.grade] : 2;
+    effects(key,card.effects,critChanceLimit);
     if (!card.evolution || ![0,1,2,3].includes(card.evolution.kind)) {fail(key,'각성 kind는 없음·처치·실제피해·연속무피격 중 하나여야 함');continue;}
     effects(key,card.evolution.effects);
     if (card.evolution.kind===0 && (card.evolution.goal!==0 || card.evolution.effects?.length)) fail(key,'각성 없음인데 목표 또는 효과가 존재함');

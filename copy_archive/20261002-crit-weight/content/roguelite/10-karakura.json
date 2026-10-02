@@ -7,7 +7,7 @@
     "effects": [
       {
         "stat": "crit_damage",
-        "value": 4
+        "value": 6
       }
     ],
     "entryCard": "bl_kon",
@@ -271,7 +271,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -423,7 +423,7 @@
         },
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "attack_percent",
@@ -491,7 +491,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 8
         },
         {
           "stat": "nondirectional_damage",
@@ -667,7 +667,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "crit_chance",
@@ -715,7 +715,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -743,7 +743,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "crit_chance",
@@ -791,7 +791,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -819,7 +819,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "crit_chance",
@@ -867,7 +867,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 4
+          "value": 10
         },
         {
           "stat": "attack_percent",
@@ -895,7 +895,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -943,7 +943,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -971,7 +971,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1019,7 +1019,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1047,7 +1047,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1095,7 +1095,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1123,7 +1123,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1171,7 +1171,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1199,7 +1199,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1247,7 +1247,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1275,7 +1275,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1323,7 +1323,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1351,7 +1351,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1399,7 +1399,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1427,7 +1427,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "crit_chance",
@@ -1475,7 +1475,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 6
+          "value": 14
         },
         {
           "stat": "attack_percent",
@@ -1503,7 +1503,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 22
         },
         {
           "stat": "crit_chance",
@@ -1551,7 +1551,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1579,7 +1579,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 22
         },
         {
           "stat": "crit_chance",
@@ -1627,7 +1627,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1655,7 +1655,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 22
         },
         {
           "stat": "crit_chance",
@@ -1703,7 +1703,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1731,7 +1731,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 10
+          "value": 22
         },
         {
           "stat": "crit_chance",
@@ -1779,7 +1779,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "attack_percent",
@@ -1807,7 +1807,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 28
         },
         {
           "stat": "crit_chance",
@@ -1863,7 +1863,7 @@
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 8
+          "value": 18
         },
         {
           "stat": "attack_percent",

@@ -1,0 +1,876 @@
+{
+  "sourceCommit": "ded728b7fd386d36e07a387eb5ab6fa56e02ce0f",
+  "reason": "기본 치명타 추가 피해 50%와 치명 확률 1 대 치명 피해 2의 보상 수치 기준으로 변경하기 전 원본. 누적 치명 피해가 과도했던 기존 수치는 폐기하고 보존함.",
+  "files": [
+    {
+      "path": "content/roguelite/01-fuyuki.json",
+      "sha256": "d91d8c972e2288806838e191a02c6453402edea9ae810960f96064b1bb97ecfd"
+    },
+    {
+      "path": "content/roguelite/02-axel.json",
+      "sha256": "4165d70110cf4c060ec1cf9b5c99c9a16ee1015f91f9c2752ccfb9b53803a3a8"
+    },
+    {
+      "path": "content/roguelite/03-abydos.json",
+      "sha256": "da91c0df87b1e73ef538774c591b7a764b8b08c7c09f93f98a12aad973991138"
+    },
+    {
+      "path": "content/roguelite/04-academy.json",
+      "sha256": "888bc834cdfe450e384e7bca3a526964590c1fa7ddfc881f65646de99e914175"
+    },
+    {
+      "path": "content/roguelite/05-mitakihara.json",
+      "sha256": "d80bd016baef11761f27245177a0548e872bc69361e6b3a8a4e76bbcb64f7101"
+    },
+    {
+      "path": "content/roguelite/06-aincrad.json",
+      "sha256": "560e2d62e10905cbe4f8bb88ee641100dd974b0c1142f4ad089915e9f49d891a"
+    },
+    {
+      "path": "content/roguelite/07-zegagrande.json",
+      "sha256": "027a37a85a678d731cca1c15b89ecc311e3afe2247e4a42c36978b31b0e685fe"
+    },
+    {
+      "path": "content/roguelite/08-common.json",
+      "sha256": "549eceff002c86b9f699ac9c65cda53419f88e8ed3f6f8c07d1befeb8204ad69"
+    },
+    {
+      "path": "content/roguelite/09-magnolia.json",
+      "sha256": "4b8f841d9a345d149787c3e529ca71441f49f1bbb40d185cbf6ddf5eba92d531"
+    },
+    {
+      "path": "content/roguelite/10-karakura.json",
+      "sha256": "021ce113a1a8943a80a03cdb366179c17fbc7c8ce87ddba56accdae5880c8b8b"
+    },
+    {
+      "path": "content/roguelite/11-penacony.json",
+      "sha256": "f7f428ca3e56bc1a434a44ab8c5bd16cb4d3df5417f3075b40c35ef45361f774"
+    },
+    {
+      "path": "content/roguelite/12-amestris.json",
+      "sha256": "764ef6d1c6261b22d2e623ee356a92cd48856f0f7522833d41854c8065591c82"
+    },
+    {
+      "path": "content/roguelite/13-butterfly.json",
+      "sha256": "6d1a820353c242eb47421d14579d6b4bfb7913ce7c9009d07a449c0419b4cd5b"
+    },
+    {
+      "path": "Data/Native.j",
+      "sha256": "9e45a0043fa15f80629c9d000756140d21198af85261cf33056011022b134779"
+    },
+    {
+      "path": "System/StatsSetting.j",
+      "sha256": "71333f6eb2c7b883ca2530af9b02797cd410c51315001005c0ca3500a9d5e9b9"
+    },
+    {
+      "path": "tools/check-content-candidates.cjs",
+      "sha256": "47758b011400ec426d6831d359d84961b245f89bab67fdc8b80f26905c681086"
+    },
+    {
+      "path": "md/roguelite/메인 스토리 재설계 작업 기록.md",
+      "sha256": "d5d215c2c72f2f981333bf3802e91e5adc94acae33d93c8d356c1de33bdc1158"
+    },
+    {
+      "path": "md/roguelite/카드 능력치 단위와 검토 기준.md",
+      "sha256": "291bd789a19f0750ccfa5f38c16e6e488429a9ad96354066ce3e2abe8bdf09d9"
+    }
+  ],
+  "changes": [
+    {
+      "key": "archer_pragmatism",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "assassin_spacing",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "axel_chris_trace",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "axel_yunyun_gap",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "ab68_mutsuki_envelope",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "abydos_ayane_blank",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "ab68_mutsuki_watch",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "academy_mikoto_keepsake",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "academy_mikoto_curtain",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "academy_tessou_seat",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "academy_tessou_interval",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "academy_uiharu_list",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "madoka_kyoko_unshared",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "madoka_homura_retreat",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "aincrad",
+      "kind": "head",
+      "from": 6,
+      "to": 4
+    },
+    {
+      "key": "sao_asuna_dispatch",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "sao_argo_return",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "sao_liz_shards",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "sao_nishida_pause",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "sao_argo_sketch",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "aincrad_main_01_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_01_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "aincrad_main_02_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_02_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "aincrad_main_03_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_03_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "aincrad_main_04_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_04_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_05_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_05_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_06_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_06_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_07_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_07_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_08_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_08_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_09_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_09_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_10_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_10_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "aincrad_main_11_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "aincrad_main_11_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_12_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "aincrad_main_12_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_13_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "aincrad_main_13_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "aincrad_main_14_1",
+      "kind": "card",
+      "grade": 4,
+      "from": 28,
+      "to": 12
+    },
+    {
+      "key": "aincrad_main_14_3",
+      "kind": "card",
+      "grade": 4,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "gbf_eugen",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "gbf_percival_tie",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "common_holo_wit",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "ft_mirajane_visitors",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "ft_laxus_reply",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "ft_gray_joint",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "karakura",
+      "kind": "head",
+      "from": 6,
+      "to": 4
+    },
+    {
+      "key": "bl_uryu_stitch",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "bl_ururu_lift",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "bl_uryu_fold",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "karakura_main_01_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_01_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "karakura_main_02_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_02_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "karakura_main_03_1",
+      "kind": "card",
+      "grade": 1,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_03_3",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 4
+    },
+    {
+      "key": "karakura_main_04_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_04_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_05_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_05_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_06_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_06_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_07_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_07_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_08_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_08_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_09_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_09_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_10_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_10_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_11_1",
+      "kind": "card",
+      "grade": 2,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_11_3",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 6
+    },
+    {
+      "key": "karakura_main_12_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "karakura_main_12_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_13_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "karakura_main_13_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_14_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "karakura_main_14_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_15_1",
+      "kind": "card",
+      "grade": 3,
+      "from": 22,
+      "to": 10
+    },
+    {
+      "key": "karakura_main_15_3",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "karakura_main_16_1",
+      "kind": "card",
+      "grade": 4,
+      "from": 28,
+      "to": 12
+    },
+    {
+      "key": "karakura_main_16_3",
+      "kind": "card",
+      "grade": 4,
+      "from": 18,
+      "to": 8
+    },
+    {
+      "key": "hsr_aventurine_fortune",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_aventurine_reserve",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_sparkle",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_aventurine_scattered",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_sparkle_cut",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_boothill_caption",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_jade_limit",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "hsr_main_01_2",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 6
+    },
+    {
+      "key": "hsr_main_02_2",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 6
+    },
+    {
+      "key": "hsr_main_03_2",
+      "kind": "card",
+      "grade": 1,
+      "from": 10,
+      "to": 6
+    },
+    {
+      "key": "hsr_main_04_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_05_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_06_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_07_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_08_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_09_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_10_2",
+      "kind": "card",
+      "grade": 2,
+      "from": 14,
+      "to": 8
+    },
+    {
+      "key": "hsr_main_11_2",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 10
+    },
+    {
+      "key": "hsr_main_12_2",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 10
+    },
+    {
+      "key": "hsr_main_13_2",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 10
+    },
+    {
+      "key": "hsr_main_14_2",
+      "kind": "card",
+      "grade": 3,
+      "from": 18,
+      "to": 10
+    },
+    {
+      "key": "hsr_main_15_2",
+      "kind": "card",
+      "grade": 4,
+      "from": 24,
+      "to": 12
+    },
+    {
+      "key": "fma_winry_verify",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    },
+    {
+      "key": "kny_zenitsu",
+      "kind": "card",
+      "grade": 1,
+      "from": 8,
+      "to": 4
+    }
+  ]
+}

@@ -145,7 +145,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[17] = 0
         set ProtoEvolutionGoal[17] = 0.00
         call ProtoSetEffect(17, 4, 4.00, false)
-        call ProtoSetEffect(17, 7, 8.00, false)
+        call ProtoSetEffect(17, 7, 4.00, false)
         call ProtoSetEffect(17, 1, 2.00, false)
         set ProtoCardKey[18] = "assassin_spacing"
         set ProtoCardName[18] = "어새신"
@@ -155,7 +155,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[18] = 1
         set ProtoEvolutionKind[18] = 0
         set ProtoEvolutionGoal[18] = 0.00
-        call ProtoSetEffect(18, 7, 8.00, false)
+        call ProtoSetEffect(18, 7, 4.00, false)
         call ProtoSetEffect(18, 8, 90.00, false)
         call ProtoSetEffect(18, 1, 2.00, false)
         set ProtoCardKey[19] = "sakura_meal"
@@ -2559,7 +2559,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[102] = 0
         set ProtoEvolutionGoal[102] = 0.00
         call ProtoSetEffect(102, 8, 90.00, false)
-        call ProtoSetEffect(102, 7, 8.00, false)
+        call ProtoSetEffect(102, 7, 4.00, false)
         call ProtoSetEffect(102, 1, 2.00, false)
         set ProtoCardKey[103] = "axel_kazuma_share"
         set ProtoCardName[103] = "사토 카즈마"
@@ -2612,7 +2612,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[107] = 0
         set ProtoEvolutionGoal[107] = 0.00
         call ProtoSetEffect(107, 11, 4.00, false)
-        call ProtoSetEffect(107, 7, 8.00, false)
+        call ProtoSetEffect(107, 7, 4.00, false)
         call ProtoSetEffect(107, 1, 2.00, false)
         set ProtoCardKey[108] = "axel_darkness_position"
         set ProtoCardName[108] = "다크니스"
@@ -4594,7 +4594,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[164] = 1
         set ProtoEvolutionKind[164] = 0
         set ProtoEvolutionGoal[164] = 0.00
-        call ProtoSetEffect(164, 7, 8.00, false)
+        call ProtoSetEffect(164, 7, 4.00, false)
         call ProtoSetEffect(164, 21, 4.00, false)
         call ProtoSetEffect(164, 1, 2.00, false)
         set ProtoCardKey[165] = "ab68_aru_task"
@@ -4655,7 +4655,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[170] = 1
         set ProtoEvolutionKind[170] = 0
         set ProtoEvolutionGoal[170] = 0.00
-        call ProtoSetEffect(170, 7, 8.00, false)
+        call ProtoSetEffect(170, 7, 4.00, false)
         call ProtoSetEffect(170, 14, 2.00, false)
         call ProtoSetEffect(170, 1, 2.00, false)
         set ProtoCardKey[171] = "ab68_mutsuki_watch"
@@ -4666,7 +4666,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[171] = 1
         set ProtoEvolutionKind[171] = 0
         set ProtoEvolutionGoal[171] = 0.00
-        call ProtoSetEffect(171, 7, 8.00, false)
+        call ProtoSetEffect(171, 7, 4.00, false)
         call ProtoSetEffect(171, 4, 4.00, false)
         call ProtoSetEffect(171, 1, 2.00, false)
         set ProtoCardKey[172] = "ab68_kayoko_interval"
@@ -6792,7 +6792,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[228] = 1
         set ProtoEvolutionKind[228] = 0
         set ProtoEvolutionGoal[228] = 0.00
-        call ProtoSetEffect(228, 7, 8.00, false)
+        call ProtoSetEffect(228, 7, 4.00, false)
         call ProtoSetEffect(228, 13, 4.00, false)
         call ProtoSetEffect(228, 1, 2.00, false)
         set ProtoCardKey[229] = "academy_uiharu_break"
@@ -6897,7 +6897,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[238] = 0
         set ProtoEvolutionGoal[238] = 0.00
         call ProtoSetEffect(238, 23, 4.00, false)
-        call ProtoSetEffect(238, 7, 8.00, false)
+        call ProtoSetEffect(238, 7, 4.00, false)
         call ProtoSetEffect(238, 1, 2.00, false)
         set ProtoCardKey[239] = "academy_mikoto_drink"
         set ProtoCardName[239] = "미사카 미코토"
@@ -6969,7 +6969,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[245] = 0
         set ProtoEvolutionGoal[245] = 0.00
         call ProtoSetEffect(245, 13, 4.00, false)
-        call ProtoSetEffect(245, 7, 8.00, false)
+        call ProtoSetEffect(245, 7, 4.00, false)
         call ProtoSetEffect(245, 1, 2.00, false)
         set ProtoCardKey[246] = "academy_tessou_interval"
         set ProtoCardName[246] = "테츠소 츠즈리"
@@ -6980,7 +6980,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[246] = 0
         set ProtoEvolutionGoal[246] = 0.00
         call ProtoSetEffect(246, 11, 4.00, false)
-        call ProtoSetEffect(246, 7, 8.00, false)
+        call ProtoSetEffect(246, 7, 4.00, false)
         call ProtoSetEffect(246, 1, 2.00, false)
         set ProtoCardKey[247] = "academy_uiharu_list"
         set ProtoCardName[247] = "우이하루 카자리"
@@ -6990,7 +6990,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[247] = 1
         set ProtoEvolutionKind[247] = 0
         set ProtoEvolutionGoal[247] = 0.00
-        call ProtoSetEffect(247, 7, 8.00, false)
+        call ProtoSetEffect(247, 7, 4.00, false)
         call ProtoSetEffect(247, 24, 4.00, false)
         call ProtoSetEffect(247, 1, 2.00, false)
         set ProtoCardKey[248] = "academy_uiharu_plan"
@@ -9347,7 +9347,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[310] = 0
         set ProtoEvolutionGoal[310] = 0.00
         call ProtoSetEffect(310, 8, 90.00, false)
-        call ProtoSetEffect(310, 7, 8.00, false)
+        call ProtoSetEffect(310, 7, 4.00, false)
         call ProtoSetEffect(310, 1, 2.00, false)
         set ProtoCardKey[311] = "madoka_homura_retreat"
         set ProtoCardName[311] = "아케미 호무라"
@@ -9357,7 +9357,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[311] = 1
         set ProtoEvolutionKind[311] = 0
         set ProtoEvolutionGoal[311] = 0.00
-        call ProtoSetEffect(311, 7, 8.00, false)
+        call ProtoSetEffect(311, 7, 4.00, false)
         call ProtoSetEffect(311, 5, 5.00, false)
         call ProtoSetEffect(311, 1, 2.00, false)
         set ProtoCardKey[312] = "madoka_sayaka_carry"
@@ -11096,7 +11096,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadIcon[6] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoHeadEntryCard[6] = 357
         set ProtoHeadMainLength[6] = 14
-        call SaveReal(ProtoHeadEffectData, 6, 7, 6.00)
+        call SaveReal(ProtoHeadEffectData, 6, 7, 4.00)
         set ProtoEventKey[21] = "aincrad_entry_0"
         set ProtoEventName[21] = "아인크라드 방문"
         set ProtoEventHead[21] = 6
@@ -11267,7 +11267,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[369] = 0
         set ProtoEvolutionGoal[369] = 0.00
         call ProtoSetEffect(369, 4, 4.00, false)
-        call ProtoSetEffect(369, 7, 8.00, false)
+        call ProtoSetEffect(369, 7, 4.00, false)
         call ProtoSetEffect(369, 1, 2.00, false)
         set ProtoCardKey[370] = "sao_argo_question"
         set ProtoCardName[370] = "아르고"
@@ -11319,7 +11319,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[374] = 0
         set ProtoEvolutionGoal[374] = 0.00
         call ProtoSetEffect(374, 5, 5.00, false)
-        call ProtoSetEffect(374, 7, 8.00, false)
+        call ProtoSetEffect(374, 7, 4.00, false)
         call ProtoSetEffect(374, 1, 2.00, false)
         set ProtoCardKey[375] = "sao_liz_shards"
         set ProtoCardName[375] = "리즈벳"
@@ -11329,7 +11329,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[375] = 1
         set ProtoEvolutionKind[375] = 0
         set ProtoEvolutionGoal[375] = 0.00
-        call ProtoSetEffect(375, 7, 8.00, false)
+        call ProtoSetEffect(375, 7, 4.00, false)
         call ProtoSetEffect(375, 12, 4.00, false)
         call ProtoSetEffect(375, 1, 2.00, false)
         set ProtoCardKey[376] = "sao_klein_carry"
@@ -11381,7 +11381,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[380] = 0
         set ProtoEvolutionGoal[380] = 0.00
         call ProtoSetEffect(380, 16, 0.20, false)
-        call ProtoSetEffect(380, 7, 8.00, false)
+        call ProtoSetEffect(380, 7, 4.00, false)
         call ProtoSetEffect(380, 1, 2.00, false)
         set ProtoCardKey[381] = "sao_nishida_next"
         set ProtoCardName[381] = "니시다"
@@ -11401,7 +11401,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[382] = 1
         set ProtoEvolutionKind[382] = 0
         set ProtoEvolutionGoal[382] = 0.00
-        call ProtoSetEffect(382, 7, 8.00, false)
+        call ProtoSetEffect(382, 7, 4.00, false)
         call ProtoSetEffect(382, 19, 4.00, false)
         call ProtoSetEffect(382, 1, 2.00, false)
         set ProtoCardKey[383] = "aincrad_main_01_1"
@@ -11412,7 +11412,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[383] = 1
         set ProtoEvolutionKind[383] = 0
         set ProtoEvolutionGoal[383] = 0.00
-        call ProtoSetEffect(383, 7, 14.00, false)
+        call ProtoSetEffect(383, 7, 6.00, false)
         call ProtoSetEffect(383, 6, 2.00, false)
         set ProtoCardKey[384] = "aincrad_main_01_2"
         set ProtoCardName[384] = "키리토"
@@ -11431,7 +11431,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[385] = 1
         set ProtoEvolutionKind[385] = 0
         set ProtoEvolutionGoal[385] = 0.00
-        call ProtoSetEffect(385, 7, 10.00, false)
+        call ProtoSetEffect(385, 7, 4.00, false)
         call ProtoSetEffect(385, 1, 2.00, false)
         call ProtoSetEffect(385, 14, 2.00, false)
         set ProtoCardKey[386] = "aincrad_main_02_1"
@@ -11442,7 +11442,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[386] = 1
         set ProtoEvolutionKind[386] = 0
         set ProtoEvolutionGoal[386] = 0.00
-        call ProtoSetEffect(386, 7, 14.00, false)
+        call ProtoSetEffect(386, 7, 6.00, false)
         call ProtoSetEffect(386, 6, 2.00, false)
         set ProtoCardKey[387] = "aincrad_main_02_2"
         set ProtoCardName[387] = "아스나"
@@ -11461,7 +11461,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[388] = 1
         set ProtoEvolutionKind[388] = 0
         set ProtoEvolutionGoal[388] = 0.00
-        call ProtoSetEffect(388, 7, 10.00, false)
+        call ProtoSetEffect(388, 7, 4.00, false)
         call ProtoSetEffect(388, 1, 2.00, false)
         call ProtoSetEffect(388, 14, 2.00, false)
         set ProtoCardKey[389] = "aincrad_main_03_1"
@@ -11472,7 +11472,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[389] = 1
         set ProtoEvolutionKind[389] = 0
         set ProtoEvolutionGoal[389] = 0.00
-        call ProtoSetEffect(389, 7, 14.00, false)
+        call ProtoSetEffect(389, 7, 6.00, false)
         call ProtoSetEffect(389, 6, 2.00, false)
         set ProtoCardKey[390] = "aincrad_main_03_2"
         set ProtoCardName[390] = "사치"
@@ -11491,7 +11491,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[391] = 1
         set ProtoEvolutionKind[391] = 0
         set ProtoEvolutionGoal[391] = 0.00
-        call ProtoSetEffect(391, 7, 10.00, false)
+        call ProtoSetEffect(391, 7, 4.00, false)
         call ProtoSetEffect(391, 1, 2.00, false)
         call ProtoSetEffect(391, 14, 2.00, false)
         set ProtoCardKey[392] = "aincrad_main_04_1"
@@ -11502,7 +11502,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[392] = 2
         set ProtoEvolutionKind[392] = 0
         set ProtoEvolutionGoal[392] = 0.00
-        call ProtoSetEffect(392, 7, 18.00, false)
+        call ProtoSetEffect(392, 7, 8.00, false)
         call ProtoSetEffect(392, 6, 3.00, false)
         set ProtoCardKey[393] = "aincrad_main_04_2"
         set ProtoCardName[393] = "키리토"
@@ -11521,7 +11521,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[394] = 2
         set ProtoEvolutionKind[394] = 0
         set ProtoEvolutionGoal[394] = 0.00
-        call ProtoSetEffect(394, 7, 14.00, false)
+        call ProtoSetEffect(394, 7, 6.00, false)
         call ProtoSetEffect(394, 1, 3.00, false)
         call ProtoSetEffect(394, 14, 3.00, false)
         set ProtoCardKey[395] = "aincrad_main_05_1"
@@ -11532,7 +11532,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[395] = 2
         set ProtoEvolutionKind[395] = 0
         set ProtoEvolutionGoal[395] = 0.00
-        call ProtoSetEffect(395, 7, 18.00, false)
+        call ProtoSetEffect(395, 7, 8.00, false)
         call ProtoSetEffect(395, 6, 3.00, false)
         set ProtoCardKey[396] = "aincrad_main_05_2"
         set ProtoCardName[396] = "시리카"
@@ -11551,7 +11551,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[397] = 2
         set ProtoEvolutionKind[397] = 0
         set ProtoEvolutionGoal[397] = 0.00
-        call ProtoSetEffect(397, 7, 14.00, false)
+        call ProtoSetEffect(397, 7, 6.00, false)
         call ProtoSetEffect(397, 1, 3.00, false)
         call ProtoSetEffect(397, 14, 3.00, false)
         set ProtoCardKey[398] = "aincrad_main_06_1"
@@ -11562,7 +11562,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[398] = 2
         set ProtoEvolutionKind[398] = 0
         set ProtoEvolutionGoal[398] = 0.00
-        call ProtoSetEffect(398, 7, 18.00, false)
+        call ProtoSetEffect(398, 7, 8.00, false)
         call ProtoSetEffect(398, 6, 3.00, false)
         set ProtoCardKey[399] = "aincrad_main_06_2"
         set ProtoCardName[399] = "아스나"
@@ -11581,7 +11581,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[400] = 2
         set ProtoEvolutionKind[400] = 0
         set ProtoEvolutionGoal[400] = 0.00
-        call ProtoSetEffect(400, 7, 14.00, false)
+        call ProtoSetEffect(400, 7, 6.00, false)
         call ProtoSetEffect(400, 1, 3.00, false)
         call ProtoSetEffect(400, 14, 3.00, false)
         set ProtoCardKey[401] = "aincrad_main_07_1"
@@ -11592,7 +11592,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[401] = 2
         set ProtoEvolutionKind[401] = 0
         set ProtoEvolutionGoal[401] = 0.00
-        call ProtoSetEffect(401, 7, 18.00, false)
+        call ProtoSetEffect(401, 7, 8.00, false)
         call ProtoSetEffect(401, 6, 3.00, false)
         set ProtoCardKey[402] = "aincrad_main_07_2"
         set ProtoCardName[402] = "리즈벳"
@@ -11611,7 +11611,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[403] = 2
         set ProtoEvolutionKind[403] = 0
         set ProtoEvolutionGoal[403] = 0.00
-        call ProtoSetEffect(403, 7, 14.00, false)
+        call ProtoSetEffect(403, 7, 6.00, false)
         call ProtoSetEffect(403, 1, 3.00, false)
         call ProtoSetEffect(403, 14, 3.00, false)
         set ProtoCardKey[404] = "aincrad_main_08_1"
@@ -11622,7 +11622,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[404] = 2
         set ProtoEvolutionKind[404] = 0
         set ProtoEvolutionGoal[404] = 0.00
-        call ProtoSetEffect(404, 7, 18.00, false)
+        call ProtoSetEffect(404, 7, 8.00, false)
         call ProtoSetEffect(404, 6, 3.00, false)
         set ProtoCardKey[405] = "aincrad_main_08_2"
         set ProtoCardName[405] = "아스나"
@@ -11641,7 +11641,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[406] = 2
         set ProtoEvolutionKind[406] = 0
         set ProtoEvolutionGoal[406] = 0.00
-        call ProtoSetEffect(406, 7, 14.00, false)
+        call ProtoSetEffect(406, 7, 6.00, false)
         call ProtoSetEffect(406, 1, 3.00, false)
         call ProtoSetEffect(406, 14, 3.00, false)
         set ProtoCardKey[407] = "aincrad_main_09_1"
@@ -11652,7 +11652,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[407] = 2
         set ProtoEvolutionKind[407] = 0
         set ProtoEvolutionGoal[407] = 0.00
-        call ProtoSetEffect(407, 7, 18.00, false)
+        call ProtoSetEffect(407, 7, 8.00, false)
         call ProtoSetEffect(407, 6, 3.00, false)
         set ProtoCardKey[408] = "aincrad_main_09_2"
         set ProtoCardName[408] = "키리토"
@@ -11671,7 +11671,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[409] = 2
         set ProtoEvolutionKind[409] = 0
         set ProtoEvolutionGoal[409] = 0.00
-        call ProtoSetEffect(409, 7, 14.00, false)
+        call ProtoSetEffect(409, 7, 6.00, false)
         call ProtoSetEffect(409, 1, 3.00, false)
         call ProtoSetEffect(409, 14, 3.00, false)
         set ProtoCardKey[410] = "aincrad_main_10_1"
@@ -11682,7 +11682,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[410] = 2
         set ProtoEvolutionKind[410] = 0
         set ProtoEvolutionGoal[410] = 0.00
-        call ProtoSetEffect(410, 7, 18.00, false)
+        call ProtoSetEffect(410, 7, 8.00, false)
         call ProtoSetEffect(410, 6, 3.00, false)
         set ProtoCardKey[411] = "aincrad_main_10_2"
         set ProtoCardName[411] = "아스나"
@@ -11701,7 +11701,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[412] = 2
         set ProtoEvolutionKind[412] = 0
         set ProtoEvolutionGoal[412] = 0.00
-        call ProtoSetEffect(412, 7, 14.00, false)
+        call ProtoSetEffect(412, 7, 6.00, false)
         call ProtoSetEffect(412, 1, 3.00, false)
         call ProtoSetEffect(412, 14, 3.00, false)
         set ProtoCardKey[413] = "aincrad_main_11_1"
@@ -11712,7 +11712,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[413] = 3
         set ProtoEvolutionKind[413] = 0
         set ProtoEvolutionGoal[413] = 0.00
-        call ProtoSetEffect(413, 7, 22.00, false)
+        call ProtoSetEffect(413, 7, 10.00, false)
         call ProtoSetEffect(413, 6, 3.00, false)
         set ProtoCardKey[414] = "aincrad_main_11_2"
         set ProtoCardName[414] = "유이"
@@ -11731,7 +11731,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[415] = 3
         set ProtoEvolutionKind[415] = 0
         set ProtoEvolutionGoal[415] = 0.00
-        call ProtoSetEffect(415, 7, 18.00, false)
+        call ProtoSetEffect(415, 7, 8.00, false)
         call ProtoSetEffect(415, 1, 4.00, false)
         call ProtoSetEffect(415, 14, 4.00, false)
         set ProtoCardKey[416] = "aincrad_main_12_1"
@@ -11742,7 +11742,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[416] = 3
         set ProtoEvolutionKind[416] = 0
         set ProtoEvolutionGoal[416] = 0.00
-        call ProtoSetEffect(416, 7, 22.00, false)
+        call ProtoSetEffect(416, 7, 10.00, false)
         call ProtoSetEffect(416, 6, 3.00, false)
         set ProtoCardKey[417] = "aincrad_main_12_2"
         set ProtoCardName[417] = "키리토"
@@ -11761,7 +11761,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[418] = 3
         set ProtoEvolutionKind[418] = 0
         set ProtoEvolutionGoal[418] = 0.00
-        call ProtoSetEffect(418, 7, 18.00, false)
+        call ProtoSetEffect(418, 7, 8.00, false)
         call ProtoSetEffect(418, 1, 4.00, false)
         call ProtoSetEffect(418, 14, 4.00, false)
         set ProtoCardKey[419] = "aincrad_main_13_1"
@@ -11772,7 +11772,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[419] = 3
         set ProtoEvolutionKind[419] = 0
         set ProtoEvolutionGoal[419] = 0.00
-        call ProtoSetEffect(419, 7, 22.00, false)
+        call ProtoSetEffect(419, 7, 10.00, false)
         call ProtoSetEffect(419, 6, 3.00, false)
         set ProtoCardKey[420] = "aincrad_main_13_2"
         set ProtoCardName[420] = "키리토"
@@ -11791,7 +11791,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[421] = 3
         set ProtoEvolutionKind[421] = 0
         set ProtoEvolutionGoal[421] = 0.00
-        call ProtoSetEffect(421, 7, 18.00, false)
+        call ProtoSetEffect(421, 7, 8.00, false)
         call ProtoSetEffect(421, 1, 4.00, false)
         call ProtoSetEffect(421, 14, 4.00, false)
         set ProtoCardKey[422] = "aincrad_main_14_1"
@@ -11802,7 +11802,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[422] = 4
         set ProtoEvolutionKind[422] = 0
         set ProtoEvolutionGoal[422] = 0.00
-        call ProtoSetEffect(422, 7, 28.00, false)
+        call ProtoSetEffect(422, 7, 12.00, false)
         call ProtoSetEffect(422, 6, 4.00, false)
         call ProtoSetEffect(422, 3, 4.00, false)
         set ProtoCardKey[423] = "aincrad_main_14_2"
@@ -11823,7 +11823,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[424] = 4
         set ProtoEvolutionKind[424] = 0
         set ProtoEvolutionGoal[424] = 0.00
-        call ProtoSetEffect(424, 7, 18.00, false)
+        call ProtoSetEffect(424, 7, 8.00, false)
         call ProtoSetEffect(424, 1, 4.00, false)
         call ProtoSetEffect(424, 14, 6.00, false)
         call ProtoSetEffect(424, 3, 3.00, false)
@@ -13424,7 +13424,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[427] = 0
         set ProtoEvolutionGoal[427] = 0.00
         call ProtoSetEffect(427, 23, 4.00, false)
-        call ProtoSetEffect(427, 7, 8.00, false)
+        call ProtoSetEffect(427, 7, 4.00, false)
         call ProtoSetEffect(427, 1, 2.00, false)
         set ProtoCardKey[428] = "gbf_io"
         set ProtoCardName[428] = "이오"
@@ -13606,7 +13606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[445] = 0
         set ProtoEvolutionGoal[445] = 0.00
         call ProtoSetEffect(445, 1, 3.00, false)
-        call ProtoSetEffect(445, 7, 8.00, false)
+        call ProtoSetEffect(445, 7, 4.00, false)
         set ProtoCardKey[446] = "gbf_yodarha_spacing"
         set ProtoCardName[446] = "요달라하"
         set ProtoCardEffectName[446] = "서 있을 곳부터 비우기"
@@ -15371,7 +15371,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[495] = 0
         set ProtoEvolutionGoal[495] = 0.00
         call ProtoSetEffect(495, 4, 4.00, false)
-        call ProtoSetEffect(495, 7, 8.00, false)
+        call ProtoSetEffect(495, 7, 4.00, false)
         call ProtoSetEffect(495, 1, 2.00, false)
         set ProtoCardKey[496] = "common_ragna_eater"
         set ProtoCardName[496] = "라그나 더 블러드엣지"
@@ -16210,7 +16210,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[513] = 0
         set ProtoEvolutionGoal[513] = 0.00
         call ProtoSetEffect(513, 8, 90.00, false)
-        call ProtoSetEffect(513, 7, 8.00, false)
+        call ProtoSetEffect(513, 7, 4.00, false)
         call ProtoSetEffect(513, 1, 2.00, false)
         set ProtoCardKey[514] = "ft_laxus_reply"
         set ProtoCardName[514] = "렉서스 드레아"
@@ -16221,7 +16221,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[514] = 0
         set ProtoEvolutionGoal[514] = 0.00
         call ProtoSetEffect(514, 4, 4.00, false)
-        call ProtoSetEffect(514, 7, 8.00, false)
+        call ProtoSetEffect(514, 7, 4.00, false)
         call ProtoSetEffect(514, 1, -2.00, false)
         set ProtoCardKey[515] = "ft_gildarts_distance"
         set ProtoCardName[515] = "길다트 클라이브"
@@ -16251,7 +16251,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[517] = 1
         set ProtoEvolutionKind[517] = 0
         set ProtoEvolutionGoal[517] = 0.00
-        call ProtoSetEffect(517, 7, 8.00, false)
+        call ProtoSetEffect(517, 7, 4.00, false)
         call ProtoSetEffect(517, 21, 4.00, false)
         call ProtoSetEffect(517, 1, 2.00, false)
         set ProtoCardKey[518] = "ft_wendy_pace"
@@ -18229,7 +18229,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoHeadIcon[9] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoHeadEntryCard[9] = 570
         set ProtoHeadMainLength[9] = 16
-        call SaveReal(ProtoHeadEffectData, 9, 7, 6.00)
+        call SaveReal(ProtoHeadEffectData, 9, 7, 4.00)
         set ProtoEventKey[33] = "karakura_entry_0"
         set ProtoEventName[33] = "카라쿠라 마을 방문"
         set ProtoEventHead[33] = 9
@@ -18371,7 +18371,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[579] = 0
         set ProtoEvolutionGoal[579] = 0.00
         call ProtoSetEffect(579, 11, 4.00, false)
-        call ProtoSetEffect(579, 7, 8.00, false)
+        call ProtoSetEffect(579, 7, 4.00, false)
         call ProtoSetEffect(579, 1, 2.00, false)
         set ProtoCardKey[580] = "bl_yuzu_portion"
         set ProtoCardName[580] = "쿠로사키 유즈"
@@ -18433,7 +18433,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[585] = 0
         set ProtoEvolutionGoal[585] = 0.00
         call ProtoSetEffect(585, 23, 4.00, false)
-        call ProtoSetEffect(585, 7, 8.00, false)
+        call ProtoSetEffect(585, 7, 4.00, false)
         call ProtoSetEffect(585, 1, 2.00, false)
         set ProtoCardKey[586] = "bl_keigo_invitation"
         set ProtoCardName[586] = "아사노 케이고"
@@ -18462,7 +18462,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[588] = 1
         set ProtoEvolutionKind[588] = 0
         set ProtoEvolutionGoal[588] = 0.00
-        call ProtoSetEffect(588, 7, 8.00, false)
+        call ProtoSetEffect(588, 7, 4.00, false)
         call ProtoSetEffect(588, 21, 4.00, false)
         call ProtoSetEffect(588, 1, 2.00, false)
         set ProtoCardKey[589] = "bl_orihime_pause"
@@ -18534,7 +18534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[595] = 1
         set ProtoEvolutionKind[595] = 0
         set ProtoEvolutionGoal[595] = 0.00
-        call ProtoSetEffect(595, 7, 14.00, false)
+        call ProtoSetEffect(595, 7, 6.00, false)
         call ProtoSetEffect(595, 6, 2.00, false)
         set ProtoCardKey[596] = "karakura_main_01_2"
         set ProtoCardName[596] = "쿠치키 루키아"
@@ -18554,7 +18554,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[597] = 1
         set ProtoEvolutionKind[597] = 0
         set ProtoEvolutionGoal[597] = 0.00
-        call ProtoSetEffect(597, 7, 10.00, false)
+        call ProtoSetEffect(597, 7, 4.00, false)
         call ProtoSetEffect(597, 1, 2.00, false)
         call ProtoSetEffect(597, 14, 2.00, false)
         set ProtoCardKey[598] = "karakura_main_02_1"
@@ -18565,7 +18565,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[598] = 1
         set ProtoEvolutionKind[598] = 0
         set ProtoEvolutionGoal[598] = 0.00
-        call ProtoSetEffect(598, 7, 14.00, false)
+        call ProtoSetEffect(598, 7, 6.00, false)
         call ProtoSetEffect(598, 6, 2.00, false)
         set ProtoCardKey[599] = "karakura_main_02_2"
         set ProtoCardName[599] = "쿠로사키 이치고"
@@ -18585,7 +18585,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[600] = 1
         set ProtoEvolutionKind[600] = 0
         set ProtoEvolutionGoal[600] = 0.00
-        call ProtoSetEffect(600, 7, 10.00, false)
+        call ProtoSetEffect(600, 7, 4.00, false)
         call ProtoSetEffect(600, 1, 2.00, false)
         call ProtoSetEffect(600, 14, 2.00, false)
         set ProtoCardKey[601] = "karakura_main_03_1"
@@ -18596,7 +18596,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[601] = 1
         set ProtoEvolutionKind[601] = 0
         set ProtoEvolutionGoal[601] = 0.00
-        call ProtoSetEffect(601, 7, 14.00, false)
+        call ProtoSetEffect(601, 7, 6.00, false)
         call ProtoSetEffect(601, 6, 2.00, false)
         set ProtoCardKey[602] = "karakura_main_03_2"
         set ProtoCardName[602] = "이노우에 오리히메"
@@ -18616,7 +18616,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[603] = 1
         set ProtoEvolutionKind[603] = 0
         set ProtoEvolutionGoal[603] = 0.00
-        call ProtoSetEffect(603, 7, 10.00, false)
+        call ProtoSetEffect(603, 7, 4.00, false)
         call ProtoSetEffect(603, 1, 2.00, false)
         call ProtoSetEffect(603, 14, 2.00, false)
         set ProtoCardKey[604] = "karakura_main_04_1"
@@ -18627,7 +18627,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[604] = 2
         set ProtoEvolutionKind[604] = 0
         set ProtoEvolutionGoal[604] = 0.00
-        call ProtoSetEffect(604, 7, 18.00, false)
+        call ProtoSetEffect(604, 7, 8.00, false)
         call ProtoSetEffect(604, 6, 3.00, false)
         set ProtoCardKey[605] = "karakura_main_04_2"
         set ProtoCardName[605] = "쿠로사키 이치고"
@@ -18647,7 +18647,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[606] = 2
         set ProtoEvolutionKind[606] = 0
         set ProtoEvolutionGoal[606] = 0.00
-        call ProtoSetEffect(606, 7, 14.00, false)
+        call ProtoSetEffect(606, 7, 6.00, false)
         call ProtoSetEffect(606, 1, 3.00, false)
         call ProtoSetEffect(606, 14, 3.00, false)
         set ProtoCardKey[607] = "karakura_main_05_1"
@@ -18658,7 +18658,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[607] = 2
         set ProtoEvolutionKind[607] = 0
         set ProtoEvolutionGoal[607] = 0.00
-        call ProtoSetEffect(607, 7, 18.00, false)
+        call ProtoSetEffect(607, 7, 8.00, false)
         call ProtoSetEffect(607, 6, 3.00, false)
         set ProtoCardKey[608] = "karakura_main_05_2"
         set ProtoCardName[608] = "우라하라 키스케"
@@ -18678,7 +18678,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[609] = 2
         set ProtoEvolutionKind[609] = 0
         set ProtoEvolutionGoal[609] = 0.00
-        call ProtoSetEffect(609, 7, 14.00, false)
+        call ProtoSetEffect(609, 7, 6.00, false)
         call ProtoSetEffect(609, 1, 3.00, false)
         call ProtoSetEffect(609, 14, 3.00, false)
         set ProtoCardKey[610] = "karakura_main_06_1"
@@ -18689,7 +18689,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[610] = 2
         set ProtoEvolutionKind[610] = 0
         set ProtoEvolutionGoal[610] = 0.00
-        call ProtoSetEffect(610, 7, 18.00, false)
+        call ProtoSetEffect(610, 7, 8.00, false)
         call ProtoSetEffect(610, 6, 3.00, false)
         set ProtoCardKey[611] = "karakura_main_06_2"
         set ProtoCardName[611] = "시호인 요루이치"
@@ -18709,7 +18709,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[612] = 2
         set ProtoEvolutionKind[612] = 0
         set ProtoEvolutionGoal[612] = 0.00
-        call ProtoSetEffect(612, 7, 14.00, false)
+        call ProtoSetEffect(612, 7, 6.00, false)
         call ProtoSetEffect(612, 1, 3.00, false)
         call ProtoSetEffect(612, 14, 3.00, false)
         set ProtoCardKey[613] = "karakura_main_07_1"
@@ -18720,7 +18720,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[613] = 2
         set ProtoEvolutionKind[613] = 0
         set ProtoEvolutionGoal[613] = 0.00
-        call ProtoSetEffect(613, 7, 18.00, false)
+        call ProtoSetEffect(613, 7, 8.00, false)
         call ProtoSetEffect(613, 6, 3.00, false)
         set ProtoCardKey[614] = "karakura_main_07_2"
         set ProtoCardName[614] = "야마다 하나타로"
@@ -18740,7 +18740,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[615] = 2
         set ProtoEvolutionKind[615] = 0
         set ProtoEvolutionGoal[615] = 0.00
-        call ProtoSetEffect(615, 7, 14.00, false)
+        call ProtoSetEffect(615, 7, 6.00, false)
         call ProtoSetEffect(615, 1, 3.00, false)
         call ProtoSetEffect(615, 14, 3.00, false)
         set ProtoCardKey[616] = "karakura_main_08_1"
@@ -18751,7 +18751,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[616] = 2
         set ProtoEvolutionKind[616] = 0
         set ProtoEvolutionGoal[616] = 0.00
-        call ProtoSetEffect(616, 7, 18.00, false)
+        call ProtoSetEffect(616, 7, 8.00, false)
         call ProtoSetEffect(616, 6, 3.00, false)
         set ProtoCardKey[617] = "karakura_main_08_2"
         set ProtoCardName[617] = "아바라이 렌지"
@@ -18771,7 +18771,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[618] = 2
         set ProtoEvolutionKind[618] = 0
         set ProtoEvolutionGoal[618] = 0.00
-        call ProtoSetEffect(618, 7, 14.00, false)
+        call ProtoSetEffect(618, 7, 6.00, false)
         call ProtoSetEffect(618, 1, 3.00, false)
         call ProtoSetEffect(618, 14, 3.00, false)
         set ProtoCardKey[619] = "karakura_main_09_1"
@@ -18782,7 +18782,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[619] = 2
         set ProtoEvolutionKind[619] = 0
         set ProtoEvolutionGoal[619] = 0.00
-        call ProtoSetEffect(619, 7, 18.00, false)
+        call ProtoSetEffect(619, 7, 8.00, false)
         call ProtoSetEffect(619, 6, 3.00, false)
         set ProtoCardKey[620] = "karakura_main_09_2"
         set ProtoCardName[620] = "쿠로사키 이치고"
@@ -18802,7 +18802,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[621] = 2
         set ProtoEvolutionKind[621] = 0
         set ProtoEvolutionGoal[621] = 0.00
-        call ProtoSetEffect(621, 7, 14.00, false)
+        call ProtoSetEffect(621, 7, 6.00, false)
         call ProtoSetEffect(621, 1, 3.00, false)
         call ProtoSetEffect(621, 14, 3.00, false)
         set ProtoCardKey[622] = "karakura_main_10_1"
@@ -18813,7 +18813,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[622] = 2
         set ProtoEvolutionKind[622] = 0
         set ProtoEvolutionGoal[622] = 0.00
-        call ProtoSetEffect(622, 7, 18.00, false)
+        call ProtoSetEffect(622, 7, 8.00, false)
         call ProtoSetEffect(622, 6, 3.00, false)
         set ProtoCardKey[623] = "karakura_main_10_2"
         set ProtoCardName[623] = "쿠치키 루키아"
@@ -18833,7 +18833,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[624] = 2
         set ProtoEvolutionKind[624] = 0
         set ProtoEvolutionGoal[624] = 0.00
-        call ProtoSetEffect(624, 7, 14.00, false)
+        call ProtoSetEffect(624, 7, 6.00, false)
         call ProtoSetEffect(624, 1, 3.00, false)
         call ProtoSetEffect(624, 14, 3.00, false)
         set ProtoCardKey[625] = "karakura_main_11_1"
@@ -18844,7 +18844,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[625] = 2
         set ProtoEvolutionKind[625] = 0
         set ProtoEvolutionGoal[625] = 0.00
-        call ProtoSetEffect(625, 7, 18.00, false)
+        call ProtoSetEffect(625, 7, 8.00, false)
         call ProtoSetEffect(625, 6, 3.00, false)
         set ProtoCardKey[626] = "karakura_main_11_2"
         set ProtoCardName[626] = "시호인 요루이치"
@@ -18864,7 +18864,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[627] = 2
         set ProtoEvolutionKind[627] = 0
         set ProtoEvolutionGoal[627] = 0.00
-        call ProtoSetEffect(627, 7, 14.00, false)
+        call ProtoSetEffect(627, 7, 6.00, false)
         call ProtoSetEffect(627, 1, 3.00, false)
         call ProtoSetEffect(627, 14, 3.00, false)
         set ProtoCardKey[628] = "karakura_main_12_1"
@@ -18875,7 +18875,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[628] = 3
         set ProtoEvolutionKind[628] = 0
         set ProtoEvolutionGoal[628] = 0.00
-        call ProtoSetEffect(628, 7, 22.00, false)
+        call ProtoSetEffect(628, 7, 10.00, false)
         call ProtoSetEffect(628, 6, 3.00, false)
         set ProtoCardKey[629] = "karakura_main_12_2"
         set ProtoCardName[629] = "쿠로사키 이치고"
@@ -18895,7 +18895,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[630] = 3
         set ProtoEvolutionKind[630] = 0
         set ProtoEvolutionGoal[630] = 0.00
-        call ProtoSetEffect(630, 7, 18.00, false)
+        call ProtoSetEffect(630, 7, 8.00, false)
         call ProtoSetEffect(630, 1, 4.00, false)
         call ProtoSetEffect(630, 14, 4.00, false)
         set ProtoCardKey[631] = "karakura_main_13_1"
@@ -18906,7 +18906,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[631] = 3
         set ProtoEvolutionKind[631] = 0
         set ProtoEvolutionGoal[631] = 0.00
-        call ProtoSetEffect(631, 7, 22.00, false)
+        call ProtoSetEffect(631, 7, 10.00, false)
         call ProtoSetEffect(631, 6, 3.00, false)
         set ProtoCardKey[632] = "karakura_main_13_2"
         set ProtoCardName[632] = "쿠치키 뱌쿠야"
@@ -18926,7 +18926,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[633] = 3
         set ProtoEvolutionKind[633] = 0
         set ProtoEvolutionGoal[633] = 0.00
-        call ProtoSetEffect(633, 7, 18.00, false)
+        call ProtoSetEffect(633, 7, 8.00, false)
         call ProtoSetEffect(633, 1, 4.00, false)
         call ProtoSetEffect(633, 14, 4.00, false)
         set ProtoCardKey[634] = "karakura_main_14_1"
@@ -18937,7 +18937,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[634] = 3
         set ProtoEvolutionKind[634] = 0
         set ProtoEvolutionGoal[634] = 0.00
-        call ProtoSetEffect(634, 7, 22.00, false)
+        call ProtoSetEffect(634, 7, 10.00, false)
         call ProtoSetEffect(634, 6, 3.00, false)
         set ProtoCardKey[635] = "karakura_main_14_2"
         set ProtoCardName[635] = "쿠로사키 이치고"
@@ -18957,7 +18957,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[636] = 3
         set ProtoEvolutionKind[636] = 0
         set ProtoEvolutionGoal[636] = 0.00
-        call ProtoSetEffect(636, 7, 18.00, false)
+        call ProtoSetEffect(636, 7, 8.00, false)
         call ProtoSetEffect(636, 1, 4.00, false)
         call ProtoSetEffect(636, 14, 4.00, false)
         set ProtoCardKey[637] = "karakura_main_15_1"
@@ -18968,7 +18968,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[637] = 3
         set ProtoEvolutionKind[637] = 0
         set ProtoEvolutionGoal[637] = 0.00
-        call ProtoSetEffect(637, 7, 22.00, false)
+        call ProtoSetEffect(637, 7, 10.00, false)
         call ProtoSetEffect(637, 6, 3.00, false)
         set ProtoCardKey[638] = "karakura_main_15_2"
         set ProtoCardName[638] = "쿠치키 루키아"
@@ -18988,7 +18988,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[639] = 3
         set ProtoEvolutionKind[639] = 0
         set ProtoEvolutionGoal[639] = 0.00
-        call ProtoSetEffect(639, 7, 18.00, false)
+        call ProtoSetEffect(639, 7, 8.00, false)
         call ProtoSetEffect(639, 1, 4.00, false)
         call ProtoSetEffect(639, 14, 4.00, false)
         set ProtoCardKey[640] = "karakura_main_16_1"
@@ -18999,7 +18999,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[640] = 4
         set ProtoEvolutionKind[640] = 0
         set ProtoEvolutionGoal[640] = 0.00
-        call ProtoSetEffect(640, 7, 28.00, false)
+        call ProtoSetEffect(640, 7, 12.00, false)
         call ProtoSetEffect(640, 6, 4.00, false)
         call ProtoSetEffect(640, 3, 4.00, false)
         set ProtoCardKey[641] = "karakura_main_16_2"
@@ -19021,7 +19021,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[642] = 4
         set ProtoEvolutionKind[642] = 0
         set ProtoEvolutionGoal[642] = 0.00
-        call ProtoSetEffect(642, 7, 18.00, false)
+        call ProtoSetEffect(642, 7, 8.00, false)
         call ProtoSetEffect(642, 1, 4.00, false)
         call ProtoSetEffect(642, 14, 6.00, false)
         call ProtoSetEffect(642, 3, 3.00, false)
@@ -20760,7 +20760,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[645] = 0
         set ProtoEvolutionGoal[645] = 0.00
         call ProtoSetEffect(645, 6, 2.00, false)
-        call ProtoSetEffect(645, 7, 8.00, false)
+        call ProtoSetEffect(645, 7, 4.00, false)
         call ProtoSetEffect(645, 1, 2.00, false)
         set ProtoCardKey[646] = "hsr_aventurine_reserve"
         set ProtoCardName[646] = "어벤츄린"
@@ -20771,7 +20771,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[646] = 0
         set ProtoEvolutionGoal[646] = 0.00
         call ProtoSetEffect(646, 22, 4.00, false)
-        call ProtoSetEffect(646, 7, 8.00, false)
+        call ProtoSetEffect(646, 7, 4.00, false)
         call ProtoSetEffect(646, 1, 2.00, false)
         set ProtoCardKey[647] = "hsr_sparkle"
         set ProtoCardName[647] = "스파클"
@@ -20782,7 +20782,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[647] = 0
         set ProtoEvolutionGoal[647] = 0.00
         call ProtoSetEffect(647, 8, 90.00, false)
-        call ProtoSetEffect(647, 7, 8.00, false)
+        call ProtoSetEffect(647, 7, 4.00, false)
         call ProtoSetEffect(647, 1, 2.00, false)
         set ProtoCardKey[648] = "hsr_black_swan_trace"
         set ProtoCardName[648] = "블랙 스완"
@@ -20824,7 +20824,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[651] = 0
         set ProtoEvolutionGoal[651] = 0.00
         call ProtoSetEffect(651, 17, 1.00, false)
-        call ProtoSetEffect(651, 7, 8.00, false)
+        call ProtoSetEffect(651, 7, 4.00, false)
         call ProtoSetEffect(651, 8, -90.00, false)
         call ProtoSetEffect(651, 1, 2.00, false)
         set ProtoCardKey[652] = "hsr_misha_reach"
@@ -20856,7 +20856,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[654] = 0
         set ProtoEvolutionGoal[654] = 0.00
         call ProtoSetEffect(654, 11, 4.00, false)
-        call ProtoSetEffect(654, 7, 8.00, false)
+        call ProtoSetEffect(654, 7, 4.00, false)
         call ProtoSetEffect(654, 1, 2.00, false)
         set ProtoCardKey[655] = "hsr_gallagher_order"
         set ProtoCardName[655] = "갤러거"
@@ -20940,7 +20940,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[662] = 0
         set ProtoEvolutionGoal[662] = 0.00
         call ProtoSetEffect(662, 8, 90.00, false)
-        call ProtoSetEffect(662, 7, 8.00, false)
+        call ProtoSetEffect(662, 7, 4.00, false)
         call ProtoSetEffect(662, 1, 2.00, false)
         set ProtoCardKey[663] = "hsr_misha_margin"
         set ProtoCardName[663] = "미샤"
@@ -21022,7 +21022,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[670] = 0
         set ProtoEvolutionGoal[670] = 0.00
         call ProtoSetEffect(670, 1, 3.00, false)
-        call ProtoSetEffect(670, 7, 8.00, false)
+        call ProtoSetEffect(670, 7, 4.00, false)
         set ProtoCardKey[671] = "hsr_boothill_line"
         set ProtoCardName[671] = "부트힐"
         set ProtoCardEffectName[671] = "표적 앞에서 먼저 전할 말"
@@ -21050,7 +21050,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[673] = 1
         set ProtoEvolutionKind[673] = 0
         set ProtoEvolutionGoal[673] = 0.00
-        call ProtoSetEffect(673, 7, 10.00, false)
+        call ProtoSetEffect(673, 7, 6.00, false)
         call ProtoSetEffect(673, 1, 2.00, false)
         set ProtoCardKey[674] = "hsr_main_01_3"
         set ProtoCardName[674] = "미샤"
@@ -21079,7 +21079,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[676] = 1
         set ProtoEvolutionKind[676] = 0
         set ProtoEvolutionGoal[676] = 0.00
-        call ProtoSetEffect(676, 7, 10.00, false)
+        call ProtoSetEffect(676, 7, 6.00, false)
         call ProtoSetEffect(676, 1, 2.00, false)
         set ProtoCardKey[677] = "hsr_main_02_3"
         set ProtoCardName[677] = "미샤"
@@ -21108,7 +21108,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[679] = 1
         set ProtoEvolutionKind[679] = 0
         set ProtoEvolutionGoal[679] = 0.00
-        call ProtoSetEffect(679, 7, 10.00, false)
+        call ProtoSetEffect(679, 7, 6.00, false)
         call ProtoSetEffect(679, 1, 2.00, false)
         set ProtoCardKey[680] = "hsr_main_03_3"
         set ProtoCardName[680] = "반디"
@@ -21137,7 +21137,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[682] = 2
         set ProtoEvolutionKind[682] = 0
         set ProtoEvolutionGoal[682] = 0.00
-        call ProtoSetEffect(682, 7, 14.00, false)
+        call ProtoSetEffect(682, 7, 8.00, false)
         call ProtoSetEffect(682, 1, 3.00, false)
         set ProtoCardKey[683] = "hsr_main_04_3"
         set ProtoCardName[683] = "반디"
@@ -21166,7 +21166,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[685] = 2
         set ProtoEvolutionKind[685] = 0
         set ProtoEvolutionGoal[685] = 0.00
-        call ProtoSetEffect(685, 7, 14.00, false)
+        call ProtoSetEffect(685, 7, 8.00, false)
         call ProtoSetEffect(685, 1, 3.00, false)
         set ProtoCardKey[686] = "hsr_main_05_3"
         set ProtoCardName[686] = "반디"
@@ -21195,7 +21195,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[688] = 2
         set ProtoEvolutionKind[688] = 0
         set ProtoEvolutionGoal[688] = 0.00
-        call ProtoSetEffect(688, 7, 14.00, false)
+        call ProtoSetEffect(688, 7, 8.00, false)
         call ProtoSetEffect(688, 1, 3.00, false)
         set ProtoCardKey[689] = "hsr_main_06_3"
         set ProtoCardName[689] = "블랙 스완"
@@ -21224,7 +21224,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[691] = 2
         set ProtoEvolutionKind[691] = 0
         set ProtoEvolutionGoal[691] = 0.00
-        call ProtoSetEffect(691, 7, 14.00, false)
+        call ProtoSetEffect(691, 7, 8.00, false)
         call ProtoSetEffect(691, 1, 3.00, false)
         set ProtoCardKey[692] = "hsr_main_07_3"
         set ProtoCardName[692] = "어벤츄린"
@@ -21253,7 +21253,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[694] = 2
         set ProtoEvolutionKind[694] = 0
         set ProtoEvolutionGoal[694] = 0.00
-        call ProtoSetEffect(694, 7, 14.00, false)
+        call ProtoSetEffect(694, 7, 8.00, false)
         call ProtoSetEffect(694, 1, 3.00, false)
         set ProtoCardKey[695] = "hsr_main_08_3"
         set ProtoCardName[695] = "스파클"
@@ -21282,7 +21282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[697] = 2
         set ProtoEvolutionKind[697] = 0
         set ProtoEvolutionGoal[697] = 0.00
-        call ProtoSetEffect(697, 7, 14.00, false)
+        call ProtoSetEffect(697, 7, 8.00, false)
         call ProtoSetEffect(697, 1, 3.00, false)
         set ProtoCardKey[698] = "hsr_main_09_3"
         set ProtoCardName[698] = "아케론"
@@ -21311,7 +21311,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[700] = 2
         set ProtoEvolutionKind[700] = 0
         set ProtoEvolutionGoal[700] = 0.00
-        call ProtoSetEffect(700, 7, 14.00, false)
+        call ProtoSetEffect(700, 7, 8.00, false)
         call ProtoSetEffect(700, 1, 3.00, false)
         set ProtoCardKey[701] = "hsr_main_10_3"
         set ProtoCardName[701] = "미샤"
@@ -21340,7 +21340,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[703] = 3
         set ProtoEvolutionKind[703] = 0
         set ProtoEvolutionGoal[703] = 0.00
-        call ProtoSetEffect(703, 7, 18.00, false)
+        call ProtoSetEffect(703, 7, 10.00, false)
         call ProtoSetEffect(703, 1, 4.00, false)
         set ProtoCardKey[704] = "hsr_main_11_3"
         set ProtoCardName[704] = "미샤"
@@ -21369,7 +21369,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[706] = 3
         set ProtoEvolutionKind[706] = 0
         set ProtoEvolutionGoal[706] = 0.00
-        call ProtoSetEffect(706, 7, 18.00, false)
+        call ProtoSetEffect(706, 7, 10.00, false)
         call ProtoSetEffect(706, 1, 4.00, false)
         set ProtoCardKey[707] = "hsr_main_12_3"
         set ProtoCardName[707] = "반디"
@@ -21398,7 +21398,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[709] = 3
         set ProtoEvolutionKind[709] = 0
         set ProtoEvolutionGoal[709] = 0.00
-        call ProtoSetEffect(709, 7, 18.00, false)
+        call ProtoSetEffect(709, 7, 10.00, false)
         call ProtoSetEffect(709, 1, 4.00, false)
         set ProtoCardKey[710] = "hsr_main_13_3"
         set ProtoCardName[710] = "선데이"
@@ -21427,7 +21427,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[712] = 3
         set ProtoEvolutionKind[712] = 0
         set ProtoEvolutionGoal[712] = 0.00
-        call ProtoSetEffect(712, 7, 18.00, false)
+        call ProtoSetEffect(712, 7, 10.00, false)
         call ProtoSetEffect(712, 1, 4.00, false)
         set ProtoCardKey[713] = "hsr_main_14_3"
         set ProtoCardName[713] = "미샤"
@@ -21457,7 +21457,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardGrade[715] = 4
         set ProtoEvolutionKind[715] = 0
         set ProtoEvolutionGoal[715] = 0.00
-        call ProtoSetEffect(715, 7, 24.00, false)
+        call ProtoSetEffect(715, 7, 12.00, false)
         call ProtoSetEffect(715, 3, 6.00, false)
         set ProtoCardKey[716] = "hsr_main_15_3"
         set ProtoCardName[716] = "로빈"
@@ -23525,7 +23525,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[737] = 0
         set ProtoEvolutionGoal[737] = 0.00
         call ProtoSetEffect(737, 8, 90.00, false)
-        call ProtoSetEffect(737, 7, 8.00, false)
+        call ProtoSetEffect(737, 7, 4.00, false)
         call ProtoSetEffect(737, 1, 2.00, false)
         set ProtoCardKey[738] = "fma_havoc_load"
         set ProtoCardName[738] = "장 하보크"
@@ -25781,7 +25781,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEvolutionKind[798] = 0
         set ProtoEvolutionGoal[798] = 0.00
         call ProtoSetEffect(798, 23, 4.00, false)
-        call ProtoSetEffect(798, 7, 8.00, false)
+        call ProtoSetEffect(798, 7, 4.00, false)
         call ProtoSetEffect(798, 1, 2.00, false)
         set ProtoCardKey[799] = "kny_inosuke"
         set ProtoCardName[799] = "하시비라 이노스케"
