@@ -189,9 +189,10 @@ function author(t,kind){
   rotations[thumbNext]=axis(arm.width,-sign*thumbCurl*22);
   rotations[get(arm.side+'親指２')]=axis(arm.width,-sign*thumbCurl*40);reset();
   const cloth=get(arm.prefix+'_sleeveD_01_jnt_1'),next=get(arm.prefix+'_sleeveD_01_jnt_2');
-  const sway=0.025*breathe+0.04*speed;
-  setWorld(cloth,quat.rotationTo([],norm(sub(pivot(next),pivot(cloth))),norm([0.09+0.035*speed,sign*0.04+sway,-1])));
-  for(const segment of [5,10,15,20,25])rotations[get(arm.prefix+'_sleeveD_01_jnt_'+segment)]=axis([0,1,0],0.10*Math.sin(2*Math.PI*t/(kind==='cross'?4:7)-segment*0.12)+0.14*speed);
+  // 토시의 폭을 앞뒤로 돌리고 바깥으로 처지게 해 허벅지와의 관통을 피합니다.
+  const sway=0.018*breathe+0.02*speed;
+  setWorld(cloth,orient(sub(pivot(next),pivot(cloth)),[-0.22,sign*0.94,0.25],[0.12+0.015*speed,sign*(0.40+sway),-1],[-1,sign*0.15,0]));
+  for(const segment of [5,10,15,20,25])rotations[get(arm.prefix+'_sleeveD_01_jnt_'+segment)]=mul(axis(sub(pivot(next),pivot(cloth)),segment>=15?sign*17:0),axis([0,1,0],0.10*Math.sin(2*Math.PI*t/(kind==='cross'?4:7)-segment*0.12)+0.14*speed));
   if(left){const hem=get('L_sleeveI_01_jnt'),hemEnd=get('L_sleeveI_02_jnt');
    setWorld(hem,quat.rotationTo([],norm(sub(pivot(hemEnd),pivot(hem))),norm([0.08,sign*0.15,-1])));
   }
