@@ -1,0 +1,1753 @@
+{
+  "world": {
+    "key": "academy",
+    "name": "학원도시",
+    "work": "어떤 마술의 금서목록 · 어떤 과학의 초전자포",
+    "intro": "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다.",
+    "effects": [
+      {
+        "stat": "action_speed",
+        "value": 2
+      }
+    ],
+    "entryCard": "academy_uiharu",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+  },
+  "sources": [
+    "https://toaru-project.com/railgun_t/chara/mikoto.html",
+    "https://toaru-project.com/railgun_t/chara/kuroko.html",
+    "https://toaru-project.com/railgun_t/chara/uiharu.html",
+    "https://toaru-project.com/railgun_t/chara/saten.html",
+    "https://toaru-project.com/railgun_t/chara/kamijo.html",
+    "https://toaru-project.com/railgun_t/chara/kongou.html",
+    "https://toaru-project.com/railgun_t/chara/wannai.html",
+    "https://toaru-project.com/railgun_t/chara/awatsuki.html",
+    "https://toaru-project.com/railgun_t/chara/sogiita.html",
+    "https://toaru-project.com/railgun_t/story/02.html",
+    "https://toaru-project.com/railgun_t/story/04.html",
+    "https://toaru-project.com/index_1_2/story/1st/10.html",
+    "https://toaru-project.com/railgun/story/03.html",
+    "https://toaru-project.com/railgun/story/05.html",
+    "https://toaru-project.com/railgun/story/17.html",
+    "https://toaru-project.com/railgun/story/19.html",
+    "https://toaru-project.com/railgun/story/02.html"
+  ],
+  "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 귀여운 소품·단것·대회 준비·수영부·짐 정리·야간 표식은 공식 취향과 역할에서 별도로 창작한 만남이다. 이인삼각과 밤 퍼레이드는 공식2·4화 배경을 참고하되 경기 승패·본편 실종·기억 조작은 바꾸지 않는다. 아와츠키의 부력은 물의 밀도가 아니며 군하 능력의 상세 원리는 확정하지 않는다. 새 카드의 최대 체력 패널티는 지속 능력치로 현재 체력 지불 사건이 아니다. 자판기에남은동전·호출뒤간식·여행자가답할약속·오락실빈의자·성하제의무대준비는공식소개에서각색한서로다른방문이다. 자판기뒤음료후속은자신이별도음료를마련한성공1번에서만열린다. 원작자판기파괴·미사카동생실험·쿠로코와우이하루의화해·피습·성하제공연종류/승패를바꾸지않고실제NPC동행/미니게임/원작초능력/음료아이템/사냥중추가처치가생기지않는다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다.",
+  "cards": [
+    {
+      "key": "academy_uiharu",
+      "name": "우이하루 카자리",
+      "effectName": "관찰 기록",
+      "keyword": "탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "177지부의 정보 지원 역할을 후보 확인으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_mikoto",
+      "name": "미사카 미코토",
+      "effectName": "정밀한 전자기 제어",
+      "keyword": "관통 · 차지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 10
+        },
+        {
+          "stat": "charge_damage",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "미코토의 전자기 능력과 동전 레일건을 집중·관통 역할로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kuroko",
+      "name": "시라이 쿠로코",
+      "effectName": "공간의 사각",
+      "keyword": "이동 · 방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "directional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "쿠로코의 공간이동과 저지먼트 역할을 이동·사각 성장으로 각색했다. 순간이동 스킬을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_touma",
+      "name": "카미조 토우마",
+      "effectName": "이매진 브레이커",
+      "keyword": "생존 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "토우마의 오른손이 이능을 지우는 특징을 방어 경험으로 각색했다. 물리 무적이나 모든 공격 취소는 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_saten",
+      "name": "사텐 루이코",
+      "effectName": "발로 찾은 단서",
+      "keyword": "자원 · 탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 2
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사텐의 레벨 0과 소문을 좋아하는 특징을 현장 탐색·수급으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_dispatch",
+      "name": "우이하루 카자리",
+      "effectName": "백업 통신",
+      "keyword": "행동 · 신속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 5
+        },
+        {
+          "stat": "swift",
+          "value": 180
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "우이하루의 정보 처리·현장 지원을 다음 행동 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_focus",
+      "name": "미사카 미코토",
+      "effectName": "한 점의 레일건",
+      "keyword": "보스 · 차지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 14
+        },
+        {
+          "stat": "charge_speed",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동전을 사출하는 레일건의 이미지를 차지 준비와 보스 공격으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_persevere",
+      "name": "사텐 루이코",
+      "effectName": "능력 밖의 용기",
+      "keyword": "체력 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사텐이 능력자 외의 입장에서 참여하는 모습을 생존·고체력 보너스로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kuroko_response",
+      "name": "시라이 쿠로코",
+      "effectName": "현장에서 정할 다음 행동",
+      "keyword": "행동 · 생존",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "저지먼트에서 현장을 맡는 쿠로코의 역할을 즉응·방어 준비로 각색했다. 입문 공간 이동 요령과 다른 후속이며 실제 순간이동은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_mikoto_keepsake",
+      "name": "미사카 미코토",
+      "effectName": "진열 앞에서 한 번 더",
+      "keyword": "치명타 피해 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 15
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "귀여운 소품을 좋아하는 공식 취향을 힘을 쏟을 순간을 고르고 다음 일을 버틸 준비로 각색한다. 특정 마스코트·실제 소품 장비·새 전격을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_break",
+      "name": "우이하루 카자리",
+      "effectName": "쉬었다가 다시 맞춘 항목",
+      "keyword": "재생 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        },
+        {
+          "stat": "charge_speed",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "단것 선호·정보 처리와 관찰 집중에서 오래 움직이며 차지 동작을 준비할 습관을 각색한다. 케이크 즉시 회복·새 자원·행동력 증가는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kongo_pair",
+      "name": "콘고 미츠코",
+      "effectName": "옆 사람에게 맞춘 보폭",
+      "keyword": "행동 속도 · 이동속도 비례 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 5
+        },
+        {
+          "stat": "moving_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "친구를 아끼는 성격과 대패성제에서 미코토와 짝을 이루는 역할을 보폭과 다음 동작을 맞출 준비로 각색한다. 실제 이인삼각 이동 제한·에어 핸드 능력·경기 우승 보상은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_wannai_calm",
+      "name": "완나이 키누호",
+      "effectName": "흐르는 쪽부터 살피기",
+      "keyword": "피해 감소 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "수영부·물 흐름을 다루는 능력과 침착함을 버틸 위치를 먼저 보는 준비로 각색한다. 수중 전투·물 장벽·새 보호막은 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_awatsuki_balance",
+      "name": "아와츠키 마아야",
+      "effectName": "떠 있는 동안의 균형",
+      "keyword": "차지 속도 · 차지 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 6
+        },
+        {
+          "stat": "charge_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "대상 주변의 부력을 조절하는 플로트 다이얼과 수영부 역할을 준비 동작의 균형으로 각색한다. 물의 밀도를 바꾸는 능력으로 설명하지 않으며 공중 부양·중력 면역은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_sogiita_guts",
+      "name": "소기이타 군하",
+      "effectName": "먼저 내디딜 한 걸음",
+      "keyword": "공격력 · 최대 체력 패널티",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 18
+        },
+        {
+          "stat": "max_health_percent",
+          "value": -5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "곤란한 사람을 돕는 열혈 성격을 더 세게 밀어붙이되 오래 버틸 여유를 줄이는 성장으로 각색한다. 원작의 불명확한 능력 원리·새 펀치·무적을 구현하지 않는다. 최대 체력 패널티는 지속 능력치이며 현재 체력 지불 선택지가 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_touma_coin",
+      "name": "카미조 토우마",
+      "effectName": "삼켜도 남은 한 닢",
+      "keyword": "처치 골드 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "자판기에 돈을 삼켜도 남은 준비를 찾는 별도 만남의 기억이다. 원작의 불행을 다른 사람에게 전가하거나 흡수·확률 보정·이매진 브레이커 새 기능을 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kuroko_return",
+      "name": "시라이 쿠로코",
+      "effectName": "다녀와서 들 한 잔",
+      "keyword": "신속 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "간식 도중 풍기위원 호출을 받는 공식 상황을 급히 나서도 돌아올 몫을 남기는 성장으로 각색했다. 순간이동·NPC 출동·현재 체력 비율 회복 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_promise",
+      "name": "우이하루 카자리",
+      "effectName": "아직 답하지 않은 약속",
+      "keyword": "사건 후보 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "지원과 잊은 약속을 둘러싼 공식 갈등에서 자기 답을 서두르지 않고 큰 상대를 앞둘 질문을 남기는 성장이다. 원작 약속의 내용을 지어내거나 친구의 화해·실제 미래 정보를 보상으로 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tessou_button",
+      "name": "테츠소 츠즈리",
+      "effectName": "떠난 뒤 남은 버튼",
+      "keyword": "행동 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "안티스킬의 실패와 좋아하던 게임을 하다 혼자 남은 공식 상황에서 다음 입력을 지켜보는 기억으로 각색했다. 학생의 사정·게임 종류·실제 미니게임·게임 기술 전수를 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_mikoto_curtain",
+      "name": "미사카 미코토",
+      "effectName": "막 앞의 한 호흡",
+      "keyword": "차지 피해 · 치명타 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 12
+        },
+        {
+          "stat": "crit_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "성하제에서 무대의 큰 일을 맡고 긴장하는 공식 소개를 힘을 싣는 순간을 기다리는 기억으로 각색했다. 원작의 악기·공연·곡·관객 평가·새 발사 기술은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_mikoto_drink",
+      "name": "미사카 미코토",
+      "effectName": "차가워지기 전에",
+      "keyword": "차지 속도 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "자판기에서 얻지 못한 음료를 별도로 마련한 자기 선택의 후속에서 준비를 기다리는 기억이다. 실제 음료 아이템·상처 치료·자판기 수리·전기 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_order",
+      "name": "우이하루 카자리",
+      "effectName": "확인할 순서",
+      "keyword": "사건 후보 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 지부 기록·정보 지원에서 확인할 대상을 나누는 여행자의 기억이다. 새 해킹·자동 수색·행동력 증가·원작 사건 해결은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_saten_detour",
+      "name": "사텐 루이코",
+      "effectName": "돌아가는 길의 표식",
+      "keyword": "이동 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "능력이 없어도 발품과 생활 속 확인을 이어 가는 기존 역할에서 여행자가 귀환길을 정하는 기억이다. 이동은3%이며 새 이동 기술이나 능력 개발은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_saten_box",
+      "name": "사텐 루이코",
+      "effectName": "짐 아래의 빈칸",
+      "keyword": "공격력 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 12
+        },
+        {
+          "stat": "charge_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 납품·진열 정리에서 짐을 옮기기 전에 남은 항목을 살피는 여행자의 기억이다. 새 무기·물류 자동보수·NPC 능력치 상승은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_kuroko_line",
+      "name": "시라이 쿠로코",
+      "effectName": "넘지 않을 선",
+      "keyword": "비방향 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 사격 통로 안내에서 넘어가지 않을 경계를 정하는 여행자의 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 공간이동·보호막·무적을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_touma_address",
+      "name": "카미조 토우마",
+      "effectName": "도착지를 먼저",
+      "keyword": "최대 체력 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기존 운반과 남은 몫을 먼저 확인하는 역할에서 가져갈 곳을 확인하는 여행자의 기억이다. 실제 실종 해결·불행 면역·이매진 브레이커 전수·즉시 치료는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tessou_seat",
+      "name": "테츠소 츠즈리",
+      "effectName": "빈자리에도 이어질 말",
+      "keyword": "최대 체력 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "crit_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식17화의 좋아하던 게임과 혼자 남은 대화에서 빈자리를 가리지 않고 이야기를 듣는 여행자의 기억이다. 학생의 복귀·게임 승리·NPC 치료·새 미니게임은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tessou_interval",
+      "name": "테츠소 츠즈리",
+      "effectName": "눌러야 할 때까지",
+      "keyword": "차지 속도 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 5
+        },
+        {
+          "stat": "crit_damage",
+          "value": 15
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식17화의 게임센터 만남에서 입력 사이의 간격을 기다리는 여행자의 기억이다. 새로운 게임 기술·콤보 시스템·학생의 다음 선택을 정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_list",
+      "name": "우이하루 카자리",
+      "effectName": "접어 두지 않은 항목",
+      "keyword": "치명 피해 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 12
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "정보와 남은 약속을 확인하는 기존 역할에서 아직 끝내지 않은 항목을 남기는 여행자의 기억이다. 고체력은65%이상이고 즉시 회복·갈등 해소·새 추적 기술은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_uiharu_plan",
+      "name": "우이하루 카자리",
+      "effectName": "다음에 맡을 몫",
+      "keyword": "행동력 최대치",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "정보 지원과 남은 일을 정리하는 역할에서 여행자가 추가로 맡을 몫을 정하는 창작 기억이다. 행동력 최대치와 현재 행동력이1늘며 원작 인물의 초능력·시간 정지·즉시 전투 보너스는 없다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "academy_bad_signal",
+      "title": "끊어진 구조 신호",
+      "story": "풍기위원 지부에서 구조 신호가 끊겼다. 우이하루는 기록을 복구하고 쿠로코는 현장으로 갈 준비를 한다. 통신선을 살리는 일과 사람을 먼저 찾는 일 중 어디를 맡을까?",
+      "intro": "구조 신호와 현장 수색 중 맡을 일을 정한다.",
+      "choices": [
+        {
+          "label": "수리 자재를 사고 우이하루의 백업을 돕는다",
+          "result": "자재를 사서 끊어진 통신선을 이었다. 우이하루가 나눠 준 기록으로 당신도 다음 행동을 준비할 여유를 얻었다.",
+          "card": "academy_dispatch",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쿠로코와 위험한 현장으로 간다",
+          "result": "쿠로코와 현장에 들어가 끊긴 신호의 위치를 찾았다. 빠르게 도착하는 데서 그치지 않고 물러날 공간까지 짚었지만, 안쪽에는 더 강한 상대가 기다리고 있었다.",
+          "card": "academy_kuroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "80골드로 우회 보급을 준비하고 사텐과 돌아올 골목의 표식을 남긴다",
+          "result": "사텐과 보급이 돌아올 골목을 확인하고 우회로에 표식을 남겼다. 80골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐이 표식을 가리키자 우이하루는 아직 연락이 닿지 않은 집을 그 길과 다른 줄에 남긴다.",
+          "card": "academy_saten_detour",
+          "card2": null,
+          "gold": 0,
+          "cost": 80,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_signal_answer",
+      "title": "신호가 가리킨 장소",
+      "story": "복구한 신호의 좌표가 도착했다. 한 번의 단서로 도시의 큰 사건을 끝내지는 못한다. 미코토가 전원 시설을 확인하는 동안 토우마는 구조 대상에게 다가가려 한다.",
+      "intro": "복구한 신호에서 새로운 구조 장소를 찾았다.",
+      "choices": [
+        {
+          "label": "미코토에게 절연 장비를 빌린다",
+          "result": "절연 장비 대여비를 내고 전원 시설을 확인했다. 미코토가 한 지점에 힘을 모으는 과정을 보며 공격 기회를 준비했다.",
+          "card": "academy_mikoto",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "토우마와 구조 경로를 확보한다",
+          "result": "토우마와 구조 대상에게 닿을 통로를 열었다. 사람들을 먼저 내보내고 당신이 뒤쪽을 맡으면서, 더 많은 상대가 남은 구간을 경계할 준비를 했다.",
+          "card": "academy_touma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 기록용품을 마련하고 우이하루에게 확인할 대상을 나눠 전한다",
+          "result": "우이하루에게 현장 기록을 나눠 전하고 아직 확인하지 않은 대상을 남겼다. 160골드를 지불했다. 「확인할 순서」의 기억 카드1장을 얻었다. 토우마는 먼저 내보낼 사람을 짚고 미코토는 전원 확인이 끝나지 않은 쪽을 따로 가리킨다.",
+          "card": "academy_uiharu_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": "academy_bad_signal",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_urban_rumor",
+      "title": "소문이 앞선 조사",
+      "story": "사텐이 들은 능력 개발 소문이 사람들을 한 골목으로 모았다. 우이하루는 사실 확인이 먼저라고 하고 미코토는 수상한 장치에 시선을 둔다. 소문을 퍼뜨리는 대신 확인할 일을 정한다.",
+      "intro": "사텐이 모은 소문을 실제 단서로 바꿔야 한다.",
+      "choices": [
+        {
+          "label": "조사 장비를 준비하고 미코토와 장치를 확인한다",
+          "result": "조사 장비를 준비해 미코토가 장치의 반응을 살피는 동안 주변 표시를 기록했다. 소문으로 들은 힘을 얻은 것이 아니라 전류가 집중되는 지점과 다가가지 말아야 할 자리를 구분했다.",
+          "card": "academy_mikoto",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사텐과 모인 사람들의 이야기를 듣는다",
+          "result": "사텐과 함께 현장 목격자들의 진술을 청취했다. 인내심을 가지고 정보를 수집한다.",
+          "card": "academy_persevere",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 안내를 준비하고 사텐과 돌아갈 골목을 비운다",
+          "result": "사텐과 모인 사람들의 돌아갈 방향을 나누고 골목의 표식을 확인했다. 160골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐은 마지막으로 들은 소문을 메모하되 확인한 표식 옆에는 아직 쓰지 않는다.",
+          "card": "academy_saten_detour",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_coin_test",
+      "title": "표적 뒤의 빈 공간",
+      "story": "미코토는 코인으로 작은 표적을 겨누지만 뒤편에는 작업자 통로가 있다. 발사 위력을 높이는 일보다 통로를 비우고 안전한 각도를 찾는 일이 먼저다.",
+      "intro": "미코토의 표적 뒤로 작업자가 지나간다.",
+      "choices": [
+        {
+          "label": "위험 구역을 맡고 정밀 사격을 관찰한다",
+          "result": "통로 끝을 맡아 작업자들이 사선에 들어오지 않도록 알렸다. 미코토가 표적을 꿰뚫는 순간을 지켜봤지만, 더 강한 상대가 접근하는 구간까지 계속 지켜야 한다.",
+          "card": "academy_focus",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안전 장비 비용을 내고 사선을 표시한다",
+          "result": "안전 가이드라인을 설치해 사격 구역을 명확히 했다. 쿠로코의 이동 경로를 보조한다.",
+          "card": "academy_kuroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 안내를 준비하고 쿠로코와 넘어가지 않을 사선을 정한다",
+          "result": "쿠로코와 작업자 통로의 경계를 표시하고 사선 밖으로 안내했다. 160골드를 지불했다. 「넘지 않을 선」의 기억 카드1장을 얻었다. 미코토는 작업자가 사선 밖으로 나간 것을 보고도 마지막 사람이 지날 방향부터 다시 확인한다.",
+          "card": "academy_kuroko_line",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_no_ability",
+      "title": "능력 없이 남은 사람",
+      "story": "모두가 능력자를 따라간 뒤 사텐과 당신 앞에는 옮기지 못한 물자가 남았다. 능력이 없어도 지금 할 수 있는 일이 있다. 어느 쪽을 먼저 챙길까?",
+      "intro": "능력자들이 떠난 뒤에도 옮길 물자가 남았다.",
+      "choices": [
+        {
+          "label": "사텐과 물자를 나르며 길을 익힌다",
+          "result": "사텐과 남은 물자를 나르며 골목마다 돌아올 표식을 남겼다. 한 번 더 확인할 길을 맡은 만큼 오가는 무리도 늘었지만, 힘이 없어 멈춰 있던 짐은 목적지에 닿았다.",
+          "card": "academy_saten",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "운송비를 내고 사텐과 피난 장소를 정리한다",
+          "result": "운송 비용을 지불하고 체계적으로 물자를 정리했다. 생존을 위한 안정성을 확보한다.",
+          "card": "academy_persevere",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "토우마를 따라 남은 사람을 찾는다",
+          "result": "토우마를 따라 실종된 시민들을 수색했다. 위험 지역에서의 생존력이 높아진다.",
+          "card": "academy_touma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "academy_second_route",
+      "title": "복구된 두 번째 통로",
+      "story": "현장에 들어간 쿠로코가 처음 보지 못한 통로를 알려 왔다. 우이하루와 백업 통신을 연결할지, 위험한 길 하나를 닫을지, 쿠로코와 도착한 자리에서 할 일을 정할지 고른다. 더 많은 길을 맡으면 오가는 상대도 늘어난다.",
+      "intro": "쿠로코가 새 통로를 확인했다.",
+      "choices": [
+        {
+          "label": "새 통로를 조사하고 백업 통신을 연결한다",
+          "result": "새 통로를 확인하고 우이하루에게 위치를 전달했다. 더 많은 상대가 오가는 길을 맡는 동안, 다음 연락을 기다리기보다 필요한 정보를 먼저 주고받았다.",
+          "card": "academy_dispatch",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "120골드로 봉쇄를 준비하고 우이하루와 남길 통로의 기록을 나눈다",
+          "result": "우이하루에게 닫은 통로와 남길 통로의 기록을 따로 전했다. 120골드를 지불했다. 「확인할 순서」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 쿠로코는 닫은 통로보다 아직 남겨 둔 통로에 누가 있을 것인지 묻는다.",
+          "card": "academy_uiharu_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쿠로코와 현장 대응 순서를 점검한다",
+          "result": "쿠로코와 현장 장비를 준비하고 연락이 들어왔을 때 움직일 순서를 맞췄다. 길을 빠르게 건너는 데서 그치지 않고 도착한 자리에서 할 일을 확인했다.",
+          "card": "academy_kuroko_response",
+          "card2": null,
+          "gold": 0,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": "academy_bad_signal",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_display_window",
+      "title": "진열창 앞에서 멈춘 발걸음",
+      "story": "미코토가 귀여운 소품 진열을 보다가 한 발 물러선다. 쿠로코는 약속한 순찰 시간이 다가온다고 알리고 가게 주인은 새 상자 때문에 가려진 진열창을 가리킨다. 쿠로코의 부탁과 가게 정리를 한 번에 맡기에는 손이 부족하다.",
+      "intro": "가려진 진열창과 순찰 길목 중 맡을 일을 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "정리 도구 값을 보태고 미코토와 가려진 진열을 고친다",
+          "result": "정리 도구 값을 보태고 미코토와 진열 앞에 겹친 상자를 옮겼다. 힘을 쏟을 순간을 고르면서 다음 일을 버틸 준비를 배웠다. 미코토가 마지막 소품을 들여다보자 쿠로코는 순찰 시간을 다시 짚는다.",
+          "card": "academy_mikoto_keepsake",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쿠로코와 적이 더 많이 드나드는 순찰 길목을 맡는다",
+          "result": "쿠로코와 더 많은 적이 드나드는 길목을 맡았다. 도착한 자리에서 다음 동작을 빠르게 준비하고 버틸 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 쿠로코는 맡기로 한 길목만 지도에 표시한다.",
+          "card": "academy_kuroko_response",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 쿠로코와 진열을 가리지 않을 선을 남긴다",
+          "result": "쿠로코와 진열 아래의 상자를 나누고 순찰에 나설 길을 비워 두었다. 160골드를 지불했다. 「넘지 않을 선」의 기억 카드1장을 얻었다. 미코토는 드러난 소품을 한 번 더 보려 하고 쿠로코는 비워 둔 길 끝에서 순찰 시간을 짚는다.",
+          "card": "academy_kuroko_line",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 미코토의 귀여운 소품 취향·쿠로코의 풍기위원 책임감에서 별도 일상 만남을 창작한다. 특정 게코타 굿즈·새 가게·대회 결과를 원작 사실로 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_sweet_orders",
+      "title": "단것 옆에 남은 주문 한 줄",
+      "story": "우이하루가 간식을 고르던 중 점원으로부터 중복 주문이라는 안내를 받는다. 사텐은 아직 정리되지 않은 납품 상자를 가리키며 눈치를 준다. 주문 확인과 상자 정리 중 하나를 우선해야 한다.",
+      "intro": "겹친 주문을 맞추거나 납품 경로의 연락을 맡는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "확인 용품을 마련하고 우이하루와 주문을 맞춘다",
+          "result": "확인 용품 값을 내고 우이하루와 겹친 주문 항목을 지웠다. 쉬었다가 다시 오래 움직이며 차지 동작을 준비하는 습관을 배웠다. 우이하루는 접힌 주문표를 펴 둔 뒤 고르던 간식 쪽으로 돌아간다.",
+          "card": "academy_uiharu_break",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "우이하루와 더 강한 적이 드나드는 납품 경로의 연락을 맡는다",
+          "result": "우이하루와 더 강한 적이 오가는 납품 경로의 연락을 맡았다. 다음 동작을 늦추지 않고 필요한 연락을 먼저 잇는 요령을 배운 대신 개인 사냥의 적 단계가 올라갔다. 사텐은 그 경로의 상자만 따로 빼놓는다.",
+          "card": "academy_dispatch",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 사텐과 주문표 아래의 짐을 나눈다",
+          "result": "사텐과 주문표 아래의 짐을 나누고 아직 확인하지 않은 항목을 펼쳤다. 160골드를 지불했다. 「짐 아래의 빈칸」의 기억 카드1장을 얻었다. 우이하루는 아직 확인되지 않은 주문 줄을 남기고 사텐은 그 줄의 짐을 다른 상자에 넣지 않는다.",
+          "card": "academy_saten_box",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 우이하루의 단것 취향·관찰과 정보 처리, 사텐과의 교우에서 별도 주문 문제를 만든다. 단것이 현재 체력을 즉시 회복시키거나 사건 행동력을 더 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_pair_step",
+      "title": "둘이 묶기 전에 맞출 보폭",
+      "story": "대패성제의 이인삼각 준비 자리에서 콘고가 미코토에게 먼저 출발 순서를 묻는다. 미코토가 보폭을 짚자 콘고는 자기 쪽만 크게 내디뎠던 발을 멈춘다. 완나이는 바깥 준비물도 아직 나누지 못했다고 알린다.",
+      "intro": "옆 사람의 보폭과 바깥 준비 구역 중 맡을 일을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비 도구를 마련해 콘고와 옆 사람의 보폭을 맞춘다",
+          "result": "준비 도구 값을 내고 콘고와 옆 사람의 보폭을 맞췄다. 다음 동작을 빠르게 준비하고 움직일 속도에 맞춰 힘을 싣는 요령을 배웠다. 미코토가 걸음을 늦추자 콘고도 앞서 내민 발을 되돌린다.",
+          "card": "academy_kongo_pair",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미코토와 더 강한 적이 오가는 바깥 준비 구역을 맡는다",
+          "result": "미코토와 더 강한 적이 오가는 바깥 준비 구역을 맡았다. 힘을 모아 공격하고 단단한 상대를 넘기는 준비를 배웠고 개인 사냥의 적 단계가 올라갔다. 콘고는 돌아와서 다시 보폭을 맞추자고 한다.",
+          "card": "academy_mikoto",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "완나이와 버틸 위치를 살필 준비물을 챙긴다",
+          "result": "준비물 값을 내고 완나이와 먼저 버틸 위치를 짚었다. 맞을 부담을 줄이고 다음 일을 오래 이어 갈 준비를 배웠다. 완나이는 바깥까지 한 번에 맡기보다 지금 나눈 위치를 먼저 보자고 한다.",
+          "card": "academy_wannai_calm",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "초전자포T 공식2화의 미코토·콘고 이인삼각과 공식 콘고의 친구를 아끼는 성격을 사전 준비 만남으로 각색한다. 실제 경기 승패를 새 선택으로 바꾸거나 플레이어의 이동을 이인삼각으로 제한하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_pool_bundle",
+      "title": "풀 가장자리에 모인 준비물",
+      "story": "수영부 준비물 꾸러미가 풀 가장자리에 한꺼번에 모였다. 완나이는 물이 흐르는 쪽부터 보자고 하고 아와츠키는 잠깐 뜨게 할 물건을 따로 나눈다. 콘고가 바깥 통행까지 맡겠다고 나서자 완나이는 먼저 맡을 범위를 적자고 한다.",
+      "intro": "흐름을 살필지, 뜨는 물건의 균형을 맞출지 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비물 비용을 내고 완나이와 버틸 위치를 살핀다",
+          "result": "준비물 값을 내고 완나이와 물이 흐르는 쪽부터 위치를 살폈다. 맞을 부담을 줄이고 오래 버틸 준비를 배웠다. 완나이는 먼저 옮길 꾸러미를 가리키고 콘고는 바깥 구역의 목록을 접는다.",
+          "card": "academy_wannai_calm",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "받침 도구를 마련해 아와츠키와 준비 동작의 균형을 맞춘다",
+          "result": "받침 도구 값을 내고 아와츠키와 잠깐 뜨는 물건의 균형을 맞췄다. 차지 동작을 빠르게 준비하고 모은 힘을 싣는 요령을 배웠다. 아와츠키는 균형이 흐트러진 꾸러미를 따로 남긴다.",
+          "card": "academy_awatsuki_balance",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 콘고와 맡을 범위를 줄여 보폭을 맞춘다",
+          "result": "콘고와 바깥에서 맡을 범위를 줄이고 준비물을 함께 옮길 보폭을 맞췄다. 160골드를 지불했다. 「옆 사람에게 맞춘 보폭」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 완나이는 줄인 바깥 구역을 표시하고 아와츠키는 아직 균형이 맞지 않은 꾸러미를 따로 남긴다.",
+          "card": "academy_kongo_pair",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 완나이의 수영부·하이드로 핸드와 아와츠키의 수영부·플로트 다이얼, 콘고와의 친구 관계에서 별도 준비 문제를 만든다. 부력을 물 밀도로 오기하지 않고 물건이나 NPC의 이동을 실제 게임 기능으로 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_guts_corner",
+      "title": "큰 소리보다 먼저 옮길 짐",
+      "story": "길목을 막은 짐을 보고 군하가 곤란한 사람을 돕겠다며 앞으로 나선다. 토우마는 도착지를 먼저 확인하자고 제안하고 군하는 이미 한쪽을 들 준비를 한다. 짐을 옮긴 후 담당할 길목을 결정해야 한다.",
+      "intro": "더 강한 적이 오가는 길목과 남은 짐 정리 중 맡을 일을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "군하와 더 강한 적이 드나드는 길목까지 맡는다",
+          "result": "군하와 더 강한 적이 드나드는 길목까지 맡았다. 더 세게 밀어붙이는 힘을 얻었지만 오래 버틸 여유는 조금 줄었고 개인 사냥의 적 단계도 올라갔다. 토우마는 짐의 도착지를 적은 종이를 군하에게 먼저 내민다.",
+          "card": "academy_sogiita_guts",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "운송 도구를 마련해 토우마와 남은 사람 쪽을 살핀다",
+          "result": "운송 도구 값을 내고 토우마와 남은 사람 쪽을 살폈다. 버티며 큰 상대에게 공격할 준비를 배웠다. 토우마는 아직 갈 곳을 확인하지 못한 짐 하나를 옆으로 남긴다.",
+          "card": "academy_touma",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 토우마와 짐의 도착지를 먼저 확인한다",
+          "result": "토우마와 짐의 도착지 표시를 확인하고 갈 곳이 다른 짐을 따로 남겼다. 160골드를 지불했다. 「도착지를 먼저」의 기억 카드1장을 얻었다. 군하가 먼저 든 짐의 도착지를 묻자 토우마는 방금 나눈 표시를 그 짐 앞으로 민다.",
+          "card": "academy_touma_address",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 군하의 열혈·근성·곤란한 사람 돕기, 토우마의 어려운 사람을 외면하지 못하는 성격에서 별도 짐 정리를 창작한다. 군하 능력의 과학적 원리·신기술·불운 해소를 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_parade_markers",
+      "title": "밤 퍼레이드 전에 남은 표식",
+      "story": "밤 퍼레이드 준비 중 예전 안내표와 새 표식이 섞여 나온다. 우이하루는 기록 대조를 요청하고, 쿠로코는 확인되지 않은 표식의 설치를 만류한다. 사텐은 당일용과 내일용 표식을 구분한다.",
+      "intro": "예전 기록의 확인과 새 표식 준비 중 맡을 일을 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "120골드의 연락 비용을 내고 예전 표식의 기록을 찾는다",
+          "result": "우이하루와 예전 표식의 기록을 대조하고 확인한 것만 새 상자로 옮긴다. 120골드를 지불했다. 「쉬었다가 다시 맞춘 항목」의 기억 카드1장을 얻었다. 쿠로코는 확인되지 않은 표식이 섞이지 않도록 옛 상자를 닫지 않은 채 옆에 둔다.",
+          "card": "academy_uiharu_break",
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "새 표시 도구를 마련해 쿠로코와 대응 순서를 맞춘다",
+          "result": "새 표시 도구 값을 내고 쿠로코와 연락 뒤 움직일 순서를 맞췄다. 다음 동작을 빠르게 준비하면서 도착한 자리에서 버틸 요령을 배웠다. 쿠로코는 확인되지 않은 옛 표식을 따로 남기고 새 표식만 가리킨다.",
+          "card": "academy_kuroko_response",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 정리를 준비하고 사텐과 내일 확인할 상자를 나눈다",
+          "result": "사텐과 맡을 길목을 줄이고 아직 확인하지 않은 표식의 상자를 따로 남겼다. 160골드를 지불했다. 「짐 아래의 빈칸」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐은 남긴 상자를 버릴 물건으로 표시하지 않고 내일 확인할 항목을 그 위에 적는다.",
+          "card": "academy_saten_box",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "예전 표식의 기록을 확인하지 못했다. 연락 비용 120골드는 돌아오지 않고 카드는 받지 못한다. 우이하루는 확인되지 않은 표식을 상자에 남긴다.",
+      "canonFact": "초전자포T 공식4화의 밤 퍼레이드 배경에 별도 표식 준비 의뢰를 창작했다. 70%와 보수는 맵의 수치다. 미사카 동생 실종·기억 조작·음모의 본편을 이 선택으로 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_vending_left_coin",
+      "title": "한 번 더 넣기 전에",
+      "story": "토우마가 동전을 삼킨 자판기를 보며 남은 한 닢을 꺼내자 미코토는 익숙한 방법이 있다며 발을 보낸다. 네 손에도 아직 마시지 못한 음료값이 남아 있고 토우마는 네 동전까지 같은 곳에 넣을 필요는 없다고 말한다. 다른 가게는 아직 열려 있지만 자판기 앞의 두 사람은 그쪽을 보고 있지 않다.",
+      "intro": "남은 동전도 같은 자판기에 넣어야 할까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "160골드로 다른 곳의 음료를 마련하고 내 남은 몫을 챙긴다",
+          "result": "다른 음료값160골드를 내고 자기 남은 몫을 챙겼다. 삼킨 동전 뒤에도 준비를 찾는 기억으로 처치 골드가 늘고 받는 피해가 줄었다. 토우마는 네 음료와 자기 손의 한 닢을 번갈아 본다.",
+          "card": "academy_touma_coin",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 미코토는 자판기를 한 번 더 보다가 네 손에 남은 준비를 묻는다.",
+          "card": "academy_mikoto_drink",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 사냥의 적 수 단계를1올리고 토우마와 남은 짐을 가져갈 곳부터 정한다",
+          "result": "토우마와 남은 짐을 가져갈 곳을 정하되 자판기에 삼켜진 동전과 손에 남은 몫은 따로 셌다. 「도착지를 먼저」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 미코토가 다시 자판기를 보자 토우마는 네가 가져갈 짐과 자기 손의 한 닢부터 따로 짚는다.",
+          "card": "academy_touma_address",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "금서목록1기10화의 동전 삼킴과 미코토 비법 역할에서 별도의 유사 고장 만남을 창작했다. 원작 자판기 파괴·미사카 동생 등장·실험 결말을 플레이어가 바꾸거나 불행을 전가하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_tea_after_call",
+      "title": "한 입 남기고 울린 호출",
+      "story": "케이크를 막 나누려던 쿠로코가 호출을 듣고 일어서자 우이하루는 아직 들지 못한 자기 찻잔을 본다. 사텐은 돌아올 때도 남아 있겠냐고 묻고 쿠로코는 나갔다 온 뒤의 이야기까지 지금 못 한다고 말한다. 네 손에는 포장하지 않은 간식과 가져갈 짐이 남아 있다.",
+      "intro": "돌아올 한 잔과 가져갈 짐 중 자기 몫을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 포장을 마련하고 돌아올 한 잔을 남긴다",
+          "result": "포장값180골드를 내고 돌아올 한 잔을 남겼다. 급히 나서도 자기 몫을 남기는 기억으로 신속과 체력65%이상일 때 가하는 피해가 늘었다. 사텐은 포장된 쪽을 보고 자기 잔까지 남겨야 하냐고 묻는다.",
+          "card": "academy_kuroko_return",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다",
+          "result": "더 많은 개인 사냥을 맡는 부담을 택하고 우이하루의 남은 답을 기다렸다. 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 아직 들지 못한 잔을 내려놓고 쿠로코가 나갈 쪽을 본다.",
+          "card": "academy_uiharu_promise",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 사텐과 가져갈 짐과 남길 자리를 나눈다",
+          "result": "사텐과 가져갈 짐과 남길 찻잔의 자리를 따로 나눴다. 160골드를 지불했다. 「짐 아래의 빈칸」의 기억 카드1장을 얻었다. 사텐은 남긴 찻잔을 가리키며 누구의 몫인지 묻고 쿠로코는 아직 돌아온 뒤의 대답까지 하지는 않는다.",
+          "card": "academy_saten_box",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "초전자포1기3화의 파티스리와 호출 순간에서 별도 간식 준비를 창작했다. 기존 중복 주문과 상자 분류를 반복하지 않고 사텐의 피습·범인 체포·NPC 출동 동행을 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_unanswered_promise",
+      "title": "출발보다 먼저 할 대답",
+      "story": "쿠로코가 먼저 나설 준비를 하는데 우이하루는 네가 맡을 일에도 아직 대답을 듣지 못했다고 말한다. 쿠로코는 이미 들은 이야기라며 앞을 보고 우이하루는 누가 대답한 것이냐고 되묻는다. 너는 아직 자기 몫을 말하지 않았고 두 사람 사이에도 답하지 못한 말이 남아 있다.",
+      "intro": "들은 대답과 내가 하지 않은 대답이 어긋났다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다",
+          "result": "준비값180골드를 내고 자기가 맡을 일을 끝까지 답했다. 남은 질문을 놓치지 않는 기억으로 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 네 대답을 들었지만 쿠로코 쪽에는 아직 묻던 말이 남아 있다.",
+          "card": "academy_uiharu_promise",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 쿠로코의 다음 행동을 기억한다",
+          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 쿠로코의 다음 행동을 기억했다. 행동속도가 늘고 받는 피해가 줄었다. 쿠로코는 네가 맡을 몫과 자기 앞에 남은 질문을 따로 본다.",
+          "card": "academy_kuroko_response",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 전달을 준비하고 우이하루에게 줄인 몫과 남은 항목을 말한다",
+          "result": "우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남겼다. 160골드를 지불했다. 「접어 두지 않은 항목」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 우이하루는 네가 줄인 항목을 표시한 뒤 쿠로코에게 아직 듣지 못한 대답을 다시 묻는다.",
+          "card": "academy_uiharu_list",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "초전자포1기5화의 지원을 기다리지 않음과 잊은 약속의 갈등에서 별도 준비를 창작했다. 원작의 약속 내용·폭행·화해와 둘의 신뢰를 여행자가 해결하거나 판정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_arcade_empty_seat",
+      "title": "말을 걸었는데 비어 있는 자리",
+      "story": "오락실에서 학생이 중간에 떠나자 테츠소는 방금 하려던 말과 버튼 사이에 손을 멈춘다. 좋아하던 게임인데도 누구에게 말을 이어야 할지 몰라 자기 옆의 빈 의자를 보고 있다. 네 다음 동전과 아직 누르지 않은 버튼이 같은 자리에서 기다리고 있다.",
+      "intro": "빈 의자 옆에서 내 다음 동전을 쓸까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다",
+          "result": "자기 다음 차례값200골드를 내고 남은 버튼을 지켜봤다. 다음 입력을 기다리는 기억으로 행동속도와 비방향 공격 피해가 늘었다. 테츠소는 빈 의자에 이어 하려던 말을 아직 버튼 앞에 남긴다.",
+          "card": "academy_tessou_button",
+          "card2": null,
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 사냥의 적 수 단계를1올리고 테츠소와 다음 입력의 간격을 기다린다",
+          "result": "테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다렸다. 「눌러야 할 때까지」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 테츠소는 버튼 위에 멈춘 손을 보다가 학생이 앉았던 빈 의자 쪽으로 시선을 돌린다.",
+          "card": "academy_tessou_interval",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 내 차례를 준비하고 빈 의자를 가리지 않은 채 테츠소의 말을 듣는다",
+          "result": "빈 의자를 가리지 않게 자기 짐을 옮기고 테츠소가 하려던 말을 들었다. 160골드를 지불했다. 「빈자리에도 이어질 말」의 기억 카드1장을 얻었다. 테츠소는 빈 의자가 다시 채워진 것처럼 말하지 않고 아까 끝내지 못한 게임 이야기를 잇는다.",
+          "card": "academy_tessou_seat",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "초전자포1기17화에서 코노에가 플레이 도중 떠나 테츠소가 혼자 남는 상황을 작은 별도 만남으로 각색했다. 학생의 이유·게임 종류·승패·손을 대신 움직이는 선택·전원 차단·실제 미니게임은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_festival_before_stage",
+      "title": "안내하다가 멈춘 말끝",
+      "story": "성하제에서 너를 안내하던 미코토가 다음 전시를 가리키다가 자기 무대 차례를 떠올려 말을 멈춘다. 우이하루는 전시를 더 보고 싶어 하고 사텐은 미코토에게도 돌아갈 자리가 남아 있냐고 묻는다. 네가 더 구경할 전시와 미코토가 기다리는 무대의 방향이 갈라진다.",
+      "intro": "전시를 더 볼까, 무대 앞에서 기다릴까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다",
+          "result": "기다릴 준비값210골드를 내고 무대 앞의 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 자기 차례를 떠올린 뒤에도 우이하루가 보고 싶다던 전시를 한 번 더 가리킨다.",
+          "card": "academy_mikoto_curtain",
+          "card2": null,
+          "cost": 210,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
+          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 사텐은 미코토에게 물었던 돌아갈 자리를 아직 가리키고 있다.",
+          "card": "academy_mikoto_drink",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 안내를 준비하고 우이하루와 남은 전시와 무대 차례를 따로 적는다",
+          "result": "우이하루와 더 볼 전시를 적되 미코토가 돌아갈 무대 차례는 따로 남겼다. 160골드를 지불했다. 「접어 두지 않은 항목」의 기억 카드1장을 얻었다. 미코토는 네가 남긴 무대 차례를 보고 우이하루가 더 보고 싶다던 전시를 다시 가리킨다.",
+          "card": "academy_uiharu_list",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "초전자포1기19화의 미코토 안내와 무대 부담을 각색했다. 공연의 종류·악기·곡·성공평가를 공식 소개로 확인하지 않아 정하지 않고 쿠로코를 업무에 불려간 뒤 현장에 남기지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_drink_after_vending",
+      "title": "아직 뜯지 않은 한 잔",
+      "story": "다른 곳에서 음료를 마련했던 네 앞에서 미코토가 아직 뜯지 않은 자기 몫을 내려놓는다. 토우마는 자판기에 남은 동전부터 떠올리고 미코토는 지금 손의 것을 마시기 전에 또 같은 기계를 볼 것이냐고 묻는다. 네가 마련한 보급은 손에 있는데 다음 준비는 아직 끝나지 않았다.",
+      "intro": "손에 든 음료를 열기 전에 남은 준비를 정한다.",
+      "previous": "academy_vending_left_coin",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다",
+          "result": "다음 보급값120골드를 내고 준비를 끝낼 때를 맞췄다. 미코토의 짧은 기다림을 기억해 차지 준비 속도와 최대 체력이 늘었다. 토우마는 자판기에 남은 동전보다 이제 손에 든 짐을 먼저 챙긴다.",
+          "card": "academy_mikoto_drink",
+          "card2": null,
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다",
+          "result": "더 많은 개인 사냥을 맡는 부담을 택하고 미코토의 짧은 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 아직 뜯지 않은 자기 음료를 들고 토우마의 다음 말을 기다린다.",
+          "card": "academy_mikoto_curtain",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 토우마와 손에 남은 보급의 도착지를 정한다",
+          "result": "토우마와 손에 든 보급을 가져갈 곳을 정하고 삼켜진 동전을 다시 찾을 일은 남겼다. 160골드를 지불했다. 「도착지를 먼저」의 기억 카드1장을 얻었다. 토우마는 가져갈 보급부터 들고 미코토는 아직 열지 않은 음료를 그대로 손에 남긴다.",
+          "card": "academy_touma_address",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "다음 보급값120골드를 먼저 낸 뒤 준비를 끝낼 때를 맞추지 못했다. 카드는 얻지 못하고 지불한120골드는 돌아오지 않는다. 미코토는 아직 뜯지 않은 음료를 내려놓고 토우마는 남은 짐부터 본다.",
+      "canonFact": "자판기 앞에서 자신이 다른 음료를 마련한 성공1번에서만 열리는 창작 후속이다. 원작 자판기를 수리하거나 삼킨 동전을 돌려주지 않고 실제 음료 소모·전기 기술·소모품 차감·현재 체력 회복은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_next_shift",
+      "title": "확인한 뒤에도 남은 몫",
+      "intro": "우이하루가 확인할 순서를 적어 둔 네 기록을 다시 펼친다.",
+      "story": "우이하루가 네가 남긴 확인 순서 옆에 아직 맡을 사람을 적지 못한 항목을 붙인다. 사텐은 돌아갈 골목을 알려 줄 수 있다고 하고 쿠로코는 통행을 막지 않을 경계를 먼저 정하자고 한다. 앞서 기록을 정리한 너도 이번에는 어디까지 맡을지 답해야 한다.",
+      "requiredCard": "academy_uiharu_order",
+      "previous": null,
+      "previousChoice": 0,
+      "actionCost": 1,
+      "failure": null,
+      "choices": [
+        {
+          "label": "200골드로 내 준비를 마련하고 우이하루와 다음에 맡을 몫을 정한다",
+          "card": "academy_uiharu_plan",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "내 준비를 마치고 우이하루에게 다음에 맡을 항목까지 답했다. 사텐이 안내할 골목과 쿠로코의 경계는 아직 맡을 사람이 필요하다."
+        },
+        {
+          "label": "160골드로 안내를 마련하고 사텐과 돌아갈 표식을 남긴다",
+          "card": "academy_saten_detour",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100,
+          "result": "귀환길에 표식을 남겼다. 우이하루의 남은 항목과 쿠로코가 지킬 경계는 따로 남아 있다."
+        },
+        {
+          "label": "쿠로코와 더 강한 적이 드나드는 통로의 경계를 맡는다",
+          "card": "academy_kuroko_line",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "강한 적이 드나드는 통로에서 넘어가지 않을 선을 정했다. 우이하루에게 추가로 맡겠다는 답은 하지 못했다."
+        }
+      ],
+      "canonFact": "우이하루의 정보 지원과 쿠로코의 풍기위원 역할을 이용한 맵 전용 방문이다. 남긴 확인 순서 카드를 보유한 여행자가 다음 몫을 정하는 선택이며 원작 갈등 해결·NPC 동행·새 장비 지급·시간 정지 능력은 없다."
+    },
+    {
+      "key": "academy_unsealed_list",
+      "title": "접지 않은 항목의 답",
+      "intro": "남겨 둔 항목에 돌아갈 곳과 전할 말이 붙었다.",
+      "story": "우이하루가 네가 접어 두지 않은 항목을 보며 확인된 내용과 다시 물어야 할 내용을 나눈다. 토우마는 짐의 도착지가 아직 비어 있다고 하고 사텐은 먼저 나를 상자를 가리킨다. 쿠로코는 나가기 전에 돌아올 자리도 남겨 달라고 한다. 이미 남긴 기록이 있어 처음부터 묻지는 않아도 된다. 다만 모두의 일을 한꺼번에 맡을 수는 없다.",
+      "requiredCard": "academy_uiharu_list",
+      "previous": null,
+      "previousChoice": 0,
+      "actionCost": 0,
+      "failure": null,
+      "choices": [
+        {
+          "label": "160골드로 운반을 준비하고 토우마와 짐의 도착지를 확인한다",
+          "card": "academy_touma_address",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "짐의 도착지를 확인하고 운반 준비를 마쳤다. 사텐의 상자와 쿠로코가 돌아올 자리는 다음 사람의 몫으로 남겼다."
+        },
+        {
+          "label": "사텐과 더 많은 적이 오가는 납품 구역의 상자를 나눈다",
+          "card": "academy_saten_box",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100,
+          "result": "더 많은 적이 오가는 납품 구역에서 먼저 나를 상자를 나눴다. 짐의 도착지와 쿠로코가 돌아올 자리는 아직 정하지 못했다."
+        },
+        {
+          "label": "180골드로 포장을 마련하고 쿠로코에게 돌아올 자리를 남긴다",
+          "card": "academy_kuroko_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "포장을 마련하고 쿠로코가 돌아올 자리를 비워 두었다. 토우마와 사텐의 짐은 아직 도착지를 기다린다."
+        }
+      ],
+      "canonFact": "우이하루의 기록 지원과 주변 인물의 생활 속 부탁을 이용한 맵 전용 방문이다. 남긴 항목 카드가 있어 처음부터 확인하지 않아도 된다는 각색을 AP0으로 표현했다. 무료는 방문 행동력뿐이며 골드 비용과 개인 사냥 변화는 적용한다."
+    }
+  ]
+}
