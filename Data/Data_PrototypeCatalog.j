@@ -99,10 +99,9 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[13] = "후유키 · 공격"
         set ProtoCardHead[13] = 1
         set ProtoCardGrade[13] = 1
-        set ProtoEvolutionKind[13] = 2
-        set ProtoEvolutionGoal[13] = 6000.00
+        set ProtoEvolutionKind[13] = 0
+        set ProtoEvolutionGoal[13] = 0.00
         call ProtoSetEffect(13, 1, 8.00, false)
-        call ProtoSetEffect(13, 1, 6.00, true)
         set ProtoCardKey[14] = "saber_guard"
         set ProtoCardName[14] = "세이버"
         set ProtoCardEffectName[14] = "검술의 기초"
@@ -118,11 +117,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[15] = "후유키 · 방향 공격"
         set ProtoCardHead[15] = 1
         set ProtoCardGrade[15] = 2
-        set ProtoEvolutionKind[15] = 3
-        set ProtoEvolutionGoal[15] = 60.00
+        set ProtoEvolutionKind[15] = 0
+        set ProtoEvolutionGoal[15] = 0.00
         call ProtoSetEffect(15, 20, 12.00, false)
         call ProtoSetEffect(15, 9, 3.00, false)
-        call ProtoSetEffect(15, 7, 15.00, true)
         set ProtoCardKey[16] = "rin_disarm"
         set ProtoCardName[16] = "토오사카 린"
         set ProtoCardEffectName[16] = "술식의 취약점"
@@ -149,11 +147,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[18] = "후유키 · 치명타"
         set ProtoCardHead[18] = 1
         set ProtoCardGrade[18] = 2
-        set ProtoEvolutionKind[18] = 3
-        set ProtoEvolutionGoal[18] = 60.00
+        set ProtoEvolutionKind[18] = 0
+        set ProtoEvolutionGoal[18] = 0.00
         call ProtoSetEffect(18, 7, 25.00, false)
         call ProtoSetEffect(18, 9, 3.00, false)
-        call ProtoSetEffect(18, 6, 5.00, true)
         set ProtoCardKey[19] = "sakura_meal"
         set ProtoCardName[19] = "마토 사쿠라"
         set ProtoCardEffectName[19] = "돌아갈 식탁"
@@ -201,11 +198,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[23] = "후유키 · 공격력 · 최대 체력 부담"
         set ProtoCardHead[23] = 1
         set ProtoCardGrade[23] = 2
-        set ProtoEvolutionKind[23] = 1
-        set ProtoEvolutionGoal[23] = 50.00
+        set ProtoEvolutionKind[23] = 0
+        set ProtoEvolutionGoal[23] = 0.00
         call ProtoSetEffect(23, 1, 20.00, false)
         call ProtoSetEffect(23, 13, -6.00, false)
-        call ProtoSetEffect(23, 24, 8.00, true)
         set ProtoCardKey[24] = "fy_archer_distance"
         set ProtoCardName[24] = "아처"
         set ProtoCardEffectName[24] = "감당할 결과부터"
@@ -232,11 +228,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[26] = "후유키 · 방향 · 이동 속도"
         set ProtoCardHead[26] = 1
         set ProtoCardGrade[26] = 2
-        set ProtoEvolutionKind[26] = 3
-        set ProtoEvolutionGoal[26] = 60.00
+        set ProtoEvolutionKind[26] = 0
+        set ProtoEvolutionGoal[26] = 0.00
         call ProtoSetEffect(26, 20, 14.00, false)
         call ProtoSetEffect(26, 10, 5.00, false)
-        call ProtoSetEffect(26, 12, 3.00, true)
         set ProtoCardKey[27] = "fy_sakura_blanket"
         set ProtoCardName[27] = "마토 사쿠라"
         set ProtoCardEffectName[27] = "접어 두었던 한 사람 몫"
@@ -263,11 +258,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[29] = "후유키 · 치명타 확률 · 방향"
         set ProtoCardHead[29] = 1
         set ProtoCardGrade[29] = 2
-        set ProtoEvolutionKind[29] = 1
-        set ProtoEvolutionGoal[29] = 35.00
+        set ProtoEvolutionKind[29] = 0
+        set ProtoEvolutionGoal[29] = 0.00
         call ProtoSetEffect(29, 6, 6.00, false)
         call ProtoSetEffect(29, 20, 8.00, false)
-        call ProtoSetEffect(29, 5, 6.00, true)
         set ProtoCardKey[30] = "fy_kirei_shelter"
         set ProtoCardName[30] = "코토미네 키레이"
         set ProtoCardEffectName[30] = "감독자의 보호 아래"
@@ -1106,23 +1100,21 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[38] = "액셀 · 신속"
         set ProtoCardHead[38] = 2
         set ProtoCardGrade[38] = 2
-        set ProtoEvolutionKind[38] = 3
-        set ProtoEvolutionGoal[38] = 60.00
+        set ProtoEvolutionKind[38] = 0
+        set ProtoEvolutionGoal[38] = 0.00
         call ProtoSetEffect(38, 8, 180.00, false)
         call ProtoSetEffect(38, 20, 10.00, false)
-        call ProtoSetEffect(38, 7, 15.00, true)
         set ProtoCardKey[39] = "axel_megumin"
         set ProtoCardName[39] = "메구밍"
         set ProtoCardEffectName[39] = "폭렬 마법에 올인"
         set ProtoCardKeyword[39] = "액셀 · 차지 · 패널티"
         set ProtoCardHead[39] = 2
         set ProtoCardGrade[39] = 3
-        set ProtoEvolutionKind[39] = 2
-        set ProtoEvolutionGoal[39] = 12000.00
+        set ProtoEvolutionKind[39] = 0
+        set ProtoEvolutionGoal[39] = 0.00
         call ProtoSetEffect(39, 23, 24.00, false)
         call ProtoSetEffect(39, 11, 8.00, false)
         call ProtoSetEffect(39, 9, -3.00, false)
-        call ProtoSetEffect(39, 23, 10.00, true)
         set ProtoCardKey[40] = "axel_darkness"
         set ProtoCardName[40] = "다크니스"
         set ProtoCardEffectName[40] = "서툰 검과 단단한 갑옷"
@@ -1160,11 +1152,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[43] = "액셀 · 보스 · 관통"
         set ProtoCardHead[43] = 2
         set ProtoCardGrade[43] = 3
-        set ProtoEvolutionKind[43] = 1
-        set ProtoEvolutionGoal[43] = 45.00
+        set ProtoEvolutionKind[43] = 0
+        set ProtoEvolutionGoal[43] = 0.00
         call ProtoSetEffect(43, 4, 14.00, false)
         call ProtoSetEffect(43, 12, 10.00, false)
-        call ProtoSetEffect(43, 7, 15.00, true)
         set ProtoCardKey[44] = "axel_aqua_stage"
         set ProtoCardName[44] = "아쿠아"
         set ProtoCardEffectName[44] = "박수가 끝난 뒤의 준비"
@@ -1191,11 +1182,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[46] = "액셀 · 차지 · 비방향 피해"
         set ProtoCardHead[46] = 2
         set ProtoCardGrade[46] = 2
-        set ProtoEvolutionKind[46] = 2
-        set ProtoEvolutionGoal[46] = 10000.00
+        set ProtoEvolutionKind[46] = 0
+        set ProtoEvolutionGoal[46] = 0.00
         call ProtoSetEffect(46, 23, 12.00, false)
         call ProtoSetEffect(46, 21, 12.00, false)
-        call ProtoSetEffect(46, 11, 3.00, true)
         set ProtoCardKey[47] = "axel_mitsurugi_stance"
         set ProtoCardName[47] = "미츠루기"
         set ProtoCardEffectName[47] = "이름을 말하기 전의 자세"
@@ -1233,11 +1223,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[50] = "액셀 · 이동 · 일반 적"
         set ProtoCardHead[50] = 2
         set ProtoCardGrade[50] = 2
-        set ProtoEvolutionKind[50] = 1
-        set ProtoEvolutionGoal[50] = 40.00
+        set ProtoEvolutionKind[50] = 0
+        set ProtoEvolutionGoal[50] = 0.00
         call ProtoSetEffect(50, 10, 5.00, false)
         call ProtoSetEffect(50, 5, 12.00, false)
-        call ProtoSetEffect(50, 4, 5.00, true)
         set ProtoCardKey[51] = "axel_wiz_question"
         set ProtoCardName[51] = "위즈"
         set ProtoCardEffectName[51] = "질문이 끝나는 순간"
@@ -2126,11 +2115,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[63] = "아비도스 · 이동 · 전투"
         set ProtoCardHead[63] = 3
         set ProtoCardGrade[63] = 2
-        set ProtoEvolutionKind[63] = 3
-        set ProtoEvolutionGoal[63] = 60.00
+        set ProtoEvolutionKind[63] = 0
+        set ProtoEvolutionGoal[63] = 0.00
         call ProtoSetEffect(63, 10, 5.00, false)
         call ProtoSetEffect(63, 19, 16.00, false)
-        call ProtoSetEffect(63, 6, 4.00, true)
         set ProtoCardKey[64] = "abydos_serika"
         set ProtoCardName[64] = "쿠로미 세리카"
         set ProtoCardEffectName[64] = "남은 일까지"
@@ -2147,11 +2135,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[65] = "아비도스 · 일반전"
         set ProtoCardHead[65] = 3
         set ProtoCardGrade[65] = 2
-        set ProtoEvolutionKind[65] = 1
-        set ProtoEvolutionGoal[65] = 40.00
+        set ProtoEvolutionKind[65] = 0
+        set ProtoEvolutionGoal[65] = 0.00
         call ProtoSetEffect(65, 5, 18.00, false)
         call ProtoSetEffect(65, 1, 5.00, false)
-        call ProtoSetEffect(65, 5, 10.00, true)
         set ProtoCardKey[66] = "abydos_hoshino"
         set ProtoCardName[66] = "타카나시 호시노"
         set ProtoCardEffectName[66] = "선배의 방패"
@@ -2188,33 +2175,30 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[69] = "아비도스 · 보스 · 생존"
         set ProtoCardHead[69] = 3
         set ProtoCardGrade[69] = 3
-        set ProtoEvolutionKind[69] = 2
-        set ProtoEvolutionGoal[69] = 12000.00
+        set ProtoEvolutionKind[69] = 0
+        set ProtoEvolutionGoal[69] = 0.00
         call ProtoSetEffect(69, 4, 16.00, false)
         call ProtoSetEffect(69, 24, 12.00, false)
-        call ProtoSetEffect(69, 3, 5.00, true)
         set ProtoCardKey[70] = "abydos_serika_return"
         set ProtoCardName[70] = "쿠로미 세리카"
         set ProtoCardEffectName[70] = "다시 열 가게를 위해"
         set ProtoCardKeyword[70] = "아비도스 · 고체력 · 수급"
         set ProtoCardHead[70] = 3
         set ProtoCardGrade[70] = 2
-        set ProtoEvolutionKind[70] = 1
-        set ProtoEvolutionGoal[70] = 40.00
+        set ProtoEvolutionKind[70] = 0
+        set ProtoEvolutionGoal[70] = 0.00
         call ProtoSetEffect(70, 24, 12.00, false)
         call ProtoSetEffect(70, 17, 1.00, false)
-        call ProtoSetEffect(70, 1, 5.00, true)
         set ProtoCardKey[71] = "abydos_shiroko_pace"
         set ProtoCardName[71] = "스나오오카미 시로코"
         set ProtoCardEffectName[71] = "같은 속도로 한 바퀴"
         set ProtoCardKeyword[71] = "아비도스 · 신속 · 일반 적"
         set ProtoCardHead[71] = 3
         set ProtoCardGrade[71] = 2
-        set ProtoEvolutionKind[71] = 1
-        set ProtoEvolutionGoal[71] = 45.00
+        set ProtoEvolutionKind[71] = 0
+        set ProtoEvolutionGoal[71] = 0.00
         call ProtoSetEffect(71, 8, 180.00, false)
         call ProtoSetEffect(71, 5, 10.00, false)
-        call ProtoSetEffect(71, 9, 3.00, true)
         set ProtoCardKey[72] = "abydos_hoshino_wake"
         set ProtoCardName[72] = "타카나시 호시노"
         set ProtoCardEffectName[72] = "쉬는 자리의 앞쪽"
@@ -2291,11 +2275,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[79] = "아비도스 · 치명타 피해 · 비방향"
         set ProtoCardHead[79] = 3
         set ProtoCardGrade[79] = 2
-        set ProtoEvolutionKind[79] = 2
-        set ProtoEvolutionGoal[79] = 8000.00
+        set ProtoEvolutionKind[79] = 0
+        set ProtoEvolutionGoal[79] = 0.00
         call ProtoSetEffect(79, 7, 20.00, false)
         call ProtoSetEffect(79, 21, 10.00, false)
-        call ProtoSetEffect(79, 5, 5.00, true)
         set ProtoCardKey[80] = "ab68_aru_task"
         set ProtoCardName[80] = "리쿠하치마 아루"
         set ProtoCardEffectName[80] = "직함 대신 할 일"
@@ -3272,22 +3255,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[93] = "학원도시 · 관통 · 차지"
         set ProtoCardHead[93] = 4
         set ProtoCardGrade[93] = 2
-        set ProtoEvolutionKind[93] = 2
-        set ProtoEvolutionGoal[93] = 12000.00
+        set ProtoEvolutionKind[93] = 0
+        set ProtoEvolutionGoal[93] = 0.00
         call ProtoSetEffect(93, 12, 10.00, false)
         call ProtoSetEffect(93, 23, 14.00, false)
-        call ProtoSetEffect(93, 7, 15.00, true)
         set ProtoCardKey[94] = "academy_kuroko"
         set ProtoCardName[94] = "시라이 쿠로코"
         set ProtoCardEffectName[94] = "공간의 사각"
         set ProtoCardKeyword[94] = "학원도시 · 이동 · 방향"
         set ProtoCardHead[94] = 4
         set ProtoCardGrade[94] = 2
-        set ProtoEvolutionKind[94] = 3
-        set ProtoEvolutionGoal[94] = 60.00
+        set ProtoEvolutionKind[94] = 0
+        set ProtoEvolutionGoal[94] = 0.00
         call ProtoSetEffect(94, 10, 5.00, false)
         call ProtoSetEffect(94, 20, 12.00, false)
-        call ProtoSetEffect(94, 9, 4.00, true)
         set ProtoCardKey[95] = "academy_touma"
         set ProtoCardName[95] = "카미조 토우마"
         set ProtoCardEffectName[95] = "이매진 브레이커"
@@ -3304,11 +3285,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[96] = "학원도시 · 자원 · 탐색"
         set ProtoCardHead[96] = 4
         set ProtoCardGrade[96] = 1
-        set ProtoEvolutionKind[96] = 1
-        set ProtoEvolutionGoal[96] = 45.00
+        set ProtoEvolutionKind[96] = 0
+        set ProtoEvolutionGoal[96] = 0.00
         call ProtoSetEffect(96, 17, 2.00, false)
         call ProtoSetEffect(96, 5, 6.00, false)
-        call ProtoSetEffect(96, 8, 90.00, true)
         set ProtoCardKey[97] = "academy_dispatch"
         set ProtoCardName[97] = "우이하루 카자리"
         set ProtoCardEffectName[97] = "백업 통신"
@@ -3325,11 +3305,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[98] = "학원도시 · 보스 · 차지"
         set ProtoCardHead[98] = 4
         set ProtoCardGrade[98] = 3
-        set ProtoEvolutionKind[98] = 2
-        set ProtoEvolutionGoal[98] = 15000.00
+        set ProtoEvolutionKind[98] = 0
+        set ProtoEvolutionGoal[98] = 0.00
         call ProtoSetEffect(98, 4, 14.00, false)
         call ProtoSetEffect(98, 11, 8.00, false)
-        call ProtoSetEffect(98, 3, 5.00, true)
         set ProtoCardKey[99] = "academy_persevere"
         set ProtoCardName[99] = "사텐 루이코"
         set ProtoCardEffectName[99] = "능력 밖의 용기"
@@ -3406,11 +3385,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[106] = "학원도시 · 공격력 · 최대 체력 패널티"
         set ProtoCardHead[106] = 4
         set ProtoCardGrade[106] = 2
-        set ProtoEvolutionKind[106] = 2
-        set ProtoEvolutionGoal[106] = 9000.00
+        set ProtoEvolutionKind[106] = 0
+        set ProtoEvolutionGoal[106] = 0.00
         call ProtoSetEffect(106, 1, 18.00, false)
         call ProtoSetEffect(106, 13, -5.00, false)
-        call ProtoSetEffect(106, 5, 10.00, true)
         set ProtoCardKey[107] = "academy_touma_coin"
         set ProtoCardName[107] = "카미조 토우마"
         set ProtoCardEffectName[107] = "삼켜도 남은 한 닢"
@@ -3447,22 +3425,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[110] = "학원도시 · 행동 · 비방향"
         set ProtoCardHead[110] = 4
         set ProtoCardGrade[110] = 2
-        set ProtoEvolutionKind[110] = 1
-        set ProtoEvolutionGoal[110] = 35.00
+        set ProtoEvolutionKind[110] = 0
+        set ProtoEvolutionGoal[110] = 0.00
         call ProtoSetEffect(110, 9, 4.00, false)
         call ProtoSetEffect(110, 21, 12.00, false)
-        call ProtoSetEffect(110, 6, 3.00, true)
         set ProtoCardKey[111] = "academy_mikoto_curtain"
         set ProtoCardName[111] = "미사카 미코토"
         set ProtoCardEffectName[111] = "막 앞의 한 호흡"
         set ProtoCardKeyword[111] = "학원도시 · 차지 피해 · 치명타 피해"
         set ProtoCardHead[111] = 4
         set ProtoCardGrade[111] = 2
-        set ProtoEvolutionKind[111] = 2
-        set ProtoEvolutionGoal[111] = 9000.00
+        set ProtoEvolutionKind[111] = 0
+        set ProtoEvolutionGoal[111] = 0.00
         call ProtoSetEffect(111, 23, 12.00, false)
         call ProtoSetEffect(111, 7, 12.00, false)
-        call ProtoSetEffect(111, 4, 4.00, true)
         set ProtoCardKey[112] = "academy_mikoto_drink"
         set ProtoCardName[112] = "미사카 미코토"
         set ProtoCardEffectName[112] = "차가워지기 전에"
@@ -4507,22 +4483,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[123] = "미타키하라 · 차지 · 관통"
         set ProtoCardHead[123] = 5
         set ProtoCardGrade[123] = 2
-        set ProtoEvolutionKind[123] = 2
-        set ProtoEvolutionGoal[123] = 12000.00
+        set ProtoEvolutionKind[123] = 0
+        set ProtoEvolutionGoal[123] = 0.00
         call ProtoSetEffect(123, 23, 18.00, false)
         call ProtoSetEffect(123, 12, 8.00, false)
-        call ProtoSetEffect(123, 11, 6.00, true)
         set ProtoCardKey[124] = "madoka_homura"
         set ProtoCardName[124] = "아케미 호무라"
         set ProtoCardEffectName[124] = "반복해 세운 준비"
         set ProtoCardKeyword[124] = "미타키하라 · 행동 · 신속"
         set ProtoCardHead[124] = 5
         set ProtoCardGrade[124] = 2
-        set ProtoEvolutionKind[124] = 3
-        set ProtoEvolutionGoal[124] = 60.00
+        set ProtoEvolutionKind[124] = 0
+        set ProtoEvolutionGoal[124] = 0.00
         call ProtoSetEffect(124, 9, 6.00, false)
         call ProtoSetEffect(124, 8, 180.00, false)
-        call ProtoSetEffect(124, 4, 8.00, true)
         set ProtoCardKey[125] = "madoka_sayaka"
         set ProtoCardName[125] = "미키 사야카"
         set ProtoCardEffectName[125] = "물러서지 않는 결심"
@@ -4539,11 +4513,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[126] = "미타키하라 · 방향 · 이동"
         set ProtoCardHead[126] = 5
         set ProtoCardGrade[126] = 2
-        set ProtoEvolutionKind[126] = 1
-        set ProtoEvolutionGoal[126] = 45.00
+        set ProtoEvolutionKind[126] = 0
+        set ProtoEvolutionGoal[126] = 0.00
         call ProtoSetEffect(126, 20, 15.00, false)
         call ProtoSetEffect(126, 19, 10.00, false)
-        call ProtoSetEffect(126, 7, 15.00, true)
         set ProtoCardKey[127] = "madoka_contract"
         set ProtoCardName[127] = "큐베"
         set ProtoCardEffectName[127] = "힘이라는 소원"
@@ -4620,22 +4593,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[134] = "미타키하라 · 행동 속도 · 비방향 피해"
         set ProtoCardHead[134] = 5
         set ProtoCardGrade[134] = 2
-        set ProtoEvolutionKind[134] = 3
-        set ProtoEvolutionGoal[134] = 60.00
+        set ProtoEvolutionKind[134] = 0
+        set ProtoEvolutionGoal[134] = 0.00
         call ProtoSetEffect(134, 9, 4.00, false)
         call ProtoSetEffect(134, 21, 12.00, false)
-        call ProtoSetEffect(134, 12, 6.00, true)
         set ProtoCardKey[135] = "madoka_mami_distance"
         set ProtoCardName[135] = "토모에 마미"
         set ProtoCardEffectName[135] = "들어가기 전의 한 걸음"
         set ProtoCardKeyword[135] = "미타키하라 · 방향 피해 · 피해 감소"
         set ProtoCardHead[135] = 5
         set ProtoCardGrade[135] = 2
-        set ProtoEvolutionKind[135] = 2
-        set ProtoEvolutionGoal[135] = 9000.00
+        set ProtoEvolutionKind[135] = 0
+        set ProtoEvolutionGoal[135] = 0.00
         call ProtoSetEffect(135, 20, 14.00, false)
         call ProtoSetEffect(135, 14, 4.00, false)
-        call ProtoSetEffect(135, 11, 3.00, true)
         set ProtoCardKey[136] = "madoka_return_markers"
         set ProtoCardName[136] = "카나메 마도카"
         set ProtoCardEffectName[136] = "돌아와 줄 자리"
@@ -5341,22 +5312,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[144] = "아인크라드 · 행동 · 치명"
         set ProtoCardHead[144] = 6
         set ProtoCardGrade[144] = 2
-        set ProtoEvolutionKind[144] = 2
-        set ProtoEvolutionGoal[144] = 12000.00
+        set ProtoEvolutionKind[144] = 0
+        set ProtoEvolutionGoal[144] = 0.00
         call ProtoSetEffect(144, 9, 6.00, false)
         call ProtoSetEffect(144, 6, 4.00, false)
-        call ProtoSetEffect(144, 4, 8.00, true)
         set ProtoCardKey[145] = "sao_asuna"
         set ProtoCardName[145] = "아스나"
         set ProtoCardEffectName[145] = "섬광의 사선"
         set ProtoCardKeyword[145] = "아인크라드 · 신속 · 방향"
         set ProtoCardHead[145] = 6
         set ProtoCardGrade[145] = 2
-        set ProtoEvolutionKind[145] = 3
-        set ProtoEvolutionGoal[145] = 60.00
+        set ProtoEvolutionKind[145] = 0
+        set ProtoEvolutionGoal[145] = 0.00
         call ProtoSetEffect(145, 8, 270.00, false)
         call ProtoSetEffect(145, 20, 12.00, false)
-        call ProtoSetEffect(145, 7, 15.00, true)
         set ProtoCardKey[146] = "sao_liz"
         set ProtoCardName[146] = "리즈벳"
         set ProtoCardEffectName[146] = "가공의 완성도"
@@ -5403,11 +5372,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[150] = "아인크라드 · 보스 · 관통"
         set ProtoCardHead[150] = 6
         set ProtoCardGrade[150] = 3
-        set ProtoEvolutionKind[150] = 2
-        set ProtoEvolutionGoal[150] = 15000.00
+        set ProtoEvolutionKind[150] = 0
+        set ProtoEvolutionGoal[150] = 0.00
         call ProtoSetEffect(150, 4, 16.00, false)
         call ProtoSetEffect(150, 12, 10.00, false)
-        call ProtoSetEffect(150, 3, 5.00, true)
         set ProtoCardKey[151] = "sao_agil_shelf"
         set ProtoCardName[151] = "에길"
         set ProtoCardEffectName[151] = "값표 아래 남은 항목"
@@ -5454,11 +5422,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[155] = "아인크라드 · 보스 · 치명타 피해"
         set ProtoCardHead[155] = 6
         set ProtoCardGrade[155] = 2
-        set ProtoEvolutionKind[155] = 2
-        set ProtoEvolutionGoal[155] = 10000.00
+        set ProtoEvolutionKind[155] = 0
+        set ProtoEvolutionGoal[155] = 0.00
         call ProtoSetEffect(155, 4, 12.00, false)
         call ProtoSetEffect(155, 7, 12.00, false)
-        call ProtoSetEffect(155, 9, 3.00, true)
         set ProtoCardKey[156] = "sao_argo_question"
         set ProtoCardName[156] = "아르고"
         set ProtoCardEffectName[156] = "묻지 않은 갈림길"
@@ -5495,11 +5462,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[159] = "아인크라드 · 이동 · 방향"
         set ProtoCardHead[159] = 6
         set ProtoCardGrade[159] = 2
-        set ProtoEvolutionKind[159] = 1
-        set ProtoEvolutionGoal[159] = 45.00
+        set ProtoEvolutionKind[159] = 0
+        set ProtoEvolutionGoal[159] = 0.00
         call ProtoSetEffect(159, 10, 6.00, false)
         call ProtoSetEffect(159, 20, 10.00, false)
-        call ProtoSetEffect(159, 4, 5.00, true)
         set ProtoCardKey[160] = "sao_argo_return"
         set ProtoCardName[160] = "아르고"
         set ProtoCardEffectName[160] = "돌아와 더할 한 문장"
@@ -6456,11 +6422,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[171] = "제가 그랑데 공역 · 차지 · 치명"
         set ProtoCardHead[171] = 7
         set ProtoCardGrade[171] = 2
-        set ProtoEvolutionKind[171] = 2
-        set ProtoEvolutionGoal[171] = 12000.00
+        set ProtoEvolutionKind[171] = 0
+        set ProtoEvolutionGoal[171] = 0.00
         call ProtoSetEffect(171, 23, 16.00, false)
         call ProtoSetEffect(171, 7, 20.00, false)
-        call ProtoSetEffect(171, 12, 6.00, true)
         set ProtoCardKey[172] = "gbf_io"
         set ProtoCardName[172] = "이오"
         set ProtoCardEffectName[172] = "마법사의 집중"
@@ -6477,11 +6442,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[173] = "제가 그랑데 공역 · 방향 · 치명"
         set ProtoCardHead[173] = 7
         set ProtoCardGrade[173] = 2
-        set ProtoEvolutionKind[173] = 1
-        set ProtoEvolutionGoal[173] = 45.00
+        set ProtoEvolutionKind[173] = 0
+        set ProtoEvolutionGoal[173] = 0.00
         call ProtoSetEffect(173, 20, 16.00, false)
         call ProtoSetEffect(173, 6, 4.00, false)
-        call ProtoSetEffect(173, 9, 4.00, true)
         set ProtoCardKey[174] = "gbf_vane"
         set ProtoCardName[174] = "베인"
         set ProtoCardEffectName[174] = "친구가 돌아올 자리"
@@ -6498,11 +6462,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[175] = "제가 그랑데 공역 · 보스 · 관통"
         set ProtoCardHead[175] = 7
         set ProtoCardGrade[175] = 3
-        set ProtoEvolutionKind[175] = 2
-        set ProtoEvolutionGoal[175] = 15000.00
+        set ProtoEvolutionKind[175] = 0
+        set ProtoEvolutionGoal[175] = 0.00
         call ProtoSetEffect(175, 4, 16.00, false)
         call ProtoSetEffect(175, 12, 8.00, false)
-        call ProtoSetEffect(175, 3, 5.00, true)
         set ProtoCardKey[176] = "gbf_cagliostro"
         set ProtoCardName[176] = "칼리오스트로"
         set ProtoCardEffectName[176] = "정밀한 연금 조정"
@@ -6549,11 +6512,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[180] = "제가 그랑데 공역 · 행동 속도 · 방향 피해"
         set ProtoCardHead[180] = 7
         set ProtoCardGrade[180] = 2
-        set ProtoEvolutionKind[180] = 1
-        set ProtoEvolutionGoal[180] = 50.00
+        set ProtoEvolutionKind[180] = 0
+        set ProtoEvolutionGoal[180] = 0.00
         call ProtoSetEffect(180, 9, 4.00, false)
         call ProtoSetEffect(180, 20, 12.00, false)
-        call ProtoSetEffect(180, 7, 12.00, true)
         set ProtoCardKey[181] = "gbf_percival_share"
         set ProtoCardName[181] = "퍼시벌"
         set ProtoCardEffectName[181] = "약한 쪽에 남길 몫"
@@ -6570,11 +6532,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[182] = "제가 그랑데 공역 · 신속 · 이동 피해"
         set ProtoCardHead[182] = 7
         set ProtoCardGrade[182] = 2
-        set ProtoEvolutionKind[182] = 3
-        set ProtoEvolutionGoal[182] = 60.00
+        set ProtoEvolutionKind[182] = 0
+        set ProtoEvolutionGoal[182] = 0.00
         call ProtoSetEffect(182, 8, 90.00, false)
         call ProtoSetEffect(182, 19, 12.00, false)
-        call ProtoSetEffect(182, 7, 12.00, true)
         set ProtoCardKey[183] = "gbf_io_smile"
         set ProtoCardName[183] = "이오"
         set ProtoCardEffectName[183] = "다시 해 보자는 웃음"
@@ -7255,11 +7216,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[193] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[193] = 0
         set ProtoCardGrade[193] = 2
-        set ProtoEvolutionKind[193] = 2
-        set ProtoEvolutionGoal[193] = 12000.00
+        set ProtoEvolutionKind[193] = 0
+        set ProtoEvolutionGoal[193] = 0.00
         call ProtoSetEffect(193, 20, 12.00, false)
         call ProtoSetEffect(193, 12, 8.00, false)
-        call ProtoSetEffect(193, 7, 15.00, true)
         set ProtoCardKey[194] = "common_hiyori"
         set ProtoCardName[194] = "이키 히요리"
         set ProtoCardEffectName[194] = "돌아올 길을 기억하기"
@@ -7286,33 +7246,30 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[196] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[196] = 0
         set ProtoCardGrade[196] = 2
-        set ProtoEvolutionKind[196] = 1
-        set ProtoEvolutionGoal[196] = 45.00
+        set ProtoEvolutionKind[196] = 0
+        set ProtoEvolutionGoal[196] = 0.00
         call ProtoSetEffect(196, 17, 3.00, false)
         call ProtoSetEffect(196, 1, 5.00, false)
-        call ProtoSetEffect(196, 17, 1.00, true)
         set ProtoCardKey[197] = "common_holo_wit"
         set ProtoCardName[197] = "호로"
         set ProtoCardEffectName[197] = "손익 뒤의 의도"
         set ProtoCardKeyword[197] = "여행길 · 공통 · 탐색"
         set ProtoCardHead[197] = 0
         set ProtoCardGrade[197] = 3
-        set ProtoEvolutionKind[197] = 3
-        set ProtoEvolutionGoal[197] = 60.00
+        set ProtoEvolutionKind[197] = 0
+        set ProtoEvolutionGoal[197] = 0.00
         call ProtoSetEffect(197, 4, 12.00, false)
         call ProtoSetEffect(197, 7, 25.00, false)
-        call ProtoSetEffect(197, 6, 4.00, true)
         set ProtoCardKey[198] = "common_ragna_eater"
         set ProtoCardName[198] = "라그나 더 블러드엣지"
         set ProtoCardEffectName[198] = "소울 이터"
         set ProtoCardKeyword[198] = "여행길 · 공통 · 흡수 · 공격"
         set ProtoCardHead[198] = 0
         set ProtoCardGrade[198] = 2
-        set ProtoEvolutionKind[198] = 2
-        set ProtoEvolutionGoal[198] = 15000.00
+        set ProtoEvolutionKind[198] = 0
+        set ProtoEvolutionGoal[198] = 0.00
         call ProtoSetEffect(198, 15, 8.00, false)
         call ProtoSetEffect(198, 1, 6.00, false)
-        call ProtoSetEffect(198, 13, 8.00, true)
         set ProtoCardKey[199] = "common_ragna_break"
         set ProtoCardName[199] = "라그나 더 블러드엣지"
         set ProtoCardEffectName[199] = "정면 돌파"
@@ -7329,22 +7286,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[200] = "여행길 · 탐색 · 수급"
         set ProtoCardHead[200] = 0
         set ProtoCardGrade[200] = 2
-        set ProtoEvolutionKind[200] = 1
-        set ProtoEvolutionGoal[200] = 45.00
+        set ProtoEvolutionKind[200] = 0
+        set ProtoEvolutionGoal[200] = 0.00
         call ProtoSetEffect(200, 18, 1.00, false)
         call ProtoSetEffect(200, 17, 2.00, false)
-        call ProtoSetEffect(200, 17, 1.00, true)
         set ProtoCardKey[201] = "common_nazrin_retreat"
         set ProtoCardName[201] = "나즈린"
         set ProtoCardEffectName[201] = "돌아갈 틈을 남기기"
         set ProtoCardKeyword[201] = "여행길 · 이동 · 이동 피해"
         set ProtoCardHead[201] = 0
         set ProtoCardGrade[201] = 2
-        set ProtoEvolutionKind[201] = 3
-        set ProtoEvolutionGoal[201] = 45.00
+        set ProtoEvolutionKind[201] = 0
+        set ProtoEvolutionGoal[201] = 0.00
         call ProtoSetEffect(201, 10, 5.00, false)
         call ProtoSetEffect(201, 19, 12.00, false)
-        call ProtoSetEffect(201, 14, 3.00, true)
         set ProtoEventKey[167] = "common_five_coin"
         set ProtoEventName[167] = "벽에 적힌 전화번호"
         set ProtoEventHead[167] = 0
@@ -7991,11 +7946,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[203] = "마그놀리아 · 공격 · 일반 몬스터"
         set ProtoCardHead[203] = 8
         set ProtoCardGrade[203] = 2
-        set ProtoEvolutionKind[203] = 2
-        set ProtoEvolutionGoal[203] = 12000.00
+        set ProtoEvolutionKind[203] = 0
+        set ProtoEvolutionGoal[203] = 0.00
         call ProtoSetEffect(203, 1, 12.00, false)
         call ProtoSetEffect(203, 5, 8.00, false)
-        call ProtoSetEffect(203, 4, 8.00, true)
         set ProtoCardKey[204] = "ft_lucy"
         set ProtoCardName[204] = "루시 하트필리아"
         set ProtoCardEffectName[204] = "의뢰를 잇는 기록"
@@ -8012,22 +7966,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[205] = "마그놀리아 · 차지 · 비방향"
         set ProtoCardHead[205] = 8
         set ProtoCardGrade[205] = 2
-        set ProtoEvolutionKind[205] = 2
-        set ProtoEvolutionGoal[205] = 12000.00
+        set ProtoEvolutionKind[205] = 0
+        set ProtoEvolutionGoal[205] = 0.00
         call ProtoSetEffect(205, 23, 18.00, false)
         call ProtoSetEffect(205, 21, 8.00, false)
-        call ProtoSetEffect(205, 11, 6.00, true)
         set ProtoCardKey[206] = "ft_erza_blade"
         set ProtoCardName[206] = "엘자 스칼렛"
         set ProtoCardEffectName[206] = "검 하나에 실은 결심"
         set ProtoCardKeyword[206] = "마그놀리아 · 방향 · 치명"
         set ProtoCardHead[206] = 8
         set ProtoCardGrade[206] = 2
-        set ProtoEvolutionKind[206] = 1
-        set ProtoEvolutionGoal[206] = 45.00
+        set ProtoEvolutionKind[206] = 0
+        set ProtoEvolutionGoal[206] = 0.00
         call ProtoSetEffect(206, 20, 16.00, false)
         call ProtoSetEffect(206, 6, 4.00, false)
-        call ProtoSetEffect(206, 7, 15.00, true)
         set ProtoCardKey[207] = "ft_erza_guard"
         set ProtoCardName[207] = "엘자 스칼렛"
         set ProtoCardEffectName[207] = "갑옷을 고르는 이유"
@@ -8054,11 +8006,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[209] = "마그놀리아 · 고체력 · 생존"
         set ProtoCardHead[209] = 8
         set ProtoCardGrade[209] = 2
-        set ProtoEvolutionKind[209] = 3
-        set ProtoEvolutionGoal[209] = 60.00
+        set ProtoEvolutionKind[209] = 0
+        set ProtoEvolutionGoal[209] = 0.00
         call ProtoSetEffect(209, 24, 12.00, false)
         call ProtoSetEffect(209, 14, 4.00, false)
-        call ProtoSetEffect(209, 6, 4.00, true)
         set ProtoCardKey[210] = "ft_natsu_focus"
         set ProtoCardName[210] = "나츠 드래그닐"
         set ProtoCardEffectName[210] = "동료를 향한 불꽃"
@@ -8076,11 +8027,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[211] = "마그놀리아 · 흡수 · 공격"
         set ProtoCardHead[211] = 8
         set ProtoCardGrade[211] = 2
-        set ProtoEvolutionKind[211] = 1
-        set ProtoEvolutionGoal[211] = 50.00
+        set ProtoEvolutionKind[211] = 0
+        set ProtoEvolutionGoal[211] = 0.00
         call ProtoSetEffect(211, 15, 1.50, false)
         call ProtoSetEffect(211, 1, 8.00, false)
-        call ProtoSetEffect(211, 16, 0.30, true)
         set ProtoCardKey[212] = "ft_juvia_umbrella"
         set ProtoCardName[212] = "쥬비아 록서"
         set ProtoCardEffectName[212] = "하나 더 남긴 우산"
@@ -8118,11 +8068,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[215] = "마그놀리아 · 관통 · 차지"
         set ProtoCardHead[215] = 8
         set ProtoCardGrade[215] = 2
-        set ProtoEvolutionKind[215] = 2
-        set ProtoEvolutionGoal[215] = 14000.00
+        set ProtoEvolutionKind[215] = 0
+        set ProtoEvolutionGoal[215] = 0.00
         call ProtoSetEffect(215, 12, 6.00, false)
         call ProtoSetEffect(215, 23, 12.00, false)
-        call ProtoSetEffect(215, 12, 3.00, true)
         set ProtoCardKey[216] = "ft_lucy_reader"
         set ProtoCardName[216] = "루시 하트필리아"
         set ProtoCardEffectName[216] = "결말 앞의 다른 길"
@@ -8980,22 +8929,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[226] = "카라쿠라 마을 · 공격 · 보스"
         set ProtoCardHead[226] = 9
         set ProtoCardGrade[226] = 2
-        set ProtoEvolutionKind[226] = 1
-        set ProtoEvolutionGoal[226] = 45.00
+        set ProtoEvolutionKind[226] = 0
+        set ProtoEvolutionGoal[226] = 0.00
         call ProtoSetEffect(226, 1, 12.00, false)
         call ProtoSetEffect(226, 4, 8.00, false)
-        call ProtoSetEffect(226, 6, 3.00, true)
         set ProtoCardKey[227] = "bl_uryu"
         set ProtoCardName[227] = "이시다 우류"
         set ProtoCardEffectName[227] = "흐트러지지 않는 조준"
         set ProtoCardKeyword[227] = "카라쿠라 마을 · 치명 · 관통"
         set ProtoCardHead[227] = 9
         set ProtoCardGrade[227] = 2
-        set ProtoEvolutionKind[227] = 3
-        set ProtoEvolutionGoal[227] = 60.00
+        set ProtoEvolutionKind[227] = 0
+        set ProtoEvolutionGoal[227] = 0.00
         call ProtoSetEffect(227, 6, 6.00, false)
         call ProtoSetEffect(227, 12, 8.00, false)
-        call ProtoSetEffect(227, 7, 20.00, true)
         set ProtoCardKey[228] = "bl_orihime"
         set ProtoCardName[228] = "이노우에 오리히메"
         set ProtoCardEffectName[228] = "거절하는 것은 상처"
@@ -9012,22 +8959,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[229] = "카라쿠라 마을 · 신속 · 이동 피해"
         set ProtoCardHead[229] = 9
         set ProtoCardGrade[229] = 2
-        set ProtoEvolutionKind[229] = 3
-        set ProtoEvolutionGoal[229] = 60.00
+        set ProtoEvolutionKind[229] = 0
+        set ProtoEvolutionGoal[229] = 0.00
         call ProtoSetEffect(229, 8, 270.00, false)
         call ProtoSetEffect(229, 19, 16.00, false)
-        call ProtoSetEffect(229, 9, 5.00, true)
         set ProtoCardKey[230] = "bl_rukia"
         set ProtoCardName[230] = "쿠치키 루키아"
         set ProtoCardEffectName[230] = "현세에서 지켜야 할 간격"
         set ProtoCardKeyword[230] = "카라쿠라 마을 · 차지 · 피해"
         set ProtoCardHead[230] = 9
         set ProtoCardGrade[230] = 2
-        set ProtoEvolutionKind[230] = 3
-        set ProtoEvolutionGoal[230] = 45.00
+        set ProtoEvolutionKind[230] = 0
+        set ProtoEvolutionGoal[230] = 0.00
         call ProtoSetEffect(230, 11, 6.00, false)
         call ProtoSetEffect(230, 2, 12.00, false)
-        call ProtoSetEffect(230, 14, 4.00, true)
         set ProtoCardKey[231] = "bl_urahara"
         set ProtoCardName[231] = "우라하라 키스케"
         set ProtoCardEffectName[231] = "준비가 남기는 여유"
@@ -9054,12 +8999,11 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[233] = "카라쿠라 마을 · 차지 · 공격"
         set ProtoCardHead[233] = 9
         set ProtoCardGrade[233] = 3
-        set ProtoEvolutionKind[233] = 2
-        set ProtoEvolutionGoal[233] = 12000.00
+        set ProtoEvolutionKind[233] = 0
+        set ProtoEvolutionGoal[233] = 0.00
         call ProtoSetEffect(233, 23, 24.00, false)
         call ProtoSetEffect(233, 1, 6.00, false)
         call ProtoSetEffect(233, 9, -3.00, false)
-        call ProtoSetEffect(233, 4, 10.00, true)
         set ProtoCardKey[234] = "bl_uryu_stitch"
         set ProtoCardName[234] = "이시다 우류"
         set ProtoCardEffectName[234] = "어긋난 한 땀까지"
@@ -9086,11 +9030,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[236] = "카라쿠라 마을 · 방향 공격 · 피해 감소"
         set ProtoCardHead[236] = 9
         set ProtoCardGrade[236] = 2
-        set ProtoEvolutionKind[236] = 1
-        set ProtoEvolutionGoal[236] = 45.00
+        set ProtoEvolutionKind[236] = 0
+        set ProtoEvolutionGoal[236] = 0.00
         call ProtoSetEffect(236, 20, 14.00, false)
         call ProtoSetEffect(236, 14, 3.00, false)
-        call ProtoSetEffect(236, 9, 3.00, true)
         set ProtoCardKey[237] = "bl_don_signal"
         set ProtoCardName[237] = "돈 칸온지"
         set ProtoCardEffectName[237] = "보이게 전하는 신호"
@@ -9127,11 +9070,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[240] = "카라쿠라 마을 · 차지 · 치명타 피해"
         set ProtoCardHead[240] = 9
         set ProtoCardGrade[240] = 2
-        set ProtoEvolutionKind[240] = 2
-        set ProtoEvolutionGoal[240] = 12000.00
+        set ProtoEvolutionKind[240] = 0
+        set ProtoEvolutionGoal[240] = 0.00
         call ProtoSetEffect(240, 23, 16.00, false)
         call ProtoSetEffect(240, 7, 14.00, false)
-        call ProtoSetEffect(240, 12, 3.00, true)
         set ProtoCardKey[241] = "bl_keigo_invitation"
         set ProtoCardName[241] = "아사노 케이고"
         set ProtoCardEffectName[241] = "아직 묻지 않은 약속"
@@ -10122,22 +10064,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[251] = "페나코니 · 행동 · 일반 몬스터"
         set ProtoCardHead[251] = 10
         set ProtoCardGrade[251] = 2
-        set ProtoEvolutionKind[251] = 1
-        set ProtoEvolutionGoal[251] = 40.00
+        set ProtoEvolutionKind[251] = 0
+        set ProtoEvolutionGoal[251] = 0.00
         call ProtoSetEffect(251, 9, 5.00, false)
         call ProtoSetEffect(251, 5, 10.00, false)
-        call ProtoSetEffect(251, 24, 8.00, true)
         set ProtoCardKey[252] = "hsr_aventurine_fortune"
         set ProtoCardName[252] = "어벤츄린"
         set ProtoCardEffectName[252] = "운명을 마주하는 미소"
         set ProtoCardKeyword[252] = "페나코니 · 치명"
         set ProtoCardHead[252] = 10
         set ProtoCardGrade[252] = 2
-        set ProtoEvolutionKind[252] = 1
-        set ProtoEvolutionGoal[252] = 50.00
+        set ProtoEvolutionKind[252] = 0
+        set ProtoEvolutionGoal[252] = 0.00
         call ProtoSetEffect(252, 6, 5.00, false)
         call ProtoSetEffect(252, 7, 18.00, false)
-        call ProtoSetEffect(252, 4, 8.00, true)
         set ProtoCardKey[253] = "hsr_aventurine_reserve"
         set ProtoCardName[253] = "어벤츄린"
         set ProtoCardEffectName[253] = "판돈 밖에 남겨 둔 여유"
@@ -10164,11 +10104,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[255] = "페나코니 · 피해 · 보스"
         set ProtoCardHead[255] = 10
         set ProtoCardGrade[255] = 2
-        set ProtoEvolutionKind[255] = 2
-        set ProtoEvolutionGoal[255] = 15000.00
+        set ProtoEvolutionKind[255] = 0
+        set ProtoEvolutionGoal[255] = 0.00
         call ProtoSetEffect(255, 2, 12.00, false)
         call ProtoSetEffect(255, 4, 8.00, false)
-        call ProtoSetEffect(255, 3, 4.00, true)
         set ProtoCardKey[256] = "hsr_black_swan_archive"
         set ProtoCardName[256] = "블랙 스완"
         set ProtoCardEffectName[256] = "흩어진 장면을 잇기"
@@ -10206,22 +10145,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[259] = "페나코니 · 차지 속도 · 고체력"
         set ProtoCardHead[259] = 10
         set ProtoCardGrade[259] = 2
-        set ProtoEvolutionKind[259] = 3
-        set ProtoEvolutionGoal[259] = 60.00
+        set ProtoEvolutionKind[259] = 0
+        set ProtoEvolutionGoal[259] = 0.00
         call ProtoSetEffect(259, 11, 6.00, false)
         call ProtoSetEffect(259, 24, 12.00, false)
-        call ProtoSetEffect(259, 5, 8.00, true)
         set ProtoCardKey[260] = "hsr_acheron_gap"
         set ProtoCardName[260] = "아케론"
         set ProtoCardEffectName[260] = "검을 돌리기 전의 간격"
         set ProtoCardKeyword[260] = "페나코니 · 관통 · 방향"
         set ProtoCardHead[260] = 10
         set ProtoCardGrade[260] = 2
-        set ProtoEvolutionKind[260] = 2
-        set ProtoEvolutionGoal[260] = 12000.00
+        set ProtoEvolutionKind[260] = 0
+        set ProtoEvolutionGoal[260] = 0.00
         call ProtoSetEffect(260, 12, 6.00, false)
         call ProtoSetEffect(260, 20, 12.00, false)
-        call ProtoSetEffect(260, 4, 6.00, true)
         set ProtoCardKey[261] = "hsr_sparkle_cut"
         set ProtoCardName[261] = "스파클"
         set ProtoCardEffectName[261] = "박수 뒤의 한 장면"
@@ -10269,22 +10206,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[265] = "페나코니 · 공격력 · 고체력"
         set ProtoCardHead[265] = 10
         set ProtoCardGrade[265] = 2
-        set ProtoEvolutionKind[265] = 3
-        set ProtoEvolutionGoal[265] = 60.00
+        set ProtoEvolutionKind[265] = 0
+        set ProtoEvolutionGoal[265] = 0.00
         call ProtoSetEffect(265, 1, 8.00, false)
         call ProtoSetEffect(265, 24, 12.00, false)
-        call ProtoSetEffect(265, 4, 6.00, true)
         set ProtoCardKey[266] = "hsr_boothill_focus"
         set ProtoCardName[266] = "부트힐"
         set ProtoCardEffectName[266] = "많은 시선 속의 한 표적"
         set ProtoCardKeyword[266] = "페나코니 · 보스 · 방향"
         set ProtoCardHead[266] = 10
         set ProtoCardGrade[266] = 2
-        set ProtoEvolutionKind[266] = 2
-        set ProtoEvolutionGoal[266] = 15000.00
+        set ProtoEvolutionKind[266] = 0
+        set ProtoEvolutionGoal[266] = 0.00
         call ProtoSetEffect(266, 4, 14.00, false)
         call ProtoSetEffect(266, 20, 10.00, false)
-        call ProtoSetEffect(266, 12, 3.00, true)
         set ProtoCardKey[267] = "hsr_boothill_attention"
         set ProtoCardName[267] = "부트힐"
         set ProtoCardEffectName[267] = "숨기지 않은 발걸음"
@@ -10302,11 +10237,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[268] = "페나코니 · 최대 체력 · 이동"
         set ProtoCardHead[268] = 10
         set ProtoCardGrade[268] = 2
-        set ProtoEvolutionKind[268] = 1
-        set ProtoEvolutionGoal[268] = 40.00
+        set ProtoEvolutionKind[268] = 0
+        set ProtoEvolutionGoal[268] = 0.00
         call ProtoSetEffect(268, 13, 10.00, false)
         call ProtoSetEffect(268, 10, 4.00, false)
-        call ProtoSetEffect(268, 24, 8.00, true)
         set ProtoCardKey[269] = "hsr_boothill_caption"
         set ProtoCardName[269] = "부트힐"
         set ProtoCardEffectName[269] = "사진 아래에 빠진 말"
@@ -11438,11 +11372,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[280] = "아메스트리스 · 공격 · 관통"
         set ProtoCardHead[280] = 11
         set ProtoCardGrade[280] = 2
-        set ProtoEvolutionKind[280] = 2
-        set ProtoEvolutionGoal[280] = 8000.00
+        set ProtoEvolutionKind[280] = 0
+        set ProtoEvolutionGoal[280] = 0.00
         call ProtoSetEffect(280, 1, 10.00, false)
         call ProtoSetEffect(280, 12, 8.00, false)
-        call ProtoSetEffect(280, 12, 4.00, true)
         set ProtoCardKey[281] = "fma_alphonse"
         set ProtoCardName[281] = "알폰스 엘릭"
         set ProtoCardEffectName[281] = "먼저 무너지지 않는 자세"
@@ -11489,11 +11422,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[285] = "아메스트리스 · 공격 · 고체력"
         set ProtoCardHead[285] = 11
         set ProtoCardGrade[285] = 3
-        set ProtoEvolutionKind[285] = 3
-        set ProtoEvolutionGoal[285] = 60.00
+        set ProtoEvolutionKind[285] = 0
+        set ProtoEvolutionGoal[285] = 0.00
         call ProtoSetEffect(285, 1, 16.00, false)
         call ProtoSetEffect(285, 24, 16.00, false)
-        call ProtoSetEffect(285, 3, 4.00, true)
         set ProtoCardKey[286] = "fma_izumi_flow"
         set ProtoCardName[286] = "이즈미 커티스"
         set ProtoCardEffectName[286] = "혼자서도 흐름 속에서"
@@ -11520,11 +11452,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[288] = "아메스트리스 · 치명타 확률 · 방향 공격"
         set ProtoCardHead[288] = 11
         set ProtoCardGrade[288] = 2
-        set ProtoEvolutionKind[288] = 1
-        set ProtoEvolutionGoal[288] = 50.00
+        set ProtoEvolutionKind[288] = 0
+        set ProtoEvolutionGoal[288] = 0.00
         call ProtoSetEffect(288, 6, 5.00, false)
         call ProtoSetEffect(288, 20, 12.00, false)
-        call ProtoSetEffect(288, 7, 10.00, true)
         set ProtoCardKey[289] = "fma_hughes_notice"
         set ProtoCardName[289] = "마스 휴즈"
         set ProtoCardEffectName[289] = "보여 주기 전에 살필 것"
@@ -12422,22 +12353,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[303] = "나비저택 · 신속 · 고체력"
         set ProtoCardHead[303] = 12
         set ProtoCardGrade[303] = 2
-        set ProtoEvolutionKind[303] = 3
-        set ProtoEvolutionGoal[303] = 45.00
+        set ProtoEvolutionKind[303] = 0
+        set ProtoEvolutionGoal[303] = 0.00
         call ProtoSetEffect(303, 8, 180.00, false)
         call ProtoSetEffect(303, 24, 14.00, false)
-        call ProtoSetEffect(303, 3, 3.00, true)
         set ProtoCardKey[304] = "kny_kanao"
         set ProtoCardName[304] = "츠유리 카나오"
         set ProtoCardEffectName[304] = "먼저 읽는 움직임"
         set ProtoCardKeyword[304] = "나비저택 · 치명 · 행동"
         set ProtoCardHead[304] = 12
         set ProtoCardGrade[304] = 2
-        set ProtoEvolutionKind[304] = 2
-        set ProtoEvolutionGoal[304] = 6000.00
+        set ProtoEvolutionKind[304] = 0
+        set ProtoEvolutionGoal[304] = 0.00
         call ProtoSetEffect(304, 6, 7.00, false)
         call ProtoSetEffect(304, 9, 6.00, false)
-        call ProtoSetEffect(304, 7, 15.00, true)
         set ProtoCardKey[305] = "kny_shinobu"
         set ProtoCardName[305] = "코쵸 시노부"
         set ProtoCardEffectName[305] = "출발 전에 남긴 당부"
@@ -12454,11 +12383,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[306] = "나비저택 · 차지 · 치명"
         set ProtoCardHead[306] = 12
         set ProtoCardGrade[306] = 2
-        set ProtoEvolutionKind[306] = 1
-        set ProtoEvolutionGoal[306] = 60.00
+        set ProtoEvolutionKind[306] = 0
+        set ProtoEvolutionGoal[306] = 0.00
         call ProtoSetEffect(306, 23, 18.00, false)
         call ProtoSetEffect(306, 7, 20.00, false)
-        call ProtoSetEffect(306, 4, 8.00, true)
         set ProtoCardKey[307] = "kny_inosuke"
         set ProtoCardName[307] = "하시비라 이노스케"
         set ProtoCardEffectName[307] = "머뭇거리지 않는 돌파"
@@ -12496,11 +12424,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[310] = "나비저택 · 방향 적중 · 관통"
         set ProtoCardHead[310] = 12
         set ProtoCardGrade[310] = 2
-        set ProtoEvolutionKind[310] = 1
-        set ProtoEvolutionGoal[310] = 45.00
+        set ProtoEvolutionKind[310] = 0
+        set ProtoEvolutionGoal[310] = 0.00
         call ProtoSetEffect(310, 20, 14.00, false)
         call ProtoSetEffect(310, 12, 5.00, false)
-        call ProtoSetEffect(310, 4, 6.00, true)
         set ProtoCardKey[311] = "kny_shinobu_points"
         set ProtoCardName[311] = "코쵸 시노부"
         set ProtoCardEffectName[311] = "상대를 먼저 알기"
@@ -12517,11 +12444,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[312] = "나비저택 · 차지 속도 · 보스"
         set ProtoCardHead[312] = 12
         set ProtoCardGrade[312] = 2
-        set ProtoEvolutionKind[312] = 3
-        set ProtoEvolutionGoal[312] = 45.00
+        set ProtoEvolutionKind[312] = 0
+        set ProtoEvolutionGoal[312] = 0.00
         call ProtoSetEffect(312, 11, 7.00, false)
         call ProtoSetEffect(312, 4, 8.00, false)
-        call ProtoSetEffect(312, 23, 8.00, true)
         set ProtoCardKey[313] = "kny_inosuke_terrain"
         set ProtoCardName[313] = "하시비라 이노스케"
         set ProtoCardEffectName[313] = "먼저 발을 내딛는 길"
@@ -12548,11 +12474,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[315] = "나비저택 · 행동 속도 · 보스"
         set ProtoCardHead[315] = 12
         set ProtoCardGrade[315] = 2
-        set ProtoEvolutionKind[315] = 2
-        set ProtoEvolutionGoal[315] = 12000.00
+        set ProtoEvolutionKind[315] = 0
+        set ProtoEvolutionGoal[315] = 0.00
         call ProtoSetEffect(315, 9, 4.00, false)
         call ProtoSetEffect(315, 4, 8.00, false)
-        call ProtoSetEffect(315, 3, 2.00, true)
         set ProtoCardKey[316] = "kny_nezuko_will"
         set ProtoCardName[316] = "카마도 네즈코"
         set ProtoCardEffectName[316] = "겁내는 이의 앞에서"
@@ -12589,11 +12514,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[319] = "나비저택 · 행동 속도 · 방향"
         set ProtoCardHead[319] = 12
         set ProtoCardGrade[319] = 2
-        set ProtoEvolutionKind[319] = 2
-        set ProtoEvolutionGoal[319] = 8000.00
+        set ProtoEvolutionKind[319] = 0
+        set ProtoEvolutionGoal[319] = 0.00
         call ProtoSetEffect(319, 9, 6.00, false)
         call ProtoSetEffect(319, 20, 10.00, false)
-        call ProtoSetEffect(319, 6, 3.00, true)
         set ProtoCardKey[320] = "kny_kanao_small_motion"
         set ProtoCardName[320] = "츠유리 카나오"
         set ProtoCardEffectName[320] = "작게 움직여도 늦지 않게"
@@ -13436,11 +13360,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[324] = "미식전 길드 하우스 · 최대 체력 · 고체력"
         set ProtoCardHead[324] = 13
         set ProtoCardGrade[324] = 2
-        set ProtoEvolutionKind[324] = 1
-        set ProtoEvolutionGoal[324] = 60.00
+        set ProtoEvolutionKind[324] = 0
+        set ProtoEvolutionGoal[324] = 0.00
         call ProtoSetEffect(324, 13, 12.00, false)
         call ProtoSetEffect(324, 24, 14.00, false)
-        call ProtoSetEffect(324, 5, 8.00, true)
         set ProtoCardKey[325] = "pc_pecorine_front"
         set ProtoCardName[325] = "페코린느"
         set ProtoCardEffectName[325] = "함께 먹을 몫"
@@ -13467,11 +13390,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[327] = "미식전 길드 하우스 · 비방향 · 관통"
         set ProtoCardHead[327] = 13
         set ProtoCardGrade[327] = 2
-        set ProtoEvolutionKind[327] = 2
-        set ProtoEvolutionGoal[327] = 7000.00
+        set ProtoEvolutionKind[327] = 0
+        set ProtoEvolutionGoal[327] = 0.00
         call ProtoSetEffect(327, 21, 16.00, false)
         call ProtoSetEffect(327, 12, 6.00, false)
-        call ProtoSetEffect(327, 4, 8.00, true)
         set ProtoCardKey[328] = "pc_karyl_resolve"
         set ProtoCardName[328] = "캬루"
         set ProtoCardEffectName[328] = "불평은 일을 끝낸 뒤에"
@@ -13498,22 +13420,20 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[330] = "미식전 길드 하우스 · 고체력 · 일반 적"
         set ProtoCardHead[330] = 13
         set ProtoCardGrade[330] = 2
-        set ProtoEvolutionKind[330] = 1
-        set ProtoEvolutionGoal[330] = 45.00
+        set ProtoEvolutionKind[330] = 0
+        set ProtoEvolutionGoal[330] = 0.00
         call ProtoSetEffect(330, 24, 18.00, false)
         call ProtoSetEffect(330, 5, 12.00, false)
-        call ProtoSetEffect(330, 4, 6.00, true)
         set ProtoCardKey[331] = "pc_aoi_courage"
         set ProtoCardName[331] = "아오이"
         set ProtoCardEffectName[331] = "조심스러운 발걸음"
         set ProtoCardKeyword[331] = "미식전 길드 하우스 · 이동 · 고체력"
         set ProtoCardHead[331] = 13
         set ProtoCardGrade[331] = 2
-        set ProtoEvolutionKind[331] = 3
-        set ProtoEvolutionGoal[331] = 45.00
+        set ProtoEvolutionKind[331] = 0
+        set ProtoEvolutionGoal[331] = 0.00
         call ProtoSetEffect(331, 10, 4.00, false)
         call ProtoSetEffect(331, 24, 12.00, false)
-        call ProtoSetEffect(331, 9, 3.00, true)
         set ProtoCardKey[332] = "pc_kokkoro_harvest"
         set ProtoCardName[332] = "콧코로"
         set ProtoCardEffectName[332] = "차곡차곡 모아 둔 몫"
@@ -13540,11 +13460,10 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoCardKeyword[334] = "미식전 길드 하우스 · 관통 · 치명타 확률"
         set ProtoCardHead[334] = 13
         set ProtoCardGrade[334] = 2
-        set ProtoEvolutionKind[334] = 2
-        set ProtoEvolutionGoal[334] = 6500.00
+        set ProtoEvolutionKind[334] = 0
+        set ProtoEvolutionGoal[334] = 0.00
         call ProtoSetEffect(334, 12, 6.00, false)
         call ProtoSetEffect(334, 6, 5.00, false)
-        call ProtoSetEffect(334, 4, 5.00, true)
         set ProtoCardKey[335] = "pc_monica_order"
         set ProtoCardName[335] = "모니카"
         set ProtoCardEffectName[335] = "먼저 맡을 자리"

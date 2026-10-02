@@ -68,9 +68,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "불의 멸룡마도사인 나츠의 공격적인 전투를 각색했다. 별도 화염 공격·원작 기술은 지급하지 않는다.",
       "uncertain": []
@@ -116,9 +121,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "얼음을 여러 형태의 무기로 만드는 조형마법을 차지와 비방향 공격으로 각색했다. 차지·비방향 판정이 있는 기존 스킬에 적용된다.",
       "uncertain": []
@@ -140,9 +150,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "무기와 갑옷을 순간적으로 환장하는 엘자의 전투를 방향 적중 준비로 각색했다. 원작 갑옷 이름이나 신규 무기를 지급하지 않는다.",
       "uncertain": []
@@ -212,9 +227,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "웬디의 동료이며 때때로 예지 능력을 보이는 샤를을 위험 징후에 주의를 기울이는 준비로 각색했다. 확정 예언·실제 다음 보스 정보 기능은 제공하지 않는다.",
       "uncertain": []
@@ -264,9 +284,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "regeneration",
+            "value": 0.3
+          }
+        ]
       },
       "canonFact": "철을 먹어 힘을 얻는 멸룡마도사의 설정을 공격을 이어 가며 버틸 힘을 얻는 성장으로 각색한다. 플레이어의 철 식사·재료 소모·원작 기술은 없다.",
       "uncertain": []
@@ -364,9 +389,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 14000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "파괴 마법과 무심코 주변을 부수는 특징을 간격·강한 방어에 힘을 싣는 성장으로 각색한다. 플레이어의 파괴 마법·건물 파손·실제 무구를 지급하지 않는다.",
       "uncertain": []

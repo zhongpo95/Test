@@ -70,14 +70,21 @@ check('획득·각성은 해당 카드의 25개 효과만 읽고 중복 획득�
   assert.equal(reads.length,0);assert.deepEqual(e.ProtoStatValues,state);assert.equal(e.ProtoAP[0],ap);assert.equal(e.ProtoAPMax[0],maximum);
   assert.deepEqual(pending(e,0,1),[]);
 });
-check('4인 324개 실제 카드의 획득·일괄 각성 합계는 기존 전체 합산 수치와 같음',()=>{
+check('4인 실제 카드 전체는 각성 없이 기본 합계와 중복 강화만 적용',()=>{
   const e=setup();
   for(let pid=0;pid<4;pid++){
     for(const h of [1,5,13])e.ProtoGrantHead(pid,h);
     for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)e.ProtoGrantCard(pid,id);
     expected(e,pid).forEach((value,i)=>close(e.ProtoStat(pid,i+1),value));
-    for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)if(e.ProtoEvolutionKind[id]>0)e.ProtoCardProgress[e.ExpKey(pid,id)]=e.ProtoEvolutionGoal[id];
-    e.ProtoEvolutionTick(pid);
+    e.ProtoHuntOwner[100]=pid+1;
+    for(let i=0;i<100;i++){e.ProtoKill(pid);e.ProtoRecordDamage(pid,100,10000);e.ProtoEvolutionTick(pid);}
+    for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++){
+      assert.equal(e.ProtoEvolutionKind[id],0);assert.equal(e.ProtoEvolutionGoal[id],0);
+      assert(!e.ProtoEvolved[e.ExpKey(pid,id)]);assert.equal(e.ProtoCardProgress[e.ExpKey(pid,id)],0);
+      assert(!e.ProtoCardText(pid,id).includes('각성'));
+      for(let kind=1;kind<=25;kind++)assert.equal(e.LoadReal(e.ProtoEffectData,id,kind+32),0);
+      e.ProtoGrantEventCard(pid,id);assert.equal(e.ProtoCardStacks[e.ExpKey(pid,id)],1);
+    }
     expected(e,pid).forEach((value,i)=>close(e.ProtoStat(pid,i+1),value));
     for(let kind=1;kind<=3;kind++)assert.deepEqual(pending(e,pid,kind),[]);
   }
@@ -135,7 +142,7 @@ check('피격은 보호막 흡수에도 무피격만 초기화하고 사건 정�
   e.ProtoReady[0]=false;e.BossDeal(99,0,0,false);assert.equal(e.ProtoCardProgress[902],10);
   e.ExpState=e.EXP_BATTLE;e.BossDeal(99,0,5,false);assert.equal(e.ProtoCardProgress[902],10);
 });
-check('새 원정에서 이전 능력치와 각성 목록을 비우며 같은 카드 재획득 때 링크를 복원',()=>{
+check('새 원정에서 이전 능력치를 비우며 실제 카드 재획득에도 각성 목록은 비어 있음',()=>{
   const t=fresh(0,true),e=t.e;t.start();
   const ids=['axel_vanir','shiro_analysis','saber_opening'].map(key=>e.ProtoCardKey.indexOf(key));
   for(const id of ids)e.ProtoGrantCard(0,id);
@@ -145,8 +152,8 @@ check('새 원정에서 이전 능력치와 각성 목록을 비우며 같은 �
   for(let kind=1;kind<=25;kind++)assert.equal(e.ProtoStat(0,kind),0);
   assert.equal(e.ProtoAP[0],10);assert.equal(e.ProtoAPMax[0],10);assert.equal(e.ProtoChoices[0],3);assert.equal(e.ProtoGoldBonus[0],0);
   for(const id of ids){assert(!e.ExpCardOwned[id]);assert(!e.ProtoEvolved[id]);assert.equal(e.ProtoCardProgress[id],0);e.ProtoGrantCard(0,id);}
-  for(let kind=1;kind<=3;kind++)assert.equal(pending(e,0,kind).length,1);
-  e.ProtoKill(0);assert.equal(e.ProtoCardProgress[ids[0]],1);
+  for(let kind=1;kind<=3;kind++)assert.equal(pending(e,0,kind).length,0);
+  e.ProtoKill(0);assert.equal(e.ProtoCardProgress[ids[0]],0);
 });
 check('13개 지역 입구는 4인 전부 결과까지 완료하며 갱신 중 미보유 조회가 없음',()=>{
   for(let head=1;head<=13;head++){

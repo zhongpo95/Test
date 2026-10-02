@@ -37,9 +37,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "밝은 대식가이자 검사라는 성격을 든든한 준비와 고체력 조건으로 각색.",
       "uncertain": []
@@ -109,9 +114,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 7000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "기본 캬루의 공식 조정 공지에 있는 방어력 감소 역할을 개인 방어력 관통으로 각색한다. 비방향·보스 조건과 수치는 맵 전용이며 적 전체 디버프나 원작 마법을 새로 지급하지 않는다.",
       "uncertain": []
@@ -181,9 +191,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
       "uncertain": []
@@ -205,9 +220,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
       "uncertain": []
@@ -278,9 +298,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 6500,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "uncertain": []
     },

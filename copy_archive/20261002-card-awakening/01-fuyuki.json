@@ -32,9 +32,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 6000,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "시로의 무기 투영을 바탕으로 구조를 살피는 공격 성장으로 각색했다."
     },
@@ -74,9 +79,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "세이버와 시로의 검술 훈련을 공격 간격을 익히는 경험으로 각색했다."
     },
@@ -143,9 +153,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "UBW의 어새신은 산문을 지키는 검술가다. 다른 작품의 암살자와 구분해 방향 적중 효과를 사용했다."
     },
@@ -265,9 +280,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 8
+          }
+        ]
       },
       "uncertain": []
     },
@@ -336,9 +356,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "세이버와 대등한 창병 영령의 위압적인 간격을 공격 방향과 빠른 발의 성장으로 각색한다. 게이 볼그·필중·창 지급·영령 동행은 없다.",
       "uncertain": []
@@ -408,9 +433,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 35,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "궁도부 고문에게 자기 실패의 동작을 묻는 창작 만남의 기억이다. 타이가의 원작 사격 실패를 확정하거나 새 활·사격·미니게임을 지급하지 않는다.",
       "uncertain": []

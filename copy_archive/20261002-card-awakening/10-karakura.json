@@ -57,9 +57,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "사신대행으로 동료를 지키는 이치고의 결심을 공격 준비로 각색했다.",
       "uncertain": []
@@ -81,9 +86,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 20
+          }
+        ]
       },
       "canonFact": "퀸시인 우류의 정밀한 전투와 손재주를 조준 준비로 각색했다. 원작 활을 지급하지 않는다.",
       "uncertain": []
@@ -129,9 +139,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "보법의 달인인 요루이치의 전투를 이동하며 공격하는 준비로 각색했다. 순간이동을 지급하지 않는다.",
       "uncertain": []
@@ -153,9 +168,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "damage_reduction",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "현세에서 사신 임무를 수행하는 루키아의 전투 판단을 차지 간격 조절로 각색했다. 참백도나 빙결 기술을 지급하지 않는다.",
       "uncertain": []
@@ -229,9 +249,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 10
+          }
+        ]
       },
       "canonFact": "이치고의 칼에 집중하는 준비를 차지 공격의 큰 일격으로 각색했다. 월아천충을 새로 지급하지 않는다.",
       "uncertain": []
@@ -301,9 +326,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "공식 가라테 달인·정의감 강한 이치고의 소꿉친구와 오리히메의 친구 역할을 자세와 방향 공격 준비로 각색한다. 새 무술 스킬·기절·공격 범위는 지급하지 않는다.",
       "uncertain": []
@@ -397,9 +427,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "외형과 달리 초인적인 전투 능력이 있는 점원에게 겉모습만 보고 힘을 가늠하지 않는 일격 준비를 배운다. 실제 동행·상자 들기 미니게임·초인화·점원 고용은 없다.",
       "uncertain": []
