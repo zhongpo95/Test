@@ -1,0 +1,92 @@
+[
+  {
+    "file": "UI_Arcana_Ink.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Ink.tga",
+    "size": [
+      256,
+      256
+    ],
+    "sha256": "d628b33bcfedcc99e84609531f1969fd3f16fb826e9511c60bf08adb78643760"
+  },
+  {
+    "file": "UI_Arcana_Panel.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Panel.tga",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "466c1e069185e9caca8f7aeb16d0edc39b809ce2be4fd112095c7fb6537180d3"
+  },
+  {
+    "file": "UI_Arcana_Selected.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Selected.tga",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "2273891806eca494149f0fda58fa51c5851dd48e652601c6756b53305befe810"
+  },
+  {
+    "file": "UI_Arcana_Button.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Button.tga",
+    "size": [
+      512,
+      128
+    ],
+    "sha256": "f460c7f94e934e7dc4a8cf3f45d2e715b88897cd3c78c931e79bae719677de83"
+  },
+  {
+    "file": "UI_Arcana_Active.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Active.tga",
+    "size": [
+      512,
+      128
+    ],
+    "sha256": "19cde98937200cead9a0967f29a93ee9150113095af66850096fe7b7ecae013f"
+  },
+  {
+    "file": "UI_Arcana_Paper.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Paper.tga",
+    "size": [
+      256,
+      256
+    ],
+    "sha256": "cbcfbeeeec2f711fd6295363ea3068238ad81af5c825c041bae6f297a2fb46fd"
+  },
+  {
+    "file": "UI_Arcana_Sheet.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Sheet.tga",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "8591b98931b7b9b5960ce066bf13010f3a299773974c803d3d3a9a44c2aacd1e"
+  },
+  {
+    "file": "UI_Arcana_SheetHover.tga",
+    "import_path": "war3mapImported\\UI_Arcana_SheetHover.tga",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "ffb65051a69a17e28d9c201c1811a5678e3f3c8c9fceace953d6842e92c5345c"
+  },
+  {
+    "file": "UI_Arcana_Rule.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Rule.tga",
+    "size": [
+      512,
+      4
+    ],
+    "sha256": "6a1649db747e56fc5dee25250a5454fde60130d8a9e5e2fd4fe7aa7eb3bf4afd"
+  },
+  {
+    "file": "UI_Arcana_Route.tga",
+    "import_path": "war3mapImported\\UI_Arcana_Route.tga",
+    "size": [
+      1024,
+      1024
+    ],
+    "sha256": "b54c37486bec326c5c26f6c8980593863dd778f2f5522329efd90563e4f58f59"
+  }
+]

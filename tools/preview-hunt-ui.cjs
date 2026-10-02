@@ -18,4 +18,9 @@ for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+24;id++)e.ProtoGrantCard(0,i
 e.ProtoGrantEventCard(0,e.PROTO_CARD_FIRST);e.ProtoRefreshStats(0);e.ExpUIOpen(e.EXP_UI_STATS);t.render();capture(t,'stats');
 t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);capture(t,'cards');
 t.event(e.UIPrototypeStatus_Hotspots[18],2);t.render();capture(t,'cards-hover');
+// 적은 보유 수와 최대 효과/4인 긴 이름도 별도 장면으로 확인한다.
+t=fresh(0,true);e=t.e;t.start();e.ProtoGrantCard(0,e.PROTO_CARD_FIRST);e.ExpUIOpen(e.EXP_UI_STATS);t.render();t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);capture(t,'cards-1');
+for(let id=e.PROTO_CARD_FIRST+1;id<e.PROTO_CARD_FIRST+4;id++)e.ProtoGrantCard(0,id);t.render();capture(t,'cards-4');
+for(let kind=1;kind<=25;kind++)e.ProtoStatValues[kind]=10;t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[21]]);capture(t,'stats-all');
+t=fresh(0,true);e=t.e;e.online=[true,true,true,true];e.GetPlayerName=p=>'원정참가자긴이름'+p;e.MockAttack=50;t.click(t.common(-98));capture(t,'start-party');
 const output=process.argv[2]||path.join(os.tmpdir(),'arcana-hunt-ui-frames.json');fs.writeFileSync(output,JSON.stringify(scenes));console.log(output);

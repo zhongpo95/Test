@@ -20,7 +20,7 @@ const allowedWrites = new Set(`
   UIPrototypeStatus.ClickCount UIPrototypeStatus.ClickStep UIPrototypeStatus.RenderStep
   UIPrototypeStatus.Hover UIPrototypeStatus.Tab UIPrototypeStatus.Page UIPrototypeStatus.Selected UIPrototypeStatus.Sort
   UIPrototypeStatus.SeenRun UIPrototypeStatus.SeenVersion UIPrototypeStatus.Count UIPrototypeStatus.Cards
-  UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
+  UIExpeditionCommon.ButtonSelected UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone
   UIExpeditionCommon.ShownRun UIExpeditionCommon.ShownRevision UIExpeditionCommon.ShownOffer
   UIExpeditionChoice.CardGrade UIExpeditionChoice.CardEnabled UIExpeditionChoice.CardHovered

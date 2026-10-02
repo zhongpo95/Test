@@ -108,10 +108,17 @@ check('전체 상태창 내용 패널 크기·배경 위 표시 순서와 닫기
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
   const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;
-  t.click(t.common(-e.EXP_UI_STATS));const actual=t.frame(e.UIPrototypeStatus_Columns[0]).text;
-  for(const value of ['최종 공격력 180','치명타 확률 41.0%','치명타 피해 ×2.50','추가 피해 30.0%','대미지 증가 50.0%','최종 대미지 증가 40.0%'])assert(actual.includes(value),value);
-  const cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
-  for(let kind=1;kind<=25;kind++)assert(cards.includes(e.ProtoStatNames[kind]));assert(cards.includes('대미지 증가 +30.0%'));
+  t.click(t.common(-e.EXP_UI_STATS));
+  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.50'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
+    assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[slot]).text),value);
+    assert.equal(t.frame(e.UIPrototypeStatus_ActualValues[slot]).horizontal,5);
+  }
+  let cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
+  assert(cards.includes('대미지 증가 +30.0%'));assert(!cards.includes('이동 속도 +0.0%'));
+  for(let kind=1;kind<=25;kind++)e.ProtoStatValues[kind]=1;
+  t.render();cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
+  for(let kind=1;kind<=25;kind++)assert(cards.includes(e.ProtoStatNames[kind]));
+
 });
 check('Tab 실제 콜백은 자기 클라이언트에서만 새 상태창을 토글, 선택 조회는 전투 치명 확률을 보존',()=>{
   let e,shown=[],texts=[];
@@ -126,5 +133,19 @@ check('Tab 실제 콜백은 자기 클라이언트에서만 새 상태창을 토
   e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,5);e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,0);
   e.eventPlayer=1;e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,0);assert.equal(shown.length,2);
   e.eventPlayer=0;e.UIInfo2_SELECTEDAction();assert.equal(e.Stats_Crit[0],41);assert(texts.some(([,text])=>text==='41%'));
+});
+check('밝고 어두운 화면의 색상 복원과 선택 강조는 호버가 끝나도 유지',()=>{
+  const t=fresh(0,true),e=t.e;t.click(t.common(-98));assert(!t.visible(e.UIExpeditionCommon_Navigation));
+  t.start();e.ProtoGrantCard(0,e.PROTO_CARD_FIRST);e.ExpUIOpen(e.EXP_UI_STATS);t.render();
+  const cell=i=>e.ExpUIButtons[e.UIPrototypeStatus_Cells[i]];t.click(cell(22));
+  const index=e.UIPrototypeStatus_Cells[1],label=t.frame(e.ExpUIButtonLabels[index]);
+  assert(label.text.includes('|cffe7edf3'));assert(!label.text.includes('|r|n'));
+  t.event(cell(1),2);t.event(cell(1),3);t.render();
+  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('UI_Arcana_Selected.tga'));
+  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();
+  assert(t.frame(e.UIPrototypeStatus_Tooltip).texture.endsWith('UI_Arcana_Panel.tga'));
+  const tip=t.frame(e.UIPrototypeStatus_TooltipText).text;assert(tip.includes('|cffe7edf3'));assert(!tip.includes('|r|n'));
+  e.ExpUIText(e.UIExpeditionPrototype_EventStory,'앞 |cffaa44ff강조|r 뒤');
+  assert(t.frame(e.UIExpeditionPrototype_EventStory).text.includes('|cff315a70 뒤'));
 });
 console.log(`${checks} hunt UI groups passed. Static/mock checks; Warcraft UI and multiplayer remain untested.`);

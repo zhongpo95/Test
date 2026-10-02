@@ -21,8 +21,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         private integer Navigation
         private integer ActivityButton
         private integer StatsButton
-        private boolean array ButtonSelected
-        private integer array ButtonTheme
         private integer array ToggleOverlay
         private integer array PanelToggles
         private integer FoldedPanel = 0
@@ -39,13 +37,13 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call DzFrameSetPoint(f, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, x, -y)
         call DzFrameSetSize(f, width, height)
         call DzFrameSetFont(f, "Fonts\\DFHeiMd.ttf", size, 0)
-        call DzFrameSetText(f, "|cff315a70" + JNStringReplace(value, "|r", "|cff315a70") + "|r")
+        call DzFrameSetText(f, "|cff315a70" + value + "|r")
         call DzFrameSetEnable(f, false)
         return f
     endfunction
 
     function ExpUIText takes integer frame, string value returns nothing
-        call DzFrameSetText(frame, "|cff315a70" + JNStringReplace(value, "|r", "|cff315a70") + "|r")
+        call DzFrameSetText(frame, "|cff315a70" + value + "|r")
     endfunction
 
     function ExpUITexture takes integer parent, real x, real y, real width, real height, string texture returns integer
@@ -115,32 +113,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     endfunction
 
     private function ButtonStyle takes integer i returns nothing
-        if ButtonTheme[i] > 0 then
-            if ButtonTheme[i] == 1 then
-                if (Hovered == i or ButtonSelected[i]) and ButtonEnabled[i] then
-                    if ButtonCover[i] then
-                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
-                    else
-                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Active.tga", 0)
-                    endif
-                elseif not ButtonCover[i] then
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Button.tga", 0)
-                else
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Panel.tga", 0)
-                endif
-            else
-                if (Hovered == i or ButtonSelected[i]) and ButtonEnabled[i] then
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_SheetHover.tga", 0)
-                else
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Sheet.tga", 0)
-                endif
-            endif
-            if ButtonEnabled[i] then
-                call DzFrameSetAlpha(ExpUIButtons[i], 255)
-            else
-                call DzFrameSetAlpha(ExpUIButtons[i], 150)
-            endif
-        elseif ButtonCover[i] then
+        if ButtonCover[i] then
             if Hovered == i and ButtonEnabled[i] then
                 call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Upgrade_Selected.tga", 0)
             else
@@ -160,23 +133,11 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         endif
     endfunction
 
-    function ExpUISelectButton takes integer i, boolean selected returns nothing
-        set ButtonSelected[i] = selected
-        call ButtonStyle(i)
-    endfunction
-
-    function ExpUIThemeButton takes integer i, integer theme returns nothing
-        set ButtonTheme[i] = theme
-        call ButtonStyle(i)
-    endfunction
-
     function ExpUISetButton takes integer i, string value, boolean enabled returns nothing
         set ButtonEnabled[i] = enabled
         call DzFrameSetEnable(ExpUIButtons[i], enabled)
-        if ButtonTheme[i] == 1 then
-            call DzFrameSetText(ExpUIButtonLabels[i], "|cffe7edf3" + JNStringReplace(value, "|r", "|cffe7edf3") + "|r")
-        elseif enabled then
-            call DzFrameSetText(ExpUIButtonLabels[i], "|cff163848" + JNStringReplace(value, "|r", "|cff163848") + "|r")
+        if enabled then
+            call DzFrameSetText(ExpUIButtonLabels[i], "|cff163848" + value + "|r")
         else
             call DzFrameSetText(ExpUIButtonLabels[i], "|cff425c6b" + value + "|r")
         endif
@@ -286,7 +247,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
 
     function ExpUISetToggleOverlay takes integer panel, integer overlay returns nothing
         set ToggleOverlay[panel] = overlay
-        call ExpUIThemeButton(PanelToggles[panel], 1)
     endfunction
 
     function ExpUIHeader takes integer parent, real width, string title returns integer
@@ -334,7 +294,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set ShownRun = ExpRun
         set ShownRevision = ExpRevision
         set ShownOffer = ExpOfferVersion[pid]
-        call DzFrameShow(Navigation, visible and not (ExpPrototypeEnabled and (ExpUIPanel == EXP_UI_STATS or ExpUIPanel == 8)))
+        call DzFrameShow(Navigation, visible and not (ExpPrototypeEnabled and ExpUIPanel == EXP_UI_STATS))
         call DzFrameShow(ExpUIButtons[ActivityButton], activity != 0)
         call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid] or ExpPrototypeEnabled)
         // 선택 버튼이 없는 전투 중에는 스탯 버튼을 당겨 보스 체력바 자리를 비운다.
@@ -413,11 +373,6 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         call TriggerAddAction(ExpRefresh, function Render)
         // 미선택자와 관전자도 같은 타이머 이벤트로 갱신한다. 로컬 창 상태로 실행을 분기하지 않는다.
         call TriggerRegisterTimerEvent(ExpRefresh, 0.10, true)
-        if ExpPrototypeEnabled then
-            call ExpUIThemeButton(mapButton, 2)
-            call ExpUIThemeButton(ActivityButton, 2)
-            call ExpUIThemeButton(StatsButton, 2)
-        endif
         call DzFrameShow(Navigation, false)
         set t = null
     endfunction
