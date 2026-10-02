@@ -3,8 +3,6 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
     globals
         private integer LobbyRoot
         private integer LobbyInfo
-        private integer LobbyLoadout
-        private integer LobbyParty
         private integer LobbyReady
         private integer EventRoot
         private integer EventTitle
@@ -136,9 +134,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 10분 · 행동력 10|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
-        call ExpUIText(LobbyInfo, value)
-        set value = "출발 장비|n|n출발 머리 · "
+        set value = "개인 사냥 10분 · 행동력 10|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then
             set value = value + ProtoHeadName[ProtoStartHead[pid]]
         else
@@ -148,22 +144,21 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if AttackPower(pid) < 100.0 or not UnitAlive(MainUnit[pid]) or not RectContainsUnit(gg_rct_Home, MainUnit[pid]) or PlayerSlotNumber[pid] <= 0 or not ProtoStartHeadReady(pid) then
             set value = value + "T2 무기 · 공격력 100 · 마을에서 출발 가능|n"
         endif
-        call ExpUIText(LobbyLoadout, value)
-        set value = "파티 준비 상태|n"
+        set value = value + "|n파티 준비 상태|n"
         set i = 0
         loop
             exitwhen i == 4
             if not ExpLeft[i] and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING and GetPlayerController(Player(i)) == MAP_CONTROL_USER then
-                set value = value + "|n" + GetPlayerName(Player(i))
+                set value = value + GetPlayerName(Player(i))
                 if ExpReady[i] then
-                    set value = value + " · 준비완료"
+                    set value = value + " 준비완료   "
                 else
-                    set value = value + " · 준비중"
+                    set value = value + " 준비중   "
                 endif
             endif
             set i = i + 1
         endloop
-        call ExpUIText(LobbyParty, value)
+        call ExpUIText(LobbyInfo, value)
         if ExpReady[pid] then
             call ExpUISetButton(LobbyReady, "출발 준비 취소", true)
         else
@@ -250,32 +245,16 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
     private function Build takes nothing returns nothing
         local integer f
         local integer i = 0
-        set LobbyRoot = ExpUIRoot(8, 0.8, 0.56, 0.58, false)
-        set f = ExpUITexture(LobbyRoot, 0, 0, 0.8, 0.56, "war3mapImported\\UI_Arcana_Paper.tga")
-        set f = ExpUIPanelToggle(LobbyRoot, 0.752, 0.008, 0.033, 0.026)
-        call ExpUIThemeButton(f, 2)
-        set f = ExpUILabel(LobbyRoot, 0.035, 0.020, 0.50, 0.024, 0.011, "ARCANA   /   EXPEDITION")
-        set f = ExpUILabel(LobbyRoot, 0.035, 0.071, 0.40, 0.042, 0.027, "다음 이야기를 향해")
-        set f = ExpUILabel(LobbyRoot, 0.037, 0.123, 0.36, 0.042, 0.012, "사건을 만나고, 카드를 모아|n보스전에 도전하세요.")
-        set f = ExpUITexture(LobbyRoot, 0.035, 0.188, 0.345, 0.320, "war3mapImported\\UI_Arcana_Route.tga")
-        set f = ExpUILabel(LobbyRoot, 0.054, 0.207, 0.25, 0.030, 0.019, "10분의 원정")
-        set f = ExpUILabel(LobbyRoot, 0.054, 0.250, 0.27, 0.060, 0.012, "사냥과 사건 → 카드 성장 → 보스 합류")
-        set f = ExpUITexture(LobbyRoot, 0.416, 0.070, 0.348, 0.139, "war3mapImported\\UI_Arcana_Sheet.tga")
-        set LobbyInfo = ExpUILabel(LobbyRoot, 0.436, 0.087, 0.308, 0.115, 0.011, "")
-        set f = ExpUITexture(LobbyRoot, 0.416, 0.220, 0.348, 0.127, "war3mapImported\\UI_Arcana_Sheet.tga")
-        set LobbyLoadout = ExpUILabel(LobbyRoot, 0.436, 0.233, 0.308, 0.111, 0.011, "")
-        call JNFrameSetTextAlignment(LobbyLoadout, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
-        set f = ExpUITexture(LobbyRoot, 0.416, 0.358, 0.348, 0.104, "war3mapImported\\UI_Arcana_Sheet.tga")
-        set LobbyParty = ExpUILabel(LobbyRoot, 0.436, 0.371, 0.308, 0.088, 0.011, "")
-        call JNFrameSetTextAlignment(LobbyParty, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        set LobbyRoot = ExpUIRoot(8, 0.8, 0.56, 0.58, true)
+        set f = ExpUIHeader(LobbyRoot, 0.8, "출발 준비")
+        set f = ExpUITexture(LobbyRoot, 0.54, 0.044, 0.26, 0.516, "war3mapImported\\UI_Upgrade_Portrait.tga")
+        set f = ExpUITexture(LobbyRoot, 0.025, 0.065, 0.49, 0.410, "war3mapImported\\UI_Upgrade_Card.tga")
+        set LobbyInfo = ExpUILabel(LobbyRoot, 0.045, 0.085, 0.45, 0.360, 0.013, "")
         call JNFrameSetTextAlignment(LobbyInfo, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
-        set LobbyReady = ExpUIButton(LobbyRoot, 0.416, 0.473, 0.348, 0.041, "출발 준비", 2001)
-        call ExpUIThemeButton(LobbyReady, 1)
-        set EventRoot = ExpUIRoot(9, 0.8, 0.6, 0.6, false)
-        set f = ExpUITexture(EventRoot, 0, 0, 0.8, 0.6, "war3mapImported\\UI_Arcana_Paper.tga")
-        set f = ExpUIPanelToggle(EventRoot, 0.752, 0.008, 0.033, 0.026)
-        call ExpUIThemeButton(f, 2)
-        set EventTitle = ExpUILabel(EventRoot, 0.026, 0.014, 0.65, 0.026, 0.018, "개인 사건")
+        set LobbyReady = ExpUIButton(LobbyRoot, 0.105, 0.493, 0.33, 0.037, "출발 준비", 2001)
+        // 개인 사건은 하단 영웅·스킬 HUD까지 덮는 전체 화면으로 표시한다.
+        set EventRoot = ExpUIRoot(9, 0.8, 0.6, 0.6, true)
+        set EventTitle = ExpUIHeader(EventRoot, 0.8, "개인 사건")
         set EventInfo = ExpUILabel(EventRoot, 0.330, 0.050, 0.444, 0.038, 0.012, "")
         call JNFrameSetTextAlignment(EventInfo, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set EventStory = ExpUILabel(EventRoot, 0.026, 0.097, 0.748, 0.030, 0.012, "")
@@ -284,14 +263,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         loop
             exitwhen i > 4
             set CandidateButtons[i] = ExpUICoverButton(EventRoot, 2100 + i)
-            call ExpUIThemeButton(CandidateButtons[i], 2)
             set f = ExpUIButtons[CandidateButtons[i]]
             set CandidateRegion[i] = CoverLabel(f, 0.011)
             set CandidateTitle[i] = CoverLabel(f, 0.012)
             set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.094, 0.094, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set CandidateIntro[i] = CoverLabel(f, 0.012)
             set CandidateBonus[i] = CoverLabel(f, 0.011)
-            set CandidateFooter[i] = ExpUITexture(f, 0.007, 0.346, 0.160, 0.027, "war3mapImported\\UI_Arcana_Paper.tga")
+            set CandidateFooter[i] = ExpUITexture(f, 0.007, 0.346, 0.160, 0.027, "war3mapImported\\UI_Upgrade_Header.tga")
             // 하단 배경보다 나중에 글자를 생성해 버튼 문구가 배경 뒤에 가려지지 않게 한다.
             call DzFrameShow(ExpUIButtonLabels[CandidateButtons[i]], false)
             set ExpUIButtonLabels[CandidateButtons[i]] = ExpUILabel(f, 0.012, 0.350, 0.150, 0.022, 0.0105, "")
@@ -301,7 +279,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         endloop
         set StoryPanel = DzCreateFrameByTagName("FRAME", "", EventRoot, "", FrameCount())
         call PlaceCoverPart(StoryPanel, EventRoot, 0.032, 0.138, 0.310, 0.386)
-        set f = ExpUITexture(StoryPanel, 0, 0, 0.310, 0.386, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUITexture(StoryPanel, 0, 0, 0.310, 0.386, "war3mapImported\\UI_Upgrade_Card.tga")
         set StoryRegion = ExpUILabel(StoryPanel, 0.018, 0.016, 0.274, 0.016, 0.009, "")
         set StoryIcon = ExpUITexture(StoryPanel, 0.018, 0.045, 0.080, 0.080, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set StoryTitle = ExpUILabel(StoryPanel, 0.112, 0.048, 0.180, 0.070, 0.014, "")
@@ -312,7 +290,6 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         loop
             exitwhen i > 4
             set BranchButtons[i] = ExpUICoverButton(EventRoot, 2200 + i)
-            call ExpUIThemeButton(BranchButtons[i], 2)
             set f = ExpUIButtons[BranchButtons[i]]
             call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_ENTER, function BranchEnter, false)
             call DzFrameSetScriptByCode(f, JN_FRAMEEVENT_MOUSE_LEAVE, function BranchLeave, false)
@@ -323,21 +300,19 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call PlaceCoverPart(ExpUIButtonLabels[BranchButtons[i]], f, 0.016, 0.040, 0.380, 0.103)
             call DzFrameSetFont(ExpUIButtonLabels[BranchButtons[i]], "Fonts\\DFHeiMd.ttf", 0.011, 0)
             call JNFrameSetTextAlignment(ExpUIButtonLabels[BranchButtons[i]], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
-            set BranchStrip[i] = ExpUITexture(f, 0.010, 0.150, 0.392, 0.026, "war3mapImported\\UI_Arcana_Paper.tga")
+            set BranchStrip[i] = ExpUITexture(f, 0.010, 0.150, 0.392, 0.026, "war3mapImported\\UI_Upgrade_Header.tga")
             set BranchAction[i] = ExpUILabel(ExpUIButtons[BranchButtons[i]], 0.018, 0.155, 0.376, 0.019, 0.010, "")
             call JNFrameSetTextAlignment(BranchAction[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
             set i = i + 1
         endloop
         set OutcomePanel = DzCreateFrameByTagName("FRAME", "", EventRoot, "", FrameCount())
         call PlaceCoverPart(OutcomePanel, EventRoot, 0.356, 0.138, 0.412, 0.386)
-        set f = ExpUITexture(OutcomePanel, 0, 0, 0.412, 0.386, "war3mapImported\\UI_Arcana_Sheet.tga")
+        set f = ExpUITexture(OutcomePanel, 0, 0, 0.412, 0.386, "war3mapImported\\UI_Upgrade_Card.tga")
         set f = ExpUILabel(OutcomePanel, 0.018, 0.016, 0.376, 0.026, 0.013, "선택 결과 · 획득과 변화")
         set OutcomeText = ExpUILabel(OutcomePanel, 0.018, 0.056, 0.376, 0.314, 0.012, "")
         call JNFrameSetTextAlignment(OutcomeText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "사건 리롤", 2300)
         set ResumeButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "확인 · 사냥 재개", 2400)
-        call ExpUIThemeButton(RerollButton, 2)
-        call ExpUIThemeButton(ResumeButton, 2)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
         call DzFrameSetSize(HuntHUD, 0.40, 0.074)
         call DzFrameSetAbsolutePoint(HuntHUD, JN_FRAMEPOINT_TOPLEFT, 0.245, 0.600)

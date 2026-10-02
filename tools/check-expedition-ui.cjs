@@ -2,7 +2,7 @@
 const fs = require('fs'), assert = require('node:assert/strict');
 const {environment} = require('./check-expedition.cjs');
 const files = ['Data/Data_Expedition.j', 'Data/Data_ExpeditionEvents.j','Data/Data_ExpeditionRewards.j', 'System/ExpeditionEffects.j', 'System/SaveLoad.j', 'System/Expedition.j',
-  'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_PrototypeStatus.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
+  'UI/UI_InputGate.j', 'UI/UI_MainQuest.j', 'UI/UI_ExpeditionCommon.j', 'UI/UI_ExpeditionChoice.j', 'UI/UI_PrototypeStatus.j', 'UI/UI_PrototypeCards.j', 'UI/UI_ExpeditionStats.j', 'UI/UI_Map.j'];
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 function fresh(localPlayer = 0, prototype = false) {
@@ -14,8 +14,9 @@ function fresh(localPlayer = 0, prototype = false) {
     F_UpgradeOnOff: [false,false,false,false], JN_FRAMEPOINT_TOPLEFT: 0,
     Equip_Damage:[100,100,100,100], Equip_DamageP:[0,0,0,0], Stats_Crit:[5,5,5,5], Hero_CriDeal:[100,100,100,100], Equip_CriDeal:[0,0,0,0], SkillSpeed:()=>0, CooldownRate:()=>1,
     Arcana_CriDeal:[0,0,0,0], Equip_ED:[0,0,0,0], Equip_WDP:[0,0,0,0], Equip_DP:[1,1,1,1], FinalDamageBonus:pid=>env.ProtoStat(pid,env.PROTO_STAT_FINAL),
-    JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0,
+    JN_TEXT_JUSTIFY_TOP: 0, JN_TEXT_JUSTIFY_LEFT: 0, JN_TEXT_JUSTIFY_RIGHT: 5,
     JN_FRAMEEVENT_MOUSE_ENTER: 2, JN_FRAMEEVENT_MOUSE_LEAVE: 3, JN_FRAMEEVENT_MOUSE_UP: 4,
+    DzGetTriggerKeyPlayer: () => e.eventPlayer, JNMemoryGetByte: () => e.chatOpen || 0, JNGetModuleHandle: () => 0,
     EVENT_PLAYER_END_CINEMATIC: 10, JN_OSKEY_M: 77,
     CreateTrigger: () => ({actions:[]}), TriggerAddAction: (t,fn) => t.actions.push(fn),
     Condition: fn => fn, TriggerAddCondition: (t,fn) => t.actions.push(fn),
@@ -52,6 +53,7 @@ function fresh(localPlayer = 0, prototype = false) {
   }
   e.UIMainQuest_Init();
   for(const lib of ['UIExpeditionCommon','UIExpeditionChoice','UIExpeditionStats','UIMap'])e[lib+'_Build']();
+  e.UIPrototypeCards_Build();
   if(prototype)e.UIExpeditionPrototype_Build();
   const visible = id => id===0 || frame(id).shown && visible(frame(id).parent);
   // 게임의 공통 타이머 이벤트를 한 번 진행한다. 로컬 UI 입력 자체는 트리거를 실행하지 않는다.
@@ -69,7 +71,7 @@ function fresh(localPlayer = 0, prototype = false) {
   };
   const card = (group,i) => e.UIExpeditionChoice_CardButton[e['UIExpeditionChoice_'+group+'Cards'][i]];
   const start = () => {render();if(prototype && e.ExpUIPanel!==8){click(common(-98));}click(common(prototype?2001:1));assert.equal(e.ExpState,prototype?e.EXP_HUNT:e.EXP_START);};
-  const roots = () => Array.from({length:9},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
+  const roots = () => Array.from({length:10},(_,i)=>i+1).filter(i=>e.ExpUIRoots[i]!==0 && visible(e.ExpUIRoots[i]));
   render();
   if(prototype){flush();render();}
   return {e,frames,frame,visible,render,event,packets,flush,click,common,card,start,roots,timers,executions};
@@ -98,7 +100,7 @@ check('한 명만 선택해도 로컬 창 조작은 트리거를 실행하지 �
 });
 check('영웅 선택 후 준비창, 시작 보상 5개, M 지도와 스탯창의 독립 전환',()=>{
   const t=fresh(),e=t.e;t.start();assert.deepEqual(t.roots(),[e.EXP_UI_CHOICE]);
-  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,5);
+  assert.equal(Array.from({length:10},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,5);
   e.UIMap_Toggle();t.render();assert.deepEqual(t.roots(),[e.EXP_UI_MAP]);
   assert(![...t.frames.values()].some(f=>f.type==='BUTTON'&&t.visible(f.id)&&f.parent===e.ExpUIRoots[e.EXP_UI_MAP]));
   t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
@@ -167,7 +169,7 @@ check('보상 리롤의 비용과 후보 버전, 오래된 요청 거부 및 사
   const t=fresh(),e=t.e;t.start();e.Enter(e.EXP_REWARD);e.ExpGold[0]=500;t.render();
   const old=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|1`;
   t.click(t.common(100));assert.equal(e.ExpGold[0],400);e.syncData=old;e.OnSync();assert.equal(e.ExpDone[0],false);
-  assert.equal(Array.from({length:9},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,3);
+  assert.equal(Array.from({length:10},(_,i)=>t.card('Choice',i+1)).filter(Boolean).filter(t.visible).length,3);
   assert.equal(e.ExpEventCandidate[0],0);t.click(t.card('Choice',9));assert.deepEqual(t.roots(),[e.EXP_UI_EVENT]);
   assert(e.ExpEventDeadline[0]>0);t.click(t.card('Event',3));assert(e.ExpDone[0]);assert.deepEqual(t.roots(),[]);
 });

@@ -10,7 +10,8 @@ OUT = ROOT / "assets/expedition/hunt-ui"
 OUT.mkdir(parents=True, exist_ok=True)
 FONT = Path("C:/Windows/Fonts/malgun.ttf")
 overflow = []
-for scene in json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")):
+scenes = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+for scene in scenes:
     canvas = Image.new("RGBA", (1600, 900), "#203442")
     draw = ImageDraw.Draw(canvas)
     for frame in sorted(scene["frames"], key=lambda f: (f["priority"], f["id"])):
@@ -18,6 +19,8 @@ for scene in json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")):
         w, h = max(1, round(frame.get("w", 0) * 2000)), max(1, round(frame.get("h", 0) * 1500))
         if frame["type"] == "BACKDROP":
             texture = ROOT / frame.get("texture", "").replace("\\", "/")
+            if not texture.is_file():
+                texture = ROOT / "assets/expedition/polish/imports" / texture.name
             if texture.is_file():
                 asset = Image.open(texture).convert("RGBA").resize((w, h))
                 canvas.alpha_composite(asset, (x, y))
@@ -48,8 +51,11 @@ for scene in json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")):
         if len(lines) * line_height > h + 3:
             overflow.append({"scene": scene["name"], "frame": frame["id"], "text": frame.get("text"), "lines": len(lines), "height": h, "estimated": len(lines) * line_height})
         for index, line in enumerate(lines):
+            shift = 0
+            if frame.get("horizontal") == 5 and line:
+                shift = max(0, w - line[-1][0] - draw.textlength(line[-1][1], font=font))
             for offset, char, color in line:
-                draw.text((x + offset, y + index * line_height), char, font=font, fill=color)
+                draw.text((x + shift + offset, y + index * line_height), char, font=font, fill=color)
     canvas.convert("RGB").save(OUT / ("preview-" + scene["name"] + ".png"))
 (OUT / "text-fit.json").write_text(json.dumps(overflow, ensure_ascii=False, indent=2), encoding="utf-8")
-print(json.dumps({"scenes": 7, "estimated_overflow": len(overflow), "output": str(OUT)}, ensure_ascii=False))
+print(json.dumps({"scenes": len(scenes), "estimated_overflow": len(overflow), "output": str(OUT)}, ensure_ascii=False))

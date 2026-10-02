@@ -203,11 +203,11 @@ check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피�
 });
 check('보유 카드 격자와 상세·강화·각성 정보, 난이도 HUD 갱신',()=>{
   const t=party(),e=t.e;for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
-  t.click(t.common(-e.EXP_UI_STATS));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
-  assert.equal(e.UIPrototypeStatus_Count,25);assert(t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[20]]));
-  t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[24]]);assert.equal(e.UIPrototypeStatus_Page,1);
-  assert(!t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[6]]));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[1]]);
-  assert(t.frame(e.UIPrototypeStatus_Detail).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
+  e.ExpUIOpen(e.EXP_UI_CARDS);t.render();
+  assert.equal(e.UIPrototypeCards_Count,25);assert(t.visible(e.ExpUIButtons[e.UIPrototypeCards_Cells[25]]));
+  assert(!t.frame(e.ExpUIButtons[e.UIPrototypeCards_Cells[26]]).enabled);
+  t.event(e.ExpUIButtons[e.UIPrototypeCards_Cells[21]],2);t.render();
+  assert(t.frame(e.UIPrototypeCards_TooltipText).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
   e.ProtoLevel[0]=2;t.render();assert(t.frame(e.UIExpeditionPrototype_HuntStatus).text.includes('5.0%'));
 });
 
@@ -323,7 +323,7 @@ check('추첨은 기존 80·12·3·1 가중치를 유지하고 후보 중복과 
 check('사건 화면은 불투명 배경, 짙은 선택 글씨와 버튼 안에 들어가는 텍스트 영역',()=>{
   const t=party(),e=t.e;e.ProtoGrantHead(0,1);e.ProtoChoices[0]=4;e.ProtoOffer(0);t.render();
   const root=t.frame(e.ExpUIRoots[9]);
-  assert([...t.frames.values()].some(f=>f.relative===e.ExpUIRoots[9]&&f.texture==='war3mapImported\\UI_Upgrade_Background.tga'));
+  assert([...t.frames.values()].some(f=>f.relative===e.ExpUIRoots[9]&&f.texture==='war3mapImported\\UI_Arcana_Paper.tga'));
   for(const action of [2101,2102,2103,2104,2300]){
     const button=t.common(action),index=e.ExpUIButtons.indexOf(button),frame=t.frame(button),label=t.frame(e.ExpUIButtonLabels[index]);
     assert(label.text.startsWith(frame.enabled?'|cff163848':'|cff425c6b'));
@@ -397,8 +397,8 @@ check('후보 2·3·4개는 같은 크기로 가운데 정렬, 장식과 하단 
   request(e,0,2101,stale);assert.equal(e.ProtoStage[0],1);assert.equal(e.ProtoAP[0],ap);
   const id=e.ProtoCandidates[1];assert(t.frame(e.UIExpeditionPrototype_CandidateTitle[1]).text.includes(e.ProtoEventName[id]));
   t.event(t.common(2101),2);const index=e.UIExpeditionPrototype_CandidateButtons[1];
-  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Selected.tga'));
-  t.event(t.common(2101),3);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Card.tga'));
+  assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('SheetHover.tga'));
+  t.event(t.common(2101),3);assert(t.frame(e.UIExpeditionCommon_ButtonBackdrops[index]).texture.endsWith('Sheet.tga'));
   for(let id=1;id<=e.PROTO_EVENT_COUNT;id++){
     assert(e.ProtoEventIntro[id]);assert(e.ProtoEventStory[id].length>=e.ProtoEventIntro[id].length);assert(e.ProtoEventIcon[id]);
   }

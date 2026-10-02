@@ -68,8 +68,19 @@ check('인벤토리 가운데 클릭도 미선택 상태에서 UI 접근 전에 
   const body=source.match(/private function MouseRightClick takes nothing returns nothing([\s\S]*?)endfunction/)[1];
   assert(body.indexOf('if not PickCheck[pid] then')<body.indexOf('call DzFrameShow'));
 });
+check('기존 가방 키·가운데 클릭은 해제되고 상점·창고 진입도 비활성화',()=>{
+  const item=fs.readFileSync(path.join(root,'UI/UI_Item.j'),'utf8');
+  assert(item.includes('constant boolean LEGACY_INVENTORY_UI_ENABLED = false'));
+  assert(!item.includes('call DzTriggerRegisterKeyEventByCode'));assert(!item.includes('call DzTriggerRegisterMouseEventByCode'));
+  const off=fs.readFileSync(path.join(root,'UI/UI_OFF.j'),'utf8');
+  for(const name of ['ShopShow','Shop2Show','StorageShow']){
+    const body=off.split('function '+name+' takes')[1].split('endfunction')[0];
+    assert(body.indexOf('if not LEGACY_INVENTORY_UI_ENABLED then')<body.indexOf('call DzFrameShow'));
+  }
+  const imports=fs.readFileSync(path.join(root,'Import.j'),'utf8');assert(!imports.includes('copy_archive'));
+});
 check('키·클릭 등록은 모두 지연 함수 내부에 있고 기존 선택창 휠은 유지',()=>{
-  const names=['UI_Info','UI_Info2','UI_SkillLevel','UI_Arcana','UI_Overlay','UI_SkillHUD','UI_Map','UI_Emoji','UI_Item'];
+  const names=['UI_Info','UI_Info2','UI_SkillLevel','UI_Arcana','UI_Overlay','UI_SkillHUD','UI_Map','UI_Emoji','UI_PrototypeCards'];
   let bindings=0;
   for(const name of names){
     const source=fs.readFileSync(path.join(root,'UI',name+'.j'),'utf8');
@@ -81,7 +92,7 @@ check('키·클릭 등록은 모두 지연 함수 내부에 있고 기존 선택
     assert(!/call DzTriggerRegister(?:Key|Mouse)EventByCode/.test(remaining),name+' registers early');
     assert.equal((remaining.match(/call UIInputAfterPick\(function BindInput\)/g)||[]).length,1,name);
   }
-  assert.equal(bindings,11);
+  assert.equal(bindings,10);
   const pick=fs.readFileSync(path.join(root,'UI/UI_Pick.j'),'utf8');
   assert(pick.includes('DzTriggerRegisterMouseWheelEventByCode(t, false, function WheelPickScroll)'));
   const fps=fs.readFileSync(path.join(root,'UI/UI_FPS.j'),'utf8').replace(/\/\/[^\n]*/g,'');

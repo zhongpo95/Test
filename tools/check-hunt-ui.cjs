@@ -41,77 +41,20 @@ check('사건 희귀도는 최고 가능 보상의 등급이며 성공 확률은
   assert(t.frame(e.UIExpeditionPrototype_CandidateRegion[1]).text.includes('보상 가능'));
   t.click(t.common(2101));assert(t.frame(e.ExpUIButtonLabels[e.UIExpeditionPrototype_BranchButtons[3]]).text.includes('성공 65%'));
 });
-check('보유 카드 격자는 20칸·정수 페이지·지역/희귀도 정렬, 변경 때만 목록 조회',()=>{
-  const t=fresh(0,true),e=t.e;t.start();
-  for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
-  t.click(t.common(-e.EXP_UI_STATS));const cell=i=>e.ExpUIButtons[e.UIPrototypeStatus_Cells[i]];t.click(cell(22));
-  assert.equal(plain(t.frame(e.UIPrototypeStatus_PageText).text),'1/2');assert.equal(e.UIPrototypeStatus_Count,25);
-  const shared={stats:e.ProtoStatValues.slice(),owned:e.ExpCardOwned.slice(),ap:e.ProtoAP.slice(),gold:e.ExpGold.slice(),revision:e.ProtoCardRevision.slice()};
-  let scans=0;const owned=e.ExpCardOwned;e.ExpCardOwned=new Proxy(owned,{get:(a,key)=>{if(/^\d+$/.test(key))scans++;return a[key];}});
-  for(let tick=0;tick<20;tick++)e.ProtoStatusRender(0);assert(scans<100,'보유 카드 전체를 매 렌더마다 순회함');
-  t.click(cell(24));assert.equal(e.UIPrototypeStatus_Page,1);assert.equal(plain(t.frame(e.UIPrototypeStatus_PageText).text),'2/2');assert(!t.visible(cell(6)));
-  t.click(cell(1));const selected=e.UIPrototypeStatus_Selected;assert(t.frame(e.UIPrototypeStatus_Detail).text.includes(e.ProtoCardName[selected]));
-  t.click(cell(26));const list=e.UIPrototypeStatus_Cards.slice(1,26);for(let i=1;i<list.length;i++)assert(e.ProtoCardGrade[list[i-1]]>=e.ProtoCardGrade[list[i]]);
-  t.click(cell(25));assert.deepEqual(e.UIPrototypeStatus_Cards.slice(1,26),Array.from({length:25},(_,i)=>e.PROTO_CARD_FIRST+i));
-  assert.deepEqual(e.ProtoStatValues,shared.stats);assert.deepEqual(owned,shared.owned);assert.deepEqual(e.ProtoAP,shared.ap);assert.deepEqual(e.ExpGold,shared.gold);assert.deepEqual(e.ProtoCardRevision,shared.revision);assert.equal(t.packets.length,0);
-  e.ExpCardOwned=owned;e.ProtoGrantEventCard(0,selected);t.render();assert(t.frame(e.UIPrototypeStatus_Detail).text.includes('강화 +1'));
-  const root=t.frame(e.ExpUIRoots[e.EXP_UI_STATS]);assert.equal(root.w,.8);assert.equal(root.h,.6);
-  for(const i of [21,22]){const f=t.frame(cell(i));assert(-f.y>=.078&&-f.y+f.h<=.110,'상태창 탭이 상단 공통 메뉴와 겹침');}
-  for(let i=1;i<=20;i++){const f=t.frame(cell(i));assert(f.x>=0&&f.x+f.w<.578);assert(-f.y>=.009&&-f.y+f.h<=.398);}
-  e.Finish(false);e.ProtoAction(0,2001);e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert.equal(e.UIPrototypeStatus_Selected,0);assert.equal(e.UIPrototypeStatus_Count,0);
-});
-check('상태창 공통 메뉴 숨김, 아이콘 툴팁의 경계·타인 입력·페이지·닫기와 큰 이미지 선택',()=>{
-  const t=fresh(0,true),e=t.e;t.start();
-  for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
-  t.click(t.common(-e.EXP_UI_STATS));const cell=i=>e.ExpUIButtons[e.UIPrototypeStatus_Cells[i]];
-  assert(!t.visible(e.UIExpeditionCommon_Navigation));t.click(cell(22));
-  const snapshot=JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]);
-  for(const slot of [1,5,16,20]){
-    const icon=e.UIPrototypeStatus_Hotspots[slot];
-    t.event(icon,2,1);t.render();assert(!t.visible(e.UIPrototypeStatus_Tooltip));
-    t.event(icon,2);t.render();assert(t.visible(e.UIPrototypeStatus_Tooltip));
-    const tip=t.frame(e.UIPrototypeStatus_Tooltip),id=e.UIPrototypeStatus_Cards[slot];
-    assert(tip.x>=0&&tip.x+tip.w<=.8&&-tip.y>=0&&-tip.y+tip.h<=.6);
-    assert(t.frame(e.UIPrototypeStatus_TooltipText).text.includes(e.ProtoCardName[id]));
-    assert(t.frame(e.UIPrototypeStatus_TooltipText).text.includes(e.ProtoCardEffectName[id]));
-    t.click(icon);assert.equal(e.UIPrototypeStatus_Selected,id);
-    assert.equal(t.frame(e.UIPrototypeStatus_Artwork).texture,t.frame(e.UIPrototypeStatus_Icons[slot]).texture);
-    t.event(icon,2);t.render();t.event(icon,3);assert(!t.visible(e.UIPrototypeStatus_Tooltip));
-  }
-  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(cell(24));assert(!t.visible(e.UIPrototypeStatus_Tooltip));
-  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(cell(21));assert(!t.visible(e.UIPrototypeStatus_Tooltip));t.click(cell(22));
-  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]]);
-  assert(!t.visible(e.UIPrototypeStatus_Tooltip));assert(t.visible(e.UIExpeditionCommon_Navigation));
-  t.click(t.common(-e.EXP_UI_STATS));assert(!t.visible(e.UIPrototypeStatus_Tooltip));
-  assert.equal(JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]),snapshot);assert.equal(t.packets.length,0);
-});
-check('전체 상태창 내용 패널 크기·배경 위 표시 순서와 닫기 버튼 우선순위',()=>{
-  const t=fresh(0,true),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));
-  const canvas=t.frame(e.UIPrototypeStatus_Canvas),close=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]];
-  for(const id of [e.UIPrototypeStatus_StatsPanel,e.UIPrototypeStatus_CardsPanel]){
-    const panel=t.frame(id);assert.equal(panel.w,.8);assert.equal(panel.h,.455);assert.equal(panel.y,-.145);
-    assert.equal(panel.parent,canvas.id);assert(panel.priority>canvas.priority);
-    assert(t.frame(close).priority>panel.priority);
-    for(const slot of [21,22]){const tab=t.frame(e.ExpUIButtons[e.UIPrototypeStatus_Cells[slot]]);assert(-tab.y+tab.h < -panel.y,"본문이 탭 입력 영역을 덮음");}
-  }
-  assert(t.visible(e.UIPrototypeStatus_StatsPanel));assert(!t.visible(e.UIPrototypeStatus_CardsPanel));assert(t.visible(close));assert.equal(e.UIPrototypeStatus_RenderStep,6);
-  t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
-  assert(!t.visible(e.UIPrototypeStatus_StatsPanel));assert(t.visible(e.UIPrototypeStatus_CardsPanel));
-  assert.equal(e.UIPrototypeStatus_ClickCount,1);assert.equal(e.UIPrototypeStatus_ClickStep,122);assert.equal(e.UIPrototypeStatus_RenderStep,7);
-  assert.equal(t.frame(close).parent,canvas.id);
-  t.click(close);assert(!t.visible(canvas.id));assert.equal(t.frame(close).parent,0);assert(t.visible(close));
-  const lines=[];e.DisplayTimedTextToPlayer=(...args)=>lines.push(args[4]);
-  e.eventPlayer=1;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,0);
-  e.eventPlayer=0;e.UIPrototypeStatus_Diagnose();assert.equal(lines.length,2);assert(lines[0].includes('clickStep=122'));
-
-});
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
   const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;
-  t.click(t.common(-e.EXP_UI_STATS));const actual=t.frame(e.UIPrototypeStatus_Columns[0]).text;
-  for(const value of ['최종 공격력 180','치명타 확률 41.0%','치명타 피해 ×2.50','추가 피해 30.0%','대미지 증가 50.0%','최종 대미지 증가 40.0%'])assert(actual.includes(value),value);
-  const cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
-  for(let kind=1;kind<=25;kind++)assert(cards.includes(e.ProtoStatNames[kind]));assert(cards.includes('대미지 증가 +30.0%'));
+  t.click(t.common(-e.EXP_UI_STATS));
+  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.50'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
+    assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[slot]).text),value);
+    assert.equal(t.frame(e.UIPrototypeStatus_ActualValues[slot]).horizontal,5);
+  }
+  let cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
+  assert(cards.includes('대미지 증가 +30.0%'));assert(!cards.includes('이동 속도 +0.0%'));
+  for(let kind=1;kind<=25;kind++)e.ProtoStatValues[kind]=1;
+  t.render();cards=t.frame(e.UIPrototypeStatus_Columns[1]).text+t.frame(e.UIPrototypeStatus_Columns[2]).text;
+  for(let kind=1;kind<=25;kind++)assert(cards.includes(e.ProtoStatNames[kind]));
+
 });
 check('Tab 실제 콜백은 자기 클라이언트에서만 새 상태창을 토글, 선택 조회는 전투 치명 확률을 보존',()=>{
   let e,shown=[],texts=[];
@@ -126,5 +69,55 @@ check('Tab 실제 콜백은 자기 클라이언트에서만 새 상태창을 토
   e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,5);e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,0);
   e.eventPlayer=1;e.UIInfo2_TABKey();assert.equal(e.ExpUIPanel,0);assert.equal(shown.length,2);
   e.eventPlayer=0;e.UIInfo2_SELECTEDAction();assert.equal(e.Stats_Crit[0],41);assert(texts.some(([,text])=>text==='41%'));
+});
+check('I 카드창은 10열 50칸이며 페이지·정렬·강화 표시가 전투 상태를 바꾸지 않음',()=>{
+  const t=fresh(0,true),e=t.e;t.start();for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+55;id++)e.ProtoGrantCard(0,id);
+  e.UIPrototypeCards_IKey();t.render();assert.equal(e.ExpUIPanel,e.EXP_UI_CARDS);
+  assert(!t.visible(e.UIPrototypeStatus_Canvas));assert(!t.visible(e.UIExpeditionCommon_Navigation));
+  assert.equal(e.UIPrototypeCards_Count,55);const cell=i=>e.ExpUIButtons[e.UIPrototypeCards_Cells[i]];
+  const state=JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]);
+  const owned=e.ExpCardOwned;let scans=0;e.ExpCardOwned=new Proxy(owned,{get:(a,k)=>{if(/^\d+$/.test(k))scans++;return a[k];}});
+  for(let tick=0;tick<20;tick++)t.render();assert(scans<100,'매 갱신 전체 카드 조회');e.ExpCardOwned=owned;
+  for(let i=1;i<=50;i++){const f=t.frame(cell(i));assert(t.visible(f.id));assert(f.x>=.02&&f.x+f.w<=.44);assert(-f.y>=.05&&-f.y+f.h<.335);}
+  t.click(e.ExpUIButtons[e.UIPrototypeCards_Next]);assert.equal(e.UIPrototypeCards_Page,1);assert.equal(plain(t.frame(e.UIPrototypeCards_PageText).text),'2 / 2');assert(!t.frame(cell(6)).enabled);assert(!t.visible(e.UIPrototypeCards_Icons[6]));
+  t.click(cell(1));assert.equal(t.packets.length,0);
+  t.click(e.ExpUIButtons[e.UIPrototypeCards_GradeSort]);const list=e.UIPrototypeCards_Cards.slice(1,56);for(let i=1;i<list.length;i++)assert(e.ProtoCardGrade[list[i-1]]>=e.ProtoCardGrade[list[i]]);
+  t.click(e.ExpUIButtons[e.UIPrototypeCards_RegionSort]);assert.equal(JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]),state);
+  const selected=e.UIPrototypeCards_Cards[51];e.ProtoGrantEventCard(0,selected);t.render();assert(t.frame(e.ExpUIButtonLabels[e.UIPrototypeCards_Cells[1]]).text.includes('+1'));
+  e.Finish(false);e.ProtoAction(0,2001);e.ExpUIOpen(e.EXP_UI_CARDS);t.render();assert.equal(e.UIPrototypeCards_Count,0);assert.equal(e.UIPrototypeCards_Page,0);assert(!t.frame(cell(1)).enabled);
+});
+check('I 입력은 로컬·선택 완료·채팅 닫힘에서만 작동하고 Tab 화면과 독립 전환',()=>{
+  const t=fresh(0,true),e=t.e;t.start();
+  e.eventPlayer=1;e.UIPrototypeCards_IKey();assert.notEqual(e.ExpUIPanel,e.EXP_UI_CARDS);
+  e.eventPlayer=0;e.chatOpen=1;e.UIPrototypeCards_IKey();assert.notEqual(e.ExpUIPanel,e.EXP_UI_CARDS);
+  e.chatOpen=0;e.PickCheck[0]=false;e.UIPrototypeCards_IKey();assert.notEqual(e.ExpUIPanel,e.EXP_UI_CARDS);e.PickCheck[0]=true;
+  e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert(t.visible(e.UIPrototypeStatus_Canvas));
+  e.UIPrototypeCards_IKey();t.render();assert.equal(e.ExpUIPanel,e.EXP_UI_CARDS);assert(!t.visible(e.UIPrototypeStatus_Canvas));assert(t.visible(e.UIPrototypeCards_Root));
+  e.UIPrototypeCards_IKey();t.render();assert.equal(e.ExpUIPanel,0);assert(!t.visible(e.UIPrototypeCards_Root));
+  e.F_UpgradeOnOff[0]=true;e.UIPrototypeCards_IKey();assert.equal(e.ExpUIPanel,0);e.F_UpgradeOnOff[0]=false;
+  e.UIPrototypeCards_IKey();t.render();t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_CARDS]]);assert.equal(e.ExpUIPanel,0);
+  e.UIPrototypeCards_IKey();t.render();e.UIExpeditionCommon_Escape();t.render();assert.equal(e.ExpUIPanel,0);
+});
+check('50칸의 끝 행·열 툴팁은 화면 안에 있고 페이지·닫기·타인 입력에서 정리',()=>{
+  const t=fresh(0,true),e=t.e;t.start();for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+55;id++)e.ProtoGrantCard(0,id);e.UIPrototypeCards_IKey();t.render();
+  const cell=i=>e.ExpUIButtons[e.UIPrototypeCards_Cells[i]];
+  for(const slot of [1,10,41,50]){
+    t.event(cell(slot),2,1);t.render();assert(!t.visible(e.UIPrototypeCards_Tooltip));
+    t.event(cell(slot),2);t.render();assert(t.visible(e.UIPrototypeCards_Tooltip));
+    const tip=t.frame(e.UIPrototypeCards_Tooltip);assert(tip.x>=0&&tip.x+tip.w<=.8&&tip.y<=.6&&tip.y-tip.h>=0);
+    const text=t.frame(e.UIPrototypeCards_TooltipText).text;assert(text.includes(e.ProtoCardName[e.UIPrototypeCards_Cards[slot]]));assert(!text.includes('|r|n'));
+    t.event(cell(slot),3);assert(!t.visible(e.UIPrototypeCards_Tooltip));
+  }
+  t.event(cell(1),2);t.render();t.click(e.ExpUIButtons[e.UIPrototypeCards_Next]);assert(!t.visible(e.UIPrototypeCards_Tooltip));
+  t.event(cell(1),2);t.render();e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert(!t.visible(e.UIPrototypeCards_Tooltip));
+});
+check('Tab 중앙 패널은 배경과 닫기 버튼까지 경계 안에 표시',()=>{
+  const t=fresh(0,true),e=t.e;t.start();e.ExpUIOpen(e.EXP_UI_STATS);t.render();
+  const root=t.frame(e.ExpUIRoots[e.EXP_UI_STATS]),canvas=t.frame(e.UIPrototypeStatus_Canvas);
+  assert.equal(root.w,.60);assert.equal(root.h,.37);assert.equal(root.x,.10);assert.equal(root.y,.50);
+  assert.equal(canvas.w,root.w);assert.equal(canvas.h,root.h);
+  assert(!t.visible(e.UIExpeditionStats_LegacyBackground));
+  const close=e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]],f=t.frame(close);
+  assert(f.x+f.w<=root.w);assert.equal(f.parent,canvas.id);t.click(close);assert(!t.visible(canvas.id));
 });
 console.log(`${checks} hunt UI groups passed. Static/mock checks; Warcraft UI and multiplayer remain untested.`);
