@@ -22,7 +22,7 @@ check('머리 두 장은 AP 무료이며 세 번째는 후보와 직접 지급�
     const t=fresh(pid,true),e=t.e;e.online=[true,true,true,true];for(let p=0;p<4;p++)e.ProtoAction(p,2001);
     for(let h=1;h<=2;h++){
       const id=(h-1)*4+pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;e.ProtoAction(pid,2101);
-      assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoHeadCount[pid],h);
+      assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],20);assert.equal(e.ProtoHeadCount[pid],h);
       const stack=e.ProtoCardStacks[e.ExpKey(pid,e.ProtoHeadEntryCard[h])];e.ProtoAction(pid,2101);assert.equal(e.ProtoCardStacks[e.ExpKey(pid,e.ProtoHeadEntryCard[h])],stack);
       e.ProtoAction(pid,2400);
     }
@@ -42,10 +42,12 @@ check('사건 희귀도는 최고 가능 보상의 등급이며 성공 확률은
   t.click(t.common(2101));assert(t.frame(e.ExpUIButtonLabels[e.UIExpeditionPrototype_BranchButtons[3]]).text.includes('성공 65%'));
 });
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
-  const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
+  const t=fresh(0,true),e=t.e;t.start();t.click(t.common(-e.EXP_UI_STATS));
+  assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[4]).text),'×1.50');
+  e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;
-  t.click(t.common(-e.EXP_UI_STATS));
-  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.50'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
+  t.render();
+  for(const [slot,value] of [[2,'180'],[3,'41.0%'],[4,'×2.00'],[9,'30.0%'],[10,'50.0%'],[11,'40.0%']]){
     assert.equal(plain(t.frame(e.UIPrototypeStatus_ActualValues[slot]).text),value);
     assert.equal(t.frame(e.UIPrototypeStatus_ActualValues[slot]).horizontal,5);
   }

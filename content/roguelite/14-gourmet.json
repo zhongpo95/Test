@@ -8,8 +8,8 @@
       "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 2
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -25,26 +25,21 @@
       "name": "페코린느",
       "effectName": "배가 든든할 때",
       "keyword": "최대 체력 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "healthy_damage",
-          "value": 14
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 1,
-        "goal": 60,
-        "effects": [
-          {
-            "stat": "normal_damage_percent",
-            "value": 8
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "밝은 대식가이자 검사라는 성격을 든든한 준비와 고체력 조건으로 각색.",
       "uncertain": []
@@ -54,15 +49,15 @@
       "name": "페코린느",
       "effectName": "함께 먹을 몫",
       "keyword": "공격력 및 피해 감소",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 12
+          "value": 3
         },
         {
           "stat": "damage_reduction",
-          "value": 3
+          "value": 2
         }
       ],
       "evolution": {
@@ -78,11 +73,11 @@
       "name": "콧코로",
       "effectName": "작은 준비를 놓치지 않기",
       "keyword": "지속 회복 및 신속",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.6
+          "value": 0.2
         },
         {
           "stat": "swift",
@@ -102,26 +97,21 @@
       "name": "캬루",
       "effectName": "막힌 길을 비우는 마법",
       "keyword": "비방향 · 관통",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "nondirectional_damage",
-          "value": 16
+          "value": 4
         },
         {
           "stat": "penetration",
-          "value": 6
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 7000,
-        "effects": [
-          {
-            "stat": "boss_damage_percent",
-            "value": 8
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "기본 캬루의 공식 조정 공지에 있는 방어력 감소 역할을 개인 방어력 관통으로 각색한다. 비방향·보스 조건과 수치는 맵 전용이며 적 전체 디버프나 원작 마법을 새로 지급하지 않는다.",
       "uncertain": []
@@ -131,15 +121,15 @@
       "name": "캬루",
       "effectName": "불평은 일을 끝낸 뒤에",
       "keyword": "보스 피해 및 관통",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "boss_damage_percent",
-          "value": 14
+          "value": 4
         },
         {
           "stat": "penetration",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -155,15 +145,15 @@
       "name": "콧코로",
       "effectName": "빠뜨리지 않은 목록",
       "keyword": "사건 후보 · 처치 골드",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "kill_gold",
-          "value": 2
+          "value": 1
         }
       ],
       "evolution": {
@@ -179,26 +169,21 @@
       "name": "페코린느",
       "effectName": "든든히 먹고 한 걸음 더",
       "keyword": "고체력 · 일반 적",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "healthy_damage",
-          "value": 18
+          "value": 4
         },
         {
           "stat": "normal_damage_percent",
-          "value": 12
+          "value": 5
         }
       ],
       "evolution": {
-        "kind": 1,
-        "goal": 45,
-        "effects": [
-          {
-            "stat": "boss_damage_percent",
-            "value": 6
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "배고픈 검사와 식재료를 찾아 길드 의뢰에 나서는 모습을 고체력·일반 적 준비로 각색한다.",
       "uncertain": []
@@ -208,26 +193,21 @@
       "name": "아오이",
       "effectName": "조심스러운 발걸음",
       "keyword": "이동 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "healthy_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 3,
-        "goal": 45,
-        "effects": [
-          {
-            "stat": "action_speed",
-            "value": 3
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "낯선 학교 분위기에 적응하기 어려워하는 아오이를 돕는 상황에서 한 걸음씩 나아가는 준비로 각색한다.",
       "uncertain": []
@@ -238,15 +218,19 @@
       "effectName": "차곡차곡 모아 둔 몫",
       "keyword": "최대 체력 · 처치 골드",
       "canonFact": "미식전 쌀농사와 생활 지원을 든든한 준비·자원 정리로 각색. 쌀 인벤토리·영구 성장·즉시 치료는 아니다.",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
         },
         {
           "stat": "kill_gold",
-          "value": 3
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -262,15 +246,11 @@
       "effectName": "움직임을 남기는 한 땀",
       "keyword": "행동 · 이동",
       "canonFact": "공식 의상 가게와 아이돌의 활동을 움직임에 맞는 준비로 각색한다. 실제 옷 장비·새 실 기술·호감 게이지는 생성하지 않는다.",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 6
-        },
-        {
-          "stat": "move_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -286,26 +266,21 @@
       "effectName": "빠진 시각을 짚다",
       "keyword": "관통 · 치명타 확률",
       "canonFact": "자경단 조사 역할에서 서로 다른 흔적을 대조하는 준비를 개인 관통·정확한 일격으로 각색. 실제 조사 마법·적 방어 디버프·본편 진상을 지급하지 않는다.",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "penetration",
-          "value": 6
+          "value": 4
         },
         {
           "stat": "crit_chance",
-          "value": 5
+          "value": 2
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 6500,
-        "effects": [
-          {
-            "stat": "boss_damage_percent",
-            "value": 5
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "uncertain": []
     },
@@ -315,11 +290,11 @@
       "effectName": "먼저 맡을 자리",
       "keyword": "신속 · 피해 감소",
       "canonFact": "자칭 군인과 주민 보호 의뢰 소재를 빠른 지시·방어 준비로 각색. 원작 스킬 수치나 동료 버프·부대 NPC 생성은 아니다.",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "swift",
-          "value": 180
+          "value": 90
         },
         {
           "stat": "damage_reduction",
@@ -339,15 +314,15 @@
       "effectName": "발걸음에 맞춘 박자",
       "keyword": "행동 · 최대 체력",
       "canonFact": "카르미나 가수와 동료를 돕는 역할을 일정한 움직임·든든한 준비로 각색. 실제 공연·노래 스킬·즉시 회복·민심 변화는 없다.",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 6
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -355,6 +330,1268 @@
         "goal": 0,
         "effects": []
       },
+      "uncertain": []
+    },
+    {
+      "key": "pc_after_feast_memory_2",
+      "name": "콧코로",
+      "effectName": "마지막 그릇까지",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_after_portions_memory_2",
+      "name": "캬루",
+      "effectName": "남겨 둔 한 끼",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_dusty_room_memory_2",
+      "name": "캬루",
+      "effectName": "남길 자리",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_tea_invitation_memory_2",
+      "name": "콧코로",
+      "effectName": "전하지 못한 인사",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_rainy_harvest_memory_2",
+      "name": "캬루",
+      "effectName": "젖지 않은 묶음",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_wrong_costume_tag_memory_1",
+      "name": "츠무기",
+      "effectName": "잘못 묶인 이름표",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_witness_hours_memory_1",
+      "name": "카스미",
+      "effectName": "남겨 둔 빈칸",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_witness_hours_memory_2",
+      "name": "카스미",
+      "effectName": "남겨 둔 빈칸",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_monica_market_watch_memory_2",
+      "name": "모니카",
+      "effectName": "돌아올 길의 준비",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_delivery_divide_memory_2",
+      "name": "콧코로",
+      "effectName": "목적지별 꾸러미",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "pc_rehearsal_wall_memory_2",
+      "name": "노조미",
+      "effectName": "연습 뒤의 약속",
+      "keyword": "여행의 기록",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "key": "gourmet_main_01_1",
+      "name": "콧코로",
+      "effectName": "낯선 길에서 받은 인사 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_01_2",
+      "name": "콧코로",
+      "effectName": "낯선 길에서 받은 인사 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_01_3",
+      "name": "콧코로",
+      "effectName": "낯선 길에서 받은 인사 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_02_1",
+      "name": "페코린느",
+      "effectName": "배고픈 사람의 큰 웃음 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_02_2",
+      "name": "페코린느",
+      "effectName": "배고픈 사람의 큰 웃음 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_02_3",
+      "name": "페코린느",
+      "effectName": "배고픈 사람의 큰 웃음 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_03_1",
+      "name": "캐르",
+      "effectName": "캐르가 머무는 거리 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_03_2",
+      "name": "캐르",
+      "effectName": "캐르가 머무는 거리 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_03_3",
+      "name": "캐르",
+      "effectName": "캐르가 머무는 거리 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_04_1",
+      "name": "콧코로",
+      "effectName": "길드 이름에 모인 사람들 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_04_2",
+      "name": "콧코로",
+      "effectName": "길드 이름에 모인 사람들 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_04_3",
+      "name": "콧코로",
+      "effectName": "길드 이름에 모인 사람들 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_05_1",
+      "name": "유우키",
+      "effectName": "처음 남기는 집의 기억 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_05_2",
+      "name": "유우키",
+      "effectName": "처음 남기는 집의 기억 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_05_3",
+      "name": "유우키",
+      "effectName": "처음 남기는 집의 기억 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_06_1",
+      "name": "페코린느",
+      "effectName": "다른 길드와 나눈 식사 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_06_2",
+      "name": "페코린느",
+      "effectName": "다른 길드와 나눈 식사 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_06_3",
+      "name": "페코린느",
+      "effectName": "다른 길드와 나눈 식사 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_07_1",
+      "name": "캐르",
+      "effectName": "캐르가 말하지 못한 일 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_07_2",
+      "name": "캐르",
+      "effectName": "캐르가 말하지 못한 일 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_07_3",
+      "name": "캐르",
+      "effectName": "캐르가 말하지 못한 일 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_08_1",
+      "name": "유우키",
+      "effectName": "기억의 빈칸이 부르는 길 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_08_2",
+      "name": "유우키",
+      "effectName": "기억의 빈칸이 부르는 길 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_08_3",
+      "name": "유우키",
+      "effectName": "기억의 빈칸이 부르는 길 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_09_1",
+      "name": "페코린느",
+      "effectName": "페코린느가 밝히는 이름 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_09_2",
+      "name": "페코린느",
+      "effectName": "페코린느가 밝히는 이름 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_09_3",
+      "name": "페코린느",
+      "effectName": "페코린느가 밝히는 이름 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_10_1",
+      "name": "콧코로",
+      "effectName": "무너지는 익숙한 풍경 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_10_2",
+      "name": "콧코로",
+      "effectName": "무너지는 익숙한 풍경 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_10_3",
+      "name": "콧코로",
+      "effectName": "무너지는 익숙한 풍경 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_11_1",
+      "name": "캐르",
+      "effectName": "기다리는 사람과 묶인 마음 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 12
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_11_2",
+      "name": "캐르",
+      "effectName": "기다리는 사람과 묶인 마음 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_11_3",
+      "name": "캐르",
+      "effectName": "기다리는 사람과 묶인 마음 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_12_1",
+      "name": "유우키",
+      "effectName": "네 사람의 뜻이 다시 모이다 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 12
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_12_2",
+      "name": "유우키",
+      "effectName": "네 사람의 뜻이 다시 모이다 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_12_3",
+      "name": "유우키",
+      "effectName": "네 사람의 뜻이 다시 모이다 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_13_1",
+      "name": "페코린느",
+      "effectName": "카이저 앞에 남긴 약속 · 결의",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 12
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_13_2",
+      "name": "페코린느",
+      "effectName": "카이저 앞에 남긴 약속 · 물음",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_13_3",
+      "name": "페코린느",
+      "effectName": "카이저 앞에 남긴 약속 · 인연",
+      "keyword": "메인 · 다시 함께 앉는 미식전",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_14_1",
+      "name": "캐르",
+      "effectName": "함께 견뎌 낸 시간",
+      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 16
+        },
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_14_2",
+      "name": "캐르",
+      "effectName": "평범한 하루를 향한 소망",
+      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 8
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_14_3",
+      "name": "캐르",
+      "effectName": "다시 마주 앉은 인사",
+      "keyword": "메인 완결 · 다시 함께 앉는 미식전",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": []
     }
   ],
@@ -370,13 +1607,13 @@
       "choices": [
         {
           "label": "페코린느와 넓은 구역의 재료를 모아 넉넉히 차린다",
-          "result": "페코린느와 넓게 돌아 재료를 더 모았다. 그릇마다 넉넉히 담아 먹으며 든든히 준비하는 법을 익혔지만, 맡은 구역에는 적이 더 많이 드나들게 되었다.",
+          "result": "페코린느가 정성껏 준비한 음식을 나누며 미식전의 유대감을 확인한다. 따뜻한 온기 속에서 길드원들의 신뢰가 깊어진 기억을 얻는다.",
           "card": "pc_pecorine_meal",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -394,23 +1631,11 @@
         },
         {
           "label": "캬루와 길목을 확인하고 식사 준비를 좁힌다",
-          "result": "도구와 정리 비용을 내고 캬루와 적이 지나는 길 하나를 정리했다. 남은 길목을 놓치지 않고 공격을 준비하는 조언을 듣고, 식사를 차릴 범위도 줄였다.",
+          "result": "캬루의 조언대로 안전한 구역을 확보하며 식사 준비에 집중한다. 세심한 배려 덕분에 서로를 믿는 소중한 기억을 얻는다.",
           "card": "pc_karyl_check",
           "card2": null,
           "gold": 0,
           "cost": 160,
-          "level": 0,
-          "density": -1,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "식사는 다음으로 미루고 남은 재료를 매입상에게 판다",
-          "result": "재료를 매입상에게 넘기고 값을 받았다. 페코린느가 빈 바구니를 아쉬운 눈으로 보지만, 오늘 이 자리에서 먹을 식사는 다음으로 미룬다.",
-          "card": null,
-          "card2": null,
-          "gold": 180,
-          "cost": 0,
           "level": 0,
           "density": 0,
           "potions": 0,
@@ -444,22 +1669,22 @@
         },
         {
           "label": "캬루와 한쪽 길을 정리하고 나눠 줄 자리를 좁힌다",
-          "result": "정리 비용을 내고 한쪽 길을 좁혀 남은 음식을 나눌 자리를 마련했다. 캬루는 일을 끝내고 나서야 번거로웠다고 투덜거리며, 길을 막은 상대의 빈틈을 짚어 준다.",
+          "result": "남은 음식을 주변 사람들과 나누며 따뜻한 정을 느낀다. 배려하는 마음이 깃든 미식전의 일상을 기억으로 간직한다.",
           "card": "pc_karyl_resolve",
           "card2": null,
           "gold": 0,
           "cost": 180,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "설거지와 정리만 맡고 보수를 받는다",
-          "result": "추가 식사 부탁은 맡지 않고 그릇을 씻고 주변을 정리했다. 보수를 받아 떠나지만, 기다리던 사람들에게 더 내줄 음식은 마련하지 못했다.",
-          "card": null,
+          "label": "콧코로에게 마지막 그릇까지 함께 정리하자고 한다",
+          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_after_feast_memory_2",
           "card2": null,
-          "gold": 160,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -505,11 +1730,11 @@
           "chance": 100
         },
         {
-          "label": "식사를 매입상에게 넘기고 정리 비용을 받는다",
-          "result": "남은 식사를 매입상에게 넘기고 값을 받았다. 정리할 그릇은 줄었지만, 내 끼니도 길 떠날 일행의 부탁도 이 자리에서는 해결하지 않았다.",
-          "card": null,
+          "label": "캬루에게 돌아올 사람의 몫을 남겨 두자고 한다",
+          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_after_portions_memory_2",
           "card2": null,
-          "gold": 220,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -544,34 +1769,22 @@
         },
         {
           "label": "페코린느와 큰 상자부터 옮기고 더 넓은 구역을 맡는다",
-          "result": "페코린느와 큰 상자를 먼저 옮기고 안쪽까지 훑었다. 몸을 든든히 준비하고 움직이는 요령을 배운 대신, 밖에서도 더 넓은 길목을 맡는다. 개인 사냥에는 더 많은 적이 드나든다.",
+          "result": "페코린느와 힘을 합쳐 방 안의 숨겨진 물건들을 하나씩 꺼낸다. 함께 고생하며 쌓아온 협동의 기억이 마음속에 남는다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "보급품을 챙긴 뒤 맡을 길목도 한 곳 줄인다",
-          "result": "맡을 길목 하나를 다른 일행에게 넘겼다. 정리는 필요한 만큼만 마쳤고 안쪽 상자는 남겨 두었다. 내 구역의 적 수는 줄지만 적이 없어지지는 않는다.",
-          "card": null,
+          "label": "캬루에게 정리한 뒤 남길 자리를 묻는다",
+          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_dusty_room_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 0,
-          "density": -1,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "빈 상자와 고철을 매입상에게 넘긴다",
-          "result": "쓸 수 없는 상자와 고철을 골라 매입상에게 넘겼다. 값을 받았지만, 남길 그릇과 선반의 배치를 정하는 일은 다음 사람에게 맡긴다.",
-          "card": null,
-          "card2": null,
-          "gold": 170,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -627,18 +1840,6 @@
           "density": 0,
           "potions": 0,
           "chance": 100
-        },
-        {
-          "label": "채집은 맡지 않고 지도를 돌려주며 보급품만 정리한다",
-          "result": "채집은 맡지 않고 의뢰처의 보급품 정리를 도와 정리 보수를 받았다. 흐린 지도와 그 길의 재료는 직접 확인하지 못했다.",
-          "card": null,
-          "card2": null,
-          "gold": 120,
-          "cost": 0,
-          "level": 0,
-          "density": 0,
-          "potions": 0,
-          "chance": 100
         }
       ],
       "failure": "표시가 남은 길은 오래 전에 쓰던 길이었다. 찾던 재료는 확인하지 못했고 준비비는 돌아오지 않았다. 앞으로 더 강한 개인 사냥 구역을 맡는 부담이 남는다.",
@@ -679,23 +1880,11 @@
           "chance": 100
         },
         {
-          "label": "연습은 맡지 않고 보급 정리와 좁은 길목만 돕는다",
-          "result": "보급 정리를 도왔다. 오늘 맡을 길목을 한 곳 줄여 내 구역의 적 수도 줄었다. 아오이의 첫 인사는 대신하지 않고 모임 안내는 다른 사람에게 맡긴다.",
-          "card": null,
+          "label": "콧코로에게 아오이의 인사를 기다리자고 말한다",
+          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_tea_invitation_memory_2",
           "card2": null,
           "gold": 0,
-          "cost": 0,
-          "level": 0,
-          "density": -1,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "안내장 정리와 봉투 작업만 맡고 보수를 받는다",
-          "result": "안내장을 정리하고 봉투를 접어 모임 준비 보수를 받았다. 아오이는 아직 말을 고르고 있다. 손에 맡은 일은 끝냈지만 그 인사를 대신 건네지는 않았다.",
-          "card": null,
-          "card2": null,
-          "gold": 160,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -730,25 +1919,25 @@
         },
         {
           "label": "페코린느와 넓은 보급길까지 맡아 묶음을 옮긴다",
-          "result": "페코린느와 묶음을 옮기며 든든히 준비하고 움직이는 요령을 배웠다. 대신 밖의 넓은 보급길도 맡아 개인 사냥의 적 수가 늘었다. 배수 작업은 콧코로에게 남긴다.",
+          "result": "페코린느와 함께 쏟아지는 빗속에서 묵묵히 보급품을 옮겼다. 두 사람의 협동 덕분에 모든 곡식을 무사히 지켜낼 수 있었다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "좁은 구역의 정리만 돕고 일당을 받는다",
-          "result": "필요한 곳의 정리만 돕고 작업 보수를 받았다. 맡을 길목을 한 곳 줄여 개인 사냥의 적 수도 줄었다. 다른 논의 일까지 마친 것은 아니다.",
-          "card": null,
+          "label": "캬루와 젖은 묶음부터 구분해 옮긴다",
+          "result": "캬루는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_rainy_harvest_memory_2",
           "card2": null,
-          "gold": 150,
+          "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -779,11 +1968,11 @@
           "chance": 100
         },
         {
-          "label": "맞지 않는 옷은 돌려보내고 포장 일을 돕는다",
-          "result": "이름표를 그대로 묶어 반송할 옷을 포장하고 다른 짐도 정리했다. 가게에서 작업 보수를 받았다. 새 옷을 누구에게 맞출지는 츠무기에게 남긴다.",
-          "card": null,
+          "label": "츠무기에게 이름표부터 함께 확인하자고 한다",
+          "result": "츠무기는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_wrong_costume_tag_memory_1",
           "card2": null,
-          "gold": 180,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -817,23 +2006,23 @@
           "chance": 100
         },
         {
-          "label": "확인할 길목을 줄이고 보급품을 다시 묶는다",
-          "result": "포장 비용을 내고 확인할 길목 하나를 덜어 보급을 다시 묶었다. 개인 사냥의 적 수를 줄였다. 남은 진술의 대조는 카스미에게 맡긴다.",
-          "card": null,
+          "label": "카스미에게 확인된 문장부터 나누자고 한다",
+          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_witness_hours_memory_1",
           "card2": null,
           "gold": 0,
           "cost": 100,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "확인된 문장만 옮겨 적고 기록 보수를 받는다",
-          "result": "확인된 시각과 문장만 따로 옮겨 기록 보수를 받았다. 서로 맞지 않는 부분은 빈칸으로 남긴다. 누구의 말이 전부 옳다고 결론 내리지는 않았다.",
-          "card": null,
+          "label": "카스미에게 확인된 문장부터 나누자고 한다",
+          "result": "카스미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_witness_hours_memory_2",
           "card2": null,
-          "gold": 170,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -868,36 +2057,24 @@
         },
         {
           "label": "캬루와 더 넓은 길목을 맡아 공격 준비를 챙긴다",
-          "result": "캬루와 공격할 자리를 짚으며 더 넓은 길목까지 맡았다. 다음 싸움의 준비를 챙긴 대신 개인 사냥의 적 수가 늘었다. 다른 구역의 안전까지 약속하지 않는다.",
+          "result": "캬루의 불평을 뒤로하고 더 넓은 구역의 방어 태세를 갖췄다. 넓은 시야를 확보하며 상점가 주변의 안전을 꼼꼼히 살폈다.",
           "card": "pc_karyl_resolve",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
-          "potions": 0,
-          "chance": 100
-        },
-        {
-          "label": "맡을 위험한 길을 줄이고 보급품을 다시 마련한다",
-          "result": "보급 비용을 내고 강한 적이 드나들던 길을 맡을 범위에서 덜었다. 개인 사냥의 적 단계가 내려갔다. 남은 경계는 다른 사람에게 맡긴다.",
-          "card": null,
-          "card2": null,
-          "gold": 0,
-          "cost": 100,
-          "level": -1,
           "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "폐점 정리만 돕고 일당을 받는다",
-          "result": "가게의 물건을 안으로 옮기고 폐점 정리 보수를 받았다. 상인들이 문을 닫는 결정은 바꾸지 못했다. 경계할 길목을 정하는 일은 모니카에게 남긴다.",
-          "card": null,
+          "label": "모니카에게 돌아올 길부터 확인하자고 한다",
+          "result": "모니카는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_monica_market_watch_memory_2",
           "card2": null,
-          "gold": 170,
-          "cost": 0,
-          "level": 0,
+          "gold": 0,
+          "cost": 100,
+          "level": -1,
           "density": 0,
           "potions": 0,
           "chance": 100
@@ -930,25 +2107,25 @@
         },
         {
           "label": "페코린느와 큰 짐과 넓은 길목을 함께 맡는다",
-          "result": "페코린느와 큰 짐을 나누어 들며 함께 버티고 나아갈 준비를 배웠다. 넓은 길목까지 맡아 개인 사냥의 적 수가 늘었다. 작은 짐의 배달은 유우키에게 남긴다.",
+          "result": "페코린느와 호흡을 맞춰 큰 짐들을 효율적으로 수레에 실었다. 두 사람의 협력으로 복잡한 갈림길도 막힘없이 통과했다.",
           "card": "pc_pecorine_front",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "내가 맡을 구역만 줄이고 짐 분류 보수를 받는다",
-          "result": "짐 분류를 도운 보수를 받고 맡을 길목을 한 곳 덜었다. 개인 사냥의 적 수는 줄었지만 남의 배달까지 끝내지는 않았다. 목적지별 꾸러미는 수레에 나누어 둔다.",
-          "card": null,
+          "label": "콧코로에게 목적지부터 함께 확인하자고 한다",
+          "result": "콧코로는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_delivery_divide_memory_2",
           "card2": null,
-          "gold": 160,
+          "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -979,23 +2156,23 @@
           "chance": 100
         },
         {
-          "label": "페코린느와 바깥 길까지 맡아 짐을 옮긴다",
-          "result": "페코린느와 바깥 길까지 짐을 옮기며 든든히 움직이는 준비를 배웠다. 넓은 길목을 맡은 만큼 개인 사냥의 적 수가 늘었다. 연습 자리의 순서는 노조미에게 남긴다.",
+          "label": "페코린느에게 바깥까지 짐을 옮겨 주겠다고 한다",
+          "result": "페코린느는 짐을 옮긴 뒤에도 연습할 사람들의 자리를 살핀다. 손에 맡은 일을 끝내면서 다른 사람의 준비를 챙기는 모습을 기억한다.",
           "card": "pc_pecorine_expedition",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "짐 정리만 돕고 일당을 받는다",
-          "result": "연습에는 끼어들지 않고 필요한 짐만 정리했다. 작업 보수를 받았다. 노조미가 연습과 주민의 부탁을 조율할 자리는 남겨 둔다.",
-          "card": null,
+          "label": "노조미에게 연습이 끝난 뒤 부탁을 묻는다",
+          "result": "노조미는 아직 맡은 일이 남아 있다는 말을 듣고 준비할 항목을 나눈다. 함께 확인한 순서를 따라가며 끝난 일과 남겨 둘 몫을 구분하는 방식을 기억한다.",
+          "card": "pc_rehearsal_wall_memory_2",
           "card2": null,
-          "gold": 130,
+          "gold": 0,
           "cost": 0,
           "level": 0,
           "density": 0,
@@ -1006,13 +2183,793 @@
       "failure": null,
       "canonFact": "카르미나의연습자리에둔짐이좁은벽쪽을막고,바로너머에서는주민들이쉬려한다.노조미는연습을준비하되모든부탁을한번에들어줄수없다며상황을살핀다. 미식전은벽쪽짐을정리할지바깥길까지맡을지정한다.구성원실력상하·정치갈등·주민마음을수치화하지않는다. 1동작·든든한준비만.새노래스킬·민심·연습시간연장없음.2더많은개인적수.3소음문제를전체해결하지않고제한된실무만한다.",
       "uncertain": []
+    },
+    {
+      "key": "gourmet_main_01",
+      "title": "낯선 길에서 받은 인사",
+      "intro": "콧코로는 기억이 흐릿한 유우키와 새로운 길을 시작한다.",
+      "story": "콧코로는 기억이 흐릿한 유우키와 새로운 길을 시작한다. 이름도 익숙하지 않은 유우키에게 콧코로는 오늘 할 작은 일을 천천히 알려 준다. 모르는 것을 인정하며 오늘의 작은 일부터 같이 고른다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“모르겠다는 말부터 함께 시작해도 되겠지.”",
+          "result": "“모르겠다는 말부터 함께 시작해도 되겠지.” 낯선 길에서 받은 인사의 기억에 자신의 답을 남긴다. 페코린느와의 만남은 작은 식사에서 모험으로 이어진다.",
+          "card": "gourmet_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“네가 준비해 준 시간도 기억할게.”",
+          "result": "“네가 준비해 준 시간도 기억할게.” 낯선 길에서 받은 인사의 기억에 자신의 답을 남긴다. 페코린느와의 만남은 작은 식사에서 모험으로 이어진다.",
+          "card": "gourmet_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“오늘 만난 이름을 먼저 남겨 두자.”",
+          "result": "“오늘 만난 이름을 먼저 남겨 두자.” 낯선 길에서 받은 인사의 기억에 자신의 답을 남긴다. 페코린느와의 만남은 작은 식사에서 모험으로 이어진다.",
+          "card": "gourmet_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_02",
+      "title": "배고픈 사람의 큰 웃음",
+      "intro": "페코린느와의 만남은 작은 식사에서 모험으로 이어진다.",
+      "story": "페코린느와의 만남은 작은 식사에서 모험으로 이어진다. 웃음과 식욕 뒤의 사정은 아직 다 알지 못한다. 설명을 다 들었기 때문에가 아니라 함께한 시간이 좋아 다음 만남을 바란다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“다음에도 같이 먹을 이야기를 남겨 두자.”",
+          "result": "“다음에도 같이 먹을 이야기를 남겨 두자.” 배고픈 사람의 큰 웃음의 기억에 자신의 답을 남긴다. 캐르는 거리를 두려 하면서도 미식전의 시간에 조금씩 들어온다.",
+          "card": "gourmet_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“밝은 얼굴 뒤의 사정도 언젠가 듣고 싶어.”",
+          "result": "“밝은 얼굴 뒤의 사정도 언젠가 듣고 싶어.” 배고픈 사람의 큰 웃음의 기억에 자신의 답을 남긴다. 캐르는 거리를 두려 하면서도 미식전의 시간에 조금씩 들어온다.",
+          "card": "gourmet_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“먼저 나눠 준 친절을 기억할게.”",
+          "result": "“먼저 나눠 준 친절을 기억할게.” 배고픈 사람의 큰 웃음의 기억에 자신의 답을 남긴다. 캐르는 거리를 두려 하면서도 미식전의 시간에 조금씩 들어온다.",
+          "card": "gourmet_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_03",
+      "title": "캐르가 머무는 거리",
+      "intro": "캐르는 거리를 두려 하면서도 미식전의 시간에 조금씩 들어온다.",
+      "story": "캐르는 거리를 두려 하면서도 미식전의 시간에 조금씩 들어온다. 까칠한 말이 함께하고 싶지 않다는 뜻 하나로 끝나지는 않는다. 빨리 친해지라고 요구하기보다 다음에 앉을 자리를 남긴다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“오늘 못 한 이야기는 다음에 해도 돼.”",
+          "result": "“오늘 못 한 이야기는 다음에 해도 돼.” 캐르가 머무는 거리의 기억에 자신의 답을 남긴다. 미식전이라는 이름 아래 네 사람의 모험이 시작된다.",
+          "card": "gourmet_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“함께 있던 시간을 네 뜻으로 기억해 줘.”",
+          "result": "“함께 있던 시간을 네 뜻으로 기억해 줘.” 캐르가 머무는 거리의 기억에 자신의 답을 남긴다. 미식전이라는 이름 아래 네 사람의 모험이 시작된다.",
+          "card": "gourmet_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“돌아오면 앉을 자리는 여기에 있어.”",
+          "result": "“돌아오면 앉을 자리는 여기에 있어.” 캐르가 머무는 거리의 기억에 자신의 답을 남긴다. 미식전이라는 이름 아래 네 사람의 모험이 시작된다.",
+          "card": "gourmet_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_04",
+      "title": "길드 이름에 모인 사람들",
+      "intro": "미식전이라는 이름 아래 네 사람의 모험이 시작된다.",
+      "story": "미식전이라는 이름 아래 네 사람의 모험이 시작된다. 잘 맞는 취향만 모인 것은 아니지만 같은 식탁에 다시 앉을 이유가 있다. 이름을 정하는 일보다 그 안에 어떤 시간을 만들지 이야기한다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이름에 맞는 즐거운 시간을 같이 만들어 보자.”",
+          "result": "“이름에 맞는 즐거운 시간을 같이 만들어 보자.” 길드 이름에 모인 사람들의 기억에 자신의 답을 남긴다. 길드 하우스에 사소한 생활의 흔적이 쌓인다.",
+          "card": "gourmet_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“각자의 취향도 빠지지 않았으면 좋겠어.”",
+          "result": "“각자의 취향도 빠지지 않았으면 좋겠어.” 길드 이름에 모인 사람들의 기억에 자신의 답을 남긴다. 길드 하우스에 사소한 생활의 흔적이 쌓인다.",
+          "card": "gourmet_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“여기가 돌아올 곳이 될 수 있겠네.”",
+          "result": "“여기가 돌아올 곳이 될 수 있겠네.” 길드 이름에 모인 사람들의 기억에 자신의 답을 남긴다. 길드 하우스에 사소한 생활의 흔적이 쌓인다.",
+          "card": "gourmet_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_05",
+      "title": "처음 남기는 집의 기억",
+      "intro": "길드 하우스에 사소한 생활의 흔적이 쌓인다.",
+      "story": "길드 하우스에 사소한 생활의 흔적이 쌓인다. 기억을 잃은 사람에게도 오늘 새로 생긴 관계는 남을 수 있다. 모험이 없는 날의 대화가 다음 위기에서도 돌아갈 이유가 된다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“오늘 만든 기억도 나의 삶에 있겠지.”",
+          "result": "“오늘 만든 기억도 나의 삶에 있겠지.” 처음 남기는 집의 기억의 기억에 자신의 답을 남긴다. 모험에서 만난 사람들과 식사를 나누며 미식전의 관계가 넓어진다.",
+          "card": "gourmet_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같이 지낸 일을 조금씩 들려줘.”",
+          "result": "“같이 지낸 일을 조금씩 들려줘.” 처음 남기는 집의 기억의 기억에 자신의 답을 남긴다. 모험에서 만난 사람들과 식사를 나누며 미식전의 관계가 넓어진다.",
+          "card": "gourmet_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에는 내가 먼저 인사하고 싶어.”",
+          "result": "“다음에는 내가 먼저 인사하고 싶어.” 처음 남기는 집의 기억의 기억에 자신의 답을 남긴다. 모험에서 만난 사람들과 식사를 나누며 미식전의 관계가 넓어진다.",
+          "card": "gourmet_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_06",
+      "title": "다른 길드와 나눈 식사",
+      "intro": "모험에서 만난 사람들과 식사를 나누며 미식전의 관계가 넓어진다.",
+      "story": "모험에서 만난 사람들과 식사를 나누며 미식전의 관계가 넓어진다. 같은 맛을 좋아하지 않아도 같은 자리에 함께할 수 있다. 여행의 결과를 얻은 음식 하나로만 기억하지 않는다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“좋아하는 것이 달라도 이야기는 함께할 수 있네.”",
+          "result": "“좋아하는 것이 달라도 이야기는 함께할 수 있네.” 다른 길드와 나눈 식사의 기억에 자신의 답을 남긴다. 캐르에게는 미식전과 함께하면서도 쉽게 말하지 못한 사정이 있다.",
+          "card": "gourmet_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“오늘 만난 사람의 이름도 남겨 두자.”",
+          "result": "“오늘 만난 사람의 이름도 남겨 두자.” 다른 길드와 나눈 식사의 기억에 자신의 답을 남긴다. 캐르에게는 미식전과 함께하면서도 쉽게 말하지 못한 사정이 있다.",
+          "card": "gourmet_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음 식탁에는 누구를 부를지 생각해 보자.”",
+          "result": "“다음 식탁에는 누구를 부를지 생각해 보자.” 다른 길드와 나눈 식사의 기억에 자신의 답을 남긴다. 캐르에게는 미식전과 함께하면서도 쉽게 말하지 못한 사정이 있다.",
+          "card": "gourmet_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_07",
+      "title": "캐르가 말하지 못한 일",
+      "intro": "캐르에게는 미식전과 함께하면서도 쉽게 말하지 못한 사정이 있다.",
+      "story": "캐르에게는 미식전과 함께하면서도 쉽게 말하지 못한 사정이 있다. 친해졌다는 이유로 모든 것을 즉시 털어놓으라고 할 수는 없다. 누군가의 뜻에 눌린 마음에도 직접 대답할 자리를 남긴다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 고른 말로 들을 수 있을 때까지 기다릴게.”",
+          "result": "“네가 고른 말로 들을 수 있을 때까지 기다릴게.” 캐르가 말하지 못한 일의 기억에 자신의 답을 남긴다. 유우키의 기억과 주변의 위기가 미식전의 모험과 연결된다.",
+          "card": "gourmet_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“함께했다고 모든 마음을 다 안다고 하진 않을래.”",
+          "result": "“함께했다고 모든 마음을 다 안다고 하진 않을래.” 캐르가 말하지 못한 일의 기억에 자신의 답을 남긴다. 유우키의 기억과 주변의 위기가 미식전의 모험과 연결된다.",
+          "card": "gourmet_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“말하기 어려운 날에도 돌아올 자리는 있어.”",
+          "result": "“말하기 어려운 날에도 돌아올 자리는 있어.” 캐르가 말하지 못한 일의 기억에 자신의 답을 남긴다. 유우키의 기억과 주변의 위기가 미식전의 모험과 연결된다.",
+          "card": "gourmet_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_08",
+      "title": "기억의 빈칸이 부르는 길",
+      "intro": "유우키의 기억과 주변의 위기가 미식전의 모험과 연결된다.",
+      "story": "유우키의 기억과 주변의 위기가 미식전의 모험과 연결된다. 모르는 과거가 오늘 곁의 사람을 낯선 사람으로 만들지는 않는다. 무엇이 돌아와도 함께한 시간을 버리지 않겠다는 뜻을 남긴다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“과거를 알게 되어도 오늘의 너희를 기억하겠어.”",
+          "result": "“과거를 알게 되어도 오늘의 너희를 기억하겠어.” 기억의 빈칸이 부르는 길의 기억에 자신의 답을 남긴다. 페코린느의 사정을 알게 되자 처음의 큰 웃음이 다르게 들린다.",
+          "card": "gourmet_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“빈칸을 채우기 전에 확인할 사실도 있겠지.”",
+          "result": "“빈칸을 채우기 전에 확인할 사실도 있겠지.” 기억의 빈칸이 부르는 길의 기억에 자신의 답을 남긴다. 페코린느의 사정을 알게 되자 처음의 큰 웃음이 다르게 들린다.",
+          "card": "gourmet_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 나눈 약속을 함께 가져가자.”",
+          "result": "“다시 나눈 약속을 함께 가져가자.” 기억의 빈칸이 부르는 길의 기억에 자신의 답을 남긴다. 페코린느의 사정을 알게 되자 처음의 큰 웃음이 다르게 들린다.",
+          "card": "gourmet_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_09",
+      "title": "페코린느가 밝히는 이름",
+      "intro": "페코린느의 사정을 알게 되자 처음의 큰 웃음이 다르게 들린다.",
+      "story": "페코린느의 사정을 알게 되자 처음의 큰 웃음이 다르게 들린다. 평범하게 함께 먹고 싶다는 바람 뒤에는 잃은 자리가 있다. 새로운 이름을 알았다고 친구로 부르던 말을 지우지 않는다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“새로 알게 된 이름과 친구의 이름을 함께 기억할게.”",
+          "result": "“새로 알게 된 이름과 친구의 이름을 함께 기억할게.” 페코린느가 밝히는 이름의 기억에 자신의 답을 남긴다. 랜드솔의 위기가 커지며 익숙한 장소와 관계가 흔들린다.",
+          "card": "gourmet_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“혼자 남겨 둔 사정도 이제 같이 들어 보자.”",
+          "result": "“혼자 남겨 둔 사정도 이제 같이 들어 보자.” 페코린느가 밝히는 이름의 기억에 자신의 답을 남긴다. 랜드솔의 위기가 커지며 익숙한 장소와 관계가 흔들린다.",
+          "card": "gourmet_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 평범한 식사를 하고 싶다는 뜻은 남아 있겠지.”",
+          "result": "“다시 평범한 식사를 하고 싶다는 뜻은 남아 있겠지.” 페코린느가 밝히는 이름의 기억에 자신의 답을 남긴다. 랜드솔의 위기가 커지며 익숙한 장소와 관계가 흔들린다.",
+          "card": "gourmet_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_10",
+      "title": "무너지는 익숙한 풍경",
+      "intro": "랜드솔의 위기가 커지며 익숙한 장소와 관계가 흔들린다.",
+      "story": "랜드솔의 위기가 커지며 익숙한 장소와 관계가 흔들린다. 함께 살아갈 사람들의 이름을 놓치지 않으려는 준비가 이어진다. 거대한 싸움의 명분보다 돌아갈 집과 식탁을 먼저 떠올린다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“지도를 보기 전에 그곳의 사람을 기억하자.”",
+          "result": "“지도를 보기 전에 그곳의 사람을 기억하자.” 무너지는 익숙한 풍경의 기억에 자신의 답을 남긴다. 캐르는 카이저 인사이트와 미식전 사이에서 괴로운 마음을 겪는다.",
+          "card": "gourmet_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“우리 집만 따로 안전하면 끝나는 것은 아니네.”",
+          "result": "“우리 집만 따로 안전하면 끝나는 것은 아니네.” 무너지는 익숙한 풍경의 기억에 자신의 답을 남긴다. 캐르는 카이저 인사이트와 미식전 사이에서 괴로운 마음을 겪는다.",
+          "card": "gourmet_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 같이 앉을 수 있는 내일을 남기자.”",
+          "result": "“다시 같이 앉을 수 있는 내일을 남기자.” 무너지는 익숙한 풍경의 기억에 자신의 답을 남긴다. 캐르는 카이저 인사이트와 미식전 사이에서 괴로운 마음을 겪는다.",
+          "card": "gourmet_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_11",
+      "title": "기다리는 사람과 묶인 마음",
+      "intro": "캐르는 카이저 인사이트와 미식전 사이에서 괴로운 마음을 겪는다.",
+      "story": "캐르는 카이저 인사이트와 미식전 사이에서 괴로운 마음을 겪는다. 충성과 두려움이 친구들과 함께한 기억을 쉽게 지우지 못한다. 기다리는 사람들은 대신 답을 정하지 않고 그녀의 목소리를 부른다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 직접 고를 수 있는 대답을 기다릴게.”",
+          "result": "“네가 직접 고를 수 있는 대답을 기다릴게.” 기다리는 사람과 묶인 마음의 기억에 자신의 답을 남긴다. 미식전의 네 사람은 카이저 인사이트와 맞설 뜻을 다시 모은다.",
+          "card": "gourmet_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“무서운 마음이 있어도 친구로 부를 수 있어.”",
+          "result": "“무서운 마음이 있어도 친구로 부를 수 있어.” 기다리는 사람과 묶인 마음의 기억에 자신의 답을 남긴다. 미식전의 네 사람은 카이저 인사이트와 맞설 뜻을 다시 모은다.",
+          "card": "gourmet_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같이 보냈던 시간은 여기에 남아 있어.”",
+          "result": "“같이 보냈던 시간은 여기에 남아 있어.” 기다리는 사람과 묶인 마음의 기억에 자신의 답을 남긴다. 미식전의 네 사람은 카이저 인사이트와 맞설 뜻을 다시 모은다.",
+          "card": "gourmet_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_12",
+      "title": "네 사람의 뜻이 다시 모이다",
+      "intro": "미식전의 네 사람은 카이저 인사이트와 맞설 뜻을 다시 모은다.",
+      "story": "미식전의 네 사람은 카이저 인사이트와 맞설 뜻을 다시 모은다. 처음 모였을 때의 서툰 모습도 지금의 관계를 만든 시간이다. 네 사람은 누구도 혼자 남겨 두지 않겠다는 뜻으로 다시 서로를 부른다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“처음의 서툰 시간까지 함께 가져가자.”",
+          "result": "“처음의 서툰 시간까지 함께 가져가자.” 네 사람의 뜻이 다시 모이다의 기억에 자신의 답을 남긴다. 마지막 위기에서 미식전은 서로를 부르며 돌아올 내일을 지킨다.",
+          "card": "gourmet_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“누가 빠진 승리로 끝내고 싶진 않아.”",
+          "result": "“누가 빠진 승리로 끝내고 싶진 않아.” 네 사람의 뜻이 다시 모이다의 기억에 자신의 답을 남긴다. 마지막 위기에서 미식전은 서로를 부르며 돌아올 내일을 지킨다.",
+          "card": "gourmet_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“싸움이 끝나면 각자의 이야기를 다시 듣자.”",
+          "result": "“싸움이 끝나면 각자의 이야기를 다시 듣자.” 네 사람의 뜻이 다시 모이다의 기억에 자신의 답을 남긴다. 마지막 위기에서 미식전은 서로를 부르며 돌아올 내일을 지킨다.",
+          "card": "gourmet_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_13",
+      "title": "카이저 앞에 남긴 약속",
+      "intro": "마지막 위기에서 미식전은 서로를 부르며 돌아올 내일을 지킨다.",
+      "story": "마지막 위기에서 미식전은 서로를 부르며 돌아올 내일을 지킨다. 기억과 이름을 빼앗으려는 힘이 관계의 모든 뜻을 정할 수는 없다. 길드 하우스에서 나누었던 작은 약속이 다시 힘을 얻는다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“처음부터 같이 앉고 싶었던 사람들이야.”",
+          "result": "“처음부터 같이 앉고 싶었던 사람들이야.” 카이저 앞에 남긴 약속의 기억에 자신의 답을 남긴다. 위기를 넘긴 미식전은 다시 같은 자리에 앉는다.",
+          "card": "gourmet_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“캐르, 다른 사람의 명령 말고 네가 고른 대답을 듣고 싶어.”",
+          "result": "“캐르, 다른 사람의 명령 말고 네가 고른 대답을 듣고 싶어.” 카이저 앞에 남긴 약속의 기억에 자신의 답을 남긴다. 위기를 넘긴 미식전은 다시 같은 자리에 앉는다.",
+          "card": "gourmet_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음 식탁에서 오늘의 말을 다시 하자.”",
+          "result": "“다음 식탁에서 오늘의 말을 다시 하자.” 카이저 앞에 남긴 약속의 기억에 자신의 답을 남긴다. 위기를 넘긴 미식전은 다시 같은 자리에 앉는다.",
+          "card": "gourmet_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_main_14",
+      "title": "빈자리 없이 차린 식탁",
+      "intro": "위기를 넘긴 미식전은 다시 같은 자리에 앉는다.",
+      "story": "위기를 넘긴 미식전은 다시 같은 자리에 앉는다. 함께 식사하는 평범한 시간이 전보다 더 소중하게 느껴진다. 첫 만남에서 남겨 두었던 자리가 끝내 네 사람의 집이 되며 이야기를 매듭짓는다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“돌아오기 어려웠던 시간도 함께 기억할게.”",
+          "result": "말을 쉽게 꺼내지 못하던 캐르에게 남겨 둔 자리가 끝내 같은 식탁이 된다. 돌아오기 어려웠던 시간도 함께 앉아 나눌 수 있는 기억으로 남는다.",
+          "card": "gourmet_main_14_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음에는 평범한 하루를 먼저 골라도 좋겠어.”",
+          "result": "처음 나눈 작은 식사가 다시 평범한 하루의 바람으로 돌아온다. 특별한 승리 다음에 아무 일 없는 저녁을 함께 고르고 싶다는 말을 남긴다.",
+          "card": "gourmet_main_14_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 같이 앉았다는 이 인사를 오래 남기자.”",
+          "result": "처음 길드 이름을 정할 때 몰랐던 시간들이 네 사람의 집에 쌓였다. 빈자리 없이 다시 인사하는 식탁으로 미식전의 이야기를 끝낸다.",
+          "card": "gourmet_main_14_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "애니메이션 미식전 결성과 시즌 2의 재회의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "gourmet_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "다시 함께 앉는 미식전의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "pc_kokkoro_entry",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "pc_pecorine_meal",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "pc_pecorine_front",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
+      "uncertain": []
     }
   ],
   "world": {
     "key": "gourmet",
     "name": "미식전 길드 하우스",
     "work": "프린세스 커넥트! Re:Dive",
-    "intro": "콧코로가 함께 떠날 준비를 살핀다. 미식전과 식사·모험을 함께하며 관련 사건과 카드의 길이 열린다.",
+    "intro": "콧코로는 기억이 흐릿한 유우키와 새로운 길을 시작한다. 다시 함께 앉는 미식전의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
     "effects": [
       {
         "stat": "max_health_percent",
@@ -1020,7 +2977,18 @@
       }
     ],
     "entryCard": "pc_kokkoro_entry",
-    "icon": "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp"
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNHealingWard.blp",
+    "mainStory": {
+      "title": "다시 함께 앉는 미식전",
+      "length": 14,
+      "focus": [
+        "max_health_percent",
+        "regeneration",
+        "attack_percent"
+      ],
+      "source": "애니메이션 미식전 결성과 시즌 2의 재회",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    }
   },
   "sources": [
     "https://anime.priconne-redive.jp/archive/1st/story/id_02.html",
@@ -1036,7 +3004,10 @@
     "https://anime.priconne-redive.jp/story/ep_04.html",
     "https://anime.priconne-redive.jp/story/ep_06.html",
     "https://anime.priconne-redive.jp/story/ep_07.html",
-    "https://anime.priconne-redive.jp/music/"
+    "https://anime.priconne-redive.jp/music/",
+    "https://anime.priconne-redive.jp/story/",
+    "https://anime.priconne-redive.jp/story/ep_10.html",
+    "https://anime.priconne-redive.jp/news/detail_0045.html"
   ],
-  "canonBoundary": "미식전의 대식가 검사·세심한 생활 지원·길드 활동과 기본 캬루의 방어력 감소 역할을 소재로 삼는다. 길가 식사·재료 비용·부탁한 사람·보급품 교환은 맵 전용 창작이다. 원작의 검 분실·식당 재료 고갈·인형 파손을 대신 해결하지 않는다. 현재 체력 비용·새 기술·적 전체 디버프·감정 수치·실제 NPC 호위·퀘스트 물품·식사 재고는 생성하지 않는다. 식사는 자기 이전 선택 기록으로 이어지는 이야기이며 후속 사건은 별도 행동력을 쓰고 등장을 보장하지 않는다. 식사로 현재 체력을 즉시 회복하지 않고 최대 체력 증가에도 현재 체력 비율을 유지한다. 기본 캬루의 공식 조정 역할을 참고했으며 오버로드·프린세스 버전의 고유 효과를 혼합하지 않는다. 추가된 작은 방·채집 지도·차 모임은 공식 생활·의뢰·학교 적응 소재에서 따로 창작한 문제다. 이야기 속 물건과 NPC는 실제 인벤토리나 AI로 생성되지 않으며 골드·지정 카드·물약·개인 필드 수치만 적용된다. 확률 선택은 비용과 필드 부담이 실패 때도 남는다. 추가된 농사·의상 배달·길목 증언·상점 경계·짐 분류·연습 자리는 공식 인물과 활동에서 별도로 창작한 사건이다. 공식 본편의 섀도·기사·치카 문제를 해결하지 않고 NPC 동행·공연·관계·재고 시스템은 생성하지 않는다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다."
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다."
 }

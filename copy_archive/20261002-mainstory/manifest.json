@@ -1,0 +1,97 @@
+{
+  "sourceCommit": "cda77d137631d8190ec65fd02f950da5331b005a",
+  "files": [
+    {
+      "source": "content/roguelite/01-fuyuki.json",
+      "sha256": "116b52b62a1e13f42042fcc643473da5eb61dfce166acbf688752110e7f9db7e"
+    },
+    {
+      "source": "content/roguelite/02-axel.json",
+      "sha256": "258787ce96accd1124d0ba963f8a3ae94f7d7d990990e5d519918c8c37c38b39"
+    },
+    {
+      "source": "content/roguelite/03-abydos.json",
+      "sha256": "1f71ec09cc4e5820e397457fbdc4ad51a2331cf9f14034b2e6c5f6d7ec463e29"
+    },
+    {
+      "source": "content/roguelite/04-academy.json",
+      "sha256": "35b87303fcdf8457606bbeebffb30834cca49ced413b9336670aa8eec6555f4c"
+    },
+    {
+      "source": "content/roguelite/05-mitakihara.json",
+      "sha256": "6c476f6910d2554548672fccbd5a8225dc0e81200c6e786ac40ab767b5d97691"
+    },
+    {
+      "source": "content/roguelite/06-aincrad.json",
+      "sha256": "64dc87734ad6da29e41b5f4df523256eb16381b790fc7d8501b6ed8d155e01dc"
+    },
+    {
+      "source": "content/roguelite/07-zegagrande.json",
+      "sha256": "a5d71160cb9a4ff04d365b36a0b3482291a0d9ab7a341aebd498af4c4795be7e"
+    },
+    {
+      "source": "content/roguelite/08-common.json",
+      "sha256": "cc69b9f7d0dd08399515d0a8abb22ce9b6b5dd3a4495d24523e9d2d8e4b7c830"
+    },
+    {
+      "source": "content/roguelite/09-magnolia.json",
+      "sha256": "939b389454b25198d635ca6d380d222747634219dd22c4e96143e5d6abeb0306"
+    },
+    {
+      "source": "content/roguelite/10-karakura.json",
+      "sha256": "8de4ef79a95805265596c32db78c17a71ff10f647c40ddb6bd78c51bcef88f97"
+    },
+    {
+      "source": "content/roguelite/11-penacony.json",
+      "sha256": "6e1258b31e7d243b4ef41675baa5edd691d3101026dd97f235cda258fc70d7bf"
+    },
+    {
+      "source": "content/roguelite/12-amestris.json",
+      "sha256": "6fc44180a77ab2e3a70159bba31919bb65be050851001d8eb310dd08ee1de65d"
+    },
+    {
+      "source": "content/roguelite/13-butterfly.json",
+      "sha256": "267fa869e5c40e6131ae0cfc824cacef7b2da3e08d88b624d6114066326ce7e9"
+    },
+    {
+      "source": "content/roguelite/14-gourmet.json",
+      "sha256": "5acd471b066cb18e4cc15aee5d761b1142fa0a5f129a8dfdef0e7bc91be3d211"
+    },
+    {
+      "source": "System/ExpeditionPrototype.j",
+      "sha256": "e1842632034d93f411d5134ae272741af592613adf945e682f53bc2785765301"
+    },
+    {
+      "source": "Data/Data_Expedition.j",
+      "sha256": "cc491ff4dc2ecc7174beff8273e572596b75db74ce2e2c74e803fbc230bf36ae"
+    },
+    {
+      "source": "Data/Data_PrototypeStats.j",
+      "sha256": "5ed5f65e56d06306113476ef15251e28c7ce85cc4745dc2cd307d1a832f43e7c"
+    },
+    {
+      "source": "UI/UI_ExpeditionPrototype.j",
+      "sha256": "b4109b462479ba112a7e817d46af0ea0360d6fd0b6c7a185e56859714bb9c1fd"
+    },
+    {
+      "source": "tools/generate-prototype-content.cjs",
+      "sha256": "5ac3148ef4279b0a257a0cd492e2ec5f0e05885234829b13448a1d6df8aa05ec"
+    },
+    {
+      "source": "tools/generate-content-review.cjs",
+      "sha256": "6fe3cfaf4444fb1bec88ba474ca5359e08c37302b43a8baacb86cc937bfb86aa"
+    },
+    {
+      "source": "tools/check-content-candidates.cjs",
+      "sha256": "4dff4949ece69cff3223753419b4d4c54cb09f67bb46c324d346d221ba0f26cc"
+    },
+    {
+      "source": "System/Expedition.j",
+      "sha256": "910e416780ed21e0750b4042514411912bd1a55be01e042bb8c505742eae73e1"
+    },
+    {
+      "source": "System/StatsSetting.j",
+      "sha256": "8eadb88e0304af83ff5e46bc38ae8f4523c1a564651f5eea271e436dc6181e80"
+    }
+  ]
+}

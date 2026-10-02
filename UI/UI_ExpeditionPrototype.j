@@ -96,6 +96,10 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set tag = "지역 개방 · " + tag
             set action = "행동력 0 · 머리 카드 획득"
             call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoCardName[ProtoHeadEntryCard[head]])
+        elseif ProtoEventMainStage[id] > 0 then
+            set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
+        elseif ProtoEventEpilogue[id] > 0 then
+            set tag = tag + " · 후일담"
         elseif ProtoEventRequired[id] > 0 then
             set tag = tag + " · 후속"
         endif
@@ -136,7 +140,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 10분 · 행동력 10|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
+        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then
@@ -170,7 +174,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUISetButton(LobbyReady, "출발 준비", AttackPower(pid) >= 100.0 and UnitAlive(MainUnit[pid]) and RectContainsUnit(gg_rct_Home, MainUnit[pid]) and PlayerSlotNumber[pid] > 0 and ProtoStartHeadReady(pid))
         endif
         call DzFrameShow(HuntHUD, ExpPrototypeActive and ExpMember[pid] and ExpState == EXP_HUNT and not F_UpgradeOnOff[pid] and ExpUIPanel != 9)
-        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(4.0 * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
+        set value = "남은 " + I2S(ExpSeconds) + "초   행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]) + "   골드 " + I2S(ExpGold[pid]) + "|n사냥 " + I2S(ProtoKills[pid]) + "회 · 적 단계 " + I2S(ProtoLevel[pid]) + " · 동시 몬스터 " + I2S(ProtoDensity[pid]) + "마리|n몬스터 체력 " + I2S(R2I(300.0 * (1.0 + 0.30 * (ProtoLevel[pid] - 1)))) + " · 기본 공격 피해 최대 체력의 " + R2SW(PROTO_BASE_HIT_PERCENT * (1.0 + 0.25 * (ProtoLevel[pid] - 1)), 0, 1) + "%"
         if ProtoReady[pid] then
             set value = "보스 합류 대기 · " + value
         endif
@@ -184,10 +188,16 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call ExpUIText(EventTitle, "개인 사건 · 행동 선택")
-            call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치와 각성 조건을 확인할 수 있습니다.")
+            call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치를 확인할 수 있습니다.")
         else
-            call ExpUIText(EventTitle, "개인 사건 · 사건 결과")
-            call ExpUIText(EventStory, "이번 선택의 결과를 확인하세요. 확인을 누르면 내 사냥터로 돌아갑니다.")
+            set id = ProtoSelected[pid]
+            if ProtoStage[pid] == 3 and ProtoEventMainStage[id] > 0 and ProtoEventMainStage[id] == ProtoHeadMainLength[ProtoEventHead[id]] and ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] == ProtoEventMainStage[id] then
+                call ExpUIText(EventTitle, "이야기 완결 · " + ProtoHeadName[ProtoEventHead[id]])
+                call ExpUIText(EventStory, "여정의 마지막 기억을 카드에 남겼습니다. 이 지역의 이야기는 매듭짓고, 후일담을 만날 수 있습니다.")
+            else
+                call ExpUIText(EventTitle, "개인 사건 · 사건 결과")
+                call ExpUIText(EventStory, "이번 선택의 결과를 확인하세요. 확인을 누르면 내 사냥터로 돌아갑니다.")
+            endif
             call ExpUIText(OutcomeText, ProtoOutcome[pid])
         endif
         if ProtoStage[pid] == 2 or ProtoStage[pid] == 3 then
@@ -195,6 +205,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set tag = "공통 사건"
             if ProtoEventHead[id] > 0 then
                 set tag = ProtoHeadName[ProtoEventHead[id]]
+            endif
+            if ProtoEventMainStage[id] > 0 then
+                set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[ProtoEventHead[id]])
+            elseif ProtoEventEpilogue[id] > 0 then
+                set tag = tag + " · 후일담"
             endif
             call ExpUIText(StoryRegion, tag + " · " + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r")
             call ExpUIText(StoryTitle, ProtoEventName[id])
@@ -258,7 +273,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set f = ExpUILabel(LobbyRoot, 0.035, 0.071, 0.40, 0.042, 0.027, "다음 이야기를 향해")
         set f = ExpUILabel(LobbyRoot, 0.037, 0.123, 0.36, 0.042, 0.012, "사건을 만나고, 카드를 모아|n보스전에 도전하세요.")
         set f = ExpUITexture(LobbyRoot, 0.035, 0.188, 0.345, 0.320, "war3mapImported\\UI_Arcana_Route.tga")
-        set f = ExpUILabel(LobbyRoot, 0.054, 0.207, 0.25, 0.030, 0.019, "10분의 원정")
+        set f = ExpUILabel(LobbyRoot, 0.054, 0.207, 0.25, 0.030, 0.019, "20분의 원정")
         set f = ExpUILabel(LobbyRoot, 0.054, 0.250, 0.27, 0.060, 0.012, "사냥과 사건 → 카드 성장 → 보스 합류")
         set f = ExpUITexture(LobbyRoot, 0.416, 0.070, 0.348, 0.139, "war3mapImported\\UI_Arcana_Sheet.tga")
         set LobbyInfo = ExpUILabel(LobbyRoot, 0.436, 0.087, 0.308, 0.115, 0.011, "")

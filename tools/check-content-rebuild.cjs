@@ -22,10 +22,42 @@ check('잘못된 카드 참조·체력 지불·물약 보상·실패 후속·순
  const mutations=[w=>w.events[0].choices[0].card='missing',w=>w.events[0].choices[0].hpCost=1,w=>{w.events[1].previous=w.events[0].key;w.events[1].previousChoice=0;},w=>{w.events[1].previous=w.events[0].key;w.events[1].previousChoice=-1;},w=>{w.events[0].previous=w.events[1].key;w.events[0].previousChoice=1;w.events[1].previous=w.events[0].key;w.events[1].previousChoice=1;},w=>w.cards[0].evolution.kind=4,w=>{const c=structuredClone(w.cards[0]);c.key='unawarded';w.cards.push(c);w.events[0].requiredCard=c.key;},w=>w.world.entryCard='missing'];
  for(const mutate of mutations){const w=structuredClone(worlds[0]);mutate(w);assert(inspect(w).errors.length>0);}
  const potionReward=structuredClone(worlds[0]);potionReward.events[0].choices[0].potions=1;assert(inspect(potionReward).errors.some(x=>x.reason==='사건에서 물약을 보상으로 지급하지 않음'));
+ const density=structuredClone(worlds[0]);density.events[0].choices[0].density=1;assert(inspect(density).errors.some(x=>x.reason==='사건에서 몬스터 수를 변경하지 않음'));
+ const regional=structuredClone(worlds[0]);regional.cards[0].effects.push({stat:'event_choices',value:1});assert(inspect(regional).errors.some(x=>x.reason==='사건 후보 증가는 공용 카드에서만 사용함'));
+});
+check('치명 확률 1 대 치명 피해 2의 보상 기준과 초과 수치 거부',()=>{
+ const penacony=worlds.find(w=>w.world.key==='penacony'),cards=new Map(penacony.cards.map(c=>[c.key,c]));
+ for(const scene of penacony.events.filter(e=>e.mainStage)){
+  const chance=cards.get(scene.choices[0].card).effects.find(e=>e.stat==='crit_chance').value;
+  const damage=cards.get(scene.choices[1].card).effects.find(e=>e.stat==='crit_damage').value;
+  assert.equal(damage,chance*2);
+  const draft=structuredClone(penacony),reward=draft.cards.find(c=>c.key===scene.choices[1].card);
+  reward.effects.find(e=>e.stat==='crit_damage').value=damage+1;
+  assert(inspect(draft).errors.some(x=>x.reason.includes('치명 피해가')));
+ }
+ const side=structuredClone(penacony),sideCard=side.cards.find(c=>c.key==='hsr_aventurine_fortune');
+ assert.equal(sideCard.effects.find(e=>e.stat==='crit_chance').value,2);assert.equal(sideCard.effects.find(e=>e.stat==='crit_damage').value,4);
+ sideCard.effects.find(e=>e.stat==='crit_damage').value=5;assert(inspect(side).errors.some(x=>x.reason.includes('치명 피해가')));
+ const head=structuredClone(worlds.find(w=>w.world.key==='aincrad'));assert.equal(head.world.effects[0].value,4);
+ head.world.effects[0].value=5;assert(inspect(head).errors.some(x=>x.key==='world'&&x.reason.includes('치명 피해가')));
+});
+check('두 치명 피해 메인의 실제 카드 지급·재계산·중복 강화는 조정한 수치를 누적',()=>{
+ const {e}=party();let damage=0,chance=0;
+ for(const key of ['aincrad','karakura']){
+  const w=worlds.find(w=>w.world.key===key);e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf(key));
+  for(const scene of w.events.filter(e=>e.mainStage))e.ProtoGrantEventCard(0,card(e,scene.choices[0].card));
+  damage+=w.world.effects.find(x=>x.stat==='crit_damage').value;
+  const rewards=new Map(w.cards.map(c=>[c.key,c]));
+  for(const scene of w.events.filter(e=>e.mainStage))for(const x of rewards.get(scene.choices[0].card).effects){if(x.stat==='crit_damage')damage+=x.value;if(x.stat==='crit_chance')chance+=x.value;}
+ }
+ assert.equal(damage,258);assert.equal(chance,86);assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),damage);
+ e.PlayerStatsSet(0);e.PlayerStatsSet(0);assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),258);
+ const first=worlds.find(w=>w.world.key==='aincrad').events.find(ev=>ev.mainStage===1).choices[0].card;
+ e.ProtoGrantEventCard(0,card(e,first));assert.equal(e.ProtoStat(0,e.PROTO_STAT_CRIT_DAMAGE),261);
 });
 check('머리 후보 첫 선택은 행동력 무료, 즉시 입문 카드와 약한 지역 효과 획득',()=>{
- const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],10);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
- assert.equal(e.ProtoAP[1],10);assert(!e.ProtoHeadOwned[e.ExpKey(1,1)]);
+ const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],20);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
+ assert.equal(e.ProtoAP[1],20);assert(!e.ProtoHeadOwned[e.ExpKey(1,1)]);
 });
 check('확률 경계 65는 성공, 66은 실패하며 비용은 둘 다 지불하고 후속은 선택한 플레이어만 개방',()=>{
  for(const [roll,success] of [[65,true],[66,false]]){
@@ -78,7 +110,7 @@ check('마그놀리아 게시판 세 행동은 자기 후속을 열고 기록 �
   }
   const revisit=id(e,'ft_new_board');assert.equal(e.ProtoEventEligible(0,revisit),choice===2);assert(!e.ProtoEventEligible(1,revisit));
   assert.equal(e.ProtoEventRequired[revisit],0);assert.equal(e.ProtoEventRequiredCard[revisit],card(e,'ft_lucy'));
-  assert.equal(e.ProtoAP[0],9);assert(!e.ProtoEventEligible(1,board));
+  assert.equal(e.ProtoAP[0],19);assert(!e.ProtoEventEligible(1,board));
  }
 });
 check('물길의 70/71 확률 경계와 실패 후속, 나츠 준비 카드의 후속 조건을 실제 JASS로 검증',()=>{
@@ -86,7 +118,7 @@ check('물길의 70/71 확률 경계와 실패 후속, 나츠 준비 카드의 �
   const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('magnolia'));
   const scene=enter(e,0,'ft_river'),before=e.ProtoDensity[0];
   e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
-  assert.equal(e.ExpGold[0],910);assert.equal(e.ProtoDensity[0],before+1);
+  assert.equal(e.ExpGold[0],910);assert.equal(e.ProtoDensity[0],before);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
   assert.equal(e.ProtoEventEligible(0,id(e,'ft_wet_receipt')),!success);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'ft_gray'))],success);
@@ -124,11 +156,11 @@ check('카라쿠라 배송 세 행동과 우류 개인 보유 재방문은 타�
  e.ExpGold[0]=180;assert(e.ProtoEventEligible(0,follow));enter(e,0,'bl_return_receipt');
  assert(!e.ProtoBranchAllowed(0,1));assert(e.ProtoBranchAllowed(0,2));
 });
-check('카라쿠라 경보의 실패는 보상 없이 비용·적 수 부담과 개인 실패 기록을 유지',()=>{
+check('카라쿠라 경보의 실패는 보상 없이 비용과 개인 실패 기록을 유지하며 적 수는 보존',()=>{
  for(const [roll,success] of [[70,true],[71,false]]){
   const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('karakura'));
   const scene=enter(e,0,'bl_stray_alarm'),density=e.ProtoDensity[0];e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
-  assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoDensity[0],density+2);
+  assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoDensity[0],density);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'bl_yoruichi'))],success);
   assert.equal(e.ProtoEventEligible(0,id(e,'bl_unmarked_corner')),!success);
@@ -138,7 +170,7 @@ check('카라쿠라 경보의 실패는 보상 없이 비용·적 수 부담과 
 check('라그나 공통 사건의 흡수 카드는 머리 없이 획득하고 후속 안전 선택은 적 단계를 실제 감소',()=>{
  const {e}=party();e.ExpGold[0]=1000;assert.equal(e.ProtoHeadCount[0],0);
  enter(e,0,'common_torn_poster');e.ProtoResolve(0,1);
- assert.equal(e.ProtoStat(0,e.PROTO_STAT_LEECH),8);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),6);assert.equal(e.ProtoLevel[0],2);
+ assert.equal(e.ProtoStat(0,e.PROTO_STAT_LEECH),3);assert.equal(e.ProtoStat(0,e.PROTO_STAT_ATTACK),3);assert.equal(e.ProtoLevel[0],2);
  assert(e.ProtoEventEligible(0,id(e,'common_lowered_blade')));assert(!e.ProtoEventEligible(1,id(e,'common_lowered_blade')));
  e.ProtoResume(0);enter(e,0,'common_lowered_blade');e.ProtoResolve(0,2);
  assert.equal(e.ProtoLevel[0],1);assert.equal(e.ExpGold[0],1230);
@@ -148,7 +180,7 @@ check('페나코니 슬롯머신의 60/61 경계는 판돈을 소모하고 성�
  for(const [roll,success] of [[60,true],[61,false]]){
   const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('penacony');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
   const scene=enter(e,0,'hsr_dreamy_slots');e.GetRandomInt=()=>roll;e.ProtoResolve(0,1);
-  assert.equal(e.ExpGold[0],success?1300:700);assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.ExpGold[0],success?1300:700);assert.equal(e.ProtoAP[0],19);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?1:-1);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_aventurine_fortune'))],success);
   assert.equal(e.ProtoEventEligible(0,id(e,'hsr_after_win')),success);
@@ -161,18 +193,18 @@ check('페나코니 슬롯머신의 60/61 경계는 판돈을 소모하고 성�
 check('슬롯머신 정리와 실패 후속은 추가 행동력을 쓰며 비용 부족이면 후속 후보가 나타나지 않음',()=>{
  const {e}=party();e.ExpGold[0]=1000;e.ProtoGrantHead(0,e.ProtoHeadKey.indexOf('penacony'));
  enter(e,0,'hsr_dreamy_slots');const density=e.ProtoDensity[0];e.ProtoResolve(0,3);
- assert.equal(e.ProtoDensity[0],density+1);assert.equal(e.ExpGold[0],1000);
+ assert.equal(e.ProtoDensity[0],density);assert.equal(e.ExpGold[0],1000);
  assert(e.ProtoEventEligible(0,id(e,'hsr_sorted_tokens')));
  assert(!e.ProtoEventEligible(0,id(e,'hsr_after_win')));assert(!e.ProtoEventEligible(0,id(e,'hsr_after_loss')));
  e.ProtoLevel[0]=2;e.ProtoResume(0);enter(e,0,'hsr_sorted_tokens');e.ProtoResolve(0,1);
- assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],860);assert.equal(e.ProtoLevel[0],1);
+ assert.equal(e.ProtoAP[0],18);assert.equal(e.ExpGold[0],860);assert.equal(e.ProtoLevel[0],1);
  assert(e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_misha_route'))]);
  const t=party(),f=t.e;f.ExpGold[0]=300;f.ProtoGrantHead(0,f.ProtoHeadKey.indexOf('penacony'));
  enter(f,0,'hsr_dreamy_slots');f.GetRandomInt=()=>61;f.ProtoResolve(0,1);
  assert.equal(f.ExpGold[0],0);assert(!f.ProtoEventEligible(0,id(f,'hsr_after_loss')));
  f.ExpGold[0]=180;assert(f.ProtoEventEligible(0,id(f,'hsr_after_loss')));
  f.ProtoResume(0);enter(f,0,'hsr_after_loss');f.ProtoResolve(0,1);
- assert.equal(f.ProtoAP[0],8);assert.equal(f.ExpGold[0],0);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'hsr_black_swan_archive'))]);
+ assert.equal(f.ProtoAP[0],18);assert.equal(f.ExpGold[0],0);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'hsr_black_swan_archive'))]);
  assert(!f.ExpCardOwned[f.ExpKey(0,card(f,'hsr_aventurine_fortune'))]);
 });
 check('가면 연극의 기억 대조만 출구 후속을 열고 다른 배역과 길 정리는 해당 후속을 열지 않음',()=>{
@@ -181,7 +213,7 @@ check('가면 연극의 기억 대조만 출구 후속을 열고 다른 배역�
   enter(e,0,'hsr_masked_stage');e.ProtoResolve(0,action);
   assert.equal(e.ProtoEventEligible(0,id(e,'hsr_remembered_exit')),action===2);
   if(action===2){e.ProtoDensity[0]=5;e.ProtoResume(0);enter(e,0,'hsr_remembered_exit');e.ProtoResolve(0,1);
-   assert.equal(e.ProtoDensity[0],4);assert.equal(e.ProtoAP[0],8);assert.equal(e.ExpGold[0],500);
+   assert.equal(e.ProtoDensity[0],5);assert.equal(e.ProtoAP[0],18);assert.equal(e.ExpGold[0],500);
    assert(e.ExpCardOwned[e.ExpKey(0,card(e,'hsr_aventurine_reserve'))]);
   }
  }
@@ -191,26 +223,26 @@ check('나즈린 수색의 60/61 경계는 실패 부담을 유지하고 개인 
   const {e}=party();e.ExpGold[0]=150;const level=e.ProtoLevel[0],density=e.ProtoDensity[0],hp=e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE);
   const scene=enter(e,0,'common_nazrin_signal');assert(e.ProtoBranchText(0,3).includes('적 단계 +1'));assert(e.ProtoBranchText(0,3).includes('실패해도 비용과 사냥터 변화는 적용'));
   e.GetRandomInt=()=>roll;e.ProtoResolve(0,3);
-  assert.equal(e.ExpGold[0],success?420:0);assert.equal(e.ProtoLevel[0],level+1);assert.equal(e.ProtoDensity[0],density);assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.ExpGold[0],success?420:0);assert.equal(e.ProtoLevel[0],level+1);assert.equal(e.ProtoDensity[0],density);assert.equal(e.ProtoAP[0],19);
   assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);assert.equal(e.ProtoHeadCount[0],0);
   assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,'common_nazrin_search'))],success);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?3:-3);
   assert.equal(e.ProtoEventEligible(0,id(e,'common_nazrin_found')),success);assert.equal(e.ProtoEventEligible(0,id(e,'common_nazrin_false')),!success);
   for(const key of ['common_nazrin_found','common_nazrin_false'])assert(!e.ProtoEventEligible(1,id(e,key)));
   const charges=e.GetItemCharges(e.PlayerItem1[0]);e.ProtoResume(0);enter(e,0,success?'common_nazrin_found':'common_nazrin_false');e.ProtoResolve(0,3);
-  assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAP[1],10);assert.equal(e.ExpGold[0],success?320:140);assert.equal(e.ProtoLevel[0],level);
+  assert.equal(e.ProtoAP[0],18);assert.equal(e.ProtoAP[1],20);assert.equal(e.ExpGold[0],success?320:140);assert.equal(e.ProtoLevel[0],level);
   assert.equal(e.GetItemCharges(e.PlayerItem1[0]),charges);assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE),hp);
   assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],success?3:-3);
  }
 });
-check('나즈린의 골드 부족·필드 상한에서도 운반 선택을 남기며 이동 성장에는 표시된 적 수 부담 적용',()=>{
+check('나즈린의 골드 부족·적 단계 상한에서도 운반 선택을 남기며 신속 성장은 적 수를 바꾸지 않음',()=>{
  const {e}=party();e.ExpGold[0]=0;e.ProtoLevel[0]=5;e.ProtoDensity[0]=10;enter(e,0,'common_nazrin_signal');
- for(const choice of [1,2,3])assert(!e.ProtoBranchAllowed(0,choice));assert(e.ProtoBranchAllowed(0,4));e.ProtoResolve(0,4);
+ for(const choice of [1,3])assert(!e.ProtoBranchAllowed(0,choice));assert(e.ProtoBranchAllowed(0,2));assert(e.ProtoBranchAllowed(0,4));e.ProtoResolve(0,4);
  assert.equal(e.ExpGold[0],180);assert.equal(e.ProtoLevel[0],5);assert.equal(e.ProtoDensity[0],10);
  assert(!e.ProtoEventEligible(0,id(e,'common_nazrin_found')));assert(!e.ProtoEventEligible(0,id(e,'common_nazrin_false')));
  const t=party(),f=t.e;const density=f.ProtoDensity[0];enter(f,0,'common_nazrin_signal');f.ProtoResolve(0,2);
- assert.equal(f.ProtoDensity[0],density+2);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'common_nazrin_retreat'))]);
- assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVE),5);assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVING),12);assert.equal(f.ProtoAP[0],9);
+ assert.equal(f.ProtoDensity[0],density);assert(f.ExpCardOwned[f.ExpKey(0,card(f,'common_nazrin_retreat'))]);
+ assert.equal(f.ProtoStat(0,f.PROTO_STAT_SWIFT),90);assert.equal(f.ProtoStat(0,f.PROTO_STAT_MOVING),4);assert.equal(f.ProtoAP[0],19);
 });
 check('아메스트리스 정비 선택은 지정 카드와 개인 후속을 나누고 비용 부족·필드 상한에서 기본 자세를 남김',()=>{
  for(let choice=1;choice<=3;choice++){
@@ -218,7 +250,7 @@ check('아메스트리스 정비 선택은 지정 카드와 개인 후속을 나
   enter(e,0,'fma_workshop');const level=e.ProtoLevel[0];e.ProtoResolve(0,choice);
   const keys=['fma_winry_precision','fma_edward','fma_alphonse'];
   for(const [i,key] of keys.entries())assert.equal(!!e.ExpCardOwned[e.ExpKey(0,card(e,key))],i+1===choice);
-  assert.equal(e.ExpGold[0],choice===1?0:200);assert.equal(e.ProtoLevel[0],level+(choice===2?1:0));assert.equal(e.ProtoAP[0],9);
+  assert.equal(e.ExpGold[0],choice===1?0:200);assert.equal(e.ProtoLevel[0],level+(choice===2?1:0));assert.equal(e.ProtoAP[0],19);
   assert.equal(e.ProtoEventEligible(0,id(e,'fma_measurement_notes')),choice===1);assert.equal(e.ProtoEventEligible(0,id(e,'fma_trial_footprints')),choice===2);
   for(const key of ['fma_measurement_notes','fma_trial_footprints'])assert(!e.ProtoEventEligible(1,id(e,key)));
  }
@@ -230,13 +262,13 @@ check('아메스트리스 수련 후속은 강함·수의 자기 기록을 사�
  for(const choice of [1,2]){
   const {e}=party();e.ExpGold[0]=1000;const h=e.ProtoHeadKey.indexOf('amestris');e.ProtoGrantHead(0,h);e.ProtoGrantHead(1,h);
   const level=e.ProtoLevel[0],density=e.ProtoDensity[0];enter(e,0,'fma_training');e.ProtoResolve(0,choice);
-  assert.equal(e.ProtoLevel[0],level+(choice===1?2:0));assert.equal(e.ProtoDensity[0],density+(choice===2?2:0));
+  assert.equal(e.ProtoLevel[0],level+(choice===1?2:0));assert.equal(e.ProtoDensity[0],density);
   assert(e.ExpCardOwned[e.ExpKey(0,card(e,choice===1?'fma_izumi':'fma_armstrong'))]);
   assert.equal(e.ProtoEventEligible(0,id(e,'fma_after_large')),choice===1);assert.equal(e.ProtoEventEligible(0,id(e,'fma_after_crowd')),choice===2);
   for(const key of ['fma_after_large','fma_after_crowd'])assert(!e.ProtoEventEligible(1,id(e,key)));
   e.ProtoResume(0);e.ProtoLevel[0]=1;e.ProtoDensity[0]=1;const beforeHP=e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE)/e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_MAX_LIFE);
   enter(e,0,choice===1?'fma_after_large':'fma_after_crowd');e.ProtoResolve(0,choice===1?2:1);
-  assert.equal(e.ProtoAP[0],8);assert.equal(e.ProtoAP[1],10);assert.equal(e.ProtoLevel[0],1);assert.equal(e.ProtoDensity[0],1);
+  assert.equal(e.ProtoAP[0],18);assert.equal(e.ProtoAP[1],20);assert.equal(e.ProtoLevel[0],1);assert.equal(e.ProtoDensity[0],1);
   assert.equal(e.ExpGold[0],choice===1?760:720);
   assert.equal(e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_LIFE)/e.GetUnitState(e.MainUnit[0],e.UNIT_STATE_MAX_LIFE),beforeHP);
   assert(e.ExpCardOwned[e.ExpKey(0,card(e,choice===1?'fma_alphonse':'fma_izumi_flow'))]);

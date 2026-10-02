@@ -37,6 +37,8 @@ jobs:
         run: node tools/check-hunt-ui.cjs
       - name: Event action budgets and personal card conditions
         run: node tools/check-event-action-options.cjs
+      - name: Main story progression and boss stage refill
+        run: node tools/check-main-story.cjs
       - name: Reviewed content and generated catalog consistency
         run: node tools/generate-prototype-content.cjs --check
       - name: Reader review catalog consistency

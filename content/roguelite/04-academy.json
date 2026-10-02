@@ -3,15 +3,25 @@
     "key": "academy",
     "name": "학원도시",
     "work": "어떤 마술의 금서목록 · 어떤 과학의 초전자포",
-    "intro": "풍기위원의 통신기에 구조 요청과 수상한 소문이 함께 쌓인다. 능력자의 힘을 빌릴지, 정보와 발품으로 문제를 풀지 결정한다.",
+    "intro": "학원도시의 일상에서 미코토와 친구들은 사소한 일로 웃고 다툰다. 이름으로 부르는 시스터즈의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
     "effects": [
       {
-        "stat": "action_speed",
-        "value": 2
+        "stat": "swift",
+        "value": 90
       }
     ],
     "entryCard": "academy_uiharu",
-    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp",
+    "mainStory": {
+      "title": "이름으로 부르는 시스터즈",
+      "length": 15,
+      "focus": [
+        "swift",
+        "crit_chance"
+      ],
+      "source": "초전자포 S 시스터즈 편",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    }
   },
   "sources": [
     "https://toaru-project.com/railgun_t/chara/mikoto.html",
@@ -30,9 +40,12 @@
     "https://toaru-project.com/railgun/story/05.html",
     "https://toaru-project.com/railgun/story/17.html",
     "https://toaru-project.com/railgun/story/19.html",
-    "https://toaru-project.com/railgun/story/02.html"
+    "https://toaru-project.com/railgun/story/02.html",
+    "https://toaru-project.com/railgun_s/story/08.html",
+    "https://toaru-project.com/railgun_s/story/14.html",
+    "https://toaru-project.com/railgun_s/story/16.html"
   ],
-  "canonBoundary": "인물·배경은 아래 공식 출처를 따른다. 여기서 플레이어가 맡는 일, 결과와 카드 능력치는 맵의 창작이다. 이야기 속 제안이 실제 시간 정지·소환·원작 장비 획득을 구현한다는 뜻은 아니다. 귀여운 소품·단것·대회 준비·수영부·짐 정리·야간 표식은 공식 취향과 역할에서 별도로 창작한 만남이다. 이인삼각과 밤 퍼레이드는 공식2·4화 배경을 참고하되 경기 승패·본편 실종·기억 조작은 바꾸지 않는다. 아와츠키의 부력은 물의 밀도가 아니며 군하 능력의 상세 원리는 확정하지 않는다. 새 카드의 최대 체력 패널티는 지속 능력치로 현재 체력 지불 사건이 아니다. 자판기에남은동전·호출뒤간식·여행자가답할약속·오락실빈의자·성하제의무대준비는공식소개에서각색한서로다른방문이다. 자판기뒤음료후속은자신이별도음료를마련한성공1번에서만열린다. 원작자판기파괴·미사카동생실험·쿠로코와우이하루의화해·피습·성하제공연종류/승패를바꾸지않고실제NPC동행/미니게임/원작초능력/음료아이템/사냥중추가처치가생기지않는다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다.",
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다.",
   "cards": [
     {
       "key": "academy_uiharu",
@@ -42,8 +55,8 @@
       "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         }
       ],
       "evolution": {
@@ -59,26 +72,21 @@
       "name": "미사카 미코토",
       "effectName": "정밀한 전자기 제어",
       "keyword": "관통 · 차지",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "penetration",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "charge_damage",
-          "value": 14
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 12000,
-        "effects": [
-          {
-            "stat": "crit_damage",
-            "value": 15
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "미코토의 전자기 능력과 동전 레일건을 집중·관통 역할로 각색했다.",
       "uncertain": []
@@ -88,26 +96,21 @@
       "name": "시라이 쿠로코",
       "effectName": "공간의 사각",
       "keyword": "이동 · 방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 5
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "directional_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 3,
-        "goal": 60,
-        "effects": [
-          {
-            "stat": "action_speed",
-            "value": 4
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "쿠로코의 공간이동과 저지먼트 역할을 이동·사각 성장으로 각색했다. 순간이동 스킬을 지급하지 않는다.",
       "uncertain": []
@@ -117,15 +120,15 @@
       "name": "카미조 토우마",
       "effectName": "이매진 브레이커",
       "keyword": "생존 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "damage_reduction",
-          "value": 6
+          "value": 2
         },
         {
           "stat": "boss_damage_percent",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -145,22 +148,17 @@
       "effects": [
         {
           "stat": "kill_gold",
-          "value": 2
+          "value": 1
         },
         {
           "stat": "normal_damage_percent",
-          "value": 6
+          "value": 5
         }
       ],
       "evolution": {
-        "kind": 1,
-        "goal": 45,
-        "effects": [
-          {
-            "stat": "swift",
-            "value": 90
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "사텐의 레벨 0과 소문을 좋아하는 특징을 현장 탐색·수급으로 각색했다.",
       "uncertain": []
@@ -170,15 +168,11 @@
       "name": "우이하루 카자리",
       "effectName": "백업 통신",
       "keyword": "행동 · 신속",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 5
-        },
-        {
           "stat": "swift",
-          "value": 180
+          "value": 90
         }
       ],
       "evolution": {
@@ -194,26 +188,21 @@
       "name": "미사카 미코토",
       "effectName": "한 점의 레일건",
       "keyword": "보스 · 차지",
-      "grade": 3,
+      "grade": 1,
       "effects": [
         {
           "stat": "boss_damage_percent",
-          "value": 14
+          "value": 4
         },
         {
           "stat": "charge_speed",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 15000,
-        "effects": [
-          {
-            "stat": "final_damage_percent",
-            "value": 5
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "동전을 사출하는 레일건의 이미지를 차지 준비와 보스 공격으로 각색했다.",
       "uncertain": []
@@ -223,15 +212,15 @@
       "name": "사텐 루이코",
       "effectName": "능력 밖의 용기",
       "keyword": "체력 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 10
+          "value": 4
         },
         {
           "stat": "healthy_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -247,15 +236,15 @@
       "name": "시라이 쿠로코",
       "effectName": "현장에서 정할 다음 행동",
       "keyword": "행동 · 생존",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 6
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "damage_reduction",
-          "value": 4
+          "value": 2
         }
       ],
       "evolution": {
@@ -271,15 +260,19 @@
       "name": "미사카 미코토",
       "effectName": "진열 앞에서 한 번 더",
       "keyword": "치명타 피해 · 최대 체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 15
+          "value": 4
         },
         {
           "stat": "max_health_percent",
-          "value": 6
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -295,15 +288,19 @@
       "name": "우이하루 카자리",
       "effectName": "쉬었다가 다시 맞춘 항목",
       "keyword": "재생 · 차지 속도",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "regeneration",
-          "value": 0.3
+          "value": 0.2
         },
         {
           "stat": "charge_speed",
-          "value": 8
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -319,15 +316,15 @@
       "name": "콘고 미츠코",
       "effectName": "옆 사람에게 맞춘 보폭",
       "keyword": "행동 속도 · 이동속도 비례 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 5
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "moving_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -343,15 +340,19 @@
       "name": "완나이 키누호",
       "effectName": "흐르는 쪽부터 살피기",
       "keyword": "피해 감소 · 최대 체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "damage_reduction",
-          "value": 5
+          "value": 2
         },
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -367,15 +368,15 @@
       "name": "아와츠키 마아야",
       "effectName": "떠 있는 동안의 균형",
       "keyword": "차지 속도 · 차지 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 6
+          "value": 4
         },
         {
           "stat": "charge_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
@@ -391,26 +392,21 @@
       "name": "소기이타 군하",
       "effectName": "먼저 내디딜 한 걸음",
       "keyword": "공격력 · 최대 체력 패널티",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 18
+          "value": 3
         },
         {
           "stat": "max_health_percent",
-          "value": -5
+          "value": -2
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 9000,
-        "effects": [
-          {
-            "stat": "normal_damage_percent",
-            "value": 10
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "곤란한 사람을 돕는 열혈 성격을 더 세게 밀어붙이되 오래 버틸 여유를 줄이는 성장으로 각색한다. 원작의 불명확한 능력 원리·새 펀치·무적을 구현하지 않는다. 최대 체력 패널티는 지속 능력치이며 현재 체력 지불 선택지가 아니다.",
       "uncertain": []
@@ -420,15 +416,19 @@
       "name": "카미조 토우마",
       "effectName": "삼켜도 남은 한 닢",
       "keyword": "처치 골드 · 피해 감소",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "kill_gold",
-          "value": 2
+          "value": 1
         },
         {
           "stat": "damage_reduction",
-          "value": 5
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -444,15 +444,15 @@
       "name": "시라이 쿠로코",
       "effectName": "다녀와서 들 한 잔",
       "keyword": "신속 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "swift",
-          "value": 180
+          "value": 90
         },
         {
           "stat": "healthy_damage",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -468,15 +468,15 @@
       "name": "우이하루 카자리",
       "effectName": "아직 답하지 않은 약속",
       "keyword": "사건 후보 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "boss_damage_percent",
-          "value": 8
+          "value": 4
         }
       ],
       "evolution": {
@@ -492,26 +492,21 @@
       "name": "테츠소 츠즈리",
       "effectName": "떠난 뒤 남은 버튼",
       "keyword": "행동 · 비방향",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "action_speed",
-          "value": 4
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "nondirectional_damage",
-          "value": 12
+          "value": 4
         }
       ],
       "evolution": {
-        "kind": 1,
-        "goal": 35,
-        "effects": [
-          {
-            "stat": "crit_chance",
-            "value": 3
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "안티스킬의 실패와 좋아하던 게임을 하다 혼자 남은 공식 상황에서 다음 입력을 지켜보는 기억으로 각색했다. 학생의 사정·게임 종류·실제 미니게임·게임 기술 전수를 확정하지 않는다.",
       "uncertain": []
@@ -521,26 +516,25 @@
       "name": "미사카 미코토",
       "effectName": "막 앞의 한 호흡",
       "keyword": "차지 피해 · 치명타 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
-        "kind": 2,
-        "goal": 9000,
-        "effects": [
-          {
-            "stat": "boss_damage_percent",
-            "value": 4
-          }
-        ]
+        "kind": 0,
+        "goal": 0,
+        "effects": []
       },
       "canonFact": "성하제에서 무대의 큰 일을 맡고 긴장하는 공식 소개를 힘을 싣는 순간을 기다리는 기억으로 각색했다. 원작의 악기·공연·곡·관객 평가·새 발사 기술은 지급하지 않는다.",
       "uncertain": []
@@ -550,15 +544,19 @@
       "name": "미사카 미코토",
       "effectName": "차가워지기 전에",
       "keyword": "차지 속도 · 최대 체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 8
+          "value": 4
         },
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -574,15 +572,15 @@
       "name": "우이하루 카자리",
       "effectName": "확인할 순서",
       "keyword": "사건 후보 · 일반 적",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "event_choices",
-          "value": 1
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "normal_damage_percent",
-          "value": 12
+          "value": 5
         }
       ],
       "evolution": {
@@ -598,15 +596,15 @@
       "name": "사텐 루이코",
       "effectName": "돌아가는 길의 표식",
       "keyword": "이동 · 일반 적",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
-          "stat": "move_speed",
-          "value": 3
+          "stat": "swift",
+          "value": 90
         },
         {
           "stat": "normal_damage_percent",
-          "value": 14
+          "value": 5
         }
       ],
       "evolution": {
@@ -622,11 +620,11 @@
       "name": "사텐 루이코",
       "effectName": "짐 아래의 빈칸",
       "keyword": "공격력 · 차지 속도",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "attack_percent",
-          "value": 12
+          "value": 3
         },
         {
           "stat": "charge_speed",
@@ -646,15 +644,15 @@
       "name": "시라이 쿠로코",
       "effectName": "넘지 않을 선",
       "keyword": "비방향 · 받는 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "nondirectional_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "damage_reduction",
-          "value": 4
+          "value": 2
         }
       ],
       "evolution": {
@@ -670,15 +668,15 @@
       "name": "카미조 토우마",
       "effectName": "도착지를 먼저",
       "keyword": "최대 체력 · 보스",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
         },
         {
           "stat": "boss_damage_percent",
-          "value": 10
+          "value": 4
         }
       ],
       "evolution": {
@@ -694,15 +692,19 @@
       "name": "테츠소 츠즈리",
       "effectName": "빈자리에도 이어질 말",
       "keyword": "최대 체력 · 치명 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "max_health_percent",
-          "value": 8
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -718,15 +720,19 @@
       "name": "테츠소 츠즈리",
       "effectName": "눌러야 할 때까지",
       "keyword": "차지 속도 · 치명 피해",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "charge_speed",
-          "value": 5
+          "value": 4
         },
         {
           "stat": "crit_damage",
-          "value": 15
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -742,15 +748,19 @@
       "name": "우이하루 카자리",
       "effectName": "접어 두지 않은 항목",
       "keyword": "치명 피해 · 고체력",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "crit_damage",
-          "value": 12
+          "value": 4
         },
         {
           "stat": "healthy_damage",
-          "value": 10
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -766,11 +776,15 @@
       "name": "우이하루 카자리",
       "effectName": "다음에 맡을 몫",
       "keyword": "행동력 최대치",
-      "grade": 2,
+      "grade": 1,
       "effects": [
         {
           "stat": "action_capacity",
           "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
         }
       ],
       "evolution": {
@@ -779,6 +793,1158 @@
         "effects": []
       },
       "canonFact": "정보 지원과 남은 일을 정리하는 역할에서 여행자가 추가로 맡을 몫을 정하는 창작 기억이다. 행동력 최대치와 현재 행동력이1늘며 원작 인물의 초능력·시간 정지·즉시 전투 보너스는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_01_1",
+      "name": "미사카 미코토",
+      "effectName": "자판기 앞의 평범한 오후 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_01_2",
+      "name": "미사카 미코토",
+      "effectName": "자판기 앞의 평범한 오후 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_01_3",
+      "name": "미사카 미코토",
+      "effectName": "자판기 앞의 평범한 오후 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_02_1",
+      "name": "미사카 동생",
+      "effectName": "같은 얼굴을 한 낯선 사람 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_02_2",
+      "name": "미사카 동생",
+      "effectName": "같은 얼굴을 한 낯선 사람 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_02_3",
+      "name": "미사카 동생",
+      "effectName": "같은 얼굴을 한 낯선 사람 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_03_1",
+      "name": "미사카 미코토",
+      "effectName": "숫자로 적힌 실험 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_03_2",
+      "name": "미사카 미코토",
+      "effectName": "숫자로 적힌 실험 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_03_3",
+      "name": "미사카 미코토",
+      "effectName": "숫자로 적힌 실험 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 45
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_04_1",
+      "name": "액셀러레이터",
+      "effectName": "액셀러레이터가 있는 밤 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_04_2",
+      "name": "액셀러레이터",
+      "effectName": "액셀러레이터가 있는 밤 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_04_3",
+      "name": "액셀러레이터",
+      "effectName": "액셀러레이터가 있는 밤 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_05_1",
+      "name": "미사카 미코토",
+      "effectName": "혼자 지우려는 기록 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_05_2",
+      "name": "미사카 미코토",
+      "effectName": "혼자 지우려는 기록 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_05_3",
+      "name": "미사카 미코토",
+      "effectName": "혼자 지우려는 기록 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_06_1",
+      "name": "누노타바 시노부",
+      "effectName": "남은 연구소의 이름 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_06_2",
+      "name": "누노타바 시노부",
+      "effectName": "남은 연구소의 이름 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_06_3",
+      "name": "누노타바 시노부",
+      "effectName": "남은 연구소의 이름 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_07_1",
+      "name": "미사카 미코토",
+      "effectName": "시설을 막는 또 다른 손 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_07_2",
+      "name": "미사카 미코토",
+      "effectName": "시설을 막는 또 다른 손 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_07_3",
+      "name": "미사카 미코토",
+      "effectName": "시설을 막는 또 다른 손 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_08_1",
+      "name": "시라이 쿠로코",
+      "effectName": "친구들이 느끼는 빈자리 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_08_2",
+      "name": "시라이 쿠로코",
+      "effectName": "친구들이 느끼는 빈자리 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_08_3",
+      "name": "시라이 쿠로코",
+      "effectName": "친구들이 느끼는 빈자리 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_09_1",
+      "name": "미사카 미코토",
+      "effectName": "무너진 시설 뒤의 계속 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_09_2",
+      "name": "미사카 미코토",
+      "effectName": "무너진 시설 뒤의 계속 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_09_3",
+      "name": "미사카 미코토",
+      "effectName": "무너진 시설 뒤의 계속 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_10_1",
+      "name": "카미조 토우마",
+      "effectName": "다리 위의 대답 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_10_2",
+      "name": "카미조 토우마",
+      "effectName": "다리 위의 대답 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_10_3",
+      "name": "카미조 토우마",
+      "effectName": "다리 위의 대답 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_11_1",
+      "name": "미사카 동생",
+      "effectName": "번호와 다른 취향 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_11_2",
+      "name": "미사카 동생",
+      "effectName": "번호와 다른 취향 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_11_3",
+      "name": "미사카 동생",
+      "effectName": "번호와 다른 취향 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_12_1",
+      "name": "미사카 미코토",
+      "effectName": "도움을 청하는 말 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_12_2",
+      "name": "미사카 미코토",
+      "effectName": "도움을 청하는 말 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_12_3",
+      "name": "미사카 미코토",
+      "effectName": "도움을 청하는 말 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_13_1",
+      "name": "카미조 토우마",
+      "effectName": "최강이라는 계산 밖 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_13_2",
+      "name": "카미조 토우마",
+      "effectName": "최강이라는 계산 밖 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_13_3",
+      "name": "카미조 토우마",
+      "effectName": "최강이라는 계산 밖 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_14_1",
+      "name": "미사카 동생",
+      "effectName": "멈춘 실험 다음의 질문 · 결의",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_14_2",
+      "name": "미사카 동생",
+      "effectName": "멈춘 실험 다음의 질문 · 물음",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_14_3",
+      "name": "미사카 동생",
+      "effectName": "멈춘 실험 다음의 질문 · 인연",
+      "keyword": "메인 · 이름으로 부르는 시스터즈",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_15_1",
+      "name": "미사카 미코토",
+      "effectName": "각자의 삶을 고르는 얼굴",
+      "keyword": "메인 완결 · 이름으로 부르는 시스터즈",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 225
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_15_2",
+      "name": "미사카 미코토",
+      "effectName": "네가 고른 다음 이야기",
+      "keyword": "메인 완결 · 이름으로 부르는 시스터즈",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "crit_chance",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_15_3",
+      "name": "미사카 미코토",
+      "effectName": "이름으로 부르는 인사",
+      "keyword": "메인 완결 · 이름으로 부르는 시스터즈",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
       "uncertain": []
     }
   ],
@@ -814,14 +1980,14 @@
           "chance": 100
         },
         {
-          "label": "80골드로 우회 보급을 준비하고 사텐과 돌아올 골목의 표식을 남긴다",
-          "result": "사텐과 보급이 돌아올 골목을 확인하고 우회로에 표식을 남겼다. 80골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐이 표식을 가리키자 우이하루는 아직 연락이 닿지 않은 집을 그 길과 다른 줄에 남긴다.",
+          "label": "사텐과 함께 골목 곳곳에 표식을 남기며 우회로를 확보한다",
+          "result": "사텐의 도움으로 좁은 골목들에 은밀한 표식을 새겨 넣었다. 이후 길을 잃지 않고 이동할 수 있는 루트를 확보했다.",
           "card": "academy_saten_detour",
           "card2": null,
           "gold": 0,
           "cost": 80,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -852,14 +2018,14 @@
           "chance": 100
         },
         {
-          "label": "토우마와 구조 경로를 확보한다",
-          "result": "토우마와 구조 대상에게 닿을 통로를 열었다. 사람들을 먼저 내보내고 당신이 뒤쪽을 맡으면서, 더 많은 상대가 남은 구간을 경계할 준비를 했다.",
+          "label": "카미조 토우마와 협력하여 구조를 위한 최적의 경로를 확보한다",
+          "result": "토우마의 직관과 협력을 통해 안전하게 접근할 수 있는 통로를 찾아냈다. 구조 대상에게 도달하기 위한 기초적인 경로가 확보되었다.",
           "card": "academy_touma",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -902,26 +2068,26 @@
           "chance": 100
         },
         {
-          "label": "사텐과 모인 사람들의 이야기를 듣는다",
-          "result": "사텐과 함께 현장 목격자들의 진술을 청취했다. 인내심을 가지고 정보를 수집한다.",
+          "label": "사텐이 수집한 시민들의 증언을 바탕으로 정보의 진위를 파악한다",
+          "result": "사텐이 모은 소문들 속에서 핵심적인 단서들을 골라내어 정리했다. 수집된 정보가 실제 사건과 일치하는지 확인하는 기록을 얻었다.",
           "card": "academy_persevere",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
         {
-          "label": "160골드로 안내를 준비하고 사텐과 돌아갈 골목을 비운다",
-          "result": "사텐과 모인 사람들의 돌아갈 방향을 나누고 골목의 표식을 확인했다. 160골드를 지불했다. 「돌아가는 길의 표식」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐은 마지막으로 들은 소문을 메모하되 확인한 표식 옆에는 아직 쓰지 않는다.",
+          "label": "사텐과 자료를 마련해 귀환 경로를 확인한다",
+          "result": "사텐은 소문이 적힌 메모와 실제 안내판을 번갈아 본다. 들은 이야기를 그대로 믿기 전에 돌아갈 길부터 확인하는 습관을 익힌다.",
           "card": "academy_saten_detour",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -990,14 +2156,14 @@
       "intro": "능력자들이 떠난 뒤에도 옮길 물자가 남았다.",
       "choices": [
         {
-          "label": "사텐과 물자를 나르며 길을 익힌다",
-          "result": "사텐과 남은 물자를 나르며 골목마다 돌아올 표식을 남겼다. 한 번 더 확인할 길을 맡은 만큼 오가는 무리도 늘었지만, 힘이 없어 멈춰 있던 짐은 목적지에 닿았다.",
+          "label": "사텐과 함께 남겨진 물자를 운반하며 현장의 지형을 익힌다",
+          "result": "능력에 의존하지 않고 직접 발로 뛰며 현장의 구조를 파악했다. 사텐과 함께 이동하며 얻은 생생한 지형 정보가 기록으로 남았다.",
           "card": "academy_saten",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1041,14 +2207,14 @@
       "intro": "쿠로코가 새 통로를 확인했다.",
       "choices": [
         {
-          "label": "새 통로를 조사하고 백업 통신을 연결한다",
-          "result": "새 통로를 확인하고 우이하루에게 위치를 전달했다. 더 많은 상대가 오가는 길을 맡는 동안, 다음 연락을 기다리기보다 필요한 정보를 먼저 주고받았다.",
+          "label": "우이하루와 백업 통신을 연결하고 새로운 통로의 정보를 공유한다",
+          "result": "쿠로코가 발견한 통로의 정보를 우이하루와 실시간으로 공유했다. 통신망을 통해 확인된 새로운 이동 경로에 대한 기록을 획득했다.",
           "card": "academy_dispatch",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 2,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1106,14 +2272,14 @@
           "chance": 100
         },
         {
-          "label": "쿠로코와 적이 더 많이 드나드는 순찰 길목을 맡는다",
-          "result": "쿠로코와 더 많은 적이 드나드는 길목을 맡았다. 도착한 자리에서 다음 동작을 빠르게 준비하고 버틸 요령을 배운 대신 개인 사냥의 적 수가 늘었다. 쿠로코는 맡기로 한 길목만 지도에 표시한다.",
+          "label": "쿠로코에게 진열대 앞에서 기다리겠다고 말한다",
+          "result": "쿠로코는 잠깐 멈춘 시선을 거두고 순찰 메모를 다시 펼친다. 관심이 가는 물건과 맡은 일을 나누는 그녀의 태도를 기억한다.",
           "card": "academy_kuroko_response",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1268,14 +2434,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 운반을 준비하고 콘고와 맡을 범위를 줄여 보폭을 맞춘다",
-          "result": "콘고와 바깥에서 맡을 범위를 줄이고 준비물을 함께 옮길 보폭을 맞췄다. 160골드를 지불했다. 「옆 사람에게 맞춘 보폭」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 완나이는 줄인 바깥 구역을 표시하고 아와츠키는 아직 균형이 맞지 않은 꾸러미를 따로 남긴다.",
+          "label": "160골드를 써서 콘고와 맡을 범위를 정확히 나눈다",
+          "result": "콘고는 네가 영역을 나누는 방식에 동의하며 수영부의 물품 배치를 돕는다. 이 과정에서 물의 흐름에 따른 이동 경로에 대한 기억을 얻는다.",
           "card": "academy_kongo_pair",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1368,14 +2534,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 정리를 준비하고 사텐과 내일 확인할 상자를 나눈다",
-          "result": "사텐과 맡을 길목을 줄이고 아직 확인하지 않은 표식의 상자를 따로 남겼다. 160골드를 지불했다. 「짐 아래의 빈칸」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 사텐은 남긴 상자를 버릴 물건으로 표시하지 않고 내일 확인할 항목을 그 위에 적는다.",
+          "label": "160골드를 써서 사텐과 내일 확인할 상자를 구분한다",
+          "result": "사텐은 네가 분류를 도와주자 고마워하며 표식의 배치 순서를 설명해준다. 덕분에 내일 퍼레이드에서 확인해야 할 주요 지점들을 기억하게 된다.",
           "card": "academy_saten_box",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1407,7 +2573,7 @@
         },
         {
           "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
-          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 미코토는 자판기를 한 번 더 보다가 네 손에 남은 준비를 묻는다.",
+          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 미코토는 자판기를 한 번 더 보다가 네 손에 남은 준비를 묻는다.",
           "card": "academy_mikoto_drink",
           "card2": null,
           "cost": 0,
@@ -1418,14 +2584,14 @@
           "chance": 100
         },
         {
-          "label": "내 사냥의 적 수 단계를1올리고 토우마와 남은 짐을 가져갈 곳부터 정한다",
-          "result": "토우마와 남은 짐을 가져갈 곳을 정하되 자판기에 삼켜진 동전과 손에 남은 몫은 따로 셌다. 「도착지를 먼저」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 미코토가 다시 자판기를 보자 토우마는 네가 가져갈 짐과 자기 손의 한 닢부터 따로 짚는다.",
+          "label": "토우마와 남은 짐을 가져갈 목적지를 먼저 정한다",
+          "result": "토우마는 네가 목적지를 먼저 제안하자 가볍게 웃으며 동전을 넣는다. 두 사람은 이동 경로를 확정하며 근처 상점들의 위치를 파악한다.",
           "card": "academy_touma_address",
           "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1445,7 +2611,7 @@
       "choices": [
         {
           "label": "180골드로 포장을 마련하고 돌아올 한 잔을 남긴다",
-          "result": "포장값180골드를 내고 돌아올 한 잔을 남겼다. 급히 나서도 자기 몫을 남기는 기억으로 신속과 체력65%이상일 때 가하는 피해가 늘었다. 사텐은 포장된 쪽을 보고 자기 잔까지 남겨야 하냐고 묻는다.",
+          "result": "포장값180골드를 내고 돌아올 한 잔을 남겼다. 사텐은 포장된 쪽을 보고 자기 잔까지 남겨야 하냐고 묻는다.",
           "card": "academy_kuroko_return",
           "card2": null,
           "cost": 180,
@@ -1456,14 +2622,14 @@
           "chance": 100
         },
         {
-          "label": "더 많은 개인 사냥을 맡고 우이하루의 남은 답을 기다린다",
-          "result": "더 많은 개인 사냥을 맡는 부담을 택하고 우이하루의 남은 답을 기다렸다. 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 아직 들지 못한 잔을 내려놓고 쿠로코가 나갈 쪽을 본다.",
+          "label": "우이하루의 남은 답을 기다리며 짐을 챙긴다",
+          "result": "우이하루는 네가 기다려주겠다고 하자 미안해하며 남은 대화 내용을 정리한다. 이 대화를 통해 미처 확인하지 못했던 세부 사항들을 기억에 담는다.",
           "card": "academy_uiharu_promise",
           "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1495,7 +2661,7 @@
       "choices": [
         {
           "label": "180골드로 내 준비를 마련하고 맡을 일을 끝까지 답한다",
-          "result": "준비값180골드를 내고 자기가 맡을 일을 끝까지 답했다. 남은 질문을 놓치지 않는 기억으로 사건 후보와 보스에게 가하는 피해가 늘었다. 우이하루는 네 대답을 들었지만 쿠로코 쪽에는 아직 묻던 말이 남아 있다.",
+          "result": "준비값180골드를 내고 자기가 맡을 일을 끝까지 답했다. 우이하루는 네 대답을 들었지만 쿠로코 쪽에는 아직 묻던 말이 남아 있다.",
           "card": "academy_uiharu_promise",
           "card2": null,
           "cost": 180,
@@ -1518,14 +2684,14 @@
           "chance": 100
         },
         {
-          "label": "160골드로 전달을 준비하고 우이하루에게 줄인 몫과 남은 항목을 말한다",
-          "result": "우이하루에게 자기가 맡을 몫을 줄였다고 말하고 아직 대답하지 않은 항목을 남겼다. 160골드를 지불했다. 「접어 두지 않은 항목」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 우이하루는 네가 줄인 항목을 표시한 뒤 쿠로코에게 아직 듣지 못한 대답을 다시 묻는다.",
+          "label": "160골드를 써서 우이하루에게 줄인 몫을 설명한다",
+          "result": "우이하루는 네가 항목을 정리해주자 정확히 이해했다며 고개를 끄덕인다. 너는 그녀와 나누어야 할 업무의 우선순위를 확실하게 기억하게 된다.",
           "card": "academy_uiharu_list",
           "card2": null,
           "cost": 160,
           "gold": 0,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         }
@@ -1545,7 +2711,7 @@
       "choices": [
         {
           "label": "200골드로 내 다음 차례를 마련하고 남은 버튼을 지켜본다",
-          "result": "자기 다음 차례값200골드를 내고 남은 버튼을 지켜봤다. 다음 입력을 기다리는 기억으로 행동속도와 비방향 공격 피해가 늘었다. 테츠소는 빈 의자에 이어 하려던 말을 아직 버튼 앞에 남긴다.",
+          "result": "자기 다음 차례값200골드를 내고 남은 버튼을 지켜봤다. 테츠소는 빈 의자에 이어 하려던 말을 아직 버튼 앞에 남긴다.",
           "card": "academy_tessou_button",
           "card2": null,
           "cost": 200,
@@ -1556,14 +2722,14 @@
           "chance": 100
         },
         {
-          "label": "내 사냥의 적 수 단계를1올리고 테츠소와 다음 입력의 간격을 기다린다",
-          "result": "테츠소와 다음 버튼을 누르기 전에 입력 사이의 간격을 기다렸다. 「눌러야 할 때까지」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 테츠소는 버튼 위에 멈춘 손을 보다가 학생이 앉았던 빈 의자 쪽으로 시선을 돌린다.",
+          "label": "테츠소에게 옆자리에 앉아도 되는지 묻는다",
+          "result": "테츠소는 비어 있던 의자를 보다가 조심스럽게 자리를 내준다. 다음 동전을 서두르지 않고 기다리는 그녀의 작은 망설임을 기억한다.",
           "card": "academy_tessou_interval",
           "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1595,7 +2761,7 @@
       "choices": [
         {
           "label": "210골드로 내 기다릴 준비를 마련하고 무대 앞의 호흡을 기억한다",
-          "result": "기다릴 준비값210골드를 내고 무대 앞의 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 자기 차례를 떠올린 뒤에도 우이하루가 보고 싶다던 전시를 한 번 더 가리킨다.",
+          "result": "기다릴 준비값210골드를 내고 무대 앞의 호흡을 기억했다. 미코토는 자기 차례를 떠올린 뒤에도 우이하루가 보고 싶다던 전시를 한 번 더 가리킨다.",
           "card": "academy_mikoto_curtain",
           "card2": null,
           "cost": 210,
@@ -1607,7 +2773,7 @@
         },
         {
           "label": "더 강한 개인 사냥을 맡고 미코토와 준비의 끝을 기다린다",
-          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 차지 준비 속도와 최대 체력이 늘었다. 사텐은 미코토에게 물었던 돌아갈 자리를 아직 가리키고 있다.",
+          "result": "더 강한 개인 사냥을 맡는 부담을 택하고 미코토와 준비의 끝을 기다렸다. 사텐은 미코토에게 물었던 돌아갈 자리를 아직 가리키고 있다.",
           "card": "academy_mikoto_drink",
           "card2": null,
           "cost": 0,
@@ -1645,7 +2811,7 @@
       "choices": [
         {
           "label": "120골드로 다음 보급을 마련하고 음료를 열 때를 맞춘다",
-          "result": "다음 보급값120골드를 내고 준비를 끝낼 때를 맞췄다. 미코토의 짧은 기다림을 기억해 차지 준비 속도와 최대 체력이 늘었다. 토우마는 자판기에 남은 동전보다 이제 손에 든 짐을 먼저 챙긴다.",
+          "result": "다음 보급값120골드를 내고 준비를 끝낼 때를 맞췄다. 토우마는 자판기에 남은 동전보다 이제 손에 든 짐을 먼저 챙긴다.",
           "card": "academy_mikoto_drink",
           "card2": null,
           "cost": 120,
@@ -1656,14 +2822,14 @@
           "chance": 70
         },
         {
-          "label": "더 많은 개인 사냥을 맡고 미코토의 짧은 호흡을 기억한다",
-          "result": "더 많은 개인 사냥을 맡는 부담을 택하고 미코토의 짧은 호흡을 기억했다. 차지 공격 피해와 치명타 피해가 늘었다. 미코토는 아직 뜯지 않은 자기 음료를 들고 토우마의 다음 말을 기다린다.",
+          "label": "미코토에게 자판기를 아직 신경 쓰는지 묻는다",
+          "result": "미코토는 음료를 내려놓고 자판기 쪽을 한 번 더 돌아본다. 끝난 일처럼 보여도 다음 준비를 놓치지 않는 그녀의 시선을 기억한다.",
           "card": "academy_mikoto_curtain",
           "card2": null,
           "cost": 0,
           "gold": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100
         },
@@ -1708,16 +2874,16 @@
           "result": "내 준비를 마치고 우이하루에게 다음에 맡을 항목까지 답했다. 사텐이 안내할 골목과 쿠로코의 경계는 아직 맡을 사람이 필요하다."
         },
         {
-          "label": "160골드로 안내를 마련하고 사텐과 돌아갈 표식을 남긴다",
+          "label": "사텐이 제안하는 돌아갈 길의 표식을 수락한다",
           "card": "academy_saten_detour",
           "card2": null,
           "gold": 0,
           "cost": 160,
           "level": 0,
-          "density": -1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "귀환길에 표식을 남겼다. 우이하루의 남은 항목과 쿠로코가 지킬 경계는 따로 남아 있다."
+          "result": "사텐은 돌아갈 골목을 알려주겠다며 당신의 기록 옆에 표식을 남긴다. 쿠로코와 함께 통행의 경계를 정하며 다음 위치를 확정한다."
         },
         {
           "label": "쿠로코와 더 강한 적이 드나드는 통로의 경계를 맡는다",
@@ -1758,16 +2924,16 @@
           "result": "짐의 도착지를 확인하고 운반 준비를 마쳤다. 사텐의 상자와 쿠로코가 돌아올 자리는 다음 사람의 몫으로 남겼다."
         },
         {
-          "label": "사텐과 더 많은 적이 오가는 납품 구역의 상자를 나눈다",
+          "label": "사텐과 함께 납품 구역의 상자 배분을 논의한다",
           "card": "academy_saten_box",
           "card2": null,
           "gold": 0,
           "cost": 0,
           "level": 0,
-          "density": 1,
+          "density": 0,
           "potions": 0,
           "chance": 100,
-          "result": "더 많은 적이 오가는 납품 구역에서 먼저 나를 상자를 나눴다. 짐의 도착지와 쿠로코가 돌아올 자리는 아직 정하지 못했다."
+          "result": "사텐은 확인된 내용과 다시 물어야 할 항목을 나누며 상자를 가리킨다. 쿠로코는 돌아올 자리를 남겨달라고 요청하며 업무를 조율한다."
         },
         {
           "label": "180골드로 포장을 마련하고 쿠로코에게 돌아올 자리를 남긴다",
@@ -1783,6 +2949,838 @@
         }
       ],
       "canonFact": "우이하루의 기록 지원과 주변 인물의 생활 속 부탁을 이용한 맵 전용 방문이다. 남긴 항목 카드가 있어 처음부터 확인하지 않아도 된다는 각색을 AP0으로 표현했다. 무료는 방문 행동력뿐이며 골드 비용과 개인 사냥 변화는 적용한다."
+    },
+    {
+      "key": "academy_main_01",
+      "title": "자판기 앞의 평범한 오후",
+      "intro": "학원도시의 일상에서 미코토와 친구들은 사소한 일로 웃고 다툰다.",
+      "story": "학원도시의 일상에서 미코토와 친구들은 사소한 일로 웃고 다툰다. 능력의 등급이 그 사람의 모든 것을 설명하지는 않는다. 곧 흔들릴 평범한 시간을 먼저 마음에 남긴다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“등급 말고 네가 좋아하는 것을 듣고 싶어.”",
+          "result": "“등급 말고 네가 좋아하는 것을 듣고 싶어.” 자판기 앞의 평범한 오후의 기억에 자신의 답을 남긴다. 자신과 같은 얼굴을 한 소녀를 만난 미코토는 설명되지 않는 낯섦을 느낀다.",
+          "card": "academy_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“별일 없던 오늘도 기억해 두자.”",
+          "result": "“별일 없던 오늘도 기억해 두자.” 자판기 앞의 평범한 오후의 기억에 자신의 답을 남긴다. 자신과 같은 얼굴을 한 소녀를 만난 미코토는 설명되지 않는 낯섦을 느낀다.",
+          "card": "academy_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“또 만날 때도 그냥 인사할 수 있겠지.”",
+          "result": "“또 만날 때도 그냥 인사할 수 있겠지.” 자판기 앞의 평범한 오후의 기억에 자신의 답을 남긴다. 자신과 같은 얼굴을 한 소녀를 만난 미코토는 설명되지 않는 낯섦을 느낀다.",
+          "card": "academy_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_02",
+      "title": "같은 얼굴을 한 낯선 사람",
+      "intro": "자신과 같은 얼굴을 한 소녀를 만난 미코토는 설명되지 않는 낯섦을 느낀다.",
+      "story": "자신과 같은 얼굴을 한 소녀를 만난 미코토는 설명되지 않는 낯섦을 느낀다. 소녀에게는 미코토와 다른 말투와 경험이 있다. 얼굴이 같다는 사실보다 눈앞의 사람이 어떤 삶을 살았는지 묻게 된다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“같은 얼굴이어도 네 이야기는 따로 있겠지.”",
+          "result": "“같은 얼굴이어도 네 이야기는 따로 있겠지.” 같은 얼굴을 한 낯선 사람의 기억에 자신의 답을 남긴다. 레벨 6 시프트 실험의 자료를 읽자 시스터즈가 숫자로 다루어졌다는 사실이 드러난다.",
+          "card": "academy_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“처음 만났으니 이름부터 알려 줘.”",
+          "result": "“처음 만났으니 이름부터 알려 줘.” 같은 얼굴을 한 낯선 사람의 기억에 자신의 답을 남긴다. 레벨 6 시프트 실험의 자료를 읽자 시스터즈가 숫자로 다루어졌다는 사실이 드러난다.",
+          "card": "academy_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“이 만남을 남의 복제품으로 부르진 않을게.”",
+          "result": "“이 만남을 남의 복제품으로 부르진 않을게.” 같은 얼굴을 한 낯선 사람의 기억에 자신의 답을 남긴다. 레벨 6 시프트 실험의 자료를 읽자 시스터즈가 숫자로 다루어졌다는 사실이 드러난다.",
+          "card": "academy_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_03",
+      "title": "숫자로 적힌 실험",
+      "intro": "레벨 6 시프트 실험의 자료를 읽자 시스터즈가 숫자로 다루어졌다는 사실이 드러난다.",
+      "story": "레벨 6 시프트 실험의 자료를 읽자 시스터즈가 숫자로 다루어졌다는 사실이 드러난다. 성공률과 횟수 사이에서 소녀들의 삶이 빠져 있다. 미코토의 충격을 성급한 위로로 덮지 않는다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“번호가 붙었다고 네 삶이 숫자가 되는 것은 아니야.”",
+          "result": "“번호가 붙었다고 네 삶이 숫자가 되는 것은 아니야.” 숫자로 적힌 실험의 기억에 자신의 답을 남긴다. 액셀러레이터와 시스터즈의 실험을 마주한 미코토는 실제로 벌어진 일을 본다.",
+          "card": "academy_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“무엇을 막아야 하는지 함께 확인하자.”",
+          "result": "“무엇을 막아야 하는지 함께 확인하자.” 숫자로 적힌 실험의 기억에 자신의 답을 남긴다. 액셀러레이터와 시스터즈의 실험을 마주한 미코토는 실제로 벌어진 일을 본다.",
+          "card": "academy_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“네 책임 하나로 모든 일을 묶지는 말자.”",
+          "result": "“네 책임 하나로 모든 일을 묶지는 말자.” 숫자로 적힌 실험의 기억에 자신의 답을 남긴다. 액셀러레이터와 시스터즈의 실험을 마주한 미코토는 실제로 벌어진 일을 본다.",
+          "card": "academy_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_04",
+      "title": "액셀러레이터가 있는 밤",
+      "intro": "액셀러레이터와 시스터즈의 실험을 마주한 미코토는 실제로 벌어진 일을 본다.",
+      "story": "액셀러레이터와 시스터즈의 실험을 마주한 미코토는 실제로 벌어진 일을 본다. 설명서에 적힌 결과와 눈앞의 죽음은 다르게 다가온다. 강자의 이름보다 실험을 계속시키는 구조를 기억한다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이미 본 일을 없던 일로 하진 않겠어.”",
+          "result": "“이미 본 일을 없던 일로 하진 않겠어.” 액셀러레이터가 있는 밤의 기억에 자신의 답을 남긴다. 미코토는 실험 시설을 없애면 멈출 수 있을지 생각한다.",
+          "card": "academy_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“최강이라는 말이 이 실험을 정당화하지는 않아.”",
+          "result": "“최강이라는 말이 이 실험을 정당화하지는 않아.” 액셀러레이터가 있는 밤의 기억에 자신의 답을 남긴다. 미코토는 실험 시설을 없애면 멈출 수 있을지 생각한다.",
+          "card": "academy_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“남아 있는 사람들을 포기하지 말자.”",
+          "result": "“남아 있는 사람들을 포기하지 말자.” 액셀러레이터가 있는 밤의 기억에 자신의 답을 남긴다. 미코토는 실험 시설을 없애면 멈출 수 있을지 생각한다.",
+          "card": "academy_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_05",
+      "title": "혼자 지우려는 기록",
+      "intro": "미코토는 실험 시설을 없애면 멈출 수 있을지 생각한다.",
+      "story": "미코토는 실험 시설을 없애면 멈출 수 있을지 생각한다. 누구에게도 알리지 않은 행동은 그녀를 점점 혼자로 만든다. 잘못을 바로잡고 싶은 마음과 도움을 받아야 할 이유를 함께 둔다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“네가 시작한 일이 아니어도 네 마음은 이해해.”",
+          "result": "“네가 시작한 일이 아니어도 네 마음은 이해해.” 혼자 지우려는 기록의 기억에 자신의 답을 남긴다. 실험의 경로를 따라가며 다른 사람이 남긴 저항을 알게 된다.",
+          "card": "academy_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“혼자 지워야 한다는 생각부터 다시 보자.”",
+          "result": "“혼자 지워야 한다는 생각부터 다시 보자.” 혼자 지우려는 기록의 기억에 자신의 답을 남긴다. 실험의 경로를 따라가며 다른 사람이 남긴 저항을 알게 된다.",
+          "card": "academy_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다시 만날 때 네 이야기를 듣고 싶어.”",
+          "result": "“다시 만날 때 네 이야기를 듣고 싶어.” 혼자 지우려는 기록의 기억에 자신의 답을 남긴다. 실험의 경로를 따라가며 다른 사람이 남긴 저항을 알게 된다.",
+          "card": "academy_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_06",
+      "title": "남은 연구소의 이름",
+      "intro": "실험의 경로를 따라가며 다른 사람이 남긴 저항을 알게 된다.",
+      "story": "실험의 경로를 따라가며 다른 사람이 남긴 저항을 알게 된다. 모두가 같은 자료를 보고 같은 결론을 내린 것은 아니었다. 시스터즈를 사람으로 보았던 흔적을 다음 판단의 근거로 삼는다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“먼저 멈추려 했던 사람도 기억하자.”",
+          "result": "“먼저 멈추려 했던 사람도 기억하자.” 남은 연구소의 이름의 기억에 자신의 답을 남긴다. 남은 연구 시설에 접근하자 아이템의 방해가 길을 막는다.",
+          "card": "academy_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“자료 뒤에 있던 선택을 더 살펴보자.”",
+          "result": "“자료 뒤에 있던 선택을 더 살펴보자.” 남은 연구소의 이름의 기억에 자신의 답을 남긴다. 남은 연구 시설에 접근하자 아이템의 방해가 길을 막는다.",
+          "card": "academy_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“소녀들이 스스로 말할 자리를 남기자.”",
+          "result": "“소녀들이 스스로 말할 자리를 남기자.” 남은 연구소의 이름의 기억에 자신의 답을 남긴다. 남은 연구 시설에 접근하자 아이템의 방해가 길을 막는다.",
+          "card": "academy_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_07",
+      "title": "시설을 막는 또 다른 손",
+      "intro": "남은 연구 시설에 접근하자 아이템의 방해가 길을 막는다.",
+      "story": "남은 연구 시설에 접근하자 아이템의 방해가 길을 막는다. 건물을 없애는 일만으로 끝나지 않는다는 사실이 드러난다. 미코토는 실험의 중심이 어디에 있는지 다시 살핀다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“막힌 길이 하나라고 끝난 것은 아니야.”",
+          "result": "“막힌 길이 하나라고 끝난 것은 아니야.” 시설을 막는 또 다른 손의 기억에 자신의 답을 남긴다. 쿠로코와 친구들은 미코토가 평소와 다르게 멀어진 것을 느낀다.",
+          "card": "academy_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“정말 실험을 멈출 조건을 찾아야겠어.”",
+          "result": "“정말 실험을 멈출 조건을 찾아야겠어.” 시설을 막는 또 다른 손의 기억에 자신의 답을 남긴다. 쿠로코와 친구들은 미코토가 평소와 다르게 멀어진 것을 느낀다.",
+          "card": "academy_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“지금까지 버틴 일을 헛일이라고 하진 말자.”",
+          "result": "“지금까지 버틴 일을 헛일이라고 하진 말자.” 시설을 막는 또 다른 손의 기억에 자신의 답을 남긴다. 쿠로코와 친구들은 미코토가 평소와 다르게 멀어진 것을 느낀다.",
+          "card": "academy_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_08",
+      "title": "친구들이 느끼는 빈자리",
+      "intro": "쿠로코와 친구들은 미코토가 평소와 다르게 멀어진 것을 느낀다.",
+      "story": "쿠로코와 친구들은 미코토가 평소와 다르게 멀어진 것을 느낀다. 모르는 사정을 억지로 열어 보일 수는 없지만 돌아올 자리는 남길 수 있다. 혼자 지키려던 일상에 이미 다른 사람들의 걱정이 닿아 있다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“설명 못 해도 돌아올 곳은 여기야.”",
+          "result": "“설명 못 해도 돌아올 곳은 여기야.” 친구들이 느끼는 빈자리의 기억에 자신의 답을 남긴다. 연구 시설을 막아도 실험이 계속될 수 있음을 알게 된다.",
+          "card": "academy_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“가까운 사람의 걱정까지 밀어내진 말아 줘.”",
+          "result": "“가까운 사람의 걱정까지 밀어내진 말아 줘.” 친구들이 느끼는 빈자리의 기억에 자신의 답을 남긴다. 연구 시설을 막아도 실험이 계속될 수 있음을 알게 된다.",
+          "card": "academy_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“평소처럼 부를 이름을 남겨 둘게.”",
+          "result": "“평소처럼 부를 이름을 남겨 둘게.” 친구들이 느끼는 빈자리의 기억에 자신의 답을 남긴다. 연구 시설을 막아도 실험이 계속될 수 있음을 알게 된다.",
+          "card": "academy_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_09",
+      "title": "무너진 시설 뒤의 계속",
+      "intro": "연구 시설을 막아도 실험이 계속될 수 있음을 알게 된다.",
+      "story": "연구 시설을 막아도 실험이 계속될 수 있음을 알게 된다. 손에 잡히는 목표가 사라지자 미코토는 자신이 감당할 수 있는 한계를 마주한다. 다른 답을 찾을 시간이 아직 남아 있다는 말을 건넨다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“끝낼 수 없었다고 모두 네 잘못은 아니야.”",
+          "result": "“끝낼 수 없었다고 모두 네 잘못은 아니야.” 무너진 시설 뒤의 계속의 기억에 자신의 답을 남긴다. 토우마는 미코토가 혼자 모든 책임을 끝내려는 것을 막아선다.",
+          "card": "academy_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“실험의 전제를 바꿀 방법도 생각해 보자.”",
+          "result": "“실험의 전제를 바꿀 방법도 생각해 보자.” 무너진 시설 뒤의 계속의 기억에 자신의 답을 남긴다. 토우마는 미코토가 혼자 모든 책임을 끝내려는 것을 막아선다.",
+          "card": "academy_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“오늘은 혼자 결론 내리지 말아 줘.”",
+          "result": "“오늘은 혼자 결론 내리지 말아 줘.” 무너진 시설 뒤의 계속의 기억에 자신의 답을 남긴다. 토우마는 미코토가 혼자 모든 책임을 끝내려는 것을 막아선다.",
+          "card": "academy_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_10",
+      "title": "다리 위의 대답",
+      "intro": "토우마는 미코토가 혼자 모든 책임을 끝내려는 것을 막아선다.",
+      "story": "토우마는 미코토가 혼자 모든 책임을 끝내려는 것을 막아선다. 그녀에게 필요한 것은 그럴듯한 설교보다 같이 짊어질 사람이었다. 최강을 이긴다는 전제가 실험의 계산을 깨뜨릴 수 있다는 가능성이 열린다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“누가 사라지는 방식으로 끝내진 말자.”",
+          "result": "“누가 사라지는 방식으로 끝내진 말자.” 다리 위의 대답의 기억에 자신의 답을 남긴다. 시스터즈와 이야기를 나누자 같은 얼굴 뒤에 다른 관심과 반응이 보인다.",
+          "card": "academy_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“가능성이 있다면 같이 확인하자.”",
+          "result": "“가능성이 있다면 같이 확인하자.” 다리 위의 대답의 기억에 자신의 답을 남긴다. 시스터즈와 이야기를 나누자 같은 얼굴 뒤에 다른 관심과 반응이 보인다.",
+          "card": "academy_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같이 해결할 수 있다면 도움을 받아도 괜찮아.”",
+          "result": "“같이 해결할 수 있다면 도움을 받아도 괜찮아.” 다리 위의 대답의 기억에 자신의 답을 남긴다. 시스터즈와 이야기를 나누자 같은 얼굴 뒤에 다른 관심과 반응이 보인다.",
+          "card": "academy_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_11",
+      "title": "번호와 다른 취향",
+      "intro": "시스터즈와 이야기를 나누자 같은 얼굴 뒤에 다른 관심과 반응이 보인다.",
+      "story": "시스터즈와 이야기를 나누자 같은 얼굴 뒤에 다른 관심과 반응이 보인다. 실험의 결과로만 불린 사람에게도 사소한 취향이 있다. 구한다는 말 이후 어떤 삶을 남길지 생각한다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“좋아하는 것부터 천천히 말해 줘.”",
+          "result": "“좋아하는 것부터 천천히 말해 줘.” 번호와 다른 취향의 기억에 자신의 답을 남긴다. 미코토는 더 이상 혼자 해결하려 하지 않고 필요한 사람에게 손을 내민다.",
+          "card": "academy_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“번호보다 먼저 너를 기억하고 싶어.”",
+          "result": "“번호보다 먼저 너를 기억하고 싶어.” 번호와 다른 취향의 기억에 자신의 답을 남긴다. 미코토는 더 이상 혼자 해결하려 하지 않고 필요한 사람에게 손을 내민다.",
+          "card": "academy_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“실험 밖의 내일도 네가 골랐으면 좋겠어.”",
+          "result": "“실험 밖의 내일도 네가 골랐으면 좋겠어.” 번호와 다른 취향의 기억에 자신의 답을 남긴다. 미코토는 더 이상 혼자 해결하려 하지 않고 필요한 사람에게 손을 내민다.",
+          "card": "academy_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_12",
+      "title": "도움을 청하는 말",
+      "intro": "미코토는 더 이상 혼자 해결하려 하지 않고 필요한 사람에게 손을 내민다.",
+      "story": "미코토는 더 이상 혼자 해결하려 하지 않고 필요한 사람에게 손을 내민다. 부탁은 자신의 책임을 버리는 일이 아니다. 함께 막으려는 사람들의 뜻이 같은 실험을 다른 방향에서 흔든다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“같이 해 달라는 말은 약한 말이 아니야.”",
+          "result": "“같이 해 달라는 말은 약한 말이 아니야.” 도움을 청하는 말의 기억에 자신의 답을 남긴다. 토우마가 액셀러레이터와 맞서고 미코토는 시스터즈에게 도움을 청한다.",
+          "card": "academy_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서로 할 수 있는 일을 이어 보자.”",
+          "result": "“서로 할 수 있는 일을 이어 보자.” 도움을 청하는 말의 기억에 자신의 답을 남긴다. 토우마가 액셀러레이터와 맞서고 미코토는 시스터즈에게 도움을 청한다.",
+          "card": "academy_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“끝나면 이 부탁을 다시 웃으며 이야기하자.”",
+          "result": "“끝나면 이 부탁을 다시 웃으며 이야기하자.” 도움을 청하는 말의 기억에 자신의 답을 남긴다. 토우마가 액셀러레이터와 맞서고 미코토는 시스터즈에게 도움을 청한다.",
+          "card": "academy_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_13",
+      "title": "최강이라는 계산 밖",
+      "intro": "토우마가 액셀러레이터와 맞서고 미코토는 시스터즈에게 도움을 청한다.",
+      "story": "토우마가 액셀러레이터와 맞서고 미코토는 시스터즈에게 도움을 청한다. 실험이 가정한 결과는 실제 사람들의 선택과 다르다. 누가 가장 강한지보다 어떤 내일을 멈추지 않을지가 중요해진다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“누군가의 계산으로 삶을 끝내게 두진 않겠어.”",
+          "result": "“누군가의 계산으로 삶을 끝내게 두진 않겠어.” 최강이라는 계산 밖의 기억에 자신의 답을 남긴다. 실험이 멈춘 뒤에도 시스터즈에게 남은 삶은 계속된다.",
+          "card": "academy_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“각자가 바꿀 수 있는 부분을 믿자.”",
+          "result": "“각자가 바꿀 수 있는 부분을 믿자.” 최강이라는 계산 밖의 기억에 자신의 답을 남긴다. 실험이 멈춘 뒤에도 시스터즈에게 남은 삶은 계속된다.",
+          "card": "academy_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“모두가 돌아올 수 있는 답을 기다릴게.”",
+          "result": "“모두가 돌아올 수 있는 답을 기다릴게.” 최강이라는 계산 밖의 기억에 자신의 답을 남긴다. 실험이 멈춘 뒤에도 시스터즈에게 남은 삶은 계속된다.",
+          "card": "academy_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_14",
+      "title": "멈춘 실험 다음의 질문",
+      "intro": "실험이 멈춘 뒤에도 시스터즈에게 남은 삶은 계속된다.",
+      "story": "실험이 멈춘 뒤에도 시스터즈에게 남은 삶은 계속된다. 구했다는 한마디로 그동안의 일과 앞으로의 걱정을 지울 수는 없다. 이제는 실험의 수가 아니라 다음에 하고 싶은 일을 묻는다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“이제 무엇을 해 보고 싶은지 듣고 싶어.”",
+          "result": "“이제 무엇을 해 보고 싶은지 듣고 싶어.” 멈춘 실험 다음의 질문의 기억에 자신의 답을 남긴다. 처음 같은 얼굴을 보았던 낯섦은 이제 서로 다른 사람을 기억하려는 마음이 된다.",
+          "card": "academy_main_14_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“서두르지 않아도 돼. 네가 바라는 다음을 찾아가자.”",
+          "result": "“서두르지 않아도 돼. 네가 바라는 다음을 찾아가자.” 멈춘 실험 다음의 질문의 기억에 자신의 답을 남긴다. 처음 같은 얼굴을 보았던 낯섦은 이제 서로 다른 사람을 기억하려는 마음이 된다.",
+          "card": "academy_main_14_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음 만남에는 평범한 이야기도 하자.”",
+          "result": "“다음 만남에는 평범한 이야기도 하자.” 멈춘 실험 다음의 질문의 기억에 자신의 답을 남긴다. 처음 같은 얼굴을 보았던 낯섦은 이제 서로 다른 사람을 기억하려는 마음이 된다.",
+          "card": "academy_main_14_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_main_15",
+      "title": "한 사람씩 남기는 이름",
+      "intro": "처음 같은 얼굴을 보았던 낯섦은 이제 서로 다른 사람을 기억하려는 마음이 된다.",
+      "story": "처음 같은 얼굴을 보았던 낯섦은 이제 서로 다른 사람을 기억하려는 마음이 된다. 미코토와 시스터즈는 같은 내일을 살아야 할 필요가 없다. 구해 낸 삶을 숫자 대신 각자의 이야기로 남기며 여정을 매듭짓는다.",
+      "mainStage": 15,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“같은 얼굴이어도 같은 삶을 고를 필요는 없어.”",
+          "result": "처음 같은 얼굴을 보고 놀랐던 기억이 각자의 삶을 존중하는 뜻으로 바뀐다. 실험의 계산 밖에서 고를 내일을 닫지 않고 이야기를 매듭짓는다.",
+          "card": "academy_main_15_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“네가 고른 다음 이야기를 기다릴게.”",
+          "result": "좋아하는 것을 묻던 대화 뒤에 실험 다음의 삶이 열린다. 미코토와 시스터즈가 각각 고른 이야기를 기다리는 마음을 남긴다.",
+          "card": "academy_main_15_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“이제 만났을 때 사람의 이름으로 인사하자.”",
+          "result": "번호를 들었던 첫 만남을 사람에게 건네는 인사로 바꿔 기억한다. 구해 낸 삶을 또 다른 숫자로 정하지 않겠다는 말과 함께 학원도시의 여정을 마친다.",
+          "card": "academy_main_15_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "초전자포 S 시스터즈 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": []
+    },
+    {
+      "key": "academy_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "이름으로 부르는 시스터즈의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "academy_uiharu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "academy_mikoto",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다.",
+          "card": "academy_kuroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
+      "uncertain": []
     }
   ]
 }

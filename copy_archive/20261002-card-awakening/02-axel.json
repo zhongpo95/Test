@@ -1,0 +1,1496 @@
+{
+  "world": {
+    "key": "axel",
+    "name": "액셀",
+    "work": "이 멋진 세계에 축복을!",
+    "intro": "길드 게시판 앞에서 루나가 밀린 의뢰를 정리한다. 위즈의 가게, 폭렬 마법 연습, 이상한 동료들 사이에서 이번 모험의 방식을 정해 보자.",
+    "effects": [
+      {
+        "stat": "kill_gold",
+        "value": 1
+      }
+    ],
+    "entryCard": "axel_luna",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp"
+  },
+  "sources": [
+    "https://konosuba.com/3rd/character/",
+    "https://konosuba.com/2nd/story/",
+    "https://konosuba.com/1st/story/"
+  ],
+  "canonBoundary": "인물의 특징과 관계만 원작에서 가져왔다. 플레이어 의뢰, 골드 금액, 사냥터 변화, 카드 효과는 이 맵의 각색이다. 단순한 모험으로 마왕군을 쓰러뜨리거나 학교 빚을 해결했다고 단정하지 않는다. 연회 자리·귀여운 진열품·서로 다른 표적 연습·검 자기소개·신참의 질문은 공식 인물 성격에서 별도 창작했다. 환영하는 거친 남자를 길드 직원으로 단정하지 않는다. 그람·새 마법·인형 장비·NPC 동행·자동 의뢰 완수·부활은 지급하지 않는다. 물 공연과 NPC 행동은 사건 글이며 추가 필드 전투나 미니게임이 아니다. 호수의 구경꾼·줄 고정과 받침·눈의 겹친 발자국·질문을 끝낼 방문·저택의 서로 다른 문턱은 공식 1기 5·7·8화 소개에서 각색한 독립 만남이다. 현재 체력의 추위 비용·겨울 장군 전투와 사망 결말·새 원작 기술·유령의 신원과 성불 방법은 추가하지 않는다. 사건 결과는 그 만남의 기억으로 카드 성장과 원정 개인 사냥 조건을 얻는 것이며 실제 NPC·정령·수중 전투·제령 주문·물가 장비가 생기지 않는다. 카드 지급 시 최대 체력이 늘면 기존 현재 체력 비율을 보존하며 물약처럼 체력 비율을 회복하는 효과는 아니다. 줄 후속은 자신이 고정용품을 마련한 성공1번에서만 열린다. 사건 선택의 물약 보상은 전부 없앴다. 보급·식사·음료의 서사는 카드 기억 또는 필드 준비이며 물약 지급이나 즉시 체력 회복이 아니다.",
+  "cards": [
+    {
+      "key": "axel_luna",
+      "name": "루나",
+      "effectName": "의뢰의 정리",
+      "keyword": "탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "모험가 길드의 접수 역할을 의뢰 후보를 더 확인하는 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_kazuma",
+      "name": "사토 카즈마",
+      "effectName": "운 좋은 모험가",
+      "keyword": "치명 · 수급",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "카즈마의 행운과 모험가 역할을 치명 확률·수급으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_chris",
+      "name": "크리스",
+      "effectName": "도적의 손놀림",
+      "keyword": "신속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "directional_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
+      },
+      "canonFact": "크리스의 도적 역할을 민첩한 손놀림과 공격 간격으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_megumin",
+      "name": "메구밍",
+      "effectName": "폭렬 마법에 올인",
+      "keyword": "차지 · 패널티",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 24
+        },
+        {
+          "stat": "charge_speed",
+          "value": 8
+        },
+        {
+          "stat": "action_speed",
+          "value": -3
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "charge_damage",
+            "value": 10
+          }
+        ]
+      },
+      "canonFact": "폭렬 마법에 집중하는 마법사라는 특징을 차지 공격과 행동 속도 패널티로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_darkness",
+      "name": "다크니스",
+      "effectName": "서툰 검과 단단한 갑옷",
+      "keyword": "생존 · 패널티",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 18
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": -5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "단단하지만 공격 명중이 서툰 크루세이더라는 특징을 생존 보너스와 공격 패널티로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua",
+      "name": "아쿠아",
+      "effectName": "아크 프리스트의 축복",
+      "keyword": "재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.7
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아크 프리스트인 아쿠아의 지원 역할을 지속 회복 준비로 각색했다. 부활 기능은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_wiz",
+      "name": "위즈",
+      "effectName": "마도구 감정",
+      "keyword": "공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 10
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "위즈의 마도구점 역할을 마도구 감정 경험으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_vanir",
+      "name": "바니르",
+      "effectName": "가면 너머의 계산",
+      "keyword": "보스 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 14
+        },
+        {
+          "stat": "penetration",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
+      },
+      "canonFact": "위즈 가게의 바니르와 카즈마의 거래를 손익을 읽는 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua_stage",
+      "name": "아쿠아",
+      "effectName": "박수가 끝난 뒤의 준비",
+      "keyword": "사건 후보 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "연회 재주와 지원 역할을 여러 부탁을 비교하고 오래 움직일 준비로 각색한다. 공연 미니게임·박수 자원·즉시 회복·부활은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_darkness_small",
+      "name": "다크니스",
+      "effectName": "갑옷 옆에 남긴 작은 자리",
+      "keyword": "최대 체력 · 고체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "귀여운 물건 취향과 방어 역할을 몸 상태를 지키고 다음 싸움을 오래 이어 갈 준비로 각색한다. 인형 장비·NPC 호위·명중 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_yunyun_practice",
+      "name": "융융",
+      "effectName": "다른 마법도 준비할 시간",
+      "keyword": "차지 · 비방향 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 12
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 2,
+        "goal": 10000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 3
+          }
+        ]
+      },
+      "canonFact": "능력 높고 상식적인 홍마족 아크 위저드·메구밍의 라이벌 역할을 힘을 모으고 주변을 넓게 볼 준비로 각색한다. 추가 마법·시전 자원·우정 게이지·사냥 시간 증가는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_mitsurugi_stance",
+      "name": "미츠루기",
+      "effectName": "이름을 말하기 전의 자세",
+      "keyword": "방향 피해 · 보스",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "정의감 강한 소드마스터와 마검 그람 사용을 큰 상대에게 공격 방향을 고르는 준비로 각색한다. 마검 그람을 실제 영구 무기로 지급하거나 새 검 기술을 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_luna_arrival",
+      "name": "루나",
+      "effectName": "처음 온 사람의 다음 질문",
+      "keyword": "사건 후보 · 수급 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "kill_gold",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "길드에서 모험가를 안내하는 역할을 여러 부탁과 얻을 몫을 확인하며 오래 움직일 준비로 각색한다. 접수창구 기능·신규 의뢰 시스템·길드원 동행은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua_rope",
+      "name": "아쿠아",
+      "effectName": "끌어올릴 때까지 놓지 않기",
+      "keyword": "최대 체력 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 호수 정화의 우리와 노출된 아쿠아를 바탕으로 줄을 잡는 여행자의 지속 생존 여유를 각색한다. 아쿠아의 새 방어 주문·보호막·실제 수중 전투는 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_kazuma_snow",
+      "name": "사토 카즈마",
+      "effectName": "먼 발자국을 따라갈 때",
+      "keyword": "이동 · 일반 적",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 5
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 5
+          }
+        ]
+      },
+      "canonFact": "눈의 정령 토벌에서 쉬운 의뢰를 더 쫓으려는 상황의 발걸음을 각색했다. 정령의 골드·겨울 장군 토벌·냉기 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_wiz_question",
+      "name": "위즈",
+      "effectName": "질문이 끝나는 순간",
+      "keyword": "차지 속도 · 비방향",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 8
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "위즈에게 유용한 기술을 배우려는 공식 상황에서, 질문과 시범의 준비가 끝나기를 기다리는 기억을 각색한다. 특정 주문이나 드레인 터치 전수를 공식 사실로 추가하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua_threshold",
+      "name": "아쿠아",
+      "effectName": "의뢰받은 문부터",
+      "keyword": "일반 적 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 14
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "제령 의뢰를 수행하는 아크 프리스트의 일을 끝까지 확인하는 기억으로 각색한다. 새 제령 주문·유령 정체·성불 규칙을 지어내지 않으며 실제 사냥의 재생은 물약과 구분한다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_kazuma_release",
+      "name": "사토 카즈마",
+      "effectName": "손을 떼는 순서",
+      "keyword": "이동 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "charge_speed",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "우리에서 사람을 끌어올리는 다음 준비를 기다리는 창작 후속의 기억이다. 호수 정화의 원작 방법을 새 발명으로 바꾸거나 실제 도르래·무기·카즈마 기술을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_chris_trace",
+      "name": "크리스",
+      "effectName": "흔적을 밟기 전에",
+      "keyword": "이동 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 14
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 도적 역할과 기존 수색 장면에서 지나간 흔적을 구분하는 여행자의 기억을 각색한다. 탐지 기술·자동 수색·크리스의 새 스킬을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_kazuma_share",
+      "name": "사토 카즈마",
+      "effectName": "먼저 따져 볼 몫",
+      "keyword": "공격력 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 12
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "평범한 모험가이며 행운이 높다는 공식 소개와 기존 몫을 따지는 행동에서 별도 준비의 기억을 만든다. 새로운 원작 기술이나 자동 보수 수급은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua_supply",
+      "name": "아쿠아",
+      "effectName": "남겨 둔 비상분",
+      "keyword": "최대 체력 · 재생",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 회복 담당·음식과 돌 취향을 기존 소모품 준비의 기억으로 각색한다. 새 물약 제작·즉시 체력 회복·부활·NPC 동행은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_aqua_return",
+      "name": "아쿠아",
+      "effectName": "돌아갈 곳부터",
+      "keyword": "재생 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 지원 역할과 기존 돌아올 길·물 밖의 자리를 확인하는 여행자의 기억이다. 귀환 기술·새 보호막·정화 주문·물약 즉시 사용은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_luna_space",
+      "name": "루나",
+      "effectName": "창구 밖의 빈자리",
+      "keyword": "사건 후보 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "event_choices",
+          "value": 1
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 접수와 안내 역할에서 부탁을 구분하고 지나갈 공간을 남기는 기억을 각색한다. 접수 시스템이나 추가 행동력을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_yunyun_gap",
+      "name": "융융",
+      "effectName": "서로 다른 표적",
+      "keyword": "차지 속도 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 7
+        },
+        {
+          "stat": "crit_damage",
+          "value": 12
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 상식적인 아크 위저드·메구밍의 라이벌 역할에서 기존 표적 간격을 나누는 기억을 각색한다. 새 마법·시전 자원·우정 게이지·NPC 훈련 성취를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_darkness_position",
+      "name": "다크니스",
+      "effectName": "검보다 먼저 선 자리",
+      "keyword": "방향 피해 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 12
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 방어 역할에서 그녀 뒤에 공격할 공간을 남기는 여행자의 기억이다. 방향 피해는 플레이어 공격의 유효 방향 조건이며 다크니스의 검 명중·도발·적 강제 이동 기술을 새로 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_wiz_small",
+      "name": "위즈",
+      "effectName": "작은 실패부터 살피기",
+      "keyword": "차지 속도 · 받는 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 마도구점 주인과 기존 감정·시범 준비에서 작은 실패를 먼저 확인하는 기억을 각색한다. 장비 수리·원작 주문·새 마도구를 지급하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "axel_request",
+      "title": "게시판의 밀린 의뢰",
+      "story": "루나가 손님이 몰리는 시간에 의뢰서를 놓쳤다. 약한 몬스터 무리가 방치된 길과 강한 몬스터가 남은 길을 모두 정리해야 하지만, 한 사람이 두 곳을 맡기는 어렵다. 카즈마는 보수가 큰 쪽을, 다크니스는 맞아 줄 일이 많은 쪽을 가리킨다.",
+      "intro": "길드 의뢰 두 개가 겹쳤다. 어느 쪽을 맡을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카즈마와 몬스터 무리를 맡는다",
+          "result": "카즈마와 몬스터 수가 많은 의뢰를 골랐다. 서류의 수고비부터 확인했지만, 약속된 자리에는 상대해야 할 무리도 더 기다리고 있었다.",
+          "card": "axel_kazuma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다크니스와 강한 몬스터를 맡는다",
+          "result": "다크니스와 강한 몬스터가 남은 의뢰를 맡았다. 그녀는 앞에서 버틸 자리를 반겼고, 당신은 빗나가는 검에 기대기보다 빈틈이 생길 때 움직일 위치를 골랐다. 돌아오는 길에도 강한 상대를 경계해야 한다.",
+          "card": "axel_darkness",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "150골드로 운송을 준비하고 루나와 의뢰를 나눠 맡는다",
+          "result": "루나와 의뢰를 나눠 맡고 다른 모험가가 지나갈 운송 길부터 비웠다. 150골드를 지불했다. 「처음 온 사람의 다음 질문」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 루나는 두 의뢰서를 다시 겹쳐 놓지 않고 네가 맡은 쪽 옆에 다음 질문을 적는다.",
+          "card": "axel_luna_arrival",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_stolen_notice",
+      "title": "사라진 의뢰 보수",
+      "story": "처리한 의뢰의 보수 명세서가 보이지 않는다. 카즈마가 주머니를 뒤지자 크리스가 도적에게는 물건을 찾는 방법도 중요하다며 웃는다. 급히 사냥을 다시 시작할지, 그녀와 흔적을 찾을지 정해야 한다.",
+      "intro": "완료한 의뢰의 보수 명세서가 사라졌다.",
+      "previous": "axel_request",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "크리스에게 수색을 배운다",
+          "result": "크리스와 사라진 게시물의 흔적을 따라갔다. 물건을 되찾는 데 급급하기보다 누가 지나갔는지부터 구분했다.",
+          "card": "axel_chris",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "길드에 보수 재발행을 요청한다",
+          "result": "카즈마와 완료한 의뢰의 번호를 대조해 길드에 명세서 재발행을 요청했다. 루나가 기록을 확인하고 빠져 있던 보수를 건넸다.",
+          "card": null,
+          "card2": null,
+          "gold": 230,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "100골드로 수색을 준비하고 크리스와 지나간 흔적을 구분한다",
+          "result": "크리스와 사라진 명세서를 찾기 전에 이미 지나간 흔적과 새 흔적을 나눴다. 100골드를 지불했다. 「흔적을 밟기 전에」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 크리스는 네가 먼저 밟으려던 자리를 가리키고 카즈마는 그 너머에서 다시 주머니를 뒤진다.",
+          "card": "axel_chris_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "180골드로 기록을 대조하고 카즈마와 청구할 몫을 나눈다",
+          "result": "카즈마와 완료한 의뢰의 기록을 대조하고 아직 청구하지 않은 몫을 골랐다. 180골드를 지불했다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 카즈마는 같은 일을 다시 했다고 적지 말라며 빈 청구란을 네 쪽으로 돌린다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_blast_site",
+      "title": "폭렬 마법의 연습 장소",
+      "story": "메구밍이 오늘 사용할 폭렬 마법의 장소를 찾는다. 당신의 사냥터 근처에는 무너져도 되는 빈 암벽이 있지만, 큰 소리에 강한 몬스터까지 접근할 수 있다. 위즈는 안전 거리를 계산해 주겠다고 한다.",
+      "intro": "폭렬 마법을 쓸 장소를 확보해 달라는 부탁.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사냥터 옆 암벽에서 시연을 본다",
+          "result": "암벽을 뒤흔드는 메구밍의 폭렬을 보고 한 번에 힘을 모으는 박자를 익혔다. 큰 소리에 더 강한 상대의 기척도 다가왔고, 큰 힘을 쓴 뒤 곧바로 다음 동작을 잇기는 어려웠다.",
+          "card": "axel_megumin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "위즈에게 안전한 마법 시연을 의뢰한다",
+          "result": "위즈에게 비용을 내고 마도구의 출력을 차례로 확인했다. 큰 폭발을 쫓기보다 손에 맞는 준비부터 다시 고른다.",
+          "card": "axel_wiz",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 표식을 마련하고 위즈와 대피 통로부터 살핀다",
+          "result": "위즈와 암벽을 등지고 대피할 길에 표식을 놓으며 작은 위험부터 살폈다. 160골드를 지불했다. 「작은 실패부터 살피기」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 메구밍이 시연할 자리를 가리키자 위즈는 그곳을 볼 자리와 돌아설 길을 다른 표시로 남긴다.",
+          "card": "axel_wiz_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_shop_ledger",
+      "title": "팔릴 때마다 적자인 가게",
+      "story": "위즈의 장부에는 물건이 팔렸는데도 적자가 남아 있다. 바니르는 원가를 세는 방식부터 잘못됐다며 장부를 내민다. 고장 난 마도구를 확인하는 일과 물건의 가치를 가려내는 일을 한꺼번에 할 수는 없다.",
+      "intro": "위즈의 마도구 가게에서 장부와 불량품이 엉켰다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "고장 난 마도구의 감정을 돕는다",
+          "result": "위즈와 납품 기록을 맞춰 보며 도구를 확인했다. 장부에 이름만 남아 있던 물건을 실제 용도대로 나누었다.",
+          "card": "axel_wiz",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "바니르와 손해를 부르는 거래를 찾는다",
+          "result": "바니르와 계산을 맞추다 까다로운 납품까지 맡게 됐다. 겉으로 보이는 이익만 믿지 말라는 말을 듣고, 큰 상대에게 들이밀 자리를 다시 고른다.",
+          "card": "axel_vanir",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 분류 용품을 마련하고 위즈와 작은 고장부터 나눈다",
+          "result": "위즈와 마도구를 분류하고 작은 고장부터 장부의 다른 줄에 적었다. 160골드를 지불했다. 「작은 실패부터 살피기」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 바니르는 아직 팔 수 없는 물건까지 매출로 적지 말라며 위즈의 장부를 다시 펼친다.",
+          "card": "axel_wiz_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_priest_supply",
+      "title": "모험 직전의 잔돈",
+      "story": "아쿠아가 맛있는 음식과 특이한 돌을 골랐다가 소모품 예산을 다 썼다. 마침 사냥 전 보급을 준비하던 당신에게 축복을 해 주겠다며 도움을 청한다. 지금 회복 수단을 늘릴지, 앞으로 조금씩 회복할지 고민할 때다.",
+      "intro": "아쿠아가 보급 예산을 써 버렸다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "식사 값을 보태고 축복을 받는다",
+          "result": "아쿠아가 다음 모험의 건강을 기원했다. 천천히 이어지는 축복의 기억을 얻었다.",
+          "card": "axel_aqua",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "80골드로 돌을 맡길 자리를 마련하고 아쿠아와 비상분을 남긴다",
+          "result": "아쿠아의 돌을 맡길 자리를 마련하고 비상용 보급을 따로 남겼다. 80골드를 지불했다. 「남겨 둔 비상분」의 기억 카드1장을 얻었다. 아쿠아가 남은 돌도 가져오려 하자 너는 소모품을 둘 빈 자리부터 가리킨다.",
+          "card": "axel_aqua_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 80,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 돌아올 보급을 준비하고 아쿠아와 남길 몫을 나눈다",
+          "result": "아쿠아와 돌아올 때 쓸 보급을 나누고 지금 식사에 쓰지 않을 몫을 남겼다. 160골드를 지불했다. 「돌아갈 곳부터」의 기억 카드1장을 얻었다. 아쿠아는 접시에 손을 뻗다가 돌아올 몫이 담긴 쪽은 다른 자리에 놓는다.",
+          "card": "axel_aqua_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_crowded_road",
+      "title": "단단한 갑옷을 향한 돌진",
+      "story": "길에서 만난 몬스터들이 유독 다크니스의 갑옷으로 달려든다. 그녀는 버틸 수 있다고 하지만, 당신이 공격할 공간까지 사라지고 있다. 한곳에 더 모아 쓰러뜨릴지, 통로부터 비울지 판단해야 한다.",
+      "intro": "몬스터들이 다크니스에게 몰려 공격할 틈이 없다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다크니스 뒤에서 공격할 자리를 만든다",
+          "result": "다크니스의 방어 뒤에서 공격할 자리를 잡았다. 좁은 곳에 몰린 상대까지 맡아야 했지만, 정면에서 버틸 사람이 있다는 차이를 배웠다.",
+          "card": "axel_darkness",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크리스와 몬스터를 흩어 놓는다",
+          "result": "크리스와 장비를 마련하고 몬스터가 한꺼번에 몰리지 않도록 통로를 나눴다. 적은 수를 마주하는 동안 몸을 빼며 옆을 잡을 자리를 확인했다.",
+          "card": "axel_chris",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 표식을 마련하고 다크니스 뒤의 공격 방향을 나눈다",
+          "result": "다크니스 뒤에 표식을 놓고 네 공격이 지나갈 방향을 나눴다. 160골드를 지불했다. 「검보다 먼저 선 자리」의 기억 카드1장을 얻었다. 다크니스는 앞을 막고 서 있지만 크리스는 네가 공격할 빈 쪽까지 막지 말라고 손짓한다.",
+          "card": "axel_darkness_position",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_party_water",
+      "title": "박수 뒤에 남은 물자리",
+      "story": "아쿠아가 물을 쓰는 연회 재주를 보여 주겠다며 자리를 잡는다. 카즈마는 바로 옆에 모험가들의 짐이 쌓였는데도 박수부터 바라느냐고 타박하고, 루나는 젖으면 곤란한 짐을 먼저 나누자고 한다. 아쿠아는 자리를 비우면 더 멋진 것을 보여 줄 수 있다고 물러서지 않는다.",
+      "intro": "공연 자리를 도울지, 밖의 일을 맡을지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "천과 그릇 값을 보태고 아쿠아와 물자리를 나눈다",
+          "result": "천과 그릇 값160골드를 내고 젖어도 되는 자리와 짐 둘 자리를 나눴다. 아쿠아와 여러 부탁을 비교하며 오래 움직일 습관을 익혔다. 아쿠아는 짐이 빠진 자리를 보더니 이제 박수를 칠 준비도 됐냐고 묻는다.",
+          "card": "axel_aqua_stage",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카즈마와 적이 많은 바깥 길목을 맡는다",
+          "result": "카즈마와 더 많은 적이 오가는 바깥 길목을 맡았다. 빈틈을 노리고 얻을 몫을 놓치지 않는 요령을 배웠고 개인 사냥의 적 수가 늘었다. 카즈마는 안에서 박수만 치는 것보다는 벌이가 있어야 한다며 너와 맡을 자리를 나눈다.",
+          "card": "axel_kazuma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "180골드로 짐 덮개를 마련하고 루나와 지나갈 자리를 비운다",
+          "result": "루나와 젖으면 곤란한 짐에 덮개를 씌우고 사람들 사이에 지나갈 자리를 남겼다. 180골드를 지불했다. 「창구 밖의 빈자리」의 기억 카드1장을 얻었다. 아쿠아가 박수를 기다리는 동안 카즈마는 아직 덮지 않은 마지막 짐을 그 자리 밖으로 옮긴다.",
+          "card": "axel_luna_space",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 아쿠아의 연회 재주·루나의 안내와 카즈마 모험가 역할에서 별도 공연 전 준비를 만든다. 물 공연의 실제 연출·미니게임·보급품 손실·구경꾼 NPC는 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_small_figure",
+      "title": "갑옷보다 작은 진열품",
+      "story": "다크니스가 귀여운 진열품 앞에서 멈추는 바람에 뒤의 사람들이 지나가지 못한다. 크리스가 슬쩍 옆으로 비키라고 하자 다크니스는 관심 없는 척하다가 같은 물건을 다시 본다. 카즈마는 갑옷을 입고 서 있으면 작은 물건보다 네가 더 눈에 띈다고 말한다.",
+      "intro": "작은 진열품 앞의 정체를 풀어 보자.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "포장 용품을 마련해 다크니스와 진열품을 나눈다",
+          "result": "포장 용품 값180골드를 내고 작은 진열품을 나눴다. 다크니스와 몸 상태를 지키며 싸움을 이어 갈 요령을 익혔다. 포장이 끝나자 다크니스는 남은 작은 물건도 살펴보고 크리스는 이번에는 길부터 비키라고 웃는다.",
+          "card": "axel_darkness_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다크니스와 적이 많은 바깥 자리를 맡는다",
+          "result": "다크니스와 더 많은 적이 드나드는 바깥 자리를 맡았다. 오래 버틸 준비를 배웠지만 공격의 부담도 남고 개인 사냥의 적 수가 늘었다. 다크니스는 진열품을 다시 보고 싶어 하면서도 먼저 맡을 자리를 가리킨다.",
+          "card": "axel_darkness",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 진열을 준비하고 크리스와 사람들이 지나갈 길을 나눈다",
+          "result": "크리스와 진열품 옆의 흔적을 살피고 뒤에 선 사람들이 지나갈 길을 나눴다. 160골드를 지불했다. 「흔적을 밟기 전에」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 다크니스는 길을 비켰지만 눈은 같은 진열품에 남아 있고 크리스는 다시 멈출 자리부터 묻는다.",
+          "card": "axel_chris_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 다크니스의 귀여운 물건 선호·방어 역할, 크리스와 친구 관계에서 별도 진열 문제를 만들었다. 성적 취향을 사건 자원으로 쓰거나 인형·갑옷을 새 영구 장비로 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_rival_target",
+      "title": "표적 하나에 다른 연습",
+      "story": "융융이 여러 공격을 연습할 표적을 가져왔는데 메구밍은 폭렬 마법 하나로 끝낼 수 있는 자리를 고른다. 융융은 먼저 작은 표적의 간격도 보자고 하고 메구밍은 큰 자리부터 보자고 맞선다. 카즈마는 연습 전에 둘이 같은 표적을 노리지 않도록 네가 맡을 쪽을 정하라고 한다.",
+      "intro": "한 번의 큰 공격과 여러 공격의 간격을 비교한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "도구 값을 내고 융융과 작은 표적의 간격을 짚는다",
+          "result": "연습 도구 값200골드를 내고 융융과 표적 간격을 짚었다. 힘을 모으면서 주변도 살피는 공격 요령을 익혔다. 융융은 다른 공격도 준비할 수 있다며 아직 남은 표적을 보여 주고 메구밍은 큰 자리를 다시 가리킨다.",
+          "card": "axel_yunyun_practice",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "메구밍과 더 강한 적이 접근하는 자리를 맡는다",
+          "result": "메구밍과 더 강한 적이 접근하는 자리를 맡았다. 큰 공격에 힘을 모으는 요령을 배운 대신 다음 동작의 부담이 남고 개인 사냥의 적 단계가 올라갔다. 메구밍은 폭렬 마법을 쓸 때까지 작은 표적도 남겨 두겠냐고 묻는다.",
+          "card": "axel_megumin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 표시 용품을 마련하고 융융과 서로 다른 표적을 나눈다",
+          "result": "융융과 표적의 간격을 표시하고 메구밍이 고른 큰 자리와 다른 쪽을 맡았다. 160골드를 지불했다. 「서로 다른 표적」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 메구밍이 한 번에 끝낼 수 있다며 큰 자리를 가리키자 융융은 네가 아직 보지 않은 작은 표적을 남긴다.",
+          "card": "axel_yunyun_gap",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 융융의 상식적 성격·높은 능력·메구밍 라이벌과 메구밍의 폭렬 마법 선호에서 별도 표적 준비를 만든다. 실제 추가 마법·폭발·사냥 시간 연장·승부 판정은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_sword_introduction",
+      "title": "검의 이름보다 먼저 할 말",
+      "story": "미츠루기가 아쿠아에게 마검 그람의 이름부터 설명하려는데 크리스는 검보다 먼저 어느 쪽을 맡을지 묻는다. 카즈마는 소개를 듣는 동안 바깥 길목은 누가 볼 것이냐고 끼어든다. 아쿠아가 자기를 위한 설명이 얼마나 남았냐고 묻자 미츠루기는 다시 자세를 고쳐 선다.",
+      "intro": "검의 이름을 듣기 전에 맡을 자리를 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표시 용품을 마련해 미츠루기와 공격 방향을 짚는다",
+          "result": "표시 용품 값220골드를 내고 미츠루기와 큰 상대를 향한 공격 방향을 짚었다. 공격 위치와 힘을 실을 순간을 고르는 요령을 익혔다. 미츠루기는 자세 설명을 마치자 다시 그람의 이름을 말하려 하고 카즈마는 맡을 쪽이 먼저 정해졌다며 돌아선다.",
+          "card": "axel_mitsurugi_stance",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크리스와 적이 많은 바깥 길목을 맡는다",
+          "result": "크리스와 더 많은 적이 드나드는 바깥 길목을 맡았다. 빠르게 움직이며 공격 방향을 고르는 요령을 익혔고 개인 사냥의 적 수가 늘었다. 크리스는 미츠루기의 소개가 끝나기를 기다리면 늦겠다며 갈 쪽을 먼저 짚는다.",
+          "card": "axel_chris",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 표시를 준비하고 카즈마와 소개하는 동안 맡을 몫을 나눈다",
+          "result": "카즈마와 표시물을 나눠 옮기고 미츠루기가 소개하는 동안 볼 길목을 골랐다. 160골드를 지불했다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 미츠루기가 그람의 이름을 다시 말하자 카즈마는 소개가 끝날 때까지 맡을 몫도 함께 적으라고 한다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 미츠루기의 마검 그람·정의감·아쿠아 존숭에서 별도 자기소개 준비를 창작한다. 그람 탈취·반환의 원작 사건을 재현했다고 주장하지 않으며 플레이어에게 그람을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_newcomer_questions",
+      "title": "처음 온 사람의 두 번째 질문",
+      "story": "새 모험가가 루나에게 어느 길로 나가야 하냐고 묻다가, 적을 만나면 누구에게 물어야 하냐고 다시 묻는다. 길드에서 늘 모험가를 맞는 거친 남자는 일단 들어올 자리부터 비우자고 한다. 카즈마는 창구에서 답을 듣는 일과 바깥의 강한 적을 확인하는 일을 한 사람이 전부 맡지 말자고 한다.",
+      "intro": "신참의 다음 질문까지 맡을지, 바깥을 맡을지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "기록용품을 마련해 루나와 신참의 질문을 나눈다",
+          "result": "기록용품 값180골드를 내고 루나와 신참의 질문을 나누었다. 여러 부탁과 얻을 몫을 확인하며 오래 움직일 습관을 익혔다. 첫 질문이 끝나자 신참은 다음에 물어볼 일도 적어 놓고 루나는 한꺼번에 답하려 하지 말자고 한다.",
+          "card": "axel_luna_arrival",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카즈마와 더 강한 적이 오가는 안내 길목을 맡는다",
+          "result": "카즈마와 더 강한 적이 오가는 안내 길목을 맡았다. 빈틈과 얻을 몫을 놓치지 않는 요령을 익힌 대신 개인 사냥의 적 단계가 올라갔다. 카즈마는 운에만 맡기지 말고 돌아올 길도 확인하자며 신참이 질문한 쪽을 짚는다.",
+          "card": "axel_kazuma",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 안내를 준비하고 루나와 신참이 돌아올 길을 비운다",
+          "result": "루나와 신참이 돌아올 길에 표식을 남기고 맡을 길목을 한 곳 줄였다. 160골드를 지불했다. 「창구 밖의 빈자리」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계를 최저1범위에서1낮췄다. 신참이 돌아와도 같은 창구를 찾을 수 있냐고 묻자 루나는 아직 받지 않은 다음 질문을 펼친다.",
+          "card": "axel_luna_space",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": -1,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 루나의 액셀 길드 안내와 길드의 거친 남자가 모험가를 환영하는 역할에서 별도 신참 안내를 만들었다. 새 의뢰를 자동 완수하거나 대책 없는 NPC 출격을 생성하지 않는다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "axel_cage_from_shore",
+      "title": "버린 것이 아니라 줄을 잡은 것",
+      "story": "호숫가에서 아쿠아가 든 우리를 보던 구경꾼이 사람을 버리는 것 아니냐며 네 앞을 막는다. 카즈마는 정화 의뢰라고 해명하는 동안 줄을 잡아 줄 손을 찾고, 우리 안의 아쿠아는 해명보다 끌어올리는 때를 놓치지 말라고 외친다. 너는 구경꾼과 줄 사이에서 지금 자기 손을 어디에 쓸지 정한다.",
+      "intro": "해명하는 말과 끌어올리는 손 중 어디에 힘을 보탤까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 줄 고정용품을 마련하고 끌어올릴 때까지 잡는다",
+          "result": "줄 고정용품 값 180골드를 내고 우리를 끌어올릴 때까지 손을 놓지 않았다. 끝까지 버틴 기억으로 최대 체력이 늘고 받는 피해가 줄었다. 아쿠아는 물 밖으로 나왔지만 손을 뗄 자리부터 찾으라고 외친다.",
+          "card": "axel_aqua_rope",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "정화 의뢰의 목적을 설명하고 더 많은 개인 사냥을 맡는다",
+          "result": "구경꾼에게 정화 의뢰와 우리를 쓰는 이유를 설명하고 더 많은 개인 사냥을 맡는 부담을 택했다. 의뢰받은 일을 확인하는 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 카즈마는 설명이 끝난 손도 줄을 잡을 수 있냐고 묻는다.",
+          "card": "axel_aqua_threshold",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 카즈마와 줄 옆에 남길 몫을 나눈다",
+          "result": "카즈마와 줄 옆의 짐을 옮기고 가려졌던 줄을 잡을 손과 남길 몫을 나눴다. 160골드를 지불했다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 구경꾼이 아직 줄을 가리키자 카즈마는 짐을 옮긴 손도 다시 그쪽에 보태 달라고 한다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "5화의 우리와 정화 의뢰는 공식 소개의 사실이고 구경꾼·줄 고정용품·여행자의 일은 별도 창작이다. 우리 안의 아쿠아를 버리거나 새로운 정화 지점을 완료했다고 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_snow_footprints",
+      "title": "작은 발자국이 멀어질 때",
+      "story": "눈의 정령을 쫓던 카즈마가 저쪽에도 더 있다며 손가락을 뻗는다. 뒤돌아보니 네가 남긴 발자국은 겹쳐 있어 어디서 내려왔는지 바로 보이지 않고, 아쿠아는 쉬운 의뢰라도 돌아갈 길을 놓치지 말라고 말한다. 너는 더 멀리 쫓을 발걸음과 지금 확보할 보급 중 자기 몫을 정한다.",
+      "intro": "더 쫓아갈 발걸음과 돌아올 보급 중 무엇을 맡을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 길 표시 용품을 마련하고 발자국 사이를 따라간다",
+          "result": "길 표시 용품 값 180골드를 내고 겹친 발자국 사이에 돌아올 표식을 남겼다. 추격의 발걸음을 기억해 이동속도와 일반 몬스터에게 가하는 피해가 늘었다. 카즈마는 멀어진 정령과 네가 남긴 표식을 번갈아 본다.",
+          "card": "axel_kazuma_snow",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 많은 개인 사냥을 맡고 카즈마와 더 쫓아갈 범위를 나눈다",
+          "result": "카즈마와 더 쫓아갈 범위를 나누되 돌아올 표식은 따로 남겼다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가2올랐다. 카즈마는 저쪽도 자기 몫이냐고 묻고 아쿠아는 더 간 만큼 돌아올 길도 보라고 한다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 2,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 돌아올 짐을 준비하고 아쿠아와 남긴 표식을 확인한다",
+          "result": "아쿠아와 돌아올 짐을 준비하고 겹친 발자국 옆의 표식을 다시 확인했다. 160골드를 지불했다. 「돌아갈 곳부터」의 기억 카드1장을 얻었다. 카즈마가 한 번 더 먼 곳을 가리키자 아쿠아는 아직 남긴 짐부터 가져갈 것인지 묻는다.",
+          "card": "axel_aqua_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "7화의 달아나는 정령과 토벌 상황에서 길을 잃기 쉬운 여행자의 일을 창작했다. 현재 체력 냉기 피해·실제 정령 몹·겨울 장군 전투·카즈마의 죽음과 부활 변경은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_question_cut_short",
+      "title": "질문이 끝나기 전에",
+      "story": "위즈가 카즈마의 질문에 답하려는데 아쿠아가 제령 의뢰가 왔다며 말을 끊는다. 카즈마는 아직 질문이 끝나지 않았다고 하고 위즈는 답하던 손을 멈춘 채 너도 무엇을 물으러 왔는지 묻는다. 네가 마치려던 질문은 아직 남았고 문밖에는 옮겨야 할 보급품도 기다리고 있다.",
+      "intro": "남은 질문을 마칠까, 밖의 준비를 맡을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "200골드로 시범 소모품을 마련하고 내 질문을 먼저 마친다",
+          "result": "시범 소모품 값 200골드를 내고 내 질문을 끝까지 마쳤다. 질문과 시범이 끝날 때를 기다린 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 답하던 손을 다시 들고 아쿠아는 아직 문밖의 의뢰를 가리킨다.",
+          "card": "axel_wiz_question",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 위즈와 작은 시범부터 확인한다",
+          "result": "위즈와 작은 시범에서 실패할 자리를 먼저 확인하고 아직 끝나지 않은 질문을 남겼다. 「작은 실패부터 살피기」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계가1올랐다. 카즈마가 다음 설명을 기다리는 사이 아쿠아는 문밖의 제령 의뢰도 남아 있다고 끼어든다.",
+          "card": "axel_wiz_small",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 보급을 마련하고 아쿠아와 문밖의 비상분을 나눈다",
+          "result": "아쿠아와 문밖의 보급을 나누고 당장 가져갈 몫 옆에 비상분을 남겼다. 160골드를 지불했다. 「남겨 둔 비상분」의 기억 카드1장을 얻었다. 가게 안에서 카즈마의 질문이 다시 들리자 아쿠아는 남긴 비상분보다 다음 의뢰를 먼저 가리킨다.",
+          "card": "axel_aqua_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "8화의 배움을 방해하는 아쿠아·가르치려는 위즈·제령 의뢰의 등장에서 별도 방문을 창작했다. 플레이어에게 원작 주문·드레인 터치·마력 회복·새 기술을 전수하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_house_threshold",
+      "title": "의뢰를 받은 문은 어디지?",
+      "story": "제령 의뢰의 저택 앞에서 아쿠아가 기운이 난다는 창문을 가리키자 카즈마는 먼저 의뢰인을 만나야 하지 않냐고 묻는다. 위즈는 두 사람이 서로 다른 문턱에 서 있는 동안에도 의뢰받은 집인지 다시 확인하고 있다. 너는 아직 열리지 않은 문과 바깥에 남은 발자국 사이에서 자기 일을 고른다.",
+      "intro": "아직 열린 문이 없다. 먼저 무엇을 확인할까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "170골드로 의뢰 안내를 대조하고 열릴 문을 기다린다",
+          "result": "의뢰 안내를 마련한 값 170골드를 내고 문턱을 대조했다. 의뢰받은 곳부터 확인한 기억으로 일반 몬스터에게 가하는 피해와 지속 체력 재생이 늘었다. 아쿠아는 먼저 본 창문에서 문 쪽으로 시선을 옮긴다.",
+          "card": "axel_aqua_threshold",
+          "card2": null,
+          "gold": 0,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡으며 위즈와 바깥 흔적을 살핀다",
+          "result": "위즈와 바깥의 발자국을 살피고 더 강한 개인 사냥을 맡는 부담을 택했다. 끝까지 설명을 듣고 준비한 기억으로 차지 준비 속도와 비방향 공격 피해가 늘었다. 위즈는 흔적만으로 집 안의 주인을 안다고 단정하지 않고 다시 문을 본다.",
+          "card": "axel_wiz_question",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 보급을 준비하고 카즈마와 의뢰인이 맡긴 몫부터 확인한다",
+          "result": "카즈마와 보급을 준비하되 아직 열리지 않은 문 앞에서 의뢰인이 맡긴 몫부터 확인했다. 160골드를 지불했다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 아쿠아가 창문을 다시 보자 카즈마는 그쪽으로 옮기기 전에 의뢰인이 문을 열 차례라고 한다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "8화의 저택 제령 의뢰를 바탕으로, 먼저 확인할 문이 다르다는 작은 문제를 창작했다. 안의 유령 신원·기운의 실체·성불 방법·아쿠아의 새 능력을 확정하지 않고 위즈에게 남의 명령을 따르게 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "axel_rope_after_return",
+      "title": "끌어올린 뒤에도 잡힌 줄",
+      "story": "줄을 붙들었던 네 앞에 우리를 올려놓을 자리가 마련되었는데도 구경꾼이 이제 놓아도 되냐고 묻는다. 카즈마는 먼저 발 디딜 자리를 보자고 하고 아쿠아는 밖에 나와도 다시 물속에 넣지 말라며 손을 뻗는다. 너는 손을 떼기 전의 짧은 준비와 돌아올 보급 중 무엇을 맡을지 정한다.",
+      "intro": "우리를 내려놓기 전, 손을 언제 뗄 수 있을까?",
+      "previous": "axel_cage_from_shore",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "150골드로 내려놓을 받침을 마련하고 손을 뗄 때를 맞춘다",
+          "result": "받침 값 150골드를 내고 내려놓는 때를 맞춰 줄에서 손을 뗐다. 카즈마와 짧은 준비의 끝을 기다린 기억으로 이동속도와 차지 준비 속도가 늘었다. 아쿠아는 받침을 보자 다시 물속에 넣는 용도는 아니냐고 묻는다.",
+          "card": "axel_kazuma_release",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 75
+        },
+        {
+          "label": "더 많은 개인 사냥을 맡고 아쿠아와 물 밖에 남길 자리를 살핀다",
+          "result": "아쿠아와 물 밖에 남길 자리를 살피고 줄에서 손을 떼기 전에 발 디딜 곳을 나눴다. 「돌아갈 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 적 수 단계가1올랐다. 아쿠아는 바깥 자리가 보여도 우리를 다시 물속에 넣는 것은 아니냐고 확인한다.",
+          "card": "axel_aqua_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 1,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 반환을 준비하고 카즈마와 아직 잡힌 줄 옆의 짐을 나눈다",
+          "result": "카즈마와 반환할 짐을 나누고 아직 잡힌 줄 옆에 비워 둘 몫을 남겼다. 160골드를 지불했다. 「먼저 따져 볼 몫」의 기억 카드1장을 얻었다. 구경꾼이 이제 놓아도 되냐고 묻자 카즈마는 짐부터 내려놓고 줄을 잡은 손을 다시 보자고 한다.",
+          "card": "axel_kazuma_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "150골드를 내고 받침을 준비했지만 내려놓는 때를 맞추지 못했다. 기다리던 손은 아직 줄을 잡고 있고 카드는 얻지 못했다.",
+      "canonFact": "줄 고정용품을 마련한 자신의 성공한 1번 선택에서만 열리는 창작 후속이다. 우리를 끌어올렸다는 앞선 행동의 연속이며 호수의 모든 정화·원작 이후 사건·실제 장비를 해결하거나 지급하지 않는다.",
+      "uncertain": []
+    }
+  ]
+}
