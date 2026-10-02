@@ -1,6 +1,0 @@
-{
-  "original": "requests/prepare-mitaka-card-choices-100.cjs",
-  "problem": "brief.policy에서 문자열을 객체로 펼쳐 숫자 키로 저장하는 요청 구성 실수.",
-  "fixed": "2·3집필은 확정policy객체로 새 요청 파일을 만들었다. 1집필은 이미 호출되어 원문을 보존하고 실제 출력/검토 결과를 독립 대조한다.",
-  "contentMechanicsChanged": false
-}
