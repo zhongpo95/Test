@@ -78,3 +78,19 @@ blender.exe --background --factory-startup --python-exit-code 1 --python tools/p
 - 반복 시작·끝 정점 오차와 입 본의 직접 애니메이션 부재를 검사합니다. 각 시퀀스 및 지오셋의 애니메이션 범위를 다시 계산합니다.
 - 두 모델에서 구조 오류·경고는 0건이고 Death 부재 1건만 알려진 제한으로 남습니다.
 - 렌더와 GIF는 제작 및 외형 확인 자료입니다. 실제 워크래프트·월드 에디터의 재생 검증을 뜻하지 않습니다.
+
+## 사 텍스처 아틀라스
+
+`pack-atlas.py`와 `apply-atlas.cjs`는 위 두 사 모델 전용 후처리입니다. 기본 변환의 `geometry.json`에 기록된 원본 PNG에서 공통 얼굴·눈·머리·의상을 1024 아틀라스 하나로 만들고, 신발 모델 피부는 512, 맨발 모델의 고유 얼굴·피부는 1024 아틀라스로 만듭니다. 전체 16개 BLP를 공유 파일 3개로, 각 모델의 참조를 2개로 줄입니다. 개별 큰 타일은 여백을 제외한 496, 작은 타일은 240 해상도입니다. 타일마다 8픽셀 가장자리 복제 여백을 둡니다.
+
+```powershell
+python tools/pmx-mdx/pack-atlas.py --base $bothBaseConversions --output $atlasRoot
+node tools/pmx-mdx/apply-atlas.cjs $deps $baseMotionOutput $atlasRoot $baseAtlasOutput
+node tools/pmx-mdx/apply-atlas.cjs $deps $toonMotionOutput $atlasRoot $toonAtlasOutput
+```
+
+출력 경로가 이미 존재하면 실패합니다. BLP1 JPEG 품질 95, 전체 밉맵과 알파 채널을 저장합니다. Pillow의 CMYK 쓰기 시 반전을 보정하여 BLP 디코더가 기대하는 BGRA 4성분을 기록합니다. 일반 CMYK 색공간 변환을 적용하면 안 됩니다. MDX용 독립 BLP 디코더로 전체 밉을 읽고 최상위 `.rgba`도 생성합니다. 렌더 PNG는 이 RGBA 바이트와 검사 결과의 폭·높이로 만들어야 하며, 알파를 버리는 일반 BLP 리더를 사용하지 않습니다.
+
+UV가 0~1 범위이고 단일 UV·재질 레이어, 반복 및 텍스처 애니메이션이 없는 입력만 처리합니다. UV와 재질의 텍스처 참조만 변경하며, 해당 값들을 원복한 MDX가 입력 MDX와 바이트 단위로 일치하는지 검사합니다. 따라서 대기 모션, 소매 수정, 메시·스킨은 보존됩니다. 기존 재질과 지오셋 수는 유지됩니다.
+
+이번 결과의 공유 BLP는 총 1,742,442바이트이며 신발 모델 참조분은 1,199,018바이트, 맨발 모델 참조분은 1,590,299바이트입니다. 파일 통합 외에도 해상도 축소와 JPEG 손실 압축을 적용한 결과입니다. 타일 가장자리 여백이 있어도 작은 밉에서는 인접 영역이 섞일 수 있으며 실제 워크래프트의 원거리 렌더는 미검증입니다. MDX 재읽기·밉 디코딩·Blender 미리보기 검사는 실제 게임 검증을 대신하지 않습니다.
