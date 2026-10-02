@@ -251,39 +251,38 @@ library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
         call DzFrameSetPoint(Canvas, JN_FRAMEPOINT_TOPLEFT, parent, JN_FRAMEPOINT_TOPLEFT, 0, 0)
         call DzFrameSetSize(Canvas, 0.8, 0.6)
         call DzFrameSetPriority(Canvas, 90)
-        call ExpUISetToggleOverlay(EXP_UI_STATS, Canvas)
         set f = ExpUITexture(Canvas, 0, 0, 0.8, 0.6, "war3mapImported\\UI_Upgrade_Background.tga")
         set f = ExpUITexture(Canvas, 0, 0, 0.8, 0.044, "war3mapImported\\UI_Upgrade_Header.tga")
         set f = ExpUILabel(Canvas, 0.025, 0.012, 0.60, 0.025, 0.015, "캐릭터 상태 · Tab")
         set Summary = ExpUILabel(Canvas, 0.025, 0.117, 0.75, 0.024, 0.012, "")
         set StatsPanel = DzCreateFrameByTagName("FRAME", "", Canvas, "", FrameCount())
         set CardsPanel = DzCreateFrameByTagName("FRAME", "", Canvas, "", FrameCount())
-        call DzFrameSetPoint(StatsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, -0.145)
-        call DzFrameSetPoint(CardsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, -0.145)
-        // 본문 입력 영역은 상단 탭과 겹치지 않게 요약 아래로 제한한다.
-        call DzFrameSetSize(StatsPanel, 0.8, 0.455)
-        call DzFrameSetSize(CardsPanel, 0.8, 0.455)
+        call DzFrameSetPoint(StatsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, 0)
+        call DzFrameSetPoint(CardsPanel, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, 0, 0)
+        // 크기 없는 내용 컨테이너와 기본 우선순위에 의존하지 않는다.
+        call DzFrameSetSize(StatsPanel, 0.8, 0.6)
+        call DzFrameSetSize(CardsPanel, 0.8, 0.6)
         call DzFrameSetPriority(StatsPanel, 91)
         call DzFrameSetPriority(CardsPanel, 91)
         set i = 0
         loop
             exitwhen i > 2
-            set f = ExpUITexture(StatsPanel, 0.025 + i * 0.253, 0.010, 0.244, 0.388, "war3mapImported\\UI_Upgrade_Card.tga")
-            set Columns[i] = ExpUILabel(StatsPanel, 0.037 + i * 0.253, 0.024, 0.220, 0.360, 0.0105, "")
+            set f = ExpUITexture(StatsPanel, 0.025 + i * 0.253, 0.155, 0.244, 0.388, "war3mapImported\\UI_Upgrade_Card.tga")
+            set Columns[i] = ExpUILabel(StatsPanel, 0.037 + i * 0.253, 0.169, 0.220, 0.360, 0.0105, "")
             call JNFrameSetTextAlignment(Columns[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
             set i = i + 1
         endloop
-        set f = ExpUILabel(StatsPanel, 0.025, 0.411, 0.75, 0.025, 0.010, "조건부 피해는 조건 충족 시 적용 · 흡수·재생 합산 최대 체력 10%/초")
-        set f = ExpUITexture(CardsPanel, 0.578, 0.010, 0.196, 0.388, "war3mapImported\\UI_Upgrade_Card.tga")
-        set Artwork = ExpUITexture(CardsPanel, 0.589, 0.025, 0.174, 0.232, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
-        set Detail = ExpUILabel(CardsPanel, 0.591, 0.280, 0.170, 0.080, 0.011, "")
-        set f = ExpUILabel(CardsPanel, 0.591, 0.366, 0.170, 0.025, 0.009, "아이콘에 마우스를 올려 효과 확인")
+        set f = ExpUILabel(StatsPanel, 0.025, 0.556, 0.75, 0.025, 0.010, "조건부 피해는 조건 충족 시 적용 · 흡수·재생 합산 최대 체력 10%/초")
+        set f = ExpUITexture(CardsPanel, 0.578, 0.155, 0.196, 0.388, "war3mapImported\\UI_Upgrade_Card.tga")
+        set Artwork = ExpUITexture(CardsPanel, 0.589, 0.170, 0.174, 0.232, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+        set Detail = ExpUILabel(CardsPanel, 0.591, 0.425, 0.170, 0.080, 0.011, "")
+        set f = ExpUILabel(CardsPanel, 0.591, 0.511, 0.170, 0.025, 0.009, "아이콘에 마우스를 올려 효과 확인")
         call JNFrameSetTextAlignment(Detail, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set i = 1
         loop
             exitwhen i > 20
             set x = 0.025 + ModuloInteger(i - 1, 5) * 0.110
-            set y = 0.010 + R2I((i - 1) / 5) * 0.097
+            set y = 0.155 + R2I((i - 1) / 5) * 0.097
             set Cells[i] = ExpUICoverButton(CardsPanel, 0)
             call DzFrameClearAllPoints(ExpUIButtons[Cells[i]])
             call DzFrameSetPoint(ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, CardsPanel, JN_FRAMEPOINT_TOPLEFT, x, -y)
@@ -305,11 +304,11 @@ library UIPrototypeStatus initializer Init requires UIExpeditionCommon, StatsSet
         endloop
         set Cells[21] = ExpUIButton(Canvas, 0.025, 0.080, 0.130, 0.027, "능력치", 0)
         set Cells[22] = ExpUIButton(Canvas, 0.167, 0.080, 0.130, 0.027, "보유 카드", 0)
-        set Cells[23] = ExpUIButton(CardsPanel, 0.025, 0.408, 0.075, 0.027, "이전", 0)
-        set Cells[24] = ExpUIButton(CardsPanel, 0.170, 0.408, 0.075, 0.027, "다음", 0)
-        set Cells[25] = ExpUIButton(CardsPanel, 0.303, 0.408, 0.110, 0.027, "지역순", 0)
-        set Cells[26] = ExpUIButton(CardsPanel, 0.425, 0.408, 0.110, 0.027, "희귀도순", 0)
-        set PageText = ExpUILabel(CardsPanel, 0.112, 0.412, 0.050, 0.022, 0.011, "")
+        set Cells[23] = ExpUIButton(CardsPanel, 0.025, 0.553, 0.075, 0.027, "이전", 0)
+        set Cells[24] = ExpUIButton(CardsPanel, 0.170, 0.553, 0.075, 0.027, "다음", 0)
+        set Cells[25] = ExpUIButton(CardsPanel, 0.303, 0.553, 0.110, 0.027, "지역순", 0)
+        set Cells[26] = ExpUIButton(CardsPanel, 0.425, 0.553, 0.110, 0.027, "희귀도순", 0)
+        set PageText = ExpUILabel(CardsPanel, 0.112, 0.557, 0.050, 0.022, 0.011, "")
         set i = 21
         loop
             exitwhen i > 26

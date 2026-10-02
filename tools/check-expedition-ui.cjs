@@ -25,6 +25,7 @@ function fresh(localPlayer = 0, prototype = false) {
     FrameCount: () => count + 1, DzGetGameUI: () => 0, GetGameplayUI: () => 0,
     DzCreateFrameByTagName: (type,name,parent) => {const id=++count;frames.set(id,{id,type,parent,shown:true,enabled:true,scripts:{}});return id;},
     DzFrameSetPoint: (id,point,relative,relativePoint,x,y) => Object.assign(frame(id),{relative,x,y,absolute:false}),
+    DzFrameSetParent: (id,parent) => {frame(id).parent=parent;},
     DzFrameClearAllPoints: no,
     DzFrameSetAbsolutePoint: (id,point,x,y) => Object.assign(frame(id),{x,y,absolute:true}),
     DzFrameSetSize: (id,w,h) => Object.assign(frame(id),{w,h}),
