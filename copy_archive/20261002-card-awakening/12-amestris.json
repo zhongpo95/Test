@@ -58,9 +58,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 8000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "재료의 구조를 이해하고 재구축하는 연금술과 체술을 약점을 짚는 공격 준비로 각색한다. 연금술 기술을 새로 지급하지 않는다.",
       "uncertain": []
@@ -178,9 +183,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "엄격한 생존 수련과 체술을 공격 전에 자세와 몸 상태를 지키는 성장으로 각색한다. 내장 손실·인체 연성을 대가로 요구하지 않는다.",
       "uncertain": []
@@ -250,9 +260,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 10
+          }
+        ]
       },
       "canonFact": "정확한 사격과 침착함을 공격선을 짚는 준비로 각색한다. 총기·사거리·군인 NPC·반려견 전투 능력은 지급하지 않는다.",
       "uncertain": []

@@ -184,7 +184,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call ExpUIText(EventTitle, "개인 사건 · 행동 선택")
-            call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치와 각성 조건을 확인할 수 있습니다.")
+            call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치를 확인할 수 있습니다.")
         else
             call ExpUIText(EventTitle, "개인 사건 · 사건 결과")
             call ExpUIText(EventStory, "이번 선택의 결과를 확인하세요. 확인을 누르면 내 사냥터로 돌아갑니다.")

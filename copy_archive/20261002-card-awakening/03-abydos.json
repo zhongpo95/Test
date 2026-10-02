@@ -67,9 +67,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "시로코의 정찰과 몸을 움직이는 취미를 이동에 따른 성장으로 각색했다.",
       "uncertain": []
@@ -115,9 +120,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 10
+          }
+        ]
       },
       "canonFact": "노노미의 기관총 엄호 역할을 일반 몬스터 대응으로 각색했다.",
       "uncertain": []
@@ -211,9 +221,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "호시노를 되찾기 위해 준비하는 전개를 구출 경험으로 각색했다. 원작 갈등을 사건 한 번에 해결하지 않는다.",
       "uncertain": []
@@ -235,9 +250,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "시바세키 라멘에서 아르바이트하는 세리카의 역할과 가게 복구를 돕는 창작 사건을 연결했다. 멀쩡히 일을 이어 갈 준비를 고체력·수급으로 각색하며 원작 신규 능력이라고 주장하지 않는다.",
       "uncertain": []
@@ -259,9 +279,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "조깅·체력 훈련·로드바이크 취미를 동작의 박자와 반복 사냥 준비로 각색한다. 자전거 탈것·거리 기록·새 사격이나 영구 신속을 지급하지 않는다.",
       "uncertain": []
@@ -451,9 +476,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 8000,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "말썽을 즐기는 성격에서 창작 봉투 내기를 만들고 빈틈을 기다리는 성장으로 각색한다. 치명타 확률이 아니라 치명타 피해이며 비방향은 헤드/백 플래그가 없는 공격에만 적용한다. 실제 폭탄·지뢰·폭발·확률 상승은 없다.",
       "uncertain": []

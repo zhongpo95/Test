@@ -81,9 +81,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "크리스의 도적 역할을 민첩한 손놀림과 공격 간격으로 각색했다.",
       "uncertain": []
@@ -109,9 +114,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "charge_damage",
+            "value": 10
+          }
+        ]
       },
       "canonFact": "폭렬 마법에 집중하는 마법사라는 특징을 차지 공격과 행동 속도 패널티로 각색했다.",
       "uncertain": []
@@ -209,9 +219,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "위즈 가게의 바니르와 카즈마의 거래를 손익을 읽는 성장으로 각색했다.",
       "uncertain": []
@@ -281,9 +296,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 10000,
+        "effects": [
+          {
+            "stat": "charge_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "능력 높고 상식적인 홍마족 아크 위저드·메구밍의 라이벌 역할을 힘을 모으고 주변을 넓게 볼 준비로 각색한다. 추가 마법·시전 자원·우정 게이지·사냥 시간 증가는 없다.",
       "uncertain": []
@@ -381,9 +401,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "눈의 정령 토벌에서 쉬운 의뢰를 더 쫓으려는 상황의 발걸음을 각색했다. 정령의 골드·겨울 장군 토벌·냉기 기술을 지급하지 않는다.",
       "uncertain": []

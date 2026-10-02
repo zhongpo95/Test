@@ -71,9 +71,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "미코토의 전자기 능력과 동전 레일건을 집중·관통 역할로 각색했다.",
       "uncertain": []
@@ -95,9 +100,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "쿠로코의 공간이동과 저지먼트 역할을 이동·사각 성장으로 각색했다. 순간이동 스킬을 지급하지 않는다.",
       "uncertain": []
@@ -143,9 +153,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "swift",
+            "value": 90
+          }
+        ]
       },
       "canonFact": "사텐의 레벨 0과 소문을 좋아하는 특징을 현장 탐색·수급으로 각색했다.",
       "uncertain": []
@@ -191,9 +206,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "동전을 사출하는 레일건의 이미지를 차지 준비와 보스 공격으로 각색했다.",
       "uncertain": []
@@ -383,9 +403,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 9000,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 10
+          }
+        ]
       },
       "canonFact": "곤란한 사람을 돕는 열혈 성격을 더 세게 밀어붙이되 오래 버틸 여유를 줄이는 성장으로 각색한다. 원작의 불명확한 능력 원리·새 펀치·무적을 구현하지 않는다. 최대 체력 패널티는 지속 능력치이며 현재 체력 지불 선택지가 아니다.",
       "uncertain": []
@@ -479,9 +504,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 35,
+        "effects": [
+          {
+            "stat": "crit_chance",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "안티스킬의 실패와 좋아하던 게임을 하다 혼자 남은 공식 상황에서 다음 입력을 지켜보는 기억으로 각색했다. 학생의 사정·게임 종류·실제 미니게임·게임 기술 전수를 확정하지 않는다.",
       "uncertain": []
@@ -503,9 +533,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 9000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "성하제에서 무대의 큰 일을 맡고 긴장하는 공식 소개를 힘을 싣는 순간을 기다리는 기억으로 각색했다. 원작의 악기·공연·곡·관객 평가·새 발사 기술은 지급하지 않는다.",
       "uncertain": []

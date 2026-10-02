@@ -65,9 +65,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "호텔 손님을 돕는 미샤의 분주한 준비를 각색한다. 빙결이나 새 호텔 업무 시스템은 지급하지 않는다.",
       "uncertain": []
@@ -89,9 +94,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "위험과 운명을 게임처럼 마주하는 인물의 태도를 치명 기회의 준비로 각색한다. 원작 슬롯머신 보상이나 확률을 주장하지 않는다.",
       "uncertain": []
@@ -161,9 +171,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "기억을 살피는 기억하는 자의 역할을 상대의 빈틈을 기억하는 준비로 각색한다. 아르카나 중첩이나 지속 피해를 지급하지 않는다.",
       "uncertain": []
@@ -261,9 +276,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "normal_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "꿈속에서 여행자의 이야기를 듣는 미샤에게 서두르기 전에 자리를 보는 법을 배운다. 벨보이의 실제 일이나 모든 호텔 손님에게 보이는 인물이라고 주장하지 않는다.",
       "uncertain": []
@@ -285,9 +305,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "과묵하게 장검을 지닌 여행자의 특징에서 간격과 일격의 방향을 보는 성장을 창작한다. 꿈의 눈 소유자·건축가·즉사·원작 필살기를 지급하지 않는다.",
       "uncertain": []
@@ -409,9 +434,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "화합의 음악을 듣는 만남에서 남의 기대에 가려지지 않는 첫마디를 성장으로 각색한다. 여행자가 가수나 오디션 심사위원이 되거나 원작 공연을 바꾸지 않는다.",
       "uncertain": []
@@ -433,9 +463,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "공식 사이보그 카우보이의 한 상대와의 결투 철학을 큰 상대와 방향 조건의 공격 준비로 각색한다. 총·결투 기술·원작 물리 약점 부여를 지급하지 않는다.",
       "uncertain": []
@@ -485,9 +520,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 40,
+        "effects": [
+          {
+            "stat": "healthy_damage",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "삶의 의미를 찾고 운명에 맞서려는 목적을 평범한 풍경을 고르는 독립 만남으로 각색한다. 체력 증가는 카드 성장이지 엔트로피 상실증 치료나 반디의 신체 변화가 아니다.",
       "uncertain": []

@@ -93,9 +93,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "penetration",
+            "value": 6
+          }
+        ]
       },
       "canonFact": "숙련된 노병 오이겐의 사격을 차지·치명 보너스로 각색했다.",
       "uncertain": []
@@ -141,9 +146,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 4
+          }
+        ]
       },
       "canonFact": "무예를 수련하는 검호 나루메아의 역할을 방향 적중·치명 성장으로 각색했다.",
       "uncertain": []
@@ -189,9 +199,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "성정수를 사냥하는 조직과 알베스의 창을 사용하는 제타의 역할을 보스·관통 성장으로 각색했다.",
       "uncertain": []
@@ -309,9 +324,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 50,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
       },
       "canonFact": "기사단장의 병사 통솔을 역할 교대와 공격 위치의 성장으로 각색했다. 군대·쌍검·새 전격 기술을 지급하지 않는다.",
       "uncertain": []
@@ -357,9 +377,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 12
+          }
+        ]
       },
       "canonFact": "낚시꾼을 자처하는 숨은 검호를 몸놀림과 움직임에 비례한 공격 요령으로 각색했다. 낚시 성공·물고기 자원·검 장비·원작 검 기술을 지급하지 않는다.",
       "uncertain": []

@@ -66,9 +66,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 12000,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 8
+          }
+        ]
       },
       "canonFact": "키리토의 검 전투를 공격 기회를 이어가는 성장으로 각색했다.",
       "uncertain": []
@@ -90,9 +95,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 3,
+        "goal": 60,
+        "effects": [
+          {
+            "stat": "crit_damage",
+            "value": 15
+          }
+        ]
       },
       "canonFact": "섬광이라는 아스나의 검사 이미지를 신속·방향 공격으로 각색했다.",
       "uncertain": []
@@ -210,9 +220,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 15000,
+        "effects": [
+          {
+            "stat": "final_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "보스 방의 위험을 알게 되는 정찰 전개를 보스 피해·관통으로 각색했다.",
       "uncertain": []
@@ -330,9 +345,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 2,
+        "goal": 10000,
+        "effects": [
+          {
+            "stat": "action_speed",
+            "value": 3
+          }
+        ]
       },
       "canonFact": "혈맹기사단 부단장의 강한 심지와 검 전투를 큰 상대에게 힘을 싣는 순간을 나누는 준비로 각색한다. 길드 입단·히스클리프 결투·실제 부대 지휘를 구현하지 않는다.",
       "uncertain": []
@@ -426,9 +446,14 @@
         }
       ],
       "evolution": {
-        "kind": 0,
-        "goal": 0,
-        "effects": []
+        "kind": 1,
+        "goal": 45,
+        "effects": [
+          {
+            "stat": "boss_damage_percent",
+            "value": 5
+          }
+        ]
       },
       "canonFact": "공식2화의 솔로끼리 파티를 맺는 상황에서 자기 간격과 앞쪽을 보는 기억으로 각색했다. 실제 파티 합류·NPC 동행·원작 소드스킬·공략 승리를 지급하지 않는다.",
       "uncertain": []

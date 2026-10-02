@@ -174,30 +174,30 @@ check('사건 필드 변경은 기존 몬스터에도 HP 비율을 보존하고 
   assert(e.ProtoOutcome[0].includes('동시 몬스터 수 4 → 6'));
   e.ProtoDensity[0]=9;e.ProtoSelected[0]=id;assert(!e.ProtoBranchAllowed(0,1));
 });
-check('획득 이후부터만 처치·실제 피해·무피격 각성 진행, 카드 효과와 최대 사건 후보 4개',()=>{
+check('실제 카드는 처치·피해·시간으로 각성하지 않고 기본 효과와 사건 후보 상한을 유지',()=>{
   const {e}=party();e.ProtoKills[0]=100;e.ProtoDamage[0]=50000;e.ProtoSafeTime[0]=100;
   const kill=card(e,'axel_vanir'),hit=card(e,'shiro_analysis'),safe=card(e,'saber_opening');
   for(const id of [kill,hit,safe]){e.ProtoGrantCard(0,id);assert.equal(e.ProtoCardProgress[e.ExpKey(0,id)],0);}
-  for(let i=0;i<45;i++)e.ProtoKill(0);e.ProtoEvolutionTick(0);assert(e.ProtoEvolved[e.ExpKey(0,kill)]);
-  e.ProtoHuntOwner[100]=1;e.ProtoRecordDamage(0,100,6000);e.ProtoEvolutionTick(0);assert(e.ProtoEvolved[e.ExpKey(0,hit)]);
-  for(let i=0;i<240;i++)e.ProtoEvolutionTick(0);assert(e.ProtoEvolved[e.ExpKey(0,safe)]);
+  for(let i=0;i<45;i++)e.ProtoKill(0);e.ProtoEvolutionTick(0);assert(!e.ProtoEvolved[e.ExpKey(0,kill)]);
+  e.ProtoHuntOwner[100]=1;e.ProtoRecordDamage(0,100,6000);e.ProtoEvolutionTick(0);assert(!e.ProtoEvolved[e.ExpKey(0,hit)]);
+  for(let i=0;i<240;i++)e.ProtoEvolutionTick(0);assert(!e.ProtoEvolved[e.ExpKey(0,safe)]);
   const defense=environment(['Data/Data_Expedition.j','Data/Data_Prototype.j','System/DamageEffectBoss.j'],{
     GetOwningPlayer:u=>u,UnitDamageTarget:(s,t,rate)=>{defense.lastDamage=rate;},CustomStun:{Stun2:()=>{}},
   }).env;
-  // 별도 실제 BossDeal 실행. 차감한 보호막에도 무피격 조건은 깨진다.
+  // 별도 실제 BossDeal 실행. 기본 피해 감소와 보호막 처리는 유지한다.
   defense.ProtoStatsInit();defense.ProtoCatalogInit();defense.ExpPrototypeActive=true;defense.ExpMember[0]=true;defense.ExpState=defense.EXP_HUNT;
   defense.ExpCardOwned[safe]=true;defense.ProtoEvolutionRegister(0,safe);defense.ProtoStatAddCard(0,card(defense,'saber_guard'),false);
-  defense.ProtoCardProgress[safe]=30;defense.UnitSD[0]=100;
+  defense.UnitSD[0]=100;
   defense.BossDeal(99,0,50,false);assert.equal(defense.ProtoCardProgress[safe],0);assert.equal(defense.UnitSD[0],53);
   defense.ProtoPaused[0]=true;defense.BossDeal(99,0,50,false);assert.equal(defense.UnitSD[0],53);
   e.ProtoGrantCard(0,card(e,'axel_luna'));e.ProtoGrantCard(0,card(e,'abydos_ayane'));
   assert.equal(e.ProtoChoices[0],4);e.ProtoGrantHead(0,1);e.ProtoOffer(0);assert(e.ProtoCandidates[e.ExpKey(0,4)]>0);
   e.ProtoGrantCard(0,card(e,'rin_disarm'));assert.equal(e.ExpCardPenetration(0),.20);
 });
-check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피해를 각성에 더하지 않음',()=>{
+check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 실제 피해만 기록하고 각성 진행 없음',()=>{
   const {e}=combat();e.ProtoStatsInit();e.ProtoCatalogInit();e.ExpPrototypeActive=true;e.ExpMember[0]=true;e.ExpState=e.EXP_HUNT;
   const id=card(e,'shiro_analysis');e.ProtoHuntOwner[2]=1;e.ExpEnemy[2]=true;e.ExpCardOwned[id]=true;e.ProtoEvolutionRegister(0,id);e.UnitHP[2]=30;
-  e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.ProtoDamage[0],30);assert.equal(e.ProtoCardProgress[id],30);
+  e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.ProtoDamage[0],30);assert.equal(e.ProtoCardProgress[id],0);
   e.UnitHP[2]=100;e.ProtoPaused[0]=true;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
   e.ProtoPaused[0]=false;e.ProtoHuntOwner[2]=2;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
 });
