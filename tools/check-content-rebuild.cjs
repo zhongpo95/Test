@@ -23,8 +23,8 @@ check('잘못된 카드 참조·체력 지불·물약 보상·실패 후속·순
  for(const mutate of mutations){const w=structuredClone(worlds[0]);mutate(w);assert(inspect(w).errors.length>0);}
  const potionReward=structuredClone(worlds[0]);potionReward.events[0].choices[0].potions=1;assert(inspect(potionReward).errors.some(x=>x.reason==='사건에서 물약을 보상으로 지급하지 않음'));
 });
-check('머리 후보 첫 선택에서 행동력 한 번 지불, 즉시 입문 카드와 약한 지역 효과 획득',()=>{
- const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],9);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
+check('머리 후보 첫 선택은 행동력 무료, 즉시 입문 카드와 약한 지역 효과 획득',()=>{
+ const {e}=party();enter(e,0,e.ProtoEventKey[1]);assert.equal(e.ProtoStage[0],3);assert.equal(e.ProtoAP[0],10);assert.equal(e.ProtoHeadCount[0],1);assert(e.ExpCardOwned[e.ExpKey(0,e.ProtoHeadEntryCard[1])]);assert(e.ProtoStat(0,e.PROTO_STAT_ATTACK)>0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);
  assert.equal(e.ProtoAP[1],10);assert(!e.ProtoHeadOwned[e.ExpKey(1,1)]);
 });
 check('확률 경계 65는 성공, 66은 실패하며 비용은 둘 다 지불하고 후속은 선택한 플레이어만 개방',()=>{
@@ -38,10 +38,10 @@ check('확률 경계 65는 성공, 66은 실패하며 비용은 둘 다 지불�
   const before=e.ExpGold[0];e.ProtoResolve(0,3);assert.equal(e.ExpGold[0],before);
  }
 });
-check('사건 선택 전 골드 부족과 사냥터 상한을 검사하고 중복 지급은 관련 카드의 100골드로 교환',()=>{
+check('사건 선택 전 골드 부족과 사냥터 상한을 검사하고 중복 카드는 원래 효과 50% 강화',()=>{
  const {e}=party();e.ExpGold[0]=0;const scene=enter(e,0,'common_five_coin');assert(!e.ProtoBranchAllowed(0,1));const ap=e.ProtoAP[0];e.ProtoResolve(0,1);assert.equal(e.ProtoStage[0],2);assert.equal(e.ProtoAP[0],ap);
  e.ProtoLevel[0]=5;assert(!e.ProtoBranchAllowed(0,2));e.ProtoLevel[0]=1;e.ExpGold[0]=5;e.ProtoGrantCard(0,card(e,'common_yato'));
- assert(e.ProtoBranchText(0,1).includes('이미 보유'));e.ProtoResolve(0,1);assert.equal(e.ExpGold[0],100);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);assert(e.ProtoOutcome[0].includes('이미 보유'));
+ const c=card(e,'common_yato');assert(e.ProtoBranchText(0,1).includes('원래 효과 +50%'));e.ProtoResolve(0,1);assert.equal(e.ExpGold[0],0);assert.equal(e.ExpCardOwned.filter(Boolean).length,1);assert.equal(e.ProtoCardStacks[c],1);assert(e.ProtoOutcome[0].includes('강화 완료'));
  assert.equal(e.ProtoEventHistory[e.ProtoStoryKey(0,scene)],1);assert(e.ProtoEventEligible(0,id(e,'common_lost_address')));
 });
 check('공통 사건은 머리 없이 등장하고 관련 사건은 소유 지역에서만 열리며 선택 전 공유 후보는 소진되지 않음',()=>{
@@ -57,13 +57,10 @@ check('네 행동은 영역 안에 배치되고 상세 확인은 로컬 UI만 �
  assert.equal(t.packets.length,0);assert.deepEqual(e.ProtoAP,ap);assert.deepEqual(e.ExpGold,gold);assert.deepEqual(e.ProtoEventUsed,used);
  t.event(b,3);t.render();assert.equal(t.frame(e.UIExpeditionPrototype_StoryText).text,original);
 });
-check('도감의 마지막 지역 선택은 페이지 이동 뒤 실제 머리 ID를 동기화하고 저장은 안정된 콘텐츠 key 사용',()=>{
+check('출발창에서 머리 선택을 제거해도 기존 도감 요청과 안정된 콘텐츠 key 저장은 유지',()=>{
  const t=fresh(0,true),e=t.e;e.ProtoCodexSlot[0]=1;
  for(let h=1;h<=e.PROTO_HEAD_COUNT;h++)e.ProtoHeadKnown[e.ExpKey(0,h)]=true;t.render();
- const next=e.ExpUIButtons[e.UIExpeditionPrototype_HeadNext];
- while(t.frame(next).enabled)t.click(next);
- const h=e.PROTO_HEAD_COUNT;assert.equal(e.UIExpeditionPrototype_HeadPage,Math.floor((h-1)/3));
- const slot=h-e.UIExpeditionPrototype_HeadPage*3;t.click(e.ExpUIButtons[e.UIExpeditionPrototype_HeadButtons[slot]]);assert.equal(e.ProtoStartHead[0],h);
+ const h=e.PROTO_HEAD_COUNT;e.eventPlayer=0;e.syncData=`${e.ExpRun}|${e.ExpRevision}|${e.ExpOfferVersion[0]}|${2010+h}`;e.OnSync();assert.equal(e.ProtoStartHead[0],h);
  t.start();e.ProtoGrantCard(0,card(e,'common_yato'));const saved=[];e.StashSave=(...args)=>saved.push(args);e.ProtoHeadKnown[1]=false;e.ProtoGrantHead(0,1);
  assert(saved.some(args=>args.includes(e.PROTO_SAVE_PREFIX+'머리도감.'+e.ProtoHeadKey[1])));
 });

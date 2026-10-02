@@ -262,6 +262,9 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set activity = ExpUIActivity(pid)
         if SeenRevision != ExpRevision then
             set ExpUIPanel = activity
+            if activity == 8 then
+                set ExpUIPanel = 0
+            endif
             set FoldedPanel = 0
             set SeenRevision = ExpRevision
         elseif SeenOffer != ExpOfferVersion[pid] and ((ExpState == EXP_REWARD and ExpEventDeadline[pid] > 0) or ExpState == EXP_HUNT) then
@@ -288,7 +291,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         set ShownOffer = ExpOfferVersion[pid]
         call DzFrameShow(Navigation, visible)
         call DzFrameShow(ExpUIButtons[ActivityButton], activity != 0)
-        call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid])
+        call DzFrameShow(ExpUIButtons[StatsButton], ExpMember[pid] or ExpPrototypeEnabled)
         // 선택 버튼이 없는 전투 중에는 스탯 버튼을 당겨 보스 체력바 자리를 비운다.
         call DzFrameClearAllPoints(ExpUIButtons[StatsButton])
         if activity == 0 then
@@ -305,7 +308,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
         else
             call ExpUISetButton(ActivityButton, "선택지", true)
         endif
-        if ExpPrototypeActive then
+        if ExpPrototypeEnabled then
             call ExpUISetButton(StatsButton, "성장·카드", true)
         else
             call ExpUISetButton(StatsButton, "스탯  " + I2S(ExpPoints[pid] - ExpCritPoints[pid] - ExpSwiftPoints[pid]), true)
@@ -316,9 +319,13 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                 call DzFrameShow(ExpUIRoots[i], visible and ExpUIPanel == i)
             endif
             if PanelToggles[i] != 0 then
+                if i == EXP_UI_STATS and ExpPrototypeEnabled then
+                    call DzFrameClearAllPoints(ExpUIButtons[PanelToggles[i]])
+                    call DzFrameSetPoint(ExpUIButtons[PanelToggles[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIRoots[i], JN_FRAMEPOINT_TOPLEFT, 0.752, -0.008)
+                endif
                 call DzFrameShow(ExpUIButtons[PanelToggles[i]], visible and (ExpUIPanel == i or (ExpUIPanel == 0 and FoldedPanel == i)))
                 if ExpUIPanel == i then
-                    call ExpUISetButton(PanelToggles[i], "접기", true)
+                    call ExpUISetButton(PanelToggles[i], "X", true)
                 else
                     call ExpUISetButton(PanelToggles[i], "열기", true)
                 endif

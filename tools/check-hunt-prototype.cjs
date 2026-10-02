@@ -1,6 +1,7 @@
 // 실제 개인 사냥 JASS와 UI 콜백을 모의 실행하여 사건·성장·합류의 경계를 검증한다.
 const assert = require('node:assert/strict');
-const {fresh} = require('./check-expedition-ui.cjs');
+const {fresh:rawFresh} = require('./check-expedition-ui.cjs');
+function fresh(...args){const t=rawFresh(...args);if(args[1])t.click(t.common(-98));return t;}
 const {fresh: combat} = require('./check-attack-potion.cjs');
 const {environment} = require('./check-expedition.cjs');
 function card(e,key){const id=e.ProtoCardKey.indexOf(key);assert(id>=e.PROTO_CARD_FIRST,'카드 없음 '+key);return id;}
@@ -47,7 +48,7 @@ check('T1 출발 차단, 도감 머리 0~1장 선택과 초기 전투 카드 없
   const t=fresh(0,true),e=t.e;e.MockAttack=1;t.render();
   assert(!t.frame(t.common(2001)).enabled);request(e,0,2001);assert.equal(e.ExpRun,0);
   e.MockAttack=100;e.GetItemTier=()=>1;request(e,0,2001);assert.equal(e.ExpRun,0);
-  e.GetItemTier=()=>2;e.ProtoHeadKnown[e.ExpKey(0,1)]=true;t.render();t.click(t.common(2011));
+  e.GetItemTier=()=>2;e.ProtoHeadKnown[e.ExpKey(0,1)]=true;t.render();request(e,0,2011);
   assert.equal(e.ProtoStartHead[0],1);t.start();assert.equal(e.ProtoHeadCount[0],1);
   assert.equal(e.ProtoAP[0],10);assert.equal(e.ExpSeconds,600);assert.equal(e.ExpGold[0],0);
   assert.equal(e.ExpCardOwned.filter(Boolean).length,0);
@@ -138,7 +139,7 @@ check('사건 선택만 AP 소모, 500/600골드 리롤과 다음 화면 500골�
   const t=party(),e=t.e;e.ExpGold[0]=2000;e.ProtoOffer(0);t.render();
   assert.equal(e.ProtoChoices[0],3);t.click(t.common(2300));assert.equal(e.ExpGold[0],1500);assert.equal(e.ProtoAP[0],10);
   t.click(t.common(2300));assert.equal(e.ExpGold[0],900);assert.equal(e.ProtoRerolls[0],2);
-  const id=e.ProtoCandidates[e.ExpKey(0,1)];t.click(t.common(2101));assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],9);
+  const id=e.ProtoCandidates[e.ExpKey(0,1)];t.click(t.common(2101));assert(e.ProtoEventUsed[id]);assert.equal(e.ProtoAP[0],10-e.ProtoEventAPCost[id]);
   if(e.ProtoStage[0]===2)t.click(t.common(2202));const after=e.ExpGold[0];request(e,0,2202);assert.equal(e.ExpGold[0],after);
   t.click(t.common(2400));assert(!e.ProtoPaused[0]);assert.equal(e.ProtoRerolls[0],0);
   e.ProtoOffer(0);assert.equal(500+e.ProtoRerolls[0]*100,500);assert(!e.ProtoEventEligible(0,id));
@@ -200,26 +201,16 @@ check('실제 HeroDeal에서 정지·타인 사냥터 피해 차단, 초과 피�
   e.UnitHP[2]=100;e.ProtoPaused[0]=true;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
   e.ProtoPaused[0]=false;e.ProtoHuntOwner[2]=2;e.HeroDeal(1,0,2,1,false,false,false,false);assert.equal(e.UnitHP[2],100);
 });
-check('획득 카드 전체를 로컬 페이지로 확인, 효과·각성 진행 표시와 난이도 HUD 갱신',()=>{
-  const t=party(),e=t.e,notices=[];e.DisplayTimedTextToPlayer=(player,x,y,seconds,text)=>notices.push(text);
-  for(let id=e.PROTO_CARD_FIRST;id<=e.PROTO_CARD_LAST;id++)e.ProtoGrantCard(0,id);
-  const count=e.PROTO_CARD_LAST-e.PROTO_CARD_FIRST+1;
-  assert.equal(notices.length,count);assert(notices[0].includes(e.ProtoCardName[13]));
-  e.ProtoGrantHead(0,1);e.ExpUIOpen(5);t.render();const effect=t.frame(e.UIExpeditionStats_Effects);
-  const previous=e.ExpUIButtons[e.UIExpeditionStats_PreviousCard],next=e.ExpUIButtons[e.UIExpeditionStats_NextCard];
-  assert(t.frame(e.UIExpeditionStats_Points).text.includes('후유키'));assert(effect.text.includes(e.ProtoCardName[13]));assert(!t.frame(previous).enabled);
-  t.click(next);assert(effect.text.includes(e.ProtoCardName[14]));assert(effect.text.includes('받는 피해 감소 +6.0%'));
-  t.event(next,4,1);t.render();assert(effect.text.includes(e.ProtoCardName[14]));
-  t.click(next);e.ProtoCardProgress[15]=9;t.render();assert(effect.text.includes('9/60'));
-  e.ProtoEvolved[15]=true;t.render();assert(effect.text.includes('각성 완료'));assert(effect.text.includes('치명타 피해 보너스 +15.0%'));
-  for(let i=3;i<count;i++)t.click(next);assert(effect.text.includes(e.ProtoCardName[e.PROTO_CARD_LAST]));assert(!t.frame(next).enabled);
-  assert.equal(t.packets.length,0);assert.equal(e.ExpCardOwned.filter(Boolean).length,count);
-  t.click(previous);assert(effect.text.includes(e.ProtoCardName[e.PROTO_CARD_LAST-1]));
-  e.ProtoLevel[0]=2;t.render();const hud=t.frame(e.UIExpeditionPrototype_HuntStatus);
-  assert(hud.text.includes('몬스터 체력 390'));assert(hud.text.includes('5.0%'));
-  e.ExpCardOwned.fill(false);e.ProtoHeadOwned.fill(false);t.render();assert(effect.text.includes('획득한 성장 카드 없음'));
-  assert(!t.frame(previous).enabled);assert(!t.frame(next).enabled);assert.equal(e.UIExpeditionStats_CardPage,0);
+check('보유 카드 격자와 상세·강화·각성 정보, 난이도 HUD 갱신',()=>{
+  const t=party(),e=t.e;for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
+  t.click(t.common(-e.EXP_UI_STATS));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);
+  assert.equal(e.UIPrototypeStatus_Count,25);assert(t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[20]]));
+  t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[24]]);assert.equal(e.UIPrototypeStatus_Page,1);
+  assert(!t.visible(e.ExpUIButtons[e.UIPrototypeStatus_Cells[6]]));t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[1]]);
+  assert(t.frame(e.UIPrototypeStatus_Detail).text.includes(e.ProtoCardName[e.PROTO_CARD_FIRST+20]));
+  e.ProtoLevel[0]=2;t.render();assert(t.frame(e.UIExpeditionPrototype_HuntStatus).text.includes('5.0%'));
 });
+
 check('사냥 사망 15초 부활, 사망 중 사건·각성 진행 차단과 골드 패널티 없음',()=>{
   const {e}=party();let alive=false,revives=0;e.UnitAlive=u=>u===0?alive:!!u&&!u.dead&&!u.removed;
   const safe=card(e,'saber_opening');e.ReviveHero=()=>{alive=true;revives++;};e.ExpGold[0]=321;e.ProtoGrantCard(0,safe);
@@ -270,18 +261,18 @@ check('사건 만료는 후보 AP 미소비 또는 유효 분기, 대기실 이�
   const lobby=fresh(0,true).e;lobby.online=[true,true,false,false];request(lobby,0,2001);assert.equal(lobby.ExpState,lobby.EXP_LOBBY);
   lobby.eventPlayer=1;lobby.Leave();assert.equal(lobby.ExpState,lobby.EXP_HUNT);assert.equal(lobby.ExpPlayers,1);
 });
-check('머리 후보는 AP 한 번으로 바로 성장, 4인 각자의 같은 지역 입구와 중복 패킷 차단',()=>{
+check('머리 후보는 AP 무료로 바로 성장, 4인 각자의 같은 지역 입구와 중복 패킷 차단',()=>{
   const t=party(4),e=t.e;
   for(let pid=0;pid<4;pid++){
     const id=pid+1;e.ProtoOffer(pid);e.ProtoCandidates[e.ExpKey(pid,1)]=id;
     assert(e.ProtoEventEligible(pid,id));assert(!e.ProtoEventEligible(pid,(pid+1)%4+1));
     const packet=''+e.ExpRun+'|'+e.ExpRevision+'|'+e.ExpOfferVersion[pid]+'|2101';
     request(e,pid,2101,packet);
-    assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],9);assert.equal(e.ProtoHeadCount[pid],1);
+    assert.equal(e.ProtoStage[pid],3);assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoHeadCount[pid],1);
     assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),11);assert(e.ExpCardOwned[e.ExpKey(pid,card(e,'shiro_analysis'))]);
     assert(e.ProtoOutcome[pid].includes('공격력 증가 +3.0%'));
     request(e,pid,2101,packet);request(e,pid,2201);
-    assert.equal(e.ProtoAP[pid],9);assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),11);
+    assert.equal(e.ProtoAP[pid],10);assert.equal(e.ProtoStat(pid,e.PROTO_STAT_ATTACK),11);
     assert(!e.ProtoEventEligible(pid,id));assert(e.ProtoEventEligible(pid,scene(e,'school_circle')));
   }
 });
@@ -289,7 +280,7 @@ check('13개 머리 획득 후 4인 동시 다음 사건은 처치·정체·시�
   for(let head=1;head<=13;head++)for(const reason of ['kills','stalled','time']){
     const t=party(4),e=t.e;
     for(let pid=0;pid<4;pid++){
-      choose(e,pid,(head-1)*4+pid+1);assert.equal(e.ProtoAP[pid],9);assert(!e.ProtoPaused[pid]);
+      choose(e,pid,(head-1)*4+pid+1);assert.equal(e.ProtoAP[pid],10);assert(!e.ProtoPaused[pid]);
       e.HuntSeconds[pid]=reason==='kills'?19:reason==='stalled'?24:44;
       e.ProtoLastKill[pid]=reason==='stalled'?0:e.HuntSeconds[pid];
       if(reason==='kills')e.ProtoKills[pid]=12;
@@ -299,7 +290,7 @@ check('13개 머리 획득 후 4인 동시 다음 사건은 처치·정체·시�
     for(let i=0;i<3;i++)e.ProtoTick();for(let pid=0;pid<4;pid++)assert.equal(e.ProtoStage[pid],0);
     e.ProtoTick();
     for(let pid=0;pid<4;pid++){
-      assert.equal(e.ProtoStage[pid],1,head+' '+reason+' '+pid);assert(e.ProtoPaused[pid]);assert.equal(e.ProtoAP[pid],9);
+      assert.equal(e.ProtoStage[pid],1,head+' '+reason+' '+pid);assert(e.ProtoPaused[pid]);assert.equal(e.ProtoAP[pid],10);
       assert.equal(counts[pid],e.PROTO_EVENT_COUNT);
       const candidates=e.ProtoCandidates.slice(e.ExpKey(pid,1),e.ExpKey(pid,1)+e.ProtoChoices[pid]);
       assert(candidates.every(id=>id>0&&original(pid,id)));assert.equal(new Set(candidates).size,candidates.length);

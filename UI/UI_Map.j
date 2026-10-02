@@ -61,7 +61,7 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
             set status = "원정 종료"
         endif
         if ExpState == EXP_HUNT then
-            set status = "개인 구역 " + I2S(pid + 1) + " · 남은 " + I2S(ExpSeconds) + "초 · 행동력 " + I2S(ProtoAP[pid]) + "|n머리 " + I2S(ProtoHeadCount[pid]) + "/3 · 골드 " + I2S(ExpGold[pid])
+            set status = "개인 구역 " + I2S(pid + 1) + " · 남은 " + I2S(ExpSeconds) + "초 · 행동력 " + I2S(ProtoAP[pid]) + "|n머리 " + I2S(ProtoHeadCount[pid]) + "/2 · 골드 " + I2S(ExpGold[pid])
         endif
         call ExpUIText(Status, status)
     endfunction
@@ -80,7 +80,11 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
     function SetMapLine takes integer pid returns nothing
         // 영웅 선택의 기존 진입점은 출발 준비 창에 연결한다.
         if GetLocalPlayer() == Player(pid) then
-            call ExpUIOpen(ExpUIActivity(pid))
+            if ExpPrototypeEnabled then
+                call ExpUIOpen(0)
+            else
+                call ExpUIOpen(ExpUIActivity(pid))
+            endif
         endif
     endfunction
 

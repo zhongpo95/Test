@@ -1,22 +1,24 @@
 // 원정의 로컬 UI 호출 경로에서 게임 상태 변경과 미검토 API 사용을 차단한다.
 const fs = require('node:fs'), path = require('node:path'), assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/UI_Map.j';
+const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/UI_Map.j' || file === 'UI/UI_PrototypeStatus.j';
 
 // 기존 로컬 저장소 조회는 별도 경계다. StashLoad의 내부 scratch 변수와 저장 엔진은
 // 이 검사로 증명하지 않는다. 저장/업로드 API는 허용하지 않는다.
 // 회복·카드 정보 조회는 읽기만 허용한다. 카드 지급과 능력치 캐시 갱신은 동기화 경로에서만 한다.
 const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
-  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ RMaxBJ JNStringSplit JNStringReplace StashLoad LoadInteger LoadReal GetItemCharges GetUnitState
+  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ RMaxBJ RMinBJ JNStringSplit JNStringReplace StashLoad LoadInteger LoadReal GetItemCharges GetUnitState GetUnitMoveSpeed
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
-  DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAlpha DzFrameSetFont
+  DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAbsolutePoint DzFrameSetAlpha DzFrameSetFont
 `.trim().split(/\s+/));
 const allowedWrites = new Set(`
   ExpUIPanel FMap_OnOff
   UIExpeditionPrototype.LoadedSlot
   UIExpeditionPrototype.HeadPage UIExpeditionPrototype.HoverBranch
   UIExpeditionStats.CardPage
+  UIPrototypeStatus.Tab UIPrototypeStatus.Page UIPrototypeStatus.Selected UIPrototypeStatus.Sort
+  UIPrototypeStatus.SeenRun UIPrototypeStatus.SeenVersion UIPrototypeStatus.Count UIPrototypeStatus.Cards
   UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone
   UIExpeditionCommon.ShownRun UIExpeditionCommon.ShownRevision UIExpeditionCommon.ShownOffer

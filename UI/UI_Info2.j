@@ -1,4 +1,4 @@
-library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount, UIInputGate
+library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, FrameCount, UIInputGate, UIExpeditionCommon
     globals
         integer F_InfoBackDrop2                   //인포 배경
         //integer F_InfoCancelButton             //X버튼
@@ -662,6 +662,9 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         local integer key = DzGetTriggerKey()
         local integer i = 0
         local integer j = GetPlayerId(DzGetTriggerKeyPlayer())
+        if DzGetTriggerKeyPlayer() != GetLocalPlayer() then
+            return
+        endif
         
         if DzGetTriggerKeyPlayer()==GetLocalPlayer() then
             set i = JNMemoryGetByte(JNGetModuleHandle("Game.dll")+0xD04FEC)
@@ -671,6 +674,16 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
         else
             if PickCheck[j] == true then
                 if key == JN_OSKEY_TAB then
+                    if ExpPrototypeEnabled then
+                        call DzFrameShow(F_InfoBackDrop2, false)
+                        set F_Info2OnOff[j] = false
+                        if ExpUIPanel == EXP_UI_STATS then
+                            call ExpUIOpen(0)
+                        else
+                            call ExpUIOpen(EXP_UI_STATS)
+                        endif
+                        return
+                    endif
                     if F_Info2OnOff[j] == true then
                         call DzFrameShow(F_InfoBackDrop2, false)
                         set F_Info2OnOff[j] = false
@@ -702,7 +715,8 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
 
         //플레이어를 클릭함
         if GetPlayerId(GetOwningPlayer(u)) < 4 then
-            set Stats_Crit[pid] = (Equip_Crit[pid]/28) + Hero_CriRate[pid] + Arcana_Cri[pid]
+            // 조회 콜백은 공유 전투 능력치를 변경하지 않는다.
+            set r = Stats_Crit[pid]
             set speed = R2I(  (Equip_Swiftness[pid]/45) + 100 + Hero_BuffMoveSpeed[pid] + Arcana_MoveSpeed[pid] )
             if speed > 140 then
                 set speed = 140
@@ -725,7 +739,7 @@ library UIInfo2 initializer Init requires DataItem, StatsSet, UIItem, ITEM, Fram
                 //추가피해
                 call DzFrameSetText(F_ItemStatsText2[4], I2S(R2I( Equip_WDP[pid] + Arcana_DP[pid] + Equip_ED[pid] )) + "%" )
                 //치명타확률
-                call DzFrameSetText(F_ItemStatsText2[5], I2S(R2I( Stats_Crit[pid] )) + "%")
+                call DzFrameSetText(F_ItemStatsText2[5], I2S(R2I(r)) + "%")
                 //공격속도
                 call DzFrameSetText(F_ItemStatsText2[6], I2S(R2I( 100 + SkillSpeed(pid) )) + "%" )
                 //이동속도

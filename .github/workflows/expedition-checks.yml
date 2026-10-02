@@ -33,6 +33,8 @@ jobs:
         run: node tools/check-expedition-ui.cjs
       - name: Personal hunting prototype lifecycle
         run: node tools/check-hunt-prototype.cjs
+      - name: Head limit and read-only hunting UI
+        run: node tools/check-hunt-ui.cjs
       - name: Event action budgets and personal card conditions
         run: node tools/check-event-action-options.cjs
       - name: Reviewed content and generated catalog consistency
