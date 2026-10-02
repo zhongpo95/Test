@@ -8,7 +8,7 @@ const uiFile = file => /^UI\/UI_Expedition[^/]*\.j$/.test(file) || file === 'UI/
 // 회복·카드 정보 조회는 읽기만 허용한다. 카드 지급과 능력치 캐시 갱신은 동기화 경로에서만 한다.
 const allowedCalls = new Set(`
   GetLocalPlayer GetPlayerId Player GetTriggerPlayer GetPlayerName GetPlayerSlotState GetPlayerController UnitAlive RectContainsUnit
-  I2S S2I R2I I2R R2SW IMaxBJ IMinBJ RMaxBJ RMinBJ JNStringSplit JNStringReplace StashLoad LoadInteger LoadReal GetItemCharges GetUnitState GetUnitMoveSpeed
+  ModuloInteger I2S S2I R2I I2R R2SW IMaxBJ IMinBJ RMaxBJ RMinBJ JNStringSplit JNStringReplace StashLoad LoadInteger LoadReal GetItemCharges GetUnitState GetUnitMoveSpeed
   DzGetTriggerUIEventFrame DzGetTriggerUIEventPlayer DzSyncData
   DzFrameSetSize DzFrameSetText DzFrameSetTexture DzFrameSetEnable DzFrameShow DzFrameClearAllPoints DzFrameSetPoint DzFrameSetAbsolutePoint DzFrameSetAlpha DzFrameSetFont
 `.trim().split(/\s+/));
@@ -17,7 +17,7 @@ const allowedWrites = new Set(`
   UIExpeditionPrototype.LoadedSlot
   UIExpeditionPrototype.HeadPage UIExpeditionPrototype.HoverBranch
   UIExpeditionStats.CardPage
-  UIPrototypeStatus.Tab UIPrototypeStatus.Page UIPrototypeStatus.Selected UIPrototypeStatus.Sort
+  UIPrototypeStatus.Hover UIPrototypeStatus.Tab UIPrototypeStatus.Page UIPrototypeStatus.Selected UIPrototypeStatus.Sort
   UIPrototypeStatus.SeenRun UIPrototypeStatus.SeenVersion UIPrototypeStatus.Count UIPrototypeStatus.Cards
   UIExpeditionCommon.ButtonEnabled UIExpeditionCommon.Hovered UIExpeditionCommon.FoldedPanel
   UIExpeditionCommon.SeenRevision UIExpeditionCommon.SeenOffer UIExpeditionCommon.SeenDone

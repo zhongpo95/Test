@@ -60,6 +60,31 @@ check('보유 카드 격자는 20칸·정수 페이지·지역/희귀도 정렬,
   for(let i=1;i<=20;i++){const f=t.frame(cell(i));assert(f.x>=0&&f.x+f.w<.578);assert(-f.y>=.143&&-f.y+f.h<=.543);}
   e.Finish(false);e.ProtoAction(0,2001);e.ExpUIOpen(e.EXP_UI_STATS);t.render();assert.equal(e.UIPrototypeStatus_Selected,0);assert.equal(e.UIPrototypeStatus_Count,0);
 });
+check('상태창 공통 메뉴 숨김, 아이콘 툴팁의 경계·타인 입력·페이지·닫기와 큰 이미지 선택',()=>{
+  const t=fresh(0,true),e=t.e;t.start();
+  for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+25;id++)e.ProtoGrantCard(0,id);
+  t.click(t.common(-e.EXP_UI_STATS));const cell=i=>e.ExpUIButtons[e.UIPrototypeStatus_Cells[i]];
+  assert(!t.visible(e.UIExpeditionCommon_Navigation));t.click(cell(22));
+  const snapshot=JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]);
+  for(const slot of [1,5,16,20]){
+    const icon=e.UIPrototypeStatus_Hotspots[slot];
+    t.event(icon,2,1);t.render();assert(!t.visible(e.UIPrototypeStatus_Tooltip));
+    t.event(icon,2);t.render();assert(t.visible(e.UIPrototypeStatus_Tooltip));
+    const tip=t.frame(e.UIPrototypeStatus_Tooltip),id=e.UIPrototypeStatus_Cards[slot];
+    assert(tip.x>=0&&tip.x+tip.w<=.8&&-tip.y>=0&&-tip.y+tip.h<=.6);
+    assert(t.frame(e.UIPrototypeStatus_TooltipText).text.includes(e.ProtoCardName[id]));
+    assert(t.frame(e.UIPrototypeStatus_TooltipText).text.includes(e.ProtoCardEffectName[id]));
+    t.click(icon);assert.equal(e.UIPrototypeStatus_Selected,id);
+    assert.equal(t.frame(e.UIPrototypeStatus_Artwork).texture,t.frame(e.UIPrototypeStatus_Icons[slot]).texture);
+    t.event(icon,2);t.render();t.event(icon,3);assert(!t.visible(e.UIPrototypeStatus_Tooltip));
+  }
+  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(cell(24));assert(!t.visible(e.UIPrototypeStatus_Tooltip));
+  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(cell(21));assert(!t.visible(e.UIPrototypeStatus_Tooltip));t.click(cell(22));
+  t.event(e.UIPrototypeStatus_Hotspots[1],2);t.render();t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]]);
+  assert(!t.visible(e.UIPrototypeStatus_Tooltip));assert(t.visible(e.UIExpeditionCommon_Navigation));
+  t.click(t.common(-e.EXP_UI_STATS));assert(!t.visible(e.UIPrototypeStatus_Tooltip));
+  assert.equal(JSON.stringify([e.ProtoStatValues,e.ExpCardOwned,e.ProtoAP,e.ExpGold,e.ProtoCardRevision]),snapshot);assert.equal(t.packets.length,0);
+});
 check('상태창은 현재 공격력·치명·장비 배율과 25개 카드 효과를 분리해 표시',()=>{
   const t=fresh(0,true),e=t.e;t.start();e.MockAttack=180;e.Stats_Crit[0]=41;e.Equip_CriDeal[0]=20;e.Equip_ED[0]=10;e.Equip_WDP[0]=20;e.Equip_DP[0]=1.2;
   e.ProtoStatValues[e.PROTO_STAT_CRIT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_DAMAGE]=30;e.ProtoStatValues[e.PROTO_STAT_FINAL]=40;

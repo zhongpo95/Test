@@ -52,4 +52,4 @@ for scene in json.loads(Path(sys.argv[1]).read_text(encoding="utf-8")):
                 draw.text((x + offset, y + index * line_height), char, font=font, fill=color)
     canvas.convert("RGB").save(OUT / ("preview-" + scene["name"] + ".png"))
 (OUT / "text-fit.json").write_text(json.dumps(overflow, ensure_ascii=False, indent=2), encoding="utf-8")
-print(json.dumps({"scenes": 6, "estimated_overflow": len(overflow), "output": str(OUT)}, ensure_ascii=False))
+print(json.dumps({"scenes": 7, "estimated_overflow": len(overflow), "output": str(OUT)}, ensure_ascii=False))

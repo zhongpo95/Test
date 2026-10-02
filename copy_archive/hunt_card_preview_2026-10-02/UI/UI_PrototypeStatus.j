@@ -5,12 +5,6 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         private integer StatsPanel
         private integer CardsPanel
         private integer Summary
-        private integer Artwork
-        private integer Tooltip
-        private integer TooltipText
-        private integer TooltipIcon
-        private integer Hover = 0
-        private integer array Hotspots
         private integer Detail
         private integer PageText
         private integer Tab = 0
@@ -26,47 +20,15 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         private integer array Columns
     endglobals
 
-    // 카드 전용 일러스트가 연결되기 전에는 현재 등록된 지역 아이콘을 사용한다.
-    private function CardArt takes integer id returns string
-        if ProtoCardHead[id] > 0 then
-            return ProtoHeadIcon[ProtoCardHead[id]]
-        endif
-        return "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
-    endfunction
-
-    private function EnterIcon takes nothing returns nothing
-        local integer i = 1
-        if DzGetTriggerUIEventPlayer() != GetLocalPlayer() then
-            return
-        endif
-        loop
-            exitwhen i > 20
-            if DzGetTriggerUIEventFrame() == Hotspots[i] then
-                set Hover = i
-                return
-            endif
-            set i = i + 1
-        endloop
-    endfunction
-
-    private function LeaveIcon takes nothing returns nothing
-        if DzGetTriggerUIEventPlayer() == GetLocalPlayer() then
-            set Hover = 0
-            call DzFrameShow(Tooltip, false)
-        endif
-    endfunction
-
     private function Click takes nothing returns nothing
         local integer f = DzGetTriggerUIEventFrame()
         local integer i = 1
         if DzGetTriggerUIEventPlayer() != GetLocalPlayer() then
             return
         endif
-        set Hover = 0
-        call DzFrameShow(Tooltip, false)
         loop
             exitwhen i > 26
-            if f == ExpUIButtons[Cells[i]] or (i <= 20 and f == Hotspots[i]) then
+            if f == ExpUIButtons[Cells[i]] then
                 if i <= 20 then
                     set Selected = Cards[Page * 20 + i]
                 elseif i == 21 then
@@ -97,16 +59,11 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         local integer column
         local string value
         local string icon
-        local real x
-        local real y
         call DzFrameShow(Canvas, ExpPrototypeEnabled)
         if not ExpPrototypeEnabled or ExpUIPanel != EXP_UI_STATS then
-            set Hover = 0
-            call DzFrameShow(Tooltip, false)
             return
         endif
         if SeenRun != ExpRun or SeenVersion != ProtoCardRevision[pid] then
-            set Hover = 0
             set Count = 0
             set grade = 4
             loop
@@ -138,9 +95,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         call ExpUIText(Summary, "보유 카드 " + I2S(Count) + "장 · 머리 " + I2S(ProtoHeadCount[pid]) + "/2 · 행동력 " + I2S(ProtoAP[pid]) + "/" + I2S(ProtoAPMax[pid]))
         call DzFrameShow(StatsPanel, Tab == 0)
         call DzFrameShow(CardsPanel, Tab == 1)
-        call DzFrameShow(Tooltip, false)
         if Tab == 0 then
-            set Hover = 0
             set value = "현재 적용 능력치|n|n무기 공격력 " + I2S(R2I(Equip_Damage[pid])) + "|n무기 공격력 증가 " + R2SW(Equip_DamageP[pid], 0, 1) + "%|n최종 공격력 " + I2S(R2I(AttackPower(pid))) + "|n치명타 확률 " + R2SW(Stats_Crit[pid], 0, 1) + "%|n치명타 피해 ×" + R2SW(1.0 + (Hero_CriDeal[pid] + Equip_CriDeal[pid] + Arcana_CriDeal[pid] + ProtoStat(pid, PROTO_STAT_CRIT_DAMAGE)) / 100.0, 0, 2)
             set value = value + "|n행동 속도 " + R2SW(SkillSpeed(pid), 0, 1) + "%|n재사용 감소 " + R2SW((1.0 - CooldownRate(pid)) * 100.0, 0, 1) + "%|n이동 속도 " + I2S(R2I(GetUnitMoveSpeed(MainUnit[pid]))) + "|n최대 체력 " + I2S(R2I(GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE)))
             set value = value + "|n추가 피해 " + R2SW(Equip_ED[pid] + Equip_WDP[pid], 0, 1) + "%|n대미지 증가 " + R2SW((Equip_DP[pid] - 1.0) * 100.0 + ProtoStat(pid, PROTO_STAT_DAMAGE), 0, 1) + "%|n최종 대미지 증가 " + R2SW(FinalDamageBonus(pid), 0, 1) + "%"
@@ -169,7 +124,10 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             endif
             call DzFrameShow(ExpUIButtons[Cells[i]], id > 0)
             if id > 0 then
-                set icon = CardArt(id)
+                set icon = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+                if ProtoCardHead[id] > 0 then
+                    set icon = ProtoHeadIcon[ProtoCardHead[id]]
+                endif
                 call DzFrameSetTexture(Icons[i], icon, 0)
                 set value = ProtoGradeColor(ProtoCardGrade[id]) + ProtoCardName[id] + "|r|n" + ProtoCardEffectName[id] + "|n강화 +" + I2S(ProtoCardStacks[ExpKey(pid, id)])
                 if ProtoEvolved[ExpKey(pid, id)] then
@@ -185,26 +143,11 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         call ExpUIText(PageText, I2S(Page + 1) + "/" + I2S(IMaxBJ(1, R2I((Count + 19) / 20))))
         call ExpUISetButton(Cells[23], "이전", Page > 0)
         call ExpUISetButton(Cells[24], "다음", (Page + 1) * 20 < Count)
-        call DzFrameShow(Artwork, Selected > 0)
-        set value = "획득한 카드 없음"
+        set value = "획득한 카드 없음|n|n사건에서 얻은 카드를 이곳에서 확인할 수 있습니다."
         if Selected > 0 and ExpCardOwned[ExpKey(pid, Selected)] then
-            call DzFrameSetTexture(Artwork, CardArt(Selected), 0)
-            set value = ProtoGradeColor(ProtoCardGrade[Selected]) + "[" + ExpEventGradeName(ProtoCardGrade[Selected]) + "] " + ProtoCardName[Selected] + "|r|n" + ProtoCardEffectName[Selected] + "|n강화 +" + I2S(ProtoCardStacks[ExpKey(pid, Selected)])
+            set value = ProtoGradeColor(ProtoCardGrade[Selected]) + "[" + ExpEventGradeName(ProtoCardGrade[Selected]) + "] " + ProtoCardName[Selected] + "|r|n|n" + ProtoCardText(pid, Selected)
         endif
         call ExpUIText(Detail, value)
-        if Hover > 0 and Page * 20 + Hover <= Count then
-            set id = Cards[Page * 20 + Hover]
-            set x = 0.100 + ModuloInteger(Hover - 1, 5) * 0.110
-            if x + 0.232 > 0.774 then
-                set x = x - 0.300
-            endif
-            set y = RMinBJ(0.155 + R2I((Hover - 1) / 5) * 0.097, 0.295)
-            call DzFrameClearAllPoints(Tooltip)
-            call DzFrameSetPoint(Tooltip, JN_FRAMEPOINT_TOPLEFT, Canvas, JN_FRAMEPOINT_TOPLEFT, x, -y)
-            call DzFrameSetTexture(TooltipIcon, CardArt(id), 0)
-            call ExpUIText(TooltipText, ProtoGradeColor(ProtoCardGrade[id]) + "[" + ExpEventGradeName(ProtoCardGrade[id]) + "] " + ProtoCardName[id] + "|r|n|n" + ProtoCardText(pid, id))
-            call DzFrameShow(Tooltip, true)
-        endif
     endfunction
 
     function ProtoStatusBuild takes integer parent returns nothing
@@ -233,9 +176,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
         endloop
         set f = ExpUILabel(StatsPanel, 0.025, 0.556, 0.75, 0.025, 0.010, "조건부 피해는 조건 충족 시 적용 · 흡수·재생 합산 최대 체력 10%/초")
         set f = ExpUITexture(CardsPanel, 0.578, 0.155, 0.196, 0.388, "war3mapImported\\UI_Upgrade_Card.tga")
-        set Artwork = ExpUITexture(CardsPanel, 0.589, 0.170, 0.174, 0.232, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
-        set Detail = ExpUILabel(CardsPanel, 0.591, 0.425, 0.170, 0.080, 0.011, "")
-        set f = ExpUILabel(CardsPanel, 0.591, 0.511, 0.170, 0.025, 0.009, "아이콘에 마우스를 올려 효과 확인")
+        set Detail = ExpUILabel(CardsPanel, 0.591, 0.169, 0.170, 0.360, 0.011, "")
         call JNFrameSetTextAlignment(Detail, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set i = 1
         loop
@@ -246,13 +187,7 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             call DzFrameClearAllPoints(ExpUIButtons[Cells[i]])
             call DzFrameSetPoint(ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, CardsPanel, JN_FRAMEPOINT_TOPLEFT, x, -y)
             call ExpUIResizeCover(Cells[i], 0.102, 0.091)
-            set Hotspots[i] = DzCreateFrameByTagName("BUTTON", "", ExpUIButtons[Cells[i]], "", FrameCount())
-            call DzFrameSetPoint(Hotspots[i], JN_FRAMEPOINT_TOPLEFT, ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, 0.037, -0.003)
-            call DzFrameSetSize(Hotspots[i], 0.028, 0.037)
-            call DzFrameSetScriptByCode(Hotspots[i], JN_FRAMEEVENT_MOUSE_ENTER, function EnterIcon, false)
-            call DzFrameSetScriptByCode(Hotspots[i], JN_FRAMEEVENT_MOUSE_LEAVE, function LeaveIcon, false)
-            call DzFrameSetScriptByCode(Hotspots[i], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
-            set Icons[i] = ExpUITexture(Hotspots[i], 0, 0, 0.028, 0.037, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+            set Icons[i] = ExpUITexture(ExpUIButtons[Cells[i]], 0.037, 0.006, 0.028, 0.028, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             call DzFrameClearAllPoints(ExpUIButtonLabels[Cells[i]])
             call DzFrameSetPoint(ExpUIButtonLabels[Cells[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, 0.006, -0.038)
             call DzFrameSetSize(ExpUIButtonLabels[Cells[i]], 0.090, 0.049)
@@ -274,12 +209,6 @@ library UIPrototypeStatus requires UIExpeditionCommon, StatsSet
             call DzFrameSetScriptByCode(ExpUIButtons[Cells[i]], JN_FRAMEEVENT_MOUSE_UP, function Click, false)
             set i = i + 1
         endloop
-        set Tooltip = ExpUITexture(CardsPanel, 0, 0, 0.232, 0.290, "war3mapImported\\UI_Upgrade_Background.tga")
-        call DzFrameSetPriority(Tooltip, 110)
-        set TooltipIcon = ExpUITexture(Tooltip, 0.012, 0.010, 0.036, 0.048, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
-        set TooltipText = ExpUILabel(Tooltip, 0.012, 0.066, 0.208, 0.212, 0.010, "")
-        call JNFrameSetTextAlignment(TooltipText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
-        call DzFrameShow(Tooltip, false)
         call DzFrameShow(Canvas, false)
     endfunction
 endlibrary

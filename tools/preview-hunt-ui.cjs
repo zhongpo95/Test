@@ -17,4 +17,5 @@ e.ProtoSelected[0]=e.ProtoEventKey.indexOf('common_fur_scale');e.ProtoStage[0]=2
 for(let id=e.PROTO_CARD_FIRST;id<e.PROTO_CARD_FIRST+24;id++)e.ProtoGrantCard(0,id);
 e.ProtoGrantEventCard(0,e.PROTO_CARD_FIRST);e.ProtoRefreshStats(0);e.ExpUIOpen(e.EXP_UI_STATS);t.render();capture(t,'stats');
 t.click(e.ExpUIButtons[e.UIPrototypeStatus_Cells[22]]);capture(t,'cards');
+t.event(e.UIPrototypeStatus_Hotspots[18],2);t.render();capture(t,'cards-hover');
 const output=process.argv[2]||path.join(os.tmpdir(),'arcana-hunt-ui-frames.json');fs.writeFileSync(output,JSON.stringify(scenes));console.log(output);

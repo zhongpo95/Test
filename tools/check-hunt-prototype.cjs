@@ -407,7 +407,7 @@ check('전체 사건 화면의 이야기 유지, 비용 부족·선택 결과·�
   const t=party(),e=t.e;e.ProtoGrantHead(0,1);const id=scene(e,'school_circle');e.ProtoOffer(0);e.ProtoCandidates[1]=id;e.ExpGold[0]=0;t.render();
   const candidates=e.ProtoCandidates.slice(),version=e.ExpOfferVersion[0];
   t.click(t.common(-e.EXP_UI_STATS));assert.deepEqual(t.roots(),[e.EXP_UI_STATS]);
-  assert(t.visible(e.UIExpeditionPrototype_HuntHUD));t.click(t.common(-98));assert.deepEqual(t.roots(),[9]);
+  assert(t.visible(e.UIExpeditionPrototype_HuntHUD));t.click(e.ExpUIButtons[e.UIExpeditionCommon_PanelToggles[e.EXP_UI_STATS]]);t.click(t.common(-98));assert.deepEqual(t.roots(),[9]);
   assert(!t.visible(e.UIExpeditionPrototype_HuntHUD));assert.deepEqual(e.ProtoCandidates.slice(),candidates);assert.equal(e.ExpOfferVersion[0],version);
   t.click(t.common(2101));assert.equal(e.ProtoStage[0],2);
   assert(t.visible(e.UIExpeditionPrototype_StoryPanel));assert(!t.visible(e.UIExpeditionPrototype_OutcomePanel));
