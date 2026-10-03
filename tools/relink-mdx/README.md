@@ -85,3 +85,23 @@ python tools/relink-mdx/compare.py $output
 - 독립 파서의 MDX 재저장 바이트 일치, BLP 전체 밉맵 디코딩, 구조 검사 및 유지한 모든 시퀀스의 시작·중간·끝 자세 원본 대조를 수행합니다. 얼굴까지 포함하여 메시 매핑 누락도 검사합니다. 사용되지 않는 원본 노드와 시퀀스 경계 키는 미사용 항목으로 보고될 수 있습니다.
 - `pose-comparison.json`은 키 축소 후 내보내기 오차와 SD 가중치 근사 오차를 별도로 기록합니다. 대표 프레임의 내보내기 최대 오차가 0.5단위를 초과하면 검증이 실패합니다.
 - 실제 워크래프트 및 월드 에디터에서의 불러오기, 애니메이션 자동 선택과 성능은 별도의 런타임 시험이 필요합니다. 독립 파서나 Blender 렌더 성공이 게임 실행 검증을 대신하지 않습니다.
+
+## 머리갑옷 변형과 압축 아틀라스
+
+현재 설치본의 `pl1101`은 얼굴을 덮는 머리갑옷 복장입니다. `model/pl/pl1101/`와 `model_streaming/lod2/pl1101.mmesh`를 추가 추출하고 `--body-variant pl1101`로 변환합니다. 기본 `pl1100` 스켈레톤과 바이트가 일치하는지 검사하며, MOT는 기존 `pl/pl1100`에서 읽습니다. 검 `wp1100`과 별도 얼굴·눈 `fp1100`을 함께 연결하고, 변형마다 다른 재질 수에 맞춰 슬롯을 계산합니다. LOD2 본체·검·얼굴 합계는 15,021개 삼각형입니다.
+
+머리갑옷 알베도는 기존 `granite/2k/gts/1/1.gts`의 프로젝트 자료에서 확인한 `605da43698ba626975793c2156bda51f0a09ba30fc6aa49f21559d14613766f6` 페이지입니다. 해당 `1_<해시>.gtp`를 같은 GTS 폴더에 추가 추출하고 GraniteTextureReader `extract -t <1.gts> -f <해시> -l 0`으로 복원합니다. 게임 버전이 바뀌면 재확인이 필요합니다.
+
+```powershell
+blender.exe --background --factory-startup --python-exit-code 1 --python tools/relink-mdx/convert.py -- --raw $raw --dependencies $deps --output $helmetOutput --lod 2 --body-variant pl1101 --combat-only --in-place
+python tools/relink-mdx/pack-atlas.py --source $textures --helmet-source $helmetTextures --model-folder $helmetOutput --output $atlasRoot
+node tools/relink-mdx/apply-atlas.cjs $deps $helmetOutput $atlasRoot $atlasOutput
+node tools/relink-mdx/validate.cjs $deps $atlasOutput
+python tools/relink-mdx/compare.py $atlasOutput --source-folder $helmetOutput
+```
+
+`pack-atlas.py`는 확인한 PL1101 텍스처 여덟 장 전용 배치입니다. 갑옷·천·머리갑옷·검은 1024 아틀라스, 얼굴·피부·눈은 512 아틀라스에 묶습니다. 타일에 가장자리 복제 여백 8픽셀을 두고 원본 TGA와 눈 합성 이미지에서 JPEG 품질 95, BGRA 4성분 BLP1을 생성합니다. 큰 타일 내용은 496, 얼굴·피부는 240, 각 눈은 112 해상도입니다. 해상도 축소와 JPEG 손실 압축을 함께 적용합니다.
+
+`apply-atlas.cjs`는 UV가 0~1 범위이고 단일 UV·재질 레이어, 반복과 텍스처 애니메이션이 없는 입력만 처리합니다. UV와 텍스처 참조를 원복한 MDX가 원래 변환 파일과 바이트 단위로 일치하는지 검사하여 메시·스킨·모션 보존을 확인합니다. BLP 전체 밉도 독립 디코딩합니다. 원래 출력과 아틀라스 출력은 별도 폴더를 사용하며, 최상위 `.rgba`를 검사 결과의 폭·높이로 PNG로 변환하면 미리보기에 사용할 수 있습니다. 일반 CMYK 색공간 변환을 적용하거나 알파를 버리는 BLP 리더를 쓰면 안 됩니다.
+
+최종 경로는 `Siegfried_Helmet\\Atlas_Armor.blp`, `Siegfried_Helmet\\Atlas_Face.blp` 두 개이며 합계 1,487,282바이트입니다. MDX 파일은 배포 시 `Siegfried_Helmet.mdx`로 이름을 바꿔도 내부 BLP 경로는 그대로 유지됩니다. 작은 밉에서는 인접 타일이 섞일 수 있으며, 실제 워크래프트·월드 에디터의 가져오기와 원거리 외형은 미검증입니다.

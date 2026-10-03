@@ -9,6 +9,7 @@ import numpy as np
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('model_folder', type=Path)
+    parser.add_argument('--source-folder', type=Path)
     args = parser.parse_args()
     root = args.model_folder
     conversion = json.loads((root/'conversion.json').read_text())
@@ -19,7 +20,7 @@ def main():
             for frame in [0, motion['frames']//2, motion['frames']-1]:
                 expected_poses.add(motion['source'].replace('.mot','')+'_'+str(frame))
     for pose_file in sorted((root/'poses').glob('*.json')):
-        source_file = root/(pose_file.stem+'.npz')
+        source_file = (args.source_folder or root)/(pose_file.stem+'.npz')
         if not source_file.exists():
             continue
         pose = json.loads(pose_file.read_text())

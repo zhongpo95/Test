@@ -65,10 +65,11 @@ def trs(position, rotation, scale):
     return np.array(Matrix.LocRotScale(Vector(position), Quaternion(rotation), Vector(scale)), dtype=np.float64)
 
 
-def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset, merge_face=False):
-    base = raw / 'model' / entity[:2] / entity
-    info = reader.parse_mesh_info_file(str(base / (entity + '.minfo')))
-    skel = reader.parse_skeleton_file(str(base / (entity + '.skeleton')))
+def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset, merge_face=False, source_entity=None):
+    source_entity = source_entity or entity
+    base = raw / 'model' / entity[:2] / source_entity
+    info = reader.parse_mesh_info_file(str(base / (source_entity + '.minfo')))
+    skel = reader.parse_skeleton_file(str(base / (source_entity + '.skeleton')))
     bone_offset = len(bones)
     remap, source_worlds = [], []
     shared = {bone['source']:i for i, bone in enumerate(bones) if bone['entity'] == 'pl1100'}
@@ -103,7 +104,7 @@ def read_entity(reader, raw, entity, lod_number, bones, parent, material_offset,
     flags = reader.vertex_flags_to_bools(lod.BufferTypes())
     deform = [remap[info.DeformBoneToBoneIndexTable(i)]
               for i in range(info.DeformBoneToBoneIndexTableLength())]
-    with (raw / 'model_streaming' / ('lod' + str(lod_number)) / (entity + '.mmesh')).open('rb') as stream:
+    with (raw / 'model_streaming' / ('lod' + str(lod_number)) / (source_entity + '.mmesh')).open('rb') as stream:
         positions, normals, uv = reader.get_mesh_vertex_data(stream, lod.VertexCount())
         faces = reader.get_mesh_face_data(stream, lod.Buffers(lod.BuffersLength() - 1).Offset(), lod.IndexCount() // 3)
         count = 2 if 'BLENDINDICES_2' in flags else 1
@@ -386,6 +387,7 @@ def main():
     parser.add_argument('--dependencies', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--lod', type=int, default=2, choices=range(4))
+    parser.add_argument('--body-variant', choices=['pl1100', 'pl1101'], default='pl1100')
     parser.add_argument('--motions', nargs='*')
     parser.add_argument('--combat-only', action='store_true')
     parser.add_argument('--in-place', action='store_true')
@@ -399,11 +401,20 @@ def main():
     motlib = importlib.import_module('mot_tools.mot.common.mot')
     bones = [{'name':'RelinkRoot', 'source':'root', 'parent':-1, 'position':[0,0,0],
               'rotation':[1,0,0,0], 'scale':[1,1,1], 'local':np.eye(4), 'bind':np.eye(4), 'entity':'root'}]
-    body = read_entity(reader, args.raw, 'pl1100', args.lod, bones, 0, 0)
+    body_materials = materials(args.raw/'model/pl'/args.body_variant/'vars/0.mmat')
+    body = read_entity(reader, args.raw, 'pl1100', args.lod, bones, 0, 0, source_entity=args.body_variant)
+    if args.body_variant != 'pl1100':
+        # Helmet variants reuse the complete PL1100 MOT skeleton without remapping.
+        reference = (args.raw/'model/pl/pl1100/pl1100.skeleton').read_bytes()
+        variant = (args.raw/'model/pl'/args.body_variant/(args.body_variant+'.skeleton')).read_bytes()
+        if reference != variant:
+            raise ValueError('Helmet/body skeletons must be byte-identical')
     socket = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_400')
-    weapon = read_entity(reader, args.raw, 'wp1100', args.lod, bones, socket, 7)
+    weapon_materials = materials(args.raw/'model/wp/wp1100/vars/0.mmat')
+    weapon = read_entity(reader, args.raw, 'wp1100', args.lod, bones, socket, len(body_materials))
     head = next(i for i, bone in enumerate(bones) if bone['name'] == 'pl1100_005')
-    face = read_entity(reader, args.raw, 'fp1100', args.lod, bones, head, 8, merge_face=True)
+    face_materials = materials(args.raw/'model/fp/fp1100/vars/0.mmat')
+    face = read_entity(reader, args.raw, 'fp1100', args.lod, bones, head, len(body_materials)+len(weapon_materials), merge_face=True)
     entities = [body, weapon, face]
     coordinate = np.eye(4)
     coordinate[:3, :3] = np.array([[0,0,60],[60,0,0],[0,60,0]])
@@ -430,7 +441,7 @@ def main():
     for entity in entities:
         make_geosets(entity, coordinate, [])
     bounds = influence_bounds(entities, len(bones))
-    all_materials = sum([materials(args.raw/'model'/entity['entity'][:2]/entity['entity']/'vars/0.mmat') for entity in entities], [])
+    all_materials = body_materials + weapon_materials + face_materials
     texture_names = list(dict.fromkeys(name for _, name in all_materials))
     material_bytes = b''
     for _, name in all_materials:
@@ -448,7 +459,7 @@ def main():
     while index >= 0:
         lock_chain.add(index)
         index = bones[index]['parent']
-    report = {'lod':args.lod, 'bones':len(bones), 'textures':texture_names,
+    report = {'lod':args.lod, 'body_variant':args.body_variant, 'bones':len(bones), 'textures':texture_names,
               'triangles':sum(len(part['faces']) for entity in entities for part in entity['parts']),
               'entities':[entity['entity'] for entity in entities], 'in_place':args.in_place,
               'combat_only':args.combat_only, 'removed_motions':removed, 'motions':[]}
