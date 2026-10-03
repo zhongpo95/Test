@@ -387,7 +387,7 @@ def main():
     parser.add_argument('--dependencies', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--lod', type=int, default=2, choices=range(4))
-    parser.add_argument('--body-variant', choices=['pl1100', 'pl1101'], default='pl1100')
+    parser.add_argument('--body-variant', choices=['pl1100', 'pl1101', 'pl1102'], default='pl1100')
     parser.add_argument('--motions', nargs='*')
     parser.add_argument('--combat-only', action='store_true')
     parser.add_argument('--in-place', action='store_true')

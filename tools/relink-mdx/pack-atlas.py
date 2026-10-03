@@ -47,8 +47,8 @@ def main():
     if args.output.exists():
         raise FileExistsError('Existing atlas output is preserved')
     model = json.loads((args.model_folder/'conversion.json').read_text(encoding='utf-8'))
-    if model.get('body_variant') != 'pl1101':
-        raise ValueError('This atlas layout is for the inspected PL1101 helmet model')
+    if model.get('body_variant') not in ['pl1101', 'pl1102']:
+        raise ValueError('This atlas layout is for the inspected PL1101/PL1102 helmet models')
     pages = [
         ('Armor', 1024, [('pl1100_armor_lod0_albd', 0, 0, 512),
                          ('pl1100_cloth_lod0_albd', 512, 0, 512),
