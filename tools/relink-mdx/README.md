@@ -105,3 +105,17 @@ python tools/relink-mdx/compare.py $atlasOutput --source-folder $helmetOutput
 `apply-atlas.cjs`는 UV가 0~1 범위이고 단일 UV·재질 레이어, 반복과 텍스처 애니메이션이 없는 입력만 처리합니다. UV와 텍스처 참조를 원복한 MDX가 원래 변환 파일과 바이트 단위로 일치하는지 검사하여 메시·스킨·모션 보존을 확인합니다. BLP 전체 밉도 독립 디코딩합니다. 원래 출력과 아틀라스 출력은 별도 폴더를 사용하며, 최상위 `.rgba`를 검사 결과의 폭·높이로 PNG로 변환하면 미리보기에 사용할 수 있습니다. 일반 CMYK 색공간 변환을 적용하거나 알파를 버리는 BLP 리더를 쓰면 안 됩니다.
 
 최종 경로는 `Siegfried_Helmet\\Atlas_Armor.blp`, `Siegfried_Helmet\\Atlas_Face.blp` 두 개이며 합계 1,487,282바이트입니다. MDX 파일은 배포 시 `Siegfried_Helmet.mdx`로 이름을 바꿔도 내부 BLP 경로는 그대로 유지됩니다. 두 번째 복장은 `Siegfried_Helmet_2.mdx`로 배포하며 두 모델이 같은 BLP 두 장을 참조합니다. 함께 가져올 때 텍스처는 한 번만 추가합니다. 작은 밉에서는 인접 타일이 섞일 수 있으며, 실제 워크래프트·월드 에디터의 가져오기와 원거리 외형은 미검증입니다.
+
+## 닫힌 머리갑옷 안쪽 얼굴 정리
+
+PL1102의 하관 보호대 안에서는 별도 FP1100 얼굴·눈·입 메시와 본체의 얼굴 조각을 제거합니다. PL1101의 노출된 입은 유지합니다. 서로 동일한 삼각형인지 여부만으로 갑옷 밖으로 겹치는지를 판단할 수 없으므로, 렌더에서 실제 가려지는 영역을 확인한 PL1102 LOD2에만 적용합니다.
+
+```powershell
+node tools/relink-mdx/remove-inner-head.cjs $deps $atlasOutput $cleanOutput
+node tools/relink-mdx/validate.cjs $deps $cleanOutput
+python tools/relink-mdx/compare.py $cleanOutput --source-folder $helmetOutput
+```
+
+이 후처리는 확인한 원본 배치에서 별도 얼굴 2,412개와 본체 안쪽 얼굴 76개, 총 2,488개 삼각형을 제거합니다. 갑옷·검·목 피부와 나머지 메시·스킨·UV·재질·텍스처·149개 모션 및 뼈는 바꾸지 않습니다. 제거한 지오셋을 원복한 MDX가 입력과 바이트 단위로 일치하는지 검사하며, 최종 삼각형은 12,785개입니다. 기존 범위는 보수적인 경계로 유지합니다. 이전 파일과 혼동하지 않도록 정리본을 `Siegfried_Helmet_2_v3.mdx`로 따로 배포하고, BLP는 기존 공유 경로 두 개를 그대로 사용합니다.
+
+얼굴 메시를 제거한 후에도 노드 ID와 모션 채널을 보존하기 위해 얼굴 뼈는 유지합니다. 구조 검사에서 정점이 연결되지 않은 뼈 경고 91개가 발생하며, 다른 경고·오류·심각한 문제는 없습니다. 이 경고를 숨기기 위해 노드 종류나 계층을 바꾸지 않습니다. 실제 워크래프트·월드 에디터에서의 재생은 미검증입니다.
