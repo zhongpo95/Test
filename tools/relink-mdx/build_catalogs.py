@@ -3,7 +3,7 @@ import argparse
 import csv
 import html
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageStat
@@ -19,7 +19,7 @@ def page(title, content):
 def sound_catalog(root):
     manifest = json.loads((root / 'Info/sound-manifest.json').read_text(encoding='utf8'))
     links = json.loads((root / 'Info/hirc-motion-sounds.json').read_text(encoding='utf8'))
-    sources, events, motions = defaultdict(set), defaultdict(set), defaultdict(set)
+    sources, events, motions, groups = defaultdict(set), defaultdict(set), defaultdict(set), defaultdict(set)
     for item in manifest['media']:
         sources[item['file']].add(item['bank'])
     for item in links:
@@ -27,31 +27,42 @@ def sound_catalog(root):
             events[file].add(item['event'])
             if item['mdx_sequence']:
                 motions[file].add(item['mdx_sequence'])
+            if item.get('selection_group'):
+                groups[file].add(item['selection_group'])
     data = [{**item, 'language': Path(item['file']).parts[1], 'banks': sorted(sources[item['file']]),
-             'events': sorted(events[item['file']]), 'motions': sorted(motions[item['file']])}
+             'events': sorted(events[item['file']]), 'motions': sorted(motions[item['file']]), 'groups': sorted(groups[item['file']])}
             for item in manifest['converted']]
-    content = '''<h1>지크프리트 사운드</h1><p>일본어 음성 2,134개 · 영어 음성 2,105개 · 효과음 959개.<br>전투·필드·마을 대사를 포함합니다. 모션 필터는 원본 사운드 이벤트의 재생 후보를 보여줍니다. 게임의 랜덤 선택·믹싱·음량은 재현하지 않습니다.</p>
-<div class="filters"><input id="search" placeholder="파일명·이벤트·뱅크 검색" aria-label="사운드 검색"><select id="language" aria-label="언어"><option value="">전체 언어</option><option value="Voice_JP">일본어 음성</option><option value="Voice_EN">영어 음성</option><option value="SE">효과음</option></select><select id="motion" aria-label="모션"><option value="">전체 모션</option></select><span id="count"></span></div><div id="items"></div><button id="more">100개 더 보기</button><p>폴더 구조를 유지하고 이 HTML을 브라우저로 열어 주세요. 맵에는 선택한 MP3/WAV만 가져오면 됩니다. 워크래프트 실제 재생은 미검증입니다.</p>
+    counts = Counter(x['language'] for x in data)
+    scope = html.escape(manifest.get('scope', '전투·필드·마을 대사를 포함합니다.'))
+    labels = {'Voice_JP': '일본어 음성', 'Voice_EN': '영어 음성', 'SE': '효과음'}
+    summary = ' · '.join(f'{name} {counts[key]:,}개' for key, name in labels.items() if counts[key])
+    options = ''.join(f'<option value="{key}">{name}</option>' for key, name in labels.items() if counts[key])
+    content = f'<h1>지크프리트 사운드</h1><p>{summary}.<br>{scope} 모션 필터는 원본 사운드 이벤트의 재생 후보를 보여줍니다. 게임의 랜덤 선택·믹싱·음량은 재현하지 않습니다.</p>' + '''
+<div class="filters"><input id="search" placeholder="파일명·이벤트·뱅크 검색" aria-label="사운드 검색"><select id="language" aria-label="언어"><option value="">전체 언어</option>''' + options + '''</select><select id="group" aria-label="스킬"><option value="">전체 스킬</option></select><select id="motion" aria-label="모션"><option value="">전체 모션</option></select><span id="count"></span></div><div id="items"></div><button id="more">100개 더 보기</button><p>폴더 구조를 유지하고 이 HTML을 브라우저로 열어 주세요. 맵에는 선택한 MP3/WAV만 가져오면 됩니다. 워크래프트 실제 재생은 미검증입니다.</p>
 <script id="data" type="application/json">''' + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c') + '''</script><script>
 const data=JSON.parse(document.getElementById('data').textContent);
-const search=document.getElementById('search'), language=document.getElementById('language'), motion=document.getElementById('motion'), items=document.getElementById('items'), more=document.getElementById('more');
+const search=document.getElementById('search'), language=document.getElementById('language'), group=document.getElementById('group'), motion=document.getElementById('motion'), items=document.getElementById('items'), more=document.getElementById('more');
 let limit=100;
 const names=[...new Set(data.flatMap(x=>x.motions))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 for(const name of names){const option=document.createElement('option');option.value=name;option.textContent=name;motion.append(option);}
+const groupNames=[...new Set(data.flatMap(x=>x.groups))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+group.hidden=groupNames.length===0;
+for(const name of groupNames){const option=document.createElement('option');option.value=name;option.textContent=name;group.append(option);}
 function element(tag,text){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node;}
 function render(){
  const q=search.value.toLowerCase();
- const filtered=data.filter(x=>(!language.value||x.language===language.value)&&(!motion.value||x.motions.includes(motion.value))&&(!q||[x.file,...x.banks,...x.events,...x.motions].join(' ').toLowerCase().includes(q)));
+ const filtered=data.filter(x=>(!language.value||x.language===language.value)&&(!group.value||x.groups.includes(group.value))&&(!motion.value||x.motions.includes(motion.value))&&(!q||[x.file,...x.banks,...x.events,...x.motions,...x.groups].join(' ').toLowerCase().includes(q)));
  document.getElementById('count').textContent=filtered.length.toLocaleString()+'개';items.replaceChildren();
  for(const x of filtered.slice(0,limit)){
   const row=element('article'),title=element('code',x.file.split('/').pop()),audio=element('audio');audio.controls=true;audio.preload='none';audio.src=encodeURI(x.file);
   const link=element('a','파일 열기');link.href=encodeURI(x.file);
   row.append(title,element('div',x.language+' · '+x.seconds.toFixed(2)+'초 · '+(x.bytes/1024).toFixed(1)+' KB'),audio,link);
   if(x.events.length)row.append(element('p','이벤트 '+x.events.join(' / ')+' · 모션 '+(x.motions.join(' / ')||'변환 모델에 없는 모션')));
+  if(x.groups.length)row.append(element('div',x.groups.join(' / ')));
   row.append(element('small',x.banks.join(' / ')));items.append(row);
  }more.hidden=filtered.length<=limit;
 }
-for(const control of [search,language,motion])control.addEventListener('input',()=>{limit=100;render();});
+for(const control of [search,language,group,motion])control.addEventListener('input',()=>{limit=100;render();});
 more.addEventListener('click',()=>{limit+=100;render();});render();
 </script>'''
     (root / '사운드_목록.html').write_text(page('지크프리트 사운드', content), encoding='utf8')

@@ -4,6 +4,16 @@
 
 ## 사운드
 
+맵용 기본 범위는 **스킬 8종과 오의의 호출 후보만** 사용합니다. 전체 뱅크 출력에는 필드·마을·일반 전투 대사가 섞여 있으므로 검증된 HIRC 표에서 원본 스킬 액션의 모션을 따라 선택합니다. `--actions`는 원본 ActionInfo에서 만든 `id/name/motions` 목록이며, 스킬 전용 출력의 `Info/source-skill-actions.json`으로 선택 절차를 다시 실행할 수 있습니다.
+
+```powershell
+python tools/relink-mdx/select_skill_sound.py --sound $sound --actions $actions --output $skillSound
+```
+
+기본 언어 선택은 **일본어 음성 + 효과음**입니다. 2026-10-04 선택 결과는 **128개 / 5,420,932바이트**입니다. 일본어 78개, 효과음 50개이며 모션 호출 57행 중 54행에 음원이 있습니다. 스킬은 원본 액션의 정확한 `34xx` 모션 목록, 오의는 `1800/1810/1820`만 선택합니다. 일반 공격·피격·이동은 선택의 출발점으로 사용하지 않으며, 스킬에서 함께 호출하는 공용 검 소리는 포함합니다. 음성 파일명이 스킬/오의 계열인지도 검사합니다. 기존 디코딩 검사와 SHA-256이 일치하는 파일을 재사용하고, 공유 파일은 한 번만 복사합니다. 임의로 후보 하나만 고르지 않습니다.
+
+스킬 전용 HTML 목록은 스킬별 필터와 동적으로 계산한 파일 수를 표시하며, 선택에 없는 언어 항목은 표시하지 않습니다. `Info/스킬별_사운드.csv`에는 원본 모션·MDX Spell 번호·호출 시점·이벤트·재생 후보가 들어 있습니다. 오의 공용 호출 `core_ougi_cut_in`, `core_ougi_stop_pl1100`은 미해결로 표시합니다. 기존 전체 출력은 별도 백업으로 옮겨 보존하며, 새 패키지는 영어·원본 BNK·무관한 음원을 다시 포함하지 않습니다.
+
 Python **3.12**, [vgmstream r2117](https://github.com/vgmstream/vgmstream/releases/tag/r2117), [wwiser v20260808](https://github.com/bnnm/wwiser/releases/tag/v20260808), 별도 폴더에 설치한 `lameenc==1.8.4`가 필요합니다. `audioop`는 Python 3.13에서 제거되어 이 도구는 3.12를 사용합니다. 뱅크는 설치본 `data/sound`에 있습니다. [리링크 오디오 문서](https://nenkai.github.io/relink-modding/tutorials/audio/audio_extraction/)를 참고합니다.
 
 ```powershell
