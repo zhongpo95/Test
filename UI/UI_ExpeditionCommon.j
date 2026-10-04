@@ -117,11 +117,19 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
 
     private function ButtonStyle takes integer i returns nothing
         if ButtonTheme[i] > 0 then
-            if ButtonTheme[i] == 3 then
+            if ButtonTheme[i] == 3 or ButtonTheme[i] == 4 then
                 if Hovered == i or ButtonSelected[i] then
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
+                    if ButtonTheme[i] == 4 then
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Selected.tga", 0)
+                    else
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Selected.tga", 0)
+                    endif
                 else
-                    call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Slot.tga", 0)
+                    if ButtonTheme[i] == 4 then
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Cards_Slot.tga", 0)
+                    else
+                        call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Slot.tga", 0)
+                    endif
                 endif
             elseif ButtonTheme[i] == 1 then
                 if (Hovered == i or ButtonSelected[i]) and ButtonEnabled[i] then
@@ -142,7 +150,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
                     call DzFrameSetTexture(ButtonBackdrops[i], "war3mapImported\\UI_Arcana_Sheet.tga", 0)
                 endif
             endif
-            if ButtonEnabled[i] or ButtonTheme[i] == 3 then
+            if ButtonEnabled[i] or ButtonTheme[i] == 3 or ButtonTheme[i] == 4 then
                 call DzFrameSetAlpha(ExpUIButtons[i], 255)
             else
                 call DzFrameSetAlpha(ExpUIButtons[i], 150)
@@ -180,7 +188,7 @@ library UIExpeditionCommon initializer Init requires Expedition, UIMainQuest, Fr
     function ExpUISetButton takes integer i, string value, boolean enabled returns nothing
         set ButtonEnabled[i] = enabled
         call DzFrameSetEnable(ExpUIButtons[i], enabled)
-        if ButtonTheme[i] == 1 or ButtonTheme[i] == 3 then
+        if ButtonTheme[i] == 1 or ButtonTheme[i] == 3 or ButtonTheme[i] == 4 then
             call DzFrameSetText(ExpUIButtonLabels[i], "|cffe7edf3" + JNStringReplace(value, "|r", "|cffe7edf3") + "|r")
         elseif enabled then
             call DzFrameSetText(ExpUIButtonLabels[i], "|cff163848" + JNStringReplace(value, "|r", "|cff163848") + "|r")

@@ -122,20 +122,6 @@ library DataPrototypeStats initializer ProtoStatsInit requires DataExpedition
         endloop
     endfunction
 
-    // 기본 효과는 최초 획득 때, 각성 추가 효과는 최초 각성 때만 더한다.
-    function ProtoStatAddCard takes integer pid, integer card, boolean evolved returns nothing
-        local integer kind = 1
-        local integer offset = 0
-        if evolved then
-            set offset = 32
-        endif
-        loop
-            exitwhen kind > PROTO_STAT_LAST
-            set ProtoStatValues[pid * 32 + kind] = ProtoStatValues[pid * 32 + kind] + LoadReal(ProtoEffectData, card, kind + offset) * (1.0 + 0.5 * ProtoCardStacks[ExpKey(pid, card)])
-            set kind = kind + 1
-        endloop
-    endfunction
-
     function ProtoStatAddHead takes integer pid, integer head returns nothing
         local integer kind = 1
         loop
