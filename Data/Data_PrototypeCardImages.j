@@ -288,7 +288,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 셰스카
         call SetImages(721, "UI_Card_FMA_21_Icon", "UI_Card_FMA_21_Art")
         // 알렉스 루이 암스트롱
-        call SetImages(722, "UI_Card_FMA_6_Icon", "UI_Card_FMA_6_Art")
+        call SetImages(722, "UI_Card_FMO1_armstrong_Icon", "UI_Card_FMO1_armstrong_Art")
         // 이즈미 커티스
         call SetImages(723, "UI_Card_FMA_25_Icon", "UI_Card_FMA_25_Art")
         // 로이 머스탱
@@ -296,7 +296,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 리자 호크아이
         call SetImages(726, "UI_Card_FMA_5_Icon", "UI_Card_FMA_5_Art")
         // 마스 휴즈
-        call SetImages(727, "UI_Card_FMA_7_Icon", "UI_Card_FMA_7_Art")
+        call SetImages(727, "UI_Card_FMO1_hughes_Icon", "UI_Card_FMO1_hughes_Art")
         // 피나코 록벨
         call SetImages(728, "UI_Card_FMA_13_Icon", "UI_Card_FMA_13_Art")
         // 시그 커티스
