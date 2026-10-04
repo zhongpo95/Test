@@ -103,6 +103,10 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(233, "UI_Card_RGT_38_Icon", "UI_Card_RGT_38_Art")
         // 미사카 동생
         call SetImages(252, "UI_Card_RGT_39_Icon", "UI_Card_RGT_39_Art")
+        // 액셀러레이터
+        call SetImages(258, "UI_Card_RGS_accelerator_Icon", "UI_Card_RGS_accelerator_Art")
+        // 누노타바 시노부
+        call SetImages(264, "UI_Card_RGS_nunotaba_Icon", "UI_Card_RGS_nunotaba_Art")
         // 카나메 마도카
         call SetImages(294, "UI_Card_PMM_madoka_Icon", "UI_Card_PMM_madoka_Art")
         // 토모에 마미
@@ -163,6 +167,20 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(448, "UI_Card_GBF_lyria_Icon", "UI_Card_GBF_lyria_Art")
         // 이드
         call SetImages(472, "UI_Card_GBF_id_Icon", "UI_Card_GBF_id_Art")
+        // 야토
+        call SetImages(490, "UI_Card_NRG_yato_Icon", "UI_Card_NRG_yato_Art")
+        // 유키네
+        call SetImages(491, "UI_Card_NRG_yukine_Icon", "UI_Card_NRG_yukine_Art")
+        // 이키 히요리
+        call SetImages(492, "UI_Card_NRG_hiyori_Icon", "UI_Card_NRG_hiyori_Art")
+        // 호로
+        call SetImages(493, "UI_Card_SW_holo_Icon", "UI_Card_SW_holo_Art")
+        // 크래프트 로렌스
+        call SetImages(494, "UI_Card_SW_lawrence_Icon", "UI_Card_SW_lawrence_Art")
+        // 라그나 더 블러드엣지
+        call SetImages(496, "UI_Card_BB_ragna-cf_Icon", "UI_Card_BB_ragna-cf_Art")
+        // 나즈린
+        call SetImages(498, "UI_Card_LW_nazrin-l1_Icon", "UI_Card_LW_nazrin-l1_Art")
         // 해피
         call SetImages(502, "UI_Card_FT_happy_Icon", "UI_Card_FT_happy_Art")
         // 나츠 드래그닐
@@ -177,6 +195,20 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(508, "UI_Card_FT_wendy-marvell_Icon", "UI_Card_FT_wendy-marvell_Art")
         // 샤를
         call SetImages(509, "UI_Card_FT_charles_Icon", "UI_Card_FT_charles_Art")
+        // 가질 레드폭스
+        call SetImages(511, "UI_Card_FTG_gajeel_Icon", "UI_Card_FTG_gajeel_Art")
+        // 쥬비아 록서
+        call SetImages(512, "UI_Card_FTG_juvia_Icon", "UI_Card_FTG_juvia_Art")
+        // 미라젠 스트라우스
+        call SetImages(513, "UI_Card_FTG_mirajane_Icon", "UI_Card_FTG_mirajane_Art")
+        // 렉서스 드레아
+        call SetImages(514, "UI_Card_FTG_laxus_Icon", "UI_Card_FTG_laxus_Art")
+        // 길다트 클라이브
+        call SetImages(515, "UI_Card_FTG_gildarts_Icon", "UI_Card_FTG_gildarts_Art")
+        // 마카로프
+        call SetImages(543, "UI_Card_FTS_makarov_Icon", "UI_Card_FTS_makarov_Art")
+        // 콘
+        call SetImages(570, "UI_Card_BBS_kon_Icon", "UI_Card_BBS_kon_Art")
         // 쿠로사키 이치고
         call SetImages(571, "UI_Card_BLH_01_Icon", "UI_Card_BLH_01_Art")
         // 이시다 우류
@@ -191,8 +223,16 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(576, "UI_Card_BLH_05_Icon", "UI_Card_BLH_05_Art")
         // 사도 야스토라
         call SetImages(577, "UI_Card_BLH_04_Icon", "UI_Card_BLH_04_Art")
+        // 돈 칸온지
+        call SetImages(582, "UI_Card_BBS_kanonji_Icon", "UI_Card_BBS_kanonji_Art")
         // 쿠로사키 잇신
         call SetImages(584, "UI_Card_BLH_58_Icon", "UI_Card_BLH_58_Art")
+        // 츠무기야 우루루
+        call SetImages(585, "UI_Card_BBS_ururu_Icon", "UI_Card_BBS_ururu_Art")
+        // 하나카리 진타
+        call SetImages(593, "UI_Card_BBS_jinta_Icon", "UI_Card_BBS_jinta_Art")
+        // 야마다 하나타로
+        call SetImages(613, "UI_Card_BBS_hanataro_Icon", "UI_Card_BBS_hanataro_Art")
         // 아바라이 렌지
         call SetImages(616, "UI_Card_BLH_12_Icon", "UI_Card_BLH_12_Art")
         // 쿠치키 뱌쿠야
@@ -249,6 +289,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(761, "UI_Card_FMA_27_Icon", "UI_Card_FMA_27_Art")
         // 반 호엔하임
         call SetImages(773, "UI_Card_FMA_34_Icon", "UI_Card_FMA_34_Art")
+        // 칸자키 아오이
+        call SetImages(794, "UI_Card_KNYS_aoi_Icon", "UI_Card_KNYS_aoi_Art")
         // 카마도 탄지로
         call SetImages(795, "UI_Card_KNY_tanjiro_Icon", "UI_Card_KNY_tanjiro_Art")
         // 츠유리 카나오
@@ -259,6 +301,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(798, "UI_Card_KNY_zennitsu_Icon", "UI_Card_KNY_zennitsu_Art")
         // 하시비라 이노스케
         call SetImages(799, "UI_Card_KNY_inosuke_Icon", "UI_Card_KNY_inosuke_Art")
+        // 무라타
+        call SetImages(806, "UI_Card_KNYG_murata_Icon", "UI_Card_KNYG_murata_Art")
         // 카마도 네즈코
         call SetImages(808, "UI_Card_KNY_neduko_Icon", "UI_Card_KNY_neduko_Art")
         // 렌고쿠 쿄쥬로
@@ -281,5 +325,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(870, "UI_Card_PCR_102931_Icon", "UI_Card_PCR_102931_Art")
         // 캐르
         call SetImages(888, "UI_Card_PCR_106031_Icon", "UI_Card_PCR_106031_Art")
+        // 유우키
+        call SetImages(894, "UI_Card_PCRS_yuuki_Icon", "UI_Card_PCRS_yuuki_Art")
     endfunction
 endlibrary
