@@ -278,7 +278,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 선데이
         call SetImages(706, "UI_Card_HSR_1313_Icon", "UI_Card_HSR_1313_Art")
         // 윈리 록벨
-        call SetImages(717, "UI_Card_FMA_3_Icon", "UI_Card_FMA_3_Art")
+        call SetImages(717, "UI_Card_FAN13_winry_Icon", "UI_Card_FAN13_winry_Art")
         // 에드워드 엘릭
         call SetImages(718, "UI_Card_FCU8_edward_Icon", "UI_Card_FCU8_edward_Art")
         // 알폰스 엘릭
