@@ -1189,5 +1189,33 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[466] = "war3mapImported\\UI_Event_CGP9_pecorine_harvest.tga"
         // 닫힌 가게 앞의 지시
         set ProtoEventIcon[469] = "war3mapImported\\UI_Event_CGP9_monika_town_orders.tga"
+        // 좋은꿈 슬롯머신 앞에서
+        set ProtoEventIcon[354] = "war3mapImported\\UI_Event_PXS10_aventurine_coin_choice.tga"
+        // 멈춘 회전판 너머
+        set ProtoEventIcon[355] = "war3mapImported\\UI_Event_PXS10_gallagher_guide_after_game.tga"
+        // 광고 아래의 솔글래드
+        set ProtoEventIcon[358] = "war3mapImported\\UI_Event_PXS10_gallagher_hotel_corridor.tga"
+        // 기억에 남겨 둔 출구
+        set ProtoEventIcon[360] = "war3mapImported\\UI_Event_PXS10_acheron_open_path.tga"
+        // 이름이 노래를 덮을 때 · 이름이 올라간 뒤
+        set ProtoEventIcon[368] = "war3mapImported\\UI_Event_PXS10_robin_before_performance.tga"
+        // 이름이 노래를 덮을 때 · 이름이 올라간 뒤
+        set ProtoEventIcon[372] = "war3mapImported\\UI_Event_PXS10_robin_before_performance.tga"
+        // 소개만 남은 무대
+        set ProtoEventIcon[369] = "war3mapImported\\UI_Event_PXS10_soulglad_audition_stage.tga"
+        // 사진 아래에 빠진 말
+        set ProtoEventIcon[373] = "war3mapImported\\UI_Event_PXS10_boothill_own_identity.tga"
+        // 노래를 기다렸던 다른 자리 · 로빈과 선데이가 말하는 행복
+        set ProtoEventIcon[375] = "war3mapImported\\UI_Event_PXS10_penacony_grand_theater.tga"
+        // 노래를 기다렸던 다른 자리 · 로빈과 선데이가 말하는 행복
+        set ProtoEventIcon[387] = "war3mapImported\\UI_Event_PXS10_penacony_grand_theater.tga"
+        // 꿈의 경계를 시험하는 판
+        set ProtoEventIcon[384] = "war3mapImported\\UI_Event_PXS10_aventurine_boundary_trial.tga"
+        // 꿈이 흐르는 암초의 사람들
+        set ProtoEventIcon[385] = "war3mapImported\\UI_Event_PXS10_dreamflux_reef_people.tga"
+        // 각자의 뜻으로 질서의 꿈을 깨다
+        set ProtoEventIcon[389] = "war3mapImported\\UI_Event_PXS10_robin_song_and_choice.tga"
+        // 벽 너머까지 들린 연습
+        set ProtoEventIcon[471] = "war3mapImported\\UI_Event_PXS10_nozomi_considerate_practice.tga"
     endfunction
 endlibrary
