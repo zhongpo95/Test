@@ -1,7 +1,7 @@
 // I키 보관함의 캐릭터 목록, 선택한 큰 일러스트와 호버 합산 효과를 표시한다.
 library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGate
     globals
-        private constant integer PAGE_SIZE = 20
+        private constant integer PAGE_SIZE = 15
         private integer Root
         private integer Summary
         private integer PageText
@@ -265,7 +265,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             else
                 call DzFrameSetFont(TooltipText, "Fonts\\DFHeiMd.ttf", 0.010, 0)
             endif
-            set y = RMaxBJ(tooltipHeight + 0.065, 0.430 - R2I((Hover - 1) / 5) * 0.090)
+            set y = RMaxBJ(tooltipHeight + 0.065, 0.430 - R2I((Hover - 1) / 5) * 0.117)
             call DzFrameClearAllPoints(Tooltip)
             call DzFrameSetAbsolutePoint(Tooltip, JN_FRAMEPOINT_TOPLEFT, x, y)
             call DzFrameSetSize(Tooltip, 0.268, tooltipHeight)
@@ -326,17 +326,18 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         loop
             exitwhen i > PAGE_SIZE
             set x = 0.029 + ModuloInteger(i - 1, 5) * 0.075
-            set y = 0.151 + R2I((i - 1) / 5) * 0.090
+            set y = 0.151 + R2I((i - 1) / 5) * 0.117
             set Cells[i] = ExpUICoverButton(Root, 0)
             call ExpUIThemeButton(Cells[i], 4)
             call DzFrameClearAllPoints(ExpUIButtons[Cells[i]])
             call DzFrameSetPoint(ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, Root, JN_FRAMEPOINT_TOPLEFT, x, -y)
-            call ExpUIResizeCover(Cells[i], 0.063, 0.085)
+            call ExpUIResizeCover(Cells[i], 0.063, 0.111)
             set Icons[i] = ExpUITexture(ExpUIButtons[Cells[i]], 0.0045, 0.0035, 0.054, 0.072, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set Borders[i] = ExpUITexture(ExpUIButtons[Cells[i]], 0.0045, 0.0035, 0.054, 0.072, ProtoCardFrame(1))
             call DzFrameSetPriority(Icons[i], 90)
             call DzFrameSetPriority(Borders[i], 91)
-            set Names[i] = Label(ExpUIButtons[Cells[i]], 0.003, 0.073, 0.057, 0.017, 0.0085, "")
+            // 5열 3행으로 배치하여 이미지 아래에 두 줄 이름 공간을 확보한다.
+            set Names[i] = Label(ExpUIButtons[Cells[i]], 0.003, 0.081, 0.057, 0.025, 0.0085, "")
             call JNFrameSetTextAlignment(Names[i], JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_CENTER)
             call DzFrameSetPriority(Names[i], 92)
             call DzFrameClearAllPoints(ExpUIButtonLabels[Cells[i]])
