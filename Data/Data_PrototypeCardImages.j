@@ -178,7 +178,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 이드
         call SetImages(472, "UI_Card_GBF_id_Icon", "UI_Card_GBF_id_Art")
         // 야토
-        call SetImages(490, "UI_Card_NRG_yato_Icon", "UI_Card_NRG_yato_Art")
+        call SetImages(490, "UI_Card_NRO1_yato_Icon", "UI_Card_NRO1_yato_Art")
         // 유키네
         call SetImages(491, "UI_Card_NRG_yukine_Icon", "UI_Card_NRG_yukine_Art")
         // 이키 히요리
