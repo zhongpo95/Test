@@ -12,23 +12,23 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
 
     private function Init takes nothing returns nothing
         // 에미야 시로
-        call SetImages(13, "UI_Card_FSN_ch01_Icon", "UI_Card_FSN_ch01_Art")
+        call SetImages(13, "UI_Card_FSU6_shirou_Icon", "UI_Card_FSU6_shirou_Art")
         // 세이버
-        call SetImages(14, "UI_Card_FSN_ch02_Icon", "UI_Card_FSN_ch02_Art")
+        call SetImages(14, "UI_Card_FSU6_saber_Icon", "UI_Card_FSU6_saber_Art")
         // 토오사카 린
-        call SetImages(16, "UI_Card_FSN_ch03_Icon", "UI_Card_FSN_ch03_Art")
+        call SetImages(16, "UI_Card_FSU6_rin_Icon", "UI_Card_FSU6_rin_Art")
         // 아처
-        call SetImages(17, "UI_Card_FSN_ch04_Icon", "UI_Card_FSN_ch04_Art")
+        call SetImages(17, "UI_Card_FSU6_archer_Icon", "UI_Card_FSU6_archer_Art")
         // 어새신
-        call SetImages(18, "UI_Card_FSN_ch13_Icon", "UI_Card_FSN_ch13_Art")
+        call SetImages(18, "UI_Card_FSU6_assassin_Icon", "UI_Card_FSU6_assassin_Art")
         // 마토 사쿠라
         call SetImages(19, "UI_Card_FSN_ch05_Icon", "UI_Card_FSN_ch05_Art")
         // 캐스터
-        call SetImages(20, "UI_Card_FSN_ch12_Icon", "UI_Card_FSN_ch12_Art")
+        call SetImages(20, "UI_Card_FSU6_caster_Icon", "UI_Card_FSU6_caster_Art")
         // 후지무라 타이가
         call SetImages(21, "UI_Card_FSN_ch14_Icon", "UI_Card_FSN_ch14_Art")
         // 랜서
-        call SetImages(26, "UI_Card_FSN_ch06_Icon", "UI_Card_FSN_ch06_Art")
+        call SetImages(26, "UI_Card_FSU6_lancer_Icon", "UI_Card_FSU6_lancer_Art")
         // 코토미네 키레이
         call SetImages(30, "UI_Card_FSN_ch09_Icon", "UI_Card_FSN_ch09_Art")
         // 루나
