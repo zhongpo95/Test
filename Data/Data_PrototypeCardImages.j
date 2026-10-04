@@ -1,4 +1,4 @@
-// 확보한 캐릭터 원본의 얼굴 아이콘과 큰 카드 일러스트 경로를 등록한다.
+// 확보한 캐릭터 원본을 카드 그림과 동일 인물 보상 사건의 표지에 연결한다.
 library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
     globals
         string array ProtoCharacterIconPath
@@ -345,5 +345,421 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(888, "UI_Card_PCR_106031_Icon", "UI_Card_PCR_106031_Art")
         // 유우키
         call SetImages(894, "UI_Card_PCRS_yuuki_Icon", "UI_Card_PCRS_yuuki_Art")
+
+        // 모든 선택지에서 같은 인물의 카드를 얻는 사건만 해당 인물의 표지를 사용한다.
+        // 학교에 남은 두 사람
+        set ProtoEventIcon[69] = ProtoCharacterIconPath[16]
+        // 돌아갈 수 없어진 저녁
+        set ProtoEventIcon[70] = ProtoCharacterIconPath[13]
+        // 성배전쟁이라는 이름
+        set ProtoEventIcon[71] = ProtoCharacterIconPath[16]
+        // 버서커가 막아선 길
+        set ProtoEventIcon[72] = ProtoCharacterIconPath[14]
+        // 집에 남겨 둔 일상
+        set ProtoEventIcon[73] = ProtoCharacterIconPath[13]
+        // 학교에서 맺은 휴전
+        set ProtoEventIcon[74] = ProtoCharacterIconPath[16]
+        // 류도사의 밤
+        set ProtoEventIcon[75] = ProtoCharacterIconPath[17]
+        // 결계 안의 학교
+        set ProtoEventIcon[76] = ProtoCharacterIconPath[13]
+        // 뜻밖의 적과 빈틈
+        set ProtoEventIcon[77] = ProtoCharacterIconPath[16]
+        // 빼앗긴 계약
+        set ProtoEventIcon[78] = ProtoCharacterIconPath[14]
+        // 성으로 향한 이유
+        set ProtoEventIcon[79] = ProtoCharacterIconPath[16]
+        // 같은 얼굴이 품은 답
+        set ProtoEventIcon[80] = ProtoCharacterIconPath[17]
+        // 이상을 다시 말하는 밤
+        set ProtoEventIcon[81] = ProtoCharacterIconPath[13]
+        // 성배 앞에 남은 사람들
+        set ProtoEventIcon[82] = ProtoCharacterIconPath[16]
+        // 끝까지 이어진 검
+        set ProtoEventIcon[83] = ProtoCharacterIconPath[13]
+        // 다음 아침을 위한 이상
+        set ProtoEventIcon[84] = ProtoCharacterIconPath[16]
+        // 모험 직전의 잔돈
+        set ProtoEventIcon[90] = ProtoCharacterIconPath[89]
+        // 처음 적는 모험가 이름
+        set ProtoEventIcon[102] = ProtoCharacterIconPath[89]
+        // 폭렬 마법 한 번의 약속
+        set ProtoEventIcon[103] = ProtoCharacterIconPath[87]
+        // 앞에 서고 싶은 사람
+        set ProtoEventIcon[104] = ProtoCharacterIconPath[88]
+        // 매일 같은 언덕
+        set ProtoEventIcon[105] = ProtoCharacterIconPath[87]
+        // 화가 난 성의 주인
+        set ProtoEventIcon[106] = ProtoCharacterIconPath[123]
+        // 호수에서 배운 기대의 크기
+        set ProtoEventIcon[107] = ProtoCharacterIconPath[89]
+        // 마을을 지키는 서툰 합
+        set ProtoEventIcon[108] = ProtoCharacterIconPath[88]
+        // 겨울에 걸린 의뢰
+        set ProtoEventIcon[109] = ProtoCharacterIconPath[123]
+        // 위즈의 조용한 가게
+        set ProtoEventIcon[110] = ProtoCharacterIconPath[90]
+        // 처음 생긴 돌아올 집
+        set ProtoEventIcon[111] = ProtoCharacterIconPath[89]
+        // 디스트로이어가 다가오는 날
+        set ProtoEventIcon[112] = ProtoCharacterIconPath[87]
+        // 자랑보다 먼저 떠오른 얼굴
+        set ProtoEventIcon[113] = ProtoCharacterIconPath[123]
+        // 세리카의 교대 시간
+        set ProtoEventIcon[116] = ProtoCharacterIconPath[149]
+        // 낡은 물건의 지워진 항목
+        set ProtoEventIcon[124] = ProtoCharacterIconPath[147]
+        // 아직 주문하지 않았는데
+        set ProtoEventIcon[128] = ProtoCharacterIconPath[162]
+        // 잡초라는 말 다음
+        set ProtoEventIcon[129] = ProtoCharacterIconPath[163]
+        // 사과가 끝난 뒤의 한마디
+        set ProtoEventIcon[132] = ProtoCharacterIconPath[162]
+        // 모래 속에 남은 학교
+        set ProtoEventIcon[133] = ProtoCharacterIconPath[177]
+        // 전학생 없는 첫 인사
+        set ProtoEventIcon[134] = ProtoCharacterIconPath[180]
+        // 세리카가 남기는 수고
+        set ProtoEventIcon[135] = ProtoCharacterIconPath[183]
+        // 노노미가 지키는 분위기
+        set ProtoEventIcon[136] = ProtoCharacterIconPath[186]
+        // 호시노의 느긋한 대답
+        set ProtoEventIcon[137] = ProtoCharacterIconPath[189]
+        // 같은 교실의 작전 회의
+        set ProtoEventIcon[138] = ProtoCharacterIconPath[177]
+        // 새로 만난 협력자
+        set ProtoEventIcon[139] = ProtoCharacterIconPath[180]
+        // 수족관에서 남은 말
+        set ProtoEventIcon[140] = ProtoCharacterIconPath[189]
+        // 땅의 주인을 확인하다
+        set ProtoEventIcon[141] = ProtoCharacterIconPath[177]
+        // 남겨진 편지
+        set ProtoEventIcon[142] = ProtoCharacterIconPath[180]
+        // 빈 자리를 지키는 사람들
+        set ProtoEventIcon[143] = ProtoCharacterIconPath[183]
+        // 제안에 넘기지 않은 책임
+        set ProtoEventIcon[144] = ProtoCharacterIconPath[177]
+        // 사막 너머로 이어진 부름
+        set ProtoEventIcon[145] = ProtoCharacterIconPath[180]
+        // 다섯 자리가 다시 모인 아침
+        set ProtoEventIcon[146] = ProtoCharacterIconPath[189]
+        // 말을 걸었는데 비어 있는 자리
+        set ProtoEventIcon[163] = ProtoCharacterIconPath[237]
+        // 자판기 앞의 평범한 오후
+        set ProtoEventIcon[168] = ProtoCharacterIconPath[220]
+        // 같은 얼굴을 한 낯선 사람
+        set ProtoEventIcon[169] = ProtoCharacterIconPath[252]
+        // 숫자로 적힌 실험
+        set ProtoEventIcon[170] = ProtoCharacterIconPath[220]
+        // 액셀러레이터가 있는 밤
+        set ProtoEventIcon[171] = ProtoCharacterIconPath[258]
+        // 혼자 지우려는 기록
+        set ProtoEventIcon[172] = ProtoCharacterIconPath[220]
+        // 남은 연구소의 이름
+        set ProtoEventIcon[173] = ProtoCharacterIconPath[264]
+        // 시설을 막는 또 다른 손
+        set ProtoEventIcon[174] = ProtoCharacterIconPath[220]
+        // 친구들이 느끼는 빈자리
+        set ProtoEventIcon[175] = ProtoCharacterIconPath[221]
+        // 무너진 시설 뒤의 계속
+        set ProtoEventIcon[176] = ProtoCharacterIconPath[220]
+        // 다리 위의 대답
+        set ProtoEventIcon[177] = ProtoCharacterIconPath[222]
+        // 번호와 다른 취향
+        set ProtoEventIcon[178] = ProtoCharacterIconPath[252]
+        // 도움을 청하는 말
+        set ProtoEventIcon[179] = ProtoCharacterIconPath[220]
+        // 최강이라는 계산 밖
+        set ProtoEventIcon[180] = ProtoCharacterIconPath[222]
+        // 멈춘 실험 다음의 질문
+        set ProtoEventIcon[181] = ProtoCharacterIconPath[252]
+        // 한 사람씩 남기는 이름
+        set ProtoEventIcon[182] = ProtoCharacterIconPath[220]
+        // 전학생이 먼저 끝낸 준비
+        set ProtoEventIcon[193] = ProtoCharacterIconPath[296]
+        // 방문 전에 접지 않은 지도
+        set ProtoEventIcon[194] = ProtoCharacterIconPath[295]
+        // 꿈에서 보았던 소녀
+        set ProtoEventIcon[197] = ProtoCharacterIconPath[294]
+        // 계약 전에 묻는 질문
+        set ProtoEventIcon[198] = ProtoCharacterIconPath[294]
+        // 선배가 내어 준 자리
+        set ProtoEventIcon[199] = ProtoCharacterIconPath[295]
+        // 다시 오지 않는 인사
+        set ProtoEventIcon[200] = ProtoCharacterIconPath[294]
+        // 사야카가 고른 소원
+        set ProtoEventIcon[201] = ProtoCharacterIconPath[297]
+        // 쿄코와 다른 대답
+        set ProtoEventIcon[202] = ProtoCharacterIconPath[298]
+        // 소울 젬이 뜻하는 것
+        set ProtoEventIcon[203] = ProtoCharacterIconPath[296]
+        // 괜찮다는 말의 빈틈
+        set ProtoEventIcon[204] = ProtoCharacterIconPath[297]
+        // 돌아올 수 없는 경계
+        set ProtoEventIcon[205] = ProtoCharacterIconPath[298]
+        // 호무라가 반복한 시간
+        set ProtoEventIcon[206] = ProtoCharacterIconPath[296]
+        // 한 사람에게 모인 무게
+        set ProtoEventIcon[207] = ProtoCharacterIconPath[294]
+        // 발푸르기스의 밤 앞
+        set ProtoEventIcon[208] = ProtoCharacterIconPath[296]
+        // 마도카가 찾아낸 소원
+        set ProtoEventIcon[209] = ProtoCharacterIconPath[294]
+        // 보이지 않아도 남은 친구
+        set ProtoEventIcon[210] = ProtoCharacterIconPath[296]
+        // 풍림화산의 빈 뒷자리
+        set ProtoEventIcon[219] = ProtoCharacterIconPath[362]
+        // 옆 사람도 들은 답
+        set ProtoEventIcon[224] = ProtoCharacterIconPath[370]
+        // 돌아갈 길 다음에 묻는 것
+        set ProtoEventIcon[227] = ProtoCharacterIconPath[370]
+        // 로그아웃 없는 시작
+        set ProtoEventIcon[230] = ProtoCharacterIconPath[358]
+        // 첫 보스 뒤의 이름
+        set ProtoEventIcon[231] = ProtoCharacterIconPath[359]
+        // 길드에 생긴 식탁
+        set ProtoEventIcon[232] = ProtoCharacterIconPath[367]
+        // 끝내 남은 메시지
+        set ProtoEventIcon[233] = ProtoCharacterIconPath[358]
+        // 숲에서 맺은 작은 도움
+        set ProtoEventIcon[234] = ProtoCharacterIconPath[361]
+        // 안전권이라는 믿음
+        set ProtoEventIcon[235] = ProtoCharacterIconPath[359]
+        // 함께 만든 검의 기억
+        set ProtoEventIcon[236] = ProtoCharacterIconPath[360]
+        // 공략 회의의 다른 속도
+        set ProtoEventIcon[237] = ProtoCharacterIconPath[359]
+        // 함께 싸울 때 보이는 것
+        set ProtoEventIcon[238] = ProtoCharacterIconPath[358]
+        // 호숫가에 놓인 일상
+        set ProtoEventIcon[239] = ProtoCharacterIconPath[359]
+        // 유이가 남긴 가족의 자리
+        set ProtoEventIcon[240] = ProtoCharacterIconPath[413]
+        // 75층에 남은 침묵
+        set ProtoEventIcon[241] = ProtoCharacterIconPath[358]
+        // 히스클리프의 다른 이름
+        set ProtoEventIcon[242] = ProtoCharacterIconPath[358]
+        // 아직 끝나지 않은 재회
+        set ProtoEventIcon[243] = ProtoCharacterIconPath[359]
+        // 새 공역으로 향한 갑판
+        set ProtoEventIcon[258] = ProtoCharacterIconPath[448]
+        // 폴카에서 다시 모인 얼굴
+        set ProtoEventIcon[259] = ProtoCharacterIconPath[425]
+        // 롤란의 손길이 닿는 마을
+        set ProtoEventIcon[260] = ProtoCharacterIconPath[435]
+        // 폭풍 속에서 남겨 둔 길
+        set ProtoEventIcon[261] = ProtoCharacterIconPath[426]
+        // 루리아가 없는 갑판
+        set ProtoEventIcon[262] = ProtoCharacterIconPath[426]
+        // 다시 손을 내민 안내인
+        set ProtoEventIcon[263] = ProtoCharacterIconPath[435]
+        // 목소리를 가리는 장치
+        set ProtoEventIcon[264] = ProtoCharacterIconPath[448]
+        // 시드홀름에서 찾는 열쇠
+        set ProtoEventIcon[265] = ProtoCharacterIconPath[425]
+        // 이드와 함께한 짧은 구출
+        set ProtoEventIcon[266] = ProtoCharacterIconPath[472]
+        // 롤란이 말하는 고향
+        set ProtoEventIcon[267] = ProtoCharacterIconPath[435]
+        // 도시에서 다시 부른 이름
+        set ProtoEventIcon[268] = ProtoCharacterIconPath[448]
+        // 탑을 향한 같은 뜻
+        set ProtoEventIcon[269] = ProtoCharacterIconPath[472]
+        // 다시 빈자리가 된 안내인
+        set ProtoEventIcon[270] = ProtoCharacterIconPath[435]
+        // 모두가 돌아온 하늘
+        set ProtoEventIcon[271] = ProtoCharacterIconPath[448]
+        // 얼굴이 지워진 수배서
+        set ProtoEventIcon[281] = ProtoCharacterIconPath[496]
+        // 길드로 이어진 첫 인사
+        set ProtoEventIcon[302] = ProtoCharacterIconPath[504]
+        // 처음 나누는 의뢰
+        set ProtoEventIcon[303] = ProtoCharacterIconPath[503]
+        // 문장보다 먼저 생긴 자리
+        set ProtoEventIcon[304] = ProtoCharacterIconPath[513]
+        // 그레이와 다른 방식
+        set ProtoEventIcon[305] = ProtoCharacterIconPath[505]
+        // 엘자가 지키는 규칙
+        set ProtoEventIcon[306] = ProtoCharacterIconPath[506]
+        // 돌아갈 길드의 의미
+        set ProtoEventIcon[307] = ProtoCharacterIconPath[504]
+        // 무너진 길드 건물
+        set ProtoEventIcon[308] = ProtoCharacterIconPath[543]
+        // 루시를 향한 요구
+        set ProtoEventIcon[309] = ProtoCharacterIconPath[504]
+        // 빼앗긴 사람의 목소리
+        set ProtoEventIcon[310] = ProtoCharacterIconPath[503]
+        // 다시 손을 잡는 순간
+        set ProtoEventIcon[311] = ProtoCharacterIconPath[504]
+        // 길드 앞에 선 거대한 위협
+        set ProtoEventIcon[312] = ProtoCharacterIconPath[506]
+        // 다른 자리에서 이어진 싸움
+        set ProtoEventIcon[313] = ProtoCharacterIconPath[505]
+        // 팬텀 로드의 끝
+        set ProtoEventIcon[314] = ProtoCharacterIconPath[543]
+        // 집으로 찾아간 자신의 대답
+        set ProtoEventIcon[315] = ProtoCharacterIconPath[504]
+        // 다시 부르는 동료의 이름
+        set ProtoEventIcon[316] = ProtoCharacterIconPath[504]
+        // 카라쿠라의 첫 만남
+        set ProtoEventIcon[337] = ProtoCharacterIconPath[575]
+        // 대행의 하루
+        set ProtoEventIcon[338] = ProtoCharacterIconPath[571]
+        // 친구들이 알게 된 세계
+        set ProtoEventIcon[339] = ProtoCharacterIconPath[573]
+        // 되돌아간 루키아
+        set ProtoEventIcon[340] = ProtoCharacterIconPath[571]
+        // 우라하라가 여는 준비
+        set ProtoEventIcon[341] = ProtoCharacterIconPath[576]
+        // 다른 세계의 문턱
+        set ProtoEventIcon[342] = ProtoCharacterIconPath[574]
+        // 길에서 만난 협력자
+        set ProtoEventIcon[343] = ProtoCharacterIconPath[613]
+        // 렌지가 놓지 못한 이름
+        set ProtoEventIcon[344] = ProtoCharacterIconPath[616]
+        // 켄파치가 막아선 길
+        set ProtoEventIcon[345] = ProtoCharacterIconPath[571]
+        // 갇힌 사람이 남긴 마음
+        set ProtoEventIcon[346] = ProtoCharacterIconPath[575]
+        // 요루이치와 기다리는 시간
+        set ProtoEventIcon[347] = ProtoCharacterIconPath[574]
+        // 처형대에서 부른 이름
+        set ProtoEventIcon[348] = ProtoCharacterIconPath[571]
+        // 뱌쿠야가 지키던 약속
+        set ProtoEventIcon[349] = ProtoCharacterIconPath[631]
+        // 아이젠이 드러낸 목적
+        set ProtoEventIcon[350] = ProtoCharacterIconPath[571]
+        // 루키아가 고르는 자리
+        set ProtoEventIcon[351] = ProtoCharacterIconPath[575]
+        // 마을에 돌아온 대행
+        set ProtoEventIcon[352] = ProtoCharacterIconPath[571]
+        // 끝나지 않는 지폐
+        set ProtoEventIcon[362] = ProtoCharacterIconPath[645]
+        // 잔보다 늦게 온 주문
+        set ProtoEventIcon[366] = ProtoCharacterIconPath[650]
+        // 카우보이를 담는 배경
+        set ProtoEventIcon[370] = ProtoCharacterIconPath[659]
+        // 초대장이 가리키는 꿈
+        set ProtoEventIcon[376] = ProtoCharacterIconPath[643]
+        // 황금의 순간의 안내인
+        set ProtoEventIcon[377] = ProtoCharacterIconPath[643]
+        // 반디와 나란히 걷는 거리
+        set ProtoEventIcon[378] = ProtoCharacterIconPath[661]
+        // 도시를 내려다보는 약속
+        set ProtoEventIcon[379] = ProtoCharacterIconPath[661]
+        // 블랙 스완이 펼친 기억
+        set ProtoEventIcon[381] = ProtoCharacterIconPath[648]
+        // 어벤츄린이 건넨 제안
+        set ProtoEventIcon[382] = ProtoCharacterIconPath[645]
+        // 스파클의 가면을 마주하다
+        set ProtoEventIcon[383] = ProtoCharacterIconPath[647]
+        // 미샤에게 이어진 개척의 기억
+        set ProtoEventIcon[386] = ProtoCharacterIconPath[643]
+        // 선데이의 영원한 안락에 답하다
+        set ProtoEventIcon[388] = ProtoCharacterIconPath[706]
+        // 두 형제가 떠나는 이유
+        set ProtoEventIcon[409] = ProtoCharacterIconPath[719]
+        // 기적이라는 이름의 빈틈
+        set ProtoEventIcon[410] = ProtoCharacterIconPath[718]
+        // 니나를 부르는 목소리
+        set ProtoEventIcon[411] = ProtoCharacterIconPath[719]
+        // 돌아갈 작업장의 불빛
+        set ProtoEventIcon[412] = ProtoCharacterIconPath[717]
+        // 현자의 돌 뒤의 사람들
+        set ProtoEventIcon[413] = ProtoCharacterIconPath[718]
+        // 기억이 흔들리는 갑옷
+        set ProtoEventIcon[414] = ProtoCharacterIconPath[719]
+        // 스승이 기억하는 배움
+        set ProtoEventIcon[415] = ProtoCharacterIconPath[723]
+        // 그리드가 묻는 동료
+        set ProtoEventIcon[416] = ProtoCharacterIconPath[761]
+        // 돌아오지 않은 휴즈
+        set ProtoEventIcon[417] = ProtoCharacterIconPath[725]
+        // 거짓 결론 뒤의 진실
+        set ProtoEventIcon[418] = ProtoCharacterIconPath[718]
+        // 윈리가 멈춘 손
+        set ProtoEventIcon[419] = ProtoCharacterIconPath[717]
+        // 호엔하임이 남긴 시간
+        set ProtoEventIcon[420] = ProtoCharacterIconPath[773]
+        // 나라에 그어진 원
+        set ProtoEventIcon[421] = ProtoCharacterIconPath[719]
+        // 약속의 날을 기다리는 사람들
+        set ProtoEventIcon[422] = ProtoCharacterIconPath[725]
+        // 되돌아온 사람들의 삶
+        set ProtoEventIcon[423] = ProtoCharacterIconPath[773]
+        // 갑옷이 건넨 마지막 도움
+        set ProtoEventIcon[424] = ProtoCharacterIconPath[719]
+        // 힘 대신 남겨 둘 관계
+        set ProtoEventIcon[425] = ProtoCharacterIconPath[718]
+        // 몸을 되찾은 다음의 길
+        set ProtoEventIcon[426] = ProtoCharacterIconPath[719]
+        // 큰 표주박을 고른 손
+        set ProtoEventIcon[440] = ProtoCharacterIconPath[795]
+        // 아직 끝나지 않은 인사
+        set ProtoEventIcon[441] = ProtoCharacterIconPath[795]
+        // 가림막 뒤의 네 차례
+        set ProtoEventIcon[443] = ProtoCharacterIconPath[799]
+        // 터진 소리 다음에는
+        set ProtoEventIcon[444] = ProtoCharacterIconPath[795]
+        // 나비저택에 도착한 사람들
+        set ProtoEventIcon[445] = ProtoCharacterIconPath[794]
+        // 시노부가 바라보는 회복
+        set ProtoEventIcon[446] = ProtoCharacterIconPath[797]
+        // 함께 서툰 수련
+        set ProtoEventIcon[447] = ProtoCharacterIconPath[798]
+        // 카나오의 조용한 대답
+        set ProtoEventIcon[448] = ProtoCharacterIconPath[796]
+        // 밤에도 이어지는 호흡
+        set ProtoEventIcon[449] = ProtoCharacterIconPath[795]
+        // 출발 전에 남긴 인사
+        set ProtoEventIcon[450] = ProtoCharacterIconPath[794]
+        // 열차에서 만난 큰 목소리
+        set ProtoEventIcon[451] = ProtoCharacterIconPath[833]
+        // 꿈에 놓인 집의 풍경
+        set ProtoEventIcon[452] = ProtoCharacterIconPath[795]
+        // 깨어날 때 붙잡는 이름
+        set ProtoEventIcon[453] = ProtoCharacterIconPath[808]
+        // 객차마다 이어진 준비
+        set ProtoEventIcon[454] = ProtoCharacterIconPath[799]
+        // 열차의 위협을 넘긴 뒤
+        set ProtoEventIcon[455] = ProtoCharacterIconPath[833]
+        // 아카자가 묻는 강함
+        set ProtoEventIcon[456] = ProtoCharacterIconPath[833]
+        // 남겨진 마지막 말
+        set ProtoEventIcon[457] = ProtoCharacterIconPath[795]
+        // 다시 걷는 사람들의 호흡
+        set ProtoEventIcon[458] = ProtoCharacterIconPath[795]
+        // 옷에 묶인 다른 이름
+        set ProtoEventIcon[467] = ProtoCharacterIconPath[867]
+        // 같은 길의 다른 시각
+        set ProtoEventIcon[468] = ProtoCharacterIconPath[868]
+        // 낯선 길에서 받은 인사
+        set ProtoEventIcon[472] = ProtoCharacterIconPath[857]
+        // 배고픈 사람의 큰 웃음
+        set ProtoEventIcon[473] = ProtoCharacterIconPath[858]
+        // 캐르가 머무는 거리
+        set ProtoEventIcon[474] = ProtoCharacterIconPath[888]
+        // 길드 이름에 모인 사람들
+        set ProtoEventIcon[475] = ProtoCharacterIconPath[857]
+        // 처음 남기는 집의 기억
+        set ProtoEventIcon[476] = ProtoCharacterIconPath[894]
+        // 다른 길드와 나눈 식사
+        set ProtoEventIcon[477] = ProtoCharacterIconPath[858]
+        // 캐르가 말하지 못한 일
+        set ProtoEventIcon[478] = ProtoCharacterIconPath[888]
+        // 기억의 빈칸이 부르는 길
+        set ProtoEventIcon[479] = ProtoCharacterIconPath[894]
+        // 페코린느가 밝히는 이름
+        set ProtoEventIcon[480] = ProtoCharacterIconPath[858]
+        // 무너지는 익숙한 풍경
+        set ProtoEventIcon[481] = ProtoCharacterIconPath[857]
+        // 기다리는 사람과 묶인 마음
+        set ProtoEventIcon[482] = ProtoCharacterIconPath[888]
+        // 네 사람의 뜻이 다시 모이다
+        set ProtoEventIcon[483] = ProtoCharacterIconPath[894]
+        // 카이저 앞에 남긴 약속
+        set ProtoEventIcon[484] = ProtoCharacterIconPath[858]
+        // 빈자리 없이 차린 식탁
+        set ProtoEventIcon[485] = ProtoCharacterIconPath[888]
     endfunction
 endlibrary
