@@ -11,6 +11,48 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
     endfunction
 
     private function Init takes nothing returns nothing
+        // 에미야 시로
+        call SetImages(13, "UI_Card_FSN_ch01_Icon", "UI_Card_FSN_ch01_Art")
+        // 세이버
+        call SetImages(14, "UI_Card_FSN_ch02_Icon", "UI_Card_FSN_ch02_Art")
+        // 토오사카 린
+        call SetImages(16, "UI_Card_FSN_ch03_Icon", "UI_Card_FSN_ch03_Art")
+        // 아처
+        call SetImages(17, "UI_Card_FSN_ch04_Icon", "UI_Card_FSN_ch04_Art")
+        // 어새신
+        call SetImages(18, "UI_Card_FSN_ch13_Icon", "UI_Card_FSN_ch13_Art")
+        // 마토 사쿠라
+        call SetImages(19, "UI_Card_FSN_ch05_Icon", "UI_Card_FSN_ch05_Art")
+        // 캐스터
+        call SetImages(20, "UI_Card_FSN_ch12_Icon", "UI_Card_FSN_ch12_Art")
+        // 후지무라 타이가
+        call SetImages(21, "UI_Card_FSN_ch14_Icon", "UI_Card_FSN_ch14_Art")
+        // 랜서
+        call SetImages(26, "UI_Card_FSN_ch06_Icon", "UI_Card_FSN_ch06_Art")
+        // 코토미네 키레이
+        call SetImages(30, "UI_Card_FSN_ch09_Icon", "UI_Card_FSN_ch09_Art")
+        // 루나
+        call SetImages(84, "UI_Card_KSB_luna_Icon", "UI_Card_KSB_luna_Art")
+        // 사토 카즈마
+        call SetImages(85, "UI_Card_KSB_kazuma_Icon", "UI_Card_KSB_kazuma_Art")
+        // 크리스
+        call SetImages(86, "UI_Card_KSB_chris_Icon", "UI_Card_KSB_chris_Art")
+        // 메구밍
+        call SetImages(87, "UI_Card_KSB_megumin_Icon", "UI_Card_KSB_megumin_Art")
+        // 다크니스
+        call SetImages(88, "UI_Card_KSB_darkness_Icon", "UI_Card_KSB_darkness_Art")
+        // 아쿠아
+        call SetImages(89, "UI_Card_KSB_aqua_Icon", "UI_Card_KSB_aqua_Art")
+        // 위즈
+        call SetImages(90, "UI_Card_KSB_wiz_Icon", "UI_Card_KSB_wiz_Art")
+        // 바니르
+        call SetImages(91, "UI_Card_KSB_vanir_Icon", "UI_Card_KSB_vanir_Art")
+        // 융융
+        call SetImages(94, "UI_Card_KSB_yunyun_Icon", "UI_Card_KSB_yunyun_Art")
+        // 미츠루기
+        call SetImages(95, "UI_Card_KSB_mitsurugi_Icon", "UI_Card_KSB_mitsurugi_Art")
+        // 카즈마
+        call SetImages(123, "UI_Card_KSB_kazuma_Icon", "UI_Card_KSB_kazuma_Art")
         // 오쿠소라 아야네
         call SetImages(147, "UI_Card_BA_23005_Icon", "UI_Card_BA_23005_Art")
         // 스나오오카미 시로코
@@ -41,6 +83,18 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(186, "UI_Card_Nonomi", "UI_Card_Illustration_Nonomi")
         // 호시노
         call SetImages(189, "UI_Card_BA_10005_Icon", "UI_Card_BA_10005_Art")
+        // 카나메 마도카
+        call SetImages(294, "UI_Card_PMM_madoka_Icon", "UI_Card_PMM_madoka_Art")
+        // 토모에 마미
+        call SetImages(295, "UI_Card_PMM_mami_Icon", "UI_Card_PMM_mami_Art")
+        // 아케미 호무라
+        call SetImages(296, "UI_Card_PMM_homura_Icon", "UI_Card_PMM_homura_Art")
+        // 미키 사야카
+        call SetImages(297, "UI_Card_PMM_sayaka_Icon", "UI_Card_PMM_sayaka_Art")
+        // 사쿠라 쿄코
+        call SetImages(298, "UI_Card_PMM_kyoko_Icon", "UI_Card_PMM_kyoko_Art")
+        // 큐베
+        call SetImages(299, "UI_Card_PMM_kyube_Icon", "UI_Card_PMM_kyube_Art")
         // 라캄
         call SetImages(425, "UI_Card_GBF_rackam_Icon", "UI_Card_GBF_rackam_Art")
         // 카타리나
@@ -93,6 +147,20 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(661, "UI_Card_HSR_1310_Icon", "UI_Card_HSR_1310_Art")
         // 선데이
         call SetImages(706, "UI_Card_HSR_1313_Icon", "UI_Card_HSR_1313_Art")
+        // 카마도 탄지로
+        call SetImages(795, "UI_Card_KNY_tanjiro_Icon", "UI_Card_KNY_tanjiro_Art")
+        // 츠유리 카나오
+        call SetImages(796, "UI_Card_KNY_kanawo_Icon", "UI_Card_KNY_kanawo_Art")
+        // 코쵸 시노부
+        call SetImages(797, "UI_Card_KNY_shinobu_Icon", "UI_Card_KNY_shinobu_Art")
+        // 아가츠마 젠이츠
+        call SetImages(798, "UI_Card_KNY_zennitsu_Icon", "UI_Card_KNY_zennitsu_Art")
+        // 하시비라 이노스케
+        call SetImages(799, "UI_Card_KNY_inosuke_Icon", "UI_Card_KNY_inosuke_Art")
+        // 카마도 네즈코
+        call SetImages(808, "UI_Card_KNY_neduko_Icon", "UI_Card_KNY_neduko_Art")
+        // 렌고쿠 쿄쥬로
+        call SetImages(833, "UI_Card_KNY_kyojurou_Icon", "UI_Card_KNY_kyojurou_Art")
         // 콧코로
         call SetImages(857, "UI_Card_PCR_105931_Icon", "UI_Card_PCR_105931_Art")
         // 페코린느
