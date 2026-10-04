@@ -1169,5 +1169,25 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[380] = "war3mapImported\\UI_Event_FBP8_black_swan_uncertain_memory.tga"
         // 가격표 밖의 조건
         set ProtoEventIcon[367] = "war3mapImported\\UI_Event_FBP8_jade_exchange_terms.tga"
+        // 벽에 적힌 전화번호
+        set ProtoEventIcon[273] = "war3mapImported\\UI_Event_CGP9_yato_five_yen.tga"
+        // 시험철의 신사 심부름
+        set ProtoEventIcon[274] = "war3mapImported\\UI_Event_CGP9_tenjin_shrine.tga"
+        // 연락이 닿지 않는 의뢰인
+        set ProtoEventIcon[275] = "war3mapImported\\UI_Event_CGP9_yato_hiyori_route.tga"
+        // 저울 앞의 모피
+        set ProtoEventIcon[276] = "war3mapImported\\UI_Event_CGP9_holo_cart_goods.tga"
+        // 다른 구매자의 장부
+        set ProtoEventIcon[277] = "war3mapImported\\UI_Event_CGP9_lawrence_trade_compare.tga"
+        // 수익 뒤의 영수증
+        set ProtoEventIcon[278] = "war3mapImported\\UI_Event_CGP9_holo_written_terms.tga"
+        // 비 맞은 화물 덮개
+        set ProtoEventIcon[279] = "war3mapImported\\UI_Event_CGP9_cart_delivery_condition.tga"
+        // 북쪽으로 가는 마차
+        set ProtoEventIcon[280] = "war3mapImported\\UI_Event_CGP9_northward_wagon.tga"
+        // 빗물보다 먼저 거둘 것
+        set ProtoEventIcon[466] = "war3mapImported\\UI_Event_CGP9_pecorine_harvest.tga"
+        // 닫힌 가게 앞의 지시
+        set ProtoEventIcon[469] = "war3mapImported\\UI_Event_CGP9_monika_town_orders.tga"
     endfunction
 endlibrary
