@@ -1,5 +1,5 @@
 // 사건별 보상 이력을 유지하면서 같은 지역의 캐릭터 카드 효과와 희귀도를 누적한다.
-library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCatalog
+library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCatalog, DataPrototypeCardImages
     globals
         integer array ProtoCardCharacter
         boolean array ProtoCharacterOwned
@@ -76,12 +76,11 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         return "war3mapImported\\UI_Card_Frame_Normal.tga"
     endfunction
 
-    // 먼저 검토한 두 캐릭터 이미지를 공유한다. 나머지는 기존 지역 아이콘을 사용한다.
+    // 검토한 캐릭터 아이콘을 공유하고 미등록 캐릭터는 기존 지역 아이콘을 사용한다.
     function ProtoCardArt takes integer card returns string
-        if ProtoCardName[card] == "미샤" then
-            return "war3mapImported\\UI_Card_Misha.tga"
-        elseif ProtoCardName[card] == "이자요이 노노미" then
-            return "war3mapImported\\UI_Card_Nonomi.tga"
+        local string value = ProtoCharacterIconPath[ProtoCardCharacter[card]]
+        if value != null and value != "" then
+            return value
         elseif ProtoCardHead[card] > 0 then
             return ProtoHeadIcon[ProtoCardHead[card]]
         endif
@@ -90,10 +89,9 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
 
     // 작은 아이콘과 큰 일러스트를 분리한다. 아직 준비하지 않은 캐릭터는 빈 경로를 반환한다.
     function ProtoCardIllustration takes integer card returns string
-        if ProtoCardName[card] == "미샤" then
-            return "war3mapImported\\UI_Card_Illustration_Misha.tga"
-        elseif ProtoCardName[card] == "이자요이 노노미" then
-            return "war3mapImported\\UI_Card_Illustration_Nonomi.tga"
+        local string value = ProtoCharacterArtPath[ProtoCardCharacter[card]]
+        if value != null and value != "" then
+            return value
         endif
         return ""
     endfunction
