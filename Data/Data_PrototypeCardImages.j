@@ -280,7 +280,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 선데이
         call SetImages(706, "UI_Card_HSR_1313_Icon", "UI_Card_HSR_1313_Art")
         // 윈리 록벨
-        call SetImages(717, "UI_Card_FMA_3_Icon", "UI_Card_FMA_3_Art")
+        call SetImages(717, "UI_Card_FMO3_winry_Icon", "UI_Card_FMO3_winry_Art")
         // 에드워드 엘릭
         call SetImages(718, "UI_Card_FCU8_edward_Icon", "UI_Card_FCU8_edward_Art")
         // 알폰스 엘릭
@@ -294,7 +294,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 로이 머스탱
         call SetImages(725, "UI_Card_RMU12_roy_Icon", "UI_Card_RMU12_roy_Art")
         // 리자 호크아이
-        call SetImages(726, "UI_Card_FMA_5_Icon", "UI_Card_FMA_5_Art")
+        call SetImages(726, "UI_Card_FMO3_riza_Icon", "UI_Card_FMO3_riza_Art")
         // 마스 휴즈
         call SetImages(727, "UI_Card_FMO1_hughes_Icon", "UI_Card_FMO1_hughes_Art")
         // 피나코 록벨
@@ -306,7 +306,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 장 하보크
         call SetImages(738, "UI_Card_FMA_17_Icon", "UI_Card_FMA_17_Art")
         // 그리드
-        call SetImages(761, "UI_Card_FMA_27_Icon", "UI_Card_FMA_27_Art")
+        call SetImages(761, "UI_Card_FMO3_greed_Icon", "UI_Card_FMO3_greed_Art")
         // 반 호엔하임
         call SetImages(773, "UI_Card_FMO2_hohenheim_Icon", "UI_Card_FMO2_hohenheim_Art")
         // 칸자키 아오이
