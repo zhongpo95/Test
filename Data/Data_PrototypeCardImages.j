@@ -182,7 +182,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 야토
         call SetImages(490, "UI_Card_NRO1_yato_Icon", "UI_Card_NRO1_yato_Art")
         // 유키네
-        call SetImages(491, "UI_Card_NRG_yukine_Icon", "UI_Card_NRG_yukine_Art")
+        call SetImages(491, "UI_Card_FaceFix_yukine_Icon", "UI_Card_NRG_yukine_Art")
         // 이키 히요리
         call SetImages(492, "UI_Card_NRG_hiyori_Icon", "UI_Card_NRG_hiyori_Art")
         // 호로
@@ -322,7 +322,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 하시비라 이노스케
         call SetImages(799, "UI_Card_KMO2_inosuke_Icon", "UI_Card_KMO2_inosuke_Art")
         // 무라타
-        call SetImages(806, "UI_Card_KNYG_murata_Icon", "UI_Card_KNYG_murata_Art")
+        call SetImages(806, "UI_Card_FaceFix_murata_Icon", "UI_Card_KNYG_murata_Art")
         // 카마도 네즈코
         call SetImages(808, "UI_Card_KMO1_nezuko_Icon", "UI_Card_KMO1_nezuko_Art")
         // 렌고쿠 쿄쥬로
