@@ -1273,5 +1273,27 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[408] = "war3mapImported\\UI_Event_DSP13_returned_bag_measurements.tga"
         // 까마귀가 두 번 읽은 문장
         set ProtoEventIcon[433] = "war3mapImported\\UI_Event_DSP13_messenger_crow.tga"
+        // 사라진 의뢰 보수
+        set ProtoEventIcon[87] = "war3mapImported\\UI_Event_DLY14_missing_quest_receipt.tga"
+        // 갑옷보다 작은 진열품
+        set ProtoEventIcon[93] = "war3mapImported\\UI_Event_DLY14_tiny_shop_figurines.tga"
+        // 다음 만남을 기다리는 인사
+        set ProtoEventIcon[392] = "war3mapImported\\UI_Event_DLY14_greeting_for_the_next_journey.tga"
+        // 표적 하나에 다른 연습
+        set ProtoEventIcon[94] = "war3mapImported\\UI_Event_DLY14_two_magic_target_ranges.tga"
+        // 진열창 앞에서 멈춘 발걸음
+        set ProtoEventIcon[154] = "war3mapImported\\UI_Event_DLY14_blocked_cute_display.tga"
+        // 밤 퍼레이드 전에 남은 표식
+        set ProtoEventIcon[159] = "war3mapImported\\UI_Event_DLY14_parade_markers_before_night.tga"
+        // 안내하다가 멈춘 말끝
+        set ProtoEventIcon[164] = "war3mapImported\\UI_Event_DLY14_exhibition_and_waiting_stage.tga"
+        // 아침에 서로 찾는 가방
+        set ProtoEventIcon[191] = "war3mapImported\\UI_Event_DLY14_morning_bags_and_breakfast.tga"
+        // 방과 후에 겹친 약속
+        set ProtoEventIcon[192] = "war3mapImported\\UI_Event_DLY14_after_school_overlapping_plans.tga"
+        // 강한 상대보다 돌아갈 길
+        set ProtoEventIcon[223] = "war3mapImported\\UI_Event_DLY14_return_path_forest_map.tga"
+        // 떠난 뒤에 남기는 엽서
+        set ProtoEventIcon[391] = "war3mapImported\\UI_Event_DLY14_postcard_after_the_dream.tga"
     endfunction
 endlibrary
