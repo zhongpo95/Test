@@ -88,6 +88,16 @@ library DataPrototypeGrowth initializer ProtoGrowthInit requires DataPrototypeCa
         return "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
     endfunction
 
+    // 작은 아이콘과 큰 일러스트를 분리한다. 아직 준비하지 않은 캐릭터는 빈 경로를 반환한다.
+    function ProtoCardIllustration takes integer card returns string
+        if ProtoCardName[card] == "미샤" then
+            return "war3mapImported\\UI_Card_Illustration_Misha.tga"
+        elseif ProtoCardName[card] == "이자요이 노노미" then
+            return "war3mapImported\\UI_Card_Illustration_Nonomi.tga"
+        endif
+        return ""
+    endfunction
+
     // 선택한 보상의 증분만 25개 슬롯에 더한다. 보유 카드 전체를 재계산하지 않는다.
     function ProtoStatAddCard takes integer pid, integer card, boolean evolved returns nothing
         local integer kind = 1
