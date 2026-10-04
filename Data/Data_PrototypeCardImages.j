@@ -101,6 +101,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(232, "UI_Card_RGT_36_Icon", "UI_Card_RGT_36_Art")
         // 소기이타 군하
         call SetImages(233, "UI_Card_RGT_38_Icon", "UI_Card_RGT_38_Art")
+        // 테츠소 츠즈리
+        call SetImages(237, "UI_Card_SUP5_tessou_Icon", "UI_Card_SUP5_tessou_Art")
         // 미사카 동생
         call SetImages(252, "UI_Card_RGT_39_Icon", "UI_Card_RGT_39_Art")
         // 액셀러레이터
@@ -119,6 +121,12 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(298, "UI_Card_PMM_kyoko_Icon", "UI_Card_PMM_kyoko_Art")
         // 큐베
         call SetImages(299, "UI_Card_PMM_kyube_Icon", "UI_Card_PMM_kyube_Art")
+        // 카나메 준코
+        call SetImages(302, "UI_Card_SUP5_junko_Icon", "UI_Card_SUP5_junko_Art")
+        // 카나메 토모히사
+        call SetImages(303, "UI_Card_SUP5_tomohisa_Icon", "UI_Card_SUP5_tomohisa_Art")
+        // 시즈키 히토미
+        call SetImages(304, "UI_Card_SUP5_hitomi_Icon", "UI_Card_SUP5_hitomi_Art")
         // 에길
         call SetImages(357, "UI_Card_SAOFD_agil_Icon", "UI_Card_SAOFD_agil_Art")
         // 키리토
@@ -133,6 +141,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(362, "UI_Card_SAOFD_klein_Icon", "UI_Card_SAOFD_klein_Art")
         // 사치
         call SetImages(367, "UI_Card_SAOFD_sachi_Icon", "UI_Card_SAOFD_sachi_Art")
+        // 니시다
+        call SetImages(368, "UI_Card_SUP5_nishida_Icon", "UI_Card_SUP5_nishida_Art")
         // 아르고
         call SetImages(370, "UI_Card_SAOFD_argo_Icon", "UI_Card_SAOFD_argo_Art")
         // 유이
@@ -223,12 +233,20 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(576, "UI_Card_BLH_05_Icon", "UI_Card_BLH_05_Art")
         // 사도 야스토라
         call SetImages(577, "UI_Card_BLH_04_Icon", "UI_Card_BLH_04_Art")
+        // 쿠로사키 유즈
+        call SetImages(580, "UI_Card_SUP5_yuzu_Icon", "UI_Card_SUP5_yuzu_Art")
+        // 아리사와 타츠키
+        call SetImages(581, "UI_Card_SUP5_tatsuki_Icon", "UI_Card_SUP5_tatsuki_Art")
         // 돈 칸온지
         call SetImages(582, "UI_Card_BBS_kanonji_Icon", "UI_Card_BBS_kanonji_Art")
+        // 쿠로사키 카린
+        call SetImages(583, "UI_Card_SUP5_karin_Icon", "UI_Card_SUP5_karin_Art")
         // 쿠로사키 잇신
         call SetImages(584, "UI_Card_BLH_58_Icon", "UI_Card_BLH_58_Art")
         // 츠무기야 우루루
         call SetImages(585, "UI_Card_BBS_ururu_Icon", "UI_Card_BBS_ururu_Art")
+        // 아사노 케이고
+        call SetImages(586, "UI_Card_SUP5_keigo_Icon", "UI_Card_SUP5_keigo_Art")
         // 하나카리 진타
         call SetImages(593, "UI_Card_BBS_jinta_Icon", "UI_Card_BBS_jinta_Art")
         // 야마다 하나타로
