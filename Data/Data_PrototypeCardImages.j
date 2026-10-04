@@ -186,9 +186,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 이키 히요리
         call SetImages(492, "UI_Card_NRG_hiyori_Icon", "UI_Card_NRG_hiyori_Art")
         // 호로
-        call SetImages(493, "UI_Card_SW_holo_Icon", "UI_Card_SW_holo_Art")
+        call SetImages(493, "UI_Card_SWO1_holo_Icon", "UI_Card_SWO1_holo_Art")
         // 크래프트 로렌스
-        call SetImages(494, "UI_Card_SW_lawrence_Icon", "UI_Card_SW_lawrence_Art")
+        call SetImages(494, "UI_Card_SWO1_lawrence_Icon", "UI_Card_SWO1_lawrence_Art")
         // 라그나 더 블러드엣지
         call SetImages(496, "UI_Card_BB_ragna-cf_Icon", "UI_Card_BB_ragna-cf_Art")
         // 나즈린
