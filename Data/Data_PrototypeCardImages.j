@@ -127,6 +127,8 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(303, "UI_Card_SUP5_tomohisa_Icon", "UI_Card_SUP5_tomohisa_Art")
         // 시즈키 히토미
         call SetImages(304, "UI_Card_SUP5_hitomi_Icon", "UI_Card_SUP5_hitomi_Art")
+        // 소울 젬
+        call SetImages(335, "UI_Card_ITEM1_SayakaSoulGem_Icon", "UI_Card_ITEM1_SayakaSoulGem_Art")
         // 에길
         call SetImages(357, "UI_Card_SAOFD_agil_Icon", "UI_Card_SAOFD_agil_Art")
         // 키리토
