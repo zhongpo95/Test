@@ -761,5 +761,29 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[484] = ProtoCharacterIconPath[858]
         // 빈자리 없이 차린 식탁
         set ProtoEventIcon[485] = ProtoCharacterIconPath[888]
+
+        // 여러 인물이 등장하는 사건은 상황을 대조한 공식 장면을 표지로 사용한다.
+        // 학교에 남은 마법진
+        set ProtoEventIcon[53] = "war3mapImported\\UI_Event_FES2_school_magic.tga"
+        // 서로 다른 마력의 흔적
+        set ProtoEventIcon[54] = "war3mapImported\\UI_Event_FES2_mana_trace.tga"
+        // 같은 검, 다른 빈틈
+        set ProtoEventIcon[55] = "war3mapImported\\UI_Event_FES2_saber_training.tga"
+        // 산문을 지키는 검술가
+        set ProtoEventIcon[56] = "war3mapImported\\UI_Event_FES2_temple_assassin.tga"
+        // 누구의 협력인지
+        set ProtoEventIcon[59] = "war3mapImported\\UI_Event_FES2_shinji_offer.tga"
+        // 검 없이 둘러볼 자리
+        set ProtoEventIcon[60] = "war3mapImported\\UI_Event_FES2_town_outing.tga"
+        // 목격담의 빈칸
+        set ProtoEventIcon[61] = "war3mapImported\\UI_Event_FES2_issei_testimony.tga"
+        // 같은 싸움을 보는 다른 눈
+        set ProtoEventIcon[62] = "war3mapImported\\UI_Event_FES2_different_ideals.tga"
+        // 창이 가리키지 않은 쪽
+        set ProtoEventIcon[63] = "war3mapImported\\UI_Event_FES2_lancer_spacing.tga"
+        // 보호한다는 말의 범위
+        set ProtoEventIcon[66] = "war3mapImported\\UI_Event_FES2_church_protection.tga"
+        // 한 번 막은 뒤의 발자리
+        set ProtoEventIcon[67] = "war3mapImported\\UI_Event_FES2_archer_lancer.tga"
     endfunction
 endlibrary
