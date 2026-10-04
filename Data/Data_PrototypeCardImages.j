@@ -911,5 +911,67 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[196] = "war3mapImported\\UI_Event_MHS5_mami_spacing.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[211] = "war3mapImported\\UI_Event_MHS5_mitakihara_memories.tga"
+        // 학원도시 방문
+        set ProtoEventIcon[13] = "war3mapImported\\UI_Event_AGR6_academy_friends.tga"
+        // 학원도시 방문
+        set ProtoEventIcon[14] = "war3mapImported\\UI_Event_AGR6_academy_friends.tga"
+        // 학원도시 방문
+        set ProtoEventIcon[15] = "war3mapImported\\UI_Event_AGR6_academy_friends.tga"
+        // 학원도시 방문
+        set ProtoEventIcon[16] = "war3mapImported\\UI_Event_AGR6_academy_friends.tga"
+        // 끊어진 구조 신호
+        set ProtoEventIcon[148] = "war3mapImported\\UI_Event_AGR6_signal_backup.tga"
+        // 신호가 가리킨 장소
+        set ProtoEventIcon[149] = "war3mapImported\\UI_Event_AGR6_rescue_coordinates.tga"
+        // 소문이 앞선 조사
+        set ProtoEventIcon[150] = "war3mapImported\\UI_Event_AGR6_rumor_investigation.tga"
+        // 표적 뒤의 빈 공간
+        set ProtoEventIcon[151] = "war3mapImported\\UI_Event_AGR6_railgun_coin.tga"
+        // 능력 없이 남은 사람
+        set ProtoEventIcon[152] = "war3mapImported\\UI_Event_AGR6_saten_conversation.tga"
+        // 복구된 두 번째 통로
+        set ProtoEventIcon[153] = "war3mapImported\\UI_Event_AGR6_kuroko_route.tga"
+        // 단것 옆에 남은 주문 한 줄
+        set ProtoEventIcon[155] = "war3mapImported\\UI_Event_AGR6_snack_orders.tga"
+        // 둘이 묶기 전에 맞출 보폭
+        set ProtoEventIcon[156] = "war3mapImported\\UI_Event_AGR6_festival_stride.tga"
+        // 큰 소리보다 먼저 옮길 짐
+        set ProtoEventIcon[158] = "war3mapImported\\UI_Event_AGR6_gunha_touma.tga"
+        // 한 번 더 넣기 전에
+        set ProtoEventIcon[160] = "war3mapImported\\UI_Event_AGR6_vending_coin.tga"
+        // 한 입 남기고 울린 호출
+        set ProtoEventIcon[161] = "war3mapImported\\UI_Event_AGR6_tea_interrupted.tga"
+        // 출발보다 먼저 할 대답
+        set ProtoEventIcon[162] = "war3mapImported\\UI_Event_AGR6_answer_before_departure.tga"
+        // 아직 뜯지 않은 한 잔
+        set ProtoEventIcon[165] = "war3mapImported\\UI_Event_AGR6_drink_after_vending.tga"
+        // 확인한 뒤에도 남은 몫
+        set ProtoEventIcon[166] = "war3mapImported\\UI_Event_AGR6_next_shift.tga"
+        // 접지 않은 항목의 답
+        set ProtoEventIcon[167] = "war3mapImported\\UI_Event_AGR6_unsealed_list.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[183] = "war3mapImported\\UI_Event_AGR6_academy_memories.tga"
+        // 제가 그랑데 공역 방문
+        set ProtoEventIcon[25] = "war3mapImported\\UI_Event_AGR6_zegagrande_arrival.tga"
+        // 제가 그랑데 공역 방문
+        set ProtoEventIcon[26] = "war3mapImported\\UI_Event_AGR6_zegagrande_arrival.tga"
+        // 제가 그랑데 공역 방문
+        set ProtoEventIcon[27] = "war3mapImported\\UI_Event_AGR6_zegagrande_arrival.tga"
+        // 제가 그랑데 공역 방문
+        set ProtoEventIcon[28] = "war3mapImported\\UI_Event_AGR6_zegagrande_arrival.tga"
+        // 묶이지 않은 화물
+        set ProtoEventIcon[245] = "war3mapImported\\UI_Event_AGR6_grandcypher_cargo.tga"
+        // 확보한 갑판의 자리
+        set ProtoEventIcon[246] = "war3mapImported\\UI_Event_AGR6_katalina_guard.tga"
+        // 흐트러진 집중
+        set ProtoEventIcon[247] = "war3mapImported\\UI_Event_AGR6_io_concentration.tga"
+        // 돌아올 자리의 신호
+        set ProtoEventIcon[250] = "war3mapImported\\UI_Event_AGR6_rackam_return_signal.tga"
+        // 같은 길에 다른 날짜
+        set ProtoEventIcon[251] = "war3mapImported\\UI_Event_AGR6_rosetta_route.tga"
+        // 다른 쪽을 보고 있던 관객
+        set ProtoEventIcon[256] = "war3mapImported\\UI_Event_AGR6_io_demonstration.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[272] = "war3mapImported\\UI_Event_AGR6_grandcypher_memories.tga"
     endfunction
 endlibrary
