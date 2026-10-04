@@ -762,7 +762,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 빈자리 없이 차린 식탁
         set ProtoEventIcon[485] = ProtoCharacterIconPath[888]
 
-        // 여러 인물이 등장하는 사건은 상황을 대조한 공식 장면을 표지로 사용한다.
+        // 여러 인물이나 상황이 있는 사건은 대조한 장면·자체 제작 표지를 사용한다.
         // 학교에 남은 마법진
         set ProtoEventIcon[53] = "war3mapImported\\UI_Event_FES2_school_magic.tga"
         // 서로 다른 마력의 흔적
@@ -1217,5 +1217,27 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[389] = "war3mapImported\\UI_Event_PXS10_robin_song_and_choice.tga"
         // 벽 너머까지 들린 연습
         set ProtoEventIcon[471] = "war3mapImported\\UI_Event_PXS10_nozomi_considerate_practice.tga"
+        // 후유키 방문 · 후유키 방문 · 후유키 방문 · 후유키 방문
+        set ProtoEventIcon[1] = "war3mapImported\\UI_Event_FYD11_fuyuki_school_visit.tga"
+        // 후유키 방문 · 후유키 방문 · 후유키 방문 · 후유키 방문
+        set ProtoEventIcon[2] = "war3mapImported\\UI_Event_FYD11_fuyuki_school_visit.tga"
+        // 후유키 방문 · 후유키 방문 · 후유키 방문 · 후유키 방문
+        set ProtoEventIcon[3] = "war3mapImported\\UI_Event_FYD11_fuyuki_school_visit.tga"
+        // 후유키 방문 · 후유키 방문 · 후유키 방문 · 후유키 방문
+        set ProtoEventIcon[4] = "war3mapImported\\UI_Event_FYD11_fuyuki_school_visit.tga"
+        // 명단에 없는 상자
+        set ProtoEventIcon[57] = "war3mapImported\\UI_Event_FYD11_school_preparation_names.tga"
+        // 비어 있는 연락 기록
+        set ProtoEventIcon[58] = "war3mapImported\\UI_Event_FYD11_rin_shirou_saber_contacts.tga"
+        // 접어 둔 이불 하나
+        set ProtoEventIcon[64] = "war3mapImported\\UI_Event_FYD11_taiga_house_preparations.tga"
+        // 표적보다 가까운 화살 · 아직 당기지 않은 줄
+        set ProtoEventIcon[65] = "war3mapImported\\UI_Event_FYD11_kyudo_patient_preparation.tga"
+        // 표적보다 가까운 화살 · 아직 당기지 않은 줄
+        set ProtoEventIcon[68] = "war3mapImported\\UI_Event_FYD11_kyudo_patient_preparation.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[85] = "war3mapImported\\UI_Event_FYD11_fuyuki_ideal_memory.tga"
+        // 버틴 자리와 밀린 자리
+        set ProtoEventIcon[395] = "war3mapImported\\UI_Event_FYD11_elric_after_trial.tga"
     endfunction
 endlibrary
