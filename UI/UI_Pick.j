@@ -112,13 +112,26 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             return "나루메아"
         elseif heroNumber == 3 then
             return "반디"
+        elseif heroNumber == 5 then
+            return "지크프리트"
         endif
         return "잠금 "+I2S(heroNumber)
+    endfunction
+
+    // 선택 가능한 영웅. 4번 칸은 다른 영웅용으로 비워 두고 지크프리트는 5번 칸을 쓴다.
+    private function PickHeroAvailable takes integer heroNumber returns boolean
+        return (heroNumber >= 1 and heroNumber <= MaxHero) or heroNumber == 5
     endfunction
 
     private function PickPreviewTexture takes integer heroNumber, integer skinNumber returns string
         if heroNumber == 2 and skinNumber == 2 then
             return "HeroBack2_2.blp"
+        endif
+        if heroNumber == 5 then
+            if skinNumber == 2 then
+                return "HeroBack_Siegfried_2.blp"
+            endif
+            return "HeroBack_Siegfried.blp"
         endif
         if heroNumber >= 1 and heroNumber <= PickPreviewHeroCount then
             return "HeroBack"+I2S(heroNumber)+".blp"
@@ -127,10 +140,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
     endfunction
 
     private function PickHeroSkinCount takes integer heroNumber returns integer
-        if heroNumber == 2 then
+        if heroNumber == 2 or heroNumber == 5 then
             return 2
         endif
-        if heroNumber >= 1 and heroNumber <= MaxHero then
+        if PickHeroAvailable(heroNumber) then
             return 1
         endif
         return 0
@@ -153,6 +166,10 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
     private function PickSkinUnlocked takes integer pid, integer heroNumber, integer skinNumber returns boolean
         local string unlocked = null
         if skinNumber == 1 then
+            return true
+        endif
+        // 지크프리트 머리갑옷 스킨은 기본 제공
+        if heroNumber == 5 and skinNumber == 2 then
             return true
         endif
         set unlocked = StashLoad(PLAYER_DATA[pid], "계정.skin."+I2S(heroNumber)+"."+I2S(skinNumber), "0")
@@ -179,6 +196,11 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             return 'H00I'
         elseif heroNumber == 3 then
             return 'H00K'
+        elseif heroNumber == 5 then
+            if skinNumber == 2 then
+                return 'H01T'
+            endif
+            return 'H01S'
         endif
         return 0
     endfunction
@@ -250,7 +272,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         call RefreshPickSkinList(pid)
     endfunction
     private function RefreshPickConfirm takes integer pid returns nothing
-        if SHNumber < 1 or SHNumber > MaxHero then
+        if not PickHeroAvailable(SHNumber) then
             call DzFrameShow(FP_SelectBBD, false)
             return
         endif
@@ -284,13 +306,13 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
                 else
                     call DzFrameSetTexture(FP_HeroBBD[i], "war3mapImported\\UI_Box.tga", 0)
                 endif
-                if heroNumber <= MaxHero then
+                if PickHeroAvailable(heroNumber) then
                     call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(heroNumber)+".blp", 0)
                 else
                     call DzFrameSetTexture(FP_HeroImgBD[i], "Empty.blp", 0)
                 endif
                 call DzFrameSetText(FP_HeroT[i], PickHeroName(heroNumber))
-                call DzFrameShow(FP_HeroLockBD[i], heroNumber > MaxHero)
+                call DzFrameShow(FP_HeroLockBD[i], not PickHeroAvailable(heroNumber))
             else
                 call DzFrameShow(FP_HeroBBD[i], false)
                 call DzFrameShow(FP_HeroImgBD[i], false)
@@ -347,7 +369,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
         local integer f = DzGetTriggerUIEventFrame()
         local integer pid = GetPlayerId(DzGetTriggerUIEventPlayer())
 
-        if SHNumber >= 1 and SHNumber <= MaxHero and PickSkinUnlocked(pid, SHNumber, PickSkinNumber) then
+        if PickHeroAvailable(SHNumber) and PickSkinUnlocked(pid, SHNumber, PickSkinNumber) then
             set SLNumber = SHNumber
             call DzFrameShow(FP_BD, false)
             if PickHeroIsSaved(pid, SHNumber) then
@@ -477,7 +499,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             call DzFrameSetAbsolutePoint(FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, cardX, cardY)
 
             set FP_HeroImgBD[i]=DzCreateFrameByTagName("BACKDROP", "", FP_HeroBBD[i], "template", FrameCount())
-            if i <= MaxHero then
+            if PickHeroAvailable(i) then
                 call DzFrameSetTexture(FP_HeroImgBD[i], "UI_HeroPot"+I2S(i)+".blp", 0)
             else
                 call DzFrameSetTexture(FP_HeroImgBD[i], "Empty.blp", 0)
@@ -499,7 +521,7 @@ library UIPick initializer Init requires UIHP, UISkillLevel, UIItem, UIMainQuest
             call DzFrameSetTexture(FP_HeroLockBD[i], "UI_Inventory_Lock2.blp", 0)
             call DzFrameSetSize(FP_HeroLockBD[i], 0.030, 0.030)
             call DzFrameSetPoint(FP_HeroLockBD[i], JN_FRAMEPOINT_CENTER, FP_HeroBBD[i], JN_FRAMEPOINT_CENTER, 0.0, 0.0)
-            call DzFrameShow(FP_HeroLockBD[i], i > MaxHero)
+            call DzFrameShow(FP_HeroLockBD[i], not PickHeroAvailable(i))
 
             set FP_HeroB[i]=DzCreateFrameByTagName("BUTTON", "", FP_HeroBBD[i], "ScoreScreenTabButtonTemplate", FrameCount())
             call DzFrameSetAllPoints(FP_HeroB[i], FP_HeroBBD[i])

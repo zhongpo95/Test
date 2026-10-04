@@ -185,6 +185,24 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
             elseif types == 5 then
                 return SkillFrameDamageLine("1타 피해량", damage * HeroSkillVelue0[14]) + "|n" + SkillFrameDamageLine("3타 총 피해량", damage * HeroSkillVelue0[14] * 3.0)
             endif
+        elseif index == 26 then
+            if types == 0 then
+                return SkillFrameDamageLine("1타 피해량", damage * value1) + "|n" + SkillFrameDamageLine("6타 총 피해량", damage * value1 * 6.0) + "|n" + SkillFrameDamageLine("저스트 캔슬 총 피해량", damage * value1 * 6.0 * 1.30)
+            elseif types == 1 then
+                return SkillFrameDamageLine("피해량", damage * value1) + "|n" + SkillFrameDamageLine("용기 3 소모 시 피해량", damage * value1 * 1.20)
+            elseif types == 2 then
+                return SkillFrameDamageLine("일반 반격", damage * value1) + "|n" + SkillFrameDamageLine("저스트 패리 반격", damage * value2)
+            elseif types == 3 then
+                return SkillFrameDamageLine("피해량", damage * value1)
+            elseif types == 4 then
+                return SkillFrameDamageLine("추가 공격력", I2R(R2I(Equip_Damage[pid])) * value1)
+            elseif types == 5 then
+                return SkillFrameDamageLine("보호막", GetUnitMaxLifeVJ(MainUnit[pid]) * value1)
+            elseif types == 6 then
+                return "|cFFB9E2FA모든 피해|r +" + I2S(R2I(value1 * 100)) + "%"
+            elseif types == 7 then
+                return SkillFrameDamageLine("총 피해량", damage * value1) + "|n|cFFB9E2FA용기 스택당 피해 +3%가 모든 스킬에 적용됩니다.|r"
+            endif
         endif
         return ""
     endfunction
@@ -213,6 +231,13 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
         local real cooldown = 0.0
 
         if types == 10 then
+            if index == 26 then
+                set desc = SkillFrameBaseDescription("일반", 0.0, "키를 연타해 5단 콤보로 벱니다. 타격 직후 노란 구간에서 누르면 저스트 어택이 됩니다.")
+                if detail then
+                    set desc = SkillFrameJoinDescription(desc, SkillFrameDamageLine("1단 피해량", AttackPower(pid) * 0.20) + "|n" + SkillFrameDamageLine("5단 피해량", AttackPower(pid) * 0.40) + "|n|cFFB9E2FA저스트는 피해 1.5배, 용기 +1. 놓치면 용기가 절반이 됩니다. 2~5단을 모두 저스트로 치면 5단 전 저스트가 나가고 F 파이널 피니시를 쓸 수 있습니다.|r")
+                endif
+                return desc
+            endif
             if index == 4 then
                 set cooldown = 1.0
             elseif index == 14 or index == 15 or index == 17 then
@@ -226,6 +251,11 @@ library UISkillLevel initializer init requires DataUnit, FrameCount, UIInputGate
                 if index == 14 then
                     set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA겐지 기본 공격은 E 차지 속도를 높이고 카구라의 강화 기본 공격은 연타 후 자세 전환 연계가 가능합니다.|r")
                 endif
+            endif
+        elseif types == 8 and index == 26 then
+            set desc = SkillFrameBaseDescription("버프", 4.0, "용기 10을 모두 모으면 쓸 수 있습니다. 12초 동안 C가 모두 저스트로 판정됩니다.")
+            if detail then
+                set desc = SkillFrameJoinDescription(desc, "|cFFB9E2FA지속 중에는 용기가 줄지 않고, 끝나면 용기가 0이 됩니다. 시전 중 약 1.2초간 피해와 제어 효과를 막습니다.|r")
             endif
         elseif types == 8 and (index == 15 or index == 17) then
             set desc = SkillFrameBaseDescription("버프", 4.0, "완전연소 자원을 사용하고 완전연소 변신 연출을 실행합니다.")

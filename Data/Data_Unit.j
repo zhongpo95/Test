@@ -192,6 +192,10 @@ function DataUnitIndex takes unit u returns integer
         return 24
     elseif i == 'h00X' then
         return 25
+    elseif i == 'H01S' then
+        return 26
+    elseif i == 'H01T' then
+        return 26
     endif
     return 0
 endfunction
@@ -803,6 +807,102 @@ private function init takes nothing returns nothing
     set UnitHeroCheck[25] = false
     set NPCUnit[25]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00X', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
     
+
+
+    //지크프리트
+    set UnitAbilityIndex[26] = 'H01S'
+    set UnitCutString[26] = "Mika_Cut"
+    set UnitCutSound[26] = gg_snd_Narmaya_Cut1
+    set UnitHeroCheck[26] = true
+    //구르기 모션 #37
+    set UnitDashCode[26] = 37
+    set HeroSkillID0[26] = 'A0SQ'
+    set HeroSkillID1[26] = 'A0SW'
+    set HeroSkillID2[26] = 'A0SE'
+    set HeroSkillID3[26] = 'A0SR'
+    set HeroSkillID4[26] = 'A0SA'
+    set HeroSkillID5[26] = 'A0SS'
+    set HeroSkillID6[26] = 'A0SD'
+    set HeroSkillID7[26] = 'A0SF'
+    //V는 아직 정하지 않음
+    set HeroSkillID8[26] = 0
+    //C
+    set HeroSkillID9[26] = 'A0SC'
+    //Z
+    set HeroSkillID10[26] = 'A0SZ'
+
+    set HeroSkillTpye0[26] = "일반, 카운터"
+    set HeroSkillStr0[26] = "전방으로 돌진하며 연속으로 벱니다. 시전 중 경직과 넉백을 받지 않습니다."
+    set HeroSkillCD0[26] = 7.00
+    set HeroSkillVCount0[26] = 1
+    set HeroSkillVelue0[26] = 0.13
+    set HeroSkill0Text1[26] = "C의 저스트 판정 중에 쓰면 저스트 캔슬이 되어 피해가 30% 증가하고 용기를 1 얻습니다."
+    set HeroSkill0Text2[26] = "저스트 캔슬 후 바로 C를 누르면 콤보가 다음 단 저스트로 이어집니다."
+    set HeroSkill0Text3[26] = ""
+
+    set HeroSkillTpye1[26] = "일반"
+    set HeroSkillStr1[26] = "전방으로 나아가는 검기를 날려 경로의 적을 한 번씩 벱니다."
+    set HeroSkillCD1[26] = 10.00
+    set HeroSkillVCount1[26] = 1
+    set HeroSkillVelue1[26] = 0.60
+    set HeroSkill1Text1[26] = "용기가 3 이상이면 3을 소모해 피해가 20% 증가하고 무력화 피해가 3배가 됩니다."
+    set HeroSkill1Text2[26] = ""
+    set HeroSkill1Text3[26] = ""
+
+    set HeroSkillTpye2[26] = "카운터, 키다운"
+    set HeroSkillStr2[26] = "키를 누르는 동안 패리 자세를 취하고, 떼면 즉시 반격합니다."
+    set HeroSkillCD2[26] = 10.00
+    set HeroSkillVCount2[26] = 2
+    set HeroSkillVelue2[26] = 1.00
+    set HeroSkillVelue22[26] = 2.50
+    set HeroSkill2Text1[26] = "자세 중 공격을 받으면 저스트 패리: 피해를 무효로 하고 강화 반격을 하며 용기를 2 얻습니다."
+    set HeroSkill2Text2[26] = "자세는 최대 1.5초 유지됩니다. 맞지 않았다면 일반 반격만 나갑니다."
+    set HeroSkill2Text3[26] = ""
+
+    set HeroSkillTpye3[26] = "일반"
+    set HeroSkillStr3[26] = "전방에 충격파를 일으키고 적의 방어력을 낮춥니다."
+    set HeroSkillCD3[26] = 14.00
+    set HeroSkillVCount3[26] = 1
+    set HeroSkillVelue3[26] = 0.90
+    set HeroSkill3Text1[26] = "적중한 적은 10초간 방어력 감소 상태가 됩니다."
+    set HeroSkill3Text2[26] = ""
+    set HeroSkill3Text3[26] = ""
+
+    set HeroSkillTpye4[26] = "버프"
+    set HeroSkillStr4[26] = "15초간 공격력이 오르고 받는 피해가 줄어듭니다."
+    set HeroSkillCD4[26] = 30.00
+    set HeroSkillVCount4[26] = 1
+    set HeroSkillVelue4[26] = 0.30
+    set HeroSkill4Text1[26] = "장비 기본 공격력의 30%를 추가 공격력으로 얻고 받는 피해가 20% 감소합니다."
+    set HeroSkill4Text2[26] = "지속 중 저스트 판정 창이 0.1초 늘어납니다."
+    set HeroSkill4Text3[26] = ""
+
+    set HeroSkillTpye5[26] = "버프"
+    set HeroSkillStr5[26] = "자신과 주변 아군에게 보호막을 부여합니다."
+    set HeroSkillCD5[26] = 32.00
+    set HeroSkillVCount5[26] = 1
+    set HeroSkillVelue5[26] = 0.30
+    set HeroSkill5Text1[26] = "시전자 최대 생명력의 30% 보호막이 10초간 유지됩니다."
+    set HeroSkill5Text2[26] = ""
+    set HeroSkill5Text3[26] = ""
+
+    set HeroSkillTpye6[26] = "버프"
+    set HeroSkillStr6[26] = "12초간 경직·넉백을 받지 않고 모든 피해가 증가합니다."
+    set HeroSkillCD6[26] = 40.00
+    set HeroSkillVCount6[26] = 1
+    set HeroSkillVelue6[26] = 0.15
+    set HeroSkill6Text1[26] = "지크프리트의 모든 피해가 15% 증가합니다."
+    set HeroSkill6Text2[26] = ""
+    set HeroSkill6Text3[26] = ""
+
+    set HeroSkillTpye7[26] = "일반"
+    set HeroSkillStr7[26] = "C 5단을 모두 저스트로 치면, 마지막 내려찍기가 땅에 닿는 순간에만 쓸 수 있는 마무리 일격입니다."
+    set HeroSkillCD7[26] = 0.00
+    set HeroSkillVCount7[26] = 1
+    set HeroSkillVelue7[26] = 2.40
+    set HeroSkill7Text1[26] = "입력 창은 타이밍 게이지에 표시됩니다. 창을 놓치면 발동하지 않습니다."
+    set HeroSkill7Text2[26] = ""
+    set HeroSkill7Text3[26] = ""
 
 
     call t.start(0.03, true, function NPCRoleDummyFollowPeriodic)

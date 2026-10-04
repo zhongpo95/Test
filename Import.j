@@ -157,6 +157,18 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiV.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiW.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Bandi\HeroBandiZ.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegData.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegCore.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegC.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegF.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegQ.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegW.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegE.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegR.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegA.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegS.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegD.j"
+//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Hero\Siegfried\HeroSiegZ.j"
 
 // === Boss ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-1.j"

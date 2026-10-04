@@ -2,6 +2,8 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
     globals
         constant real HeadBounsDamage = 1.20
         constant real BackBounsDamage = 1.20
+        // 다음 HeroDeal 호출들의 무력화 추가량 (지크프리트 W 강화 등). 호출한 쪽에서 바로 0으로 되돌린다.
+        real HeroDealBonusSD = 0.0
 
         private unit array TestUnit
     endglobals
@@ -82,7 +84,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real LastDamage = (1.0 + FinalDamageBonus(pid) / 100.0)
         local string s
         local boolean CounterBoolean = false
-        local real SD = 1
+        local real SD = 1 + HeroDealBonusSD
         local real ArcanaRate = 1
         local integer ArcanaLv = 0
         local integer i = 0

@@ -4,7 +4,14 @@ library DamageEffect2 requires DataUnit,UIBossHP,AttackAngle,BuffData,DataProtot
         constant real ConZVelo = 15.0
         //기본경직시간 0.5
         constant real ConStun = 0.5
-        
+
+        // 패리 자세: 켜져 있으면 보스 공격을 무효로 하고 HeroParryTrigger를 평가한다.
+        boolean array HeroParryOn
+        trigger HeroParryTrigger = CreateTrigger()
+        integer HeroParryPid = -1
+        unit HeroParrySource = null
+        // 받는 피해 감소(%)
+        real array HeroDamageReduce
     endglobals
     
     //때린유닛,맞은유닛,데미지,경직유무
@@ -21,6 +28,16 @@ library DamageEffect2 requires DataUnit,UIBossHP,AttackAngle,BuffData,DataProtot
         //endif
         
         local real reduction = 0.0
+        if pid >= 0 and pid < 12 and HeroParryOn[pid] then
+            set HeroParryPid = pid
+            set HeroParrySource = source
+            call TriggerEvaluate(HeroParryTrigger)
+            set HeroParrySource = null
+            return
+        endif
+        if pid >= 0 and pid < 12 and HeroDamageReduce[pid] > 0 then
+            set rate = rate * (1.0 - RMinBJ(80.0, HeroDamageReduce[pid]) / 100.0)
+        endif
         if ExpPrototypeActive and pid >= 0 and pid < 4 and ExpMember[pid] then
             if ProtoPaused[pid] or ProtoReady[pid] then
                 return
