@@ -290,7 +290,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 알렉스 루이 암스트롱
         call SetImages(722, "UI_Card_FMO1_armstrong_Icon", "UI_Card_FMO1_armstrong_Art")
         // 이즈미 커티스
-        call SetImages(723, "UI_Card_FMA_25_Icon", "UI_Card_FMA_25_Art")
+        call SetImages(723, "UI_Card_FMO2_izumi_Icon", "UI_Card_FMO2_izumi_Art")
         // 로이 머스탱
         call SetImages(725, "UI_Card_RMU12_roy_Icon", "UI_Card_RMU12_roy_Art")
         // 리자 호크아이
@@ -302,13 +302,13 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 시그 커티스
         call SetImages(729, "UI_Card_FMA_26_Icon", "UI_Card_FMA_26_Art")
         // 린 야오
-        call SetImages(730, "UI_Card_FMA_29_Icon", "UI_Card_FMA_29_Art")
+        call SetImages(730, "UI_Card_FMO2_lin_Icon", "UI_Card_FMO2_lin_Art")
         // 장 하보크
         call SetImages(738, "UI_Card_FMA_17_Icon", "UI_Card_FMA_17_Art")
         // 그리드
         call SetImages(761, "UI_Card_FMA_27_Icon", "UI_Card_FMA_27_Art")
         // 반 호엔하임
-        call SetImages(773, "UI_Card_FMA_34_Icon", "UI_Card_FMA_34_Art")
+        call SetImages(773, "UI_Card_FMO2_hohenheim_Icon", "UI_Card_FMO2_hohenheim_Art")
         // 칸자키 아오이
         call SetImages(794, "UI_Card_KNYS_aoi_Icon", "UI_Card_KNYS_aoi_Art")
         // 카마도 탄지로
