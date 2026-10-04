@@ -216,7 +216,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 길다트 클라이브
         call SetImages(515, "UI_Card_FTG_gildarts_Icon", "UI_Card_FTG_gildarts_Art")
         // 마카로프
-        call SetImages(543, "UI_Card_FTS_makarov_Icon", "UI_Card_FTS_makarov_Art")
+        call SetImages(543, "UI_Card_QU7_makarov_Icon", "UI_Card_QU7_makarov_Art")
         // 콘
         call SetImages(570, "UI_Card_BBS_kon_Icon", "UI_Card_BBS_kon_Art")
         // 쿠로사키 이치고
@@ -234,7 +234,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 사도 야스토라
         call SetImages(577, "UI_Card_BLH_04_Icon", "UI_Card_BLH_04_Art")
         // 쿠로사키 유즈
-        call SetImages(580, "UI_Card_SUP5_yuzu_Icon", "UI_Card_SUP5_yuzu_Art")
+        call SetImages(580, "UI_Card_QU7_yuzu_Icon", "UI_Card_QU7_yuzu_Art")
         // 아리사와 타츠키
         call SetImages(581, "UI_Card_SUP5_tatsuki_Icon", "UI_Card_SUP5_tatsuki_Art")
         // 돈 칸온지
