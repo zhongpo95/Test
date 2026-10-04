@@ -851,5 +851,39 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[226] = "war3mapImported\\UI_Event_AAS3_first_party.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[244] = "war3mapImported\\UI_Event_AAS3_aincrad_memories.tga"
+        // 액셀 방문
+        set ProtoEventIcon[5] = "war3mapImported\\UI_Event_KAS4_axel_party.tga"
+        // 액셀 방문
+        set ProtoEventIcon[6] = "war3mapImported\\UI_Event_KAS4_axel_party.tga"
+        // 액셀 방문
+        set ProtoEventIcon[7] = "war3mapImported\\UI_Event_KAS4_axel_party.tga"
+        // 액셀 방문
+        set ProtoEventIcon[8] = "war3mapImported\\UI_Event_KAS4_axel_party.tga"
+        // 게시판의 밀린 의뢰
+        set ProtoEventIcon[86] = "war3mapImported\\UI_Event_KAS4_quest_board.tga"
+        // 폭렬 마법의 연습 장소
+        set ProtoEventIcon[88] = "war3mapImported\\UI_Event_KAS4_explosion_practice.tga"
+        // 팔릴 때마다 적자인 가게
+        set ProtoEventIcon[89] = "war3mapImported\\UI_Event_KAS4_wiz_shop.tga"
+        // 단단한 갑옷을 향한 돌진
+        set ProtoEventIcon[91] = "war3mapImported\\UI_Event_KAS4_darkness_charge.tga"
+        // 박수 뒤에 남은 물자리
+        set ProtoEventIcon[92] = "war3mapImported\\UI_Event_KAS4_aqua_performance.tga"
+        // 검의 이름보다 먼저 할 말
+        set ProtoEventIcon[95] = "war3mapImported\\UI_Event_KAS4_mitsurugi_intro.tga"
+        // 처음 온 사람의 두 번째 질문
+        set ProtoEventIcon[96] = "war3mapImported\\UI_Event_KAS4_luna_counter.tga"
+        // 버린 것이 아니라 줄을 잡은 것
+        set ProtoEventIcon[97] = "war3mapImported\\UI_Event_KAS4_aqua_lake_cage.tga"
+        // 작은 발자국이 멀어질 때
+        set ProtoEventIcon[98] = "war3mapImported\\UI_Event_KAS4_snow_sprites.tga"
+        // 질문이 끝나기 전에
+        set ProtoEventIcon[99] = "war3mapImported\\UI_Event_KAS4_aqua_wiz_interrupt.tga"
+        // 의뢰를 받은 문은 어디지?
+        set ProtoEventIcon[100] = "war3mapImported\\UI_Event_KAS4_haunted_house_guide.tga"
+        // 끌어올린 뒤에도 잡힌 줄
+        set ProtoEventIcon[101] = "war3mapImported\\UI_Event_KAS4_aqua_after_lake.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[114] = "war3mapImported\\UI_Event_KAS4_axel_memories.tga"
     endfunction
 endlibrary
