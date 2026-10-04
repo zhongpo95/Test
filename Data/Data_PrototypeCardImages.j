@@ -110,15 +110,15 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 누노타바 시노부
         call SetImages(264, "UI_Card_RGS_nunotaba_Icon", "UI_Card_RGS_nunotaba_Art")
         // 카나메 마도카
-        call SetImages(294, "UI_Card_PMM_madoka_Icon", "UI_Card_PMM_madoka_Art")
+        call SetImages(294, "UI_Card_MEU10_madoka_Icon", "UI_Card_MEU10_madoka_Art")
         // 토모에 마미
-        call SetImages(295, "UI_Card_PMM_mami_Icon", "UI_Card_PMM_mami_Art")
+        call SetImages(295, "UI_Card_MEU10_mami_Icon", "UI_Card_MEU10_mami_Art")
         // 아케미 호무라
-        call SetImages(296, "UI_Card_PMM_homura_Icon", "UI_Card_PMM_homura_Art")
+        call SetImages(296, "UI_Card_MEU10_homura_Icon", "UI_Card_MEU10_homura_Art")
         // 미키 사야카
-        call SetImages(297, "UI_Card_PMM_sayaka_Icon", "UI_Card_PMM_sayaka_Art")
+        call SetImages(297, "UI_Card_MEU10_sayaka_Icon", "UI_Card_MEU10_sayaka_Art")
         // 사쿠라 쿄코
-        call SetImages(298, "UI_Card_PMM_kyoko_Icon", "UI_Card_PMM_kyoko_Art")
+        call SetImages(298, "UI_Card_MEU10_kyoko_Icon", "UI_Card_MEU10_kyoko_Art")
         // 큐베
         call SetImages(299, "UI_Card_PMM_kyube_Icon", "UI_Card_PMM_kyube_Art")
         // 카나메 준코
