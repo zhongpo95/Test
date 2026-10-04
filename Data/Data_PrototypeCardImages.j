@@ -34,17 +34,17 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 루나
         call SetImages(84, "UI_Card_KSB_luna_Icon", "UI_Card_KSB_luna_Art")
         // 사토 카즈마
-        call SetImages(85, "UI_Card_KSB_kazuma_Icon", "UI_Card_KSB_kazuma_Art")
+        call SetImages(85, "UI_Card_KSO1_kazuma_Icon", "UI_Card_KSO1_kazuma_Art")
         // 크리스
         call SetImages(86, "UI_Card_KSB_chris_Icon", "UI_Card_KSB_chris_Art")
         // 메구밍
-        call SetImages(87, "UI_Card_KSB_megumin_Icon", "UI_Card_KSB_megumin_Art")
+        call SetImages(87, "UI_Card_KSO1_megumin_Icon", "UI_Card_KSO1_megumin_Art")
         // 다크니스
-        call SetImages(88, "UI_Card_KSB_darkness_Icon", "UI_Card_KSB_darkness_Art")
+        call SetImages(88, "UI_Card_KSO1_darkness_Icon", "UI_Card_KSO1_darkness_Art")
         // 아쿠아
-        call SetImages(89, "UI_Card_KSB_aqua_Icon", "UI_Card_KSB_aqua_Art")
+        call SetImages(89, "UI_Card_KSO1_aqua_Icon", "UI_Card_KSO1_aqua_Art")
         // 위즈
-        call SetImages(90, "UI_Card_KSB_wiz_Icon", "UI_Card_KSB_wiz_Art")
+        call SetImages(90, "UI_Card_KSO1_wiz_Icon", "UI_Card_KSO1_wiz_Art")
         // 바니르
         call SetImages(91, "UI_Card_KSB_vanir_Icon", "UI_Card_KSB_vanir_Art")
         // 융융
@@ -52,7 +52,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 미츠루기
         call SetImages(95, "UI_Card_KSB_mitsurugi_Icon", "UI_Card_KSB_mitsurugi_Art")
         // 카즈마
-        call SetImages(123, "UI_Card_KSB_kazuma_Icon", "UI_Card_KSB_kazuma_Art")
+        call SetImages(123, "UI_Card_KSO1_kazuma_Icon", "UI_Card_KSO1_kazuma_Art")
         // 오쿠소라 아야네
         call SetImages(147, "UI_Card_BAM2_23005_Icon", "UI_Card_BAM1_23005_Art")
         // 스나오오카미 시로코
@@ -86,9 +86,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 우이하루 카자리
         call SetImages(219, "UI_Card_RGT_10_Icon", "UI_Card_RGT_10_Art")
         // 미사카 미코토
-        call SetImages(220, "UI_Card_RGT_8_Icon", "UI_Card_RGT_8_Art")
+        call SetImages(220, "UI_Card_RGO1_mikoto_Icon", "UI_Card_RGO1_mikoto_Art")
         // 시라이 쿠로코
-        call SetImages(221, "UI_Card_RGT_9_Icon", "UI_Card_RGT_9_Art")
+        call SetImages(221, "UI_Card_RGO1_kuroko_Icon", "UI_Card_RGO1_kuroko_Art")
         // 카미조 토우마
         call SetImages(222, "UI_Card_RGT_37_Icon", "UI_Card_RGT_37_Art")
         // 사텐 루이코
@@ -106,7 +106,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 미사카 동생
         call SetImages(252, "UI_Card_RGT_39_Icon", "UI_Card_RGT_39_Art")
         // 액셀러레이터
-        call SetImages(258, "UI_Card_RGS_accelerator_Icon", "UI_Card_RGS_accelerator_Art")
+        call SetImages(258, "UI_Card_RGO1_accelerator_Icon", "UI_Card_RGO1_accelerator_Art")
         // 누노타바 시노부
         call SetImages(264, "UI_Card_RGS_nunotaba_Icon", "UI_Card_RGS_nunotaba_Art")
         // 카나메 마도카
@@ -220,15 +220,15 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 콘
         call SetImages(570, "UI_Card_BBS_kon_Icon", "UI_Card_BBS_kon_Art")
         // 쿠로사키 이치고
-        call SetImages(571, "UI_Card_BLH_01_Icon", "UI_Card_BLH_01_Art")
+        call SetImages(571, "UI_Card_BBO1_ichigo_Icon", "UI_Card_BBO1_ichigo_Art")
         // 이시다 우류
-        call SetImages(572, "UI_Card_BLH_02_Icon", "UI_Card_BLH_02_Art")
+        call SetImages(572, "UI_Card_BBO1_uryu_Icon", "UI_Card_BBO1_uryu_Art")
         // 이노우에 오리히메
         call SetImages(573, "UI_Card_BLH_03_Icon", "UI_Card_BLH_03_Art")
         // 시호인 요루이치
         call SetImages(574, "UI_Card_BLH_76_Icon", "UI_Card_BLH_76_Art")
         // 쿠치키 루키아
-        call SetImages(575, "UI_Card_BLH_20_Icon", "UI_Card_BLH_20_Art")
+        call SetImages(575, "UI_Card_BBO1_rukia_Icon", "UI_Card_BBO1_rukia_Art")
         // 우라하라 키스케
         call SetImages(576, "UI_Card_BLH_05_Icon", "UI_Card_BLH_05_Art")
         // 사도 야스토라
@@ -252,9 +252,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 야마다 하나타로
         call SetImages(613, "UI_Card_BBS_hanataro_Icon", "UI_Card_BBS_hanataro_Art")
         // 아바라이 렌지
-        call SetImages(616, "UI_Card_BLH_12_Icon", "UI_Card_BLH_12_Art")
+        call SetImages(616, "UI_Card_BBO1_renji_Icon", "UI_Card_BBO1_renji_Art")
         // 쿠치키 뱌쿠야
-        call SetImages(631, "UI_Card_BLH_11_Icon", "UI_Card_BLH_11_Art")
+        call SetImages(631, "UI_Card_BBO1_byakuya_Icon", "UI_Card_BBO1_byakuya_Art")
         // 미샤
         call SetImages(643, "UI_Card_Misha", "UI_Card_Illustration_Misha")
         // 어벤츄린
