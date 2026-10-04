@@ -1255,5 +1255,23 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[285] = "war3mapImported\\UI_Event_BOP12_dowsing_scrap_measurement.tga"
         // 파이 상자에 남은 이름
         set ProtoEventIcon[406] = "war3mapImported\\UI_Event_BOP12_pie_delivery_tags.tga"
+        // 연금 조정의 견본
+        set ProtoEventIcon[249] = "war3mapImported\\UI_Event_DSP13_mixed_alchemy_samples.tga"
+        // 한 바퀴가 같은 한 바퀴일까
+        set ProtoEventIcon[121] = "war3mapImported\\UI_Event_DSP13_bicycle_and_route.tga"
+        // 아직 쓰는 철과 먹을 철
+        set ProtoEventIcon[295] = "war3mapImported\\UI_Event_DSP13_chair_parts_and_scrap_iron.tga"
+        // 풀 가장자리에 모인 준비물
+        set ProtoEventIcon[157] = "war3mapImported\\UI_Event_DSP13_poolside_supply_bundles.tga"
+        // 남는 간식이 아니라 남길 간식
+        set ProtoEventIcon[123] = "war3mapImported\\UI_Event_DSP13_snacks_and_empty_ledger.tga"
+        // 문턱에 남겨 둔 당부
+        set ProtoEventIcon[436] = "war3mapImported\\UI_Event_DSP13_torn_departure_satchel.tga"
+        // 문이 있던 쪽의 부서진 벽
+        set ProtoEventIcon[299] = "war3mapImported\\UI_Event_DSP13_broken_guild_wall_passage.tga"
+        // 돌아온 가방에 다른 치수
+        set ProtoEventIcon[408] = "war3mapImported\\UI_Event_DSP13_returned_bag_measurements.tga"
+        // 까마귀가 두 번 읽은 문장
+        set ProtoEventIcon[433] = "war3mapImported\\UI_Event_DSP13_messenger_crow.tga"
     endfunction
 endlibrary
