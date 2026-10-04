@@ -224,15 +224,15 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 이시다 우류
         call SetImages(572, "UI_Card_BBO1_uryu_Icon", "UI_Card_BBO1_uryu_Art")
         // 이노우에 오리히메
-        call SetImages(573, "UI_Card_BLH_03_Icon", "UI_Card_BLH_03_Art")
+        call SetImages(573, "UI_Card_BBO2_orihime_Icon", "UI_Card_BBO2_orihime_Art")
         // 시호인 요루이치
-        call SetImages(574, "UI_Card_BLH_76_Icon", "UI_Card_BLH_76_Art")
+        call SetImages(574, "UI_Card_BBO2_yoruichi_Icon", "UI_Card_BBO2_yoruichi_Art")
         // 쿠치키 루키아
         call SetImages(575, "UI_Card_BBO1_rukia_Icon", "UI_Card_BBO1_rukia_Art")
         // 우라하라 키스케
-        call SetImages(576, "UI_Card_BLH_05_Icon", "UI_Card_BLH_05_Art")
+        call SetImages(576, "UI_Card_BBO2_urahara_Icon", "UI_Card_BBO2_urahara_Art")
         // 사도 야스토라
-        call SetImages(577, "UI_Card_BLH_04_Icon", "UI_Card_BLH_04_Art")
+        call SetImages(577, "UI_Card_BBO2_sado_Icon", "UI_Card_BBO2_sado_Art")
         // 쿠로사키 유즈
         call SetImages(580, "UI_Card_QU7_yuzu_Icon", "UI_Card_QU7_yuzu_Art")
         // 아리사와 타츠키
@@ -242,7 +242,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 쿠로사키 카린
         call SetImages(583, "UI_Card_SUP5_karin_Icon", "UI_Card_SUP5_karin_Art")
         // 쿠로사키 잇신
-        call SetImages(584, "UI_Card_BLH_58_Icon", "UI_Card_BLH_58_Art")
+        call SetImages(584, "UI_Card_BBO2_isshin_Icon", "UI_Card_BBO2_isshin_Art")
         // 츠무기야 우루루
         call SetImages(585, "UI_Card_BBS_ururu_Icon", "UI_Card_BBS_ururu_Art")
         // 아사노 케이고
@@ -310,21 +310,21 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 칸자키 아오이
         call SetImages(794, "UI_Card_KNYS_aoi_Icon", "UI_Card_KNYS_aoi_Art")
         // 카마도 탄지로
-        call SetImages(795, "UI_Card_KNY_tanjiro_Icon", "UI_Card_KNY_tanjiro_Art")
+        call SetImages(795, "UI_Card_KMO1_tanjiro_Icon", "UI_Card_KMO1_tanjiro_Art")
         // 츠유리 카나오
         call SetImages(796, "UI_Card_KNY_kanawo_Icon", "UI_Card_KNY_kanawo_Art")
         // 코쵸 시노부
-        call SetImages(797, "UI_Card_KNY_shinobu_Icon", "UI_Card_KNY_shinobu_Art")
+        call SetImages(797, "UI_Card_KMO2_shinobu_Icon", "UI_Card_KMO2_shinobu_Art")
         // 아가츠마 젠이츠
-        call SetImages(798, "UI_Card_KNY_zennitsu_Icon", "UI_Card_KNY_zennitsu_Art")
+        call SetImages(798, "UI_Card_KMO1_zenitsu_Icon", "UI_Card_KMO1_zenitsu_Art")
         // 하시비라 이노스케
-        call SetImages(799, "UI_Card_KNY_inosuke_Icon", "UI_Card_KNY_inosuke_Art")
+        call SetImages(799, "UI_Card_KMO2_inosuke_Icon", "UI_Card_KMO2_inosuke_Art")
         // 무라타
         call SetImages(806, "UI_Card_KNYG_murata_Icon", "UI_Card_KNYG_murata_Art")
         // 카마도 네즈코
-        call SetImages(808, "UI_Card_KNY_neduko_Icon", "UI_Card_KNY_neduko_Art")
+        call SetImages(808, "UI_Card_KMO1_nezuko_Icon", "UI_Card_KMO1_nezuko_Art")
         // 렌고쿠 쿄쥬로
-        call SetImages(833, "UI_Card_KNY_kyojurou_Icon", "UI_Card_KNY_kyojurou_Art")
+        call SetImages(833, "UI_Card_KMO2_rengoku_Icon", "UI_Card_KMO2_rengoku_Art")
         // 콧코로
         call SetImages(857, "UI_Card_PCR_105931_Icon", "UI_Card_PCR_105931_Art")
         // 페코린느
