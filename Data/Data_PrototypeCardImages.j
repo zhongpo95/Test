@@ -22,7 +22,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 어새신
         call SetImages(18, "UI_Card_FSU6_assassin_Icon", "UI_Card_FSU6_assassin_Art")
         // 마토 사쿠라
-        call SetImages(19, "UI_Card_FSN_ch05_Icon", "UI_Card_FSN_ch05_Art")
+        call SetImages(19, "UI_Card_FGO1_sakura_Icon", "UI_Card_FGO1_sakura_Art")
         // 캐스터
         call SetImages(20, "UI_Card_FSU6_caster_Icon", "UI_Card_FSU6_caster_Art")
         // 후지무라 타이가
