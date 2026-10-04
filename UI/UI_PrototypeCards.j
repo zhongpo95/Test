@@ -10,6 +10,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         private integer GradeSort
         private integer Tooltip
         private integer TooltipIcon
+        private integer TooltipBorder
         private integer TooltipText
         private integer Hover = 0
         private integer Page = 0
@@ -20,6 +21,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         private integer array Cards
         private integer array Cells
         private integer array Icons
+        private integer array Borders
     endglobals
 
     private function Text takes integer frame, string value returns nothing
@@ -27,10 +29,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
     endfunction
 
     private function Art takes integer id returns string
-        if ProtoCardHead[id] > 0 then
-            return ProtoHeadIcon[ProtoCardHead[id]]
-        endif
-        return "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        return ProtoCardArt(id)
     endfunction
 
     private function Color takes integer grade returns string
@@ -93,6 +92,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         local integer grade
         local real x
         local real y
+        local real tooltipHeight
         local string value
         if Root == 0 then
             return
@@ -111,7 +111,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
                 set id = PROTO_CARD_FIRST
                 loop
                     exitwhen id > PROTO_CARD_LAST
-                    if ExpCardOwned[ExpKey(pid, id)] and (Sort == 0 or ProtoCardGrade[id] == grade) then
+                    if ProtoIsInventoryCard(pid, id) and (Sort == 0 or ProtoOwnedCardGrade(pid, id) == grade) then
                         set Count = Count + 1
                         set Cards[Count] = id
                     endif
@@ -139,16 +139,18 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             call ExpUISetButton(Cells[i], "", id > 0)
             call ExpUISelectButton(Cells[i], Hover == i)
             call DzFrameShow(Icons[i], id > 0)
+            call DzFrameShow(Borders[i], id > 0)
             if id > 0 then
                 call DzFrameSetTexture(Icons[i], Art(id), 0)
+                call DzFrameSetTexture(Borders[i], ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
                 set value = ""
                 if ProtoCardStacks[ExpKey(pid, id)] > 0 then
                     set value = "+" + I2S(ProtoCardStacks[ExpKey(pid, id)])
                 endif
-                if ProtoEvolved[ExpKey(pid, id)] then
+                if ProtoCharacterEvolved[ExpKey(pid, id)] then
                     set value = "★ " + value
                 endif
-                call Text(ExpUIButtonLabels[Cells[i]], Color(ProtoCardGrade[id]) + value)
+                call Text(ExpUIButtonLabels[Cells[i]], Color(ProtoOwnedCardGrade(pid, id)) + value)
             endif
             set i = i + 1
         endloop
@@ -165,11 +167,15 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             if x + 0.230 > 0.785 then
                 set x = x - 0.276
             endif
-            set y = RMaxBJ(0.320, 0.485 - R2I((Hover - 1) / 10) * 0.056)
+            set tooltipHeight = 0.150 + 0.012 * ProtoCharacterEffectCount(pid, id)
+            set y = RMaxBJ(tooltipHeight + 0.020, 0.485 - R2I((Hover - 1) / 10) * 0.056)
             call DzFrameClearAllPoints(Tooltip)
             call DzFrameSetAbsolutePoint(Tooltip, JN_FRAMEPOINT_TOPLEFT, x, y)
+            call DzFrameSetSize(Tooltip, 0.230, tooltipHeight)
+            call DzFrameSetSize(TooltipText, 0.206, tooltipHeight - 0.084)
             call DzFrameSetTexture(TooltipIcon, Art(id), 0)
-            call Text(TooltipText, Color(ProtoCardGrade[id]) + "[" + ExpEventGradeName(ProtoCardGrade[id]) + "] " + ProtoCardName[id] + "|r|n|n" + ProtoCardText(pid, id))
+            call DzFrameSetTexture(TooltipBorder, ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
+            call Text(TooltipText, Color(ProtoOwnedCardGrade(pid, id)) + "[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, id)) + "] " + ProtoCardName[id] + "|r|n|n" + ProtoCardText(pid, id))
             call DzFrameShow(Tooltip, true)
         endif
     endfunction
@@ -224,6 +230,9 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             call DzFrameSetPoint(ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, Root, JN_FRAMEPOINT_TOPLEFT, x, -y)
             call ExpUIResizeCover(Cells[i], 0.038, 0.0507)
             set Icons[i] = ExpUITexture(ExpUIButtons[Cells[i]], 0.002, 0.0027, 0.034, 0.0453, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+            set Borders[i] = ExpUITexture(ExpUIButtons[Cells[i]], 0.002, 0.0027, 0.034, 0.0453, ProtoCardFrame(1))
+            call DzFrameSetPriority(Icons[i], 90)
+            call DzFrameSetPriority(Borders[i], 91)
             call DzFrameClearAllPoints(ExpUIButtonLabels[Cells[i]])
             call DzFrameSetPoint(ExpUIButtonLabels[Cells[i]], JN_FRAMEPOINT_TOPLEFT, ExpUIButtons[Cells[i]], JN_FRAMEPOINT_TOPLEFT, 0.003, -0.035)
             call DzFrameSetSize(ExpUIButtonLabels[Cells[i]], 0.032, 0.014)
@@ -250,6 +259,9 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         set Tooltip = ExpUITexture(Root, 0, 0, 0.230, 0.300, "war3mapImported\\UI_Arcana_Ink.tga")
         call DzFrameSetPriority(Tooltip, 110)
         set TooltipIcon = ExpUITexture(Tooltip, 0.012, 0.012, 0.038, 0.0507, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+        set TooltipBorder = ExpUITexture(Tooltip, 0.012, 0.012, 0.038, 0.0507, ProtoCardFrame(1))
+        call DzFrameSetPriority(TooltipIcon, 110)
+        call DzFrameSetPriority(TooltipBorder, 111)
         set TooltipText = ExpUILabel(Tooltip, 0.012, 0.072, 0.206, 0.217, 0.010, "")
         call JNFrameSetTextAlignment(TooltipText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call DzFrameShow(Tooltip, false)
