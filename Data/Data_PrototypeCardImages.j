@@ -14,9 +14,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 에미야 시로
         call SetImages(13, "UI_Card_FSU6_shirou_Icon", "UI_Card_FSU6_shirou_Art")
         // 세이버
-        call SetImages(14, "UI_Card_FAN14_saber_Icon", "UI_Card_FAN14_saber_Art")
+        call SetImages(14, "UI_Card_FSU6_saber_Icon", "UI_Card_FSU6_saber_Art")
         // 토오사카 린
-        call SetImages(16, "UI_Card_FAN14_rin_Icon", "UI_Card_FAN14_rin_Art")
+        call SetImages(16, "UI_Card_FSU6_rin_Icon", "UI_Card_FSU6_rin_Art")
         // 아처
         call SetImages(17, "UI_Card_FSU6_archer_Icon", "UI_Card_FSU6_archer_Art")
         // 어새신
@@ -86,7 +86,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 우이하루 카자리
         call SetImages(219, "UI_Card_RGT_10_Icon", "UI_Card_RGT_10_Art")
         // 미사카 미코토
-        call SetImages(220, "UI_Card_FAN14_mikoto_Icon", "UI_Card_FAN14_mikoto_Art")
+        call SetImages(220, "UI_Card_RGT_8_Icon", "UI_Card_RGT_8_Art")
         // 시라이 쿠로코
         call SetImages(221, "UI_Card_RGT_9_Icon", "UI_Card_RGT_9_Art")
         // 카미조 토우마
@@ -278,7 +278,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 선데이
         call SetImages(706, "UI_Card_HSR_1313_Icon", "UI_Card_HSR_1313_Art")
         // 윈리 록벨
-        call SetImages(717, "UI_Card_FAN13_winry_Icon", "UI_Card_FAN13_winry_Art")
+        call SetImages(717, "UI_Card_FMA_3_Icon", "UI_Card_FMA_3_Art")
         // 에드워드 엘릭
         call SetImages(718, "UI_Card_FCU8_edward_Icon", "UI_Card_FCU8_edward_Art")
         // 알폰스 엘릭
