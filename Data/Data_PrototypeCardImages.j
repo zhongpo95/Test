@@ -130,9 +130,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 에길
         call SetImages(357, "UI_Card_SAOFD_agil_Icon", "UI_Card_SAOFD_agil_Art")
         // 키리토
-        call SetImages(358, "UI_Card_SAOFD_kirito_Icon", "UI_Card_SAOFD_kirito_Art")
+        call SetImages(358, "UI_Card_SAO1_kirito_Icon", "UI_Card_SAO1_kirito_Art")
         // 아스나
-        call SetImages(359, "UI_Card_SAOFD_asuna_Icon", "UI_Card_SAOFD_asuna_Art")
+        call SetImages(359, "UI_Card_SAO1_asuna_Icon", "UI_Card_SAO1_asuna_Art")
         // 리즈벳
         call SetImages(360, "UI_Card_SAOFD_lisbeth_Icon", "UI_Card_SAOFD_lisbeth_Art")
         // 시리카
