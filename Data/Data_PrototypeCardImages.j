@@ -246,7 +246,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 츠무기야 우루루
         call SetImages(585, "UI_Card_BBS_ururu_Icon", "UI_Card_BBS_ururu_Art")
         // 아사노 케이고
-        call SetImages(586, "UI_Card_SUP5_keigo_Icon", "UI_Card_SUP5_keigo_Art")
+        call SetImages(586, "UI_Card_BKQ11_keigo_Icon", "UI_Card_BKQ11_keigo_Art")
         // 하나카리 진타
         call SetImages(593, "UI_Card_BBS_jinta_Icon", "UI_Card_BBS_jinta_Art")
         // 야마다 하나타로
@@ -1095,52 +1095,6 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[300] = "war3mapImported\\UI_Event_FBP8_lucy_next_line.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[317] = "war3mapImported\\UI_Event_FBP8_guild_journey_memory.tga"
-        // 카라쿠라 마을 방문
-        set ProtoEventIcon[33] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
-        // 카라쿠라 마을 방문
-        set ProtoEventIcon[34] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
-        // 카라쿠라 마을 방문
-        set ProtoEventIcon[35] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
-        // 카라쿠라 마을 방문
-        set ProtoEventIcon[36] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
-        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
-        set ProtoEventIcon[318] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
-        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
-        set ProtoEventIcon[320] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
-        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
-        set ProtoEventIcon[330] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
-        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
-        set ProtoEventIcon[336] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
-        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
-        set ProtoEventIcon[319] = "war3mapImported\\UI_Event_FBP8_yoruichi_dark_route.tga"
-        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
-        set ProtoEventIcon[323] = "war3mapImported\\UI_Event_FBP8_yoruichi_dark_route.tga"
-        // 사람이 지나간 뒤의 골목
-        set ProtoEventIcon[321] = "war3mapImported\\UI_Event_FBP8_rukia_chad_passage.tga"
-        // 짐에서 빠져나온 인형
-        set ProtoEventIcon[322] = "war3mapImported\\UI_Event_FBP8_kon_outside_parcel.tga"
-        // 표식 없는 귀환길
-        set ProtoEventIcon[324] = "war3mapImported\\UI_Event_FBP8_rukia_return_route.tga"
-        // 검을 내리기 전의 한 박자
-        set ProtoEventIcon[325] = "war3mapImported\\UI_Event_FBP8_ichigo_sword_pause.tga"
-        // 바늘 끝에서 멈춘 말
-        set ProtoEventIcon[326] = "war3mapImported\\UI_Event_FBP8_uryu_careful_hands.tga"
-        // 큰 손에 든 작은 인형
-        set ProtoEventIcon[327] = "war3mapImported\\UI_Event_FBP8_chad_small_doll.tga"
-        // 비워 둘 수 없는 한 칸
-        set ProtoEventIcon[328] = "war3mapImported\\UI_Event_FBP8_yuzu_reserved_supplies.tga"
-        // 박수 뒤에 가려진 길
-        set ProtoEventIcon[329] = "war3mapImported\\UI_Event_FBP8_don_kanonji_audience.tga"
-        // 발 하나를 놓을 자리
-        set ProtoEventIcon[331] = "war3mapImported\\UI_Event_FBP8_tatsuki_practice.tga"
-        // 비어 보이는 벤치
-        set ProtoEventIcon[332] = "war3mapImported\\UI_Event_FBP8_karin_quiet_bench.tga"
-        // 친구가 왔다는 한마디
-        set ProtoEventIcon[333] = "war3mapImported\\UI_Event_FBP8_isshin_clinic.tga"
-        // 작은 점원에게 맡긴 큰 짐
-        set ProtoEventIcon[334] = "war3mapImported\\UI_Event_FBP8_ururu_jinta_supplies.tga"
-        // 여정 뒤에 다시 펼친 기억
-        set ProtoEventIcon[353] = "war3mapImported\\UI_Event_FBP8_karakura_journey_memory.tga"
         // 페나코니 방문
         set ProtoEventIcon[37] = "war3mapImported\\UI_Event_FBP8_golden_hour_arrival.tga"
         // 페나코니 방문
@@ -1239,5 +1193,67 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[85] = "war3mapImported\\UI_Event_FYD11_fuyuki_ideal_memory.tga"
         // 버틴 자리와 밀린 자리
         set ProtoEventIcon[395] = "war3mapImported\\UI_Event_FYD11_elric_after_trial.tga"
+        // 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문
+        set ProtoEventIcon[33] = "war3mapImported\\UI_Event_BOP12_bleach_karakura_night.tga"
+        // 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문
+        set ProtoEventIcon[34] = "war3mapImported\\UI_Event_BOP12_bleach_karakura_night.tga"
+        // 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문
+        set ProtoEventIcon[35] = "war3mapImported\\UI_Event_BOP12_bleach_karakura_night.tga"
+        // 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문 · 카라쿠라 마을 방문
+        set ProtoEventIcon[36] = "war3mapImported\\UI_Event_BOP12_bleach_karakura_night.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[318] = "war3mapImported\\UI_Event_BOP12_bleach_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[320] = "war3mapImported\\UI_Event_BOP12_bleach_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[330] = "war3mapImported\\UI_Event_BOP12_bleach_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[336] = "war3mapImported\\UI_Event_BOP12_bleach_urahara_deliveries.tga"
+        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
+        set ProtoEventIcon[319] = "war3mapImported\\UI_Event_BOP12_bleach_yoruichi_dark_route.tga"
+        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
+        set ProtoEventIcon[323] = "war3mapImported\\UI_Event_BOP12_bleach_yoruichi_dark_route.tga"
+        // 사람이 지나간 뒤의 골목
+        set ProtoEventIcon[321] = "war3mapImported\\UI_Event_BOP12_bleach_rukia_chad_passage.tga"
+        // 짐에서 빠져나온 인형
+        set ProtoEventIcon[322] = "war3mapImported\\UI_Event_BOP12_bleach_kon_outside_parcel.tga"
+        // 표식 없는 귀환길
+        set ProtoEventIcon[324] = "war3mapImported\\UI_Event_BOP12_bleach_rukia_return_route.tga"
+        // 검을 내리기 전의 한 박자
+        set ProtoEventIcon[325] = "war3mapImported\\UI_Event_BOP12_bleach_ichigo_sword_pause.tga"
+        // 바늘 끝에서 멈춘 말
+        set ProtoEventIcon[326] = "war3mapImported\\UI_Event_BOP12_bleach_uryu_careful_hands.tga"
+        // 큰 손에 든 작은 인형
+        set ProtoEventIcon[327] = "war3mapImported\\UI_Event_BOP12_bleach_chad_small_doll.tga"
+        // 비워 둘 수 없는 한 칸
+        set ProtoEventIcon[328] = "war3mapImported\\UI_Event_BOP12_bleach_yuzu_reserved_supplies.tga"
+        // 박수 뒤에 가려진 길
+        set ProtoEventIcon[329] = "war3mapImported\\UI_Event_BOP12_bleach_don_kanonji_audience.tga"
+        // 발 하나를 놓을 자리
+        set ProtoEventIcon[331] = "war3mapImported\\UI_Event_BOP12_bleach_tatsuki_practice.tga"
+        // 비어 보이는 벤치
+        set ProtoEventIcon[332] = "war3mapImported\\UI_Event_BOP12_bleach_karin_quiet_bench.tga"
+        // 친구가 왔다는 한마디
+        set ProtoEventIcon[333] = "war3mapImported\\UI_Event_BOP12_bleach_isshin_clinic.tga"
+        // 작은 점원에게 맡긴 큰 짐
+        set ProtoEventIcon[334] = "war3mapImported\\UI_Event_BOP12_bleach_ururu_jinta_supplies.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[353] = "war3mapImported\\UI_Event_BOP12_bleach_karakura_journey_memory.tga"
+        // 초대받았다는 사람
+        set ProtoEventIcon[335] = "war3mapImported\\UI_Event_BOP12_keigo_invitation.tga"
+        // 에길의 값표 두 장 · 같은 값표로 묶지 않을 것
+        set ProtoEventIcon[218] = "war3mapImported\\UI_Event_BOP12_merchant_price_tags.tga"
+        // 에길의 값표 두 장 · 같은 값표로 묶지 않을 것
+        set ProtoEventIcon[229] = "war3mapImported\\UI_Event_BOP12_merchant_price_tags.tga"
+        // 마르지 않은 흰 천
+        set ProtoEventIcon[432] = "war3mapImported\\UI_Event_BOP12_rainy_white_linen.tga"
+        // 진흙 아래의 반응
+        set ProtoEventIcon[283] = "war3mapImported\\UI_Event_BOP12_dowsing_before_search.tga"
+        // 상자를 연 뒤의 흔적
+        set ProtoEventIcon[284] = "war3mapImported\\UI_Event_BOP12_dowsing_after_delivery.tga"
+        // 고철 옆에 남은 표시
+        set ProtoEventIcon[285] = "war3mapImported\\UI_Event_BOP12_dowsing_scrap_measurement.tga"
+        // 파이 상자에 남은 이름
+        set ProtoEventIcon[406] = "war3mapImported\\UI_Event_BOP12_pie_delivery_tags.tga"
     endfunction
 endlibrary
