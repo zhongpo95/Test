@@ -885,5 +885,31 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[101] = "war3mapImported\\UI_Event_KAS4_aqua_after_lake.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[114] = "war3mapImported\\UI_Event_KAS4_axel_memories.tga"
+        // 미타키하라 방문
+        set ProtoEventIcon[17] = "war3mapImported\\UI_Event_MHS5_mitakihara_school.tga"
+        // 미타키하라 방문
+        set ProtoEventIcon[18] = "war3mapImported\\UI_Event_MHS5_mitakihara_school.tga"
+        // 미타키하라 방문
+        set ProtoEventIcon[19] = "war3mapImported\\UI_Event_MHS5_mitakihara_school.tga"
+        // 미타키하라 방문
+        set ProtoEventIcon[20] = "war3mapImported\\UI_Event_MHS5_mitakihara_school.tga"
+        // 돌아온 안내자
+        set ProtoEventIcon[185] = "war3mapImported\\UI_Event_MHS5_mami_guide.tga"
+        // 놓친 사역마의 흔적
+        set ProtoEventIcon[186] = "war3mapImported\\UI_Event_MHS5_kyoko_conflict.tga"
+        // 버려진 교회에서
+        set ProtoEventIcon[187] = "war3mapImported\\UI_Event_MHS5_abandoned_church.tga"
+        // 한 가지 소원
+        set ProtoEventIcon[188] = "war3mapImported\\UI_Event_MHS5_kyubey_wish.tga"
+        // 쌓인 준비의 빈틈
+        set ProtoEventIcon[189] = "war3mapImported\\UI_Event_MHS5_homura_preparation.tga"
+        // 문병 가방에 남은 제목
+        set ProtoEventIcon[190] = "war3mapImported\\UI_Event_MHS5_hospital_music.tga"
+        // 건너기 전에 달라진 입구
+        set ProtoEventIcon[195] = "war3mapImported\\UI_Event_MHS5_witch_boundary.tga"
+        // 한 걸음 뒤에서 들을 말
+        set ProtoEventIcon[196] = "war3mapImported\\UI_Event_MHS5_mami_spacing.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[211] = "war3mapImported\\UI_Event_MHS5_mitakihara_memories.tga"
     endfunction
 endlibrary
