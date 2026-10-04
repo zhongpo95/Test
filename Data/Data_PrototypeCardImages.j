@@ -36,7 +36,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 사토 카즈마
         call SetImages(85, "UI_Card_KSO1_kazuma_Icon", "UI_Card_KSO1_kazuma_Art")
         // 크리스
-        call SetImages(86, "UI_Card_KSB_chris_Icon", "UI_Card_KSB_chris_Art")
+        call SetImages(86, "UI_Card_KSB_MST26_chris_Icon", "UI_Card_KSB_MST26_chris_Art")
         // 메구밍
         call SetImages(87, "UI_Card_KSO1_megumin_Icon", "UI_Card_KSO1_megumin_Art")
         // 다크니스
@@ -48,7 +48,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 바니르
         call SetImages(91, "UI_Card_KSB_vanir_Icon", "UI_Card_KSB_vanir_Art")
         // 융융
-        call SetImages(94, "UI_Card_KSB_yunyun_Icon", "UI_Card_KSB_yunyun_Art")
+        call SetImages(94, "UI_Card_KSB_MST26_yunyun_Icon", "UI_Card_KSB_MST26_yunyun_Art")
         // 미츠루기
         call SetImages(95, "UI_Card_KSB_mitsurugi_Icon", "UI_Card_KSB_mitsurugi_Art")
         // 카즈마
