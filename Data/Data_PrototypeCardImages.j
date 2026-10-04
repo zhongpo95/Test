@@ -83,6 +83,26 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(186, "UI_Card_Nonomi", "UI_Card_Illustration_Nonomi")
         // 호시노
         call SetImages(189, "UI_Card_BA_10005_Icon", "UI_Card_BA_10005_Art")
+        // 우이하루 카자리
+        call SetImages(219, "UI_Card_RGT_10_Icon", "UI_Card_RGT_10_Art")
+        // 미사카 미코토
+        call SetImages(220, "UI_Card_RGT_8_Icon", "UI_Card_RGT_8_Art")
+        // 시라이 쿠로코
+        call SetImages(221, "UI_Card_RGT_9_Icon", "UI_Card_RGT_9_Art")
+        // 카미조 토우마
+        call SetImages(222, "UI_Card_RGT_37_Icon", "UI_Card_RGT_37_Art")
+        // 사텐 루이코
+        call SetImages(223, "UI_Card_RGT_11_Icon", "UI_Card_RGT_11_Art")
+        // 콘고 미츠코
+        call SetImages(230, "UI_Card_RGT_34_Icon", "UI_Card_RGT_34_Art")
+        // 완나이 키누호
+        call SetImages(231, "UI_Card_RGT_35_Icon", "UI_Card_RGT_35_Art")
+        // 아와츠키 마아야
+        call SetImages(232, "UI_Card_RGT_36_Icon", "UI_Card_RGT_36_Art")
+        // 소기이타 군하
+        call SetImages(233, "UI_Card_RGT_38_Icon", "UI_Card_RGT_38_Art")
+        // 미사카 동생
+        call SetImages(252, "UI_Card_RGT_39_Icon", "UI_Card_RGT_39_Art")
         // 카나메 마도카
         call SetImages(294, "UI_Card_PMM_madoka_Icon", "UI_Card_PMM_madoka_Art")
         // 토모에 마미
@@ -95,6 +115,24 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(298, "UI_Card_PMM_kyoko_Icon", "UI_Card_PMM_kyoko_Art")
         // 큐베
         call SetImages(299, "UI_Card_PMM_kyube_Icon", "UI_Card_PMM_kyube_Art")
+        // 에길
+        call SetImages(357, "UI_Card_SAOFD_agil_Icon", "UI_Card_SAOFD_agil_Art")
+        // 키리토
+        call SetImages(358, "UI_Card_SAOFD_kirito_Icon", "UI_Card_SAOFD_kirito_Art")
+        // 아스나
+        call SetImages(359, "UI_Card_SAOFD_asuna_Icon", "UI_Card_SAOFD_asuna_Art")
+        // 리즈벳
+        call SetImages(360, "UI_Card_SAOFD_lisbeth_Icon", "UI_Card_SAOFD_lisbeth_Art")
+        // 시리카
+        call SetImages(361, "UI_Card_SAOFD_silica_Icon", "UI_Card_SAOFD_silica_Art")
+        // 클라인
+        call SetImages(362, "UI_Card_SAOFD_klein_Icon", "UI_Card_SAOFD_klein_Art")
+        // 사치
+        call SetImages(367, "UI_Card_SAOFD_sachi_Icon", "UI_Card_SAOFD_sachi_Art")
+        // 아르고
+        call SetImages(370, "UI_Card_SAOFD_argo_Icon", "UI_Card_SAOFD_argo_Art")
+        // 유이
+        call SetImages(413, "UI_Card_SAOFD_yui_Icon", "UI_Card_SAOFD_yui_Art")
         // 라캄
         call SetImages(425, "UI_Card_GBF_rackam_Icon", "UI_Card_GBF_rackam_Art")
         // 카타리나
@@ -125,6 +163,40 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(448, "UI_Card_GBF_lyria_Icon", "UI_Card_GBF_lyria_Art")
         // 이드
         call SetImages(472, "UI_Card_GBF_id_Icon", "UI_Card_GBF_id_Art")
+        // 해피
+        call SetImages(502, "UI_Card_FT_happy_Icon", "UI_Card_FT_happy_Art")
+        // 나츠 드래그닐
+        call SetImages(503, "UI_Card_FT_nastu-dragneel_Icon", "UI_Card_FT_nastu-dragneel_Art")
+        // 루시 하트필리아
+        call SetImages(504, "UI_Card_FT_lucy-heartfilia_Icon", "UI_Card_FT_lucy-heartfilia_Art")
+        // 그레이 풀버스터
+        call SetImages(505, "UI_Card_FT_gray-fullbuster_Icon", "UI_Card_FT_gray-fullbuster_Art")
+        // 엘자 스칼렛
+        call SetImages(506, "UI_Card_FT_erza-scarlet_Icon", "UI_Card_FT_erza-scarlet_Art")
+        // 웬디 마벨
+        call SetImages(508, "UI_Card_FT_wendy-marvell_Icon", "UI_Card_FT_wendy-marvell_Art")
+        // 샤를
+        call SetImages(509, "UI_Card_FT_charles_Icon", "UI_Card_FT_charles_Art")
+        // 쿠로사키 이치고
+        call SetImages(571, "UI_Card_BLH_01_Icon", "UI_Card_BLH_01_Art")
+        // 이시다 우류
+        call SetImages(572, "UI_Card_BLH_02_Icon", "UI_Card_BLH_02_Art")
+        // 이노우에 오리히메
+        call SetImages(573, "UI_Card_BLH_03_Icon", "UI_Card_BLH_03_Art")
+        // 시호인 요루이치
+        call SetImages(574, "UI_Card_BLH_76_Icon", "UI_Card_BLH_76_Art")
+        // 쿠치키 루키아
+        call SetImages(575, "UI_Card_BLH_20_Icon", "UI_Card_BLH_20_Art")
+        // 우라하라 키스케
+        call SetImages(576, "UI_Card_BLH_05_Icon", "UI_Card_BLH_05_Art")
+        // 사도 야스토라
+        call SetImages(577, "UI_Card_BLH_04_Icon", "UI_Card_BLH_04_Art")
+        // 쿠로사키 잇신
+        call SetImages(584, "UI_Card_BLH_58_Icon", "UI_Card_BLH_58_Art")
+        // 아바라이 렌지
+        call SetImages(616, "UI_Card_BLH_12_Icon", "UI_Card_BLH_12_Art")
+        // 쿠치키 뱌쿠야
+        call SetImages(631, "UI_Card_BLH_11_Icon", "UI_Card_BLH_11_Art")
         // 미샤
         call SetImages(643, "UI_Card_Misha", "UI_Card_Illustration_Misha")
         // 어벤츄린
@@ -147,6 +219,36 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(661, "UI_Card_HSR_1310_Icon", "UI_Card_HSR_1310_Art")
         // 선데이
         call SetImages(706, "UI_Card_HSR_1313_Icon", "UI_Card_HSR_1313_Art")
+        // 윈리 록벨
+        call SetImages(717, "UI_Card_FMA_3_Icon", "UI_Card_FMA_3_Art")
+        // 에드워드 엘릭
+        call SetImages(718, "UI_Card_FMA_1_Icon", "UI_Card_FMA_1_Art")
+        // 알폰스 엘릭
+        call SetImages(719, "UI_Card_FMA_2_Icon", "UI_Card_FMA_2_Art")
+        // 셰스카
+        call SetImages(721, "UI_Card_FMA_21_Icon", "UI_Card_FMA_21_Art")
+        // 알렉스 루이 암스트롱
+        call SetImages(722, "UI_Card_FMA_6_Icon", "UI_Card_FMA_6_Art")
+        // 이즈미 커티스
+        call SetImages(723, "UI_Card_FMA_25_Icon", "UI_Card_FMA_25_Art")
+        // 로이 머스탱
+        call SetImages(725, "UI_Card_FMA_4_Icon", "UI_Card_FMA_4_Art")
+        // 리자 호크아이
+        call SetImages(726, "UI_Card_FMA_5_Icon", "UI_Card_FMA_5_Art")
+        // 마스 휴즈
+        call SetImages(727, "UI_Card_FMA_7_Icon", "UI_Card_FMA_7_Art")
+        // 피나코 록벨
+        call SetImages(728, "UI_Card_FMA_13_Icon", "UI_Card_FMA_13_Art")
+        // 시그 커티스
+        call SetImages(729, "UI_Card_FMA_26_Icon", "UI_Card_FMA_26_Art")
+        // 린 야오
+        call SetImages(730, "UI_Card_FMA_29_Icon", "UI_Card_FMA_29_Art")
+        // 장 하보크
+        call SetImages(738, "UI_Card_FMA_17_Icon", "UI_Card_FMA_17_Art")
+        // 그리드
+        call SetImages(761, "UI_Card_FMA_27_Icon", "UI_Card_FMA_27_Art")
+        // 반 호엔하임
+        call SetImages(773, "UI_Card_FMA_34_Icon", "UI_Card_FMA_34_Art")
         // 카마도 탄지로
         call SetImages(795, "UI_Card_KNY_tanjiro_Icon", "UI_Card_KNY_tanjiro_Art")
         // 츠유리 카나오
