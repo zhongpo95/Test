@@ -84,7 +84,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 호시노
         call SetImages(189, "UI_Card_BAM2_10005_Icon", "UI_Card_BAM1_10005_Art")
         // 우이하루 카자리
-        call SetImages(219, "UI_Card_RGT_10_Icon", "UI_Card_RGT_10_Art")
+        call SetImages(219, "UI_Card_RGT_IF_uiharu_Icon", "UI_Card_RGT_IF_uiharu_Art")
         // 미사카 미코토
         call SetImages(220, "UI_Card_RGO1_mikoto_Icon", "UI_Card_RGO1_mikoto_Art")
         // 시라이 쿠로코
