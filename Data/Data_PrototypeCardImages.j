@@ -973,5 +973,89 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[256] = "war3mapImported\\UI_Event_AGR6_io_demonstration.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[272] = "war3mapImported\\UI_Event_AGR6_grandcypher_memories.tga"
+        // 나비저택 방문
+        set ProtoEventIcon[45] = "war3mapImported\\UI_Event_BGA7_butterfly_arrival.tga"
+        // 나비저택 방문
+        set ProtoEventIcon[46] = "war3mapImported\\UI_Event_BGA7_butterfly_arrival.tga"
+        // 나비저택 방문
+        set ProtoEventIcon[47] = "war3mapImported\\UI_Event_BGA7_butterfly_arrival.tga"
+        // 나비저택 방문
+        set ProtoEventIcon[48] = "war3mapImported\\UI_Event_BGA7_butterfly_arrival.tga"
+        // 울음 사이로 섞인 발소리
+        set ProtoEventIcon[428] = "war3mapImported\\UI_Event_BGA7_lost_supply_route.tga"
+        // 찾은 흔적의 건너편
+        set ProtoEventIcon[429] = "war3mapImported\\UI_Event_BGA7_recovery_stride.tga"
+        // 잘못 짚은 소리의 값
+        set ProtoEventIcon[430] = "war3mapImported\\UI_Event_BGA7_shinobu_recovery.tga"
+        // 지워진 병의 이름
+        set ProtoEventIcon[431] = "war3mapImported\\UI_Event_BGA7_aoi_labels.tga"
+        // 너무 많은 소리가 나는 낮
+        set ProtoEventIcon[434] = "war3mapImported\\UI_Event_BGA7_zenitsu_overwhelmed.tga"
+        // 같은 자리에 남은 다른 냄새
+        set ProtoEventIcon[435] = "war3mapImported\\UI_Event_BGA7_tanjiro_forest_route.tga"
+        // 선배라면 더 강한가
+        set ProtoEventIcon[437] = "war3mapImported\\UI_Event_BGA7_murata_return.tga"
+        // 문 안에 먼저 들어갈 사람
+        set ProtoEventIcon[438] = "war3mapImported\\UI_Event_BGA7_training_door.tga"
+        // 물러선 발과 움직이지 않은 손
+        set ProtoEventIcon[439] = "war3mapImported\\UI_Event_BGA7_nezuko_rest.tga"
+        // 거두지 못한 마지막 손
+        set ProtoEventIcon[442] = "war3mapImported\\UI_Event_BGA7_kanao_pause.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[459] = "war3mapImported\\UI_Event_BGA7_butterfly_memories.tga"
+        // 미식전 길드 하우스 방문
+        set ProtoEventIcon[49] = "war3mapImported\\UI_Event_BGA7_gourmet_table.tga"
+        // 미식전 길드 하우스 방문
+        set ProtoEventIcon[50] = "war3mapImported\\UI_Event_BGA7_gourmet_table.tga"
+        // 미식전 길드 하우스 방문
+        set ProtoEventIcon[51] = "war3mapImported\\UI_Event_BGA7_gourmet_table.tga"
+        // 미식전 길드 하우스 방문
+        set ProtoEventIcon[52] = "war3mapImported\\UI_Event_BGA7_gourmet_table.tga"
+        // 냄비를 올리기 전에
+        set ProtoEventIcon[460] = "war3mapImported\\UI_Event_BGA7_roadside_cooking.tga"
+        // 빈 그릇과 늘어난 몫
+        set ProtoEventIcon[461] = "war3mapImported\\UI_Event_BGA7_meal_requests.tga"
+        // 남겨 둔 한 끼
+        set ProtoEventIcon[462] = "war3mapImported\\UI_Event_BGA7_reserved_riceball.tga"
+        // 먼지 뒤에 남은 방
+        set ProtoEventIcon[463] = "war3mapImported\\UI_Event_BGA7_guildhouse_cleanup.tga"
+        // 색이 번진 향신료 지도
+        set ProtoEventIcon[464] = "war3mapImported\\UI_Event_BGA7_kokkoro_supplies.tga"
+        // 접힌 채 남은 초대장
+        set ProtoEventIcon[465] = "war3mapImported\\UI_Event_BGA7_aoi_invitation.tga"
+        // 갈라지는 배달길
+        set ProtoEventIcon[470] = "war3mapImported\\UI_Event_BGA7_delivery_bags.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[486] = "war3mapImported\\UI_Event_BGA7_gourmet_memories.tga"
+        // 아메스트리스 방문
+        set ProtoEventIcon[41] = "war3mapImported\\UI_Event_BGA7_amestris_brothers.tga"
+        // 아메스트리스 방문
+        set ProtoEventIcon[42] = "war3mapImported\\UI_Event_BGA7_amestris_brothers.tga"
+        // 아메스트리스 방문
+        set ProtoEventIcon[43] = "war3mapImported\\UI_Event_BGA7_amestris_brothers.tga"
+        // 아메스트리스 방문
+        set ProtoEventIcon[44] = "war3mapImported\\UI_Event_BGA7_amestris_brothers.tga"
+        // 떠나려는 손, 붙잡는 손
+        set ProtoEventIcon[393] = "war3mapImported\\UI_Event_BGA7_winry_automail.tga"
+        // 빈칸이 남은 정비 기록 · 사라진 페이지의 무게 · 한 권 뒤에 남겨 둔 빈칸
+        set ProtoEventIcon[394] = "war3mapImported\\UI_Event_BGA7_sheska_books.tga"
+        // 빈칸이 남은 정비 기록 · 사라진 페이지의 무게 · 한 권 뒤에 남겨 둔 빈칸
+        set ProtoEventIcon[396] = "war3mapImported\\UI_Event_BGA7_sheska_books.tga"
+        // 빈칸이 남은 정비 기록 · 사라진 페이지의 무게 · 한 권 뒤에 남겨 둔 빈칸
+        set ProtoEventIcon[407] = "war3mapImported\\UI_Event_BGA7_sheska_books.tga"
+        // 손을 모으기 전에
+        set ProtoEventIcon[397] = "war3mapImported\\UI_Event_BGA7_island_training.tga"
+        // 사진 아래 놓인 보고서
+        set ProtoEventIcon[401] = "war3mapImported\\UI_Event_BGA7_hughes_report.tga"
+        // 떠날 몫과 남겨 둘 몫
+        set ProtoEventIcon[402] = "war3mapImported\\UI_Event_BGA7_winry_return_supplies.tga"
+        // 큰 손이 멈추는 무게
+        set ProtoEventIcon[403] = "war3mapImported\\UI_Event_BGA7_sig_transport.tga"
+        // 빈 접시와 남은 계산
+        set ProtoEventIcon[404] = "war3mapImported\\UI_Event_BGA7_ling_after_meal.tga"
+        // 불씨를 내기 전의 목록
+        set ProtoEventIcon[405] = "war3mapImported\\UI_Event_BGA7_roy_hawkeye_preparation.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[427] = "war3mapImported\\UI_Event_BGA7_resemblool_return.tga"
     endfunction
 endlibrary
