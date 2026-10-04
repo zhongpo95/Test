@@ -290,7 +290,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 이즈미 커티스
         call SetImages(723, "UI_Card_FMA_25_Icon", "UI_Card_FMA_25_Art")
         // 로이 머스탱
-        call SetImages(725, "UI_Card_FMA_4_Icon", "UI_Card_FMA_4_Art")
+        call SetImages(725, "UI_Card_RMU12_roy_Icon", "UI_Card_RMU12_roy_Art")
         // 리자 호크아이
         call SetImages(726, "UI_Card_FMA_5_Icon", "UI_Card_FMA_5_Art")
         // 마스 휴즈
