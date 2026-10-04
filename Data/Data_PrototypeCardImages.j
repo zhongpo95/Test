@@ -56,7 +56,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 오쿠소라 아야네
         call SetImages(147, "UI_Card_BAM2_23005_Icon", "UI_Card_BAM1_23005_Art")
         // 스나오오카미 시로코
-        call SetImages(148, "UI_Card_BAM2_10010_Icon", "UI_Card_BAM1_10010_Art")
+        call SetImages(148, "UI_Card_BAS1_10010_Icon", "UI_Card_BAS1_10010_Art")
         // 쿠로미 세리카
         call SetImages(149, "UI_Card_BAM2_13008_Icon", "UI_Card_BAM1_13008_Art")
         // 이자요이 노노미
@@ -76,7 +76,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 아야네
         call SetImages(177, "UI_Card_BAM2_23005_Icon", "UI_Card_BAM1_23005_Art")
         // 시로코
-        call SetImages(180, "UI_Card_BAM2_10010_Icon", "UI_Card_BAM1_10010_Art")
+        call SetImages(180, "UI_Card_BAS1_10010_Icon", "UI_Card_BAS1_10010_Art")
         // 세리카
         call SetImages(183, "UI_Card_BAM2_13008_Icon", "UI_Card_BAM1_13008_Art")
         // 노노미
