@@ -142,7 +142,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 사치
         call SetImages(367, "UI_Card_SAOFD_sachi_Icon", "UI_Card_SAOFD_sachi_Art")
         // 니시다
-        call SetImages(368, "UI_Card_SUP5_nishida_Icon", "UI_Card_SUP5_nishida_Art")
+        call SetImages(368, "UI_Card_NSU9_nishida_Icon", "UI_Card_NSU9_nishida_Art")
         // 아르고
         call SetImages(370, "UI_Card_SAOFD_argo_Icon", "UI_Card_SAOFD_argo_Art")
         // 유이
