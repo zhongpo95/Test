@@ -38,11 +38,11 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 크리스
         call SetImages(86, "UI_Card_KSB_chris_Icon", "UI_Card_KSB_chris_Art")
         // 메구밍
-        call SetImages(87, "UI_Card_KSB_megumin_Icon", "UI_Card_KSB_megumin_Art")
+        call SetImages(87, "UI_Card_FAN16_megumin_Icon", "UI_Card_FAN16_megumin_Art")
         // 다크니스
         call SetImages(88, "UI_Card_KSB_darkness_Icon", "UI_Card_KSB_darkness_Art")
         // 아쿠아
-        call SetImages(89, "UI_Card_KSB_aqua_Icon", "UI_Card_KSB_aqua_Art")
+        call SetImages(89, "UI_Card_FAN16_aqua_Icon", "UI_Card_FAN16_aqua_Art")
         // 위즈
         call SetImages(90, "UI_Card_KSB_wiz_Icon", "UI_Card_KSB_wiz_Art")
         // 바니르
