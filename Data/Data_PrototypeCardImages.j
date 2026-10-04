@@ -1057,5 +1057,117 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[405] = "war3mapImported\\UI_Event_BGA7_roy_hawkeye_preparation.tga"
         // 여정 뒤에 다시 펼친 기억
         set ProtoEventIcon[427] = "war3mapImported\\UI_Event_BGA7_resemblool_return.tga"
+        // 마그놀리아 방문
+        set ProtoEventIcon[29] = "war3mapImported\\UI_Event_FBP8_magnolia_companions.tga"
+        // 마그놀리아 방문
+        set ProtoEventIcon[30] = "war3mapImported\\UI_Event_FBP8_magnolia_companions.tga"
+        // 마그놀리아 방문
+        set ProtoEventIcon[31] = "war3mapImported\\UI_Event_FBP8_magnolia_companions.tga"
+        // 마그놀리아 방문
+        set ProtoEventIcon[32] = "war3mapImported\\UI_Event_FBP8_magnolia_companions.tga"
+        // 무너진 게시판 아래 · 짐을 기다리는 사람들
+        set ProtoEventIcon[286] = "war3mapImported\\UI_Event_FBP8_guild_preparations.tga"
+        // 무너진 게시판 아래 · 짐을 기다리는 사람들
+        set ProtoEventIcon[287] = "war3mapImported\\UI_Event_FBP8_guild_preparations.tga"
+        // 주소가 다른 두 장의 의뢰서
+        set ProtoEventIcon[288] = "war3mapImported\\UI_Event_FBP8_lucy_erza_requests.tga"
+        // 생선보다 먼저 챙길 짐
+        set ProtoEventIcon[289] = "war3mapImported\\UI_Event_FBP8_carla_transport.tga"
+        // 기록을 익힌 손이 다시 찾은 게시판
+        set ProtoEventIcon[290] = "war3mapImported\\UI_Event_FBP8_lucy_returning_work.tga"
+        // 짐칸에 들어가지 않는 갑옷
+        set ProtoEventIcon[291] = "war3mapImported\\UI_Event_FBP8_erza_equipment.tga"
+        // 불어난 물과 젖은 의뢰서
+        set ProtoEventIcon[292] = "war3mapImported\\UI_Event_FBP8_gray_river_plan.tga"
+        // 번진 글씨를 읽는 방법
+        set ProtoEventIcon[293] = "war3mapImported\\UI_Event_FBP8_lucy_unreadable_note.tga"
+        // 잘못 태우면 안 되는 것
+        set ProtoEventIcon[294] = "war3mapImported\\UI_Event_FBP8_natsu_attack_spacing.tga"
+        // 한 사람에게 모인 두 우산
+        set ProtoEventIcon[296] = "war3mapImported\\UI_Event_FBP8_juvia_shared_table.tga"
+        // 의뢰보다 먼저 내민 잡지 · 먼저 목적을 묻던 손님의 다음 방문
+        set ProtoEventIcon[297] = "war3mapImported\\UI_Event_FBP8_mirajane_guests.tga"
+        // 의뢰보다 먼저 내민 잡지 · 먼저 목적을 묻던 손님의 다음 방문
+        set ProtoEventIcon[301] = "war3mapImported\\UI_Event_FBP8_mirajane_guests.tga"
+        // 돌아오라는 말이 빠진 답
+        set ProtoEventIcon[298] = "war3mapImported\\UI_Event_FBP8_laxus_unfinished_reply.tga"
+        // 결말에 도착하지 못한 독자
+        set ProtoEventIcon[300] = "war3mapImported\\UI_Event_FBP8_lucy_next_line.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[317] = "war3mapImported\\UI_Event_FBP8_guild_journey_memory.tga"
+        // 카라쿠라 마을 방문
+        set ProtoEventIcon[33] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
+        // 카라쿠라 마을 방문
+        set ProtoEventIcon[34] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
+        // 카라쿠라 마을 방문
+        set ProtoEventIcon[35] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
+        // 카라쿠라 마을 방문
+        set ProtoEventIcon[36] = "war3mapImported\\UI_Event_FBP8_karakura_night.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[318] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[320] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[330] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
+        // 수취인이 없는 짐 · 다시 읽을 수 있는 주소 · 끝까지 채워졌을까 · 한 번 읽은 목록의 다음 빈칸
+        set ProtoEventIcon[336] = "war3mapImported\\UI_Event_FBP8_urahara_deliveries.tga"
+        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
+        set ProtoEventIcon[319] = "war3mapImported\\UI_Event_FBP8_yoruichi_dark_route.tga"
+        // 지붕 끝의 발자국 · 한곳에서 울리지 않는 경보
+        set ProtoEventIcon[323] = "war3mapImported\\UI_Event_FBP8_yoruichi_dark_route.tga"
+        // 사람이 지나간 뒤의 골목
+        set ProtoEventIcon[321] = "war3mapImported\\UI_Event_FBP8_rukia_chad_passage.tga"
+        // 짐에서 빠져나온 인형
+        set ProtoEventIcon[322] = "war3mapImported\\UI_Event_FBP8_kon_outside_parcel.tga"
+        // 표식 없는 귀환길
+        set ProtoEventIcon[324] = "war3mapImported\\UI_Event_FBP8_rukia_return_route.tga"
+        // 검을 내리기 전의 한 박자
+        set ProtoEventIcon[325] = "war3mapImported\\UI_Event_FBP8_ichigo_sword_pause.tga"
+        // 바늘 끝에서 멈춘 말
+        set ProtoEventIcon[326] = "war3mapImported\\UI_Event_FBP8_uryu_careful_hands.tga"
+        // 큰 손에 든 작은 인형
+        set ProtoEventIcon[327] = "war3mapImported\\UI_Event_FBP8_chad_small_doll.tga"
+        // 비워 둘 수 없는 한 칸
+        set ProtoEventIcon[328] = "war3mapImported\\UI_Event_FBP8_yuzu_reserved_supplies.tga"
+        // 박수 뒤에 가려진 길
+        set ProtoEventIcon[329] = "war3mapImported\\UI_Event_FBP8_don_kanonji_audience.tga"
+        // 발 하나를 놓을 자리
+        set ProtoEventIcon[331] = "war3mapImported\\UI_Event_FBP8_tatsuki_practice.tga"
+        // 비어 보이는 벤치
+        set ProtoEventIcon[332] = "war3mapImported\\UI_Event_FBP8_karin_quiet_bench.tga"
+        // 친구가 왔다는 한마디
+        set ProtoEventIcon[333] = "war3mapImported\\UI_Event_FBP8_isshin_clinic.tga"
+        // 작은 점원에게 맡긴 큰 짐
+        set ProtoEventIcon[334] = "war3mapImported\\UI_Event_FBP8_ururu_jinta_supplies.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[353] = "war3mapImported\\UI_Event_FBP8_karakura_journey_memory.tga"
+        // 페나코니 방문
+        set ProtoEventIcon[37] = "war3mapImported\\UI_Event_FBP8_golden_hour_arrival.tga"
+        // 페나코니 방문
+        set ProtoEventIcon[38] = "war3mapImported\\UI_Event_FBP8_golden_hour_arrival.tga"
+        // 페나코니 방문
+        set ProtoEventIcon[39] = "war3mapImported\\UI_Event_FBP8_golden_hour_arrival.tga"
+        // 페나코니 방문
+        set ProtoEventIcon[40] = "war3mapImported\\UI_Event_FBP8_golden_hour_arrival.tga"
+        // 계속 움직이는 목적지
+        set ProtoEventIcon[361] = "war3mapImported\\UI_Event_FBP8_golden_hour_destination.tga"
+        // 손이 닿기 전에 뜨는 간식
+        set ProtoEventIcon[363] = "war3mapImported\\UI_Event_FBP8_golden_hour_snack.tga"
+        // 연결된 그림과 끊어진 길
+        set ProtoEventIcon[364] = "war3mapImported\\UI_Event_FBP8_dreams_eye_connection.tga"
+        // 서로 다른 얼굴의 안내인 · 박수가 끝났는데 남은 역
+        set ProtoEventIcon[359] = "war3mapImported\\UI_Event_FBP8_sparkle_changing_role.tga"
+        // 서로 다른 얼굴의 안내인 · 박수가 끝났는데 남은 역
+        set ProtoEventIcon[365] = "war3mapImported\\UI_Event_FBP8_sparkle_changing_role.tga"
+        // 코인 자루가 떠난 자리 · 귀환 표시 다음의 여백
+        set ProtoEventIcon[357] = "war3mapImported\\UI_Event_FBP8_misha_return_supplies.tga"
+        // 코인 자루가 떠난 자리 · 귀환 표시 다음의 여백
+        set ProtoEventIcon[374] = "war3mapImported\\UI_Event_FBP8_misha_return_supplies.tga"
+        // 맞지 않은 그림의 기억 · 안전한 꿈이라는 말의 균열
+        set ProtoEventIcon[356] = "war3mapImported\\UI_Event_FBP8_black_swan_uncertain_memory.tga"
+        // 맞지 않은 그림의 기억 · 안전한 꿈이라는 말의 균열
+        set ProtoEventIcon[380] = "war3mapImported\\UI_Event_FBP8_black_swan_uncertain_memory.tga"
+        // 가격표 밖의 조건
+        set ProtoEventIcon[367] = "war3mapImported\\UI_Event_FBP8_jade_exchange_terms.tga"
     endfunction
 endlibrary
