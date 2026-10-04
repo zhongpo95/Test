@@ -1,5 +1,5 @@
 // 개인 사냥 카드의 표시, 실제 피해 기록과 사건 선택 키를 관리한다.
-library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
+library DataPrototype requires DataPrototypeGrowth
     globals
         // 플레이어별 처치(1), 피해(2), 무피격(3) 조건의 보유 미각성 카드만 연결한다.
         integer array ProtoEvolutionFirst
@@ -36,18 +36,12 @@ library DataPrototype requires DataPrototypeCatalog, DataPrototypeStats
     endfunction
 
     function ProtoCardText takes integer pid, integer id returns string
-        local string value = "[" + ProtoCardKeyword[id] + "] " + ProtoCardEffectName[id] + "|n"
-        set value = value + "강화 +" + I2S(ProtoCardStacks[ExpKey(pid, id)]) + " · 효과 " + I2S(100 + 50 * ProtoCardStacks[ExpKey(pid, id)]) + "%|n" + ProtoCardEffectsScaled(id, ProtoEvolved[ExpKey(pid, id)], 1.0 + 0.5 * ProtoCardStacks[ExpKey(pid, id)])
-        if ProtoEvolutionKind[id] > 0 then
-            if ProtoEvolved[ExpKey(pid, id)] then
-                set value = value + "|n|cffc781ff각성 완료|r"
-            elseif ProtoEvolutionKind[id] == 1 then
-                set value = value + "|n각성 목표 · 획득 후 처치 " + I2S(R2I(ProtoCardProgress[ExpKey(pid, id)])) + "/" + I2S(R2I(ProtoEvolutionGoal[id]))
-            elseif ProtoEvolutionKind[id] == 2 then
-                set value = value + "|n각성 목표 · 실제 누적 피해 " + I2S(R2I(ProtoCardProgress[ExpKey(pid, id)])) + "/" + I2S(R2I(ProtoEvolutionGoal[id]))
-            else
-                set value = value + "|n각성 목표 · 연속 무피격 " + I2S(R2I(ProtoCardProgress[ExpKey(pid, id)])) + "/" + I2S(R2I(ProtoEvolutionGoal[id])) + "초"
-            endif
+        local integer character = ProtoCardCharacter[id]
+        local integer key = ExpKey(pid, character)
+        local string value = "강화 +" + I2S(ProtoCardStacks[key]) + " · 누적 보상 " + I2S(ProtoCardStacks[key] + 1) + "회|n"
+        set value = value + "선택한 보상의 합산 효과|n" + ProtoCharacterEffectsText(pid, character)
+        if ProtoCharacterEvolved[key] then
+            set value = value + "|n|cffc781ff각성 효과 적용|r"
         endif
         return value
     endfunction
