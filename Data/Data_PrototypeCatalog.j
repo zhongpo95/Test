@@ -1636,7 +1636,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[71] = 3
         set ProtoEventEpilogue[71] = 0
         set ProtoEventGrade[71] = 1
-        set ProtoEventStory[71] = "린은 성배전쟁의 규칙과 마스터의 책임을 설명한다. 시로에게 전쟁은 오래전 화재의 기억과 닿아 있다. 승자가 되는 일과 사람을 구하는 일이 언제나 같지는 않음을 묻는다."
+        set ProtoEventStory[71] = "일곱 마술사와 일곱 영령이 성배를 두고 싸운다. 교회에서 감독역 코토미네의 설명을 들은 시로는 자신을 덮쳤던 십 년 전 화재도 성배전쟁과 이어져 있음을 알게 된다. 린과 규칙을 되짚는 동안에도 그의 생각은 그 불길에 머문다. 이번에는 무엇을 위해 그 싸움에 들어설 것인지 답해야 한다."
         set ProtoEventIntro[71] = "린은 성배전쟁의 규칙과 마스터의 책임을 설명한다."
         set ProtoEventIcon[71] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[71] = 0
@@ -1644,7 +1644,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[71] = 0
         set ProtoEventFailure[71] = ""
         set ProtoBranchLabel[284] = "“이기기 전에 무엇을 지킬지 정하고 싶어.”"
-        set ProtoBranchResult[284] = "“이기기 전에 무엇을 지킬지 정하고 싶어.” 성배전쟁이라는 이름의 기억에 자신의 답을 남긴다. 일리야와 버서커가 앞을 막는다."
+        set ProtoBranchResult[284] = "시로는 같은 참극을 다시 보고 싶지 않다고 말한다. 린은 뜻을 세웠다고 싸울 힘까지 생기는 건 아니라며 그의 각오를 되묻는다. 시로의 대답은 아직 서툴러도 물러서지는 않는다."
         set ProtoBranchCard[284] = 42
         set ProtoBranchCard2[284] = 0
         set ProtoBranchGold[284] = 0
@@ -1654,7 +1654,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[284] = 0
         set ProtoBranchChance[284] = 100
         set ProtoBranchLabel[285] = "“그 규칙 때문에 잃는 사람도 있겠지?”"
-        set ProtoBranchResult[285] = "“그 규칙 때문에 잃는 사람도 있겠지?” 성배전쟁이라는 이름의 기억에 자신의 답을 남긴다. 일리야와 버서커가 앞을 막는다."
+        set ProtoBranchResult[285] = "화재 이야기가 나오자 시로의 말이 짧아진다. 린은 성배를 차지하려는 사람들만으로 끝나는 싸움이 아니라는 점을 가볍게 넘기지 않는다. 승자의 이름 뒤에 가려질 사람들이 두 사람 사이에 남는다."
         set ProtoBranchCard[285] = 43
         set ProtoBranchCard2[285] = 0
         set ProtoBranchGold[285] = 0
@@ -1664,7 +1664,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[285] = 0
         set ProtoBranchChance[285] = 100
         set ProtoBranchLabel[286] = "“겁난다는 말을 해도 같이 갈 수 있을까?”"
-        set ProtoBranchResult[286] = "“겁난다는 말을 해도 같이 갈 수 있을까?” 성배전쟁이라는 이름의 기억에 자신의 답을 남긴다. 일리야와 버서커가 앞을 막는다."
+        set ProtoBranchResult[286] = "린은 두려움을 모르는 척하는 편이 더 위험하다고 답한다. 시로는 떨리는 손을 한 번 쥐었다 편다. 전쟁에 뛰어들겠다는 말을 하기 전에, 자신이 모르는 것이 얼마나 많은지부터 인정한다."
         set ProtoBranchCard[286] = 44
         set ProtoBranchCard2[286] = 0
         set ProtoBranchGold[286] = 0
@@ -1866,7 +1866,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[76] = 8
         set ProtoEventEpilogue[76] = 0
         set ProtoEventGrade[76] = 2
-        set ProtoEventStory[76] = "학교의 결계가 학생들을 위협한다. 시로와 린은 함께 피해를 막으려 한다. 가까운 사람부터 지킨다는 말이 더 넓은 책임을 포기한다는 뜻인지, 위기 속에서 다시 생각한다."
+        set ProtoEventStory[76] = "학교에 설치된 마법진이 발동하고 학생들이 쓰러진다. 평소라면 수업 소리가 들릴 교실이 움직임을 잃는다. 시로는 령주로 세이버를 부르고, 린과 함께 결계를 멈추기 위해 신지에게 향한다. 지금 둘의 발을 재촉하는 것은 눈앞에 남겨진 학생들이다."
         set ProtoEventIntro[76] = "학교의 결계가 학생들을 위협한다."
         set ProtoEventIcon[76] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[76] = 0
@@ -1874,7 +1874,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[76] = 0
         set ProtoEventFailure[76] = ""
         set ProtoBranchLabel[304] = "“여기 있는 사람부터 놓치지 말자.”"
-        set ProtoBranchResult[304] = "“여기 있는 사람부터 놓치지 말자.” 결계 안의 학교의 기억에 자신의 답을 남긴다. 쿠즈키와 캐스터의 관계가 드러나며 익숙한 장소가 낯설어진다."
+        set ProtoBranchResult[304] = "시로는 쓰러진 학생들을 보며 발걸음을 재촉한다. 린도 결계를 멈추지 않으면 위험이 계속된다고 말한다. 세이버와 함께 신지에게 향하는 길에, 방금 본 학생들의 얼굴이 떠나지 않는다."
         set ProtoBranchCard[304] = 57
         set ProtoBranchCard2[304] = 0
         set ProtoBranchGold[304] = 0
@@ -1883,8 +1883,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[304] = 0
         set ProtoBranchPotions[304] = 0
         set ProtoBranchChance[304] = 100
-        set ProtoBranchLabel[305] = "“누가 책임지는지 끝까지 확인하고 싶어.”"
-        set ProtoBranchResult[305] = "“누가 책임지는지 끝까지 확인하고 싶어.” 결계 안의 학교의 기억에 자신의 답을 남긴다. 쿠즈키와 캐스터의 관계가 드러나며 익숙한 장소가 낯설어진다."
+        set ProtoBranchLabel[305] = "“신지에게서 이 결계의 답을 들어야겠어.”"
+        set ProtoBranchResult[305] = "린은 결계를 멈추기 위해 신지가 있는 쪽으로 서두른다. 시로도 복도에 쓰러진 학생을 보며 그녀의 뒤를 따른다. 두 사람에게는 설명을 듣는 것만큼 지금 발동한 마법진을 멈추는 일이 급하다."
         set ProtoBranchCard[305] = 58
         set ProtoBranchCard2[305] = 0
         set ProtoBranchGold[305] = 0
@@ -1894,7 +1894,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[305] = 0
         set ProtoBranchChance[305] = 100
         set ProtoBranchLabel[306] = "“나중에 평범한 교실로 돌아오자.”"
-        set ProtoBranchResult[306] = "“나중에 평범한 교실로 돌아오자.” 결계 안의 학교의 기억에 자신의 답을 남긴다. 쿠즈키와 캐스터의 관계가 드러나며 익숙한 장소가 낯설어진다."
+        set ProtoBranchResult[306] = "시로는 달리는 동안 조금 전까지 평범했던 교실을 떠올린다. 수업이 이어지고 친구들이 돌아올 오후를 포기할 수 없다. 그 일상을 되찾기 위해 린과 함께 신지가 있는 곳으로 서두른다."
         set ProtoBranchCard[306] = 59
         set ProtoBranchCard2[306] = 0
         set ProtoBranchGold[306] = 0
@@ -2006,7 +2006,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[79] = 2
         set ProtoEventStory[79] = "성에 도착했을 때 버서커는 이미 길가메시와 싸우고 있다. 일리야를 지키려는 몸 앞에 수많은 보구가 쏟아진다. 그 뒤의 비극을 바라보던 시로가 린의 만류를 뿌리치고 뛰쳐나간다. 일리야를 잃은 자리에서 두 사람은 쉽게 말을 잇지 못한다."
         set ProtoEventIntro[79] = "일리야의 성에서 길가메시의 위협을 마주한다."
-        set ProtoEventIcon[79] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[79] = "war3mapImported\\UI_Event_FUO_castle.tga"
         set ProtoEventRequired[79] = 0
         set ProtoEventRequiredChoice[79] = 0
         set ProtoEventRequiredCard[79] = 0
@@ -2052,7 +2052,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[80] = 3
         set ProtoEventStory[80] = "아처의 정체가 드러난다. 시로가 바라던 이상 끝에서 나온 답이 지금 눈앞에 서 있다. 미래에서 왔다는 말은 충고보다 무겁고, 그 얼굴은 낯설지 않다. 시로는 검을 놓지 않은 채 아처가 그 길에서 무엇을 보았는지 듣는다."
         set ProtoEventIntro[80] = "아처의 정체가 시로의 이상과 이어지며 두 사람의 대립이 깊어진다."
-        set ProtoEventIcon[80] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[80] = "war3mapImported\\UI_Event_FUO_identity.tga"
         set ProtoEventRequired[80] = 0
         set ProtoEventRequiredChoice[80] = 0
         set ProtoEventRequiredCard[80] = 0
@@ -2098,7 +2098,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[81] = 3
         set ProtoEventStory[81] = "검이 부딪칠 때마다 시로는 아처의 말과 자신의 시작을 함께 마주한다. 남을 구하겠다는 마음에 모순이 없다고 우기지는 않는다. 그래도 그때 구하고 싶었던 마음까지 거짓으로 만들 수는 없다. 시로는 흔들린 검을 다시 쥔다."
         set ProtoEventIntro[81] = "시로는 아처와 맞서며 자기 이상이 안고 있는 모순을 본다."
-        set ProtoEventIcon[81] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[81] = "war3mapImported\\UI_Event_FUO_clash.tga"
         set ProtoEventRequired[81] = 0
         set ProtoEventRequiredChoice[81] = 0
         set ProtoEventRequiredCard[81] = 0
@@ -2144,7 +2144,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[82] = 3
         set ProtoEventStory[82] = "길가메시가 밝힌 목적을 들은 일행은 류도사에서의 싸움을 준비한다. 시로는 세이버와 길가메시의 상성을 짚고 린은 다른 수를 찾는다. 아직 전투가 시작된 것은 아니다. 맡을 일을 나누는 말 사이에, 끝나면 돌아오자는 말을 보탠다."
         set ProtoEventIntro[82] = "길가메시의 목적이 드러나고 일행은 마지막 싸움을 준비한다."
-        set ProtoEventIcon[82] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[82] = "war3mapImported\\UI_Event_FUO_plan.tga"
         set ProtoEventRequired[82] = 0
         set ProtoEventRequiredChoice[82] = 0
         set ProtoEventRequiredCard[82] = 0
@@ -2190,7 +2190,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[83] = 3
         set ProtoEventStory[83] = "성배 앞에서 길가메시와 마주한 시로가 검을 펼친다. 린은 자신의 일을 맡고, 세이버는 산문에서 어새신과 맞선다. 서로 다른 곳에서 이어진 싸움이 전쟁의 끝을 향한다. 시로는 빌려 온 이상이라는 비난을 듣고도 자신의 선택으로 검을 쥔다."
         set ProtoEventIntro[83] = "마지막 대결에서 시로가 걸어온 선택들이 하나의 답으로 이어진다."
-        set ProtoEventIcon[83] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[83] = "war3mapImported\\UI_Event_FUO_blades.tga"
         set ProtoEventRequired[83] = 0
         set ProtoEventRequiredChoice[83] = 0
         set ProtoEventRequiredCard[83] = 0
@@ -2282,7 +2282,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[85] = 1
         set ProtoEventStory[85] = "후유키의 기록을 다시 펼친다. 처음 마주친 검, 식탁에 모였던 목소리, 끝내 풀리지 않은 질문이 서로 다른 쪽에 남아 있다. 이미 끝난 전쟁의 결말을 바꾸려는 것은 아니다. 다음 길에 가져갈 대목을 고르고 그 옆의 빈칸에 말을 더한다."
         set ProtoEventIntro[85] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[85] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[85] = "war3mapImported\\UI_Event_FUO_memory.tga"
         set ProtoEventRequired[85] = 0
         set ProtoEventRequiredChoice[85] = 0
         set ProtoEventRequiredCard[85] = 0
@@ -6057,7 +6057,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[135] = 3
         set ProtoEventEpilogue[135] = 0
         set ProtoEventGrade[135] = 1
-        set ProtoEventStory[135] = "세리카는 학교 생활 바깥에서도 바쁘게 일한다. 말투보다 오래 남는 것은 다른 사람을 위해 움직인 시간이다. 거대한 빚 앞에서 작은 수고가 무의미하다고 말하지 않기로 한다."
+        set ProtoEventStory[135] = "시바세키 라멘에서 일을 마친 쿠로미 세리카가 앞치마를 정리한다. 학교에서 빚 이야기를 나눈 뒤에도 그녀의 하루는 끝나지 않았다. 얼마 안 되는 수고라며 넘기기에는 날마다 돌아오는 피로가 있다. 세리카는 걱정스러운 시선을 알아채고도 괜찮다는 말부터 꺼낸다."
         set ProtoEventIntro[135] = "세리카는 학교 생활 바깥에서도 바쁘게 일한다."
         set ProtoEventIcon[135] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
         set ProtoEventRequired[135] = 0
@@ -6065,7 +6065,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[135] = 0
         set ProtoEventFailure[135] = ""
         set ProtoBranchLabel[540] = "“계속 바빴지? 오늘은 잠깐 앉아서 이야기하자.”"
-        set ProtoBranchResult[540] = "“계속 바빴지? 오늘은 잠깐 앉아서 이야기하자.” 세리카가 남기는 수고의 기억에 자신의 답을 남긴다. 노노미는 어려운 이야기가 이어져도 모두가 함께 말할 수 있게 한다."
+        set ProtoBranchResult[540] = "세리카는 이 정도로 지친 것은 아니라며 대꾸하다가 의자에 앉는다. 가방을 내려놓고 나서야 길게 늘어난 하루가 끝난 듯하다. 조금만 쉬겠다는 말에는 아까보다 힘이 덜 들어간다."
         set ProtoBranchCard[540] = 183
         set ProtoBranchCard2[540] = 0
         set ProtoBranchGold[540] = 0
@@ -6074,8 +6074,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[540] = 0
         set ProtoBranchPotions[540] = 0
         set ProtoBranchChance[540] = 100
-        set ProtoBranchLabel[541] = "“큰 문제여도 작은 도움은 필요하겠지.”"
-        set ProtoBranchResult[541] = "“큰 문제여도 작은 도움은 필요하겠지.” 세리카가 남기는 수고의 기억에 자신의 답을 남긴다. 노노미는 어려운 이야기가 이어져도 모두가 함께 말할 수 있게 한다."
+        set ProtoBranchLabel[541] = "“마무리할 일이 남았으면 같이 하자.”"
+        set ProtoBranchResult[541] = "세리카는 정말 도울 거라면 의자부터 제자리에 놓아 달라고 한다. 말로만 걱정할 때와 달리 맡길 일이 생기자 지시가 분명해진다. 혼자 하던 마무리가 짧아지는 만큼 돌아갈 시간도 가까워진다."
         set ProtoBranchCard[541] = 184
         set ProtoBranchCard2[541] = 0
         set ProtoBranchGold[541] = 0
@@ -6084,8 +6084,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[541] = 0
         set ProtoBranchPotions[541] = 0
         set ProtoBranchChance[541] = 100
-        set ProtoBranchLabel[542] = "“잠깐 쉬면서 네 이야기를 듣고 싶어.”"
-        set ProtoBranchResult[542] = "“잠깐 쉬면서 네 이야기를 듣고 싶어.” 세리카가 남기는 수고의 기억에 자신의 답을 남긴다. 노노미는 어려운 이야기가 이어져도 모두가 함께 말할 수 있게 한다."
+        set ProtoBranchLabel[542] = "“너는 이 학교의 어떤 점을 지키고 싶어?”"
+        set ProtoBranchResult[542] = "세리카는 빚이 많다고 학교까지 포기할 수는 없다고 말한다. 투덜거리듯 시작한 이야기에 교실의 얼굴들이 하나씩 나온다. 돈 때문에 시작한 질문이 그녀가 돌아가려는 장소의 이야기로 바뀐다."
         set ProtoBranchCard[542] = 185
         set ProtoBranchCard2[542] = 0
         set ProtoBranchGold[542] = 0
@@ -6241,7 +6241,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[139] = 7
         set ProtoEventEpilogue[139] = 0
         set ProtoEventGrade[139] = 2
-        set ProtoEventStory[139] = "학교를 둘러싼 문제 속에서 다른 학생들과도 손을 맞잡는다. 어제의 거리감이 오늘의 도움을 막아야 하는 것은 아니다. 대책위원회의 사정이 학교 밖에서도 닿기 시작한다."
+        set ProtoEventStory[139] = "헬멧단의 단서를 좇아 블랙마켓에 온 대책위원회는 트리니티 학생 아지타니 히후미를 만난다. 함께 조사하던 중 학교가 갚은 돈이 암은행으로 흘러갔을 가능성이 드러난다. 다른 학교의 학생에게도 아비도스의 사정이 닿는다. 시로코는 은행 쪽을 보고, 히후미는 심상치 않은 그 시선을 따라간다."
         set ProtoEventIntro[139] = "학교를 둘러싼 문제 속에서 다른 학생들과도 손을 맞잡는다."
         set ProtoEventIcon[139] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
         set ProtoEventRequired[139] = 0
@@ -6249,7 +6249,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[139] = 0
         set ProtoEventFailure[139] = ""
         set ProtoBranchLabel[556] = "“도움을 받았다는 사실부터 기억하자.”"
-        set ProtoBranchResult[556] = "“도움을 받았다는 사실부터 기억하자.” 새로 만난 협력자의 기억에 자신의 답을 남긴다. 수족관의 느린 물결 앞에서 호시노의 평소와 다른 표정이 보인다."
+        set ProtoBranchResult[556] = "노노미가 히후미에게 함께 알아봐 줘서 고맙다고 전한다. 히후미는 자신도 도움을 받았다며 손사래를 친다. 학교 이름이 달라도 그냥 지나칠 수 없던 사정이 서로에게 있었다."
         set ProtoBranchCard[556] = 195
         set ProtoBranchCard2[556] = 0
         set ProtoBranchGold[556] = 0
@@ -6259,7 +6259,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[556] = 0
         set ProtoBranchChance[556] = 100
         set ProtoBranchLabel[557] = "“친해지기 전에 같은 문제를 볼 수도 있겠네.”"
-        set ProtoBranchResult[557] = "“친해지기 전에 같은 문제를 볼 수도 있겠네.” 새로 만난 협력자의 기억에 자신의 답을 남긴다. 수족관의 느린 물결 앞에서 호시노의 평소와 다른 표정이 보인다."
+        set ProtoBranchResult[557] = "아야네는 갚은 돈의 행방을 다시 짚는다. 히후미도 자신이 아는 블랙마켓의 사정을 보탠다. 막 만난 사이지만, 지금은 같은 은행을 바라보며 같은 의문을 품는다."
         set ProtoBranchCard[557] = 196
         set ProtoBranchCard2[557] = 0
         set ProtoBranchGold[557] = 0
@@ -6269,7 +6269,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[557] = 0
         set ProtoBranchChance[557] = 100
         set ProtoBranchLabel[558] = "“다음에는 우리도 인사를 건넬 수 있겠어.”"
-        set ProtoBranchResult[558] = "“다음에는 우리도 인사를 건넬 수 있겠어.” 새로 만난 협력자의 기억에 자신의 답을 남긴다. 수족관의 느린 물결 앞에서 호시노의 평소와 다른 표정이 보인다."
+        set ProtoBranchResult[558] = "노노미가 다음에는 이런 소란 없는 곳에서도 만나자고 한다. 히후미가 그쪽이 좋겠다며 대답한다. 조사 때문에 시작된 인사에 학교 문제와 관계없는 다음 만남이 하나 붙는다."
         set ProtoBranchCard[558] = 197
         set ProtoBranchCard2[558] = 0
         set ProtoBranchGold[558] = 0
@@ -6333,7 +6333,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[141] = 9
         set ProtoEventEpilogue[141] = 0
         set ProtoEventGrade[141] = 2
-        set ProtoEventStory[141] = "학교의 땅이 카이저 그룹 소유라는 사실을 확인하자 문제의 크기가 달라 보인다. 빚을 갚는 일만으로 모든 압박이 끝나지는 않는다. 알게 된 사실을 숨기지 않고 다음 조사를 함께 준비한다."
+        set ProtoEventStory[141] = "아비도스의 땅은 학교 소유가 아니었다. 현재 소유자가 카이저 그룹이라는 사실 앞에서 대책위원회는 빚의 액수만 보고 있어서는 안 된다는 것을 깨닫는다. 갚아 온 돈과 지키려던 학교 사이에 또 다른 문제가 놓여 있다. 학생들은 카이저가 무엇을 노리는지 알아보기 위해 사막 조사를 준비한다."
         set ProtoEventIntro[141] = "학교의 땅이 카이저 그룹 소유라는 사실을 확인하자 문제의 크기가 달라 보인다."
         set ProtoEventIcon[141] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
         set ProtoEventRequired[141] = 0
@@ -6341,7 +6341,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[141] = 0
         set ProtoEventFailure[141] = ""
         set ProtoBranchLabel[564] = "“좋지 않은 소식도 모두가 알아야 해.”"
-        set ProtoBranchResult[564] = "“좋지 않은 소식도 모두가 알아야 해.” 땅의 주인을 확인하다의 기억에 자신의 답을 남긴다. 호시노가 남긴 편지를 읽자 평소의 느긋한 인사가 다른 뜻으로 들린다."
+        set ProtoBranchResult[564] = "아야네가 확인한 사실을 빠뜨리지 않고 전한다. 세리카는 그럼 지금까지 무엇을 위해 갚았느냐며 따지다가 다시 설명을 듣는다. 노노미가 옆에 앉아 함께 듣는 동안, 닫아 두었던 자료가 책상 가운데로 옮겨진다."
         set ProtoBranchCard[564] = 201
         set ProtoBranchCard2[564] = 0
         set ProtoBranchGold[564] = 0
@@ -6351,7 +6351,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[564] = 0
         set ProtoBranchChance[564] = 100
         set ProtoBranchLabel[565] = "“누가 이 상황을 만들었는지 확인하자.”"
-        set ProtoBranchResult[565] = "“누가 이 상황을 만들었는지 확인하자.” 땅의 주인을 확인하다의 기억에 자신의 답을 남긴다. 호시노가 남긴 편지를 읽자 평소의 느긋한 인사가 다른 뜻으로 들린다."
+        set ProtoBranchResult[565] = "시로코는 카이저가 왜 이 땅을 원했는지 묻는다. 답이 없는 부분이 드러나자 아야네가 조사에 필요한 정보를 모은다. 막막하던 소식이 사막에서 확인해야 할 질문으로 바뀐다."
         set ProtoBranchCard[565] = 202
         set ProtoBranchCard2[565] = 0
         set ProtoBranchGold[565] = 0
@@ -6360,8 +6360,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[565] = 0
         set ProtoBranchPotions[565] = 0
         set ProtoBranchChance[565] = 100
-        set ProtoBranchLabel[566] = "“교실에 돌아가서 같이 대답을 찾자.”"
-        set ProtoBranchResult[566] = "“교실에 돌아가서 같이 대답을 찾자.” 땅의 주인을 확인하다의 기억에 자신의 답을 남긴다. 호시노가 남긴 편지를 읽자 평소의 느긋한 인사가 다른 뜻으로 들린다."
+        set ProtoBranchLabel[566] = "“모두가 함께 할 수 있는 일부터 찾자.”"
+        set ProtoBranchResult[566] = "노노미가 누구 하나의 잘못을 찾기보다 앞으로 할 일을 나누자고 한다. 세리카도 당장 할 수 있는 일부터 묻는다. 교실을 지키겠다는 말이 각자가 맡을 준비로 이어진다."
         set ProtoBranchCard[566] = 203
         set ProtoBranchCard2[566] = 0
         set ProtoBranchGold[566] = 0
@@ -6381,7 +6381,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[142] = 2
         set ProtoEventStory[142] = "호시노가 남긴 편지를 책상 위에 펼친다. 평소에는 농담으로 넘겼던 말들이 오늘은 쉽게 읽히지 않는다. 시로코가 문 쪽으로 몸을 돌린다. 함께 돌아오자는 말을 미처 다 꺼내기도 전에 학교 밖에서 공격이 시작된다."
         set ProtoEventIntro[142] = "호시노가 남긴 편지를 읽자 평소의 느긋한 인사가 다른 뜻으로 들린다."
-        set ProtoEventIcon[142] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+        set ProtoEventIcon[142] = "war3mapImported\\UI_Event_ABO_letter.tga"
         set ProtoEventRequired[142] = 0
         set ProtoEventRequiredChoice[142] = 0
         set ProtoEventRequiredCard[142] = 0
@@ -6427,7 +6427,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[143] = 3
         set ProtoEventStory[143] = "카이저의 공격에 교실 창문이 흔들린다. 세리카는 호시노의 빈자리를 한 번 돌아보고 동료들의 위치를 확인한다. 도우러 온 이들이 길을 열어 주지만, 학교를 지키고 선배를 데려오겠다는 대답은 대책위원회가 직접 해야 한다."
         set ProtoEventIntro[143] = "호시노가 없는 학교를 향한 공격에도 학생들은 다시 모인다."
-        set ProtoEventIcon[143] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+        set ProtoEventIcon[143] = "war3mapImported\\UI_Event_ABO_assault.tga"
         set ProtoEventRequired[143] = 0
         set ProtoEventRequiredChoice[143] = 0
         set ProtoEventRequiredCard[143] = 0
@@ -6473,7 +6473,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[144] = 3
         set ProtoEventStory[144] = "전투 뒤, 선생은 홀로 검은 양복을 찾아가 협력 제안을 듣는다. 대책위원회는 학교에 남아 호시노를 데려올 준비를 한다. 아야네가 동료들의 의견을 한 줄씩 정리한다. 선생이 어떤 말을 듣고 있든, 학생들이 내린 답은 함께 돌아오겠다는 것이다."
         set ProtoEventIntro[144] = "선생은 검은 양복의 제안을 마주하며 학생들과 함께할 이유를 다시 확인한다."
-        set ProtoEventIcon[144] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+        set ProtoEventIcon[144] = "war3mapImported\\UI_Event_ABO_black_suit.tga"
         set ProtoEventRequired[144] = 0
         set ProtoEventRequiredChoice[144] = 0
         set ProtoEventRequiredCard[144] = 0
@@ -6519,7 +6519,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[145] = 3
         set ProtoEventStory[145] = "대책위원회와 선생이 사막에 도착한다. 포로가 된 호시노를 향해 학생들이 목소리를 높인다. 혼자 학교를 지키려 했던 선배에게 이번에는 함께 돌아오자고 말할 차례다. 모래바람에 말끝이 묻혀도 시로코는 호시노의 이름을 다시 부른다."
         set ProtoEventIntro[145] = "사막으로 향한 대책위원회는 호시노에게 돌아오라는 뜻을 전한다."
-        set ProtoEventIcon[145] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+        set ProtoEventIcon[145] = "war3mapImported\\UI_Event_ABO_rescue.tga"
         set ProtoEventRequired[145] = 0
         set ProtoEventRequiredChoice[145] = 0
         set ProtoEventRequiredCard[145] = 0
@@ -6611,7 +6611,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[147] = 1
         set ProtoEventStory[147] = "여정을 마친 뒤 아비도스에서 적었던 기록을 다시 펼친다. 처음 들은 학생들의 이름과 호시노가 돌아온 교실이 서로 다른 쪽에 적혀 있다. 끝난 일을 다시 해결하려는 기록은 아니다. 다음 길에 가져갈 한 장을 고르며 빈칸에 짧은 말을 더한다."
         set ProtoEventIntro[147] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[147] = "ReplaceableTextures\\CommandButtons\\BTNScroll.blp"
+        set ProtoEventIcon[147] = "war3mapImported\\UI_Event_ABO_memory.tga"
         set ProtoEventRequired[147] = 0
         set ProtoEventRequiredChoice[147] = 0
         set ProtoEventRequiredCard[147] = 0
@@ -10498,7 +10498,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[199] = 3
         set ProtoEventEpilogue[199] = 0
         set ProtoEventGrade[199] = 1
-        set ProtoEventStory[199] = "마미는 마법소녀의 일을 보여 주며 혼자였던 시간을 이야기한다. 믿을 만한 선배라는 모습 뒤에도 함께하고 싶은 마음이 있다. 도움을 받는 사람과 외로운 사람은 같은 얼굴일 수 있다."
+        set ProtoEventStory[199] = "마미가 마도카와 사야카 앞에 찻잔을 놓는다. 마법소녀의 일을 설명하던 능숙한 선배도 혼자 싸워 온 시간을 말할 때는 쉽게 다음 말을 잇지 못한다. 마도카는 힘이 센 사람에게도 곁에 누군가가 필요할 수 있음을 알게 된다. 찻잔 세 개가 놓인 식탁에서 오늘은 전투 이야기만 오가지 않는다."
         set ProtoEventIntro[199] = "마미는 마법소녀의 일을 보여 주며 혼자였던 시간을 이야기한다."
         set ProtoEventIcon[199] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[199] = 0
@@ -10506,7 +10506,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[199] = 0
         set ProtoEventFailure[199] = ""
         set ProtoBranchLabel[796] = "“가르쳐 주는 사람에게도 동료가 필요하겠네.”"
-        set ProtoBranchResult[796] = "“가르쳐 주는 사람에게도 동료가 필요하겠네.” 선배가 내어 준 자리의 기억에 자신의 답을 남긴다. 마미를 잃은 뒤 남겨진 소녀들은 쉽게 말을 잇지 못한다."
+        set ProtoBranchResult[796] = "마미는 늘 가르치는 쪽이어야 할 것처럼 굴었다며 조금 쑥스러워한다. 마도카가 이야기를 더 들어 주자 준비해 둔 설명이 아닌 자기 말이 나온다. 선배라는 호칭 뒤에 가려졌던 외로움이 잠시 드러난다."
         set ProtoBranchCard[796] = 321
         set ProtoBranchCard2[796] = 0
         set ProtoBranchGold[796] = 0
@@ -10516,7 +10516,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[796] = 0
         set ProtoBranchChance[796] = 100
         set ProtoBranchLabel[797] = "“강한 모습 말고 네 이야기도 듣고 싶어.”"
-        set ProtoBranchResult[797] = "“강한 모습 말고 네 이야기도 듣고 싶어.” 선배가 내어 준 자리의 기억에 자신의 답을 남긴다. 마미를 잃은 뒤 남겨진 소녀들은 쉽게 말을 잇지 못한다."
+        set ProtoBranchResult[797] = "마미가 찻주전자를 내려놓고 자기 이야기를 시작한다. 사야카도 농담을 보태려다 이번에는 끝까지 듣는다. 누군가를 지켜 준 순간 말고도 이야기할 수 있는 마미의 시간이 생긴다."
         set ProtoBranchCard[797] = 322
         set ProtoBranchCard2[797] = 0
         set ProtoBranchGold[797] = 0
@@ -10526,7 +10526,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[797] = 0
         set ProtoBranchChance[797] = 100
         set ProtoBranchLabel[798] = "“다음에는 혼자 앉지 않도록 같이 자리를 만들자.”"
-        set ProtoBranchResult[798] = "“다음에는 혼자 앉지 않도록 같이 자리를 만들자.” 선배가 내어 준 자리의 기억에 자신의 답을 남긴다. 마미를 잃은 뒤 남겨진 소녀들은 쉽게 말을 잇지 못한다."
+        set ProtoBranchResult[798] = "마미는 다음에 오면 좋아하는 차를 알려 달라고 한다. 마도카와 사야카가 서로 다른 답을 내놓자 찻잔을 고르던 손이 가벼워진다. 오늘의 자리에 또 누군가 앉을 수 있다는 기대가 남는다."
         set ProtoBranchCard[798] = 323
         set ProtoBranchCard2[798] = 0
         set ProtoBranchGold[798] = 0
@@ -10590,7 +10590,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[201] = 5
         set ProtoEventEpilogue[201] = 0
         set ProtoEventGrade[201] = 2
-        set ProtoEventStory[201] = "사야카는 자신이 바라는 기적을 위해 계약한다. 누군가를 위한 소원에도 바라는 마음과 말하지 못한 기대가 함께 있을 수 있다. 좋은 뜻이었다는 사실만으로 그 뒤의 감정을 지우지 않는다."
+        set ProtoEventStory[201] = "사야카는 소꿉친구 카미조 쿄스케의 부상이 낫기를 바라며 큐베와 계약한다. 다시 그의 연주를 듣고 싶다는 바람이 기적과 이어진다. 마법소녀가 된 사야카는 자신이 고른 소원을 이야기한다. 누군가를 위한 기쁨을 말하는 목소리에도 사야카 자신의 마음이 들어 있다."
         set ProtoEventIntro[201] = "사야카는 자신이 바라는 기적을 위해 계약한다."
         set ProtoEventIcon[201] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[201] = 0
@@ -10598,7 +10598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[201] = 0
         set ProtoEventFailure[201] = ""
         set ProtoBranchLabel[804] = "“네 마음까지 없는 것처럼 말하지 마.”"
-        set ProtoBranchResult[804] = "“네 마음까지 없는 것처럼 말하지 마.” 사야카가 고른 소원의 기억에 자신의 답을 남긴다. 쿄코와 사야카는 힘을 쓰는 이유를 두고 다른 답을 내놓는다."
+        set ProtoBranchResult[804] = "사야카는 자신도 그의 연주를 좋아했으니 완전히 남의 일만은 아니라며 대답한다. 쿄스케가 다시 음악을 할 수 있다는 말에 목소리가 밝아진다. 그 기쁨까지 굳이 감추지는 않는다."
         set ProtoBranchCard[804] = 327
         set ProtoBranchCard2[804] = 0
         set ProtoBranchGold[804] = 0
@@ -10608,7 +10608,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[804] = 0
         set ProtoBranchChance[804] = 100
         set ProtoBranchLabel[805] = "“누군가를 위한 일이어도 널 잊지는 말자.”"
-        set ProtoBranchResult[805] = "“누군가를 위한 일이어도 널 잊지는 말자.” 사야카가 고른 소원의 기억에 자신의 답을 남긴다. 쿄코와 사야카는 힘을 쓰는 이유를 두고 다른 답을 내놓는다."
+        set ProtoBranchResult[805] = "사야카는 자신을 걱정하는 말이 낯간지러운 듯 평소의 농담으로 받아친다. 그러다 마도카에게 너무 무리하지 않겠다고 덧붙인다. 씩씩하게 새 역할을 맡으려는 마음과 친구의 걱정이 함께 남는다."
         set ProtoBranchCard[805] = 328
         set ProtoBranchCard2[805] = 0
         set ProtoBranchGold[805] = 0
@@ -10618,7 +10618,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[805] = 0
         set ProtoBranchChance[805] = 100
         set ProtoBranchLabel[806] = "“원했던 것을 솔직히 이야기해도 괜찮아.”"
-        set ProtoBranchResult[806] = "“원했던 것을 솔직히 이야기해도 괜찮아.” 사야카가 고른 소원의 기억에 자신의 답을 남긴다. 쿄코와 사야카는 힘을 쓰는 이유를 두고 다른 답을 내놓는다."
+        set ProtoBranchResult[806] = "사야카는 쿄스케의 연주가 어떤 느낌이었는지부터 이야기한다. 좋아하던 음을 설명하려다 제대로 전해지지 않는다며 아쉬워한다. 소원이라는 큰 말이 잠시, 다시 듣고 싶은 한 사람의 음악이 된다."
         set ProtoBranchCard[806] = 329
         set ProtoBranchCard2[806] = 0
         set ProtoBranchGold[806] = 0
@@ -10682,7 +10682,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[203] = 7
         set ProtoEventEpilogue[203] = 0
         set ProtoEventGrade[203] = 2
-        set ProtoEventStory[203] = "소울 젬과 몸의 관계를 알게 되자 계약을 받아들였던 말이 달라진다. 설명되지 않은 사실을 뒤늦게 알았다는 충격이 남는다. 놀란 사람에게 먼저 적응하라고 요구하지 않는다."
+        set ProtoEventStory[203] = "사야카는 소울 젬이 마력을 쓰는 도구만은 아니라는 사실을 알게 된다. 계약할 때 몸에서 분리된 자신의 영혼이 바로 그 보석이었던 것이다. 바라던 기적은 이루어졌지만, 자신에게 무슨 일이 일어났는지는 이제야 들었다. 방 안에 혼자 앉은 사야카가 손에 놓인 작은 보석을 내려다본다."
         set ProtoEventIntro[203] = "소울 젬과 몸의 관계를 알게 되자 계약을 받아들였던 말이 달라진다."
         set ProtoEventIcon[203] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[203] = 0
@@ -10690,7 +10690,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[203] = 0
         set ProtoEventFailure[203] = ""
         set ProtoBranchLabel[812] = "“처음부터 알려 줬어야 할 일이었네.”"
-        set ProtoBranchResult[812] = "“처음부터 알려 줬어야 할 일이었네.” 소울 젬이 뜻하는 것의 기억에 자신의 답을 남긴다. 사야카는 자신의 마음을 숨긴 채 괜찮다고 말하려 한다."
+        set ProtoBranchResult[812] = "사야카는 소원을 말하던 순간을 되짚다가 소울 젬을 침대 위에 놓는다. 알고 선택한 일과 나중에 통보받은 일을 같은 계약이라고 부를 수 있는지, 큐베에게 묻고 싶은 말이 쌓인다."
         set ProtoBranchCard[812] = 333
         set ProtoBranchCard2[812] = 0
         set ProtoBranchGold[812] = 0
@@ -10700,7 +10700,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[812] = 0
         set ProtoBranchChance[812] = 100
         set ProtoBranchLabel[813] = "“놀랐다는 마음을 이상하게 보지 않을게.”"
-        set ProtoBranchResult[813] = "“놀랐다는 마음을 이상하게 보지 않을게.” 소울 젬이 뜻하는 것의 기억에 자신의 답을 남긴다. 사야카는 자신의 마음을 숨긴 채 괜찮다고 말하려 한다."
+        set ProtoBranchResult[813] = "사야카는 침대 가장자리에서 무릎을 끌어안는다. 누군가를 낫게 했다는 기쁨과 자신의 몸이 낯설다는 두려움이 함께 남아 있다. 당장 괜찮다는 말을 꺼내지는 못한다."
         set ProtoBranchCard[813] = 334
         set ProtoBranchCard2[813] = 0
         set ProtoBranchGold[813] = 0
@@ -10709,8 +10709,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[813] = 0
         set ProtoBranchPotions[813] = 0
         set ProtoBranchChance[813] = 100
-        set ProtoBranchLabel[814] = "“이제 알게 된 사실을 함께 정리하자.”"
-        set ProtoBranchResult[814] = "“이제 알게 된 사실을 함께 정리하자.” 소울 젬이 뜻하는 것의 기억에 자신의 답을 남긴다. 사야카는 자신의 마음을 숨긴 채 괜찮다고 말하려 한다."
+        set ProtoBranchLabel[814] = "“어느 쪽이 나인지조차 낯설어졌겠네.”"
+        set ProtoBranchResult[814] = "사야카는 보석 옆에 손을 펴 놓는다. 늘 쓰던 손은 그대로인데, 이제 어느 쪽을 자신이라 불러야 할지 모르겠다. 한 번에 받아들이기에는 새로 알게 된 것이 너무 많다."
         set ProtoBranchCard[814] = 335
         set ProtoBranchCard2[814] = 0
         set ProtoBranchGold[814] = 0
@@ -10822,7 +10822,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[206] = 2
         set ProtoEventStory[206] = "호무라가 지나온 시간을 되짚는다. 낯선 교실에서 마도카에게 이끌렸던 소녀가 지금은 누구보다 먼저 위험을 경고한다. 같은 만남이 되풀이되어도 그 안에 남은 사람은 같았다. 차갑게 들렸던 짧은 말 뒤로, 끝내 버리지 못한 이름이 들린다."
         set ProtoEventIntro[206] = "호무라가 지나온 시간을 알자 처음의 차가운 경고가 다르게 들린다."
-        set ProtoEventIcon[206] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[206] = "war3mapImported\\UI_Event_MTO_meeting.tga"
         set ProtoEventRequired[206] = 0
         set ProtoEventRequiredChoice[206] = 0
         set ProtoEventRequiredCard[206] = 0
@@ -10868,7 +10868,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[207] = 3
         set ProtoEventStory[207] = "마도카는 자신에게 모인 힘이 호무라의 반복과 이어져 있다는 설명을 듣는다. 지키려던 행동이 뜻밖의 무게로 돌아왔다고 해서 그 마음까지 악의였던 것은 아니다. 큐베가 가능성을 말하는 동안, 마도카는 소원을 품었던 소녀들의 얼굴을 떠올린다."
         set ProtoEventIntro[207] = "반복된 시간과 마도카의 관계를 알게 되며 소원의 무게가 커진다."
-        set ProtoEventIcon[207] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[207] = "war3mapImported\\UI_Event_MTO_explanation.tga"
         set ProtoEventRequired[207] = 0
         set ProtoEventRequiredChoice[207] = 0
         set ProtoEventRequiredCard[207] = 0
@@ -10914,7 +10914,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[208] = 3
         set ProtoEventStory[208] = "호무라가 홀로 발푸르기스의 밤에 맞선다. 거센 공격 속에서 몸을 일으킬 때마다 지키려던 마도카가 떠오른다. 되풀이한 시간이 더 나은 답을 주었다고 말할 수는 없다. 다시 일어서려는 몸과 꺾여 가는 마음 사이에서 짧은 숨이 새어 나온다."
         set ProtoEventIntro[208] = "호무라는 발푸르기스의 밤을 앞두고 다시 혼자 맞서려 한다."
-        set ProtoEventIcon[208] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[208] = "war3mapImported\\UI_Event_MTO_struggle.tga"
         set ProtoEventRequired[208] = 0
         set ProtoEventRequiredChoice[208] = 0
         set ProtoEventRequiredCard[208] = 0
@@ -10960,7 +10960,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[209] = 3
         set ProtoEventStory[209] = "마도카가 호무라 앞에 선다. 마법소녀들의 운명을 알고도 소원을 찾았다고 말하는 목소리는 물러서지 않는다. 호무라가 지켜 온 시간과 소녀들이 품었던 바람을 외면해서 나온 답이 아니다. 무엇을 바꾸려는지 말할 차례가 마도카에게 돌아온다."
         set ProtoEventIntro[209] = "마도카는 마법소녀들이 겪은 운명을 알고 자신이 바꿀 것을 선택한다."
-        set ProtoEventIcon[209] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[209] = "war3mapImported\\UI_Event_MTO_wish.tga"
         set ProtoEventRequired[209] = 0
         set ProtoEventRequiredChoice[209] = 0
         set ProtoEventRequiredCard[209] = 0
@@ -11052,7 +11052,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventGrade[211] = 1
         set ProtoEventStory[211] = "미타키하라의 이야기를 덮기 전에 처음의 만남과 마지막 인사를 다시 떠올린다. 소녀들의 선택을 뒤집거나 누구도 잃지 않았던 결말을 쓰려는 것은 아니다. 다음 길에 가져갈 대목을 골라, 남겨 둔 빈칸에 자신의 짧은 말을 보탠다."
         set ProtoEventIntro[211] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[211] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[211] = "war3mapImported\\UI_Event_MTO_meeting.tga"
         set ProtoEventRequired[211] = 0
         set ProtoEventRequiredChoice[211] = 0
         set ProtoEventRequiredCard[211] = 0
@@ -12710,7 +12710,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[231] = 2
         set ProtoEventEpilogue[231] = 0
         set ProtoEventGrade[231] = 1
-        set ProtoEventStory[231] = "첫 공략을 마친 사람들 사이에서 키리토에게 붙는 이름이 바뀐다. 같은 싸움을 겪었다고 같은 방식으로 이해한 것은 아니다. 아스나는 다음 공략을 향하며 눈앞에서 함께한 사람을 기억한다."
+        set ProtoEventStory[231] = "첫 보스를 쓰러뜨린 뒤, 공략대의 의심이 베타테스터들에게 향한다. 키리토는 다른 베타테스터를 감싸며 스스로 비터라는 이름을 떠맡는다. 승리의 환호 사이에 차가운 말들이 끼어든다. 아스나는 그 이름이 나오기 전, 같은 적 앞에서 맞췄던 검을 떠올린다."
         set ProtoEventIntro[231] = "첫 공략을 마친 사람들 사이에서 키리토에게 붙는 이름이 바뀐다."
         set ProtoEventIcon[231] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[231] = 0
@@ -12718,7 +12718,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[231] = 0
         set ProtoEventFailure[231] = ""
         set ProtoBranchLabel[924] = "“붙은 이름보다 직접 본 일을 기억할게.”"
-        set ProtoBranchResult[924] = "“붙은 이름보다 직접 본 일을 기억할게.” 첫 보스 뒤의 이름의 기억에 자신의 답을 남긴다. 키리토가 함께했던 길드의 시간을 기억한다."
+        set ProtoBranchResult[924] = "아스나는 검을 거두는 키리토를 바라본다. 방금까지 함께 맞춰 움직였던 상대를 낯선 이름 하나로 다시 판단할 수는 없다. 키리토가 떠난 자리에도 그 싸움의 감각이 남는다."
         set ProtoBranchCard[924] = 386
         set ProtoBranchCard2[924] = 0
         set ProtoBranchGold[924] = 0
@@ -12728,7 +12728,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[924] = 0
         set ProtoBranchChance[924] = 100
         set ProtoBranchLabel[925] = "“다음 공략에서는 서로의 뜻도 물어보자.”"
-        set ProtoBranchResult[925] = "“다음 공략에서는 서로의 뜻도 물어보자.” 첫 보스 뒤의 이름의 기억에 자신의 답을 남긴다. 키리토가 함께했던 길드의 시간을 기억한다."
+        set ProtoBranchResult[925] = "아스나는 공략 중 짧게 주고받았던 신호를 떠올린다. 서로 무엇을 할지 알았기에 이어졌던 공격이었다. 지금 공략대에 퍼지는 단정에는 그런 확인이 빠져 있다."
         set ProtoBranchCard[925] = 387
         set ProtoBranchCard2[925] = 0
         set ProtoBranchGold[925] = 0
@@ -12738,7 +12738,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[925] = 0
         set ProtoBranchChance[925] = 100
         set ProtoBranchLabel[926] = "“살아 돌아온 사람부터 함께 확인하자.”"
-        set ProtoBranchResult[926] = "“살아 돌아온 사람부터 함께 확인하자.” 첫 보스 뒤의 이름의 기억에 자신의 답을 남긴다. 키리토가 함께했던 길드의 시간을 기억한다."
+        set ProtoBranchResult[926] = "보스 방에 남은 사람들이 흩어지기 시작한다. 아스나는 주변의 얼굴들을 하나씩 살핀다. 승리를 알리는 소리와 달리, 함께 들어왔던 모두가 돌아가는 것은 아니다."
         set ProtoBranchCard[926] = 388
         set ProtoBranchCard2[926] = 0
         set ProtoBranchGold[926] = 0
@@ -12940,7 +12940,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[236] = 7
         set ProtoEventEpilogue[236] = 0
         set ProtoEventGrade[236] = 2
-        set ProtoEventStory[236] = "리즈벳과 키리토는 검을 만드는 여정에서 서로의 시간을 알게 된다. 완성된 무기에는 수치만이 아니라 함께 기다린 순간이 남는다. 곁에 있던 사람의 기대를 결과 하나로만 판단하지 않는다."
+        set ProtoEventStory[236] = "대장간으로 돌아온 리즈벳이 키리토에게 완성된 검을 내민다. 처음 그의 의뢰를 받았을 때의 자신만만함에, 함께 재료를 구하던 시간이 더해져 있다. 키리토가 손잡이를 쥐고 검을 살피는 동안 리즈벳은 평가를 기다린다. 검 한 자루를 건네는 일인데도 할 말이 쉽게 끝나지 않는다."
         set ProtoEventIntro[236] = "리즈벳과 키리토는 검을 만드는 여정에서 서로의 시간을 알게 된다."
         set ProtoEventIcon[236] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[236] = 0
@@ -12948,7 +12948,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[236] = 0
         set ProtoEventFailure[236] = ""
         set ProtoBranchLabel[944] = "“함께 만든 과정도 검처럼 기억하겠어.”"
-        set ProtoBranchResult[944] = "“함께 만든 과정도 검처럼 기억하겠어.” 함께 만든 검의 기억의 기억에 자신의 답을 남긴다. 키리토와 아스나는 공략과 일상의 비중을 두고 다른 말을 한다."
+        set ProtoBranchResult[944] = "리즈벳은 재료를 구하러 나섰던 이야기를 꺼내다 키리토에게 타박을 보탠다. 키리토도 그 길이 평범한 의뢰는 아니었다고 답한다. 작업대 위 검을 사이에 두고 두 사람만 아는 고생이 오간다."
         set ProtoBranchCard[944] = 401
         set ProtoBranchCard2[944] = 0
         set ProtoBranchGold[944] = 0
@@ -12958,7 +12958,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[944] = 0
         set ProtoBranchChance[944] = 100
         set ProtoBranchLabel[945] = "“네가 자랑스러워한 부분을 알려 줘.”"
-        set ProtoBranchResult[945] = "“네가 자랑스러워한 부분을 알려 줘.” 함께 만든 검의 기억의 기억에 자신의 답을 남긴다. 키리토와 아스나는 공략과 일상의 비중을 두고 다른 말을 한다."
+        set ProtoBranchResult[945] = "리즈벳이 키리토에게 검을 제대로 들어 보라고 재촉한다. 손잡이에서 날까지 살피는 그를 보며, 이번에는 자신의 솜씨에 다시 자신을 보인다. 칭찬을 기다리는 얼굴에는 장인의 자존심이 먼저 드러난다."
         set ProtoBranchCard[945] = 402
         set ProtoBranchCard2[945] = 0
         set ProtoBranchGold[945] = 0
@@ -12968,7 +12968,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[945] = 0
         set ProtoBranchChance[945] = 100
         set ProtoBranchLabel[946] = "“다음에는 의뢰가 없어도 찾아오고 싶어.”"
-        set ProtoBranchResult[946] = "“다음에는 의뢰가 없어도 찾아오고 싶어.” 함께 만든 검의 기억의 기억에 자신의 답을 남긴다. 키리토와 아스나는 공략과 일상의 비중을 두고 다른 말을 한다."
+        set ProtoBranchResult[946] = "리즈벳은 찾아올 때마다 어려운 의뢰부터 내놓지는 말라며 키리토에게 말한다. 그는 대장간 안을 한번 둘러보고 짧게 대답한다. 검을 고쳐야 할 때만 들르는 가게로 남기고 싶지 않은 마음이 말끝에 비친다."
         set ProtoBranchCard[946] = 403
         set ProtoBranchCard2[946] = 0
         set ProtoBranchGold[946] = 0
@@ -13032,15 +13032,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[238] = 9
         set ProtoEventEpilogue[238] = 0
         set ProtoEventGrade[238] = 2
-        set ProtoEventStory[238] = "전선의 위기에서 키리토와 아스나는 서로의 판단에 의지한다. 잘 싸운다는 말 뒤에는 움직임을 맡길 만큼 함께한 시간이 있다. 혼자 돌아오는 승리를 바라지 않는 마음이 분명해진다."
+        set ProtoEventStory[238] = "보스방으로 향하던 걸음이 멈춘다. 문 너머의 위험을 본 키리토와 아스나는 먼저 물러나 상대를 살핀다. 앞서 나가는 것만이 공략은 아니다. 다시 싸워야 할 때 서로의 움직임을 맡기려면, 돌아오는 길에 대해서도 같은 판단을 해야 한다."
         set ProtoEventIntro[238] = "전선의 위기에서 키리토와 아스나는 서로의 판단에 의지한다."
-        set ProtoEventIcon[238] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[238] = "war3mapImported\\UI_Event_SAO1_door.tga"
         set ProtoEventRequired[238] = 0
         set ProtoEventRequiredChoice[238] = 0
         set ProtoEventRequiredCard[238] = 0
         set ProtoEventFailure[238] = ""
         set ProtoBranchLabel[952] = "“네가 돌아올 길까지 같이 보겠어.”"
-        set ProtoBranchResult[952] = "“네가 돌아올 길까지 같이 보겠어.” 함께 싸울 때 보이는 것의 기억에 자신의 답을 남긴다. 공략에서 잠시 물러난 키리토와 아스나는 호숫가에서 일상을 만든다."
+        set ProtoBranchResult[952] = "키리토가 보스방에서 멀어지는 통로를 확인한다. 아스나는 그가 놓친 쪽을 짚는다. 빠르게 들어갈 길보다 함께 빠져나올 길을 먼저 맞춘다."
         set ProtoBranchCard[952] = 407
         set ProtoBranchCard2[952] = 0
         set ProtoBranchGold[952] = 0
@@ -13049,8 +13049,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[952] = 0
         set ProtoBranchPotions[952] = 0
         set ProtoBranchChance[952] = 100
-        set ProtoBranchLabel[953] = "“힘을 보여 주는 일보다 믿는 일을 기억하자.”"
-        set ProtoBranchResult[953] = "“힘을 보여 주는 일보다 믿는 일을 기억하자.” 함께 싸울 때 보이는 것의 기억에 자신의 답을 남긴다. 공략에서 잠시 물러난 키리토와 아스나는 호숫가에서 일상을 만든다."
+        set ProtoBranchLabel[953] = "“힘을 자랑하기보다 서로의 판단을 믿자.”"
+        set ProtoBranchResult[953] = "아스나가 문 너머에서 본 움직임을 설명하자 키리토가 말을 끊지 않고 듣는다. 혼자 알아낸 수를 자랑할 때보다 두 사람이 함께 살핀 위험이 더 선명해진다."
         set ProtoBranchCard[953] = 408
         set ProtoBranchCard2[953] = 0
         set ProtoBranchGold[953] = 0
@@ -13060,7 +13060,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[953] = 0
         set ProtoBranchChance[953] = 100
         set ProtoBranchLabel[954] = "“끝나면 오늘의 말을 식탁에서 다시 하자.”"
-        set ProtoBranchResult[954] = "“끝나면 오늘의 말을 식탁에서 다시 하자.” 함께 싸울 때 보이는 것의 기억에 자신의 답을 남긴다. 공략에서 잠시 물러난 키리토와 아스나는 호숫가에서 일상을 만든다."
+        set ProtoBranchResult[954] = "키리토가 돌아가서 먹을 이야기를 꺼내자 아스나가 그건 살아서 돌아온 뒤에 하자고 받는다. 평범한 한 끼가 농담으로만 들리지 않아, 두 사람은 통로를 다시 살핀다."
         set ProtoBranchCard[954] = 409
         set ProtoBranchCard2[954] = 0
         set ProtoBranchGold[954] = 0
@@ -13078,15 +13078,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[239] = 10
         set ProtoEventEpilogue[239] = 0
         set ProtoEventGrade[239] = 2
-        set ProtoEventStory[239] = "공략에서 잠시 물러난 키리토와 아스나는 호숫가에서 일상을 만든다. 갇힌 세계라고 그 안에서 나눈 시간이 모두 가짜는 아니다. 언젠가 바깥에서도 이어가고 싶은 말을 남긴다."
+        set ProtoEventStory[239] = "22층 호숫가의 통나무집에서는 다음 보스보다 오늘 먹을 음식이 먼저 화제가 된다. 공략에서 물러난 키리토와 아스나가 식탁을 사이에 두고 앉는다. 문밖의 호수도 집도 게임 안에 있지만, 함께 보내는 시간을 가짜라고 부르기는 어렵다."
         set ProtoEventIntro[239] = "공략에서 잠시 물러난 키리토와 아스나는 호숫가에서 일상을 만든다."
-        set ProtoEventIcon[239] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[239] = "war3mapImported\\UI_Event_SAO1_cabin.tga"
         set ProtoEventRequired[239] = 0
         set ProtoEventRequiredChoice[239] = 0
         set ProtoEventRequiredCard[239] = 0
         set ProtoEventFailure[239] = ""
         set ProtoBranchLabel[956] = "“화면 밖에서도 이 인사를 하고 싶어.”"
-        set ProtoBranchResult[956] = "“화면 밖에서도 이 인사를 하고 싶어.” 호숫가에 놓인 일상의 기억에 자신의 답을 남긴다. 유이와 함께 보낸 짧은 시간은 두 사람에게 새로운 관계를 남긴다."
+        set ProtoBranchResult[956] = "키리토가 바깥에서도 이런 아침을 맞고 싶다고 말한다. 아스나는 식탁 건너편의 그를 보며 다음 인사는 현실에서 하자고 답한다. 집 밖의 호수는 조용하다."
         set ProtoBranchCard[956] = 410
         set ProtoBranchCard2[956] = 0
         set ProtoBranchGold[956] = 0
@@ -13096,7 +13096,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[956] = 0
         set ProtoBranchChance[956] = 100
         set ProtoBranchLabel[957] = "“여기서 보낸 시간을 없던 일로 하진 않겠어.”"
-        set ProtoBranchResult[957] = "“여기서 보낸 시간을 없던 일로 하진 않겠어.” 호숫가에 놓인 일상의 기억에 자신의 답을 남긴다. 유이와 함께 보낸 짧은 시간은 두 사람에게 새로운 관계를 남긴다."
+        set ProtoBranchResult[957] = "아스나가 식탁에 놓인 그릇을 키리토 쪽으로 밀어 준다. 여기서 배운 입맛도 서로에게 익숙해진 습관도 남아 있다. 키리토는 음식을 받으며 그 시간을 부정하지 않는다."
         set ProtoBranchCard[957] = 411
         set ProtoBranchCard2[957] = 0
         set ProtoBranchGold[957] = 0
@@ -13106,7 +13106,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[957] = 0
         set ProtoBranchChance[957] = 100
         set ProtoBranchLabel[958] = "“다음에 나눌 평범한 이야기부터 정해 두자.”"
-        set ProtoBranchResult[958] = "“다음에 나눌 평범한 이야기부터 정해 두자.” 호숫가에 놓인 일상의 기억에 자신의 답을 남긴다. 유이와 함께 보낸 짧은 시간은 두 사람에게 새로운 관계를 남긴다."
+        set ProtoBranchResult[958] = "아스나가 다음에 먹고 싶은 것을 묻는다. 키리토가 서툴게 메뉴를 고르자 식탁에서 작은 웃음이 난다. 오늘 당장 정할 수 있는 약속이 하나 생긴다."
         set ProtoBranchCard[958] = 412
         set ProtoBranchCard2[958] = 0
         set ProtoBranchGold[958] = 0
@@ -13124,15 +13124,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[240] = 11
         set ProtoEventEpilogue[240] = 0
         set ProtoEventGrade[240] = 3
-        set ProtoEventStory[240] = "유이와 함께 보낸 짧은 시간은 두 사람에게 새로운 관계를 남긴다. 정체를 알게 되었다고 그때의 마음이 지워지지는 않는다. 가족처럼 불렀던 이름을 쉽게 데이터 하나로 줄이지 않는다."
+        set ProtoEventStory[240] = "유이의 정체를 알게 된 뒤에도 함께 지냈던 집의 풍경은 달라지지 않는다. 작던 손을 잡고 걸었던 일과 가족처럼 부르던 이름이 키리토와 아스나에게 남아 있다. 무엇으로 만들어졌는지 안다고 해서 그때 주고받은 마음까지 설명되는 것은 아니다."
         set ProtoEventIntro[240] = "유이와 함께 보낸 짧은 시간은 두 사람에게 새로운 관계를 남긴다."
-        set ProtoEventIcon[240] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[240] = "war3mapImported\\UI_Event_SAO1_yui.tga"
         set ProtoEventRequired[240] = 0
         set ProtoEventRequiredChoice[240] = 0
         set ProtoEventRequiredCard[240] = 0
         set ProtoEventFailure[240] = ""
         set ProtoBranchLabel[960] = "“함께했던 마음은 네 정체와 함께 기억할게.”"
-        set ProtoBranchResult[960] = "“함께했던 마음은 네 정체와 함께 기억할게.” 유이가 남긴 가족의 자리의 기억에 자신의 답을 남긴다. 75층의 보스를 넘긴 공략대는 잃은 사람과 앞으로의 위험을 마주한다."
+        set ProtoBranchResult[960] = "키리토가 유이의 정체를 설명하다 이름을 다시 부른다. 아스나는 무엇으로 만들어졌는지보다 함께 있을 때 어떻게 웃었는지를 말한다. 설명과 애정은 같은 말이 아니었다."
         set ProtoBranchCard[960] = 413
         set ProtoBranchCard2[960] = 0
         set ProtoBranchGold[960] = 0
@@ -13142,7 +13142,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[960] = 0
         set ProtoBranchChance[960] = 100
         set ProtoBranchLabel[961] = "“잊지 않을 자리를 우리에게 남겨 줬네.”"
-        set ProtoBranchResult[961] = "“잊지 않을 자리를 우리에게 남겨 줬네.” 유이가 남긴 가족의 자리의 기억에 자신의 답을 남긴다. 75층의 보스를 넘긴 공략대는 잃은 사람과 앞으로의 위험을 마주한다."
+        set ProtoBranchResult[961] = "아스나가 유이가 있던 자리를 한 번 더 돌아본다. 키리토도 바로 다른 이야기를 꺼내지 않는다. 두 사람 사이에는 이제 둘만의 이야기로 채울 수 없는 자리가 생겼다."
         set ProtoBranchCard[961] = 414
         set ProtoBranchCard2[961] = 0
         set ProtoBranchGold[961] = 0
@@ -13152,7 +13152,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[961] = 0
         set ProtoBranchChance[961] = 100
         set ProtoBranchLabel[962] = "“다시 만날 가능성도 함부로 닫지 말자.”"
-        set ProtoBranchResult[962] = "“다시 만날 가능성도 함부로 닫지 말자.” 유이가 남긴 가족의 자리의 기억에 자신의 답을 남긴다. 75층의 보스를 넘긴 공략대는 잃은 사람과 앞으로의 위험을 마주한다."
+        set ProtoBranchResult[962] = "키리토는 다시 만날 방법을 다 알아냈다고 말하지 않는다. 아스나도 당장 돌아온다는 약속을 요구하지 않는다. 다만 유이의 이름을 부르는 일을 여기서 끝내지는 않는다."
         set ProtoBranchCard[962] = 415
         set ProtoBranchCard2[962] = 0
         set ProtoBranchGold[962] = 0
@@ -13170,7 +13170,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[241] = 12
         set ProtoEventEpilogue[241] = 0
         set ProtoEventGrade[241] = 3
-        set ProtoEventStory[241] = "75층의 보스를 넘긴 공략대는 잃은 사람과 앞으로의 위험을 마주한다. 이겼다는 말만으로 모두를 위로할 수는 없다. 키리토는 히스클리프를 보며 지금까지의 전제를 다시 살핀다."
+        set ProtoEventStory[241] = "75층의 스컬 리퍼가 쓰러졌지만 공략대에서는 환호가 나오지 않는다. 전이 결정이 통하지 않던 방 안에서 많은 동료를 잃었다. 남은 이들이 장비를 추스르는 동안 키리토의 시선은 조용히 서 있는 히스클리프에게 머문다. 익숙했던 모습에 의문이 생긴다."
         set ProtoEventIntro[241] = "75층의 보스를 넘긴 공략대는 잃은 사람과 앞으로의 위험을 마주한다."
         set ProtoEventIcon[241] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[241] = 0
@@ -13178,7 +13178,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[241] = 0
         set ProtoEventFailure[241] = ""
         set ProtoBranchLabel[964] = "“승리와 잃은 사람을 함께 기억하자.”"
-        set ProtoBranchResult[964] = "“승리와 잃은 사람을 함께 기억하자.” 75층에 남은 침묵의 기억에 자신의 답을 남긴다. 히스클리프가 카야바 아키히코라는 사실이 드러나며 마지막 대결이 시작된다."
+        set ProtoBranchResult[964] = "아스나가 방 안에 남은 사람들을 살핀다. 승리했다는 말을 먼저 꺼내는 대신 누구와 함께 돌아갈 수 있는지 확인한다. 비어 버린 자리는 공략 성공으로 채워지지 않는다."
         set ProtoBranchCard[964] = 416
         set ProtoBranchCard2[964] = 0
         set ProtoBranchGold[964] = 0
@@ -13188,7 +13188,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[964] = 0
         set ProtoBranchChance[964] = 100
         set ProtoBranchLabel[965] = "“당연하게 본 모습도 다시 확인해야겠어.”"
-        set ProtoBranchResult[965] = "“당연하게 본 모습도 다시 확인해야겠어.” 75층에 남은 침묵의 기억에 자신의 답을 남긴다. 히스클리프가 카야바 아키히코라는 사실이 드러나며 마지막 대결이 시작된다."
+        set ProtoBranchResult[965] = "키리토는 히스클리프의 모습을 다시 살핀다. 모두가 지친 방에서 유독 걸리는 점을 그냥 넘기지 않는다. 아직 이름 붙이지 못한 의문 때문에 시선이 오래 머문다."
         set ProtoBranchCard[965] = 417
         set ProtoBranchCard2[965] = 0
         set ProtoBranchGold[965] = 0
@@ -13198,7 +13198,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[965] = 0
         set ProtoBranchChance[965] = 100
         set ProtoBranchLabel[966] = "“다음 길을 남의 말만 믿고 고르진 않을래.”"
-        set ProtoBranchResult[966] = "“다음 길을 남의 말만 믿고 고르진 않을래.” 75층에 남은 침묵의 기억에 자신의 답을 남긴다. 히스클리프가 카야바 아키히코라는 사실이 드러나며 마지막 대결이 시작된다."
+        set ProtoBranchResult[966] = "키리토가 쓰지 못했던 전이 결정을 떠올린다. 알고 있다고 믿은 규칙도 이 방에서는 통하지 않았다. 다음 지시를 기다리는 동안 그는 방금 벌어진 일을 다시 따져 본다."
         set ProtoBranchCard[966] = 418
         set ProtoBranchCard2[966] = 0
         set ProtoBranchGold[966] = 0
@@ -13216,15 +13216,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[242] = 13
         set ProtoEventEpilogue[242] = 0
         set ProtoEventGrade[242] = 3
-        set ProtoEventStory[242] = "히스클리프가 카야바 아키히코라는 사실이 드러나며 마지막 대결이 시작된다. 키리토와 아스나가 함께한 시간은 게임의 설계로만 설명되지 않는다. 나갈 수 있는 길 앞에서 함께 지켜 온 약속을 다시 떠올린다."
+        set ProtoEventStory[242] = "히스클리프의 정체가 카야바 아키히코로 드러난다. 함께 공략하던 사람의 이름이 이 세계를 만든 자의 이름으로 바뀐다. 키리토는 마지막 대결을 앞두고 아스나와 보낸 시간을 떠올린다. 설계된 세계라는 사실이 두 사람이 고른 마음까지 대신 정해 주지는 않는다."
         set ProtoEventIntro[242] = "히스클리프가 카야바 아키히코라는 사실이 드러나며 마지막 대결이 시작된다."
-        set ProtoEventIcon[242] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[242] = "war3mapImported\\UI_Event_SAO1_heathcliff.tga"
         set ProtoEventRequired[242] = 0
         set ProtoEventRequiredChoice[242] = 0
         set ProtoEventRequiredCard[242] = 0
         set ProtoEventFailure[242] = ""
-        set ProtoBranchLabel[968] = "“만들어진 세계여도 우리가 고른 마음은 남아 있어.”"
-        set ProtoBranchResult[968] = "“만들어진 세계여도 우리가 고른 마음은 남아 있어.” 히스클리프의 다른 이름의 기억에 자신의 답을 남긴다. 데스 게임의 끝으로 생환의 길이 열린다."
+        set ProtoBranchLabel[968] = "“만들어진 세계여도 우리가 고른 마음은 진짜야.”"
+        set ProtoBranchResult[968] = "키리토는 상대가 만든 규칙을 떠올리면서도 검을 놓지 않는다. 아스나와 함께 돌아가겠다고 고른 일까지 누군가의 설계였다고 받아들이지는 않는다. 결투의 상대를 똑바로 마주한다."
         set ProtoBranchCard[968] = 419
         set ProtoBranchCard2[968] = 0
         set ProtoBranchGold[968] = 0
@@ -13234,7 +13234,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[968] = 0
         set ProtoBranchChance[968] = 100
         set ProtoBranchLabel[969] = "“이 싸움을 끝내고 밖의 이름으로 만나자.”"
-        set ProtoBranchResult[969] = "“이 싸움을 끝내고 밖의 이름으로 만나자.” 히스클리프의 다른 이름의 기억에 자신의 답을 남긴다. 데스 게임의 끝으로 생환의 길이 열린다."
+        set ProtoBranchResult[969] = "호숫가 집에서 나눈 말이 키리토에게 돌아온다. 이 세계 밖에서도 아스나를 만나고 싶었다. 마지막 대결을 앞둔 지금, 이기고 싶다는 말에 돌아가고 싶은 이유가 붙는다."
         set ProtoBranchCard[969] = 420
         set ProtoBranchCard2[969] = 0
         set ProtoBranchGold[969] = 0
@@ -13244,7 +13244,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[969] = 0
         set ProtoBranchChance[969] = 100
         set ProtoBranchLabel[970] = "“여기서 잃은 사람까지 잊지는 않겠어.”"
-        set ProtoBranchResult[970] = "“여기서 잃은 사람까지 잊지는 않겠어.” 히스클리프의 다른 이름의 기억에 자신의 답을 남긴다. 데스 게임의 끝으로 생환의 길이 열린다."
+        set ProtoBranchResult[970] = "키리토가 공략에서 잃은 사람들을 떠올린다. 게임을 끝내면 그들이 다시 돌아오는 것은 아니다. 상대가 만든 세계를 끝내려는 이유에서 그 빈자리들을 빼지 않는다."
         set ProtoBranchCard[970] = 421
         set ProtoBranchCard2[970] = 0
         set ProtoBranchGold[970] = 0
@@ -13262,15 +13262,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[243] = 14
         set ProtoEventEpilogue[243] = 0
         set ProtoEventGrade[243] = 4
-        set ProtoEventStory[243] = "데스 게임의 끝으로 생환의 길이 열린다. 키리토가 현실로 돌아왔다고 아스나와 모든 사람이 곧바로 눈을 뜬 것은 아니다. 호숫가에서 나눈 약속을 기억하며 바깥에서도 이어질 만남을 향해 이야기를 매듭짓는다."
+        set ProtoEventStory[243] = "키리토가 현실에서 눈을 뜬다. 게임의 화면 대신 낯선 천장과 오래 움직이지 못한 몸이 먼저 느껴진다. 돌아왔다고 해서 아스나와의 재회까지 끝난 것은 아니다. 호숫가에서 나누었던 말을 떠올리며, 그는 바깥에서 이어갈 약속을 붙든다."
         set ProtoEventIntro[243] = "데스 게임의 끝으로 생환의 길이 열린다."
-        set ProtoEventIcon[243] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[243] = "war3mapImported\\UI_Event_SAO1_return.tga"
         set ProtoEventRequired[243] = 0
         set ProtoEventRequiredChoice[243] = 0
         set ProtoEventRequiredCard[243] = 0
         set ProtoEventFailure[243] = ""
         set ProtoBranchLabel[972] = "“아직 만나지 못했어도 약속은 가져갈게.”"
-        set ProtoBranchResult[972] = "호숫가에서 했던 약속을 현실로 가져간다. 아직 아스나와 만나지 못했다는 사실도 숨기지 않은 채, 약속을 이어 갈 다음 걸음을 남긴다."
+        set ProtoBranchResult[972] = "키리토는 곁에 없는 아스나의 이름을 부른다. 대답은 들리지 않지만 약속까지 사라진 것은 아니다. 돌아온 몸으로 다시 만나러 가야 한다는 생각이 남는다."
         set ProtoBranchCard[972] = 422
         set ProtoBranchCard2[972] = 0
         set ProtoBranchGold[972] = 0
@@ -13279,8 +13279,8 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchDensity[972] = 0
         set ProtoBranchPotions[972] = 0
         set ProtoBranchChance[972] = 100
-        set ProtoBranchLabel[973] = "“돌아온 사람과 아직 닿지 못한 사람 모두를 기억하자.”"
-        set ProtoBranchResult[973] = "생환한 사람과 아직 깨어나지 못한 사람을 함께 기억한다. 데스 게임의 끝이 모든 재회의 끝은 아니라는 마음으로 다음 길을 바라본다."
+        set ProtoBranchLabel[973] = "“돌아온 사람과 아직 못 만난 사람을 잊지 말자.”"
+        set ProtoBranchResult[973] = "살아 돌아왔다는 사실이 키리토에게 조금씩 닿는다. 그런데 옆에 누가 돌아왔는지는 아직 알 수 없다. 혼자 깨어난 이 순간을 모두의 재회라고 부를 수는 없다."
         set ProtoBranchCard[973] = 423
         set ProtoBranchCard2[973] = 0
         set ProtoBranchGold[973] = 0
@@ -13290,7 +13290,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[973] = 0
         set ProtoBranchChance[973] = 100
         set ProtoBranchLabel[974] = "“다음에는 현실에서 네 이야기를 듣고 싶어.”"
-        set ProtoBranchResult[974] = "갇힌 세계에서 나눈 시간이 가짜가 아니었다는 말을 마음에 남긴다. 언젠가 현실에서 서로의 이야기를 듣겠다는 인사로 아인크라드의 장을 매듭짓는다."
+        set ProtoBranchResult[974] = "호숫가의 식탁이 키리토의 머릿속에 떠오른다. 현실에서 들려주고 싶은 말이 생겨도 지금 아스나에게 전할 수는 없다. 그는 그 말을 다음 만남까지 가져가기로 한다."
         set ProtoBranchCard[974] = 424
         set ProtoBranchCard2[974] = 0
         set ProtoBranchGold[974] = 0
@@ -13308,15 +13308,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[244] = 0
         set ProtoEventEpilogue[244] = 1
         set ProtoEventGrade[244] = 1
-        set ProtoEventStory[244] = "화면 밖에서도 이어질 약속의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다."
+        set ProtoEventStory[244] = "아인크라드의 기록을 펼치면 보스방의 문과 호숫가의 식탁이 서로 다른 쪽에 남아 있다. 같은 세계에서 목숨을 걸었고 평범한 하루도 바랐다. 이미 끝난 게임을 다시 공략하려는 것은 아니다. 그 안에서 무엇을 가져갈지 고르며 마지막 쪽을 넘긴다."
         set ProtoEventIntro[244] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
-        set ProtoEventIcon[244] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
+        set ProtoEventIcon[244] = "war3mapImported\\UI_Event_SAO1_memory.tga"
         set ProtoEventRequired[244] = 0
         set ProtoEventRequiredChoice[244] = 0
         set ProtoEventRequiredCard[244] = 0
         set ProtoEventFailure[244] = ""
         set ProtoBranchLabel[976] = "처음의 인사를 기록한다."
-        set ProtoBranchResult[976] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[976] = "첫 인사를 적었던 쪽에 유이의 이름도 덧붙인다. 누구인지 알아보기 전에 함께 손을 잡고 걸었던 일이 먼저 있었다는 대목을 남긴다."
         set ProtoBranchCard[976] = 357
         set ProtoBranchCard2[976] = 0
         set ProtoBranchGold[976] = 0
@@ -13326,7 +13326,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[976] = 0
         set ProtoBranchChance[976] = 100
         set ProtoBranchLabel[977] = "함께 버틴 시간을 기록한다."
-        set ProtoBranchResult[977] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[977] = "함께 버틴 층수 옆에 돌아온 사람과 빈자리를 따로 적는다. 가장 높은 층에 도착했다는 숫자만으로 그 시간을 대신하지 않는다."
         set ProtoBranchCard[977] = 358
         set ProtoBranchCard2[977] = 0
         set ProtoBranchGold[977] = 0
@@ -13336,7 +13336,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[977] = 0
         set ProtoBranchChance[977] = 100
         set ProtoBranchLabel[978] = "다음 여정에 가져갈 말을 적는다."
-        set ProtoBranchResult[978] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[978] = "호숫가에서 나눈 약속을 마지막 쪽에 옮긴다. 재회가 이미 끝났다고 쓰는 대신, 다음에 나눌 평범한 이야기가 남았다는 문장으로 덮는다."
         set ProtoBranchCard[978] = 359
         set ProtoBranchCard2[978] = 0
         set ProtoBranchGold[978] = 0
@@ -20368,7 +20368,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[347] = 11
         set ProtoEventEpilogue[347] = 0
         set ProtoEventGrade[347] = 2
-        set ProtoEventStory[347] = "마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다. 요루이치의 도움은 강함보다 준비할 기회를 남긴다. 아직 닿지 못한 사람에게 건넬 인사를 함께 생각한다."
+        set ProtoEventStory[347] = "요루이치와의 수련장에서 이치고가 다시 참백도를 쥔다. 처형이 다가온다는 사실은 칼을 휘두르는 동안에도 사라지지 않는다. 요루이치는 조급해진 이치고에게 지금 해야 할 일을 짚어 준다. 빨리 도착하고 싶은 마음을 견딜 힘으로 바꿔야 한다."
         set ProtoEventIntro[347] = "마지막 구출을 위한 수련이 이어지는 동안 소울 소사이어티의 혼란도 깊어진다."
         set ProtoEventIcon[347] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[347] = 0
@@ -20376,7 +20376,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[347] = 0
         set ProtoEventFailure[347] = ""
         set ProtoBranchLabel[1388] = "“기다리는 동안에도 약속을 놓지 않을게.”"
-        set ProtoBranchResult[1388] = "“기다리는 동안에도 약속을 놓지 않을게.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다."
+        set ProtoBranchResult[1388] = "이치고가 수련장 밖을 보다가 다시 칼을 든다. 요루이치는 기다리며 애태울 시간이라면 한 번 더 해 보라며 재촉한다. 대답 대신 다음 동작이 이어진다."
         set ProtoBranchCard[1388] = 625
         set ProtoBranchCard2[1388] = 0
         set ProtoBranchGold[1388] = 0
@@ -20386,7 +20386,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1388] = 0
         set ProtoBranchChance[1388] = 100
         set ProtoBranchLabel[1389] = "“네가 내어 준 시간에 우리가 할 몫을 담자.”"
-        set ProtoBranchResult[1389] = "“네가 내어 준 시간에 우리가 할 몫을 담자.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다."
+        set ProtoBranchResult[1389] = "요루이치가 이치고의 흐트러진 자세를 짚는다. 이치고는 변명하다 말고 발을 고쳐 딛는다. 얻어 낸 시간을 흘려보내지 않으려 같은 동작을 다시 맞춘다."
         set ProtoBranchCard[1389] = 626
         set ProtoBranchCard2[1389] = 0
         set ProtoBranchGold[1389] = 0
@@ -20396,7 +20396,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1389] = 0
         set ProtoBranchChance[1389] = 100
         set ProtoBranchLabel[1390] = "“끝나면 누구와 다시 이야기할지 기억하자.”"
-        set ProtoBranchResult[1390] = "“끝나면 누구와 다시 이야기할지 기억하자.” 요루이치와 기다리는 시간의 기억에 자신의 답을 남긴다. 루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다."
+        set ProtoBranchResult[1390] = "이치고가 루키아에게 할 말이 있다고 투덜댄다. 요루이치는 그럼 직접 가서 하라며 수련 쪽을 가리킨다. 이치고의 손이 참백도에서 떨어지지 않는다."
         set ProtoBranchCard[1390] = 627
         set ProtoBranchCard2[1390] = 0
         set ProtoBranchGold[1390] = 0
@@ -20414,7 +20414,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[348] = 12
         set ProtoEventEpilogue[348] = 0
         set ProtoEventGrade[348] = 3
-        set ProtoEventStory[348] = "루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다. 모여든 사람들의 판단은 같은 명령을 따르지 않는다. 살아 돌아올 사람의 이름을 소리 내어 부르는 일이 먼저다."
+        set ProtoEventStory[348] = "처형 장치가 부서지고 이치고가 루키아의 앞에 선다. 멀리서 이름만 부르던 사람이 이제 눈앞에 있다. 왜 왔느냐는 말과 데려가겠다는 답이 부딪친다. 이치고는 길게 설명하는 대신 루키아를 처형대에서 벗어나게 할 방법부터 찾는다."
         set ProtoEventIntro[348] = "루키아의 처형을 막는 순간 구출의 뜻이 눈앞의 행동으로 이어진다."
         set ProtoEventIcon[348] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[348] = 0
@@ -20422,7 +20422,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[348] = 0
         set ProtoEventFailure[348] = ""
         set ProtoBranchLabel[1392] = "“이제 살아서 대답해 줘.”"
-        set ProtoBranchResult[1392] = "“이제 살아서 대답해 줘.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다."
+        set ProtoBranchResult[1392] = "루키아가 이치고에게 무모하다고 쏘아붙인다. 이치고는 그런 말은 살아서 더 하라며 받아친다. 처형을 기다리던 자리에서 두 사람의 익숙한 말다툼이 시작된다."
         set ProtoBranchCard[1392] = 628
         set ProtoBranchCard2[1392] = 0
         set ProtoBranchGold[1392] = 0
@@ -20432,7 +20432,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1392] = 0
         set ProtoBranchChance[1392] = 100
         set ProtoBranchLabel[1393] = "“여기까지 온 사람들의 뜻도 함께 기억하자.”"
-        set ProtoBranchResult[1393] = "“여기까지 온 사람들의 뜻도 함께 기억하자.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다."
+        set ProtoBranchResult[1393] = "이치고는 여기까지 오는 길에 도와준 이들을 떠올린다. 루키아에게 혼자 온 일이 아니라고 짧게 말한 뒤, 그녀를 안전하게 넘겨줄 쪽을 살핀다."
         set ProtoBranchCard[1393] = 629
         set ProtoBranchCard2[1393] = 0
         set ProtoBranchGold[1393] = 0
@@ -20442,7 +20442,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1393] = 0
         set ProtoBranchChance[1393] = 100
         set ProtoBranchLabel[1394] = "“끝이라고 불린 자리에서 다음 만남을 남기자.”"
-        set ProtoBranchResult[1394] = "“끝이라고 불린 자리에서 다음 만남을 남기자.” 처형대에서 부른 이름의 기억에 자신의 답을 남긴다. 이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다."
+        set ProtoBranchResult[1394] = "루키아가 말을 잇기 전에 이치고가 돌아가서 할 이야기부터 꺼낸다. 처형대 아래로 시선을 돌리는 그의 태도에, 루키아도 처음으로 그다음을 바라본다."
         set ProtoBranchCard[1394] = 630
         set ProtoBranchCard2[1394] = 0
         set ProtoBranchGold[1394] = 0
@@ -20460,15 +20460,15 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[349] = 13
         set ProtoEventEpilogue[349] = 0
         set ProtoEventGrade[349] = 3
-        set ProtoEventStory[349] = "이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다. 규칙과 약속을 지킨다는 말은 쉬운 하나의 답이 아니었다. 상대의 사정을 들었다고 루키아의 삶을 다시 대신 정하지 않는다."
+        set ProtoEventStory[349] = "이치고와 뱌쿠야의 칼이 마침내 멎는다. 루키아를 구하겠다는 뜻과 규칙을 지켜야 한다는 책임이 끝까지 맞부딪친 싸움이었다. 뱌쿠야는 맞섰던 상대를 향해 변명을 늘어놓지 않는다. 이치고도 루키아의 이름을 거둬들이지 않은 채 그 앞에 선다."
         set ProtoEventIntro[349] = "이치고와 뱌쿠야의 대결이 끝나며 서로 다른 책임이 드러난다."
         set ProtoEventIcon[349] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[349] = 0
         set ProtoEventRequiredChoice[349] = 0
         set ProtoEventRequiredCard[349] = 0
         set ProtoEventFailure[349] = ""
-        set ProtoBranchLabel[1396] = "“네가 지키려던 약속도 이제 들을게.”"
-        set ProtoBranchResult[1396] = "“네가 지키려던 약속도 이제 들을게.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다."
+        set ProtoBranchLabel[1396] = "“네가 지키려던 책임도 이제 들을게.”"
+        set ProtoBranchResult[1396] = "뱌쿠야가 지켜야 할 것에 관해 짧게 말한다. 이치고는 끼어들려다 말을 듣는다. 이해한 것과 동의한 것은 다르지만, 처음처럼 칼부터 올리지는 않는다."
         set ProtoBranchCard[1396] = 631
         set ProtoBranchCard2[1396] = 0
         set ProtoBranchGold[1396] = 0
@@ -20478,7 +20478,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1396] = 0
         set ProtoBranchChance[1396] = 100
         set ProtoBranchLabel[1397] = "“그 사정과 루키아의 내일은 함께 생각하자.”"
-        set ProtoBranchResult[1397] = "“그 사정과 루키아의 내일은 함께 생각하자.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다."
+        set ProtoBranchResult[1397] = "이치고는 규칙 이야기가 나와도 루키아를 다시 꺼낸다. 그 말을 듣는 뱌쿠야의 침묵이 길어진다. 하나의 책임만 말해서는 끝나지 않는 사람이 그 사이에 있다."
         set ProtoBranchCard[1397] = 632
         set ProtoBranchCard2[1397] = 0
         set ProtoBranchGold[1397] = 0
@@ -20488,7 +20488,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1397] = 0
         set ProtoBranchChance[1397] = 100
         set ProtoBranchLabel[1398] = "“틀렸던 결론을 바꿀 자리도 남아 있어.”"
-        set ProtoBranchResult[1398] = "“틀렸던 결론을 바꿀 자리도 남아 있어.” 뱌쿠야가 지키던 약속의 기억에 자신의 답을 남긴다. 아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다."
+        set ProtoBranchResult[1398] = "이치고가 칼끝을 내린다. 싸움은 끝났어도 루키아를 구하러 왔다는 뜻은 그대로다. 뱌쿠야는 그가 바꾸지 않은 대답을 마지막까지 듣는다."
         set ProtoBranchCard[1398] = 633
         set ProtoBranchCard2[1398] = 0
         set ProtoBranchGold[1398] = 0
@@ -20506,7 +20506,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[350] = 14
         set ProtoEventEpilogue[350] = 0
         set ProtoEventGrade[350] = 3
-        set ProtoEventStory[350] = "아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다. 처형의 명분을 믿었던 사람들도 자신들이 놓친 것을 보게 된다. 진실을 알게 되었다고 구출한 삶의 의미가 줄어들지는 않는다."
+        set ProtoEventStory[350] = "죽었다고 알려졌던 아이젠이 배신의 주모자로 모습을 드러낸다. 처형의 명분 뒤에 있던 것은 루키아 안의 붕옥이었다. 눈앞에서 바뀌는 설명을 따라가기도 전에 위험이 다시 닥친다. 이치고가 찾는 것은 그 물건의 이름보다 루키아가 있는 자리다."
         set ProtoEventIntro[350] = "아이젠의 배신과 루키아 안의 붕옥을 둘러싼 목적이 드러난다."
         set ProtoEventIcon[350] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[350] = 0
@@ -20514,7 +20514,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[350] = 0
         set ProtoEventFailure[350] = ""
         set ProtoBranchLabel[1400] = "“진실을 알게 된 뒤에도 사람을 먼저 보자.”"
-        set ProtoBranchResult[1400] = "“진실을 알게 된 뒤에도 사람을 먼저 보자.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다."
+        set ProtoBranchResult[1400] = "아이젠이 목적을 설명하는 동안에도 이치고는 루키아 쪽을 살핀다. 붕옥이라는 말이 커질수록 그녀의 목소리가 묻히지 않도록, 그는 루키아의 이름을 부른다."
         set ProtoBranchCard[1400] = 634
         set ProtoBranchCard2[1400] = 0
         set ProtoBranchGold[1400] = 0
@@ -20524,7 +20524,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1400] = 0
         set ProtoBranchChance[1400] = 100
         set ProtoBranchLabel[1401] = "“그럴듯한 명분은 다시 확인해야겠어.”"
-        set ProtoBranchResult[1401] = "“그럴듯한 명분은 다시 확인해야겠어.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다."
+        set ProtoBranchResult[1401] = "처형을 둘러싼 설명이 뒤집히자 이치고는 자신이 들었던 말들을 되짚는다. 명령이라는 이유로 넘겼던 의문들이 되살아난다. 상대가 내놓는 다음 말도 그대로 믿지는 않는다."
         set ProtoBranchCard[1401] = 635
         set ProtoBranchCard2[1401] = 0
         set ProtoBranchGold[1401] = 0
@@ -20534,7 +20534,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1401] = 0
         set ProtoBranchChance[1401] = 100
         set ProtoBranchLabel[1402] = "“우리가 찾으러 온 이름은 바뀌지 않았어.”"
-        set ProtoBranchResult[1402] = "“우리가 찾으러 온 이름은 바뀌지 않았어.” 아이젠이 드러낸 목적의 기억에 자신의 답을 남긴다. 위기를 넘긴 루키아는 소울 소사이어티에 남는다."
+        set ProtoBranchResult[1402] = "이치고가 루키아를 향해 다가가려 한다. 상대의 계획에 무엇이 필요했는지와 자신이 왜 왔는지는 다르다. 그가 부르는 이름은 처음부터 지금까지 루키아다."
         set ProtoBranchCard[1402] = 636
         set ProtoBranchCard2[1402] = 0
         set ProtoBranchGold[1402] = 0
@@ -20552,7 +20552,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[351] = 15
         set ProtoEventEpilogue[351] = 0
         set ProtoEventGrade[351] = 3
-        set ProtoEventStory[351] = "위기를 넘긴 루키아는 소울 소사이어티에 남는다. 구했다는 이유로 그 사람의 다음 삶까지 데려갈 수는 없다. 다시 만날 수 있는 관계를 남기며 서로의 자리에서 인사한다."
+        set ProtoEventStory[351] = "위기가 지나고 현세로 돌아갈 때가 가까워진다. 루키아는 영력을 회복하며 소울 소사이어티에 남겠다고 전한다. 이치고가 예상한 귀환과는 다른 대답이다. 함께 나서는 길 대신 각자 서 있을 곳을 말하면서, 두 사람은 헤어질 인사를 고른다."
         set ProtoEventIntro[351] = "위기를 넘긴 루키아는 소울 소사이어티에 남는다."
         set ProtoEventIcon[351] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[351] = 0
@@ -20560,7 +20560,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[351] = 0
         set ProtoEventFailure[351] = ""
         set ProtoBranchLabel[1404] = "“구했다는 이유로 네 길을 정하진 않을게.”"
-        set ProtoBranchResult[1404] = "“구했다는 이유로 네 길을 정하진 않을게.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다."
+        set ProtoBranchResult[1404] = "이치고가 함께 돌아가는 줄 알았다며 투덜댄다. 루키아는 남아서 해야 할 일이 있다고 분명하게 답한다. 이치고는 더 끌고 가지 않고 그 대답을 받아들인다."
         set ProtoBranchCard[1404] = 637
         set ProtoBranchCard2[1404] = 0
         set ProtoBranchGold[1404] = 0
@@ -20570,7 +20570,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1404] = 0
         set ProtoBranchChance[1404] = 100
         set ProtoBranchLabel[1405] = "“남기로 한 뜻도 네 목소리로 기억하겠어.”"
-        set ProtoBranchResult[1405] = "“남기로 한 뜻도 네 목소리로 기억하겠어.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다."
+        set ProtoBranchResult[1405] = "루키아가 남기로 한 이유를 자기 말로 설명한다. 이치고는 듣다가 짧게 알겠다고 답한다. 누군가 대신 전한 명령이 아니라 루키아에게 직접 들은 말이 남는다."
         set ProtoBranchCard[1405] = 638
         set ProtoBranchCard2[1405] = 0
         set ProtoBranchGold[1405] = 0
@@ -20580,7 +20580,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1405] = 0
         set ProtoBranchChance[1405] = 100
         set ProtoBranchLabel[1406] = "“다음에 만날 때 각자의 이야기를 들려주자.”"
-        set ProtoBranchResult[1406] = "“다음에 만날 때 각자의 이야기를 들려주자.” 루키아가 고르는 자리의 기억에 자신의 답을 남긴다. 현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다."
+        set ProtoBranchResult[1406] = "이치고가 다음에 만나면 무슨 일을 했는지 들려 달라고 한다. 루키아도 현세에서 괜한 사고나 치지 말라며 되받는다. 딱딱하던 작별에 익숙한 말투가 돌아온다."
         set ProtoBranchCard[1406] = 639
         set ProtoBranchCard2[1406] = 0
         set ProtoBranchGold[1406] = 0
@@ -20598,7 +20598,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[352] = 16
         set ProtoEventEpilogue[352] = 0
         set ProtoEventGrade[352] = 4
-        set ProtoEventStory[352] = "현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다. 루키아가 곁에 없다고 함께 겪은 시간이 사라지지는 않는다. 처음 힘을 얻었던 밤의 책임을 다른 사람의 삶을 존중하는 약속으로 이어 간다."
+        set ProtoEventStory[352] = "카라쿠라의 학교 복도와 거리에는 익숙한 소리가 돌아온다. 이치고와 동료들은 다시 현세의 하루를 보낸다. 루키아는 소울 소사이어티에 남아 있고, 이치고에게는 이 마을의 사신대행으로 할 일이 있다. 낯익은 집으로 향하는 길에도 그 책임이 따라온다."
         set ProtoEventIntro[352] = "현세로 돌아온 이치고와 동료들은 익숙한 거리의 불빛과 학교의 소란을 다시 만난다."
         set ProtoEventIcon[352] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[352] = 0
@@ -20606,7 +20606,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[352] = 0
         set ProtoEventFailure[352] = ""
         set ProtoBranchLabel[1408] = "“다시 돌아온 일상도 같이 지키고 싶어.”"
-        set ProtoBranchResult[1408] = "익숙한 거리의 불빛과 학교의 소란이 다시 이어진다. 루키아와 겪은 밤을 잊지 않은 채 돌아온 일상에도 동료의 자리를 남긴다."
+        set ProtoBranchResult[1408] = "학교에서 들려오는 소란에 이치고가 평소처럼 툭 내뱉는다. 동료들의 익숙한 대답이 따라온다. 멀리서 목숨을 걸고 돌아온 이유가 이런 평범한 순간에도 닿아 있다."
         set ProtoBranchCard[1408] = 640
         set ProtoBranchCard2[1408] = 0
         set ProtoBranchGold[1408] = 0
@@ -20616,7 +20616,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1408] = 0
         set ProtoBranchChance[1408] = 100
         set ProtoBranchLabel[1409] = "“각자의 자리에서 다음 만남을 기다리자.”"
-        set ProtoBranchResult[1409] = "함께 돌아가야만 관계가 남는 것은 아니라는 답을 가져간다. 소울 소사이어티와 현세에서 각자의 이야기를 살아가며 다음 만남을 기다린다."
+        set ProtoBranchResult[1409] = "이치고가 루키아와 헤어질 때 나눈 말을 떠올린다. 지금은 서로 다른 곳에 할 일이 있다. 그는 길모퉁이를 돌아 집으로 향하며 다음에 들려줄 하루를 이어 간다."
         set ProtoBranchCard[1409] = 641
         set ProtoBranchCard2[1409] = 0
         set ProtoBranchGold[1409] = 0
@@ -20626,7 +20626,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1409] = 0
         set ProtoBranchChance[1409] = 100
         set ProtoBranchLabel[1410] = "“구해 낸 삶이 스스로 고를 수 있었음을 기억할게.”"
-        set ProtoBranchResult[1410] = "구한 사람의 다음 삶을 대신 정하지 않았음을 기억한다. 루키아가 남기로 한 뜻과 처음의 구출 약속을 함께 남기며 카라쿠라로 돌아온다."
+        set ProtoBranchResult[1410] = "루키아가 남겠다고 했던 대답이 이치고에게 남아 있다. 함께 돌아오지 않았어도 구하러 갔던 일이 헛된 것은 아니다. 그는 자신이 돌아온 마을에서 해야 할 일을 살핀다."
         set ProtoBranchCard[1410] = 642
         set ProtoBranchCard2[1410] = 0
         set ProtoBranchGold[1410] = 0
@@ -20644,7 +20644,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventMainStage[353] = 0
         set ProtoEventEpilogue[353] = 1
         set ProtoEventGrade[353] = 1
-        set ProtoEventStory[353] = "구해 낸 삶이 고르는 자리의 이야기는 매듭지었지만 함께했던 시간이 모두 끝난 것은 아니다. 다른 사람의 삶을 다시 정하는 대신 자신이 가져갈 기억을 고른다. 누군가를 다시 만났다고 꾸미지 않고 남겨진 기록에 짧은 인사를 더한다."
+        set ProtoEventStory[353] = "처형대로 향하던 여정이 끝난 뒤 카라쿠라의 기록을 다시 펼친다. 구하러 간 이름과 헤어질 때 들은 대답이 같은 사람의 말로 남아 있다. 다음에 가져갈 것은 가장 강한 칼의 이름만이 아니다. 함께 건넜던 길에서 오래 남길 대목을 고른다."
         set ProtoEventIntro[353] = "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다."
         set ProtoEventIcon[353] = "ReplaceableTextures\\CommandButtons\\BTNTome.blp"
         set ProtoEventRequired[353] = 0
@@ -20652,7 +20652,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[353] = 0
         set ProtoEventFailure[353] = ""
         set ProtoBranchLabel[1412] = "처음의 인사를 기록한다."
-        set ProtoBranchResult[1412] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[1412] = "루키아와 처음 만난 대목을 읽는다. 낯선 사신이라고만 적었던 이름 옆에, 나중에는 살아서 대답해 주길 바랐던 사람이 되었다는 말을 덧붙인다."
         set ProtoBranchCard[1412] = 570
         set ProtoBranchCard2[1412] = 0
         set ProtoBranchGold[1412] = 0
@@ -20662,7 +20662,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1412] = 0
         set ProtoBranchChance[1412] = 100
         set ProtoBranchLabel[1413] = "함께 버틴 시간을 기록한다."
-        set ProtoBranchResult[1413] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[1413] = "처형대까지 이어진 길에서 도움을 준 이름들을 찾는다. 한 사람이 모든 길을 연 것처럼 줄이지 않고, 서로 다른 곳에서 맞춰졌던 시간을 함께 남긴다."
         set ProtoBranchCard[1413] = 571
         set ProtoBranchCard2[1413] = 0
         set ProtoBranchGold[1413] = 0
@@ -20672,7 +20672,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoBranchPotions[1413] = 0
         set ProtoBranchChance[1413] = 100
         set ProtoBranchLabel[1414] = "다음 여정에 가져갈 말을 적는다."
-        set ProtoBranchResult[1414] = "여정의 기억에 자신의 짧은 인사를 더한다. 끝난 이야기를 다시 해결하려 하지 않고 다음 길로 돌아간다."
+        set ProtoBranchResult[1414] = "루키아가 남겠다고 했던 대답을 마지막에 적는다. 구해 낸 사람의 다음 말도 들을 수 있어야 한다는 문장을 다음 여정 첫 줄로 옮긴다."
         set ProtoBranchCard[1414] = 572
         set ProtoBranchCard2[1414] = 0
         set ProtoBranchGold[1414] = 0
@@ -27136,7 +27136,7 @@ library DataPrototypeCatalog initializer ProtoCatalogInit requires DataPrototype
         set ProtoEventRequiredCard[444] = 0
         set ProtoEventFailure[444] = ""
         set ProtoBranchLabel[1776] = "140골드로 내 다음 연습 도구를 마련하고 터진 소리 뒤에도 숨을 잇는다"
-        set ProtoBranchResult[1776] = "다음 연습 도구에140골드를 내고 터진 소리 뒤에도 숨을 이어 보았다. 차지 준비속도9%와차지 공격 대미지10%가 늘었다. 탄지로는 첫 성공을 다시 세는 대신 방금 잇기 시작한 숨이 어디까지 가는지 기다린다."
+        set ProtoBranchResult[1776] = "새 연습 도구를 마련하고 첫 성공 뒤에도 호흡을 이어 간다. 탄지로는 터진 소리를 다시 세는 대신, 다음 숨이 끊기지 않고 이어지는지 지켜본다."
         set ProtoBranchCard[1776] = 814
         set ProtoBranchCard2[1776] = 0
         set ProtoBranchGold[1776] = 0
