@@ -785,5 +785,71 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         set ProtoEventIcon[66] = "war3mapImported\\UI_Event_FES2_church_protection.tga"
         // 한 번 막은 뒤의 발자리
         set ProtoEventIcon[67] = "war3mapImported\\UI_Event_FES2_archer_lancer.tga"
+        // 아비도스 방문
+        set ProtoEventIcon[9] = "war3mapImported\\UI_Event_AAS3_abydos_classroom.tga"
+        // 아비도스 방문
+        set ProtoEventIcon[10] = "war3mapImported\\UI_Event_AAS3_abydos_classroom.tga"
+        // 아비도스 방문
+        set ProtoEventIcon[11] = "war3mapImported\\UI_Event_AAS3_abydos_classroom.tga"
+        // 아비도스 방문
+        set ProtoEventIcon[12] = "war3mapImported\\UI_Event_AAS3_abydos_classroom.tga"
+        // 모래에 묻힌 보급로
+        set ProtoEventIcon[115] = "war3mapImported\\UI_Event_AAS3_supply_map.tga"
+        // 블랙마켓의 잘못된 지도
+        set ProtoEventIcon[117] = "war3mapImported\\UI_Event_AAS3_black_market.tga"
+        // 남아 있는 라멘 가게의 간판
+        set ProtoEventIcon[118] = "war3mapImported\\UI_Event_AAS3_ramen_recovery.tga"
+        // 카이저 소유의 사막
+        set ProtoEventIcon[119] = "war3mapImported\\UI_Event_AAS3_desert_scouting.tga"
+        // 호시노의 빈 자리
+        set ProtoEventIcon[120] = "war3mapImported\\UI_Event_AAS3_hoshino_letter.tga"
+        // 잠든 자리와 비워 둘 앞자리
+        set ProtoEventIcon[122] = "war3mapImported\\UI_Event_AAS3_hoshino_rest.tga"
+        // 안내판 앞의 다음 발걸음
+        set ProtoEventIcon[125] = "war3mapImported\\UI_Event_AAS3_aquarium_outing.tga"
+        // 페로로 앞에서 듣는 부탁
+        set ProtoEventIcon[126] = "war3mapImported\\UI_Event_AAS3_hifumi_peroro.tga"
+        // 악당답게 계산할게
+        set ProtoEventIcon[127] = "war3mapImported\\UI_Event_AAS3_aru_bill.tga"
+        // 웃는 쪽은 두 봉투
+        set ProtoEventIcon[130] = "war3mapImported\\UI_Event_AAS3_mutsuki_tease.tga"
+        // 사장님 다음에는
+        set ProtoEventIcon[131] = "war3mapImported\\UI_Event_AAS3_problem_solver.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[147] = "war3mapImported\\UI_Event_AAS3_abydos_memories.tga"
+        // 아인크라드 방문
+        set ProtoEventIcon[21] = "war3mapImported\\UI_Event_AAS3_town_of_beginnings.tga"
+        // 아인크라드 방문
+        set ProtoEventIcon[22] = "war3mapImported\\UI_Event_AAS3_town_of_beginnings.tga"
+        // 아인크라드 방문
+        set ProtoEventIcon[23] = "war3mapImported\\UI_Event_AAS3_town_of_beginnings.tga"
+        // 아인크라드 방문
+        set ProtoEventIcon[24] = "war3mapImported\\UI_Event_AAS3_town_of_beginnings.tga"
+        // 부러진 시험검
+        set ProtoEventIcon[212] = "war3mapImported\\UI_Event_AAS3_liz_workshop.tga"
+        // 공방으로 돌아온 재료
+        set ProtoEventIcon[213] = "war3mapImported\\UI_Event_AAS3_workshop_friends.tga"
+        // 작은 동료를 되찾으러
+        set ProtoEventIcon[214] = "war3mapImported\\UI_Event_AAS3_silica_search.tga"
+        // 요리할 수 없는 희귀 고기
+        set ProtoEventIcon[215] = "war3mapImported\\UI_Event_AAS3_ragout_rabbit.tga"
+        // 되돌아온 정찰대
+        set ProtoEventIcon[216] = "war3mapImported\\UI_Event_AAS3_boss_scouting.tga"
+        // 안전 구역의 모순
+        set ProtoEventIcon[217] = "war3mapImported\\UI_Event_AAS3_safe_zone_mystery.tga"
+        // 중층에서 꺼내 놓은 등불
+        set ProtoEventIcon[220] = "war3mapImported\\UI_Event_AAS3_sachi_waiting.tga"
+        // 호숫가에서 기다릴 사람 · 두 번째 매듭을 묶기 전에
+        set ProtoEventIcon[221] = "war3mapImported\\UI_Event_AAS3_nishida_fishing.tga"
+        // 호숫가에서 기다릴 사람 · 두 번째 매듭을 묶기 전에
+        set ProtoEventIcon[228] = "war3mapImported\\UI_Event_AAS3_nishida_fishing.tga"
+        // 부단장이 남긴 두 갈래 지시
+        set ProtoEventIcon[222] = "war3mapImported\\UI_Event_AAS3_asuna_instructions.tga"
+        // 이름 다음의 질문
+        set ProtoEventIcon[225] = "war3mapImported\\UI_Event_AAS3_yui_questions.tga"
+        // 둘이서도 혼자 걷는 사람
+        set ProtoEventIcon[226] = "war3mapImported\\UI_Event_AAS3_first_party.tga"
+        // 여정 뒤에 다시 펼친 기억
+        set ProtoEventIcon[244] = "war3mapImported\\UI_Event_AAS3_aincrad_memories.tga"
     endfunction
 endlibrary
