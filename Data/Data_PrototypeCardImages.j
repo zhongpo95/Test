@@ -54,35 +54,35 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 카즈마
         call SetImages(123, "UI_Card_KSB_kazuma_Icon", "UI_Card_KSB_kazuma_Art")
         // 오쿠소라 아야네
-        call SetImages(147, "UI_Card_BA_23005_Icon", "UI_Card_BAM1_23005_Art")
+        call SetImages(147, "UI_Card_BAM2_23005_Icon", "UI_Card_BAM1_23005_Art")
         // 스나오오카미 시로코
-        call SetImages(148, "UI_Card_BA_10010_Icon", "UI_Card_BAM1_10010_Art")
+        call SetImages(148, "UI_Card_BAM2_10010_Icon", "UI_Card_BAM1_10010_Art")
         // 쿠로미 세리카
-        call SetImages(149, "UI_Card_BA_13008_Icon", "UI_Card_BAM1_13008_Art")
+        call SetImages(149, "UI_Card_BAM2_13008_Icon", "UI_Card_BAM1_13008_Art")
         // 이자요이 노노미
-        call SetImages(150, "UI_Card_Nonomi", "UI_Card_BAM1_13004_Art")
+        call SetImages(150, "UI_Card_BAM2_13004_Icon", "UI_Card_BAM1_13004_Art")
         // 타카나시 호시노
-        call SetImages(151, "UI_Card_BA_10005_Icon", "UI_Card_BAM1_10005_Art")
+        call SetImages(151, "UI_Card_BAM2_10005_Icon", "UI_Card_BAM1_10005_Art")
         // 아지타니 히후미
-        call SetImages(153, "UI_Card_BA_10003_Icon", "UI_Card_BAM1_10003_Art")
+        call SetImages(153, "UI_Card_BAM2_10003_Icon", "UI_Card_BAM1_10003_Art")
         // 리쿠하치마 아루
-        call SetImages(161, "UI_Card_BA_10000_Icon", "UI_Card_BAM1_10000_Art")
+        call SetImages(161, "UI_Card_BAM2_10000_Icon", "UI_Card_BAM1_10000_Art")
         // 오니카타 카요코
-        call SetImages(162, "UI_Card_BA_13005_Icon", "UI_Card_BAM1_13005_Art")
+        call SetImages(162, "UI_Card_BAM2_13005_Icon", "UI_Card_BAM1_13005_Art")
         // 이구사 하루카
-        call SetImages(163, "UI_Card_BA_16000_Icon", "UI_Card_BAM1_16000_Art")
+        call SetImages(163, "UI_Card_BAM2_16000_Icon", "UI_Card_BAM1_16000_Art")
         // 아사기 무츠키
-        call SetImages(164, "UI_Card_BA_13006_Icon", "UI_Card_BAM1_13006_Art")
+        call SetImages(164, "UI_Card_BAM2_13006_Icon", "UI_Card_BAM1_13006_Art")
         // 아야네
-        call SetImages(177, "UI_Card_BA_23005_Icon", "UI_Card_BAM1_23005_Art")
+        call SetImages(177, "UI_Card_BAM2_23005_Icon", "UI_Card_BAM1_23005_Art")
         // 시로코
-        call SetImages(180, "UI_Card_BA_10010_Icon", "UI_Card_BAM1_10010_Art")
+        call SetImages(180, "UI_Card_BAM2_10010_Icon", "UI_Card_BAM1_10010_Art")
         // 세리카
-        call SetImages(183, "UI_Card_BA_13008_Icon", "UI_Card_BAM1_13008_Art")
+        call SetImages(183, "UI_Card_BAM2_13008_Icon", "UI_Card_BAM1_13008_Art")
         // 노노미
-        call SetImages(186, "UI_Card_Nonomi", "UI_Card_BAM1_13004_Art")
+        call SetImages(186, "UI_Card_BAM2_13004_Icon", "UI_Card_BAM1_13004_Art")
         // 호시노
-        call SetImages(189, "UI_Card_BA_10005_Icon", "UI_Card_BAM1_10005_Art")
+        call SetImages(189, "UI_Card_BAM2_10005_Icon", "UI_Card_BAM1_10005_Art")
         // 우이하루 카자리
         call SetImages(219, "UI_Card_RGT_10_Icon", "UI_Card_RGT_10_Art")
         // 미사카 미코토
