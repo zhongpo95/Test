@@ -38,11 +38,11 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 크리스
         call SetImages(86, "UI_Card_KSB_chris_Icon", "UI_Card_KSB_chris_Art")
         // 메구밍
-        call SetImages(87, "UI_Card_FAN16_megumin_Icon", "UI_Card_FAN16_megumin_Art")
+        call SetImages(87, "UI_Card_KSB_megumin_Icon", "UI_Card_KSB_megumin_Art")
         // 다크니스
         call SetImages(88, "UI_Card_KSB_darkness_Icon", "UI_Card_KSB_darkness_Art")
         // 아쿠아
-        call SetImages(89, "UI_Card_FAN16_aqua_Icon", "UI_Card_FAN16_aqua_Art")
+        call SetImages(89, "UI_Card_KSB_aqua_Icon", "UI_Card_KSB_aqua_Art")
         // 위즈
         call SetImages(90, "UI_Card_KSB_wiz_Icon", "UI_Card_KSB_wiz_Art")
         // 바니르
@@ -184,7 +184,7 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 이키 히요리
         call SetImages(492, "UI_Card_NRG_hiyori_Icon", "UI_Card_NRG_hiyori_Art")
         // 호로
-        call SetImages(493, "UI_Card_FAN15_holo_Icon", "UI_Card_FAN15_holo_Art")
+        call SetImages(493, "UI_Card_SW_holo_Icon", "UI_Card_SW_holo_Art")
         // 크래프트 로렌스
         call SetImages(494, "UI_Card_SW_lawrence_Icon", "UI_Card_SW_lawrence_Art")
         // 라그나 더 블러드엣지
