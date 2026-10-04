@@ -280,9 +280,9 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 윈리 록벨
         call SetImages(717, "UI_Card_FMA_3_Icon", "UI_Card_FMA_3_Art")
         // 에드워드 엘릭
-        call SetImages(718, "UI_Card_FMA_1_Icon", "UI_Card_FMA_1_Art")
+        call SetImages(718, "UI_Card_FCU8_edward_Icon", "UI_Card_FCU8_edward_Art")
         // 알폰스 엘릭
-        call SetImages(719, "UI_Card_FMA_2_Icon", "UI_Card_FMA_2_Art")
+        call SetImages(719, "UI_Card_FCU8_alphonse_Icon", "UI_Card_FCU8_alphonse_Art")
         // 셰스카
         call SetImages(721, "UI_Card_FMA_21_Icon", "UI_Card_FMA_21_Art")
         // 알렉스 루이 암스트롱
