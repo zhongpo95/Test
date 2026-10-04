@@ -95,7 +95,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if opening then
             set tag = "지역 개방 · " + tag
             set action = "행동력 0 · 머리 카드 획득"
-            call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoCardName[ProtoHeadEntryCard[head]])
+            call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoDisplayCardName(pid, ProtoHeadEntryCard[head]))
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
@@ -104,7 +104,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set tag = tag + " · 후속"
         endif
         if not opening and ProtoEventRequiredCard[id] > 0 then
-            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoCardName[ProtoEventRequiredCard[id]] + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
+            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoDisplayCardName(pid, ProtoEventRequiredCard[id]) + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
         endif
         call ExpUIText(CandidateRegion[i], tag + "|n" + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r")
         call ExpUIText(CandidateTitle[i], ProtoEventName[id])

@@ -200,7 +200,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
                 if id > 0 then
                     call DzFrameSetTexture(Icons[i], ProtoCardArt(id), 0)
                     call DzFrameSetTexture(Borders[i], ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
-                    call Text(Names[i], Color(ProtoOwnedCardGrade(pid, id)) + ProtoCardName[id])
+                    call Text(Names[i], Color(ProtoOwnedCardGrade(pid, id)) + ProtoDisplayCardName(pid, id))
                     set value = ""
                     if ProtoCardStacks[ExpKey(pid, id)] > 0 then
                         set value = "+" + I2S(ProtoCardStacks[ExpKey(pid, id)])
@@ -234,7 +234,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
                 endif
                 call DzFrameSetTexture(GalleryArt, value, 0)
                 call DzFrameSetTexture(GalleryBorder, PortraitFrame(grade), 0)
-                call Text(GalleryName, Color(grade) + ProtoCardName[Selected])
+                call Text(GalleryName, Color(grade) + ProtoDisplayCardName(pid, Selected))
                 set value = "공용"
                 if ProtoCardHead[Selected] > 0 then
                     set value = ProtoHeadName[ProtoCardHead[Selected]]
@@ -258,7 +258,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             // 호버 설명은 목록 내부에 제한하여 오른쪽 일러스트와 하단 조작을 가리지 않는다.
             set x = RMinBJ(0.153, 0.087 + ModuloInteger(Hover - 1, 5) * 0.075)
             set effects = ProtoCharacterEffectCount(pid, id)
-            set tooltipHeight = 0.108 + 0.0115 * effects
+            set tooltipHeight = 0.108 + 0.0115 * (effects + ProtoStoryChangeLineCount(pid, id))
             if effects > 12 then
                 set tooltipHeight = tooltipHeight + 0.045
                 call DzFrameSetFont(TooltipText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
@@ -272,7 +272,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             call DzFrameSetSize(TooltipText, 0.244, tooltipHeight - 0.084)
             call DzFrameSetTexture(TooltipIcon, ProtoCardArt(id), 0)
             call DzFrameSetTexture(TooltipBorder, ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
-            call Text(TooltipTitle, Color(ProtoOwnedCardGrade(pid, id)) + "[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, id)) + "] " + ProtoCardName[id])
+            call Text(TooltipTitle, Color(ProtoOwnedCardGrade(pid, id)) + "[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, id)) + "] " + ProtoDisplayCardName(pid, id))
             call Text(TooltipText, ProtoCardText(pid, id))
             call DzFrameShow(Tooltip, true)
         endif
