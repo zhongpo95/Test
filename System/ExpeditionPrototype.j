@@ -113,10 +113,11 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         set ProtoRewardCopies[key] = ProtoRewardCopies[key] + 1
         call ProtoAddCharacterReward(pid, card, mainStory)
+        set ProtoOutcome[pid] = ProtoOutcome[pid] + ProtoApplyPendingStoryChange(pid, card)
         if owned then
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[효과 추가] " + ProtoCardName[card]
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[효과 추가] " + ProtoDisplayCardName(pid, card)
         else
-            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[카드 획득] " + ProtoCardName[card]
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n[카드 획득] " + ProtoDisplayCardName(pid, card)
         endif
         set ProtoOutcome[pid] = ProtoOutcome[pid] + " · " + ProtoCardEffectName[card] + "|n" + ProtoCardEffectsText(card, ProtoEvolved[key])
         if owned and ProtoOwnedCardGrade(pid, card) > previousGrade then
@@ -124,7 +125,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endif
         // 사건 결과 창에 이미 표시할 때는 채팅 알림이 본문을 덮지 않도록 한다.
         if ProtoStage[pid] != 2 then
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 성장 · [" + ExpEventGradeName(ProtoOwnedCardGrade(pid, card)) + "] " + ProtoCardName[card] + "|n보유 카드 [I]에서 누적 효과를 확인할 수 있습니다.")
+            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 6, "카드 성장 · [" + ExpEventGradeName(ProtoOwnedCardGrade(pid, card)) + "] " + ProtoDisplayCardName(pid, card) + "|n보유 카드 [I]에서 누적 효과를 확인할 수 있습니다.")
         endif
         call ProtoRefreshStats(pid)
     endfunction
@@ -296,7 +297,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
     function ProtoEventCardPreview takes integer pid, integer card returns string
         local integer grade = ProtoRewardGrade(pid, card, ProtoEventMainStage[ProtoSelected[pid]] > 0)
-        local string value = "[" + ExpEventGradeName(grade) + "] " + ProtoCardName[card]
+        local string value = "[" + ExpEventGradeName(grade) + "] " + ProtoDisplayCardName(pid, card)
         if ProtoOwnsCharacter(pid, card) then
             set value = value + " · 효과 추가"
             if grade > ProtoOwnedCardGrade(pid, card) then
@@ -305,7 +306,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         else
             set value = value + " · 새 카드"
         endif
-        return value + "|n" + ProtoCardEffectName[card] + "|n이번에 추가 · " + JNStringReplace(ProtoCardEffectsText(card, ProtoEvolved[ExpKey(pid, card)]), "|n", " · ")
+        return value + ProtoStoryChangePreview(pid, card) + "|n" + ProtoCardEffectName[card] + "|n이번에 추가 · " + JNStringReplace(ProtoCardEffectsText(card, ProtoEvolved[ExpKey(pid, card)]), "|n", " · ")
     endfunction
 
     function ProtoBranchAllowed takes integer pid, integer choice returns boolean
@@ -381,13 +382,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         local string reward = ""
         local string cost = ""
         if ProtoBranchCard[key] > 0 then
-            set reward = ProtoCardName[ProtoBranchCard[key]]
+            set reward = ProtoDisplayCardName(pid, ProtoBranchCard[key])
             if ProtoOwnsCharacter(pid, ProtoBranchCard[key]) then
                 set reward = reward + " (효과 추가)"
             endif
         endif
         if ProtoBranchCard2[key] > 0 then
-            set reward = reward + " · " + ProtoCardName[ProtoBranchCard2[key]]
+            set reward = reward + " · " + ProtoDisplayCardName(pid, ProtoBranchCard2[key])
             if ProtoOwnsCharacter(pid, ProtoBranchCard2[key]) then
                 set reward = reward + " (효과 추가)"
             endif
@@ -530,6 +531,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", MainUnit[pid], "origin"))
                 endif
             endif
+            set ProtoOutcome[pid] = ProtoOutcome[pid] + ProtoUnlockStoryChanges(pid, id)
         else
             set ProtoEventHistory[ProtoStoryKey(pid, id)] = -choice
         endif
@@ -713,6 +715,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set id = id + 1
         endloop
         call FlushChildHashtable(ProtoCharacterEffects, pid)
+        call ProtoResetStoryChanges(pid)
         set id = 1
         loop
             exitwhen id > PROTO_EVENT_COUNT
@@ -1122,7 +1125,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     set ProtoCardRevision[pid] = ProtoCardRevision[pid] + 1
                     call ProtoStatAddCard(pid, id, true)
                     set changed = true
-                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoCardName[id] + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCharacterEffectsText(pid, id))
+                    call DisplayTimedTextToPlayer(Player(pid), 0, 0, 5, "|cffc781ff카드 각성! " + ProtoDisplayCardName(pid, id) + " · " + ProtoCardEffectName[id] + "|r|n" + ProtoCharacterEffectsText(pid, id))
                     if GetLocalPlayer() == Player(pid) then
                         call StashSave(PLAYER_DATA[pid], PROTO_SAVE_PREFIX + "카드각성도감." + ProtoCardKey[id], "1")
                     endif
