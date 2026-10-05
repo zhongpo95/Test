@@ -259,6 +259,9 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             set x = RMinBJ(0.153, 0.087 + ModuloInteger(Hover - 1, 5) * 0.075)
             set effects = ProtoCharacterEffectCount(pid, id)
             set tooltipHeight = 0.108 + 0.0115 * (effects + ProtoStoryChangeLineCount(pid, id))
+            if ProtoCardEnding[id] == 1 then
+                set tooltipHeight = tooltipHeight + 0.069
+            endif
             if effects > 12 then
                 set tooltipHeight = tooltipHeight + 0.045
                 call DzFrameSetFont(TooltipText, "Fonts\\DFHeiMd.ttf", 0.009, 0)

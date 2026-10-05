@@ -39,6 +39,9 @@ library DataPrototype requires DataPrototypeGrowth
         local integer character = ProtoCardCharacter[id]
         local integer key = ExpKey(pid, character)
         local string value = "강화 +" + I2S(ProtoCardStacks[key]) + " · 누적 보상 " + I2S(ProtoCardStacks[key] + 1) + "회|n"
+        if ProtoCardEnding[id] == 1 then
+            return ProtoCardDescription[id] + "|n|n엔딩 기념 카드 · 전투 효과 미설정"
+        endif
         set value = value + "선택한 보상의 합산 효과|n" + ProtoCharacterEffectsText(pid, character)
         if ProtoStoryChangeDescription(pid, id) != "" then
             set value = value + "|n|n" + ProtoStoryChangeDescription(pid, id)

@@ -16,7 +16,41 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         private integer array OfferEvents
         private integer array OfferWeights
         private integer ResetPid = 0
+        // 대화 중에는 최초 보상 선택만 보관하고 마지막 반응 확인 뒤 한 번 정산한다.
+        private integer array DialoguePrimary
+        private integer array DialogueNode
+        private integer array DialogueNext
+        private boolean array DialogueSettling
     endglobals
+
+    private function ProtoResetDialogue takes integer pid returns nothing
+        set DialoguePrimary[pid] = 0
+        set DialogueNode[pid] = 0
+        set DialogueNext[pid] = 0
+        set DialogueSettling[pid] = false
+    endfunction
+
+    function ProtoDialoguePending takes integer pid returns boolean
+        return DialoguePrimary[pid] > 0
+    endfunction
+
+    function ProtoDialogueFollowing takes integer pid returns boolean
+        return DialogueNode[pid] > 0
+    endfunction
+
+    function ProtoDialogueStoryText takes integer pid returns string
+        if DialogueNode[pid] > 0 then
+            return ProtoDialogueStory[DialogueNode[pid]]
+        endif
+        return ProtoEventStory[ProtoSelected[pid]]
+    endfunction
+
+    function ProtoDialogueChoiceCount takes integer pid returns integer
+        if DialogueNode[pid] > 0 then
+            return ProtoDialogueChoices[DialogueNode[pid]]
+        endif
+        return ProtoEventChoices[ProtoSelected[pid]]
+    endfunction
 
     function ProtoRefreshStats takes integer pid returns nothing
         local real ratio = GetUnitState(MainUnit[pid], UNIT_STATE_LIFE) / GetUnitState(MainUnit[pid], UNIT_STATE_MAX_LIFE)
@@ -280,6 +314,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endloop
         if ProtoCandidates[ExpKey(pid, 1)] == 0 then
             // 당장 유효한 사건이 없어도 행동력을 강제로 소비하지 않는다.
+            call ProtoResetDialogue(pid)
             set ProtoStage[pid] = 0
             set ProtoSelected[pid] = 0
             set ProtoDeadline[pid] = 0
@@ -470,6 +505,22 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         endloop
     endfunction
 
+    function ProtoDialogueChoiceAllowed takes integer pid, integer choice returns boolean
+        if DialogueNode[pid] > 0 then
+            return choice >= 1 and choice <= ProtoDialogueChoiceCount(pid)
+        endif
+        return ProtoBranchAllowed(pid, choice)
+    endfunction
+
+    function ProtoDialogueChoiceText takes integer pid, integer choice, boolean summary returns string
+        if DialogueNode[pid] > 0 then
+            return ProtoDialogueLabel[ProtoChoiceKey(DialogueNode[pid], choice)]
+        elseif summary then
+            return ProtoBranchSummary(pid, choice)
+        endif
+        return ProtoBranchText(pid, choice)
+    endfunction
+
     function ProtoResolve takes integer pid, integer choice returns nothing
         local integer id = ProtoSelected[pid]
         local integer key = ProtoChoiceKey(id, choice)
@@ -496,7 +547,12 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n성공 판정 " + I2S(roll) + "/100 · " + I2S(ProtoBranchChance[key]) + " 이하이면 성공"
             endif
             if success then
-                set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoBranchLabel[key] + "|n" + ProtoBranchResult[key]
+                if DialogueSettling[pid] then
+                    // 이미 읽은 선택 반응을 다시 출력하지 않는다. 엔딩의 공통 결과는 마지막 대화 앞에 배치된다.
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventCommonResult[id]
+                else
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoBranchLabel[key] + "|n" + ProtoBranchResult[key]
+                endif
                 if ProtoBranchCard[key] > 0 or ProtoBranchCard2[key] > 0 or ProtoBranchGold[key] > 0 or ProtoBranchPotions[key] > 0 then
                     set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff216548[획득 보상]|cff315a70"
                 endif
@@ -557,6 +613,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
 
 
     function ProtoResume takes integer pid returns nothing
+        call ProtoResetDialogue(pid)
         set ProtoStage[pid] = 0
         set ProtoLastEvent[pid] = HuntSeconds[pid]
         set ProtoOfferKills[pid] = ProtoKills[pid]
@@ -565,17 +622,70 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         call ProtoSetPause(pid, false)
     endfunction
 
+    // 최초 선택과 후속 대답 모두 먼저 반응을 보여 준다. 이 단계에서는 보상을 지급하지 않는다.
+    function ProtoChoose takes integer pid, integer choice returns nothing
+        local integer id = ProtoSelected[pid]
+        local integer key
+        if ProtoStage[pid] != 2 or not ProtoDialogueChoiceAllowed(pid, choice) then
+            return
+        endif
+        if ProtoEventDialogueEnabled[id] == 0 then
+            call ProtoResolve(pid, choice)
+            return
+        endif
+        if DialogueNode[pid] == 0 then
+            set DialoguePrimary[pid] = choice
+            set DialogueNext[pid] = ProtoEventDialogueFirst[id]
+            set key = ProtoChoiceKey(id, choice)
+            set ProtoOutcome[pid] = ProtoBranchLabel[key] + "|n|n" + ProtoBranchResult[key]
+        else
+            set DialogueNext[pid] = ProtoDialogueNext[DialogueNode[pid]]
+            set key = ProtoChoiceKey(DialogueNode[pid], choice)
+            set ProtoOutcome[pid] = ProtoDialogueLabel[key] + "|n|n" + ProtoDialogueResult[key]
+        endif
+        set ProtoStage[pid] = 3
+        set ProtoDeadline[pid] = PROTO_CHOICE_SECONDS
+        set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
+    endfunction
+
+    function ProtoContinue takes integer pid returns nothing
+        local integer choice = DialoguePrimary[pid]
+        if ProtoStage[pid] != 3 then
+            return
+        endif
+        if choice == 0 then
+            call ProtoResume(pid)
+        elseif DialogueNext[pid] > 0 then
+            set DialogueNode[pid] = DialogueNext[pid]
+            set DialogueNext[pid] = 0
+            set ProtoStage[pid] = 2
+            set ProtoDeadline[pid] = PROTO_CHOICE_SECONDS
+            set ExpOfferVersion[pid] = ExpOfferVersion[pid] + 1
+        else
+            // 보상 함수는 stage 2를 기준으로 메인 카드 획득을 판별한다.
+            call ProtoResetDialogue(pid)
+            set DialogueSettling[pid] = true
+            set ProtoStage[pid] = 2
+            call ProtoResolve(pid, choice)
+            set DialogueSettling[pid] = false
+        endif
+    endfunction
+
     // 시간 만료는 추가 비용·위험이 없는 행동부터 고른다. 무효인 고정 2번으로 멈추지 않는다.
     function ProtoResolveTimeout takes integer pid returns nothing
         local integer choice = 1
         local integer selected = 0
         local integer key
+        if DialogueNode[pid] > 0 then
+            call ProtoChoose(pid, 1)
+            return
+        endif
         loop
             exitwhen choice > ProtoEventChoices[ProtoSelected[pid]]
             set key = ProtoChoiceKey(ProtoSelected[pid], choice)
             if ProtoBranchAllowed(pid, choice) then
                 if ProtoBranchCost[key] == 0 and ProtoBranchLevel[key] <= 0 and ProtoBranchDensity[key] <= 0 then
-                    call ProtoResolve(pid, choice)
+                    call ProtoChoose(pid, choice)
                     return
                 endif
                 if selected == 0 or ProtoBranchCost[key] < ProtoBranchCost[ProtoChoiceKey(ProtoSelected[pid], selected)] then
@@ -585,7 +695,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set choice = choice + 1
         endloop
         if selected > 0 then
-            call ProtoResolve(pid, selected)
+            call ProtoChoose(pid, selected)
         else
             // 외부 정산으로 조건이 바뀌었을 때에도 개인 구역의 정지를 해제한다.
             call ProtoResume(pid)
@@ -616,6 +726,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             call ProtoEvolutionReset(area)
             set ProtoPaused[area] = false
             set ProtoReady[area] = false
+            call ProtoResetDialogue(area)
             set ProtoStage[area] = 0
             set area = area + 1
         endloop
@@ -634,9 +745,16 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             exitwhen pid == 4
             if ExpMember[pid] then
                 // 제한 시간이 끝나도 행동력을 지불한 사건은 안전한 선택으로 마무리한다.
-                if ProtoStage[pid] == 2 then
-                    call ProtoResolveTimeout(pid)
-                endif
+                // 생성기가 순환 없는 대화 연결을 보장한다. 보스 전환도 동일한 선택/확인 경로를 끝까지 통과한다.
+                loop
+                    exitwhen ProtoStage[pid] != 2 and not ProtoDialoguePending(pid)
+                    if ProtoStage[pid] == 2 then
+                        call ProtoResolveTimeout(pid)
+                    else
+                        call ProtoContinue(pid)
+                    endif
+                endloop
+                call ProtoResetDialogue(pid)
                 set ProtoStage[pid] = 0
                 set ProtoReady[pid] = false
                 call ProtoSetPause(pid, false)
@@ -667,6 +785,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             if ExpMember[pid] then
                 call ProtoRefreshStats(pid)
                 set ProtoAP[pid] = ProtoAPMax[pid]
+                call ProtoResetDialogue(pid)
                 set ProtoStage[pid] = 0
                 set ProtoSelected[pid] = 0
                 set ProtoDeadline[pid] = 0
@@ -798,6 +917,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ExpEventDeadline[pid] = 0
             set ProtoAP[pid] = PROTO_BASE_AP
             set ProtoAPMax[pid] = PROTO_BASE_AP
+            call ProtoResetDialogue(pid)
             set ProtoStage[pid] = 0
             set ProtoSelected[pid] = 0
             set ProtoDeadline[pid] = 0
@@ -888,6 +1008,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             if ProtoEventMainStage[id] == 0 and ProtoEventEpilogue[id] == 0 then
                 set ProtoEventUsed[id] = true
             endif
+            call ProtoResetDialogue(pid)
             set ProtoSelected[pid] = id
             set ProtoAP[pid] = ProtoAP[pid] - ProtoEventAPCost[id]
             set ProtoStage[pid] = 2
@@ -923,9 +1044,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             set ProtoRerolls[pid] = ProtoRerolls[pid] + 1
             call ProtoOffer(pid)
         elseif action >= 2201 and action <= 2204 then
-            call ProtoResolve(pid, action - 2200)
+            call ProtoChoose(pid, action - 2200)
         elseif action == 2400 and ProtoStage[pid] == 3 then
-            call ProtoResume(pid)
+            call ProtoContinue(pid)
         elseif action == 2500 and ProtoAP[pid] == 0 and ProtoStage[pid] == 0 and UnitAlive(MainUnit[pid]) then
             set ProtoReady[pid] = true
             set ExpGold[pid] = ExpGold[pid] + ExpSeconds
@@ -1171,6 +1292,8 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                             if ProtoDeadline[pid] == 0 then
                                 if ProtoStage[pid] == 2 then
                                     call ProtoResolveTimeout(pid)
+                                elseif ProtoStage[pid] == 3 then
+                                    call ProtoContinue(pid)
                                 else
                                     call ProtoResume(pid)
                                 endif

@@ -1,0 +1,3936 @@
+{
+  "world": {
+    "key": "penacony",
+    "name": "페나코니",
+    "work": "붕괴 스타레일",
+    "intro": "레버리 호텔의 초대를 받아 페나코니로 향한다. 반디와 나눈 약속, 미샤에게 이어진 개척의 기억을 따라 선데이의 질서의 꿈에 답하고 각자의 내일로 돌아오는 이야기다.",
+    "effects": [
+      {
+        "stat": "crit_chance",
+        "value": 2
+      }
+    ],
+    "entryCard": "hsr_misha",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp",
+    "mainStory": {
+      "title": "꿈에서 만난 우리",
+      "length": 15,
+      "focus": [
+        "crit_chance",
+        "crit_damage",
+        "damage_reduction"
+      ],
+      "source": "붕괴 스타레일 페나코니 개척 임무 2.0~2.2",
+      "adaptation": "주요 흐름을 토대로 한 창작 대화. 어느 대답도 다음 장이나 결말을 잠그지 않는다."
+    },
+    "entryIcon": "war3mapImported\\UI_Head_Official_penacony_Icon.tga"
+  },
+  "sources": [
+    "https://blog.ko.playstation.com/2024/01/30/20240130-honkaistarrail/",
+    "https://blog.ja.playstation.com/2024/03/16/20240316-starrail/",
+    "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/The_Trailblaze_Special_Dreamscape_Guide01",
+    "https://honkai-star-rail.fandom.com/wiki/Then_Wake_to_Weep",
+    "https://blog.ko.playstation.com/2024/03/20/20240320-honkaistarrail/",
+    "https://blog.playstation.com/2024/06/07/honkai-star-rail-update-v2-3-brings-new-friends-and-simulated-universe-on-june-19/",
+    "https://blog.de.playstation.com/?p=178594"
+  ],
+  "canonBoundary": "메인은 페나코니 2.0~2.2의 만남과 질서의 꿈을 소재로 재구성한다. 대화와 카드 기억은 맵의 창작이며 어느 선택도 다음 장과 같은 결말을 잠그지 않는다. 기존 서브는 여러 시점의 독립된 기억이다. 미샤의 현실 부활이나 NPC 전투 기술을 지급하지 않는다. 완결 후 메인·서브는 제거하고 지정 후일담만 남긴다.",
+  "cards": [
+    {
+      "key": "hsr_misha",
+      "name": "미샤",
+      "effectName": "꿈속에서 찾은 귀환길",
+      "keyword": "이동 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "레버리 호텔의 벨보이이며 손님들의 모험담을 좋아한다. 안내를 받아 여유 있게 준비하는 입문 효과다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_misha_route",
+      "name": "미샤",
+      "effectName": "분주했던 여행 준비",
+      "keyword": "행동 · 일반 몬스터",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "호텔 손님을 돕는 미샤의 분주한 준비를 각색한다. 빙결이나 새 호텔 업무 시스템은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_aventurine_fortune",
+      "name": "어벤츄린",
+      "effectName": "운명을 마주하는 미소",
+      "keyword": "치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "위험과 운명을 게임처럼 마주하는 인물의 태도를 치명 기회의 준비로 각색한다. 원작 슬롯머신 보상이나 확률을 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_aventurine_reserve",
+      "name": "어벤츄린",
+      "effectName": "판돈 밖에 남겨 둔 여유",
+      "keyword": "보호막 · 치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "shielded_damage",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아군 보호막과 치명 피해 지원 역할을 참고했다. 새 보호막을 만들지 않고 이미 보유한 보호막 조건만 강화한다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_sparkle",
+      "name": "스파클",
+      "effectName": "다음 막은 누구의 차례",
+      "keyword": "행동 · 치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "신분과 역할을 바꾸며 재미를 추구하는 가면의 우인이다. 원작 행동 게이지·치명 피해 지원을 공통 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_black_swan_trace",
+      "name": "블랙 스완",
+      "effectName": "기억에 남은 빈틈",
+      "keyword": "피해 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "기억을 살피는 기억하는 자의 역할을 상대의 빈틈을 기억하는 준비로 각색한다. 아르카나 중첩이나 지속 피해를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_black_swan_archive",
+      "name": "블랙 스완",
+      "effectName": "흩어진 장면을 잇기",
+      "keyword": "탐색 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "타인의 기억을 경청하고 정리하는 역할을 다음 사건 판단의 여유로 각색한다. 미래 당첨 결과를 알려 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_gallagher",
+      "name": "갤러거",
+      "effectName": "경계를 놓지 않는 환대",
+      "keyword": "흡수 · 방어",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "보안관 겸 바텐더이며 전투에서는 특정 상태의 적을 공격한 아군을 회복시킨다. 카드는 실제 피해의 지연 흡수와 경계 태도로 각색하고 원작 디버프를 새로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_aventurine_scattered",
+      "name": "어벤츄린",
+      "effectName": "흩어진 판돈",
+      "keyword": "처치 골드 · 치명타 피해 · 패널티",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "리스크를 즐기는 도박사의 특징을 눈앞의 수입과 둔해진 이동의 교환으로 각색한다. 머니 머신의 지폐 수·원작 초석·실드·추가 공격을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_misha_reach",
+      "name": "미샤",
+      "effectName": "손보다 먼저 본 자리",
+      "keyword": "차지 속도 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "꿈속에서 여행자의 이야기를 듣는 미샤에게 서두르기 전에 자리를 보는 법을 배운다. 벨보이의 실제 일이나 모든 호텔 손님에게 보이는 인물이라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_acheron_gap",
+      "name": "아케론",
+      "effectName": "검을 돌리기 전의 간격",
+      "keyword": "관통 · 방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "과묵하게 장검을 지닌 여행자의 특징에서 간격과 일격의 방향을 보는 성장을 창작한다. 꿈의 눈 소유자·건축가·즉사·원작 필살기를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_sparkle_cut",
+      "name": "스파클",
+      "effectName": "박수 뒤의 한 장면",
+      "keyword": "차지 속도 · 치명타 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "역할을 바꾸며 즐거움을 찾는 연극 대가에게 마지막 장면의 준비를 마칠 박자를 익히는 카드다. 차지 준비와 치명타 피해로 각색하며 기존 스파클의 모든 행동 속도와 구분한다. 원작 변신·행동 게이지·영상 편집 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_gallagher_order",
+      "name": "갤러거",
+      "effectName": "먼저 물어본 한 잔",
+      "keyword": "재생 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "음료 제조가이자 예의 바르지만 경계를 늦추지 않는 인물에게 손님을 살피는 습관을 배운다. 새 사건의 바는 꿈세계 몬스터 손님의 장소이며 갤러거가 원작 바의 점주라는 주장은 아니다. 마시는 즉시 치유가 아니라 지속 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_jade_terms",
+      "name": "제이드",
+      "effectName": "가격표 밖의 조건",
+      "keyword": "피해 · 처치 골드 · 패널티",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "상대의 욕망을 읽고 가치 있는 거래를 기다리는 대부업자의 설정을 수입과 이동 부담의 지속 교환으로 각색한다. 영혼·기억·현재 체력·카드를 담보로 제거하거나 미구현 미래 부채를 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_robin_listen",
+      "name": "로빈",
+      "effectName": "이름보다 오래 남은 노래",
+      "keyword": "공격력 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 유명 가수의 음악이 여러 존재에게 울림을 준다는 특징을 자신의 힘과 지속 준비로 각색한다. 노래를 들은 즉시 치료되거나 새 오라·음원을 받지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_robin_voice",
+      "name": "로빈",
+      "effectName": "첫마디에 남긴 자기 이름",
+      "keyword": "공격력 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "화합의 음악을 듣는 만남에서 남의 기대에 가려지지 않는 첫마디를 성장으로 각색한다. 여행자가 가수나 오디션 심사위원이 되거나 원작 공연을 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_boothill_focus",
+      "name": "부트힐",
+      "effectName": "많은 시선 속의 한 표적",
+      "keyword": "보스 · 방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 사이보그 카우보이의 한 상대와의 결투 철학을 큰 상대와 방향 조건의 공격 준비로 각색한다. 총·결투 기술·원작 물리 약점 부여를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_boothill_attention",
+      "name": "부트힐",
+      "effectName": "숨기지 않은 발걸음",
+      "keyword": "이동 · 이동 조건 · 패널티",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": -2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "IPC의 관심을 끄는 대담한 행동을 빠른 이동과 그 속도에 비례하는 피해, 받는 피해의 부담으로 각색한다. moving_damage는 이동 중 판정이 아니라 기본 이동속도 대비 증가량을 사용하는 기존 카드 능력치다. 총격·도발·NPC 난동은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_firefly_visit",
+      "name": "반디",
+      "effectName": "갑옷 밖에서 보려던 풍경",
+      "keyword": "최대 체력 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "삶의 의미를 찾고 운명에 맞서려는 목적을 평범한 풍경을 고르는 독립 만남으로 각색한다. 체력 증가는 카드 성장이지 엔트로피 상실증 치료나 반디의 신체 변화가 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_boothill_caption",
+      "name": "부트힐",
+      "effectName": "사진 아래에 빠진 말",
+      "keyword": "사건 후보 · 치명타 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "관광 사진의 잘못된 설명을 바로잡는 창작 후속에서 더 많은 기회와 일격의 힘을 챙기는 성장이다. 실제 사진 수집·문서 편집 UI·IPC 평판·명성 시스템은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_misha_margin",
+      "name": "미샤",
+      "effectName": "다음 이야기를 적을 여백",
+      "keyword": "행동력 최대치",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 우주 여행 이야기를 좋아하는 특징에서 다음에 맡을 준비까지 답하는 기억이다. 최대치와 현재 행동력 증가분1만 한 번 지급하며 사냥 시간은 늘지 않는다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_black_swan_compare",
+      "name": "블랙 스완",
+      "effectName": "겹쳐 적지 않은 두 장면",
+      "keyword": "신속 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 타인의 기억을 경청하고 정리하는 역할에서 서로 다른 안내를 나눠 보는 기억이다. 신속은 고정180이며 비방향은 기존 헤드/백 플래그 없는 공격이다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_gallagher_portion",
+      "name": "갤러거",
+      "effectName": "처음 주문과 남겨 둘 몫",
+      "keyword": "재생 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 예의 있게 손님을 대하면서 경계하는 음료 제조가의 역할을 자신의 다음 준비로 각색한다. 재생은 초당 최대 체력0.4%로 흡수와 합산10%한도이며 체력증가는 비율 보존이다. 음료의 즉시 치료가 아니다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_sparkle_exit",
+      "name": "스파클",
+      "effectName": "막 밖으로 향한 박수",
+      "keyword": "치명 확률 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 배역 전환과 재미를 추구하는 성격에서 장면을 마치고 빠져나갈 박자를 보는 기억이다. 치명4%p와 이동3%이며 변신·환각·이동 기술이 아니다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_robin_pause",
+      "name": "로빈",
+      "effectName": "첫마디 전에 남길 간격",
+      "keyword": "고체력 · 방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 화합의 힘으로 음악을 전하는 가수 역할에서 기다리는 간격을 자신의 공격 준비로 각색한다. 고체력65%이상, 방향은 기존 헤드/백 판정이다. 대기 자체가 치료나 성공 확정이 아니다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_firefly_moment",
+      "name": "반디",
+      "effectName": "다른 풍경을 기다릴 순간",
+      "keyword": "차지 속도 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 삶의 의미를 찾고 운명에 맞서려는 목적에서 평범한 순간을 고르는 기억이다. 자신의 차지 준비와 비방향 공격이며 SAM·엔트로피 상실증 치료·비행은 없다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_acheron_pause",
+      "name": "아케론",
+      "effectName": "검을 뽑기 전에 남긴 자리",
+      "keyword": "관통 · 받는 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 장검을 지닌 과묵한 여행자의 특징에서 간격을 두고 준비하는 기억이다. 관통5%p와 피해감소4%이며 꿈의 눈 소유·건축·즉사 기술이 아니다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_jade_limit",
+      "name": "제이드",
+      "effectName": "맡을 몫까지 읽은 조건",
+      "keyword": "공격력 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 욕망과 자산의 가치를 읽는 대부업자에게 자신이 감당할 조건을 답하는 기억이다. 런 공격력8%와 치명피해14%p이며 체력·영혼·기억 지불이나 미래 부채를 만들지 않는다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_boothill_line",
+      "name": "부트힐",
+      "effectName": "표적 앞에서 먼저 전할 말",
+      "keyword": "보스 · 행동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 한 상대와의 결투 철학과 IPC에 복수하려는 목적에서 자신이 전할 말을 분명히 하는 기억이다. 보스12%와 행동4%이며 총·도발·평판·복수 완수가 아니다. 여행자의 기억을 공통 능력치로 각색하며 실제 장비·기술·NPC 동행·원작 임무 완수를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_main_01_1",
+      "name": "미샤",
+      "effectName": "초대의 첫 페이지",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_01_2",
+      "name": "미샤",
+      "effectName": "꿈에 남긴 물음표",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_01_3",
+      "name": "미샤",
+      "effectName": "낯선 이를 위한 자리",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_02_1",
+      "name": "반디",
+      "effectName": "처음 함께 걷는 꿈의 거리 · 결의",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_02_2",
+      "name": "반디",
+      "effectName": "처음 함께 걷는 꿈의 거리 · 물음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_02_3",
+      "name": "반디",
+      "effectName": "처음 함께 걷는 꿈의 거리 · 인연",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_03_1",
+      "name": "반디",
+      "effectName": "이름보다 먼저 온 인사",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_03_2",
+      "name": "반디",
+      "effectName": "평범함을 묻는 마음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_03_3",
+      "name": "반디",
+      "effectName": "함께 고른 오늘의 길",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_04_1",
+      "name": "블랙 스완",
+      "effectName": "안전한 꿈에서 깨어난 의문 · 결의",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_04_2",
+      "name": "블랙 스완",
+      "effectName": "안전한 꿈에서 깨어난 의문 · 물음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_04_3",
+      "name": "블랙 스완",
+      "effectName": "안전한 꿈에서 깨어난 의문 · 인연",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_05_1",
+      "name": "반디",
+      "effectName": "끝났다고 하지 않는 마음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_05_2",
+      "name": "블랙 스완",
+      "effectName": "약속과 목격 사이",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_05_3",
+      "name": "반디",
+      "effectName": "사라지지 않은 약속",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_06_1",
+      "name": "블랙 스완",
+      "effectName": "기억의 빈칸을 읽는 눈",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_06_2",
+      "name": "블랙 스완",
+      "effectName": "순서대로 남긴 증언",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_06_3",
+      "name": "블랙 스완",
+      "effectName": "흔들려도 남는 만남",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_07_1",
+      "name": "어벤츄린",
+      "effectName": "웃음 뒤의 계산",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_07_2",
+      "name": "어벤츄린",
+      "effectName": "위험을 묻는 질문",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_07_3",
+      "name": "어벤츄린",
+      "effectName": "같은 의문 다른 목적",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_08_1",
+      "name": "어벤츄린",
+      "effectName": "경계를 넘기 위해 건 판 · 결의",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_08_2",
+      "name": "어벤츄린",
+      "effectName": "경계를 넘기 위해 건 판 · 물음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_08_3",
+      "name": "어벤츄린",
+      "effectName": "경계를 넘기 위해 건 판 · 인연",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_09_1",
+      "name": "반디",
+      "effectName": "갑주 뒤에서 다시 만난 얼굴 · 결의",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_09_2",
+      "name": "반디",
+      "effectName": "갑주 뒤에서 다시 만난 얼굴 · 물음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_09_3",
+      "name": "반디",
+      "effectName": "갑주 뒤에서 다시 만난 얼굴 · 인연",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_10_1",
+      "name": "갤러거",
+      "effectName": "축제 아래 이어진 삶",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_10_2",
+      "name": "반디",
+      "effectName": "다시 만날 수 있는 길",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_10_3",
+      "name": "미샤",
+      "effectName": "오래된 초대를 찾는 발걸음",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_11_1",
+      "name": "미샤",
+      "effectName": "다음 여행자에게 남긴 길",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_11_2",
+      "name": "미샤",
+      "effectName": "초대장이 품은 부탁",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_11_3",
+      "name": "미샤",
+      "effectName": "소년의 여행을 기억하는 말",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_12_1",
+      "name": "로빈",
+      "effectName": "함께 들을 서로의 목소리",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_12_2",
+      "name": "선데이",
+      "effectName": "보호가 멈춰야 할 자리",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_12_3",
+      "name": "반디",
+      "effectName": "평범한 하루를 돌려주는 말",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_13_1",
+      "name": "선데이",
+      "effectName": "잠들지 않을 선택의 자리",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_13_2",
+      "name": "선데이",
+      "effectName": "고통을 함께 짊어지는 약속",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_13_3",
+      "name": "선데이",
+      "effectName": "구원자에게 건넨 질문",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_14_1",
+      "name": "로빈",
+      "effectName": "서로 다른 목소리의 합창",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_14_2",
+      "name": "반디",
+      "effectName": "지켜 낸 평범한 내일",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_14_3",
+      "name": "미샤",
+      "effectName": "다음 사람에게 열어 둔 문",
+      "keyword": "메인 · 꿈에서 만난 우리",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_main_15_1",
+      "name": "반디",
+      "effectName": "꿈 밖에서도 이어질 약속",
+      "keyword": "메인 완결 · 꿈에서 만난 우리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false,
+      "retiredMainReward": true
+    },
+    {
+      "key": "hsr_main_15_2",
+      "name": "미샤",
+      "effectName": "끝에서 다시 열린 여행",
+      "keyword": "메인 완결 · 꿈에서 만난 우리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 12
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false,
+      "retiredMainReward": true
+    },
+    {
+      "key": "hsr_main_15_3",
+      "name": "로빈",
+      "effectName": "서로의 내일을 부르는 노래",
+      "keyword": "메인 완결 · 꿈에서 만난 우리",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페나코니 개척 임무의 만남과 질서의 꿈을 소재로 재구성한 카드 기억. 선택 대사와 효과는 이 맵의 창작이며 원작의 인용이나 전투 능력이 아님.",
+      "uncertain": false,
+      "retiredMainReward": true
+    },
+    {
+      "key": "penacony_main_ending_memorial",
+      "name": "우린 꿈에서 깨어날 거니까",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "영원한 안식 대신, 스스로 선택할 내일을 향해.",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "영원한 안식 대신, 스스로 선택할 내일을 향해.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "key": "hsr_dreamy_slots",
+      "title": "좋은꿈 슬롯머신 앞에서",
+      "story": "에이딘 공원의 슬롯머신 앞에서 코인을 쥔 손님들이 다음 차례를 기다린다. 어벤츄린은 손에 남길 돈부터 정하라며 빈 기계 옆에 선다. 옆줄에서는 쏟아진 코인이 통로까지 굴러 나와 사람들이 몰리고 있다. 너에게 말을 건 미샤는 줄이 바뀌기 전에 돌아갈 표식을 먼저 보자고 한다.",
+      "intro": "판돈을 정할지, 어벤츄린의 준비를 살필지, 막힌 통로를 도울지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "코인을 바꾸고 어벤츄린과 한 번만 돌린다",
+          "result": "코인을 바꾸고 어벤츄린과 한 번만 돌렸다. 준비에 300골드를 썼다. 성공 보수 600골드를 받았다. 그림이 같은 줄에서 멈추자 어벤츄린은 이번 몫과 다음 판의 돈을 나눠 보라고 했다. 너는 한 번만 돌리겠다는 말을 지키고 기다리는 손님에게 자리를 넘겼다.",
+          "card": "hsr_aventurine_fortune",
+          "card2": null,
+          "gold": 600,
+          "cost": 300,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 60
+        },
+        {
+          "label": "놀이 대신 어벤츄린과 귀환 준비를 챙긴다",
+          "result": "놀이 대신 어벤츄린과 귀환 준비를 챙겼다. 준비에 220골드를 썼다. 어벤츄린은 기계에 넣지 않은 돈의 쓰임을 먼저 물었다. 출구를 확인했지만 놀이 줄에 남은 손님들까지 모두 돌아간 것은 아니다.",
+          "card": "hsr_aventurine_reserve",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미샤의 손짓을 따라 코인의 표식을 확인한다",
+          "card": "hsr_misha_reach",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "미샤는 코인마다 새겨진 표식을 가리키며 돌아갈 길을 설명한다. 요란한 당첨 광고보다 작은 안내를 먼저 읽는 그의 시선을 기억한다."
+        }
+      ],
+      "failure": "회전판은 맞지 않은 그림에서 멈췄다. 바꿔 넣은300골드는 돌아오지 않고 카드와 당첨금도 받지 못했다. 어벤츄린은 다음 판을 대신 돌려주지 않는다. 그림보다 멈추지 못한 손을 돌아볼 차례다.",
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_after_win",
+      "title": "멈춘 회전판 너머",
+      "story": "한 번의 놀이를 끝내고 코인을 정리하는데 스파클이 박수 소리를 흉내 낸다. 같은 얼굴을 따라온 손님들이 출구를 막자 갤러거가 놀이가 끝난 사람부터 밖으로 안내한다. 블랙 스완은 떠난 사람과 아직 같은 박수를 따라오는 사람의 기억을 나눠 듣는다.",
+      "intro": "당첨 뒤 모인 손님 사이에서 누구와 출구를 정리할지 고른다.",
+      "previous": "hsr_dreamy_slots",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "스파클에게 다음 무대는 어디인지 묻는다",
+          "result": "스파클은 박수를 치며 끝난 장면과 다음 장면을 과장되게 나눈다. 웃음 속에서도 출구를 확인하는 순간을 놓치지 않는다.",
+          "card": "hsr_sparkle",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갤러거와 함께 조용한 귀환 통로를 확보한다",
+          "result": "갤러거는 무거운 눈빛으로 인파 사이에서 가장 한적한 길을 골라낸다. 그는 네게 조용히 이동해야 할 이유를 설명하며 길을 안내한다.",
+          "card": "hsr_gallagher",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "140골드로 보급을 마련하고 블랙 스완과 더 약한 귀환 담당 구역을 고른다",
+          "card": "hsr_black_swan_compare",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "140골드로 보급을 마련하고 블랙 스완과 더 약한 귀환 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 블랙 스완은 출구를 떠난 기억과 박수를 따라 돌아온 기억을 겹쳐 적지 않았다. 아직 밖으로 나가지 않은 손님의 기억까지 끝난 일로 만들지는 않았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_after_loss",
+      "title": "맞지 않은 그림의 기억",
+      "story": "당첨되지 않은 회전판의 그림이 자꾸 떠오른다. 블랙 스완은 기억 속 손이 언제 멈칫했는지 함께 살피자고 한다. 갤러거는 또 돌리러 가기 전에 돌아갈 길부터 정하라고 권한다. 미샤는 너에게 다음 놀이가 아닌 다음 귀환 이야기부터 들려 달라고 한다.",
+      "intro": "틀린 그림을 다시 돌리는 대신 남은 준비를 정한다.",
+      "previous": "hsr_dreamy_slots",
+      "previousChoice": -1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "블랙 스완과 결정을 망설인 장면을 돌아본다",
+          "result": "블랙 스완과 결정을 망설인 장면을 돌아봤다. 준비에 180골드를 썼다. 블랙 스완은 그림보다 네 손이 멈추지 못한 순간을 다시 물었다. 다음 당첨의 답은 주지 않았고 틀린 그림도 다른 것으로 바꾸지 않았다.",
+          "card": "hsr_black_swan_archive",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갤러거의 권고대로 돌아갈 길부터 정한다",
+          "result": "갤러거는 네가 다시 도박에 빠지는 것을 막기 위해 단호하게 길을 가리킨다. 그의 조언을 받아들이자 갤러거의 경험이 녹아든 회피 경로가 드러난다.",
+          "card": "hsr_gallagher",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미샤와 준비물을 나누며 귀환 경로를 살핀다",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "미샤는 잃어버린 코인보다 남은 표식을 먼저 확인하자고 한다. 그의 안내를 따라가며 실패한 자리에서 돌아설 순서를 기억한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_sorted_tokens",
+      "title": "코인 자루가 떠난 자리",
+      "story": "코인을 모은 자루는 통로 밖으로 옮겼지만 몰려든 사람들은 다른 쪽 출구로 흩어졌다. 미샤는 호텔로 돌아갈 길에서 강한 흔적이 남은 방향을 짚고, 어벤츄린은 남은 준비물을 빽빽한 길과 나눠 쓰지 말자고 한다. 스파클은 같은 줄에서 다시 시작할 이유가 있냐며 박수의 방향을 바꾼다.",
+      "intro": "정리한 통로 끝에서 다음 길의 준비를 고른다.",
+      "previous": "hsr_dreamy_slots",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "미샤가 짚은 호텔 귀환길을 다시 확인한다",
+          "result": "미샤가 짚은 호텔 귀환길을 다시 확인했다. 준비에 140골드를 썼다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 미샤가 너에게 낡은 귀환 표시를 다시 짚었다. 자루가 떠난 자리와 손님이 흩어진 길은 다른 표시로 남겨 두었다.",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 140,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어벤츄린과 귀환길에 쓸 준비물을 따로 챙긴다",
+          "result": "어벤츄린과 귀환길에 쓸 준비물을 따로 챙겼다. 준비에 180골드를 썼다. 어벤츄린은 당장 쓸 준비물과 돌아갈 몫을 나눴다. 네가 맡지 않은 출구의 코인까지 이번 짐에 넣지는 않았다.",
+          "card": "hsr_aventurine_reserve",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "스파클과 협력하여 귀환 길목을 압축한다",
+          "card": "hsr_sparkle_exit",
+          "card2": null,
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "스파클은 박수를 치며 사람들의 시선을 분산시키고 너에게 좁은 길을 내준다. 그녀의 연극적인 행동 덕분에 너는 복잡한 경로 중 핵심적인 구간만 파악한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_soulglad",
+      "title": "광고 아래의 솔글래드",
+      "story": "커다란 솔글래드 광고 아래에서 음료를 받은 손님들이 서로 다른 방향을 가리킨다. 갤러거는 유난히 같은 말만 반복하는 사람을 경계하고, 미샤는 광고에 가려진 호텔 쪽 안내를 짚는다. 쉬지 않고 손님을 모으는 안내대에는 돌아갈 사람의 짐도 쌓여 있다.",
+      "intro": "환한 음료 광고 아래의 손님과 귀환 준비를 살핀다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "갤러거와 되풀이되는 안내를 확인한다",
+          "result": "갤러거와 되풀이되는 안내를 확인했다. 준비에 180골드를 썼다. 갤러거는 먼 길의 소문과 실제 옆길을 본 사람의 말을 구분했다. 같은 광고를 읽었다고 같은 길을 확인한 것은 아니었다.",
+          "card": "hsr_gallagher",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미샤가 짚은 호텔 안내를 광고와 구분한다",
+          "result": "미샤는 광고에 가려진 진짜 호텔 안내를 정확하게 짚어냈다. 덕분에 혼란스러운 인파 속에서도 올바른 경로를 기억하게 된다.",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갤러거와 보급 짐을 나누고 더 많은 귀환 안내를 맡는다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "갤러거와 협력하여 보급 짐을 효율적으로 나누어 운반한다. 이 과정에서 수많은 인파가 돌아가는 길목에 대한 정보를 얻는다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_masked_stage",
+      "title": "서로 다른 얼굴의 안내인",
+      "story": "무대 앞에서 같은 안내인이 한 번은 오른쪽을, 다음에는 왼쪽을 가리킨다. 스파클은 어느 쪽 얼굴을 믿느냐고 되묻고, 블랙 스완은 두 안내를 들었을 때의 기억을 따로 살펴보자고 한다.",
+      "intro": "스파클의 연극에 맞출지, 들었던 안내를 기억으로 대조할지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "스파클의 바뀐 배역에 맞춰 무대를 빠져나간다",
+          "result": "스파클의 바뀐 배역에 맞춰 무대를 빠져나갔다. 준비에 200골드를 썼다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 스파클이 바꾼 배역의 박자에 맞춰 막 밖으로 나왔다. 왼쪽을 가리켰던 얼굴이 이번에는 왜 오른쪽을 보는지는 묻지 못했다.",
+          "card": "hsr_sparkle",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완과 두 안내가 갈린 순간을 대조한다",
+          "result": "블랙 스완과 두 안내가 갈린 순간을 대조했다. 준비에 240골드를 썼다. 블랙 스완은 두 말을 들었을 때 네 걸음이 꺾인 장면을 비교했다. 길이 갈린 순간은 남았지만 아직 지나지 않은 출구는 확인하지 못했다.",
+          "card": "hsr_black_swan_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완과 지나온 길의 순서부터 정리한다",
+          "result": "블랙 스완과 지나온 길의 순서부터 정리했다. 준비에 180골드를 썼다. 블랙 스완은 네가 지나온 순서만 따로 들었다. 바뀐 얼굴의 말이 어느 순간 갈렸는지까지 같은 기억으로 합치지는 않았다.",
+          "card": "hsr_black_swan_archive",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_remembered_exit",
+      "title": "기억에 남겨 둔 출구",
+      "story": "서로 달랐던 안내를 기억과 대조한 뒤, 사람들의 걸음이 꺾이는 자리를 찾았다. 어벤츄린은 그 좁은 자리를 그대로 통과하지 말자고 하고, 갤러거는 남아 있는 경비 안내를 다시 확인한다. 아케론은 아직 지나지 않은 좁은 자리 앞에서 검을 뽑기보다 간격을 남긴다.",
+      "intro": "찾아낸 출구의 빈틈을 안전한 준비로 바꾼다.",
+      "previous": "hsr_masked_stage",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "어벤츄린과 넓은 통로를 준비한다",
+          "result": "어벤츄린의 조언에 따라 좁은 길목을 피해서 이동할 계획을 세운다. 사람들의 동선을 파악하며 안전한 통로에 대한 기억을 확보한다.",
+          "card": "hsr_aventurine_reserve",
+          "card2": null,
+          "gold": 0,
+          "cost": 260,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갤러거와 경비가 확인한 우회로를 택한다",
+          "result": "갤러거와 경비가 확인한 우회로를 택했다. 준비에 220골드를 썼다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 갤러거는 경비가 본 구역과 아직 말하지 않은 구역을 나눴다. 경비 안내 한 줄을 모든 귀환길의 답으로 바꾸지는 않았다.",
+          "card": "hsr_gallagher",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "140골드로 보급을 마련하고 아케론과 맡을 좁은 길목을 줄인다",
+          "card": "hsr_acheron_pause",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "보급품을 확보하며 아케론과 함께 이동할 최적의 경로를 재설계한다. 좁은 길목을 우회하는 구체적인 지형 정보를 머릿속에 새긴다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_walking_sign",
+      "title": "계속 움직이는 목적지",
+      "story": "뛰어다니는 광고판을 따라가자 같은 가게 앞을 다시 지나쳤다. 미샤는 호텔 입구의 시계판이 있는 쪽을 짚고, 블랙 스완은 방금 본 간판과 기억 속 간판의 차이를 찾는다.",
+      "intro": "움직이는 광고판과 실제 귀환길을 구분한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "미샤와 호텔 입구를 기준으로 길을 다시 표시한다",
+          "result": "미샤가 가리킨 시계판을 이정표 삼아 호텔 입구까지의 경로를 재확인한다. 반복되는 풍경 속에서 변하지 않는 지표를 기억에 남긴다.",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 140,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완과 반복해서 본 간판을 대조한다",
+          "result": "블랙 스완과 반복해서 본 간판을 대조했다. 준비에 200골드를 썼다. 블랙 스완은 같은 간판을 두 번 봤다는 네 기억을 따로 들었다. 반복한 길을 새 목적지라고 적지 않았다.",
+          "card": "hsr_black_swan_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "140골드로 보급을 마련하고 미샤와 광고를 따라갈 길목을 줄인다",
+          "card": "hsr_misha_reach",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "비용을 들여 보급을 챙기며 미샤와 함께 광고판의 흐름을 분석한다. 복잡한 거리에서 목적지까지 이어지는 핵심 길목을 파악한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_scattered_banknotes",
+      "title": "끝나지 않는 지폐",
+      "story": "황금의 순간의 머니 머신에서 쏟아진 지폐를 따라가던 손님들이 서로 다른 골목으로 흩어진다. 어벤츄린은 돈이 나오는 것과 쫓아가서 챙길 수 있는 것은 다르다며 네가 얼마를 걸지 묻는다. 너는 작은 판돈을 걸어 먼 쪽까지 따라가거나 눈앞에서 받은 몫만 챙길 수 있다.",
+      "intro": "눈앞의 몫으로 멈출지 더 먼 돈을 쫓을지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "200골드를 걸고 흩어진 지폐 끝까지 따라간다",
+          "result": "200골드를 걸고 흩어진 지폐 끝까지 따라갔다. 성공 보수 260골드를 받았다. 지폐를 챙겨 돌아오자 어벤츄린은 남은 몫보다 멀리 따라간 이유부터 물었다. 너에게 남은 이동 부담은 다음 사냥 준비에도 이어졌다.",
+          "card": "hsr_aventurine_scattered",
+          "card2": null,
+          "gold": 260,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 60
+        },
+        {
+          "label": "어벤츄린과 위험이 늘어날 길까지 계산한다",
+          "result": "어벤츄린과 위험이 늘어날 길까지 계산했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 어벤츄린은 네가 계산한 길과 더 가야 하는 길을 나눴다. 위험을 맡겠다는 답을 당첨된 결과라고 바꾸지는 않았다.",
+          "card": "hsr_aventurine_fortune",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어벤츄린이 내민 도박에 판돈을 걸고 지폐의 흔적을 쫓는다",
+          "card": "hsr_aventurine_reserve",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "어벤츄린은 네가 감당할 수 있는 판돈을 정확히 기억해낸다. 너는 흩어진 지폐들 사이에서 핵심적인 단서를 확보한다."
+        }
+      ],
+      "failure": "지폐를 따라갔지만 돌려받을 몫을 챙기지 못했다. 건200골드는 돌아오지 않고 카드와 보수도 받지 못했다. 어벤츄린은 다음 길을 가기 전에 따라간 범위부터 다시 묻는다.",
+      "canonFact": "공식 머니 머신과 어벤츄린의 리스크 취향에서 별도 지폐 추적을 창작했다. 기계 출력·60% 확률·260골드는 맵 규칙이며 원작 지급표가 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_floating_treat",
+      "title": "손이 닿기 전에 뜨는 간식",
+      "story": "꿈속 황금의 순간에서 아이스크림을 잡으려 손을 뻗을 때마다 바로 앞의 빈 자리가 눈에 들어온다. 너에게만 말을 건 미샤는 다른 별에서도 이런 간식을 먹는지 묻다가 네가 먼저 내디딘 발을 본다. 넌 급히 손을 뻗을지 발을 둘 자리부터 살필지 정한다. 곁을 지나던 반디는 간식을 잡는 사진보다 그곳에서 보이는 풍경을 가리킨다.",
+      "intro": "방문 행동력 없이 한 번 더 간식 앞의 발자리를 살핀다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "미샤에게 발을 디딜 곳부터 함께 보자고 한다",
+          "result": "미샤는 손을 뻗기 전에 멈춰 선 위치를 다시 살핀다. 익숙한 꿈속에서도 간격을 먼저 확인하는 그의 작은 주의를 기억한다.",
+          "card": "hsr_misha_reach",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "150골드로 다른 간식을 고르고 여행 이야기를 들려준다",
+          "result": "150골드로 다른 간식을 고르고 여행 이야기를 들려주었다. 미샤는 네가 고른 간식보다 처음 가 봤던 별의 이야기에 귀를 기울였다. 앞에서 뜨던 간식은 다른 손님의 손보다 먼저 움직였다.",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "반디에게 간식보다 풍경이 눈에 든다고 말한다",
+          "card": "hsr_firefly_moment",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "반디는 잠깐 웃으며 같은 쪽으로 시선을 돌린다. 손에 잡히는 것만이 여행의 전부는 아니라는 짧은 대화가 기억에 남는다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 공중 아이스크림과 미샤의 여행 이야기 관심에서 꿈속 일대일 만남을 창작했다. 다른 손님은 미샤에게 말하거나 일을 맡기지 않는다. 아이스크림 상승 동작과 간격 문제는 각색이며 점프·공중 이동·원작 빙결을 지급하지 않는다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "hsr_dream_eye_gap",
+      "title": "연결된 그림과 끊어진 길",
+      "story": "꿈 건축 경계의 막힌 입구에서 꿈 건축가가 꿈의 눈으로 이어 보이는 길의 도면만 보여 준다. 아케론은 장검을 든 채 그림의 연결 부분과 실제 발을 둘 간격이 같은지 묻는다. 외부인인 너는 공사장으로 들어가는 대신 도면 밖의 통로에서 그 간격을 확인해야 한다. 네가 바깥 통로에서 돌아올 때 블랙 스완은 그림에서 본 길과 실제로 본 길을 따로 듣는다.",
+      "intro": "이어 보이는 도면과 실제 통로를 어떻게 대조할까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아케론과 더 강한 적이 오가는 바깥 통로의 간격을 짚는다",
+          "result": "아케론과 더 강한 적이 오가는 바깥 통로의 간격을 짚었다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 아케론은 그림의 연결과 실제 발을 둘 간격을 따로 짚었다. 외부인인 너는 공사장 안으로 들어가지 않고 바깥 담당 몫을 맡았다.",
+          "card": "hsr_acheron_gap",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "180골드로 도면 사본을 받아 다른 연결을 비교한다",
+          "result": "180골드로 도면 사본을 받아 다른 연결을 비교했다. 블랙 스완은 도면의 연결과 네가 본 통로를 다른 기억으로 들었다. 도면 사본이 막힌 공사장의 출입 허가가 되지는 않았다.",
+          "card": "hsr_black_swan_archive",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케론에게 도면 밖의 간격을 함께 확인하자고 한다",
+          "card": "hsr_acheron_pause",
+          "card2": null,
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "아케론은 도면을 잠깐 내려놓고 실제 통로를 바라본다. 설명된 풍경과 눈앞의 간격을 구분하는 그녀의 판단을 익힌다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 외부인 비공개 공사 구역과 시각 오차로 길을 연결하는 꿈의 눈에서 입구 밖 도면 비교를 창작했다. 아케론은 과묵한 장검 여행자이며 꿈의 눈의 관리인이나 건축가가 아니다. 실제 맵 지형·순간이동·공사장 입장 권한을 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_scene_after_applause",
+      "title": "박수가 끝났는데 남은 역",
+      "story": "클락 스튜디오 테마파크의 촬영 체험에서 끝났다는 표시 뒤에도 한 배우가 다른 역을 이어 간다. 스파클은 지금 웃는 사람이 누구의 편인지부터 물으며 아직 남은 장면이 있다고 한다. 촬영 안내인은 다음 체험 손님이 기다린다며 네가 마칠 장면을 정해 달라고 한다. 블랙 스완은 끝났다는 표시와 아직 이어진 장면을 같은 기억으로 적지 말자고 한다.",
+      "intro": "끝났다는 표시 뒤에도 역을 이어 갈지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "150골드를 내고 스파클의 마지막 장면을 다시 맞춘다",
+          "result": "150골드를 내고 스파클의 마지막 장면을 다시 맞췄다. 스파클은 마지막 박자에서도 다른 배역으로 답했다. 너는 장면을 마쳤지만 다음 손님이 기다리는 자리를 새 무대라고 정하지 않았다.",
+          "card": "hsr_sparkle_cut",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 75
+        },
+        {
+          "label": "스파클의 제안을 받아들여 남은 장면의 흐름을 직접 이어간다",
+          "result": "스파클은 네가 이어가는 연극의 흐름에 만족하며 박수를 보낸다. 너는 박수 뒤에 숨겨진 다음 막의 기억을 선명하게 얻는다.",
+          "card": "hsr_sparkle",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완에게 끝난 장면부터 나누어 보자고 한다",
+          "card": "hsr_black_swan_compare",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "블랙 스완은 박수가 멎은 순간과 다음 장면의 시작을 구분해 짚는다. 겹쳐 보이는 기억에서도 먼저 끝난 일을 놓치지 않는 시선을 익힌다."
+        }
+      ],
+      "failure": "마지막 장면의 박자를 맞추지 못했다. 준비에 쓴150골드는 돌아오지 않고 카드도 받지 못했다. 스파클은 다른 배역으로 박수쳤고 다음 체험 손님은 자기 차례를 기다렸다.",
+      "canonFact": "공식 테마파크의 촬영 체험과 스파클의 역할 전환에서 별도 장면을 창작했다. 실제 영화 출연·원작 캐릭터 변신·촬영 미니게임·행동 게이지는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_monster_last_order",
+      "title": "잔보다 늦게 온 주문",
+      "story": "꿈세계 몬스터들을 위한 바에서 잔을 내민 손님이 단맛이 싫다고 뒤늦게 말한다. 음료를 살피던 갤러거는 손님을 예의 있게 대하면서도 왜 처음에는 다른 주문을 했는지 다시 묻는다. 너는 새 잔을 마련할지 손님 말을 먼저 들을지 다른 주문을 맡을지 정한다.",
+      "intro": "손님이 뒤늦게 바꾼 주문부터 다시 묻는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "200골드로 새 잔을 마련하고 갤러거와 손님 말을 먼저 듣는다",
+          "result": "200골드로 새 잔을 마련하고 갤러거와 손님 말을 먼저 들었다. 갤러거는 새 잔을 건네기 전에 손님이 처음 말했던 주문을 다시 물었다. 잔의 단맛과 지금 내려놓고 싶은 이유는 같은 답이 아니었다.",
+          "card": "hsr_gallagher_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갤러거에게 바의 대처 요령을 묻고 조언을 구한다",
+          "result": "갤러거는 손님의 변덕에 유연하게 대처하는 법을 상세히 설명해 준다. 너는 예기치 못한 상황에서도 평정심을 유지하는 기술을 습득한다.",
+          "card": "hsr_gallagher",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "140골드를 지불하고 갤러거와 나눌 몫을 미리 정한다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "금전적 대가를 치르고 갤러거와 업무의 범위를 명확하게 구분한다. 불필요한 혼선을 줄여 효율적인 동선을 확보하며 협력을 마무리한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 몬스터 손님을 위한 바와 갤러거의 음료 제조·예의·경계를 함께 참고해 창작했다. 갤러거가 그 바의 원작 점주라는 주장은 아니다. 몬스터 손님을 전투 적으로 바꾸거나 음료를 즉시 치유로 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_jade_unwritten_price",
+      "title": "가격표 밖의 조건",
+      "story": "제이드는 네가 골라 온 물건보다 그것을 고른 이유를 오래 듣는다. 너는 골드만 내면 끝나는 거래인지 묻지만 제이드는 더 큰 수입을 고르면 앞으로의 움직임도 무거워질 수 있다고 한다. 값과 남을 부담을 모두 읽고 거래할지 지금 가진 몫으로 돌아갈지 정한다. 블랙 스완은 네가 들은 조건과 아직 답하지 않은 조건을 따로 듣는다.",
+      "intro": "골드와 거래 뒤에 남을 부담을 함께 읽는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "230골드와 느려질 이동을 받아들이고 거래한다",
+          "result": "230골드와 느려질 이동을 받아들이고 거래했다. 제이드는 골드를 셈한 뒤 네가 그 물건을 고른 이유를 다시 물었다. 이동이 느려지는 카드 조건은 다음 사냥에서도 남았다.",
+          "card": "hsr_jade_terms",
+          "card2": null,
+          "gold": 0,
+          "cost": 230,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 제이드에게 감당할 몫까지 답한다",
+          "result": "더 강한 개인 사냥을 맡고 제이드에게 감당할 몫까지 답했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 제이드는 더 맡겠다는 답과 감당할 수 있다는 답을 같은 줄에 적지 않았다. 너는 이번 강함 부담을 골랐으며 미래 부채를 약속하지 않았다.",
+          "card": "hsr_jade_limit",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완과 거래의 숨겨진 조건을 공유한다",
+          "card": "hsr_black_swan_compare",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "블랙 스완은 네가 파악한 조건들을 바탕으로 새로운 정보를 덧붙인다. 너는 거래의 무게를 정확히 인지하며 복잡한 이해관계를 정리한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 제이드의 대부업·상대 욕망 이해·좋은 거래를 기다리는 특징에서 별도 거래를 창작했다.230골드·지속 이동 감소는 맵 가격이며 미래 미납 부채·영혼·기억·현재체력 지불·카드 제거는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_name_over_song",
+      "title": "이름이 노래를 덮을 때",
+      "story": "대극장의 사전 공연 안내 자리에서 네 앞의 관객들이 로빈의 이름을 번갈아 외쳐 뒤쪽 사람은 시작 안내를 듣지 못한다. 로빈은 아직 노래를 시작하지 않고 뒤편에서도 안내가 들렸는지 묻는다. 너는 함께 이름을 외치려던 친구에게 기다릴 이유를 말할지, 다른 자리에서 듣도록 도울지 정한다. 갤러거는 돌아갈 관객의 보급을 아직 시작하지 않은 공연과 나누려 한다.",
+      "intro": "이름을 부르는 친구와 안내를 듣지 못한 관객 사이에서 맡을 일을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "160골드로 다른 자리를 마련하고 뒤편 관객과 먼저 듣는다",
+          "result": "160골드로 다른 자리를 마련하고 뒤편 관객과 먼저 들었다. 뒤편 관객이 안내를 듣자 로빈은 앞줄에도 같은 말이 전해졌는지 물었다. 이름을 외치는 소리는 줄었지만 노래는 아직 시작되지 않았다.",
+          "card": "hsr_robin_listen",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "친구에게 로빈의 공연을 기다려야 하는 이유를 설명한다",
+          "result": "너는 로빈의 목소리가 온전히 전달될 수 있는 상황을 친구에게 설득한다. 친구는 고개를 끄덕이며 공연이 시작될 때까지 자리를 지켜준다.",
+          "card": "hsr_robin_voice",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "120골드를 사용하여 갤러거와 안내 경로를 조정한다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 120,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "비용을 들여 갤러거와 동선을 재배치하고 관객의 이동을 돕는다. 서로의 역할을 분담함으로써 안내 과정에서의 병목 현상을 해소한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 대극장과 유명 가수 로빈의 예정 공연에서 사전 안내 중의 새 관객 갈등을 창작했다. 플레이어가 실제 공연·조명·관객 수·원작 축제 결과를 결정하지 않는다. 사냥 밀도는 개인 준비의 별도 규칙이며 관객을 몬스터로 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_introduction_left",
+      "title": "소개만 남은 무대",
+      "story": "솔글래드 후원 오디션 참가자가 소개를 연습하고 있지만, 광고 문구는 끝까지 읽고도 정작 자기 이름은 말하지 못해 당황한다. 옆을 지나던 로빈이 네가 내민 소개지에서 이름이 어디에 있는지 묻자 참가자는 빈 여백을 가리킨다. 너는 이름을 다시 적을 준비를 도울지, 순서를 바꾸지 않고 들릴 위치를 찾을지 정한다. 스파클은 광고 속 주인공의 이름과 참가자의 이름이 같은지 되묻는다.",
+      "intro": "광고를 읽은 참가자가 자기 이름도 말할 수 있게 어떤 도움을 줄까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "150골드로 새 소개지를 마련하고 이름부터 말할 시도를 돕는다",
+          "result": "150골드로 새 소개지를 마련하고 이름부터 말할 시도를 도왔다. 참가자는 광고 문구보다 자기 이름을 먼저 말했다. 로빈은 이름이 놓인 줄을 들었지만 그 시도가 오디션 우승이라는 뜻은 아니다.",
+          "card": "hsr_robin_voice",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "200골드로 안내 자리를 마련해 먼저 들어 줄 사람을 찾는다",
+          "result": "200골드로 안내 자리를 마련해 먼저 들어 줄 사람을 찾았다. 로빈이 들을 자리를 마련하자 참가자는 빈 여백을 다시 봤다. 이름을 언제 말할지는 참가자에게 남겨 두었다.",
+          "card": "hsr_robin_listen",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "스파클과 협력하여 참가자의 이름을 다시 적어준다",
+          "card": "hsr_sparkle_exit",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "스파클은 장난스러운 조언을 건네며 참가자의 이름을 적는 것을 돕는다. 너는 협력을 통해 무대 위 주인공의 정체성을 명확히 확립한다."
+        }
+      ],
+      "failure": "참가자는 광고 문구까지 읽었지만 자기 이름을 첫마디로 말하지 못했다. 소개지에 쓴150골드는 돌아오지 않고 카드도 받지 못했다. 로빈은 참가자가 말할 여백을 남겼다.",
+      "canonFact": "공식 솔글래드 후원 오디션과 로빈의 음악에서 별도 참가자의 말 막힘을 창작했다. 로빈이 원작 오디션 심사위원이라는 주장은 아니다. 70%는 맵 판정이며 공식 우승·심사 점수·노래·명성·추가 참가 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_cowboy_in_frame",
+      "title": "카우보이를 담는 배경",
+      "story": "한 관광객이 IPC 광고 앞에서 부트힐의 기념사진을 찍어 달라며 네게 카메라를 건넨다. 부트힐은 광고의 로고가 자기 뒤에 들어오는 것을 보고 그 사진을 누가 어떤 의도로 보게 될지 먼저 묻는다. 관광객은 멋진 사이보그를 남기고 싶었을 뿐이라며 광고를 빼면 어떤 말을 붙여야 할지 되묻는다.",
+      "intro": "멋진 사진과 그 사진을 본 사람이 이해할 뜻은 같을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 별도 사진 자리를 마련하고 배경을 고른 이유를 적는다",
+          "result": "180골드로 별도 사진 자리를 마련하고 배경을 고른 이유를 적었다. 부트힐은 바꾼 배경보다 그 이유가 사진 아래에 남을지 먼저 물었다. 관광객이 어떤 설명을 붙일지는 아직 보지 못했다.",
+          "card": "hsr_boothill_focus",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "부트힐이 알리려는 말을 듣고 더 강한 개인 사냥을 맡는다",
+          "result": "부트힐이 알리려는 말을 듣고 더 강한 개인 사냥을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 부트힐은 IPC에 알릴 말을 숨기지 않았다. 너는 맡을 사냥 부담을 골랐지만 총격이나 그의 복수를 대신하지 않았다.",
+          "card": "hsr_boothill_attention",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "부트힐에게 광고 로고를 제외한 사진의 의도를 설명한다",
+          "card": "hsr_boothill_line",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "부트힐은 네 설명을 듣고 만족스러운 듯 총구를 고쳐 잡는다. 그는 네가 의도한 구도를 정확히 기억하며 멋진 포즈를 취해준다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 부트힐의 사이보그·갤럭시 레인저·IPC 복수 대상을 기념사진의 잘못된 인상에 각색했다. 관광객의 부탁과 대화는 창작이며 실제 사진 기능·총격·새 결투·IPC 소속 변경·복수 완수는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_view_without_armor",
+      "title": "갑옷을 기다리지 않는 길",
+      "story": "꿈속 관광 안내 자리에서 여행자가 반디에게 SAM의 모습을 보여 달라고 부탁한다. 반디는 바로 답하지 않고 네가 펼친 풍경 안내의 한쪽을 보고 있는데 여행자는 갑옷 사진이 없으면 무엇을 보러 가냐고 묻는다. 너는 반디에게 보고 싶은 풍경을 물을지, 안내만 전달하고 다른 준비를 할지 정한다. 너에게 말을 건 미샤는 남이 고른 사진 대신 듣고 싶은 여행 이야기를 묻는다.",
+      "intro": "갑옷을 기다리는 사람 곁에서 반디에게 먼저 무엇을 물을까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "170골드로 풍경 안내를 마련하고 반디가 보고 싶은 곳을 묻는다",
+          "result": "170골드로 풍경 안내를 마련하고 반디가 보고 싶은 곳을 물었다. 반디는 갑옷 사진이 없는 안내에서 보고 싶은 풍경을 짚었다. 관광객에게 SAM을 보여 주겠다는 약속은 하지 않았다.",
+          "card": "hsr_firefly_visit",
+          "card2": null,
+          "gold": 0,
+          "cost": 170,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미샤에게 오늘 본 풍경을 들려준다",
+          "result": "미샤는 한 번도 보지 못한 곳의 이름을 다시 물으며 귀를 기울인다. 누군가의 다음 여행을 위해 풍경을 말로 남기는 순간을 기억한다.",
+          "card": "hsr_misha_reach",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "반디에게 함께 보고 싶은 풍경을 제안한다",
+          "card": "hsr_firefly_moment",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "반디는 제안한 풍경을 상상하며 잠깐 말을 멈춘다. 갑옷의 이름보다 먼저 한 사람의 여행을 이야기하던 순간이 기억에 남는다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 반디의 SAM 갑옷과 삶의 의미를 찾는 목적에서 독립 관광 만남을 창작했다. 반디를 로빈의 경호원·점원으로 바꾸지 않고 갑옷 소환·새 장비·질병 치료·본편 죽음이나 결말을 결정하지 않는다. 같은 카드를 골드와 밀도 부담 중 하나로 얻는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_name_after_poster",
+      "title": "이름이 올라간 뒤",
+      "story": "참가자가 첫 소개를 마친 뒤 이름을 적은 안내지에 준비를 도운 네 자리까지 출연석으로 표시되었다. 다음 손님은 그 표시를 보고 네게 공연을 부탁한다. 로빈은 누가 소개를 준비했고 누가 이름을 말했는지 다시 구분하자고 한다. 갤러거는 네가 돌아갈 몫까지 관객 자리의 짐으로 쓰지 말라고 한다.",
+      "intro": "도움을 준 자리와 무대에 설 자리가 함께 표시되었다.",
+      "previous": "hsr_introduction_left",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "130골드로 안내를 고쳐 참가자의 이름을 분명히 남긴다",
+          "result": "130골드로 안내를 고쳐 참가자의 이름을 분명히 남겼다. 로빈은 준비를 도운 네 자리와 이름을 말한 참가자의 자리를 나눴다. 다음 손님에게 소개를 들려줄 사람도 참가자로 남겼다.",
+          "card": "hsr_robin_listen",
+          "card2": null,
+          "gold": 0,
+          "cost": 130,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 로빈과 참가자가 말할 간격을 남긴다",
+          "card": "hsr_robin_pause",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "더 강한 개인 사냥을 맡고 로빈과 참가자가 말할 간격을 남겼다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 로빈은 참가자가 답할 간격을 남겼다. 더 맡을 부담은 네 사냥의 몫이며 참가자의 공연을 대신한 것은 아니다."
+        },
+        {
+          "label": "갤러거에게 관객석의 짐을 정리하며 공연 준비를 돕는다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "갤러거는 네 배려에 씁쓸한 미소를 지으며 짐을 하나씩 내려놓는다. 그는 네가 정리한 공간의 여유를 기억하며 공연을 준비한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "첫 소개 시도에 성공한 자신의 행동에서 이어지는 창작 개인 후속이다. 참가자가 오디션을 우승했다는 뜻은 아니며 여행자에게 가수 명성·공연 역할을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_photo_missing_caption",
+      "title": "사진 아래에 빠진 말",
+      "story": "광고가 빠진 사진을 넘긴 뒤 관광객이 붙인 설명에는 IPC의 수호자라는 말이 적혀 있다. 부트힐은 배경만 바꾸면 같은 뜻도 바뀌는 줄 알았냐며 네가 앞서 적은 이유를 보여 준다. 관광객은 사진은 마음에 든다며 설명만 어디부터 고칠지 묻는다. 블랙 스완은 네가 왜 배경을 바꿨는지 기억부터 들려 달라고 한다.",
+      "intro": "광고를 뺀 사진에 반대 뜻의 설명이 붙었다.",
+      "previous": "hsr_cowboy_in_frame",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "140골드로 설명지를 다시 마련하고 빠진 이유를 적는다",
+          "result": "140골드로 설명지를 다시 마련하고 빠진 이유를 적었다. 부트힐은 설명지에 빠졌던 이유를 확인했다. 관광객은 수호자라는 말을 지우고 왜 배경을 바꿨는지 같은 줄에 적었다.",
+          "card": "hsr_boothill_caption",
+          "card2": null,
+          "gold": 0,
+          "cost": 140,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "더 강한 개인 사냥을 맡고 부트힐이 숨기지 않을 말을 전한다",
+          "result": "더 강한 개인 사냥을 맡고 부트힐이 숨기지 않을 말을 전했다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 부트힐은 네가 전한 말이 IPC를 지키겠다는 말로 바뀌지 않았는지 다시 봤다. 그에게 남은 복수까지 끝난 일로 적지는 않았다.",
+          "card": "hsr_boothill_attention",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "블랙 스완에게 배경을 바꾼 이유를 상세히 들려준다",
+          "card": "hsr_black_swan_compare",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "블랙 스완은 네가 설명하는 의도를 흥미롭다는 듯이 경청한다. 그녀는 네가 바꾼 배경 속에 담긴 감정을 정확히 기억한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "광고를 뺀 사진을 마련한 개인 기록으로만 열리는 창작 후속이다. 부트힐을 IPC의 직원이나 수호자로 설정하는 것이 아니라 관광객의 잘못된 설명을 사건 안에서 바로잡는다. 실제 평판·사진 보관·총격·협박·복수 완수는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_misha_second_page",
+      "title": "귀환 표시 다음의 여백",
+      "story": "전에 꿈속에서 길을 함께 살폈던 미샤가 네게 새 안내지를 보여 준다. 지난 귀환 표시 옆에는 다음 여행의 이야기를 적을 여백이 남아 있다. 갤러거는 지금 쓸 보급부터 나누고 블랙 스완은 전에 본 길과 이번에 들은 길이 같은지 묻는다. 미샤는 아직 떠나지 않은 길을 벌써 끝난 이야기로 적지 않으려 한다.",
+      "intro": "익힌 귀환 준비로 이번과 다음에 맡을 몫을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "hsr_misha_route",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "200골드로 준비물을 마련하고 미샤에게 다음 이야기의 몫까지 답한다",
+          "card": "hsr_misha_margin",
+          "card2": null,
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "200골드로 준비물을 마련하고 미샤에게 다음 이야기의 몫까지 답했다. 미샤는 다음에 들려주겠다는 네 이야기를 안내지의 여백에 남기려 했다. 아직 떠나지 않은 길을 지난 여행처럼 적지는 않았다."
+        },
+        {
+          "label": "갤러거와 보급을 나누고 미샤의 여백을 채운다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "갤러거는 보급을 나누며 네가 배려한 여백의 의미를 이해한다. 미샤는 네가 채워준 이야기를 다음 여행의 핵심으로 기억한다."
+        },
+        {
+          "label": "블랙 스완과 두 안내를 나누고 더 강한 확인 담당 구역을 맡는다",
+          "card": "hsr_black_swan_compare",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "블랙 스완과 두 안내를 나누고 더 강한 확인 담당 구역을 맡았다. 내 개인 사냥의 적 강함 단계가 1 늘었다. 블랙 스완은 전에 본 안내와 이번에 들은 안내를 따로 들었다. 미샤는 아직 떠나지 않은 길의 답을 먼저 채우지 않았다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 여행 이야기를 좋아하는 역할을 이용한 창작 재방문이다. 개인 미샤 준비 카드가 자격이며 일반 손님이 그에게 업무를 맡기거나 중요한 본편 반전을 재현하지 않는다. 다음 방문의 몫은 사냥 시간 증가가 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_robin_next_row",
+      "title": "노래를 기다렸던 다른 자리",
+      "story": "다른 방문에서 뒤편의 안내를 함께 들었던 너를 로빈이 알아본다. 이번 안내지에는 앞줄에서 이름을 외칠 자리만 표시되어 뒤편의 친구는 어디서 기다려야 할지 묻는다. 반디는 멀리서 보는 풍경도 괜찮다며 다른 자리를 살피고 갤러거는 돌아갈 관객의 보급을 나눈다. 아직 노래가 시작되지 않았는데 모두 들었다고 답할 수는 없다.",
+      "intro": "전에 먼저 들었던 기억으로 새 관객의 기다릴 자리를 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "hsr_robin_listen",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "180골드로 안내지를 마련하고 로빈과 첫마디 전의 간격을 남긴다",
+          "card": "hsr_robin_pause",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "180골드로 안내지를 마련하고 로빈과 첫마디 전의 간격을 남겼다. 로빈은 뒤편의 친구가 기다릴 간격을 남겼다. 이름을 외치는 자리만 있다고 모두 노래를 들은 것은 아니었다."
+        },
+        {
+          "label": "반디와 함께 멀리서 풍경을 감상하며 안내를 맡는다",
+          "card": "hsr_firefly_moment",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "반디는 멀리서 보는 풍경도 충분히 아름답다며 미소 짓는다. 당신은 그녀와 나란히 서서 노란 조명이 비치는 먼 곳을 바라본다."
+        },
+        {
+          "label": "갤러거에게 보급품을 건네며 귀환 길목을 줄인다",
+          "card": "hsr_gallagher_portion",
+          "card2": null,
+          "cost": 140,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "갤러거는 건네받은 보급품을 확인하며 묵직한 감사를 표한다. 당신은 그와 함께 이동할 거리를 줄이고 더 가까운 곳에 머무른다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 음악이 여러 존재에게 울림을 주는 가수 역할에서 창작한 별도 만남이다. 개인 로빈 경청 카드가 자격이며 본편 공연의 성공·심사·NPC 동행·음원·오라를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hsr_main_01",
+      "title": "꿈의 도시로 온 초대",
+      "intro": "낯선 호텔에서 작은 안내인이 말을 건넨다.",
+      "story": "화합의 축제 초대를 받은 은하열차가 페나코니에 도착한다. 이곳을 다스리는 패밀리는 손님들에게 고통을 잊을 수 있는 안전한 꿈을 약속한다. 가수 로빈과 그녀의 오빠 선데이가 맞이하는 호텔은 축제를 기다리는 사람들로 북적인다.\n객실로 향하던 당신 앞에 소년 직원이 멈춰 선다. 명찰에는 ‘미샤’라고 적혀 있다. 소년은 입몽 장치가 처음인지 물으며 안내를 기다린다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“처음 왔는데, 좀 도와줄래?”",
+          "result": "미샤는 처음 온 손님도 어렵지 않게 이용할 수 있다며 고개를 끄덕인다. 당신의 걸음에 맞춰 천천히 객실 쪽으로 안내한다.",
+          "card": "hsr_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“여기서 일하는 건 어때?”",
+          "result": "미샤는 낯선 별의 이야기를 들을 때가 좋다며 웃는다. 당신의 여행도 듣고 싶어 하던 소년은 먼저 안내부터 하겠다며 길을 가리킨다.",
+          "card": "hsr_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“미샤구나. 만나서 반가워.”",
+          "result": "미샤도 반갑다며 인사를 돌려준다. 도움이 필요하면 불러 달라는 말을 덧붙이고, 객실 쪽으로 길을 안내한다.",
+          "card": "hsr_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "미샤는 객실의 입몽 장치로 잠들면 꿈의 도시를 방문할 수 있다고 설명한다. 안내를 마친 소년과 인사를 나누고, 당신은 장치에 몸을 맡긴다. 눈을 뜨자 호텔 대신 황금빛 거리와 축제의 소음이 펼쳐진다. 페나코니에서의 첫 산책이 시작된다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_02",
+      "title": "군중 속에서 만난 소녀",
+      "intro": "쫓기던 소녀와 당신의 시선이 마주친다.",
+      "story": "황금빛 거리를 구경하던 당신 앞으로 한 소녀가 급히 걸어온다. 뒤따르는 사람들을 돌아보던 소녀는 군중 사이에서 걸음을 멈춘다. 주변의 시선까지 몰리자 말을 꺼내려던 입술이 굳는다.\n누가 어떤 사정으로 쫓기는지 아직 알 수 없다. 하지만 눈앞의 소녀가 혼자 상황을 설명하기 어려워한다는 것은 보인다. 당신이 다가서자 소녀가 조심스럽게 고개를 든다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "소녀 곁으로 다가간다.",
+          "result": "당신이 소녀 곁에 멈춰 서자 뒤따르던 이들의 시선도 당신에게 향한다. 소녀는 숨을 고르고 설명할 말을 찾는다.",
+          "card": "hsr_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“잠깐, 무슨 일인데요?”",
+          "result": "당신의 질문에 주변이 잠시 조용해진다. 소녀는 끊겼던 말을 다시 꺼내고, 당신은 그 말이 끝날 때까지 곁을 지킨다.",
+          "card": "hsr_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“괜찮아. 천천히 말해.”",
+          "result": "서두르지 말라는 말에 소녀의 굳었던 어깨가 조금 풀린다. 그녀는 작게 고개를 끄덕인 뒤 자신에게 쏠린 시선을 마주한다.",
+          "card": "hsr_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "당신이 사이에 나서자 소녀도 사정을 설명할 틈을 얻는다. 소란이 잦아든 뒤, 그녀는 자신을 반디라고 소개한다. 도움에 보답하고 싶다며 도시 안내를 제안하는 반디의 손끝이 거리의 가게들을 가리킨다. 당신은 그 안내를 받아 함께 걷기 시작한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_03",
+      "title": "평범한 하루를 빌린 사람",
+      "intro": "반디가 풍경에서 눈을 떼고 무언가 말하려 한다.",
+      "story": "반디를 따라 오른 드림 보더에서는 꿈의 도시가 한눈에 보인다. 먹거리를 고르며 웃던 반디가 난간 앞에서는 조금 조용해진다.\n반디는 이곳에서 보낸 하루가 자신에게 특별하다고 말하다가 멈춘다. 잠시 망설인 그녀가 당신을 돌아본다. 함께 걸어 준 당신에게, 아직 하지 못한 이야기가 있는 듯하다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“응, 듣고 있어.”",
+          "result": "반디는 고맙다고 작게 답한다. 한동안 난간을 짚고 있던 손을 내려놓은 뒤, 어떤 말부터 해야 할지 천천히 고른다.",
+          "card": "hsr_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“무슨 일 있어?”",
+          "result": "반디는 멀리 펼쳐진 거리를 바라본다. 잠시 머뭇거리던 그녀가 당신에게 돌아서서, 이곳에 오기 전의 자신에 관해 말을 꺼낸다.",
+          "card": "hsr_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "말없이 곁에 선다.",
+          "result": "당신이 재촉하지 않자 반디도 침묵을 서둘러 채우지 않는다. 함께 풍경을 바라보던 그녀가 먼저 당신을 부른다.",
+          "card": "hsr_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "반디는 현실의 몸이 병 때문에 자유롭지 못하다고 털어놓는다. 이 꿈에서는 걷고, 음식을 고르고, 친구와 사진을 남기는 평범한 하루를 보낼 수 있다. 꿈이 병을 고쳐 주지는 않지만 그 시간마저 거짓은 아니다. 당신은 반디와 풍경을 사진에 남긴 뒤, 함께 호텔로 돌아간다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_04",
+      "title": "낙원 밖으로 떨어진 순간",
+      "intro": "괴물들이 다가오는 꿈속에서 낯선 손이 내밀어진다.",
+      "story": "호텔로 돌아가던 길, 삼포의 얼굴을 한 인물이 두 사람을 막아선다. 익숙한 얼굴과 어울리지 않는 말투. 타인의 모습을 빌리는 가면의 우인 스파클은 패밀리의 비밀을 들먹이더니 당신과 반디를 위험한 꿈으로 밀어 넣는다.\n관광객의 웃음 대신 괴물의 기척이 다가온다. 그때 낯선 여인이 모습을 드러내고, 자신을 블랙 스완이라고 소개한다. 기억을 다루는 그녀가 이곳에서 벗어나도록 돕겠다며 손을 내민다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“반디도 같이!”",
+          "result": "블랙 스완은 당신이 반디를 돌아보는 모습을 보고 고개를 끄덕인다. 당신도 반디와 떨어지지 않도록 거리를 좁히며 그녀의 손짓을 따른다.",
+          "card": "hsr_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“어디로 가면 돼?”",
+          "result": "블랙 스완은 오래 머물 곳이 아니라며 움직일 방향을 가리킨다. 당신은 경계를 늦추지 않은 채 반디와 함께 그쪽으로 발을 옮긴다.",
+          "card": "hsr_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "반디와 함께 그녀를 따라간다.",
+          "result": "당신은 괴물의 기척을 살피며 반디와 보조를 맞춘다. 블랙 스완이 길을 이끄는 동안, 서로의 위치를 놓치지 않으려 눈길을 주고받는다.",
+          "card": "hsr_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "블랙 스완의 개입으로 당장의 위기를 넘기고, 당신은 꿈에서 깨어난다. 안전한 관광 구역 뒤에 이런 장소가 있다는 사실은 패밀리의 설명과 맞지 않는다. 꿈속 호텔에서 무슨 일이 벌어지는지 확인하기 위해 당신은 다시 입몽한다. 반디와도 다시 만나야 한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_05",
+      "title": "붙잡지 못한 손",
+      "intro": "반디가 사라진 자리에서 아직 움직이지 못한다.",
+      "story": "다시 입몽한 당신은 블랙 스완과 꿈속 호텔을 조사한다. 도중에 만난 검객 아케론과 로비로 향하던 중, 마침내 반디를 발견한다.\n인사를 건넬 틈도 없이 죽음을 닮은 괴물이 반디를 찌른다. 뻗은 손이 닿기도 전에 그녀의 모습이 사라진다. ‘꿈에서는 누구도 죽지 않는다’던 설명과 눈앞의 광경이 어긋난다. 블랙 스완이 당신 곁에 멈춰 선다. 아직 반디에게 무슨 일이 일어났는지 알 수 없다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "반디가 있던 자리로 달려간다.",
+          "result": "당신은 조금 전까지 반디가 서 있던 자리에 손을 뻗는다. 대답은 돌아오지 않는다. 블랙 스완도 곁에 다가와 남은 기억을 살핀다.",
+          "card": "hsr_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“여기서는 안 죽는다며…….”",
+          "result": "블랙 스완도 반디가 사라진 자리를 바라본다. 패밀리의 약속보다 지금 남아 있는 흔적부터 확인하자고 말한다.",
+          "card": "hsr_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“찾아야 해. 아직 근처에 있을지도 몰라.”",
+          "result": "블랙 스완은 당신의 대답을 듣고 함께 확인하자고 한다. 당신은 반디가 마지막으로 서 있던 위치와 괴물이 나타난 방향을 짚는다.",
+          "card": "hsr_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "눈앞의 광경만으로 반디의 행방을 단정할 수는 없다. 블랙 스완은 그녀가 지나간 기억의 잔상을 추적하자고 제안한다. 당신은 함께 걷고 사진을 남겼던 사람을 한순간의 악몽으로 넘기지 않기로 한다. 일행은 호텔에 남은 흔적을 따라 움직인다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_06",
+      "title": "불길 너머로 이어진 흔적",
+      "intro": "샘과 아케론이 대치하는 사이, 블랙 스완이 길을 가리킨다.",
+      "story": "기억의 잔상을 따라간 끝에 불길을 두른 갑주가 나타난다. 스텔라론 헌터의 일원으로 알려진 전사, 샘이다. 반디의 흔적이 이곳으로 이어졌다는 사실만으로 그의 목적까지 알 수는 없다.\n대치가 격해지자 아케론이 앞을 막아선다. 그사이 블랙 스완이 당신에게 다가와, 이 일을 더 알아볼 수 있는 상대가 있다며 빠져나갈 길을 가리킨다. 지금 그녀를 따라갈지 판단해야 한다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“반디의 흔적은 어떡하고?”",
+          "result": "블랙 스완은 조사를 여기서 그만두자는 뜻이 아니라고 답한다. 당신은 한 번 더 샘을 돌아본 뒤, 그녀가 가리킨 틈으로 움직인다.",
+          "card": "hsr_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“누구를 만나러 가는데?”",
+          "result": "블랙 스완은 컴퍼니의 협상가 어벤츄린을 만나려 한다고 답한다. 그가 무엇을 아는지 직접 듣기로 하고, 당신은 그녀를 따라간다.",
+          "card": "hsr_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케론에게 눈짓하고 빠져나간다.",
+          "result": "당신이 빠져나갈 방향을 알리자 아케론은 샘과의 대치를 이어 간다. 당신은 두 사람 사이로 다시 끼어들지 않고 블랙 스완과 이동한다.",
+          "card": "hsr_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "아케론이 샘을 상대하는 동안 블랙 스완은 당신을 컴퍼니의 협상가 어벤츄린에게 데려간다. 그는 로빈 역시 꿈속에서 죽은 듯 발견되었다는 정보를 내놓는다. 반디 한 사람의 실종으로만 볼 수 없게 된 상황에서, 어벤츄린은 패밀리의 안전 보장을 함께 조사하자고 제안한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_07",
+      "title": "협상가가 내민 패",
+      "intro": "어벤츄린의 제안에는 아직 말하지 않은 대가가 있다.",
+      "story": "어벤츄린은 패밀리의 약속이 무너지면 컴퍼니가 개입할 명분을 얻는다고 설명한다. 과거 페나코니를 지배했던 기업의 이해관계와 실종자를 찾는 당신의 목적은 같지 않다.\n선데이의 압박을 받은 어벤츄린도 말만으로는 진실에 다가가기 어렵다고 여긴다. 그는 더 큰 판을 준비했다며 당신을 바라본다. 도움을 받기 전에, 이 협상가가 어디까지 걸 생각인지 물을 기회다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“난 사람을 찾으러 온 거야.”",
+          "result": "어벤츄린은 같은 목적을 가질 필요는 없다며 당신의 선을 받아들인다. 다만 패밀리가 숨기는 것을 알아야 한다는 점은 같지 않느냐고 되묻는다.",
+          "card": "hsr_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“그 판에 뭘 걸 생각인데?”",
+          "result": "어벤츄린은 자신도 안전한 곳에서 지켜볼 생각은 없다고 답한다. 당신이 대답을 기다리자, 그가 준비한 승부를 설명하기 시작한다.",
+          "card": "hsr_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“좋아. 대신 숨기는 건 없었으면 해.”",
+          "result": "어벤츄린은 아직 보여 줄 패가 남아 있다며 웃는다. 당신은 전부 말하지 않겠다는 뜻으로 알아듣고, 우선 그가 제시할 조건을 들어 본다.",
+          "card": "hsr_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "어벤츄린은 자신의 목숨까지 판에 올릴 생각을 숨기지 않는다. 대중 앞에서 꿈의 안전 보장을 시험하겠다며, 당신을 시계 스튜디오의 무대로 부른다. 정확한 수단까지 모두 말해 주지는 않는다. 당신은 그가 실종의 진상을 밝힐 단서를 쥐고 있다고 보고, 동료들과 무대로 향한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_08",
+      "title": "승리보다 위험한 도박",
+      "intro": "어벤츄린은 물러서지 않고 동료들을 압박한다.",
+      "story": "시계 스튜디오에서 어벤츄린은 힘을 해방하고 열차 일행을 공격한다. 협상을 기대했던 무대는 전장이 된다. 동료들이 밀려도 그는 멈추지 않고, 아케론이 서 있는 쪽까지 압박을 이어 간다.\n이대로라면 누군가 쓰러진다. 그런데 어벤츄린의 시선은 승리를 확신하는 사람보다, 어떤 반응을 기다리는 사람에 가깝다. 당신은 동료들 곁에서 다시 자세를 잡는다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "동료 곁에서 다시 자세를 잡는다.",
+          "result": "당신이 동료들과 다시 대열을 맞추자 어벤츄린도 공격을 이어 간다. 일행은 흩어지지 않으려 서로의 위치를 확인하며 버틴다.",
+          "card": "hsr_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“너, 아케론을 기다리는 거야?”",
+          "result": "어벤츄린은 대답 대신 시선을 아케론 쪽으로 돌린다. 당신은 그 짧은 움직임을 놓치지 않지만, 이어지는 공격 때문에 더 묻지 못한다.",
+          "card": "hsr_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“우릴 끌어들인 게 이것 때문이야?”",
+          "result": "어벤츄린은 공격을 멈추지 않는다. 당신은 더 따질 틈도 없이 동료 곁으로 몸을 옮겨, 함께 다음 공격을 막는다.",
+          "card": "hsr_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "몰아붙이던 어벤츄린을 향해 아케론이 검을 뽑는다. 일격이 그를 쓰러뜨리고 꿈의 경계를 가르자, 자신의 죽음 너머 감춰진 영역에 닿으려 했던 도박의 목적이 드러난다. 당신도 충격에 휩쓸려 의식을 잃는다. 다시 눈을 뜨니 자신을 구한 샘이 앞에 서 있다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_09",
+      "title": "갑주 안에서 기다린 대답",
+      "intro": "당신을 구한 샘이 설명할 기회를 청한다.",
+      "story": "정신을 차린 당신은 눈앞의 샘을 바라본다. 반디의 흔적 끝에서 맞섰던 갑주가 이번에는 당신을 구했다. 경계해야 할 상대인지, 사라진 사람에게 닿을 단서인지 판단하기 어렵다.\n샘은 당장 싸울 뜻이 없다는 듯 멈춰 선다. 왜 당신을 도왔는지, 자신이 무엇을 말하려 했는지 이제 설명하겠다고 한다. 당신에게는 묻지 못한 말이 남아 있다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“……설명해 줘.”",
+          "result": "샘은 당신이 말을 끝낼 때까지 기다린다. 더는 설명할 기회를 놓치고 싶지 않다며, 당신과 마주 선 채 움직임을 멈춘다.",
+          "card": "hsr_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“반디는 어떻게 됐어?”",
+          "result": "샘은 잠시 침묵한 뒤 그 질문에 직접 답하겠다고 말한다. 당신은 반디의 이름을 다시 부르려다 멈추고, 이어질 말을 기다린다.",
+          "card": "hsr_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“왜 나를 구한 거야?”",
+          "result": "샘은 당신에게 해야 할 말이 남아 있었다고 답한다. 말로만 설명해서는 믿기 어려울 거라며, 당신 앞에서 갑주를 해제하려 한다.",
+          "card": "hsr_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "갑주가 해제되고 반디가 모습을 드러낸다. 함께 거리를 걷던 소녀와 불길 속 전사가 같은 인물이었다. 반디는 괴물에게 찔린 뒤에도 살아 있었으며, 그 현상이 꿈의 더 깊은 곳으로 향하는 통로라고 설명한다. 당신은 사라진 이들의 행방을 직접 확인하기 위해 반디의 안내로 ‘꿈이 흐르는 암초’로 향한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_10",
+      "title": "축제 아래 숨겨진 도시",
+      "intro": "죽은 줄 알았던 로빈 곁에 갤러거가 서 있다.",
+      "story": "꿈이 흐르는 암초에 도착한 당신은 로빈을 발견한다. 죽은 듯 발견되었다던 그녀가 눈앞에 살아 있다. 화려한 관광 구역과 다른 풍경 속에서, 지금까지의 설명을 다시 맞춰 봐야 한다.\n로빈 곁에 있던 패밀리 경비원 갤러거가 다가온다. 그는 괴물과 실종, 그리고 이곳으로 이어진 길에 관해 할 이야기가 있다며 당신의 질문을 기다린다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“여긴 대체 어디야?”",
+          "result": "갤러거는 화려한 거리에서 들은 설명만으로는 이곳을 이해하기 어렵다고 답한다. 그는 사람들이 어떤 길을 거쳐 왔는지부터 이야기를 시작한다.",
+          "card": "hsr_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“로빈은 죽었다고 들었는데…….”",
+          "result": "갤러거는 눈앞에 있는 로빈을 가리킨다. 목격한 광경과 실제로 일어난 일을 구분하자며, 두 사람에게 일어난 일을 차례대로 설명하려 한다.",
+          "card": "hsr_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“우릴 부른 게 너야?”",
+          "result": "갤러거는 당신이 초대의 목적을 묻자 태도를 가다듬는다. 이곳까지 이어진 길을 설명하려면 오래전 남겨진 부탁도 이야기해야 한다고 답한다.",
+          "card": "hsr_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "icon": "war3mapImported\\UI_Event_PEO_reef.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "갤러거는 괴물 ‘휴면’이 사람을 암초로 이동시키며, 반디와 로빈의 실종도 살인이 아니었다고 설명한다. 그는 시계공의 뜻을 잇고 있었고, 축제의 꿈이 스텔라론이라는 위험한 힘에 기대 유지된다는 사실도 밝힌다. 일행은 스텔라론 문제를 해결할 길과 함께, 시계공이 후대의 개척자를 부른 이유를 찾기로 한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_11",
+      "title": "소년이 남기려는 여행",
+      "intro": "미샤가 마지막으로 함께 봐 달라는 기억이 있다.",
+      "story": "시계공의 흔적을 좇던 일행을 미샤가 기억의 공간으로 안내한다. 호텔에서 만났던 소년은 이곳의 오래된 풍경을 낯설어하지 않는다.\n미샤는 앞에 남은 기억을 바라보다가 당신에게 돌아선다. 자신이 전하고 싶은 이야기가 아직 있다며, 마지막까지 함께 봐 주겠느냐고 묻는다. 그 이야기가 끝나면 무엇이 기다리는지는 아직 알 수 없다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“응. 같이 가자.”",
+          "result": "미샤는 기다렸다는 듯 고개를 끄덕인다. 당신이 뒤따르는 것을 확인한 소년은 마지막 기억이 남은 곳으로 걸음을 옮긴다.",
+          "card": "hsr_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“우리한테 부탁할 일이 있는 거야?”",
+          "result": "미샤는 고개를 끄덕인다. 부탁의 이유도 알아주었으면 한다며, 말로 설명하는 대신 마지막 기억을 함께 보자고 한다.",
+          "card": "hsr_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“네 이야기를 더 듣고 싶어.”",
+          "result": "미샤는 조금 웃으며 고맙다고 답한다. 당신이 곁에 서자, 소년은 아직 보여 주지 못한 기억으로 안내한다.",
+          "card": "hsr_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "기억 속 시계공 미하일은 은하열차의 개척자였고, 동료들과 페나코니에 자유로운 삶의 터전을 일구려 했다. 미샤는 그의 어린 시절 꿈이 남은 존재였다. 소년은 이 도시가 다시 감옥이 되지 않게 해 달라는 뜻과 미하일의 모자를 후대에 전한다. 당신이 그 부탁을 받아들이자 미샤는 자신의 여행을 마치고 사라진다. 남은 길은 이제 일행이 이어 가야 한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_12",
+      "title": "보호라는 이름의 답",
+      "intro": "선데이가 약속하는 낙원에는 떠날 자유가 없다.",
+      "story": "로빈과 열차 동료 웰트가 스텔라론 문제로 패밀리의 실권자 ‘꿈의 주인’과 협상을 시도하지만, 선데이가 가로막는다. 그는 축제와 스텔라론의 힘으로 모두를 고통 없는 영원한 꿈에 머물게 하겠다고 밝힌다.\n약자가 불행에 내몰리지 않도록 자신이 보호하겠다는 것이다. 화합의 축제가 한 뜻으로 모두를 묶는 질서에 쓰이려 한다. 선데이는 그보다 나은 답이 있느냐며 일행을 바라본다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“로빈, 너도 같은 생각이야?”",
+          "result": "로빈은 선데이를 바라본다. 오빠가 불행을 막고 싶어 한다는 것은 알지만, 그것이 모두를 대신해 결정할 이유가 될 수는 없다고 답한다.",
+          "card": "hsr_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“싫다는 사람도 붙잡아 둘 거야?”",
+          "result": "선데이는 밖으로 돌아가 다시 고통받는 이를 그대로 두라는 뜻이냐고 되묻는다. 당신이 대답하기도 전에, 그가 이 계획을 세운 이유를 꺼낸다.",
+          "card": "hsr_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“반디의 생각은 물어봤어?”",
+          "result": "반디는 자신의 미래에 관한 말이라며 대화에 나선다. 누군가 자신을 걱정한다는 이유로 그 선택까지 맡기고 싶지는 않다고 말한다.",
+          "card": "hsr_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "선데이는 어린 시절 구한 새의 추락과 약자들의 불행을 들어 자신의 계획을 고집한다. 로빈은 새에게도 날 기회가 필요하다고 맞서고, 반디 역시 아픈 미래를 남이 대신 정하는 데 반대한다. 보호를 위해 선택을 없애려는 선데이와의 간극은 좁혀지지 않는다. 일행은 그가 기다리는 대극장으로 향한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_13",
+      "title": "대극장에서 맞선 질서",
+      "intro": "선데이의 합창 앞에서 일행의 발이 밀린다.",
+      "story": "축제의 예선을 지나 대극장에 도착한 일행은 선데이와 맞선다. 반디는 꿈 밖에서 도울 방법을 찾으러 따로 움직이고, 남은 동료들이 무대를 지킨다.\n선데이의 거대한 합창이 일행을 짓누른다. 그의 통제를 거부한 말만으로 이 힘을 막을 수는 없다. 한 차례 공격을 버틴 당신은 숨을 고르고, 여전히 곁에 선 동료들을 바라본다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“아직 끝난 거 아니야!”",
+          "result": "당신이 다시 자세를 잡자 동료들도 곁에서 일어선다. 압박은 여전하지만, 일행은 서로 떨어지지 않은 채 다음 공격을 맞을 준비를 한다.",
+          "card": "hsr_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료들과 대열을 다시 맞춘다.",
+          "result": "당신은 동료의 움직임에 맞춰 버티고, 비틀거리는 쪽을 함께 받친다. 일행이 대열을 추스르는 동안에도 무대의 합창은 그치지 않는다.",
+          "card": "hsr_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“이런 걸 구원이라고 부르겠다고?”",
+          "result": "선데이는 당신의 거절에도 자신의 뜻을 거두지 않는다. 대답을 기다리며 멈춰 있을 수 없어, 당신은 동료들과 다시 그 힘에 맞선다.",
+          "card": "hsr_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "icon": "war3mapImported\\UI_Event_PEO_sunday.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "일행이 다시 맞서는 순간 열차 동료 단항과 선주 지원군이 나타나 전세를 뒤집는다. 마침내 선데이가 쓰러지고, 동료들은 승리를 확인하며 한숨을 돌린다. 길었던 갈등이 풀린 듯하고 열차도 다음 목적지로 떠날 준비를 한다. 당신 역시 여행을 마무리하려 한다. 출발하기 전, 블랙 스완이 잠시 이야기를 나누자고 부른다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_14",
+      "title": "첫 만남에 남은 모순",
+      "intro": "블랙 스완은 승리가 아니라 여행의 시작을 묻는다.",
+      "story": "떠날 준비를 하던 당신에게 블랙 스완이 첫날의 기억을 묻는다. 누구를 만났고, 어디에서 처음 말을 나눴는지. 지나간 여행을 확인하는 질문 같지만 그녀의 표정은 진지하다.\n블랙 스완은 지금까지 알아낸 사실과 처음의 기억 사이에 맞지 않는 부분이 있다고 말한다. 무엇이 어긋났는지는 아직 짚어 주지 않는다. 당신은 잠시 출발 준비를 멈춘다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“처음부터? 뭘 놓쳤는데?”",
+          "result": "블랙 스완은 가장 처음의 기억부터 순서대로 말해 달라고 한다. 당신은 호텔에 도착한 때부터 떠올리고, 그녀는 그 장소와 인물들을 대조한다.",
+          "card": "hsr_main_14_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“반디를 만났을 때부터 말하면 돼?”",
+          "result": "블랙 스완은 반디와의 만남도 빠뜨리지 않고 듣는다. 꿈속 거리로 들어가기 전에는 누구를 만났는지 되묻자, 당신은 호텔에서의 기억으로 돌아간다.",
+          "card": "hsr_main_14_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“미샤…… 호텔에서 처음 봤지.”",
+          "result": "당신이 미샤와 나눈 첫 대화를 떠올리자 블랙 스완이 장소를 다시 묻는다. 꿈속 거리였는지, 입몽하기 전 호텔이었는지 기억을 좁혀 간다.",
+          "card": "hsr_main_14_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "icon": "war3mapImported\\UI_Head_Official_penacony_Icon.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "기억을 대조하자 모순이 드러난다. 미샤는 미하일의 꿈에 남은 존재인데, 당신은 그를 현실 호텔에서 처음 만났다고 기억한다. 아케론과 진상을 확인한 일행은 선데이에게 이겼다는 결말까지 질서의 꿈이었음을 깨닫는다. 꿈의 힘은 현실에도 스며들고 있었다. 반디가 밖에서 얻은 정보와 질서의 영향에서 벗어난 아케론의 힘을 모아, 일행은 진짜 결전을 준비한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "hsr_main_15",
+      "title": "스스로 선택하는 내일",
+      "intro": "다시 마주한 선데이. 이번에는 우리가 꿈의 끝을 정할 차례다.",
+      "story": "거짓 승리에서 벗어난 일행 앞을 선데이가 다시 가로막는다. 그는 고통받는 현실로 돌아가는 대신 자신의 보호 아래 영원히 머물 것을 요구한다.\n꿈의 장막 너머에서 동료들의 움직임이 전해진다. 갤럭시 레인저 부트힐이 부른 외부의 조력과 열차 동료들이 저항을 돕고, 아케론이 돌파할 길을 연다. 로빈의 노래도 들려온다. 아직 꿈은 끝나지 않았다.\n그럼에도 현실로 돌아가겠느냐는 선데이의 물음 앞에서, 당신은 한 걸음 앞으로 나선다.",
+      "mainStage": 15,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“그래도 내 삶은 내가 고르겠어.”",
+          "result": "당신은 반디가 자신의 삶과 미래를 고르고 싶어 했던 마음을 떠올린다. 그 바람에 답하듯 선데이의 보호를 거절하고, 동료들과 다시 맞선다.",
+          "card": "penacony_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "모자를 고쳐 쓰고 앞으로 나선다.",
+          "result": "모자에 손을 얹자 미샤와 작별했던 순간이 떠오른다. 미하일이 남기려 했던 자유로운 도시를 떠올리며 앞으로 나서자, 열차 동료들도 나란히 선다.",
+          "card": "penacony_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“로빈, 멈추지 마!”",
+          "result": "당신은 들려오는 노래에 응답하며 동료들과 나아간다. 로빈의 노래와 깨어나려는 사람들의 의지가 선데이에게 맞서는 일행에 힘을 보탠다.",
+          "card": "penacony_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "페나코니 개척 임무 2.0~2.2의 주요 흐름을 따라간 창작 대화. 세 대답은 같은 다음 장면으로 이어진다.",
+      "uncertain": false,
+      "icon": "war3mapImported\\UI_Event_PEO_theater.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "꿈 안팎에서 모인 힘으로 일행은 선데이를 격파한다. 모두를 붙잡던 질서가 무너지고, 싸움이 멎는다. 선데이가 당신을 바라보며 마지막으로 묻는다.\n\n선데이 · 대체... 생명은 왜 깊은 잠에 빠지는 건가?",
+            "choices": [
+              {
+                "label": "왜냐면... 언젠가... 우린 꿈에서 깨어날 거니까",
+                "result": "당신의 대답이 전해지고, 길었던 꿈의 막이 내린다. 현실에 무엇이 기다리든, 다음 걸음은 깨어난 사람들의 것이다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "hsr_epilogue_postcard",
+      "title": "떠난 뒤에 남기는 엽서",
+      "intro": "이야기를 마친 뒤 호텔의 엽서를 펼친다. 화려한 도시보다 그곳에서 만난 사람들의 말을 먼저 적는다.",
+      "story": "페나코니의 꿈에서 깨어난 뒤, 호텔의 엽서를 펼쳐 여행에서 남은 말을 고른다. 처음에는 초대받은 손님으로 보았던 도시를 이제는 그 안에서 꿈꾸고 고민하던 사람들의 얼굴과 함께 떠올린다. 한 장에 모두 적을 수 없어도 가장 오래 남은 장면은 저마다 다르다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "미샤의 이야기를 적는다.",
+          "result": "안내하던 소년의 모습 너머로 미하일이 남긴 개척의 뜻을 떠올린다. 지금 답장을 기다리는 인사 대신, 다음 길에서도 그 뜻을 잊지 않겠다는 말을 엽서에 남긴다.",
+          "card": "hsr_misha_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "반디와 본 풍경을 적는다.",
+          "result": "옥상의 비밀기지에서 바라보던 도시를 떠올린다. 화려한 꿈의 풍경만큼, 그곳에서 자신의 삶을 말하던 반디가 여행의 한 장면으로 남아 있다.",
+          "card": "hsr_firefly_visit",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "로빈에게 들려줄 말을 적는다.",
+          "result": "깨어날 수 있는 내일을 바라며 들었던 노래를 돌아본다. 모두를 같은 꿈에 머물게 하는 대신 각자의 길을 존중하고 싶다는 마음을 엽서에 담는다.",
+          "card": "hsr_robin_listen",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 후의 창작 후일담. 원작 후속 개척 임무를 대신하지 않음.",
+      "uncertain": false
+    },
+    {
+      "key": "hsr_epilogue_voice",
+      "title": "다음 만남을 기다리는 인사",
+      "intro": "꿈의 거리를 떠올리며 다음 인사를 준비한다. 예전처럼 머무르겠다는 약속 대신 서로의 삶을 기다린다.",
+      "story": "페나코니를 돌아본 뒤에도 다음에 만날 날짜나 장소까지 정해진 것은 아니다. 같은 꿈에 머무르는 대신 각자의 길로 나아간 사람들을 생각한다. 다시 만난다면 나누고 싶은 말과, 그때까지 혼자 품고 갈 질문을 골라 본다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "“다음에는 그 장난을 조금 덜 믿게 될까.”",
+          "result": "스파클의 익살을 떠올리면 다음 만남을 쉽게 예상할 수 없다. 웃으며 들을 말과 확인해야 할 말을 구분하겠다는 마음이, 막연한 경계와는 다른 기대를 만든다.",
+          "card": "hsr_sparkle_exit",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“같은 노래를 다른 자리에서도 들을 수 있겠지.”",
+          "result": "로빈의 목소리는 함께 같은 장소에 있어야만 떠올릴 수 있는 것이 아니다. 각자의 삶을 이어가면서도 한 곡으로 지난 여행을 돌아볼 수 있기를 바란다.",
+          "card": "hsr_robin_voice",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "“다음 여행에서는 어떤 순간을 남기게 될까.”",
+          "result": "기억을 대하던 블랙 스완의 관점을 떠올리며 자신의 다음 여정을 생각한다. 아직 일어나지 않은 일의 답을 정하기보다, 어떤 선택을 하며 살아갈지 묻게 된다.",
+          "card": "hsr_black_swan_trace",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 후의 창작 후일담. 원작 후속 개척 임무를 대신하지 않음.",
+      "uncertain": false
+    }
+  ],
+  "storyChanges": [
+    {
+      "key": "penacony_watchmaker_memory",
+      "eventKey": "hsr_main_11",
+      "characterCardKey": "hsr_misha",
+      "displayName": "시계공의 기억 · 미샤",
+      "description": "미샤는 시계공 미하일의 어린 시절이 남긴 꿈의 기억이었다. 다음 개척자에게 이어진 여행의 뜻을 간직한다.",
+      "extraEffects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "reviewRecords": [
+    "5a2fd902-05c3-404c-8485-6245beaf4a97",
+    "7a05fbc2-55b5-4504-96ed-2d1ab3bb5174",
+    "91d3894e-c465-49cd-a98c-32be058419e0",
+    "794cc8e5-de00-48c3-89fe-630023b7429a",
+    "d5bf2ba1-6362-42e1-afdf-9a42784fba17",
+    "87a07e3b-26b4-4a19-a8ab-0be7d071da1e",
+    "35260827-1c55-45a8-a970-0237e40b0896"
+  ]
+}
