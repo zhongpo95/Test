@@ -1,0 +1,3196 @@
+{
+  "world": {
+    "key": "mitakihara",
+    "name": "미타키하라",
+    "work": "마법소녀 마도카 마기카",
+    "intro": "마도카는 낯선 꿈의 기억을 안고 평범한 학교에 간다. 소원이 남겨 둔 내일의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "effects": [
+      {
+        "stat": "damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "madoka_care",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp",
+    "mainStory": {
+      "title": "소원이 남겨 둔 내일",
+      "length": 14,
+      "focus": [
+        "damage_percent",
+        "leech"
+      ],
+      "source": "마도카 마기카 TV 본편의 소원과 반복",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    },
+    "entryIcon": "war3mapImported\\UI_Head_Official_mitakihara_Icon.tga"
+  },
+  "sources": [
+    "https://www.madoka-magica.com/tv/youtube-streaming/character/",
+    "https://www.madoka-magica.com/tv/story/?id=02",
+    "https://www.madoka-magica.com/tv/story/?id=5",
+    "https://www.madoka-magica.com/tv/story/?id=6",
+    "https://www.madoka-magica.com/tv/special/keyword/junko.html",
+    "https://www.madoka-magica.com/tv/special/keyword/tomohisa.html",
+    "https://www.madoka-magica.com/tv/special/keyword/hitomi.html",
+    "https://www.madoka-magica.com/tv/special/keyword/kyosuke.html",
+    "https://www.madoka-magica.com/tv/archives/story/02.html",
+    "https://www.madoka-magica.com/tv/special/keyword/kekkai.html",
+    "https://www.madoka-magica.com/tv/archives/story/03.html",
+    "https://www.madoka-magica.com/tv/archives/story/05.html",
+    "https://www.madoka-magica.com/tv/archives/story/07.html",
+    "https://www.madoka-magica.com/tv/archives/story/",
+    "https://madokamagicausa.com/tv/story/12.html"
+  ],
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다.",
+  "cards": [
+    {
+      "key": "madoka_care",
+      "name": "카나메 마도카",
+      "effectName": "친구를 위해",
+      "keyword": "고체력 · 생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마도카가 친구를 걱정하는 성격을 체력을 지키는 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_mami",
+      "name": "토모에 마미",
+      "effectName": "흔들리지 않는 조준",
+      "keyword": "차지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마미의 마법소녀 역할과 총을 활용하는 전투를 조준·차지로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_homura",
+      "name": "아케미 호무라",
+      "effectName": "반복해 세운 준비",
+      "keyword": "행동 · 신속",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "호무라의 반복된 준비를 행동 속도·신속으로 각색했다. 시간을 멈추는 신규 기술은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_sayaka",
+      "name": "미키 사야카",
+      "effectName": "물러서지 않는 결심",
+      "keyword": "체력 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사야카의 결심과 친구를 지키려는 행동을 공격·최대 체력으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_kyoko",
+      "name": "사쿠라 쿄코",
+      "effectName": "긴 창의 간격",
+      "keyword": "방향 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 4
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "쿄코의 창 전투를 방향 공격과 이동 관련 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_contract",
+      "name": "큐베",
+      "effectName": "힘이라는 소원",
+      "keyword": "공격 · 대가",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": -2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "큐베가 소원과 계약을 제시하는 특징을 공격 보너스·최대 체력 패널티로 각색했다. 별도 계약 시스템이나 현재 체력 지불은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_guide",
+      "name": "토모에 마미",
+      "effectName": "혼자 두지 않는 안내",
+      "keyword": "탐색 · 생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마미가 후배를 안내하는 역할을 후보 확인·방어 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_resolve",
+      "name": "카나메 마도카",
+      "effectName": "서로의 말을 듣기",
+      "keyword": "생존 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마도카가 인물들의 사정을 듣는 행동을 살아 돌아와 전투를 준비하는 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_junko_choice",
+      "name": "카나메 준코",
+      "effectName": "먼저 정할 한 가지",
+      "keyword": "보스 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "직장인인 마도카의 어머니가 딸과 가까이 대화하는 역할을 큰 상대를 앞두고 무엇을 먼저 지킬지 정하는 준비로 각색했다. 성인 고유 전투 능력·회사 급여·부모 허락 시스템은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_tomohisa_pack",
+      "name": "카나메 토모히사",
+      "effectName": "남겨 놓은 한 사람의 몫",
+      "keyword": "재생 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "취사·세탁·청소를 맡는 전업주부 역할을 다음 일을 오래 이어 갈 보급 습관으로 각색한다. 식사 즉시 치료·주방 장비·무한 음식은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_hitomi_schedule",
+      "name": "시즈키 히토미",
+      "effectName": "약속 사이에 남긴 여백",
+      "keyword": "신속 · 차지 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "charge_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "피아노·일본무용·다도 등 여러 활동을 하는 친구의 역할을 다음 동작과 준비를 늦추지 않는 습관으로 각색했다. 음악 버프·다도 기술·추가 시간·친구의 연애 결말은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_sayaka_listen",
+      "name": "미키 사야카",
+      "effectName": "말이 끝날 때까지",
+      "keyword": "치명 확률 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "친구를 아끼고 쿄스케를 문병하는 행동을 상대를 살피고 몸 상태를 지킬 때 힘을 싣는 준비로 각색한다. 쿄스케의 손 치료·소원 대리 실현·악기 장비는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_homura_school",
+      "name": "아케미 호무라",
+      "effectName": "먼저 끝내고 기다릴 자리",
+      "keyword": "행동 속도 · 비방향 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "성적과 운동이 뛰어난 전학생의 면모를 다음 동작과 넓은 공격의 준비 습관으로 각색한다. 시간 정지·추가 시간·전학생 성적 시스템은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_mami_distance",
+      "name": "토모에 마미",
+      "effectName": "들어가기 전의 한 걸음",
+      "keyword": "방향 피해 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후배를 안내하는 선배의 역할을 들어가기 전에 적중할 위치와 물러날 자리를 정하는 준비로 각색한다. 리본·새 총기·결계 탈출 보장·원작 생존 결말은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_return_markers",
+      "name": "카나메 마도카",
+      "effectName": "돌아와 줄 자리",
+      "keyword": "최대 체력 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "친구를 걱정하는 성격에서 돌아올 사람의 자리를 남기는 기억이다. 고체력은65%이상이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_mami_rear",
+      "name": "토모에 마미",
+      "effectName": "내 뒤에 둘 여백",
+      "keyword": "차지 속도 · 받는 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후배를 돌보는 선배의 역할에서 자신의 조준과 뒤편의 준비를 구분하는 기억이다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_kyoko_unshared",
+      "name": "사쿠라 쿄코",
+      "effectName": "허투루 버리지 않을 것",
+      "keyword": "이동 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "음식을 늘 먹는 면모에서 버리지 않고 남길 몫을 확인하는 기억이다. 이동3%와 치명 피해14%p다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_homura_retreat",
+      "name": "아케미 호무라",
+      "effectName": "빈칸으로 남긴 길",
+      "keyword": "치명 피해 · 일반 적",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "준비와 경계를 세우는 기존 역할에서 확인하지 않은 곳을 함부로 채우지 않는 기억이다. 시간 정지나 제한시간 추가는 없다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_sayaka_carry",
+      "name": "미키 사야카",
+      "effectName": "가방을 닫기 전에",
+      "keyword": "치명 확률 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "친구를 문병하는 행동에서 준비된 물건부터 챙기는 기억이다. 비방향은 헤드/백 플래그 없는 공격이며 손 치료나 소원 실현을 하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_hitomi_walk",
+      "name": "시즈키 히토미",
+      "effectName": "함께 갈 수 있는 구간",
+      "keyword": "이동 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "여러 습관과 친구 관계에서 함께 갈 구간만 맡는 기억이다. 연애 결말·실제 시간 증가를 뜻하지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_mami_next",
+      "name": "토모에 마미",
+      "effectName": "다음에도 들을 이야기",
+      "keyword": "행동력 최대치",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후배의 선택을 돕는 역할에서 다음 방문에도 맡을 몫을 정하는 기억이다. 행동력 최대치와 현재행동력 증가분1만 지급하며 사냥 제한시간은 늘지 않는다. 여행자의 성장으로 각색하며 원작 능력·새 기술·아이템이나 운명 변경을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_01_1",
+      "name": "카나메 마도카",
+      "effectName": "꿈에서 보았던 소녀 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_01_2",
+      "name": "카나메 마도카",
+      "effectName": "꿈에서 보았던 소녀 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_01_3",
+      "name": "카나메 마도카",
+      "effectName": "꿈에서 보았던 소녀 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_02_1",
+      "name": "카나메 마도카",
+      "effectName": "계약 전에 묻는 질문 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_02_2",
+      "name": "카나메 마도카",
+      "effectName": "계약 전에 묻는 질문 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_02_3",
+      "name": "카나메 마도카",
+      "effectName": "계약 전에 묻는 질문 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_03_1",
+      "name": "토모에 마미",
+      "effectName": "선배가 내어 준 자리 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_03_2",
+      "name": "토모에 마미",
+      "effectName": "선배가 내어 준 자리 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_03_3",
+      "name": "토모에 마미",
+      "effectName": "선배가 내어 준 자리 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_04_1",
+      "name": "카나메 마도카",
+      "effectName": "다시 오지 않는 인사 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_04_2",
+      "name": "카나메 마도카",
+      "effectName": "다시 오지 않는 인사 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_04_3",
+      "name": "카나메 마도카",
+      "effectName": "다시 오지 않는 인사 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_05_1",
+      "name": "미키 사야카",
+      "effectName": "사야카가 고른 소원 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_05_2",
+      "name": "미키 사야카",
+      "effectName": "사야카가 고른 소원 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_05_3",
+      "name": "미키 사야카",
+      "effectName": "사야카가 고른 소원 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_06_1",
+      "name": "사쿠라 쿄코",
+      "effectName": "쿄코와 다른 대답 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_06_2",
+      "name": "사쿠라 쿄코",
+      "effectName": "쿄코와 다른 대답 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_06_3",
+      "name": "사쿠라 쿄코",
+      "effectName": "쿄코와 다른 대답 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_07_1",
+      "name": "아케미 호무라",
+      "effectName": "소울 젬이 뜻하는 것 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_07_2",
+      "name": "아케미 호무라",
+      "effectName": "소울 젬이 뜻하는 것 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_07_3",
+      "name": "소울 젬",
+      "effectName": "작은 보석의 무게",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사야카가 자신의 영혼이 담긴 소울 젬의 의미를 마주하는 장면을 상징한다. 타인의 영혼을 빼앗거나 보석을 소비해 힘을 얻는 행동은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_08_1",
+      "name": "미키 사야카",
+      "effectName": "괜찮다는 말의 빈틈 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_08_2",
+      "name": "미키 사야카",
+      "effectName": "괜찮다는 말의 빈틈 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_08_3",
+      "name": "미키 사야카",
+      "effectName": "괜찮다는 말의 빈틈 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_09_1",
+      "name": "사쿠라 쿄코",
+      "effectName": "돌아올 수 없는 경계 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_09_2",
+      "name": "사쿠라 쿄코",
+      "effectName": "돌아올 수 없는 경계 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_09_3",
+      "name": "사쿠라 쿄코",
+      "effectName": "돌아올 수 없는 경계 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_10_1",
+      "name": "아케미 호무라",
+      "effectName": "호무라가 반복한 시간 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_10_2",
+      "name": "아케미 호무라",
+      "effectName": "호무라가 반복한 시간 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_10_3",
+      "name": "아케미 호무라",
+      "effectName": "호무라가 반복한 시간 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_11_1",
+      "name": "카나메 마도카",
+      "effectName": "한 사람에게 모인 무게 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_11_2",
+      "name": "카나메 마도카",
+      "effectName": "한 사람에게 모인 무게 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_11_3",
+      "name": "카나메 마도카",
+      "effectName": "한 사람에게 모인 무게 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_12_1",
+      "name": "아케미 호무라",
+      "effectName": "발푸르기스의 밤 앞 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_12_2",
+      "name": "아케미 호무라",
+      "effectName": "발푸르기스의 밤 앞 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_12_3",
+      "name": "아케미 호무라",
+      "effectName": "발푸르기스의 밤 앞 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_13_1",
+      "name": "카나메 마도카",
+      "effectName": "마도카가 찾아낸 소원 · 결의",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_13_2",
+      "name": "카나메 마도카",
+      "effectName": "마도카가 찾아낸 소원 · 물음",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_13_3",
+      "name": "카나메 마도카",
+      "effectName": "마도카가 찾아낸 소원 · 인연",
+      "keyword": "메인 · 소원이 남겨 둔 내일",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "mitakihara_main_14_1",
+      "name": "아케미 호무라",
+      "effectName": "보이지 않아도 남은 친구",
+      "keyword": "메인 완결 · 소원이 남겨 둔 내일",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "mitakihara_main_14_2",
+      "name": "아케미 호무라",
+      "effectName": "소원이 이어지는 내일",
+      "keyword": "메인 완결 · 소원이 남겨 둔 내일",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "leech",
+          "value": 6
+        },
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "mitakihara_main_14_3",
+      "name": "아케미 호무라",
+      "effectName": "시간을 건너 남은 인사",
+      "keyword": "메인 완결 · 소원이 남겨 둔 내일",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "mitakihara_main_ending_memorial",
+      "name": "이어지는 리본",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "사라진 친구의 이름을 기억하며, 그녀가 지킨 세계에서 내일을 잇는 약속.",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "사라진 친구의 이름을 기억하며, 그녀가 지킨 세계에서 내일을 잇는 약속.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "key": "madoka_parking_seed",
+      "title": "자전거 보관소의 검은 씨앗",
+      "story": "병원 자전거 보관소에서 부화 직전의 그리프 시드를 발견했다. 마도카는 마미에게 도움을 청하고 사야카는 시민들이 접근하지 못하도록 경계한다. 연락을 받은 호무라는 다른 길로 돌아가라고 한다. 도움을 기다리는 동안 너도 맡을 일을 정해야 한다.",
+      "intro": "도움을 기다리는 자전거 보관소에서 맡을 일을 정한다.",
+      "choices": [
+        {
+          "label": "차단 자재를 마련하고 마미의 안내를 받는다",
+          "result": "차단 자재를 마련하고 마미의 안내를 받았다. 준비에 180골드를 썼다. 마미가 네가 맡은 경계부터 확인하는 동안 사야카는 아직 부화하지 않은 씨앗에서 눈을 떼지 않는다.",
+          "card": "madoka_guide",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사야카와 함께 시민들을 대피시키며 상황을 살핀다",
+          "result": "사야카의 헌신적인 모습에서 마법소녀로서의 책임감을 깊이 깨닫는다. 시민들을 지켜낸 덕분에 그녀의 진심이 담긴 기억이 조각으로 남는다.",
+          "card": "madoka_sayaka",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호무라에게 자리를 넘기고 우회로를 확인한다",
+          "result": "호무라에게 자리를 넘기고 우회로를 확인했다. 준비에 240골드를 썼다. 호무라는 우회할 길만 짚고 씨앗 안쪽을 확인했다고 적지는 말라고 한다.",
+          "card": "madoka_homura",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원 TV3화 공식 줄거리의 병원 자전거 보관소·그리프 시드·사야카 경계·마도카의 도움 요청에서 별도 사전 준비를 각색한다. 플레이어 개입과 호무라 연락은 창작이며 본편 마녀전 결말이나 마미 운명을 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_mentor_return",
+      "title": "돌아온 안내자",
+      "story": "마미를 기다리는 길목에서 다음 작전을 논의한다. 마미는 결계의 위험을 경고하며 사격 위치와 퇴로를 함께 정하자고 제안한다. 마도카는 돌아올 표시를 남기고 마미는 뒤편 준비까지 혼자 맡지 말자고 한다.",
+      "intro": "마미와 사격 위치와 퇴로를 함께 정한다.",
+      "choices": [
+        {
+          "label": "마미와 사격 위치를 확보한다",
+          "result": "마미와 사격 위치를 확보했다. 내 개인 사냥의 적 강함 단계가1늘었다. 마미는 먼 곳의 사선만 표시하고 안쪽을 확인하지 않은 지도는 접지 않는다.",
+          "card": "madoka_mami",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마도카와 대화하며 마미가 제안한 퇴로를 확인한다",
+          "result": "마도카와 소통하며 마미의 배려와 전략을 세밀하게 파악한다. 마법소녀들 사이의 신뢰가 깊어지며 협력의 중요성을 다시금 되새긴다.",
+          "card": "madoka_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마미의 제안을 수용하고 지원할 위치를 신중히 정한다",
+          "card": "madoka_mami_rear",
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "마미의 노련한 조언을 경청하며 전술적인 위치를 확정한다. 그녀가 보여준 헌신적인 태도에서 선배로서의 깊은 책임감을 느낀다."
+        }
+      ],
+      "previous": "madoka_parking_seed",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_familiar_trace",
+      "title": "놓친 사역마의 흔적",
+      "story": "마법소녀들의 충돌 이후 놓친 사역마의 흔적이 발견되었다. 사야카는 추적을 원하지만, 마도카는 서로 대화하며 상황을 풀길 바란다. 쿄코는 같은 흔적을 다른 쪽에서 살피며 추적할 구역을 나누라고 한다.",
+      "intro": "추적을 계속할지 먼저 대화할지 의견이 갈린다.",
+      "choices": [
+        {
+          "label": "사야카와 흔적을 끝까지 따라간다",
+          "result": "사야카와 흔적을 끝까지 따라갔다. 내 개인 사냥의 적 강함 단계가1늘었다. 사야카가 다음 흔적을 찾는 동안 마도카는 돌아올 사람을 기다릴 자리를 남긴다.",
+          "card": "madoka_sayaka",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마도카와 안전한 만남의 장소를 마련한다",
+          "result": "마도카와 안전한 만남의 장소를 마련했다. 준비에 180골드를 썼다. 마도카는 대화할 자리를 남겨 두지만 사야카와 쿄코가 같은 답을 했다고 적지는 않는다.",
+          "card": "madoka_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쿄코와 협력하여 추적 구역을 나누어 조사한다",
+          "result": "쿄코와 역할을 분담하며 효율적인 추적 경로를 확보한다. 서로의 실력을 신뢰하는 과정에서 동료애의 소중함을 다시 깨닫는다.",
+          "card": "madoka_kyoko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_church_food",
+      "title": "버려진 교회에서",
+      "story": "쿄코가 사야카를 데리고 폐허가 된 교회로 향했다. 쿄코가 내민 음식을 두고 두 사람의 태도가 엇갈리는 상황에서 당신은 어떻게 행동할까?",
+      "intro": "쿄코의 이야기를 듣는 동안 귀환도 준비한다.",
+      "choices": [
+        {
+          "label": "먹을 것을 나누며 쿄코의 이야기를 듣는다",
+          "result": "먹을 것을 나누며 쿄코의 이야기를 들었다. 준비에 160골드를 썼다. 쿄코는 남긴 음식 쪽에 손을 두고 사야카의 대답을 기다린다.",
+          "card": "madoka_kyoko",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "보급품을 사고 사야카가 돌아갈 길을 지킨다",
+          "result": "보급품을 사고 사야카가 돌아갈 길을 지켰다. 준비에 200골드를 썼다. 사야카는 돌아갈 길을 보면서도 쿄코가 내민 음식에는 아직 손을 대지 않는다.",
+          "card": "madoka_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "쿄코의 제안을 거절하지 않고 음식을 나누어 먹는다",
+          "card": "madoka_kyoko_unshared",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "쿄코가 건넨 음식을 나누며 그녀의 투박하지만 따뜻한 진심을 읽는다. 겉모습 뒤에 숨겨진 그녀의 고독과 배려를 동시에 이해하게 된다."
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "원 TV7화 공식 줄거리의 쿄코와 사야카의 폐허 교회 방문을 배경으로 각색한다. 음식과 준비에서 여행자가 맡는 선택은 창작이며 둘의 갈등·소원·소울젬 결말을 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_one_wish",
+      "title": "한 가지 소원",
+      "story": "큐베가 당신의 소원 한 가지를 이루어 주겠다고 한다. 큰 힘을 바라면 그 힘을 감당할 준비도 필요하다. 사야카와 호무라가 곁에서 당신의 답을 기다린다.",
+      "intro": "큐베의 한 가지 소원에 답해야 한다.",
+      "choices": [
+        {
+          "label": "더 강한 힘을 바란다",
+          "result": "더 강한 힘을 바랐다. 내 개인 사냥의 적 강함 단계가1늘었다. 큐베는 네가 말한 힘을 되짚고 호무라는 그 대가까지 들었느냐고 묻는다.",
+          "card": "madoka_contract",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사야카의 곁에서 소원을 고민하며 진심을 나눈다",
+          "result": "사야카와 소원을 공유하며 마법소녀로서 짊어진 무게를 공감한다. 그녀의 흔들리는 눈동자 속에서 진실한 소망의 조각을 발견한다.",
+          "card": "madoka_sayaka",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호무라와 준비부터 확인한다",
+          "result": "호무라와 준비부터 확인했다. 준비에 230골드를 썼다. 호무라는 준비의 빈 항목을 가리키지만 큐베가 물었던 소원은 아직 답을 기다린다.",
+          "card": "madoka_homura",
+          "card2": null,
+          "gold": 0,
+          "cost": 230,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_warning",
+      "title": "쌓인 준비의 빈틈",
+      "story": "호무라가 준비한 지도에 아직 파악되지 않은 빈 구역이 존재한다. 한 곳에 대비를 집중할지 아니면 사람들을 우선적으로 안내할지 결정해야 한다. 마미는 먼 거리에서 볼 자리를, 마도카는 남은 사람들의 귀환길을 가리킨다.",
+      "intro": "호무라의 지도에 아직 비어 있는 구역이 있다.",
+      "choices": [
+        {
+          "label": "마미와 먼 곳의 공격 기회를 준비한다",
+          "result": "마미와 먼 곳의 공격 기회를 준비했다. 준비에 210골드를 썼다. 마미는 먼 곳에 표시하고 호무라는 비어 있는 지도 한쪽을 그대로 남긴다.",
+          "card": "madoka_mami",
+          "card2": null,
+          "gold": 0,
+          "cost": 210,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마도카와 남은 사람들을 안전하게 안내한다",
+          "result": "마도카는 사람들의 안전을 최우선으로 생각하며 길을 안내했다. 그녀의 세심한 배려 덕분에 사람들은 무사히 대피 경로를 파악했다.",
+          "card": "madoka_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "100골드로 보급을 마련하고 호무라와 더 약한 바깥 구역만 맡는다",
+          "card": "madoka_homura_retreat",
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "100골드로 보급을 마련하고 호무라와 더 약한 바깥 구역만 맡았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 호무라는 확인하지 않은 안쪽은 빈칸으로 두고 맡은 바깥 구역부터 살핀다."
+        }
+      ],
+      "previous": "madoka_parking_seed",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "failure": null,
+      "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_visit_music",
+      "title": "문병 가방에 남은 제목",
+      "story": "사야카가 가방을 닫기 전 지워진 쪽지를 꺼내 들었다. 마도카는 이름을 확인하려 했지만, 쪽지에는 음악 제목만 흐릿하게 남아 있었다. 병실 밖 담당자는 이전 목록을 확인해 줄 수 있다고 전했다.",
+      "intro": "쪽지의 제목을 확인할지, 가져갈 가방부터 나눌지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "120골드의 연락 비용을 내고 쪽지의 제목을 확인한다",
+          "result": "120골드의 연락 비용을 내고 쪽지의 제목을 확인했다. 사야카는 확인한 제목을 적고도 가방을 닫기 전에 다시 쪽지를 본다.",
+          "card": "madoka_sayaka_listen",
+          "card2": null,
+          "gold": 0,
+          "cost": 120,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "포장 용품을 마련해 사야카와 문병 가방을 나눈다",
+          "result": "포장 용품을 마련해 사야카와 문병 가방을 나눴다. 준비에 180골드를 썼다. 마도카는 쪽지의 제목을 확인했다는 표시 없이 가방 안에 남긴다.",
+          "card": "madoka_sayaka_carry",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 포장을 마련하고 마도카와 돌아와 받을 몫을 남긴다",
+          "card": "madoka_return_markers",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "160골드로 포장을 마련하고 마도카와 돌아와 받을 몫을 남겼다. 마도카는 돌아와 받을 몫을 따로 두고 사야카는 제목이 흐릿한 쪽지를 아직 챙긴다."
+        }
+      ],
+      "failure": "이전 목록에서도 음악 제목을 확인하지 못했다. 연락 비용120골드는 돌아오지 않고 카드를 받지 못한다. 사야카는 쪽지를 가방 안에 다시 넣는다.",
+      "canonFact": "공식 쿄스케의 바이올린 연주자·사야카의 소꿉친구 설정과 병문안 배경에서 별도 물품 문제를 만든다. 지워진 쪽지·목록·확률은 창작이며 CD 선물을 공식 대사로 확인했다고 주장하지 않는다. 쿄스케의 손·연애·소원 결말을 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_home_morning",
+      "title": "아침에 서로 찾는 가방",
+      "story": "준코가 출근 가방을 챙기는 사이 토모히사는 아침 식사 몫을 나누고 있었다. 현관에는 여러 개의 봉투가 모여 있어 누구의 것인지 알 수 없었다. 마도카는 누구의 준비를 먼저 도울지 물었다.",
+      "intro": "먼저 끝낼 일과 남겨 둘 몫 중 도울 준비를 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "정리 용품을 보태고 준코와 먼저 할 일을 나눈다",
+          "result": "정리 용품을 보태고 준코와 먼저 할 일을 나눴다. 준비에 160골드를 썼다. 준코는 출근 가방을 들기 전에 마도카 쪽의 봉투를 따로 남긴다.",
+          "card": "madoka_junko_choice",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙긴다",
+          "result": "포장 용품을 마련해 토모히사와 남겨 둘 몫을 챙겼다. 준비에 180골드를 썼다. 토모히사는 봉투에 이름을 쓰고 아직 가져가지 않은 몫은 식탁에 둔다.",
+          "card": "madoka_tomohisa_pack",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마도카에게 바깥 배달을 함께 하자고 말한다",
+          "result": "마도카는 먼저 갈 집의 이름을 확인하고 짐을 나눈다. 부탁을 건네는 사람과 받을 사람을 함께 살피는 그녀의 태도를 기억한다.",
+          "card": "madoka_return_markers",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 준코의 직장인·아침에 약함·마도카와 가까운 관계, 토모히사의 가사 역할에서 별도 아침 만남을 만든다. 부부·가정 결말·원작 회사 급여는 바꾸지 않고 바깥 배달과 보급 담당자는 맵의 창작이다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_afterclass_appts",
+      "title": "방과 후에 겹친 약속",
+      "story": "히토미가 피아노와 다도 준비를 점검하자 사야카는 잠깐 같이 가자고 손짓했다. 마도카는 아직 정리하지 못한 안내표를 들고 있었다. 히토미는 빈 시간을 고려해 갈 곳을 나누자고 제안했다.",
+      "intro": "약속 사이의 준비와 학교에 남은 안내 일을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표시 용품을 마련해 히토미와 약속 사이의 준비를 나눈다",
+          "result": "표시 용품을 마련해 히토미와 약속 사이의 준비를 나눴다. 준비에 180골드를 썼다. 히토미가 가방을 챙기자 사야카는 함께 갈 수 있는 구간만 짚는다.",
+          "card": "madoka_hitomi_schedule",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마도카에게 안내할 곳을 함께 확인하자고 한다",
+          "result": "마도카는 겹친 약속을 하나씩 읽으며 돌아갈 순서를 정한다. 누군가를 기다리게 하더라도 설명을 빼놓지 않는 마음이 기억에 남는다.",
+          "card": "madoka_resolve",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 안내를 마련하고 히토미와 함께 갈 구간만 맡는다",
+          "card": "madoka_hitomi_walk",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "히토미와 함께 효율적인 이동 경로를 설정하며 안내 준비를 마쳤다. 서로의 동선을 조율한 덕분에 이동 중 발생할 수 있는 변수를 줄였다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 히토미의 피아노·일본무용·다도와 친구 관계에서 별도 약속 문제를 만들었다. 히토미·사야카·쿄스케 연애 갈등을 시간표 선택으로 해결하지 않으며 사냥 제한 시간은 증가하지 않는다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "madoka_transfer_practice",
+      "title": "전학생이 먼저 끝낸 준비",
+      "story": "호무라가 먼저 연습 도구를 정리해둔 것을 보고 사야카가 물었다. 마도카는 남은 준비를 함께 보자고 했지만 호무라는 바깥 일 때문에 서둘러야 했다. 교실 정리와 적이 오가는 길목 중 맡을 일을 정해야 했다.",
+      "intro": "교실 쪽의 준비와 바깥 구역 중 맡을 일을 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비 용품을 마련해 호무라와 다음 동작을 맞춘다",
+          "result": "준비 용품을 마련해 호무라와 다음 동작을 맞췄다. 준비에 220골드를 썼다. 사야카가 다시 물으려 하자 호무라는 아직 치우지 않은 도구를 가리킨다.",
+          "card": "madoka_homura_school",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호무라와 더 강한 적이 오가는 길목을 맡는다",
+          "result": "호무라와 더 강한 적이 오가는 길목을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 네가 돌아올 자리를 남기고 호무라는 바깥의 표시만 챙긴다.",
+          "card": "madoka_homura",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 정리를 준비하고 호무라와 확인하지 않은 담당 구역을 줄인다",
+          "card": "madoka_homura_retreat",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "호무라와 상의하여 불확실한 구역을 제외하고 정리 범위를 좁혔다. 효율적인 업무 분담을 통해 안전하게 준비를 마무리할 수 있었다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 호무라의 전학생·성적 우수·운동 능력을 별도 방과후 준비로 썼다. 실제 시간이 멈췄다는 설명이나 일상 시점의 과거 반복을 해결하는 결말은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_room_visit",
+      "title": "방문 전에 접지 않은 지도",
+      "story": "마미가 후배들에게 마녀를 쫓는 일을 함께 보자고 제안한 뒤 아직 접지 않은 지도를 펼친다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 준비도 남겨 두자고 한다. 마미는 한 사람이 바깥 길과 입구의 준비를 모두 맡지는 말자고 한다.",
+      "intro": "들어갈 간격을 짚거나 바깥 길목을 맡는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표시 용품을 마련해 마미와 입구의 간격을 짚는다",
+          "result": "표시 용품을 마련해 마미와 입구의 간격을 짚었다. 준비에 200골드를 썼다. 사야카는 어느 길부터 갈지 묻고 마도카는 돌아올 곳에 표시를 남긴다.",
+          "card": "madoka_mami_distance",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마미에게 바깥에서 확인할 일을 묻는다",
+          "result": "마미는 바로 나서기보다 돌아올 길을 먼저 확인하라고 한다. 익숙한 미소 뒤에서도 준비를 놓치지 않는 선배의 조언을 기억한다.",
+          "card": "madoka_guide",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마미의 뒤편에서 맡을 길목을 줄이며 지도를 확인한다",
+          "card": "madoka_mami_rear",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "마미는 네가 맡을 구간을 좁혀주며 지도를 세밀하게 수정한다. 너는 안전하게 확보된 경로를 통해 마녀의 영역을 파악한다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 원 TV2화의 마미 방 방문·마녀 퇴치 동행 제안에서 별도 사전 준비를 만든다. 병원 주차장 사건과 별개이며 마미의 본편 죽음을 막거나 실제 총기·리본을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_boundary_entrance",
+      "title": "건너기 전에 달라진 입구",
+      "story": "낯선 입구를 발견한 마도카가 안쪽에 사람이 있는지 물었다. 마미는 결계를 모르니 주의를 주었고 호무라는 확인할 곳을 먼저 짚었다. 흔적 확인과 다음 진입 준비를 나누어야 했다.",
+      "intro": "입구에 들어가기 전 확인할 구역을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "확인 용품을 마련해 마미와 들어갈 위치를 정한다",
+          "result": "확인 용품을 마련해 마미와 들어갈 위치를 정했다. 준비에 220골드를 썼다. 호무라는 확인하지 않은 안쪽을 그대로 남겨 두라고 한다.",
+          "card": "madoka_mami_distance",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호무라와 더 강한 적이 오가는 바깥 구역을 맡는다",
+          "result": "호무라와 더 강한 적이 오가는 바깥 구역을 맡았다. 내 개인 사냥의 적 강함 단계가1늘었다. 마도카는 확인한 바깥 흔적만 적고 안쪽에 사람이 있다고 단정하지 않는다.",
+          "card": "madoka_homura",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡는다",
+          "card": "madoka_return_markers",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "160골드로 귀환 준비를 하고 마도카와 더 약한 바깥 구역만 맡았다. 내 개인 사냥의 적 강함 단계를1낮췄다(최저1). 마미는 네가 맡지 않은 안쪽을 다시 표시하고 마도카는 돌아올 자리만 남긴다."
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 결계가 마녀의 이계이며 일반인은 나가기 어렵다는 설정에서 바깥 확인 문제를 만든다. 플레이어가 새 결계 전투를 실제로 시작하거나 평범한 사람을 카드 선택만으로 탈출시키지 않는다. 여러 시점의 만남은 마미가 살아 있던 별도 일상으로 한정한다.",
+      "uncertain": []
+    },
+    {
+      "key": "madoka_folded_edge",
+      "title": "한 걸음 뒤에서 들을 말",
+      "intro": "마미가 네가 표시한 입구의 간격을 알아보고 지도를 다시 편다.",
+      "story": "마미는 다른 만남에서 네가 들어갈 위치와 물러설 자리를 표시했던 지도를 보며 다음에도 같은 일을 맡을지 묻는다. 마도카는 돌아올 자리부터 남기자고 하고 사야카는 마미의 뒤편 준비도 비어 있다고 한다. 익힌 간격이 있어 입구부터 다시 설명할 필요는 없지만 다음 방문까지 맡을지는 네가 답해야 한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": "madoka_mami_distance",
+      "actionCost": 1,
+      "failure": null,
+      "canonFact": "마미의 후배 안내 역할을 사용한 별도 만남이다. 자신의 들어가기 전의 한 걸음 카드 보유를 조건으로 다음 몫을 정한다. 방문 행동력 추가는 사냥 시간 증가·마미 생존·본편 운명 변경이나 인물의 시간 능력이 아니다. 보유 카드는 다른 만남에서 얻은 여행자의 기억이며 같은 날의 연속 사건이라는 조건이 아니다.",
+      "uncertain": [],
+      "choices": [
+        {
+          "label": "200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답한다",
+          "card": "madoka_mami_next",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "200골드로 내 준비를 하고 마미에게 다음 방문의 몫까지 답했다. 마미는 이번 항목 옆에 네가 다음에도 맡겠다는 답을 남기고 뒤편 준비는 다시 묻는다."
+        },
+        {
+          "label": "마미와 뒤편의 담당 길목을 줄이며 보급을 준비한다",
+          "card": "madoka_mami_rear",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "마미는 네가 맡을 범위를 조정하며 효율적인 이동 경로를 지시한다. 너는 마미의 뒤를 받치며 다음 전투를 위한 위치를 확보한다."
+        },
+        {
+          "label": "마도카에게 돌아갈 때도 함께 보자고 말한다",
+          "card": "madoka_return_markers",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100,
+          "result": "마도카는 접어 둔 지도를 다시 펼치며 귀환길의 표식을 살핀다. 들어가는 순간뿐 아니라 돌아오는 순간까지 생각하는 그녀의 판단을 기억한다."
+        }
+      ]
+    },
+    {
+      "key": "mitakihara_main_01",
+      "title": "꿈속 소녀의 경고",
+      "intro": "꿈에서 본 소녀가 마도카에게 경고한다.",
+      "story": "중학생 카나메 마도카는 무너진 도시에서 한 소녀가 홀로 싸우는 꿈을 꾼다. 다음 날 그 얼굴의 아케미 호무라가 같은 반으로 전학 온다.\n호무라는 가족과 지금의 생활이 소중하다면 자신을 바꾸려 하지 말라고 한다. 처음 만난 소녀가 왜 이런 말을 하는지 알 수 없다. 마도카는 걸음을 멈추고 호무라를 바라본다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “우리가 전에 만난 적이 있어?”",
+          "result": "호무라는 쉽게 대답하지 않는다. 마도카는 꿈에서 보았던 얼굴과 지금의 소녀를 번갈아 떠올린다.",
+          "card": "mitakihara_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “내 가족과 친구들을 걱정하는 거야?”",
+          "result": "호무라는 마도카가 지금 가진 것들을 잃지 않기를 바란다고 답한다. 경고의 이유까지 설명하지는 않는다.",
+          "card": "mitakihara_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 이유를 재촉하지 않고 호무라의 말을 기억해 둔다.",
+          "result": "마도카는 알겠다고 짧게 답한다. 호무라는 더 말하지 않고, 두 사람 사이에 설명되지 않은 경고가 남는다.",
+          "card": "mitakihara_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTE_warning.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "방과 후 친구 미키 사야카와 외출한 마도카는 도움을 청하는 목소리를 듣는다. 호무라에게 쫓기던 흰 생물 큐베를 구하려다 두 사람은 이상한 공간에 갇힌다. 마법소녀 토모에 마미가 나타나 둘을 구한다. 마도카는 평범한 사람에게 보이지 않는 싸움이 있다는 사실을 알게 된다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_02",
+      "title": "소원 뒤에 오는 일",
+      "intro": "마미가 계약을 서두르지 말고 먼저 일을 보라고 권한다.",
+      "story": "큐베는 소원 하나를 이루어 주는 대신 마법소녀가 되어 마녀와 싸우라고 제안한다. 마미는 마녀가 숨은 결계를 찾아 사람들을 구하는 일을 보여 주겠다고 한다.\n마도카와 사야카에게는 아직 모르는 것이 많다. 사야카는 병원에서 손을 다친 소꿉친구 쿄스케를 떠올리며, 다른 사람을 위한 소원도 괜찮을지 망설인다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “먼저 선배가 하는 일을 보고 싶어요.”",
+          "result": "마미는 당장 소원을 정할 필요가 없다고 답한다. 마도카와 사야카는 그녀의 설명을 들으며 함께 움직일 준비를 한다.",
+          "card": "mitakihara_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 사야카가 다른 사람의 부상을 고치는 소원도 가능한지 묻는다.",
+          "result": "마미는 가능하다고 답하면서도 그 사람의 행복을 바라는지, 감사를 받고 싶은지 생각해 보라고 권한다. 사야카는 쿄스케를 떠올린다.",
+          "card": "mitakihara_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “싸우는 데 쓰는 보석도 관리해야 하나요?”",
+          "result": "마미는 자신의 소울 젬을 보여 준다. 힘을 쓰며 탁해진 보석은 마녀가 남기는 그리프 시드로 정화한다고 설명한다.",
+          "card": "mitakihara_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTE_tea.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "두 소녀는 마미를 따라 마녀의 흔적을 찾으며 사람을 구하는 일을 본다. 소원을 얻은 뒤에는 이런 싸움을 계속해야 한다. 사야카에게는 타인을 위해 빈 소원을 스스로 돌아보라는 말도 남는다. 이후 병원에서 마녀가 자라나는 징후를 발견하자, 마미와 마도카는 그것을 막으러 들어간다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_03",
+      "title": "함께 싸울 내일을 말한 뒤",
+      "intro": "늘 여유롭던 마미가 마도카 앞에서 속마음을 꺼낸다.",
+      "story": "병원의 마녀를 막으려 결계에 들어간 마미는 위험을 경고하는 호무라를 방해꾼으로 여겨 묶어 둔다. 마도카는 마미와 함께하며 자신도 마법소녀가 되고 싶다고 말한다.\n마미는 혼자 싸우는 일이 외롭고 두려웠다고 털어놓는다. 늘 여유로워 보였던 선배도 함께할 동료를 기다리고 있었다. 마도카는 그 말에 답하려 한다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “선배를 혼자 두고 싶지 않아요.”",
+          "result": "마미는 마도카를 돌아보며 고맙다고 한다. 조금 전보다 밝아진 얼굴로 앞으로 함께할 이야기를 꺼낸다.",
+          "card": "mitakihara_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “아직 모르는 게 많아요. 곁에서 배워도 될까요?”",
+          "result": "마미는 하나씩 알려 주겠다고 답한다. 마도카는 선배와 함께 싸울 수 있는 내일을 떠올린다.",
+          "card": "mitakihara_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “우리, 이번 일을 마치고 더 이야기해요.”",
+          "result": "마미는 그러자고 고개를 끄덕인다. 이야기를 이어 갈 약속을 남기고 눈앞의 마녀를 향해 나선다.",
+          "card": "mitakihara_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTV_companions.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "살아 나온 마도카에게는 마미가 내일을 말하던 얼굴이 남는다. 강한 선배조차 죽을 수 있는 싸움이었다. 소원을 얻을 기대만으로 마법소녀가 되겠다고 말할 수 없게 된 두 친구는 무거운 마음으로 일상에 돌아간다.",
+        "nodes": [
+          {
+            "key": "mami_loss",
+            "story": "마미는 다시 용기를 얻어 싸우지만 마녀의 변신을 예상하지 못해 목숨을 잃는다. 풀려난 호무라가 남은 마녀를 쓰러뜨려 마도카와 사야카를 구한다. 조금 전 함께 이야기하던 선배가 더는 돌아오지 않는다.\n\n마도카 · 호무라가 서 있는 곳에서 쉽게 발을 떼지 못한다.",
+            "choices": [
+              {
+                "label": "“선배와 방금 약속했는데….”",
+                "result": "호무라는 마도카의 말을 듣는다. 마도카는 대답을 기다리면서도 선배가 돌아오지 않는다는 사실을 받아들이지 못한다."
+              },
+              {
+                "label": "사야카의 손을 잡고 호무라를 따라 밖으로 나온다.",
+                "result": "사야카도 손을 놓지 않는다. 두 친구는 서로를 의지한 채 결계가 있던 곳에서 물러난다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_04",
+      "title": "평범한 하루에 숨어든 마녀",
+      "intro": "귀갓길에서 히토미가 평소와 다른 모습을 보인다.",
+      "story": "마미가 죽은 다음 날에도 학교는 평소처럼 돌아간다. 마도카는 마미의 빈 방을 찾은 뒤 귀갓길에 호무라에게 아무도 모르게 싸우다 사라지는 마법소녀의 현실을 듣는다.\n더는 계약하지 않겠다고 생각하며 돌아가던 길, 친구 히토미가 이상한 말을 하며 걷는 모습이 눈에 들어온다. 마도카가 불러도 평소처럼 답하지 않는다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “히토미, 어디로 가는 거야?”",
+          "result": "히토미의 대답은 평소와 다르다. 마도카는 그냥 헤어질 수 없어 친구가 향하는 곳을 살핀다.",
+          "card": "mitakihara_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 히토미와 나란히 걸으며 상태를 확인한다.",
+          "result": "히토미는 계속 앞으로 향한다. 마도카는 같은 쪽으로 움직이는 다른 사람들을 보고 불안해진다.",
+          "card": "mitakihara_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “잠깐만 기다려. 혼자 보내고 싶지 않아.”",
+          "result": "히토미는 마도카의 걱정을 이해하지 못하는 듯하다. 마도카는 그녀와 떨어지지 않도록 뒤따른다.",
+          "card": "mitakihara_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTE_sunset.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "히토미와 모인 사람들은 마녀의 저주 때문에 스스로를 해치려 한다. 마도카가 이를 막으려다 결계에 갇혀 위험해진 순간, 검을 든 마법소녀가 나타나 구해 준다. 그 소녀는 사야카다. 함께 두려워하던 친구가 이미 계약했다는 것을 안 마도카는 그 이유를 듣게 된다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_05",
+      "title": "다시 들린 바이올린",
+      "intro": "쿄스케가 연주를 시작하기 전, 사야카가 마도카를 돌아본다.",
+      "story": "사야카는 부상으로 바이올린을 놓아야 했던 소꿉친구 카미조 쿄스케의 손을 낫게 해 달라고 소원을 빌었다. 그를 살피러 다니던 친구가 왜 계약했는지 마도카도 이제 안다.\n병원 옥상에서 회복을 축하하는 자리가 마련된다. 쿄스케가 악기를 준비하는 동안 사야카는 마도카 곁에 선다. 자신이 고른 소원에 관해 아직 나누고 싶은 말이 있다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “다시 연주할 수 있게 돼서 다행이야.”",
+          "result": "사야카는 악기를 든 쿄스케를 바라본다. 그 모습을 보고 싶었다며 마도카에게 작게 웃어 보인다.",
+          "card": "mitakihara_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “네가 바라던 소리는 어떤 소리였어?”",
+          "result": "사야카는 쿄스케가 포기하지 않아도 되는 연주였다고 답한다. 두 친구는 곧 시작할 음악을 기다린다.",
+          "card": "mitakihara_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 사야카 곁에 서서 함께 연주를 기다린다.",
+          "result": "사야카는 마도카가 곁에 남은 것을 확인하고 악기 쪽으로 시선을 돌린다. 잠시 말없이 같은 소리를 기다린다.",
+          "card": "mitakihara_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "쿄스케가 바이올린을 켜자 사야카는 자신이 바란 기적이 이루어졌음을 느낀다. 마미처럼 다른 사람을 구하겠다는 마음도 굳어진다. 그러나 마미가 사라진 지역을 사냥터로 삼으려는 마법소녀 사쿠라 쿄코가 찾아온다. 같은 힘을 지닌 두 소녀는 사람을 구하는 일부터 다른 생각을 하고 있다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_06",
+      "title": "같은 힘과 다른 생존법",
+      "intro": "다시 대치한 두 소녀 사이에서 마도카가 친구를 부른다.",
+      "story": "사야카는 사람을 해칠 사역마도 없애려 하지만 쿄코는 마녀로 자라 정화용 그리프 시드를 남길 때까지 두라고 한다. 첫 싸움에서 밀린 사야카를 호무라가 구했어도 갈등은 끝나지 않았다.\n다리 위에서 두 사람이 다시 맞선다. 마도카는 친구가 또 다칠까 두렵다. 사야카가 변신하려는 모습을 보고 곁으로 다가간다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “사야카, 잠깐만 멈춰 줘.”",
+          "result": "사야카는 이대로 물러날 수 없다고 답한다. 마도카는 싸움을 다시 시작하려는 친구를 붙잡으려 한다.",
+          "card": "mitakihara_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “또 다치는 걸 보고만 있을 수는 없어.”",
+          "result": "사야카가 마도카를 돌아본다. 걱정하는 마음은 알지만 쿄코의 말을 받아들일 수는 없다고 한다.",
+          "card": "mitakihara_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 사야카가 변신하지 못하도록 손을 뻗는다.",
+          "result": "마도카가 가까이 다가서자 사야카는 갑작스러운 움직임에 놀란다. 마도카의 시선이 친구의 소울 젬에 머문다.",
+          "card": "mitakihara_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTE_difference.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마도카는 싸움을 막으려 사야카의 소울 젬을 빼앗아 다리 아래로 던진다. 보석이 멀어지는 순간 사야카의 몸이 쓰러진다. 변신만 막으려던 행동이 왜 생명까지 끊은 것처럼 보이는지 알 수 없다. 마도카와 쿄코는 쓰러진 소녀 앞에서 큐베를 돌아본다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_07",
+      "title": "몸 밖에 놓인 영혼",
+      "intro": "친구가 쓰러진 이유를 큐베에게 묻는다.",
+      "story": "사야카는 소울 젬이 멀어진 뒤 움직이지 않는다. 마도카는 친구를 불러 보지만 대답이 없다. 쿄코도 이런 일은 설명받은 적이 없다며 큐베를 붙잡는다.\n큐베는 소녀들이 왜 당황하는지 이해하지 못하는 듯하다. 호무라가 보석을 뒤쫓아간 사이, 남은 두 사람은 계약에 관해 묻는다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “보석을 던졌는데 왜 사야카가 쓰러진 거야?”",
+          "result": "큐베는 몸과 소울 젬 사이의 거리가 문제라고 답한다. 마도카는 그 말이 친구의 생명과 어떻게 이어지는지 설명을 요구한다.",
+          "card": "mitakihara_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “계약할 때 우리에게 알리지 않은 게 있어?”",
+          "result": "쿄코가 큐베를 놓지 않는다. 큐베는 숨길 필요가 있는 일이라고 생각하지 않았다며 계약의 과정을 설명하기 시작한다.",
+          "card": "mitakihara_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “사야카를 다시 움직이게 하려면 어떻게 해야 해?”",
+          "result": "큐베는 보석이 돌아오면 된다고 말한다. 마도카는 호무라가 향한 쪽을 바라보며 그 이유도 끝까지 듣는다.",
+          "card": "mitakihara_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사야카는 자신의 영혼이 몸 밖에 있다는 사실을 알고 충격을 받는다. 큐베에게는 편리한 계약이지만, 그녀에게는 사랑하는 사람 곁에 설 자신을 잃는 일이었다. 쿄코도 그 모습을 외면하지 못한다. 그녀는 사야카를 폐허가 된 교회로 데려가 자신의 소원에 관해 이야기하기로 한다.",
+        "nodes": [
+          {
+            "key": "soul_truth",
+            "story": "큐베는 계약할 때 영혼을 몸 밖으로 꺼내 소울 젬에 옮긴다고 밝힌다. 몸이 다쳐도 고치기 쉬워 싸우기 편하다는 설명이다. 호무라가 보석을 가져오자 사야카가 깨어난다. 친구가 돌아왔어도, 방금 들은 사실은 없던 일이 되지 않는다.\n\n마도카 · 깨어난 사야카에게 무슨 말을 건넬까?",
+            "choices": [
+              {
+                "label": "“돌아와 줘서 다행이야. 내가 잘못했어.”",
+                "result": "사야카는 마도카를 바라보며 무슨 일이 있었는지 묻는다. 마도카는 자신이 보석을 던진 일부터 설명한다."
+              },
+              {
+                "label": "사야카의 손을 잡고 곁에 남는다.",
+                "result": "사야카는 잡힌 손과 자신의 몸을 내려다본다. 마도카도 곁을 떠나지 않은 채 말을 기다린다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_08",
+      "title": "착한 사람이 되고 싶었던 마음",
+      "intro": "걱정하며 다가온 마도카 앞에서 사야카가 말을 고른다.",
+      "story": "쿄코는 사람들이 아버지의 설교를 듣게 해 달라고 빌었지만, 마법임을 안 아버지가 무너져 가족까지 잃었다고 털어놓는다. 자신만을 위해 살라는 충고에도 사야카는 남을 구하겠다는 뜻을 고집한다.\n이후 친구 히토미는 자신도 쿄스케를 좋아한다며 사야카에게 먼저 고백할 하루를 준다. 달라진 몸 때문에 다가갈 수 없다고 여기는 사야카는, 히토미를 구한 일을 잠깐 후회한 자신까지 미워한다. 마도카가 걱정하며 곁으로 다가온다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "미키 사야카 · “착한 마음으로 빈 소원이었는데, 나는 왜 이러지?”",
+          "result": "마도카는 사야카가 괴로워하는 이유를 듣고 싶다고 한다. 사야카는 마음속에 남은 질투를 쉽게 말하지 못한다.",
+          "card": "mitakihara_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미키 사야카 · “나도 내가 무슨 말을 하는지 모르겠어.”",
+          "result": "마도카는 당장 답을 정하지 않아도 된다고 말한다. 사야카는 고개를 돌린 채 그 말을 듣는다.",
+          "card": "mitakihara_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미키 사야카 · “쿄스케에게 다가갈 자신이 없어.”",
+          "result": "마도카는 친구의 이름을 부른다. 사야카는 자신의 몸을 떠올리며 더 말을 잇지 못한다.",
+          "card": "mitakihara_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTE_rain.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사야카는 전투에서 고통을 차단한 채 상처를 무시하고 마녀를 벤다. 마도카가 걱정해도 자신을 이해할 수 없다고 느껴 모진 말을 하고 떠난다. 친구를 밀어낸 뒤에는 후회가 남고 소울 젬은 더 탁해진다. 남을 구하고 싶었던 마음과 자신을 미워하는 마음 사이에서 그녀는 점점 지쳐 간다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_09",
+      "title": "친구를 되돌리려던 두 사람",
+      "intro": "쿄코가 친구를 되찾으러 함께 가자고 제안한다.",
+      "story": "사야카의 소울 젬이 그리프 시드로 변하며 마녀가 태어난다. 호무라는 쿄코와 사야카의 빈 몸을 구해 낸 뒤 마법소녀가 절망하면 마녀가 된다고 밝힌다.\n쿄코는 마도카의 목소리가 친구에게 닿을지도 모른다는 희망을 버리지 않는다. 큐베도 그 가능성을 분명히 부정하지 않았다. 쿄코가 마도카를 찾아 함께 들어가자고 한다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “내 목소리가 닿을 수 있다면 가 볼게.”",
+          "result": "쿄코는 마도카가 말을 건넬 동안 자신이 공격을 막겠다고 한다. 두 사람은 사야카에게 다가갈 준비를 한다.",
+          "card": "mitakihara_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “혼자 보내지는 않을게. 함께 가자.”",
+          "result": "쿄코는 고개를 끄덕이고 앞장선다. 마도카는 떨어지지 않도록 그 뒤를 따른다.",
+          "card": "mitakihara_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “위험해지면 너도 무리하지 않겠다고 약속해.”",
+          "result": "쿄코는 먼저 친구를 불러 보자고 답한다. 마도카는 그 말에 고개를 끄덕이며 결계로 들어선다.",
+          "card": "mitakihara_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마도카를 보낸 쿄코는 자신의 목숨과 함께 마녀를 끝낸다. 사야카는 돌아오지 못하고, 처음에는 다투던 쿄코까지 잃는다. 마도카를 구해 나온 호무라에게는 도시를 덮칠 더 큰 마녀와의 싸움이 남아 있다. 이제 그 싸움을 함께할 동료는 더 적어졌다.",
+        "nodes": [
+          {
+            "key": "failed_call",
+            "story": "쿄코가 공격을 막는 동안 마도카는 사야카를 거듭 부른다. 응답은 돌아오지 않고, 공격에 휘말린 마도카마저 의식을 잃는다. 나타난 호무라를 본 쿄코는 쓰러진 마도카를 그녀에게 맡기려 한다.\n\n쿄코 · 아직 구할 수 있는 친구를 먼저 보낸다.",
+            "choices": [
+              {
+                "label": "“마도카를 데리고 나가 줘.”",
+                "result": "호무라는 쓰러진 마도카를 받아 든다. 쿄코는 두 사람이 빠져나갈 쪽을 확인하고 마녀에게 돌아선다."
+              },
+              {
+                "label": "마도카를 호무라에게 건네고 앞을 막아선다.",
+                "result": "호무라는 마도카를 지켜 안고 물러난다. 쿄코는 마녀에게서 시선을 떼지 않은 채 그들이 나갈 틈을 남긴다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_10",
+      "title": "경고보다 먼저 있었던 약속",
+      "intro": "오래전의 호무라가 잃어버린 만남을 떠올린다.",
+      "story": "시간은 지금보다 앞선 호무라의 기억으로 돌아간다. 긴 입원 뒤 학교에 적응하지 못하던 호무라를 마도카가 챙겼고, 마도카와 마미는 마녀에게서도 그녀를 구했다.\n그러나 거대한 마녀 발푸르기스의 밤과 싸운 마도카가 목숨을 잃는다. 큐베가 소원을 묻자 호무라는 자신을 지켜 주었던 소녀를 바라본다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아케미 호무라 · “마도카를 다시 만나고 싶어.”",
+          "result": "큐베는 그 만남에서 무엇을 바꾸고 싶은지 묻는다. 호무라는 자신이 이번에는 친구를 지키고 싶다고 답한다.",
+          "card": "mitakihara_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케미 호무라 · “다시 시작할 수 있다면, 이번에는 내가 지킬게.”",
+          "result": "큐베는 호무라가 바라는 것이 단순한 작별 인사가 아님을 확인한다. 호무라는 처음 만났던 때로 돌아가고 싶다고 말한다.",
+          "card": "mitakihara_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케미 호무라 · 마도카와 처음 만난 날을 떠올리며 소원을 정한다.",
+          "result": "호무라는 자신이 구해지기만 했던 시간을 떠올린다. 다시 만난다면 마도카를 지킬 사람이 되고 싶다고 큐베에게 말한다.",
+          "card": "mitakihara_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTO_meeting.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "호무라는 마도카가 계약하지 않아도 살아남을 방법을 찾으려 시간을 거듭 되돌린다. 진실을 말해도 믿지 못하거나 절망하는 동료들을 겪으며 혼자 무기를 모은다. 현재의 차가운 경고와 홀로 싸우는 태도는 그 실패들 뒤에 남은 모습이었다.",
+        "nodes": [
+          {
+            "key": "promise_across_time",
+            "story": "호무라는 마도카와 다시 만나 이번에는 자신이 지키겠다는 소원으로 시간을 되돌리는 힘을 얻는다. 그러나 반복한 다른 시간에서도 친구들은 죽거나 마녀가 된다. 어느 시간의 마도카는 다음에는 자신이 계약하지 않게 해 달라고 부탁한다.\n\n호무라 · 함께 싸웠던 친구의 마지막 부탁에 답한다.",
+            "choices": [
+              {
+                "label": "“다음에는 그 길로 보내지 않을게.”",
+                "result": "마도카는 호무라의 대답을 듣는다. 호무라는 그 부탁을 기억한 채 다시 시간을 되돌릴 준비를 한다."
+              },
+              {
+                "label": "마도카의 손을 잡고 부탁을 기억하겠다고 말한다.",
+                "result": "호무라는 친구의 손을 놓지 않는다. 다시 만날 때 해야 할 일이 무엇인지 그 부탁을 마음에 새긴다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_11",
+      "title": "소원과 절망을 거두는 자",
+      "intro": "현재로 돌아와, 마도카가 큐베의 설명을 듣는다.",
+      "story": "사야카를 잃은 뒤 마도카는 큐베에게 계약의 목적을 묻는다. 큐베는 소녀의 희망이 절망으로 바뀔 때 생기는 에너지를 모아 우주의 고갈을 늦춘다고 설명한다.\n한 사람의 희생을 전체의 효율로 말하는 큐베 앞에서 마도카는 친구들이 겪은 일을 떠올린다. 소원을 들어주는 친절만으로는 설명되지 않는 계약이었다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “사야카가 겪은 일도 그 에너지 때문이라는 거야?”",
+          "result": "큐베는 개인에게 일어난 일도 같은 과정이라고 답한다. 마도카는 그 설명이 친구를 잃은 슬픔에 답하지 못한다고 말한다.",
+          "card": "mitakihara_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “소원을 빌 때부터 그 끝까지 알고 있었어?”",
+          "result": "큐베는 희망과 절망의 변화를 계약에 이용해 왔다고 말한다. 마도카는 친구들이 그 말을 미리 듣지 못했음을 짚는다.",
+          "card": "mitakihara_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “사람의 마음을 그렇게 계산하고 싶지 않아.”",
+          "result": "큐베는 마도카가 받아들이지 못하는 이유를 이해하지 못한다. 마도카는 친구들의 얼굴을 떠올린 채 등을 돌린다.",
+          "card": "mitakihara_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTO_explanation.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마도카는 계약이 희망을 이용하는 방식과 호무라가 자신을 지키려 했던 이유를 함께 알게 된다. 그러나 진실을 안 것만으로 다음 싸움이 사라지지는 않는다. 발푸르기스의 밤이 다가오고, 호무라는 마도카가 계약하지 않아도 이길 방법을 준비한다.",
+        "nodes": [
+          {
+            "key": "homura_confession",
+            "story": "큐베는 호무라가 시간을 되돌릴수록 마도카에게 여러 시간의 인과가 모여 더 큰 힘을 지니게 되었다고도 말한다. 친구를 구하려던 반복이 도리어 위험을 키웠다. 호무라는 마도카에게 자신이 시간 여행자이며 여러 번 그녀를 잃었다고 털어놓는다.\n\n마도카 · 혼자 반복해 온 친구의 말을 듣는다.",
+            "choices": [
+              {
+                "label": "“그동안 혼자 이 일을 기억하고 있었구나.”",
+                "result": "호무라는 마도카를 잃었던 시간들을 쉽게 말하지 못한다. 마도카는 서둘러 대답을 찾기보다 친구의 말을 끝까지 듣는다."
+              },
+              {
+                "label": "“나를 지키려 했던 일을 잊지 않을게.”",
+                "result": "호무라는 마도카의 손을 붙잡는다. 이번만은 계약하지 말아 달라는 부탁에, 마도카는 친구의 절박함을 느낀다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_12",
+      "title": "마지막 반복의 막다른 곳",
+      "intro": "대피소에서 마도카가 어머니에게 말을 꺼낸다.",
+      "story": "발푸르기스의 밤이 도시를 덮치자 주민들이 재난을 피해 대피한다. 호무라는 시간을 멈추고 준비한 무기를 쏟아붓지만 마녀를 막지 못하고 크게 다친다. 다시 시간을 돌리면 마도카에게 더 무거운 인과를 쌓게 된다.\n대피소에 있는 마도카는 친구에게 가야 한다고 생각한다. 걱정하는 어머니 앞에서, 왜 밖으로 나서려는지 말할 차례다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “지금 내가 곁에 있어야 하는 친구가 있어.”",
+          "result": "어머니는 이 위험 속에 꼭 나가야 하느냐고 묻는다. 마도카는 친구를 혼자 둘 수 없다고 답한다.",
+          "card": "mitakihara_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “내가 생각하고 정한 일이야. 믿어 줬으면 해.”",
+          "result": "어머니는 마도카의 얼굴을 바라본다. 마도카는 흔들리지 않고 자신이 해야 할 일이 있다고 말한다.",
+          "card": "mitakihara_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · 어머니의 손을 잡고, 친구에게 가겠다는 뜻을 전한다.",
+          "result": "어머니는 잡힌 손을 놓지 못한다. 마도카는 무작정 뛰쳐나가기보다 자신의 결심을 끝까지 설명한다.",
+          "card": "mitakihara_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTO_struggle.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "어머니는 마도카의 뜻을 듣고 보내 준다. 마도카는 대피소를 나와 부상당한 호무라에게 향한다. 친구 대신 더 강한 힘으로 싸우는 것만으로는 이 반복을 끝낼 수 없다. 호무라 곁에 도착한 마도카는 자신이 정한 소원을 말하려 한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "mitakihara_main_13",
+      "title": "마녀가 되기 전의 소원",
+      "intro": "호무라 곁에 도착한 마도카가 소원을 정한다.",
+      "story": "호무라는 마도카가 계약하면 다시 같은 비극을 겪을까 두렵다. 그러나 마도카가 생각한 것은 이번 마녀만 쓰러뜨리는 소원이 아니다.\n친구들이 품었던 희망과 그 끝에서 생긴 절망을 모두 본 마도카는 큐베를 돌아본다. 누구를, 어디까지 구하고 싶은지 자기 말로 정할 순간이다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "카나메 마도카 · “희망을 품었던 사람들이 마녀로 끝나게 두고 싶지 않아.”",
+          "result": "호무라는 그 말이 이번 싸움만을 가리키지 않는다는 것을 알아차린다. 마도카는 친구를 바라본 뒤 큐베에게 말을 잇는다.",
+          "card": "mitakihara_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “지금의 우리뿐 아니라, 다른 시대의 소녀들도 생각했어.”",
+          "result": "큐베는 소원의 범위를 확인하려 한다. 마도카는 과거와 미래의 모든 장소를 향한 뜻을 분명히 한다.",
+          "card": "mitakihara_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카나메 마도카 · “누군가를 해치는 절망이 되기 전에 내가 만나러 갈게.”",
+          "result": "마도카는 자신이 직접 그 마지막을 바꾸고 싶다고 말한다. 호무라는 그 소원이 친구를 어디로 데려갈지 걱정한다.",
+          "card": "mitakihara_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTO_wish.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마도카는 소녀들이 마녀가 되기 전에 그 마지막을 거두는 존재가 된다. 대부분의 사람은 그녀를 기억하지 못하지만 호무라에게는 리본과 작별의 기억이 남는다. 소녀들이 품은 희망의 끝은 바뀌었어도, 모든 희생이 없었던 일상으로 돌아간 것은 아니다.",
+        "nodes": [
+          {
+            "key": "farewell_ribbon",
+            "story": "마도카는 모든 시대와 장소에서 마녀가 태어나기 전에 자신의 손으로 없애겠다고 소원을 빈다. 여러 시간에서 모인 힘으로 소녀들의 절망을 거두고, 자신에게서 태어날 마녀까지 없앤다. 세계의 규칙이 바뀌며 평범한 소녀로 존재하던 자리도 사라진다. 마지막으로 마주한 호무라에게 마도카가 리본을 건넨다.\n\n호무라 · 친구가 건네는 리본을 받는다.",
+            "choices": [
+              {
+                "label": "“네가 지키려 했던 마음을 기억할게.”",
+                "result": "마도카는 호무라의 말을 듣고 리본을 맡긴다. 호무라는 손에 남은 천을 꼭 쥐며 친구와 마지막 인사를 나눈다."
+              },
+              {
+                "label": "리본을 받아 들고 마도카의 이름을 부른다.",
+                "result": "마도카는 호무라를 돌아본다. 호무라는 더 붙잡고 싶은 마음을 삼키며 친구의 얼굴을 기억한다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_main_14",
+      "title": "친구가 지킨 세계에서",
+      "intro": "남겨진 세계에서 호무라가 리본을 바라본다.",
+      "story": "새 세계에서 마법소녀는 마녀가 되는 대신 마지막 순간 마도카의 이치에 이끌린다. 사야카는 돌아오지 않아도 그녀의 소원으로 쿄스케의 연주는 이어진다. 마미와 쿄코가 살아 있는 이곳에도 사람의 저주에서 생긴 마수는 남아 있다.\n대부분이 마도카를 잊은 가운데 호무라는 리본을 손에 쥔다. 다음 싸움에 나서기 전, 잠시 친구와 나눈 약속을 떠올린다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아케미 호무라 · 리본을 매고 주위를 살핀다.",
+          "result": "호무라는 매듭을 확인한 뒤 고개를 든다. 여전히 지켜야 할 사람들이 사는 거리가 눈앞에 펼쳐진다.",
+          "card": "mitakihara_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케미 호무라 · 마도카의 이름을 작게 불러 본다.",
+          "result": "대답을 기대하며 부른 이름은 아니다. 호무라는 남겨진 리본을 만지며 친구가 지키려 했던 사람들을 떠올린다.",
+          "card": "mitakihara_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아케미 호무라 · 리본을 손에서 놓지 않은 채 다음 발걸음을 정한다.",
+          "result": "호무라는 잠시 멈춰 있던 자리에서 몸을 돌린다. 돌아갈 과거 대신 지금 지킬 세계를 바라본다.",
+          "card": "mitakihara_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "마도카 마기카 TV 본편의 소원과 반복의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "호무라는 활을 들고 마수가 있는 곳으로 향한다. 마도카가 남긴 것은 모든 문제가 해결된 낙원이 아니다. 소원을 빌었던 사람의 마지막을 절망으로만 정하지 않는 세계다. 호무라는 친구를 기억하며 그 안에서 자신의 싸움을 이어 간다.\n\n도시의 불빛이 멀어지고 리본을 맨 호무라의 뒷모습이 남는다. 활을 든 손이 잠시 멈춘다.\n\n호무라의 독백 · 함께 돌아오지는 못한 친구에게, 마음속으로 어떤 말을 남길까?",
+            "choices": [
+              {
+                "label": "네가 지키려 했던 사람들을 나도 지킬게.",
+                "result": "호무라는 리본의 매듭을 확인한다. 친구가 남긴 세계에서 자신이 할 일을 정하고 다시 앞을 바라본다."
+              },
+              {
+                "label": "아무도 묻지 않아도, 나는 너를 기억할게.",
+                "result": "호무라는 친구의 이름을 마음속으로 부른다. 대답이 없어도 그 이름을 잊지 않은 채 발걸음을 잇는다."
+              },
+              {
+                "label": "희망을 품었던 일이 잘못이었다고는 말하지 않을게.",
+                "result": "호무라는 소녀들이 품었던 소원을 떠올린다. 슬픔이 남아 있어도 친구가 바꾼 마지막을 지키려 활을 고쳐 쥔다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mitakihara_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "미타키하라의 이야기를 덮기 전에 처음의 만남과 마지막 인사를 다시 떠올린다. 소녀들의 선택을 뒤집거나 누구도 잃지 않았던 결말을 쓰려는 것은 아니다. 다음 길에 가져갈 대목을 골라, 남겨 둔 빈칸에 자신의 짧은 말을 보탠다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "첫 인사 곁에 호무라가 처음부터 차갑기만 했던 것은 아니라는 말을 적는다. 낯선 교실에서 누군가 내밀어 준 손부터 다시 읽는다.",
+          "card": "madoka_care",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "호무라가 버텨 온 시간을 한 줄로 줄이지 않는다. 같은 만남이라도 그때마다 잃고 바랐던 것이 있었음을, 짧은 문장 사이의 여백으로 남긴다.",
+          "card": "madoka_mami",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "마도카의 선택을 누구에게나 요구할 수 있는 답으로 옮겨 적지는 않는다. 다음 사람의 소원도 먼저 듣겠다는 말로 마지막 쪽을 닫는다.",
+          "card": "madoka_homura",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_MTO_meeting.tga"
+    }
+  ],
+  "storyChanges": [
+    {
+      "key": "mitakihara_homura_repetition",
+      "eventKey": "mitakihara_main_10",
+      "characterCardKey": "madoka_homura",
+      "displayName": "시간을 거듭한 호무라",
+      "description": "마도카를 구하려고 같은 시간을 거듭해 온 소녀. 차가운 경고 뒤에 홀로 반복했던 실패와 약속이 있었다.",
+      "extraEffects": [
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ]
+    }
+  ],
+  "reviewRecords": [
+    "0e058120-ebaf-48b2-9c5a-3231b5fb2625",
+    "d71b41a5-a69b-4b54-ad70-36a4f3dd03fc",
+    "5fde6fb1-026b-49f3-8e3c-4ff485ffe73e",
+    "26b42624-5f12-4746-ab37-50c5113f47a0",
+    "c028dd45-d3ee-46a7-acc6-2a716292f90c",
+    "4f997a4a-ffec-4a94-99e3-dce2a4182f29",
+    "db58d506-7f28-4161-a19a-2e4c1389d2eb"
+  ]
+}

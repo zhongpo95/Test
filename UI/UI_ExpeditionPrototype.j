@@ -16,6 +16,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         private integer StoryIcon
         private integer StoryText
         private integer OutcomePanel
+        private integer OutcomeHeading
         private integer OutcomeText
         private integer array CandidateButtons
         private integer array CandidateRegion
@@ -95,7 +96,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if opening then
             set tag = "지역 개방 · " + tag
             set action = "행동력 0 · 머리 카드 획득"
-            call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoCardName[ProtoHeadEntryCard[head]])
+            call ExpUIText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoDisplayCardName(pid, ProtoHeadEntryCard[head]))
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
@@ -104,7 +105,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             set tag = tag + " · 후속"
         endif
         if not opening and ProtoEventRequiredCard[id] > 0 then
-            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoCardName[ProtoEventRequiredCard[id]] + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
+            call ExpUIText(CandidateBonus[i], "보유 조건|n" + ProtoDisplayCardName(pid, ProtoEventRequiredCard[id]) + "|n" + ProtoCardEffectName[ProtoEventRequiredCard[id]])
         endif
         call ExpUIText(CandidateRegion[i], tag + "|n" + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r")
         call ExpUIText(CandidateTitle[i], ProtoEventName[id])
@@ -188,15 +189,27 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUIText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.")
         elseif ProtoStage[pid] == 2 then
             call ExpUIText(EventTitle, "개인 사건 · 행동 선택")
-            call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치를 확인할 수 있습니다.")
+            if ProtoDialogueFollowing(pid) then
+                call ExpUIText(EventStory, "이야기에 답하세요. 추가 행동력 소모 없이 대화가 이어집니다.")
+            else
+                call ExpUIText(EventStory, "상황을 읽고 행동을 고르세요. 커서를 올리면 카드 수치를 확인할 수 있습니다.")
+            endif
         else
             set id = ProtoSelected[pid]
-            if ProtoStage[pid] == 3 and ProtoEventMainStage[id] > 0 and ProtoEventMainStage[id] == ProtoHeadMainLength[ProtoEventHead[id]] and ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] == ProtoEventMainStage[id] then
+            if ProtoDialoguePending(pid) then
+                call ExpUIText(EventTitle, "개인 사건 · 대화 반응")
+                call ExpUIText(EventStory, "반응을 읽고 다음 장면으로 이어가세요. 보상은 대화를 모두 마친 뒤 한 번 받습니다.")
+            elseif ProtoStage[pid] == 3 and ProtoEventMainStage[id] > 0 and ProtoEventMainStage[id] == ProtoHeadMainLength[ProtoEventHead[id]] and ProtoMainProgress[ExpKey(pid, ProtoEventHead[id])] == ProtoEventMainStage[id] then
                 call ExpUIText(EventTitle, "이야기 완결 · " + ProtoHeadName[ProtoEventHead[id]])
                 call ExpUIText(EventStory, "여정의 마지막 기억을 카드에 남겼습니다. 이 지역의 이야기는 매듭짓고, 후일담을 만날 수 있습니다.")
             else
                 call ExpUIText(EventTitle, "개인 사건 · 사건 결과")
                 call ExpUIText(EventStory, "이번 선택의 결과를 확인하세요. 확인을 누르면 내 사냥터로 돌아갑니다.")
+            endif
+            if ProtoDialoguePending(pid) then
+                call ExpUIText(OutcomeHeading, "선택에 대한 반응")
+            else
+                call ExpUIText(OutcomeHeading, "사건 결과 · 획득과 변화")
             endif
             call ExpUIText(OutcomeText, ProtoOutcome[pid])
         endif
@@ -214,7 +227,17 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUIText(StoryRegion, tag + " · " + ProtoGradeColor(ProtoEventGrade[id]) + ExpEventGradeName(ProtoEventGrade[id]) + " 보상 가능|r")
             call ExpUIText(StoryTitle, ProtoEventName[id])
             call DzFrameSetTexture(StoryIcon, ProtoEventIcon[id], 0)
-            call ExpUIText(StoryText, ProtoEventStory[id])
+            // 후속 장면은 결말과 질문을 함께 담으므로 아이콘보다 본문의 세로 공간을 우선한다.
+            if ProtoDialogueFollowing(pid) then
+                call PlaceCoverPart(StoryIcon, StoryPanel, 0.018, 0.045, 0.044, 0.044)
+                call PlaceCoverPart(StoryTitle, StoryPanel, 0.076, 0.048, 0.216, 0.044)
+                call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.104, 0.274, 0.264)
+            else
+                call PlaceCoverPart(StoryIcon, StoryPanel, 0.018, 0.045, 0.080, 0.080)
+                call PlaceCoverPart(StoryTitle, StoryPanel, 0.112, 0.048, 0.180, 0.070)
+                call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.146, 0.274, 0.222)
+            endif
+            call ExpUIText(StoryText, ProtoDialogueStoryText(pid))
         endif
         set i = 1
         loop
@@ -229,20 +252,20 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set i = 1
         loop
             exitwhen i > 4
-            call DzFrameShow(ExpUIButtons[BranchButtons[i]], ProtoStage[pid] == 2 and i <= ProtoEventChoices[ProtoSelected[pid]])
-            if ProtoStage[pid] == 2 and i <= ProtoEventChoices[ProtoSelected[pid]] then
-                set branchHeight = (0.426 - 0.010 * (ProtoEventChoices[ProtoSelected[pid]] - 1)) / ProtoEventChoices[ProtoSelected[pid]]
+            call DzFrameShow(ExpUIButtons[BranchButtons[i]], ProtoStage[pid] == 2 and i <= ProtoDialogueChoiceCount(pid))
+            if ProtoStage[pid] == 2 and i <= ProtoDialogueChoiceCount(pid) then
+                set branchHeight = (0.426 - 0.010 * (ProtoDialogueChoiceCount(pid) - 1)) / ProtoDialogueChoiceCount(pid)
                 call PlaceCoverPart(ExpUIButtons[BranchButtons[i]], EventRoot, 0.356, 0.116 + (i - 1) * (branchHeight + 0.010), 0.412, branchHeight)
                 call ExpUIResizeCover(BranchButtons[i], 0.412, branchHeight)
                 call PlaceCoverPart(ExpUIButtonLabels[BranchButtons[i]], ExpUIButtons[BranchButtons[i]], 0.016, 0.026, 0.380, branchHeight - 0.052)
                 call PlaceCoverPart(BranchStrip[i], ExpUIButtons[BranchButtons[i]], 0.010, branchHeight - 0.021, 0.392, 0.016)
                 call PlaceCoverPart(BranchAction[i], ExpUIButtons[BranchButtons[i]], 0.018, branchHeight - 0.019, 0.376, 0.014)
-                if ProtoEventChoices[ProtoSelected[pid]] >= 3 then
-                    call ExpUISetButton(BranchButtons[i], ProtoBranchSummary(pid, i), ProtoBranchAllowed(pid, i))
+                if ProtoDialogueChoiceCount(pid) >= 3 then
+                    call ExpUISetButton(BranchButtons[i], ProtoDialogueChoiceText(pid, i, true), ProtoDialogueChoiceAllowed(pid, i))
                 else
-                    call ExpUISetButton(BranchButtons[i], ProtoBranchText(pid, i), ProtoBranchAllowed(pid, i))
+                    call ExpUISetButton(BranchButtons[i], ProtoDialogueChoiceText(pid, i, false), ProtoDialogueChoiceAllowed(pid, i))
                 endif
-                if ProtoBranchAllowed(pid, i) then
+                if ProtoDialogueChoiceAllowed(pid, i) then
                     call ExpUIText(BranchAction[i], "이 행동을 선택")
                 else
                     call ExpUIText(BranchAction[i], "조건 미충족 · 선택 불가")
@@ -250,9 +273,9 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endif
             set i = i + 1
         endloop
-        if ProtoStage[pid] == 2 and HoverBranch > 0 and HoverBranch <= ProtoEventChoices[ProtoSelected[pid]] then
+        if ProtoStage[pid] == 2 and not ProtoDialogueFollowing(pid) and HoverBranch > 0 and HoverBranch <= ProtoDialogueChoiceCount(pid) then
             call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.011, 0)
-            call ExpUIText(StoryText, "[행동 상세 · 커서를 옮기면 사건 설명]|n" + ProtoBranchText(pid, HoverBranch))
+            call ExpUIText(StoryText, "[행동 상세 · 커서를 옮기면 사건 설명]|n" + ProtoDialogueChoiceText(pid, HoverBranch, false))
         else
             set HoverBranch = 0
             call DzFrameSetFont(StoryText, "Fonts\\DFHeiMd.ttf", 0.011, 0)
@@ -260,6 +283,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameShow(ExpUIButtons[RerollButton], ProtoStage[pid] == 1)
         call ExpUISetButton(RerollButton, "사건 리롤 · " + I2S(500 + ProtoRerolls[pid] * 100) + "골드", ExpGold[pid] >= 500 + ProtoRerolls[pid] * 100)
         call DzFrameShow(ExpUIButtons[ResumeButton], ProtoStage[pid] == 3)
+        if ProtoDialoguePending(pid) then
+            call ExpUISetButton(ResumeButton, "계속 · 다음 장면", true)
+        else
+            call ExpUISetButton(ResumeButton, "확인 · 사냥 재개", true)
+        endif
     endfunction
 
     private function Build takes nothing returns nothing
@@ -346,7 +374,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set OutcomePanel = DzCreateFrameByTagName("FRAME", "", EventRoot, "", FrameCount())
         call PlaceCoverPart(OutcomePanel, EventRoot, 0.356, 0.138, 0.412, 0.386)
         set f = ExpUITexture(OutcomePanel, 0, 0, 0.412, 0.386, "war3mapImported\\UI_Arcana_Sheet.tga")
-        set f = ExpUILabel(OutcomePanel, 0.018, 0.016, 0.376, 0.026, 0.013, "선택 결과 · 획득과 변화")
+        set OutcomeHeading = ExpUILabel(OutcomePanel, 0.018, 0.016, 0.376, 0.026, 0.013, "선택 결과 · 획득과 변화")
         set OutcomeText = ExpUILabel(OutcomePanel, 0.018, 0.056, 0.376, 0.314, 0.012, "")
         call JNFrameSetTextAlignment(OutcomeText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         set RerollButton = ExpUIButton(EventRoot, 0.285, 0.552, 0.230, 0.030, "사건 리롤", 2300)

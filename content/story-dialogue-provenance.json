@@ -1,0 +1,311 @@
+{
+  "purpose": "검수 승인 원고를 실제 대화 카탈로그에 적용한 출처 기록",
+  "endingEffects": "전투 효과 미설정. 기념 카드만 지급.",
+  "entries": [
+    {
+      "world": "fuyuki",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/fuyuki/accepted.json",
+          "sha256": "ca31f0656015591329896b2e05f89ba3dd2570f45c4eea0e3b199afd6e1e94d5"
+        }
+      ],
+      "gemmaRecords": [
+        "526cda9d-1dfb-482d-b9fa-076846d30ed3",
+        "0c249dad-1410-407d-adea-bf63cc03a2fe",
+        "438b0f53-c0f7-45be-b302-8424049a7d9f",
+        "54c173ab-404e-40a2-aa93-76c3cfc437d5",
+        "db616fbb-5dfa-40b2-b914-82fc5fa0c218",
+        "b32ffc34-a49b-4dde-95ba-45ae230720b1",
+        "7f948697-1f58-4559-9f28-bd7c9899eacf"
+      ],
+      "output": "content/roguelite/01-fuyuki.json",
+      "retiredRewards": [
+        "fuyuki_main_16_1",
+        "fuyuki_main_16_2",
+        "fuyuki_main_16_3"
+      ],
+      "endingCard": "fuyuki_main_ending_memorial"
+    },
+    {
+      "world": "axel",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/axel/accepted.json",
+          "sha256": "0e535f9b02b01bf17d0ebf44fc8199315f78a9c316f41a5b9ae99d7cafdb722b"
+        }
+      ],
+      "gemmaRecords": [
+        "43b93686-9f8e-4513-bf35-c756878013d4",
+        "257a7083-def2-43ef-8510-8c1ff6ae9f7c",
+        "5b2b5c4a-9532-454f-92e5-64abdf36878c",
+        "869313b4-6f65-4d80-829c-c17e65bdcf81",
+        "60c82395-6703-4a9d-9ae4-db0227306c21"
+      ],
+      "output": "content/roguelite/02-axel.json",
+      "retiredRewards": [
+        "axel_main_12_1",
+        "axel_main_12_2",
+        "axel_main_12_3"
+      ],
+      "endingCard": "axel_main_ending_memorial"
+    },
+    {
+      "world": "abydos",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/abydos/accepted.json",
+          "sha256": "0241c7e06465ef09c12f256eb94e4136459d21b5840cf680863b9b8a4b9dea18"
+        }
+      ],
+      "gemmaRecords": [
+        "a5db18f1-56dd-4490-8ec5-1edf3e44a1b0",
+        "d0cd7021-8dc7-4610-aa9a-859f87d28df0",
+        "e06be3ed-9506-4da8-8545-7d2fe8c689cc",
+        "ecb4c046-34c6-44fe-8109-d330b3bf3387",
+        "f47db76b-73de-4cb7-9fc7-5b64d334a843",
+        "c24b47e2-7f3f-4ff5-b904-9312e425b5de"
+      ],
+      "output": "content/roguelite/03-abydos.json",
+      "retiredRewards": [
+        "abydos_main_14_1",
+        "abydos_main_14_2",
+        "abydos_main_14_3"
+      ],
+      "endingCard": "abydos_main_ending_memorial"
+    },
+    {
+      "world": "academy",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/academy/accepted.json",
+          "sha256": "0c168c8418b2d6f6fe3c7fbdc518c2a491f812d0c998f868c5eab05557585b96"
+        }
+      ],
+      "gemmaRecords": [
+        "8e32aa7b-8ed3-47c8-a51e-45a3e3dc8288",
+        "53c99a15-720d-4def-99f7-9df714277028",
+        "943a87a6-050b-4283-8c58-5d40dc4cf97c",
+        "3a78fcfe-44ca-4332-974e-2823d5ffbb1b",
+        "58ddc8bc-d195-49da-a031-dfddf6f9dfed",
+        "ffcfaa56-fe01-4c8f-939d-225db0b0883a"
+      ],
+      "output": "content/roguelite/04-academy.json",
+      "retiredRewards": [
+        "academy_main_15_1",
+        "academy_main_15_2",
+        "academy_main_15_3"
+      ],
+      "endingCard": "academy_main_ending_memorial"
+    },
+    {
+      "world": "mitakihara",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/mitakihara/accepted.json",
+          "sha256": "23d1ea37314e3f481d513a26f83c4e8f40ded4215c8f9b5e3daec58b47772a07"
+        }
+      ],
+      "gemmaRecords": [
+        "0e058120-ebaf-48b2-9c5a-3231b5fb2625",
+        "d71b41a5-a69b-4b54-ad70-36a4f3dd03fc",
+        "5fde6fb1-026b-49f3-8e3c-4ff485ffe73e",
+        "26b42624-5f12-4746-ab37-50c5113f47a0",
+        "c028dd45-d3ee-46a7-acc6-2a716292f90c",
+        "4f997a4a-ffec-4a94-99e3-dce2a4182f29",
+        "db58d506-7f28-4161-a19a-2e4c1389d2eb"
+      ],
+      "output": "content/roguelite/05-mitakihara.json",
+      "retiredRewards": [
+        "mitakihara_main_14_1",
+        "mitakihara_main_14_2",
+        "mitakihara_main_14_3"
+      ],
+      "endingCard": "mitakihara_main_ending_memorial"
+    },
+    {
+      "world": "aincrad",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/aincrad/accepted.json",
+          "sha256": "01e169864f9ada6630a3650458defd8a7db46e8e6b00e94467904f2cda714195"
+        }
+      ],
+      "gemmaRecords": [
+        "b739b4e0-7988-4bdc-a156-110441d74125",
+        "f922f980-2254-4826-9c82-dbd76d98491e",
+        "082a10da-aa5b-499c-9999-44418a84023d",
+        "6e2737fa-7a2b-4ae8-adfd-a893dedf55c7",
+        "611cea1e-f222-4fb6-97b3-ea2e41bb2a7d",
+        "cd7e09fa-c807-4109-bfbc-e715081b6c5c"
+      ],
+      "output": "content/roguelite/06-aincrad.json",
+      "retiredRewards": [
+        "aincrad_main_14_1",
+        "aincrad_main_14_2",
+        "aincrad_main_14_3"
+      ],
+      "endingCard": "aincrad_main_ending_memorial"
+    },
+    {
+      "world": "zegagrande",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/zegagrande/accepted.json",
+          "sha256": "eac9a3dec2847261e48dd4d56d9c7b9ea2491e076fa968eec932de1948cb2ca8"
+        }
+      ],
+      "gemmaRecords": [
+        "7713e676-2076-467c-a24d-f49b7ed65203",
+        "d1b5a194-5ac3-4e14-a1ad-b50c2957e44d"
+      ],
+      "output": "content/roguelite/07-zegagrande.json",
+      "retiredRewards": [
+        "zegagrande_main_14_1",
+        "zegagrande_main_14_2",
+        "zegagrande_main_14_3"
+      ],
+      "endingCard": "zegagrande_main_ending_memorial"
+    },
+    {
+      "world": "magnolia",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/magnolia/accepted.json",
+          "sha256": "5db1b58ebb4253136c3cbf97051a54a2d1fa6129c301594cab7af1e0327af525"
+        }
+      ],
+      "gemmaRecords": [
+        "e540dcd8-26f9-4edc-aad7-54a59839d5ae",
+        "2e3ab233-89f5-4fb5-9973-3d1aa55fd195"
+      ],
+      "output": "content/roguelite/09-magnolia.json",
+      "retiredRewards": [
+        "magnolia_main_15_1",
+        "magnolia_main_15_2",
+        "magnolia_main_15_3"
+      ],
+      "endingCard": "magnolia_main_ending_memorial"
+    },
+    {
+      "world": "karakura",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/karakura/accepted.json",
+          "sha256": "381a0b17540800bf901b2833f39b0b4d43d160ad7b2d7b515ecf3b45cec631c5"
+        }
+      ],
+      "gemmaRecords": [
+        "837d155f-0b28-4749-a861-ddf48bc7f79c",
+        "6d26e905-fe0c-4465-9254-b35074534218",
+        "17df055f-0cfd-4626-ac88-ce2f7ed0daad",
+        "4e0507f5-c38b-4c92-bf29-1ee8a2e68db9",
+        "76b72253-154a-4583-b8ea-99405c593815"
+      ],
+      "output": "content/roguelite/10-karakura.json",
+      "retiredRewards": [
+        "karakura_main_16_1",
+        "karakura_main_16_2",
+        "karakura_main_16_3"
+      ],
+      "endingCard": "karakura_main_ending_memorial"
+    },
+    {
+      "world": "penacony",
+      "inputs": [
+        {
+          "path": "penacony-rewrite-review/dialogue-v3/candidate-ready.json",
+          "sha256": "aad51c6cf15da940d2de299e6529bcfe22f2ec1cb433b9a8045a85ad49fea5f3"
+        },
+        {
+          "path": "penacony-rewrite-review/ending-v4/ending-flow.review-only.json",
+          "sha256": "ec8ffd404430b4f8f25a22cc8813acb265cfd50284cff9f81be1f406edd05c9f"
+        }
+      ],
+      "gemmaRecords": [
+        "5a2fd902-05c3-404c-8485-6245beaf4a97",
+        "7a05fbc2-55b5-4504-96ed-2d1ab3bb5174",
+        "91d3894e-c465-49cd-a98c-32be058419e0",
+        "794cc8e5-de00-48c3-89fe-630023b7429a",
+        "d5bf2ba1-6362-42e1-afdf-9a42784fba17",
+        "87a07e3b-26b4-4a19-a8ab-0be7d071da1e",
+        "35260827-1c55-45a8-a970-0237e40b0896"
+      ],
+      "output": "content/roguelite/11-penacony.json",
+      "retiredRewards": [
+        "hsr_main_15_1",
+        "hsr_main_15_2",
+        "hsr_main_15_3"
+      ],
+      "endingCard": "penacony_main_ending_memorial"
+    },
+    {
+      "world": "amestris",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/amestris/accepted.json",
+          "sha256": "941ed2c598eaa4f66b066a4cf8172b7d39002f72e8e764db08813b39dd4adafc"
+        }
+      ],
+      "gemmaRecords": [
+        "e382c32c-349c-454c-9a9a-aec6c1b1ac73",
+        "2fa1e7fc-cfe9-4e78-bbe1-01c3d5fd77b3",
+        "d52ef322-0e6d-482d-a755-843417cd4efd",
+        "454d2814-595a-4057-b788-590e8bfc0408",
+        "2e3201ea-d655-420e-8e01-0eab6780c039",
+        "16bdcd45-5b64-484a-8aa2-c92749eee1ca"
+      ],
+      "output": "content/roguelite/12-amestris.json",
+      "retiredRewards": [
+        "amestris_main_18_1",
+        "amestris_main_18_2",
+        "amestris_main_18_3"
+      ],
+      "endingCard": "amestris_main_ending_memorial"
+    },
+    {
+      "world": "butterfly",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/butterfly/accepted.json",
+          "sha256": "03eac622c3e23f6ea849e16a1b4b34449867f22b09b722e66bb21a717458b36d"
+        }
+      ],
+      "gemmaRecords": [
+        "f0f46c0e-b412-4132-9171-414673ef7251",
+        "a14194bc-1194-4a3e-8956-be19a49c5aaf",
+        "59b17850-99e4-44f9-8ce8-b0318318a7e8",
+        "7ad8f35b-ec7a-4639-b16a-e8d7e7b80876"
+      ],
+      "output": "content/roguelite/13-butterfly.json",
+      "retiredRewards": [
+        "butterfly_main_14_1",
+        "butterfly_main_14_2",
+        "butterfly_main_14_3"
+      ],
+      "endingCard": "butterfly_main_ending_memorial"
+    },
+    {
+      "world": "gourmet",
+      "inputs": [
+        {
+          "path": "head-stories-choice-rebuild/gourmet/accepted.json",
+          "sha256": "0db63528289568befbd86dd895f2e5edc294124655bd294c9614386f127c9560"
+        }
+      ],
+      "gemmaRecords": [
+        "59e46eb4-ce04-4c62-901e-e2238013bf64",
+        "192d1c2e-5fde-4b09-8332-e38713e16876",
+        "bd3a266f-2b17-4f52-98a7-2b5e41225a66",
+        "96283abf-acaa-40ec-a436-0393c0e039d4"
+      ],
+      "output": "content/roguelite/14-gourmet.json",
+      "retiredRewards": [
+        "gourmet_main_14_1",
+        "gourmet_main_14_2",
+        "gourmet_main_14_3"
+      ],
+      "endingCard": "gourmet_main_ending_memorial"
+    }
+  ]
+}

@@ -128,7 +128,7 @@ library UIExpeditionStats initializer Init requires UIExpeditionCommon, UIProtot
             call ExpUIText(Hint, "흡수·재생 합산 최대 체력 10%/초")
             set owned = ""
             if card > 0 then
-                set owned = owned + "보유 카드 " + I2S(count) + "장 · " + I2S(CardPage + 1) + "/" + I2S(count) + "|n[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, card)) + "] " + ProtoCardName[card] + "|n" + ProtoCardText(pid, card)
+                set owned = owned + "보유 카드 " + I2S(count) + "장 · " + I2S(CardPage + 1) + "/" + I2S(count) + "|n[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, card)) + "] " + ProtoDisplayCardName(pid, card) + "|n" + ProtoCardText(pid, card)
             else
                 set owned = owned + "획득한 성장 카드 없음"
             endif

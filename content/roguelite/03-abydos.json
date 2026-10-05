@@ -1,0 +1,3580 @@
+{
+  "world": {
+    "key": "abydos",
+    "name": "아비도스",
+    "work": "블루 아카이브",
+    "intro": "아비도스의 텅 빈 교실에서 대책위원회가 학교를 지킨다. 마지막 교실에 함께 돌아오다의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "effects": [
+      {
+        "stat": "boss_damage_percent",
+        "value": 3
+      }
+    ],
+    "entryCard": "abydos_ayane",
+    "icon": "ReplaceableTextures\\CommandButtons\\BTNScroll.blp",
+    "mainStory": {
+      "title": "마지막 교실에 함께 돌아오다",
+      "length": 14,
+      "focus": [
+        "boss_damage_percent",
+        "healthy_damage"
+      ],
+      "source": "블루 아카이브 애니메이션 대책위원회 편",
+      "adaptation": "플레이어가 원작 흐름의 기억에 건네는 창작 대화다. 어느 반응도 다음 장과 같은 결말을 잠그지 않는다."
+    },
+    "entryIcon": "war3mapImported\\UI_Head_Official_abydos_Icon.tga"
+  },
+  "sources": [
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/story/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/sunaookami-shiroko/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/takanashi-hoshino/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/kuromi-serika/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/izayoi-nonomi/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/okusora-ayane/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/ajitani-hifumi/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/rikuhachima-aru/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/onikata-kayoko/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/igusa-haruka/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/asagi-mutsuki/",
+    "https://sh-anime.shochiku.co.jp/bluearchive-anime/character/sorasaki-hina/"
+  ],
+  "canonBoundary": "메인은 명시한 원작 범위의 주요 순서와 결말을 따르되 대화·방문자의 반응·카드 기억은 이 맵의 창작이다. 카드 인물 이름은 대사의 화자를 뜻하지 않는다. 기존 서브는 여러 시점의 독립된 기억으로 메인 현재 시점의 NPC 동행이 아니다. NPC 기술·부활·시간 조작·물약·현재 체력 지불을 구현하지 않는다. 완결 뒤 지역 메인과 서브는 풀에서 빠지고 지정 후일담만 남는다.",
+  "cards": [
+    {
+      "key": "abydos_ayane",
+      "name": "오쿠소라 아야네",
+      "effectName": "작전 기록",
+      "keyword": "탐색",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "대책위원회의 기록·지원 역할을 후보 확인으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_shiroko",
+      "name": "스나오오카미 시로코",
+      "effectName": "조용한 정찰",
+      "keyword": "이동 · 전투",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시로코의 정찰과 몸을 움직이는 취미를 이동에 따른 성장으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_serika",
+      "name": "쿠로미 세리카",
+      "effectName": "남은 일까지",
+      "keyword": "수급 · 전투",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시바세키 라멘에서 아르바이트하는 세리카의 역할을 일과 수급으로 연결했다. 가게 소유자로 다루지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_nonomi",
+      "name": "이자요이 노노미",
+      "effectName": "넓게 펼친 엄호",
+      "keyword": "일반전",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "노노미의 기관총 엄호 역할을 일반 몬스터 대응으로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hoshino",
+      "name": "타카나시 호시노",
+      "effectName": "선배의 방패",
+      "keyword": "보호막",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "shielded_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "호시노의 방패와 선배 역할을 보호막 중 피해·최대 체력으로 각색했다. 보호막을 새로 주는 카드는 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ayane_supply",
+      "name": "오쿠소라 아야네",
+      "effectName": "끊기지 않는 보급",
+      "keyword": "생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아야네의 지원 역할을 보급 유지로 각색했다. 원작의 특정 치유 스킬을 복제하는 것은 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hifumi",
+      "name": "아지타니 히후미",
+      "effectName": "함께 찾은 출구",
+      "keyword": "생존 · 이동",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아비도스 학생들과 함께 행동하는 히후미의 역할을 귀환 준비로 각색했다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hoshino_rescue",
+      "name": "타카나시 호시노",
+      "effectName": "돌아올 자리",
+      "keyword": "보스 · 생존",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "호시노를 되찾기 위해 준비하는 전개를 구출 경험으로 각색했다. 원작 갈등을 사건 한 번에 해결하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_serika_return",
+      "name": "쿠로미 세리카",
+      "effectName": "다시 열 가게를 위해",
+      "keyword": "고체력 · 수급",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시바세키 라멘에서 아르바이트하는 세리카의 역할과 가게 복구를 돕는 창작 사건을 연결했다. 멀쩡히 일을 이어 갈 준비를 고체력·수급으로 각색하며 원작 신규 능력이라고 주장하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_shiroko_pace",
+      "name": "스나오오카미 시로코",
+      "effectName": "같은 속도로 한 바퀴",
+      "keyword": "신속 · 일반 적",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "조깅·체력 훈련·로드바이크 취미를 동작의 박자와 반복 사냥 준비로 각색한다. 자전거 탈것·거리 기록·새 사격이나 영구 신속을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hoshino_wake",
+      "name": "타카나시 호시노",
+      "effectName": "쉬는 자리의 앞쪽",
+      "keyword": "고체력 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "낮잠을 즐기지만 임무에서 앞에 서는 역할을 몸 상태를 지키고 버티는 준비로 각색한다. 낮잠 즉시 회복·수면 상태·새 보호막은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_nonomi_share",
+      "name": "이자요이 노노미",
+      "effectName": "빠뜨린 몫은 없나요",
+      "keyword": "대미지 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "동료를 묶어 주고 간식을 보태는 역할을 다음 싸움과 오래 움직일 보급 준비로 각색한다. 실제 간식 슬롯·원작 재생 기술·친밀도는 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ayane_ledger",
+      "name": "오쿠소라 아야네",
+      "effectName": "항목 아래 남은 숫자",
+      "keyword": "처치 골드 · 사건 후보",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "가계부·회계 기록과 서기·규칙 중시를 빠뜨린 수급과 비교 후보를 살피는 성장으로 각색한다. 학교의 큰 빚을 없애거나 실제 회계·대출 시스템을 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_hifumi_stall",
+      "name": "아지타니 히후미",
+      "effectName": "들어 보고 고르는 것",
+      "keyword": "사건 후보 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "페로로 굿즈 수집과 상담을 잘 듣는 성격을 후보를 더 비교하고 오래 버틸 준비로 각색한다. 페로로 소환·도발·굿즈 장비·동료 NPC를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_aru_bill",
+      "name": "리쿠하치마 아루",
+      "effectName": "악당의 품격",
+      "keyword": "보스 피해 · 일반 피해 손해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": -2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "허세를 믿고 큰 상대만 바라보는 기억을 보스에게 가하는 피해 증가와 일반 몬스터에게 가하는 피해 감소로 각색한다. 원작 사격·대출·학교 빚 해소·실제 불법사업 기능은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_kayoko_disc",
+      "name": "오니카타 카요코",
+      "effectName": "침묵에도 내용이 있다",
+      "keyword": "차지 속도 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "음악CD수집과 침묵의 오해를 끝까지 듣는 기억으로 각색한다. 차지 준비 속도이며 모든 행동속도·실제 음악버프·공포 상태·적 제압이 아니다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_haruka_pot",
+      "name": "이구사 하루카",
+      "effectName": "뽑지 않고 남긴 것",
+      "keyword": "최대 체력 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "잡초를 기르는 취미에서 남길 자리를 묻는 기억이다. 최대체력은 현재/최대 비율을 유지하고 재생은 시간에 따른 회복이며 화분장비·즉시치유·원작 상처 해결을 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_mutsuki_envelope",
+      "name": "아사기 무츠키",
+      "effectName": "열어 보기 전의 웃음",
+      "keyword": "치명타 피해 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "말썽을 즐기는 성격에서 창작 봉투 내기를 만들고 빈틈을 기다리는 성장으로 각색한다. 치명타 확률이 아니라 치명타 피해이며 비방향은 헤드/백 플래그가 없는 공격에만 적용한다. 실제 폭탄·지뢰·폭발·확률 상승은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_aru_task",
+      "name": "리쿠하치마 아루",
+      "effectName": "직함 대신 할 일",
+      "keyword": "치명타 확률 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "계산을 도왔던 자기 후속에서 말보다 맡을 일을 확인하는 기억이다. 치명확률5%p와 현재체력이 최대의65%이상일 때 가하는 피해8%다. 실제 계약·회사업무·원작 사업 성공은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_kayoko_reply",
+      "name": "오니카타 카요코",
+      "effectName": "말을 기다린 박자",
+      "keyword": "행동 속도 · 방어 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "CD를 함께 들었던 자기 후속에서 끊지 않고 대답을 기다리는 기억이다. 일반 행동속도와 방어 관통으로 각색하며 새 음악스킬·침묵해제·공포면역·NPC동행을 주지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_serika_order",
+      "name": "쿠로미 세리카",
+      "effectName": "먼저 받은 주문",
+      "keyword": "행동 속도 · 일반 적",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 회계·아르바이트 역할과 기존 주문 정리에서 차례를 맞추는 여행자의 기억이다. 가게 소유·무료 물약 제작·학교 빚 해소·원작 사격 기술은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_serika_finish",
+      "name": "쿠로미 세리카",
+      "effectName": "다음 교대에 남길 것",
+      "keyword": "공격력 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아르바이트를 하면서 학교 일을 이어 가는 공식 성향에서 재료와 다음 몫을 남기는 기억을 각색한다. 근무 자동보수·현재체력 즉시회복·NPC 파견·본편 복구 완수는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ayane_route",
+      "name": "오쿠소라 아야네",
+      "effectName": "전달할 곳부터",
+      "keyword": "이동 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 서기·지원 역할과 기존 보급 운반에서 전달할 곳과 돌아올 자리를 먼저 확인하는 기억이다. 새 통신 기술·실제 보급차량·NPC 운반·귀환 스킬은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ayane_blank",
+      "name": "오쿠소라 아야네",
+      "effectName": "지우지 않은 빈칸",
+      "keyword": "치명 피해 · 받는 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 기록·규칙 중시와 가계부·골동품 취미에서 확인하지 않은 기록을 단정하지 않는 기억이다. 자동 감정·골동품 소유·학교 빚 해소·원작 관통 기술은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_mutsuki_watch",
+      "name": "아사기 무츠키",
+      "effectName": "말이 끝나기 전에",
+      "keyword": "치명 피해 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 장난스러운 성격과 기존 아루의 허세를 지켜보는 관계에서 다음 말을 기다리는 기억을 각색한다. 웃음 게이지·폭탄·심리 피해·원작 사건 승리를 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_kayoko_interval",
+      "name": "오니카타 카요코",
+      "effectName": "아직 끝나지 않은 곡",
+      "keyword": "치명 확률 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 음악CD수집과 침묵의 오해에서 한 곡을 끊지 않고 듣는 여행자의 기억이다. 실제 음악 버프·새 곡·주문·공포 스킬·NPC 성장은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_kayoko_order",
+      "name": "오니카타 카요코",
+      "effectName": "사과 대신 주문",
+      "keyword": "최대 체력 · 행동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 침묵 때문에 생기는 오해에서 사과를 반복하기보다 남은 주문의 말을 듣는 기억이다. 모든 오해 해결·침묵 면역·가게 할인·음악 스킬·즉시 회복은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_haruka_ask",
+      "name": "이구사 하루카",
+      "effectName": "먼저 묻는 손",
+      "keyword": "일반 적 · 받는 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 잡초 기르기 취미와 내성적인 성향에서 치우기 전에 묻는 여행자의 기억을 각색한다. 식물 공격·실제 수확·잡초를 몬스터로 바꾸는 기능·상처 완전 해결은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_haruka_space",
+      "name": "이구사 하루카",
+      "effectName": "남겨 둔 작은 자리",
+      "keyword": "최대 체력 · 고체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 잡초 기르기에서 화분을 놓을 자리를 남겨 두는 여행자의 기억이다. 보호막 생성·현재체력 즉시회복·수면·식물 성장 기능은 없다. 고체력 조건은65%이상이다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_mutsuki_answer",
+      "name": "아사기 무츠키",
+      "effectName": "답을 듣는 대가",
+      "keyword": "행동 속도 · 비방향",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 장난을 즐기는 성향에서 창작 봉투의 답을 듣고 다음 말을 준비하는 기억이다. 치명확률을 늘리는 카드가 아니며 실제 내기 미니게임·폭발·원작 능력 전수는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_01_1",
+      "name": "오쿠소라 아야네",
+      "effectName": "모래 속에 남은 학교 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_01_2",
+      "name": "오쿠소라 아야네",
+      "effectName": "모래 속에 남은 학교 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_01_3",
+      "name": "오쿠소라 아야네",
+      "effectName": "모래 속에 남은 학교 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_02_1",
+      "name": "스나오오카미 시로코",
+      "effectName": "전학생 없는 첫 인사 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_02_2",
+      "name": "스나오오카미 시로코",
+      "effectName": "전학생 없는 첫 인사 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_02_3",
+      "name": "스나오오카미 시로코",
+      "effectName": "전학생 없는 첫 인사 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_03_1",
+      "name": "쿠로미 세리카",
+      "effectName": "돌아오지 않은 친구를 찾아 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_03_2",
+      "name": "쿠로미 세리카",
+      "effectName": "돌아오지 않은 친구를 찾아 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_03_3",
+      "name": "쿠로미 세리카",
+      "effectName": "돌아오지 않은 친구를 찾아 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_04_1",
+      "name": "이자요이 노노미",
+      "effectName": "노노미가 지키는 분위기 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_04_2",
+      "name": "이자요이 노노미",
+      "effectName": "노노미가 지키는 분위기 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_04_3",
+      "name": "이자요이 노노미",
+      "effectName": "노노미가 지키는 분위기 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_05_1",
+      "name": "타카나시 호시노",
+      "effectName": "빚이 흘러간 길을 따라 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_05_2",
+      "name": "타카나시 호시노",
+      "effectName": "빚이 흘러간 길을 따라 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_05_3",
+      "name": "타카나시 호시노",
+      "effectName": "빚이 흘러간 길을 따라 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_06_1",
+      "name": "오쿠소라 아야네",
+      "effectName": "폭발 뒤에 고른 책임 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_06_2",
+      "name": "오쿠소라 아야네",
+      "effectName": "폭발 뒤에 고른 책임 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_06_3",
+      "name": "오쿠소라 아야네",
+      "effectName": "폭발 뒤에 고른 책임 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_07_1",
+      "name": "스나오오카미 시로코",
+      "effectName": "새로 만난 협력자 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_07_2",
+      "name": "스나오오카미 시로코",
+      "effectName": "새로 만난 협력자 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_07_3",
+      "name": "스나오오카미 시로코",
+      "effectName": "새로 만난 협력자 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_08_1",
+      "name": "타카나시 호시노",
+      "effectName": "수족관에서 남은 말 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_08_2",
+      "name": "타카나시 호시노",
+      "effectName": "수족관에서 남은 말 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_08_3",
+      "name": "타카나시 호시노",
+      "effectName": "수족관에서 남은 말 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_09_1",
+      "name": "오쿠소라 아야네",
+      "effectName": "땅의 주인을 확인하다 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_09_2",
+      "name": "오쿠소라 아야네",
+      "effectName": "땅의 주인을 확인하다 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_09_3",
+      "name": "오쿠소라 아야네",
+      "effectName": "땅의 주인을 확인하다 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_10_1",
+      "name": "스나오오카미 시로코",
+      "effectName": "남겨진 편지 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_10_2",
+      "name": "스나오오카미 시로코",
+      "effectName": "남겨진 편지 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 8
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_10_3",
+      "name": "스나오오카미 시로코",
+      "effectName": "남겨진 편지 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_11_1",
+      "name": "쿠로미 세리카",
+      "effectName": "빈 자리를 지키는 사람들 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_11_2",
+      "name": "쿠로미 세리카",
+      "effectName": "빈 자리를 지키는 사람들 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_11_3",
+      "name": "쿠로미 세리카",
+      "effectName": "빈 자리를 지키는 사람들 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_12_1",
+      "name": "타카나시 호시노",
+      "effectName": "포기할 수 없는 학생 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_12_2",
+      "name": "타카나시 호시노",
+      "effectName": "포기할 수 없는 학생 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_12_3",
+      "name": "타카나시 호시노",
+      "effectName": "포기할 수 없는 학생 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_13_1",
+      "name": "스나오오카미 시로코",
+      "effectName": "사막 너머로 이어진 부름 · 결의",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_13_2",
+      "name": "스나오오카미 시로코",
+      "effectName": "사막 너머로 이어진 부름 · 물음",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 10
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_13_3",
+      "name": "스나오오카미 시로코",
+      "effectName": "사막 너머로 이어진 부름 · 인연",
+      "keyword": "메인 · 마지막 교실에 함께 돌아오다",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_14_1",
+      "name": "타카나시 호시노",
+      "effectName": "함께 남는 온기",
+      "keyword": "메인 완결 · 마지막 교실에 함께 돌아오다",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 14
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "abydos_main_14_2",
+      "name": "타카나시 호시노",
+      "effectName": "다시 채워진 교실",
+      "keyword": "메인 완결 · 마지막 교실에 함께 돌아오다",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 14
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "abydos_main_14_3",
+      "name": "타카나시 호시노",
+      "effectName": "돌아올 학교의 약속",
+      "keyword": "메인 완결 · 마지막 교실에 함께 돌아오다",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 6
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "원작 흐름에 남긴 플레이어의 창작 반응을 카드 기억으로 표현한다. 이름은 해당 장면의 인물이며 대사를 그 인물이 말했다는 뜻은 아니다. 수치는 맵 전용 기본 성장이다.",
+      "uncertain": [],
+      "retiredMainReward": true
+    },
+    {
+      "key": "abydos_main_ending_memorial",
+      "name": "다섯 자리가 있는 교실",
+      "effectName": "메인 엔딩 기념 · 효과 설계 중",
+      "keyword": "학교를 남기기 위해 학생을 버리지 않는다. 함께 돌아왔기에 다시 시작할 수 있는 하루.",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "학교를 남기기 위해 학생을 버리지 않는다. 함께 돌아왔기에 다시 시작할 수 있는 하루.",
+      "uncertain": [
+        "효과와 수치는 검수 후 설계한다."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "key": "abydos_sand_supply",
+      "title": "모래에 묻힌 보급로",
+      "story": "학교로 오는 보급품이 모래에 막혔다. 아야네의 지도에는 시로코가 확인한 지름길과 적이 모이는 큰길이 표시돼 있다. 노노미는 필요한 물건을 놓치지 않도록 뒤에서 엄호하겠다고 한다.",
+      "intro": "아야네가 보급로 두 곳 중 맡을 길을 묻는다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "시로코와 지름길을 정찰한다",
+          "result": "가벼운 발걸음으로 통로를 확인했다. 장비를 빌리는 비용을 내고 정찰 요령을 얻었다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미와 함께 보급로를 확보하며 기억을 되새긴다",
+          "result": "노노미가 짐을 든 손을 꽉 쥐며 과거의 보급로를 회상한다. 그녀의 기억 속에서 잊혔던 중요한 물자 이동 경로가 떠오릅니다.",
+          "card": "abydos_nonomi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "운송비를 내고 학교 안 보급을 정리한다",
+          "result": "외부 전투 대신 아야네의 보급 계획을 도왔다. 비용은 들었지만 다음 사냥을 안전하게 준비했다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ramen_shift",
+      "title": "세리카의 교대 시간",
+      "story": "시바세키 라멘에 손님이 몰렸는데 세리카는 대책위원회 일도 마쳐야 한다. 그녀는 가게가 자신의 것이 아니어도 피해를 주고 싶지 않다며 주문서를 붙잡는다. 배달과 주문 정리, 재료 운송 중 나눠 맡을 일을 고른다.",
+      "intro": "라멘 가게 아르바이트와 학교 일이 겹친 세리카.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "세리카를 도와 배달 업무를 분담하며 정보를 얻는다",
+          "result": "세리카와 함께 분주하게 움직이며 가게의 숨은 운영 방식을 배웁니다. 그녀가 강조하던 단골들의 특징이 기억 속에 새겨집니다.",
+          "card": "abydos_serika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 기록용품을 마련하고 세리카와 먼저 받은 주문부터 나눈다",
+          "result": "세리카와 먼저 받은 주문서를 따로 묶고 새 주문이 들어갈 빈 줄을 남겼다. 160골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 세리카는 뒤늦게 온 주문을 그 묶음에 넣으려다 아직 안 나간 첫 그릇부터 찾는다.",
+          "card": "abydos_serika_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "비용을 지불하고 세리카의 업무 기록을 전달받는다",
+          "result": "세리카는 미안한 표정으로 다음 교대를 위한 상세한 인수인계 노트를 건넵니다. 그녀가 밤새 정리한 주문 목록이 당신의 머릿속에 저장된다.",
+          "card": "abydos_serika_finish",
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_blackmarket_map",
+      "title": "블랙마켓의 잘못된 지도",
+      "story": "빚의 흐름을 조사하던 대책위원회가 블랙마켓 골목에서 길을 잃었다. 히후미가 건넨 안내에는 위험한 통로가 표시돼 있고, 시로코는 먼 곳을 확인하러 가겠다고 한다. 수상한 은행의 돈을 보상처럼 가져올 수는 없다.",
+      "intro": "히후미와 출구를 찾으며 조사 기록을 지켜야 한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "히후미의 안내를 따라 블랙마켓의 구조를 파악한다",
+          "result": "히후미가 조심스럽게 가리키는 골목마다 숨겨진 상점들의 위치가 보입니다. 그녀의 기억 속에 남은 지도가 복잡한 시장의 구조를 설명해 줍니다.",
+          "card": "abydos_hifumi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시로코와 위험한 골목을 조사한다",
+          "result": "시로코와 위험한 길목의 움직임을 살폈다. 큰 상대의 흔적까지 따라간 만큼 돌아오는 길도 더 신중하게 골라야 했다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "130골드로 운반을 준비하고 아야네의 기록을 전달할 곳부터 확인한다",
+          "result": "아야네가 남긴 기록을 가방에 나눠 넣고 어디에 전달할 것인지부터 확인했다. 130골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 히후미가 출구 쪽을 가리키자 시로코는 조사할 골목과 네가 돌아갈 길을 다른 표시로 남긴다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 130,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_ramen_repair",
+      "title": "남아 있는 라멘 가게의 간판",
+      "story": "라멘 가게가 파괴된 뒤 가게 주인은 치료를 받고 있다. 세리카가 멀쩡한 도구를 모으고, 아야네는 필요한 물자를 적는다. 범인을 한 번 처치하면 원래대로 돌아올 문제가 아니다. 지금 할 수 있는 복구부터 맡아야 한다.",
+      "intro": "파괴된 가게 앞에서 도구와 복구 자재를 나눈다.",
+      "previous": "abydos_ramen_shift",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "세리카와 파손된 가게의 도구 목록을 확인한다",
+          "result": "세리카와 함께 부서진 집기들을 살피며 필요한 수리 부품을 하나씩 짚어냅니다. 아야네의 리스트와 대조하며 가게의 원래 모습을 기억 속에 그려냅니다.",
+          "card": "abydos_serika_return",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "복구 자재 비용을 보탠다",
+          "result": "아야네가 필요한 물자를 확보했다. 지출은 있었지만 보급을 이어가는 방식을 배웠다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 병문안 짐을 준비하고 세리카와 다음에 쓸 물건을 남긴다",
+          "result": "세리카와 병문안 짐을 나누고 다음에 쓸 물건은 잔해와 다른 쪽에 남겼다. 160골드를 지불했다. 「다음 교대에 남길 것」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 세리카는 가게가 다 고쳐진 것처럼 도구를 놓지 않고 아직 가져다줄 짐 옆에 이름을 적는다.",
+          "card": "abydos_serika_finish",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_desert_watch",
+      "title": "카이저 소유의 사막",
+      "story": "학교 주변 사막이 카이저 소유라는 사실을 확인한 뒤에도 보급로는 필요하다. 호시노는 무리한 진입을 막고, 노노미는 엄호 범위를 살핀다. 오늘의 정찰 한 번으로 토지 소유권을 바꿀 수는 없지만 학교를 지킬 준비는 할 수 있다.",
+      "intro": "사막의 경계에서 정찰과 방어 준비를 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "호시노와 엄호할 위치를 고른다",
+          "result": "호시노의 방어 지침을 듣고 엄호 장비를 준비했다. 장비 비용을 내고 동료가 돌아올 위치를 지키는 경험을 얻었다.",
+          "card": "abydos_hoshino",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미와 사막의 경계선을 확인하며 지형을 익힌다",
+          "result": "노노미와 넓은 사막을 가로지르며 카이저가 점유한 구역의 경계선을 확인한다. 그녀가 속삭이는 지형의 특징들이 당신의 머릿속에 하나둘씩 기록된다.",
+          "card": "abydos_nonomi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 전달을 준비하고 아야네에게 돌아갈 길부터 나눈다",
+          "result": "아야네에게 돌아갈 경로를 전하고 넘어가지 않을 경계를 지도에 남겼다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 호시노가 무리한 진입을 말리자 노노미도 네가 돌아올 쪽부터 엄호할 자리를 짚는다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_missing_senior",
+      "title": "호시노의 빈 자리",
+      "story": "학교로 돌아오자 호시노의 자리가 비어 있다. 대책위원회는 편지와 남은 기록을 확인하며 그녀를 찾을 준비를 한다. 앞서 확보한 방어 위치가 있다면 위험한 구출 준비에도 도움을 줄 수 있다.",
+      "intro": "호시노가 떠난 뒤, 남은 대책위원회가 준비를 시작한다.",
+      "previous": "abydos_desert_watch",
+      "previousChoice": 1,
+      "requiredCard": "abydos_hoshino",
+      "choices": [
+        {
+          "label": "노노미와 위험 구역의 구조 경로를 준비한다",
+          "result": "노노미와 남은 기록을 대조해 호시노가 돌아올 길을 표시했다. 엄호할 자리를 넓히는 동안 강한 상대의 기척도 확인했다. 구출은 아직 끝나지 않았지만 수색대가 다음에 확인할 구간을 남겼다.",
+          "card": "abydos_hoshino_rescue",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네의 통신과 보급을 지원한다",
+          "result": "수색대의 연락이 끊기지 않도록 장비를 준비했다. 지출을 감수하고 지속적인 생존을 준비했다.",
+          "card": "abydos_ayane_supply",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네에게 호시노의 자리를 남겨 두자고 말한다",
+          "result": "아야네는 명단의 빈칸을 지우지 않고 다시 확인한다. 돌아올 사람의 몫까지 챙기는 그녀의 준비를 함께 기억한다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 인물 관계와 상황을 바탕으로 한 원작 외 플레이어 사건이다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_pace",
+      "title": "한 바퀴가 같은 한 바퀴일까",
+      "story": "시로코가 조깅 경로와 로드바이크를 세울 곳을 가리킨다. 세리카는 그 한 바퀴가 자기에게도 같은 거리냐며 지도를 다시 펼친다. 네가 준비할 경로와 맡을 바깥 구역을 나누어야 한다.",
+      "intro": "박자를 맞출지, 더 넓은 길목을 맡을지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비 도구를 마련해 시로코와 한 바퀴의 박자를 맞춘다",
+          "result": "준비 도구 값을 내고 시로코와 다음 동작을 늦추지 않을 박자를 맞췄다. 반복해서 마주칠 상대를 넘기는 준비도 배웠다. 세리카는 지도에 표시된 한 바퀴 끝을 손가락으로 다시 짚는다.",
+          "card": "abydos_shiroko_pace",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시로코에게 정찰 경로를 나누어 달라고 한다",
+          "result": "시로코는 지도에서 먼저 확인한 곳과 아직 모르는 곳을 짚어 준다. 조용한 설명을 따라가며 서두르지 않고 관찰하는 순서를 익힌다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "100골드로 보급을 마련하고 세리카와 더 약한 구역의 차례를 맞춘다",
+          "result": "세리카와 더 약한 구역을 먼저 맡을 차례를 나누고 시로코가 펼친 지도에 표시했다. 100골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계를 최저1범위에서1낮췄다. 세리카는 시로코의 한 바퀴가 자기에게도 같은 거리인지 다시 물으며 맡은 구역부터 접는다.",
+          "card": "abydos_serika_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 100,
+          "level": -1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 시로코의 조깅·체력 훈련·로드바이크와 말 적은 성향에서 별도 경로 분배를 만든다. 실제 자전거·랩타임·체력 지불·경기 승패는 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_sleepchair",
+      "title": "잠든 자리와 비워 둘 앞자리",
+      "story": "호시노가 의자에서 눈을 감으려는데 아야네는 앞에 쌓인 준비 가방을 가리킨다. 노노미는 맡을 길목을 나누고 호시노가 일어날 자리도 남기자고 한다. 잠을 깨우기보다 먼저 네가 맡을 구역을 정해야 한다.",
+      "intro": "앞에 설 자리를 준비하거나 맡을 길목을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비 비용을 내고 호시노와 앞에 설 자리를 비운다",
+          "result": "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 자리를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 비워진 의자 앞을 보고 가방을 옆으로 당긴다.",
+          "card": "abydos_hoshino_wake",
+          "card2": null,
+          "gold": 0,
+          "cost": 200,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미에게 호시노의 자리를 비워 두자고 한다",
+          "result": "노노미는 호시노를 깨우지 않도록 짐을 다른 쪽으로 옮긴다. 남겨 둔 자리까지 살피며 동료를 받치는 그녀의 배려가 기억에 남는다.",
+          "card": "abydos_nonomi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네에게 전달할 곳부터 정하자고 말한다",
+          "result": "아야네는 가방을 열어 먼저 건넬 물건을 따로 꺼낸다. 급한 일과 기다려도 될 일을 나누는 그녀의 판단을 기억한다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 호시노의 낮잠과 임무 최전선·노노미의 동료 지원을 별도 일상으로 각색한다. 낮잠으로 현재 체력 회복·호시노의 부재 해결·보호막 생성은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_snack_share",
+      "title": "남는 간식이 아니라 남길 간식",
+      "story": "노노미가 간식 몫을 나누는데 아야네는 바깥에 가져갈 보급 항목도 남았다고 한다. 세리카는 장부의 빈칸이 간식보다 먼저라며 주문서를 펼친다. 지금 나눌 몫과 이후 쓸 기록을 모두 네가 챙길 수는 없다.",
+      "intro": "지금 나눌 몫과 다음에 쓸 기록 중 맡을 일을 고른다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "포장 비용을 보태고 노노미와 빠뜨린 몫을 살핀다",
+          "result": "포장 비용을 보태고 노노미와 빠뜨린 몫을 살폈다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미가 마지막 봉투를 내밀자 세리카는 장부도 봐 달라며 주문서를 당긴다.",
+          "card": "abydos_nonomi_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기록용품을 마련해 아야네와 남은 항목을 대조한다",
+          "result": "기록용품 값을 내고 아야네와 남은 항목을 대조했다. 얻을 몫을 놓치지 않고 여러 부탁을 더 비교하는 준비를 배웠다. 아야네는 아직 확인하지 않은 항목에는 숫자를 적지 않는다.",
+          "card": "abydos_ayane_ledger",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 정리를 준비하고 세리카와 간식보다 먼저 온 주문을 나눈다",
+          "result": "세리카와 간식보다 먼저 받은 주문을 나누고 빈칸이 남은 주문서를 다시 펼쳤다. 160골드를 지불했다. 「먼저 받은 주문」의 기억 카드1장을 얻었다. 노노미는 아직 못 받은 간식 몫을 묻고 세리카는 주문이 끝난 줄과 남은 줄을 다른 쪽에 놓는다.",
+          "card": "abydos_serika_order",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 노노미의 간식 비용 지원과 동료의 중심 역할·아야네의 기록·세리카의 회계에서 별도 보급 분배를 창작한다. 부자의 돈 무제한 획득·학교 빚 전액 해소·간식 즉시 회복은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_antique_note",
+      "title": "낡은 물건의 지워진 항목",
+      "story": "아야네가 골동품 가게의 낡은 목록에서 지워진 항목을 발견한다. 주인은 이전 기록까지 확인할지는 장담하지 않고, 확실한 항목만 정리할 수도 있다고 한다. 아야네는 값을 내기 전에 어떤 일을 맡을지부터 적자고 한다.",
+      "intro": "불확실한 기록 확인과 확실한 장부 정리 중 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "150골드의 연락 비용을 내고 지워진 항목을 찾는다",
+          "result": "연락한 기록을 아야네와 대조하고 지워진 항목의 남은 숫자를 확인했다. 150골드를 지불했다. 「항목 아래 남은 숫자」의 기억 카드1장을 얻었다. 가게 주인이 확인한 줄을 가리키자 아야네는 그 아래의 빈칸까지 같은 답으로 채우지 않는다.",
+          "card": "abydos_ayane_ledger",
+          "card2": null,
+          "gold": 0,
+          "cost": 150,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 70
+        },
+        {
+          "label": "220골드로 기록용품을 마련하고 아야네와 아직 확인하지 않은 빈칸을 남긴다",
+          "result": "아야네와 확인하지 않은 빈칸을 그대로 남기고 확실한 줄만 기록에 옮겼다. 220골드를 지불했다. 「지우지 않은 빈칸」의 기억 카드1장을 얻었다. 아야네는 주인이 장담하지 않은 항목 옆에 다음에 물어볼 일을 따로 적는다.",
+          "card": "abydos_ayane_blank",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 운반을 준비하고 아야네와 확인된 물건을 전할 곳을 나눈다",
+          "result": "아야네와 확인된 물건을 옮길 준비를 하고 전달할 곳부터 나눴다. 160골드를 지불했다. 「전달할 곳부터」의 기억 카드1장을 얻었다. 주인이 아직 확인하지 않은 상자를 함께 밀자 아야네는 그 상자는 다른 목록에 남기자고 한다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "지워진 항목의 이전 기록을 확인하지 못했다. 연락 비용 150골드는 돌아오지 않고 카드는 받지 못한다. 아야네는 확인되지 않은 숫자를 빈칸으로 남긴다.",
+      "canonFact": "공식 아야네의 골동품 수집·가계부 취미에서 별도 가게 기록 의뢰를 창작한다. 원작 상점·사기·가챠 장면이나 진품 감정 기술을 확인한 것이 아니다. 70%와 보수는 맵의 수치다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_aquarium_step",
+      "title": "안내판 앞의 다음 발걸음",
+      "story": "수족관에 가려던 호시노가 안내판 앞에서 다음에 갈 곳을 가리킨다. 시로코는 돌아갈 길도 봐 두겠다며 바깥 지도를 펼치고 아야네는 아직 남은 보급 일을 적는다. 외출 전에 어디까지 맡을지 나누어야 한다.",
+      "intro": "외출 전에 앞에 설 자리와 귀환길의 부담을 나눈다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "준비 비용을 내고 호시노와 앞에 설 자리를 정한다",
+          "result": "준비 비용을 내고 호시노와 몸 상태를 지킨 채 앞에 설 위치를 짚었다. 버티면서 다음 공격을 준비하는 요령을 배웠다. 호시노는 안내판 쪽으로 몸을 돌리고 아야네는 남은 보급 일을 적는다.",
+          "card": "abydos_hoshino_wake",
+          "card2": null,
+          "gold": 0,
+          "cost": 240,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시로코와 더 강한 적이 드나드는 귀환길을 맡는다",
+          "result": "시로코와 더 강한 적이 드나드는 귀환길을 맡았다. 움직일 자리를 먼저 보는 요령을 배우고 개인 사냥의 적 단계가 올라갔다. 시로코는 돌아갈 길의 표시를 따로 접어 둔다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네에게 수족관 안내를 함께 확인하자고 한다",
+          "result": "아야네는 안내판의 순서를 다시 읽으며 함께 볼 곳을 표시한다. 일행이 흩어지지 않도록 전달할 내용을 정리하는 방식을 익힌다.",
+          "card": "abydos_ayane_route",
+          "card2": null,
+          "gold": 0,
+          "cost": 160,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 애니메이션8화 호시노 제안의 수족관 외출에서 별도 안내·귀환 준비를 만든다. 원작 호시노의 비밀·실종·구출을 외출 보상으로 해결하지 않는다. 수족관 공간·수중 몹·실제 입장권은 생성하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_peroro_line",
+      "title": "페로로 앞에서 듣는 부탁",
+      "story": "히후미가 페로로 굿즈 진열을 보는데 노노미는 기다리는 사람의 부탁도 들어 보자고 한다. 히후미는 어느 이야기를 먼저 들을지 망설이고 시로코는 빠져나갈 길부터 가리킨다. 진열 앞에서 모두의 부탁을 한 번에 맡을 수는 없다.",
+      "intro": "부탁을 들을지, 가져갈 몫과 통행 구역을 나눌지 정한다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "진열 준비물을 마련해 히후미와 부탁을 하나씩 듣는다",
+          "result": "진열 준비물 값을 내고 히후미와 부탁을 하나씩 들었다. 더 비교할 후보를 놓치지 않고 오래 버틸 준비를 배웠다. 히후미는 진열된 페로로를 다시 보다가 아직 남은 사람 쪽으로 고개를 돌린다.",
+          "card": "abydos_hifumi_stall",
+          "card2": null,
+          "gold": 0,
+          "cost": 220,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "포장 비용을 보태고 노노미와 가져갈 몫을 나눈다",
+          "result": "포장 비용을 보태고 노노미와 가져갈 몫을 나누었다. 다음 싸움과 오래 움직일 보급을 챙기는 요령을 배웠다. 노노미는 기다리는 사람의 봉투도 한쪽에 남겨 둔다.",
+          "card": "abydos_nonomi_share",
+          "card2": null,
+          "gold": 0,
+          "cost": 180,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히후미에게 우선 찾을 곳부터 정하자고 말한다",
+          "result": "히후미는 부탁을 모두 따라가려다 잠깐 멈추고 안내를 다시 읽는다. 함께 찾을 곳을 하나씩 확인하면서 출구를 놓치지 않는 판단을 기억한다.",
+          "card": "abydos_hifumi",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 히후미의 페로로 굿즈·쇼핑·상담 취미와 노노미의 쇼핑·동료 지원에서 별도 가게 만남을 만든다. 히후미를 아비도스 학생으로 바꾸거나 물품 소환·NPC 호위·빚 해결을 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_big_bill",
+      "title": "악당답게 계산할게",
+      "story": "아루가 라멘 계산서를 집어 들며 오늘은 자신이 계산하겠다고 한다. 세리카가 기다리는 동안 아루의 손가락은 계산서 끝에 멈추고 무츠키는 사장님의 멋진 모습을 더 보고 싶다며 웃는다. 계산서를 덮으려는 아루 앞에서 세리카는 마감에 쓸 빈 그릇을 모은다.",
+      "intro": "계산서 끝을 넘기면 사장님 체면도 넘어갈까?",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 부족한 계산을 돕고 아루의 큰소리도 끝까지 듣는다",
+          "result": "부족한 계산에180골드를 보태고 아루의 큰소리를 끝까지 들었다. 아루는 계산서가 닫힌 뒤에야 원래 그렇게 하려 했다며 목소리를 다시 높인다.",
+          "card": "ab68_aru_bill",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "무츠키에게 아루의 표정을 보았는지 묻는다",
+          "result": "아루가 계산서를 집어 들자 무츠키는 웃음을 참으며 눈짓한다. 당당한 말투와 종이를 잡은 손 사이의 작은 망설임을 기억한다.",
+          "card": "ab68_mutsuki_watch",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 몫의 정리만 마치고 세리카의 일하는 박자를 기억한다",
+          "result": "세리카와 네 몫의 그릇을 모으며 자기 일을 마쳤다. 세리카는 그릇을 내려놓고 아루에게 계산은 어떻게 할 것인지 다시 묻는다.",
+          "card": "abydos_serika",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식3화의 라멘 만남과 아루 허세·무츠키 관계를 별도 계산 사건으로 각색했다. 원작 계산서 액수·가게 공격·학교 빚·사업 성공을 확정하지 않는다.",
+      "uncertain": [],
+      "actionCost": 0
+    },
+    {
+      "key": "ab68_disc_before_words",
+      "title": "아직 주문하지 않았는데",
+      "story": "카요코가 찾는CD를 물으려는데 가게 주인은 그녀가 말하기 전에 먼저 사과한다. 카요코가 잠깐 입을 다물자 주인은 사과를 하나 더 붙이고 그 틈에 주문할 말은 더 멀어진다. 카요코는 사과를 요구한 적 없다는 말까지 꺼내려다 찾던CD쪽을 다시 가리킨다.",
+      "intro": "사과를 듣고 싶은 사람이 아무도 없는데 말은 끊겼다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "200골드로 내가 고른CD값을 내고 카요코의 말이 끝날 때까지 듣는다",
+          "result": "네가 고른CD값200골드를 내고 카요코의 말을 끝까지 들었다. 주인이 또 사과하려 하자 카요코는 이번에는 찾는 물건 이름부터 말한다.",
+          "card": "ab68_kayoko_disc",
+          "card2": null,
+          "cost": 200,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 사냥의 강함 단계를1올리고 카요코와 한 곡의 박자를 끝까지 듣는다",
+          "result": "카요코와 한 곡이 끝날 때까지 말을 끊지 않고 박자를 들었다. 「아직 끝나지 않은 곡」의 기억 카드1장을 얻었다. 내 사냥의 몬스터 강함 단계가1올랐다. 곡이 끝나도 카요코는 주문할 말이 남았다며 주인이 다시 사과하기 전에 진열을 가리킨다.",
+          "card": "ab68_kayoko_interval",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 귀환 보급을 준비하고 카요코의 사과 아닌 주문부터 듣는다",
+          "result": "귀환 보급을 나눈 뒤 카요코가 끝내지 못한 주문부터 들었다. 160골드를 지불했다. 「사과 대신 주문」의 기억 카드1장을 얻었다. 주인이 또 사과를 붙이려 하자 카요코는 이번에는 찾는 물건 이름부터 이어 말한다.",
+          "card": "ab68_kayoko_order",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 음악CD수집과 얼굴/침묵 때문에 생기는 오해를 창작 방문으로 만들었다. 곡·장르·CD원작명·실제 가게·실제 음악효과를 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_weed_hand",
+      "title": "잡초라는 말 다음",
+      "story": "네가 화분에서 자란 것을 잡초라고 부르며 손을 뻗자 하루카가 화분 가장자리를 붙든다. 잡초를 기르는 중이었다는 말을 듣고 보니 치우겠다는 네 말이 먼저였다. 하루카는 네 손이 물러난 뒤에도 화분을 놓지 않은 채 어디에 두려던 것인지 묻는다.",
+      "intro": "치우려던 것이 누군가에게는 기르는 것이었다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "160골드로 화분을 둘 받침을 마련하고 먼저 뻗은 손을 거둔다",
+          "result": "받침값160골드를 내고 먼저 뻗었던 손을 거둔 뒤 화분을 놓을 자리를 만들었다. 하루카는 그 자리에 둔 화분을 보고도 네가 잡초라고 부르던 말을 한 번 되묻는다.",
+          "card": "ab68_haruka_pot",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "하루카의 손이 화분 가장자리를 붙드는 순간을 기억한다",
+          "result": "화분을 놓지 않으려는 하루카의 절박한 손동작을 기억에 새긴다. 잡초라고 부르는 네 말에 반응하는 그녀의 감정을 기록한다.",
+          "card": "ab68_haruka_ask",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "하루카의 작은 자리를 남겨둔 채 대화를 마무리한다",
+          "result": "하루카가 머물 자리를 배려하며 대화를 끝내는 장면을 기억한다. 그녀의 소중한 공간을 존중하는 마음이 머릿속에 남는다.",
+          "card": "ab68_haruka_space",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "공식 잡초기르기 취미에서 여행자가 먼저 치우려 한 작은 오해를 창작했다. 특정 식물·실제 성장/수확·치유·왕따 해결·원작 라멘 폭파를 보상으로 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_two_envelopes",
+      "title": "웃는 쪽은 두 봉투",
+      "story": "무츠키가 같은 봉투 두 개를 놓고 한쪽에는 장난의 답이 들어 있다고 한다. 아루가 답을 아느냐고 묻자 무츠키는 아는 사람이 웃는 거라며 이번에는 너를 본다. 네가 봉투를 뒤집어 보려 하자 무츠키는 값을 걸고 열거나 답을 듣는 대가를 내라고 한다.",
+      "intro": "답을 아는 사람만 먼저 웃고 있다.",
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "100골드를 먼저 걸고 봉투 하나를 연다",
+          "result": "내기값100골드를 먼저 내고 답이 든 봉투를 골랐다. 무츠키는 네가 웃는 것을 보더니 아직 닫힌 봉투를 아루 앞으로 민다.",
+          "card": "ab68_mutsuki_envelope",
+          "card2": null,
+          "cost": 100,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 60
+        },
+        {
+          "label": "240골드로 내기 대신 두 봉투의 답을 바로 듣는다",
+          "result": "무츠키에게 두 봉투의 답을 모두 듣고 아직 봉투를 고르지 않은 손을 남겼다. 240골드를 지불했다. 「답을 듣는 대가」의 기억 카드1장을 얻었다. 무츠키는 답을 들은 아루가 이제 하나를 골라도 되겠냐고 묻자 이번에는 대가부터 정하자고 한다.",
+          "card": "ab68_mutsuki_answer",
+          "card2": null,
+          "cost": 240,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "160골드로 보급을 마련하고 봉투를 고르기 전에 아루의 큰소리부터 듣는다",
+          "result": "보급을 준비한 뒤 봉투를 고르기 전에 아루의 큰소리부터 들었다. 160골드를 지불했다. 「악당의 품격」의 기억 카드1장을 얻었다. 아루가 답을 아는 것처럼 말하려 하자 무츠키는 아직 닫힌 봉투를 그 앞으로 민다.",
+          "card": "ab68_aru_bill",
+          "card2": null,
+          "cost": 160,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "내기값100골드를 먼저 냈지만 고른 봉투에는 답 대신 빈 종이가 있었다. 카드는 얻지 못하고100골드는 돌아오지 않는다. 무츠키는 네 손에 남은 종이와 아직 닫힌 봉투를 번갈아 본다.",
+      "canonFact": "무츠키의 장난과 아루 허세를 창작 봉투내기로 각색했다. 원작에 이 내기가 있다고 주장하지 않고 폭탄/폭발·사냥 중 추가 처치·새 미니게임·숨은 확률 기능을 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_name_after_bill",
+      "title": "사장님 다음에는",
+      "story": "계산을 도왔던 너에게 아루가 이번에는 흥신소의 이름부터 꺼낸다. 무츠키가 이름 뒤에 할 일은 무엇이냐고 묻자 아루는 맡길 일보다 멋진 소개를 먼저 고친다. 옆에서 마감 그릇을 옮기는 세리카는 아루가 소개하는 동안에도 자기 일을 끝내 간다.",
+      "intro": "이름을 들었지만 아직 할 일은 못 들었다.",
+      "previous": "ab68_big_bill",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "150골드로 내 의뢰 준비값을 내고 이름보다 맡을 일을 먼저 묻는다",
+          "result": "준비값150골드를 먼저 내고 이름보다 맡을 일을 물어 분명히 들었다. 아루가 소개를 다시 꺼내려 하자 무츠키는 이번에는 할 일부터였다고 짚는다.",
+          "card": "ab68_aru_task",
+          "card2": null,
+          "cost": 150,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 75
+        },
+        {
+          "label": "220골드로 내 준비를 하고 무츠키와 아루의 이름 다음 말을 기다린다",
+          "result": "내 준비를 마친 뒤 무츠키와 아루의 이름 다음에 나올 일을 기다렸다. 220골드를 지불했다. 「말이 끝나기 전에」의 기억 카드1장을 얻었다. 아루가 소개를 다시 고치려 하자 무츠키는 이번에는 이름 뒤에 할 일을 붙여 달라고 한다.",
+          "card": "ab68_mutsuki_watch",
+          "card2": null,
+          "cost": 220,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "내 사냥의 강함 단계를1올리고 세리카의 일을 끝내는 박자를 기억한다",
+          "result": "개인 사냥의 강함 단계를1올리는 부담을 맡고 소개 옆에서도 일을 마치는 세리카의 박자를 기억했다. 세리카는 빈 그릇을 내려놓으며 아루의 소개는 아직 계속되는지 묻는다.",
+          "card": "abydos_serika_return",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 1,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "준비값150골드를 먼저 냈지만 소개가 이어져 맡을 일을 분명히 듣지 못했다. 카드는 얻지 못하고150골드는 돌아오지 않는다. 무츠키는 끝나지 않은 소개를 아루에게 한 번 더 짚는다.",
+      "canonFact": "자기 계산 도움 성공1번 뒤에만 열리는 창작 소개후속이다. 회사 계약·은행 범죄·원작 습격 승패·실제NPC작업은 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "ab68_reply_after_disc",
+      "title": "사과가 끝난 뒤의 한마디",
+      "story": "카요코와 한 곡을 끝까지 들었던 너에게 가게 주인이 이번에는 찾는 것이 무엇이었냐고 묻는다. 네가 먼저 답하려 하자 카요코가 아까 끝내지 못한 말을 이어 간다. 주인은 이번에는 사과 대신CD진열 쪽을 보며 카요코의 다음 말을 기다린다.",
+      "intro": "이번에는 누구의 말이 먼저였을까?",
+      "previous": "ab68_disc_before_words",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "180골드로 내가 살 것을 따로 정하고 카요코의 대답을 기다린다",
+          "result": "네가 살 것의 값180골드를 내고 카요코의 대답을 기다렸다. 카요코가 주문을 마친 뒤에야 주인은 네가 고른 것도 함께 묻는다.",
+          "card": "ab68_kayoko_reply",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카요코가 아까 끝내지 못한 말을 이어가는 박자를 기억한다",
+          "result": "말과 말 사이의 짧은 정적과 카요코의 호흡을 정확히 기억한다. 그녀가 이어가는 문장의 흐름을 머릿속에 저장한다.",
+          "card": "ab68_kayoko_order",
+          "card2": null,
+          "cost": 0,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카요코와 끝난 곡의 박자를 되새기며 귀환을 준비한다",
+          "result": "함께 들었던 곡의 잔향과 카요코의 침묵을 기억 속에 기록한다. 음악이 끝난 뒤의 여운을 선명하게 머릿속에 남긴다.",
+          "card": "ab68_kayoko_disc",
+          "card2": null,
+          "cost": 180,
+          "gold": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": null,
+      "canonFact": "자기CD만남 성공2번 뒤에만 열리는 창작 후속이다. 인물의 모든 오해가 없어졌다고 결론내리지 않고 새 음악·동행·가게 할인 기능을 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "abydos_main_01",
+      "title": "모래 속 다섯 명의 학교",
+      "intro": "길에서 발견한 어른을 시로코가 살핀다.",
+      "story": "수많은 학교가 모인 도시 키보토스에서 아비도스 고등학교는 사막화와 거액의 빚으로 폐교 직전이다. 남은 학생은 시로코, 세리카, 노노미, 아야네와 선배 호시노 다섯 명이다. 이들은 대책위원회를 만들어 학교를 지키지만 헬멧단의 공격까지 반복된다. 도움을 요청받아 온 어른인 선생이 길에서 지쳐 쓰러진다. 행동파 학생 시로코가 그를 발견하고 상태를 살핀다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "시로코, 도와줄 수 있겠어?",
+          "result": "시로코는 쓰러진 어른을 살핀다. 이곳에 혼자 두지 않고 학교로 데려갈 준비를 한다.",
+          "card": "abydos_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "학교로 온 선생님인 것 같아.",
+          "result": "시로코는 도움을 요청했던 어른인지 확인하려 한다. 학교의 동료들에게도 알리기로 한다.",
+          "card": "abydos_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "먼저 안전한 곳으로 데려가자.",
+          "result": "시로코는 학교를 향해 움직인다. 모래가 쌓인 길에서 선생을 발견한 일이 첫 만남이 된다.",
+          "card": "abydos_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABE_classroom.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "시로코는 선생을 학교로 데려간다. 책임감 강한 세리카, 동료를 챙기는 노노미, 상황을 정리하는 아야네와 선배 호시노도 그를 만난다. 학생들만 버티던 학교에 외부의 도움이 들어온다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_02",
+      "title": "지시를 믿어 본 첫 전투",
+      "intro": "첫 도움 뒤에도 세리카의 의심은 남는다.",
+      "story": "헬멧단이 학교를 공격한다. 부족한 인원과 물자로 방어에 나선 학생들을 선생이 살피고 지휘를 맡는다. 오랫동안 도움을 받지 못했던 대책위원회에게 낯선 경험이다. 전투가 끝난 뒤에도 세리카는 쉽게 기대하지 않는다. 이야기를 듣고도 떠나 버리는 어른을 또 만날까 두려워 선생에게 정말 끝까지 도울 생각인지 묻는다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "세리카가 걱정하는 것도 이해해.",
+          "result": "세리카는 이번에도 기대했다가 실망하고 싶지는 않다고 한다. 한 번 도왔다고 모두 믿을 수 있는 것은 아니다.",
+          "card": "abydos_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "말보다 앞으로 하는 일을 지켜보자.",
+          "result": "세리카는 당장 믿으라는 말에는 응하지 않는다. 대신 선생이 정말 남는지 직접 보겠다고 한다.",
+          "card": "abydos_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "학교를 위해 일하러 가는 거야?",
+          "result": "세리카는 자신도 학교를 위해 할 일이 있다며 아르바이트를 준비한다. 선생에 대한 판단과 자신의 몫은 별개다.",
+          "card": "abydos_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "선생의 지휘와 학생들의 협력으로 헬멧단의 공격은 막혔다. 다른 학생들은 선생을 받아들이기 시작하지만 세리카는 평소처럼 일을 하러 간다. 학교를 돕기 위한 그 일상이 적의 표적이 된다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_03",
+      "title": "세리카가 돌아오지 않은 밤",
+      "intro": "돌아오지 않는 동료를 찾아 움직인다.",
+      "story": "세리카는 학교의 빚 상환을 돕기 위해 시바세키 라멘에서 일한다. 그런데 일을 마치고도 돌아오지 않는다. 혼자 귀가하던 그녀를 헬멧단이 납치한 것이다. 선생과 대책위원회는 귀가가 늦은 이유를 찾아 움직이고, 적의 이동을 추적한다. 시로코와 동료들은 세리카가 실린 적의 이동 경로를 확인하며 구출을 준비한다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "세리카가 있는 곳부터 확인하자.",
+          "result": "시로코는 적의 움직임을 놓치지 않으려 한다. 선생의 지휘에 맞춰 세리카에게 접근할 준비를 한다.",
+          "card": "abydos_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "혼자 두지 말고 데려오자.",
+          "result": "노노미는 반드시 함께 돌아오겠다고 한다. 동료들은 세리카를 구하는 데 역할을 모은다.",
+          "card": "abydos_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아야네, 동료들 위치도 확인해 줘.",
+          "result": "아야네는 학생들의 위치와 움직임을 확인한다. 선생과 동료들에게 정보를 전하며 구출을 돕는다.",
+          "card": "abydos_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "선생과 학생들은 적을 추적해 세리카를 구한다. 끝까지 찾아온 이들의 행동을 본 세리카도 조금씩 마음을 연다. 혼자 더 열심히 일하는 것만으로는 습격을 막을 수 없다. 다섯 학생은 빚과 공격을 함께 해결할 방법을 의논하러 모인다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_04",
+      "title": "라멘집에서 만난 다음 날의 적",
+      "intro": "어제 알게 된 얼굴이 오늘은 적으로 왔다.",
+      "story": "라멘집에서 빚을 의논하던 학생들은 게헨나의 흥신소68을 만난다. 리더 아루와 무츠키, 카요코, 하루카는 돈을 받고 여러 일을 맡는다. 같은 자리에서 대화했던 이들이 다음 날에는 학교를 공격하는 의뢰를 받아 무장하고 나타난다. 노노미와 동료들이 방어를 준비하는 사이 아루가 의뢰라며 태도를 굳히려 한다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아루, 어제는 같이 이야기했잖아.",
+          "result": "아루는 사적인 만남과 의뢰는 다르다고 버티려 한다. 그러나 아는 얼굴을 상대하는 상황을 피하지 못한다.",
+          "card": "abydos_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "누가 이 학교를 공격해 달라고 했어?",
+          "result": "아루는 맡은 일을 수행하러 왔다고 한다. 학생들에게는 공격자 뒤에서 돈을 대는 상대가 따로 있다는 단서가 남는다.",
+          "card": "abydos_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "노노미, 다들 준비됐어?",
+          "result": "노노미는 동료들과 함께 학교를 지키겠다고 답한다. 학생들은 부족한 인원이라도 화력을 모아 맞선다.",
+          "card": "abydos_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "대책위원회는 힘을 모아 흥신소의 공격을 막는다. 다른 집단들이 반복해서 학교를 노리는 데는 공통 원인이 있을 수 있다. 일행은 적에게 돈과 장비가 공급되는 경로를 추적한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_05",
+      "title": "빚이 흘러간 시장",
+      "intro": "돈과 장비의 흐름을 좇아 블랙마켓으로 간다.",
+      "story": "헬멧단의 단서를 쫓은 학생들은 법의 손길이 닿기 어려운 블랙마켓으로 들어간다. 그곳에서 만난 트리니티 학생 히후미가 안내를 돕는다. 학교가 갚아 온 돈이 암은행을 거친다는 정황을 듣자 시로코가 은행에서 직접 자료를 확보하자고 한다. 복면까지 준비하는 과격한 계획에 동료들이 목적을 확인한다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "시로코, 필요한 건 자료야.",
+          "result": "시로코는 학교를 공격하는 자금의 흐름을 확인해야 한다고 한다. 계획의 목표를 자료 확보로 잡는다.",
+          "card": "abydos_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히후미, 많이 놀랐지?",
+          "result": "히후미는 갑자기 커진 일에 당황한다. 그래도 동행한 학생들과 함께 움직여야 하는 상황을 마주한다.",
+          "card": "abydos_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돈이 어디로 갔는지 알아내자.",
+          "result": "아야네는 빚 상환과 헬멧단의 장비가 이어져 있는지 확인하려 한다. 의심만으로 끝내지 않으려 자료를 찾는다.",
+          "card": "abydos_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABE_frontline.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "학생들은 확보한 자료를 가지고 학교를 압박하는 자금 경로를 확인한다. 돈으로 당장 빚을 갚는 문제는 별도로 판단해야 한다. 다음 조사에서는 실제로 돈이 어디에 쓰였는지가 드러난다.",
+        "nodes": [
+          {
+            "key": "bank-money",
+            "story": "복면을 쓰고 자료를 확보한 학생들 앞에 큰돈도 놓인다. 이것으로 빚을 갚으면 학교가 당장 숨을 돌릴 수 있다. 하지만 원래 찾으러 온 것은 학교를 공격하는 돈의 흐름이었다.\n\n대책위원회 · 눈앞의 돈을 보며 학생들이 잠시 망설인다.",
+            "choices": [
+              {
+                "label": "자료부터 확인하자. 돈은 서두르지 말고.",
+                "result": "아야네는 확보한 자료를 먼저 정리한다. 돈의 사용은 따로 판단하기로 한다."
+              },
+              {
+                "label": "학교를 살린다고 모든 방법이 괜찮지는 않아.",
+                "result": "세리카는 급한 빚과 돈의 출처를 함께 생각한다. 학생들은 즉석에서 상환에 쓰겠다고 결정하지 않는다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "abydos_main_06",
+      "title": "폭발 뒤에 남은 책임",
+      "intro": "빚의 자료와 손에 들어온 큰돈을 마주한다.",
+      "story": "블랙마켓 자료는 학교의 상환금이 카이저론을 거쳐 헬멧단의 무기 자금으로 흘러갔음을 보여 준다. 학생들은 빚을 갚을수록 공격자를 돕는 구조를 알게 된다. 한편 수중에는 은행에서 가져온 큰돈도 있다. 세리카는 당장 갚아야 할 빚을 떠올리지만, 이 돈을 써도 되는지는 다른 문제라고 한다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "우리가 갚은 돈으로 무기를 샀다고?",
+          "result": "아야네는 자료가 보여 주는 자금 경로를 짚는다. 학생들의 부담과 반복되는 습격이 이어져 있었다.",
+          "card": "abydos_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이 돈으로 빚을 갚아도 괜찮을까?",
+          "result": "세리카는 빚이 급해도 남의 돈을 마음대로 써 해결할 수는 없다고 한다. 쉬운 답이 눈앞에 있어도 망설인다.",
+          "card": "abydos_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "자료는 가져가도 돈은 다시 생각하자.",
+          "result": "선생과 학생들은 돈의 사용을 다시 따져 본다. 학교를 살리는 목적만으로 모든 방법을 정당화하지 않는다.",
+          "card": "abydos_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "학생들은 큰돈을 빚 상환에 쓰지 않는다. 그 뒤 흥신소의 아루가 부린 허세를 명령으로 오해한 하루카가 설치한 폭탄을 터뜨려 시바세키 라멘이 파괴되고 주인이 다친다. 대책위원회가 책임을 물으려는 때 게헨나 선도부가 나타나 흥신소의 신병을 요구한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_07",
+      "title": "적과 나란히 선 이유",
+      "intro": "학교에서 벌어진 피해를 누가 처리할 것인가.",
+      "story": "게헨나의 질서를 관리하는 선도부는 같은 학교 학생인 흥신소68을 데려가려 한다. 대책위원회는 아비도스에서 벌어진 피해를 자신들 뜻과 무관하게 처리하는 데 반발한다. 조금 전까지 적이던 흥신소와 같은 편에 서야 하는 상황이다. 세리카는 다친 라멘집 주인과 무너진 가게를 떠올리며 말을 꺼낸다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "피해를 입은 사람들 이야기도 들어 줘.",
+          "result": "세리카는 주인이 다쳤다는 사실부터 외면할 수 없다고 한다. 대책위원회도 처리 과정에서 자기 뜻을 밝히려 한다.",
+          "card": "abydos_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흥신소의 잘못을 없던 일로 하자는 건 아니야.",
+          "result": "학생들은 흥신소를 무조건 감싸는 것이 아니라고 한다. 잘못을 묻는 일과 다른 집단의 일방적 처리를 받아들이는 것은 다르다.",
+          "card": "abydos_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "여기는 아비도스의 학교야.",
+          "result": "대책위원회는 자기 학교에서 벌어진 일을 스스로 말하겠다고 버틴다. 흥신소도 선도부와의 대치에 함께 선다.",
+          "card": "abydos_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "대책위원회와 흥신소는 함께 맞서고 선도부장 히나의 도착으로 싸움이 정리된다. 흥신소는 아비도스를 떠난다. 이후 학생들은 다친 라멘집 주인을 찾아갔다가 학교 주변 땅이 카이저 그룹으로 넘어갔다는 이야기를 듣는다. 학교 부지 자체까지 팔렸다는 뜻은 아니다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_08",
+      "title": "수족관에서 감지한 작별",
+      "intro": "쉬어 가는 하루에 선배의 다른 표정이 보인다.",
+      "story": "계속된 싸움 뒤 호시노가 수족관에 가자고 한다. 다섯 학생과 선생은 잠시 총과 빚에서 벗어나 물고기를 보며 시간을 보낸다. 시로코에게는 이런 하루도 학교를 지키려는 이유다. 그런데 선배의 태도에 평소와 다른 여운이 있다. 오래전 학교와 자신을 돌봐 주던 선배를 떠올리는 호시노는 후배들에게 모든 부담을 털어놓지는 않는다. 시로코가 조심스럽게 곁으로 다가간다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "선배, 무슨 고민 있어?",
+          "result": "호시노는 오늘만큼은 편하게 구경하자며 화제를 돌린다. 시로코의 걱정에 모든 사정을 답하지는 않는다.",
+          "card": "abydos_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음에도 다 같이 오자.",
+          "result": "호시노는 후배들과 같은 수조를 바라본다. 시로코에게는 이 시간을 마지막으로 만들고 싶지 않다는 뜻이 담겨 있다.",
+          "card": "abydos_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "혼자 결정하지 말고 말해 줘.",
+          "result": "호시노는 후배들이 걱정하는 것을 알아듣지만 짐을 쉽게 내려놓지 못한다. 시로코에게는 선배가 숨기는 일이 있다는 느낌이 남는다.",
+          "card": "abydos_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABE_aquarium.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "외출을 마친 일행은 학교로 돌아온다. 즐거운 하루만으로 토지 문제를 덮을 수는 없다. 학생들과 선생은 카이저가 사들인 땅에서 무엇이 벌어지는지 직접 확인하기로 한다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_09",
+      "title": "학교를 둘러싼 땅의 주인",
+      "intro": "학교를 둘러싼 땅과 빚으로 압박이 이어진다.",
+      "story": "학교를 둘러싼 대부분의 땅은 카이저가 샀지만 학교 부지는 남아 있다. 대책위원회가 사막 기지를 찾아가자 무장 병력과 통제된 구역이 기다린다. 카이저 이사는 토지 매입을 주장하면서 대출 이자도 크게 올리겠다고 압박한다. 빚을 갚으면 끝날 줄 알았던 학생들은 더 큰 부담 앞에 선다. 호시노는 전에 검은 양복에게 받은 제안을 떠올린다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "이자까지 올리면 어떻게 버티라는 거야?",
+          "result": "세리카는 끝없이 커지는 부담에 반발한다. 학생들에게 돈을 더 모으라는 말만으로는 답이 되지 않는다.",
+          "card": "abydos_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호시노 선배, 괜찮아?",
+          "result": "호시노는 후배들을 살피며 당장의 불안을 감추려 한다. 자신에게 제시됐던 거래를 혼자 생각한다.",
+          "card": "abydos_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "학교 부지는 아직 남아 있잖아.",
+          "result": "학생들은 학교 자체까지 포기한 것이 아니라고 맞선다. 그러나 주변 토지와 빚을 함께 쥔 카이저의 압박은 계속된다.",
+          "card": "abydos_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "호시노는 자신이 학교를 떠나면 빚과 후배들의 부담을 줄여 준다는 검은 양복의 이전 제안을 받아들인다. 다음 날 선배가 보이지 않자 후배들은 남겨진 편지를 발견한다. 학교를 지키려던 마음이 함께 지키던 사람을 떠나게 했다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_10",
+      "title": "자퇴서가 대신할 수 없는 뜻",
+      "intro": "빈자리의 편지를 읽던 학교에 공격이 닥친다.",
+      "story": "호시노의 편지에는 자신이 떠나면 학교와 후배들의 부담을 덜 수 있으리라는 선택이 담겼다. 과거 함께 학교를 지키던 선배를 잃은 호시노는 후배들만큼은 지켜야 한다고 생각해 왔다. 그러나 학생들이 지키려던 학교에는 호시노의 자리도 있다. 시로코가 곧바로 찾으러 나가려는 순간 카이저 병력이 학교를 공격한다. 호시노가 자퇴했다는 구실로 학교의 권리까지 빼앗으려는 것이다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "시로코, 먼저 여기부터 지키자.",
+          "result": "시로코는 지금 나가면 학교의 동료들까지 위험하다는 말을 듣는다. 선배를 찾기 위해서라도 먼저 공격을 막아야 한다.",
+          "card": "abydos_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "호시노에게 한 약속도 지키지 않았어.",
+          "result": "세리카는 선배가 떠나도 안전을 얻지 못했다는 사실에 분노한다. 학생들은 카이저의 공격에 맞설 준비를 한다.",
+          "card": "abydos_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "선생님, 자퇴가 정말 된 거야?",
+          "result": "선생은 호시노의 자퇴가 정당하게 처리됐는지 확인하려 한다. 학생을 넘기는 거래를 그대로 받아들일 수는 없다.",
+          "card": "abydos_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABO_letter.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "학생들은 먼저 학교 방어에 나선다. 선생은 호시노가 학생으로 남아 있는지, 그녀를 데려간 거래가 정당한지 확인할 준비를 한다. 구출 의지는 같지만 당장의 습격을 넘을 힘이 필요하다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_11",
+      "title": "도움이 되돌아오는 방어전",
+      "intro": "예전의 인연이 방어에 힘을 보탠다.",
+      "story": "카이저의 공격 앞에서 호시노가 빠진 네 학생만으로는 방어가 어렵다. 그때 예전에 적으로 만났던 흥신소68을 비롯한 도움의 손길이 합류한다. 세리카와 동료들은 예상하지 못한 지원을 확인하고 서로의 위치를 맞추려 한다. 지금은 관계를 따지며 등을 돌릴 시간이 없다. 아야네가 함께 싸울 사람들의 정보를 정리한다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "아야네, 서로 위치부터 맞추자.",
+          "result": "아야네는 동료와 지원군의 위치를 확인해 전한다. 선생의 지휘와 함께 방어를 이어 갈 틈이 생긴다.",
+          "card": "abydos_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "아루, 이번에는 도와주러 온 거지?",
+          "result": "아루는 이번에는 같은 적을 상대하러 왔다고 한다. 이전에 함께 맞섰던 관계가 도움으로 돌아온다.",
+          "card": "abydos_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "세리카, 이제 혼자 버티는 건 아니야.",
+          "result": "세리카는 선배의 빈자리와 별개로 지금 곁에 있는 사람들을 확인한다. 무기를 다시 들고 동료들과 맞선다.",
+          "card": "abydos_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABO_assault.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "협력으로 학교를 지킨 뒤 선생은 호시노에게 관심을 보였던 검은 양복을 직접 만나기로 한다. 학생들은 장비와 계획을 정리하며 기다리고, 선생은 학생을 거래 대상으로 삼은 논리에 답하러 간다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_12",
+      "title": "학생은 거래의 대가가 아니다",
+      "intro": "학생을 넘기라는 제안 앞에서 답을 고른다.",
+      "story": "검은 양복은 호시노의 특별한 힘을 연구 대상으로 삼으려는 인물이다. 그는 학교의 위기와 학생의 선택을 이용해 그녀를 손에 넣으려 했다. 선생에게도 호시노를 포기하고 협력하라고 권한다. 학교를 지킬 수 있다는 논리 앞에서 선생은 학생 한 사람을 넘기는 것이 무엇을 뜻하는지 듣고 있다. 검은 양복이 답을 기다린다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "학생을 연구 재료로 넘길 수는 없어.",
+          "result": "선생은 호시노를 포기하는 협력을 받아들이지 않겠다고 한다. 검은 양복이 내세운 이익이 답을 바꾸지는 못한다.",
+          "card": "abydos_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "학교에는 호시노의 자리도 있어.",
+          "result": "선생은 건물만 남기는 것을 학교를 지키는 일로 보지 않는다. 호시노를 빼고 계산하는 전제를 거부한다.",
+          "card": "abydos_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "그 거래에 선생님이 동의한 적은 있어?",
+          "result": "선생은 학생의 처지를 임의로 끝난 일처럼 말할 수 없다고 한다. 자신이 처리하지 않은 중요한 절차를 짚으려 한다.",
+          "card": "abydos_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABO_black_suit.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "협상은 결렬된다. 검은 양복은 호시노가 카이저의 사막 기지에 있음을 알려 준다. 선생은 학교로 돌아와 학생들의 구출 의지를 확인하고 함께 움직인다. 상대와 목적지, 데려올 사람이 분명해졌다.",
+        "nodes": [
+          {
+            "key": "still-student",
+            "story": "선생은 호시노의 자퇴서를 승인한 적이 없다고 밝힌다. 스스로 떠나겠다는 편지가 학생을 거래 대상으로 넘겨도 된다는 허락은 아니다. 검은 양복이 이미 끝난 일처럼 내민 제안의 전제가 무너진다.\n\n선생 · 선생은 여전히 자신의 학생을 데려오겠다는 뜻을 분명히 한다.",
+            "choices": [
+              {
+                "label": "호시노가 있는 곳을 알려 줘.",
+                "result": "선생은 거래를 받아들이는 대신 학생을 찾을 정보를 요구한다. 협력하라는 제안에는 끝내 응하지 않는다."
+              },
+              {
+                "label": "학생의 희생으로 책임을 대신할 수는 없어.",
+                "result": "선생은 어른의 몫을 호시노에게 떠넘기는 거래를 거절한다. 그 답은 협상의 조건이 바뀌어도 같다는 뜻을 전한다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "abydos_main_13",
+      "title": "혼자가 아니라 함께 돌아가자",
+      "intro": "혼자 떠났던 선배 앞에 후배들이 도착한다.",
+      "story": "선생과 대책위원회는 호시노가 갇힌 카이저 사막 기지로 간다. 병력의 방어를 뚫으며 접근한 후배들을 본 호시노는 자신 때문에 모두가 위험을 감수했다는 사실과 마주한다. 혼자 떠나 학교를 남기려던 선배 앞에 시로코가 선다. 후배들은 선배 대신 돈이나 빈 교실을 얻으러 온 것이 아니다. 아직 기지를 빠져나가야 하지만 먼저 함께 돌아가겠다는 뜻을 전하려 한다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "호시노 선배, 같이 돌아가자.",
+          "result": "호시노는 자신을 데리러 온 후배들을 본다. 시로코는 희생이 아니라 함께 돌아오는 것이 바람이라고 전한다.",
+          "card": "abydos_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "선배 자리는 아직 학교에 있어.",
+          "result": "호시노는 자신의 자리를 비워도 학교를 지킬 수 있다고 생각했다. 후배들은 그 빈자리를 받아들이지 않았다고 답한다.",
+          "card": "abydos_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "우리가 지키려던 건 다 함께 있는 학교야.",
+          "result": "시로코는 선배를 남겨 두고 학교만 얻으려던 것이 아니라고 한다. 호시노에게 돌아갈 동료들이 눈앞에 있다.",
+          "card": "abydos_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABO_rescue.tga",
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "학생들은 역할을 이어 기지의 방어를 뚫고 호시노를 구출한다. 빚과 사막화는 이 싸움만으로 사라지지 않지만, 학생을 내주고 건물만 남기는 결말은 막았다. 일행은 기지를 빠져나와 다섯 사람이 앉을 교실로 돌아간다.",
+        "nodes": []
+      }
+    },
+    {
+      "key": "abydos_main_14",
+      "title": "다섯 자리가 남은 다음 날",
+      "intro": "돌아온 교실에서 함께 남을 자리를 이야기한다.",
+      "story": "호시노가 돌아온 학교의 교실에 다섯 학생이 다시 모인다. 창밖의 모래와 갚아야 할 빚은 그대로이고, 카이저가 사막을 산 목적도 아직 의문이다. 선생은 학생을 거래로 넘기지 않았고 후배들은 선배를 직접 데려왔다. 이제 남은 문제를 누가 감당할지 다시 이야기해야 한다. 호시노가 익숙한 자리 앞에 서자 동료들이 말을 건넨다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "이번에는 혼자 끝내려고 하지 마.",
+          "result": "호시노는 후배들이 무엇을 원했는지 다시 듣는다. 자신의 희생보다 함께 있어 주기를 바랐다는 말을 받아들인다.",
+          "card": "abydos_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어려운 얘기도 같이 앉아서 하자.",
+          "result": "아야네는 남은 일을 함께 의논할 자리를 마련한다. 호시노도 그 대화에서 빠질 사람이 아니다.",
+          "card": "abydos_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "선생님도 함께 의논해 줘.",
+          "result": "선생은 학생들의 이야기를 곁에서 듣는다. 호시노도 빠지지 않은 대책위원회가 다음 문제를 함께 의논한다.",
+          "card": "abydos_main_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "블루 아카이브 애니메이션 대책위원회 편의 주요 사건을 따라가는 창작 기억이다. 플레이어의 세 반응은 모두 같은 다음 장으로 이어지며 보상만 다르다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "대책위원회는 다음 문제가 닥쳐도 호시노 한 사람에게 떠맡기지 않고 다섯 학생과 선생이 함께 답을 정하기로 한다. 남은 부담이 사라지지는 않았지만, 같은 교실에서 다음 하루를 시작할 수 있다.\n\n다음 일을 의논하던 대화가 잠시 멎는다. 호시노가 돌아온 교실에서 후배들이 비워 두었던 선배의 자리가 다시 눈에 들어온다. 문제를 해결하자는 말보다 먼저 전하고 싶었던 인사가 남아 있다.\n\n호시노와 대책위원회 · 돌아온 호시노에게 짧은 인사를 건넨다.",
+            "choices": [
+              {
+                "label": "어서 와. 네 자리 여기 있어.",
+                "result": "호시노가 자기 자리에 앉는다. 대책위원회는 한 사람을 지우는 대신 다섯 사람으로 다음 하루를 맞는다."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "abydos_epilogue_memory",
+      "title": "여정 뒤에 다시 펼친 기억",
+      "intro": "이야기를 마친 뒤 처음의 만남과 마지막 인사를 다시 떠올린다.",
+      "story": "여정을 마친 뒤 아비도스에서 적었던 기록을 다시 펼친다. 처음 들은 학생들의 이름과 호시노가 돌아온 교실이 서로 다른 쪽에 적혀 있다. 끝난 일을 다시 해결하려는 기록은 아니다. 다음 길에 가져갈 한 장을 고르며 빈칸에 짧은 말을 더한다.",
+      "epilogue": true,
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "처음의 인사를 기록한다.",
+          "result": "첫 장에 적힌 아야네의 이름 옆에 짧은 인사를 덧붙인다. 학교의 사정을 설명하던 목소리를 떠올리고, 처음 도움을 청하던 대목에 표시한다.",
+          "card": "abydos_ayane",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 버틴 시간을 기록한다.",
+          "result": "시로코가 선배를 부르던 대목에 밑줄을 긋는다. 혼자 앞서가는 걸음보다 함께 돌아오는 길을 기억하겠다고, 여백에 짧게 적는다.",
+          "card": "abydos_shiroko",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 여정에 가져갈 말을 적는다.",
+          "result": "세리카가 바쁜 와중에도 학교로 돌아오던 일을 적는다. 다음 길에서도 작은 수고를 가볍게 여기지 않겠다는 말을 마지막 줄에 남긴다.",
+          "card": "abydos_serika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_ABO_memory.tga"
+    }
+  ],
+  "reviewRecords": [
+    "a5db18f1-56dd-4490-8ec5-1edf3e44a1b0",
+    "d0cd7021-8dc7-4610-aa9a-859f87d28df0",
+    "e06be3ed-9506-4da8-8545-7d2fe8c689cc",
+    "ecb4c046-34c6-44fe-8109-d330b3bf3387",
+    "f47db76b-73de-4cb7-9fc7-5b64d334a843",
+    "c24b47e2-7f3f-4ff5-b904-9312e425b5de"
+  ]
+}

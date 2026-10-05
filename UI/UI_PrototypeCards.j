@@ -200,7 +200,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
                 if id > 0 then
                     call DzFrameSetTexture(Icons[i], ProtoCardArt(id), 0)
                     call DzFrameSetTexture(Borders[i], ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
-                    call Text(Names[i], Color(ProtoOwnedCardGrade(pid, id)) + ProtoCardName[id])
+                    call Text(Names[i], Color(ProtoOwnedCardGrade(pid, id)) + ProtoDisplayCardName(pid, id))
                     set value = ""
                     if ProtoCardStacks[ExpKey(pid, id)] > 0 then
                         set value = "+" + I2S(ProtoCardStacks[ExpKey(pid, id)])
@@ -234,7 +234,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
                 endif
                 call DzFrameSetTexture(GalleryArt, value, 0)
                 call DzFrameSetTexture(GalleryBorder, PortraitFrame(grade), 0)
-                call Text(GalleryName, Color(grade) + ProtoCardName[Selected])
+                call Text(GalleryName, Color(grade) + ProtoDisplayCardName(pid, Selected))
                 set value = "공용"
                 if ProtoCardHead[Selected] > 0 then
                     set value = ProtoHeadName[ProtoCardHead[Selected]]
@@ -258,7 +258,10 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             // 호버 설명은 목록 내부에 제한하여 오른쪽 일러스트와 하단 조작을 가리지 않는다.
             set x = RMinBJ(0.153, 0.087 + ModuloInteger(Hover - 1, 5) * 0.075)
             set effects = ProtoCharacterEffectCount(pid, id)
-            set tooltipHeight = 0.108 + 0.0115 * effects
+            set tooltipHeight = 0.108 + 0.0115 * (effects + ProtoStoryChangeLineCount(pid, id))
+            if ProtoCardEnding[id] == 1 then
+                set tooltipHeight = tooltipHeight + 0.069
+            endif
             if effects > 12 then
                 set tooltipHeight = tooltipHeight + 0.045
                 call DzFrameSetFont(TooltipText, "Fonts\\DFHeiMd.ttf", 0.009, 0)
@@ -272,7 +275,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             call DzFrameSetSize(TooltipText, 0.244, tooltipHeight - 0.084)
             call DzFrameSetTexture(TooltipIcon, ProtoCardArt(id), 0)
             call DzFrameSetTexture(TooltipBorder, ProtoCardFrame(ProtoOwnedCardGrade(pid, id)), 0)
-            call Text(TooltipTitle, Color(ProtoOwnedCardGrade(pid, id)) + "[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, id)) + "] " + ProtoCardName[id])
+            call Text(TooltipTitle, Color(ProtoOwnedCardGrade(pid, id)) + "[" + ExpEventGradeName(ProtoOwnedCardGrade(pid, id)) + "] " + ProtoDisplayCardName(pid, id))
             call Text(TooltipText, ProtoCardText(pid, id))
             call DzFrameShow(Tooltip, true)
         endif
@@ -353,9 +356,12 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         set f = ExpUITexture(Root, 0.415, 0.070, 0.326, 0.443, "war3mapImported\\UI_Cards_Gallery.tga")
         set GalleryArt = ExpUITexture(Root, 0.428, 0.082, 0.300, 0.400, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
         set GalleryBorder = ExpUITexture(Root, 0.415, 0.070, 0.326, 0.443, PortraitFrame(1))
-        set GalleryName = Label(Root, 0.436, 0.468, 0.220, 0.026, 0.014, "")
-        set GalleryMeta = Label(Root, 0.436, 0.494, 0.220, 0.022, 0.0095, "")
-        set GalleryStacks = Label(Root, 0.644, 0.488, 0.077, 0.022, 0.010, "")
+        // 이름과 보조 문구의 영역을 하단 장식선 위에 두고 상단 정렬로 고정한다.
+        set GalleryName = Label(Root, 0.436, 0.461, 0.220, 0.018, 0.014, "")
+        set GalleryMeta = Label(Root, 0.436, 0.4795, 0.200, 0.012, 0.0095, "")
+        set GalleryStacks = Label(Root, 0.644, 0.4795, 0.077, 0.012, 0.0095, "")
+        call JNFrameSetTextAlignment(GalleryName, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
+        call JNFrameSetTextAlignment(GalleryMeta, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call JNFrameSetTextAlignment(GalleryStacks, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_RIGHT)
         set GalleryEmpty = Label(Root, 0.450, 0.352, 0.25, 0.026, 0.010, "")
         call JNFrameSetTextAlignment(GalleryEmpty, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_CENTER)
