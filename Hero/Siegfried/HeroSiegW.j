@@ -21,6 +21,7 @@ private struct FxEffect
     unit dummy
     party hit = 0
     integer pid
+    integer serial
     integer step
     boolean empowered
     real x
@@ -53,8 +54,11 @@ private function EffectFunction takes nothing returns nothing
     local FxEffect fx = t.data
 
     if fx.step == 0 then
-        set SiegBusy[fx.pid] = false
-        if not SiegCanAct(fx.caster) then
+        // 회피로 끊겼으면(SiegSerial 변경) 검기를 내지 않는다.
+        if fx.serial == SiegSerial[fx.pid] then
+            set SiegBusy[fx.pid] = false
+        endif
+        if fx.serial != SiegSerial[fx.pid] or not SiegCanAct(fx.caster) then
             call fx.destroy()
             call t.destroy()
             return
@@ -113,6 +117,7 @@ private function Main takes nothing returns nothing
         endif
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())
         call SiegResetCombo(fx.pid)
+        set fx.serial = SiegSerial[fx.pid]
         set SiegBusy[fx.pid] = true
         call CooldownFIX(u, 'A0SW', HeroSkillCD1[SIEG_INDEX])
         call SiegLock(u, (CastTime + 0.25) / fx.speed)

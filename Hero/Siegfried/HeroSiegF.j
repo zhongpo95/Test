@@ -90,6 +90,7 @@ private function EffectFunction takes nothing returns nothing
 
     if fx.serial != SiegSerial[fx.pid] or IsUnitDeadVJ(u) then
         set SiegBusy[fx.pid] = false
+        set SiegFActive[fx.pid] = false
         set u = null
         call fx.destroy()
         call t.destroy()
@@ -136,6 +137,7 @@ private function EffectFunction takes nothing returns nothing
         call t.start(0.40 / fx.speed, false, function EffectFunction)
     else
         set SiegBusy[fx.pid] = false
+        set SiegFActive[fx.pid] = false
         call SiegResetCombo(fx.pid)
         set u = null
         call fx.destroy()
@@ -160,6 +162,7 @@ private function FSyncData takes nothing returns nothing
     elseif SiegIsHero(u) and SiegCanAct(u) and SiegFOpen[pid] and not SiegFLock[pid] and JNStringSplit(data, ";", 2) == "j" then
         call SiegResetCombo(pid)
         set SiegBusy[pid] = true
+        set SiegFActive[pid] = true
         call SiegFace(u, SiegSplitReal(data, 0), SiegSplitReal(data, 1))
         set fx = FxEffect.create()
         set fx.caster = u

@@ -179,7 +179,6 @@
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\Boss1-4.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\BossAOESandbag.j"
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\BossAggro.j"
-//! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\Boss\BossArcher.j"
 
 // === System ===
 //! import "C:\Users\ctqho\OneDrive\Documents\GitHub\Test\System\FileSave.j"

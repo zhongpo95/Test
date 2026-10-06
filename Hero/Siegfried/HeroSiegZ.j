@@ -12,6 +12,7 @@ endglobals
 private struct FxEffect
     unit caster
     integer pid
+    integer serial
     real speed
 
     method destroy takes nothing returns nothing
@@ -50,8 +51,11 @@ private function EffectFunction takes nothing returns nothing
     local integer pid = fx.pid
     local tick zt
 
-    set SiegBusy[pid] = false
-    if SiegCanAct(u) then
+    // 회피로 끊겼으면(SiegSerial 변경) 아무것도 하지 않는다.
+    if fx.serial == SiegSerial[fx.pid] then
+        set SiegBusy[pid] = false
+    endif
+    if fx.serial == SiegSerial[pid] and SiegCanAct(u) then
         set SiegZOn[pid] = true
         set ZSerial[pid] = ZSerial[pid] + 1
         if ZEffect[pid] == null then
@@ -82,6 +86,7 @@ private function Main takes nothing returns nothing
         set fx.speed = SiegSpeed(fx.pid)
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())
         call SiegResetCombo(fx.pid)
+        set fx.serial = SiegSerial[fx.pid]
         set SiegBusy[fx.pid] = true
         call CooldownFIX(u, 'A0SZ', 4.0)
         call BuffNoDM.Apply(u, Lock / fx.speed, 0)

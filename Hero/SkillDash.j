@@ -302,6 +302,10 @@ endfunction
         if JNMemoryGetByte(JNGetModuleHandle("Game.dll") + 0xD04FEC) == 0 then /*채팅창 활성화 여부*/
             if key == JN_OSKEY_X then
                 set data=R2S(DzGetMouseTerrainX())+" "+R2S(DzGetMouseTerrainY())
+                //지크프리트: 회피 저스트 판정을 DashSync보다 먼저 보낸다
+                if DataUnitIndex(MainUnit[i]) == 26 then
+                    call SiegDodgeKey.evaluate(i)
+                endif
                 call DzSyncData(("DashSync"),data)
             endif
         endif
@@ -406,6 +410,11 @@ endfunction
                     set IsCastingLuciaS[pid] = false
                     call UnitRemoveAbility( MainUnit[pid], 'B000' )
                 endif
+            endif
+
+            //지크프리트: C 콤보 묶음과 다음 단 예약 취소
+            if DataUnitIndex(MainUnit[pid]) == 26 then
+                call SiegDashCancel.evaluate(pid)
             endif
         endif
 

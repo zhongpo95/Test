@@ -11,6 +11,7 @@ endglobals
 private struct FxEffect
     unit caster
     integer pid
+    integer serial
     real speed
 
     method destroy takes nothing returns nothing
@@ -34,8 +35,11 @@ private function EffectFunction takes nothing returns nothing
     local unit u = fx.caster
     local real f = GetUnitFacing(u)
 
-    set SiegBusy[fx.pid] = false
-    if SiegCanAct(u) then
+    // 회피로 끊겼으면(SiegSerial 변경) 아무것도 하지 않는다.
+    if fx.serial == SiegSerial[fx.pid] then
+        set SiegBusy[fx.pid] = false
+    endif
+    if fx.serial == SiegSerial[fx.pid] and SiegCanAct(u) then
         call splash.range(splash.ENEMY, u, GetWidgetX(u) + PolarX(200, f), GetWidgetY(u) + PolarY(200, f), Scale, function splashD)
         // 페어드렝겐: 전방 직선으로 붉은 불꽃 가시벽이 솟는다
         call SiegFxAt(SIEG_FX_SHOCK, GetWidgetX(u) + PolarX(120, f), GetWidgetY(u) + PolarY(120, f), 0, 1.0, 0, 0, fx.pid)
@@ -60,6 +64,7 @@ private function Main takes nothing returns nothing
         set fx.speed = SiegSpeed(fx.pid)
         call SiegFace(u, GetSpellTargetX(), GetSpellTargetY())
         call SiegResetCombo(fx.pid)
+        set fx.serial = SiegSerial[fx.pid]
         set SiegBusy[fx.pid] = true
         call CooldownFIX(u, 'A0SR', HeroSkillCD3[SIEG_INDEX])
         call SiegLock(u, (HitTime + 0.35) / fx.speed)

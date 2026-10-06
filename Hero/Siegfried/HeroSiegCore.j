@@ -10,6 +10,12 @@ globals
     constant real SIEG_F_WINDOW = 0.35
     // 판정 창이 끝난 뒤 콤보가 끊기기까지의 여유
     constant real SIEG_COMBO_GRACE = 0.60
+    // 회피 모션 길이(초): #37 0.917초를 2배속(SkillDash.j)으로 재생
+    constant real SIEG_DODGE_TIME = 0.46
+    // 회피(또는 그 뒤에 쓴 Q)가 끝난 뒤 C 콤보 단계를 이어 주는 시간(초)
+    constant real SIEG_DODGE_KEEP = 0.30
+    // E 자세 중 받는 피해 감소(%)
+    constant real SIEG_GUARD_REDUCE = 80.0
     // 용기 스택당 피해 증가
     constant real SIEG_STACK_DAMAGE = 0.03
 
@@ -39,8 +45,27 @@ globals
     real array SiegWinBonus
     real array SiegDmgBonus
     boolean array SiegBusy
+    // 파이널 피니시(F) 진행 중: 회피로 끊을 수 없다
+    boolean array SiegFActive
+    // 회피 전 마지막으로 끝낸 C 단. 회피 뒤 C는 SiegDodgeStage+1 단으로 나간다.
+    integer array SiegDodgeStage
+    real array SiegDodgeUntil
+    // 회피 전 콤보가 전부 저스트였는지. 이어지는 단에서 되살린다.
+    boolean array SiegDodgeAllJust
+    // 다음 단이 회피 뒤 이어지는 단이면 true: 저스트 실패(용기 반감)로 치지 않는다.
+    boolean array SiegResumeNoMiss
+    // 회피 뒤 다시 치는 단을 저스트로 낼지(원래 저스트였던 단), 그 단 직전 단의 저스트 여부
+    boolean array SiegDodgeJust
+    boolean array SiegDodgePrevJust
+    // 현재 단을 시작할 때 직전 단이 저스트였는지
+    boolean array SiegStagePrevJust
+    // 회피를 1~4단 저스트 창에서 눌렀는지(로컬 판정을 SiegX로 동기화). 회피 뒤 C는 다음 단을 저스트로 낸다.
+    boolean array SiegDodgeWinJ
+    // 회피 뒤 이어지는 단이 새 저스트 단이면 true: 용기를 한 번 준다.
+    boolean array SiegDodgeFresh
+    // E(롱브르 디에르) 자세 중. 자세 중에는 받는 피해가 SIEG_GUARD_REDUCE% 줄어든다(SiegGuardSet).
     boolean array SiegStance
-    boolean array SiegParried
+    boolean array SiegGuardOn
     boolean array SiegQJust
     // Q 착지 뒤 누른 C를 Q가 끝날 때까지 저장
     boolean array SiegQBufOpen
@@ -224,6 +249,70 @@ endfunction
 function SiegUnlock takes integer pid returns nothing
     set SiegLockEnd[pid] = 0
     call SiegLockRelease(pid)
+endfunction
+
+// E 자세의 받는 피해 감소를 켜고 끈다. 이미 같은 상태면 아무것도 하지 않아 두 번 더하거나 빼지 않는다.
+function SiegGuardSet takes integer pid, boolean on returns nothing
+    if on == SiegGuardOn[pid] then
+        return
+    endif
+    set SiegGuardOn[pid] = on
+    if on then
+        set HeroDamageReduce[pid] = HeroDamageReduce[pid] + SIEG_GUARD_REDUCE
+    else
+        set HeroDamageReduce[pid] = HeroDamageReduce[pid] - SIEG_GUARD_REDUCE
+    endif
+endfunction
+
+// 회피·Q로 C 콤보를 끊을 때 이어 갈 단계를 기억한다(SiegDashCancel, HeroSiegQ.j 공용).
+// 돌려주는 값 = 마지막으로 끝낸 단. 회피·Q 뒤 C는 그다음 단으로 나간다(0이면 1단부터).
+function SiegRememberStage takes integer pid, boolean winJ returns integer
+    local integer keep = 0
+    // 콤보가 살아 있으면 단계를 기억한다(회피는 콤보 보험).
+    // 타격 전에 끊은 단, 저스트에 실패한 단(2단 이상), 5단은 그 단을 다시 친다. 저스트로 끝낸 단은 다음 단으로 이어진다.
+    // 다시 치는 단은 원래 저스트/일반 결과와 연출을 그대로 낸다(전 저스트 5단은 다시 전 저스트 5단).
+    // 저스트 타이밍(1~4단 저스트 창)에 회피하면 다음 단을 저스트로 낸다.
+    set SiegDodgeJust[pid] = false
+    set SiegDodgePrevJust[pid] = false
+    set SiegDodgeFresh[pid] = false
+    if SiegStage[pid] > 0 and SiegNow() <= SiegComboEnd[pid] then
+        set keep = SiegStage[pid]
+        if winJ and keep < 5 then
+            set SiegDodgeJust[pid] = true
+            set SiegDodgePrevJust[pid] = SiegStageJust[pid]
+            set SiegDodgeFresh[pid] = true
+        elseif SiegNow() < SiegHitT[pid] or (keep > 1 and not SiegStageJust[pid]) or keep == 5 then
+            set keep = keep - 1
+            set SiegDodgeJust[pid] = SiegStageJust[pid]
+            set SiegDodgePrevJust[pid] = SiegStagePrevJust[pid]
+        else
+            set SiegDodgePrevJust[pid] = SiegStageJust[pid]
+        endif
+    endif
+    set SiegDodgeAllJust[pid] = SiegAllJust[pid]
+    return keep
+endfunction
+
+// 회피(X) 입력이 동기화되면 회피 명령보다 먼저 불린다(SkillDash.j DashSyncData).
+// 파이널 피니시(F)를 빼고 진행 중인 C 콤보·스킬을 모두 끊고 묶음을 풀어 회피 명령이 들어가게 한다.
+// 각 스킬의 예약된 타격·효과는 SiegSerial이 바뀐 것을 보고 취소된다.
+function SiegDashCancel takes integer pid returns nothing
+    local boolean winJ = SiegDodgeWinJ[pid]
+    set SiegDodgeWinJ[pid] = false
+    if SiegFActive[pid] then
+        return
+    endif
+    set SiegDodgeStage[pid] = SiegRememberStage(pid, winJ)
+    set SiegDodgeUntil[pid] = SiegNow() + SIEG_DODGE_TIME + SIEG_DODGE_KEEP
+    call SiegResetCombo(pid)
+    set SiegPendStage[pid] = 0
+    set SiegAnimSerial[pid] = SiegAnimSerial[pid] + 1
+    set SiegBusy[pid] = false
+    if SiegStance[pid] then
+        set SiegStance[pid] = false
+    endif
+    call SiegGuardSet(pid, false)
+    call SiegUnlock(pid)
 endfunction
 
 // ---------------------------------------------------------------------------
@@ -1053,6 +1142,29 @@ function SiegLocalWindowCode takes integer pid returns string
     return "n"
 endfunction
 
+// 회피(X) 판정: 1~4단 타격 뒤 저스트 창 안(용기 해방 중이면 콤보가 살아 있는 동안)이면 j
+function SiegLocalDodgeCode takes integer pid returns string
+    local real now = SiegNow()
+    if SiegStage[pid] > 0 and SiegStage[pid] < 5 and now >= SiegHitT[pid] and now <= SiegComboEnd[pid] then
+        if now <= SiegWinEnd[pid] or SiegZOn[pid] then
+            return "j"
+        endif
+    endif
+    return "n"
+endfunction
+
+// SkillDash.j XKey에서 DashSync보다 먼저 불린다(로컬). 같은 클라이언트의 동기화는 보낸 순서대로 도착한다.
+function SiegDodgeKey takes integer pid returns nothing
+    if SiegIsHero(MainUnit[pid]) then
+        call DzSyncData("SiegX", SiegLocalDodgeCode(pid))
+    endif
+endfunction
+
+private function DodgeSyncData takes nothing returns nothing
+    local integer pid = GetPlayerId(DzGetTriggerSyncPlayer())
+    set SiegDodgeWinJ[pid] = DzGetTriggerSyncData() == "j"
+endfunction
+
 private function KeyDown takes nothing returns nothing
     local integer key = DzGetTriggerKey()
     local integer i = GetPlayerId(DzGetTriggerKeyPlayer())
@@ -1297,8 +1409,8 @@ private function OnDash takes nothing returns nothing
         set SiegBusy[pid] = false
         if SiegStance[pid] then
             set SiegStance[pid] = false
-            set HeroParryOn[pid] = false
         endif
+        call SiegGuardSet(pid, false)
     endif
 endfunction
 
@@ -1324,6 +1436,10 @@ private struct TEvMapLoad extends array
         set t = null
     endmethod
     private static method Action takes nothing returns nothing
+        local trigger t = CreateTrigger()
+        call DzTriggerRegisterSyncData(t, "SiegX", false)
+        call TriggerAddAction(t, function DodgeSyncData)
+        set t = null
         call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_C, 1, false, function KeyDown)
         call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_F, 1, false, function KeyDown)
         call DzTriggerRegisterKeyEventByCode(null, JN_OSKEY_Q, 1, false, function KeyDown)

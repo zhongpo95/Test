@@ -194,6 +194,15 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
     if stage == 1 then
         set prevJust = false
         set SiegAllJust[pid] = true
+    elseif SiegResumeNoMiss[pid] then
+        // 회피 뒤 이어지는 단: 일반 타격이지만 실패로 치지 않는다(용기 유지).
+        // 다시 치는 저스트 단은 이미 용기를 받았으므로 더 주지 않는다. 직전 단 저스트 여부도 회피 전 값으로 되살린다.
+        set SiegAllJust[pid] = SiegDodgeAllJust[pid] and just
+        set prevJust = SiegDodgePrevJust[pid]
+        if SiegDodgeFresh[pid] and just then
+            // 저스트 타이밍에 회피해 넘어온 새 단: 용기를 한 번 준다.
+            call SiegAddStack(pid, 1)
+        endif
     elseif not just then
         set SiegAllJust[pid] = false
         call SiegMiss(pid)
@@ -201,6 +210,10 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
         call SiegAddStack(pid, 1)
     endif
 
+    set SiegDodgeStage[pid] = 0
+    set SiegResumeNoMiss[pid] = false
+    set SiegDodgeFresh[pid] = false
+    set SiegStagePrevJust[pid] = prevJust
     set anim = AnimFor(stage, just, prevJust, SiegAllJust[pid] and just and stage == 5)
     set SiegSerial[pid] = SiegSerial[pid] + 1
     set SiegStage[pid] = stage
@@ -324,7 +337,13 @@ private function CSyncData takes nothing returns nothing
     if stage == 0 or now > SiegComboEnd[pid] then
         // 콤보가 끊겼거나 5단 후딜이 끝났으면 1단부터. 다른 기술에 묶여 있으면(B000) 받지 않는다.
         if GetUnitAbilityLevel(u, 'B000') < 1 then
-            call SiegOrderStage(pid, 1, false, x, y)
+            if SiegDodgeStage[pid] > 0 and now <= SiegDodgeUntil[pid] then
+                // 회피로 끊은 콤보: 끊긴 다음 단부터 일반으로 이어진다(실패로 치지 않음).
+                set SiegResumeNoMiss[pid] = true
+                call SiegOrderStage(pid, SiegDodgeStage[pid] + 1, SiegDodgeJust[pid], x, y)
+            else
+                call SiegOrderStage(pid, 1, false, x, y)
+            endif
         endif
     elseif stage < 5 and not SiegQueued[pid] then
         if res == "e" or res == "q" then

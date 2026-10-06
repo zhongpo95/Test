@@ -20,6 +20,7 @@ private struct FxEffect
     integer serial
     integer step
     integer stage
+    integer resume
     boolean just
     real speed
     unit dummy
@@ -120,11 +121,17 @@ private function EffectFunction takes nothing returns nothing
             set SiegHitT[fx.pid] = now
             set SiegWinEnd[fx.pid] = now + (SIEG_JUST_WINDOW + 0.10 + SiegWinBonus[fx.pid]) / fx.speed
             set SiegComboEnd[fx.pid] = SiegWinEnd[fx.pid] + SIEG_COMBO_GRACE / fx.speed
+        elseif fx.resume > 0 then
+            set SiegDodgeStage[fx.pid] = fx.resume
+            set SiegDodgeUntil[fx.pid] = SiegNow() + SIEG_DODGE_KEEP
         endif
         if SiegQBuf[fx.pid] then
             set SiegQBuf[fx.pid] = false
             if fx.just and fx.stage > 0 and fx.stage < 5 then
                 call SiegOrderStage.evaluate(fx.pid, fx.stage + 1, true, SiegQBufX[fx.pid], SiegQBufY[fx.pid])
+            elseif fx.resume > 0 then
+                set SiegResumeNoMiss[fx.pid] = true
+                call SiegOrderStage.evaluate(fx.pid, fx.resume + 1, SiegDodgeJust[fx.pid], SiegQBufX[fx.pid], SiegQBufY[fx.pid])
             else
                 call SiegOrderStage.evaluate(fx.pid, 1, false, SiegQBufX[fx.pid], SiegQBufY[fx.pid])
             endif
@@ -152,6 +159,16 @@ private function Main takes nothing returns nothing
         set fx.pid = pid
         set fx.just = SiegQJust[pid]
         set fx.stage = SiegStage[pid]
+        // 회피로 끊은 콤보 뒤의 Q: Q가 끝나면 끊긴 다음 단부터 C가 이어진다.
+        set fx.resume = 0
+        if fx.stage == 0 and SiegDodgeStage[pid] > 0 and SiegNow() <= SiegDodgeUntil[pid] then
+            set fx.resume = SiegDodgeStage[pid]
+        elseif fx.stage > 0 and not (fx.just and fx.stage < 5) then
+            // 저스트 창 밖 Q(1~4단)와 5단 도중 Q: 회피와 같은 규칙으로 Q가 끝난 뒤 C가 이어진다.
+            // (타격 전·저스트 실패 단·5단은 그 단을 다시, 저스트로 끝낸 단은 다음 단을 일반으로)
+            set fx.resume = SiegRememberStage(pid, false)
+        endif
+        set SiegDodgeStage[pid] = 0
         set fx.speed = SiegSpeed(pid)
         set fx.step = 0
         // 진행 중인 C 타격을 끊고 우베로 넘어간다.

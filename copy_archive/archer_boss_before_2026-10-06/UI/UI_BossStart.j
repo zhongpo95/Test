@@ -1,4 +1,4 @@
-library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOESandbag, BossArcher, FrameCount, UIOverlay, UIMainQuest, UIPick
+library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOESandbag, FrameCount, UIOverlay, UIMainQuest, UIPick
     globals
         integer FBS_BD                     //인포 배경
         integer FBS_CB                     //X버튼
@@ -36,10 +36,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
     endfunction
 
     private function CanPickBoss takes integer pid, integer bossNumber returns boolean
-        //아쳐는 실전 보스와 같은 조건으로 연다
-        if bossNumber == 5 then
-            return MainQuestCanSelectBoss(pid, PlayerSlotNumber[pid], 4)
-        endif
         return MainQuestCanSelectBoss(pid, PlayerSlotNumber[pid], BossOrderByNumber(bossNumber))
     endfunction
 
@@ -48,7 +44,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameShow(FBS_BossTip[1], false)
         call DzFrameShow(FBS_BossTip[2], false)
         call DzFrameShow(FBS_BossTip[3], false)
-        call DzFrameShow(FBS_BossTip[4], false)
     endfunction
 
     private function CreateEmptyBossSlot takes integer page, integer slot, real x, real y, real width, real height returns nothing
@@ -221,11 +216,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
             set Selectting = 3
             call DzFrameShow(FBS_BossTip[2], true)
             call DzFrameShow(FBS_SelectBBD, true)
-        //2페이지
-        elseif f == FBS_BLB[1][1] and CanPickBoss(pid, 5) then
-            set Selectting = 5
-            call DzFrameShow(FBS_BossTip[4], true)
-            call DzFrameShow(FBS_SelectBBD, true)
         endif
     endfunction
     
@@ -358,13 +348,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         call DzFrameSetText(FBS_BossTip[3], "|cFF6B3E1E장판 회피 훈련|r|n|n상태 이상과 피해 장판을 피하는 연습 전투입니다.|n|n보스의 공격 범위를 확인하고 안전한 위치로 이동하세요.")
         call DzFrameSetEnable(FBS_BossTip[3], false)
         call DzFrameShow(FBS_BossTip[3], false)
-        set FBS_BossTip[4]=DzCreateFrameByTagName("TEXT", "", FBS_BD, "", FrameCount())
-        call DzFrameSetSize(FBS_BossTip[4], 0.300, 0.240)
-        call DzFrameSetAbsolutePoint(FBS_BossTip[4], JN_FRAMEPOINT_CENTER, 0.570, 0.380)
-        call DzFrameSetFont(FBS_BossTip[4], "Fonts\\DFHeiMd.ttf", 0.011, 0)
-        call DzFrameSetText(FBS_BossTip[4], "|cFF6B3E1E아쳐|r|n|n쌍검과 활을 쓰는 보스입니다. 체력이 줄 때마다 영창을 이어 가고, 마지막 영창에서 전장이 무한의 검제로 바뀝니다.|n|n1인과 파티 모두 도전할 수 있습니다.")
-        call DzFrameSetEnable(FBS_BossTip[4], false)
-        call DzFrameShow(FBS_BossTip[4], false)
     endif
     //2페이지
     if true then
@@ -377,10 +360,8 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         set FBS_BLB[1][1] = DzCreateFrameByTagName("BUTTON", "", FBS_BT[1], "ScoreScreenTabButtonTemplate", FrameCount())
         call DzFrameSetAbsolutePoint(FBS_BLB[1][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         call DzFrameSetSize(FBS_BLB[1][1], 0.145, 0.080)
-        call DzFrameSetScriptByCode(FBS_BLB[1][1], JN_FRAMEEVENT_MOUSE_UP, function ClickBBDButton, false)
         set FBS_BL[1][1]=DzCreateFrameByTagName("BACKDROP", "", FBS_BT[1], "template", FrameCount())
-        //아쳐 버튼 이미지 (확정 필요: 전용 이미지가 없어 빈 슬롯 이미지 사용)
-        call DzFrameSetTexture(FBS_BL[1][1], "UI_Boss0_0_1.blp", 0)
+        call DzFrameSetTexture(FBS_BL[1][1], "UI_Boss0_0_2.blp", 0)
         call DzFrameSetSize(FBS_BL[1][1], 0.145, 0.080)
         call DzFrameSetAbsolutePoint(FBS_BL[1][1], JN_FRAMEPOINT_CENTER, 0.1250, 0.4150)
         
@@ -566,10 +547,6 @@ library UIBossStart initializer Init requires UIHP, Boss2, Boss1, Boss4, BossAOE
         elseif BossNumber == 4 then
             //set HeroTypeId = 'H00F'
             call AOESandbagStart(MainUnit[pid])
-
-        //아쳐
-        elseif BossNumber == 5 then
-            call ArcherBossStart(MainUnit[pid])
         endif
         
         set p = null

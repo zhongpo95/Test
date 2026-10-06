@@ -134,12 +134,6 @@ globals
     //유닛의 상태, 0 아무행동없음 , 1 스킬시전중, 2 무력화상태, 3 이동중, 4 패턴사용후 휴식
     integer array Unitstate
     real array UnitTier
-    //보스 체력 보호 (아쳐 1페이즈 HP 1 보호, 전환 중 피해 잠금). HeroDeal/CutInDeal 에서 확인
-    boolean array UnitHPFloorOn
-    real array UnitHPFloor
-    boolean array UnitDamageLock
-    //아쳐 보스 유닛 rawcode (확정 필요: 오브젝트 에디터에서 만든 유닛 ID로 바꾼다)
-    constant integer ARCHER_UNIT_ID = 'h0AR'
     
     integer array potion
 endglobals
@@ -202,8 +196,6 @@ function DataUnitIndex takes unit u returns integer
         return 26
     elseif i == 'H01T' then
         return 26
-    elseif i == ARCHER_UNIT_ID then
-        return 27
     endif
     return 0
 endfunction
@@ -816,15 +808,6 @@ private function init takes nothing returns nothing
     set NPCUnit[25]  = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'h00X', GetRandomReal(NPC_TOWN_LEFT, NPC_TOWN_RIGHT), GetRandomReal(NPC_TOWN_BOTTOM, NPC_TOWN_TOP), 244)
     
 
-
-    //아쳐 보스 (Boss/BossArcher.j). 체력은 1인 기준, 인원당 +70%
-    set UnitAbilityIndex[27] = ARCHER_UNIT_ID
-    //테스트용 체력
-    set UnitSetHP[27] = 4000
-    set UnitSetSD[27] = 100
-    set UnitSetArm[27] = 10000
-    set UnitSetHPx[27] = 4
-    set UnitTier[27] = 5
 
     //지크프리트
     set UnitAbilityIndex[26] = 'H01S'

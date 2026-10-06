@@ -46,16 +46,9 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real dmg
         local string s
         
-        if UnitDamageLock[UnitIndex] then
-            return
-        endif
-
         set dmg = UnitHPMAX[UnitIndex] * rate
 
         set UnitHP[UnitIndex] = UnitHP[UnitIndex] - dmg
-        if UnitHPFloorOn[UnitIndex] and UnitHP[UnitIndex] < UnitHPFloor[UnitIndex] then
-            set UnitHP[UnitIndex] = UnitHPFloor[UnitIndex]
-        endif
         call ExpSyncEnemyLife(target)
         set ttag = CreateTextTag()
         set s = FormatDamageText(dmg)
@@ -98,10 +91,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         local real healthBefore = UnitHP[UnitIndex]
     
         if not ProtoCanHit(pid, UnitIndex) then
-            return false
-        endif
-        //피해 잠금 (보스 페이즈 전환 연출 중): 피해·카운터·무력화 모두 무시
-        if UnitDamageLock[UnitIndex] then
             return false
         endif
         if ExpEnemy[UnitIndex] and ((ExpState != EXP_BATTLE and ExpState != EXP_HUNT) or UnitHP[UnitIndex] <= 0.0) then
@@ -449,10 +438,6 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
             endif
         endif
         
-        //체력 하한 보호 (아쳐 1페이즈: HP 1 아래로 내려가지 않음). 집계보다 먼저 적용
-        if UnitHPFloorOn[UnitIndex] and UnitHP[UnitIndex] < UnitHPFloor[UnitIndex] then
-            set UnitHP[UnitIndex] = UnitHPFloor[UnitIndex]
-        endif
         call ProtoRecordDamage(pid, UnitIndex, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
         call ProtoLeechHit(pid, source, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
         call ExpSyncEnemyLife(target)
