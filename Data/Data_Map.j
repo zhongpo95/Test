@@ -1,6 +1,7 @@
 library DataMap
 globals
     rect array MapRect
+    rect array MapCenter
     integer array Mapthema
     integer array MapSt
     boolean array MapRectCheck
