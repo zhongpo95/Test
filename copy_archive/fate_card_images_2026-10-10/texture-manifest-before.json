@@ -1,0 +1,258 @@
+[
+  {
+    "character": "마토 사쿠라",
+    "cardIds": [
+      19
+    ],
+    "role": "portrait",
+    "source": "war3mapImported/UI_Card_FGO1_sakura_Art.tga",
+    "target": "war3mapImported\\UI_Card_FGO1_sakura_Art.tga",
+    "file": "war3mapImported/UI_Card_FGO1_sakura_Art.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\UI_Card_FGO1_sakura_Art.png",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\originals\\sakura-ce28.png",
+    "sourceUrl": "https://static.atlasacademy.io/NA/CharaGraph/9400280/9400280a.png",
+    "sourcePage": "https://api.atlasacademy.io/nice/NA/equip/28",
+    "officialPage": "https://news.fate-go.jp/2020/imaginary_scramble/",
+    "comparisonImage": "https://news.fate-go.jp/wp-content/uploads/2020/imaginary_scramble_full_qopef/info_image_17.png",
+    "officialEvidence": "FGO 공식 이벤트 도표의 허수마술 예장과 미러의 머리카락/손/교복/배경을 육안 대조해 동일 원화임을 확인.",
+    "sourceSha256": "dc26efb11d284cfbcef9225103152d6fd2aad1fe6aa110d665cca281abdbac54",
+    "sourceSize": [
+      512,
+      875
+    ],
+    "artist": "타케우치 타카시. 예장28의 위키2종 작가표기 대조; 공식 행사에는 개별작가명 없음.",
+    "artistSource": "https://fategrandorder.fandom.com/wiki/Imaginary_Number_Magecraft",
+    "sourceNote": "공식 FGO 게임 일러스트의 Atlas Academy 미러. 원작 사쿠라 교복과 리본, 마술 표현. FGO전투능력/설정은 카드 효과에 반영하지 않음.",
+    "sha256": "44066af170217f05b54abc368e38aefa6231b2bb725bf4090266f900523efc3a",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "viewport": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "crop": [
+      0,
+      0,
+      512,
+      512
+    ],
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "character": "마토 사쿠라",
+    "cardIds": [
+      19
+    ],
+    "role": "icon",
+    "source": "war3mapImported/UI_Card_FGO1_sakura_Icon.tga",
+    "target": "war3mapImported\\UI_Card_FGO1_sakura_Icon.tga",
+    "file": "war3mapImported/UI_Card_FGO1_sakura_Icon.tga",
+    "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\UI_Card_FGO1_sakura_Icon.png",
+    "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\originals\\sakura-ce28.png",
+    "sourceUrl": "https://static.atlasacademy.io/NA/CharaGraph/9400280/9400280a.png",
+    "sourcePage": "https://api.atlasacademy.io/nice/NA/equip/28",
+    "officialPage": "https://news.fate-go.jp/2020/imaginary_scramble/",
+    "comparisonImage": "https://news.fate-go.jp/wp-content/uploads/2020/imaginary_scramble_full_qopef/info_image_17.png",
+    "officialEvidence": "FGO 공식 이벤트 도표의 허수마술 예장과 미러의 머리카락/손/교복/배경을 육안 대조해 동일 원화임을 확인.",
+    "sourceSha256": "dc26efb11d284cfbcef9225103152d6fd2aad1fe6aa110d665cca281abdbac54",
+    "sourceSize": [
+      512,
+      875
+    ],
+    "artist": "타케우치 타카시. 예장28의 위키2종 작가표기 대조; 공식 행사에는 개별작가명 없음.",
+    "artistSource": "https://fategrandorder.fandom.com/wiki/Imaginary_Number_Magecraft",
+    "sourceNote": "공식 FGO 게임 일러스트의 Atlas Academy 미러. 원작 사쿠라 교복과 리본, 마술 표현. FGO전투능력/설정은 카드 효과에 반영하지 않음.",
+    "sha256": "3f7ab3452ea382a0a39ebd556bff9aa0d2c2e88ecaaa544d33c970c8c1b9bbb7",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "viewport": [
+      155,
+      15,
+      430,
+      290
+    ],
+    "crop": [
+      155,
+      15,
+      430,
+      290
+    ],
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_archer_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_archer_Art.tga",
+    "sha256": "04a4ee252d81127aa19c69434204cf2318dcadebbca491d224aeac6ad31b8d37",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/archer.jpg",
+    "sourceSha256": "a4fe39840fa3747654e0df2656df4f14b6da553d85b158607960d067628a2052",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_archer_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_archer_Icon.tga",
+    "sha256": "4d931e7100ee493dc5af186f9d75e66a1ac7c60b0e6703a70cca43c2ce2a58f7",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/archer.jpg",
+    "sourceSha256": "a4fe39840fa3747654e0df2656df4f14b6da553d85b158607960d067628a2052",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_assassin_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_assassin_Art.tga",
+    "sha256": "617a11a3c214e5e545deea99c83078d1286eae600f6710262af0af2fe9cb6809",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/24/02.jpg",
+    "sourceSha256": "cbfedcddbec9a15c21e1ca9eb2d560258b5cde98b5a6120fb324557d818cd31f",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_assassin_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_assassin_Icon.tga",
+    "sha256": "4f02538db39fc0307b6717baf7823a2f13d3b03f482b1ea257dcdf22bb74b484",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/24/02.jpg",
+    "sourceSha256": "cbfedcddbec9a15c21e1ca9eb2d560258b5cde98b5a6120fb324557d818cd31f",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_caster_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_caster_Art.tga",
+    "sha256": "69bbefa7736af09e5fc68e186690fdcafab03ea46bd3d3d4454e495079c9496e",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
+    "sourceSha256": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_caster_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_caster_Icon.tga",
+    "sha256": "7d75672b85666afe00a1dab8182de760f3d734cb39767f69cc7f185a5f239016",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
+    "sourceSha256": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_lancer_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_lancer_Art.tga",
+    "sha256": "b1c2d5c19820ec2373989f7eefdf21f9aa4cc8b2d380e78b3169bde78d8be6f6",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rancer.jpg",
+    "sourceSha256": "dfb207c5ef0ee23b64f649acb3c10c7e63cb0da1b5c358e00a022926bc621964",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_lancer_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_lancer_Icon.tga",
+    "sha256": "ddc1879b38cf78229daffacff4535fe26e96f44afdb980a3617f9800adf37e95",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rancer.jpg",
+    "sourceSha256": "dfb207c5ef0ee23b64f649acb3c10c7e63cb0da1b5c358e00a022926bc621964",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_rin_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_rin_Art.tga",
+    "sha256": "f02baabe8b11e75705e7e0b1c82887a25ce34f03b549a5c49952a142638b4414",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rin.jpg",
+    "sourceSha256": "047aeb674d13b637ea05a7bb3fee88465de725bc2a6f9f1cf47b91c5836d8bd3",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_rin_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_rin_Icon.tga",
+    "sha256": "34cb3d31e8cc8059f5b6b01694d423c9437277f93c655ac1edfcacbd76f9c103",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rin.jpg",
+    "sourceSha256": "047aeb674d13b637ea05a7bb3fee88465de725bc2a6f9f1cf47b91c5836d8bd3",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_saber_Art.tga",
+    "file": "war3mapImported/UI_Card_FSU6_saber_Art.tga",
+    "sha256": "c97e6f8e7381d01291dc360283ff00bdd49076f8c13bdad26bc01549ce035398",
+    "bytes": 1048620,
+    "size": [
+      512,
+      512
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/saber.jpg",
+    "sourceSha256": "97ae1155ee449542084709bab764d848b585bc21ee7871380e61197d3dee191b",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  },
+  {
+    "target": "war3mapImported\\UI_Card_FSU6_saber_Icon.tga",
+    "file": "war3mapImported/UI_Card_FSU6_saber_Icon.tga",
+    "sha256": "6978195e6d81cd22d6b4831a0b8be9a47cc2828b03a2e856647e58f4e987c914",
+    "bytes": 65580,
+    "size": [
+      128,
+      128
+    ],
+    "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/saber.jpg",
+    "sourceSha256": "97ae1155ee449542084709bab764d848b585bc21ee7871380e61197d3dee191b",
+    "existingApprovedAsset": false,
+    "preservedFrom": "active-images-v27"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "scope": "DataPrototypeCardImages 모듈. DataPrototypeCatalog와 config/main은 빈 스텁. 전체 맵 컴파일 아님.",
+  "compilerExit": 0,
+  "sourceSha256": "464a9df32bd15bd16cdbe75946295cf820b591387494bada4ae009bf352529a9",
+  "sourceHashNote": "컴파일 입력에 사용한 UTF-8/LF 텍스트의 SHA-256",
+  "runtimeTested": false,
+  "mapCreated": false,
+  "pjassExit": 0,
+  "pjassOutput": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:      411 lines: image-module.j\r\nParse successful:    12320 lines: <total>\r\n"
+}

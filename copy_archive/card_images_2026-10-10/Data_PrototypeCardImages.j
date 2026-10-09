@@ -14,21 +14,21 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 에미야 시로
         call SetImages(13, "UI_Card_FSU6_shirou_Icon", "UI_Card_FSU6_shirou_Art")
         // 세이버
-        call SetImages(14, "UI_Card_FateCalm_saber_Icon", "UI_Card_FateCalm_saber_Art")
+        call SetImages(14, "UI_Card_FSU6_saber_Icon", "UI_Card_FSU6_saber_Art")
         // 토오사카 린
-        call SetImages(16, "UI_Card_FateCalm_rin_Icon", "UI_Card_FateCalm_rin_Art")
+        call SetImages(16, "UI_Card_FSU6_rin_Icon", "UI_Card_FSU6_rin_Art")
         // 아처
-        call SetImages(17, "UI_Card_FateCalm_archer_Icon", "UI_Card_FateCalm_archer_Art")
+        call SetImages(17, "UI_Card_FSU6_archer_Icon", "UI_Card_FSU6_archer_Art")
         // 어새신
-        call SetImages(18, "UI_Card_FateCalm_assassin_Icon", "UI_Card_FateCalm_assassin_Art")
+        call SetImages(18, "UI_Card_FSU6_assassin_Icon", "UI_Card_FSU6_assassin_Art")
         // 마토 사쿠라
-        call SetImages(19, "UI_Card_FateCalm_sakura_Icon", "UI_Card_FateCalm_sakura_Art")
+        call SetImages(19, "UI_Card_FGO1_sakura_Icon", "UI_Card_FGO1_sakura_Art")
         // 캐스터
-        call SetImages(20, "UI_Card_FateCalm_caster_Icon", "UI_Card_FateCalm_caster_Art")
+        call SetImages(20, "UI_Card_FSU6_caster_Icon", "UI_Card_FSU6_caster_Art")
         // 후지무라 타이가
         call SetImages(21, "UI_Card_FSN_ch14_Icon", "UI_Card_FSN_ch14_Art")
         // 랜서
-        call SetImages(26, "UI_Card_FateCalm_lancer_Icon", "UI_Card_FateCalm_lancer_Art")
+        call SetImages(26, "UI_Card_FSU6_lancer_Icon", "UI_Card_FSU6_lancer_Art")
         // 코토미네 키레이
         call SetImages(30, "UI_Card_FSN_ch09_Icon", "UI_Card_FSN_ch09_Art")
         // 루나
@@ -347,33 +347,5 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         call SetImages(888, "UI_Card_PCR_106031_Icon", "UI_Card_PCR_106031_Art")
         // 유우키
         call SetImages(894, "UI_Card_PCRS_yuuki_Icon", "UI_Card_PCRS_yuuki_Art")
-
-        // 메인 이야기 완결을 기념하는 작품별 공식 표지를 연결한다.
-        // 함께 걷는 이상
-        call SetImages(924, "UI_Card_Ending_fuyuki_Icon", "UI_Card_Ending_fuyuki_Art")
-        // 돌아갈 집은 지켰다
-        call SetImages(925, "UI_Card_Ending_axel_Icon", "UI_Card_Ending_axel_Art")
-        // 다섯 자리가 있는 교실
-        call SetImages(926, "UI_Card_Ending_abydos_Icon", "UI_Card_Ending_abydos_Art")
-        // 번호 너머의 내일
-        call SetImages(927, "UI_Card_Ending_academy_Icon", "UI_Card_Ending_academy_Art")
-        // 이어지는 리본
-        call SetImages(928, "UI_Card_Ending_mitakihara_Icon", "UI_Card_Ending_mitakihara_Art")
-        // 현실로 이어진 약속
-        call SetImages(929, "UI_Card_Ending_aincrad_Icon", "UI_Card_Ending_aincrad_Art")
-        // 돌아온 안내인의 일지
-        call SetImages(930, "UI_Card_Ending_zegagrande_Icon", "UI_Card_Ending_zegagrande_Art")
-        // 내가 돌아올 길드
-        call SetImages(931, "UI_Card_Ending_magnolia_Icon", "UI_Card_Ending_magnolia_Art")
-        // 사신대행증
-        call SetImages(932, "UI_Card_Ending_karakura_Icon", "UI_Card_Ending_karakura_Art")
-        // 우린 꿈에서 깨어날 거니까
-        call SetImages(933, "UI_Card_Ending_penacony_Icon", "UI_Card_Ending_penacony_Art")
-        // 함께 돌아온 두 손
-        call SetImages(934, "UI_Card_Ending_amestris_Icon", "UI_Card_Ending_amestris_Art")
-        // 다음 새벽의 호흡
-        call SetImages(935, "UI_Card_Ending_butterfly_Icon", "UI_Card_Ending_butterfly_Art")
-        // 네 사람이 앉는 식탁
-        call SetImages(936, "UI_Card_Ending_gourmet_Icon", "UI_Card_Ending_gourmet_Art")
     endfunction
 endlibrary

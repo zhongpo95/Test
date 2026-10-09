@@ -14,21 +14,21 @@ library DataPrototypeCardImages initializer Init requires DataPrototypeCatalog
         // 에미야 시로
         call SetImages(13, "UI_Card_FSU6_shirou_Icon", "UI_Card_FSU6_shirou_Art")
         // 세이버
-        call SetImages(14, "UI_Card_FateCalm_saber_Icon", "UI_Card_FateCalm_saber_Art")
+        call SetImages(14, "UI_Card_FSU6_saber_Icon", "UI_Card_FSU6_saber_Art")
         // 토오사카 린
-        call SetImages(16, "UI_Card_FateCalm_rin_Icon", "UI_Card_FateCalm_rin_Art")
+        call SetImages(16, "UI_Card_FSU6_rin_Icon", "UI_Card_FSU6_rin_Art")
         // 아처
-        call SetImages(17, "UI_Card_FateCalm_archer_Icon", "UI_Card_FateCalm_archer_Art")
+        call SetImages(17, "UI_Card_FSU6_archer_Icon", "UI_Card_FSU6_archer_Art")
         // 어새신
-        call SetImages(18, "UI_Card_FateCalm_assassin_Icon", "UI_Card_FateCalm_assassin_Art")
+        call SetImages(18, "UI_Card_FSU6_assassin_Icon", "UI_Card_FSU6_assassin_Art")
         // 마토 사쿠라
-        call SetImages(19, "UI_Card_FateCalm_sakura_Icon", "UI_Card_FateCalm_sakura_Art")
+        call SetImages(19, "UI_Card_FGO1_sakura_Icon", "UI_Card_FGO1_sakura_Art")
         // 캐스터
-        call SetImages(20, "UI_Card_FateCalm_caster_Icon", "UI_Card_FateCalm_caster_Art")
+        call SetImages(20, "UI_Card_FSU6_caster_Icon", "UI_Card_FSU6_caster_Art")
         // 후지무라 타이가
         call SetImages(21, "UI_Card_FSN_ch14_Icon", "UI_Card_FSN_ch14_Art")
         // 랜서
-        call SetImages(26, "UI_Card_FateCalm_lancer_Icon", "UI_Card_FateCalm_lancer_Art")
+        call SetImages(26, "UI_Card_FSU6_lancer_Icon", "UI_Card_FSU6_lancer_Art")
         // 코토미네 키레이
         call SetImages(30, "UI_Card_FSN_ch09_Icon", "UI_Card_FSN_ch09_Art")
         // 루나
