@@ -1,0 +1,249 @@
+[
+  {
+    "cardId": 924,
+    "cardKey": "fuyuki_main_ending_memorial",
+    "cardName": "함께 걷는 이상",
+    "world": "fuyuki",
+    "icon": "UI_Card_Ending_fuyuki_Icon",
+    "art": "UI_Card_Ending_fuyuki_Art",
+    "sourceFile": "fuyuki-original.jpg",
+    "sourceSha256": "ac510f67d826da9467be4453be6ecbfa14339b90ad42f4866a13541d8e326042",
+    "sourcePage": "https://www.fate-sn.com/ubw/sp/",
+    "sourceUrl": "https://www.fate-sn.com/ubw/img/key2.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC. 공식 Unlimited Blade Works 사운드트랙 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      0,
+      330,
+      1700,
+      2030
+    ]
+  },
+  {
+    "cardId": 925,
+    "cardKey": "axel_main_ending_memorial",
+    "cardName": "돌아갈 집은 지켰다",
+    "world": "axel",
+    "icon": "UI_Card_Ending_axel_Icon",
+    "art": "UI_Card_Ending_axel_Art",
+    "sourceFile": "axel-original.png",
+    "sourceSha256": "67d84960ce91b91af08b5508591c2ef5cc0bc3dbc033ddeaf0e031451c3069b2",
+    "sourcePage": "https://kadokawa-animation.jp/lineup/konosuba-1st",
+    "sourceUrl": "https://kadokawa-animation.jp/wp-content/uploads/2026/02/4016701-1.png",
+    "credit": "KADOKAWA Animation 공식 코노스바 1기 키비주얼. 권리자 暁なつめ・三嶋くろね / KADOKAWA / このすば製作委員会. 개별 키비주얼 원화가 미확인.",
+    "crop": [
+      0,
+      20,
+      404,
+      424
+    ]
+  },
+  {
+    "cardId": 926,
+    "cardKey": "abydos_main_ending_memorial",
+    "cardName": "다섯 자리가 있는 교실",
+    "world": "abydos",
+    "icon": "UI_Card_Ending_abydos_Icon",
+    "art": "UI_Card_Ending_abydos_Art",
+    "sourceFile": "abydos-kv2-original.jpg",
+    "sourceSha256": "186f226f12c8fc2e372b10e766622d8ee0c98e4e655ada58a09b4d6b83e5693e",
+    "sourcePage": "https://sh-anime.shochiku.co.jp/bluearchive-anime/",
+    "sourceUrl": "https://sh-anime.shochiku.co.jp/bluearchive-anime/assets/images/common/index/kv_2.jpg",
+    "credit": "NEXON Games / 아비도스 상점가, 공식 애니메이션 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      160,
+      650,
+      2320,
+      2810
+    ]
+  },
+  {
+    "cardId": 927,
+    "cardKey": "academy_main_ending_memorial",
+    "cardName": "번호 너머의 내일",
+    "world": "academy",
+    "icon": "UI_Card_Ending_academy_Icon",
+    "art": "UI_Card_Ending_academy_Art",
+    "sourceFile": "academy-original.jpg",
+    "sourceSha256": "22e5b20fdb0a29b89442a712541c2b201a942365369ecaf14d6b97b2c49e6e3c",
+    "sourcePage": "https://toaru-project.com/railgun_s/",
+    "sourceUrl": "https://toaru-project.com/railgun_s/core_sys/images/main/top/top_main_bg04.jpg",
+    "credit": "鎌池和馬 / 冬川基 / アスキー・メディアワークス / PROJECT-RAILGUN S. 공식 초전자포S 사이트 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      0,
+      60,
+      738,
+      798
+    ]
+  },
+  {
+    "cardId": 928,
+    "cardKey": "mitakihara_main_ending_memorial",
+    "cardName": "이어지는 리본",
+    "world": "mitakihara",
+    "icon": "UI_Card_Ending_mitakihara_Icon",
+    "art": "UI_Card_Ending_mitakihara_Art",
+    "sourceFile": "mitakihara-original.jpg",
+    "sourceSha256": "4472bebe554d65bd28ce1a57682e3bbdd76b55b744ecd18b305a8deaf6bd216a",
+    "sourcePage": "https://www.madoka-magica.com/tv/",
+    "sourceUrl": "https://www.madoka-magica.com/tv/assets/img/visual.jpg",
+    "credit": "공식 마법소녀 마도카 마기카 TV 사이트 키비주얼. 권리자 Magica Quartet / Aniplex・Madoka Partners・MBS. 개별 키비주얼 원화가 미확인.",
+    "crop": [
+      0,
+      550,
+      1520,
+      2070
+    ]
+  },
+  {
+    "cardId": 929,
+    "cardKey": "aincrad_main_ending_memorial",
+    "cardName": "현실로 이어진 약속",
+    "world": "aincrad",
+    "icon": "UI_Card_Ending_aincrad_Icon",
+    "art": "UI_Card_Ending_aincrad_Art",
+    "sourceFile": "aincrad-original.jpg",
+    "sourceSha256": "b907bf37c07eb293d8d054df50cbc5c1a65779d6958eb01828b6863ee59e03be",
+    "sourcePage": "https://www.swordart-online.net/aincrad/",
+    "sourceUrl": "https://www.swordart-online.net/assets/img/series/aincrad/visual1.jpg",
+    "credit": "공식 소드아트온라인 아인크라드편 키비주얼. 권리자 川原礫 / アスキー・メディアワークス / SAO Project. 개별 키비주얼 원화가 미확인.",
+    "crop": [
+      0,
+      250,
+      1200,
+      1450
+    ]
+  },
+  {
+    "cardId": 930,
+    "cardKey": "zegagrande_main_ending_memorial",
+    "cardName": "돌아온 안내인의 일지",
+    "world": "zegagrande",
+    "icon": "UI_Card_Ending_zegagrande_Icon",
+    "art": "UI_Card_Ending_zegagrande_Art",
+    "sourceFile": "zegagrande-original.png",
+    "sourceSha256": "aa61d41510728663fecb4c1776bc4ea058358803dbfb51885646c5d7f936671e",
+    "sourcePage": "https://relink.granbluefantasy.jp/en/",
+    "sourceUrl": "https://relink.granbluefantasy.jp/assets/images/common/pc/top/mv_bg.png",
+    "credit": "Cygames 공식 GRANBLUE FANTASY Relink 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      45,
+      0,
+      2560,
+      2515
+    ]
+  },
+  {
+    "cardId": 931,
+    "cardKey": "magnolia_main_ending_memorial",
+    "cardName": "내가 돌아올 길드",
+    "world": "magnolia",
+    "icon": "UI_Card_Ending_magnolia_Icon",
+    "art": "UI_Card_Ending_magnolia_Art",
+    "sourceFile": "magnolia-original.jpg",
+    "sourceSha256": "c38700fe7b07d1550ca454c892d10e8950c0b04d4e4bac0a9fc1565bd837e163",
+    "sourcePage": "https://fairytail-tv.com/before/",
+    "sourceUrl": "https://fairytail-tv.com/before/img/top/bg_150214_01.jpg",
+    "credit": "FAIRY TAIL 공식 2014시리즈 웹사이트 키비주얼. 권리자 真島ヒロ / 講談社 / フェアリーテイル製作委員会・テレビ東京. 개별 원화가 미확인.",
+    "crop": [
+      600,
+      0,
+      1400,
+      800
+    ]
+  },
+  {
+    "cardId": 932,
+    "cardKey": "karakura_main_ending_memorial",
+    "cardName": "사신대행증",
+    "world": "karakura",
+    "icon": "UI_Card_Ending_karakura_Icon",
+    "art": "UI_Card_Ending_karakura_Art",
+    "sourceFile": "karakura-aniplex-original.jpg",
+    "sourceSha256": "e656c9077205606fc5a35ad2ddf3c90057084d20d8b238c6fbea7fe5d11fee75",
+    "sourcePage": "https://www.aniplex.co.jp/lineup/bleach/",
+    "sourceUrl": "https://www.aniplex.co.jp/SYS/CONTENTS/keyvisual_bleach/w700",
+    "credit": "久保帯人 / 集英社・テレビ東京・dentsu・ぴえろ. Aniplex가 게시한 공식 BLEACH 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      0,
+      0,
+      700,
+      700
+    ]
+  },
+  {
+    "cardId": 933,
+    "cardKey": "penacony_main_ending_memorial",
+    "cardName": "우린 꿈에서 깨어날 거니까",
+    "world": "penacony",
+    "icon": "UI_Card_Ending_penacony_Icon",
+    "art": "UI_Card_Ending_penacony_Art",
+    "sourceFile": "penacony-original.jpg",
+    "sourceSha256": "54a9bfba70498b88de4c308f06814d895f86c6a28aae252f584ab77349d8a9a8",
+    "sourcePage": "https://blog.fr.playstation.com/2024/01/26/la-version-2-0-de-honkai-star-rail-introduisant-le-nouveau-royaume-de-penacony-debarque-le-6-fevrier/",
+    "sourceUrl": "https://blog.fr.playstation.com/tachyon/sites/10/2024/01/89abae27ecad10440487e8bc3c31293947149a62-scaled.jpeg",
+    "credit": "HoYoverse 공식 버전 2.0 키비주얼, Yang Yu 개발진 게시글. 개별 일러스트레이터 미확인.",
+    "crop": [
+      840,
+      0,
+      2280,
+      1440
+    ]
+  },
+  {
+    "cardId": 934,
+    "cardKey": "amestris_main_ending_memorial",
+    "cardName": "함께 돌아온 두 손",
+    "world": "amestris",
+    "icon": "UI_Card_Ending_amestris_Icon",
+    "art": "UI_Card_Ending_amestris_Art",
+    "sourceFile": "amestris-bones-original.jpg",
+    "sourceSha256": "0410fb58c349ff5fa33cb8ba0c864c582d11bf544547b15dc399da27c7c934ff",
+    "sourcePage": "https://www.bones.co.jp/work/fullmetal-alchemist/",
+    "sourceUrl": "https://www.bones.co.jp/wordpress/wp-content/uploads/2020/05/pict-works_visual34.jpg",
+    "credit": "BONES 공식 강철의연금술사 FULLMETAL ALCHEMIST 2009 작품 키비주얼. 권리자 荒川弘 / 鋼の錬金術師製作委員会・MBS. 개별 원화가 미확인.",
+    "crop": [
+      0,
+      80,
+      426,
+      506
+    ]
+  },
+  {
+    "cardId": 935,
+    "cardKey": "butterfly_main_ending_memorial",
+    "cardName": "다음 새벽의 호흡",
+    "world": "butterfly",
+    "icon": "UI_Card_Ending_butterfly_Icon",
+    "art": "UI_Card_Ending_butterfly_Art",
+    "sourceFile": "butterfly-original.jpg",
+    "sourceSha256": "fdff2a4ad84e62f563c9701dc83c7751dd39b3e5da830a2dc8949648a172abf8",
+    "sourcePage": "https://kimetsu.com/anime/risshihen/",
+    "sourceUrl": "https://kimetsu.com/anime/risshihen/assets/img/top/kv.jpg",
+    "credit": "吾峠呼世晴 / 集英社 / Aniplex / ufotable 공식 귀멸의칼날 입지편 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      0,
+      360,
+      2000,
+      2360
+    ]
+  },
+  {
+    "cardId": 936,
+    "cardKey": "gourmet_main_ending_memorial",
+    "cardName": "네 사람이 앉는 식탁",
+    "world": "gourmet",
+    "icon": "UI_Card_Ending_gourmet_Icon",
+    "art": "UI_Card_Ending_gourmet_Art",
+    "sourceFile": "gourmet-original.png",
+    "sourceSha256": "d4a2f5337a9b3bc01297743c150f25debf8c2493bca5eb92ea4150b22ea0d9fd",
+    "sourcePage": "https://anime.priconne-redive.jp/archive/1st/",
+    "sourceUrl": "https://anime.priconne-redive.jp/archive/1st/assets/images/top_kv.png?29dfa65c",
+    "credit": "Cygames / 애니메이션 프린세스커넥트 Re:Dive 제작위원회 공식 1기 키비주얼. 개별 원화가 미확인.",
+    "crop": [
+      35,
+      0,
+      1884,
+      1849
+    ]
+  }
+]

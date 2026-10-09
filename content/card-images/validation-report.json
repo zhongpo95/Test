@@ -1,0 +1,19 @@
+{
+  "rewardDefinitions": 924,
+  "cardPictures": 174,
+  "existingPictures": 161,
+  "newEndingPictures": 13,
+  "textureFiles": 348,
+  "missingCards": [],
+  "preservedExistingHashes": 322,
+  "checkedFormat": "RGBA TGA",
+  "zipHashesVerified": true,
+  "runtimeTested": false,
+  "mapCreated": false,
+  "mockGalleryCards": 174,
+  "mockUIScenarioGroups": 18,
+  "catalogGenerationMatched": true,
+  "moduleCompilePassed": true,
+  "fullMapCompilePerformed": false,
+  "visualInspection": "전체 카드 연락 시트와 엔딩 13종을 육안 확인함. 게임 렌더링 아님."
+}

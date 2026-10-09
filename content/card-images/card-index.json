@@ -1,0 +1,2666 @@
+[
+  {
+    "characterId": 13,
+    "head": 1,
+    "name": "에미야 시로",
+    "rewardIds": [
+      13,
+      23,
+      34,
+      35,
+      39,
+      40,
+      41,
+      48,
+      49,
+      50,
+      57,
+      58,
+      59,
+      72,
+      73,
+      74,
+      78,
+      79,
+      80
+    ],
+    "icon": "UI_Card_FSU6_shirou_Icon.tga",
+    "art": "UI_Card_FSU6_shirou_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 14,
+    "head": 1,
+    "name": "세이버",
+    "rewardIds": [
+      14,
+      15,
+      25,
+      28,
+      45,
+      46,
+      47,
+      63,
+      64,
+      65
+    ],
+    "icon": "UI_Card_FSU6_saber_Icon.tga",
+    "art": "UI_Card_FSU6_saber_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 16,
+    "head": 1,
+    "name": "토오사카 린",
+    "rewardIds": [
+      16,
+      22,
+      36,
+      37,
+      38,
+      42,
+      43,
+      44,
+      51,
+      52,
+      53,
+      60,
+      61,
+      62,
+      66,
+      67,
+      68,
+      75,
+      76,
+      77,
+      81,
+      82,
+      83
+    ],
+    "icon": "UI_Card_FSU6_rin_Icon.tga",
+    "art": "UI_Card_FSU6_rin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 17,
+    "head": 1,
+    "name": "아처",
+    "rewardIds": [
+      17,
+      24,
+      31,
+      54,
+      55,
+      56,
+      69,
+      70,
+      71
+    ],
+    "icon": "UI_Card_FSU6_archer_Icon.tga",
+    "art": "UI_Card_FSU6_archer_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 18,
+    "head": 1,
+    "name": "어새신",
+    "rewardIds": [
+      18
+    ],
+    "icon": "UI_Card_FSU6_assassin_Icon.tga",
+    "art": "UI_Card_FSU6_assassin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 19,
+    "head": 1,
+    "name": "마토 사쿠라",
+    "rewardIds": [
+      19,
+      27
+    ],
+    "icon": "UI_Card_FGO1_sakura_Icon.tga",
+    "art": "UI_Card_FGO1_sakura_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 20,
+    "head": 1,
+    "name": "캐스터",
+    "rewardIds": [
+      20
+    ],
+    "icon": "UI_Card_FSU6_caster_Icon.tga",
+    "art": "UI_Card_FSU6_caster_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 21,
+    "head": 1,
+    "name": "후지무라 타이가",
+    "rewardIds": [
+      21,
+      29,
+      33
+    ],
+    "icon": "UI_Card_FSN_ch14_Icon.tga",
+    "art": "UI_Card_FSN_ch14_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 26,
+    "head": 1,
+    "name": "랜서",
+    "rewardIds": [
+      26,
+      32
+    ],
+    "icon": "UI_Card_FSU6_lancer_Icon.tga",
+    "art": "UI_Card_FSU6_lancer_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 30,
+    "head": 1,
+    "name": "코토미네 키레이",
+    "rewardIds": [
+      30
+    ],
+    "icon": "UI_Card_FSN_ch09_Icon.tga",
+    "art": "UI_Card_FSN_ch09_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 84,
+    "head": 2,
+    "name": "루나",
+    "rewardIds": [
+      84,
+      96,
+      106,
+      110
+    ],
+    "icon": "UI_Card_KSB_luna_Icon.tga",
+    "art": "UI_Card_KSB_luna_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 85,
+    "head": 2,
+    "name": "사토 카즈마",
+    "rewardIds": [
+      85,
+      98,
+      101,
+      103,
+      123,
+      124,
+      125,
+      132,
+      133,
+      134,
+      144,
+      145,
+      146
+    ],
+    "icon": "UI_Card_KSO1_kazuma_Icon.tga",
+    "art": "UI_Card_KSO1_kazuma_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 86,
+    "head": 2,
+    "name": "크리스",
+    "rewardIds": [
+      86,
+      102
+    ],
+    "icon": "UI_Card_KSB_MST26_chris_Icon.tga",
+    "art": "UI_Card_KSB_MST26_chris_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 87,
+    "head": 2,
+    "name": "메구밍",
+    "rewardIds": [
+      87,
+      114,
+      115,
+      116,
+      120,
+      121,
+      122,
+      141,
+      142,
+      143
+    ],
+    "icon": "UI_Card_KSO1_megumin_Icon.tga",
+    "art": "UI_Card_KSO1_megumin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 88,
+    "head": 2,
+    "name": "다크니스",
+    "rewardIds": [
+      88,
+      93,
+      108,
+      117,
+      118,
+      119,
+      129,
+      130,
+      131
+    ],
+    "icon": "UI_Card_KSO1_darkness_Icon.tga",
+    "art": "UI_Card_KSO1_darkness_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 89,
+    "head": 2,
+    "name": "아쿠아",
+    "rewardIds": [
+      89,
+      92,
+      97,
+      100,
+      104,
+      105,
+      111,
+      112,
+      113,
+      126,
+      127,
+      128,
+      138,
+      139,
+      140
+    ],
+    "icon": "UI_Card_KSO1_aqua_Icon.tga",
+    "art": "UI_Card_KSO1_aqua_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 90,
+    "head": 2,
+    "name": "위즈",
+    "rewardIds": [
+      90,
+      99,
+      109,
+      135,
+      136,
+      137
+    ],
+    "icon": "UI_Card_KSO1_wiz_Icon.tga",
+    "art": "UI_Card_KSO1_wiz_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 91,
+    "head": 2,
+    "name": "바니르",
+    "rewardIds": [
+      91
+    ],
+    "icon": "UI_Card_KSB_vanir_Icon.tga",
+    "art": "UI_Card_KSB_vanir_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 94,
+    "head": 2,
+    "name": "융융",
+    "rewardIds": [
+      94,
+      107
+    ],
+    "icon": "UI_Card_KSB_MST26_yunyun_Icon.tga",
+    "art": "UI_Card_KSB_MST26_yunyun_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 95,
+    "head": 2,
+    "name": "미츠루기",
+    "rewardIds": [
+      95
+    ],
+    "icon": "UI_Card_KSB_mitsurugi_Icon.tga",
+    "art": "UI_Card_KSB_mitsurugi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 147,
+    "head": 3,
+    "name": "오쿠소라 아야네",
+    "rewardIds": [
+      147,
+      152,
+      159,
+      169,
+      170,
+      177,
+      178,
+      179,
+      192,
+      193,
+      194,
+      201,
+      202,
+      203
+    ],
+    "icon": "UI_Card_BAM2_23005_Icon.tga",
+    "art": "UI_Card_BAM1_23005_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 148,
+    "head": 3,
+    "name": "스나오오카미 시로코",
+    "rewardIds": [
+      148,
+      156,
+      180,
+      181,
+      182,
+      195,
+      196,
+      197,
+      204,
+      205,
+      206,
+      213,
+      214,
+      215
+    ],
+    "icon": "UI_Card_BAS1_10010_Icon.tga",
+    "art": "UI_Card_BAS1_10010_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 149,
+    "head": 3,
+    "name": "쿠로미 세리카",
+    "rewardIds": [
+      149,
+      155,
+      167,
+      168,
+      183,
+      184,
+      185,
+      207,
+      208,
+      209
+    ],
+    "icon": "UI_Card_BAM2_13008_Icon.tga",
+    "art": "UI_Card_BAM1_13008_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 150,
+    "head": 3,
+    "name": "이자요이 노노미",
+    "rewardIds": [
+      150,
+      158,
+      186,
+      187,
+      188
+    ],
+    "icon": "UI_Card_BAM2_13004_Icon.tga",
+    "art": "UI_Card_BAM1_13004_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 151,
+    "head": 3,
+    "name": "타카나시 호시노",
+    "rewardIds": [
+      151,
+      154,
+      157,
+      189,
+      190,
+      191,
+      198,
+      199,
+      200,
+      210,
+      211,
+      212,
+      216,
+      217,
+      218
+    ],
+    "icon": "UI_Card_BAM2_10005_Icon.tga",
+    "art": "UI_Card_BAM1_10005_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 153,
+    "head": 3,
+    "name": "아지타니 히후미",
+    "rewardIds": [
+      153,
+      160
+    ],
+    "icon": "UI_Card_BAM2_10003_Icon.tga",
+    "art": "UI_Card_BAM1_10003_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 161,
+    "head": 3,
+    "name": "리쿠하치마 아루",
+    "rewardIds": [
+      161,
+      165
+    ],
+    "icon": "UI_Card_BAM2_10000_Icon.tga",
+    "art": "UI_Card_BAM1_10000_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 162,
+    "head": 3,
+    "name": "오니카타 카요코",
+    "rewardIds": [
+      162,
+      166,
+      172,
+      173
+    ],
+    "icon": "UI_Card_BAM2_13005_Icon.tga",
+    "art": "UI_Card_BAM1_13005_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 163,
+    "head": 3,
+    "name": "이구사 하루카",
+    "rewardIds": [
+      163,
+      174,
+      175
+    ],
+    "icon": "UI_Card_BAM2_16000_Icon.tga",
+    "art": "UI_Card_BAM1_16000_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 164,
+    "head": 3,
+    "name": "아사기 무츠키",
+    "rewardIds": [
+      164,
+      171,
+      176
+    ],
+    "icon": "UI_Card_BAM2_13006_Icon.tga",
+    "art": "UI_Card_BAM1_13006_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 219,
+    "head": 4,
+    "name": "우이하루 카자리",
+    "rewardIds": [
+      219,
+      224,
+      229,
+      236,
+      240,
+      247,
+      248
+    ],
+    "icon": "UI_Card_RGT_IF_uiharu_Icon.tga",
+    "art": "UI_Card_RGT_IF_uiharu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 220,
+    "head": 4,
+    "name": "미사카 미코토",
+    "rewardIds": [
+      220,
+      225,
+      228,
+      238,
+      239,
+      249,
+      250,
+      251,
+      255,
+      256,
+      257,
+      261,
+      262,
+      263,
+      267,
+      268,
+      269,
+      273,
+      274,
+      275,
+      282,
+      283,
+      284,
+      291,
+      292,
+      293
+    ],
+    "icon": "UI_Card_RGO1_mikoto_Icon.tga",
+    "art": "UI_Card_RGO1_mikoto_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 221,
+    "head": 4,
+    "name": "시라이 쿠로코",
+    "rewardIds": [
+      221,
+      227,
+      235,
+      243
+    ],
+    "icon": "UI_Card_RGO1_kuroko_Icon.tga",
+    "art": "UI_Card_RGO1_kuroko_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 222,
+    "head": 4,
+    "name": "카미조 토우마",
+    "rewardIds": [
+      222,
+      234,
+      244,
+      270,
+      271,
+      272,
+      276,
+      277,
+      278,
+      279,
+      280,
+      281,
+      285,
+      286,
+      287
+    ],
+    "icon": "UI_Card_RGT_37_Icon.tga",
+    "art": "UI_Card_RGT_37_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 223,
+    "head": 4,
+    "name": "사텐 루이코",
+    "rewardIds": [
+      223,
+      226,
+      241,
+      242
+    ],
+    "icon": "UI_Card_RGT_11_Icon.tga",
+    "art": "UI_Card_RGT_11_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 230,
+    "head": 4,
+    "name": "콘고 미츠코",
+    "rewardIds": [
+      230
+    ],
+    "icon": "UI_Card_RGT_34_Icon.tga",
+    "art": "UI_Card_RGT_34_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 231,
+    "head": 4,
+    "name": "완나이 키누호",
+    "rewardIds": [
+      231
+    ],
+    "icon": "UI_Card_RGT_35_Icon.tga",
+    "art": "UI_Card_RGT_35_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 232,
+    "head": 4,
+    "name": "아와츠키 마아야",
+    "rewardIds": [
+      232
+    ],
+    "icon": "UI_Card_RGT_36_Icon.tga",
+    "art": "UI_Card_RGT_36_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 233,
+    "head": 4,
+    "name": "소기이타 군하",
+    "rewardIds": [
+      233
+    ],
+    "icon": "UI_Card_RGT_38_Icon.tga",
+    "art": "UI_Card_RGT_38_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 237,
+    "head": 4,
+    "name": "테츠소 츠즈리",
+    "rewardIds": [
+      237,
+      245,
+      246
+    ],
+    "icon": "UI_Card_SUP5_tessou_Icon.tga",
+    "art": "UI_Card_SUP5_tessou_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 252,
+    "head": 4,
+    "name": "미사카 동생",
+    "rewardIds": [
+      252,
+      253,
+      254,
+      288,
+      289,
+      290
+    ],
+    "icon": "UI_Card_RGT_39_Icon.tga",
+    "art": "UI_Card_RGT_39_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 258,
+    "head": 4,
+    "name": "액셀러레이터",
+    "rewardIds": [
+      258,
+      259,
+      260
+    ],
+    "icon": "UI_Card_RGO1_accelerator_Icon.tga",
+    "art": "UI_Card_RGO1_accelerator_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 264,
+    "head": 4,
+    "name": "누노타바 시노부",
+    "rewardIds": [
+      264,
+      265,
+      266
+    ],
+    "icon": "UI_Card_RGS_nunotaba_Icon.tga",
+    "art": "UI_Card_RGS_nunotaba_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 294,
+    "head": 5,
+    "name": "카나메 마도카",
+    "rewardIds": [
+      294,
+      301,
+      308,
+      315,
+      316,
+      317,
+      318,
+      319,
+      320,
+      324,
+      325,
+      326,
+      345,
+      346,
+      347,
+      351,
+      352,
+      353
+    ],
+    "icon": "UI_Card_MEU10_madoka_Icon.tga",
+    "art": "UI_Card_MEU10_madoka_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 295,
+    "head": 5,
+    "name": "토모에 마미",
+    "rewardIds": [
+      295,
+      300,
+      307,
+      309,
+      314,
+      321,
+      322,
+      323
+    ],
+    "icon": "UI_Card_MEU10_mami_Icon.tga",
+    "art": "UI_Card_MEU10_mami_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 296,
+    "head": 5,
+    "name": "아케미 호무라",
+    "rewardIds": [
+      296,
+      306,
+      311,
+      333,
+      334,
+      342,
+      343,
+      344,
+      348,
+      349,
+      350,
+      354,
+      355,
+      356
+    ],
+    "icon": "UI_Card_MEU10_homura_Icon.tga",
+    "art": "UI_Card_MEU10_homura_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 297,
+    "head": 5,
+    "name": "미키 사야카",
+    "rewardIds": [
+      297,
+      305,
+      312,
+      327,
+      328,
+      329,
+      336,
+      337,
+      338
+    ],
+    "icon": "UI_Card_MEU10_sayaka_Icon.tga",
+    "art": "UI_Card_MEU10_sayaka_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 298,
+    "head": 5,
+    "name": "사쿠라 쿄코",
+    "rewardIds": [
+      298,
+      310,
+      330,
+      331,
+      332,
+      339,
+      340,
+      341
+    ],
+    "icon": "UI_Card_MEU10_kyoko_Icon.tga",
+    "art": "UI_Card_MEU10_kyoko_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 299,
+    "head": 5,
+    "name": "큐베",
+    "rewardIds": [
+      299
+    ],
+    "icon": "UI_Card_PMM_kyube_Icon.tga",
+    "art": "UI_Card_PMM_kyube_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 302,
+    "head": 5,
+    "name": "카나메 준코",
+    "rewardIds": [
+      302
+    ],
+    "icon": "UI_Card_SUP5_junko_Icon.tga",
+    "art": "UI_Card_SUP5_junko_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 303,
+    "head": 5,
+    "name": "카나메 토모히사",
+    "rewardIds": [
+      303
+    ],
+    "icon": "UI_Card_SUP5_tomohisa_Icon.tga",
+    "art": "UI_Card_SUP5_tomohisa_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 304,
+    "head": 5,
+    "name": "시즈키 히토미",
+    "rewardIds": [
+      304,
+      313
+    ],
+    "icon": "UI_Card_SUP5_hitomi_Icon.tga",
+    "art": "UI_Card_SUP5_hitomi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 335,
+    "head": 5,
+    "name": "소울 젬",
+    "rewardIds": [
+      335
+    ],
+    "icon": "UI_Card_ITEM1_SayakaSoulGem_Icon.tga",
+    "art": "UI_Card_ITEM1_SayakaSoulGem_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 357,
+    "head": 6,
+    "name": "에길",
+    "rewardIds": [
+      357,
+      365,
+      377
+    ],
+    "icon": "UI_Card_SAOFD_agil_Icon.tga",
+    "art": "UI_Card_SAOFD_agil_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 358,
+    "head": 6,
+    "name": "키리토",
+    "rewardIds": [
+      358,
+      364,
+      373,
+      378,
+      383,
+      384,
+      385,
+      392,
+      393,
+      394,
+      407,
+      408,
+      409,
+      416,
+      417,
+      418,
+      419,
+      420,
+      421
+    ],
+    "icon": "UI_Card_SAO1_kirito_Icon.tga",
+    "art": "UI_Card_SAO1_kirito_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 359,
+    "head": 6,
+    "name": "아스나",
+    "rewardIds": [
+      359,
+      363,
+      369,
+      372,
+      379,
+      386,
+      387,
+      388,
+      398,
+      399,
+      400,
+      404,
+      405,
+      406,
+      410,
+      411,
+      412,
+      422,
+      423,
+      424
+    ],
+    "icon": "UI_Card_SAO1_asuna_Icon.tga",
+    "art": "UI_Card_SAO1_asuna_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 360,
+    "head": 6,
+    "name": "리즈벳",
+    "rewardIds": [
+      360,
+      375,
+      401,
+      402,
+      403
+    ],
+    "icon": "UI_Card_SAOFD_lisbeth_Icon.tga",
+    "art": "UI_Card_SAOFD_lisbeth_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 361,
+    "head": 6,
+    "name": "시리카",
+    "rewardIds": [
+      361,
+      395,
+      396,
+      397
+    ],
+    "icon": "UI_Card_SAOFD_silica_Icon.tga",
+    "art": "UI_Card_SAOFD_silica_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 362,
+    "head": 6,
+    "name": "클라인",
+    "rewardIds": [
+      362,
+      366,
+      376
+    ],
+    "icon": "UI_Card_SAOFD_klein_Icon.tga",
+    "art": "UI_Card_SAOFD_klein_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 367,
+    "head": 6,
+    "name": "사치",
+    "rewardIds": [
+      367,
+      389,
+      390,
+      391
+    ],
+    "icon": "UI_Card_SAOFD_sachi_Icon.tga",
+    "art": "UI_Card_SAOFD_sachi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 368,
+    "head": 6,
+    "name": "니시다",
+    "rewardIds": [
+      368,
+      380,
+      381
+    ],
+    "icon": "UI_Card_NSU9_nishida_Icon.tga",
+    "art": "UI_Card_NSU9_nishida_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 370,
+    "head": 6,
+    "name": "아르고",
+    "rewardIds": [
+      370,
+      371,
+      374,
+      382
+    ],
+    "icon": "UI_Card_SAOFD_argo_Icon.tga",
+    "art": "UI_Card_SAOFD_argo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 413,
+    "head": 6,
+    "name": "유이",
+    "rewardIds": [
+      413,
+      414,
+      415
+    ],
+    "icon": "UI_Card_SAOFD_yui_Icon.tga",
+    "art": "UI_Card_SAOFD_yui_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 425,
+    "head": 7,
+    "name": "라캄",
+    "rewardIds": [
+      425,
+      433,
+      440,
+      451,
+      452,
+      453,
+      469,
+      470,
+      471
+    ],
+    "icon": "UI_Card_GBF_rackam_Icon.tga",
+    "art": "UI_Card_GBF_rackam_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 426,
+    "head": 7,
+    "name": "카타리나",
+    "rewardIds": [
+      426,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462
+    ],
+    "icon": "UI_Card_GBF_katalina_Icon.tga",
+    "art": "UI_Card_GBF_katalina_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 427,
+    "head": 7,
+    "name": "오이겐",
+    "rewardIds": [
+      427,
+      441
+    ],
+    "icon": "UI_Card_GBF_eugen_Icon.tga",
+    "art": "UI_Card_GBF_eugen_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 428,
+    "head": 7,
+    "name": "이오",
+    "rewardIds": [
+      428,
+      439,
+      447
+    ],
+    "icon": "UI_Card_GBF_io_Icon.tga",
+    "art": "UI_Card_GBF_io_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 429,
+    "head": 7,
+    "name": "나루메아",
+    "rewardIds": [
+      429
+    ],
+    "icon": "UI_Card_GBF_narmaya_Icon.tga",
+    "art": "UI_Card_GBF_narmaya_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 430,
+    "head": 7,
+    "name": "베인",
+    "rewardIds": [
+      430
+    ],
+    "icon": "UI_Card_GBF_vane_Icon.tga",
+    "art": "UI_Card_GBF_vane_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 431,
+    "head": 7,
+    "name": "제타",
+    "rewardIds": [
+      431
+    ],
+    "icon": "UI_Card_GBF_zeta_Icon.tga",
+    "art": "UI_Card_GBF_zeta_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 432,
+    "head": 7,
+    "name": "칼리오스트로",
+    "rewardIds": [
+      432
+    ],
+    "icon": "UI_Card_GBF_cagliostro_Icon.tga",
+    "art": "UI_Card_GBF_cagliostro_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 434,
+    "head": 7,
+    "name": "로제타",
+    "rewardIds": [
+      434,
+      442
+    ],
+    "icon": "UI_Card_GBF_rosetta_Icon.tga",
+    "art": "UI_Card_GBF_rosetta_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 435,
+    "head": 7,
+    "name": "롤란",
+    "rewardIds": [
+      435,
+      443,
+      454,
+      455,
+      456,
+      463,
+      464,
+      465,
+      475,
+      476,
+      477,
+      484,
+      485,
+      486
+    ],
+    "icon": "UI_Card_GBF_rolan_Icon.tga",
+    "art": "UI_Card_GBF_rolan_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 436,
+    "head": 7,
+    "name": "랜슬롯",
+    "rewardIds": [
+      436,
+      444
+    ],
+    "icon": "UI_Card_GBF_lancelot_Icon.tga",
+    "art": "UI_Card_GBF_lancelot_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 437,
+    "head": 7,
+    "name": "퍼시벌",
+    "rewardIds": [
+      437,
+      445
+    ],
+    "icon": "UI_Card_GBF_percival_Icon.tga",
+    "art": "UI_Card_GBF_percival_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 438,
+    "head": 7,
+    "name": "요달라하",
+    "rewardIds": [
+      438,
+      446
+    ],
+    "icon": "UI_Card_GBF_yodarha_Icon.tga",
+    "art": "UI_Card_GBF_yodarha_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 448,
+    "head": 7,
+    "name": "루리아",
+    "rewardIds": [
+      448,
+      449,
+      450,
+      466,
+      467,
+      468,
+      478,
+      479,
+      480,
+      487,
+      488,
+      489
+    ],
+    "icon": "UI_Card_GBF_lyria_Icon.tga",
+    "art": "UI_Card_GBF_lyria_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 472,
+    "head": 7,
+    "name": "이드",
+    "rewardIds": [
+      472,
+      473,
+      474,
+      481,
+      482,
+      483
+    ],
+    "icon": "UI_Card_GBF_id_Icon.tga",
+    "art": "UI_Card_GBF_id_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 490,
+    "head": 0,
+    "name": "야토",
+    "rewardIds": [
+      490
+    ],
+    "icon": "UI_Card_NRO1_yato_Icon.tga",
+    "art": "UI_Card_NRO1_yato_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 491,
+    "head": 0,
+    "name": "유키네",
+    "rewardIds": [
+      491
+    ],
+    "icon": "UI_Card_FaceFix_yukine_Icon.tga",
+    "art": "UI_Card_NRG_yukine_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 492,
+    "head": 0,
+    "name": "이키 히요리",
+    "rewardIds": [
+      492,
+      500
+    ],
+    "icon": "UI_Card_NRG_hiyori_Icon.tga",
+    "art": "UI_Card_NRG_hiyori_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 493,
+    "head": 0,
+    "name": "호로",
+    "rewardIds": [
+      493,
+      495
+    ],
+    "icon": "UI_Card_SWO1_holo_Icon.tga",
+    "art": "UI_Card_SWO1_holo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 494,
+    "head": 0,
+    "name": "크래프트 로렌스",
+    "rewardIds": [
+      494
+    ],
+    "icon": "UI_Card_SWO1_lawrence_Icon.tga",
+    "art": "UI_Card_SWO1_lawrence_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 496,
+    "head": 0,
+    "name": "라그나 더 블러드엣지",
+    "rewardIds": [
+      496,
+      497,
+      501
+    ],
+    "icon": "UI_Card_BB_ragna-cf_Icon.tga",
+    "art": "UI_Card_BB_ragna-cf_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 498,
+    "head": 0,
+    "name": "나즈린",
+    "rewardIds": [
+      498,
+      499
+    ],
+    "icon": "UI_Card_LW_nazrin-l1_Icon.tga",
+    "art": "UI_Card_LW_nazrin-l1_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 502,
+    "head": 8,
+    "name": "해피",
+    "rewardIds": [
+      502
+    ],
+    "icon": "UI_Card_FT_happy_Icon.tga",
+    "art": "UI_Card_FT_happy_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 503,
+    "head": 8,
+    "name": "나츠 드래그닐",
+    "rewardIds": [
+      503,
+      510,
+      528,
+      529,
+      530,
+      549,
+      550,
+      551
+    ],
+    "icon": "UI_Card_FT_nastu-dragneel_Icon.tga",
+    "art": "UI_Card_FT_nastu-dragneel_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 504,
+    "head": 8,
+    "name": "루시 하트필리아",
+    "rewardIds": [
+      504,
+      516,
+      520,
+      525,
+      526,
+      527,
+      540,
+      541,
+      542,
+      546,
+      547,
+      548,
+      552,
+      553,
+      554,
+      564,
+      565,
+      566,
+      567,
+      568,
+      569
+    ],
+    "icon": "UI_Card_FT_lucy-heartfilia_Icon.tga",
+    "art": "UI_Card_FT_lucy-heartfilia_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 505,
+    "head": 8,
+    "name": "그레이 풀버스터",
+    "rewardIds": [
+      505,
+      517,
+      534,
+      535,
+      536,
+      558,
+      559,
+      560
+    ],
+    "icon": "UI_Card_FT_gray-fullbuster_Icon.tga",
+    "art": "UI_Card_FT_gray-fullbuster_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 506,
+    "head": 8,
+    "name": "엘자 스칼렛",
+    "rewardIds": [
+      506,
+      507,
+      519,
+      537,
+      538,
+      539,
+      555,
+      556,
+      557
+    ],
+    "icon": "UI_Card_FT_erza-scarlet_Icon.tga",
+    "art": "UI_Card_FT_erza-scarlet_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 508,
+    "head": 8,
+    "name": "웬디 마벨",
+    "rewardIds": [
+      508,
+      518
+    ],
+    "icon": "UI_Card_FT_wendy-marvell_Icon.tga",
+    "art": "UI_Card_FT_wendy-marvell_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 509,
+    "head": 8,
+    "name": "샤를",
+    "rewardIds": [
+      509,
+      521
+    ],
+    "icon": "UI_Card_FT_charles_Icon.tga",
+    "art": "UI_Card_FT_charles_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 511,
+    "head": 8,
+    "name": "가질 레드폭스",
+    "rewardIds": [
+      511,
+      523
+    ],
+    "icon": "UI_Card_FTG_gajeel_Icon.tga",
+    "art": "UI_Card_FTG_gajeel_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 512,
+    "head": 8,
+    "name": "쥬비아 록서",
+    "rewardIds": [
+      512
+    ],
+    "icon": "UI_Card_FTG_juvia_Icon.tga",
+    "art": "UI_Card_FTG_juvia_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 513,
+    "head": 8,
+    "name": "미라젠 스트라우스",
+    "rewardIds": [
+      513,
+      522,
+      524,
+      531,
+      532,
+      533
+    ],
+    "icon": "UI_Card_FTG_mirajane_Icon.tga",
+    "art": "UI_Card_FTG_mirajane_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 514,
+    "head": 8,
+    "name": "렉서스 드레아",
+    "rewardIds": [
+      514
+    ],
+    "icon": "UI_Card_FTG_laxus_Icon.tga",
+    "art": "UI_Card_FTG_laxus_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 515,
+    "head": 8,
+    "name": "길다트 클라이브",
+    "rewardIds": [
+      515
+    ],
+    "icon": "UI_Card_FTG_gildarts_Icon.tga",
+    "art": "UI_Card_FTG_gildarts_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 543,
+    "head": 8,
+    "name": "마카로프",
+    "rewardIds": [
+      543,
+      544,
+      545,
+      561,
+      562,
+      563
+    ],
+    "icon": "UI_Card_QU7_makarov_Icon.tga",
+    "art": "UI_Card_QU7_makarov_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 570,
+    "head": 9,
+    "name": "콘",
+    "rewardIds": [
+      570,
+      594
+    ],
+    "icon": "UI_Card_BBS_kon_Icon.tga",
+    "art": "UI_Card_BBS_kon_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 571,
+    "head": 9,
+    "name": "쿠로사키 이치고",
+    "rewardIds": [
+      571,
+      578,
+      598,
+      599,
+      600,
+      604,
+      605,
+      606,
+      619,
+      620,
+      621,
+      628,
+      629,
+      630,
+      634,
+      635,
+      636,
+      640,
+      641,
+      642
+    ],
+    "icon": "UI_Card_BBO1_ichigo_Icon.tga",
+    "art": "UI_Card_BBO1_ichigo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 572,
+    "head": 9,
+    "name": "이시다 우류",
+    "rewardIds": [
+      572,
+      579,
+      588
+    ],
+    "icon": "UI_Card_BBO1_uryu_Icon.tga",
+    "art": "UI_Card_BBO1_uryu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 573,
+    "head": 9,
+    "name": "이노우에 오리히메",
+    "rewardIds": [
+      573,
+      589,
+      601,
+      602,
+      603
+    ],
+    "icon": "UI_Card_BBO2_orihime_Icon.tga",
+    "art": "UI_Card_BBO2_orihime_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 574,
+    "head": 9,
+    "name": "시호인 요루이치",
+    "rewardIds": [
+      574,
+      610,
+      611,
+      612,
+      625,
+      626,
+      627
+    ],
+    "icon": "UI_Card_BBO2_yoruichi_Icon.tga",
+    "art": "UI_Card_BBO2_yoruichi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 575,
+    "head": 9,
+    "name": "쿠치키 루키아",
+    "rewardIds": [
+      575,
+      587,
+      595,
+      596,
+      597,
+      622,
+      623,
+      624,
+      637,
+      638,
+      639
+    ],
+    "icon": "UI_Card_BBO1_rukia_Icon.tga",
+    "art": "UI_Card_BBO1_rukia_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 576,
+    "head": 9,
+    "name": "우라하라 키스케",
+    "rewardIds": [
+      576,
+      590,
+      607,
+      608,
+      609
+    ],
+    "icon": "UI_Card_BBO2_urahara_Icon.tga",
+    "art": "UI_Card_BBO2_urahara_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 577,
+    "head": 9,
+    "name": "사도 야스토라",
+    "rewardIds": [
+      577,
+      591
+    ],
+    "icon": "UI_Card_BBO2_sado_Icon.tga",
+    "art": "UI_Card_BBO2_sado_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 580,
+    "head": 9,
+    "name": "쿠로사키 유즈",
+    "rewardIds": [
+      580,
+      592
+    ],
+    "icon": "UI_Card_QU7_yuzu_Icon.tga",
+    "art": "UI_Card_QU7_yuzu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 581,
+    "head": 9,
+    "name": "아리사와 타츠키",
+    "rewardIds": [
+      581
+    ],
+    "icon": "UI_Card_SUP5_tatsuki_Icon.tga",
+    "art": "UI_Card_SUP5_tatsuki_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 582,
+    "head": 9,
+    "name": "돈 칸온지",
+    "rewardIds": [
+      582
+    ],
+    "icon": "UI_Card_BBS_kanonji_Icon.tga",
+    "art": "UI_Card_BBS_kanonji_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 583,
+    "head": 9,
+    "name": "쿠로사키 카린",
+    "rewardIds": [
+      583
+    ],
+    "icon": "UI_Card_SUP5_karin_Icon.tga",
+    "art": "UI_Card_SUP5_karin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 584,
+    "head": 9,
+    "name": "쿠로사키 잇신",
+    "rewardIds": [
+      584
+    ],
+    "icon": "UI_Card_BBO2_isshin_Icon.tga",
+    "art": "UI_Card_BBO2_isshin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 585,
+    "head": 9,
+    "name": "츠무기야 우루루",
+    "rewardIds": [
+      585
+    ],
+    "icon": "UI_Card_BBS_ururu_Icon.tga",
+    "art": "UI_Card_BBS_ururu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 586,
+    "head": 9,
+    "name": "아사노 케이고",
+    "rewardIds": [
+      586
+    ],
+    "icon": "UI_Card_BKQ11_keigo_Icon.tga",
+    "art": "UI_Card_BKQ11_keigo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 593,
+    "head": 9,
+    "name": "하나카리 진타",
+    "rewardIds": [
+      593
+    ],
+    "icon": "UI_Card_BBS_jinta_Icon.tga",
+    "art": "UI_Card_BBS_jinta_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 613,
+    "head": 9,
+    "name": "야마다 하나타로",
+    "rewardIds": [
+      613,
+      614,
+      615
+    ],
+    "icon": "UI_Card_BBS_hanataro_Icon.tga",
+    "art": "UI_Card_BBS_hanataro_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 616,
+    "head": 9,
+    "name": "아바라이 렌지",
+    "rewardIds": [
+      616,
+      617,
+      618
+    ],
+    "icon": "UI_Card_BBO1_renji_Icon.tga",
+    "art": "UI_Card_BBO1_renji_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 631,
+    "head": 9,
+    "name": "쿠치키 뱌쿠야",
+    "rewardIds": [
+      631,
+      632,
+      633
+    ],
+    "icon": "UI_Card_BBO1_byakuya_Icon.tga",
+    "art": "UI_Card_BBO1_byakuya_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 643,
+    "head": 10,
+    "name": "미샤",
+    "rewardIds": [
+      643,
+      644,
+      652,
+      663,
+      672,
+      673,
+      674,
+      701,
+      702,
+      703,
+      704,
+      713,
+      715
+    ],
+    "icon": "UI_Card_Misha.tga",
+    "art": "UI_Card_Illustration_Misha.tga",
+    "ending": false
+  },
+  {
+    "characterId": 645,
+    "head": 10,
+    "name": "어벤츄린",
+    "rewardIds": [
+      645,
+      646,
+      651,
+      690,
+      691,
+      692,
+      693,
+      694,
+      695
+    ],
+    "icon": "UI_Card_HSR_1304_Icon.tga",
+    "art": "UI_Card_HSR_1304_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 647,
+    "head": 10,
+    "name": "스파클",
+    "rewardIds": [
+      647,
+      654,
+      666
+    ],
+    "icon": "UI_Card_HSR_1306_Icon.tga",
+    "art": "UI_Card_HSR_1306_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 648,
+    "head": 10,
+    "name": "블랙 스완",
+    "rewardIds": [
+      648,
+      649,
+      664,
+      681,
+      682,
+      683,
+      685,
+      687,
+      688,
+      689
+    ],
+    "icon": "UI_Card_HSR_1307_Icon.tga",
+    "art": "UI_Card_HSR_1307_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 650,
+    "head": 10,
+    "name": "갤러거",
+    "rewardIds": [
+      650,
+      655,
+      665,
+      699
+    ],
+    "icon": "UI_Card_HSR_1301_Icon.tga",
+    "art": "UI_Card_HSR_1301_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 653,
+    "head": 10,
+    "name": "아케론",
+    "rewardIds": [
+      653,
+      669
+    ],
+    "icon": "UI_Card_HSR_1308_Icon.tga",
+    "art": "UI_Card_HSR_1308_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 656,
+    "head": 10,
+    "name": "제이드",
+    "rewardIds": [
+      656,
+      670
+    ],
+    "icon": "UI_Card_HSR_1314_Icon.tga",
+    "art": "UI_Card_HSR_1314_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 657,
+    "head": 10,
+    "name": "로빈",
+    "rewardIds": [
+      657,
+      658,
+      667,
+      705,
+      711,
+      716
+    ],
+    "icon": "UI_Card_HSR_1309_Icon.tga",
+    "art": "UI_Card_HSR_1309_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 659,
+    "head": 10,
+    "name": "부트힐",
+    "rewardIds": [
+      659,
+      660,
+      662,
+      671
+    ],
+    "icon": "UI_Card_HSR_1315_Icon.tga",
+    "art": "UI_Card_HSR_1315_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 661,
+    "head": 10,
+    "name": "반디",
+    "rewardIds": [
+      661,
+      668,
+      675,
+      676,
+      677,
+      678,
+      679,
+      680,
+      684,
+      686,
+      696,
+      697,
+      698,
+      700,
+      707,
+      712,
+      714
+    ],
+    "icon": "UI_Card_HSR_1310_Icon.tga",
+    "art": "UI_Card_HSR_1310_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 706,
+    "head": 10,
+    "name": "선데이",
+    "rewardIds": [
+      706,
+      708,
+      709,
+      710
+    ],
+    "icon": "UI_Card_HSR_1313_Icon.tga",
+    "art": "UI_Card_HSR_1313_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 717,
+    "head": 11,
+    "name": "윈리 록벨",
+    "rewardIds": [
+      717,
+      720,
+      737,
+      749,
+      750,
+      751,
+      770,
+      771,
+      772
+    ],
+    "icon": "UI_Card_FMO3_winry_Icon.tga",
+    "art": "UI_Card_FMO3_winry_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 718,
+    "head": 11,
+    "name": "에드워드 엘릭",
+    "rewardIds": [
+      718,
+      743,
+      744,
+      745,
+      752,
+      753,
+      754,
+      767,
+      768,
+      769,
+      788,
+      789,
+      790
+    ],
+    "icon": "UI_Card_FCU8_edward_Icon.tga",
+    "art": "UI_Card_FCU8_edward_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 719,
+    "head": 11,
+    "name": "알폰스 엘릭",
+    "rewardIds": [
+      719,
+      740,
+      741,
+      742,
+      746,
+      747,
+      748,
+      755,
+      756,
+      757,
+      776,
+      777,
+      778,
+      785,
+      786,
+      787,
+      791,
+      792,
+      793
+    ],
+    "icon": "UI_Card_FCU8_alphonse_Icon.tga",
+    "art": "UI_Card_FCU8_alphonse_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 721,
+    "head": 11,
+    "name": "셰스카",
+    "rewardIds": [
+      721,
+      731
+    ],
+    "icon": "UI_Card_FMA_21_Icon.tga",
+    "art": "UI_Card_FMA_21_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 722,
+    "head": 11,
+    "name": "알렉스 루이 암스트롱",
+    "rewardIds": [
+      722,
+      739
+    ],
+    "icon": "UI_Card_FMO1_armstrong_Icon.tga",
+    "art": "UI_Card_FMO1_armstrong_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 723,
+    "head": 11,
+    "name": "이즈미 커티스",
+    "rewardIds": [
+      723,
+      724,
+      758,
+      759,
+      760
+    ],
+    "icon": "UI_Card_FMO2_izumi_Icon.tga",
+    "art": "UI_Card_FMO2_izumi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 725,
+    "head": 11,
+    "name": "로이 머스탱",
+    "rewardIds": [
+      725,
+      764,
+      765,
+      766,
+      779,
+      780,
+      781
+    ],
+    "icon": "UI_Card_RMU12_roy_Icon.tga",
+    "art": "UI_Card_RMU12_roy_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 726,
+    "head": 11,
+    "name": "리자 호크아이",
+    "rewardIds": [
+      726,
+      733
+    ],
+    "icon": "UI_Card_FMO3_riza_Icon.tga",
+    "art": "UI_Card_FMO3_riza_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 727,
+    "head": 11,
+    "name": "마스 휴즈",
+    "rewardIds": [
+      727,
+      732
+    ],
+    "icon": "UI_Card_FMO1_hughes_Icon.tga",
+    "art": "UI_Card_FMO1_hughes_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 728,
+    "head": 11,
+    "name": "피나코 록벨",
+    "rewardIds": [
+      728,
+      734
+    ],
+    "icon": "UI_Card_FMA_13_Icon.tga",
+    "art": "UI_Card_FMA_13_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 729,
+    "head": 11,
+    "name": "시그 커티스",
+    "rewardIds": [
+      729,
+      735
+    ],
+    "icon": "UI_Card_FMA_26_Icon.tga",
+    "art": "UI_Card_FMA_26_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 730,
+    "head": 11,
+    "name": "린 야오",
+    "rewardIds": [
+      730,
+      736
+    ],
+    "icon": "UI_Card_FMO2_lin_Icon.tga",
+    "art": "UI_Card_FMO2_lin_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 738,
+    "head": 11,
+    "name": "장 하보크",
+    "rewardIds": [
+      738
+    ],
+    "icon": "UI_Card_FMA_17_Icon.tga",
+    "art": "UI_Card_FMA_17_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 761,
+    "head": 11,
+    "name": "그리드",
+    "rewardIds": [
+      761,
+      762,
+      763
+    ],
+    "icon": "UI_Card_FMO3_greed_Icon.tga",
+    "art": "UI_Card_FMO3_greed_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 773,
+    "head": 11,
+    "name": "반 호엔하임",
+    "rewardIds": [
+      773,
+      774,
+      775,
+      782,
+      783,
+      784
+    ],
+    "icon": "UI_Card_FMO2_hohenheim_Icon.tga",
+    "art": "UI_Card_FMO2_hohenheim_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 794,
+    "head": 12,
+    "name": "칸자키 아오이",
+    "rewardIds": [
+      794,
+      800,
+      815,
+      816,
+      817
+    ],
+    "icon": "UI_Card_KNYS_aoi_Icon.tga",
+    "art": "UI_Card_KNYS_aoi_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 795,
+    "head": 12,
+    "name": "카마도 탄지로",
+    "rewardIds": [
+      795,
+      802,
+      807,
+      809,
+      810,
+      814,
+      827,
+      828,
+      829,
+      836,
+      837,
+      838,
+      851,
+      852,
+      853,
+      854,
+      855,
+      856
+    ],
+    "icon": "UI_Card_KMO1_tanjiro_Icon.tga",
+    "art": "UI_Card_KMO1_tanjiro_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 796,
+    "head": 12,
+    "name": "츠유리 카나오",
+    "rewardIds": [
+      796,
+      801,
+      811,
+      812,
+      818,
+      819,
+      820,
+      824,
+      825,
+      826,
+      830,
+      831,
+      832
+    ],
+    "icon": "UI_Card_KNY_kanawo_Icon.tga",
+    "art": "UI_Card_KNY_kanawo_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 797,
+    "head": 12,
+    "name": "코쵸 시노부",
+    "rewardIds": [
+      797,
+      803,
+      821,
+      822,
+      823
+    ],
+    "icon": "UI_Card_KMO2_shinobu_Icon.tga",
+    "art": "UI_Card_KMO2_shinobu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 798,
+    "head": 12,
+    "name": "아가츠마 젠이츠",
+    "rewardIds": [
+      798,
+      804
+    ],
+    "icon": "UI_Card_KMO1_zenitsu_Icon.tga",
+    "art": "UI_Card_KMO1_zenitsu_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 799,
+    "head": 12,
+    "name": "하시비라 이노스케",
+    "rewardIds": [
+      799,
+      805,
+      813,
+      842,
+      843,
+      844
+    ],
+    "icon": "UI_Card_KMO2_inosuke_Icon.tga",
+    "art": "UI_Card_KMO2_inosuke_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 806,
+    "head": 12,
+    "name": "무라타",
+    "rewardIds": [
+      806
+    ],
+    "icon": "UI_Card_FaceFix_murata_Icon.tga",
+    "art": "UI_Card_KNYG_murata_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 808,
+    "head": 12,
+    "name": "카마도 네즈코",
+    "rewardIds": [
+      808,
+      839,
+      840,
+      841
+    ],
+    "icon": "UI_Card_KMO1_nezuko_Icon.tga",
+    "art": "UI_Card_KMO1_nezuko_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 833,
+    "head": 12,
+    "name": "렌고쿠 쿄쥬로",
+    "rewardIds": [
+      833,
+      834,
+      835,
+      845,
+      846,
+      847,
+      848,
+      849,
+      850
+    ],
+    "icon": "UI_Card_KMO2_rengoku_Icon.tga",
+    "art": "UI_Card_KMO2_rengoku_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 857,
+    "head": 13,
+    "name": "콧코로",
+    "rewardIds": [
+      857,
+      860,
+      863,
+      866,
+      871,
+      874,
+      880,
+      882,
+      883,
+      884,
+      891,
+      892,
+      893,
+      909,
+      910,
+      911
+    ],
+    "icon": "UI_Card_PCR_105931_Icon.tga",
+    "art": "UI_Card_PCR_105931_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 858,
+    "head": 13,
+    "name": "페코린느",
+    "rewardIds": [
+      858,
+      859,
+      864,
+      885,
+      886,
+      887,
+      897,
+      898,
+      899,
+      906,
+      907,
+      908,
+      918,
+      919,
+      920
+    ],
+    "icon": "UI_Card_PCR_105831_Icon.tga",
+    "art": "UI_Card_PCR_105831_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 861,
+    "head": 13,
+    "name": "캬루",
+    "rewardIds": [
+      861,
+      862,
+      872,
+      873,
+      875,
+      888,
+      889,
+      890,
+      900,
+      901,
+      902,
+      912,
+      913,
+      914,
+      921,
+      922,
+      923
+    ],
+    "icon": "UI_Card_PCR_106031_Icon.tga",
+    "art": "UI_Card_PCR_106031_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 865,
+    "head": 13,
+    "name": "아오이",
+    "rewardIds": [
+      865
+    ],
+    "icon": "UI_Card_PCR_104031_Icon.tga",
+    "art": "UI_Card_PCR_104031_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 867,
+    "head": 13,
+    "name": "츠무기",
+    "rewardIds": [
+      867,
+      876
+    ],
+    "icon": "UI_Card_PCR_105431_Icon.tga",
+    "art": "UI_Card_PCR_105431_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 868,
+    "head": 13,
+    "name": "카스미",
+    "rewardIds": [
+      868,
+      877,
+      878
+    ],
+    "icon": "UI_Card_PCR_101431_Icon.tga",
+    "art": "UI_Card_PCR_101431_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 869,
+    "head": 13,
+    "name": "모니카",
+    "rewardIds": [
+      869,
+      879
+    ],
+    "icon": "UI_Card_PCR_105331_Icon.tga",
+    "art": "UI_Card_PCR_105331_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 870,
+    "head": 13,
+    "name": "노조미",
+    "rewardIds": [
+      870,
+      881
+    ],
+    "icon": "UI_Card_PCR_102931_Icon.tga",
+    "art": "UI_Card_PCR_102931_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 894,
+    "head": 13,
+    "name": "유우키",
+    "rewardIds": [
+      894,
+      895,
+      896,
+      903,
+      904,
+      905,
+      915,
+      916,
+      917
+    ],
+    "icon": "UI_Card_PCRS_yuuki_Icon.tga",
+    "art": "UI_Card_PCRS_yuuki_Art.tga",
+    "ending": false
+  },
+  {
+    "characterId": 924,
+    "head": 1,
+    "name": "함께 걷는 이상",
+    "rewardIds": [
+      924
+    ],
+    "icon": "UI_Card_Ending_fuyuki_Icon.tga",
+    "art": "UI_Card_Ending_fuyuki_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 925,
+    "head": 2,
+    "name": "돌아갈 집은 지켰다",
+    "rewardIds": [
+      925
+    ],
+    "icon": "UI_Card_Ending_axel_Icon.tga",
+    "art": "UI_Card_Ending_axel_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 926,
+    "head": 3,
+    "name": "다섯 자리가 있는 교실",
+    "rewardIds": [
+      926
+    ],
+    "icon": "UI_Card_Ending_abydos_Icon.tga",
+    "art": "UI_Card_Ending_abydos_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 927,
+    "head": 4,
+    "name": "번호 너머의 내일",
+    "rewardIds": [
+      927
+    ],
+    "icon": "UI_Card_Ending_academy_Icon.tga",
+    "art": "UI_Card_Ending_academy_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 928,
+    "head": 5,
+    "name": "이어지는 리본",
+    "rewardIds": [
+      928
+    ],
+    "icon": "UI_Card_Ending_mitakihara_Icon.tga",
+    "art": "UI_Card_Ending_mitakihara_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 929,
+    "head": 6,
+    "name": "현실로 이어진 약속",
+    "rewardIds": [
+      929
+    ],
+    "icon": "UI_Card_Ending_aincrad_Icon.tga",
+    "art": "UI_Card_Ending_aincrad_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 930,
+    "head": 7,
+    "name": "돌아온 안내인의 일지",
+    "rewardIds": [
+      930
+    ],
+    "icon": "UI_Card_Ending_zegagrande_Icon.tga",
+    "art": "UI_Card_Ending_zegagrande_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 931,
+    "head": 8,
+    "name": "내가 돌아올 길드",
+    "rewardIds": [
+      931
+    ],
+    "icon": "UI_Card_Ending_magnolia_Icon.tga",
+    "art": "UI_Card_Ending_magnolia_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 932,
+    "head": 9,
+    "name": "사신대행증",
+    "rewardIds": [
+      932
+    ],
+    "icon": "UI_Card_Ending_karakura_Icon.tga",
+    "art": "UI_Card_Ending_karakura_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 933,
+    "head": 10,
+    "name": "우린 꿈에서 깨어날 거니까",
+    "rewardIds": [
+      933
+    ],
+    "icon": "UI_Card_Ending_penacony_Icon.tga",
+    "art": "UI_Card_Ending_penacony_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 934,
+    "head": 11,
+    "name": "함께 돌아온 두 손",
+    "rewardIds": [
+      934
+    ],
+    "icon": "UI_Card_Ending_amestris_Icon.tga",
+    "art": "UI_Card_Ending_amestris_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 935,
+    "head": 12,
+    "name": "다음 새벽의 호흡",
+    "rewardIds": [
+      935
+    ],
+    "icon": "UI_Card_Ending_butterfly_Icon.tga",
+    "art": "UI_Card_Ending_butterfly_Art.tga",
+    "ending": true
+  },
+  {
+    "characterId": 936,
+    "head": 13,
+    "name": "네 사람이 앉는 식탁",
+    "rewardIds": [
+      936
+    ],
+    "icon": "UI_Card_Ending_gourmet_Icon.tga",
+    "art": "UI_Card_Ending_gourmet_Art.tga",
+    "ending": true
+  }
+]
