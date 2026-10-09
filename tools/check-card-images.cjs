@@ -40,6 +40,31 @@ for (const x of sources) {
   assert.equal(e.ProtoCardName[x.cardId], x.cardName);
   assert.equal(e.ProtoCardEnding[x.cardId], 1);
 }
+const fateReviewFile = path.join(root, 'content/card-images/fate-calm-review.json');
+if (fs.existsSync(fateReviewFile)) {
+  const fateReview = JSON.parse(fs.readFileSync(fateReviewFile, 'utf8'));
+  const replacements = JSON.parse(read('content/card-images/fate-calm-sources.json'));
+  assert.deepEqual(replacements.map(x=>x.cardId), [14,16,17,18,19,20,26]);
+  assert.equal(fateReview.animeOnly, true);
+  for (const x of fateReview.requestedExclusions) {
+    assert.equal(e.ProtoCardArt(x.characterId), 'war3mapImported\\' + x.icon);
+    assert.equal(e.ProtoCardIllustration(x.characterId), 'war3mapImported\\' + x.art);
+    for (const texture of x.textures) {
+      assert.equal(manifest.assets.find(a=>a.target===texture.target).sha256, texture.sha256,
+        '사용자가 유지하도록 지정한 그림이 변경됨 ' + x.name);
+    }
+  }
+  for (const x of replacements) {
+    assert.equal(e.ProtoCardKey[x.cardId], x.cardKey);
+    assert.ok(/^https:\/\/(www\.fate-sn\.com\/ubw\/story\/img\/|www\.fatestaynightusa\.com\/1st\/assets\/img\/character\/)/.test(x.sourceUrl),
+      '페이트 애니메이션 공식 장면 이외의 출처 ' + x.cardName);
+    for (const old of [x.oldIcon,x.oldArt]) assert.ok(!paths.has('war3mapImported\\'+old));
+    const a=x.artCrop, i=x.iconCrop;
+    assert.ok(i[0]>=a[0] && i[1]>=a[1] && i[2]<=a[2] && i[3]<=a[3], '얼굴 아이콘이 큰 그림과 다른 영역을 사용함');
+    assert.equal(a[2]-a[0],a[3]-a[1]);
+    assert.equal(i[2]-i[0],i[3]-i[1]);
+  }
+}
 // 실제 JASS Render를 모의 프레임에서 실행하여 목록과 큰 그림이 준비 중 표시로 빠지지 않는지 확인한다.
 e.ExpUIOpen(e.EXP_UI_CARDS);
 for (const x of index) {

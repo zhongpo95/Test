@@ -1,0 +1,352 @@
+[
+  {
+    "key": "vita-sakura",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_sakura.jpg",
+    "status": "ok",
+    "file": "vita-sakura.jpg",
+    "size": [
+      820,
+      680
+    ],
+    "sha256": "18bde1f6cdf0378d8259b893fb91459afd7ca01bbba6deb2ed7a5d6fa67b4768",
+    "seconds": 0.28
+  },
+  {
+    "key": "vita-lancer",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_lancer.jpg",
+    "status": "ok",
+    "file": "vita-lancer.jpg",
+    "size": [
+      820,
+      780
+    ],
+    "sha256": "3c4ffa5b6e148f6335ece9f5976795146fdc4d2ae67dd8c77c9372077a1778a0",
+    "seconds": 0.204
+  },
+  {
+    "key": "ubw-sasaki",
+    "url": "https://www.fate-sn.com/ubw/chara/img/ch13.jpg",
+    "status": "ok",
+    "file": "ubw-sasaki.jpg",
+    "size": [
+      530,
+      298
+    ],
+    "sha256": "401a635fb03ba254b7f191920479d0759e8a42e53f0cd26920473cad4847fc9a",
+    "seconds": 0.254
+  },
+  {
+    "key": "hf-saber",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/saber.jpg",
+    "status": "ok",
+    "file": "hf-saber.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "97ae1155ee449542084709bab764d848b585bc21ee7871380e61197d3dee191b",
+    "seconds": 0.225
+  },
+  {
+    "key": "hf-rin",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/rin.jpg",
+    "status": "ok",
+    "file": "hf-rin.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "047aeb674d13b637ea05a7bb3fee88465de725bc2a6f9f1cf47b91c5836d8bd3",
+    "seconds": 0.281
+  },
+  {
+    "key": "hf-archer",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/archer.jpg",
+    "status": "ok",
+    "file": "hf-archer.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "a4fe39840fa3747654e0df2656df4f14b6da553d85b158607960d067628a2052",
+    "seconds": 0.123
+  },
+  {
+    "key": "hf-caster",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+    "status": "ok",
+    "file": "hf-caster.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+    "seconds": 0.132
+  },
+  {
+    "key": "hf-sakura",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/sakura.jpg",
+    "status": "ok",
+    "file": "hf-sakura.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "e0ee6c0b9e3ed36e58406f378ff3f81f2f1eb8c27b60bc1351a520ea96185ed8",
+    "seconds": 0.117
+  },
+  {
+    "key": "hf-lancer",
+    "url": "https://www.fatestaynightusa.com/1st/assets/img/character/rancer.jpg",
+    "status": "ok",
+    "file": "hf-lancer.jpg",
+    "size": [
+      820,
+      460
+    ],
+    "sha256": "dfb207c5ef0ee23b64f649acb3c10c7e63cb0da1b5c358e00a022926bc621964",
+    "seconds": 0.2
+  },
+  {
+    "key": "hf-page",
+    "url": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "images": [
+      "https://www.fatestaynightusa.com/1st/assets/img/common/menu/m_storycharacter.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/shirou.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/sakura.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/saber.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/rin.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/archer.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/rancer.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/shinji.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/gil.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/iriya.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/berserker.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/rider.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/caster.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/thumb/zouken.png",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/shirou.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/shirou.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/sakura.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/sakura.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/saber.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/saber.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/rin.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/rin.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/archer.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/archer.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/rancer.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/rancer.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/shinji.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/shinji.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/gil.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/gil.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/iriya.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/iriya.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/berserker.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/berserker.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/rider.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/rider.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/caster.jpg",
+      "https://www.fatestaynightusa.com/1st/assets/img/character/zouken.jpg",
+      "https://www.fatestaynightusa.com/1st/sp/assets/img/character/zouken.jpg"
+    ],
+    "css": [
+      "https://www.fatestaynightusa.com/1st/assets/css/common.css",
+      "https://www.fatestaynightusa.com/1st/assets/css/in_common.css",
+      "https://www.fatestaynightusa.com/1st/assets/css/character.css"
+    ],
+    "status": "ok",
+    "file": "hf-page.html",
+    "sha256": "26b30557115b3b8d3126f2eed913bbe4a641eecd1dd89d5c24e08f40b2ef6798",
+    "seconds": 0.333
+  },
+  {
+    "key": "vita-saber",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_saber.jpg",
+    "size": [
+      820,
+      710
+    ],
+    "status": "ok",
+    "file": "vita-saber.jpg",
+    "sha256": "dacca1e25595fc1cbc106f6693b9c86fc6be3582d0dccd763adacc9f368927c3",
+    "seconds": 0.255
+  },
+  {
+    "key": "vita-rin",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_rin.jpg",
+    "size": [
+      820,
+      710
+    ],
+    "status": "ok",
+    "file": "vita-rin.jpg",
+    "sha256": "ad921da74ebfddf7436ade5818723b6bc602f52179226ff17688132ab5b3bfa7",
+    "seconds": 0.239
+  },
+  {
+    "key": "vita-archer",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_archer.jpg",
+    "size": [
+      820,
+      780
+    ],
+    "status": "ok",
+    "file": "vita-archer.jpg",
+    "sha256": "c7e85a0757ac285153a2c94cad1c5997682c9a6f09f2f655a732e181e6a66e8e",
+    "seconds": 0.185
+  },
+  {
+    "key": "vita-caster",
+    "url": "https://www.typemoon.com/products/fatevita/images/contents/chara_caster.jpg",
+    "size": [
+      820,
+      760
+    ],
+    "status": "ok",
+    "file": "vita-caster.jpg",
+    "sha256": "73739b611c56d2282e71ab65416b8d399a7ce324fb827fe99fc922bc6f8e1804",
+    "seconds": 0.228
+  },
+  {
+    "key": "remaster-rin",
+    "url": "https://typemoon.com/products/f-sn/assets/img/chara/chara_02.jpg",
+    "status": "failed",
+    "error": "HTTP Error 404: Not Found",
+    "seconds": 0.129
+  },
+  {
+    "key": "ubw-saber",
+    "url": "https://www.fate-sn.com/ubw/chara/img/ch02.jpg",
+    "status": "ok",
+    "file": "ubw-saber.jpg",
+    "size": [
+      530,
+      298
+    ],
+    "sha256": "eda5c754d8fad7819e0a7fc92199d59616ed9197d53007eb0a0f09197d7eb2ca",
+    "seconds": 0.263
+  },
+  {
+    "key": "ubw-archer",
+    "url": "https://www.fate-sn.com/ubw/chara/img/ch04.jpg",
+    "status": "ok",
+    "file": "ubw-archer.jpg",
+    "size": [
+      530,
+      298
+    ],
+    "sha256": "ee981f2ea7b3db39d53be52cdb6a6528d5f51a0a0840e0a45268ec59fbce7a2d",
+    "seconds": 0.225
+  },
+  {
+    "key": "ubw-assassin",
+    "url": "https://www.fate-sn.com/ubw/chara/img/ch12.jpg",
+    "status": "ok",
+    "file": "ubw-assassin.jpg",
+    "size": [
+      530,
+      298
+    ],
+    "sha256": "7067f9590c25a4a7cc1c931a7e831ada13e3b15494bae69ee72d6580aaf4c5a4",
+    "seconds": 0.183
+  },
+  {
+    "key": "ubw-caster",
+    "url": "https://www.fate-sn.com/ubw/chara/img/ch08.jpg",
+    "status": "ok",
+    "file": "ubw-caster.jpg",
+    "size": [
+      530,
+      298
+    ],
+    "sha256": "8f2ec1403dc9c6a85398ff31b1fc3bbef925219861a1991c745fe9478c62ec9a",
+    "seconds": 0.2
+  },
+  {
+    "key": "anime-saber",
+    "url": "https://www.fate-sn.com/ubw/story/img/03/01.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/03.html",
+    "status": "ok",
+    "file": "anime-saber.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "382aaed32e21bcdb86a33f6f87847f751ffaf3ad54a9cf93406375a0ba138847",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\03-01.jpg",
+    "cachedHashVerified": true
+  },
+  {
+    "key": "anime-rin",
+    "url": "https://www.fate-sn.com/ubw/story/img/01/02.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/index.html",
+    "status": "ok",
+    "file": "anime-rin.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "c660958165d9df2053831f45416c34b1a77543174151ab63ed42d0ac3aa9e44c",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\00-02.jpg",
+    "cachedHashVerified": true
+  },
+  {
+    "key": "anime-archer",
+    "url": "https://www.fate-sn.com/ubw/story/img/10/01.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/10.html",
+    "status": "ok",
+    "file": "anime-archer.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "720e0113bc612600f675ef1b5a18628df0041aab5428b0ed3f6d0f1e6b12eeb0",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\10-01.jpg",
+    "cachedHashVerified": true
+  },
+  {
+    "key": "anime-assassin",
+    "url": "https://www.fate-sn.com/ubw/story/img/24/02.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/24.html",
+    "status": "ok",
+    "file": "anime-assassin.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "cbfedcddbec9a15c21e1ca9eb2d560258b5cde98b5a6120fb324557d818cd31f",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\24-02.jpg",
+    "cachedHashVerified": true
+  },
+  {
+    "key": "anime-lancer",
+    "url": "https://www.fate-sn.com/ubw/story/img/20/05.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/20.html",
+    "status": "ok",
+    "file": "anime-lancer.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "43cbf4e1dd80bdaee4bcd32b800ad400b9504d9ea3c6e677214e993f0dc15a72",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\20-05.jpg",
+    "cachedHashVerified": true
+  },
+  {
+    "key": "anime-assassin-front",
+    "url": "https://www.fate-sn.com/ubw/story/img/07/04.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/07.html",
+    "status": "ok",
+    "file": "anime-assassin-front.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "0e10be296dec74cf3ba6178385a0e77e27ed194cb9774e0ec1e27f02665bce17",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\07-04.jpg",
+    "cachedHashVerified": true
+  }
+]

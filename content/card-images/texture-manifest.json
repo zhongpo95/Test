@@ -1710,94 +1710,6 @@
       "preservedFrom": "active-images-v27"
     },
     {
-      "character": "마토 사쿠라",
-      "cardIds": [
-        19
-      ],
-      "role": "portrait",
-      "source": "war3mapImported/UI_Card_FGO1_sakura_Art.tga",
-      "target": "war3mapImported\\UI_Card_FGO1_sakura_Art.tga",
-      "file": "war3mapImported/UI_Card_FGO1_sakura_Art.tga",
-      "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\UI_Card_FGO1_sakura_Art.png",
-      "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\originals\\sakura-ce28.png",
-      "sourceUrl": "https://static.atlasacademy.io/NA/CharaGraph/9400280/9400280a.png",
-      "sourcePage": "https://api.atlasacademy.io/nice/NA/equip/28",
-      "officialPage": "https://news.fate-go.jp/2020/imaginary_scramble/",
-      "comparisonImage": "https://news.fate-go.jp/wp-content/uploads/2020/imaginary_scramble_full_qopef/info_image_17.png",
-      "officialEvidence": "FGO 공식 이벤트 도표의 허수마술 예장과 미러의 머리카락/손/교복/배경을 육안 대조해 동일 원화임을 확인.",
-      "sourceSha256": "dc26efb11d284cfbcef9225103152d6fd2aad1fe6aa110d665cca281abdbac54",
-      "sourceSize": [
-        512,
-        875
-      ],
-      "artist": "타케우치 타카시. 예장28의 위키2종 작가표기 대조; 공식 행사에는 개별작가명 없음.",
-      "artistSource": "https://fategrandorder.fandom.com/wiki/Imaginary_Number_Magecraft",
-      "sourceNote": "공식 FGO 게임 일러스트의 Atlas Academy 미러. 원작 사쿠라 교복과 리본, 마술 표현. FGO전투능력/설정은 카드 효과에 반영하지 않음.",
-      "sha256": "44066af170217f05b54abc368e38aefa6231b2bb725bf4090266f900523efc3a",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "viewport": [
-        0,
-        0,
-        512,
-        512
-      ],
-      "crop": [
-        0,
-        0,
-        512,
-        512
-      ],
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "character": "마토 사쿠라",
-      "cardIds": [
-        19
-      ],
-      "role": "icon",
-      "source": "war3mapImported/UI_Card_FGO1_sakura_Icon.tga",
-      "target": "war3mapImported\\UI_Card_FGO1_sakura_Icon.tga",
-      "file": "war3mapImported/UI_Card_FGO1_sakura_Icon.tga",
-      "png": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\UI_Card_FGO1_sakura_Icon.png",
-      "sourceFile": "C:\\Users\\ctqho\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\official-wave-20261005\\fate-review\\originals\\sakura-ce28.png",
-      "sourceUrl": "https://static.atlasacademy.io/NA/CharaGraph/9400280/9400280a.png",
-      "sourcePage": "https://api.atlasacademy.io/nice/NA/equip/28",
-      "officialPage": "https://news.fate-go.jp/2020/imaginary_scramble/",
-      "comparisonImage": "https://news.fate-go.jp/wp-content/uploads/2020/imaginary_scramble_full_qopef/info_image_17.png",
-      "officialEvidence": "FGO 공식 이벤트 도표의 허수마술 예장과 미러의 머리카락/손/교복/배경을 육안 대조해 동일 원화임을 확인.",
-      "sourceSha256": "dc26efb11d284cfbcef9225103152d6fd2aad1fe6aa110d665cca281abdbac54",
-      "sourceSize": [
-        512,
-        875
-      ],
-      "artist": "타케우치 타카시. 예장28의 위키2종 작가표기 대조; 공식 행사에는 개별작가명 없음.",
-      "artistSource": "https://fategrandorder.fandom.com/wiki/Imaginary_Number_Magecraft",
-      "sourceNote": "공식 FGO 게임 일러스트의 Atlas Academy 미러. 원작 사쿠라 교복과 리본, 마술 표현. FGO전투능력/설정은 카드 효과에 반영하지 않음.",
-      "sha256": "3f7ab3452ea382a0a39ebd556bff9aa0d2c2e88ecaaa544d33c970c8c1b9bbb7",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "viewport": [
-        155,
-        15,
-        430,
-        290
-      ],
-      "crop": [
-        155,
-        15,
-        430,
-        290
-      ],
-      "preservedFrom": "active-images-v27"
-    },
-    {
       "target": "war3mapImported\\UI_Card_FMA_13_Art.tga",
       "file": "war3mapImported/UI_Card_FMA_13_Art.tga",
       "sha256": "707c8431a3cf555d85831c6f6e735efd093298dd784f104c6f281ccd331112a9",
@@ -2712,174 +2624,6 @@
       ],
       "sourceUrl": "https://www.fate-sn.com/ubw/chara/img/ch14.jpg",
       "sourceSha256": "966dc62156498eebf2fd8e8e2cac489dce8e9239fd63b938adc67772bac9e641",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_archer_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_archer_Art.tga",
-      "sha256": "04a4ee252d81127aa19c69434204cf2318dcadebbca491d224aeac6ad31b8d37",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/archer.jpg",
-      "sourceSha256": "a4fe39840fa3747654e0df2656df4f14b6da553d85b158607960d067628a2052",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_archer_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_archer_Icon.tga",
-      "sha256": "4d931e7100ee493dc5af186f9d75e66a1ac7c60b0e6703a70cca43c2ce2a58f7",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/archer.jpg",
-      "sourceSha256": "a4fe39840fa3747654e0df2656df4f14b6da553d85b158607960d067628a2052",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_assassin_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_assassin_Art.tga",
-      "sha256": "617a11a3c214e5e545deea99c83078d1286eae600f6710262af0af2fe9cb6809",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/24/02.jpg",
-      "sourceSha256": "cbfedcddbec9a15c21e1ca9eb2d560258b5cde98b5a6120fb324557d818cd31f",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_assassin_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_assassin_Icon.tga",
-      "sha256": "4f02538db39fc0307b6717baf7823a2f13d3b03f482b1ea257dcdf22bb74b484",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/24/02.jpg",
-      "sourceSha256": "cbfedcddbec9a15c21e1ca9eb2d560258b5cde98b5a6120fb324557d818cd31f",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_caster_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_caster_Art.tga",
-      "sha256": "69bbefa7736af09e5fc68e186690fdcafab03ea46bd3d3d4454e495079c9496e",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
-      "sourceSha256": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_caster_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_caster_Icon.tga",
-      "sha256": "7d75672b85666afe00a1dab8182de760f3d734cb39767f69cc7f185a5f239016",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/08/02.jpg",
-      "sourceSha256": "230070099472c3ca58028276de0d00da2e8dbe39307043d09eac9970890e149a",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_lancer_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_lancer_Art.tga",
-      "sha256": "b1c2d5c19820ec2373989f7eefdf21f9aa4cc8b2d380e78b3169bde78d8be6f6",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rancer.jpg",
-      "sourceSha256": "dfb207c5ef0ee23b64f649acb3c10c7e63cb0da1b5c358e00a022926bc621964",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_lancer_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_lancer_Icon.tga",
-      "sha256": "ddc1879b38cf78229daffacff4535fe26e96f44afdb980a3617f9800adf37e95",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rancer.jpg",
-      "sourceSha256": "dfb207c5ef0ee23b64f649acb3c10c7e63cb0da1b5c358e00a022926bc621964",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_rin_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_rin_Art.tga",
-      "sha256": "f02baabe8b11e75705e7e0b1c82887a25ce34f03b549a5c49952a142638b4414",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rin.jpg",
-      "sourceSha256": "047aeb674d13b637ea05a7bb3fee88465de725bc2a6f9f1cf47b91c5836d8bd3",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_rin_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_rin_Icon.tga",
-      "sha256": "34cb3d31e8cc8059f5b6b01694d423c9437277f93c655ac1edfcacbd76f9c103",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/rin.jpg",
-      "sourceSha256": "047aeb674d13b637ea05a7bb3fee88465de725bc2a6f9f1cf47b91c5836d8bd3",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_saber_Art.tga",
-      "file": "war3mapImported/UI_Card_FSU6_saber_Art.tga",
-      "sha256": "c97e6f8e7381d01291dc360283ff00bdd49076f8c13bdad26bc01549ce035398",
-      "bytes": 1048620,
-      "size": [
-        512,
-        512
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/saber.jpg",
-      "sourceSha256": "97ae1155ee449542084709bab764d848b585bc21ee7871380e61197d3dee191b",
-      "existingApprovedAsset": false,
-      "preservedFrom": "active-images-v27"
-    },
-    {
-      "target": "war3mapImported\\UI_Card_FSU6_saber_Icon.tga",
-      "file": "war3mapImported/UI_Card_FSU6_saber_Icon.tga",
-      "sha256": "6978195e6d81cd22d6b4831a0b8be9a47cc2828b03a2e856647e58f4e987c914",
-      "bytes": 65580,
-      "size": [
-        128,
-        128
-      ],
-      "sourceUrl": "https://www.fate-sn.com/1st/assets/img/character/saber.jpg",
-      "sourceSha256": "97ae1155ee449542084709bab764d848b585bc21ee7871380e61197d3dee191b",
       "existingApprovedAsset": false,
       "preservedFrom": "active-images-v27"
     },
@@ -7231,6 +6975,398 @@
     },
     {
       "cardIds": [
+        14
+      ],
+      "character": "세이버",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_saber_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_saber_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "3d24abb8b2d600c2d55ef5e0b81316c2f2c830e1635612d127e34398607af1ad",
+      "bytes": 65580,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/03.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/03/01.jpg",
+      "sourceSha256": "382aaed32e21bcdb86a33f6f87847f751ffaf3ad54a9cf93406375a0ba138847",
+      "sourceFile": "originals/anime-saber.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        248,
+        0,
+        448,
+        200
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        14
+      ],
+      "character": "세이버",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_saber_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_saber_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "55b1a1170d045dc76b2e73b564e6f56cd49b7bec8eb1713c678e35660ca25cff",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/03.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/03/01.jpg",
+      "sourceSha256": "382aaed32e21bcdb86a33f6f87847f751ffaf3ad54a9cf93406375a0ba138847",
+      "sourceFile": "originals/anime-saber.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        185,
+        0,
+        523,
+        338
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        16
+      ],
+      "character": "토오사카 린",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_rin_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_rin_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "f74f4dac3a31819e0326f73f1e97f111b2764323f24d795c3242b1e7dbe89720",
+      "bytes": 65580,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/index.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/01/02.jpg",
+      "sourceSha256": "c660958165d9df2053831f45416c34b1a77543174151ab63ed42d0ac3aa9e44c",
+      "sourceFile": "originals/anime-rin.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        91,
+        13,
+        311,
+        233
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        16
+      ],
+      "character": "토오사카 린",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_rin_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_rin_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "d417a913d82fd7570a3e2bff9ad7d807eb999818f13963077457b5a151c18c51",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/index.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/01/02.jpg",
+      "sourceSha256": "c660958165d9df2053831f45416c34b1a77543174151ab63ed42d0ac3aa9e44c",
+      "sourceFile": "originals/anime-rin.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        38,
+        0,
+        376,
+        338
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        17
+      ],
+      "character": "아처",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_archer_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_archer_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "211668931e953a0a6fe9c61d2da9bd735ae78c733b31854625b224f16a38b07f",
+      "bytes": 65580,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/10.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/10/01.jpg",
+      "sourceSha256": "720e0113bc612600f675ef1b5a18628df0041aab5428b0ed3f6d0f1e6b12eeb0",
+      "sourceFile": "originals/anime-archer.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        171,
+        0,
+        371,
+        200
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        17
+      ],
+      "character": "아처",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_archer_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_archer_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b747acd7b7b0f09a3714bbdf43b5062f44e9ef0d6cb3e498b9fc6d25365f24a9",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/10.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/10/01.jpg",
+      "sourceSha256": "720e0113bc612600f675ef1b5a18628df0041aab5428b0ed3f6d0f1e6b12eeb0",
+      "sourceFile": "originals/anime-archer.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        120,
+        0,
+        458,
+        338
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        18
+      ],
+      "character": "어새신",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_assassin_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_assassin_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "36c289b2880d8197827b6b831682df7de226968686fb8e4a618768209e6a52db",
+      "bytes": 65580,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/07.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/07/04.jpg",
+      "sourceSha256": "0e10be296dec74cf3ba6178385a0e77e27ed194cb9774e0ec1e27f02665bce17",
+      "sourceFile": "originals/anime-assassin-front.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        207,
+        0,
+        415,
+        208
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        18
+      ],
+      "character": "어새신",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_assassin_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_assassin_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "83fe795fed80e2132a4d28c47711f99b31778a747a07e04c6c9267b2357ecb75",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/07.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/07/04.jpg",
+      "sourceSha256": "0e10be296dec74cf3ba6178385a0e77e27ed194cb9774e0ec1e27f02665bce17",
+      "sourceFile": "originals/anime-assassin-front.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        160,
+        0,
+        498,
+        338
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        19
+      ],
+      "character": "마토 사쿠라",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_sakura_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_sakura_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "a93f3c2068c383fdd8297ed072e18b2326f65e8d1d41f5f1c2ff028469385f9f",
+      "bytes": 65580,
+      "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+      "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/sakura.jpg",
+      "sourceSha256": "e0ee6c0b9e3ed36e58406f378ff3f81f2f1eb8c27b60bc1351a520ea96185ed8",
+      "sourceFile": "originals/hf-sakura.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        278,
+        18,
+        542,
+        282
+      ],
+      "note": "밝은 정원에서 일상 교복을 입은 ufotable 애니메이션 장면이다. 얼굴과 보라색 머리카락·리본이 보이며 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        19
+      ],
+      "character": "마토 사쿠라",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_sakura_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_sakura_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "99d841a99c1bad52a72cac77fb253ed7ced551df6d9dfe08a7a61e4d466fa0fe",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+      "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/sakura.jpg",
+      "sourceSha256": "e0ee6c0b9e3ed36e58406f378ff3f81f2f1eb8c27b60bc1351a520ea96185ed8",
+      "sourceFile": "originals/hf-sakura.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        180,
+        0,
+        640,
+        460
+      ],
+      "note": "밝은 정원에서 일상 교복을 입은 ufotable 애니메이션 장면이다. 얼굴과 보라색 머리카락·리본이 보이며 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        20
+      ],
+      "character": "캐스터",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_caster_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_caster_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "f662e87e360da7b790abba55a6ff34cbe1ffac7ae9d7bff5d99b0593c296563d",
+      "bytes": 65580,
+      "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+      "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+      "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+      "sourceFile": "originals/hf-caster.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        280,
+        0,
+        540,
+        260
+      ],
+      "note": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        20
+      ],
+      "character": "캐스터",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_caster_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_caster_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "73d5ed67674a4faa51f7c2724a3f8aeb60aacd053e0ebbb67083edf304e2ce8f",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+      "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+      "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+      "sourceFile": "originals/hf-caster.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        180,
+        0,
+        640,
+        460
+      ],
+      "note": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        26
+      ],
+      "character": "랜서",
+      "role": "icon",
+      "target": "war3mapImported\\UI_Card_FateCalm_lancer_Icon.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_lancer_Icon.tga",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "148e63df3bc82abbb925bc37eb28772c42c653674a4772873da2d0b1061d1434",
+      "bytes": 65580,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/20.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/20/05.jpg",
+      "sourceSha256": "43cbf4e1dd80bdaee4bcd32b800ad400b9504d9ea3c6e677214e993f0dc15a72",
+      "sourceFile": "originals/anime-lancer.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        206,
+        0,
+        412,
+        206
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
+        26
+      ],
+      "character": "랜서",
+      "role": "portrait",
+      "target": "war3mapImported\\UI_Card_FateCalm_lancer_Art.tga",
+      "file": "war3mapImported/UI_Card_FateCalm_lancer_Art.tga",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "38d89f7975560a3f9517ecc7b8915e3e6798bea223e122dd12c8327f3c57b999",
+      "bytes": 1048620,
+      "sourcePage": "https://www.fate-sn.com/ubw/story/20.html",
+      "sourceUrl": "https://www.fate-sn.com/ubw/story/img/20/05.jpg",
+      "sourceSha256": "43cbf4e1dd80bdaee4bcd32b800ad400b9504d9ea3c6e677214e993f0dc15a72",
+      "sourceFile": "originals/anime-lancer.jpg",
+      "artist": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+      "sourceKind": "ufotable 공식 애니메이션 장면",
+      "viewport": [
+        141,
+        0,
+        479,
+        338
+      ],
+      "note": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+    },
+    {
+      "cardIds": [
         924
       ],
       "character": "함께 걷는 이상",
@@ -7959,6 +8095,6 @@
     }
   ],
   "catalogSha256": "45db4d4522093dc12051d082f99a8aa088dbf55ab19ddfa383a8b125d81d456e",
-  "registrySha256": "d1105d3d65b1929997f443e685bc3eda97d5ba71124b6dc0b7c9639fc770f179",
+  "registrySha256": "2376379d7e5614d515db504cbb9974de5df19609b95d8edc62299f28528773cf",
   "runtimeTested": false
 }

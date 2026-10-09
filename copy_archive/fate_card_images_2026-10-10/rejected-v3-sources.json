@@ -1,0 +1,191 @@
+[
+  {
+    "cardId": 14,
+    "cardKey": "saber_guard",
+    "cardName": "세이버",
+    "icon": "UI_Card_FateCalm_saber_Icon",
+    "art": "UI_Card_FateCalm_saber_Art",
+    "oldIcon": "UI_Card_FSU6_saber_Icon.tga",
+    "oldArt": "UI_Card_FSU6_saber_Art.tga",
+    "sourceFile": "vita-saber.jpg",
+    "sourceSha256": "dacca1e25595fc1cbc106f6693b9c86fc6be3582d0dccd763adacc9f368927c3",
+    "sourcePage": "https://www.typemoon.com/products/fatevita/character/",
+    "sourceUrl": "https://www.typemoon.com/products/fatevita/images/contents/chara_saber.jpg",
+    "credit": "TYPE-MOON 공식 Fate/stay night [Realta Nua] 캐릭터 소개 원화. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      20,
+      0,
+      380,
+      360
+    ],
+    "iconCrop": [
+      130,
+      10,
+      300,
+      180
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 16,
+    "cardKey": "rin_disarm",
+    "cardName": "토오사카 린",
+    "icon": "UI_Card_FateCalm_rin_Icon",
+    "art": "UI_Card_FateCalm_rin_Art",
+    "oldIcon": "UI_Card_FSU6_rin_Icon.tga",
+    "oldArt": "UI_Card_FSU6_rin_Art.tga",
+    "sourceFile": "vita-rin.jpg",
+    "sourceSha256": "ad921da74ebfddf7436ade5818723b6bc602f52179226ff17688132ab5b3bfa7",
+    "sourcePage": "https://www.typemoon.com/products/fatevita/character/",
+    "sourceUrl": "https://www.typemoon.com/products/fatevita/images/contents/chara_rin.jpg",
+    "credit": "TYPE-MOON 공식 Fate/stay night [Realta Nua] 캐릭터 소개 원화. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      20,
+      0,
+      380,
+      360
+    ],
+    "iconCrop": [
+      110,
+      0,
+      280,
+      170
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 17,
+    "cardKey": "archer_pragmatism",
+    "cardName": "아처",
+    "icon": "UI_Card_FateCalm_archer_Icon",
+    "art": "UI_Card_FateCalm_archer_Art",
+    "oldIcon": "UI_Card_FSU6_archer_Icon.tga",
+    "oldArt": "UI_Card_FSU6_archer_Art.tga",
+    "sourceFile": "vita-archer.jpg",
+    "sourceSha256": "c7e85a0757ac285153a2c94cad1c5997682c9a6f09f2f655a732e181e6a66e8e",
+    "sourcePage": "https://www.typemoon.com/products/fatevita/character/",
+    "sourceUrl": "https://www.typemoon.com/products/fatevita/images/contents/chara_archer.jpg",
+    "credit": "TYPE-MOON 공식 Fate/stay night [Realta Nua] 캐릭터 소개 원화. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      20,
+      0,
+      380,
+      360
+    ],
+    "iconCrop": [
+      105,
+      0,
+      285,
+      180
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 18,
+    "cardKey": "assassin_spacing",
+    "cardName": "어새신",
+    "icon": "UI_Card_FateCalm_assassin_Icon",
+    "art": "UI_Card_FateCalm_assassin_Art",
+    "oldIcon": "UI_Card_FSU6_assassin_Icon.tga",
+    "oldArt": "UI_Card_FSU6_assassin_Art.tga",
+    "sourceFile": "ubw-sasaki.jpg",
+    "sourceSha256": "401a635fb03ba254b7f191920479d0759e8a42e53f0cd26920473cad4847fc9a",
+    "sourcePage": "https://www.fate-sn.com/ubw/sp/chara/",
+    "sourceUrl": "https://www.fate-sn.com/ubw/chara/img/ch13.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 애니메이션 캐릭터 소개 그림. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      140,
+      0,
+      364,
+      224
+    ],
+    "iconCrop": [
+      160,
+      5,
+      340,
+      185
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 19,
+    "cardKey": "sakura_meal",
+    "cardName": "마토 사쿠라",
+    "icon": "UI_Card_FateCalm_sakura_Icon",
+    "art": "UI_Card_FateCalm_sakura_Art",
+    "oldIcon": "UI_Card_FGO1_sakura_Icon.tga",
+    "oldArt": "UI_Card_FGO1_sakura_Art.tga",
+    "sourceFile": "vita-sakura.jpg",
+    "sourceSha256": "18bde1f6cdf0378d8259b893fb91459afd7ca01bbba6deb2ed7a5d6fa67b4768",
+    "sourcePage": "https://www.typemoon.com/products/fatevita/character/",
+    "sourceUrl": "https://www.typemoon.com/products/fatevita/images/contents/chara_sakura.jpg",
+    "credit": "TYPE-MOON 공식 Fate/stay night [Realta Nua] 캐릭터 소개 원화. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      20,
+      0,
+      380,
+      360
+    ],
+    "iconCrop": [
+      110,
+      5,
+      295,
+      190
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 20,
+    "cardKey": "caster_channel",
+    "cardName": "캐스터",
+    "icon": "UI_Card_FateCalm_caster_Icon",
+    "art": "UI_Card_FateCalm_caster_Art",
+    "oldIcon": "UI_Card_FSU6_caster_Icon.tga",
+    "oldArt": "UI_Card_FSU6_caster_Art.tga",
+    "sourceFile": "hf-caster.jpg",
+    "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+    "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 캐릭터 소개 그림. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      180,
+      0,
+      640,
+      460
+    ],
+    "iconCrop": [
+      280,
+      0,
+      540,
+      260
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  },
+  {
+    "cardId": 26,
+    "cardKey": "fy_lancer_reach",
+    "cardName": "랜서",
+    "icon": "UI_Card_FateCalm_lancer_Icon",
+    "art": "UI_Card_FateCalm_lancer_Art",
+    "oldIcon": "UI_Card_FSU6_lancer_Icon.tga",
+    "oldArt": "UI_Card_FSU6_lancer_Art.tga",
+    "sourceFile": "vita-lancer.jpg",
+    "sourceSha256": "3c4ffa5b6e148f6335ece9f5976795146fdc4d2ae67dd8c77c9372077a1778a0",
+    "sourcePage": "https://www.typemoon.com/products/fatevita/character/",
+    "sourceUrl": "https://www.typemoon.com/products/fatevita/images/contents/chara_lancer.jpg",
+    "credit": "TYPE-MOON 공식 Fate/stay night [Realta Nua] 캐릭터 소개 원화. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      20,
+      0,
+      380,
+      360
+    ],
+    "iconCrop": [
+      105,
+      0,
+      290,
+      185
+    ],
+    "reason": "정지한 인물의 얼굴·기본 복장이 보이며 전투 효과를 포함하지 않는다. 아이콘은 같은 원본에서 얼굴을 별도로 자른다."
+  }
+]

@@ -1,0 +1,198 @@
+[
+  {
+    "cardId": 14,
+    "cardKey": "saber_guard",
+    "cardName": "세이버",
+    "icon": "UI_Card_FateCalm_saber_Icon",
+    "art": "UI_Card_FateCalm_saber_Art",
+    "oldIcon": "UI_Card_FSU6_saber_Icon.tga",
+    "oldArt": "UI_Card_FSU6_saber_Art.tga",
+    "sourceFile": "anime-saber.jpg",
+    "sourceSha256": "382aaed32e21bcdb86a33f6f87847f751ffaf3ad54a9cf93406375a0ba138847",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/03.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/03/01.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      185,
+      0,
+      523,
+      338
+    ],
+    "iconCrop": [
+      248,
+      0,
+      448,
+      200
+    ],
+    "reason": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 16,
+    "cardKey": "rin_disarm",
+    "cardName": "토오사카 린",
+    "icon": "UI_Card_FateCalm_rin_Icon",
+    "art": "UI_Card_FateCalm_rin_Art",
+    "oldIcon": "UI_Card_FSU6_rin_Icon.tga",
+    "oldArt": "UI_Card_FSU6_rin_Art.tga",
+    "sourceFile": "anime-rin.jpg",
+    "sourceSha256": "c660958165d9df2053831f45416c34b1a77543174151ab63ed42d0ac3aa9e44c",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/index.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/01/02.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      38,
+      0,
+      376,
+      338
+    ],
+    "iconCrop": [
+      91,
+      13,
+      311,
+      233
+    ],
+    "reason": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 17,
+    "cardKey": "archer_pragmatism",
+    "cardName": "아처",
+    "icon": "UI_Card_FateCalm_archer_Icon",
+    "art": "UI_Card_FateCalm_archer_Art",
+    "oldIcon": "UI_Card_FSU6_archer_Icon.tga",
+    "oldArt": "UI_Card_FSU6_archer_Art.tga",
+    "sourceFile": "anime-archer.jpg",
+    "sourceSha256": "720e0113bc612600f675ef1b5a18628df0041aab5428b0ed3f6d0f1e6b12eeb0",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/10.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/10/01.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      120,
+      0,
+      458,
+      338
+    ],
+    "iconCrop": [
+      171,
+      0,
+      371,
+      200
+    ],
+    "reason": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 18,
+    "cardKey": "assassin_spacing",
+    "cardName": "어새신",
+    "icon": "UI_Card_FateCalm_assassin_Icon",
+    "art": "UI_Card_FateCalm_assassin_Art",
+    "oldIcon": "UI_Card_FSU6_assassin_Icon.tga",
+    "oldArt": "UI_Card_FSU6_assassin_Art.tga",
+    "sourceFile": "anime-assassin-front.jpg",
+    "sourceSha256": "0e10be296dec74cf3ba6178385a0e77e27ed194cb9774e0ec1e27f02665bce17",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/07.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/07/04.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      160,
+      0,
+      498,
+      338
+    ],
+    "iconCrop": [
+      207,
+      0,
+      415,
+      208
+    ],
+    "reason": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 19,
+    "cardKey": "sakura_meal",
+    "cardName": "마토 사쿠라",
+    "icon": "UI_Card_FateCalm_sakura_Icon",
+    "art": "UI_Card_FateCalm_sakura_Art",
+    "oldIcon": "UI_Card_FGO1_sakura_Icon.tga",
+    "oldArt": "UI_Card_FGO1_sakura_Art.tga",
+    "sourceFile": "hf-sakura.jpg",
+    "sourceSha256": "e0ee6c0b9e3ed36e58406f378ff3f81f2f1eb8c27b60bc1351a520ea96185ed8",
+    "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/sakura.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      180,
+      0,
+      640,
+      460
+    ],
+    "iconCrop": [
+      278,
+      18,
+      542,
+      282
+    ],
+    "reason": "밝은 정원에서 일상 교복을 입은 ufotable 애니메이션 장면이다. 얼굴과 보라색 머리카락·리본이 보이며 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 20,
+    "cardKey": "caster_channel",
+    "cardName": "캐스터",
+    "icon": "UI_Card_FateCalm_caster_Icon",
+    "art": "UI_Card_FateCalm_caster_Art",
+    "oldIcon": "UI_Card_FSU6_caster_Icon.tga",
+    "oldArt": "UI_Card_FSU6_caster_Art.tga",
+    "sourceFile": "hf-caster.jpg",
+    "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+    "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      180,
+      0,
+      640,
+      460
+    ],
+    "iconCrop": [
+      280,
+      0,
+      540,
+      260
+    ],
+    "reason": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  },
+  {
+    "cardId": 26,
+    "cardKey": "fy_lancer_reach",
+    "cardName": "랜서",
+    "icon": "UI_Card_FateCalm_lancer_Icon",
+    "art": "UI_Card_FateCalm_lancer_Art",
+    "oldIcon": "UI_Card_FSU6_lancer_Icon.tga",
+    "oldArt": "UI_Card_FSU6_lancer_Art.tga",
+    "sourceFile": "anime-lancer.jpg",
+    "sourceSha256": "43cbf4e1dd80bdaee4bcd32b800ad400b9504d9ea3c6e677214e993f0dc15a72",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/20.html",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/20/05.jpg",
+    "credit": "TYPE-MOON / ufotable / FSNPC 공식 Unlimited Blade Works 애니메이션 장면. 개별 원화가 표기는 확인되지 않음.",
+    "artCrop": [
+      141,
+      0,
+      479,
+      338
+    ],
+    "iconCrop": [
+      206,
+      0,
+      412,
+      206
+    ],
+    "reason": "ufotable 애니메이션의 차분한 장면을 선택했다. 공격 동작·얼굴 앞의 효과·문자 없이 머리카락과 기본 복장이 보이며, 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+    "sourceKind": "ufotable 공식 애니메이션 장면"
+  }
+]

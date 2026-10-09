@@ -38,6 +38,13 @@ def build(args):
     source = args.source_root.resolve()
     previous = source / 'active-images-v27'
     legacy = json.loads((previous / 'texture-manifest.json').read_text(encoding='utf-8-sig'))['assets']
+    replacements = []
+    replacement_file = ROOT / 'content/card-images/fate-calm-sources.json'
+    if replacement_file.exists():
+        if args.replacement_root is None:
+            raise ValueError('페이트 교체 원본 폴더를 --replacement-root로 지정해야 합니다.')
+        replacements = json.loads(replacement_file.read_text(encoding='utf8'))
+    superseded = {name for row in replacements for name in (row['oldIcon'], row['oldArt'])}
     assets = []
     with zipfile.ZipFile(previous / 'Arcana_Character_Images_Active_v27.zip') as archive:
         for row in legacy:
@@ -47,11 +54,35 @@ def build(args):
             data = archive.read(target)
             if digest(data) != row['sha256']:
                 raise ValueError('기존 그림 해시 불일치 ' + target)
+            if Path(target).name in superseded:
+                continue
             (out / target).write_bytes(data)
             assets.append({**row, 'file': target, 'preservedFrom': 'active-images-v27'})
     endings = json.loads((ROOT / 'content/card-images/ending-sources.json').read_text(encoding='utf8'))
     originals = out / 'originals'
     originals.mkdir()
+    for row in replacements:
+        if keys.get(row['cardId']) != row['cardKey'] or names.get(row['cardId']) != row['cardName']:
+            raise ValueError('페이트 교체 대상 ID 또는 이름이 변경되었습니다.')
+        original = args.replacement_root / 'originals' / row['sourceFile']
+        if digest(original.read_bytes()) != row['sourceSha256']:
+            raise ValueError('페이트 교체 원본 해시 불일치 ' + row['sourceFile'])
+        shutil.copy2(original, originals / row['sourceFile'])
+        image = Image.open(original).convert('RGBA')
+        for role, size, stem, box in [('icon', 128, row['icon'], row['iconCrop']),
+                                     ('portrait', 512, row['art'], row['artCrop'])]:
+            if not (0 <= box[0] < box[2] <= image.width and 0 <= box[1] < box[3] <= image.height):
+                raise ValueError('원본 밖의 페이트 크롭 ' + row['cardKey'])
+            target = 'war3mapImported/' + stem + '.tga'
+            image.crop(box).resize((size, size), Image.Resampling.LANCZOS).save(out / target)
+            data = (out / target).read_bytes()
+            assets.append({'cardIds': [row['cardId']], 'character': row['cardName'], 'role': role,
+                           'target': target.replace('/', '\\'), 'file': target, 'size': [size, size],
+                           'sha256': digest(data), 'bytes': len(data), 'sourcePage': row['sourcePage'],
+                           'sourceUrl': row['sourceUrl'], 'sourceSha256': row['sourceSha256'],
+                           'sourceFile': 'originals/' + row['sourceFile'], 'artist': row['credit'],
+                           'sourceKind': row['sourceKind'], 'viewport': box,
+                           'note': row['reason']})
     for row in endings:
         if keys.get(row['cardId']) != row['cardKey'] or names.get(row['cardId']) != row['cardName']:
             raise ValueError('엔딩 카드 ID 또는 이름이 변경되었습니다. ' + row['cardKey'])
@@ -126,11 +157,41 @@ def build(args):
                 draw.text((x + 5, y + tile + line * 18), value, fill='#e4d1a8', font=font)
             draw.text((x + 5, y + tile + 40), str(row['characterId']), fill='#98a8b7', font=font)
         sheet.save(preview / filename, quality=93)
+    if replacements:
+        # 애니메이션판의 상반신과 작은 얼굴 아이콘을 교체 전 그림과 비교한다.
+        sheet = Image.new('RGB', (len(replacements) * 220, 444), '#141b25')
+        draw = ImageDraw.Draw(sheet)
+        with zipfile.ZipFile(previous / 'Arcana_Character_Images_Active_v27.zip') as archive:
+            comparison = Image.new('RGB', (len(replacements) * 220, 803), '#141b25')
+            compare_draw = ImageDraw.Draw(comparison)
+            for i, row in enumerate(replacements):
+                x = i * 220 + 10
+                art = Image.open(imports / (row['art'] + '.tga')).convert('RGB')
+                icon = Image.open(imports / (row['icon'] + '.tga')).convert('RGB')
+                sheet.paste(art.resize((200, 200), Image.Resampling.LANCZOS), (x, 40))
+                sheet.paste(icon, (x + 36, 268))
+                draw.text((x, 8), row['cardName'], font=font, fill='#e8d9b6')
+                draw.text((x + 42, 408), '얼굴 아이콘', font=font, fill='#a8bacb')
+                old_art = Image.open(archive.open('war3mapImported/' + row['oldArt'])).convert('RGB')
+                old_icon = Image.open(archive.open('war3mapImported/' + row['oldIcon'])).convert('RGB')
+                comparison.paste(old_art.resize((200, 200), Image.Resampling.LANCZOS), (x, 46))
+                comparison.paste(old_icon, (x + 36, 262))
+                comparison.paste(art.resize((200, 200), Image.Resampling.LANCZOS), (x, 449))
+                comparison.paste(icon, (x + 36, 665))
+                compare_draw.text((x, 10), row['cardName'] + ' · 교체 전', font=font, fill='#e8d9b6')
+                compare_draw.text((x, 413), '애니메이션판 · 교체 후', font=font, fill='#a8bacb')
+        sheet.save(preview / 'fate-anime.jpg', quality=94)
+        comparison.save(preview / 'fate-before-after.jpg', quality=94)
     readme = (ROOT / 'content/card-images/README.md').read_text(encoding='utf8')
     (out / 'README.md').write_text(readme, encoding='utf8')
     # 새 카드만 넣을 경우와 최초 전체 적용을 모두 지원하며 압축 내부 경로도 함께 검사한다.
     for filename, selected in [('Arcana_Card_Textures_20261010.zip', assets),
-                                ('Arcana_Ending_Card_Textures_20261010.zip', assets[len(legacy):])]:
+                                ('Arcana_Ending_Card_Textures_20261010.zip', assets[len(legacy) - len(superseded) + len(replacements) * 2:]),
+                                ('Arcana_Fate_Calm_Textures_20261010.zip',
+                                 [a for a in assets if Path(a['file']).stem in
+                                  {stem for row in replacements for stem in (row['icon'], row['art'])}])]:
+        if not selected:
+            continue
         with zipfile.ZipFile(out / filename, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
             for a in selected:
                 z.write(out / a['file'], a['file'])
@@ -144,7 +205,7 @@ def build(args):
                     raise ValueError('ZIP 내용 해시 불일치 ' + a['file'])
     report = {'rewardDefinitions': len(names), 'cardPictures': len(index), 'existingPictures': len(legacy) // 2,
               'newEndingPictures': len(endings), 'textureFiles': len(assets), 'missingCards': [],
-              'preservedExistingHashes': len(legacy), 'checkedFormat': 'RGBA TGA',
+              'replacedFatePictures': len(replacements), 'preservedExistingHashes': len(legacy) - len(superseded), 'checkedFormat': 'RGBA TGA',
               'zipHashesVerified': True, 'runtimeTested': False, 'mapCreated': False}
     write_json(out / 'validation-report.json', report)
     write_json(ROOT / 'content/card-images/card-index.json', index)
@@ -156,5 +217,6 @@ def build(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--source-root', type=Path, required=True)
+    parser.add_argument('--replacement-root', type=Path)
     parser.add_argument('--output-dir', type=Path, required=True)
     build(parser.parse_args())

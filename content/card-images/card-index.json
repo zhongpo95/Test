@@ -44,8 +44,8 @@
       64,
       65
     ],
-    "icon": "UI_Card_FSU6_saber_Icon.tga",
-    "art": "UI_Card_FSU6_saber_Art.tga",
+    "icon": "UI_Card_FateCalm_saber_Icon.tga",
+    "art": "UI_Card_FateCalm_saber_Art.tga",
     "ending": false
   },
   {
@@ -77,8 +77,8 @@
       82,
       83
     ],
-    "icon": "UI_Card_FSU6_rin_Icon.tga",
-    "art": "UI_Card_FSU6_rin_Art.tga",
+    "icon": "UI_Card_FateCalm_rin_Icon.tga",
+    "art": "UI_Card_FateCalm_rin_Art.tga",
     "ending": false
   },
   {
@@ -96,8 +96,8 @@
       70,
       71
     ],
-    "icon": "UI_Card_FSU6_archer_Icon.tga",
-    "art": "UI_Card_FSU6_archer_Art.tga",
+    "icon": "UI_Card_FateCalm_archer_Icon.tga",
+    "art": "UI_Card_FateCalm_archer_Art.tga",
     "ending": false
   },
   {
@@ -107,8 +107,8 @@
     "rewardIds": [
       18
     ],
-    "icon": "UI_Card_FSU6_assassin_Icon.tga",
-    "art": "UI_Card_FSU6_assassin_Art.tga",
+    "icon": "UI_Card_FateCalm_assassin_Icon.tga",
+    "art": "UI_Card_FateCalm_assassin_Art.tga",
     "ending": false
   },
   {
@@ -119,8 +119,8 @@
       19,
       27
     ],
-    "icon": "UI_Card_FGO1_sakura_Icon.tga",
-    "art": "UI_Card_FGO1_sakura_Art.tga",
+    "icon": "UI_Card_FateCalm_sakura_Icon.tga",
+    "art": "UI_Card_FateCalm_sakura_Art.tga",
     "ending": false
   },
   {
@@ -130,8 +130,8 @@
     "rewardIds": [
       20
     ],
-    "icon": "UI_Card_FSU6_caster_Icon.tga",
-    "art": "UI_Card_FSU6_caster_Art.tga",
+    "icon": "UI_Card_FateCalm_caster_Icon.tga",
+    "art": "UI_Card_FateCalm_caster_Art.tga",
     "ending": false
   },
   {
@@ -155,8 +155,8 @@
       26,
       32
     ],
-    "icon": "UI_Card_FSU6_lancer_Icon.tga",
-    "art": "UI_Card_FSU6_lancer_Art.tga",
+    "icon": "UI_Card_FateCalm_lancer_Icon.tga",
+    "art": "UI_Card_FateCalm_lancer_Art.tga",
     "ending": false
   },
   {
