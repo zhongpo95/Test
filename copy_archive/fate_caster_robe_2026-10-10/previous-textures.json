@@ -1,0 +1,58 @@
+[
+  {
+    "cardIds": [
+      20
+    ],
+    "character": "캐스터",
+    "role": "icon",
+    "target": "war3mapImported\\UI_Card_FateCalm_caster_Icon.tga",
+    "file": "war3mapImported/UI_Card_FateCalm_caster_Icon.tga",
+    "size": [
+      128,
+      128
+    ],
+    "sha256": "f662e87e360da7b790abba55a6ff34cbe1ffac7ae9d7bff5d99b0593c296563d",
+    "bytes": 65580,
+    "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+    "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+    "sourceFile": "originals/hf-caster.jpg",
+    "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+    "sourceKind": "ufotable 공식 애니메이션 장면",
+    "viewport": [
+      280,
+      0,
+      540,
+      260
+    ],
+    "note": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+  },
+  {
+    "cardIds": [
+      20
+    ],
+    "character": "캐스터",
+    "role": "portrait",
+    "target": "war3mapImported\\UI_Card_FateCalm_caster_Art.tga",
+    "file": "war3mapImported/UI_Card_FateCalm_caster_Art.tga",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "73d5ed67674a4faa51f7c2724a3f8aeb60aacd053e0ebbb67083edf304e2ce8f",
+    "bytes": 1048620,
+    "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+    "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+    "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+    "sourceFile": "originals/hf-caster.jpg",
+    "artist": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+    "sourceKind": "ufotable 공식 애니메이션 장면",
+    "viewport": [
+      180,
+      0,
+      640,
+      460
+    ],
+    "note": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다."
+  }
+]

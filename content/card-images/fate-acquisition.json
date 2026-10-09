@@ -348,5 +348,199 @@
     "sha256": "0e10be296dec74cf3ba6178385a0e77e27ed194cb9774e0ec1e27f02665bce17",
     "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\07-04.jpg",
     "cachedHashVerified": true
+  },
+  {
+    "file": "caster-candidate-14-01.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/14.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/14/01.jpg",
+    "status": "ok",
+    "bytes": 35315,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "444e9bc47eac24b631c4a4fb299d834ad7fb1e487b84ff07a1b4b6d6a260013b"
+  },
+  {
+    "file": "caster-candidate-14-02.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/14.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/14/02.jpg",
+    "status": "ok",
+    "bytes": 60297,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "b340a30bd6f8fc420978d253c8966cfe12429824c4da543d0ac7d466b9031f5c"
+  },
+  {
+    "file": "caster-candidate-14-03.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/14.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/14/03.jpg",
+    "status": "ok",
+    "bytes": 33791,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "bd41c189a6b5625ffae5df1762d7438d46e8cc023e4edcb30f24dee5330e501b"
+  },
+  {
+    "file": "caster-candidate-14-04.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/14.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/14/04.jpg",
+    "status": "ok",
+    "bytes": 44365,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "a88a7e457240fa3ad1393649f2b60bcc3381a4ba4e75bf1e751735f5ef2c6de4"
+  },
+  {
+    "file": "caster-candidate-14-05.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/14.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/14/05.jpg",
+    "status": "ok",
+    "bytes": 39922,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "66cd4c93907ab614893c49fb5ee55b0057755eeb33508de8b12f3b7b0e189497"
+  },
+  {
+    "file": "caster-candidate-15-01.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/15.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/15/01.jpg",
+    "status": "ok",
+    "bytes": 44717,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "da6f98c8628ef9d1a22889be17800cfcc7d71fc8b9ada7fd427dcd823a6a93dc"
+  },
+  {
+    "file": "caster-candidate-15-02.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/15.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/15/02.jpg",
+    "status": "ok",
+    "bytes": 28240,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "79ffc42f9040d535684ebb35b423174525d9b1aaf0daf29f238e27f2ed0ea649"
+  },
+  {
+    "file": "caster-candidate-15-03.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/15.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/15/03.jpg",
+    "status": "ok",
+    "bytes": 74288,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "1837e0dfab818e0b7ccf710bf1b39f16374ef77956bb1920fcfa4234df89e168"
+  },
+  {
+    "file": "caster-candidate-15-04.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/15.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/15/04.jpg",
+    "status": "ok",
+    "bytes": 62037,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "d226978abaea3044e3da3891d00ecc45603968fdcca2bdf997c61192d3c4528c"
+  },
+  {
+    "file": "caster-candidate-15-05.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/15.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/15/05.jpg",
+    "status": "ok",
+    "bytes": 63725,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "3bd9daf96837e1665c06a8a5b74fef453861392c4a5369bbc203e472ac9b7191"
+  },
+  {
+    "file": "caster-candidate-18-01.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/18.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/18/01.jpg",
+    "status": "ok",
+    "bytes": 46708,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "339880cce6062839509bae0e6c7f17f20f67780c93c89392fa86bdfe0e487fe5"
+  },
+  {
+    "file": "caster-candidate-18-02.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/18.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/18/02.jpg",
+    "status": "ok",
+    "bytes": 62835,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "be1c618b1b3adcd1685f47a8fbadb91615afcfb9adb663f9d08ef734966acd35"
+  },
+  {
+    "file": "caster-candidate-18-03.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/18.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/18/03.jpg",
+    "status": "ok",
+    "bytes": 33381,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "aa47e2b678c815f3f08e23711f102a5d41e33f18dbd023bde987e14171c7b68c"
+  },
+  {
+    "file": "caster-candidate-18-04.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/18.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/18/04.jpg",
+    "status": "ok",
+    "bytes": 23682,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "bdff5782fb99217787b20431e87def81d4903a174b3e97d047f53ca72bb5302f"
+  },
+  {
+    "file": "caster-candidate-18-05.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/18.html",
+    "url": "https://www.fate-sn.com/ubw/story/img/18/05.jpg",
+    "status": "ok",
+    "bytes": 29241,
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "24d68a49d0cc18311378270c120424edbecb8fd9a6f283d2d2063783b209d114"
+  },
+  {
+    "key": "anime-caster-robes",
+    "url": "https://www.fate-sn.com/ubw/story/img/07/05.jpg",
+    "sourcePage": "https://www.fate-sn.com/ubw/story/07.html",
+    "status": "ok",
+    "file": "anime-caster-robes.jpg",
+    "size": [
+      600,
+      338
+    ],
+    "sha256": "520843de68df007ad2aed0d5e5af65c45ae3c2a48f24e4163c3bf377b88e6095",
+    "cachedFrom": "D:\\CodexData\\.codex\\visualizations\\2026\\09\\14\\01a09d6b-a5c2-7bb1-b980-0395639ea2fd\\card-character-images-20261004\\originals\\fate-event-scenes\\07-05.jpg",
+    "cachedHashVerified": true
   }
 ]

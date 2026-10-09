@@ -1,0 +1,28 @@
+{
+  "cardId": 20,
+  "cardKey": "caster_channel",
+  "cardName": "캐스터",
+  "icon": "UI_Card_FateCalm_caster_Icon",
+  "art": "UI_Card_FateCalm_caster_Art",
+  "oldIcon": "UI_Card_FSU6_caster_Icon.tga",
+  "oldArt": "UI_Card_FSU6_caster_Art.tga",
+  "sourceFile": "hf-caster.jpg",
+  "sourceSha256": "20da197ba22838f6eb1dbecc30f044bce29ccc4c45436576d7d0deb12a288485",
+  "sourcePage": "https://www.fatestaynightusa.com/1st/story-chara/chara.html",
+  "sourceUrl": "https://www.fatestaynightusa.com/1st/assets/img/character/caster.jpg",
+  "credit": "TYPE-MOON / ufotable / FSNPC 공식 Heaven’s Feel 애니메이션 캐릭터 소개 장면. 개별 원화가 표기는 확인되지 않음.",
+  "artCrop": [
+    180,
+    0,
+    640,
+    460
+  ],
+  "iconCrop": [
+    280,
+    0,
+    540,
+    260
+  ],
+  "reason": "후드로 가리지 않은 얼굴·은색 머리카락·귀가 보이는 ufotable 애니메이션 장면이다. 같은 원본에서 얼굴 아이콘을 별도로 자른다.",
+  "sourceKind": "ufotable 공식 애니메이션 장면"
+}

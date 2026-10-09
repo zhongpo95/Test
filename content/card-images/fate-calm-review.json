@@ -100,10 +100,29 @@
     {
       "candidate": "어새신 UBW story/img/24/02.jpg",
       "reason": "차분하지만 기존 FSU6 어새신과 같은 장면이어서 새 정면 표정의 story/img/07/04.jpg로 교체했다."
+    },
+    {
+      "candidate": "v5 HF 캐스터 일상복 장면",
+      "reason": "캐스터 고유 복장이 아닌 회색 일상복이어서 사용자가 캐스터 복장의 애니메이션 이미지로 교체하도록 요청했다. 이전 2개 TGA와 원본 JPG·출처·크롭을 copy_archive에 보존했다."
+    },
+    {
+      "candidate": "UBW caster-candidate-14-02.jpg / 13-03.jpg",
+      "reason": "로브는 보이지만 마법 효과 또는 큰 동작과 다른 인물이 화면에 있어 이번 차분한 카드 초상 선택에서 제외했다."
+    },
+    {
+      "candidate": "UBW caster-candidate-15-02.jpg",
+      "reason": "로브는 보이지만 옆모습과 짙은 그림자로 후드 장식과 얼굴 윤곽을 함께 보여주기 어렵다. 정면의 07/05 장면을 선택했다."
     }
   ],
   "nativeWarcraft": false,
   "animeOnly": true,
   "animeVersion": "ufotable Unlimited Blade Works / Heaven’s Feel",
-  "rejectedDraft": "카드텍스처_20261010_v3. 공식 게임 원화 5종이 포함된 이전 검토본이며 최종 적용 대상이 아님."
+  "rejectedDraft": "카드텍스처_20261010_v3. 공식 게임 원화 5종이 포함된 이전 검토본이며 최종 적용 대상이 아님.",
+  "casterCostumeRevision": {
+    "previousDelivery": "카드텍스처_20261010_v5",
+    "changedTextures": 2,
+    "unchangedOtherTextures": 346,
+    "costume": "보라색 캐스터 로브와 금색 장식 후드",
+    "sourceUrl": "https://www.fate-sn.com/ubw/story/img/07/05.jpg"
+  }
 }

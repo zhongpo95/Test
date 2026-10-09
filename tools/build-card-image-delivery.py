@@ -189,7 +189,10 @@ def build(args):
                                 ('Arcana_Ending_Card_Textures_20261010.zip', assets[len(legacy) - len(superseded) + len(replacements) * 2:]),
                                 ('Arcana_Fate_Calm_Textures_20261010.zip',
                                  [a for a in assets if Path(a['file']).stem in
-                                  {stem for row in replacements for stem in (row['icon'], row['art'])}])]:
+                                  {stem for row in replacements for stem in (row['icon'], row['art'])}]),
+                                ('Arcana_Caster_Robes_Textures_20261010.zip',
+                                 [a for a in assets if a.get('cardIds') == [20]
+                                  and a.get('sourceKind') == 'ufotable 공식 애니메이션 장면'])]:
         if not selected:
             continue
         with zipfile.ZipFile(out / filename, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:

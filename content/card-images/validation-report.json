@@ -19,6 +19,10 @@
   "cardImageModuleCompiled": true,
   "compiledSourceHashMatched": true,
   "fullMapCompiled": false,
-  "visualInspection": "교체한 7명의 상반신 크롭과 128x128 얼굴 아이콘을 최종 미리보기 및 교체 전후 시트에서 확인. 실제 게임 표시 미확인.",
-  "nativeWarcraft": false
+  "visualInspection": "v6 캐스터 큰 그림과 얼굴 아이콘을 최종 미리보기에서 확인. 실제 게임 표시 미확인.",
+  "nativeWarcraft": false,
+  "casterCostumeChangedTextures": 2,
+  "unchangedSinceV5Textures": 346,
+  "compileRepeatedForCasterRevision": false,
+  "mockUIScenarioScope": "18묶음은 이전 v5 검사 결과. 이번에는 UI 코드가 변경되지 않아 재실행하지 않음."
 }
