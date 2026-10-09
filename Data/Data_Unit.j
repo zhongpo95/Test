@@ -138,6 +138,18 @@ globals
     boolean array UnitHPFloorOn
     real array UnitHPFloor
     boolean array UnitDamageLock
+    //정면 방패 (아쳐 로 아이아스). 켜져 있으면 앞쪽 반원에서 온 HeroDeal 을 막고, 그 밖에서 들어온 피해를 UnitGuardBackDmg 에 더한다
+    boolean array UnitFrontGuard
+    real array UnitGuardBackDmg
+    //정면 방패에 막힌 타수 (아쳐 로 아이아스 꽃잎 파괴)
+    integer array UnitGuardFrontHits
+    //무한의 검제 '검 뽑기': 플레이어가 들고 있는 검 수 (플레이어 번호). 들고 있으면 다음 공격 1회가 투영 파쇄
+    integer array HeroPulledSword
+    //뽑은 검의 효과를 받는 보스인지 / 검을 든 플레이어가 그 보스를 때렸는지 (보스가 매 틱 확인 후 지움)
+    boolean array UnitPullTarget
+    boolean array HeroPullHit
+    //카운터 판정 정면 각도(±도). 0 이면 기본 ±45 (HeadTrue)
+    real array UnitCounterArc
     //아쳐 보스 유닛 rawcode (확정 필요: 오브젝트 에디터에서 만든 유닛 ID로 바꾼다)
     constant integer ARCHER_UNIT_ID = 'h0AR'
     
@@ -823,7 +835,8 @@ private function init takes nothing returns nothing
     set UnitSetHP[27] = 4000
     set UnitSetSD[27] = 100
     set UnitSetArm[27] = 10000
-    set UnitSetHPx[27] = 4
+    // 체력바 8줄 = 영창 8번 (한 줄을 다 깎을 때마다 영창 하나, 마지막 줄을 다 깎으면 무한의 검제)
+    set UnitSetHPx[27] = 8
     set UnitTier[27] = 5
 
     //지크프리트

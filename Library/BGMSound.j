@@ -1,6 +1,7 @@
 library BGMSound
     globals
-        string BGMSound
+        // 초기값 필수: 한 번도 PSound 를 부르지 않은 상태에서 읽으면 그 스레드가 멈춘다 (아쳐 종료 처리가 끊기던 원인)
+        string BGMSound = ""
     endglobals
     function PSound takes string s returns nothing
         call StopMusic(false)

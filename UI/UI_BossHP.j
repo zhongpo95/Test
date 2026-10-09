@@ -224,6 +224,10 @@ library UIBossHP initializer init requires FrameCount, DataUnit
             endif
         elseif fx.BHPxN2 < fx.BHPxN then
             // 보호막 게이지 업데이트
+            // 회복으로 체력이 한 줄 단위에 딱 맞으면 BHPxNN 이 0 이다. 0 을 넣으면 다음 틱에 갱신이 멈추므로 가득 찬 줄(100)로 둔다
+            if fx.BHPxNN == 0.00 then
+                set fx.BHPxNN = 100.00
+            endif
             set fx.BHPxNNP = fx.BHPxNN
             if isLocalPlayer then
                 call DzFrameSetPoint(BHPBar[1], 5, BHPBar[5], 3, 0.277 * fx.BHPxNN * 0.01, 0)

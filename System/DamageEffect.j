@@ -4,9 +4,42 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         constant real BackBounsDamage = 1.20
         // 다음 HeroDeal 호출들의 무력화 추가량 (지크프리트 W 강화 등). 호출한 쪽에서 바로 0으로 되돌린다.
         real HeroDealBonusSD = 0.0
+        // 지금 넣는 피해가 저스트 공격(지크프리트 C 저스트)인지. 호출한 쪽에서 바로 false 로 되돌린다
+        boolean HeroDealJust = false
 
         private unit array TestUnit
+        // 정면 방패 꽃잎: 스킬 한 번 = 꽃잎 한 장. 같은 플레이어의 같은 스킬 코드가 이어서 막히는 동안(간격 GUARD_SAME 초 이내)은 한 번만 센다.
+        // 능력 코드가 아닌 번호(1000 미만: 저스트 공격 등)는 GUARD_BASIC 초 안의 연타를 한 번으로 센다
+        private constant real GUARD_SAME = 1.0
+        private constant real GUARD_BASIC = 0.3
+        private timer GuardClock = CreateTimer()
+        private boolean GuardClockOn = false
+        private integer array GuardLastCode
+        private real array GuardLastAt
     endglobals
+
+    // 방패에 막힌 타격이 새 스킬 사용인지 (꽃잎 한 장으로 셀지)
+    private function GuardNewUse takes integer pid, integer skill returns boolean
+        local real now
+        local real gap = GUARD_SAME
+        local boolean fresh
+        if not GuardClockOn then
+            set GuardClockOn = true
+            call TimerStart(GuardClock, 1000000.0, false, null)
+        endif
+        if pid < 0 or pid >= 12 then
+            return true
+        endif
+        set now = TimerGetElapsed(GuardClock)
+        if skill < 1000 then
+            set gap = GUARD_BASIC
+        endif
+        set fresh = skill != GuardLastCode[pid] or now - GuardLastAt[pid] > gap
+        set GuardLastCode[pid] = skill
+        // 다단 히트가 계속되는 동안은 창을 늘린다 (한 스킬 = 한 장)
+        set GuardLastAt[pid] = now
+        return fresh
+    endfunction
 
     private function Reset takes nothing returns nothing
         local tick t = tick.getExpired()
@@ -27,6 +60,31 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endloop
 
         return JNStringSub(s, 0, sl) + result
+    endfunction
+
+    // 정면 방패: 공격자가 대상이 보는 방향 기준 앞쪽 반원(±90도)에 있는지
+    private function GuardFront takes unit source, unit target returns boolean
+        local real d = ModuloReal(AngleWBW(source, target) - GetUnitFacing(target) - 180.0 + 540.0, 360.0) - 180.0
+        return RAbsBJ(d) <= 90.0
+    endfunction
+
+    // 공격자가 대상 정면 ±arc 안에 있는지 (보스별 카운터 각도)
+    private function CounterFront takes unit source, unit target, real arc returns boolean
+        local real d = ModuloReal(AngleWBW(source, target) - GetUnitFacing(target) - 180.0 + 540.0, 360.0) - 180.0
+        return RAbsBJ(d) <= arc
+    endfunction
+
+    private function GuardTag takes unit u returns nothing
+        local texttag ttag = CreateTextTag()
+        call SetTextTagText(ttag, "막힘", 0.022)
+        call SetTextTagPos(ttag, GetWidgetX(u), GetWidgetY(u), 120)
+        call SetTextTagColor(ttag, 200, 200, 255, 229)
+        call SetTextTagVelocityBJ(ttag, 60.00, GetRandomReal(60.00, 120.00))
+        call SetTextTagFadepoint(ttag, 0.4)
+        call SetTextTagLifespan(ttag, 0.6)
+        call SetTextTagPermanent(ttag, false)
+        call SetTextTagVisibility(ttag, true)
+        set ttag = null
     endfunction
 
     //때린유닛,맞은유닛
@@ -102,6 +160,23 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         endif
         //피해 잠금 (보스 페이즈 전환 연출 중): 피해·카운터·무력화 모두 무시
         if UnitDamageLock[UnitIndex] then
+            return false
+        endif
+        //뽑은 검(아쳐 무한의 검제): 들고 있는 동안 피해 ×1.2, 무력화 +2. 일반 공격으로는 검이 줄지 않는다
+        //(다단 히트마다 검이 사라지던 문제). 검은 보스 쪽 기믹(로 아이아스 꽃잎, 전검 사출 방어)에서만 쓴다
+        if UnitPullTarget[UnitIndex] and pid >= 0 and pid < 12 and HeroPulledSword[pid] > 0 then
+            set HeroPullHit[pid] = true
+            set DMGRate = DMGRate * 1.2
+            set SD = SD + 2.0
+        endif
+        //정면 방패: 앞쪽 반원에서 온 공격은 막는다
+        if UnitFrontGuard[UnitIndex] and GuardFront(source, target) then
+            // 스킬 한 번에 꽃잎 한 장 (다단 히트는 한 번만). 기본 공격(코드 2)은 꽃잎을 깨지 못한다.
+            // 예외: 지크프리트의 저스트 공격(강한 기본 공격)은 한 번에 한 장
+            if (SkillCode != 2 or HeroDealJust) and GuardNewUse(pid, SkillCode) then
+                set UnitGuardFrontHits[UnitIndex] = UnitGuardFrontHits[UnitIndex] + 1
+            endif
+            call GuardTag(target)
             return false
         endif
         if ExpEnemy[UnitIndex] and ((ExpState != EXP_BATTLE and ExpState != EXP_HUNT) or UnitHP[UnitIndex] <= 0.0) then
@@ -310,7 +385,7 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         //카운터 체크
         if counter == true then
             if GetUnitAbilityLevel(target, 'A00V') == 1 then
-                if HeadTrue(AngleWBW(source,target), GetUnitFacing(target)) == true then
+                if (UnitCounterArc[UnitIndex] <= 0 and HeadTrue(AngleWBW(source,target), GetUnitFacing(target))) or (UnitCounterArc[UnitIndex] > 0 and CounterFront(source, target, UnitCounterArc[UnitIndex])) then
                     call UnitRemoveAbility(target,'A00V')
                     call CounterTag(target)
                     set CounterBoolean = true
@@ -452,6 +527,10 @@ library DamageEffect requires DataUnit,UIBossHP,AttackAngle,BuffData,Shield,Boss
         //체력 하한 보호 (아쳐 1페이즈: HP 1 아래로 내려가지 않음). 집계보다 먼저 적용
         if UnitHPFloorOn[UnitIndex] and UnitHP[UnitIndex] < UnitHPFloor[UnitIndex] then
             set UnitHP[UnitIndex] = UnitHPFloor[UnitIndex]
+        endif
+        //정면 방패 중 옆·뒤에서 넣은 피해 (방패 파괴 조건)
+        if UnitFrontGuard[UnitIndex] then
+            set UnitGuardBackDmg[UnitIndex] = UnitGuardBackDmg[UnitIndex] + RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex]))
         endif
         call ProtoRecordDamage(pid, UnitIndex, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))
         call ProtoLeechHit(pid, source, RMaxBJ(0.0, healthBefore - RMaxBJ(0.0, UnitHP[UnitIndex])))

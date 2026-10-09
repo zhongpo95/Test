@@ -20,6 +20,8 @@ private struct HitFx
     integer anim
     integer hit
     real rate
+    // 저스트 입력으로 나간 단인지 (로 아이아스 꽃잎 판정용)
+    boolean just
 
     method destroy takes nothing returns nothing
         set caster = null
@@ -134,7 +136,9 @@ function HitFxFire takes nothing returns nothing
     if fx.serial == SiegSerial[pid] and SiegCanAct(u) then
         set f = GetUnitFacing(u)
         set CurRate = fx.rate
+        set HeroDealJust = fx.just
         call splash.range(splash.ENEMY, u, GetWidgetX(u) + PolarX(Front, f), GetWidgetY(u) + PolarY(Front, f), Scale, function splashD)
+        set HeroDealJust = false
 
         if fx.hit == SiegHitMain[fx.anim] then
             // 타격음은 이번 타격에 적이 맞았을 때만
@@ -278,6 +282,7 @@ function SiegStartStage takes integer pid, integer stage, boolean just returns n
         set fx.anim = anim
         set fx.hit = k
         set fx.rate = total / SiegHitCount[anim]
+        set fx.just = just
         set t = tick.create(fx)
         call t.start(SiegHitTime[anim * 6 + k] / speed, false, function HitFxFire)
         set k = k + 1
