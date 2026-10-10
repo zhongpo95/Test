@@ -38,11 +38,11 @@ library DataPrototype requires DataPrototypeGrowth
     function ProtoCardText takes integer pid, integer id returns string
         local integer character = ProtoCardCharacter[id]
         local integer key = ExpKey(pid, character)
-        local string value = "강화 +" + I2S(ProtoCardStacks[key]) + " · 누적 보상 " + I2S(ProtoCardStacks[key] + 1) + "회|n"
+        local string value = "|cff90a4b8누적 보상 |cff83e4e6" + I2S(ProtoCardStacks[key] + 1) + "회|r · 강화 |cff83e4e6+" + I2S(ProtoCardStacks[key]) + "|r|n|n"
         if ProtoCardEnding[id] == 1 then
-            return ProtoCardDescription[id] + "|n|n엔딩 기념 카드 · 전투 효과 미설정"
+            return ProtoCardDescription[id] + "|n|n|cffd4b5ed[이야기 완결 기념]|r|n전투 효과 없음"
         endif
-        set value = value + "선택한 보상의 합산 효과|n" + ProtoCharacterEffectsText(pid, character)
+        set value = value + "|cff9cddb0[현재 합산 효과]|r|n" + ProtoCharacterEffectsText(pid, character)
         if ProtoStoryChangeDescription(pid, id) != "" then
             set value = value + "|n|n" + ProtoStoryChangeDescription(pid, id)
         endif

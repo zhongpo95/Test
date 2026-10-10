@@ -37,6 +37,11 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
     endglobals
 
     private function Text takes integer frame, string value returns nothing
+        set value = JNStringReplace(value, "|cFF006B8F", "|cff83e4e6")
+        set value = JNStringReplace(value, "|cFF865500", "|cffffd37d")
+        set value = JNStringReplace(value, "|cFF80560C", "|cffffd37d")
+        set value = JNStringReplace(value, "|cFF704261", "|cffd4b5ed")
+        set value = JNStringReplace(value, "|cFFA53528", "|cffff9b8d")
         call DzFrameSetText(frame, "|cffe7edf3" + JNStringReplace(value, "|r", "|cffe7edf3") + "|r")
     endfunction
 
@@ -258,7 +263,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
             // 호버 설명은 목록 내부에 제한하여 오른쪽 일러스트와 하단 조작을 가리지 않는다.
             set x = RMinBJ(0.153, 0.087 + ModuloInteger(Hover - 1, 5) * 0.075)
             set effects = ProtoCharacterEffectCount(pid, id)
-            set tooltipHeight = 0.108 + 0.0115 * (effects + ProtoStoryChangeLineCount(pid, id))
+            set tooltipHeight = 0.122 + 0.0115 * (effects + ProtoStoryChangeLineCount(pid, id))
             if ProtoCardEnding[id] == 1 then
                 set tooltipHeight = tooltipHeight + 0.069
             endif

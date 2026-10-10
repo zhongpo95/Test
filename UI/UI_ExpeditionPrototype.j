@@ -60,6 +60,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         set value = JNStringReplace(value, "|cff163848", color)
         set value = JNStringReplace(value, "|cFF006B8F", "|cff376571")
         set value = JNStringReplace(value, "|cFF865500", PAPER_GOLD)
+        set value = JNStringReplace(value, "|cff83e4e6", "|cff376571")
+        set value = JNStringReplace(value, "|cff9cddb0", PAPER_GAIN)
         set value = JNStringReplace(value, "|cff216548", PAPER_GAIN)
         set value = JNStringReplace(value, "|cff9c4a22", PAPER_COST)
         set value = JNStringReplace(value, "|cff0877ae", "|cff2f628d")
@@ -188,7 +190,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         else
             set x = x - 0.274
         endif
-        call PlaceCoverPart(EntryTooltip, EventRoot, x, 0.214, 0.266, 0.176)
+        call PlaceCoverPart(EntryTooltip, EventRoot, x, 0.214, 0.266, 0.220)
         call PlaceCoverPart(EntryTooltipIcon, EntryTooltip, 0.012, 0.044, 0.046, 0.046 * ImagePixelAspect)
         call PlaceCoverPart(EntryTooltipBorder, EntryTooltip, 0.012, 0.044, 0.046, 0.046 * ImagePixelAspect)
         set grade = ProtoRewardGrade(pid, card, false)
@@ -393,9 +395,9 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
                 call PlaceCoverPart(StoryTitle, StoryPanel, 0.076, 0.048, 0.216, 0.044)
                 call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.104, 0.274, 0.264)
             else
-                call PlaceEventImage(StoryIcon, StoryPanel, 0.018, 0.045, 0.080, 0.080, id)
+                call PlaceEventImage(StoryIcon, StoryPanel, 0.018, 0.045, 0.070, 0.070, id)
                 call PlaceCoverPart(StoryTitle, StoryPanel, 0.112, 0.048, 0.180, 0.070)
-                call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.146, 0.274, 0.222)
+                call PlaceCoverPart(StoryText, StoryPanel, 0.018, 0.126, 0.274, 0.242)
             endif
             call PaperText(StoryText, ProtoDialogueStoryText(pid), PAPER_BODY)
         endif
@@ -565,7 +567,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameSetPriority(EntryTooltipBorder, 111)
         set EntryTooltipTitle = ExpUILabel(EntryTooltip, 0.012, 0.012, 0.242, 0.024, 0.011, "")
         call DzFrameSetText(EntryTooltipTitle, "|cff83e4e6입문 카드 · 머리 선택 시 함께 획득|r")
-        set EntryTooltipText = ExpUILabel(EntryTooltip, 0.072, 0.044, 0.180, 0.120, 0.011, "")
+        set EntryTooltipText = ExpUILabel(EntryTooltip, 0.072, 0.044, 0.180, 0.164, 0.011, "")
         call JNFrameSetTextAlignment(EntryTooltipText, JN_TEXT_JUSTIFY_TOP, JN_TEXT_JUSTIFY_LEFT)
         call DzFrameShow(EntryTooltip, false)
         set HuntHUD = DzCreateFrameByTagName("FRAME", "", DzGetGameUI(), "", FrameCount())
