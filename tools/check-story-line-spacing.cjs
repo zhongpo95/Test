@@ -21,4 +21,3 @@ const before=measures;render(text,.126,.242);assert.equal(measures,before);
 render('아주 긴 설명 '.repeat(300),.126,.242);assert(frame(1).text.includes('아주 긴 설명'));for(let i=0;i<32;i++)assert(!frame(100+i).shown);
 render('짧은 설명',.104,.264);assert.equal(clean(frame(100).text),'짧은 설명');assert.equal(frame(1).text,'');
 console.log('PASS 실제 JASS 함수의 줄 간격, 색상 유지, 문단, 캐시, 넘침 복원, 재진입. 실제 게임 폰트 측정은 미검증.');
-
