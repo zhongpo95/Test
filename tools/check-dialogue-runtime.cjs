@@ -11,7 +11,10 @@ function copies(e){return e.ProtoRewardCopies.reduce((a,b)=>a+b,0);}
 function drain(t,first=1,follow=1){const e=t.e;let steps=0;while(e.ProtoStage[0]===2||e.ProtoDialoguePending(0)){assert(++steps<30);if(e.ProtoStage[0]===2)send(e,2200+(e.ProtoDialogueFollowing(0)?Math.min(follow,e.ProtoDialogueChoiceCount(0)):first));else send(e,2400);t.render();}return steps;}
 const index=setup().e;
 const main=Array.from({length:index.PROTO_EVENT_COUNT},(_,i)=>i+1).filter(id=>index.ProtoEventDialogueEnabled[id]);
-check('검수한 198개 메인 사건이 대화 런타임에 연결됨',()=>assert.equal(main.length,198));
+check('기존 198개와 추가된 모든 메인 사건이 대화 런타임에 연결됨',()=>{
+ assert.equal(main.filter(id=>index.ProtoEventHead[id]<=13).length,198);
+ assert.equal(main.length,index.ProtoHeadMainLength.slice(1,index.PROTO_HEAD_COUNT+1).reduce((n,v)=>n+v,0));
+});
 check('모든 최초 보상 분기 및 후속 선택이 끝난 뒤 보상·기록·행동력 한 번 정산',()=>{
  const t=setup(),e=t.e;
  for(const id of main)for(let first=1;first<=e.ProtoEventChoices[id];first++){

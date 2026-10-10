@@ -85,9 +85,9 @@ library DataPrototype requires DataPrototypeGrowth
         endloop
     endfunction
 
-    // 카드와 사건은 각각 최대 1023개까지 플레이어 키가 충돌하지 않는다.
+    // 카드와 사건은 공통 간격을 사용하여 플레이어별 0~2047번이 겹치지 않는다.
     function ProtoStoryKey takes integer pid, integer id returns integer
-        return pid * 1024 + id
+        return ExpKey(pid, id)
     endfunction
 
     function ProtoChoiceKey takes integer id, integer choice returns integer

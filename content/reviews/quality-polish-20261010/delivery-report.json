@@ -1,0 +1,94 @@
+{
+  "issue": 164,
+  "pr": 194,
+  "completedAt": "2026-10-10T11:51:35.769Z",
+  "counts": {
+    "heads": 28,
+    "cards": 1653,
+    "main": 401,
+    "events": 892,
+    "entryEvents": 112,
+    "totalEvents": 1004
+  },
+  "snapshot": {
+    "catalogSha256": "c224f39fda2de147cefe17c6f91ab63e5595b10cb3a4b02b604612760e61f442",
+    "imagesSha256": "05066b440c529c4e3563e7bcefc01064bb4b421230b4934df2d01b464b896b84",
+    "engineSha256": "1273c9756755f39ec18e7f2820ebb4cb22c838c01d54ce700d0ef91a3c239c5d",
+    "uiSha256": "31f75a8031dcd7151f174a7dec61054a78bbfccb82f0f80bbf4bb9a57c115ba2"
+  },
+  "quality": {
+    "headsFrozenAt": 28,
+    "newHeadsAddedDuringPolish": 0,
+    "headIntrosRewritten": 12,
+    "keywordChanges": 269,
+    "confirmedWrongKeywords": 21,
+    "conditionalOrPenaltyClarityAlsoIncluded": true,
+    "penaltyFollowup": 8,
+    "statsAndRewardsUnchanged": true,
+    "correctedImageSubjects": 5,
+    "correctedTextures": 6,
+    "otherCanonicalFilesPreserved": 1577,
+    "rawTextureBytesDelta": 0,
+    "completionUi": [
+      "이번 원정의 머리 한도 X/Y",
+      "한도 도달 시 메인 완주 안내",
+      "선행 메인 최초 정산 시 후속 머리 후보 해금 이름"
+    ],
+    "nameHighlight": "페르소나의 일반 명사 하루와 인물 오쿠무라 하루를 구분해 강조한다.",
+    "archive": "copy_archive/quality_polish_20261010"
+  },
+  "pack": {
+    "asiFile": "Arcana_A.asi",
+    "files": 1581,
+    "sourceBytes": 613407086,
+    "asiBytes": 267635330,
+    "asiSha256": "a1189cd1dc6255c0d3fc7e39403698fb10dd792e1a41f515f19f78e63b4c806f",
+    "loaderBytes": 2560,
+    "loaderSha256": "f2cef2d21ac7585317b6691426c635926ee93c6bb931ab242cf4bd1e9b20632e",
+    "mpqOffset": 2560,
+    "mpqSha256": "3c6c30ec15a6911a5e0da56f8c95924442f4444ed873ccb538560f2f39974f7b",
+    "archiveVersion": 0,
+    "compression": "lossless zlib",
+    "allMemberHashesVerified": true,
+    "standaloneLoaderRequired": false,
+    "mapCreated": false,
+    "installed": false,
+    "warcraftRuntimeTested": false,
+    "target": "D:\\Work\\ARCANA\\Arcana_A.asi",
+    "archive": "D:\\Work\\ARCANA\\copy_archive\\head-expansion-20261010\\Arcana_A_additional4.asi",
+    "beforeSha256": "7c2e9d46b6271c40f21a287ba377e76ed56064559ff4b814853bfb731648efda",
+    "afterSha256": "a1189cd1dc6255c0d3fc7e39403698fb10dd792e1a41f515f19f78e63b4c806f",
+    "beforeBytes": 225585219,
+    "afterBytes": 267635330,
+    "previousPreserved": true,
+    "distributionHashVerified": true,
+    "gameInstalled": false,
+    "qualityOnlyBeforeBytes": 267660396,
+    "qualityOnlyBytesDelta": -25066,
+    "previousDistributedBytesDelta": 42050111,
+    "previousDistributedPercent": 18.64
+  },
+  "validation": {
+    "staticAndMock": 11,
+    "compile": {
+      "template": "D:\\Work\\WC3Maps\\mm\\2\\카드_이미지팩_Arcana_A_20261010\\validation-work\\template.j",
+      "template_sha256": "66b3210546341010bae31c285547aecb5a65b5adb4a440d3a58fdad2f381bf81",
+      "compiler_exit": 0,
+      "map_created": false,
+      "pjass_exit": 0,
+      "script_sha256": "94d013074b0d617e7209904e78fea49a7c139f4b1dd915b5db56f791f241c924",
+      "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   151295 lines: war3map.j\r\nParse successful:   163204 lines: <total>\r\n24 errors ignored\r\n"
+    },
+    "compileNote": "JASSHelper/PJass 스크립트 컴파일. 기존과 동일한 24 errors ignored 출력. W3X나 게임 실행 증거 아님.",
+    "visual": "기존 사용 썸네일 415개와 교정한 TGA 6개 전후 비교를 육안 확인. 원작 모든 사건의 의미를 이번에 새로 검토한 것은 아니다.",
+    "notTested": [
+      "실제 Warcraft/JN 화면·입력·글자 줄바꿈",
+      "멀티플레이 동기화",
+      "서버 저장·불러오기",
+      "등장 빈도·완주 소요 시간·보상 밸런스",
+      "Warcraft VM 실행 한도·FPS"
+    ],
+    "mapCreated": false,
+    "gameInstalled": false
+  }
+}

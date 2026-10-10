@@ -294,7 +294,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             endloop
             call DzSyncData("ProtoCodex", packet)
         endif
-        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n머리 카드 최대 2장 · 머리 획득 비용 없음|n사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
+        set value = "원정 규칙|n|n개인 사냥 20분 · 행동력 20|n이번 원정 머리 2장부터 · 메인 완주마다 한도 +1|n머리 획득 비용 없음 · 사건 후보 3개 (최대 4개)|n리롤 500골드부터 · 다음 리롤 +100골드"
         call ExpUIText(LobbyInfo, value)
         set value = "출발 장비|n|n출발 머리 · "
         if ProtoStartHead[pid] > 0 then
@@ -342,7 +342,11 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         call DzFrameShow(OutcomePanel, ProtoStage[pid] == 3)
         if ProtoStage[pid] == 1 then
             call PaperText(EventTitle, "개인 사건 · 사건 선택", PAPER_TITLE)
-            call PaperText(EventStory, "어떤 사건을 만나 볼까요?  ·  후보에 표시된 행동력 소모  ·  내 공간만 정지합니다.", PAPER_META)
+            set value = "머리 " + I2S(ProtoHeadCount[pid]) + "/" + I2S(ProtoHeadCapacity(pid)) + " · 후보에 표시된 행동력 소모 · 내 공간만 정지합니다."
+            if ProtoHeadCount[pid] >= ProtoHeadCapacity(pid) then
+                set value = value + "|n메인 이야기 완주 시 이번 원정의 머리 한도 +1."
+            endif
+            call PaperText(EventStory, value, PAPER_META)
         elseif ProtoStage[pid] == 2 then
             call PaperText(EventTitle, "개인 사건 · 행동 선택", PAPER_TITLE)
             if ProtoDialogueFollowing(pid) then

@@ -1,0 +1,111 @@
+{
+  "documentRole": "현재 28개 머리 카드의 완주 보상과 후속 해금에 대한 사용자 UI 안내를 독립 점검한 기록이다.",
+  "reviewedAt": "2026-10-10",
+  "status": "review-complete-proposals-only",
+  "scope": "엔진, 생성 메타데이터, UI 표시, 클릭 및 동기화 등록 경로를 읽었다. 수치, 원고, 코드, 운영 데이터는 변경하지 않았다.",
+  "engineBaseline": {
+    "headCount": 28,
+    "baseCapacity": 2,
+    "capacityFormula": "기본 2 + 이번 런에서 서로 다른 머리의 메인 이야기를 완주한 횟수",
+    "settlement": "최종 추가 대화까지 마친 뒤 정산 때 한 번 증가한다. 기존 머리를 제거하지 않는다.",
+    "royal": "이번 런에서 페르소나5 머리 25의 메인을 완주해야 로열 머리 26이 후보 자격을 얻는다. 자동 지급이나 즉시 등장 보장은 아니다.",
+    "newRun": "완주 횟수와 완료 플래그를 지워 한도는 2로 돌아간다. 영구 발견 기록만으로 로열을 새 런에서 미리 선택할 수 없다.",
+    "evidence": [
+      "Data/Data_Expedition.j:138-140",
+      "System/ExpeditionPrototype.j:64-76",
+      "System/ExpeditionPrototype.j:187-229",
+      "System/ExpeditionPrototype.j:251-315",
+      "System/ExpeditionPrototype.j:595-609",
+      "System/ExpeditionPrototype.j:670-690",
+      "System/ExpeditionPrototype.j:832-863",
+      "Data/Data_PrototypeCatalog.j:56225-56230"
+    ]
+  },
+  "findings": [
+    {
+      "id": "head-ui-royal-unlock-not-announced",
+      "priority": "P2",
+      "category": "해금 조건 및 달성 결과의 안내 누락",
+      "title": "본편 완주가 로열 후보를 여는 사실이 게임 UI에 표시되지 않는다.",
+      "scenario": "플레이어가 본편의 마지막 대화를 정산한다. 결과에는 완결과 머리 한도 증가만 나오고, 다음 사건 목록에 다른 지역들이 나오면 로열이 아직 잠겼는지 추첨에서 빠졌는지 구분할 수 없다.",
+      "evidence": [
+        {
+          "path": "content/roguelite/27-persona5_royal.json",
+          "lines": "6,14,23",
+          "detail": "requiresCompletedHead 및 제작 출처에는 본편 완주 조건이 있지만, 사용자에게 나오는 intro에는 그 조건이 없다. 출처 메타데이터 자체는 UI가 표시하지 않는다."
+        },
+        {
+          "path": "System/ExpeditionPrototype.j",
+          "lines": "64-70,195-197,268-276,595-609",
+          "detail": "완료 플래그로 로열 자격을 열고 추첨 풀에 넣지만, 정산 메시지는 이야기 완결·한도 +1 뒤 일반 이야기 변화만 붙인다. 후속 머리 이름을 알리는 경로가 없다."
+        },
+        {
+          "path": "UI/UI_ExpeditionPrototype.j",
+          "lines": "358-370,398-405",
+          "detail": "완결 헤더는 후일담을 만날 수 있다고만 안내한다. 후보 UI는 실제 뽑힌 사건만 그리므로 잠긴 로열이나 해금 조건을 찾아볼 행이 없다."
+        }
+      ],
+      "proposal": "본편을 최초 완주한 정산에 '후속 머리 후보 해금 · 페르소나5 더 로열'과 '이번 원정의 이후 사건 후보에 등장 가능'을 추가한다. 일반화할 경우 ProtoHeadRequiredMain이 방금 완주한 머리를 가리키는 항목만 조회하고, 원고에 로열 이름을 수동 복제하지 않는다. 로열이 후보로 실제 등장할 때에는 '후속 지역 · 페르소나5 완주'처럼 상태를 보여줄 수 있다.",
+      "copyConstraints": [
+        "즉시 획득, 다음 후보 확정 등장, 영구 해금이라고 표현하지 않는다.",
+        "원작 시간 순서가 본편 봄 귀향 이후 3학기라는 뜻으로 읽히지 않게 시스템 조건만 짧게 표시한다."
+      ],
+      "validationProposal": "실제 P5 최종 정산 모의 검사에서 해금 안내가 정확히 한 번 나오고, 정산 전·타 플레이어·새 런에는 해당 상태가 나타나지 않는지 검사한다. 같은 결과 재표시는 허용하되 다시 지급되는 것처럼 표시하지 않는다."
+    },
+    {
+      "id": "head-ui-capacity-run-scope-and-full-state",
+      "priority": "P3",
+      "category": "현재 원정 상태와 다음 행동의 안내 누락",
+      "title": "한도 증가의 유효 기간과 한도가 찼을 때 해야 할 일이 사건 선택 화면에서 드러나지 않는다.",
+      "scenario": "머리를 2장 획득한 뒤 새 머리 후보가 사라지거나, 이전 원정에서 3장 이상으로 늘린 뒤 새 원정을 시작한다. 현재 UI의 짧은 숫자와 '+1' 문구만으로는 한도를 늘리는 방법과 새 원정 초기화를 즉시 확인하기 어렵다.",
+      "evidence": [
+        {
+          "path": "UI/UI_ExpeditionPrototype.j",
+          "lines": "297,340-345",
+          "detail": "출발 창에는 '기본 2장 · 메인 완주마다 한도 +1'이 있지만 '이번 원정' 범위가 없다. 사건 선택 헤더에는 시간·행동력·골드만 있고 머리 수 또는 완주 힌트가 없다."
+        },
+        {
+          "path": "System/ExpeditionPrototype.j",
+          "lines": "197,604,836-853",
+          "detail": "한도가 차면 새 머리 후보가 필터링된다. 결과의 '머리 카드 한도 +1 · 최대 N장'에는 이번 런 한정이라는 표현이 없으며, 다음 런 초기화는 실제로 수행된다."
+        },
+        {
+          "path": "UI/UI_Map.j",
+          "lines": "64",
+          "detail": "지도는 현재 머리 수/동적 한도를 올바르게 표시하나 증가의 근거 또는 다음 행동은 표시하지 않는다."
+        },
+        {
+          "path": "UI/UI_PrototypeCards.j",
+          "lines": "184",
+          "detail": "보유 카드 화면 역시 현재 머리 수/동적 한도만 표시한다."
+        }
+      ],
+      "proposal": "규칙을 '이번 원정은 머리 2장부터 · 지역 메인 완주마다 한도 +1'로 명확히 한다. 사건 선택 화면이나 지도에 '머리 X/Y · 완주 Z'를 짧게 보여주고, 현재 한도에 도달한 경우에만 '메인 이야기 완주 시 머리 한도 +1'을 안내한다. 정산의 한도 문구에도 '이번 원정'을 붙인다. 새로운 화면이나 새 수치는 필요하지 않다.",
+      "copyConstraints": [
+        "이미 완료한 같은 지역을 반복해 한도를 더 받을 수 있다는 표현을 피한다.",
+        "현재 숫자 X/Y는 ProtoHeadCount와 ProtoHeadCapacity에서 읽어야 하며 2를 고정 표시하지 않는다.",
+        "메인 완주 전 마지막 추가 대화가 남아 있으면 아직 증가하지 않았다는 현재 정산 기준을 유지한다."
+      ],
+      "validationProposal": "기본 2/2, 첫 완주 직후 2/3, 추가 획득 후 3/3, 두 번째 완주 뒤 3/4, 새 런 0/2의 실제 UI 문자열을 확인한다. 문구 줄 수 변경 시 프레임 높이·줄바꿈은 게임 또는 UI 미리보기로 별도 확인한다."
+    }
+  ],
+  "notFindings": [
+    "지도와 보유 카드의 분모는 이미 ProtoHeadCapacity(pid)를 사용한다. 고정 /2 버그는 현재 코드에 남아 있지 않다.",
+    "완주 결과에 한도 증가 안내 자체는 존재한다. 문제는 존재 여부가 아니라 이번 원정 범위 및 후속 후보 안내이다.",
+    "현재 UI에는 머리 도감의 잠긴 로열 버튼이 구현되어 있지 않다. 그러므로 '로열 버튼이 회색인데 이유가 없다'는 사례를 재현된 문제로 취급하지 않았다.",
+    "일반 후보가 낡았을 때 표시되는 '선택 불가 · 후보 갱신 대기'는 별도 경로다. 로열 선행 조건 미달은 보통 후보 목록에 넣지 않으므로 그 문구를 직접적인 로열 잠금 안내 버그로 단정하지 않았다.",
+    "로열의 출발 머리 금지와 도감 로드 실패가 장비 안내로 묶이는 경로는 코드에 있으나 현재 출발 창은 머리 선택 버튼을 생성하지 않는다. 정상 현재 UI에서 해당 상태를 만드는 증거가 없어 별도 결함으로 올리지 않았다."
+  ],
+  "callPathReview": [
+    "UI/UI_ExpeditionPrototype.j:497,527,552가 후보 2101~2104·선택 2201~2204·계속/정산 2400 버튼을 생성한다.",
+    "UI/UI_ExpeditionCommon.j:222-264의 MOUSE_UP 콜백은 활성 버튼만 ExpUISend로 전달하며 75-77에서 런·리비전·후보 버전을 보낸다.",
+    "System/Expedition.j:1152-1157 및 1274-1275는 ExpCmd 동기화 이벤트를 등록하고 버전·플레이어를 검사한다.",
+    "System/ExpeditionPrototype.j:1357의 ExpPrototypeRequest 등록은 ProtoDispatch를 거쳐 ProtoAction으로 연결된다. 1069-1070의 2400은 ProtoContinue, 최종 대화는 684-688에서 ProtoResolve 정산으로 이어진다.",
+    "UI/UI_ExpeditionPrototype.j:575, UI/UI_Map.j:106, UI/UI_PrototypeCards.j:393의 ExpRefresh 등록이 실제 표시를 갱신한다. UI/UI_ExpeditionCommon.j:430에는 0.10초 갱신 등록이 있다."
+  ],
+  "validationBoundary": {
+    "performed": ["현재 코드·생성 데이터 읽기", "표시 문자열과 상태 판정 비교", "공통 버튼 콜백·동기화·정산·렌더 등록 경로 확인"],
+    "priorIndependentCheck": "next-priority-code-review.json에 기록한 머리 진행 6건과 ID·용량 10건은 통과했다. 이번 보고서에서는 추가 테스트를 실행하지 않았다.",
+    "notPerformed": ["UI 문구 수정", "새 코드 컴파일", "Warcraft III 실행", "실제 클릭·멀티플레이 재현", "프레임 줄바꿈과 가독성의 화면 검증", "맵 생성"]
+  }
+}

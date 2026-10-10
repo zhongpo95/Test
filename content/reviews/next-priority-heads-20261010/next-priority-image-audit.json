@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-10",
+  "scope": [
+    "witch_prison",
+    "persona5",
+    "persona5_royal",
+    "hakugyokurou",
+    "scarlet_mist"
+  ],
+  "readOnlyProduction": true,
+  "canonicalModified": false,
+  "productionModified": false,
+  "runtimeTested": false,
+  "sourceInputs": [
+    {
+      "path": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\event-images\\expansion-assignments.json",
+      "sha256": "aaeab21135a9365e56d0c9f48a14df8f340461ec125c690470efbd898c853080"
+    },
+    {
+      "path": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\event-images\\expansion-scene-review.json",
+      "sha256": "f493ef79a4f4bde88766679d839c9a82201aa6247040716947e0dfe3a8e1cf9e"
+    },
+    {
+      "path": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\event-images\\texture-manifest.json",
+      "sha256": "09722154987294f18182e076e06fa573085b255e69a4e19496cc1a861e75620c"
+    },
+    {
+      "path": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\event-images\\thumbnail-manifest.json",
+      "sha256": "f04f10efc338264b7ae7ba2df10921a848ca15af6ebbfbaf0e0923fef3d3c67d"
+    },
+    {
+      "path": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\card-images\\texture-manifest.json",
+      "sha256": "0aed2407c342adcec2959f395e1cc90a45fe1d00021dca20a7c343205524310b"
+    }
+  ],
+  "summary": {
+    "expectedMappings": 162,
+    "actualMappings": 162,
+    "exportTextures": 256,
+    "uniqueTextures": 256,
+    "canonicalHashMatches": 256,
+    "issues": 0,
+    "notes": 14
+  },
+  "worlds": [
+    {
+      "world": "witch_prison",
+      "contentFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\roguelite\\25-witch_prison.json",
+      "contentSha256": "6a766bbb157aa0cf64616545e9e4602731f6512f38e90000dc46259047d93eab",
+      "sourceExport": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2",
+      "sourceManifestSha256": "6a9a125cb4eb1512816254abf1fbb0cfb211d8b26aab955bc57fed40b9e94987",
+      "events": 34,
+      "mappings": 34,
+      "mappingKinds": {
+        "representative-character": 32,
+        "world-keyvisual": 2
+      },
+      "exactSceneCount": 0,
+      "exportTextures": 56,
+      "canonicalHashMatches": 56,
+      "registeredHashMatches": 52
+    },
+    {
+      "world": "persona5",
+      "contentFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\roguelite\\26-persona5.json",
+      "contentSha256": "35975b92aa76ebfc1f02e223f87411522f97d1c9b98f394d14446f2cd7bed40a",
+      "sourceExport": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1",
+      "sourceManifestSha256": "05f393ca216adc7bdd2234d78ecf5a389a706d37c626f3df118fa02dbc992b6f",
+      "events": 34,
+      "mappings": 34,
+      "mappingKinds": {
+        "official-episode-scene": 3,
+        "representative-character": 29,
+        "world-keyvisual": 1,
+        "ending-memorial": 1
+      },
+      "exactSceneCount": 3,
+      "exportTextures": 58,
+      "canonicalHashMatches": 58,
+      "registeredHashMatches": 56
+    },
+    {
+      "world": "persona5_royal",
+      "contentFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\roguelite\\27-persona5_royal.json",
+      "contentSha256": "211593f9153d6db6c1c9c166a023ffd5cafe8b48bf234a13d10e4e6fae879f09",
+      "sourceExport": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1",
+      "sourceManifestSha256": "59f0d32f251c631854c4aa9d7401fb62793de4de12ccddb5671dbdc9bada6583",
+      "events": 32,
+      "mappings": 32,
+      "mappingKinds": {
+        "official-game-scene": 1,
+        "representative-character": 30,
+        "ending-memorial": 1
+      },
+      "exactSceneCount": 1,
+      "exportTextures": 54,
+      "canonicalHashMatches": 54,
+      "registeredHashMatches": 52
+    },
+    {
+      "world": "hakugyokurou",
+      "contentFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\roguelite\\28-hakugyokurou.json",
+      "contentSha256": "16524d30f7841147f17829cb76dcdb0f79e7e364d494e3701c3e6d1cd9a87db7",
+      "sourceExport": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1",
+      "sourceManifestSha256": "caebd360f42da1d53317049223ab55bf6a5df92461216a3063b13034bab543f4",
+      "events": 31,
+      "mappings": 31,
+      "mappingKinds": {
+        "representative-character": 30,
+        "ending-memorial": 1
+      },
+      "exactSceneCount": 0,
+      "exportTextures": 52,
+      "canonicalHashMatches": 52,
+      "registeredHashMatches": 48
+    },
+    {
+      "world": "scarlet_mist",
+      "contentFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\roguelite\\29-scarlet_mist.json",
+      "contentSha256": "ffa090e3c0f1fb79970a4ad5285cd85b5c6285cb51685c6e729647c1aae37a00",
+      "sourceExport": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1",
+      "sourceManifestSha256": "1192bb130f248852705d90a412bc854374220187eddd4c78e10a9c3036bb06db",
+      "events": 31,
+      "mappings": 31,
+      "mappingKinds": {
+        "representative-character": 30,
+        "ending-memorial": 1
+      },
+      "exactSceneCount": 0,
+      "exportTextures": 36,
+      "canonicalHashMatches": 36,
+      "registeredHashMatches": 34
+    }
+  ],
+  "sceneBindings": [
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_01",
+      "sourceKind": "official-anime-episode-still",
+      "episode": 1,
+      "reviewReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "checks": [
+        "source/export/current-event content matched"
+      ]
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_03",
+      "sourceKind": "official-anime-episode-still",
+      "episode": 8,
+      "reviewReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "checks": [
+        "source/export/current-event content matched"
+      ]
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_09",
+      "sourceKind": "official-anime-episode-still",
+      "episode": 26,
+      "reviewReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "checks": [
+        "source/export/current-event content matched"
+      ]
+    },
+    {
+      "world": "persona5_royal",
+      "eventKey": "p5r_main_01",
+      "sourceKind": "official-game-screenshot",
+      "episode": null,
+      "reviewReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "checks": [
+        "source/export/current-event content matched"
+      ]
+    }
+  ],
+  "issues": [],
+  "notes": [
+    {
+      "world": "witch_prison",
+      "target": "war3mapImported\\UI_Card_XP_witch_prison_head_Icon.tga",
+      "code": "unused-export-not-registered",
+      "role": "icon"
+    },
+    {
+      "world": "witch_prison",
+      "target": "war3mapImported\\UI_Card_XP_witch_prison_head_Art.tga",
+      "code": "unused-export-not-registered",
+      "role": "portrait"
+    },
+    {
+      "world": "witch_prison",
+      "target": "war3mapImported\\UI_Event_XP_witch_prison_ending_memorial.tga",
+      "code": "unused-export-not-registered",
+      "role": "eventSource"
+    },
+    {
+      "world": "witch_prison",
+      "target": "war3mapImported\\UI_EventThumb_XP_witch_prison_ending_memorial.tga",
+      "code": "unused-export-not-registered",
+      "role": "eventThumbnail"
+    },
+    {
+      "world": "persona5",
+      "target": "war3mapImported\\UI_Card_XP_persona5_head_Icon.tga",
+      "code": "unused-export-not-registered",
+      "role": "icon"
+    },
+    {
+      "world": "persona5",
+      "target": "war3mapImported\\UI_Card_XP_persona5_head_Art.tga",
+      "code": "unused-export-not-registered",
+      "role": "portrait"
+    },
+    {
+      "world": "persona5_royal",
+      "target": "war3mapImported\\UI_Card_XP_persona5_royal_head_Icon.tga",
+      "code": "unused-export-not-registered",
+      "role": "icon"
+    },
+    {
+      "world": "persona5_royal",
+      "target": "war3mapImported\\UI_Card_XP_persona5_royal_head_Art.tga",
+      "code": "unused-export-not-registered",
+      "role": "portrait"
+    },
+    {
+      "world": "hakugyokurou",
+      "target": "war3mapImported\\UI_Event_XP_hakugyokurou_cirno.tga",
+      "code": "unused-export-not-registered",
+      "role": "eventSource"
+    },
+    {
+      "world": "hakugyokurou",
+      "target": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_cirno.tga",
+      "code": "unused-export-not-registered",
+      "role": "eventThumbnail"
+    },
+    {
+      "world": "hakugyokurou",
+      "target": "war3mapImported\\UI_Card_XP_hakugyokurou_head_Icon.tga",
+      "code": "unused-export-not-registered",
+      "role": "icon"
+    },
+    {
+      "world": "hakugyokurou",
+      "target": "war3mapImported\\UI_Card_XP_hakugyokurou_head_Art.tga",
+      "code": "unused-export-not-registered",
+      "role": "portrait"
+    },
+    {
+      "world": "scarlet_mist",
+      "target": "war3mapImported\\UI_Card_XP_scarlet_mist_head_Icon.tga",
+      "code": "unused-export-not-registered",
+      "role": "icon"
+    },
+    {
+      "world": "scarlet_mist",
+      "target": "war3mapImported\\UI_Card_XP_scarlet_mist_head_Art.tga",
+      "code": "unused-export-not-registered",
+      "role": "portrait"
+    }
+  ],
+  "semanticReviewStatus": "162-current-event-intros-stories-and-representative-identities-reviewed",
+  "semanticConclusions": [
+    "마녀재판 34개는 회상·사망 사건을 포함해 해당 본문 인물의 기본 초상 또는 장소 대표로 구분돼 있다. 실제 처형·부활·진엔딩 CG로 분류한 항목은 없다.",
+    "P5 3개 장면은 게임 원작에 대응하는 공식 애니메이션 각색 장면이며 출처·회차·설명에 그 경계가 남아 있다.",
+    "Royal의 유일한 실제 장면은 5월 24일 상담 화면으로, 1월 사건 대신 앞선 학교생활을 회고하는 p5r_main_01에만 연결돼 있다.",
+    "Royal의 아케치 탐정 기본복·마루키 상담사 기본복·요시자와 괴도복은 인물 대표 이미지다. 겨울/최종전/택시 장면이라고 주장하지 않는다.",
+    "동방 두 작품의 62개는 공인 파생작 인물 대표 또는 완주 기념 그림이다. 원작 실제 사건 장면으로 잘못 분류된 항목은 없다.",
+    "요요몽의 문맥상 레이무 시점인 일반 사건은 본문에 이름이 반복되지 않아도 선택 결과와 원작 진행 주체에 맞는다."
+  ],
+  "validationLimits": [
+    "실제 Warcraft 표시와 클릭·런타임은 검증하지 않았다.",
+    "이 감사는 이미지 인물·장면·출처·파일 대응에 관한 것이며 원고 전체 정사 검증을 대체하지 않는다."
+  ]
+}

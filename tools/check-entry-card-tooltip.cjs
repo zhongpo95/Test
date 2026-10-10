@@ -59,10 +59,13 @@ function rect(t, id) {
   return {x:base.x + (f.x || 0), y:base.y + (f.y || 0), w:f.w || 0, h:f.h || 0};
 }
 
-check('13개 지역의 입문 카드 이미지와 보상 설명이 실제 지급 증분과 일치', () => {
+check('모든 지역의 입문 카드 이미지와 보상 설명이 실제 지급 증분과 일치', () => {
   const t = setup(), e = t.e;
-  assert.equal(t.entries.length, 13);
+  assert.equal(t.entries.length, t.e.PROTO_HEAD_COUNT);
   for (const event of t.entries) {
+    // 실제 후보 버튼은 잠긴 머리에서 비활성화된다. 전체 입문 보상의 양성 비교에는 선행 완주 상태를 마련한다.
+    const required = e.ProtoHeadRequiredMain[e.ProtoEventHead[event]];
+    if (required > 0) e.ProtoHeadCompleted[e.ExpKey(0, required)] = true;
     offer(t, [event]); enter(t);
     const card = e.ProtoHeadEntryCard[e.ProtoEventHead[event]];
     assert(t.visible(tooltip(t).id));

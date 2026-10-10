@@ -1,0 +1,42 @@
+{
+  "world": "persona5_royal",
+  "sourceContentSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+  "approvedScenes": [
+    {
+      "sceneKey": "counselor",
+      "eventKey": "p5r_main_01",
+      "eventTitle": "겨울에 닿기 전의 인연",
+      "eventIntro": "괴도단과 지냈던 한 해에서 새 인연의 첫 장면을 되짚는다.",
+      "eventStory": "슈진 학원에는 상담사 마루키가 찾아왔고, 요시자와는 체조와 학교생활 사이에서 애쓰고 있었다. 조커는 각자의 이야기를 들으며 혼자서는 보지 못했던 마음을 알아 갔다. 겨울의 작은 어긋남을 따라가기 전에 그때의 말을 떠올린다.",
+      "eventSha256": "c83f14d14b7967f00b186f375990f67da60f7a8a1651ece1527de130d30d12a2",
+      "episode": null,
+      "sourcePage": "https://p5r.jp/",
+      "visibleScene": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다.",
+      "gameContext": "앞선 학교생활을 회고하는 도입. 카모시다 사건 이후 마루키 부임과 새 동급생이 아닌 후배 요시자와의 만남. 정체 미공개. 화면 날짜 5월 24일. 1월 사건에 사용하지 않는다.",
+      "officialGameEvidence": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다. 공식 게임 소개 페이지 https://p5r.jp/"
+    }
+  ],
+  "notUsed": [
+    {
+      "subject": "원본 발표용 일반 의상",
+      "decision": "representative-only",
+      "reason": "로열 학교/괴도 초상은 겨울 전용 이미지가 아니므로 3학기 실제 장면으로 표기하지 않는다."
+    },
+    {
+      "subject": "아케치 백색 프린스 괴도복",
+      "decision": "hold",
+      "reason": "3학기 현장 복장과 충돌하여 로열 개별 카드 출력에서 제외했다."
+    },
+    {
+      "subject": "로열 1월 실제 장면",
+      "decision": "pending-official-exact-scene",
+      "reason": "공개 공식 페이지의 스틸에서 날짜와 상황을 확정하지 못했다. 5월 학교상담 회고만 실제 장면으로 승인했다."
+    },
+    {
+      "subject": "요시자와 신데렐라 전투 스틸",
+      "decision": "hold-exact-mapping",
+      "reason": "공개 소개 그림의 캐릭터·전투는 확인되지만 첫 각성의 날짜·전후 상황까지 입증되지 않아 10월 또는 1월 사건에 임의 연결하지 않았다."
+    }
+  ]
+}

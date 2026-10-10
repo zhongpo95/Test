@@ -1,0 +1,338 @@
+{
+  "status": "priority_six_review_complete",
+  "rawReviewRoot": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews",
+  "beforeEditArchive": "D:\\Work\\ARCANA\\copy_archive\\head-expansion-20261010\\before-editor-review",
+  "records": [
+    {
+      "file": "priority-scope-02.json",
+      "monitorRecordId": "6a30c881-ee24-4938-a4ff-713a7a0c10b2",
+      "accepted": [
+        {
+          "key": "healing",
+          "decision": "흡수·재생의 뜻과 합산 상한을 유지하고 원작 회복·봉인 능력과 구분한다."
+        },
+        {
+          "key": "tengu",
+          "decision": "대화 선택을 실제 호감도나 정령 능력 지급이라고 표현하지 않는다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "duplicate_scaling",
+          "suggestion": "기존 중복 카드 50% 강화에 새 상한을 적용한다.",
+          "reason": "사용자가 정한 기존 규칙이며 이번 작업은 새 콘텐츠 추가다. 근거 없는 전역 밸런스 변경은 하지 않는다. 새 보상 예산과 반복 획득 경로를 검토한다."
+        }
+      ]
+    },
+    {
+      "file": "frieren-main-01.json",
+      "monitorRecordId": "43447bdc-4565-49ae-8103-5f948c15d27c",
+      "accepted": [
+        {
+          "key": "fr_main_07",
+          "decision": "자인의 직접 발언과 그 말을 들은 프리렌의 회상을 구분했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "fr_main_12",
+          "suggestion": "마지막 세 선택에 다른 효과의 카드를 지급한다.",
+          "reason": "엔딩은 같은 비전투 기념 카드를 받고 대화를 다르게 고르는 기존 제작 규칙이다. 검토 요청에도 명시한 의도된 예외이므로 변경하지 않는다."
+        },
+        {
+          "key": "fr_main_01",
+          "suggestion": "기억한다는 표현을 미구현 기능으로 간주해 삭제한다.",
+          "reason": "선택 대화의 서사적 행동이며 별도 저장·기술·해금을 약속하지 않는다. 기존 카드 보상과 혼동되는 기능 설명이 아니다."
+        }
+      ]
+    },
+    {
+      "file": "frieren-side-01.json",
+      "monitorRecordId": "ec44edb8-00a7-4649-97c4-e298028a76e4",
+      "accepted": [
+        {
+          "key": "fr_routine",
+          "decision": "기초 자세를 관찰하는 선택과 쉬며 호흡을 되찾는 선택의 결과를 구체적으로 구분했다."
+        },
+        {
+          "key": "fr_epilogue_again",
+          "decision": "기존 카드 보상은 유지하고 마법도시를 떠난 시점에 맞는 결과 대화로 구체화했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "fr_fear",
+          "suggestion": "경계 신호를 맞추는 선택이 슈타르크의 성격과 모순되므로 삭제한다.",
+          "reason": "겁을 인정한 뒤 동료와 경계를 나누는 독립 창작 사건이다. 성격과 모순된다는 근거가 없으며 원작 능력도 지급하지 않는다."
+        },
+        {
+          "key": "fr_epilogue_again",
+          "suggestion": "중복 보상을 전부 고유 보상으로 교체한다.",
+          "reason": "기존 중복 획득은 강화 가치가 있다. 세 선택의 효과가 서로 다르므로 중복이라는 이유만으로 새 카드를 남발하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "tengu-main-01.json",
+      "monitorRecordId": "a5875717-f897-42de-8542-4b9b10fd50c3",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "tengu_main_02",
+          "suggestion": "첫째와 셋째 보상이 동일하므로 변경한다.",
+          "reason": "실제 원고는 고체력+재생 대 치확+치피다. 서로 다른 효과를 동일하다고 판단한 검토 오류다."
+        },
+        {
+          "key": "tengu_main_09",
+          "suggestion": "첫째와 둘째 보상이 동일하므로 변경한다.",
+          "reason": "실제 원고는 공격력+피해감소 대 고체력+재생이다. 데이터와 일치하지 않는 지적이다."
+        },
+        {
+          "key": "tengu_main_11",
+          "suggestion": "첫째와 둘째 보상이 동일하므로 변경한다.",
+          "reason": "실제 원고는 고체력+재생 대 신속+대미지다. 데이터와 일치하지 않는 지적이다."
+        }
+      ]
+    },
+    {
+      "file": "tengu-side-01.json",
+      "monitorRecordId": "3fa44248-12c2-4e54-bc0d-a6353a105aa4",
+      "accepted": [
+        {
+          "key": "dal_side_cat",
+          "decision": "현장에 없는 요시노·토카의 카드 보상이 과거 만남을 떠올리는 결과에서 이어지도록 연결했다. 두 인물이 현장에 있다고 바꾸지는 않았다."
+        },
+        {
+          "key": "dal_side_schedule",
+          "decision": "토카와 걸었던 길을 코토리의 일정표에 연결해 이동 보상의 근거를 구체화했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "dal_side_bakery",
+          "suggestion": "첫째와 둘째 보상이 같은 dal_tohka다.",
+          "reason": "실제 키는 dal_tohka와 dal_tohka_walk이며 공격력+차지 대 이동속도+이동연계로 다르다."
+        },
+        {
+          "key": "dal_side_cat",
+          "suggestion": "쿠루미 이외의 보상 카드를 모두 교체한다.",
+          "reason": "서로 다른 기억과 수치의 선택 가치를 유지한다. 장면과 카드 사이 설명만 보완하면 인물 배치나 보상 구조를 바꿀 필요가 없다."
+        }
+      ]
+    },
+    {
+      "file": "ikebukuro-main-01.json",
+      "monitorRecordId": "58627ed5-41e7-44b8-9416-c41387a956af",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "ikebukuro_main_01_2 / 04_2 / 10_3",
+          "suggestion": "보상 수치가 중복되므로 변경한다.",
+          "reason": "각 사건 안의 세 보상은 모두 다른 효과 벡터다. 다른 사건에서 같은 성장 계열을 얻는 것은 허용하며 기존 중복 강화와 양립한다. 실제 효과 대조 없이 내린 지적이므로 적용하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "ikebukuro-side-01.json",
+      "monitorRecordId": "655b1b54-c631-45fe-aeed-8785da4bb494",
+      "accepted": [
+        {
+          "key": "drrr_side_strength",
+          "decision": "시즈오가 현장에 함께 서 있다는 문장을 더해 첫 행동의 상대를 분명히 했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "drrr_side_crossing / drrr_side_lunch",
+          "suggestion": "서로 다른 인물의 카드가 중복 보상이다.",
+          "reason": "신속+치피, 이동+이동연계, 신속+공격력, 치확+고체력 등 실제 조합이 다르다. 카드 키와 수치 모두 같지 않아 변경하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "phantom_blood-main-01.json",
+      "monitorRecordId": "2c225d41-14a6-4549-bc56-01b9d0ee5892",
+      "accepted": [
+        {
+          "key": "phantom_blood_main_03_2",
+          "decision": "막연한 돌봄 준비를 집사에게 부탁하고 귀환 길을 확인하는 행동으로 구체화했다."
+        },
+        {
+          "key": "phantom_blood_main_12",
+          "decision": "기념 카드 지급은 실제 구현되어 있으므로 미구현 지적은 틀렸다. 다만 대화의 자연스러움을 위해 카드에 새긴다는 제작 설명을 기억한다로 다듬었다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "phantom_blood_main_01_3",
+          "suggestion": "동일한 보상 반복이다.",
+          "reason": "공격력+고체력, 치확+치피, 보스피해+피해감소로 세 선택의 효과가 다르다."
+        }
+      ]
+    },
+    {
+      "file": "phantom_blood-side-01.json",
+      "monitorRecordId": "3226e645-dc69-4135-b9e2-a112e9a6ce33",
+      "accepted": [
+        {
+          "key": "phantom_blood_roadside_signal",
+          "decision": "에리나가 전투 여행에 현재 동행하는 것처럼 읽히지 않게 과거 간호를 떠올리며 짐을 나누는 행동으로 연결했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "phantom_blood_next_lesson",
+          "suggestion": "두 번째도 pb_zeppeli를 지급한다.",
+          "reason": "실제 두 번째는 pb_jonathan이다. 세 카드 키와 효과 모두 다르다."
+        },
+        {
+          "key": "phantom_blood_epilogue_teaching",
+          "suggestion": "죽은 톤페티 카드가 없으니 추가한다.",
+          "reason": "pb_tonpetty 카드가 원고에 존재하며 톤페티가 1부에서 사망했다는 전제도 맞지 않다. 추정 정사 교정은 적용하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "madolche-main-01.json",
+      "monitorRecordId": "f8ef79cf-5a41-41f5-b7f7-26cb05108b27",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "madolche_main_01 / madolche_main_01_1",
+          "suggestion": "세 보상과 수치가 모두 같다.",
+          "reason": "마죠레느 치확+치피, 메신젤라또 신속+대미지, 푸딩세스 보스피해+피해감소로 실제 데이터가 다르다."
+        },
+        {
+          "key": "madolche_main_12",
+          "suggestion": "공통 기념 카드를 세 종류로 바꾼다.",
+          "reason": "비전투 엔딩 기념 보상은 같은 카드를 받고 대화를 고르는 의도된 기존 규칙이다."
+        }
+      ]
+    },
+    {
+      "file": "madolche-side-01.json",
+      "monitorRecordId": "cc2c9824-339d-41dc-afde-c2a5f5f33e45",
+      "accepted": [
+        {
+          "key": "madolche_route_fold",
+          "decision": "세 번째를 지도 표식 작성에서 손님을 직접 안내하는 행동으로 바꿔 관찰·도구 보완·동행을 구분했다."
+        },
+        {
+          "key": "madolche_search_again",
+          "decision": "기록을 다시 읽으며 빠뜨린 이름을 발견하는 흐름으로 구체화했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "madolche_epilogue_return",
+          "suggestion": "다음 사람을 위한 준비가 금지된 추상 보상이다.",
+          "reason": "결과의 이야기 문장이며 실제 지급은 존재하는 세 카드와 수치다. 준비라는 서술 자체를 새로운 게임 기능으로 해석하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "editor-delta-01.json",
+      "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
+      "scope": "첫 검토 후 바꾼 5작품 14개 사건",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues 빈 배열. 수정 원고 내부의 명확한 모순 지적 없음."
+    },
+    {
+      "file": "amphoreus-main-01.json",
+      "monitorRecordId": "a942f417-13e9-4990-95ef-f43783cdae0f",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "amphoreus_main_15",
+          "suggestion": "모두 15_3 보상을 준다.",
+          "reason": "실제 분기는 15_1/15_2/15_3이며 보스피해+공격, 치확+치피, 신속+대미지로 다르다."
+        },
+        {
+          "key": "amphoreus_main_16",
+          "suggestion": "엔딩 기념 보상을 세 종류로 바꾼다.",
+          "reason": "공통 비전투 엔딩 보상은 의도된 예외다."
+        },
+        {
+          "key": "amphoreus_main_01",
+          "suggestion": "같은 다음 장으로 진행하므로 보상도 통일한다.",
+          "reason": "공통 진행과 분기별 서로 다른 성장 보상은 별개 규칙이다. 사용자는 다른 카드 3개를 비교하는 선택을 요청했다."
+        }
+      ]
+    },
+    {
+      "file": "amphoreus-side-01.json",
+      "monitorRecordId": "45b73552-c164-45d3-8b99-78eeba409281",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "amph_wayfinding",
+          "suggestion": "서로 다른 세 보상을 고유 카드로 분리한다.",
+          "reason": "현재 이미 세 카드와 효과가 구분되므로 구체적인 결함을 지적하지 않았다."
+        },
+        {
+          "key": "amph_carry",
+          "suggestion": "보유 트리비 재획득을 금지한다.",
+          "reason": "기존 중복 카드 50% 강화 규칙에 따라 가치가 있는 선택이다."
+        },
+        {
+          "key": "amph_preparation_follow",
+          "suggestion": "트리비_route가 기존 트리비와 중복된다.",
+          "reason": "기존은 신속90+보스피해2, 후속은 AP최대치1+공격력1이다. 단 한 사건에서 지급하여 반복 증폭 경로도 없다."
+        }
+      ]
+    },
+    {
+      "file": "amphoreus-prose-02.json",
+      "monitorRecordId": "54285b6b-4769-4eae-b8ba-9e58a2b791a9",
+      "accepted": [
+        {
+          "key": "amphoreus_main_07",
+          "decision": "히아킨이 불씨를 돌려놓고 방패가 되는 결과를 명시했다. 생존 또는 사망으로 단순 단정하지 않았다.",
+          "source": "https://www.hoyolab.com/article/39337933"
+        },
+        {
+          "key": "amphoreus_main_13 / amphoreus_main_14",
+          "decision": "단항의 귀환·개척자 발견과 삼칠이의 기억 반환·재회를 서로 다른 시점으로 구분했다.",
+          "source": "https://www.hoyolab.com/article/41832976"
+        },
+        {
+          "key": "amphoreus_main_15",
+          "decision": "선택 시점을 파이논이 남긴 봉인 해제와 동료들의 결전 시작으로 명시했다.",
+          "source": "https://www.hoyoverse.com/en-us/news/160640"
+        }
+      ],
+      "rejected": [],
+      "evidenceBoundary": "3.7 봉인은 공식 개발사 기사 본문 확인. 3.3/3.6 회고는 공식 게시물 링크와 공개 전사 대조이며 원본 인포그래픽 픽셀 및 게임 직접 검증은 미수행."
+    }
+  ],
+  "editorFindings": [
+    {
+      "world": "ikebukuro",
+      "key": "ikebukuro_main_11",
+      "source": "https://www.durarara.com/special/history.html",
+      "decision": "안리 구조 도움 → 미카도의 해산·게시판 폐쇄 → 셀티 설득 → 폐공장 이동 순서로 고쳤다.",
+      "reason": "처음 초안의 '해산 뒤에도' 제목과 서술은 도움을 받은 때가 폐쇄 이후인 것처럼 읽혔다."
+    },
+    {
+      "world": "phantom_blood / madolche",
+      "key": "player_facing_prose",
+      "decision": "창작 모험·가상의 기억·창작 대화 같은 제작 분류 문장을 사건 본문에서 덜어 냈다. 원작과 창작의 구분은 canonBoundary/canonFact와 출처 기록에 유지한다.",
+      "reason": "게임 안에서 상황을 읽는 흐름을 끊는 제작 설명을 줄인다."
+    },
+    {
+      "world": "phantom_blood / madolche / frieren / tengu",
+      "key": "final_editor_4",
+      "decision": "여행 현장에 갑자기 등장한 에리나를 돌봄의 기억으로 바꾸고, 두 엔딩의 카드 제작 표현과 1기 범위 설명을 이야기·메타데이터로 정리했다.",
+      "reason": "독립 편집 검토에서 문맥 단절 네 곳을 확인했다. 보상과 원작 결말은 바꾸지 않았다."
+    }
+  ],
+  "failedReviews": [
+    {
+      "request": "review-priority-scope.json",
+      "monitorRecordId": "a9824e27-75ff-4aa1-a952-57a2a50fdc60",
+      "status": "timeout",
+      "reason": "긴 검토 응답 생성이 모니터링 서버의 5분 제한을 넘었다. 우회 호출 없이 지적 최대 3개로 요청을 줄여 재검토했다."
+    }
+  ]
+}

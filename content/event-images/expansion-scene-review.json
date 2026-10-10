@@ -1,0 +1,2071 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-10",
+  "reviewScope": "확장 작품의 공식 영상·게임 장면과 사건 본문 대응 검토",
+  "sourceManifest": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\event-texture-manifest.json",
+  "sourceManifestSha256": "975db060792e6baf312d053b725786f92a99a7a6df0f6af709d69dc0e2c91e53",
+  "productionModified": false,
+  "canonicalModified": false,
+  "runtimeTested": false,
+  "sourceInputs": [
+    {
+      "world": "tengu",
+      "path": "content/roguelite/18-tengu.json",
+      "sha256": "4c4180919730f7d1cc6901a68385362c026da366bbf35d2de5b1fc55241c9185"
+    },
+    {
+      "world": "frieren",
+      "path": "content/roguelite/20-frieren.json",
+      "sha256": "b5316be71495b30176f1c21b3144f083663ae0b61c704e915d9ed2fcb989607d"
+    },
+    {
+      "world": "dungeon_meshi",
+      "path": "content/expansion-drafts/dungeon_meshi.json",
+      "sha256": "fcb59bef01b85f113161ccdf760de65026410f2a4b97fa4bccfcdfe4102f48f0"
+    },
+    {
+      "world": "phantom_blood",
+      "path": "content/roguelite/16-phantom_blood.json",
+      "sha256": "6ae2505206fdb2aa62f4de1dd4304ed25199f96ef5e3f5e1fe9197e74fbd7f48"
+    },
+    {
+      "world": "ikebukuro",
+      "path": "content/roguelite/19-ikebukuro.json",
+      "sha256": "ed238c9341793677312493bba05c48f9b1b9e19dbd140a353f909e4f0cd78510"
+    }
+  ],
+  "policy": [
+    "공식 회차 출처와 화면 속 인물·행동·시점을 함께 확인한다.",
+    "같은 작품 또는 같은 회차라는 이유만으로 다른 사건에 연결하지 않는다.",
+    "ARCANA 선택 대사는 새로 쓴 문장으로 원작 대사 인용 일치를 주장하지 않는다.",
+    "승인한 이미지는 사건 상황을 설명하며 선택 보상의 캐릭터를 바꾸지 않는다."
+  ],
+  "summary": {
+    "totalScenes": 29,
+    "decisionCounts": {
+      "approve": 20,
+      "hold-phase-mismatch": 2,
+      "alternative": 1,
+      "hold-low-resolution": 6
+    },
+    "primaryBindings": 20,
+    "notes": [
+      "파린 귀환으로 이름 붙였던 스틸은 뼈 확인 장면으로 의미를 정정했다.",
+      "데이트 및 젊은 용사 일행 장면은 현재 사건 시점과 어긋나 보류했다.",
+      "죠죠·듀라라라의 저해상도 원본 6개는 제외했다."
+    ]
+  },
+  "approvedBindings": [
+    {
+      "world": "tengu",
+      "eventKey": "tengu_main_01",
+      "sceneKey": "scene_first_spirit",
+      "eventSource": "war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.tga"
+    },
+    {
+      "world": "tengu",
+      "eventKey": "tengu_main_03",
+      "sceneKey": "scene_first_date",
+      "eventSource": "war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.tga"
+    },
+    {
+      "world": "frieren",
+      "eventKey": "fr_main_05",
+      "sceneKey": "scene_stark_courage",
+      "eventSource": "war3mapImported\\UI_Event_XP_frieren_scene_stark_courage.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.tga"
+    },
+    {
+      "world": "frieren",
+      "eventKey": "fr_main_12",
+      "sceneKey": "scene_northward",
+      "eventSource": "war3mapImported\\UI_Event_XP_frieren_scene_northward.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "eventKey": "dm_main_02",
+      "sceneKey": "scene_senshi_cooking",
+      "eventSource": "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_senshi_cooking.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_senshi_cooking.tga"
+    },
+    {
+      "world": "dungeon_meshi",
+      "eventKey": "dm_main_13",
+      "sceneKey": "scene_falin_return",
+      "eventSource": "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_falin_return.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_falin_return.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "eventKey": "hx_main_01",
+      "sceneKey": "scene_ship_meeting",
+      "eventSource": "war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_ship_meeting.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "eventKey": "hx_main_03",
+      "sceneKey": "scene_tunnel_run",
+      "eventSource": "war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_tunnel_run.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "eventKey": "hx_main_05",
+      "sceneKey": "scene_netero_ball",
+      "eventSource": "war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_netero_ball.tga"
+    },
+    {
+      "world": "hunter_exam",
+      "eventKey": "hx_main_14",
+      "sceneKey": "scene_friends_departure",
+      "eventSource": "war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_friends_departure.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "eventKey": "rz_main_01",
+      "sceneKey": "scene_first_morning",
+      "eventSource": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_first_morning.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_first_morning.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "eventKey": "rz_main_08",
+      "sceneKey": "scene_curse_in_library",
+      "eventSource": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_curse_in_library.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_curse_in_library.tga"
+    },
+    {
+      "world": "roswaal_mansion",
+      "eventKey": "rz_main_14",
+      "sceneKey": "scene_beasts_aftermath",
+      "eventSource": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_beasts_aftermath.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_beasts_aftermath.tga"
+    },
+    {
+      "world": "z_city",
+      "eventKey": "opm_main_02",
+      "sceneKey": "scene_genos_visit",
+      "eventSource": "war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_genos_visit.tga"
+    },
+    {
+      "world": "z_city",
+      "eventKey": "opm_main_07",
+      "sceneKey": "scene_meteor_branch",
+      "eventSource": "war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_meteor_branch.tga"
+    },
+    {
+      "world": "z_city",
+      "eventKey": "opm_main_12",
+      "sceneKey": "scene_boros_battle",
+      "eventSource": "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_boros_battle.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_01",
+      "sceneKey": "scene_first_palace",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_03",
+      "sceneKey": "scene_sayuri",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga"
+    },
+    {
+      "world": "persona5",
+      "eventKey": "p5_main_09",
+      "sceneKey": "scene_interrogation",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga"
+    },
+    {
+      "world": "persona5_royal",
+      "eventKey": "p5r_main_01",
+      "sceneKey": "scene_counselor",
+      "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga"
+    }
+  ],
+  "decisions": [
+    {
+      "world": "tengu",
+      "sceneKey": "scene_first_spirit",
+      "decision": "approve",
+      "approvedEventKey": "tengu_main_01",
+      "candidateEventKeys": [
+        "tengu_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_tengu_scene_first_spirit.tga",
+        "sha256": "db0d7b9caf3ca1d9cd782f37691757a246f4f3418e21ec67e6b4972882db6a97",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\tengu\\s1ep01_scene.jpg",
+        "sourceSha256": "05241d263e2fb9a9a43e4841bfb07c4f57534360a2848363fc96d0100464b8c7",
+        "sourcePage": "https://date-a-live-anime.com/1st-2nd/story/season1_01.html",
+        "sourceUrl": "https://date-a-live-anime.com/1st-2nd/common/images/story/st01/story_mainvisual.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          552,
+          305
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_spirit.tga",
+      "visibleCharacters": [
+        "야토가미 토카"
+      ],
+      "visualEvidence": "정령 복장의 토카가 경계하는 표정으로 정면을 바라보는 근접 장면.",
+      "officialEpisodeEvidence": "1기 1화 공식 소개는 공간진 경보 후 시도가 정령과 처음 대면하는 흐름이다.",
+      "contentFile": "content/roguelite/18-tengu.json",
+      "eventEvidence": [
+        {
+          "eventKey": "tengu_main_01",
+          "title": "경보 속에서 마주친 소녀",
+          "intro": "텅 빈 거리 한가운데, 검을 든 소녀가 서 있다.",
+          "story": "공간진 경보로 사람들은 대피했지만 시도는 거리에서 정령과 마주친다. 소녀는 자신을 향한 낯선 시선을 경계한다. 다가갈지 물러설지보다, 먼저 어떤 뜻을 전할지가 중요해 보인다.",
+          "choiceLabels": [
+            "싸우러 온 것이 아니라고 말한다",
+            "검보다 소녀의 표정을 살핀다",
+            "위험한 거리와 피할 방향을 확인한다"
+          ],
+          "commonResult": "시도는 정령을 만난 일을 계기로, 그녀들을 구하려는 라타토스크의 지원을 받게 된다.",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_tengu_shido.tga",
+          "eventSha256": "c1123814d20f21d1f440eaab01a17de20ad7c08b99041c6b7a9527893035d18b"
+        }
+      ],
+      "decisionReason": "첫 대면 시점과 경계하는 인물 표정이 사건 도입 및 두 번째 선택의 관찰과 맞는다.",
+      "restrictions": [
+        "근접 스틸이므로 거리 전체나 검을 보여 준다고 설명하지 않는다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "tengu_main_01"
+      ]
+    },
+    {
+      "world": "tengu",
+      "sceneKey": "scene_first_date",
+      "decision": "approve",
+      "approvedEventKey": "tengu_main_03",
+      "candidateEventKeys": [
+        "tengu_main_03"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_tengu_scene_first_date.tga",
+        "sha256": "b32d4d8f54f45cd45ea3abedafd1bf00ed2cb63f2609a0b79d52319caf988c9a",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\tengu\\s1ep03_scene.jpg",
+        "sourceSha256": "7b64fc263d9b065716817e529a8b4cee16a232819183b79419d2180318148f23",
+        "sourcePage": "https://date-a-live-anime.com/1st-2nd/story/season1_03.html",
+        "sourceUrl": "https://date-a-live-anime.com/1st-2nd/common/images/story/st03/story_mainvisual.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 3,
+        "nativeSourceSize": [
+          552,
+          305
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_tengu_scene_first_date.tga",
+      "visibleCharacters": [
+        "야토가미 토카",
+        "이츠카 시도"
+      ],
+      "visualEvidence": "교복 차림의 토카가 크레이프를 들고 웃으며 시도와 마주한다.",
+      "officialEpisodeEvidence": "1기 3화 공식 소개는 라타토스크의 도움을 받은 토카와 시도의 텐구시 데이트를 다룬다.",
+      "contentFile": "content/roguelite/18-tengu.json",
+      "eventEvidence": [
+        {
+          "eventKey": "tengu_main_03",
+          "title": "처음 구경하는 거리",
+          "intro": "토카가 시도와 함께 텐구시를 걷는다.",
+          "story": "시도와 토카가 라타토스크의 도움을 받아 거리를 둘러본다. 토카에게 이곳은 적과 싸우던 장소만은 아니게 된다. 가게와 행인, 별것 아닌 먹거리 앞에서 둘의 걸음이 자꾸 멈춘다.",
+          "choiceLabels": [
+            "토카가 먼저 가리킨 곳으로 향한다",
+            "낯선 물건의 쓰임을 하나씩 설명한다",
+            "들뜬 가운데에도 주변을 살핀다"
+          ],
+          "commonResult": "토카와 함께 걷는 경험은 시도에게 정령과 공존할 가능성을 보여 준다. 그녀의 일상은 조금씩 시도의 일상과 이어진다.",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_tengu_tohka.tga",
+          "eventSha256": "8f00176139de94a2487677c59e0abda86401e651e19f9f0575f5290f91a54f39"
+        }
+      ],
+      "decisionReason": "거리의 가게와 먹거리를 처음 경험하는 사건 내용에 직접 대응한다.",
+      "restrictions": [],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "tengu_main_03"
+      ]
+    },
+    {
+      "world": "tengu",
+      "sceneKey": "scene_pool_date",
+      "decision": "hold-phase-mismatch",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "tengu_main_11",
+        "tengu_main_12"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_tengu_scene_pool_date.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_tengu_scene_pool_date.tga",
+        "sha256": "f654b5cce3174abbbcb18875bd45e137b09bdd86ce79db8f212cd05d71905815",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\tengu\\s1ep12_scene.jpg",
+        "sourceSha256": "ee6eca9bf72991ca1284a68ace604f66675db22b6e8ba4062ac76b34e901ad4a",
+        "sourcePage": "https://date-a-live-anime.com/1st-2nd/story/season1_12.html",
+        "sourceUrl": "https://date-a-live-anime.com/1st-2nd/common/images/story/st12/story_mainvisual.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 12,
+        "nativeSourceSize": [
+          552,
+          305
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_tengu_scene_pool_date.tga",
+      "visibleCharacters": [
+        "이츠카 시도",
+        "이츠카 코토리"
+      ],
+      "visualEvidence": "평상복 차림의 시도와 코토리가 노란 좌석과 회색 안전바가 보이는 놀이기구에 함께 앉아 있다. 공격자나 수영복, 수영장은 보이지 않는다.",
+      "officialEpisodeEvidence": "1기 12화 공식 소개는 코토리와의 풀장 데이트와 오리가미의 습격을 포함한다.",
+      "contentFile": "content/roguelite/18-tengu.json",
+      "eventEvidence": [
+        {
+          "eventKey": "tengu_main_11",
+          "title": "동생과 마주하는 시간",
+          "intro": "코토리를 구할 데이트를 준비한다.",
+          "story": "코토리가 자신을 유지할 수 있는 시간이 줄어든다. 시도는 함께 자라 온 동생을 새롭게 마주하며 데이트를 준비한다. 익숙한 사이라고 해서 마음을 묻는 일을 생략할 수는 없다.",
+          "choiceLabels": [
+            "코토리가 바라는 것을 직접 묻는다",
+            "두 사람이 편히 말할 순서를 준비한다",
+            "급한 마음 속에서도 약속을 지킨다"
+          ],
+          "commonResult": "시도와 코토리는 풀장에서 만남을 이어 간다. 그러나 두 사람을 둘러싼 문제는 조용히 기다려 주지 않는다.",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_tengu_kotori.tga",
+          "eventSha256": "47b471441751806636cc324324ebfb6d4efde30d05501c206c44b8ec8dd6092f"
+        },
+        {
+          "eventKey": "tengu_main_12",
+          "title": "놓을 수 없는 일상",
+          "intro": "오리가미의 습격이 평온한 시간을 깨뜨린다.",
+          "story": "코토리와 시도의 풀장 데이트에 오리가미가 나타난다. 복수심과 지키려는 마음이 정면으로 부딪친다. 시도에게는 누군가를 적이라고 밀어내는 것만으로 지킬 수 없는 하루가 있다.",
+          "choiceLabels": [
+            "코토리와 돌아가겠다는 뜻을 전한다",
+            "오리가미의 분노도 외면하지 않는다",
+            "함께 보낼 다음 하루를 떠올린다"
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_tengu_head.tga",
+          "eventSha256": "fdb9e5fc198a874211e75089f372246c62ea2ba8119277b3975372db7f0c085a"
+        }
+      ],
+      "decisionReason": "main_11은 데이트 준비, main_12는 습격 진행이 사건의 현재 시점이다. 이 스틸은 평온한 만남의 한 장면이므로 어느 사건에도 현재 행동의 정확한 장면으로 강제 연결하지 않는다.",
+      "restrictions": [
+        "향후 main_11의 데이트로 이어지는 결과에 별도 이미지 슬롯을 만들 경우 검토할 수 있다.",
+        "회차 소개에 풀장이 나온다는 이유로 이 스틸을 수영장 장면이라고 표기하지 않는다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "tengu_main_12"
+      ],
+      "metadataCorrection": {
+        "oldDescription": "풀장 데이트",
+        "correctedDescription": "평상복으로 놀이기구 좌석에 함께 앉은 시도와 코토리",
+        "keepOpaqueAssetKey": true
+      }
+    },
+    {
+      "world": "frieren",
+      "sceneKey": "scene_old_party",
+      "decision": "hold-phase-mismatch",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "fr_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_frieren_scene_old_party.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_frieren_scene_old_party.tga",
+        "sha256": "d6d0acb51dcf608737642a82ff5bed2ce368cb3d9cae4e14ebfc74872adb2d40",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\frieren\\s1ep01_4_scene.jpg",
+        "sourceSha256": "40c3d417ccd7de336fd6e7a5471f24a5d04d54896fa98c2f6d4d593a91f655a1",
+        "sourcePage": "https://frieren-anime.jp/story/1st/ep01/",
+        "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/09/01_04.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          800,
+          450
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_frieren_scene_old_party.tga",
+      "visibleCharacters": [
+        "힘멜",
+        "하이터",
+        "아이젠"
+      ],
+      "visualEvidence": "젊은 힘멜과 하이터, 아이젠이 숲에서 함께 서 있다.",
+      "officialEpisodeEvidence": "1기 1화 공식 소개에는 토벌 후 귀환과 오십 년 뒤 재회가 함께 담겨 있다.",
+      "contentFile": "content/roguelite/20-frieren.json",
+      "eventEvidence": [
+        {
+          "eventKey": "fr_main_01",
+          "title": "돌아온 뒤에 시작되는 길",
+          "intro": "오십 년의 약속 뒤, 프리렌은 사람을 알아가는 여행을 시작한다.",
+          "story": "마왕을 쓰러뜨린 일행은 각자의 삶으로 돌아갔다. 다시 만난 힘멜의 시간은 프리렌의 시간과 달랐다. 작별을 겪은 프리렌은 함께 보낸 날들을 뒤늦게 묻기 시작한다.",
+          "choiceLabels": [
+            "그가 오래 기다린 약속을 떠올린다.",
+            "앞으로 만날 사람의 이름부터 기억한다.",
+            "지나쳤던 마을의 이야기를 듣는다."
+          ],
+          "commonResult": "프리렌은 사람을 더 알고 싶다는 마음을 품고 다시 여행한다.",
+          "endingDialogue": "",
+          "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_frieren_himmel.tga",
+          "eventSha256": "f4d380f5810d608f300e2080ca754ad156aa6fbd3eb54788a7b0c24675add70f"
+        }
+      ],
+      "decisionReason": "현재 사건 도입은 오십 년의 약속 뒤 작별을 겪는 시점이다. 젊은 용사 일행 스틸을 별도 회상 표기 없이 현재 사건 이미지로 사용하면 시간대를 오해하기 쉽다.",
+      "restrictions": [
+        "과거 여행을 회상한다는 명시적 이미지 설명 또는 회상 사건을 준비한 뒤 사용한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "fr_main_01"
+      ]
+    },
+    {
+      "world": "frieren",
+      "sceneKey": "scene_stark_courage",
+      "decision": "approve",
+      "approvedEventKey": "fr_main_05",
+      "candidateEventKeys": [
+        "fr_main_05"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_frieren_scene_stark_courage.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_frieren_scene_stark_courage.tga",
+        "sha256": "5de7d4a0c5acb6e594881f4057578c427580c5db4e445263fe04f177c27ef06f",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\frieren\\s1ep06_2_scene.jpg",
+        "sourceSha256": "ec6e4e2020f9bef52a9e4eae72e41cb10d0a3759a24e738d3dfb3ce2bd1e1b97",
+        "sourcePage": "https://frieren-anime.jp/story/1st/ep06/",
+        "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/10/01_01.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 6,
+        "nativeSourceSize": [
+          800,
+          450
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_frieren_scene_stark_courage.tga",
+      "visibleCharacters": [
+        "슈타르크"
+      ],
+      "visualEvidence": "슈타르크가 숲속에서 도끼를 어깨에 걸치고 서 있다.",
+      "officialEpisodeEvidence": "1기 6화 공식 소개는 홍경룡 앞에서 두려워하는 슈타르크가 싸움을 결심하는 흐름이다.",
+      "contentFile": "content/roguelite/20-frieren.json",
+      "eventEvidence": [
+        {
+          "eventKey": "fr_main_05",
+          "title": "무서운 사람도 앞에 선다",
+          "intro": "슈타르크는 두려움 때문에 마을을 떠나지 못하고 있다.",
+          "story": "아이젠의 제자 슈타르크는 강하지만 용을 앞두고 몸이 굳는다. 마을 사람들은 이미 그를 의지한다. 겁이 없기를 기다릴지, 두려운 채로 필요한 한 걸음을 낼지 고민한다.",
+          "choiceLabels": [
+            "슈타르크가 버틸 첫 순간을 함께 그린다.",
+            "스승에게 배운 자세를 떠올리게 한다.",
+            "전투 뒤 함께 떠날 길을 이야기한다."
+          ],
+          "commonResult": "용을 쓰러뜨린 슈타르크는 프리렌과 페른의 여정에 합류한다.",
+          "endingDialogue": "",
+          "canonFact": "애니메이션 1기의 해당 흐름을 짧게 재구성했다. 선택 대화와 관찰은 맵 창작이며 원작의 승패나 이후 진행을 바꾸지 않는다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_frieren_stark.tga",
+          "eventSha256": "9fed3e1b31c2378954ba46ed772cf26a7b79c6e422b78613cb3124f37e1f18a6"
+        }
+      ],
+      "decisionReason": "슈타르크의 두려움과 출발 전 결심이라는 동일한 사건 범위에 속한다.",
+      "restrictions": [
+        "용을 쓰러뜨리는 결정타 자체를 보여 주는 장면은 아니다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "fr_main_05"
+      ]
+    },
+    {
+      "world": "frieren",
+      "sceneKey": "scene_northward",
+      "decision": "approve",
+      "approvedEventKey": "fr_main_12",
+      "candidateEventKeys": [
+        "fr_main_12",
+        "fr_epilogue_road"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_frieren_scene_northward.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_frieren_scene_northward.tga",
+        "sha256": "5af4ae55e8f6e5203aca120470b9de6741bef85087e5b99b73c3b81e33e33f8d",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\frieren\\s1ep28_4_scene.jpg",
+        "sourceSha256": "be5c0c3bbddbe4712a47816f761a49830670bbc8b3282186b4d7ec22222840f7",
+        "sourcePage": "https://frieren-anime.jp/story/1st/ep28/",
+        "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2024/03/01_04-5.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 28,
+        "nativeSourceSize": [
+          800,
+          450
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_frieren_scene_northward.tga",
+      "visibleCharacters": [
+        "슈타르크",
+        "프리렌",
+        "페른"
+      ],
+      "visualEvidence": "세 사람이 맑은 하늘 아래 길을 향해 등을 보인 채 나란히 서 있다.",
+      "officialEpisodeEvidence": "1기 28화 공식 소개는 마법사 시험 후 만남을 뒤로하고 오이서스트를 떠나는 흐름이다.",
+      "contentFile": "content/roguelite/20-frieren.json",
+      "eventEvidence": [
+        {
+          "eventKey": "fr_main_12",
+          "title": "끝내지 않는 작별",
+          "intro": "시험을 마친 사람들은 각자의 길로 돌아간다.",
+          "story": "마법도시에서 마주친 사람들과 작별할 때가 왔다. 프리렌은 짧은 만남도 나중의 자신을 바꿀 수 있음을 안다. 북쪽의 목적지는 아직 멀지만 함께 걷는 사람들의 표정은 처음과 달라져 있다.",
+          "choiceLabels": [
+            "다시 만났을 때 들려줄 이야기를 만들자.",
+            "함께 걷는 오늘의 속도를 기억하자.",
+            "아직 모르는 사람들을 더 만나러 가자."
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "1기 마지막은 시험을 마친 뒤 마법도시를 떠나는 구간이다. 원작의 전체 모험은 계속된다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_frieren_head.tga",
+          "eventSha256": "7bdadb643f82d134fd68dbfe8b51b6b9496a05464a516df485dcea0649c71a31"
+        },
+        {
+          "eventKey": "fr_epilogue_road",
+          "title": "마법도시를 뒤로하고",
+          "intro": "도시를 벗어난 첫 길은 의외로 평범하다.",
+          "story": "시험장의 긴장은 멀어지고 다시 식사와 숙소를 정하는 시간이 온다. 페른은 얻은 자격보다 오늘 같이 걷는 속도가 먼저 눈에 들어온다. 프리렌과 슈타르크도 각자의 방식으로 새 출발을 준비한다.",
+          "choiceLabels": [
+            "페른과 오늘 갈 거리를 맞춘다.",
+            "프리렌과 돌아보고 싶은 만남을 이야기한다.",
+            "슈타르크와 앞선 길의 안전을 살핀다."
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "1기의 인물 관계와 여행 분위기를 바탕으로 만든 독립 창작 사건이다. 특정 방영 장면의 인용이나 공식 후일담이 아니다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_frieren_fern.tga",
+          "eventSha256": "67e9c36af1b1718b7740fb5508971814d89925876feded9728599e21be49ad6f"
+        }
+      ],
+      "decisionReason": "시험 뒤 작별하고 북쪽 길을 이어 가는 main_12 및 마지막 동행 묘사와 맞는다.",
+      "restrictions": [
+        "fr_epilogue_road는 canonFact에서 독립 창작 사건이라고 명시하므로 정확한 원작 장면의 근거로 연결하지 않는다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "fr_main_12",
+        "fr_epilogue_road"
+      ]
+    },
+    {
+      "world": "dungeon_meshi",
+      "sceneKey": "scene_first_meal",
+      "decision": "alternative",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "dm_main_02"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_first_meal.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_dungeon_meshi_scene_first_meal.tga",
+        "sha256": "d6eefca1f4346e52e076e5b6f595f6845e8c7c17badd64365aa8aef593956c40",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\ep01_6_scene.webp",
+        "sourceSha256": "e3b4d9f84e12518d26cfd230058fa1e52c8681548b6d033a319b3560fa2f1f3d",
+        "sourcePage": "https://delicious-in-dungeon.com/#Story",
+        "sourceUrl": "https://delicious-in-dungeon.com/assets/story/1/6.webp?v1",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          1600,
+          900
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_first_meal.tga",
+      "visibleCharacters": [
+        "마르실",
+        "센시",
+        "칠책"
+      ],
+      "visualEvidence": "마르실이 손가락을 들고 강하게 말하며 센시와 칠책이 함께 지켜본다.",
+      "officialEpisodeEvidence": "1화 공식 소개는 파린을 구하러 돌아갈 때 미궁의 먹거리를 이용하는 출발을 설명한다.",
+      "contentFile": "content/roguelite/21-dungeon_meshi.json",
+      "eventEvidence": [
+        {
+          "eventKey": "dm_main_02",
+          "title": "냄비를 든 동행",
+          "intro": "센시는 미궁에서 먹고 나아가는 법을 안다.",
+          "story": "처음 보는 재료를 두고 라이오스의 설명이 길어진다. 마르실은 냄비에서 한 발 물러서고, 센시는 설명보다 손질이 먼저라며 자리를 잡는다. 칠책은 요리하는 동안 누가 주변을 볼지 묻는다.",
+          "choiceLabels": [
+            "센시 옆에서 도구와 재료를 나눈다.",
+            "마르실이 꺼리는 이유부터 듣는다.",
+            "냄비에서 떨어져 통로를 살핀다."
+          ],
+          "commonResult": "냄비 주위에 할 일이 하나씩 생겼다. 센시의 동행은 식탁뿐 아니라 일행의 걸음에도 새로운 순서를 만들었다.",
+          "endingDialogue": "",
+          "canonFact": "제1화. 센시가 요리 담당으로 동행한다. 선택 문장과 짧은 반응은 새로 쓴 대화이며 사건의 결말을 바꾸지 않는다.",
+          "currentIcon": "",
+          "eventSha256": "1c806ee6a66d030fb043b63cd8a9a94218ec7c6d84fd689618ba5ab82460f23d"
+        }
+      ],
+      "decisionReason": "센시와 만난 뒤 미궁 식재료를 꺼리는 마르실이라는 이야기와 두 번째 선택에 맞는다. 전체 사건 기본 이미지는 센시의 요리 장면을 우선하고 이 이미지는 대체안으로 남긴다.",
+      "restrictions": [
+        "dm_main_02에 기본 이미지와 동시에 중복 등록하지 않는다.",
+        "대사의 정확한 문구는 스틸만으로 검증할 수 없다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "dm_main_02"
+      ]
+    },
+    {
+      "world": "dungeon_meshi",
+      "sceneKey": "scene_senshi_cooking",
+      "decision": "approve",
+      "approvedEventKey": "dm_main_02",
+      "candidateEventKeys": [
+        "dm_main_02"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_senshi_cooking.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_dungeon_meshi_scene_senshi_cooking.tga",
+        "sha256": "00501d92327a19a865ad258f3d9c415d8dbdd95178e27c6dbef9149ee6135dde",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\ep01_7_scene.webp",
+        "sourceSha256": "e91979844569aee54947b83493e6dc298647058665aa42d32074471064b828fe",
+        "sourcePage": "https://delicious-in-dungeon.com/#Story",
+        "sourceUrl": "https://delicious-in-dungeon.com/assets/story/1/7.webp?v1",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          1600,
+          900
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_senshi_cooking.tga",
+      "visibleCharacters": [
+        "센시",
+        "칠책"
+      ],
+      "visualEvidence": "센시가 냄비 위에서 음식에 재료를 더하고 칠책의 얼굴 일부가 뒤에 보인다.",
+      "officialEpisodeEvidence": "1화 공식 스틸은 센시의 조리와 일행의 첫 미궁 식사를 다룬다.",
+      "contentFile": "content/roguelite/21-dungeon_meshi.json",
+      "eventEvidence": [
+        {
+          "eventKey": "dm_main_02",
+          "title": "냄비를 든 동행",
+          "intro": "센시는 미궁에서 먹고 나아가는 법을 안다.",
+          "story": "처음 보는 재료를 두고 라이오스의 설명이 길어진다. 마르실은 냄비에서 한 발 물러서고, 센시는 설명보다 손질이 먼저라며 자리를 잡는다. 칠책은 요리하는 동안 누가 주변을 볼지 묻는다.",
+          "choiceLabels": [
+            "센시 옆에서 도구와 재료를 나눈다.",
+            "마르실이 꺼리는 이유부터 듣는다.",
+            "냄비에서 떨어져 통로를 살핀다."
+          ],
+          "commonResult": "냄비 주위에 할 일이 하나씩 생겼다. 센시의 동행은 식탁뿐 아니라 일행의 걸음에도 새로운 순서를 만들었다.",
+          "endingDialogue": "",
+          "canonFact": "제1화. 센시가 요리 담당으로 동행한다. 선택 문장과 짧은 반응은 새로 쓴 대화이며 사건의 결말을 바꾸지 않는다.",
+          "currentIcon": "",
+          "eventSha256": "1c806ee6a66d030fb043b63cd8a9a94218ec7c6d84fd689618ba5ab82460f23d"
+        }
+      ],
+      "decisionReason": "제목 ‘냄비를 든 동행’, 센시가 손질할 재료를 펼치는 본문, 조리 도구를 살피는 선택과 직접 맞는다.",
+      "restrictions": [],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": []
+    },
+    {
+      "world": "dungeon_meshi",
+      "sceneKey": "scene_falin_return",
+      "decision": "approve",
+      "approvedEventKey": "dm_main_13",
+      "candidateEventKeys": [
+        "dm_main_13",
+        "dm_main_14"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_dungeon_meshi_scene_falin_return.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_dungeon_meshi_scene_falin_return.tga",
+        "sha256": "e52db06432676fef78622834033e5825aab42e42c911f019d107db9405ea2369",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\ep12_4_scene.webp",
+        "sourceSha256": "71a0ca955a5a3027b800149cdcd1d13e8e9f7aaaf00b0c198ab440ef5e3dab28",
+        "sourcePage": "https://delicious-in-dungeon.com/#Story",
+        "sourceUrl": "https://delicious-in-dungeon.com/assets/story/12/4.webp?v2",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 12,
+        "nativeSourceSize": [
+          1920,
+          1080
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_dungeon_meshi_scene_falin_return.tga",
+      "visibleCharacters": [
+        "라이오스",
+        "마르실",
+        "센시"
+      ],
+      "visualEvidence": "라이오스가 두개골을 들고 마르실이 뼈를 확인한다. 센시가 왼쪽에서 지켜보며 살아 있는 파린은 화면에 없다.",
+      "officialEpisodeEvidence": "12화 공식 소개는 염룡을 쓰러뜨린 뒤 파린의 뼈를 찾고 고대 마법으로 부활을 준비하는 흐름이다.",
+      "contentFile": "content/roguelite/21-dungeon_meshi.json",
+      "eventEvidence": [
+        {
+          "eventKey": "dm_main_13",
+          "title": "놓지 않을 이름",
+          "intro": "염룡을 쓰러뜨린 뒤에도 파린을 찾는 일은 끝나지 않았다.",
+          "story": "찾아낸 파린의 뼈 앞에서 말이 줄어든다. 마르실은 고대 마법을 쓰려는 이유를 설명하고, 라이오스는 그 말을 끝까지 듣는다. 칠책과 센시는 놀람을 감추지 못하면서도 지금 필요한 일을 묻는다.",
+          "choiceLabels": [
+            "마르실의 설명에서 빠뜨리면 안 되는 부분을 묻는다.",
+            "라이오스 옆에서 서두르는 손을 잠시 멈춘다.",
+            "센시와 작업할 공간을 조용히 정돈한다."
+          ],
+          "commonResult": "마르실은 준비를 시작했고 동료들은 자리를 지켰다. 손을 멈추지 않은 이유는 눈앞의 이름을 다시 부르기 위해서였다.",
+          "endingDialogue": "",
+          "canonFact": "제12화. 파린의 뼈를 찾아 마르실이 고대 마법으로 부활을 시도한다. 선택 문장과 짧은 반응은 새로 쓴 대화이며 사건의 결말을 바꾸지 않는다.",
+          "currentIcon": "",
+          "eventSha256": "6de446335f51a6a16e3970ee1805ab4b5079df6d9a65fe426d83596cd75b1c6e"
+        },
+        {
+          "eventKey": "dm_main_14",
+          "title": "다시 마주 앉은 식탁",
+          "intro": "파린이 돌아온 자리에서 처음의 목적을 떠올린다.",
+          "story": "눈앞의 파린을 보고도 누구는 말을 고르지 못하고 누구는 너무 많은 말을 한다. 센시가 식탁을 준비하는 동안, 마르실은 파린 곁에 앉는다. 긴 길을 걸어온 일행은 다시 같은 자리에 모인다.",
+          "choiceLabels": [
+            "파린에게 돌아와 줘서 고맙다고 말한다.",
+            "마르실이 파린과 이야기할 자리를 지켜 준다.",
+            "센시 곁에서 모두의 자리를 마련한다."
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "제12~13 도입화. 파린 부활 후 재회와 식사 준비 구간에서 연작을 닫는다. 선택 문장과 짧은 반응은 새로 쓴 대화이며 사건의 결말을 바꾸지 않는다.",
+          "currentIcon": "",
+          "eventSha256": "df8698cba590a53d8ffdb04353f0ecf7deb3172bf3baa45612b1c3bf85e6d9e9"
+        }
+      ],
+      "decisionReason": "뼈를 앞에 두고 부활을 준비하는 dm_main_13과 일치한다. 살아난 파린과 식사하는 dm_main_14와는 시점과 행동이 다르다.",
+      "restrictions": [
+        "dm_main_14 및 파린 재회 식탁에 사용하지 않는다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "dm_main_14"
+      ],
+      "metadataCorrection": {
+        "oldDescription": "파린의 귀환 / 재회",
+        "correctedDescription": "파린의 뼈 확인과 부활 준비",
+        "oldEventKeys": [
+          "dm_main_14"
+        ],
+        "correctedEventKeys": [
+          "dm_main_13"
+        ],
+        "keepOpaqueAssetKey": true,
+        "reason": "전체 원본 시각 검수에서 두개골과 뼈를 확인했다. 자산 이름은 불투명 ID로 유지하되 설명과 사건 대응을 정정한다."
+      }
+    },
+    {
+      "world": "phantom_blood",
+      "sceneKey": "scene_stone_mask",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "phantom_blood_main_05"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_phantom_blood_scene_stone_mask.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_phantom_blood_scene_stone_mask.tga",
+        "sha256": "dc5d3490d7b1ea507b3713e6ce53a906163c39bdace31ea5036319318e220b50",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\phantom_blood\\episode3_c3_6.jpg",
+        "sourceSha256": "0f1643e732112890fc5ee880ea77241a72c9f3317e2737ad887a81232decca32",
+        "sourcePage": "https://jojo-animation.com/fb_bt/story/3.html",
+        "sourceUrl": "https://jojo-animation.com/fb_bt/img/contents/story_i/c3_6.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 3,
+        "nativeSourceSize": [
+          186,
+          105
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_phantom_blood_scene_stone_mask.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 186×105px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/16-phantom_blood.json",
+      "eventEvidence": [
+        {
+          "eventKey": "phantom_blood_main_05",
+          "title": "무너지는 저택의 밤",
+          "intro": "정체가 드러난 디오가 석가면에 손을 댄다.",
+          "story": "진실을 추궁받은 디오는 반성하는 듯한 모습을 보인다. 그러나 스피드왜건은 그 태도에 속지 않는다. 몰린 디오는 석가면을 쓰고 인간을 벗어난 힘을 얻는다. 아버지를 잃은 죠나단에게 남은 것은 더 큰 피해를 막아야 한다는 의지다. 저택은 두 사람의 싸움 속에서 불길에 휩싸인다.",
+          "choiceLabels": [
+            "불길 속에서 빠져나갈 사람부터 찾는다.",
+            "디오가 바뀐 뒤의 움직임을 살핀다.",
+            "아버지를 지키려 했던 마음을 붙든다."
+          ],
+          "commonResult": "죠나단은 불타는 저택에서 디오와 싸운 끝에 살아남는다. 가족과 집은 돌아오지 않고 석가면의 행방도 확인되지 않는다.",
+          "endingDialogue": "",
+          "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_phantom_blood_dio.tga",
+          "eventSha256": "f5ba989ce49bbf650a3912547f4f95eebd997267146d42715917492f555aa8ec"
+        }
+      ],
+      "decisionReason": "186×105px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "phantom_blood_main_05"
+      ]
+    },
+    {
+      "world": "phantom_blood",
+      "sceneKey": "scene_hamon_teacher",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "phantom_blood_main_06"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_phantom_blood_scene_hamon_teacher.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_phantom_blood_scene_hamon_teacher.tga",
+        "sha256": "5d6cd507df5951feea9409300206f79ff20009fd3a37d2f0553323b832f0f662",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\phantom_blood\\episode4_c4_5.jpg",
+        "sourceSha256": "1e1fe7095dea293650d6835ef7c44396f24b0a66ff7844a566e9f72a1794c538",
+        "sourcePage": "https://jojo-animation.com/fb_bt/story/4.html",
+        "sourceUrl": "https://jojo-animation.com/fb_bt/img/contents/story_i/c4_5.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 4,
+        "nativeSourceSize": [
+          186,
+          105
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_phantom_blood_scene_hamon_teacher.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 186×105px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/16-phantom_blood.json",
+      "eventEvidence": [
+        {
+          "eventKey": "phantom_blood_main_06",
+          "title": "다시 만난 손과 낯선 호흡",
+          "intro": "회복 중인 죠나단 앞에 체펠리가 나타난다.",
+          "story": "크게 다친 죠나단을 돌보는 것은 다시 만난 에리나다. 잠시 얻은 평온 속에 윌 A. 체펠리가 나타나 파문을 보여 준다. 디오가 죽었다고 단정할 수 없다는 말은 죠나단을 흔든다. 무작정 뛰쳐나가는 대신 새로운 싸움에 필요한 것을 제대로 배워야 한다.",
+          "choiceLabels": [
+            "체펠리에게 호흡의 원리부터 보여 달라고 한다.",
+            "에리나에게 돌아오겠다는 뜻을 전한다.",
+            "디오가 살아 있다면 무엇을 준비할지 묻는다."
+          ],
+          "commonResult": "죠나단은 체펠리에게 파문을 배우기 시작한다. 에리나와 스피드왜건도 그가 다시 짊어질 위험을 알게 된다.",
+          "endingDialogue": "",
+          "canonFact": "팬텀 블러드의 장면에 창작 반응을 더한 기억이다. 어느 대답도 다음 장과 원작 결말을 잠그지 않는다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_phantom_blood_zeppeli.tga",
+          "eventSha256": "8c0771d427101d2bb4a37ae3dd25719ec0b072ce6f1f267fa813251656c3169b"
+        }
+      ],
+      "decisionReason": "186×105px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "phantom_blood_main_06"
+      ]
+    },
+    {
+      "world": "phantom_blood",
+      "sceneKey": "scene_wedding",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "phantom_blood_main_12"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_phantom_blood_scene_wedding.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_phantom_blood_scene_wedding.tga",
+        "sha256": "1e376096803006c4a6298d75ced291a76b1512d0ae9689765f225a15e7141c55",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\phantom_blood\\episode9_c9_2.jpg",
+        "sourceSha256": "d8e993a3b02ff49a90754cca5e0bdd2cb0c30f59a1bf965cb2928463914c9173",
+        "sourcePage": "https://jojo-animation.com/fb_bt/story/9.html",
+        "sourceUrl": "https://jojo-animation.com/fb_bt/img/contents/story_i/c9_2.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 9,
+        "nativeSourceSize": [
+          186,
+          105
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_phantom_blood_scene_wedding.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 186×105px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/16-phantom_blood.json",
+      "eventEvidence": [
+        {
+          "eventKey": "phantom_blood_main_12",
+          "title": "바다로 이어진 마지막 선택",
+          "intro": "신혼여행의 배에서 끝난 줄 알았던 인연이 돌아온다.",
+          "story": "디오를 쓰러뜨렸다고 믿은 죠나단은 에리나와 결혼하고 배를 탄다. 선내에서 왕 첸을 발견하며 평온은 무너진다. 살아남은 디오의 위협이 다시 닿고, 사람들은 도망칠 곳을 찾아야 한다. 죠나단은 자신이 돌아갈 가능성보다 아직 구할 수 있는 생명을 먼저 본다.",
+          "choiceLabels": [
+            "에리나가 빠져나갈 길을 살핀다.",
+            "죠나단이 디오를 붙들 동안 주변을 정리한다.",
+            "에리나에게 남겨진 아기를 알린다."
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "공식 팬텀 블러드 9화 소개에서 결혼·신혼여행의 배·왕 첸과의 재회를 확인하고, 공식 전투조류 10화 소개에서 죠나단의 사망과 에리나의 생존을 확인했다. 배 안에서 죠나단이 디오를 붙들고 최후를 맞으며 에리나가 아기를 구해 탈출하는 세부는 RENOTE의 작품 해설과 대조했다. 마지막 세부의 근거는 공식 영상 직접 시청이 아닌 보조 해설이며 선택 대사는 창작이다. 죠나단이 살아 돌아오는 대체 결말은 만들지 않는다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_phantom_blood_erina.tga",
+          "eventSha256": "4bf69f1caff813c78044593b41b1763b4c010e0dd6e1f8bb72a9e4da8684047a"
+        }
+      ],
+      "decisionReason": "186×105px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "phantom_blood_main_12"
+      ]
+    },
+    {
+      "world": "ikebukuro",
+      "sceneKey": "scene_arrival",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "ikebukuro_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_ikebukuro_scene_arrival.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_ikebukuro_scene_arrival.tga",
+        "sha256": "fe9609940be7798510cfeccacd66bf3a33f3e49a7c69c2bc10e1ced4722d7589",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\s1ep01_2_scene.jpg",
+        "sourceSha256": "088d35d93f840c71bac87360417c31e43d46baacae5eefce96925f29ffd13b73",
+        "sourcePage": "https://www.durarara.com/1st/story/story01.html",
+        "sourceUrl": "https://www.durarara.com/1st/story/img/story01_02.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          150,
+          84
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_ikebukuro_scene_arrival.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 150×84px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/19-ikebukuro.json",
+      "eventEvidence": [
+        {
+          "eventKey": "ikebukuro_main_01",
+          "title": "처음 내린 밤의 역",
+          "intro": "마사오미가 낯선 도시의 길을 안내한다.",
+          "story": "친구 마사오미의 초대로 이케부쿠로에 온 미카도는 분주한 거리를 걷는다. 마사오미는 이자야와 시즈오, 다라즈에 얽힌 소문을 들려준다. 그날 밤 미카도는 도시 괴담처럼 알려진 검은 바이크까지 마주친다.",
+          "choiceLabels": [
+            "거리의 움직임을 직접 살핀다",
+            "마사오미가 피하라는 길을 기억한다",
+            "검은 바이크의 행방을 바라본다"
+          ],
+          "commonResult": "미카도의 새 생활이 시작된다. 거리에서 들은 이름들은 곧 그의 일상과 직접 맞닿게 된다.",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga",
+          "eventSha256": "6e1f66fe17250113499e661192c927b2e87b159b2e161d1a26e38e97250ea98a"
+        }
+      ],
+      "decisionReason": "150×84px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "ikebukuro_main_01"
+      ]
+    },
+    {
+      "world": "ikebukuro",
+      "sceneKey": "scene_celty_truth",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "ikebukuro_main_05"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_ikebukuro_scene_celty_truth.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_ikebukuro_scene_celty_truth.tga",
+        "sha256": "dbc7ee59938368c4eba40dd17a98eb2e5fb1fc1d3e928a91445c069692aa86f3",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\s1ep12_3_scene.jpg",
+        "sourceSha256": "31481e4e6a9ab1d4b2da388df36132e842e693882c59bc8942c000cac48a71a1",
+        "sourcePage": "https://www.durarara.com/1st/story/story12.html",
+        "sourceUrl": "https://www.durarara.com/1st/story/img/story12_03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 12,
+        "nativeSourceSize": [
+          150,
+          85
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_ikebukuro_scene_celty_truth.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 150×85px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/19-ikebukuro.json",
+      "eventEvidence": [
+        {
+          "eventKey": "ikebukuro_main_05",
+          "title": "찾던 얼굴과 남은 진실",
+          "intro": "같은 얼굴이 곧 같은 사람은 아니었다.",
+          "story": "하리마 미카의 설명으로 셀티가 쫓던 얼굴의 사정이 밝혀진다. 그 얼굴은 셀티의 머리를 이식한 결과가 아니다. 자신에게 숨겨진 사실을 알게 된 셀티는 신라와 마주하고, 두 사람은 서로의 생각을 직접 꺼낸다.",
+          "choiceLabels": [
+            "셀티가 느낀 배신을 가볍게 넘기지 않는다",
+            "신라에게 자신의 뜻을 직접 말하게 한다",
+            "처음 믿었던 사실을 다시 확인한다"
+          ],
+          "commonResult": "셀티는 머리를 되찾지 못했지만 신라와의 관계를 다시 마주한다. 다라즈 집회의 소란이 지나고, 이케부쿠로에는 새로운 시간이 흐른다.",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga",
+          "eventSha256": "c9b3c1de60c166300087559dfd47d5f5b63bf7407cc950f671eda102b4e9747c"
+        }
+      ],
+      "decisionReason": "150×85px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "ikebukuro_main_05"
+      ]
+    },
+    {
+      "world": "ikebukuro",
+      "sceneKey": "scene_classroom_return",
+      "decision": "hold-low-resolution",
+      "approvedEventKey": null,
+      "candidateEventKeys": [
+        "ikebukuro_main_12"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_ikebukuro_scene_classroom_return.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\war3mapImported\\UI_Event_XP_ikebukuro_scene_classroom_return.tga",
+        "sha256": "b4d25d7479dc32776dc9df3678529c50c4128d740c55d4647865aa97ac35bbfe",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\s1ep24_3_scene.jpg",
+        "sourceSha256": "35f53aad719823b30da25341f82a0e76e8b83f410c3024355f0b9be35717e728",
+        "sourcePage": "https://www.durarara.com/1st/story/story24.html",
+        "sourceUrl": "https://www.durarara.com/1st/story/img/story24_03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 24,
+        "nativeSourceSize": [
+          150,
+          85
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_ikebukuro_scene_classroom_return.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "원본 150×85px. 기존 임시 후보만 보존하며 최종 의미 대응 승인 대상에서 제외했다.",
+      "officialEpisodeEvidence": "공식 각화 소개 페이지의 스틸이나 원본 해상도가 너무 작다.",
+      "contentFile": "content/roguelite/19-ikebukuro.json",
+      "eventEvidence": [
+        {
+          "eventKey": "ikebukuro_main_12",
+          "title": "서로의 이름으로 다시 만나다",
+          "intro": "폐공장에서 세 친구가 같은 자리에 선다.",
+          "story": "호라다 일행과의 충돌이 벌어진 폐공장에 미카도와 안리가 도착하고 마사오미와 마주한다. 다라즈, 황건적, 사이카라는 이름에 가려졌던 세 친구의 사정이 드러난다. 이제는 소문을 통해서가 아니라 서로에게 말할 차례다.",
+          "choiceLabels": [
+            "미카도의 이름을 부르며 말을 잇는다",
+            "마사오미가 혼자 돌아서지 않게 기다린다",
+            "안리가 전하는 뜻을 끝까지 듣는다"
+          ],
+          "commonResult": "",
+          "endingDialogue": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga",
+          "eventSha256": "aaa076392adb408fed40d11e9465fa1c362830abf7f0c32c6f742d0ddbad3ca5"
+        }
+      ],
+      "decisionReason": "150×85px 원본은 썸네일 256×128보다 작으며 확대 시 얼굴과 배경의 윤곽이 흐려진다. 고해상도 공식 대체 이미지를 확보하기 전에는 연결하지 않는다.",
+      "restrictions": [
+        "현재 후보 ID는 승인된 매핑이 아니다.",
+        "고해상도 원본을 구한 후 등장인물과 사건 진행 시점을 다시 확인한다."
+      ],
+      "dialogueEvidence": "스틸에는 자막이나 음성이 없어 원작 대사 일치는 검증하지 않았다. 선택 대사는 ARCANA 창작이며 장면의 상황과 행동으로 대응을 판정했다.",
+      "previousProvisionalEventKeys": [
+        "ikebukuro_main_12"
+      ]
+    },
+    {
+      "world": "hunter_exam",
+      "sceneKey": "scene_ship_meeting",
+      "decision": "approve",
+      "approvedEventKey": "hx_main_01",
+      "candidateEventKeys": [
+        "hx_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\exports\\v2\\war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga",
+        "sha256": "98e5920fbae2cd075a9d8a46c222e48d93b4188e0b03a1c8d45f07aebc85a191",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep01_5.jpg",
+        "sourceSha256": "4ce3329eca5b39608d0054fc4e08482bf86357573f7e54ea30d9b84b2d96b940",
+        "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/001.html",
+        "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/001_5.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 1,
+        "nativeSourceSize": [
+          500,
+          280
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_ship_meeting.tga",
+      "visibleCharacters": [
+        "곤",
+        "크라피카",
+        "레오리오"
+      ],
+      "visualEvidence": "1화 배 위에서 세 사람이 함께 서 있다.",
+      "officialEpisodeEvidence": "1화 배 위에서 세 사람이 함께 서 있다. 공식 1화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/22-hunter_exam.json",
+      "eventEvidence": [
+        {
+          "eventKey": "hx_main_01",
+          "title": "같은 배에 오른 이유",
+          "intro": "곤은 시험장으로 가는 배에서 레오리오와 크라피카를 만난다.",
+          "story": "거친 파도보다 먼저 두 사람의 말이 부딪친다. 헌터가 되려는 이유는 서로 달랐고, 그 차이는 쉽게 모욕으로 들렸다. 곤은 누구의 말이 더 큰지보다 두 사람이 끝까지 놓지 않는 이야기에 귀를 기울인다.",
+          "choiceLabels": [
+            "곤이 아버지를 찾으려는 이유부터 듣는다.",
+            "레오리오의 말을 성급하게 끊지 않는다.",
+            "크라피카에게 서로 다른 목적을 인정하자고 말한다."
+          ],
+          "commonResult": "곧바로 뜻이 같아진 것은 아니었다. 그래도 세 사람은 같은 시험장으로 향하는 길에서 서로의 이름을 기억하게 됐다.",
+          "canonFact": "2011년판 1화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga",
+          "eventSha256": "83c834a422df6f79e8018c46a67936bfa614d8b076354e4e430ddb6b5538574f"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 1화 배 위에서 세 사람이 함께 서 있다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "이미지의 자막·음성을 확인한 것은 아니며 ARCANA 선택 문장은 창작이다. 등장인물과 시험 단계 및 행동이 일치함을 확인했다."
+    },
+    {
+      "world": "hunter_exam",
+      "sceneKey": "scene_tunnel_run",
+      "decision": "approve",
+      "approvedEventKey": "hx_main_03",
+      "candidateEventKeys": [
+        "hx_main_03"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\exports\\v2\\war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga",
+        "sha256": "8a4374fdb09d9d154bb469cc57d82caeb25d41271c49de2c754304539fea0f2c",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep04_1.jpg",
+        "sourceSha256": "2fe83234d30936ba9d5ab624f83a3494fe406c77e47f4a8b360f091cda9a0ea9",
+        "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/004.html",
+        "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/004_1.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 4,
+        "nativeSourceSize": [
+          500,
+          280
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_tunnel_run.tga",
+      "visibleCharacters": [
+        "곤",
+        "키르아"
+      ],
+      "visualEvidence": "4화 첫 시험의 터널을 곤과 키르아가 함께 달린다.",
+      "officialEpisodeEvidence": "4화 첫 시험의 터널을 곤과 키르아가 함께 달린다. 공식 4화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/22-hunter_exam.json",
+      "eventEvidence": [
+        {
+          "eventKey": "hx_main_03",
+          "title": "끝을 모르는 보폭",
+          "intro": "첫 시험은 사토츠를 따라 다음 시험장까지 가는 일이다.",
+          "story": "터널의 끝은 보이지 않고 발소리만 길게 겹친다. 스케이트보드를 든 키르아와 곤은 말을 주고받으며 달리고, 뒤쪽에서는 레오리오가 이를 악문다. 계단이 나타나자 앞장선 사토츠의 속도가 다시 오른다.",
+          "choiceLabels": [
+            "사토츠의 걸음이 바뀌는 순간을 살핀다.",
+            "키르아와 곤이 나란히 움직이는 간격을 따라 본다.",
+            "레오리오가 계속 달리는 이유를 기억한다."
+          ],
+          "commonResult": "터널을 벗어난 뒤에도 시험은 이어졌다. 안개 낀 습지에서는 시야를 놓치지 않는 일이 중요했고, 히소카의 위협을 넘긴 일행은 다음 시험장으로 향했다.",
+          "canonFact": "2011년판 3·4·5화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga",
+          "eventSha256": "541b8fc6cb8e38f91ad81b406b9ad80e18a7a3a714b75f84ca60556a5d69bb2a"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 4화 첫 시험의 터널을 곤과 키르아가 함께 달린다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "이미지의 자막·음성을 확인한 것은 아니며 ARCANA 선택 문장은 창작이다. 등장인물과 시험 단계 및 행동이 일치함을 확인했다."
+    },
+    {
+      "world": "hunter_exam",
+      "sceneKey": "scene_netero_ball",
+      "decision": "approve",
+      "approvedEventKey": "hx_main_05",
+      "candidateEventKeys": [
+        "hx_main_05"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\exports\\v2\\war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga",
+        "sha256": "35f691f10d43e67eed0c7592d9554544b0a124d3269f20d6e808333f1f7d4579",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep07_4.jpg",
+        "sourceSha256": "3c0bee7ca3882ea930804a1954504b96206efc21b3045cbc96e545ae324ada2e",
+        "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/007.html",
+        "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/007_4.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 7,
+        "nativeSourceSize": [
+          500,
+          280
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_netero_ball.tga",
+      "visibleCharacters": [
+        "곤",
+        "키르아",
+        "네테로"
+      ],
+      "visualEvidence": "7화 비행선에서 두 소년이 네테로의 공을 빼앗으려 한다.",
+      "officialEpisodeEvidence": "7화 비행선에서 두 소년이 네테로의 공을 빼앗으려 한다. 공식 7화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/22-hunter_exam.json",
+      "eventEvidence": [
+        {
+          "eventKey": "hx_main_05",
+          "title": "손이 닿지 않는 공",
+          "intro": "비행선 안에서 곤과 키르아가 네테로의 공을 빼앗는 놀이에 도전한다.",
+          "story": "규칙은 간단하지만 네테로와 공 사이의 거리는 좀처럼 줄지 않는다. 곤은 방향을 바꿔 달려들고 키르아는 움직임의 차이를 계산한다. 네테로는 두 소년의 조급함까지 보고 있는 듯 여유롭게 자리를 옮긴다.",
+          "choiceLabels": [
+            "곤과 다음 도약의 방향을 바꿔 본다.",
+            "키르아가 보아낸 속도 차이를 따져 본다.",
+            "네테로가 몸을 돌리지 않고 피하는 때를 관찰한다."
+          ],
+          "commonResult": "같은 상대를 앞에 두고도 곤과 키르아는 다르게 판단했다. 공을 빼앗아 시험을 끝내는 일은 없었고, 비행선은 세 번째 시험장으로 향했다.",
+          "canonFact": "2011년판 7화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga",
+          "eventSha256": "4bcf7e890ed77887b82ea72a8ccedf51850ee8d7052372556ab9eb01acc2b217"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 7화 비행선에서 두 소년이 네테로의 공을 빼앗으려 한다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "이미지의 자막·음성을 확인한 것은 아니며 ARCANA 선택 문장은 창작이다. 등장인물과 시험 단계 및 행동이 일치함을 확인했다."
+    },
+    {
+      "world": "hunter_exam",
+      "sceneKey": "scene_friends_departure",
+      "decision": "approve",
+      "approvedEventKey": "hx_main_14",
+      "candidateEventKeys": [
+        "hx_main_14"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\exports\\v2\\war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga",
+        "sha256": "6311d5c2555536de23badd0aca1d2d051c45f37f38aded6fe49949638b465c5b",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep21_5.jpg",
+        "sourceSha256": "762a6877e30200b8eb2a2e8cfc1bd57197da9ea932741d0b2f5a1c84cce8c3db",
+        "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+        "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/021_5.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 21,
+        "nativeSourceSize": [
+          500,
+          280
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hunter_exam_scene_friends_departure.tga",
+      "visibleCharacters": [
+        "곤",
+        "크라피카",
+        "레오리오"
+      ],
+      "visualEvidence": "21화 시험 뒤 남은 세 사람이 키르아를 찾아 떠난다. 키르아의 합격이나 네 사람 재회가 아니다.",
+      "officialEpisodeEvidence": "21화 시험 뒤 남은 세 사람이 키르아를 찾아 떠난다. 키르아의 합격이나 네 사람 재회가 아니다. 공식 21화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/22-hunter_exam.json",
+      "eventEvidence": [
+        {
+          "eventKey": "hx_main_14",
+          "title": "다시 만나러 가는 길",
+          "intro": "곤은 일루미에게 항의한 뒤 키르아를 찾아가기로 한다.",
+          "story": "시험장을 떠난 키르아는 여기서 대답할 수 없다. 곤은 친구가 무엇을 원하는지 직접 듣겠다고 마음먹는다. 크라피카와 레오리오도 길을 함께하기로 한다. 합격증을 손에 넣은 여정은 다른 사람의 이름을 향해 이어진다.",
+          "choiceLabels": [
+            "곤과 키르아에게 직접 물을 말을 정한다.",
+            "크라피카와 찾아갈 방향을 확인한다.",
+            "레오리오와 출발할 준비를 나눈다."
+          ],
+          "commonResult": "",
+          "canonFact": "2011년판 21화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga",
+          "eventSha256": "021bcf08ee654688a8a12a91d4f8892b49647f035c4d5cf227f66f43723373cf"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 21화 시험 뒤 남은 세 사람이 키르아를 찾아 떠난다. 키르아의 합격이나 네 사람 재회가 아니다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "이미지의 자막·음성을 확인한 것은 아니며 ARCANA 선택 문장은 창작이다. 등장인물과 시험 단계 및 행동이 일치함을 확인했다."
+    },
+    {
+      "world": "roswaal_mansion",
+      "sceneKey": "scene_first_morning",
+      "decision": "approve",
+      "approvedEventKey": "rz_main_01",
+      "candidateEventKeys": [
+        "rz_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_first_morning.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\exports\\v1\\war3mapImported\\UI_Event_XP_roswaal_mansion_scene_first_morning.tga",
+        "sha256": "04aaa219c6642627ce61e6305ae10b9beedefecc1ecba4eacdb4563b7ec79985",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep04_1.jpg",
+        "sourceSha256": "5d3c0968b32d2a35b9a8b8f87a9050d10badcec1144090e81ff842f810e5b35d",
+        "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+        "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/4/1.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 4,
+        "nativeSourceSize": [
+          1280,
+          720
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_first_morning.tga",
+      "visibleCharacters": [
+        "스바루"
+      ],
+      "visualEvidence": "4화에서 스바루가 저택의 침대에서 눈뜨는 공식 스틸이다. 본문의 첫 문장 및 첫 회차 경계와 일치한다.",
+      "officialEpisodeEvidence": "4화에서 스바루가 저택의 침대에서 눈뜨는 공식 스틸이다. 본문의 첫 문장 및 첫 회차 경계와 일치한다. 공식 4화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/23-roswaal_mansion.json",
+      "eventEvidence": [
+        {
+          "eventKey": "rz_main_01",
+          "title": "낯선 천장 아래",
+          "intro": "저택의 첫 아침, 로즈월이 원하는 보답을 묻는다.",
+          "story": "엘자와의 싸움 뒤 로즈월 저택에서 눈을 뜬 스바루는 자신을 맞는 사람들을 처음으로 살핀다. 큰 보상보다 이곳에서 함께 지낼 자리를 원하는 그의 대답에 시선이 모인다.",
+          "choiceLabels": [
+            "앞으로 맡을 일을 묻는다",
+            "렘의 작업 순서를 눈여겨본다",
+            "에밀리아에게 감사부터 전한다"
+          ],
+          "commonResult": "스바루는 저택에서 일하며 지내기로 한다. 아직 서툰 손으로 배워야 할 일이 많다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_first_morning.tga",
+          "eventSha256": "2ec5cc511e3a9b0f90d2dd52ffbce340c447eb5284a4c31e757931d13f3276c3"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 4화에서 스바루가 저택의 침대에서 눈뜨는 공식 스틸이다. 본문의 첫 문장 및 첫 회차 경계와 일치한다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    },
+    {
+      "world": "roswaal_mansion",
+      "sceneKey": "scene_curse_in_library",
+      "decision": "approve",
+      "approvedEventKey": "rz_main_08",
+      "candidateEventKeys": [
+        "rz_main_08"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_curse_in_library.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\exports\\v1\\war3mapImported\\UI_Event_XP_roswaal_mansion_scene_curse_in_library.tga",
+        "sha256": "3cbbe4342a64b494fa78d3828c144c53204de087db2e1a68de5a990554832f80",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep09_3.jpg",
+        "sourceSha256": "8708fe5859b77b00b7bbdbd861b83e4cd7b17b7b17bfcea9aa82da94c4b544a4",
+        "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP9",
+        "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/9/3.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 9,
+        "nativeSourceSize": [
+          1280,
+          720
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_curse_in_library.tga",
+      "visibleCharacters": [
+        "스바루",
+        "베아트리스"
+      ],
+      "visualEvidence": "9화 금서고의 스바루와 베아트리스. 저주의 조건을 확인하고 다시 금서고를 찾는 본문과 일치한다.",
+      "officialEpisodeEvidence": "9화 금서고의 스바루와 베아트리스. 저주의 조건을 확인하고 다시 금서고를 찾는 본문과 일치한다. 공식 9화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/23-roswaal_mansion.json",
+      "eventEvidence": [
+        {
+          "eventKey": "rz_main_08",
+          "title": "금서고로 가져온 물음",
+          "intro": "다섯 번째 회차, 저주의 단서를 마을에서 찾는다.",
+          "story": "베아트리스에게 들은 저주의 조건과 앞선 회차의 동선을 맞춰 본다. 스바루는 렘과 람을 따라 마을에 다녀온 뒤 다시 금서고를 찾는다. 사람만 살피던 생각에 빠진 접촉이 있었다.",
+          "choiceLabels": [
+            "서로 다른 접촉을 구분해 묻는다",
+            "누가 함께 있었는지 정리한다",
+            "확인한 위험부터 렘에게 알린다"
+          ],
+          "commonResult": "스바루는 마을에 위험이 남았음을 깨닫고 렘과 되돌아간다. 단서가 가리킨 곳에는 아직 아이들이 있다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_curse_in_library.tga",
+          "eventSha256": "e3b8096c6edfca007d7dd9f3b984308bd459693c21a090c7d9eda1ddb83b67eb"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 9화 금서고의 스바루와 베아트리스. 저주의 조건을 확인하고 다시 금서고를 찾는 본문과 일치한다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    },
+    {
+      "world": "roswaal_mansion",
+      "sceneKey": "scene_beasts_aftermath",
+      "decision": "approve",
+      "approvedEventKey": "rz_main_14",
+      "candidateEventKeys": [
+        "rz_main_14"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_beasts_aftermath.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\exports\\v1\\war3mapImported\\UI_Event_XP_roswaal_mansion_scene_beasts_aftermath.tga",
+        "sha256": "97620bb90419fa0d6b4083165eaa5e96707707f46f6a2c15cda8f74833346f4c",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep11_6.jpg",
+        "sourceSha256": "7e92a1a913d8ae7a1d6c164f4d1d47a837c55406738690a4c3b08d6e5f742473",
+        "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+        "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/11/6.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 11,
+        "nativeSourceSize": [
+          1280,
+          720
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_roswaal_mansion_scene_beasts_aftermath.tga",
+      "visibleCharacters": [
+        "렘"
+      ],
+      "visualEvidence": "11화 사건 이후 안도하는 렘의 표정. 본문 첫 문장과 세 번째 선택지의 웃음에 해당한다. 마수 격퇴·로즈월의 불길 장면으로 사용하지 않는다.",
+      "officialEpisodeEvidence": "11화 사건 이후 안도하는 렘의 표정. 본문 첫 문장과 세 번째 선택지의 웃음에 해당한다. 마수 격퇴·로즈월의 불길 장면으로 사용하지 않는다. 공식 11화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/23-roswaal_mansion.json",
+      "eventEvidence": [
+        {
+          "eventKey": "rz_main_14",
+          "title": "내일을 함께 이야기한다",
+          "intro": "저택으로 돌아온 스바루 앞에 다시 약속할 하루가 있다.",
+          "story": "렘과 나눈 대화에 진심 어린 웃음이 남는다. 스바루는 에밀리아에게 다시 함께 나갈 약속을 청한다. 혼자 기억하던 아침을 넘어, 이제 곁에 있는 사람들과 내일을 이야기할 수 있다.",
+          "choiceLabels": [
+            "함께 돌아온 사람들을 떠올린다",
+            "에밀리아와의 약속을 다시 꺼낸다",
+            "렘의 웃음에 웃음으로 답한다"
+          ],
+          "commonResult": "",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_roswaal_mansion_scene_beasts_aftermath.tga",
+          "eventSha256": "a5818e6c4e2ffe9f1af3293aeb01b2f83c870f4eb1d05a6a6d1c3e3ab72c54d4"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 11화 사건 이후 안도하는 렘의 표정. 본문 첫 문장과 세 번째 선택지의 웃음에 해당한다. 마수 격퇴·로즈월의 불길 장면으로 사용하지 않는다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    },
+    {
+      "world": "z_city",
+      "sceneKey": "scene_genos_visit",
+      "decision": "approve",
+      "approvedEventKey": "opm_main_02",
+      "candidateEventKeys": [
+        "opm_main_02"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\exports\\v2\\war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga",
+        "sha256": "f2e8080d10fbf3ede9b0d5d6616a920b284e32b7a7a8b071ab0b518cddc26fa1",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep02_5.jpg",
+        "sourceSha256": "73d6cf005114c0e5085309459a95ddc39d279ccc97dd78f104fc8cdc86008f1a",
+        "sourcePage": "https://onepunchman-anime.net/story/#/season1/2",
+        "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/02_05.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 2,
+        "nativeSourceSize": [
+          400,
+          225
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_genos_visit.tga",
+      "visibleCharacters": [
+        "제노스"
+      ],
+      "visualEvidence": "2화 제노스가 사이타마의 집에 찾아온 공식 스틸. 본문 마지막 문장의 첫 방문과 일치한다. 전투 중 손상된 얼굴이나 훗날 업그레이드 모습이 아니다.",
+      "officialEpisodeEvidence": "2화 제노스가 사이타마의 집에 찾아온 공식 스틸. 본문 마지막 문장의 첫 방문과 일치한다. 전투 중 손상된 얼굴이나 훗날 업그레이드 모습이 아니다. 공식 2화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/24-z_city.json",
+      "eventEvidence": [
+        {
+          "eventKey": "opm_main_02",
+          "title": "모기 떼가 지나간 자리",
+          "intro": "모스키토 소녀를 상대하던 제노스 앞에 사이타마가 나타난다.",
+          "story": "Z시에 몰려든 모기 떼와 싸우던 제노스는 상대의 변화에 몰렸다. 위기의 순간 나타난 사이타마의 힘은 그가 세운 예상과 달랐다. 며칠 뒤, 제노스가 그 힘을 알고 싶다며 사이타마의 집을 찾아온다.",
+          "choiceLabels": [
+            "제노스가 놓친 변화부터 정리한다.",
+            "사이타마가 들어온 거리를 되짚는다.",
+            "제노스의 질문을 짧게 나누어 듣는다."
+          ],
+          "commonResult": "제노스의 방문은 한 번의 감사 인사로 끝나지 않았다. 사이타마의 평범한 생활 옆에 끈질긴 질문 하나가 자리 잡는다.",
+          "canonFact": "2015년판 2화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_z_city_scene_genos_visit.tga",
+          "eventSha256": "7055683f2fec7eb3813010542222aac13a5d2d79487e1d426a8f6ec3efc4b956"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 2화 제노스가 사이타마의 집에 찾아온 공식 스틸. 본문 마지막 문장의 첫 방문과 일치한다. 전투 중 손상된 얼굴이나 훗날 업그레이드 모습이 아니다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "z_city",
+      "sceneKey": "scene_meteor_branch",
+      "decision": "approve",
+      "approvedEventKey": "opm_main_07",
+      "candidateEventKeys": [
+        "opm_main_07"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\exports\\v2\\war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga",
+        "sha256": "6dd7b7426c7abba4f0edd9597fbcef6515db58dac7e80318f0673004bf8d25ab",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep07_1.jpg",
+        "sourceSha256": "0f85e52a79293d58c8b0007a682ae8ec044f27631d4d0bbc420747ec61a1de44",
+        "sourcePage": "https://onepunchman-anime.net/story/#/season1/7",
+        "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/07_01.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 7,
+        "nativeSourceSize": [
+          400,
+          225
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_meteor_branch.tga",
+      "visibleCharacters": [
+        "제노스",
+        "뱅"
+      ],
+      "visualEvidence": "7화 텅 빈 협회 지부에 남아 있는 제노스와 뱅. 본문 첫 문장과 일치하며 운석 파괴 후의 잔해로 앞선 시점을 대체하지 않는다.",
+      "officialEpisodeEvidence": "7화 텅 빈 협회 지부에 남아 있는 제노스와 뱅. 본문 첫 문장과 일치하며 운석 파괴 후의 잔해로 앞선 시점을 대체하지 않는다. 공식 7화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/24-z_city.json",
+      "eventEvidence": [
+        {
+          "eventKey": "opm_main_07",
+          "title": "하늘이 내려앉기 전에",
+          "intro": "Z시로 떨어지는 운석 앞에 제노스와 뱅이 남는다.",
+          "story": "협회 지부는 이미 비어 있었다. 제노스는 스승이 사는 도시를 지키려고 운석을 향해 전력을 쏟으려 하고, 뱅은 눈앞의 위협에서 시선을 떼지 않는다. 뒤이어 도착한 사이타마가 하늘을 올려다본다.",
+          "choiceLabels": [
+            "제노스가 겨누는 한 지점을 따라 본다.",
+            "뱅이 위협을 판단하는 순서를 듣는다.",
+            "사이타마가 도약하기 전 중심을 잡는 모습을 본다."
+          ],
+          "commonResult": "사이타마가 운석을 부순다. 충돌의 위기는 막았지만 흩어진 파편이 남긴 피해까지 사라진 것은 아니었다.",
+          "canonFact": "2015년판 7화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_z_city_scene_meteor_branch.tga",
+          "eventSha256": "2b85e2ecd604d3d6e5e3f83b16cc246043e31677d34b6af7061d2f732bbd7ef0"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 7화 텅 빈 협회 지부에 남아 있는 제노스와 뱅. 본문 첫 문장과 일치하며 운석 파괴 후의 잔해로 앞선 시점을 대체하지 않는다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "z_city",
+      "sceneKey": "scene_boros_battle",
+      "decision": "approve",
+      "approvedEventKey": "opm_main_12",
+      "candidateEventKeys": [
+        "opm_main_12"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\exports\\v2\\war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga",
+        "sha256": "55519481ed5e42362ee0aaf0250cc553544894271710727f4f60457544bb54cb",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep12_1.jpg",
+        "sourceSha256": "9519c30a3d5bca5b3d7adba69eb5f08165389be7703c034b2fe235d5d6dae105",
+        "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+        "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/12_01.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": 1,
+        "episode": 12,
+        "nativeSourceSize": [
+          400,
+          225
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_z_city_scene_boros_battle.tga",
+      "visibleCharacters": [
+        "보로스"
+      ],
+      "visualEvidence": "12화 우주선 대결 중 힘을 드러낸 보로스. 함선까지 이어지는 대결 범위와 일치한다. 첫 갑옷 대면이나 타츠마키의 지상 포격 반사 자체를 묘사한 장면은 아니다.",
+      "officialEpisodeEvidence": "12화 우주선 대결 중 힘을 드러낸 보로스. 함선까지 이어지는 대결 범위와 일치한다. 첫 갑옷 대면이나 타츠마키의 지상 포격 반사 자체를 묘사한 장면은 아니다. 공식 12화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/24-z_city.json",
+      "eventEvidence": [
+        {
+          "eventKey": "opm_main_12",
+          "title": "강함의 끝에서 마주 선 둘",
+          "intro": "사이타마가 보로스와 맞서는 동안 지상의 싸움도 끝을 향한다.",
+          "story": "타츠마키가 쏟아지는 포격을 되돌리고, 지상의 히어로들은 멜자르갈드의 약점을 공략한다. 우주선에서는 강함에 권태를 느낀 보로스가 사이타마와 맞선다. 쉽게 끝날 것 같던 대결은 함선 위까지 이어진다.",
+          "choiceLabels": [
+            "보로스가 한 상대에게 집중하는 모습을 본다.",
+            "사이타마가 마지막 공격을 받아치는 순간을 본다.",
+            "지상에서 타츠마키가 포격의 방향을 바꾸는 모습을 본다."
+          ],
+          "commonResult": "보로스의 마지막 공격을 사이타마의 진심 펀치가 꺾는다. 쓰러진 보로스와 기울어지는 함선 뒤로 침공의 결말이 드러난다.",
+          "canonFact": "2015년판 12화의 사건을 바탕으로 선택·반응을 새로 썼다. 메인 줄거리의 승패와 등장 순서를 바꾸지 않으며, 7·9·12화 전투의 결말은 출처 문서에 분리한 방영 당시 리뷰를 함께 대조했다.",
+          "currentIcon": "war3mapImported\\UI_Event_XP_z_city_scene_boros_battle.tga",
+          "eventSha256": "d04fee4b1859fd30554d8ee2c01c596280026989982ad64493847d29fe2f57f2"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 회차 장면이 일치한다. 12화 우주선 대결 중 힘을 드러낸 보로스. 함선까지 이어지는 대결 범위와 일치한다. 첫 갑옷 대면이나 타츠마키의 지상 포격 반사 자체를 묘사한 장면은 아니다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "공식 스틸의 인물·시점·행동 대조이며 창작 선택 대사가 영상에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_first_palace",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_01",
+      "candidateEventKeys": [
+        "p5_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+        "sha256": "7049a2c17498d22c1400588ef8a7a16490e75896bf2231a23e2d16000860d7d3",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_01_35.jpg",
+        "sourceSha256": "b9d48d4df59e6635bbe7c90027aab599e4b6c829ac96a28026a7d8b447349906",
+        "sourcePage": "https://p5a.jp/story/01.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/01/03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 1,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_first_palace.tga",
+      "visibleCharacters": [
+        "조커",
+        "사카모토 류지"
+      ],
+      "visualEvidence": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "officialEpisodeEvidence": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다. 공식 1화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_01",
+          "title": "낯선 도시의 가면",
+          "intro": "르블랑에 짐을 푼 전학생이 학교 대신 성 같은 곳에 들어선다.",
+          "story": "도쿄에서 조용히 지내려던 소년은 류지와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+          "choiceLabels": [
+            "위협 앞에서 물러서지 않는다",
+            "류지에게 움직일 틈을 만든다",
+            "작은 안내자의 말을 듣는다"
+          ],
+          "commonResult": "소년은 페르소나에 눈뜨고 류지를 구한다. 성에서 만난 모르가나와 함께 출구를 찾아 현실로 돌아온다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+          "eventSha256": "485d369713132ce03f82ce998a856d9b8a33867470c7bce10e5684748e8cdea8"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_sayuri",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_03",
+      "candidateEventKeys": [
+        "p5_main_03"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+        "sha256": "9bfbd187bc88efb027c3dcf5be1230dc025aa6be78090979e543535892f52734",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_ep08_3.jpg",
+        "sourceSha256": "9f7a22edebfa026e149a89ae3d96687b4730dcbebfa353ed71ff667e287e3633",
+        "sourcePage": "https://p5a.jp/story/08.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/08/03.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 8,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_sayuri.tga",
+      "visibleCharacters": [],
+      "visualEvidence": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "officialEpisodeEvidence": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다. 공식 8화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_03",
+          "title": "액자 안에서 지워진 이름",
+          "intro": "유스케가 스승의 미술관에서 작품의 주인을 묻는다.",
+          "story": "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. 유스케는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다.",
+          "choiceLabels": [
+            "그림에 남은 작은 차이를 본다",
+            "유스케가 확인할 시간을 지킨다",
+            "보물과 탈출로를 함께 점검한다"
+          ],
+          "commonResult": "유스케는 스승의 착취를 외면하지 않고 괴도단과 함께 맞선다. 마다라메의 보물을 확보하고 사유리에 남은 어머니의 흔적을 되찾는다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+          "eventSha256": "43f362808c9cedc69533af4326dab0e881afaa76ef27e6737e187ce74ac64df6"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5",
+      "sceneKey": "scene_interrogation",
+      "decision": "approve",
+      "approvedEventKey": "p5_main_09",
+      "candidateEventKeys": [
+        "p5_main_09"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+        "sha256": "411f2a4aacddb23c3a514cf07786aebd1c3f20c237ce91098312d15b3898591d",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5a_ep26_2.jpg",
+        "sourceSha256": "d44f5f045f240c75daf9f3d4ba2f2e174a63e32bde46b3c8638a4482e246f99b",
+        "sourcePage": "https://p5a.jp/story/26.html",
+        "sourceUrl": "https://p5a.jp/assets/img/story/26/02.jpg",
+        "sourceKind": "official-anime-episode-still",
+        "season": null,
+        "episode": 26,
+        "nativeSourceSize": [
+          960,
+          540
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_scene_interrogation.tga",
+      "visibleCharacters": [
+        "니지마 사에"
+      ],
+      "visualEvidence": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "officialEpisodeEvidence": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다. 공식 26화 출처를 함께 대조했다.",
+      "contentFile": "content/roguelite/26-persona5.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5_main_09",
+          "title": "취조실 밖으로 건네는 것",
+          "intro": "사에의 질문 앞에서 조커가 끝까지 동료를 지킨다.",
+          "story": "흐려지는 의식 속에서도 조커는 동료를 팔지 않는다. 사에에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다.",
+          "choiceLabels": [
+            "동료의 이름을 거래하지 않는다",
+            "확인할 단서를 사에에게 맡긴다",
+            "약속한 전달 순서를 떠올린다"
+          ],
+          "commonResult": "사에가 조커의 부탁을 받아들인다. 아케치는 인지 속 조커를 죽이고, 실제 조커는 준비된 속임수와 사에의 도움으로 살아 돌아온다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+          "eventSha256": "4bed63a0ae3dc9f284019ff06809ac129b3dec4b43ca521b7374a80dbfb535f7"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    },
+    {
+      "world": "persona5_royal",
+      "sceneKey": "scene_counselor",
+      "decision": "approve",
+      "approvedEventKey": "p5r_main_01",
+      "candidateEventKeys": [
+        "p5r_main_01"
+      ],
+      "asset": {
+        "target": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+        "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+        "sha256": "609f54f71d595ed0830311c32388cba915d16319ff0b398d939ffb884b164340",
+        "bytes": 262188,
+        "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\originals\\p5r_top_royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e.jpg",
+        "sourceSha256": "ea2f856fdb55dff409aa948faae788ebeec0634e584d544cae85fde96f73ade8",
+        "sourcePage": "https://p5r.jp/",
+        "sourceUrl": "https://p5r.jp/resources/img/top/ss/royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e.jpg",
+        "sourceKind": "official-game-screenshot",
+        "season": null,
+        "episode": null,
+        "nativeSourceSize": [
+          1920,
+          1080
+        ]
+      },
+      "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_scene_counselor.tga",
+      "visibleCharacters": [
+        "마루키 타쿠토",
+        "조커"
+      ],
+      "visualEvidence": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "officialGameEvidence": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다. 공식 게임 소개 페이지 https://p5r.jp/",
+      "gameContext": "앞선 학교생활을 회고하는 도입. 카모시다 사건 이후 마루키 부임과 새 동급생이 아닌 후배 요시자와의 만남. 정체 미공개. 화면 날짜 5월 24일. 1월 사건에 사용하지 않는다.",
+      "contentFile": "content/roguelite/27-persona5_royal.json",
+      "eventEvidence": [
+        {
+          "eventKey": "p5r_main_01",
+          "title": "겨울에 닿기 전의 인연",
+          "intro": "괴도단과 지냈던 한 해에서 새 인연의 첫 장면을 되짚는다.",
+          "story": "슈진 학원에는 상담사 마루키가 찾아왔고, 요시자와는 체조와 학교생활 사이에서 애쓰고 있었다. 조커는 각자의 이야기를 들으며 혼자서는 보지 못했던 마음을 알아 갔다. 겨울의 작은 어긋남을 따라가기 전에 그때의 말을 떠올린다.",
+          "choiceLabels": [
+            "답을 정하지 않고 먼저 듣는다",
+            "다음 시도에 필요한 것을 묻는다",
+            "나도 원하는 것이 무엇인지 생각한다"
+          ],
+          "commonResult": "상담실에서 나눈 질문과 요시자와와의 만남이 기억에 남는다. 다음 기억은 낯선 건물에서 같은 인연을 다시 만났던 때로 이어진다.",
+          "canonFact": "",
+          "currentIcon": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+          "eventSha256": "c83f14d14b7967f00b186f375990f67da60f7a8a1651ece1527de130d30d12a2"
+        }
+      ],
+      "decisionReason": "현재 사건의 인물·시점·상황과 검토 장면이 대응한다. 공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+      "restrictions": [
+        "원작 대사 인용이나 플레이어의 선택 분기가 영상에 있다고 주장하지 않는다."
+      ],
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다."
+    }
+  ],
+  "contactSheets": [
+    {
+      "path": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\story-scenes-review.jpg",
+      "scope": "전체 장면 15개. 그림 아래 기존 파일명이 오해를 줄 수 있으므로 본 리뷰의 정정된 의미를 따른다."
+    },
+    {
+      "path": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\exports\\additional-v2\\dungeon_meshi-review.jpg",
+      "scope": "던전밥 인물 8명 및 머리 카드 표지."
+    }
+  ],
+  "validation": {
+    "reviewedNativeImages": true,
+    "reviewedContactSheet": true,
+    "hashesChecked": true,
+    "uniqueSceneKeys": true,
+    "approvedEventExists": true,
+    "heldAssetsNotInApprovedBindings": true,
+    "allSourceAndExportBytesUnchanged": true
+  },
+  "additionalReviews": [
+    {
+      "world": "hunter_exam",
+      "file": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\exports\\v2\\hunter-scene-match-review.json",
+      "sourceContentSha256": "071ecf5d2e96f1577a4c334d7c40c004ba36815df84c775b774c9438fe66f880",
+      "approved": 4,
+      "notUsed": [
+        {
+          "source": "cover_current",
+          "reason": "현 공식 홈페이지 표지는 선거편이어서 헌터시험편 범위를 벗어난다."
+        },
+        {
+          "source": "character GIF sheets",
+          "reason": "애니메이션 장면을 우선하며 설정화와 낮은 해상도 원형 인물 그림은 사용하지 않았다."
+        },
+        {
+          "source": "VAP store large cover",
+          "reason": "공식 이미지 요청이 HTTP 403으로 실패했다. 우회하지 않고 접근 가능한 공식 초기 DVD 표지를 사용했다."
+        },
+        {
+          "source": "v1 ending_memorial portrait",
+          "reason": "정사에 등장하는 세 사람 중 곤이 잘리는 구도여서 v2에서는 곤의 21화 얼굴 장면을 별도 연결했다."
+        }
+      ]
+    },
+    {
+      "world": "roswaal_mansion",
+      "file": "content/reviews/additional-heads-20261010/roswaal-scenes-normalized.json",
+      "sourceContentSha256": "644333b95e339dfa8fe52b5fb0aa9e0693772e840ad11c4bcb8a388c98621530",
+      "approved": 3,
+      "notUsed": [
+        {
+          "sourceKey": "ep11_4",
+          "possibleEventKey": "rz_main_13",
+          "status": "hold-phase-mismatch",
+          "reason": "세 사람이 숲에서 이동하는 장면이다. 마지막 마수 대치와 로즈월의 불길을 보여 주지 않으므로 격퇴 장면으로 지정하지 않는다."
+        },
+        {
+          "sourceKey": "ep11_1~3",
+          "status": "hold-age-mismatch",
+          "reason": "어린 렘·람의 회상 장면. 현재 시점 인물 카드나 현재의 웃음으로 대체하지 않는다."
+        }
+      ]
+    },
+    {
+      "world": "z_city",
+      "file": "content/reviews/additional-heads-20261010/opm-scenes-normalized.json",
+      "sourceContentSha256": "4e576cd1b1a99455283b92eb4ea0dcc8ef88fce7cd1c1a5b2b6d3913c551bdeb",
+      "approved": 3,
+      "notUsed": [
+        {
+          "sourceKey": "head_bd1",
+          "decision": "hold-layout",
+          "reason": "공식 블루레이 표지에 상품 인쇄·상자 윤곽이 포함되어 머리 카드에는 깨끗한 1기 인물 스틸을 사용했다."
+        },
+        {
+          "sourceKey": "atomic",
+          "decision": "hold-prefer-episode-still",
+          "reason": "공식 기본 그림도 확보했으나 1기 11화에서 식별 가능한 실제 스틸을 우선했다."
+        },
+        {
+          "sourceKey": "ep07_5",
+          "eventKey": "opm_main_07",
+          "decision": "hold-phase-mismatch",
+          "reason": "운석 낙하 후의 파손된 건물. 초안의 운석 낙하 전 지부 장면과 시점이 달라 사용하지 않는다."
+        }
+      ]
+    },
+    {
+      "world": "persona5",
+      "file": "content/reviews/next-priority-heads-20261010/persona5-scenes-normalized.json",
+      "sourceContentSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+      "approved": 3,
+      "notUsed": [
+        {
+          "subject": "공식 애니메이션 각색",
+          "decision": "record-medium-boundary",
+          "reason": "사에·소지로 대표 초상 및 메인 1/3/9 이미지는 공식 애니메이션 스틸이다. 원작 게임을 직접 캡처한 장면이라고 표기하지 않는다."
+        },
+        {
+          "subject": "엔딩 대표 그림",
+          "decision": "representative-only",
+          "reason": "원작 본편 키비주얼이며 실제 귀향 장면이 아니다."
+        }
+      ]
+    },
+    {
+      "world": "persona5_royal",
+      "file": "content/reviews/next-priority-heads-20261010/persona5_royal-scenes-normalized.json",
+      "sourceContentSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+      "approved": 1,
+      "notUsed": [
+        {
+          "subject": "원본 발표용 일반 의상",
+          "decision": "representative-only",
+          "reason": "로열 학교/괴도 초상은 겨울 전용 이미지가 아니므로 3학기 실제 장면으로 표기하지 않는다."
+        },
+        {
+          "subject": "아케치 백색 프린스 괴도복",
+          "decision": "hold",
+          "reason": "3학기 현장 복장과 충돌하여 로열 개별 카드 출력에서 제외했다."
+        },
+        {
+          "subject": "로열 1월 실제 장면",
+          "decision": "pending-official-exact-scene",
+          "reason": "공개 공식 페이지의 스틸에서 날짜와 상황을 확정하지 못했다. 5월 학교상담 회고만 실제 장면으로 승인했다."
+        },
+        {
+          "subject": "요시자와 신데렐라 전투 스틸",
+          "decision": "hold-exact-mapping",
+          "reason": "공개 소개 그림의 캐릭터·전투는 확인되지만 첫 각성의 날짜·전후 상황까지 입증되지 않아 10월 또는 1월 사건에 임의 연결하지 않았다."
+        }
+      ]
+    }
+  ]
+}

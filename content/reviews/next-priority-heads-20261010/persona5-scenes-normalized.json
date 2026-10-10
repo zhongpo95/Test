@@ -1,0 +1,57 @@
+{
+  "world": "persona5",
+  "sourceContentSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+  "approvedScenes": [
+    {
+      "sceneKey": "first_palace",
+      "eventKey": "p5_main_01",
+      "eventTitle": "낯선 도시의 가면",
+      "eventIntro": "르블랑에 짐을 푼 전학생이 학교 대신 성 같은 곳에 들어선다.",
+      "eventStory": "도쿄에서 조용히 지내려던 소년은 류지와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+      "eventSha256": "485d369713132ce03f82ce998a856d9b8a33867470c7bce10e5684748e8cdea8",
+      "episode": 1,
+      "sourcePage": "https://p5a.jp/story/01.html",
+      "visibleScene": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다.",
+      "adaptationBoundary": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다."
+    },
+    {
+      "sceneKey": "sayuri",
+      "eventKey": "p5_main_03",
+      "eventTitle": "액자 안에서 지워진 이름",
+      "eventIntro": "유스케가 스승의 미술관에서 작품의 주인을 묻는다.",
+      "eventStory": "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. 유스케는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다.",
+      "eventSha256": "43f362808c9cedc69533af4326dab0e881afaa76ef27e6737e187ce74ac64df6",
+      "episode": 8,
+      "sourcePage": "https://p5a.jp/story/08.html",
+      "visibleScene": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다.",
+      "adaptationBoundary": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다."
+    },
+    {
+      "sceneKey": "interrogation",
+      "eventKey": "p5_main_09",
+      "eventTitle": "취조실 밖으로 건네는 것",
+      "eventIntro": "사에의 질문 앞에서 조커가 끝까지 동료를 지킨다.",
+      "eventStory": "흐려지는 의식 속에서도 조커는 동료를 팔지 않는다. 사에에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다.",
+      "eventSha256": "4bed63a0ae3dc9f284019ff06809ac129b3dec4b43ca521b7374a80dbfb535f7",
+      "episode": 26,
+      "sourcePage": "https://p5a.jp/story/26.html",
+      "visibleScene": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+      "dialogueEvidence": "실제 화면의 인물·시점·행동 대응이며 창작 선택 대사가 출처 장면에 있다고 주장하지 않는다.",
+      "adaptationBoundary": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다."
+    }
+  ],
+  "notUsed": [
+    {
+      "subject": "공식 애니메이션 각색",
+      "decision": "record-medium-boundary",
+      "reason": "사에·소지로 대표 초상 및 메인 1/3/9 이미지는 공식 애니메이션 스틸이다. 원작 게임을 직접 캡처한 장면이라고 표기하지 않는다."
+    },
+    {
+      "subject": "엔딩 대표 그림",
+      "decision": "representative-only",
+      "reason": "원작 본편 키비주얼이며 실제 귀향 장면이 아니다."
+    }
+  ]
+}

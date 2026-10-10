@@ -1,0 +1,3235 @@
+{
+  "world": {
+    "key": "persona5",
+    "name": "페르소나5",
+    "work": "페르소나5",
+    "intro": "도쿄의 작은 카페에서 시작한 일상이 가면 뒤의 세계와 이어진다. 조커와 마음의 괴도단은 빼앗긴 선택을 되찾기 위해 서로의 손을 잡는다.",
+    "effects": [
+      {
+        "stat": "crit_chance",
+        "value": 2
+      }
+    ],
+    "entryCard": "p5_morgana",
+    "mainStory": {
+      "title": "빼앗긴 마음의 주인",
+      "length": 16,
+      "focus": [
+        "crit_chance",
+        "directional_damage",
+        "boss_damage_percent"
+      ],
+      "source": "2016년 페르소나5 본편 정상 결말. 봄 상경부터 얄다바오트 결전과 이듬해 봄 귀향까지. 로열의 신규 인물·3학기는 분리.",
+      "adaptation": "필수 사건과 정상 결말을 고정하고, 행동은 관찰·동료에 대한 응답·준비를 달리한다. 문장과 일반 사건은 새로 썼다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_persona5_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_persona5_head.tga"
+  },
+  "sources": [
+    "https://persona5.jp/gad2.html",
+    "https://persona5.jp/character/hero.html",
+    "https://persona5.jp/character/morgana.html",
+    "https://persona5.jp/character/ryuji.html",
+    "https://persona5.jp/character/anne.html",
+    "https://persona5.jp/character/yusuke.html",
+    "https://persona5.jp/character/makoto.html",
+    "https://persona5.jp/character/futaba.html",
+    "https://persona5.jp/character/haru.html",
+    "https://en.wikipedia.org/wiki/Persona_5",
+    "https://megamitensei.fandom.com/wiki/Persona_5",
+    "https://megamitensei.fandom.com/wiki/Madarame%27s_Palace",
+    "https://megamitensei.fandom.com/wiki/Futaba%27s_Palace",
+    "https://megamitensei.fandom.com/wiki/Kaneshiro%27s_Palace",
+    "https://megamitensei.fandom.com/wiki/Morgana",
+    "https://megamitensei.fandom.com/wiki/Okumura%27s_Palace",
+    "https://megamitensei.fandom.com/wiki/Cognition",
+    "https://en.wikipedia.org/wiki/Goro_Akechi"
+  ],
+  "canonBoundary": "게임 본편 정상 결말의 시간 순서를 따른다. 애니메이션 주인공 이름을 강제하지 않고 조커로 부른다. 개심과 죽음을 동일시하지 않는다. 오쿠무라 사망은 괴도단이 선택한 결과가 아니며 본편 결말에서 아케치의 생존을 확정하지 않는다. 일반 사건은 명시된 과거 일상의 회상이며 전투 중 현재 동행을 바꾸지 않는다. 후일담은 봄 출발 전후의 창작 기억으로 제한한다. 로열은 시스템상 본편 완주로 열리는 별도 머리지만 원작 시간선상 12월 이후의 확장 분기이므로 봄 귀향 직후 시간선으로 연결하지 않는다. 연애 상대·코옵 최대 달성·나쁜 결말은 필수 사실로 만들지 않는다. 카드에 체력 지불·직접 회복·부활·즉사·골드·물약·밀도 보상을 지급하지 않는다. 재생은 기존 흡수와 합산 최대체력 10%/초 상한을 따른다. 무기 공격력 계열과 신규 원작 기술은 지급하지 않는다.",
+  "cards": [
+    {
+      "key": "p5_joker",
+      "name": "조커",
+      "effectName": "빈틈을 여는 손",
+      "keyword": "치명 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_morgana",
+      "name": "모르가나",
+      "effectName": "먼저 읽는 퇴로",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_ryuji",
+      "name": "사카모토 류지",
+      "effectName": "망설임을 끊는 돌진",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_ann",
+      "name": "타카마키 안",
+      "effectName": "빼앗긴 목소리를 위해",
+      "keyword": "비방향 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_yusuke",
+      "name": "키타가와 유스케",
+      "effectName": "선 하나의 차이",
+      "keyword": "치명 피해 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_makoto",
+      "name": "니지마 마코토",
+      "effectName": "밀리지 않는 판단",
+      "keyword": "관통 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_futaba",
+      "name": "사쿠라 후타바",
+      "effectName": "놓친 신호 찾기",
+      "keyword": "보스 · 신속",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "swift",
+          "value": 45
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_haru",
+      "name": "오쿠무라 하루",
+      "effectName": "스스로 고른 힘",
+      "keyword": "차지 · 내 체력 65% 이상 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_akechi",
+      "name": "아케치 고로",
+      "effectName": "날카로운 질문",
+      "keyword": "최종 대미지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 1
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_sae",
+      "name": "니지마 사에",
+      "effectName": "증거를 잇는 순서",
+      "keyword": "보스 · 치명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_sojiro",
+      "name": "사쿠라 소지로",
+      "effectName": "돌아올 곳을 지키다",
+      "keyword": "공격 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "인물의 역할과 장면에서 얻은 경험을 기존 전투 능력치로 해석한 창작 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_01_1",
+      "name": "조커",
+      "effectName": "첫 반역",
+      "keyword": "치명 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_01_2",
+      "name": "사카모토 류지",
+      "effectName": "같이 나가는 길",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_01_3",
+      "name": "모르가나",
+      "effectName": "낯선 길의 안내",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_02_1",
+      "name": "타카마키 안",
+      "effectName": "되찾은 목소리",
+      "keyword": "비방향 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시호의 사건을 선정적으로 재현하지 않는다. 카모시다를 살해하는 선택은 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_02_2",
+      "name": "조커",
+      "effectName": "예고장의 순간",
+      "keyword": "치명 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시호의 사건을 선정적으로 재현하지 않는다. 카모시다를 살해하는 선택은 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_02_3",
+      "name": "사카모토 류지",
+      "effectName": "침묵을 넘는 발",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시호의 사건을 선정적으로 재현하지 않는다. 카모시다를 살해하는 선택은 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_03_1",
+      "name": "키타가와 유스케",
+      "effectName": "지워지지 않은 선",
+      "keyword": "치명 피해 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_03_2",
+      "name": "타카마키 안",
+      "effectName": "확인할 시간",
+      "keyword": "비방향 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_03_3",
+      "name": "모르가나",
+      "effectName": "액자 밖의 출구",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "directional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_04_1",
+      "name": "니지마 마코토",
+      "effectName": "고삐를 잡는 판단",
+      "keyword": "관통 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "카네시로 은행 편. 돈 지불·골드 획득은 실제 보상으로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_04_2",
+      "name": "조커",
+      "effectName": "협박의 틈",
+      "keyword": "치명 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "카네시로 은행 편. 돈 지불·골드 획득은 실제 보상으로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_04_3",
+      "name": "사카모토 류지",
+      "effectName": "밀리지 않는 자리",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "카네시로 은행 편. 돈 지불·골드 획득은 실제 보상으로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_05_1",
+      "name": "사쿠라 후타바",
+      "effectName": "끊어진 신호의 진실",
+      "keyword": "보스 · 신속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4.5
+        },
+        {
+          "stat": "swift",
+          "value": 67.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후타바는 악한 어른의 개심 대상과 다르다. 어머니의 실제 부활이나 전모의 조기 확정은 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_05_2",
+      "name": "니지마 마코토",
+      "effectName": "부탁에 답하는 순서",
+      "keyword": "관통 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4.5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후타바는 악한 어른의 개심 대상과 다르다. 어머니의 실제 부활이나 전모의 조기 확정은 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_05_3",
+      "name": "타카마키 안",
+      "effectName": "말을 마칠 자리",
+      "keyword": "비방향 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 6
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "후타바는 악한 어른의 개심 대상과 다르다. 어머니의 실제 부활이나 전모의 조기 확정은 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_06_1",
+      "name": "모르가나",
+      "effectName": "비어 있던 안내석",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "directional_damage",
+          "value": 4.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라 편의 모르가나 재합류와 하루 각성. 일시 갈등을 영구 이탈로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_06_2",
+      "name": "오쿠무라 하루",
+      "effectName": "스스로 쥔 손잡이",
+      "keyword": "차지 · 내 체력 65% 이상 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 6
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라 편의 모르가나 재합류와 하루 각성. 일시 갈등을 영구 이탈로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_06_3",
+      "name": "사카모토 류지",
+      "effectName": "늦지 않은 사과",
+      "keyword": "공격 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라 편의 모르가나 재합류와 하루 각성. 일시 갈등을 영구 이탈로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_07_1",
+      "name": "오쿠무라 하루",
+      "effectName": "설명보다 곁에",
+      "keyword": "차지 · 내 체력 65% 이상 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 6
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라는 암살자의 개입으로 사망한다. 괴도단의 선택이 죽음을 일으킨다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_07_2",
+      "name": "사쿠라 후타바",
+      "effectName": "환호가 사라진 기록",
+      "keyword": "보스 · 신속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4.5
+        },
+        {
+          "stat": "swift",
+          "value": 67.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라는 암살자의 개입으로 사망한다. 괴도단의 선택이 죽음을 일으킨다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_07_3",
+      "name": "니지마 마코토",
+      "effectName": "흔들려도 지킬 기준",
+      "keyword": "관통 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4.5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "오쿠무라는 암살자의 개입으로 사망한다. 괴도단의 선택이 죽음을 일으킨다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_08_1",
+      "name": "아케치 고로",
+      "effectName": "판 위의 질문",
+      "keyword": "최종 대미지 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 1.5
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치의 배신 전모는 다음 장에서 공개한다. 사에를 개심시켰다고 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_08_2",
+      "name": "니지마 마코토",
+      "effectName": "기울어진 저울",
+      "keyword": "관통 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4.5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치의 배신 전모는 다음 장에서 공개한다. 사에를 개심시켰다고 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_08_3",
+      "name": "조커",
+      "effectName": "마지막 퇴장의 신호",
+      "keyword": "치명 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치의 배신 전모는 다음 장에서 공개한다. 사에를 개심시켰다고 확정하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_09_1",
+      "name": "조커",
+      "effectName": "넘기지 않은 이름",
+      "keyword": "치명 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_09_2",
+      "name": "니지마 사에",
+      "effectName": "닫힌 문 밖의 증거",
+      "keyword": "보스 · 치명",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_09_3",
+      "name": "사쿠라 후타바",
+      "effectName": "살아 있는 연결",
+      "keyword": "보스 · 신속",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_10_1",
+      "name": "아케치 고로",
+      "effectName": "가면 아래 남은 말",
+      "keyword": "최종 대미지 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치가 후속 장면에 현장 동료로 돌아오거나 사망·생존이 확정되었다고 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_10_2",
+      "name": "조커",
+      "effectName": "부딪쳐도 놓지 않은 뜻",
+      "keyword": "치명 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치가 후속 장면에 현장 동료로 돌아오거나 사망·생존이 확정되었다고 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_10_3",
+      "name": "오쿠무라 하루",
+      "effectName": "지우지 않은 상처",
+      "keyword": "차지 · 내 체력 65% 이상 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 8
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "아케치가 후속 장면에 현장 동료로 돌아오거나 사망·생존이 확정되었다고 하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_11_1",
+      "name": "조커",
+      "effectName": "처음의 누명을 넘어",
+      "keyword": "치명 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시도 전투와 탈출. 조커만 단독으로 모든 탈출을 해결하거나 류지가 실제 사망했다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_11_2",
+      "name": "사카모토 류지",
+      "effectName": "끝까지 이어진 퇴로",
+      "keyword": "공격 · 최대 체력",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시도 전투와 탈출. 조커만 단독으로 모든 탈출을 해결하거나 류지가 실제 사망했다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_11_3",
+      "name": "니지마 마코토",
+      "effectName": "승리 뒤의 판단",
+      "keyword": "관통 · 피해 감소",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시도 전투와 탈출. 조커만 단독으로 모든 탈출을 해결하거나 류지가 실제 사망했다고 쓰지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_12_1",
+      "name": "모르가나",
+      "effectName": "열린 문 앞의 망설임",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "directional_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "성배의 반복 회복은 적의 원작 서사. 플레이어 직접 회복 보상으로 옮기지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_12_2",
+      "name": "사쿠라 후타바",
+      "effectName": "성배로 모이는 흐름",
+      "keyword": "보스 · 신속",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "swift",
+          "value": 90
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "성배의 반복 회복은 적의 원작 서사. 플레이어 직접 회복 보상으로 옮기지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_12_3",
+      "name": "타카마키 안",
+      "effectName": "포기 속의 목소리",
+      "keyword": "비방향 · 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 8
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "성배의 반복 회복은 적의 원작 서사. 플레이어 직접 회복 보상으로 옮기지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_13_1",
+      "name": "조커",
+      "effectName": "판결을 되묻는 시선",
+      "keyword": "치명 · 치명 피해",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        },
+        {
+          "stat": "crit_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "이고르 정체는 이 단계에서 공개. 쌍둥이의 통합과 파티의 재집결을 실제 카드 합성·부활로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_13_2",
+      "name": "모르가나",
+      "effectName": "길잡이의 시작",
+      "keyword": "신속 · 헤드·백 적중 피해",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 225
+        },
+        {
+          "stat": "directional_damage",
+          "value": 7.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "이고르 정체는 이 단계에서 공개. 쌍둥이의 통합과 파티의 재집결을 실제 카드 합성·부활로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_13_3",
+      "name": "사카모토 류지",
+      "effectName": "잊지 않은 동료의 이름",
+      "keyword": "공격 · 최대 체력",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "이고르 정체는 이 단계에서 공개. 쌍둥이의 통합과 파티의 재집결을 실제 카드 합성·부활로 만들지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_14_1",
+      "name": "조커",
+      "effectName": "도시에 돌아온 반역",
+      "keyword": "치명 · 치명 피해",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        },
+        {
+          "stat": "crit_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사타나엘은 원작 결전 서사이며 플레이어 즉사 공격으로 지급하지 않는다. 로열의 추가 겨울은 이 본편에 섞지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_14_2",
+      "name": "타카마키 안",
+      "effectName": "끝까지 들리는 목소리",
+      "keyword": "비방향 · 대미지",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 10
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사타나엘은 원작 결전 서사이며 플레이어 즉사 공격으로 지급하지 않는다. 로열의 추가 겨울은 이 본편에 섞지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_14_3",
+      "name": "사쿠라 후타바",
+      "effectName": "응답이 모이는 순간",
+      "keyword": "보스 · 신속",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 7.5
+        },
+        {
+          "stat": "swift",
+          "value": 112.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "사타나엘은 원작 결전 서사이며 플레이어 즉사 공격으로 지급하지 않는다. 로열의 추가 겨울은 이 본편에 섞지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_15_1",
+      "name": "니지마 사에",
+      "effectName": "가면 밖의 증거",
+      "keyword": "보스 · 치명",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 7.5
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편 정상 결말의 조커 자수와 석방. 로열 분기의 아케치 대리 자수는 여기서 사용하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_15_2",
+      "name": "사쿠라 소지로",
+      "effectName": "비워 두는 한 자리",
+      "keyword": "공격 · 재생",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편 정상 결말의 조커 자수와 석방. 로열 분기의 아케치 대리 자수는 여기서 사용하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_main_15_3",
+      "name": "니지마 마코토",
+      "effectName": "함께 세운 증명",
+      "keyword": "관통 · 피해 감소",
+      "grade": 4,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 7.5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편 정상 결말의 조커 자수와 석방. 로열 분기의 아케치 대리 자수는 여기서 사용하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_futaba_margin",
+      "name": "사쿠라 후타바",
+      "effectName": "비워 둔 작전 한 칸",
+      "keyword": "행동력 최대치 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "한 번의 후속 일반 사건에서만 지급하는 준비 보상.",
+      "uncertain": []
+    },
+    {
+      "key": "p5_ending_memorial",
+      "name": "다시 이어질 우리의 길",
+      "effectName": "가면을 벗고 남긴 약속",
+      "keyword": "본편 정상 결말의 기억",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "endingCard": true,
+      "canonFact": "이듬해 봄 귀향의 기억. 로열의 3학기를 시간상 이후라고 단정하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "p5_main_01",
+      "title": "낯선 도시의 가면",
+      "intro": "르블랑에 짐을 푼 전학생이 학교 대신 성 같은 곳에 들어선다.",
+      "story": "도쿄에서 조용히 지내려던 소년은 류지와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+      "actionCost": 1,
+      "mainStage": 1,
+      "choices": [
+        {
+          "label": "위협 앞에서 물러서지 않는다",
+          "result": "가면에 손을 뻗는다. 누군가 정해 놓은 죄인이라는 자리보다 지금 지킬 사람이 먼저 보인다.",
+          "card": "p5_main_01_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "류지에게 움직일 틈을 만든다",
+          "result": "혼자 빠져나갈 길보다 함께 통과할 틈을 살핀다. 서로의 짧은 신호가 공포를 밀어낸다.",
+          "card": "p5_main_01_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "작은 안내자의 말을 듣는다",
+          "result": "처음 보는 모습을 판단할 여유는 없다. 출구를 안다는 목소리에서 필요한 정보를 가려 듣는다.",
+          "card": "p5_main_01_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "소년은 페르소나에 눈뜨고 류지를 구한다. 성에서 만난 모르가나와 함께 출구를 찾아 현실로 돌아온다.",
+        "nodes": []
+      },
+      "canonBoundary": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga"
+    },
+    {
+      "key": "p5_main_02",
+      "title": "더는 침묵하지 않겠다는 말",
+      "intro": "친구가 입은 상처 앞에서 안도 성으로 들어온다.",
+      "story": "학교에서 벌어진 일을 모른 척하라는 압박이 이어진다. 안은 친구의 아픔을 자신의 침묵으로 덮지 않기로 한다. 괴도들은 카모시다의 보물을 훔칠 준비를 마친다.",
+      "actionCost": 1,
+      "mainStage": 2,
+      "choices": [
+        {
+          "label": "안이 자기 말로 답하도록 기다린다",
+          "result": "누군가 대신 정한 마음이 아니다. 안이 내리는 결정을 듣고 그 곁에 선다.",
+          "card": "p5_main_02_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "예고 뒤의 빈틈을 놓치지 않는다",
+          "result": "상대의 주의가 모이는 지점을 확인한다. 감정에 휩쓸리기보다 약속한 순서대로 움직인다.",
+          "card": "p5_main_02_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "두려워하는 동료에게 먼저 손을 내민다",
+          "result": "분노만 앞세우지 않는다. 함께 시작한 일을 함께 끝내겠다는 뜻을 행동으로 보인다.",
+          "card": "p5_main_02_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "안은 힘에 눈뜨고 동료들과 카모시다의 왜곡에 맞선다. 예고와 잠입 끝에 보물을 빼앗자 그는 현실에서 잘못을 고백한다.",
+        "nodes": []
+      },
+      "canonBoundary": "시호의 사건을 선정적으로 재현하지 않는다. 카모시다를 살해하는 선택은 만들지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ann.tga"
+    },
+    {
+      "key": "p5_main_03",
+      "title": "액자 안에서 지워진 이름",
+      "intro": "유스케가 스승의 미술관에서 작품의 주인을 묻는다.",
+      "story": "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. 유스케는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다.",
+      "actionCost": 1,
+      "mainStage": 3,
+      "choices": [
+        {
+          "label": "그림에 남은 작은 차이를 본다",
+          "result": "이름표보다 붓이 남긴 흔적을 살핀다. 작품의 주인을 되찾는 일이 유스케에게 새 출발이 된다.",
+          "card": "p5_main_03_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "유스케가 확인할 시간을 지킨다",
+          "result": "믿었던 사람을 바로 부정하라는 말은 삼킨다. 직접 보고 판단할 수 있도록 곁을 지킨다.",
+          "card": "p5_main_03_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "보물과 탈출로를 함께 점검한다",
+          "result": "진실을 알아도 이곳에서 빠져나가야 전할 수 있다. 끝까지 돌아갈 길을 놓치지 않는다.",
+          "card": "p5_main_03_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "유스케는 스승의 착취를 외면하지 않고 괴도단과 함께 맞선다. 마다라메의 보물을 확보하고 사유리에 남은 어머니의 흔적을 되찾는다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "누가 그렸는지 알아도 작품 앞의 감정까지 단순해지지는 않는다. 유스케는 한동안 그림에서 눈을 떼지 못한다.",
+            "choices": [
+              {
+                "label": "그가 말할 때까지 기다린다",
+                "result": "서두르지 않는 침묵이 남는다."
+              },
+              {
+                "label": "지금 보이는 것을 함께 말한다",
+                "result": "새로운 시선으로 그림을 다시 바라본다."
+              }
+            ]
+          }
+        ]
+      },
+      "canonBoundary": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga"
+    },
+    {
+      "key": "p5_main_04",
+      "title": "은행이 된 거리",
+      "intro": "마코토가 협박 앞에서 다른 사람의 판단만 기다리지 않는다.",
+      "story": "학생들을 먹잇감으로 삼는 카네시로에게 마코토도 붙잡힌다. 거리 전체가 돈을 삼키는 은행처럼 변한 팰리스에서 그녀는 더 이상 남이 붙여 준 역할에 머물지 않으려 한다.",
+      "actionCost": 1,
+      "mainStage": 4,
+      "choices": [
+        {
+          "label": "마코토의 판단에 움직임을 맞춘다",
+          "result": "앞으로 나서는 결심을 혼자 감당하게 두지 않는다. 동료의 결단에 맞춰 빈곳을 채운다.",
+          "card": "p5_main_04_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "협박이 기대는 허점을 찾는다",
+          "result": "큰소리 뒤에 숨은 구조를 살핀다. 겁을 주는 말과 실제로 막아야 할 것을 나눈다.",
+          "card": "p5_main_04_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "위축된 사람에게 퇴로를 내준다",
+          "result": "상대를 향한 기세를 뒤에 있는 사람의 안전으로 돌린다. 함께 버틸 자리가 생긴다.",
+          "card": "p5_main_04_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마코토는 요한나에 눈뜨고 괴도단과 카네시로를 저지한다. 협박의 고리를 끊고 함께 작전을 짜는 동료가 된다.",
+        "nodes": []
+      },
+      "canonBoundary": "카네시로 은행 편. 돈 지불·골드 획득은 실제 보상으로 만들지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_makoto.tga"
+    },
+    {
+      "key": "p5_main_05",
+      "title": "닫힌 방문 너머의 부탁",
+      "intro": "알리바바라는 이름 뒤에서 후타바가 자신의 마음을 부탁한다.",
+      "story": "메제드의 위협 속에서 새로운 의뢰가 도착한다. 사쿠라 후타바는 자신을 탓하는 기억 때문에 방에 갇혀 있다. 피라미드 같은 마음속에서 동료들은 그녀 대신 답을 정하기보다 그녀가 기억을 바라볼 틈을 찾는다.",
+      "actionCost": 1,
+      "mainStage": 5,
+      "choices": [
+        {
+          "label": "기억 속 주장과 증거를 나눈다",
+          "result": "반복해서 들은 말이 전부 진실인 것은 아니다. 후타바가 스스로 확인하는 순간을 기다린다.",
+          "card": "p5_main_05_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "도와달라는 요청부터 붙든다",
+          "result": "대답을 재촉하는 대신 처음 보낸 부탁을 떠올린다. 그녀가 발을 내딛을 공간을 남긴다.",
+          "card": "p5_main_05_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "두려움을 말할 때 곁을 지킨다",
+          "result": "괜찮아졌다는 선언을 요구하지 않는다. 한마디를 끝낼 때까지 듣는 사람이 되어 준다.",
+          "card": "p5_main_05_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "후타바는 뒤틀린 죄책감에 맞서 자신의 힘을 깨운다. 일행을 도와 팰리스를 빠져나온 뒤 메제드 문제 해결에 힘을 보태고 동료가 된다.",
+        "nodes": []
+      },
+      "canonBoundary": "후타바는 악한 어른의 개심 대상과 다르다. 어머니의 실제 부활이나 전모의 조기 확정은 하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_futaba.tga"
+    },
+    {
+      "key": "p5_main_06",
+      "title": "돌아올 자리가 있는 동료",
+      "intro": "모르가나와의 갈등 뒤 하루와의 만남이 일행을 다시 묶는다.",
+      "story": "모르가나는 자신이 필요 없는 존재라는 생각에 등을 돌린다. 그가 함께 움직이던 하루 역시 아버지가 정한 미래에 갇혀 있다. 서로에게 잘못 꺼낸 말을 돌아보며 괴도단은 다시 모일 이유를 찾는다.",
+      "actionCost": 1,
+      "mainStage": 6,
+      "choices": [
+        {
+          "label": "모르가나가 맡아 온 일을 말해 준다",
+          "result": "빈자리가 얼마나 큰지 구체적으로 전한다. 쓸모를 겨루는 대신 동료로 돌아올 자리를 열어 둔다.",
+          "card": "p5_main_06_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "하루가 고른 길을 묻는다",
+          "result": "아버지의 계획과 다른 목소리에 귀를 기울인다. 스스로 고른 대답을 동료들이 함께 지킨다.",
+          "card": "p5_main_06_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "앞서 던진 말을 바로잡는다",
+          "result": "어색함을 피하지 않고 자신의 말을 돌아본다. 다시 나란히 움직이려면 먼저 해야 할 일이 있다.",
+          "card": "p5_main_06_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "모르가나는 일행의 곁으로 돌아오고 하루는 자기 의지로 싸울 힘을 세운다. 괴도단은 오쿠무라의 팰리스 공략에 나선다.",
+        "nodes": []
+      },
+      "canonBoundary": "오쿠무라 편의 모르가나 재합류와 하루 각성. 일시 갈등을 영구 이탈로 만들지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_morgana.tga"
+    },
+    {
+      "key": "p5_main_07",
+      "title": "환호 뒤에 남은 침묵",
+      "intro": "오쿠무라 공략 뒤 현실의 기자회견이 예상과 다르게 끝난다.",
+      "story": "팰리스에서 돌아온 일행은 다음 소식을 기다린다. 그러나 기자회견에서 오쿠무라가 쓰러지고 괴도단을 향한 시선이 돌변한다. 하루의 상실 앞에서 성급한 변명만 늘어놓을 수는 없다.",
+      "actionCost": 1,
+      "mainStage": 7,
+      "choices": [
+        {
+          "label": "하루가 말을 고를 때까지 기다린다",
+          "result": "답을 구할 사람처럼 바라보지 않는다. 소식을 감당할 동료의 곁에 조용히 남는다.",
+          "card": "p5_main_07_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기록에서 확인된 사실을 모은다",
+          "result": "추측이 끼어든 부분을 덜어 낸다. 흔들리는 상황일수록 확인 가능한 순서가 필요하다.",
+          "card": "p5_main_07_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 행동을 함께 다시 정한다",
+          "result": "불안을 서두른 공격으로 바꾸지 않는다. 남은 단서를 나눠 보고 안전하게 움직일 방법을 찾는다.",
+          "card": "p5_main_07_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "오쿠무라의 죽음으로 여론이 악화된다. 괴도단은 자신들의 개심과 다른 사건이 벌어졌음을 짚으며 배후를 찾는다.",
+        "nodes": []
+      },
+      "canonBoundary": "오쿠무라는 암살자의 개입으로 사망한다. 괴도단의 선택이 죽음을 일으킨다고 쓰지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_haru.tga"
+    },
+    {
+      "key": "p5_main_08",
+      "title": "승패가 정해진 카지노",
+      "intro": "아케치의 제안으로 사에의 팰리스를 공략한다.",
+      "story": "수사망이 조여 오는 가운데 아케치가 협력을 제안한다. 사에의 마음속 카지노에서는 규칙조차 상대에게 유리하게 바뀐다. 괴도단은 드러난 승부와 숨겨 둔 준비를 나누어 움직인다.",
+      "actionCost": 1,
+      "mainStage": 8,
+      "choices": [
+        {
+          "label": "상대가 내세운 조건을 되묻는다",
+          "result": "공정하다는 말만 믿지 않고 그 조건이 누구에게 유리한지 따진다. 약속의 허점이 보인다.",
+          "card": "p5_main_08_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "언니의 규칙이 바뀌는 순간을 본다",
+          "result": "가까운 사람이기에 외면하고 싶은 부분까지 바라본다. 승패를 가르는 장치에 집중한다.",
+          "card": "p5_main_08_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료와 맞춘 신호를 지킨다",
+          "result": "혼자 앞서 설명하지 않는다. 미리 합의한 신호를 따라 준비한 길을 이어 간다.",
+          "card": "p5_main_08_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "일행은 카지노에서 사에의 왜곡에 맞선다. 조커는 동료들을 보내고 추격을 받아 현실의 취조실로 끌려간다.",
+        "nodes": []
+      },
+      "canonBoundary": "아케치의 배신 전모는 다음 장에서 공개한다. 사에를 개심시켰다고 확정하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_akechi.tga"
+    },
+    {
+      "key": "p5_main_09",
+      "title": "취조실 밖으로 건네는 것",
+      "intro": "사에의 질문 앞에서 조커가 끝까지 동료를 지킨다.",
+      "story": "흐려지는 의식 속에서도 조커는 동료를 팔지 않는다. 사에에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다.",
+      "actionCost": 1,
+      "mainStage": 9,
+      "choices": [
+        {
+          "label": "동료의 이름을 거래하지 않는다",
+          "result": "당장의 편한 대답을 삼킨다. 함께 준비한 사람들을 믿는 선택이 마지막까지 남는다.",
+          "card": "p5_main_09_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "확인할 단서를 사에에게 맡긴다",
+          "result": "모든 말을 한 번에 믿으라고 요구하지 않는다. 직접 확인할 수 있는 단서를 건넨다.",
+          "card": "p5_main_09_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "약속한 전달 순서를 떠올린다",
+          "result": "흐려진 기억 속에서 필요한 순서를 붙든다. 치밀하게 이어 둔 준비가 작은 행동을 받친다.",
+          "card": "p5_main_09_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사에가 조커의 부탁을 받아들인다. 아케치는 인지 속 조커를 죽이고, 실제 조커는 준비된 속임수와 사에의 도움으로 살아 돌아온다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "취조실의 작은 행동 뒤에는 며칠 동안 나누어 준비한 일들이 있다. 무엇이 서로를 믿게 했는지 되짚는다.",
+            "choices": [
+              {
+                "label": "빠뜨리지 않은 신호를 떠올린다",
+                "result": "작은 약속들이 하나의 길로 이어졌다."
+              },
+              {
+                "label": "믿어 준 사람을 기억한다",
+                "result": "완벽한 설명보다 먼저 내민 신뢰를 마음에 남긴다."
+              }
+            ]
+          }
+        ]
+      },
+      "canonBoundary": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga"
+    },
+    {
+      "key": "p5_main_10",
+      "title": "닫혀 버린 격벽",
+      "intro": "시도의 배에서 아케치가 숨겨 온 목적과 맞선다.",
+      "story": "괴도단은 정계의 배후인 시도를 쫓아 거대한 배 같은 팰리스에 들어간다. 그곳에서 아케치가 자신의 적의와 복수를 드러낸다. 그의 말에는 끝내 동료에게 내보이지 않았던 고립도 섞여 있다.",
+      "actionCost": 1,
+      "mainStage": 10,
+      "choices": [
+        {
+          "label": "그가 감추어 온 목적을 듣는다",
+          "result": "승패만으로 끝낼 수 없는 이야기가 드러난다. 이해하려는 것과 저지해야 할 행동을 나누어 본다.",
+          "card": "p5_main_10_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시도를 막으려는 뜻을 놓지 않는다",
+          "result": "충돌 속에서도 이 배에 오른 목적을 떠올린다. 누군가의 복수만으로 이 일을 끝낼 수는 없다.",
+          "card": "p5_main_10_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "용서와 협력을 같은 말로 만들지 않는다",
+          "result": "지울 수 없는 상실을 무시하지 않는다. 지금 해야 할 일과 마음의 결론을 서둘러 합치지 않는다.",
+          "card": "p5_main_10_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "격돌 뒤 시도가 만든 인지 속 아케치와 적들이 나타난다. 아케치는 격벽을 닫아 일행을 보내고 시도를 막을 일을 맡긴다. 문 너머의 마지막 모습은 확인하지 못한다.",
+        "nodes": []
+      },
+      "canonBoundary": "아케치가 후속 장면에 현장 동료로 돌아오거나 사망·생존이 확정되었다고 하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_akechi.tga"
+    },
+    {
+      "key": "p5_main_11",
+      "title": "배의 주인이 내린 명령",
+      "intro": "시도가 자신만 살아남는 미래를 당연하게 말한다.",
+      "story": "주변을 희생시키는 권력이 거대한 배의 형태로 앞을 막는다. 조커는 자신을 도쿄로 내몬 사건의 당사자와 마주한다. 동료들은 그 개인의 분노를 넘어 같은 위험에 놓인 사람들을 생각한다.",
+      "actionCost": 1,
+      "mainStage": 11,
+      "choices": [
+        {
+          "label": "자신의 억울함을 넘어 목적을 세운다",
+          "result": "되갚을 기회만 좇지 않는다. 같은 방식으로 짓눌릴 사람들을 떠올린다.",
+          "card": "p5_main_11_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료가 빠져나갈 길을 먼저 연다",
+          "result": "마지막 순간에도 함께 돌아갈 길을 찾는다. 빠른 발이 모두의 다음 행동을 만든다.",
+          "card": "p5_main_11_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "남은 사람들의 상태를 확인한다",
+          "result": "상대가 쓰러진 뒤에도 판단을 멈추지 않는다. 철수에 필요한 순서를 짚는다.",
+          "card": "p5_main_11_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "괴도단은 시도를 꺾고 팰리스에서 탈출한다. 시도는 현실에서 죄를 고백하지만, 그 고백만으로 사회의 시선이 바뀌지는 않는다.",
+        "nodes": []
+      },
+      "canonBoundary": "시도 전투와 탈출. 조커만 단독으로 모든 탈출을 해결하거나 류지가 실제 사망했다고 쓰지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_joker.tga"
+    },
+    {
+      "key": "p5_main_12",
+      "title": "스스로 잠근 감옥",
+      "intro": "고백에도 움직이지 않는 여론을 따라 메멘토스 깊이 내려간다.",
+      "story": "괴도단은 대중이 판단을 맡겨 버린 마음의 깊은 곳을 본다. 스스로 갇히려는 사람들 앞에서 힘으로 문만 여는 것이 답인지 흔들린다. 가장 아래에는 사람들의 바람이 만든 성배가 기다린다.",
+      "actionCost": 1,
+      "mainStage": 12,
+      "choices": [
+        {
+          "label": "갇힌 사람들이 무엇을 두려워하는지 본다",
+          "result": "문이 열려도 움직이지 않는 이유를 생각한다. 길을 보이는 일과 대신 선택하는 일은 다르다.",
+          "card": "p5_main_12_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "상대를 받치는 흐름을 추적한다",
+          "result": "눈앞의 성배만 보지 않는다. 반복되는 회복과 주변의 반응이 어디로 이어지는지 살핀다.",
+          "card": "p5_main_12_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "포기한 사람의 목소리도 듣는다",
+          "result": "답답함으로 말을 끊지 않는다. 체념 뒤에 있는 두려움을 놓치지 않으려 한다.",
+          "card": "p5_main_12_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "성배와의 싸움은 뜻대로 끝나지 않는다. 현실과 메멘토스가 뒤섞이고 괴도단의 존재마저 지워지는 가운데 조커는 벨벳 룸에서 눈을 뜬다.",
+        "nodes": []
+      },
+      "canonBoundary": "성배의 반복 회복은 적의 원작 서사. 플레이어 직접 회복 보상으로 옮기지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_head.tga"
+    },
+    {
+      "key": "p5_main_13",
+      "title": "간수의 목소리가 갈라질 때",
+      "intro": "벨벳 룸에서 실패라는 판결을 그대로 받아들이지 않는다.",
+      "story": "조커 앞에 내려진 처형 명령에 쌍둥이 간수들도 모순을 느낀다. 잃어버린 기억이 맞물리며 방의 주인을 자처하던 존재의 정체가 흔들린다. 조커에게는 편안한 복종이라는 제안이 남는다.",
+      "actionCost": 1,
+      "mainStage": 13,
+      "choices": [
+        {
+          "label": "누가 정한 실패인지 되묻는다",
+          "result": "판결의 권위보다 그 근거를 바라본다. 스스로 고를 권리를 넘기지 않는다.",
+          "card": "p5_main_13_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "자신이 이끈 길의 의미를 찾는다",
+          "result": "사라진 기억과 함께해 온 여정을 맞춰 본다. 모르가나는 돌아갈 이유를 다시 붙든다.",
+          "card": "p5_main_13_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료들과 함께한 시간을 떠올린다",
+          "result": "서로 맡아 주었던 일을 기억한다. 아직 부르지 못한 이름들을 마음에 남긴다.",
+          "card": "p5_main_13_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "간수들은 라벤차의 모습을 되찾고 가짜 이고르의 정체가 드러난다. 조커는 지배의 제안을 거부하고 동료들을 다시 모아 앞으로 나아간다.",
+        "nodes": [
+          {
+            "key": "reflection",
+            "story": "생각하지 않아도 되는 평온이 눈앞에 제시된다. 동료들의 얼굴을 떠올릴수록 넘길 수 없는 것이 무엇인지 분명해진다.",
+            "choices": [
+              {
+                "label": "고를 권리를 지킨다",
+                "result": "실패할 가능성까지 자신의 몫으로 받아들인다."
+              },
+              {
+                "label": "함께 고를 사람들을 찾는다",
+                "result": "정해 준 행복보다 서로 답하는 미래를 떠올린다."
+              }
+            ]
+          }
+        ]
+      },
+      "canonBoundary": "이고르 정체는 이 단계에서 공개. 쌍둥이의 통합과 파티의 재집결을 실제 카드 합성·부활로 만들지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_joker.tga"
+    },
+    {
+      "key": "p5_main_14",
+      "title": "도시가 보내온 응답",
+      "intro": "마음의 괴도단이 지배의 신 앞에서 다시 이름을 건다.",
+      "story": "거대한 적이 사람들의 포기를 힘으로 삼는다. 그래도 괴도단을 믿는 목소리가 도시에서 모여든다. 조커와 동료들은 정해진 구원 대신 자신들이 선택한 미래를 향해 싸운다.",
+      "actionCost": 1,
+      "mainStage": 14,
+      "choices": [
+        {
+          "label": "응답해 준 사람들의 뜻을 받아들인다",
+          "result": "혼자만의 반역이 아니라는 것을 느낀다. 마지막 힘을 모을 방향이 선명해진다.",
+          "card": "p5_main_14_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지친 동료에게 목소리를 보탠다",
+          "result": "아직 끝내지 않았다는 말을 먼저 건넨다. 마지막까지 서로가 들을 수 있도록 한다.",
+          "card": "p5_main_14_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가장 중요한 순간을 알려 준다",
+          "result": "수많은 신호 속에서 동료에게 필요한 것을 추린다. 마지막 판단에 집중할 여유가 생긴다.",
+          "card": "p5_main_14_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "모인 믿음에 응답한 조커의 힘이 얄다바오트를 쓰러뜨린다. 뒤섞였던 세계가 돌아오고, 괴도단은 현실에 남은 일을 마주할 준비를 한다.",
+        "nodes": []
+      },
+      "canonBoundary": "사타나엘은 원작 결전 서사이며 플레이어 즉사 공격으로 지급하지 않는다. 로열의 추가 겨울은 이 본편에 섞지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_joker.tga"
+    },
+    {
+      "key": "p5_main_15",
+      "title": "가면을 벗은 뒤의 증언",
+      "intro": "현실의 책임 앞에서 조커가 자신의 말을 남긴다.",
+      "story": "큰 싸움이 끝나도 누명이 저절로 사라지지는 않는다. 시도의 죄를 밝힐 증언을 위해 조커는 사에와 이야기를 나눈다. 기다리게 될 동료들에게는 자신들이 할 수 있는 일을 찾을 시간이 시작된다.",
+      "actionCost": 1,
+      "mainStage": 15,
+      "choices": [
+        {
+          "label": "증언의 순서를 차분히 정리한다",
+          "result": "감정만으로 밀어붙이지 않는다. 현실에서 확인하고 남겨야 할 말을 하나씩 세운다.",
+          "card": "p5_main_15_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돌아올 자리의 약속을 남긴다",
+          "result": "길게 장담하지 않고 해야 할 일을 해 두기로 한다. 기다려 줄 사람이 있다는 사실이 버팀목이 된다.",
+          "card": "p5_main_15_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "밖에서 모을 단서를 나누어 맡는다",
+          "result": "혼자 모두 해결하려 하지 않는다. 각자 가능한 일을 이어 하나의 근거로 만든다.",
+          "card": "p5_main_15_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "조커는 증언을 위해 자수한다. 동료들과 협력자들이 누명을 뒤집을 증거를 모으고, 결국 그는 풀려나 르블랑으로 돌아온다.",
+        "nodes": []
+      },
+      "canonBoundary": "본편 정상 결말의 조커 자수와 석방. 로열 분기의 아케치 대리 자수는 여기서 사용하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_sae.tga"
+    },
+    {
+      "key": "p5_main_16",
+      "title": "봄빛이 들어오는 창",
+      "intro": "돌아갈 날, 동료들과 마지막 길에 나선다.",
+      "story": "떠날 준비를 마친 조커에게 친구들이 함께 가자고 손짓한다. 떠나는 사람과 남는 사람의 일상은 달라져도 함께 보낸 시간이 사라지지는 않는다. 차창 너머의 길이 길게 이어진다.",
+      "actionCost": 1,
+      "mainStage": 16,
+      "choices": [
+        {
+          "label": "다음 만남을 약속한다",
+          "result": "날짜를 지금 정하지 않아도 다시 연락할 사람이 있다.",
+          "card": "p5_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "함께 지나온 거리를 바라본다",
+          "result": "낯설던 도시 곳곳에 자신의 기억이 남아 있다.",
+          "card": "p5_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동료들에게 고맙다고 전한다",
+          "result": "길었던 설명보다 짧은 감사가 차 안에 남는다.",
+          "card": "p5_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "조커는 동료들과 귀향길에 오른다. 마음의 괴도단이 스스로 고른 길은 각자의 일상으로 이어진다. 서로 다른 곳에서도 다시 이어질 길을 마음에 남긴다.",
+            "choices": [
+              {
+                "label": "이 봄을 기억한다",
+                "result": "본편의 여정을 끝까지 함께한 기억이 남는다."
+              }
+            ]
+          }
+        ]
+      },
+      "canonBoundary": "게임 본편 정상 결말. 동료들이 함께 차로 귀향하는 장면이며 로열의 택시·역 인사와 구분한다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ending_memorial.tga"
+    },
+    {
+      "key": "p5_side_safe_exit",
+      "title": "문 앞에서 나눈 신호",
+      "intro": "첫 잠입 뒤 출구에서 나누었던 짧은 신호를 떠올린다.",
+      "story": "모르가나가 먼저 복도를 살피고 류지가 뒤를 확인했다. 조커는 돌아갈 방향을 손끝으로 가리켰다. 다음에도 빠뜨리지 않을 습관을 고른다.",
+      "actionCost": 0,
+      "previous": "p5_main_01",
+      "previousChoice": 3,
+      "choices": [
+        {
+          "label": "출구를 먼저 표시한다",
+          "result": "보이는 길과 돌아갈 길을 함께 기억한다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뒤처진 동료를 확인한다",
+          "result": "마지막 사람까지 돌아오는 순서를 마음에 남긴다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "신호를 짧게 맞춘다",
+          "result": "위급할수록 헷갈리지 않을 움직임을 정리한다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_morgana.tga"
+    },
+    {
+      "key": "p5_side_notebook",
+      "title": "말을 덜어 낸 수첩",
+      "intro": "카모시다 사건 뒤 옥상에서 수첩을 펼쳤던 때를 되짚는다.",
+      "story": "안과 류지는 하고 싶은 말을 쏟아냈고 모르가나는 필요한 준비를 끼워 넣었다. 문장으로 가득한 종이에서 다음 잠입에 가져갈 부분을 골라 본다.",
+      "actionCost": 0,
+      "previous": "p5_main_02",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "각자가 말한 이유를 남긴다",
+          "result": "행동을 서두르기 전에 누구를 위한 일인지 기억한다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "당장 확인할 길을 추린다",
+          "result": "끝없는 계획을 움직일 수 있는 순서로 바꾼다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "합의한 일부터 표시한다",
+          "result": "모두가 같은 출발점을 보고 있다는 것을 확인한다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ann.tga"
+    },
+    {
+      "key": "p5_side_leblanc",
+      "title": "씻어 둔 찻잔",
+      "intro": "르블랑에서 소지로의 일을 거들던 저녁이 떠오른다.",
+      "story": "카운터 아래 찻잔을 정리하던 조커에게 소지로가 물기부터 보라고 했다. 모르가나는 가방에서 그 광경을 지켜봤다. 서두르면 놓치던 작은 부분을 되짚는다.",
+      "actionCost": 1,
+      "previous": "p5_main_01",
+      "previousChoice": 2,
+      "choices": [
+        {
+          "label": "끝낸 자리부터 정돈한다",
+          "result": "돌아올 때 바로 쓸 수 있게 주변을 맞춰 둔다.",
+          "card": "p5_sojiro",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "손이 닿기 전 한 번 더 본다",
+          "result": "작은 차이를 알아보는 시선을 익힌다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "동선을 막는 것을 치운다",
+          "result": "좁은 자리에서도 부딪치지 않는 길을 만든다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_sojiro.tga"
+    },
+    {
+      "key": "p5_side_yusuke_line",
+      "title": "한 선을 바라보는 시간",
+      "intro": "유스케와 그림 앞에 멈춰 섰던 날을 떠올린다.",
+      "story": "유스케는 한 선에 담긴 움직임을 오래 설명했다. 안은 보는 사람마다 다른 느낌을 말했고 조커는 두 이야기를 번갈아 들었다. 같은 대상을 달리 살핀 기억이 남아 있다.",
+      "actionCost": 1,
+      "previous": "p5_main_03",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "선이 바뀌는 지점을 본다",
+          "result": "한꺼번에 보던 형태에서 차이를 만드는 부분을 찾는다.",
+          "card": "p5_yusuke",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "그림이 남긴 감정을 말한다",
+          "result": "정답보다 자신이 느낀 반응을 또렷하게 표현한다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "두 시선을 비교한다",
+          "result": "서로 다른 설명을 하나로 밀어붙이지 않는다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_yusuke.tga"
+    },
+    {
+      "key": "p5_side_makoto_route",
+      "title": "지도 위의 좁은 길",
+      "intro": "마코토와 이동 계획을 다시 그렸던 회의를 되짚는다.",
+      "story": "마코토가 빠른 길에 표시를 하자 류지는 뒤처질 사람이 없는지 물었다. 모르가나는 막다른 길을 짚었다. 빠르다는 말에 가려진 조건을 하나씩 보았다.",
+      "actionCost": 1,
+      "previous": "p5_main_04",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "막힐 때의 대안을 준비한다",
+          "result": "첫 계획이 어긋나도 판단할 기준을 남긴다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "모두가 따라올 속도를 잡는다",
+          "result": "앞서가는 힘에 동료를 돌아볼 여유를 더한다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "퇴로와 합류 지점을 묶는다",
+          "result": "떨어져도 다시 만날 방향을 기억한다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_makoto.tga"
+    },
+    {
+      "key": "p5_side_futaba_display",
+      "title": "정보가 너무 많은 화면",
+      "intro": "후타바가 합류한 뒤 화면을 함께 정리했던 기억이다.",
+      "story": "후타바는 여러 창을 띄웠고 마코토는 지금 필요한 질문을 골랐다. 조커는 아직 답이 없는 항목을 따로 남겼다. 많은 정보와 필요한 정보의 차이가 보였다.",
+      "actionCost": 1,
+      "previous": "p5_main_05",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "변한 신호부터 찾는다",
+          "result": "반복되는 화면 속에서 다른 한 줄을 먼저 읽는다.",
+          "card": "p5_futaba",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "결정에 필요한 질문을 적는다",
+          "result": "알아야 할 것을 분명히 하니 판단이 덜 흔들린다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "확인하지 못한 부분을 남긴다",
+          "result": "빈칸을 추측으로 채우지 않는 습관을 익힌다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_futaba.tga"
+    },
+    {
+      "key": "p5_side_haru_gloves",
+      "title": "손에 맞게 고친 매듭",
+      "intro": "하루가 합류한 뒤 장비를 살폈던 조용한 순간을 떠올린다.",
+      "story": "하루는 다른 사람이 정한 모양보다 자기 손에 맞는지 확인했다. 모르가나는 움직여 보라고 했고 안은 불편한 점을 말해도 된다고 거들었다.",
+      "actionCost": 1,
+      "previous": "p5_main_06",
+      "previousChoice": 2,
+      "choices": [
+        {
+          "label": "내 힘에 맞는 동작을 고른다",
+          "result": "남의 기준보다 자신이 끝까지 쓸 수 있는 움직임을 찾는다.",
+          "card": "p5_haru",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "움직인 뒤 빠져나갈 공간을 본다",
+          "result": "공격과 철수를 한 흐름으로 생각한다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "불편한 점을 솔직하게 말한다",
+          "result": "참는 것만을 좋은 준비라고 여기지 않는다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_haru.tga"
+    },
+    {
+      "key": "p5_side_debate",
+      "title": "질문이 끝난 다음",
+      "intro": "아케치와 협력하던 때의 질문을 다시 읽는다.",
+      "story": "아케치는 상대의 답변에 빠진 조건을 물었다. 마코토는 확인할 근거를 찾았고 조커는 질문이 유도하는 방향을 살폈다. 그날 들은 말은 여러 뜻으로 남아 있다.",
+      "actionCost": 1,
+      "previous": "p5_main_08",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "빠진 조건을 되묻는다",
+          "result": "선명한 결론 뒤에 생략된 부분을 찾는다.",
+          "card": "p5_akechi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "근거부터 확인한다",
+          "result": "말하는 이의 자신감과 사실을 분리한다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "유도되는 답을 의식한다",
+          "result": "정해 둔 대답으로 몰리지 않도록 생각할 틈을 남긴다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_akechi.tga"
+    },
+    {
+      "key": "p5_side_sae_notes",
+      "title": "기록의 빈 줄",
+      "intro": "사에와 증언을 정리했던 과정을 돌아본다.",
+      "story": "문서에는 확실히 보았던 일과 누군가에게 들었던 일을 나누어 적었다. 소지로는 조커가 말을 끝낼 때까지 기다렸다. 결론보다 그 결론까지 가는 길이 중요했다.",
+      "actionCost": 1,
+      "previous": "p5_main_09",
+      "previousChoice": 2,
+      "choices": [
+        {
+          "label": "직접 확인한 사실을 표시한다",
+          "result": "기억의 강도보다 근거의 종류를 먼저 살핀다.",
+          "card": "p5_sae",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "말을 고를 시간을 둔다",
+          "result": "서두른 답 대신 끝까지 할 수 있는 설명을 기다린다.",
+          "card": "p5_sojiro",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "모르는 부분을 그대로 남긴다",
+          "result": "빈곳을 인정하니 확실한 내용이 더 잘 보인다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_sae.tga"
+    },
+    {
+      "key": "p5_side_ryuji_pace",
+      "title": "출발보다 돌아오는 속도",
+      "intro": "류지와 다음 이동을 준비했던 말을 떠올린다.",
+      "story": "류지는 빨리 도착하는 일만 생각했다며 머리를 긁적였다. 마코토가 복귀 순서를 적고 모르가나는 갈림길을 다시 짚었다. 길의 끝이 아니라 함께 돌아오는 순간을 생각했다.",
+      "actionCost": 1,
+      "previous": "p5_main_04",
+      "previousChoice": 3,
+      "choices": [
+        {
+          "label": "후미를 돌아보는 습관을 남긴다",
+          "result": "달릴 힘을 모두의 움직임과 맞춘다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "돌아올 순서를 먼저 정한다",
+          "result": "빠뜨리기 쉬운 마지막 일을 앞서 확인한다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갈림길의 특징을 기억한다",
+          "result": "다급한 순간에도 구분할 작은 표식을 찾는다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ryuji.tga"
+    },
+    {
+      "key": "p5_side_ann_message",
+      "title": "바로 답하지 않아도 되는 말",
+      "intro": "안이 친구에게 보낼 말을 고르던 날을 떠올린다.",
+      "story": "괜찮냐는 질문만 반복하고 싶지는 않았다. 조커는 함께할 수 있는 일을 말해 보자고 했고 류지는 약속한 때에 곁에 있겠다고 했다. 답을 재촉하지 않는 문장을 고른다.",
+      "actionCost": 1,
+      "previous": "p5_main_02",
+      "previousChoice": 2,
+      "choices": [
+        {
+          "label": "상대가 답할 여유를 남긴다",
+          "result": "관심을 조급한 확인으로 바꾸지 않는다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지금 가능한 제안을 적는다",
+          "result": "큰 장담 대신 실제로 지킬 수 있는 말을 찾는다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "먼저 정한 약속을 지킨다",
+          "result": "걱정을 말뿐인 다짐으로 끝내지 않는다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ann.tga"
+    },
+    {
+      "key": "p5_side_return_seat",
+      "title": "남겨 둔 의자",
+      "intro": "동료들이 르블랑에서 돌아올 자리를 이야기했던 밤을 되짚는다.",
+      "story": "소지로는 바쁜 말들 사이에서도 잔을 정리했다. 하루는 말수가 적은 사람에게 시선을 돌렸고 후타바는 들은 내용을 짧게 적었다. 말하지 않는 마음까지 살필 시간이었다.",
+      "actionCost": 1,
+      "previous": "p5_main_07",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "누가 와도 쉴 자리를 비운다",
+          "result": "당장 눈에 보이는 성과 밖의 준비를 해 둔다.",
+          "card": "p5_sojiro",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "말하지 않은 사람에게도 묻는다",
+          "result": "모두의 생각이 같다고 서둘러 단정하지 않는다.",
+          "card": "p5_haru",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "중요한 말만 다시 남긴다",
+          "result": "작은 목소리도 기록에서 지워지지 않게 한다.",
+          "card": "p5_futaba",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_sojiro.tga"
+    },
+    {
+      "key": "p5_side_morgana_follow",
+      "title": "출구 표식의 뒷면",
+      "intro": "모르가나에게 배웠던 퇴로 표식을 다시 떠올린다.",
+      "story": "처음 표시할 때는 길 하나면 충분해 보였다. 돌아오는 방향에서 보면 같은 모서리도 달라 보인다는 설명이 뒤늦게 떠오른다.",
+      "actionCost": 1,
+      "previous": "p5_main_01",
+      "previousChoice": 3,
+      "choices": [
+        {
+          "label": "반대 방향에서도 표식을 읽는다",
+          "result": "떠날 때와 돌아올 때의 시선을 함께 익힌다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가려지는 구간을 찾는다",
+          "result": "보이지 않는 틈이 어디서 생기는지 살핀다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "뒤따를 사람의 눈높이를 본다",
+          "result": "내가 아는 길을 모두가 안다고 생각하지 않는다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "requiredCard": "p5_morgana",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_morgana.tga"
+    },
+    {
+      "key": "p5_side_futaba_follow",
+      "title": "빽빽한 계획의 한 칸",
+      "intro": "후타바와 정보 화면을 정리하던 때의 미완성 계획을 다시 본다.",
+      "story": "질문을 줄이고 나니 다음 확인에 쓸 여유가 보였다. 꼭 채워야 하는 칸과 비워 두어야 하는 칸을 구분했던 기억을 살핀다.",
+      "actionCost": 1,
+      "previous": "p5_main_05",
+      "previousChoice": 1,
+      "choices": [
+        {
+          "label": "새 변수를 위한 한 칸을 비운다",
+          "result": "예상 밖의 일을 확인할 준비가 하나 더 남는다.",
+          "card": "p5_futaba_margin",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가장 중요한 순서부터 고정한다",
+          "result": "계획이 흔들려도 먼저 할 일은 잃지 않는다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "확인 기준을 더 날카롭게 만든다",
+          "result": "여러 정보에서 결정적인 차이를 찾는다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "requiredCard": "p5_futaba",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_futaba.tga"
+    },
+    {
+      "key": "p5_side_haru_follow",
+      "title": "고른 길을 다시 묻다",
+      "intro": "하루가 자기 뜻을 말했던 뒤의 대화를 되짚는다.",
+      "story": "처음 내린 결심이 언제나 쉬운 것은 아니었다. 하루는 작은 선택에서도 자신의 이유를 찾아 보려 했다. 동료들은 답을 대신해 주지 않았다.",
+      "actionCost": 1,
+      "previous": "p5_main_06",
+      "previousChoice": 2,
+      "choices": [
+        {
+          "label": "내가 원하는 이유를 적는다",
+          "result": "남의 기대와 자신의 마음을 나누어 본다.",
+          "card": "p5_haru",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어려운 부분부터 솔직히 말한다",
+          "result": "망설임을 숨기지 않아도 결심은 사라지지 않는다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시도할 수 있는 다음 걸음을 찾는다",
+          "result": "먼 결론보다 지금 움직일 길을 정한다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "requiredCard": "p5_haru",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_haru.tga"
+    },
+    {
+      "key": "p5_side_team_signal",
+      "title": "신호 하나에 담긴 믿음",
+      "intro": "취조실 계획이 끝난 뒤 동료들과 준비를 돌아봤던 기억이다.",
+      "story": "후타바는 연결이 이어진 순간을 짚고 마코토는 전달 순서를 돌아봤다. 조커는 어느 한 사람의 완벽함보다 서로 지킨 작은 몫을 떠올렸다.",
+      "actionCost": 1,
+      "previous": "p5_main_09",
+      "previousChoice": 3,
+      "choices": [
+        {
+          "label": "놓치지 않은 신호를 기록한다",
+          "result": "다음에도 필요한 정보를 정확히 전할 기준을 남긴다.",
+          "card": "p5_futaba",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "겹친 준비를 정리한다",
+          "result": "두 사람이 같은 일에 매달렸던 부분을 나누어 본다.",
+          "card": "p5_makoto",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "서로 맡긴 판단을 기억한다",
+          "result": "확신이 없는 순간에도 동료를 믿을 이유를 되짚는다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "선행 메인 이후에만 열리는 창작 일상 회상. 현재 진행 중인 팰리스에서 인물들이 갑자기 합류하거나 그 장소를 떠나는 장면이 아니다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_futaba.tga"
+    },
+    {
+      "key": "p5_epilogue_counter",
+      "title": "카운터에 남긴 인사",
+      "intro": "봄의 출발을 앞두고 르블랑에서 나누었던 인사를 떠올린다.",
+      "story": "소지로는 길게 말하는 대신 마지막까지 평소처럼 잔을 닦았다. 모르가나는 가방 안의 자리를 확인했다. 조커는 처음 올라왔던 계단을 다시 바라본다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "돌아올 수 있는 곳에 감사한다",
+          "result": "작은 가게가 한 해 동안 품어 준 시간을 기억한다.",
+          "card": "p5_sojiro",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가방 안의 동행자에게 말을 건다",
+          "result": "낯선 출발에서도 이제 혼자는 아니다.",
+          "card": "p5_morgana",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "처음의 자신과 지금을 비교한다",
+          "result": "바뀐 것은 가면만이 아니라 사람을 바라보는 눈이었다.",
+          "card": "p5_joker",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "본편 봄 귀향 직전 인사를 회상하는 창작 후일담. 아케치 현장 등장과 로열의 역 장면은 넣지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_sojiro.tga"
+    },
+    {
+      "key": "p5_epilogue_road",
+      "title": "창밖으로 이어진 말",
+      "intro": "함께 오른 귀향길에서 다음 만남을 이야기한다.",
+      "story": "류지는 다음에 무엇을 할지 앞서 말하고 안은 날짜부터 맞추자고 웃는다. 유스케는 창밖 풍경을 오래 바라본다. 같은 차 안에서도 각자의 다음 그림은 조금씩 다르다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "다시 모일 일을 하나 적는다",
+          "result": "류지의 큰 계획에서 함께 시작할 작은 일을 고른다.",
+          "card": "p5_ryuji",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "각자의 사정을 먼저 듣는다",
+          "result": "안과 함께 모두가 가능한 시간을 생각한다.",
+          "card": "p5_ann",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "오늘의 풍경을 마음에 남긴다",
+          "result": "유스케의 시선을 따라 지금만 볼 수 있는 모양을 기억한다.",
+          "card": "p5_yusuke",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "canonBoundary": "본편 정상 결말의 귀향길에 붙인 짧은 창작 후일담. 이후 스크램블·택티카의 사건은 포함하지 않는다.",
+      "icon": "war3mapImported\\UI_Event_XP_persona5_ryuji.tga"
+    }
+  ],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\persona5-main-01.json",
+      "monitorRecordId": "ea2129a4-b399-47f0-adb9-f6f35a3ee224"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\persona5-side-01.json",
+      "monitorRecordId": "9524a511-bbd4-4db4-8c6c-7f17f0eee2fc"
+    }
+  ],
+  "editorReview": "content/reviews/next-priority-heads-20261010/editor-review.json"
+}

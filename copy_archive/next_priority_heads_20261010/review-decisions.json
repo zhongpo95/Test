@@ -1,0 +1,230 @@
+{
+  "status": "next_five_complete_head_expansion_stopped_at_28",
+  "rawReviewRoot": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews",
+  "beforeEditArchive": "D:\\Work\\ARCANA\\copy_archive\\head-expansion-20261010\\before-editor-review",
+  "records": [
+    {
+      "file": "witch_prison-main-01.json",
+      "monitorRecordId": "4148d2e4-3a50-4b38-b7df-cfe48550c1f4",
+      "accepted": [
+        {
+          "key": "wt_main_12",
+          "reason": "두 살인과 셰리의 최후를 같은 범행으로 합치지 않고, 셰리가 한나와 함께 떠나는 인과를 보완했다.",
+          "source": "https://note.com/ajimis/n/n6fbca4a95b43"
+        }
+      ],
+      "rejected": [
+        {
+          "key": "wt_main_08",
+          "reason": "첫 시간의 파국 뒤 두 번째 시간의 히로로 전환한다고 본문이 명시한다. 히로가 에마의 전 기억을 아는 것으로 바꾸지 않는다."
+        },
+        {
+          "key": "wt_main_15",
+          "reason": "에마·히로·앙앙이 함께 참여하는 최종 재판에서 역할이 다른 것은 모순이 아니다.",
+          "source": "https://game8.jp/manosaba/796583"
+        }
+      ]
+    },
+    {
+      "file": "witch_prison-side-01.json",
+      "monitorRecordId": "86d23084-b54a-4147-9688-ed641095a8c3",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    },
+    {
+      "file": "witch-editor-delta-01.json",
+      "monitorRecordId": "e7e9735f-e35a-428d-9caf-2f7edb7cfb3a",
+      "worlds": [
+        "witch_prison"
+      ],
+      "scope": "3개 사건의 진상 공개·관계·귀환 순서 수정 재검토",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    },
+    {
+      "file": "persona5-main-01.json",
+      "monitorRecordId": "ea2129a4-b399-47f0-adb9-f6f35a3ee224",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "p5_main_01",
+          "issue": "도입부에서 '전학생'이 학교 대신 성에 들어선다고 했으나, 본문에서는 '도쿄에서 조용히 지내려던 소년'으로 화자가 모호하게 기술됨.",
+          "reason": "전학생과 도쿄에서 조용히 지내려던 소년은 같은 조커를 지칭한다. 본문에 서로 다른 화자라는 근거가 없다."
+        },
+        {
+          "key": "p5_main_08",
+          "issue": "본문에서 조커가 '동료들을 보내고' 취조실로 끌려간다고 되어 있으나, 실제 원작 흐름상 조커는 동료들을 보내는 것이 아니라 동료들과 함께 행동하다가 분리되는 구조임.",
+          "reason": "조커가 미끼가 되어 동료들의 다른 경로 탈출을 돕는 작전은 보조 자료와 일치한다. 모호한 대체문으로 원래 작전 의미를 지우지 않는다.",
+          "source": "https://megamitensei.fandom.com/wiki/Niijima%27s_Palace",
+          "evidenceBoundary": "독립 검토자의 보조 자료 대조. 공식 전체 영상 검증은 미수행."
+        },
+        {
+          "key": "p5_main_15",
+          "issue": "조커가 자수하여 풀려난 후 '르블랑으로 돌아온다'고 되어 있으나, 본편 결말의 시간 순서상 귀향 전 마지막 일상과 르블랑에서의 재회는 별개의 시점임.",
+          "reason": "구금에서 풀려나 르블랑에 돌아온 뒤 봄 귀향을 맞는 순서가 보조 자료와 일치한다.",
+          "source": "https://megamitensei.fandom.com/wiki/Persona_5",
+          "evidenceBoundary": "독립 검토자의 보조 자료 대조. 공식 전체 영상 검증은 미수행."
+        }
+      ]
+    },
+    {
+      "file": "persona5-side-01.json",
+      "monitorRecordId": "9524a511-bbd4-4db4-8c6c-7f17f0eee2fc",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "p5_side_leblanc",
+          "issue": "소지로가 '물기부터 보라고' 했다는 대사는 문맥상 '먼지부터 보라' 혹은 '물기(습기)를 닦으라'는 의미로 해석될 여지가 있으나, 일반적인 르블랑의 청소 상황이나 소지로의 성격상 '먼지'나 '정돈'이 더 자연스러움.",
+          "reason": "씻어 둔 잔의 물기를 살피는 상황이다. 원고에 없는 먼지와 성격 추정을 넣지 않는다."
+        },
+        {
+          "key": "p5_side_ann_message",
+          "issue": "안이 친구에게 보낼 말을 고르는 상황에서 '답을 재촉하지 않는 문장'을 고른다는 결과가 '걱정을 말뿐인 다짐으로 끝내지 않는다'와 논리적으로 매끄럽게 연결되지 않음.",
+          "reason": "답을 재촉하지 않으면서 실제 약속을 지키는 것은 양립한다. 서로 다른 선택의 결과를 하나의 인과로 합치지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "persona5_royal-main-01.json",
+      "monitorRecordId": "d803e09e-f800-4e7b-941e-2a0cb4befa63",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "p5r_main_05",
+          "issue": "본문에서 '조커가 카스미로 알고 지낸 사람은 동생 스미레였다'고 명시했으나, 이는 설정상 '카스미'라는 이름이 '스미레'의 정체로 덮여 있었음을 의미함. 하지만 이후 결과에서 '스미레는 드러난 진실을 받아들이지 못하고'라고 표현하여, 이미 정체가 드러난 상태에서 스미레가 거부하는 것처럼 묘사됨.",
+          "reason": "정체를 알게 된 뒤 심리적으로 진실을 거부할 수 있다. 정체 공개와 수용을 구분한 원고를 유지한다."
+        },
+        {
+          "key": "p5r_main_07",
+          "issue": "본문에서 '스미레는 다시 카스미로 살고 싶은 마음에 저항하고'라고 기술했으나, p5r_main_05에서 이미 정체가 드러났고 p5r_main_08에서 '자신의 이름으로 손을 뻗는다'는 변화가 일어나는 과정임. 07번에서 '카스미로 살고 싶은 마음'이 저항의 원인이라면 08번의 '자신의 이름'으로의 변화와 충돌할 수 있음.",
+          "reason": "카스미로 남으려는 저항에서 자기 수용으로 변하는 7→8장의 서사적 변화이며 모순이 아니다."
+        }
+      ]
+    },
+    {
+      "file": "hakugyokurou-main-01.json",
+      "monitorRecordId": "767bde2b-6aa0-4b7e-8190-55c307abfc71",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "pcb_main_06",
+          "issue": "도입부에서 루나사가 먼저 나타났다고 명시했으나, story에서 루나사가 응답하는 것으로 묘사되어 순서상 모순이 발생함.",
+          "reason": "루나사가 먼저 등장하여 응답한 다음 두 자매가 합류한다. 등장과 응답을 서로 배타적인 행동으로 볼 근거가 없으며, 제안된 선행 신호는 원고와 원작 근거에 없다."
+        }
+      ]
+    },
+    {
+      "file": "hakugyokurou-side-01.json",
+      "monitorRecordId": "45348cd5-c854-4132-923e-d466094b978e",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    },
+    {
+      "file": "scarlet_mist-main-01.json",
+      "monitorRecordId": "155d690e-11ef-48d4-b2d2-c810d18cfaf4",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "eosd_main_04",
+          "issue": "도입부에서 메이링이 물러선 후 레이무가 따라간다고 했으나, 선택지 결과와 commonResult에서는 메이링을 따라간 길 끝에 입구가 있다고 묘사되어 메이링의 위치와 레이무의 이동 경로가 모호함.",
+          "reason": "메이링이 물러나고 레이무가 그 뒤를 따라 저택 입구에 닿는 연속 이동을 이미 명시한다. 제안은 기존 문장을 반복하는 수준이다."
+        },
+        {
+          "key": "eosd_main_10",
+          "issue": "사쿠야의 재등장 시점과 관련하여, 5면 본전(09) 직후에 6면 중간 재등장(10)이 오는 흐름은 맞으나, 08번에서 이미 사쿠야를 만났음에도 10번에서 '이미 넘어선 줄 알았던'이라는 표현이 08번의 첫 대면과 충돌할 수 있음.",
+          "reason": "5면 첫 조우와 본전 뒤 6면 중간보스로 재등장한다. 이미 넘어선 줄 알았다는 표현은 재등장의 의미와 양립하며 두 번째 조우를 첫 만남으로 쓰지 않았다."
+        }
+      ]
+    },
+    {
+      "file": "scarlet_mist-side-01.json",
+      "monitorRecordId": "0cfe0a89-69e1-4865-af36-73469adda5e3",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    },
+    {
+      "file": "persona5_royal-side-01.json",
+      "monitorRecordId": "223519c1-705c-4fba-8449-5ad701cb0a45",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "p5r_epilogue_station",
+          "reportedKey": "p5r_side_epilogue_station",
+          "issue": "도입부에서 마루키가 차를 몰아 역으로 향하는 길을 도왔다고 서술했으나, 이는 원작의 '봄 귀향' 시점과 충돌하거나 시스템 설정상 마루키가 조커를 직접 운전해 주는 상황이 일반적이지 않음.",
+          "reason": "마루키가 직접 택시를 운전해 역 이동을 돕는 정상 엔딩 내용은 보조 출처와 일치한다. 원문을 유지한다.",
+          "source": "https://megamitensei.fandom.com/wiki/Takuto_Maruki",
+          "evidenceBoundary": "커뮤니티 위키 검색 반환 본문 대조. 게임 전체 영상 검증은 미수행."
+        }
+      ]
+    },
+    {
+      "file": "touhou-editor-delta-01.json",
+      "monitorRecordId": "9e219739-5387-49c0-b298-564aad5c90b3",
+      "worlds": [
+        "scarlet_mist"
+      ],
+      "scope": "조건 없는 일반 사건의 출발 회상 시점 재검토",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    }
+  ],
+  "editorFindings": [],
+  "failedReviews": [],
+  "manualCorrections": [
+    {
+      "world": "witch_prison",
+      "key": "wt_main_04",
+      "before": {
+        "story": "앙앙은 감옥 밖으로 나가려는 에마를 위협으로 여겼다. 미리아는 에마를 지키려 두 사람의 영혼이 바뀌었다고 말한다. 그러나 재판에서 그 말이 사실이 아니었음이 드러난다.",
+        "commonResult": "앙앙이 노린 사람은 에마였지만 희생된 이는 미리아였다. 지키려던 마음과 그것을 믿은 범행을 분리하자 사건의 모양이 드러난다."
+      },
+      "after": {
+        "story": "미리아의 죽음을 둘러싸고 에마와 영혼이 바뀌었다는 말이 재판에 오른다. 에마는 두 사람의 행동과 남은 증거를 대조하며, 그 말이 누구를 향한 위험과 이어지는지 살핀다.",
+        "commonResult": "앙앙이 노린 사람은 에마였지만 희생된 이는 미리아였다. 실제로 영혼이 바뀐 것은 아니었다. 미리아는 에마를 지키려 그 말을 했고, 앙앙은 이를 믿었다. 지키려던 마음과 범행을 분리하자 사건의 모양이 드러난다."
+      },
+      "reason": "진상은 선택 이후 결과에서 공개한다."
+    },
+    {
+      "world": "witch_prison",
+      "key": "wt_main_12",
+      "before": {
+        "commonResult": "두 사람을 죽인 한나의 범행이 밝혀진다. 재판 뒤 셰리까지 잃고 히로 곁에 남은 사람은 미리아와 아리사뿐이다. 미처 나누지 못한 말이 무겁게 남는다."
+      },
+      "after": {
+        "commonResult": "두 사람을 죽인 한나의 범행이 밝혀진다. 셰리는 한나를 홀로 보내지 않겠다는 마음으로 함께 최후를 맞는다. 히로 곁에는 미리아와 아리사만 남고, 미처 나누지 못한 말이 무겁게 남는다."
+      },
+      "reason": "셰리와 한나의 연결을 보조 자료 확인 범위에서 보완한다."
+    },
+    {
+      "world": "witch_prison",
+      "key": "wt_main_13",
+      "before": {
+        "story": "절망한 히로에게 소녀들이 해독해 두었던 책과 말들이 닿는다. 대마녀에게 다가갈 조건이 그 안에 있었다. 히로는 남은 기회를 붙들고, 배운 것을 지닌 채 모두가 살아 있는 시간으로 돌아간다.",
+        "commonResult": "히로는 앞선 만남을 기억하며 다시 선다. 이제 혼자 옳다고 정한 답을 강요하는 대신, 모두와 함께 저택의 근원에 닿으려 한다."
+      },
+      "after": {
+        "story": "절망한 히로에게 소녀들이 해독해 두었던 책과 말들이 닿는다. 대마녀에게 다가갈 조건이 그 안에 있었다. 히로는 남은 기회를 붙들기 전에, 소녀들이 남긴 말과 지식을 끝까지 읽는다.",
+        "commonResult": "히로는 배운 것을 지닌 채 모두가 살아 있는 시간으로 돌아간다. 이제 혼자 옳다고 정한 답을 강요하는 대신, 모두와 함께 저택의 근원에 닿으려 한다."
+      },
+      "reason": "귀환을 확정하는 문장을 추가 대화가 끝난 뒤 결과로 옮긴다."
+    },
+    {
+      "world": "scarlet_mist",
+      "key": "eosd_side_direction",
+      "before": {
+        "intro": "밤길을 나서기 전에 보이는 표식을 고른다.",
+        "story": "안개 때문에 익숙한 풍경도 한 덩어리처럼 보인다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없다. 짧게 준비를 마친다."
+      },
+      "after": {
+        "intro": "붉은 안개 속으로 처음 나서던 밤을 되짚는다.",
+        "story": "안개 때문에 익숙한 풍경도 한 덩어리처럼 보였다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없었다. 그때 길을 찾기 위해 무엇을 기준으로 삼았는지 떠올린다."
+      },
+      "reason": "안개 해결 뒤에도 나올 수 있는 무조건 일반 사건이므로 초기 출발의 회상임을 명시한다."
+    }
+  ]
+}

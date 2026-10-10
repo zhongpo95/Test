@@ -1,0 +1,55 @@
+{
+  "world": "roswaal_mansion",
+  "sourceContentSha256": "644333b95e339dfa8fe52b5fb0aa9e0693772e840ad11c4bcb8a388c98621530",
+  "approvedScenes": [
+    {
+      "sceneKey": "first_morning",
+      "eventKey": "rz_main_01",
+      "eventTitle": "낯선 천장 아래",
+      "eventIntro": "저택의 첫 아침, 로즈월이 원하는 보답을 묻는다.",
+      "eventStory": "엘자와의 싸움 뒤 로즈월 저택에서 눈을 뜬 스바루는 자신을 맞는 사람들을 처음으로 살핀다. 큰 보상보다 이곳에서 함께 지낼 자리를 원하는 그의 대답에 시선이 모인다.",
+      "eventSha256": "2ec5cc511e3a9b0f90d2dd52ffbce340c447eb5284a4c31e757931d13f3276c3",
+      "episode": 4,
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP4",
+      "visibleScene": "4화에서 스바루가 저택의 침대에서 눈뜨는 공식 스틸이다. 본문의 첫 문장 및 첫 회차 경계와 일치한다.",
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    },
+    {
+      "sceneKey": "curse_in_library",
+      "eventKey": "rz_main_08",
+      "eventTitle": "금서고로 가져온 물음",
+      "eventIntro": "다섯 번째 회차, 저주의 단서를 마을에서 찾는다.",
+      "eventStory": "베아트리스에게 들은 저주의 조건과 앞선 회차의 동선을 맞춰 본다. 스바루는 렘과 람을 따라 마을에 다녀온 뒤 다시 금서고를 찾는다. 사람만 살피던 생각에 빠진 접촉이 있었다.",
+      "eventSha256": "e3b8096c6edfca007d7dd9f3b984308bd459693c21a090c7d9eda1ddb83b67eb",
+      "episode": 9,
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP9",
+      "visibleScene": "9화 금서고의 스바루와 베아트리스. 저주의 조건을 확인하고 다시 금서고를 찾는 본문과 일치한다.",
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    },
+    {
+      "sceneKey": "beasts_aftermath",
+      "eventKey": "rz_main_14",
+      "eventTitle": "내일을 함께 이야기한다",
+      "eventIntro": "저택으로 돌아온 스바루 앞에 다시 약속할 하루가 있다.",
+      "eventStory": "렘과 나눈 대화에 진심 어린 웃음이 남는다. 스바루는 에밀리아에게 다시 함께 나갈 약속을 청한다. 혼자 기억하던 아침을 넘어, 이제 곁에 있는 사람들과 내일을 이야기할 수 있다.",
+      "eventSha256": "a5818e6c4e2ffe9f1af3293aeb01b2f83c870f4eb1d05a6a6d1c3e3ab72c54d4",
+      "episode": 11,
+      "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+      "visibleScene": "11화 사건 이후 안도하는 렘의 표정. 본문 첫 문장과 세 번째 선택지의 웃음에 해당한다. 마수 격퇴·로즈월의 불길 장면으로 사용하지 않는다.",
+      "dialogueEvidence": "공식 회차 스틸의 인물·시점·행동을 대조했다. 음성이나 자막을 통해 창작 선택 대사의 일치를 검증한 것은 아니다."
+    }
+  ],
+  "notUsed": [
+    {
+      "sourceKey": "ep11_4",
+      "possibleEventKey": "rz_main_13",
+      "status": "hold-phase-mismatch",
+      "reason": "세 사람이 숲에서 이동하는 장면이다. 마지막 마수 대치와 로즈월의 불길을 보여 주지 않으므로 격퇴 장면으로 지정하지 않는다."
+    },
+    {
+      "sourceKey": "ep11_1~3",
+      "status": "hold-age-mismatch",
+      "reason": "어린 렘·람의 회상 장면. 현재 시점 인물 카드나 현재의 웃음으로 대체하지 않는다."
+    }
+  ]
+}

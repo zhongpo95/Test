@@ -181,7 +181,7 @@ library UIPrototypeCards initializer Init requires UIExpeditionCommon, UIInputGa
         if Selected == 0 and Count > 0 then
             set Selected = Cards[Page * PAGE_SIZE + 1]
         endif
-        call Text(Summary, "보유 카드 " + I2S(Count) + "장 · 머리 " + I2S(ProtoHeadCount[pid]) + "/2")
+        call Text(Summary, "보유 카드 " + I2S(Count) + "장 · 머리 " + I2S(ProtoHeadCount[pid]) + "/" + I2S(ProtoHeadCapacity(pid)))
         if changed or SeenSelected != Selected or SeenPage != Page then
             loop
                 exitwhen i > PAGE_SIZE

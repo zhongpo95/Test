@@ -3,7 +3,7 @@
     "key": "mitakihara",
     "name": "미타키하라",
     "work": "마법소녀 마도카 마기카",
-    "intro": "마도카는 낯선 꿈의 기억을 안고 평범한 학교에 간다. 소원이 남겨 둔 내일의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "낯선 꿈을 꾼 마도카 앞에 꿈속의 소녀 호무라가 전학 온다. 소원을 이뤄 준다는 제안과 그 제안을 막으려는 경고 사이에서 마법소녀의 세계를 마주한다.",
     "effects": [
       {
         "stat": "damage_percent",
@@ -47,7 +47,7 @@
       "key": "madoka_care",
       "name": "카나메 마도카",
       "effectName": "친구를 위해",
-      "keyword": "고체력 · 생존",
+      "keyword": "내 체력 65% 이상 피해 · 생존",
       "grade": 1,
       "effects": [
         {
@@ -95,7 +95,7 @@
       "key": "madoka_homura",
       "name": "아케미 호무라",
       "effectName": "반복해 세운 준비",
-      "keyword": "행동 · 신속",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -139,7 +139,7 @@
       "key": "madoka_kyoko",
       "name": "사쿠라 쿄코",
       "effectName": "긴 창의 간격",
-      "keyword": "방향 · 이동",
+      "keyword": "헤드·백 적중 피해 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -311,7 +311,7 @@
       "key": "madoka_sayaka_listen",
       "name": "미키 사야카",
       "effectName": "말이 끝날 때까지",
-      "keyword": "치명 확률 · 고체력",
+      "keyword": "치명 확률 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -335,7 +335,7 @@
       "key": "madoka_homura_school",
       "name": "아케미 호무라",
       "effectName": "먼저 끝내고 기다릴 자리",
-      "keyword": "행동 속도 · 비방향 피해",
+      "keyword": "고정 신속 · 비방향 피해",
       "grade": 1,
       "effects": [
         {
@@ -359,7 +359,7 @@
       "key": "madoka_mami_distance",
       "name": "토모에 마미",
       "effectName": "들어가기 전의 한 걸음",
-      "keyword": "방향 피해 · 피해 감소",
+      "keyword": "헤드·백 적중 피해 · 피해 감소",
       "grade": 1,
       "effects": [
         {
@@ -383,7 +383,7 @@
       "key": "madoka_return_markers",
       "name": "카나메 마도카",
       "effectName": "돌아와 줄 자리",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -435,7 +435,7 @@
       "key": "madoka_kyoko_unshared",
       "name": "사쿠라 쿄코",
       "effectName": "허투루 버리지 않을 것",
-      "keyword": "이동 · 치명 피해",
+      "keyword": "고정 신속 · 치명 피해",
       "grade": 1,
       "effects": [
         {
@@ -515,7 +515,7 @@
       "key": "madoka_hitomi_walk",
       "name": "시즈키 히토미",
       "effectName": "함께 갈 수 있는 구간",
-      "keyword": "이동 · 최대 체력",
+      "keyword": "고정 신속 · 최대 체력",
       "grade": 1,
       "effects": [
         {

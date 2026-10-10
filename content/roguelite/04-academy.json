@@ -3,7 +3,7 @@
     "key": "academy",
     "name": "학원도시",
     "work": "어떤 마술의 금서목록 · 어떤 과학의 초전자포",
-    "intro": "학원도시의 일상에서 미코토와 친구들은 사소한 일로 웃고 다툰다. 이름으로 부르는 시스터즈의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "학원도시에서 자신과 닮은 소녀의 소문을 들은 미코토. 친구들과 보내던 평범한 하루 뒤에서, 끝난 줄 알았던 실험의 흔적을 발견한다.",
     "effects": [
       {
         "stat": "swift",
@@ -96,7 +96,7 @@
       "key": "academy_kuroko",
       "name": "시라이 쿠로코",
       "effectName": "공간의 사각",
-      "keyword": "이동 · 방향",
+      "keyword": "고정 신속 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -168,7 +168,7 @@
       "key": "academy_dispatch",
       "name": "우이하루 카자리",
       "effectName": "백업 통신",
-      "keyword": "행동 · 신속",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -188,7 +188,7 @@
       "key": "academy_focus",
       "name": "미사카 미코토",
       "effectName": "한 점의 레일건",
-      "keyword": "보스 · 차지",
+      "keyword": "보스 · 차지 속도",
       "grade": 1,
       "effects": [
         {
@@ -212,7 +212,7 @@
       "key": "academy_persevere",
       "name": "사텐 루이코",
       "effectName": "능력 밖의 용기",
-      "keyword": "체력 · 고체력",
+      "keyword": "체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -236,7 +236,7 @@
       "key": "academy_kuroko_response",
       "name": "시라이 쿠로코",
       "effectName": "현장에서 정할 다음 행동",
-      "keyword": "행동 · 생존",
+      "keyword": "고정 신속 · 생존",
       "grade": 1,
       "effects": [
         {
@@ -316,7 +316,7 @@
       "key": "academy_kongo_pair",
       "name": "콘고 미츠코",
       "effectName": "옆 사람에게 맞춘 보폭",
-      "keyword": "행동 속도 · 이동속도 비례 피해",
+      "keyword": "고정 신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -444,7 +444,7 @@
       "key": "academy_kuroko_return",
       "name": "시라이 쿠로코",
       "effectName": "다녀와서 들 한 잔",
-      "keyword": "신속 · 고체력",
+      "keyword": "신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -468,7 +468,7 @@
       "key": "academy_uiharu_promise",
       "name": "우이하루 카자리",
       "effectName": "아직 답하지 않은 약속",
-      "keyword": "사건 후보 · 보스",
+      "keyword": "고정 신속 · 보스",
       "grade": 1,
       "effects": [
         {
@@ -492,7 +492,7 @@
       "key": "academy_tessou_button",
       "name": "테츠소 츠즈리",
       "effectName": "떠난 뒤 남은 버튼",
-      "keyword": "행동 · 비방향",
+      "keyword": "고정 신속 · 비방향",
       "grade": 1,
       "effects": [
         {
@@ -572,7 +572,7 @@
       "key": "academy_uiharu_order",
       "name": "우이하루 카자리",
       "effectName": "확인할 순서",
-      "keyword": "사건 후보 · 일반 적",
+      "keyword": "고정 신속 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -596,7 +596,7 @@
       "key": "academy_saten_detour",
       "name": "사텐 루이코",
       "effectName": "돌아가는 길의 표식",
-      "keyword": "이동 · 일반 적",
+      "keyword": "고정 신속 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -748,7 +748,7 @@
       "key": "academy_uiharu_list",
       "name": "우이하루 카자리",
       "effectName": "접어 두지 않은 항목",
-      "keyword": "치명 피해 · 고체력",
+      "keyword": "치명 피해 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {

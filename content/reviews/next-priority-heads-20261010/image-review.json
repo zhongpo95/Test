@@ -1,0 +1,1313 @@
+[
+  {
+    "world": "witch_prison",
+    "exportRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\exports\\v2",
+    "manifestSha256": "6a9a125cb4eb1512816254abf1fbb0cfb211d8b26aab955bc57fed40b9e94987",
+    "sources": [
+      {
+        "world": "witch_prison",
+        "key": "ema",
+        "name": "사쿠라바 에마",
+        "sourceKey": "ema",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_ema_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_ema_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_ema.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_ema.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "hiro",
+        "name": "니카이도 히로",
+        "sourceKey": "hiro",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_hiro_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_hiro_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_hiro.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_hiro.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "anan",
+        "name": "나츠메 앙앙",
+        "sourceKey": "anan",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_anan_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_anan_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_anan.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_anan.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "noah",
+        "name": "조가사키 노아",
+        "sourceKey": "noah",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_noah_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_noah_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_noah.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_noah.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "leia",
+        "name": "하스미 레이아",
+        "sourceKey": "leia",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_leia_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_leia_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_leia.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_leia.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "miria",
+        "name": "사에키 미리아",
+        "sourceKey": "miria",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_miria_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_miria_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_miria.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_miria.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "margo",
+        "name": "호쇼 마고",
+        "sourceKey": "margo",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_margo_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_margo_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_margo.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_margo.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "nanoka",
+        "name": "쿠로베 나노카",
+        "sourceKey": "nanoka",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_nanoka_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_nanoka_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_nanoka.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_nanoka.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "sherry",
+        "name": "타치바나 셰리",
+        "sourceKey": "sherry",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_sherry_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_sherry_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_sherry.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_sherry.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "hanna",
+        "name": "토노 한나",
+        "sourceKey": "hanna",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_hanna_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_hanna_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_hanna.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_hanna.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "koko",
+        "name": "사와타리 코코",
+        "sourceKey": "koko",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_koko_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_koko_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_koko.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_koko.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "meruru",
+        "name": "히카미 메루루",
+        "sourceKey": "meruru",
+        "sourceRole": "portrait",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_meruru_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_meruru_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_meruru.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_meruru.tga",
+        "note": "제작사 출시 보도자료에서 인물 이름과 바로 인접한 공식 그림을 대조했다. 기본 초상이며 마녀화·처형·특정 회차의 실제 장면을 주장하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "head",
+        "name": "마녀의 감옥",
+        "sourceKey": "promo_5",
+        "sourceRole": "location-representative",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_head_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_head_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_head.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_head.tga",
+        "note": "공식 출시 자료의 재판장 배경을 작품 대표 장소로 사용한다. 특정 재판의 용의자나 판결 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "witch_prison",
+        "key": "ending_memorial",
+        "name": "철문 너머의 내일",
+        "sourceKey": "promo_6",
+        "sourceRole": "location-representative",
+        "icon": "war3mapImported\\UI_Card_XP_witch_prison_ending_memorial_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_witch_prison_ending_memorial_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_witch_prison_ending_memorial.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_witch_prison_ending_memorial.tga",
+        "note": "공식 출시 자료의 복도 배경을 완주 기념의 상징으로 사용한다. 실제 진엔딩 CG나 감옥 밖 탈출을 보여 주는 장면으로 주장하지 않는다."
+      }
+    ],
+    "reviews": [
+      {
+        "file": "witch-prison-image-review.json",
+        "sha256": "769f7530d682e6e29467a31be05279f35d9081274619ba6d8692c0f1b4d47f25",
+        "data": {
+          "world": "witch_prison",
+          "officialReleasePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+          "verifiedBy": "공식 이름이 표시된 소개 단락과 바로 인접한 원본 이미지의 대응을 직접 대조했다.",
+          "characterIdentities": [
+            {
+              "key": "ema",
+              "nameJa": "桜羽エマ（サクラバ エマ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a28576f49b8a3cb6d0a32db4586a55fb-1771x2700.jpg"
+            },
+            {
+              "key": "hiro",
+              "nameJa": "二階堂ヒロ（ニカイドウ ヒロ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-25b9d2bcb70983d0b23cffabc99ba807-1771x2700.jpg"
+            },
+            {
+              "key": "anan",
+              "nameJa": "夏目アンアン（ナツメ アンアン）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-864b0eb317a09015601c4cd5d5f42c32-1771x2700.jpg"
+            },
+            {
+              "key": "noah",
+              "nameJa": "城ケ崎ノア（ジョウガサキ ノア）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-dd17c56ec17dae394a5a6ae169523884-1771x2700.jpg"
+            },
+            {
+              "key": "leia",
+              "nameJa": "蓮見レイア（ハスミ レイア）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-4d66855fb7492db0a2a4896000f0f4f5-1771x2700.jpg"
+            },
+            {
+              "key": "miria",
+              "nameJa": "佐伯ミリア（サエキ ミリア）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-777a868b0481019e411068440131ed26-1771x2700.jpg"
+            },
+            {
+              "key": "margo",
+              "nameJa": "宝生マーゴ（ホウショウ マーゴ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-bff7bcdd0cf97c8bb397ba512d3cb9ac-1771x2700.jpg"
+            },
+            {
+              "key": "nanoka",
+              "nameJa": "黒部ナノカ（クロベ ナノカ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a2df0d39b2cc4475ba8c6008d55fcaca-1771x2700.jpg"
+            },
+            {
+              "key": "sherry",
+              "nameJa": "橘シェリー（タチバナ シェリー）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-ace61d6369be3731bca578448088f0b3-1771x2700.jpg"
+            },
+            {
+              "key": "hanna",
+              "nameJa": "遠野ハンナ（トオノ ハンナ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-85b2d7f9e25993eede41dcede6ee998d-1771x2700.jpg"
+            },
+            {
+              "key": "koko",
+              "nameJa": "沢渡ココ（サワタリ ココ）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-6dde480bbd38a7b0f483e72d3157cfc7-1771x2700.jpg"
+            },
+            {
+              "key": "meruru",
+              "nameJa": "氷上メルル（ヒカミ メルル）",
+              "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-cf000843cbcf25e8a99896fed7000f63-1771x2700.jpg"
+            }
+          ],
+          "exactStoryScenesApproved": [],
+          "representativeOnly": [
+            "모든 인물 그림은 마녀화 이전의 기본 초상이다.",
+            "재판장과 복도는 공식 장소 배경으로만 사용한다. 특정 재판이나 진엔딩의 실제 장면으로 단정하지 않는다."
+          ],
+          "heldCandidates": [
+            {
+              "sourceKey": "arisa",
+              "reason": "현재 담당 원고의 보상 카드 12명 범위 밖이므로 원본만 보존한다."
+            },
+            {
+              "sourceKey": "promo_1",
+              "reason": "죽음과 처형을 연상시키는 프로모션 그림은 기본 인물 식별용에 부적합하다."
+            },
+            {
+              "sourceKey": "promo_2",
+              "reason": "게임 초반으로 보이는 스크린샷이지만 완성 원고의 정확한 장면 대응이 확인되지 않아 연결 보류."
+            },
+            {
+              "sourceKey": "promo_3",
+              "reason": "노아의 프로모션 배경 그림이며 특정 사건의 실제 순간으로 확인하지 못했다."
+            },
+            {
+              "sourceKey": "promo_4",
+              "reason": "아리사 중심의 위압적인 장면은 요청된 기본 카드 인물 범위 밖이고 회차 대응도 확인되지 않았다."
+            }
+          ],
+          "corrections": [
+            "초기 수집에서 게시 순서를 추측한 4개 파일 이름은 일본어 이름 기준으로 모두 바로잡았다. 원본을 보존하고 verified 폴더만 제작에 사용했다.",
+            "앉은 자세인 앙앙은 별도 크롭을 적용해 얼굴 아래가 잘리거나 빈 공간에 묻히지 않게 했다."
+          ],
+          "runtimeTested": false,
+          "canonicalOverwritten": false,
+          "mapCreated": false
+        }
+      }
+    ]
+  },
+  {
+    "world": "persona5",
+    "exportRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1",
+    "manifestSha256": "05f393ca216adc7bdd2234d78ecf5a389a706d37c626f3df118fa02dbc992b6f",
+    "sources": [
+      {
+        "world": "persona5",
+        "key": "joker",
+        "name": "조커",
+        "sourceKey": "p5_hero_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_joker_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_joker_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_joker.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_joker.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "morgana",
+        "name": "모르가나",
+        "sourceKey": "p5_morgana_char_img_whole",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_morgana_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_morgana_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_morgana.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_morgana.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "ryuji",
+        "name": "사카모토 류지",
+        "sourceKey": "p5_ryuji_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_ryuji_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_ryuji_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_ryuji.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_ryuji.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "ann",
+        "name": "타카마키 안",
+        "sourceKey": "p5_anne_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_ann_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_ann_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_ann.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_ann.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "yusuke",
+        "name": "키타가와 유스케",
+        "sourceKey": "p5_yusuke_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_yusuke_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_yusuke_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_yusuke.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_yusuke.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "makoto",
+        "name": "니지마 마코토",
+        "sourceKey": "p5_makoto_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_makoto_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_makoto_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_makoto.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_makoto.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "futaba",
+        "name": "사쿠라 후타바",
+        "sourceKey": "p5_futaba_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_futaba_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_futaba_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_futaba.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_futaba.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "haru",
+        "name": "오쿠무라 하루",
+        "sourceKey": "p5_haru_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_haru_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_haru_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_haru.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_haru.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "akechi",
+        "name": "아케치 고로",
+        "sourceKey": "p5_akechi_char_img",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_akechi_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_akechi_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_akechi.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_akechi.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "sae",
+        "name": "니지마 사에",
+        "sourceKey": "p5a_ep26_2",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_sae_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_sae_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_sae.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_sae.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "sojiro",
+        "name": "사쿠라 소지로",
+        "sourceKey": "p5a_ep18_1",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_sojiro_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_sojiro_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_sojiro.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_sojiro.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "head",
+        "name": "페르소나5",
+        "sourceKey": "p5_head",
+        "sourceRole": "world-cover",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_head_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_head_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_head.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_head.tga",
+        "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다."
+      },
+      {
+        "world": "persona5",
+        "key": "ending_memorial",
+        "name": "다시 이어질 우리의 길",
+        "sourceKey": "p5_head",
+        "sourceRole": "ending-memorial",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_ending_memorial_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_ending_memorial_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_ending_memorial.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_ending_memorial.tga",
+        "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다."
+      }
+    ],
+    "reviews": [
+      {
+        "file": "image-scene-review.json",
+        "sha256": "7a7a6af9019eca5bcd6f8053e44a29f7db28ec82439bb0ba53f795d85f3e17b5",
+        "data": {
+          "world": "persona5",
+          "sourceRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5",
+          "draftFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\expansion-drafts\\persona5.json",
+          "draftSha256": "2da5e923905e6de156257ec637556030cf10dde9bbe65af05c1b580c8560d3c2",
+          "decisions": [
+            {
+              "eventKey": "p5_main_01",
+              "title": "낯선 도시의 가면",
+              "eventStory": "도쿄에서 조용히 지내려던 소년은 류지와 함께 낯선 성에 갇힌다. 류지가 위협받는 순간, 더는 보고만 있을 수 없다는 생각이 가면 아래에서 솟는다.",
+              "canonBoundary": "4월 카모시다 팰리스 첫 진입. 모르가나 합류와 류지의 후속 각성은 구분한다.",
+              "image": "war3mapImported\\UI_Event_XP_persona5_scene_first_palace.tga",
+              "decision": "approve",
+              "reason": "공식 애니 1화의 카모시다 성 첫 진입. 게임 원작의 같은 사건을 각색한 애니 장면이다.",
+              "sourceKey": "p5a_01_35"
+            },
+            {
+              "eventKey": "p5_main_03",
+              "title": "액자 안에서 지워진 이름",
+              "eventStory": "명성으로 가득한 미술관에는 제자들의 삶도 전시되어 있다. 유스케는 믿어 온 스승의 말과 눈앞의 증거를 함께 마주한다. 한 그림을 둘러싼 진실은 예술에 대한 그의 믿음까지 흔든다.",
+              "canonBoundary": "마다라메 편. 사유리의 원작자는 유스케의 어머니이며 새 그림 제작 사건으로 바꾸지 않는다.",
+              "image": "war3mapImported\\UI_Event_XP_persona5_scene_sayuri.tga",
+              "decision": "approve",
+              "reason": "공식 애니 8화 마다라메 편의 사유리 그림. 유스케 어머니의 작품에 관한 게임 사건과 대응한다.",
+              "sourceKey": "p5a_ep08_3"
+            },
+            {
+              "eventKey": "p5_main_09",
+              "title": "취조실 밖으로 건네는 것",
+              "eventStory": "흐려지는 의식 속에서도 조커는 동료를 팔지 않는다. 사에에게 건네야 할 말과 휴대전화가 남아 있다. 한 사람이 믿어 주는가에 따라 취조실 밖의 계획이 이어질 수 있다.",
+              "canonBoundary": "살해된 대상은 사에의 인지 속 조커다. 실제 조커의 부활로 서술하지 않는다.",
+              "image": "war3mapImported\\UI_Event_XP_persona5_scene_interrogation.tga",
+              "decision": "approve",
+              "reason": "공식 애니 26화 취조실의 사에. 인지 세계 속 탈출 계획 단계와 대응하며 실제 조커의 사망이나 부활을 뜻하지 않는다.",
+              "sourceKey": "p5a_ep26_2"
+            }
+          ],
+          "holds": [
+            {
+              "subject": "공식 애니메이션 각색",
+              "decision": "record-medium-boundary",
+              "reason": "사에·소지로 대표 초상 및 메인 1/3/9 이미지는 공식 애니메이션 스틸이다. 원작 게임을 직접 캡처한 장면이라고 표기하지 않는다."
+            },
+            {
+              "subject": "엔딩 대표 그림",
+              "decision": "representative-only",
+              "reason": "원작 본편 키비주얼이며 실제 귀향 장면이 아니다."
+            }
+          ],
+          "visualContact": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\persona5-review.jpg",
+          "sceneContact": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\exports\\v1\\persona5-scenes-review.jpg",
+          "runtimeTested": false,
+          "mapCreated": false,
+          "canonicalOverwritten": false
+        }
+      }
+    ]
+  },
+  {
+    "world": "persona5_royal",
+    "exportRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1",
+    "manifestSha256": "59f0d32f251c631854c4aa9d7401fb62793de4de12ccddb5671dbdc9bada6583",
+    "sources": [
+      {
+        "world": "persona5_royal",
+        "key": "joker",
+        "name": "조커",
+        "sourceKey": "p5r_hero_costume2_fbfcd04fd7ce91f54b1ec840887c9923",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_joker_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_joker_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_joker.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_joker.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "morgana",
+        "name": "모르가나",
+        "sourceKey": "p5r_morgana_costume1_eae37499d983d1091be7cdc1bf2fb4b4",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_morgana_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_morgana_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_morgana.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_morgana.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "ryuji",
+        "name": "사카모토 류지",
+        "sourceKey": "p5r_ryuji_costume2_c9ee26e0e1f8a87214d9d38cea2ff1a6",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_ryuji_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_ryuji_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_ryuji.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ryuji.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "ann",
+        "name": "타카마키 안",
+        "sourceKey": "p5r_anne_costume2_0d74813eff29e913d4925f1887fc90a9",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_ann_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_ann_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_ann.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ann.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "yusuke",
+        "name": "키타가와 유스케",
+        "sourceKey": "p5r_yusuke_costume2_d074937c003544263d7a24ef86b27686",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_yusuke_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_yusuke_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_yusuke.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_yusuke.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "makoto",
+        "name": "니지마 마코토",
+        "sourceKey": "p5r_makoto_costume2_6319d447cfa129142fdd279104c1514a",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_makoto_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_makoto_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_makoto.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_makoto.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "futaba",
+        "name": "사쿠라 후타바",
+        "sourceKey": "p5r_futaba_costume2_2cca8c6ff508631570335573e5e6bd8a",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_futaba_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_futaba_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_futaba.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_futaba.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "haru",
+        "name": "오쿠무라 하루",
+        "sourceKey": "p5r_haru_costume2_a9d760d4aeeab57ab5ded13789e7a0b9",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_haru_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_haru_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_haru.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_haru.tga",
+        "note": "공식 인물 대표 그림. 특정 장소·날짜의 실제 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "akechi",
+        "name": "아케치 고로",
+        "sourceKey": "p5r_akechi_costume1_9fefb2bee52a2f35faa8c9179dc805cc",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_akechi_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_akechi_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_akechi.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_akechi.tga",
+        "note": "공식 일반 탐정 초상. 백색 프린스 괴도복은 3학기 현장 복장과 달라 제외했다. 이 초상도 겨울 복장이나 특정 1월 현장으로 주장하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "yoshizawa",
+        "name": "요시자와",
+        "sourceKey": "p5r_kasumi_costume2_e9bdd1860bead9f30628c3da17a70768",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_yoshizawa_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_yoshizawa_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_yoshizawa.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_yoshizawa.tga",
+        "note": "공식 괴도복 초상. 카드명은 요시자와로 유지하며 정체·특정 각성 날짜를 이 그림만으로 공개하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "maruki",
+        "name": "마루키 타쿠토",
+        "sourceKey": "p5r_top_royal1_c2_img1_4a4dd79a6e37bd7534e4fe77cdb88127",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_maruki_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_maruki_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_maruki.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_maruki.tga",
+        "note": "공식 상담사 기본 초상. 후반 의상이나 3학기 전투 장면이 아니다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "head",
+        "name": "페르소나5 더 로열",
+        "sourceKey": "p5r_coverpart2",
+        "sourceRole": "world-cover",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_head_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_head_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_head.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_head.tga",
+        "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다."
+      },
+      {
+        "world": "persona5_royal",
+        "key": "ending_memorial",
+        "name": "우리 손으로 고른 내일",
+        "sourceKey": "p5r_coverpart1",
+        "sourceRole": "ending-memorial",
+        "icon": "war3mapImported\\UI_Card_XP_persona5_royal_ending_memorial_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_persona5_royal_ending_memorial_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_persona5_royal_ending_memorial.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_persona5_royal_ending_memorial.tga",
+        "note": "공식 작품 홍보 그림을 대표·완주 기념으로 사용한다. 실제 엔딩 장면이나 현장 동행 상태를 주장하지 않는다."
+      }
+    ],
+    "reviews": [
+      {
+        "file": "image-scene-review.json",
+        "sha256": "0138a33cb93144c4d995eeac90a2b96faaa14109fc05e6cd617404e56529239b",
+        "data": {
+          "world": "persona5_royal",
+          "sourceRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal",
+          "draftFile": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\expansion-drafts\\persona5_royal.json",
+          "draftSha256": "58e935c62e4728f134c82ce14c71575ca67310bbe6d803f584511610fae9ff1c",
+          "decisions": [
+            {
+              "eventKey": "p5r_main_01",
+              "title": "겨울에 닿기 전의 인연",
+              "eventStory": "슈진 학원에는 상담사 마루키가 찾아왔고, 요시자와는 체조와 학교생활 사이에서 애쓰고 있었다. 조커는 각자의 이야기를 들으며 혼자서는 보지 못했던 마음을 알아 갔다. 겨울의 작은 어긋남을 따라가기 전에 그때의 말을 떠올린다.",
+              "canonBoundary": "앞선 학교생활을 회고하는 도입. 카모시다 사건 이후 마루키 부임과 새 동급생이 아닌 후배 요시자와의 만남. 정체 미공개.",
+              "image": "war3mapImported\\UI_Event_XP_persona5_royal_scene_counselor.tga",
+              "decision": "approve",
+              "reason": "공식 로열 소개 스크린샷의 날짜 5월 24일과 마루키 대화. 이 사건의 앞선 학교생활 회고에만 대응하며 1월 장면이 아니다.",
+              "sourceKey": "p5r_top_royal1_c2_ss1_87a5b3c46d1d03037983f203d681c75e"
+            }
+          ],
+          "holds": [
+            {
+              "subject": "원본 발표용 일반 의상",
+              "decision": "representative-only",
+              "reason": "로열 학교/괴도 초상은 겨울 전용 이미지가 아니므로 3학기 실제 장면으로 표기하지 않는다."
+            },
+            {
+              "subject": "아케치 백색 프린스 괴도복",
+              "decision": "hold",
+              "reason": "3학기 현장 복장과 충돌하여 로열 개별 카드 출력에서 제외했다."
+            },
+            {
+              "subject": "로열 1월 실제 장면",
+              "decision": "pending-official-exact-scene",
+              "reason": "공개 공식 페이지의 스틸에서 날짜와 상황을 확정하지 못했다. 5월 학교상담 회고만 실제 장면으로 승인했다."
+            },
+            {
+              "subject": "요시자와 신데렐라 전투 스틸",
+              "decision": "hold-exact-mapping",
+              "reason": "공개 소개 그림의 캐릭터·전투는 확인되지만 첫 각성의 날짜·전후 상황까지 입증되지 않아 10월 또는 1월 사건에 임의 연결하지 않았다."
+            }
+          ],
+          "visualContact": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\persona5_royal-review.jpg",
+          "sceneContact": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\exports\\v1\\persona5_royal-scenes-review.jpg",
+          "runtimeTested": false,
+          "mapCreated": false,
+          "canonicalOverwritten": false
+        }
+      }
+    ]
+  },
+  {
+    "world": "hakugyokurou",
+    "exportRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\exports\\v1",
+    "manifestSha256": "caebd360f42da1d53317049223ab55bf6a5df92461216a3063b13034bab543f4",
+    "sources": [
+      {
+        "world": "hakugyokurou",
+        "key": "reimu",
+        "name": "하쿠레이 레이무",
+        "sourceKey": "danmaku_card_reimu_r001",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_reimu_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_reimu_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_reimu.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_reimu.tga",
+        "visibleCharacters": [
+          "하쿠레이 레이무"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "letty",
+        "name": "레티 화이트록",
+        "sourceKey": "lostword_letty_l1",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_letty_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_letty_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_letty.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_letty.tga",
+        "visibleCharacters": [
+          "레티 화이트록"
+        ],
+        "note": "로스트워드 L1 기본 복장 원본을 공개 알테마에서 확보하고 공식 2022년 소개의 동일 복장·얼굴과 대조했다. H5 변종·환생·사교클럽 의상은 제외했다. 원작 요요몽 실제 장면이 아니다. 개별 작가 표기는 미확인이다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "chen",
+        "name": "첸",
+        "sourceKey": "danmaku_card_chen_r062",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_chen_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_chen_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_chen.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_chen.tga",
+        "visibleCharacters": [
+          "첸"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "alice",
+        "name": "앨리스 마가트로이드",
+        "sourceKey": "danmaku_card_alice_r011",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_alice_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_alice_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_alice.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_alice.tga",
+        "visibleCharacters": [
+          "앨리스 마가트로이드"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "lunasa",
+        "name": "루나사 프리즘리버",
+        "sourceKey": "danmaku_card_lunasa_r051",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_lunasa_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_lunasa_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_lunasa.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lunasa.tga",
+        "visibleCharacters": [
+          "루나사 프리즘리버"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "merlin",
+        "name": "메를랑 프리즘리버",
+        "sourceKey": "danmaku_card_merlin_r052",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_merlin_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_merlin_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_merlin.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_merlin.tga",
+        "visibleCharacters": [
+          "메를랑 프리즘리버"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "lyrica",
+        "name": "리리카 프리즘리버",
+        "sourceKey": "danmaku_card_lyrica_r053",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_lyrica_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_lyrica_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_lyrica.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lyrica.tga",
+        "visibleCharacters": [
+          "리리카 프리즘리버"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "youmu",
+        "name": "콘파쿠 요우무",
+        "sourceKey": "danmaku_card_youmu_r013",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_youmu_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_youmu_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_youmu.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_youmu.tga",
+        "visibleCharacters": [
+          "콘파쿠 요우무"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "yuyuko",
+        "name": "사이교우지 유유코",
+        "sourceKey": "danmaku_card_yuyuko_r044",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_yuyuko_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_yuyuko_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_yuyuko.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_yuyuko.tga",
+        "visibleCharacters": [
+          "사이교우지 유유코"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "lily",
+        "name": "릴리 화이트",
+        "sourceKey": "danmaku_card_lily_r067",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_lily_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_lily_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_lily.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_lily.tga",
+        "visibleCharacters": [
+          "릴리 화이트"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "cirno",
+        "name": "치르노",
+        "sourceKey": "danmaku_card_cirno_r009",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_cirno_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_cirno_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_cirno.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_cirno.tga",
+        "visibleCharacters": [
+          "치르노"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "head",
+        "name": "백옥루",
+        "sourceKey": "danmaku_card_yuyuko_sr030",
+        "sourceRole": "world-cover",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_head_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_head_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_head.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_head.tga",
+        "visibleCharacters": [
+          "사이교우지 유유코"
+        ],
+        "note": "공식 다마쿠카구라 일러스트에 그려진 원작 최종 보스를 작품 대표로 사용한다. 특정 스펠 카드·전투 단계·사이교우아야카시 개화 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "hakugyokurou",
+        "key": "ending_memorial",
+        "name": "돌아온 봄의 자리",
+        "sourceKey": "danmaku_card_reimu_r001",
+        "sourceRole": "ending-memorial",
+        "icon": "war3mapImported\\UI_Card_XP_hakugyokurou_ending_memorial_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_hakugyokurou_ending_memorial_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_hakugyokurou_ending_memorial.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_hakugyokurou_ending_memorial.tga",
+        "visibleCharacters": [
+          "하쿠레이 레이무"
+        ],
+        "note": "레이무 기본 초상을 원작 완주 기념으로 사용한다. 실제 엔딩 CG, 꽃놀이 현장, 양산을 든 레밀리아의 신사 방문을 보여 주는 장면이 아니다."
+      }
+    ],
+    "reviews": [
+      {
+        "file": "image-scene-review.json",
+        "sha256": "51aed44b1eda6828f4715f76b5a75ff75938573f72ebf735e92afc7c6aff743b",
+        "data": {
+          "world": "hakugyokurou",
+          "comparedDraft": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\expansion-drafts\\hakugyokurou.json",
+          "draftSha256": "4c8c562ec4a453b55ece4cff5c3ac5012fdb83c3c75aea209d69320768d10f97",
+          "exactStoryScenesApproved": [],
+          "representativeMappings": [
+            {
+              "characterKey": "letty",
+              "eventKeys": [
+                "pcb_main_02"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "chen",
+              "eventKeys": [
+                "pcb_main_03"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "alice",
+              "eventKeys": [
+                "pcb_main_04"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "lily",
+              "eventKeys": [
+                "pcb_main_05"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "lunasa",
+              "eventKeys": [
+                "pcb_main_06",
+                "pcb_main_07"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "merlin",
+              "eventKeys": [
+                "pcb_main_07"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "lyrica",
+              "eventKeys": [
+                "pcb_main_07"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "youmu",
+              "eventKeys": [
+                "pcb_main_08",
+                "pcb_main_09"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "yuyuko",
+              "eventKeys": [
+                "pcb_main_10",
+                "pcb_main_11",
+                "pcb_main_12"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "ending_memorial",
+              "eventKeys": [
+                "pcb_main_13"
+              ],
+              "sourceRole": "ending-memorial",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            }
+          ],
+          "visualReview": [
+            "공식 R 기본 복장 정면 초상의 얼굴·모자·복장 식별을 확인했다.",
+            "머리카드 대표는 해당 작품 최종 보스 단독 그림이다.",
+            "원작 25주년 인물 소개와 원작의 등장 범위를 대조했다.",
+            "레티 L1은 공식 로스트워드 소개와 공개 원본의 얼굴·기본 복장 일치를 확인했다."
+          ],
+          "heldCandidates": [
+            {
+              "key": "yuyuko_ssr023",
+              "reason": "수영복과 수영장 장면으로 원작 봄 이변의 기본 복장·상황과 맞지 않음"
+            },
+            {
+              "key": "remilia_ssr009",
+              "reason": "본편 범위 밖 플랑드르가 함께 그려져 있음"
+            },
+            {
+              "key": "chibi_and_rhythm_screens",
+              "reason": "치비 또는 리듬게임 HUD가 인물 카드 식별을 방해함"
+            },
+            {
+              "key": "anniversary_original_portraits",
+              "reason": "원작 복장 참고에는 유효하나 카드 초상 확대에 실효 해상도가 부족함"
+            }
+          ],
+          "artistBoundary": "공식 R 카드 페이지의 개별 작가란은 -로 표시되어 있어 추정하지 않고 미표기로 기록했다. 머리카드의 개별 작가명은 공식 페이지에서 확인했다.",
+          "runtimeTested": false,
+          "mapCreated": false,
+          "canonicalOverwritten": false
+        }
+      }
+    ]
+  },
+  {
+    "world": "scarlet_mist",
+    "exportRoot": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\exports\\v1",
+    "manifestSha256": "1192bb130f248852705d90a412bc854374220187eddd4c78e10a9c3036bb06db",
+    "sources": [
+      {
+        "world": "scarlet_mist",
+        "key": "reimu",
+        "name": "하쿠레이 레이무",
+        "sourceKey": "danmaku_card_reimu_r001",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_reimu_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_reimu_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_reimu.tga",
+        "visibleCharacters": [
+          "하쿠레이 레이무"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "rumia",
+        "name": "루미아",
+        "sourceKey": "danmaku_card_rumia_r030",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_rumia_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_rumia_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_rumia.tga",
+        "visibleCharacters": [
+          "루미아"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "cirno",
+        "name": "치르노",
+        "sourceKey": "danmaku_card_cirno_r009",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_cirno_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_cirno_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_cirno.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_cirno.tga",
+        "visibleCharacters": [
+          "치르노"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "meiling",
+        "name": "홍 메이링",
+        "sourceKey": "danmaku_card_meiling_r058",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_meiling_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_meiling_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_meiling.tga",
+        "visibleCharacters": [
+          "홍 메이링"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "patchouli",
+        "name": "파츄리 널릿지",
+        "sourceKey": "danmaku_card_patchouli_r003",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_patchouli_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_patchouli_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_patchouli.tga",
+        "visibleCharacters": [
+          "파츄리 널릿지"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "sakuya",
+        "name": "이자요이 사쿠야",
+        "sourceKey": "danmaku_card_sakuya_r010",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_sakuya_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_sakuya_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_sakuya.tga",
+        "visibleCharacters": [
+          "이자요이 사쿠야"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "remilia",
+        "name": "레밀리아 스칼렛",
+        "sourceKey": "danmaku_card_remilia_r005",
+        "sourceRole": "representative-character",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_remilia_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_remilia_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_remilia.tga",
+        "visibleCharacters": [
+          "레밀리아 스칼렛"
+        ],
+        "note": "공인 파생작 동방 다마쿠카구라 공식 R 카드의 기본 복장 인물 초상이다. 원작 요요몽·홍마향의 실제 사건 장면이나 대사 화면이 아니다. 원작의 해당 인물 역할에 한하여 대표 그림으로 연결한다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "head",
+        "name": "홍마향",
+        "sourceKey": "danmaku_card_remilia_sr023",
+        "sourceRole": "world-cover",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_head_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_head_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_head.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_head.tga",
+        "visibleCharacters": [
+          "레밀리아 스칼렛"
+        ],
+        "note": "공식 다마쿠카구라 일러스트에 그려진 원작 최종 보스를 작품 대표로 사용한다. 특정 스펠 카드·전투 단계·사이교우아야카시 개화 장면으로 단정하지 않는다."
+      },
+      {
+        "world": "scarlet_mist",
+        "key": "ending_memorial",
+        "name": "안개 뒤에 돌아온 여름",
+        "sourceKey": "danmaku_card_reimu_r001",
+        "sourceRole": "ending-memorial",
+        "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_ending_memorial_Icon.tga",
+        "portrait": "war3mapImported\\UI_Card_XP_scarlet_mist_ending_memorial_Art.tga",
+        "eventSource": "war3mapImported\\UI_Event_XP_scarlet_mist_ending_memorial.tga",
+        "eventThumbnail": "war3mapImported\\UI_EventThumb_XP_scarlet_mist_ending_memorial.tga",
+        "visibleCharacters": [
+          "하쿠레이 레이무"
+        ],
+        "note": "레이무 기본 초상을 원작 완주 기념으로 사용한다. 실제 엔딩 CG, 꽃놀이 현장, 양산을 든 레밀리아의 신사 방문을 보여 주는 장면이 아니다."
+      }
+    ],
+    "reviews": [
+      {
+        "file": "image-scene-review.json",
+        "sha256": "4ee68cb24e267475d392f8b51edfcc35d86a40c4bdcaab8e057203841db96873",
+        "data": {
+          "world": "scarlet_mist",
+          "comparedDraft": "D:\\CodexData\\.codex\\worktrees\\e83e\\Test\\content\\expansion-drafts\\scarlet_mist.json",
+          "draftSha256": "cc3fdcec59a18d0726d3fc7751d92b2776012faa0059fb03a78460e46f8c2937",
+          "exactStoryScenesApproved": [],
+          "representativeMappings": [
+            {
+              "characterKey": "rumia",
+              "eventKeys": [
+                "eosd_main_01",
+                "eosd_main_02"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "cirno",
+              "eventKeys": [
+                "eosd_main_03"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "meiling",
+              "eventKeys": [
+                "eosd_main_04",
+                "eosd_main_05"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "patchouli",
+              "eventKeys": [
+                "eosd_main_06",
+                "eosd_main_07"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "sakuya",
+              "eventKeys": [
+                "eosd_main_08",
+                "eosd_main_09",
+                "eosd_main_10"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "remilia",
+              "eventKeys": [
+                "eosd_main_11",
+                "eosd_main_12"
+              ],
+              "sourceRole": "representative-character",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            },
+            {
+              "characterKey": "ending_memorial",
+              "eventKeys": [
+                "eosd_main_13"
+              ],
+              "sourceRole": "ending-memorial",
+              "exactStoryScene": false,
+              "note": "원고 등장인물에 대응하는 대표 초상이며 실제 사건 장면으로 표기하지 않는다."
+            }
+          ],
+          "visualReview": [
+            "공식 R 기본 복장 정면 초상의 얼굴·모자·복장 식별을 확인했다.",
+            "머리카드 대표는 해당 작품 최종 보스 단독 그림이다.",
+            "원작 25주년 인물 소개와 원작의 등장 범위를 대조했다.",
+            "레티 L1은 공식 로스트워드 소개와 공개 원본의 얼굴·기본 복장 일치를 확인했다."
+          ],
+          "heldCandidates": [
+            {
+              "key": "yuyuko_ssr023",
+              "reason": "수영복과 수영장 장면으로 원작 봄 이변의 기본 복장·상황과 맞지 않음"
+            },
+            {
+              "key": "remilia_ssr009",
+              "reason": "본편 범위 밖 플랑드르가 함께 그려져 있음"
+            },
+            {
+              "key": "chibi_and_rhythm_screens",
+              "reason": "치비 또는 리듬게임 HUD가 인물 카드 식별을 방해함"
+            },
+            {
+              "key": "anniversary_original_portraits",
+              "reason": "원작 복장 참고에는 유효하나 카드 초상 확대에 실효 해상도가 부족함"
+            }
+          ],
+          "artistBoundary": "공식 R 카드 페이지의 개별 작가란은 -로 표시되어 있어 추정하지 않고 미표기로 기록했다. 머리카드의 개별 작가명은 공식 페이지에서 확인했다.",
+          "runtimeTested": false,
+          "mapCreated": false,
+          "canonicalOverwritten": false
+        }
+      }
+    ]
+  }
+]

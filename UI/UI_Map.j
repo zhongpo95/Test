@@ -61,7 +61,7 @@ library UIMap initializer Init requires UIExpeditionCommon, UIInputGate
             set status = "원정 종료"
         endif
         if ExpState == EXP_HUNT then
-            set status = "개인 구역 " + I2S(pid + 1) + " · 남은 " + I2S(ExpSeconds) + "초 · 행동력 " + I2S(ProtoAP[pid]) + "|n머리 " + I2S(ProtoHeadCount[pid]) + "/2 · 골드 " + I2S(ExpGold[pid])
+            set status = "개인 구역 " + I2S(pid + 1) + " · 남은 " + I2S(ExpSeconds) + "초 · 행동력 " + I2S(ProtoAP[pid]) + "|n머리 " + I2S(ProtoHeadCount[pid]) + "/" + I2S(ProtoHeadCapacity(pid)) + " · 골드 " + I2S(ExpGold[pid])
         endif
         call ExpUIText(Status, status)
     endfunction

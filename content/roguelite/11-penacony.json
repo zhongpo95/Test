@@ -40,7 +40,7 @@
       "key": "hsr_misha",
       "name": "미샤",
       "effectName": "꿈속에서 찾은 귀환길",
-      "keyword": "이동 · 고체력",
+      "keyword": "고정 신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -64,7 +64,7 @@
       "key": "hsr_misha_route",
       "name": "미샤",
       "effectName": "분주했던 여행 준비",
-      "keyword": "행동 · 일반 몬스터",
+      "keyword": "고정 신속 · 일반 몬스터",
       "grade": 1,
       "effects": [
         {
@@ -116,7 +116,7 @@
       "key": "hsr_aventurine_reserve",
       "name": "어벤츄린",
       "effectName": "판돈 밖에 남겨 둔 여유",
-      "keyword": "보호막 · 치명",
+      "keyword": "보호막 유지 중 피해 · 치명",
       "grade": 1,
       "effects": [
         {
@@ -144,7 +144,7 @@
       "key": "hsr_sparkle",
       "name": "스파클",
       "effectName": "다음 막은 누구의 차례",
-      "keyword": "행동 · 치명",
+      "keyword": "고정 신속 · 치명",
       "grade": 1,
       "effects": [
         {
@@ -196,7 +196,7 @@
       "key": "hsr_black_swan_archive",
       "name": "블랙 스완",
       "effectName": "흩어진 장면을 잇기",
-      "keyword": "탐색 · 고체력",
+      "keyword": "탐색 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -248,7 +248,7 @@
       "key": "hsr_aventurine_scattered",
       "name": "어벤츄린",
       "effectName": "흩어진 판돈",
-      "keyword": "처치 골드 · 치명타 피해 · 패널티",
+      "keyword": "처치 골드 · 치명타 피해 · 고정 신속 감소",
       "grade": 1,
       "effects": [
         {
@@ -280,7 +280,7 @@
       "key": "hsr_misha_reach",
       "name": "미샤",
       "effectName": "손보다 먼저 본 자리",
-      "keyword": "차지 속도 · 고체력",
+      "keyword": "차지 속도 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -304,7 +304,7 @@
       "key": "hsr_acheron_gap",
       "name": "아케론",
       "effectName": "검을 돌리기 전의 간격",
-      "keyword": "관통 · 방향",
+      "keyword": "관통 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -384,7 +384,7 @@
       "key": "hsr_jade_terms",
       "name": "제이드",
       "effectName": "가격표 밖의 조건",
-      "keyword": "피해 · 처치 골드 · 패널티",
+      "keyword": "피해 · 처치 골드 · 고정 신속 감소",
       "grade": 1,
       "effects": [
         {
@@ -436,7 +436,7 @@
       "key": "hsr_robin_voice",
       "name": "로빈",
       "effectName": "첫마디에 남긴 자기 이름",
-      "keyword": "공격력 · 고체력",
+      "keyword": "공격력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -460,7 +460,7 @@
       "key": "hsr_boothill_focus",
       "name": "부트힐",
       "effectName": "많은 시선 속의 한 표적",
-      "keyword": "보스 · 방향",
+      "keyword": "보스 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -484,7 +484,7 @@
       "key": "hsr_boothill_attention",
       "name": "부트힐",
       "effectName": "숨기지 않은 발걸음",
-      "keyword": "이동 · 이동 조건 · 패널티",
+      "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
       "grade": 1,
       "effects": [
         {
@@ -512,7 +512,7 @@
       "key": "hsr_firefly_visit",
       "name": "반디",
       "effectName": "갑옷 밖에서 보려던 풍경",
-      "keyword": "최대 체력 · 이동",
+      "keyword": "최대 체력 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -536,7 +536,7 @@
       "key": "hsr_boothill_caption",
       "name": "부트힐",
       "effectName": "사진 아래에 빠진 말",
-      "keyword": "사건 후보 · 치명타 피해",
+      "keyword": "고정 신속 · 치명타 피해",
       "grade": 1,
       "effects": [
         {
@@ -640,7 +640,7 @@
       "key": "hsr_sparkle_exit",
       "name": "스파클",
       "effectName": "막 밖으로 향한 박수",
-      "keyword": "치명 확률 · 이동",
+      "keyword": "치명 확률 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -664,7 +664,7 @@
       "key": "hsr_robin_pause",
       "name": "로빈",
       "effectName": "첫마디 전에 남길 간격",
-      "keyword": "고체력 · 방향",
+      "keyword": "내 체력 65% 이상 피해 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -760,7 +760,7 @@
       "key": "hsr_boothill_line",
       "name": "부트힐",
       "effectName": "표적 앞에서 먼저 전할 말",
-      "keyword": "보스 · 행동",
+      "keyword": "보스 · 고정 신속",
       "grade": 1,
       "effects": [
         {

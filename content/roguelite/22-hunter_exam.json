@@ -1,0 +1,3050 @@
+{
+  "world": {
+    "key": "hunter_exam",
+    "name": "헌터시험장",
+    "work": "HUNTER×HUNTER",
+    "intro": "아버지와 같은 헌터가 되려는 곤이 시험장으로 향한다. 끝이 보이지 않는 달리기, 낯선 과제와 경쟁자들 사이에서 자신이 지킬 것과 함께 갈 사람을 알아간다.",
+    "effects": [
+      {
+        "stat": "crit_chance",
+        "value": 2
+      }
+    ],
+    "entryCard": "hx_gon",
+    "mainStory": {
+      "title": "합격증 너머의 친구",
+      "length": 14,
+      "focus": [
+        "crit_chance",
+        "moving_damage",
+        "charge_damage"
+      ],
+      "source": "2011년 TV 애니메이션 1~21화의 헌터시험편",
+      "adaptation": "공식 각화 소개의 시험 순서를 유지한다. 선택은 관찰·준비·판단의 관점이며 원작의 합격자와 탈락자를 바꾸지 않는다. 21화의 키르아를 찾아 떠나는 결심으로 마치고 재회는 다루지 않는다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_hunter_exam_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_hunter_exam_head.tga"
+  },
+  "sources": [
+    "https://www.ntv.co.jp/hunterhunter/story/001.html",
+    "https://www.ntv.co.jp/hunterhunter/story/002.html",
+    "https://www.ntv.co.jp/hunterhunter/story/003.html",
+    "https://www.ntv.co.jp/hunterhunter/story/004.html",
+    "https://www.ntv.co.jp/hunterhunter/story/005.html",
+    "https://www.ntv.co.jp/hunterhunter/story/006.html",
+    "https://www.ntv.co.jp/hunterhunter/story/007.html",
+    "https://www.ntv.co.jp/hunterhunter/story/008.html",
+    "https://www.ntv.co.jp/hunterhunter/story/009.html",
+    "https://www.ntv.co.jp/hunterhunter/story/010.html",
+    "https://www.ntv.co.jp/hunterhunter/story/011.html",
+    "https://www.ntv.co.jp/hunterhunter/story/012.html",
+    "https://www.ntv.co.jp/hunterhunter/story/014.html",
+    "https://www.ntv.co.jp/hunterhunter/story/015.html",
+    "https://www.ntv.co.jp/hunterhunter/story/016.html",
+    "https://www.ntv.co.jp/hunterhunter/story/017.html",
+    "https://www.ntv.co.jp/hunterhunter/story/018.html",
+    "https://www.ntv.co.jp/hunterhunter/story/019.html",
+    "https://www.ntv.co.jp/hunterhunter/story/020.html",
+    "https://www.ntv.co.jp/hunterhunter/story/021.html",
+    "https://www.ntv.co.jp/hunterhunter/character/other_01.html",
+    "https://anna-movies.com/hunterhunter/anime-2011-episode-19",
+    "https://anna-movies.com/hunterhunter/anime-2011-episode-20",
+    "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?episode=s01e06&tv-show=hunter-x-hunter-2011",
+    "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?episode=s01e16&tv-show=hunter-x-hunter-2011"
+  ],
+  "canonBoundary": "2011년판 1~21화의 시험장에 이르는 길, 본시험, 합격 통보와 키르아를 찾아 떠나는 결심까지다. 1999년판의 군함섬 등 추가 시험, 조르딕가 방문과 재회, 천공격투장, 요크신, 그리드 아일랜드, 키메라 앤트, 선거, 원작 후속 편은 포함하지 않는다. 이 시기의 곤·키르아·크라피카에게 이후의 넨 기술을 주지 않으며 히소카·네테로의 미공개 능력을 설명하거나 습득시키지 않는다. 일반 사건은 시험 중의 짧은 별도 장면 또는 명시적인 회고다. 사토츠가 전한 탈락 경위는 곤이 깨어난 뒤 알게 되고 키르아는 그 자리에 없다. 주인공 일행 전원 합격, 키르아의 시험 합격, 현장 재회로 고쳐 쓰지 않는다. 보상은 기존 ARCANA 수치만 사용하며 부상은 서사일 뿐 체력 비용이나 회복 보상을 부과하지 않는다.",
+  "cards": [
+    {
+      "key": "hx_gon",
+      "name": "곤",
+      "effectName": "낚싯줄 끝의 한순간",
+      "keyword": "공격 · 차지 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "charge_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_killua",
+      "name": "키르아",
+      "effectName": "발소리를 남기지 않는 간격",
+      "keyword": "신속 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_kurapika",
+      "name": "크라피카",
+      "effectName": "규칙 안에서 찾은 빈틈",
+      "keyword": "대미지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_leorio",
+      "name": "레오리오",
+      "effectName": "함께 도착할 이유",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_hisoka",
+      "name": "히소카",
+      "effectName": "시선을 빼앗는 위협",
+      "keyword": "치명 피해 · 헤드·백 적중 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_hanzo",
+      "name": "한조",
+      "effectName": "흔들림 없는 타점",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_satotz",
+      "name": "사토츠",
+      "effectName": "앞사람을 놓치지 않는 보폭",
+      "keyword": "이동 · 이동속도 비례 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_netero",
+      "name": "네테로",
+      "effectName": "서두르지 않는 한 수",
+      "keyword": "최종 대미지 · 행동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 1
+        },
+        {
+          "stat": "action_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년 헌터시험편에 등장한 인물의 관찰·행동을 바탕으로 한 전투 수치다. 이후 넨 능력의 재현이나 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_leorio_plan",
+      "name": "레오리오",
+      "effectName": "출발 전에 남겨 둔 여유",
+      "keyword": "행동력 최대치 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "시험의 대기·이동 사이에 짐과 시간을 나누는 별도 장면의 보상이다. 두 획득 사건은 같은 선행 사건의 서로 다른 선택을 요구해 한 런에서 함께 발생할 수 없다.",
+      "uncertain": []
+    },
+    {
+      "key": "hunter_exam_ending_memorial",
+      "name": "합격증 너머의 친구",
+      "effectName": "다시 만나러 가는 약속",
+      "keyword": "엔딩 기념",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 21화에서 곤이 키르아를 찾으러 가기로 하는 결심을 기념한다. 시험 합격의 취소나 키르아와의 재회까지 이루어졌다는 뜻은 아니다.",
+      "uncertain": [],
+      "endingCard": true
+    },
+    {
+      "key": "hx_main_01_1",
+      "name": "곤",
+      "effectName": "먼 이름을 좇는 시선",
+      "keyword": "공격 · 차지 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "charge_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 1화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_01_2",
+      "name": "레오리오",
+      "effectName": "끝까지 듣는 동행",
+      "keyword": "대미지 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 1화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_01_3",
+      "name": "크라피카",
+      "effectName": "다름을 남기는 판단",
+      "keyword": "치명 확률 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 1화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_02_1",
+      "name": "크라피카",
+      "effectName": "질문 밖의 선택",
+      "keyword": "대미지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 2·3화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_02_2",
+      "name": "레오리오",
+      "effectName": "분노 다음의 한마디",
+      "keyword": "공격 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 2·3화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_02_3",
+      "name": "곤",
+      "effectName": "넘겨짚지 않는 마음",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 2·3화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_03_1",
+      "name": "사토츠",
+      "effectName": "발소리의 기준",
+      "keyword": "이동 · 이동속도 비례 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 3·4·5화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_03_2",
+      "name": "키르아",
+      "effectName": "나란히 달리는 리듬",
+      "keyword": "신속 · 행동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "action_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 3·4·5화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_03_3",
+      "name": "레오리오",
+      "effectName": "놓지 않는 발끝",
+      "keyword": "공격 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 3·4·5화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_04_1",
+      "name": "곤",
+      "effectName": "손대기 전의 관찰",
+      "keyword": "공격 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 6화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_04_2",
+      "name": "크라피카",
+      "effectName": "요구를 읽는 기준",
+      "keyword": "대미지 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 6화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_04_3",
+      "name": "레오리오",
+      "effectName": "서두름을 나눈 손",
+      "keyword": "내 체력 65% 이상 피해 · 행동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        },
+        {
+          "stat": "action_speed",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 6화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_05_1",
+      "name": "곤",
+      "effectName": "한 번 더 바꾸는 궤적",
+      "keyword": "차지 공격 · 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 9
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 7화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_05_2",
+      "name": "키르아",
+      "effectName": "추격을 멈출 줄 아는 눈",
+      "keyword": "신속 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 120
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 7화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_05_3",
+      "name": "네테로",
+      "effectName": "작게 움직이는 여유",
+      "keyword": "최종 대미지 · 행동 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "action_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 7화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_06_1",
+      "name": "곤",
+      "effectName": "불꽃이 줄어드는 속도",
+      "keyword": "공격 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 8·9화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_06_2",
+      "name": "크라피카",
+      "effectName": "승부의 문장 사이",
+      "keyword": "대미지 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 8·9화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_06_3",
+      "name": "키르아",
+      "effectName": "안심 뒤의 빈틈",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "directional_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 8·9화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_07_1",
+      "name": "크라피카",
+      "effectName": "넘지 않기로 한 선",
+      "keyword": "대미지 · 피해 감소",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 9·10·11화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_07_2",
+      "name": "레오리오",
+      "effectName": "초조함 다음의 판단",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 9·10·11화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_07_3",
+      "name": "키르아",
+      "effectName": "남은 차례의 집중",
+      "keyword": "신속 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 120
+        },
+        {
+          "stat": "crit_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 9·10·11화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_08_1",
+      "name": "곤",
+      "effectName": "문장을 넘어 보는 눈",
+      "keyword": "차지 공격 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 9
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 12화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_08_2",
+      "name": "크라피카",
+      "effectName": "다섯을 남기는 계산",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 12화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_08_3",
+      "name": "레오리오",
+      "effectName": "남겨 두지 않는 걸음",
+      "keyword": "공격 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 12화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_09_1",
+      "name": "곤",
+      "effectName": "낚싯줄이 닿을 자리",
+      "keyword": "차지 공격 · 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 9
+        },
+        {
+          "stat": "attack_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 14·15화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_09_2",
+      "name": "곤",
+      "effectName": "사냥 뒤의 퇴로",
+      "keyword": "이동 · 이동속도 비례 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "moving_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 14·15화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_09_3",
+      "name": "히소카",
+      "effectName": "위협이 향하는 방향",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "directional_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 14·15화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_10_1",
+      "name": "곤",
+      "effectName": "한 번 뒤를 더 보는 사냥",
+      "keyword": "공격 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 16화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_10_2",
+      "name": "히소카",
+      "effectName": "한곳을 향한 시선의 틈",
+      "keyword": "치명 확률 · 헤드·백 적중 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "directional_damage",
+          "value": 9
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 16화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_10_3",
+      "name": "곤",
+      "effectName": "다시 움직일 첫걸음",
+      "keyword": "행동 속도 · 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 16화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_11_1",
+      "name": "곤",
+      "effectName": "돌아 나올 틈의 관찰",
+      "keyword": "보스 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 17·18화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_11_2",
+      "name": "크라피카",
+      "effectName": "추측을 걷어 낸 답",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 17·18화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_11_3",
+      "name": "레오리오",
+      "effectName": "같이 나가기 위한 자리",
+      "keyword": "공격 · 피해 감소",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 17·18화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_12_1",
+      "name": "곤",
+      "effectName": "포기하지 않을 출발점",
+      "keyword": "공격 · 최대 체력",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 18·19화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_12_2",
+      "name": "한조",
+      "effectName": "힘만으로 얻지 못하는 말",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 10
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 18·19화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_12_3",
+      "name": "네테로",
+      "effectName": "승패를 가르는 기준",
+      "keyword": "최종 대미지 · 내 체력 65% 이상 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 9
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 18·19화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_13_1",
+      "name": "사토츠",
+      "effectName": "놓친 시간을 잇는 설명",
+      "keyword": "대미지 · 이동",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "move_speed",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 20화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_13_2",
+      "name": "키르아",
+      "effectName": "형의 말 밖에 남은 친구",
+      "keyword": "신속 · 치명 확률",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 150
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 20화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "hx_main_13_3",
+      "name": "곤",
+      "effectName": "합격 뒤에도 남은 질문",
+      "keyword": "공격 · 내 체력 65% 이상 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 9
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "2011년판 20화의 상황과 인물의 태도에 맞춘 ARCANA 수치 보상이다. 기술 습득이나 원작의 능력 수치 재현을 뜻하지 않는다.",
+      "uncertain": []
+    }
+  ],
+  "events": [
+    {
+      "key": "hx_main_01",
+      "title": "같은 배에 오른 이유",
+      "intro": "곤은 시험장으로 가는 배에서 레오리오와 크라피카를 만난다.",
+      "story": "거친 파도보다 먼저 두 사람의 말이 부딪친다. 헌터가 되려는 이유는 서로 달랐고, 그 차이는 쉽게 모욕으로 들렸다. 곤은 누구의 말이 더 큰지보다 두 사람이 끝까지 놓지 않는 이야기에 귀를 기울인다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤이 아버지를 찾으려는 이유부터 듣는다.",
+          "result": "남의 목표를 대신 정하지 않고 끝까지 들었다. 곤에게 시험은 먼 이름을 따라갈 첫걸음이었다.",
+          "card": "hx_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오의 말을 성급하게 끊지 않는다.",
+          "result": "거친 말투만으로 마음속 사정을 다 알 수는 없었다. 다시 물을 틈을 남기자 언성이 조금 낮아졌다.",
+          "card": "hx_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카에게 서로 다른 목적을 인정하자고 말한다.",
+          "result": "같이 가려면 같은 이유가 필요한 것은 아니었다. 차이를 지워 버리지 않고 대화를 이어 갔다.",
+          "card": "hx_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 1화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "곧바로 뜻이 같아진 것은 아니었다. 그래도 세 사람은 같은 시험장으로 향하는 길에서 서로의 이름을 기억하게 됐다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_ship_meeting.tga"
+    },
+    {
+      "key": "hx_main_02",
+      "title": "대답보다 먼저 보는 것",
+      "intro": "시험장으로 향하는 골목에서 쉽게 고를 수 없는 질문을 만난다.",
+      "story": "노파가 내놓은 질문은 어느 쪽을 답해도 소중한 사람을 버리게 만든다. 레오리오는 황당한 요구에 화를 내고, 크라피카는 문제의 틀을 살핀다. 곤은 두 가지 답만 생각해야 하는지 고개를 기울인다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "질문이 강요하는 두 답을 먼저 의심한다.",
+          "result": "주어진 말이 전부라고 받아들이지 않았다. 대답하지 않는 태도에도 이유가 있음을 살폈다.",
+          "card": "hx_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "화를 낸 레오리오가 어떤 부분을 참지 못했는지 듣는다.",
+          "result": "부당한 질문에 화를 내는 마음과 지금 할 행동을 나눴다. 따질 이유를 잃지 않으면서 말을 고를 수 있었다.",
+          "card": "hx_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 함께 실제로 그런 일이 닥쳤을 때를 생각한다.",
+          "result": "시험의 답만 맞히면 끝나는 문제가 아니었다. 쉽게 말하지 못한 이유가 오히려 오래 남았다.",
+          "card": "hx_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 2·3화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "말해 달라는 답을 서둘러 내놓지 않은 덕에 길이 이어졌다. 안내자를 거쳐 도착한 시험장에는 이미 수많은 지원자가 모여 있었다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    },
+    {
+      "key": "hx_main_03",
+      "title": "끝을 모르는 보폭",
+      "intro": "첫 시험은 사토츠를 따라 다음 시험장까지 가는 일이다.",
+      "story": "터널의 끝은 보이지 않고 발소리만 길게 겹친다. 스케이트보드를 든 키르아와 곤은 말을 주고받으며 달리고, 뒤쪽에서는 레오리오가 이를 악문다. 계단이 나타나자 앞장선 사토츠의 속도가 다시 오른다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사토츠의 걸음이 바뀌는 순간을 살핀다.",
+          "result": "멀리 있는 끝보다 바로 앞의 보폭을 읽었다. 불필요한 가속을 줄이자 다음 변화에 반응할 여지가 남았다.",
+          "card": "hx_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 곤이 나란히 움직이는 간격을 따라 본다.",
+          "result": "옆사람에게 맞추는 일과 힘을 낭비하는 일은 달랐다. 두 사람 사이의 가벼운 호흡에서 움직일 리듬을 찾았다.",
+          "card": "hx_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오가 계속 달리는 이유를 기억한다.",
+          "result": "남보다 거친 숨이 곧 약한 결심은 아니었다. 남은 길을 가늠하며 자세를 다시 세웠다.",
+          "card": "hx_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 3·4·5화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "터널을 벗어난 뒤에도 시험은 이어졌다. 안개 낀 습지에서는 시야를 놓치지 않는 일이 중요했고, 히소카의 위협을 넘긴 일행은 다음 시험장으로 향했다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_tunnel_run.tga"
+    },
+    {
+      "key": "hx_main_04",
+      "title": "익숙하지 않은 과제",
+      "intro": "두 번째 시험은 요리를 만들어 시험관을 만족시키는 일이다.",
+      "story": "멘치와 부하라 앞에 선 지원자들은 힘겨운 전투를 예상했던 표정을 감추지 못한다. 재료를 얻는 것과 제대로 다루는 것은 다른 일이었다. 곤과 동료들은 요리라는 이유만으로 과제를 얕보면 무엇을 놓치는지 살핀다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 재료의 생김새와 다루는 방법을 비교한다.",
+          "result": "눈에 보이는 크기만으로 용도를 정하지 않았다. 가까이 보고 손을 대는 순서부터 바꿨다.",
+          "card": "hx_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 평가받는 기준을 다시 듣는다.",
+          "result": "자신이 잘하는 방식부터 들이밀지 않았다. 과제가 요구하는 것을 짚자 시도할 방향이 분명해졌다.",
+          "card": "hx_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 서두르다 빠뜨린 준비를 나눈다.",
+          "result": "누가 더 빨리 내놓는지만 겨루지 않았다. 준비가 겹치는 부분을 나누고 각자의 차례를 지켰다.",
+          "card": "hx_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 6화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "첫 심사에서는 아무도 합격하지 못했다. 네테로의 중재로 다시 치른 알을 구하는 과제를 넘긴 일행은 다음 장소로 향하는 비행선에 올랐다.",
+        "nodes": [
+          {
+            "key": "unfamiliar_task",
+            "story": "시험장을 떠나며 곤은 처음 보는 일을 판단하던 자신의 얼굴을 떠올린다. 몸을 움직이는 일보다 생각을 바꾸는 일이 더 오래 걸릴 때도 있었다.",
+            "choices": [
+              {
+                "label": "처음의 예상과 달랐던 점을 말한다.",
+                "result": "익숙한 시험만 기다리고 있었다는 것을 인정했다. 다음에는 과제부터 듣기로 했다."
+              },
+              {
+                "label": "동료가 먼저 알아낸 것을 기억한다.",
+                "result": "혼자 놓친 부분을 다른 사람이 보고 있었다. 다음 낯선 문제에서도 그 시선을 찾기로 했다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_main_05",
+      "title": "손이 닿지 않는 공",
+      "intro": "비행선 안에서 곤과 키르아가 네테로의 공을 빼앗는 놀이에 도전한다.",
+      "story": "규칙은 간단하지만 네테로와 공 사이의 거리는 좀처럼 줄지 않는다. 곤은 방향을 바꿔 달려들고 키르아는 움직임의 차이를 계산한다. 네테로는 두 소년의 조급함까지 보고 있는 듯 여유롭게 자리를 옮긴다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 다음 도약의 방향을 바꿔 본다.",
+          "result": "손을 더 길게 뻗는 것만으로는 닿지 않았다. 출발하는 자리부터 바꿔 상대의 반응을 살폈다.",
+          "card": "hx_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아가 보아낸 속도 차이를 따져 본다.",
+          "result": "빠르게 보이는 장면과 실제로 따라갈 수 있는 움직임을 나눴다. 무리하게 좁힐 수 없는 거리는 남겨 두었다.",
+          "card": "hx_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "네테로가 몸을 돌리지 않고 피하는 때를 관찰한다.",
+          "result": "큰 동작을 해야만 거리를 지킬 수 있는 것은 아니었다. 작은 움직임이 다음 행동을 준비하고 있었다.",
+          "card": "hx_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 7화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "같은 상대를 앞에 두고도 곤과 키르아는 다르게 판단했다. 공을 빼앗아 시험을 끝내는 일은 없었고, 비행선은 세 번째 시험장으로 향했다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_netero_ball.tga"
+    },
+    {
+      "key": "hx_main_06",
+      "title": "다섯 사람의 불빛",
+      "intro": "트릭 타워 안에서는 다섯 명이 함께 판단해야 길이 열린다.",
+      "story": "곤 일행에 톤파까지 합류해 다섯 명이 되었다. 다수결과 승부를 거쳐야 내려갈 수 있는 길에서, 곤은 촛불이 먼저 꺼지면 지는 시합에 나선다. 같은 모양의 초라도 타는 방식까지 같지는 않았다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤의 초가 달라지는 속도를 끝까지 본다.",
+          "result": "처음의 모양보다 시간이 흐른 뒤의 차이가 중요했다. 이상한 점을 남의 설명으로 덮지 않았다.",
+          "card": "hx_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 승패를 가르는 문장을 되짚는다.",
+          "result": "초를 어떻게 지켜야 하는지와 무엇이 패배인지를 구분했다. 규칙을 읽자 다른 가능성이 보였다.",
+          "card": "hx_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 상대가 안심하는 순간을 살핀다.",
+          "result": "속임수가 통했다고 믿는 얼굴에는 잠깐 틈이 생겼다. 행동보다 먼저 바뀐 시선을 놓치지 않았다.",
+          "card": "hx_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 8·9화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "곤은 주어진 모양만 따라가지 않고 승부의 조건을 읽었다. 다섯 사람은 다음 시합으로 나아갔지만 함께 통과하는 일은 아직 끝나지 않았다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_main_07",
+      "title": "이겼다는 말의 무게",
+      "intro": "승패를 둘러싼 다툼이 길어지며 동료들 사이에도 초조함이 번진다.",
+      "story": "크라피카는 쓰러진 상대에게 끝장을 내라는 요구를 받아들이지 않는다. 시간이 흐르자 레오리오의 목소리는 커지고, 톤파도 틈을 놓치지 않는다. 누군가의 원칙을 꺾어야만 함께 갈 수 있는 것처럼 공기가 팽팽해진다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "크라피카가 거부하는 선을 분명히 듣는다.",
+          "result": "조급함을 이유로 무엇이든 요구할 수는 없었다. 지키려는 선을 알아야 다음 말을 고를 수 있었다.",
+          "card": "hx_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 말다툼이 시간을 쓰고 있음을 확인한다.",
+          "result": "초조한 마음을 서로에게 쏟는다고 시간이 돌아오지는 않았다. 지금 바꿀 수 있는 행동을 따로 골랐다.",
+          "card": "hx_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 아직 남은 차례를 정리한다.",
+          "result": "끝나지 않은 승부까지 한꺼번에 실패로 보지 않았다. 자신에게 돌아올 차례를 위해 몸을 가볍게 했다.",
+          "card": "hx_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 9·10·11화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "레오리오의 시간 내기는 불리하게 끝났고, 남은 승부는 키르아에게 돌아갔다. 다음 길을 얻은 다섯 명에게는 잃은 시간을 기다려야 하는 대가가 남았다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    },
+    {
+      "key": "hx_main_08",
+      "title": "다섯 명이 나갈 문",
+      "intro": "긴 대기 끝에 두 개의 문이 마지막 선택을 요구한다.",
+      "story": "남은 시간은 적다. 한쪽은 다섯 명이 갈 수 있지만 길고 어려우며, 다른 쪽은 짧고 쉬운 대신 세 명만 지나갈 수 있다. 곤은 사람을 둘로 나누기 전에 눈앞의 문과 주변을 다시 살핀다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 문 밖에 놓인 것까지 살펴본다.",
+          "result": "답이 문에 적힌 문장 안에만 있다고 생각하지 않았다. 사람을 줄이기 전에 바꿀 수 있는 환경을 찾았다.",
+          "card": "hx_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 두 길의 조건을 빠짐없이 비교한다.",
+          "result": "짧다는 말 하나에 나머지 조건을 묻어 두지 않았다. 필요한 시간을 따지면서도 다섯 명이라는 수를 지켰다.",
+          "card": "hx_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 마지막까지 함께 움직일 준비를 한다.",
+          "result": "먼저 나갈 사람을 고르는 대신 돌아서 부를 이름을 확인했다. 다툼이 있었어도 여기서 둘을 버릴 이유는 없었다.",
+          "card": "hx_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 12화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "다섯 사람을 남겨 두지 않을 방법을 찾은 일행은 함께 지상으로 내려왔다. 같은 표를 던졌다는 사실보다 끝까지 같이 나갈 길을 찾았다는 기억이 남았다.",
+        "nodes": [
+          {
+            "key": "after_tower",
+            "story": "밖으로 나오자 탑 안의 시계 소리가 더는 들리지 않았다. 시험은 끝나지 않았지만 다섯 사람을 세던 습관은 잠시 그대로 남았다.",
+            "choices": [
+              {
+                "label": "넘어진 사람이 없는지 돌아본다.",
+                "result": "앞으로만 쏠렸던 시선을 뒤로 돌렸다. 마지막 발소리까지 나온 뒤에야 어깨의 힘을 뺐다."
+              },
+              {
+                "label": "다르게 보게 된 동료의 행동을 떠올린다.",
+                "result": "말다툼만 기억하기에는 함께 빠져나온 길이 길었다. 다음 판단에서는 그 행동도 함께 보기로 했다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_main_09",
+      "title": "번호표의 무게",
+      "intro": "제빌섬에서는 자신의 표를 지키면서 다른 지원자의 표도 얻어야 한다.",
+      "story": "정해진 표적의 번호표는 세 점, 자기 표도 세 점, 다른 표는 한 점이다. 일주일 뒤 여섯 점을 지녀야 통과할 수 있다. 곤이 뽑은 표적은 히소카였다. 그는 정면에서 힘을 겨루기 전에 상대를 찾고 기다릴 방법을 생각한다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 낚싯대를 쓸 수 있는 거리를 가늠한다.",
+          "result": "가까이 가는 일과 표를 건질 수 있는 자리를 구분했다. 한 번의 움직임에 필요한 거리를 재어 보았다.",
+          "card": "hx_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "자기 번호표를 지키며 접근할 순서를 짠다.",
+          "result": "원하는 표만 보다 지금 가진 표를 잃을 수 있었다. 곤은 돌아올 방향까지 살피며 움직이기로 했다.",
+          "card": "hx_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히소카가 무엇을 보고 움직이는지 먼저 관찰한다.",
+          "result": "위험한 상대라는 말만 되풀이하지 않았다. 시선이 옮겨가는 때를 구체적으로 기다렸다.",
+          "card": "hx_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 14·15화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "곤은 히소카를 추적하기 시작했다. 섬의 다른 곳에서는 크라피카와 레오리오가 서로 표적이 아님을 확인한 뒤 협력하기로 했다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga"
+    },
+    {
+      "key": "hx_main_10",
+      "title": "성공 뒤에 있던 사냥꾼",
+      "intro": "곤은 히소카의 표를 낚아채지만 자신을 노리던 시선을 놓친다.",
+      "story": "낚싯줄이 목표한 번호표를 잡았다. 그러나 달아나려던 곤은 다른 지원자의 기습을 받아 표를 빼앗기고 만다. 오랫동안 기다린 순간이 성공으로 바뀌자 주변을 살피던 눈이 너무 빨리 풀렸다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "표를 잡은 직후 곤의 시선이 향한 곳을 떠올린다.",
+          "result": "성공을 확인하느라 다음 위험을 보는 일이 늦었다. 끝났다고 생각한 자리에서 경계를 다시 시작했다.",
+          "card": "hx_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히소카를 상대할 때와 뒤를 경계할 때를 나눠 본다.",
+          "result": "한 사람에게 쏟은 집중이 모든 방향을 지켜 주지는 않았다. 다음에는 움직일 자리와 살필 방향을 함께 남기기로 했다.",
+          "card": "hx_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 빼앗긴 뒤에도 남은 행동부터 고른다.",
+          "result": "실패를 떠올리는 일만으로 시간을 다 쓰지 않았다. 몸을 움직일 수 있게 되면 어디로 갈지부터 정했다.",
+          "card": "hx_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 16화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "히소카가 번호표를 남기고 갔지만 곤은 그것을 자기 힘으로 얻은 승리로 받아들이지 못했다. 원치 않는 빚을 마음에 남긴 채, 다시 동료들을 찾아 움직인다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_main_11",
+      "title": "돌아 나오기 위한 판단",
+      "intro": "폰즈를 쫓아간 동굴에서 곤과 동료들이 독사의 함정에 갇힌다.",
+      "story": "레오리오의 상태는 나빠지고, 함정을 놓은 지원자는 이미 죽어 해제법을 물을 수 없다. 곤과 크라피카는 폰즈에게서 상황을 듣는다. 표를 얻으러 들어왔지만 지금은 모두가 나갈 방법부터 찾아야 한다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 안으로 들어올 때 놓친 길을 되짚는다.",
+          "result": "한번 지나왔다는 사실만으로 돌아갈 수 있는 길은 아니었다. 막힌 곳을 분명히 하니 다른 방법을 찾을 여지가 생겼다.",
+          "card": "hx_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 알고 있는 사실부터 나눈다.",
+          "result": "추측을 사실처럼 덧붙일수록 판단이 흐려졌다. 함정과 출구에 대해 확인한 것부터 하나씩 정리했다.",
+          "card": "hx_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오가 움직일 때 필요한 도움을 살핀다.",
+          "result": "자기 힘으로 걷는다고 말하는 것과 실제 움직임은 달랐다. 말을 다그치지 않고 함께 나갈 때의 자리를 정했다.",
+          "card": "hx_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 17·18화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "곤 일행은 동굴을 빠져나와 네 번째 시험을 넘겼다. 다음 시험에 앞서 기다리는 것은 네테로와의 면담이었다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga"
+    },
+    {
+      "key": "hx_main_12",
+      "title": "지지 않겠다는 대답",
+      "intro": "최종 시험의 첫 시합에서 곤은 한조와 마주 선다.",
+      "story": "면담을 마친 지원자들 앞에 승리한 사람부터 합격하는 대진표가 펼쳐진다. 상대를 죽이면 즉시 실격이다. 곤은 한조의 움직임에 밀리고도 항복을 거부한다. 한조가 압박을 높여도 곤이 원하는 대답은 달라지지 않는다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤이 처음 시험장으로 왔던 이유를 떠올린다.",
+          "result": "당장의 힘 차이를 모르는 고집은 아니었다. 곤은 여기서 스스로 멈추는 것만은 받아들이지 않았다.",
+          "card": "hx_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한조가 실력과 승리 조건을 따로 재는 모습을 본다.",
+          "result": "강한 공격만으로 원하는 말을 얻을 수는 없었다. 힘으로 풀리지 않는 조건 앞에서 판단을 바꿔야 했다.",
+          "card": "hx_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시험을 지켜보는 네테로의 기준을 생각한다.",
+          "result": "누가 더 강한지만 보았다면 이미 끝났을 시합이었다. 한 사람이 어떤 선택을 끝까지 지키는지가 남았다.",
+          "card": "hx_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 18·19화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다. 한조가 스스로 패배를 인정하는 세부 경위는 공식 19~20화 소개와 ANNA MOVIES의 해당 화 해설을 함께 대조했다. 직접 영상을 재생해 확인하지는 않았다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "한조는 끝내 스스로 패배를 인정했다. 곤이 그 결말에 납득하지 못해 다시 말을 이었지만, 시합의 승패는 이미 정해져 있었다.",
+        "nodes": [
+          {
+            "key": "not_strength_victory",
+            "story": "한조는 곤보다 약해서 물러난 것이 아니었다. 곤 역시 자신의 힘으로 상대를 제압했다고 생각하지 않았다. 같은 승부를 두 사람이 다르게 받아들이고 있었다.",
+            "choices": [
+              {
+                "label": "강함과 승리의 차이를 기억한다.",
+                "result": "어느 쪽이 더 강했는지와 누구의 조건이 충족됐는지를 나눠 보았다."
+              },
+              {
+                "label": "곤이 납득하지 못한 이유를 남겨 둔다.",
+                "result": "시험의 결과가 곧 마음의 결론은 아니었다. 그 어긋남까지 다음 이야기로 가져갔다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga"
+    },
+    {
+      "key": "hx_main_13",
+      "title": "합격 통보에 없는 이름",
+      "intro": "병실에서 깨어난 곤은 사토츠에게 합격과 키르아의 탈락을 듣는다.",
+      "story": "사토츠의 설명은 곤이 의식을 잃은 뒤의 시합으로 이어진다. 키르아는 형 일루미와 마주한 뒤 보드로를 죽여 실격했고, 이미 시험장을 떠났다. 곤은 자기가 합격했다는 말보다 친구에게 무슨 일이 있었는지를 묻는다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "사토츠에게 일어난 순서대로 설명해 달라고 한다.",
+          "result": "결과를 먼저 되돌리려 하기보다 무엇이 있었는지 들었다. 곤이 보지 못한 시간의 조각들이 이어졌다.",
+          "card": "hx_main_13_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤이 알고 있던 키르아의 모습을 떠올린다.",
+          "result": "한 장의 결과표에 친구의 모든 모습이 담기지는 않았다. 함께 달리고 웃던 기억까지 없어진 것은 아니었다.",
+          "card": "hx_main_13_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 지금 직접 물어볼 말을 고른다.",
+          "result": "합격했다는 안도에 질문을 묻어 두지 않았다. 친구가 무엇을 원했는지 남의 말만 듣고 끝내지 않기로 했다.",
+          "card": "hx_main_13_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 20화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다. 키르아의 보드로 살해 세부 경위는 공식 20~21화 소개가 주는 형과의 대결·탈락·곤의 항의 흐름에 ANNA MOVIES 20화 해설을 보조로 대조했다. 일루미의 강제 조작 여부와 이후 밝혀지는 침의 작용은 단정하지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "시험 결과는 곤이 듣기 전에 정해져 있었다. 그러나 친구의 마음까지 형의 말로 정할 수는 없었다. 곤은 경위를 들은 뒤 일루미에게 직접 따져 묻기로 한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_satotz.tga"
+    },
+    {
+      "key": "hx_main_14",
+      "title": "다시 만나러 가는 길",
+      "intro": "곤은 일루미에게 항의한 뒤 키르아를 찾아가기로 한다.",
+      "story": "시험장을 떠난 키르아는 여기서 대답할 수 없다. 곤은 친구가 무엇을 원하는지 직접 듣겠다고 마음먹는다. 크라피카와 레오리오도 길을 함께하기로 한다. 합격증을 손에 넣은 여정은 다른 사람의 이름을 향해 이어진다.",
+      "mainStage": 14,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 키르아에게 직접 물을 말을 정한다.",
+          "result": "누군가가 대신 내린 결론을 가져가려는 것이 아니었다. 친구의 대답을 듣기 위해 만날 자리를 찾기로 했다.",
+          "card": "hunter_exam_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 찾아갈 방향을 확인한다.",
+          "result": "마음만 급히 앞세우지 않고 갈 곳부터 살폈다. 함께 움직일 수 있는 계획이 결심을 받쳐 주었다.",
+          "card": "hunter_exam_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 출발할 준비를 나눈다.",
+          "result": "서로 다른 이유로 배에 올랐던 이들이 이제 한 친구를 찾으러 간다. 도착했을 때 부를 이름은 같았다.",
+          "card": "hunter_exam_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 21화의 공식 각화 소개를 기준으로 한 사건이다. 선택 문장과 반응은 새로 썼으며 시험의 원래 결과는 유지한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "곤과 크라피카, 레오리오가 키르아를 찾아 길을 나선다. 시험에서 받은 것은 합격증이지만, 시험장에서 만난 친구는 그 한 장보다 큰 다음 목적이 되었다.",
+            "choices": [
+              {
+                "label": "다시 만날 때 전할 마음을 간직한다.",
+                "result": "헌터시험에서 함께 걸은 길을 기억한다. 합격증 너머로 이어지는 약속이 여정의 기념으로 남았다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_scene_friends_departure.tga"
+    },
+    {
+      "key": "hx_rod_knot",
+      "title": "낚싯줄의 작은 매듭",
+      "intro": "곤은 시험 도중 다시 묶었던 낚싯줄을 떠올린다.",
+      "story": "키르아는 그렇게 오래 들여다볼 필요가 있느냐고 묻고, 곤은 손끝에 걸리는 작은 차이를 보여 준다. 크라피카는 같은 도구라도 쓰려는 거리에 따라 준비가 달라진다고 말한다.",
+      "actionCost": 1,
+      "previous": "hx_main_03",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 줄을 당겼을 때 힘이 몰리는 곳을 찾는다.",
+          "result": "겉으로 멀쩡한 부분도 힘을 주자 다르게 움직였다. 곤은 손끝으로 느낀 차이를 기억했다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 빠르게 던지고 거두는 간격을 맞춘다.",
+          "result": "한 번 던진 뒤 손이 돌아오는 데도 시간이 필요했다. 다음 동작까지 이어지는 속도를 살폈다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 쓸 거리에 따라 준비를 나눈다.",
+          "result": "가까운 곳과 먼 곳을 같은 방식으로 겨누지 않았다. 도구가 닿는 범위를 알아야 무리한 판단도 줄일 수 있었다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_start_line",
+      "title": "출발선 뒤의 시선",
+      "intro": "시험이 시작되기 전 출발선에서 본 움직임을 되짚는다.",
+      "story": "아직 출발하라는 말이 나오지 않았는데도 지원자들의 어깨가 자꾸 부딪친다. 곤은 한 걸음 물러서서 지나갈 틈을 찾는다. 사토츠가 모습을 드러내자 군중의 시선이 한곳으로 쏠린다.",
+      "actionCost": 1,
+      "previous": "hx_main_02",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "한조가 발을 두는 위치를 본다.",
+          "result": "가장 앞자리를 차지하지 않아도 움직일 공간은 만들 수 있었다. 밀치는 팔보다 발밑의 간격을 보았다.",
+          "card": "hx_hanzo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사토츠의 손짓이 끝날 때까지 기다린다.",
+          "result": "먼저 움직이려는 마음 때문에 안내를 놓칠 뻔했다. 출발할 때와 들을 때를 구분했다.",
+          "card": "hx_satotz",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 군중을 가로지르지 않는 길을 찾는다.",
+          "result": "직선으로 밀고 가는 대신 열린 틈을 따라 움직였다. 주변 사람도 함께 지나갈 자리가 남았다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_satotz.tga"
+    },
+    {
+      "key": "hx_small_rest",
+      "title": "쉬는 동안 남겨 둔 질문",
+      "intro": "시험 도중 동료들과 잠깐 숨을 돌렸던 대화가 생각난다.",
+      "story": "레오리오는 말없이 앉아 있다가 곤에게 왜 그렇게 궁금한 것이 많으냐고 묻는다. 키르아는 대답을 기다리며 벽에 기대 선다. 다음 시험을 예상하던 대화가 잠깐 서로에 관한 이야기로 바뀐다.",
+      "actionCost": 0,
+      "previous": "hx_main_03",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤에게 가장 먼저 물어보고 싶었던 것을 꺼낸다.",
+          "result": "모르는 것을 감추지 않자 이야기가 편해졌다. 답을 듣고도 새로운 질문이 남았다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오의 이야기가 끝날 때까지 자리를 지킨다.",
+          "result": "서두르지 않는 시간에는 말투도 달라졌다. 다음 출발을 재촉하기 전에 상대의 호흡을 보았다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아에게 다음에는 무엇을 해 보고 싶은지 묻는다.",
+          "result": "정해진 역할 대신 해 보고 싶은 일을 묻자 키르아가 잠깐 웃었다. 대답을 강요하지 않고 기다렸다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga"
+    },
+    {
+      "key": "hx_board_wheels",
+      "title": "굴러가지 않는 바퀴",
+      "intro": "키르아가 스케이트보드를 살피던 모습을 기억한다.",
+      "story": "멀리 갈 때만 움직임을 준비하는 것은 아니다. 곤은 보드를 들고 달릴 때 팔이 어떻게 바뀌는지 보고, 크라피카는 주변 사람과 부딪히지 않을 간격을 가늠한다.",
+      "actionCost": 0,
+      "previous": "hx_main_02",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "키르아와 보드를 거두는 손의 움직임을 맞춘다.",
+          "result": "들고 있던 물건을 치우는 순간에도 다음 발이 이어졌다. 멈춘 뒤 다시 출발하는 시간을 줄였다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 손을 바꿔 잡았을 때 균형을 비교한다.",
+          "result": "익숙한 쪽만 쓰면 기울어지는 곳이 있었다. 작은 차이를 몸으로 확인했다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 옆사람이 지나갈 폭을 남긴다.",
+          "result": "자신이 편한 자리만 차지하지 않았다. 서로의 진로가 겹치지 않자 움직임이 단순해졌다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_killua.tga"
+    },
+    {
+      "key": "hx_cup_offer",
+      "title": "먼저 건네온 친절",
+      "intro": "시험장에서 처음 들었던 톤파의 능숙한 조언을 돌아본다.",
+      "story": "말이 능숙하다는 이유만으로 모두 믿을 수는 없다. 곤은 궁금한 점을 되묻고, 크라피카는 자신이 확인한 안내와 대조한다. 레오리오는 좋은 말에 서둘러 약속부터 하지 않으려 한다.",
+      "actionCost": 1,
+      "previous": "hx_main_02",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤처럼 모르는 부분을 구체적으로 다시 묻는다.",
+          "result": "두루뭉술한 조언은 다시 물을수록 빈 곳이 드러났다. 웃으며 들었다고 모두 받아들인 것은 아니었다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 직접 들은 규칙을 먼저 확인한다.",
+          "result": "남에게 전해 들은 말과 시험관의 안내를 섞지 않았다. 판단할 근거가 분명해졌다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 도움을 받는 조건부터 확인한다.",
+          "result": "친절에 바로 빚을 졌다고 생각하지 않았다. 무엇을 부탁받는지 들은 뒤에야 대답했다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    },
+    {
+      "key": "hx_hanzo_distance",
+      "title": "말 많은 사람의 발끝",
+      "intro": "말을 멈추지 않던 한조의 발끝이 문득 떠오른다.",
+      "story": "레오리오는 한조의 긴 설명에 한숨을 쉬고, 키르아는 대꾸 없이 그의 발을 본다. 말을 많이 한다고 몸까지 느슨해지는 것은 아니었다. 곤도 설명을 듣다가 두 사람이 보고 있는 곳을 따라 본다.",
+      "actionCost": 1,
+      "previous": "hx_main_03",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "한조가 말을 하면서도 유지하는 자세를 본다.",
+          "result": "고개가 돌아가도 발의 중심은 쉽게 흐트러지지 않았다. 타점을 고르는 준비가 자세에 남아 있었다.",
+          "card": "hx_hanzo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 말보다 빠르게 바뀐 움직임을 찾는다.",
+          "result": "말이 끝나기 전에 발이 먼저 자리를 바꿨다. 귀와 눈에 들어오는 신호의 속도가 달랐다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 설명 중 직접 확인할 수 있는 부분을 고른다.",
+          "result": "대단해 보인다는 감상만 남기지 않았다. 다음 움직임에서 확인할 작은 기준을 만들었다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga"
+    },
+    {
+      "key": "hx_hisoka_glance",
+      "title": "눈이 마주치기 전",
+      "intro": "습지의 위협을 넘긴 뒤, 멀리서 히소카를 보던 순간을 되짚는다.",
+      "story": "아무 말도 하지 않았는데 지나가던 사람들이 걸음을 틀었다. 곤과 크라피카는 그 변화가 어디서 시작됐는지 본다. 키르아는 상대를 계속 바라보는 일 자체가 틈이 될 수 있다고 경계한다.",
+      "actionCost": 1,
+      "previous": "hx_main_03",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "히소카를 중심으로 바뀌는 주변의 간격을 읽는다.",
+          "result": "상대의 손만 보는 동안 다른 사람들의 움직임도 달라지고 있었다. 위협이 만드는 빈자리를 기억했다.",
+          "card": "hx_hisoka",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 휩쓸리지 않고 지나갈 방향을 정한다.",
+          "result": "남들이 피한 방향을 무조건 따라가지 않았다. 자신이 확인한 길을 기준으로 판단했다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아처럼 시선을 거두어 주변도 살핀다.",
+          "result": "한 상대만 오래 보는 동안 가까운 발소리를 놓치지 않으려 했다. 경계할 대상을 하나로 줄이지 않았다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga"
+    },
+    {
+      "key": "hx_supply_sort",
+      "title": "먼저 나눌 것",
+      "intro": "시험 중 이동을 기다리며 준비를 나누던 때를 돌아본다.",
+      "story": "할 일은 작아 보여도 모두를 동시에 붙잡으면 손이 멈춘다. 크라피카가 먼저 끝낼 일을 고르자고 하고, 곤은 사토츠를 따라갈 때처럼 순서를 정하면 어떠냐고 묻는다.",
+      "actionCost": 1,
+      "previous": "hx_main_03",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "레오리오와 자주 쓰는 물건부터 나눈다.",
+          "result": "필요할 때마다 가방 전체를 뒤지는 일이 줄었다. 출발 직전에 다시 찾을 물건도 따로 남겼다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사토츠의 보폭을 떠올리며 이동 순서부터 적는다.",
+          "result": "자기 속도만 따로 계산하지 않았다. 앞사람을 따라갈 구간과 기다릴 구간을 나눴다.",
+          "card": "hx_satotz",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 미루어도 되는 일을 골라 뺀다.",
+          "result": "지금 하지 않아도 되는 일을 모두 실패로 여기지 않았다. 꼭 필요한 준비에 집중할 수 있었다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    },
+    {
+      "key": "hx_pack_followup",
+      "title": "마지막에 찾지 않아도 되는 것",
+      "intro": "짐부터 나누었던 대기 시간에 뜻밖의 여유가 생겼다.",
+      "story": "출발을 재촉하는 소리가 나도 무엇을 어디 넣었는지 다시 묻지 않아도 된다. 레오리오는 남은 틈을 어떻게 쓸지 고른다. 곤은 이미 정리한 것을 자꾸 만지려다 손을 멈춘다.",
+      "actionCost": 1,
+      "previous": "hx_supply_sort",
+      "previousChoice": 1,
+      "requiredCard": "hx_leorio",
+      "choices": [
+        {
+          "label": "남은 틈을 다음 행동을 위한 여유로 남긴다.",
+          "result": "미리 나눈 준비 덕에 한 가지를 더 생각할 여지가 생겼다. 레오리오는 급히 새 일을 늘리지 않고 그 여유를 지켰다.",
+          "card": "hx_leorio_plan",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 도구를 잡자마자 움직이는 연습을 한다.",
+          "result": "찾는 데 쓸 시간을 줄였으니 첫 동작에 집중할 수 있었다. 손에 익은 순서를 몸의 움직임에 이어 붙였다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 출발 전 확인을 짧게 정리한다.",
+          "result": "매번 전부 묻는 대신 꼭 필요한 질문만 남겼다. 짧아져도 확인할 내용은 빠뜨리지 않았다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga"
+    },
+    {
+      "key": "hx_path_followup",
+      "title": "돌아가지 않아도 되는 길",
+      "intro": "이동 순서를 먼저 정리했던 대기 시간에는 헛걸음이 줄었다.",
+      "story": "앞사람을 따라가야 할 구간과 기다릴 지점을 나누니 불필요하게 되돌아갈 일이 줄었다. 사토츠의 일정한 걸음에서 떠올린 방법을 이번에는 자신들의 준비에 맞춰 본다.",
+      "actionCost": 1,
+      "previous": "hx_supply_sort",
+      "previousChoice": 2,
+      "requiredCard": "hx_satotz",
+      "choices": [
+        {
+          "label": "아낀 움직임을 다음 행동의 여유로 남긴다.",
+          "result": "빨리 움직인 것보다 두 번 할 일을 줄인 것이 컸다. 레오리오는 다음 상황을 볼 시간을 확보했다.",
+          "card": "hx_leorio_plan",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "사토츠의 걸음을 떠올리며 일정한 속도를 지킨다.",
+          "result": "비는 구간마다 무리하게 뛰지 않았다. 다시 합류할 때도 보폭이 크게 흐트러지지 않았다.",
+          "card": "hx_satotz",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 방향을 바꾸는 신호를 짧게 맞춘다.",
+          "result": "계획과 다른 길을 만나도 긴 설명 없이 반응할 수 있게 했다. 빨리 바꾸되 서로 놓치지 않을 기준이 남았다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_satotz.tga"
+    },
+    {
+      "key": "hx_signal_followup",
+      "title": "바퀴 소리 대신 남은 신호",
+      "intro": "키르아와 맞췄던 작은 손짓이 어떻게 정해졌는지 떠올린다.",
+      "story": "보드를 거두고 움직이는 순간에는 긴 말을 주고받기 어렵다. 곤은 손을 얼마나 높이 들어야 보이는지 묻고, 크라피카는 신호를 잘못 읽었을 때 멈출 방법도 정하자고 한다.",
+      "actionCost": 1,
+      "previous": "hx_board_wheels",
+      "previousChoice": 1,
+      "requiredCard": "hx_killua",
+      "choices": [
+        {
+          "label": "키르아와 가장 작은 동작으로 출발을 알린다.",
+          "result": "크게 팔을 흔들지 않아도 움직일 순간을 맞출 수 있었다. 손짓 뒤에 발이 이어지는 간격을 좁혔다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 서로 시야에서 놓치지 않는 위치를 찾는다.",
+          "result": "빠르게 가는 것만큼 보이는 곳에 남는 것도 중요했다. 상대의 얼굴이 아니라 움직일 자리를 확인했다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 애매하면 멈추는 신호를 정한다.",
+          "result": "잘못 알아듣고 끝까지 밀고 가는 일을 줄였다. 멈출 기준이 생기자 출발할 때 망설임도 줄었다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_killua.tga"
+    },
+    {
+      "key": "hx_tower_vote",
+      "title": "표를 던진 뒤에 남는 것",
+      "intro": "탑을 빠져나온 뒤 다수결에 대해 나누었던 말을 기억한다.",
+      "story": "같은 선택을 했어도 이유까지 같지는 않았다. 레오리오는 급해서 고른 길을 떠올리고, 크라피카는 설명을 더 들었어야 할 때를 짚는다. 곤은 숫자가 많다는 것만으로 마음이 편해지지 않았던 순간을 기억한다.",
+      "actionCost": 1,
+      "previous": "hx_main_08",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "레오리오와 급할 때 생략한 질문을 고른다.",
+          "result": "다음에도 시간이 넉넉하리라는 보장은 없었다. 짧게라도 물어야 할 한 가지를 남겼다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 선택 전에 공유할 정보를 정한다.",
+          "result": "모두가 서로 다른 것을 알고 표를 던지면 같은 결과도 다르게 받아들였다. 먼저 나눌 사실을 골랐다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 반대했던 사람의 이유도 기억한다.",
+          "result": "표에서 졌다는 이유로 생각까지 사라진 것은 아니었다. 지나온 뒤에야 도움이 되는 걱정도 있었다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    },
+    {
+      "key": "hx_netero_recall",
+      "title": "잡지 못한 공의 궤적",
+      "intro": "비행선에서 놓친 움직임을 곤과 키르아가 비교하던 대화다.",
+      "story": "곤은 손이 닿을 듯했던 순간을 말하고, 키르아는 네테로가 더 움직일 수 있었던 여지를 짚는다. 둘이 기억을 맞추자 같은 놀이에서도 보지 못한 부분이 드러난다.",
+      "actionCost": 1,
+      "previous": "hx_main_05",
+      "previousChoice": 3,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "네테로가 남겨 둔 작은 여유를 다시 살핀다.",
+          "result": "눈앞의 회피만 보고 다음 동작을 잊고 있었다. 작게 움직이는 사람이 더 많은 선택을 남길 수도 있었다.",
+          "card": "hx_netero",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤이 바꾸었던 도약의 시작점을 비교한다.",
+          "result": "높이만 달라진 것이 아니었다. 발을 딛는 위치가 손이 닿을 방향을 바꾸고 있었다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "키르아와 끝내 좁히지 못한 속도 차이를 인정한다.",
+          "result": "기억 속에서까지 상대를 따라잡았다고 꾸미지 않았다. 지금 보이는 차이를 다음 판단의 기준으로 삼았다.",
+          "card": "hx_killua",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_netero.tga"
+    },
+    {
+      "key": "hx_badge_weight",
+      "title": "쥔 표와 놓친 방향",
+      "intro": "제빌섬에서 번호표에 시선이 쏠렸던 때를 돌아본다.",
+      "story": "섬의 길을 걷는 지원자들은 서로의 번호를 숨기거나 확인하려 한다. 크라피카는 레오리오에게 표를 확인한 뒤에도 주변을 보라고 말한다. 멀리 지나가는 히소카를 보고 레오리오는 발걸음을 낮춘다.",
+      "actionCost": 1,
+      "previous": "hx_main_09",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "크라피카와 번호 확인 뒤의 경계를 나눈다.",
+          "result": "알아내고 싶은 것을 보았다고 관찰을 끝내지 않았다. 번호와 사람의 다음 움직임을 따로 기억했다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 자신의 표를 다시 챙긴다.",
+          "result": "빼앗을 생각만 하다 이미 가진 것을 놓칠 수 있었다. 다음 판단을 위해 최소한의 준비를 지켰다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "히소카가 나타나자 달라진 사람들의 방향을 본다.",
+          "result": "누가 달아나는지보다 어디가 비는지 살폈다. 위협을 피해 움직이는 흐름에도 틈이 생겼다.",
+          "card": "hx_hisoka",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hisoka.tga"
+    },
+    {
+      "key": "hx_trap_marks",
+      "title": "들어가기 전에 묻는 말",
+      "intro": "동굴에서 나온 뒤 먼저 확인했어야 할 것을 돌아보던 장면이다.",
+      "story": "지나갈 수 있는 입구가 있다는 사실만으로 나올 수 있는 것은 아니었다. 레오리오는 안으로 먼저 들어갔던 자신을 떠올리고, 곤은 돌아오는 길에서 보았던 차이를 말한다.",
+      "actionCost": 1,
+      "previous": "hx_main_11",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "크라피카와 해제할 사람부터 확인하는 기준을 세운다.",
+          "result": "장치를 아는 사람이 반드시 곁에 있으리라 기대하지 않았다. 모르고 있는 부분을 분명히 남겼다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 먼저 나설 때 알릴 말을 정한다.",
+          "result": "혼자 빨리 확인하겠다는 말로 나머지 상황을 지우지 않았다. 기다리는 사람이 판단할 정보도 남기기로 했다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "곤과 입구와 출구의 조건을 따로 적는다.",
+          "result": "왔던 길이라고 같은 조건으로 돌아갈 수는 없었다. 지나온 흔적보다 지금의 차이를 살폈다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_leorio.tga"
+    },
+    {
+      "key": "hx_rule_margin",
+      "title": "대진표 옆의 작은 글씨",
+      "intro": "곤이 병실로 옮겨진 뒤 복도에서 나누었던 대화를 되짚는다.",
+      "story": "크라피카와 레오리오는 복도에서 곤과 한조의 시합을 돌아본다. 힘의 차이는 분명했지만 대진표의 결과는 그 차이만으로 정해지지 않았다. 곤이 병실에서 쉬는 동안 두 사람은 흘려듣지 말았어야 할 시험 규칙을 생각한다.",
+      "actionCost": 1,
+      "previous": "hx_main_12",
+      "previousChoice": 2,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "한조가 패배를 인정한 판단을 다시 본다.",
+          "result": "공격을 더 할 수 있다는 것과 계속해야 한다는 것은 달랐다. 자신이 원하는 결과에 맞춰 행동을 고르는 법을 살폈다.",
+          "card": "hx_hanzo",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "네테로가 제시한 규칙과 시합의 결과를 대조한다.",
+          "result": "눈앞의 우세만으로 결말을 정해 놓으면 중요한 조건을 놓쳤다. 끝을 확인할 때까지 판단을 열어 두었다.",
+          "card": "hx_netero",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 규칙에 적히지 않은 마음의 차이를 구분한다.",
+          "result": "결과가 확정돼도 모두가 같은 기분이 되는 것은 아니었다. 이긴 사람의 말도 끝까지 들어야 했다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "헌터시험편의 해당 선행 장면 이후에 있었을 법한 짧은 대화·준비를 새로 쓴 일반 사건이다. 도입에서 회고임을 표시해, 키르아가 시험장을 떠난 뒤 뽑혀도 현재 동석을 주장하지 않는다. 실제 원작에 이 대화가 있다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_hanzo.tga"
+    },
+    {
+      "key": "hx_epilogue_three",
+      "title": "셋이 걷는 다음 길",
+      "intro": "시험장을 나선 세 사람은 다음 목적지를 향한다.",
+      "story": "곤은 키르아에게 물어볼 말을 아끼고, 레오리오는 필요한 준비를 살핀다. 크라피카는 함께 갈 길을 확인한다. 시험장에서 서로를 의심했던 시간도 있었지만 지금은 같은 이름을 향해 걷는다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤이 전하고 싶은 말을 먼저 듣는다.",
+          "result": "시험의 결과를 늘어놓는 대신 만나서 하고 싶은 이야기를 골랐다. 대답은 키르아를 만난 뒤 직접 듣기로 했다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오와 앞서 가지 않고 보폭을 맞춘다.",
+          "result": "마음이 급하다고 일행까지 흩어질 필요는 없었다. 돌아보지 않아도 옆에 있을 거리를 지켰다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 알고 있는 길부터 확인한다.",
+          "result": "아직 모르는 곳을 아는 척하지 않았다. 확인할 순서를 나누니 발걸음이 가벼워졌다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 21화의 출발 결심 직후를 바탕으로 새로 쓴 짧은 대화다. 쿠쿠르 마운틴 도착, 조르딕가 방문, 키르아 재회나 이후 시험은 진행하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_gon.tga"
+    },
+    {
+      "key": "hx_epilogue_meaning",
+      "title": "번호 대신 부를 이름",
+      "intro": "시험이 끝나자 지원자 번호보다 사람의 이름이 먼저 떠오른다.",
+      "story": "곤은 자신이 들고 있는 자격과 키르아에게 하려는 말을 함께 생각한다. 크라피카와 레오리오는 시험에 온 이유가 달랐던 것처럼, 앞으로 자격을 쓸 방식도 다를 것이라고 말한다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "곤과 합격 뒤에도 이어지는 목적을 떠올린다.",
+          "result": "합격한 순간 모든 궁금증이 해결된 것은 아니었다. 직접 찾아가 물어볼 사람이 있다는 사실이 다음 걸음을 만들었다.",
+          "card": "hx_gon",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크라피카와 서로의 목적을 다시 존중한다.",
+          "result": "함께 걷는다고 앞으로의 길까지 같아질 필요는 없었다. 헤어질 때에도 기억할 이유를 나눴다.",
+          "card": "hx_kurapika",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레오리오가 이 길에서 지키려는 것을 듣는다.",
+          "result": "누가 먼저 큰일을 이룰지 겨루지 않았다. 각자의 결심이 어떻게 이어질지 지켜보기로 했다.",
+          "card": "hx_leorio",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2011년판 21화의 출발 결심 직후를 바탕으로 새로 쓴 짧은 대화다. 쿠쿠르 마운틴 도착, 조르딕가 방문, 키르아 재회나 이후 시험은 진행하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_hunter_exam_kurapika.tga"
+    }
+  ],
+  "editorReview": "content/reviews/additional-heads-20261010/editor-review.json",
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\hunter_exam-main-01.json",
+      "monitorRecordId": "0a18ab74-9666-4e43-9ab6-7eeb053187d6"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\hunter_exam-side-01.json",
+      "monitorRecordId": "43727e7b-5c2d-4c68-94ad-d19e88e2d792"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\additional-editor-delta-01.json",
+      "monitorRecordId": "49e17713-c8a0-4faf-b63a-bc3a12c66337",
+      "scope": "독립 편집 후 변경된 21개 사건"
+    }
+  ]
+}

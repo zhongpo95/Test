@@ -1,0 +1,2513 @@
+{
+  "role": "신규 여섯 작품의 보상 능력치 설계 초안. 운영 데이터가 아니며 Gemma 검토와 원작·이미지 확인 뒤 생성 원고에 반영한다.",
+  "status": "design_only",
+  "preparedDate": "2026-10-10",
+  "baselineFiles": [
+    "tools/content-schema.json",
+    "tools/check-content-candidates.cjs",
+    "content/roguelite/01-fuyuki.json",
+    "content/roguelite/11-penacony.json",
+    "content/roguelite/13-butterfly.json",
+    "Data/Data_PrototypeStats.j",
+    "Data/Data_PrototypeGrowth.j",
+    "System/ExpeditionEffects.j",
+    "System/CardRecovery.j"
+  ],
+  "invariantRules": [
+    "기존 카드 수치를 수정하지 않는다. 제안 수치는 신규 카드만을 위한 시작점이며 실게임 밸런스 검증값이 아니다.",
+    "무기 공격력 및 무기 공격력 %는 영구 성장에서 관리한다. 신규 런 카드는 attack_percent부터 사용한다.",
+    "attack_percent, damage_percent, final_damage_percent, boss_damage_percent, normal_damage_percent의 현재 별도 계산 단계를 합치지 않는다.",
+    "머리카드 최대 2개, 머리카드 선택 AP 0을 유지한다.",
+    "메인·일반 사건의 기본 선택지는 카드 3개 중 1개다. 같은 인물의 같은 효과를 문장만 바꾸어 세 번 제시하지 않는다.",
+    "체력 비용, 물약 보상, 일반적인 골드 대체 보상을 넣지 않는다.",
+    "흡수·재생 합산 초당 최대체력 10% 제한과 물약의 기존 즉시 회복은 유지한다.",
+    "max_health_percent 및 damage_reduction은 공격·조건부 공격을 함께 준다. 독립 생존 전용 선택을 기본 세 갈래에 넣지 않는다.",
+    "메인 일반 단계는 같은 등급의 세 보상, AP 1, 100% 단일 카드 지급을 따른다. 엔딩은 현재와 같은 효과 없는 기념 카드이며 전투 스탯을 임의 추가하지 않는다.",
+    "현행에는 일반 카드 치확 2%p·치피 4%p 상한, 메인 등급별 치확 3/4/5/6%p와 치피 그 두 배 상한이 있다. 이 설계는 보수적으로 그 아래를 사용한다.",
+    "기존 mainStory, previous, previousChoice, requiredCard와 storyChanges 연결 방식만 사용한다. 새로운 능력·전투 상태·해금 종류를 원고만으로 만든 것처럼 쓰지 않는다."
+  ],
+  "units": {
+    "swift": "고정 수치. 90은 대략 행동 속도 +2%, 쿨타임 감소 약 1.96%p에 해당한다. +90%로 표기하면 안 된다.",
+    "leech": "실제 준 피해에서 회복 풀에 저장하는 비율. 초당 최대 체력 회복 비율이 아니며 즉시 회복도 아니다.",
+    "regeneration": "최대체력의 %/초. 제안 일반 0.2, 메인 0.2/0.3/0.4.",
+    "moving_damage": "추가 이동속도에 비례해 40% 추가 이동속도에서 명시 수치에 도달한다. 이동 중 조건이 아니다.",
+    "directional_damage": "공격 자체의 헤드·백 태그와 실제 적중 방향을 함께 검사한다.",
+    "nondirectional_damage": "헤드·백 태그가 없는 공격만 적용한다.",
+    "shielded_damage": "이미 존재하는 보호막 유지 중의 조건부 대미지다. 이 스탯만으로 보호막이 생기지 않는다.",
+    "charge_damage": "이미 차지로 분류된 공격만 적용한다.",
+    "healthy_damage": "현재 체력 65% 이상에서 적용된다.",
+    "action_capacity": "고정 정수. 증가분만큼 행동력을 지급하는 기존 동작이 있어 반복 획득은 추가 사건 기회로 환산된다."
+  },
+  "normalBudget": {
+    "attack_percent": [
+      2,
+      3
+    ],
+    "damage_percent": [
+      2,
+      3
+    ],
+    "boss_damage_percent": [
+      2,
+      4
+    ],
+    "normal_damage_percent": [
+      5
+    ],
+    "crit_chance": [
+      2
+    ],
+    "crit_damage": [
+      4
+    ],
+    "swift": [
+      90
+    ],
+    "max_health_percent": [
+      4
+    ],
+    "damage_reduction": [
+      2
+    ],
+    "leech": [
+      1.5,
+      2
+    ],
+    "regeneration": [
+      0.2
+    ],
+    "conditional_damage": [
+      4
+    ]
+  },
+  "combinationPolicy": "위 수치의 최대값을 무조건 전부 더하는 예산표가 아니다. 일반 카드 한 장은 핵심 효과 하나와 작은 보조 효과 하나를 기본으로 하고 한 사건의 세 선택 간 실제 기대 대미지·조건·회복을 비교한다.",
+  "mainImplementationNotes": [
+    "mainRewardFamilies는 진행 구간별 보상 설계 예시다. 모든 사건에 같은 세 스탯 묶음을 복제하지 말고 인물·대화에 맞춰 1~2개 요소를 교차한다.",
+    "1/2/3등급의 상승곡선만 제안한다. 프리즘과 엔딩 기념 카드는 현재 제작 규칙을 따른다.",
+    "공격·치명 계열과 생존 동반 계열이 보스전에서 선택 가치가 있는지는 런 전체 누적과 현재 치확을 넣어 비교해야 한다.",
+    "final_damage_percent는 무조건 효율이 좋아지는 별도 곱이므로 일반 사건에 무작위로 남발하지 않는다. 필요하면 후반의 소수 핵심 카드에 2~4%부터 별도 검토한다.",
+    "소환·시간정지·부활·덱 회수 같은 원작 기술을 단순 스탯 카드의 실제 기능으로 표시하지 않는다."
+  ],
+  "actionCapacityPlan": {
+    "status": "조건부 포함",
+    "normalCard": {
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "grade": 1,
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    "alternativeCards": [
+      {
+        "effects": [
+          {
+            "stat": "attack_percent",
+            "value": 3
+          },
+          {
+            "stat": "boss_damage_percent",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "effects": [
+          {
+            "stat": "swift",
+            "value": 90
+          },
+          {
+            "stat": "crit_damage",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "rule": "각 작품의 한정 후속 사건 1개에서만 지급 후보로 두고 행동력 증가 카드를 입문·AP 0·반복 일반 사건에 배치하지 않는다.",
+    "risk": "현재 requiredCard는 보유 조건이며 미보유 조건을 표현하지 못한다. previousChoice/일회 사건 소진 동작을 실제 코드로 확인하기 전에는 추가 행동력 카드 지급을 적용하지 않는다."
+  },
+  "worlds": [
+    {
+      "key": "amphoreus",
+      "name": "엠포리어스",
+      "work": "붕괴 스타레일",
+      "canonicalNameNote": "사용자 요청 표기 엠포리어스를 유지한 초안이다. 실제 카탈로그 등록 전 공식 한국어 앰포리어스 표기와 통일한다.",
+      "headEffects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 3
+        }
+      ],
+      "entryCard": "amph_tribbie",
+      "identity": "강한 적을 돌파하는 계승의 이야기. 보스 피해, 치명타, 공격을 동반한 생존으로 세 갈래를 만든다.",
+      "canonBoundary": "황금의 후예와 불씨를 되찾는 여정을 소재로 한다. 3.0~3.7 전체 결말은 이야기 담당의 공식 출처 검수 전 확정하지 않는다. 스탯은 원작 기술을 그대로 구현한다는 뜻이 아니다.",
+      "sources": [
+        {
+          "url": "https://blog.playstation.com/2025/01/13/20250114-honkaistarrail/",
+          "supports": "HoYoverse 개발진 명의의 3.0 소개. 앰포리어스, 타이탄, 검은 물결, 오크마와 불씨 회수 여정, 아글라이아."
+        },
+        {
+          "url": "https://blog.playstation.com/2025/06/20/honkai-star-rail-version-3-4-arrives-july-2/",
+          "supports": "HoYoverse 개발진 명의의 3.4 소개. 파이논과 불씨 운반, 고향 및 변신."
+        }
+      ],
+      "uncertain": [
+        "트리비·마이데이·카스토리스·아낙사·히아킨·사이퍼의 세부 행적과 한국어 표기는 추가 공식 페이지 또는 게임 본문 확인 후 원고에 사용한다.",
+        "원작 체력 소모 기술은 사건 비용으로 이식하지 않는다."
+      ],
+      "cards": [
+        {
+          "key": "amph_tribbie",
+          "name": "트리비",
+          "effectName": "갈림길을 잇는 발걸음",
+          "keyword": "신속 · 보스",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "인물명 후보만 사용하며 구체적인 예언·시간 설정은 공식 검수 뒤 확정한다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_phainon",
+          "name": "파이논",
+          "effectName": "남겨진 불씨를 향해",
+          "keyword": "공격 · 보스",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 3.4 소개의 불씨를 운반하는 파이논을 소재로 한 창작 보상이다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_aglaea",
+          "name": "아글라이아",
+          "effectName": "흐트러지지 않는 금실",
+          "keyword": "신속 · 치명",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "crit_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 소개의 재봉과 기억 정령의 합동 전투를 신속과 치명 보상으로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_mydei",
+          "name": "마이데이",
+          "effectName": "물러서지 않는 전선",
+          "keyword": "공격 · 체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "체력 소모나 불사 기능은 구현하지 않는 전선 유지 보상이다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_castorice",
+          "name": "카스토리스",
+          "effectName": "놓치지 않는 마지막 빛",
+          "keyword": "대미지 · 흡수",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 2
+            },
+            {
+              "stat": "leech",
+              "value": 1.5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "흡수는 ARCANA의 실제 피해 기반 회복이다. 원작 기술과 동일하다고 설명하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_anaxa",
+          "name": "아낙사",
+          "effectName": "남겨 둔 질문",
+          "keyword": "공격 · 관통",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "penetration",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "분석과 질문을 소재로 한 창작 능력치 배분이며 원작 약점 부여는 구현하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_hyacine",
+          "name": "히아킨",
+          "effectName": "다시 걸을 여유",
+          "keyword": "고체력 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "지속 전투 준비를 소재로 하며 소환수나 즉시 회복 기능은 추가하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "amph_cipher",
+          "name": "사이퍼",
+          "effectName": "시선 밖의 한 걸음",
+          "keyword": "이동 · 치명",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 2
+            },
+            {
+              "stat": "crit_chance",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "교묘한 움직임을 전투 스탯으로 각색하며 골드 훔치기는 지급하지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "flame_front",
+          "label": "전선을 연다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              },
+              {
+                "stat": "attack_percent",
+                "value": 2
+              }
+            ],
+            "2": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              },
+              {
+                "stat": "attack_percent",
+                "value": 3
+              }
+            ],
+            "3": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 10
+              },
+              {
+                "stat": "attack_percent",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "golden_thread",
+          "label": "빈틈을 잇는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "crit_chance",
+                "value": 2
+              },
+              {
+                "stat": "crit_damage",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              },
+              {
+                "stat": "crit_damage",
+                "value": 6
+              }
+            ],
+            "3": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              },
+              {
+                "stat": "crit_damage",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "key": "keep_walking",
+          "label": "다시 설 힘을 남긴다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "healthy_damage",
+                "value": 5
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.2
+              }
+            ],
+            "2": [
+              {
+                "stat": "healthy_damage",
+                "value": 7
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.3
+              }
+            ],
+            "3": [
+              {
+                "stat": "healthy_damage",
+                "value": 9
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.4
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "amph_wayfinding",
+          "title": "갈림길에서 건넨 안내",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "트리비",
+            "아글라이아",
+            "사이퍼"
+          ],
+          "notes": "짧은 안내에 응하는 사건. 동일 카드만 세 번 제시하지 않는다."
+        },
+        {
+          "key": "amph_thread",
+          "title": "금실을 고르는 손",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "아글라이아",
+            "아낙사",
+            "마이데이"
+          ],
+          "notes": "신속·관통·체력 동반 공격 사이의 선택."
+        },
+        {
+          "key": "amph_carry",
+          "title": "불씨 곁의 동행",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "파이논",
+            "트리비",
+            "히아킨"
+          ],
+          "notes": "입문 카드 보유로 후속 만남을 연다.",
+          "requiredCard": "amph_tribbie"
+        },
+        {
+          "key": "amph_recovery",
+          "title": "잠깐 멈춘 행렬",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "히아킨",
+            "카스토리스",
+            "마이데이"
+          ],
+          "notes": "재생·흡수·최대체력은 각각 공격 옵션을 동반한다. 체력 지불 없음."
+        },
+        {
+          "key": "amph_question",
+          "title": "남은 질문의 순서",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "아낙사",
+            "아글라이아",
+            "사이퍼"
+          ],
+          "notes": "캐릭터 말투와 시점은 Gemma 및 공식 원고 검수 후 작성."
+        },
+        {
+          "key": "amph_preparation",
+          "title": "먼 길을 위한 준비",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "트리비",
+            "파이논",
+            "히아킨"
+          ],
+          "notes": "행동력 최대치 +1 전용 카드는 무제한 재지급 사건에 두지 않는다."
+        }
+      ]
+    },
+    {
+      "key": "phantom_blood",
+      "name": "죠죠 1부",
+      "work": "죠죠의 기묘한 모험 팬텀 블러드",
+      "headEffects": [
+        {
+          "stat": "healthy_damage",
+          "value": 3
+        }
+      ],
+      "entryCard": "pb_speedwagon",
+      "identity": "파문 수련의 안정된 호흡, 디오와 맞서는 한 방, 동료가 지키는 전선을 구분한다.",
+      "canonBoundary": "애니메이션 1부 범위만 사용한다. 스탠드, 시간 정지, 죠셉 및 후대 인물의 기술을 죠나단에게 붙이지 않는다. 파문·흡혈은 원작 소재이며 지급되는 수치는 ARCANA용 각색이다.",
+      "sources": [
+        {
+          "url": "https://jojo-animation.com/fb_bt/character/",
+          "supports": "공식 1·2부 캐릭터 페이지. 죠나단, 디오, 체펠리, 스피드왜건, 에리나를 1부 목록에서 확인했다."
+        },
+        {
+          "url": "https://jojo-portal.com/en/anime/",
+          "supports": "공식 포털에 톤페티가 파문 스승으로 언급된다. 1부 행적 상세는 개별 에피소드 검수 대상으로 남긴다."
+        },
+        {
+          "url": "https://www.crunchyroll.com/watch/G6491GN3Y/sorrowful-successor",
+          "supports": "공식 배급의 1부 에피소드 소개에서 톤페티와 체펠리의 예언 회상을 확인했다."
+        }
+      ],
+      "uncertain": [
+        "한국어 음역은 최종 카드 이미지·본문 등록 시 죠나단/조나단, 스피드왜건/스피드웨건 중 프로젝트 기준 하나로 통일한다."
+      ],
+      "cards": [
+        {
+          "key": "pb_speedwagon",
+          "name": "스피드왜건",
+          "effectName": "거친 골목의 동료",
+          "keyword": "공격 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "동료로 합류하는 스피드왜건을 소재로 한 창작 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "pb_jonathan",
+          "name": "죠나단 죠스타",
+          "effectName": "무너지지 않는 호흡",
+          "keyword": "공격 · 고체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "1부 주인공의 파문 수련을 소재로 한다. 스탠드를 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "pb_dio",
+          "name": "디오 브란도",
+          "effectName": "석가면의 그림자",
+          "keyword": "보스 · 흡수",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "leech",
+              "value": 1.5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "1부 디오를 소재로 하며 시간 정지·더 월드는 포함하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "pb_zeppeli",
+          "name": "윌 A. 체펠리",
+          "effectName": "호흡을 가르치는 손",
+          "keyword": "신속 · 고체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "파문을 익히는 장면을 전투 준비 효과로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "pb_erina",
+          "name": "에리나 펜들턴",
+          "effectName": "끝까지 지킨 약속",
+          "keyword": "공격 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "동행과 보살핌을 보상으로 각색한다. 원작 전투 기술을 새로 만들지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "pb_tonpetty",
+          "name": "톤페티",
+          "effectName": "호흡을 가다듬는 시간",
+          "keyword": "보스 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "파문 스승을 소재로 하는 준비 보상. 예언의 새 결말을 정사처럼 쓰지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "ripple",
+          "label": "호흡과 공격을 잇는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "attack_percent",
+                "value": 3
+              },
+              {
+                "stat": "healthy_damage",
+                "value": 5
+              }
+            ],
+            "2": [
+              {
+                "stat": "attack_percent",
+                "value": 4
+              },
+              {
+                "stat": "healthy_damage",
+                "value": 7
+              }
+            ],
+            "3": [
+              {
+                "stat": "attack_percent",
+                "value": 5
+              },
+              {
+                "stat": "healthy_damage",
+                "value": 9
+              }
+            ]
+          }
+        },
+        {
+          "key": "protect",
+          "label": "동료의 앞을 지킨다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 2
+              }
+            ],
+            "2": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 3
+              }
+            ],
+            "3": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 10
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "decisive",
+          "label": "결정적인 틈을 노린다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "crit_chance",
+                "value": 2
+              },
+              {
+                "stat": "crit_damage",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              },
+              {
+                "stat": "crit_damage",
+                "value": 6
+              }
+            ],
+            "3": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              },
+              {
+                "stat": "crit_damage",
+                "value": 8
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "pb_breath",
+          "title": "흐트러진 호흡",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "죠나단 죠스타",
+            "윌 A. 체펠리",
+            "톤페티"
+          ],
+          "notes": "공격·신속·대보스 방어를 서로 다른 카드로 제시."
+        },
+        {
+          "key": "pb_street",
+          "title": "골목 끝에서 기다린 사람",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "스피드왜건",
+            "에리나 펜들턴",
+            "죠나단 죠스타"
+          ],
+          "notes": "짧은 만남의 AP 0 사건. 골드 보상 없음."
+        },
+        {
+          "key": "pb_again",
+          "title": "한 번 더 가다듬는 자세",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "윌 A. 체펠리",
+            "죠나단 죠스타",
+            "톤페티"
+          ],
+          "notes": "체펠리 카드 보유 후 수련 심화.",
+          "requiredCard": "pb_zeppeli"
+        },
+        {
+          "key": "pb_mask",
+          "title": "석가면을 두고 한 질문",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "디오 브란도",
+            "스피드왜건",
+            "죠나단 죠스타"
+          ],
+          "notes": "흡수 지급 분기에 생명력 비용·석가면 장착 기능을 추가하지 않는다."
+        },
+        {
+          "key": "pb_prepare",
+          "title": "동행을 위한 준비",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "스피드왜건",
+            "에리나 펜들턴",
+            "톤페티"
+          ],
+          "notes": "한정 후속 보상의 행동력 최대치 +1 후보."
+        }
+      ]
+    },
+    {
+      "key": "madolche",
+      "name": "마돌체",
+      "work": "유희왕 OCG 마돌체",
+      "headEffects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "entryCard": "mad_magileine",
+      "identity": "자리로 돌아오는 카드와 서로를 불러오는 조합에서 준비·연계·정밀한 마무리를 구상한다.",
+      "canonBoundary": "originalEvent. 공식 OCG 카드의 이름·그림·효과를 소재로 ARCANA가 만든 사건이다. 마돌체 인물의 정사 성격·왕국 연대기·가족관계가 확인됐다고 쓰지 않는다. 메인스토리도 창작 연작임을 명시한다.",
+      "originalEvent": true,
+      "sources": [
+        {
+          "url": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10270&ope=2&request_locale=ko",
+          "supports": "퀸마돌체 티아라미스와 관련 카드 목록. 덱으로 돌려보내는 효과, 마죠레느와 메신젤라또 등의 공식 한국어명."
+        },
+        {
+          "url": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10156&ope=2&request_locale=ko",
+          "supports": "마돌체 푸딩세스의 공식 한국어 이름과 전투·귀환 관련 효과."
+        }
+      ],
+      "uncertain": [
+        "엔젤리·훗케이크·푸팅세스루·글래스플레의 개별 상세 페이지를 추가로 확인한 뒤 원고에 효과 사실을 쓴다.",
+        "덱 회수·추가 소환을 ARCANA 카드 복제·재추첨·부활이라는 신규 기능으로 설명하지 않는다."
+      ],
+      "cards": [
+        {
+          "key": "mad_magileine",
+          "name": "마돌체 마죠레느",
+          "effectName": "첫 손님을 부르는 준비",
+          "keyword": "공격 · 고체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식의 마돌체 카드 검색을 소재로 한 창작 사건 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_puddingcess",
+          "name": "마돌체 푸딩세스",
+          "effectName": "단정한 한 수",
+          "keyword": "치명 · 공격",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 2
+            },
+            {
+              "stat": "attack_percent",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식 카드의 전투 효과를 정밀한 공격 능력치로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_tiaramisu",
+          "name": "퀸마돌체 티아라미스",
+          "effectName": "제자리로 돌려보내는 손",
+          "keyword": "보스 · 관통",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "penetration",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공식의 카드 되돌리기 효과가 소재다. 실제 적 퇴장·즉사는 구현하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_angelly",
+          "name": "마돌체 엔젤리",
+          "effectName": "빈자리를 채우는 온기",
+          "keyword": "대미지 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 2
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "그림과 이름을 소재로 한 창작 보상. 인물 성격은 정사로 단정하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_hootcake",
+          "name": "마돌체 훗케이크",
+          "effectName": "빠뜨리지 않는 전달",
+          "keyword": "신속 · 일반 몬스터",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "normal_damage_percent",
+              "value": 5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "전달·준비를 소재로 한 창작 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_messengelato",
+          "name": "마돌체 메신젤라또",
+          "effectName": "테이블을 잇는 발걸음",
+          "keyword": "이동 · 대미지",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 2
+            },
+            {
+              "stat": "damage_percent",
+              "value": 3
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "관련 카드의 준비를 돕는 공식 효과를 이동과 공격으로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_petingcessoeur",
+          "name": "마돌체 푸팅세스루",
+          "effectName": "함께 준비하는 차례",
+          "keyword": "신속 · 치명 피해",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "crit_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "소환 연계를 떠올리는 창작 보상이며 혈연관계 설명은 추가하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "mad_glassouffle",
+          "name": "티처마돌체 글래스플레",
+          "effectName": "서두르지 않는 마무리",
+          "keyword": "보스 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "차분한 준비라는 창작 해석으로 피해 감소와 공격을 묶는다.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "precise_table",
+          "label": "빈틈을 정돈한다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "crit_chance",
+                "value": 2
+              },
+              {
+                "stat": "attack_percent",
+                "value": 3
+              }
+            ],
+            "2": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              },
+              {
+                "stat": "attack_percent",
+                "value": 4
+              }
+            ],
+            "3": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              },
+              {
+                "stat": "attack_percent",
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "key": "return_route",
+          "label": "돌려보낼 순서를 고른다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              },
+              {
+                "stat": "penetration",
+                "value": 2
+              }
+            ],
+            "2": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              },
+              {
+                "stat": "penetration",
+                "value": 3
+              }
+            ],
+            "3": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 10
+              },
+              {
+                "stat": "penetration",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "hospitality",
+          "label": "다음 손님을 준비한다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "damage_percent",
+                "value": 4
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.2
+              }
+            ],
+            "2": [
+              {
+                "stat": "damage_percent",
+                "value": 5
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.3
+              }
+            ],
+            "3": [
+              {
+                "stat": "damage_percent",
+                "value": 6
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.4
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "mad_invitation",
+          "title": "모자란 초대장",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "마돌체 마죠레느",
+            "마돌체 메신젤라또",
+            "마돌체 훗케이크"
+          ],
+          "notes": "창작 사건. 검색·전달 이미지를 활용하되 골드·물약을 주지 않는다."
+        },
+        {
+          "key": "mad_table",
+          "title": "빈자리의 순서",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "마돌체 푸딩세스",
+            "퀸마돌체 티아라미스",
+            "티처마돌체 글래스플레"
+          ],
+          "notes": "치명, 대보스 관통, 대보스 방어 중 선택."
+        },
+        {
+          "key": "mad_second_guest",
+          "title": "다음 손님을 부르는 손",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "마돌체 푸팅세스루",
+            "마돌체 엔젤리",
+            "마돌체 마죠레느"
+          ],
+          "notes": "마죠레느 보유 후 창작 후속.",
+          "requiredCard": "mad_magileine"
+        },
+        {
+          "key": "mad_return",
+          "title": "돌아온 접시의 자리",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "마돌체 엔젤리",
+            "마돌체 메신젤라또",
+            "퀸마돌체 티아라미스"
+          ],
+          "notes": "복제·덱 회수 기능이 실제 작동하는 것처럼 보상 문구를 쓰지 않는다."
+        },
+        {
+          "key": "mad_checklist",
+          "title": "빠뜨리지 않은 목록",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "마돌체 메신젤라또",
+            "티처마돌체 글래스플레",
+            "마돌체 마죠레느"
+          ],
+          "notes": "한정 후속의 행동력 최대치 +1 후보."
+        }
+      ]
+    },
+    {
+      "key": "tengu",
+      "name": "텐구시",
+      "work": "데이트 어 라이브",
+      "headEffects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "entryCard": "dal_shido",
+      "identity": "정령의 공격 성향과 사람을 알아가는 일상의 대비. 치명·신속·공격을 동반한 회복으로 고른다.",
+      "canonBoundary": "주요 인물은 공식 애니메이션 캐릭터 목록으로 확인했다. 사건 시점은 1기 또는 1~2기 등 이야기 담당이 확정한 범위로 통일한다. 시도와 정령들의 관계 및 정체를 초반 사건에서 무차별 노출하지 않는다. 체력·수명 소모나 시간을 되감는 기능은 지급하지 않는다.",
+      "sources": [
+        {
+          "url": "https://date-a-live5th-anime.com/character/",
+          "supports": "시도, 토카, 오리가미, 코토리, 요시노, 쿠루미, 야마이 자매의 공식 이름과 코드명."
+        }
+      ],
+      "uncertain": [
+        "해당 캐릭터 페이지는 이름·코드명만 텍스트로 확인된다. 세부 능력과 사건의 시점은 공식 에피소드 본문으로 추가 검수해야 한다.",
+        "텐구시라는 머리카드 명칭과 사용자가 요청한 작품명 중 최종 UI 이름은 전체 카탈로그 명명 방식에 맞춘다."
+      ],
+      "cards": [
+        {
+          "key": "dal_shido",
+          "name": "이츠카 시도",
+          "effectName": "먼저 듣는 대답",
+          "keyword": "공격 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "대화와 준비를 공격·회복으로 각색한다. 원작의 봉인 능력을 실제 기능으로 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_tohka",
+          "name": "야토가미 토카",
+          "effectName": "망설임을 넘는 일격",
+          "keyword": "공격 · 차지",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "charge_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "차지 태그 공격을 쓰는 캐릭터용 조건부 카드이며 모든 공격에 적용된다고 쓰지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_origami",
+          "name": "토비이치 오리가미",
+          "effectName": "목표를 놓치지 않는 시선",
+          "keyword": "보스 · 관통",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "penetration",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "정밀한 공격이라는 창작 능력치 배분.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_kotori",
+          "name": "이츠카 코토리",
+          "effectName": "마지막까지 이어지는 지시",
+          "keyword": "대미지 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 3
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "공격과 생존을 함께 주는 지휘 보상. 자해 비용 없음.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_yoshino",
+          "name": "요시노",
+          "effectName": "차분히 고른 말",
+          "keyword": "고체력 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "빙결·소환·무적 기능을 새로 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_kurumi",
+          "name": "토키사키 쿠루미",
+          "effectName": "놓치지 않는 순간",
+          "keyword": "치명 · 흡수",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 2
+            },
+            {
+              "stat": "leech",
+              "value": 1.5
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "시각적 소재를 치명·흡수로 각색한다. 시간 정지와 수명 지불은 구현하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_kaguya",
+          "name": "야마이 카구야",
+          "effectName": "바람을 가르는 선언",
+          "keyword": "이동 · 조건부 공격",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 2
+            },
+            {
+              "stat": "moving_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "이동속도 보너스에 비례하는 현행 돌대형 효과. 이동 중이라는 조건으로 오표기하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "dal_yuzuru",
+          "name": "야마이 유즈루",
+          "effectName": "맞춰 가는 발걸음",
+          "keyword": "신속 · 대미지",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "damage_percent",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "동행의 박자를 신속으로 각색하며 자매 합체 기능을 추가하지 않는다.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "decisive_word",
+          "label": "결정할 순간을 잡는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "crit_chance",
+                "value": 2
+              },
+              {
+                "stat": "crit_damage",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              },
+              {
+                "stat": "crit_damage",
+                "value": 6
+              }
+            ],
+            "3": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              },
+              {
+                "stat": "crit_damage",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "key": "keep_pace",
+          "label": "상대의 걸음에 맞춘다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "swift",
+                "value": 90
+              },
+              {
+                "stat": "damage_percent",
+                "value": 3
+              }
+            ],
+            "2": [
+              {
+                "stat": "swift",
+                "value": 135
+              },
+              {
+                "stat": "damage_percent",
+                "value": 4
+              }
+            ],
+            "3": [
+              {
+                "stat": "swift",
+                "value": 180
+              },
+              {
+                "stat": "damage_percent",
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "key": "safe_return",
+          "label": "돌아갈 여유를 남긴다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "healthy_damage",
+                "value": 5
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.2
+              }
+            ],
+            "2": [
+              {
+                "stat": "healthy_damage",
+                "value": 7
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.3
+              }
+            ],
+            "3": [
+              {
+                "stat": "healthy_damage",
+                "value": 9
+              },
+              {
+                "stat": "regeneration",
+                "value": 0.4
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "dal_route",
+          "title": "돌아가는 길의 제안",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "이츠카 시도",
+            "요시노",
+            "야토가미 토카"
+          ],
+          "notes": "일상 대화. 호감도 신규 시스템 없음."
+        },
+        {
+          "key": "dal_timing",
+          "title": "대답하기 전의 한 박자",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "토키사키 쿠루미",
+            "토비이치 오리가미",
+            "이츠카 코토리"
+          ],
+          "notes": "흡수·관통·방어 동반 공격 사이 선택."
+        },
+        {
+          "key": "dal_wind",
+          "title": "바람이 나눈 두 걸음",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "야마이 카구야",
+            "야마이 유즈루",
+            "이츠카 시도"
+          ],
+          "notes": "야마이 카드 보유 후 등장하는 후속.",
+          "requiredCard": "dal_kaguya"
+        },
+        {
+          "key": "dal_wait",
+          "title": "기다릴 수 있는 거리",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "요시노",
+            "야토가미 토카",
+            "토비이치 오리가미"
+          ],
+          "notes": "회복·차지·대보스 중 선택, 체력 지불 없음."
+        },
+        {
+          "key": "dal_schedule",
+          "title": "빠뜨리지 않은 약속",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "이츠카 코토리",
+            "이츠카 시도",
+            "야마이 유즈루"
+          ],
+          "notes": "한정 후속의 행동력 최대치 +1 후보."
+        }
+      ]
+    },
+    {
+      "key": "ikebukuro",
+      "name": "이케부쿠로",
+      "work": "듀라라라!!",
+      "headEffects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        }
+      ],
+      "entryCard": "drrr_mikado",
+      "identity": "도시를 잇는 이동·정보, 시즈오의 힘, 관계를 지키는 생존을 다른 보상 갈래로 만든다.",
+      "canonBoundary": "공식 캐릭터 소개에 기반한다. 메인은 1기 사건 등 하나의 시점으로 고정하고 후속기의 인물 변화와 혼합하지 않는다. 달러즈 가입·죄가의 지배·목 회수 같은 줄거리를 신규 전투 시스템으로 지급하지 않는다.",
+      "sources": [
+        {
+          "url": "https://www.durarara.com/character/",
+          "supports": "셀티, 미카도, 마사오미, 안리, 이자야, 시즈오, 신라, 카도타의 공식 소개."
+        },
+        {
+          "url": "https://www.durarara.com/1st/staff/index.html",
+          "supports": "1기 등장인물과 캐스트 확인."
+        }
+      ],
+      "uncertain": [
+        "원작 비전투 인물의 공격 보상은 이야기의 기억을 얻는 게임적 각색이다. 그 인물이 직접 같은 전투 기술을 쓴다고 설명하지 않는다."
+      ],
+      "cards": [
+        {
+          "key": "drrr_mikado",
+          "name": "류가미네 미카도",
+          "effectName": "낯선 도시의 첫 걸음",
+          "keyword": "신속 · 공격",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "attack_percent",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "이케부쿠로에 온 고등학생이라는 공식 소개를 소재로 한다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_celty",
+          "name": "셀티 스툴루손",
+          "effectName": "밤길을 잇는 바퀴",
+          "keyword": "이동 · 조건부 공격",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "move_speed",
+              "value": 2
+            },
+            {
+              "stat": "moving_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "목 없는 라이더를 소재로 하며 실제 탈것 기능은 추가하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_masaomi",
+          "name": "키다 마사오미",
+          "effectName": "멈추지 않는 말과 발",
+          "keyword": "신속 · 치명 피해",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "crit_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "미카도의 소꿉친구라는 관계를 소재로 한다. 조직의 시점은 별도 검수.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_anri",
+          "name": "소노하라 안리",
+          "effectName": "흔들리지 않는 칼끝",
+          "keyword": "치명 · 고체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "crit_chance",
+              "value": 2
+            },
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "검을 다루는 인물을 소재로 하며 타인 지배 기능은 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_izaya",
+          "name": "오리하라 이자야",
+          "effectName": "한발 앞선 정보",
+          "keyword": "관통 · 치명 피해",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "penetration",
+              "value": 4
+            },
+            {
+              "stat": "crit_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "신주쿠의 정보상이라는 공식 소개를 소재로 한다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_shizuo",
+          "name": "헤이와지마 시즈오",
+          "effectName": "거리를 비우는 힘",
+          "keyword": "공격 · 보스",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 3
+            },
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "이케부쿠로 최강으로 불리는 인물의 강한 힘을 보상으로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_shinra",
+          "name": "키시타니 신라",
+          "effectName": "남겨 둔 여유",
+          "keyword": "대미지 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 2
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "치료의 이미지를 전투 준비로 각색한다. 즉시 치료 사건 보상은 지급하지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "drrr_kadota",
+          "name": "카도타 쿄헤이",
+          "effectName": "뒤를 맡길 동료",
+          "keyword": "공격 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "일행의 맏형 역할이라는 공식 소개를 바탕으로 공격과 방어를 묶는다.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "force",
+          "label": "정면에서 길을 연다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "attack_percent",
+                "value": 4
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 2
+              }
+            ],
+            "2": [
+              {
+                "stat": "attack_percent",
+                "value": 5
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 3
+              }
+            ],
+            "3": [
+              {
+                "stat": "attack_percent",
+                "value": 6
+              },
+              {
+                "stat": "damage_reduction",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "information",
+          "label": "놓친 정보를 읽는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "crit_chance",
+                "value": 2
+              },
+              {
+                "stat": "crit_damage",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "crit_chance",
+                "value": 3
+              },
+              {
+                "stat": "crit_damage",
+                "value": 6
+              }
+            ],
+            "3": [
+              {
+                "stat": "crit_chance",
+                "value": 4
+              },
+              {
+                "stat": "crit_damage",
+                "value": 8
+              }
+            ]
+          }
+        },
+        {
+          "key": "connections",
+          "label": "한 발 먼저 연결한다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "swift",
+                "value": 90
+              },
+              {
+                "stat": "boss_damage_percent",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "swift",
+                "value": 135
+              },
+              {
+                "stat": "boss_damage_percent",
+                "value": 5
+              }
+            ],
+            "3": [
+              {
+                "stat": "swift",
+                "value": 180
+              },
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "drrr_crossing",
+          "title": "횡단보도에서 건넨 말",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "류가미네 미카도",
+            "키다 마사오미",
+            "카도타 쿄헤이"
+          ],
+          "notes": "짧은 도시의 만남. 돈을 대안으로 주지 않는다."
+        },
+        {
+          "key": "drrr_message",
+          "title": "읽지 않은 메시지",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "오리하라 이자야",
+            "류가미네 미카도",
+            "셀티 스툴루손"
+          ],
+          "notes": "치명·신속·이동 빌드 사이 선택."
+        },
+        {
+          "key": "drrr_delivery",
+          "title": "늦어진 전달",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "셀티 스툴루손",
+            "키시타니 신라",
+            "카도타 쿄헤이"
+          ],
+          "notes": "셀티 보유 후 다른 동료를 만나는 후속.",
+          "requiredCard": "drrr_celty"
+        },
+        {
+          "key": "drrr_distance",
+          "title": "소동 뒤의 거리",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "헤이와지마 시즈오",
+            "소노하라 안리",
+            "키시타니 신라"
+          ],
+          "notes": "공격·고체력·회복을 동반한 대미지 중 선택."
+        },
+        {
+          "key": "drrr_contacts",
+          "title": "연락을 돌릴 시간",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "키다 마사오미",
+            "류가미네 미카도",
+            "카도타 쿄헤이"
+          ],
+          "notes": "한정 후속의 행동력 최대치 +1 후보."
+        }
+      ]
+    },
+    {
+      "key": "frieren",
+      "name": "북부로 가는 여정",
+      "work": "장송의 프리렌",
+      "headEffects": [
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "entryCard": "fri_fern",
+      "identity": "정밀한 마법과 준비, 빠른 시전의 박자, 동료를 지키는 힘을 분리한다.",
+      "canonBoundary": "공식 애니메이션의 프리렌·페른·슈타르크와 과거 용사 일행을 사용한다. 메인은 애니 1기 끝까지 등 검증된 구간으로 정하고 힘멜·하이터·플람메가 현재 여행에 생존 합류하는 것처럼 쓰지 않는다. 과거 회상은 명시한다.",
+      "sources": [
+        {
+          "url": "https://frieren-anime.jp/character/index.html",
+          "supports": "대표 인물 목록."
+        },
+        {
+          "url": "https://frieren-anime.jp/character/chara_group1/1-1/",
+          "supports": "프리렌이 힘멜 사후 사람을 알고 싶어 하며 페른·슈타르크와 오레올로 향한다는 공식 소개."
+        },
+        {
+          "url": "https://frieren-anime.jp/news/197/",
+          "supports": "페른은 하이터가 키운 마법사, 슈타르크는 아이젠의 제자라는 관계."
+        }
+      ],
+      "uncertain": [
+        "마법 이름, 마력 은폐의 정확한 장면, 일급 마법사 시험 순서는 개별 공식 에피소드로 별도 검수한다."
+      ],
+      "cards": [
+        {
+          "key": "fri_fern",
+          "name": "페른",
+          "effectName": "흔들리지 않는 준비",
+          "keyword": "신속 · 대미지",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "swift",
+              "value": 90
+            },
+            {
+              "stat": "damage_percent",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "차분한 마법사라는 공식 소개를 신속과 공격으로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_frieren",
+          "name": "프리렌",
+          "effectName": "오래 살핀 마법",
+          "keyword": "보스 · 관통",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "penetration",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "마법을 모으는 오랜 여행을 분석형 공격 보상으로 각색한다.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_stark",
+          "name": "슈타르크",
+          "effectName": "무서워도 내딛는 발",
+          "keyword": "공격 · 체력",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "max_health_percent",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "두려움이 있어도 동료 앞에 서는 전사라는 이미지의 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_himmel",
+          "name": "힘멜",
+          "effectName": "먼저 내미는 손",
+          "keyword": "공격 · 치명 피해",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "crit_damage",
+              "value": 4
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "과거 용사 일행의 기억에서 얻는 보상. 현재 생존 인물로 등장시키지 않는다.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_heiter",
+          "name": "하이터",
+          "effectName": "돌아갈 힘을 남기고",
+          "keyword": "고체력 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "healthy_damage",
+              "value": 4
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "페른을 키운 인물이라는 관계를 소재로 한 회상 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_eisen",
+          "name": "아이젠",
+          "effectName": "버티는 자세의 무게",
+          "keyword": "보스 · 피해 감소",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "boss_damage_percent",
+              "value": 4
+            },
+            {
+              "stat": "damage_reduction",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "슈타르크의 스승과 전사 일행의 기억을 소재로 한다.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_flamme",
+          "name": "플람메",
+          "effectName": "긴 시간을 위한 연습",
+          "keyword": "대미지 · 관통",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "damage_percent",
+              "value": 3
+            },
+            {
+              "stat": "penetration",
+              "value": 2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "과거의 가르침을 소재로 하는 회상 보상.",
+          "uncertain": []
+        },
+        {
+          "key": "fri_sein",
+          "name": "자인",
+          "effectName": "걷기 위한 휴식",
+          "keyword": "공격 · 재생",
+          "grade": 1,
+          "effects": [
+            {
+              "stat": "attack_percent",
+              "value": 2
+            },
+            {
+              "stat": "regeneration",
+              "value": 0.2
+            }
+          ],
+          "evolution": {
+            "kind": 0,
+            "goal": 0,
+            "effects": []
+          },
+          "canonFact": "여행 준비를 공격과 재생으로 각색한다. 물약 지급 없음.",
+          "uncertain": []
+        }
+      ],
+      "mainRewardFamilies": [
+        {
+          "key": "study",
+          "label": "상대의 마법을 읽는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 6
+              },
+              {
+                "stat": "penetration",
+                "value": 2
+              }
+            ],
+            "2": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 8
+              },
+              {
+                "stat": "penetration",
+                "value": 3
+              }
+            ],
+            "3": [
+              {
+                "stat": "boss_damage_percent",
+                "value": 10
+              },
+              {
+                "stat": "penetration",
+                "value": 4
+              }
+            ]
+          }
+        },
+        {
+          "key": "rhythm",
+          "label": "시전의 박자를 잇는다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "swift",
+                "value": 90
+              },
+              {
+                "stat": "damage_percent",
+                "value": 3
+              }
+            ],
+            "2": [
+              {
+                "stat": "swift",
+                "value": 135
+              },
+              {
+                "stat": "damage_percent",
+                "value": 4
+              }
+            ],
+            "3": [
+              {
+                "stat": "swift",
+                "value": 180
+              },
+              {
+                "stat": "damage_percent",
+                "value": 5
+              }
+            ]
+          }
+        },
+        {
+          "key": "front",
+          "label": "동료 앞에 선다",
+          "effectsByGrade": {
+            "1": [
+              {
+                "stat": "attack_percent",
+                "value": 3
+              },
+              {
+                "stat": "max_health_percent",
+                "value": 4
+              }
+            ],
+            "2": [
+              {
+                "stat": "attack_percent",
+                "value": 4
+              },
+              {
+                "stat": "max_health_percent",
+                "value": 6
+              }
+            ],
+            "3": [
+              {
+                "stat": "attack_percent",
+                "value": 5
+              },
+              {
+                "stat": "max_health_percent",
+                "value": 8
+              }
+            ]
+          }
+        }
+      ],
+      "sideEventSeeds": [
+        {
+          "key": "fri_grimoire",
+          "title": "가방 안의 작은 마법서",
+          "type": "free",
+          "actionCost": 0,
+          "rewardCharacters": [
+            "프리렌",
+            "페른",
+            "슈타르크"
+          ],
+          "notes": "생활 마법 소재의 짧은 사건. 신규 마법 시전 시스템 없이 카드 보상."
+        },
+        {
+          "key": "fri_watch",
+          "title": "교대할 시간",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "페른",
+            "슈타르크",
+            "자인"
+          ],
+          "notes": "신속 공격·체력 공격·재생 공격을 비교."
+        },
+        {
+          "key": "fri_lesson",
+          "title": "다시 꺼낸 가르침",
+          "type": "owned_card",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "슈타르크",
+            "아이젠",
+            "페른"
+          ],
+          "notes": "슈타르크 카드 보유 후 스승에 관한 후속.",
+          "requiredCard": "fri_stark"
+        },
+        {
+          "key": "fri_memory",
+          "title": "동상 앞에 남은 이야기",
+          "type": "ordinary",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "힘멜",
+            "프리렌",
+            "하이터"
+          ],
+          "notes": "과거 회상임을 명확히 표시한다."
+        },
+        {
+          "key": "fri_camp",
+          "title": "출발 전의 짐 정리",
+          "type": "capacity",
+          "actionCost": 1,
+          "rewardCharacters": [
+            "페른",
+            "자인",
+            "프리렌"
+          ],
+          "notes": "한정 후속의 행동력 최대치 +1 후보."
+        }
+      ]
+    }
+  ],
+  "extraWorldCandidates": [],
+  "extraWorldCandidateReason": "이번 담당 범위에서 기존 제공 시트 목록을 확정하지 못했으므로 새로운 작품을 임의로 후보에 추가하지 않았다. 우선 여섯 작품 이후에는 루트가 확인한 제공 시트의 작품만 확장한다.",
+  "rejectedIdeas": [
+    {
+      "idea": "마이데이·카스토리스·쿠루미의 원작 연출을 사건 체력/수명 비용으로 재현",
+      "reason": "체력을 사건 코스트로 사용하지 않는 현재 기획과 충돌."
+    },
+    {
+      "idea": "마돌체에 공식 장편 왕국 서사가 있는 것처럼 메인스토리 작성",
+      "reason": "확인한 공식 자료는 카드명과 규칙이며 등장인물의 정사 대화·연대기를 증명하지 않음."
+    },
+    {
+      "idea": "초반 사건마다 최종 대미지 보상",
+      "reason": "다른 옵션과 별도 곱인 효과를 남발해 신규 카드가 기존 보상보다 우선되는 상황을 피함."
+    },
+    {
+      "idea": "보호막 피해 보상만으로 모든 캐릭터가 보호막 빌드를 쓸 수 있다고 설명",
+      "reason": "기존 보호막 유지 조건일 뿐 보호막 생성 스탯이 아님."
+    },
+    {
+      "idea": "모든 일상/준비 사건에 AP 최대치 증가",
+      "reason": "증가분 AP 즉시 지급과 중복 누적으로 사건 기회가 과도하게 증식할 수 있음."
+    },
+    {
+      "idea": "회복이나 체력만 주는 단독 선택",
+      "reason": "보스 중심 전투에서 공격 선택에 비해 수요가 낮다는 사용자 피드백을 반영."
+    }
+  ],
+  "validation": {
+    "runtime": false,
+    "gemmaReviewed": false,
+    "officialSourcesPartiallyVerified": true,
+    "notes": "이 파일은 보상 설계 자료다. 원고 스키마와 직접 호환되는 운영 JSON이 아니며 콘텐츠 검사기 통과·Gemma 승인·실게임 검증을 뜻하지 않는다."
+  }
+}

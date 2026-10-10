@@ -1,0 +1,2864 @@
+{
+  "world": {
+    "key": "scarlet_mist",
+    "name": "홍마향",
+    "work": "동방홍마향",
+    "intro": "붉은 안개가 여름의 햇빛을 가린다. 레이무는 호수를 건너 홍마관에 들어가고, 문지기와 마법사와 메이드를 지나 안개를 펼친 흡혈귀에게 다다른다.",
+    "effects": [
+      {
+        "stat": "charge_damage",
+        "value": 3
+      }
+    ],
+    "entryCard": "eosd_reimu",
+    "mainStory": {
+      "title": "안개 뒤의 여름",
+      "length": 13,
+      "focus": [
+        "charge_damage",
+        "penetration",
+        "boss_damage_percent"
+      ],
+      "source": "동방홍마향 본편 레이무 경로 1~6면 및 레이무 A 정상 엔딩",
+      "adaptation": "루미아부터 레밀리아까지 본편 순서를 지키고 정상 해결 후 햇빛과 일상의 회복으로 닫는다. 선택은 싸움의 관찰과 대응에 한정한다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_scarlet_mist_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_scarlet_mist_head.tga"
+  },
+  "sources": [
+    "https://www16.big.or.jp/~zun/html/th06.html",
+    "https://omake.thwiki.cc/translate/%E4%B8%9C%E6%96%B9%E7%BA%A2%E9%AD%94%E4%B9%A1_omake.ja.txt",
+    "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Scenario",
+    "https://touhou.fandom.com/wiki/Embodiment_of_Scarlet_Devil/Story/Reimu%27s_Good_Ending_A",
+    "https://en.touhouwiki.net/wiki/Embodiment_of_Scarlet_Devil/Spell_Cards/Stage_6"
+  ],
+  "canonBoundary": "2002년 동방홍마향 본편 레이무 경로의 1~6면 및 A 정상 엔딩만 다룬다. 루미아, 치르노, 홍 메이링, 파츄리 널릿지, 이자요이 사쿠야, 레밀리아 스칼렛 순서이며 사쿠야의 6면 중간 재등장도 포함한다. 대요정·소악마라는 팬덤 통칭은 원작 당시 이름 없는 중간보스를 가리키므로 별도 이름 카드와 대사·성격을 만들지 않는다. EX와 플랑드르, EX를 여는 비, 후속작·팬덤 성격·공식이 아닌 리메이크는 제외한다. 레밀리아의 운명 조작과 흡혈, 사쿠야의 시간 정지 등은 원작의 서사에 한정하고 실제 시간 정지·즉사·무적·자동 명중을 지급하지 않는다. 흡수 수치는 기존 흡수·재생 합산 최대체력 10%/초 제한을 따른다. 일반 사건과 후일담의 준비·회상 대화는 새로 썼으며 체력 비용·직접 회복·물약·골드·몬스터 수 변경이 없다.",
+  "cards": [
+    {
+      "key": "eosd_reimu",
+      "name": "하쿠레이 레이무",
+      "effectName": "붉은 밤을 가르는 부적",
+      "keyword": "비방향 공격 · 공격력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_rumia",
+      "name": "루미아",
+      "effectName": "어둠 속 거리 감각",
+      "keyword": "치명 확률 · 받는 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_cirno",
+      "name": "치르노",
+      "effectName": "얼음빛을 겨누는 순간",
+      "keyword": "차지 공격 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_meiling",
+      "name": "홍 메이링",
+      "effectName": "물러서도 무너지지 않는 중심",
+      "keyword": "대미지 · 최대 체력",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_patchouli",
+      "name": "파츄리 널릿지",
+      "effectName": "층을 읽는 눈",
+      "keyword": "관통 · 일반 적 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 3
+        },
+        {
+          "stat": "normal_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_sakuya",
+      "name": "이자요이 사쿠야",
+      "effectName": "다음 칼날보다 빠르게",
+      "keyword": "신속 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_remilia",
+      "name": "레밀리아 스칼렛",
+      "effectName": "밤의 주도권",
+      "keyword": "보스 피해 · 흡수",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "leech",
+          "value": 0.5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_sakuya_margin",
+      "name": "이자요이 사쿠야",
+      "effectName": "정돈하고 남긴 한 차례",
+      "keyword": "행동력 최대치 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "damage_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편에서 관찰한 인물의 행동을 전투 수치로 각색한 보상이다. 이 효과명은 원작 기술명이나 새로운 능력의 지급을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_01_1",
+      "name": "하쿠레이 레이무",
+      "effectName": "밤길의 한 방향",
+      "keyword": "이동 속도 · 비방향 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_01_2",
+      "name": "루미아",
+      "effectName": "어둠 속 가까운 점",
+      "keyword": "치명 확률 · 차지 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "charge_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_01_3",
+      "name": "하쿠레이 레이무",
+      "effectName": "밤에 잃지 않는 중심",
+      "keyword": "공격력 · 받는 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_02_1",
+      "name": "루미아",
+      "effectName": "그림자 중심을 찌르는 눈",
+      "keyword": "보스 피해 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_02_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "밤의 가장자리를 돈다",
+      "keyword": "이동속도 비례 피해 · 이동 속도",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "moving_damage",
+          "value": 4
+        },
+        {
+          "stat": "move_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_02_3",
+      "name": "루미아",
+      "effectName": "가까운 밤을 끊는 손",
+      "keyword": "대미지 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_03_1",
+      "name": "치르노",
+      "effectName": "얼음빛의 집결점",
+      "keyword": "차지 공격 · 치명 확률",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 5
+        },
+        {
+          "stat": "crit_chance",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_03_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "호수 위 비스듬한 길",
+      "keyword": "신속 · 이동속도 비례 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_03_3",
+      "name": "치르노",
+      "effectName": "차가운 틈의 반격",
+      "keyword": "공격력 · 내 체력 65% 이상 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_04_1",
+      "name": "하쿠레이 레이무",
+      "effectName": "쫓아가는 눈의 거리",
+      "keyword": "이동 속도 · 관통",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_04_2",
+      "name": "홍 메이링",
+      "effectName": "다시 선 발의 중심",
+      "keyword": "헤드·백 적중 피해 · 받는 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_04_3",
+      "name": "홍 메이링",
+      "effectName": "문턱 앞의 짧은 준비",
+      "keyword": "차지 속도 · 대미지",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "charge_speed",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_05_1",
+      "name": "홍 메이링",
+      "effectName": "중심 옆의 돌파",
+      "keyword": "헤드·백 적중 피해 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "directional_damage",
+          "value": 7
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_05_2",
+      "name": "홍 메이링",
+      "effectName": "문 앞에 남는 힘",
+      "keyword": "공격력 · 최대 체력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_05_3",
+      "name": "하쿠레이 레이무",
+      "effectName": "입구를 여는 집중",
+      "keyword": "보스 피해 · 비방향 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_06_1",
+      "name": "파츄리 널릿지",
+      "effectName": "겹친 층을 읽는 시선",
+      "keyword": "관통 · 치명 확률",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "crit_chance",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_06_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "책장 사이의 넓은 시야",
+      "keyword": "일반 적 피해 · 비방향 공격",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 8
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_06_3",
+      "name": "파츄리 널릿지",
+      "effectName": "한 틈에 모은 마력",
+      "keyword": "차지 공격 · 차지 속도",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 7
+        },
+        {
+          "stat": "charge_speed",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_07_1",
+      "name": "파츄리 널릿지",
+      "effectName": "전환 사이의 빈 문장",
+      "keyword": "관통 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 5
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_07_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "변하지 않는 한 목표",
+      "keyword": "보스 피해 · 공격력",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 9
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_07_3",
+      "name": "파츄리 널릿지",
+      "effectName": "바깥에서 고른 호흡",
+      "keyword": "차지 공격 · 내 체력 65% 이상 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 8
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_08_1",
+      "name": "이자요이 사쿠야",
+      "effectName": "손보다 먼저 보는 끝",
+      "keyword": "치명 확률 · 관통",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_08_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "복도에 열린 찰나",
+      "keyword": "신속 · 이동속도 비례 피해",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 120
+        },
+        {
+          "stat": "moving_damage",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_08_3",
+      "name": "이자요이 사쿠야",
+      "effectName": "어지러운 복도의 정돈",
+      "keyword": "행동 속도 · 대미지",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 3
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_09_1",
+      "name": "이자요이 사쿠야",
+      "effectName": "다시 읽는 칼날의 자리",
+      "keyword": "신속 · 치명 확률",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 150
+        },
+        {
+          "stat": "crit_chance",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_09_2",
+      "name": "이자요이 사쿠야",
+      "effectName": "가까운 찰나의 무게",
+      "keyword": "차지 공격 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "charge_damage",
+          "value": 10
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_09_3",
+      "name": "하쿠레이 레이무",
+      "effectName": "멈추지 않는 다음 손",
+      "keyword": "행동 속도 · 보스 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "action_speed",
+          "value": 4
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_10_1",
+      "name": "이자요이 사쿠야",
+      "effectName": "마지막 문턱의 속도",
+      "keyword": "신속 · 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 150
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_10_2",
+      "name": "하쿠레이 레이무",
+      "effectName": "흩어진 위험 사이",
+      "keyword": "비방향 공격 · 받는 피해 감소",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "nondirectional_damage",
+          "value": 9
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_10_3",
+      "name": "이자요이 사쿠야",
+      "effectName": "끝까지 닫힌 문을 연다",
+      "keyword": "보스 피해 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 10
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_11_1",
+      "name": "하쿠레이 레이무",
+      "effectName": "되찾을 낮의 방향",
+      "keyword": "보스 피해 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 11
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_11_2",
+      "name": "레밀리아 스칼렛",
+      "effectName": "붉은 밤의 첫 움직임",
+      "keyword": "치명 확률 · 치명 피해",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_11_3",
+      "name": "레밀리아 스칼렛",
+      "effectName": "길어진 밤의 지속",
+      "keyword": "대미지 · 흡수",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 7
+        },
+        {
+          "stat": "leech",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_12_1",
+      "name": "하쿠레이 레이무",
+      "effectName": "붉은 하늘의 한 목표",
+      "keyword": "보스 피해 · 최종 대미지",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 12
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_12_2",
+      "name": "레밀리아 스칼렛",
+      "effectName": "마지막 빛의 간격",
+      "keyword": "치명 확률 · 관통",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "eosd_main_12_3",
+      "name": "레밀리아 스칼렛",
+      "effectName": "밤을 넘기는 중심",
+      "keyword": "공격력 · 받는 피해 감소",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 8
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "해당 장면에서 관찰한 행동·준비를 기존 전투 수치로 각색했다. 효과명은 원작 기술명이나 새로운 능력의 습득을 뜻하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "scarlet_mist_ending_memorial",
+      "name": "안개 뒤에 돌아온 여름",
+      "effectName": "이야기의 마침표",
+      "keyword": "엔딩 기념",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "본편 레이무 A 정상 엔딩을 마친 기록이다. 능력치를 올리지 않는다.",
+      "uncertain": [],
+      "endingCard": true
+    }
+  ],
+  "events": [
+    {
+      "key": "eosd_main_01",
+      "title": "해가 가려진 여름밤",
+      "intro": "붉은 안개를 살피러 나온 레이무가 밤길에서 루미아와 만난다.",
+      "story": "익숙한 길도 어둠 속에서는 방향이 흐려진다. 레이무는 느긋하게 떠다니다가 길을 막는 기척을 만난다. 루미아 주변의 어둠과 넓게 퍼진 붉은 안개를 한꺼번에 넘겨짚을 수는 없다.",
+      "mainStage": 1,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "앞으로 나아갈 방향 하나를 붙잡는다.",
+          "result": "주변이 어두워져도 몸이 제자리에서 맴돌지 않게 했다.",
+          "card": "eosd_main_01_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까워지는 기척에 맞춰 공격을 준비한다.",
+          "result": "안 보이는 곳 전체를 겨누는 대신 닿을 거리를 기다렸다.",
+          "card": "eosd_main_01_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "급히 달려들지 않고 자세를 지킨다.",
+          "result": "시야가 줄어든 만큼 공격할 때의 흔들림을 줄였다.",
+          "card": "eosd_main_01_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "도입 및 1면 루미아 대면을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "루미아와 말이 엇갈린다. 레이무는 우선 눈앞의 어둠을 지나가기로 한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga"
+    },
+    {
+      "key": "eosd_main_02",
+      "title": "어둠의 바깥으로",
+      "intro": "루미아의 방해를 넘고 안개의 방향을 다시 찾는다.",
+      "story": "레이무의 앞을 어둠이 덮지만 계속 머물 이유는 없다. 빛이 닿는 경계와 기척이 움직이는 거리를 나눠 본다. 이 밤의 첫 상대를 넘는 일과 안개의 원인을 찾는 일은 아직 다르다.",
+      "mainStage": 2,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "가장 어두운 쪽의 기척을 정면으로 겨눈다.",
+          "result": "주변의 흐릿함에 흔들리지 않고 한 목표에 힘을 모았다.",
+          "card": "eosd_main_02_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "경계를 돌아 나가며 반격한다.",
+          "result": "움직일 때 열리는 시야를 공격에 이었다.",
+          "card": "eosd_main_02_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까운 방해부터 짧게 끊는다.",
+          "result": "깊은 곳의 빈자리를 쫓기보다 앞에 있는 것을 정리했다.",
+          "card": "eosd_main_02_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "1면 루미아전을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "루미아를 지나쳐도 붉은 안개는 남아 있다. 레이무가 호수 쪽으로 향한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga"
+    },
+    {
+      "key": "eosd_main_03",
+      "title": "안개 낀 호수의 얼음",
+      "intro": "호수의 길이 보이지 않는다. 치르노가 레이무 앞에 선다.",
+      "story": "건너편을 가린 안개 때문에 호수가 더 넓게 느껴진다. 레이무가 길을 묻자 치르노는 자신을 더 두려워하라고 나선다. 차가운 공격이 물 위를 가른다.",
+      "mainStage": 3,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "얼음이 모이는 지점에 공격을 모은다.",
+          "result": "흩어진 빛을 하나씩 쫓지 않았다. 힘이 모이는 순간을 겨눴다.",
+          "card": "eosd_main_03_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "넓게 퍼진 공격 사이를 비스듬히 지난다.",
+          "result": "안개가 가린 먼 곳보다 가까운 틈을 이어 갔다.",
+          "card": "eosd_main_03_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공세가 끊기는 순간에 자세를 다시 세운다.",
+          "result": "추위에 움츠린 몸을 펴고 다음 공격에 힘을 실었다.",
+          "card": "eosd_main_03_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "2면 치르노을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "치르노의 방해를 넘은 레이무는 호수 너머 붉은 기척을 향한다. 길은 저택의 바깥으로 이어진다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_cirno.tga"
+    },
+    {
+      "key": "eosd_main_04",
+      "title": "붉은 경계의 문지기",
+      "intro": "홍 메이링이 길을 막고, 물러선 그녀를 따라 저택으로 향한다.",
+      "story": "메이링은 혼자서라도 막겠다는 기세로 앞을 지킨다. 잠깐 물러나자 레이무는 그 뒤를 따라간다. 길 안내를 부탁한 적은 없지만 향하는 곳이 보이기 시작했다.",
+      "mainStage": 4,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "물러서는 방향을 놓치지 않는다.",
+          "result": "상대가 떠난 자리에 멈추지 않고 다음 접점을 찾았다.",
+          "card": "eosd_main_04_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "메이링의 발이 다시 멎는 곳을 읽는다.",
+          "result": "뒤로 가는 동작 속에도 다시 버틸 준비가 있었다.",
+          "card": "eosd_main_04_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "길이 좁아지기 전에 공격을 압축한다.",
+          "result": "입구 앞에서 손이 늦지 않도록 힘을 미리 모았다.",
+          "card": "eosd_main_04_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "3면 메이링 중간 대면과 추격을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "메이링을 따라간 길 끝에 저택의 입구가 가까워진다. 문지기는 그곳을 그대로 내주려 하지 않는다.",
+        "nodes": [
+          {
+            "key": "gate",
+            "story": "상대를 따라온 길이 저택으로 이어졌다. 레이무는 지금까지 만난 방해보다 더 안쪽에 답이 있음을 확인한다.",
+            "choices": [
+              {
+                "label": "저택의 입구를 향한다.",
+                "result": "안개를 끝내려던 목적을 잊지 않고 앞으로 간다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga"
+    },
+    {
+      "key": "eosd_main_05",
+      "title": "쉽게 열리지 않는 입구",
+      "intro": "메이링과의 승부를 넘어야 저택 안으로 들어갈 수 있다.",
+      "story": "레이무는 안개의 주인을 찾고 메이링은 저택을 지킨다. 앞을 막은 상대의 움직임을 뚫어야 다음 이야기가 이어진다. 문지기는 서 있는 자리에서 공격을 넓게 펼친다.",
+      "mainStage": 5,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "힘이 실리는 정면을 비껴 공격한다.",
+          "result": "지키는 상대의 중심과 직접 부딪히지 않고 옆에서 길을 열었다.",
+          "card": "eosd_main_05_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "넓은 움직임이 끝날 때까지 버틴다.",
+          "result": "급히 파고들지 않고 공격할 자세를 남겼다.",
+          "card": "eosd_main_05_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "막아서는 상대에게 부적을 집중한다.",
+          "result": "저택 안을 미리 보려던 시선을 거두고 눈앞의 승부를 끝냈다.",
+          "card": "eosd_main_05_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "3면 메이링 본전을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "메이링이 물러난 뒤 레이무는 저택 안으로 들어간다. 붉은 안개에 대한 답은 아직 더 안쪽에 있다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga"
+    },
+    {
+      "key": "eosd_main_06",
+      "title": "창문보다 책이 많은 방",
+      "intro": "어두운 서재 안에서 파츄리가 소란을 제지한다.",
+      "story": "밖에서 보던 것보다 넓은 실내에 책이 가득하다. 레이무가 계속 나아가자 파츄리가 자신의 서재를 어지럽히지 말라고 나선다. 여기서는 눈앞의 책장만 보고 움직일 수 없다.",
+      "mainStage": 6,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "겹쳐 놓인 마법의 층을 구분한다.",
+          "result": "한꺼번에 복잡해 보이던 흐름을 순서대로 나눴다.",
+          "card": "eosd_main_06_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "여러 방향에서 오는 기척에 시야를 넓힌다.",
+          "result": "하나를 쫓느라 옆을 비워 두지 않았다.",
+          "card": "eosd_main_06_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공격을 모아 한 틈으로 보낸다.",
+          "result": "소란을 키우기보다 집중할 곳을 고르고 힘을 실었다.",
+          "card": "eosd_main_06_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "4면 파츄리 대면을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "말로 길을 얻기는 어렵다. 파츄리가 준비하는 마법 앞에서 레이무도 공격을 정돈한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga"
+    },
+    {
+      "key": "eosd_main_07",
+      "title": "마법이 바뀌는 자리",
+      "intro": "파츄리의 공격이 다른 흐름으로 이어진다.",
+      "story": "같은 방 안에서도 공격의 간격과 방향은 계속 달라진다. 레이무는 막 지나간 흐름에 익숙해질 때마다 다음 변화를 맞는다. 상대의 많은 수단을 전부 같은 방법으로 넘길 수는 없다.",
+      "mainStage": 7,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "바뀌는 순간에 빈곳을 찌른다.",
+          "result": "한 공격이 끝났다는 기쁨보다 다음 공격까지의 짧은 틈을 보았다.",
+          "card": "eosd_main_07_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "눈앞의 상대를 놓치지 않고 압박한다.",
+          "result": "변하는 무늬와 변하지 않는 목표를 나눴다.",
+          "card": "eosd_main_07_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "크게 퍼진 공격의 바깥에서 다시 준비한다.",
+          "result": "거리를 벌리는 동안 손까지 멈추지는 않았다. 다음 한 번의 힘을 모았다.",
+          "card": "eosd_main_07_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "4면 파츄리전을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "파츄리의 마법을 지나 레이무는 더 깊은 곳으로 향한다. 저택의 주인을 만나기 전 아직 다른 누군가가 앞을 지킨다.",
+        "nodes": [
+          {
+            "key": "library",
+            "story": "복잡한 마법을 지나도 저택의 주인은 아직 만나지 못했다. 레이무는 서재에서 다음 길로 나선다.",
+            "choices": [
+              {
+                "label": "더 안쪽의 기척을 찾는다.",
+                "result": "책이 가득한 방을 뒤로하고 저택 안으로 향한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga"
+    },
+    {
+      "key": "eosd_main_08",
+      "title": "청소를 멈춘 메이드",
+      "intro": "사쿠야가 바쁜 저택의 복도에서 레이무를 가로막는다.",
+      "story": "레이무가 지나가는 곳마다 저택은 더 소란스러워진다. 사쿠야는 청소가 끝나지 않는다고 불평하며 앞에 선다. 조금 전까지 비어 보인 자리에 칼날이 나타난다.",
+      "mainStage": 8,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "칼날이 향하는 곳을 먼저 본다.",
+          "result": "손만 바라보지 않고 그 뒤에 생길 위험을 읽었다.",
+          "card": "eosd_main_08_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "짧게 열린 길에 바로 들어간다.",
+          "result": "빈 곳을 발견하고도 망설이던 동작을 줄였다.",
+          "card": "eosd_main_08_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흩어진 공격을 한 호흡으로 정리한다.",
+          "result": "여러 작은 움직임에 힘을 나누지 않았다. 필요한 순간에 집중했다.",
+          "card": "eosd_main_08_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "5면 사쿠야 중간 대면을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "첫 방해를 넘자 사쿠야가 다시 앞을 지킨다. 이 메이드가 주인을 만나게 해 줄 생각이 없다는 것은 분명하다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_main_09",
+      "title": "멈춘 순간 뒤의 칼날",
+      "intro": "시간을 다루는 사쿠야와 정면으로 맞선다.",
+      "story": "사쿠야의 움직임은 눈으로 따라가던 예상과 어긋난다. 레이무는 멈춘 듯한 순간 뒤에 달라진 배치를 마주한다. 주인에게 닿기 위해서는 지금의 간격부터 살아 있는 감각으로 다시 읽어야 한다.",
+      "mainStage": 9,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "달라진 배치를 빠르게 다시 읽는다.",
+          "result": "조금 전의 안전한 자리를 고집하지 않았다. 시선과 발이 함께 바뀌었다.",
+          "card": "eosd_main_09_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가장 가까운 틈을 향해 공격을 모은다.",
+          "result": "멀리 있는 빈곳보다 지금 사용할 간격을 택했다.",
+          "card": "eosd_main_09_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공세를 넘긴 뒤 바로 반격한다.",
+          "result": "피하는 것에서 멈추지 않고 열린 순간을 공격에 이었다.",
+          "card": "eosd_main_09_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "5면 사쿠야 본전 및 동봉 시간 능력 설정을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사쿠야를 물리친 레이무가 계속 나아간다. 저택의 가장 깊은 곳에 안개의 주인이 기다린다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_main_10",
+      "title": "마지막 복도의 재회",
+      "intro": "주인에게 이르는 길에서 사쿠야가 한 번 더 나타난다.",
+      "story": "이미 넘어선 줄 알았던 메이드가 다시 길을 막는다. 레이무는 승부가 끝났다는 생각을 거두고 손을 든다. 짧은 길이라고 준비까지 짧아져서는 안 된다.",
+      "mainStage": 10,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다시 만난 상대에게 머뭇거리지 않는다.",
+          "result": "예상 밖의 재등장 때문에 첫 동작을 놓치지 않았다.",
+          "card": "eosd_main_10_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "무질서해 보이는 공격에도 간격을 찾는다.",
+          "result": "어디든 위험하다는 생각을 접고 사용할 공간부터 골랐다.",
+          "card": "eosd_main_10_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "짧은 승부에 필요한 힘을 한곳에 싣는다.",
+          "result": "다음 상대를 걱정하기 전에 눈앞의 길을 열었다.",
+          "card": "eosd_main_10_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "6면 사쿠야 중간보스을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "사쿠야의 마지막 방해를 넘어 길이 열린다. 이제 안개를 펼친 주인에게 직접 물을 차례다.",
+        "nodes": [
+          {
+            "key": "lastdoor",
+            "story": "다시 막혔던 길마저 열렸다. 다음에 만날 상대에게는 안개의 이유를 직접 물을 수 있을 것이다.",
+            "choices": [
+              {
+                "label": "안개의 주인을 찾아 나선다.",
+                "result": "길었던 밤을 끝내기 위해 마지막으로 앞으로 나아간다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_main_11",
+      "title": "붉은 안개의 주인",
+      "intro": "레밀리아가 레이무 앞에 나타난다.",
+      "story": "길 끝에서 만난 작은 흡혈귀에게 안개의 이유가 이어진다. 햇빛을 피하려고 펼친 붉은 안개는 저택 밖의 여름까지 덮었다. 레이무는 주인의 기분에 맞춰 이변을 그냥 두고 돌아갈 생각이 없다.",
+      "mainStage": 11,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "저택 밖에 가려진 햇빛을 떠올린다.",
+          "result": "상대의 기세보다 해결할 일을 앞에 놓았다. 공격의 목표가 흔들리지 않는다.",
+          "card": "eosd_main_11_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "레밀리아가 주도권을 잡는 순간을 살핀다.",
+          "result": "작은 모습에 판단을 맡기지 않았다. 강하게 밀려오는 기세를 읽었다.",
+          "card": "eosd_main_11_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "버티며 힘을 되돌려 줄 자세를 잡는다.",
+          "result": "물러설 자리를 남기되 손까지 늦추지 않았다. 긴 승부에도 공격을 이어 갈 준비를 한다.",
+          "card": "eosd_main_11_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "6면 레밀리아 대면 및 동봉 안개의 목적을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "레밀리아와 레이무의 기세가 맞선다. 긴 밤을 끝내기 위한 마지막 승부가 시작된다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga"
+    },
+    {
+      "key": "eosd_main_12",
+      "title": "여름을 되돌리는 승부",
+      "intro": "레밀리아의 탄막을 넘어 붉은 안개를 끝내려 한다.",
+      "story": "화려한 공격이 하늘을 메운다. 레이무는 도중에 만난 모든 상대와 다른 압박을 느끼면서도 자신의 거리를 다시 잡는다. 저택의 주인을 넘으면 안개 바깥으로 돌아갈 수 있다.",
+      "mainStage": 12,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "레밀리아를 놓치지 않고 마지막 공격을 모은다.",
+          "result": "눈앞의 화려함보다 승부의 중심을 붙잡았다. 긴 밤의 끝까지 힘을 집중했다.",
+          "card": "eosd_main_12_1",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "겹쳐 오는 공격의 앞뒤를 나눠 통과한다.",
+          "result": "한꺼번에 밀려오는 듯한 빛에서도 순서를 읽었다. 빈 곳에 정확히 반격했다.",
+          "card": "eosd_main_12_2",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흐트러진 자세를 고쳐 한 번 더 공격한다.",
+          "result": "마지막이라는 말에 손을 서두르지 않았다. 버틴 힘을 끝까지 공격으로 이었다.",
+          "card": "eosd_main_12_3",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "6면 레밀리아전과 정상 해결을 토대로 사건 순서와 결말을 유지했다. 선택의 행동·반응은 새로 쓴 짧은 해석이며 출처 문서에서 원작 사실과 구분한다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "레밀리아와의 승부가 끝난다. 붉은 안개가 걷히고 여름의 햇빛이 다시 환상향에 닿는다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga"
+    },
+    {
+      "key": "eosd_main_13",
+      "title": "안개 뒤에 돌아온 여름",
+      "intro": "신사에 햇빛이 돌아온다. 레밀리아는 양산 아래 새 손님이 된다.",
+      "story": "붉은 안개가 걷힌 신사에는 다시 맑은 날이 이어진다. 레이무가 맞는 오후에 레밀리아가 양산을 들고 찾아온다. 긴 밤의 상대였던 둘은 이제 눈앞의 햇빛을 두고 실랑이를 벌인다.",
+      "mainStage": 13,
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "마당에 다시 닿은 햇빛을 본다.",
+          "result": "여름이 제자리로 돌아왔다는 것을 가까운 풍경에서 확인했다.",
+          "card": "scarlet_mist_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "양산 아래 손님과 말을 주고받는다.",
+          "result": "싸움이 끝난 뒤에도 서로의 태도는 쉽게 달라지지 않는다. 그래도 안개 없이 같은 오후를 맞는다.",
+          "card": "scarlet_mist_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "일상의 작은 할 일을 다시 시작한다.",
+          "result": "큰 승부를 끝낸 손으로 익숙한 하루를 이어 갔다.",
+          "card": "scarlet_mist_ending_memorial",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "레이무 A 정상 엔딩의 귀환과 해결만 요약하고 짧은 선택을 새로 썼다. EX 진입이나 다른 인물 경로의 해결을 합치지 않는다.",
+      "uncertain": [],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "이변은 끝났고 낮은 다시 밝다. 레밀리아가 가져온 작은 그늘 하나가 온 하늘을 가릴 필요는 없다. 레이무의 신사에는 평범하고도 소란스러운 여름이 돌아온다.",
+            "choices": [
+              {
+                "label": "밝아진 오후로 돌아간다.",
+                "result": "붉은 안개의 기록은 여기서 닫는다. 다시 이어질 하루가 눈앞에 있다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_ending_memorial.tga"
+    },
+    {
+      "key": "eosd_side_direction",
+      "title": "신사 뒤에서 정하는 방향",
+      "intro": "붉은 안개 속으로 처음 나서던 밤을 되짚는다.",
+      "story": "안개 때문에 익숙한 풍경도 한 덩어리처럼 보였다. 멀리 볼 수 없다고 아무 데로나 움직일 수는 없었다. 그때 길을 찾기 위해 무엇을 기준으로 삼았는지 떠올린다.",
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "가장 잘 보이는 지형을 기준으로 삼는다.",
+          "result": "돌아볼 때마다 다른 방향을 고르는 일이 줄었다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까운 기척과 먼 소리를 나눈다.",
+          "result": "보이지 않는 공간의 크기를 조금씩 가늠했다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공격을 준비할 순간을 미리 정한다.",
+          "result": "길을 찾는 손과 힘을 모으는 손을 구분했다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga"
+    },
+    {
+      "key": "eosd_side_cleared",
+      "title": "부적을 고르는 잠깐",
+      "intro": "다시 움직이기 전에 손에 든 것을 정돈한다.",
+      "story": "기다란 설명이나 대단한 준비가 필요한 순간은 아니다. 급히 꺼내려다 엉키지 않도록 몇 가지를 바로잡는다.",
+      "actionCost": 0,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "바로 사용할 것을 손 가까이 둔다.",
+          "result": "시선은 앞을 보고 손은 덜 헤맸다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어두워도 구분할 순서로 나눈다.",
+          "result": "눈으로 다시 확인할 일이 줄었다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한 번에 모을 힘을 따로 남긴다.",
+          "result": "작은 방해에 준비를 모두 쓰지 않았다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga"
+    },
+    {
+      "key": "eosd_side_shadow",
+      "title": "가까운 어둠과 먼 안개",
+      "intro": "루미아를 지난 뒤 남은 풍경을 떠올린다.",
+      "story": "한쪽의 어둠을 넘었는데도 붉은 안개는 그대로였다. 눈앞의 방해와 먼 원인을 나눠 보는 일이 필요하다.",
+      "actionCost": 1,
+      "previous": "eosd_main_02",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "루미아 가까이에서 달라졌던 거리를 생각한다.",
+          "result": "작은 공간 안의 기척을 더 세밀하게 보았다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "그 뒤에도 이어진 방향을 짚는다.",
+          "result": "방해를 넘긴 다음 길을 바로 정했다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "멈췄다 나가는 공격의 간격을 떠올린다.",
+          "result": "적당한 순간까지 힘을 모으는 법을 골랐다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga"
+    },
+    {
+      "key": "eosd_side_nighttalk",
+      "title": "놀라 주지 않는 손님",
+      "intro": "밤길에서 서로 엇나갔던 말을 떠올린다.",
+      "story": "겁을 주려는 상대와 길을 지나가려는 사람은 같은 질문을 하고 있지 않았다. 처음부터 무엇을 확인했으면 좋았을까?",
+      "actionCost": 1,
+      "previous": "eosd_main_02",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "상대가 원하는 반응보다 움직임을 본다.",
+          "result": "시선이 말에만 끌려가지 않았다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "지금 필요한 용무부터 분명히 한다.",
+          "result": "목표가 정리되자 공격의 방향도 흔들리지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "길이 열릴 때를 기다린다.",
+          "result": "의미 없는 실랑이에 힘을 덜 썼다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_rumia.tga"
+    },
+    {
+      "key": "eosd_side_lakeedge",
+      "title": "호수는 원래 이렇게 넓었나",
+      "intro": "안개 속 물가의 거리감을 되짚는다.",
+      "story": "멀리 보이지 않으니 모든 곳이 먼 듯했다. 돌아보면 가까운 틈까지 놓친 순간이 있다. 다음에는 어느 거리를 기준으로 삼을까?",
+      "actionCost": 1,
+      "previous": "eosd_main_03",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "발아래 가까운 움직임을 기준으로 삼는다.",
+          "result": "당장 반응해야 할 것을 놓치지 않았다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "건너갈 방향을 길게 잡는다.",
+          "result": "작은 흔들림마다 진로를 버리지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "힘이 모인 얼음빛을 목표로 고른다.",
+          "result": "많은 점보다 한순간의 중심을 찾았다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga"
+    },
+    {
+      "key": "eosd_side_icepride",
+      "title": "먼저 놀라 달라는 얼굴",
+      "intro": "치르노가 길 안내보다 승부를 원했던 때를 떠올린다.",
+      "story": "레이무는 갈 곳을 물었고 치르노는 자신을 보라고 했다. 말을 오래 주고받는 사이에도 주변은 차가워졌다.",
+      "actionCost": 1,
+      "previous": "eosd_main_03",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "자신만만한 첫 공격의 중심을 살핀다.",
+          "result": "기세가 큰 만큼 힘이 모이는 곳도 보였다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "서둘러 다음 길을 확인한다.",
+          "result": "상대의 자랑에 용무를 잊지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까운 위협부터 차분히 계산한다.",
+          "result": "큰 말보다 닿을 거리를 먼저 보았다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_cirno.tga"
+    },
+    {
+      "key": "eosd_side_gatepath",
+      "title": "도망가는 길도 길이다",
+      "intro": "메이링을 따라가며 저택에 가까워졌던 때를 되짚는다.",
+      "story": "멀어지는 상대에게서 눈을 떼면 어디로 향하는지도 놓친다. 뒤를 쫓는 일이 급해져 오히려 길을 잃지 않으려면 무엇이 필요할까?",
+      "actionCost": 1,
+      "previous": "eosd_main_04",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "메이링이 다시 버틴 자리를 표시한다.",
+          "result": "물러남 뒤의 반격을 생각할 수 있었다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "갈라지는 길을 한 번에 정리한다.",
+          "result": "따라가며 주변까지 볼 여유를 만들었다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까워질 때 사용할 힘을 모은다.",
+          "result": "거리가 먼 동안 헛되게 손을 쓰지 않았다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga"
+    },
+    {
+      "key": "eosd_side_gatecenter",
+      "title": "문턱에 남는 발",
+      "intro": "메이링을 떠올리며 중심이 흐트러진 순간을 고친다.",
+      "story": "한 번 물러서더라도 다음 동작까지 포기할 필요는 없었다. 메이링이 입구를 지키던 자세를 다른 방향에서 살펴본다.",
+      "actionCost": 1,
+      "previous": "eosd_main_05",
+      "previousChoice": 1,
+      "requiredCard": "eosd_meiling",
+      "choices": [
+        {
+          "label": "뒤로 가도 공격할 자세를 유지한다.",
+          "result": "버티는 일과 반격하는 일을 나누지 않았다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한쪽으로 치우친 시야를 넓힌다.",
+          "result": "상대를 따라 움직이며 옆길도 볼 수 있었다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까이 들어오는 위험부터 확인한다.",
+          "result": "큰 기세보다 닿는 순간에 집중했다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_meiling.tga"
+    },
+    {
+      "key": "eosd_side_window",
+      "title": "창문을 찾던 시선",
+      "intro": "서재에서 레이무가 낯설어했던 넓이를 떠올린다.",
+      "story": "바깥에서 짐작한 방과 안에서 보이는 방은 달랐다. 입구에서 세운 예상만 붙들면 깊숙한 곳의 움직임을 놓친다.",
+      "actionCost": 1,
+      "previous": "eosd_main_06",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "겹친 통로를 순서대로 나눈다.",
+          "result": "복잡한 공간에도 확인할 차례가 생겼다.",
+          "card": "eosd_patchouli",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한 번에 바라볼 범위를 넓힌다.",
+          "result": "가까운 책장에 시선을 다 쓰지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "닿을 거리의 기척부터 읽는다.",
+          "result": "멀리 보이지 않는다고 앞까지 놓치지는 않았다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga"
+    },
+    {
+      "key": "eosd_side_quietstudy",
+      "title": "소란을 줄이는 방법",
+      "intro": "파츄리가 지키려던 서재의 질서를 떠올린다.",
+      "story": "아무 곳이나 공격한다고 빨리 통과하는 것은 아니다. 책이 많은 방에서 힘을 흩뜨렸던 순간을 다시 살핀다.",
+      "actionCost": 1,
+      "previous": "eosd_main_07",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "변화하는 층을 차례로 읽는다.",
+          "result": "힘을 써야 할 곳을 먼저 골랐다.",
+          "card": "eosd_patchouli",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한 번의 공격에 준비를 모은다.",
+          "result": "작은 소란 여러 번을 만들지 않았다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "다음 방으로 갈 방향을 먼저 정한다.",
+          "result": "확인한 길을 다시 의심하느라 멈추지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga"
+    },
+    {
+      "key": "eosd_side_index",
+      "title": "같은 방법이 통하지 않을 때",
+      "intro": "파츄리의 여러 공격을 한 가지로 기억할 수 없다.",
+      "story": "한 번 성공한 대응을 반복하다 보면 다음 변화에는 늦는다. 기억을 다시 펼쳐 중요한 차이만 남겨 본다.",
+      "actionCost": 1,
+      "previous": "eosd_main_07",
+      "previousChoice": 1,
+      "requiredCard": "eosd_patchouli",
+      "choices": [
+        {
+          "label": "공격이 바뀌던 순간을 구분한다.",
+          "result": "겉모양보다 전환의 틈을 찾았다.",
+          "card": "eosd_patchouli",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "가까워지는 순간만 따로 모아 본다.",
+          "result": "다음 대응에 필요한 거리를 세밀하게 읽었다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "어떤 흐름에서도 자신의 중심을 지킨다.",
+          "result": "방법이 달라져도 반격할 힘을 놓치지 않았다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_patchouli.tga"
+    },
+    {
+      "key": "eosd_side_cleaning",
+      "title": "끝나지 않는 청소",
+      "intro": "사쿠야가 소란스러운 복도를 지키던 모습을 떠올린다.",
+      "story": "하나를 정리하면 다른 쪽이 어지러워진다. 손이 빠르기만 해서는 끝나지 않을 일이라면 무엇부터 바꾸면 좋을까?",
+      "actionCost": 1,
+      "previous": "eosd_main_08",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다시 손댈 일을 만들지 않도록 순서를 고른다.",
+          "result": "다음 움직임을 미리 정한 만큼 손이 빨라졌다.",
+          "card": "eosd_sakuya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한꺼번에 볼 수 있는 범위를 넓힌다.",
+          "result": "고개를 돌릴 때마다 일을 새로 시작하지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "겹친 부분을 나눠 차례대로 처리한다.",
+          "result": "복잡함에 눌리지 않고 필요한 틈을 찾았다.",
+          "card": "eosd_patchouli",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_side_knife",
+      "title": "칼이 아닌 빈자리",
+      "intro": "사쿠야의 칼날을 따라가다 길을 놓쳤던 순간을 떠올린다.",
+      "story": "무엇이 날아오는지 계속 보는 동안 정작 움직일 곳은 보지 못했다. 시선을 한 번 바꾼다면 어디를 볼까?",
+      "actionCost": 1,
+      "previous": "eosd_main_09",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다음 칼날이 닿기 전에 열린 곳을 본다.",
+          "result": "시선과 발의 차이를 줄였다.",
+          "card": "eosd_sakuya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "움직여도 흐트러지지 않을 중심을 잡는다.",
+          "result": "빈틈을 지나며 공격할 자세를 남겼다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한순간 모아 쓸 힘을 남겨 둔다.",
+          "result": "피하는 동작 뒤에 공격의 무게를 이었다.",
+          "card": "eosd_cirno",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_side_schedule",
+      "title": "정돈 뒤에 남은 한 차례",
+      "intro": "사쿠야를 떠올리며 움직임의 낭비를 줄인다.",
+      "story": "빠르게만 움직여서는 마지막 일이 자꾸 남는다. 되풀이한 확인을 하나 덜어 내면 다른 행동을 넣을 자리가 생길지도 모른다.",
+      "actionCost": 1,
+      "previous": "eosd_main_09",
+      "previousChoice": 1,
+      "requiredCard": "eosd_sakuya",
+      "choices": [
+        {
+          "label": "되짚을 필요 없는 순서로 정리한다.",
+          "result": "다 끝났을 때 쓸 여유 한 차례까지 남겼다.",
+          "card": "eosd_sakuya_margin",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "겹친 절차를 나눠 필요한 틈을 찾는다.",
+          "result": "순서가 분명해지자 힘을 낭비할 곳이 줄었다.",
+          "card": "eosd_patchouli",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "공격과 이동을 한 방향으로 맞춘다.",
+          "result": "다음 행동을 시작할 때마다 몸을 다시 돌리지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_side_threshold",
+      "title": "끝났다고 생각한 문",
+      "intro": "사쿠야가 마지막 길에서 다시 나타났던 때를 되짚는다.",
+      "story": "넘어선 상대를 잊는 것과 경계를 푸는 것은 달랐다. 마지막이라고 여긴 공간에서 손이 늦지 않게 하려면 무엇을 남길까?",
+      "actionCost": 1,
+      "previous": "eosd_main_10",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다음 움직임을 시작할 준비를 남긴다.",
+          "result": "예상 밖의 기척에도 바로 자세를 바꿨다.",
+          "card": "eosd_sakuya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "먼 목표보다 지금의 길을 확인한다.",
+          "result": "눈앞을 건너뛰지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "한 번 더 버틸 중심을 잡는다.",
+          "result": "기세가 끊겼을 때에도 다음 공격을 세웠다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_sakuya.tga"
+    },
+    {
+      "key": "eosd_side_sunshade",
+      "title": "자기 밤과 남의 여름",
+      "intro": "레밀리아가 안개를 펼친 이유를 되짚는다.",
+      "story": "자신에게 편한 밤이 바깥의 모두에게도 편한 것은 아니었다. 큰 기세 앞에서 문제의 크기를 다시 잰다.",
+      "actionCost": 1,
+      "previous": "eosd_main_11",
+      "previousChoice": 1,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "레밀리아가 잡으려던 주도권을 읽는다.",
+          "result": "긴 승부 속에서도 공격을 이어 갈 길을 생각했다.",
+          "card": "eosd_remilia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안개 밖의 목적을 다시 붙잡는다.",
+          "result": "상대의 분위기에 공격의 방향을 맡기지 않았다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "보이지 않는 곳에 흔들린 판단을 고친다.",
+          "result": "가까운 기척부터 정확히 확인했다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "원작 인물의 본편 움직임을 토대로 새로 쓴 준비·회상 사건이다. 특정 만남의 회상은 선행 장면을 지난 뒤에만 열리며 원작에 같은 대사가 존재한다고 주장하지 않는다.",
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga"
+    },
+    {
+      "key": "eosd_epilogue_parasol",
+      "title": "양산 하나의 그늘",
+      "intro": "맑아진 신사에 레밀리아가 양산을 들고 찾아온다.",
+      "story": "레이무는 작은 그늘 아래 선 손님과 넓게 걷힌 하늘을 번갈아 본다. 안개가 없어진 뒤에도 둘의 말다툼은 쉽게 끝나지 않는다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "다시 밝아진 하늘을 오래 바라본다.",
+          "result": "돌아온 일상의 넓이를 확인했다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "작은 그늘에 맞춰 움직이는 손님을 본다.",
+          "result": "큰 기세도 가까운 조건을 살피며 이어 가야 했다.",
+          "card": "eosd_remilia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "바로 닿는 빛과 먼 풍경을 나눈다.",
+          "result": "거리를 구분하는 감각을 다시 정리했다.",
+          "card": "eosd_rumia",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "본편 정상 해결 후의 여운을 바탕으로 새로 쓴 일상 장면이다. 동일 대사가 원작에 있거나 EX가 진행됐다고 주장하지 않는다.",
+      "uncertain": [],
+      "epilogue": true,
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_remilia.tga"
+    },
+    {
+      "key": "eosd_epilogue_summer",
+      "title": "매미 소리가 돌아온 오후",
+      "intro": "붉은 안개 대신 여름의 소리가 신사를 채운다.",
+      "story": "같은 마당이 다시 밝아졌다. 레이무는 길게 이어졌던 밤을 짧게 되짚고 오후의 일을 시작한다.",
+      "actionCost": 1,
+      "previous": null,
+      "previousChoice": 0,
+      "requiredCard": null,
+      "choices": [
+        {
+          "label": "바로 할 일을 정해 몸을 움직인다.",
+          "result": "긴 싸움 뒤에도 다음 행동을 작게 시작했다.",
+          "card": "eosd_reimu",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "정리할 일을 하나씩 나눈다.",
+          "result": "손을 다시 대는 시간을 줄였다.",
+          "card": "eosd_sakuya",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "서두르지 않고 중심부터 세운다.",
+          "result": "남은 힘을 다음 일에 고르게 이었다.",
+          "card": "eosd_meiling",
+          "card2": null,
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "failure": "",
+      "canonFact": "본편 정상 해결 후의 여운을 바탕으로 새로 쓴 일상 장면이다. 동일 대사가 원작에 있거나 EX가 진행됐다고 주장하지 않는다.",
+      "uncertain": [],
+      "epilogue": true,
+      "icon": "war3mapImported\\UI_Event_XP_scarlet_mist_reimu.tga"
+    }
+  ],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\scarlet_mist-main-01.json",
+      "monitorRecordId": "155d690e-11ef-48d4-b2d2-c810d18cfaf4"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\scarlet_mist-side-01.json",
+      "monitorRecordId": "0cfe0a89-69e1-4865-af36-73469adda5e3"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\touhou-editor-delta-01.json",
+      "monitorRecordId": "9e219739-5387-49c0-b298-564aad5c90b3",
+      "scope": "조건 없는 일반 사건의 출발 회상 시점 재검토"
+    }
+  ],
+  "editorReview": "content/reviews/next-priority-heads-20261010/editor-review.json"
+}

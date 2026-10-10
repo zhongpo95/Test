@@ -1,0 +1,781 @@
+{
+  "reviews": [
+    {
+      "schemaVersion": 1,
+      "reviewDate": "2026-10-10",
+      "reviewer": "expansion_capacity",
+      "scope": "hunter_exam 및 roswaal_mansion 초안의 사건 문맥과 보상 선택 다양성에 대한 독립 편집 검토.",
+      "manuscriptsModified": false,
+      "productionFilesModified": false,
+      "gemmaCalled": false,
+      "validationBoundary": "JSON 및 런타임 자격 조건을 읽고 기존 검사 함수를 실행했다. 공식 각화 소개와 아래에 구분한 보조 전사를 대조했다. 원작 영상을 직접 재생하거나 Warcraft에서 플레이한 검증은 아니다.",
+      "summary": "헌터시험장 3건, 로즈월 저택 2건. 헌터 2건은 합격에 필요한 인과 연결 누락이고 나머지는 등장 주체와 선택 시점의 혼동이다. 메인 회차 순서 자체를 바꿔야 하는 오류와 동일한 유효 보상 벡터는 발견하지 못했다.",
+      "findings": [
+        {
+          "id": "HX-01",
+          "world": "hunter_exam",
+          "priority": "P2",
+          "category": "causal_gap",
+          "eventKeys": [
+            "hx_main_04",
+            "hx_main_05"
+          ],
+          "fields": [
+            "dialogue.commonResult"
+          ],
+          "title": "2차 시험 통과의 전제가 빠져 요리 과제에 바로 합격한 것으로 읽힌다.",
+          "evidence": "hx_main_04는 요리 과제를 제시한 뒤 요구를 다시 살피며 통과했다고 정리하고 바로 비행선으로 넘어간다. 전원 불합격 판정과 네테로가 마련한 재시험이 어느 문장에도 없다.",
+          "impact": "선택지의 관찰과 준비만으로 첫 요리 심사를 통과한 것처럼 인과가 연결된다. 이것은 원작 결과를 바꾸기보다 생략된 연결을 보완할 문제다.",
+          "suggestedEdit": "공통 결과에 첫 판정에서는 합격자가 나오지 않았고 네테로의 중재로 다시 치른 알 과제를 넘긴 뒤 다음 장소로 향했다는 연결을 한두 문장 넣는다. 새 선택지나 원작에 없는 합격 분기를 만들 필요는 없다.",
+          "evidenceTier": "공식 6화 소개는 요리 과제만 확인한다. 전원 불합격·네테로 중재·알 재시험은 2011판 6화의 제3자 영어 전사에서 추가로 대조했다.",
+          "sources": [
+            "HX-OFFICIAL-06",
+            "HX-TRANSCRIPT-06"
+          ]
+        },
+        {
+          "id": "HX-02",
+          "world": "hunter_exam",
+          "priority": "P2",
+          "category": "causal_gap",
+          "eventKeys": [
+            "hx_main_10",
+            "hx_main_11"
+          ],
+          "fields": [
+            "dialogue.commonResult"
+          ],
+          "title": "번호표를 빼앗긴 뒤 다시 확보하는 연결 없이 4차 시험 합격으로 넘어간다.",
+          "evidence": "hx_main_10의 story에서 곤이 번호표를 빼앗기고 commonResult에서는 동료를 찾으러 간다. hx_main_11은 동굴 탈출 뒤 일행의 4차 시험 통과를 확정하지만 곤이 필요한 표를 어떻게 확보했는지는 두 사건 모두 설명하지 않는다.",
+          "impact": "앞 사건에서 잃었다고 표시한 합격 수단이 해결되지 않은 채 합격 결과가 나온다. 히소카의 도움을 받아야 했던 굴욕이라는 장면의 의미도 남지 않는다.",
+          "suggestedEdit": "hx_main_10 공통 결과에 히소카가 번호표를 남기고 갔으나 곤은 자기 힘으로 얻어 낸 승리로 받아들이지 못했다는 연결을 추가한다. 곤이 원치 않는 빚을 진 감정을 남긴 뒤 동료 합류로 잇는다.",
+          "evidenceTier": "공식 16화 소개는 번호표 강탈까지, 17화 소개는 동료 합류를 확인한다. 그 사이 히소카가 표를 남기는 경위는 2011판 16화 제3자 전사와 대조했다.",
+          "sources": [
+            "HX-OFFICIAL-16",
+            "HX-OFFICIAL-17",
+            "HX-TRANSCRIPT-16"
+          ]
+        },
+        {
+          "id": "HX-03",
+          "world": "hunter_exam",
+          "priority": "P3",
+          "category": "participant_ambiguity",
+          "eventKeys": [
+            "hx_rule_margin"
+          ],
+          "fields": [
+            "story"
+          ],
+          "title": "대화를 나누는 두 사람의 선행 명사가 잠든 곤과 한조로 읽힌다.",
+          "evidence": "본문에서 처음 소개한 인물은 곤과 한조인데 곧 두 사람은 곤이 쉬는 동안 생각한다고 쓴다. 복도에서 대화하는 실제 두 사람은 별도로 소개되지 않는다.",
+          "impact": "곤이 병실에서 쉬는 동시에 대화하고 있다는 문장으로 읽히며 이후 크라피카에게 묻는 선택지의 상대도 명확하지 않다.",
+          "suggestedEdit": "창작 회고의 대화자를 먼저 이름으로 정한다. 예를 들어 크라피카와 레오리오가 복도에서 나누었던 이야기로 명시한 뒤 두 사람이라는 표현을 쓰고, 원작에 해당 대화가 있었다고 단정하지 않는 기존 각색 경계를 유지한다.",
+          "evidenceTier": "초안 안의 등장 명사와 휴식 상태를 대조한 내부 문맥 문제다.",
+          "sources": []
+        },
+        {
+          "id": "RZ-01",
+          "world": "roswaal_mansion",
+          "priority": "P2",
+          "category": "unmarked_recollection",
+          "eventKeys": [
+            "rz_side_tray",
+            "rz_side_laundry",
+            "rz_side_chain",
+            "rz_side_chain_follow",
+            "rz_side_tablecloth"
+          ],
+          "fields": [
+            "intro",
+            "story",
+            "canonBoundary"
+          ],
+          "title": "독립된 일상 기억이라는 경계가 게임 문장에는 없어 렘의 현재 상태와 충돌한다.",
+          "evidence": "world와 개별 canonBoundary에는 일반 사건이 독립된 일상 기억이라고 되어 있지만 도입과 본문은 모두 현재의 렘과 일을 하는 장면이다. 이 사건들에는 메인 회차 제한이 없다. ProtoEventEligible은 미완결 지역의 일반 사건을 메인 5장 이후에도 허용한다.",
+          "impact": "렘이 숨졌다고 한 rz_main_05 이후 rz_main_06으로 넘어가기 전에 렘과 찻잔이나 빨래를 정리하는 사건이 제시될 수 있다. 현재 회차의 부활이나 예고 없는 시간선 전환처럼 읽힐 수 있다.",
+          "suggestedEdit": "일반 사건의 도입을 함께 일하던 어느 날을 떠올리는 표현으로 통일한다. 후속 사건도 그때 이어졌던 대화를 되짚는다는 표시를 넣는다. 작업자용 canonBoundary를 UI에 그대로 노출하지 말고 자연스러운 회상 도입 한 문장으로 현재 회차와 구분한다.",
+          "evidenceTier": "공식 6~8화 소개로 저택 반복 회차 경계를 다시 확인했다. 구체적인 렘 사망은 기존 source 문서가 보조 전사 근거로 구분해 둔 내용이며 본 검토의 문제는 이를 이미 선언한 초안과 일반 사건의 시점 충돌이다. 런타임 발생 가능성은 소스 조건만 검사했고 실플레이하지 않았다.",
+          "runtimeReference": "System/ExpeditionPrototype.j의 ProtoEventEligible, 메인 진행·에필로그·선행 사건·보유 카드 조건.",
+          "sources": [
+            "RZ-OFFICIAL-STORY"
+          ]
+        },
+        {
+          "id": "RZ-02",
+          "world": "roswaal_mansion",
+          "priority": "P2",
+          "category": "choice_timing",
+          "eventKeys": [
+            "rz_main_13"
+          ],
+          "fields": [
+            "story",
+            "choices[0].result",
+            "choices[1].result",
+            "choices[2].label",
+            "choices[2].result",
+            "dialogue.commonResult"
+          ],
+          "title": "로즈월 도착 전의 위기와 해결 뒤의 회고가 한 보상 선택에 섞였다.",
+          "evidence": "story의 마지막 문장에 이미 로즈월의 불길이 도착한다. 선택 1은 큰 힘이 도착할 때까지 시간을 벌고 선택 2는 가진 것으로 버티지만 선택 3은 위협이 이미 해결되었다고 회고한다. commonResult에서 다시 로즈월의 가세와 저주 해소를 선언한다.",
+          "impact": "선택을 하기 전에 구원이 확정되고 세 선택지의 시점도 다르다. 같은 위기에서 무엇에 집중할지 고르는 구조가 흐려진다.",
+          "suggestedEdit": "story는 샤마크와 남은 무기로 버텨야 하는 순간에서 끝낸다. 로즈월의 도착과 저주 해소는 commonResult에만 둔다. 선택 3도 해결된 일을 회고하는 대신 저주를 건 마수와 퇴로를 확인하는 현재의 판단으로 바꾼다. 카드 효과와 원작의 최종 결과는 유지할 수 있다.",
+          "evidenceTier": "공식 11화 소개는 렘·람을 보내고 스바루가 미끼가 되는 장면을 확인하며 공식 11.5화 도입은 마수 격파와 아이들 구출 이후임을 확인한다. 로즈월 가세의 세부 출처는 기존 roswaal-mansion-sources.json의 보조 자료 경계를 유지한다. 본 지적은 도착 전후가 혼재한 초안 내부 순서 문제다.",
+          "sources": [
+            "RZ-OFFICIAL-STORY"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "HX-OFFICIAL-06",
+          "kind": "official_episode_synopsis",
+          "url": "https://www.ntv.co.jp/hunterhunter/story/006.html",
+          "checked": "2011판 6화 요리 과제와 시험관. 재시험 결과는 이 소개에 없다."
+        },
+        {
+          "id": "HX-OFFICIAL-16",
+          "kind": "official_episode_synopsis",
+          "url": "https://www.ntv.co.jp/hunterhunter/story/016.html",
+          "checked": "히소카의 표를 빼앗은 뒤 다른 응시자에게 강탈당한다."
+        },
+        {
+          "id": "HX-OFFICIAL-17",
+          "kind": "official_episode_synopsis",
+          "url": "https://www.ntv.co.jp/hunterhunter/story/017.html",
+          "checked": "곤이 레오리오·크라피카와 합류한 뒤 폰즈를 따라 동굴에 간다."
+        },
+        {
+          "id": "HX-TRANSCRIPT-06",
+          "kind": "third_party_episode_transcript",
+          "url": "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?episode=s01e06&tv-show=hunter-x-hunter-2011",
+          "checked": "전원 불합격 판정, 네테로 중재, 멘치가 직접 참여한 알 재시험. 공식 게시 전사나 직접 영상 검증은 아니다."
+        },
+        {
+          "id": "HX-TRANSCRIPT-16",
+          "kind": "third_party_episode_transcript",
+          "url": "https://www.springfieldspringfield.co.uk/view_episode_scripts.php?episode=s01e16&tv-show=hunter-x-hunter-2011",
+          "checked": "히소카는 표를 가져가지 않고 곤에게 남기며 곤은 그 빚을 받아들이기 싫어한다. 공식 게시 전사나 직접 영상 검증은 아니다."
+        },
+        {
+          "id": "RZ-OFFICIAL-STORY",
+          "kind": "official_episode_synopsis",
+          "url": "https://re-zero-anime.jp/tv/story/tv1r.html",
+          "checked": "4~11화 저택편의 회차, 금서고의 보호, 다섯 번째 시작, 마을 조사, 얽힌 저주, 렘·람을 위한 미끼 순서. 11.5화에서는 사건 해결 뒤의 평온만 확인했으며 별도 OVA 사건은 원고 범위에 넣지 않았다."
+        }
+      ],
+      "notFindings": [
+        "헌터 main13의 보드로 살해는 현 초안의 출처 경계 안에 있으며 삭제해야 할 오류로 판정하지 않았다.",
+        "리제로 main03은 저택 두 번째 회차의 네 번째 밤이다. 회차와 날짜를 명시하면 읽기는 쉬워지지만 현재 원고의 루프 순서가 틀렸다고 판정하지 않았다.",
+        "리제로 main05의 람은 동생을 잃는다는 문장은 람의 사망을 뜻하지 않는다.",
+        "리제로 일반 사건 hall의 직전 실수와 다음번 개선은 구분되어 있으며 garden에서 팩의 시선을 따라 종이를 찾는 행동도 자체 모순이 없다.",
+        "등장하지 않은 인물 이름의 카드를 받는 것만으로 그 인물이 현장에 있다고 판정하지 않았다. 카드 효과가 원작 능력을 그대로 신규 구현한다는 약속도 없다."
+      ],
+      "inputs": [
+        {
+          "file": "content/expansion-drafts/hunter_exam.json",
+          "sha256": "CCC6B268EC37A2A1D9186D08D1FA31EDFC3CF882A254AFF7BCA16B5233054F9E",
+          "cards": 49,
+          "events": 32
+        },
+        {
+          "file": "content/expansion-drafts/roswaal_mansion.json",
+          "sha256": "644333B95E339DFA8FE52B5FB0AA9E0693772E840AD11C4BCB8A388C98621530",
+          "cards": 50,
+          "events": 32
+        }
+      ],
+      "rewardValidation": [
+        {
+          "world": "hunter_exam",
+          "checker": "tools/check-priority-expansion.cjs inspectExpansion + exported effectVector for every event including side and epilogue",
+          "errors": [],
+          "warnings": [],
+          "nonEndingEventsCompared": 31,
+          "nonEndingChoicesCompared": 93,
+          "duplicateNonEndingVectors": [],
+          "sharedEndingExceptions": [
+            {
+              "event": "hx_main_14",
+              "card": "hunter_exam_ending_memorial",
+              "vector": "[]",
+              "reason": "무효과 공용 엔딩 기념 카드의 의도된 동일 보상."
+            }
+          ],
+          "actionCapacityCards": [
+            {
+              "card": "hx_leorio_plan",
+              "baseCapacity": 1,
+              "acquisitionSources": [
+                {
+                  "event": "hx_pack_followup",
+                  "outcome": 1
+                },
+                {
+                  "event": "hx_path_followup",
+                  "outcome": 1
+                }
+              ],
+              "duplicate": null
+            }
+          ],
+          "hasSecondaryCardReward": false
+        },
+        {
+          "world": "roswaal_mansion",
+          "checker": "tools/check-priority-expansion.cjs inspectExpansion + exported effectVector for every event including side and epilogue",
+          "errors": [],
+          "warnings": [],
+          "nonEndingEventsCompared": 31,
+          "nonEndingChoicesCompared": 93,
+          "duplicateNonEndingVectors": [],
+          "sharedEndingExceptions": [
+            {
+              "event": "rz_main_14",
+              "card": "rz_main_ending_memorial",
+              "vector": "[]",
+              "reason": "무효과 공용 엔딩 기념 카드의 의도된 동일 보상."
+            }
+          ],
+          "actionCapacityCards": [
+            {
+              "card": "rz_ram_schedule",
+              "baseCapacity": 1,
+              "acquisitionSources": [
+                {
+                  "event": "rz_side_schedule_follow",
+                  "outcome": 1
+                }
+              ],
+              "duplicate": null
+            }
+          ],
+          "hasSecondaryCardReward": false
+        }
+      ],
+      "rewardValidationNote": "기존 effectVector를 사용해 이름·설명·희귀도와 무관하게 실제 기본 효과 stat/value를 합산·정렬했다. card2가 있으면 함께 합산한다. 메인 전용 검사를 일반 사건과 후일담에도 확장해 전수 비교했다. 중복 카드 보유 시 강화량의 균형이나 실전 체감은 평가하지 않았다."
+    },
+    {
+      "checkedAt": "2026-10-10",
+      "reviewer": "expansion_capacity",
+      "scope": "원펀맨 1기 초안의 독립 문맥 검토 및 추가 운영 3작품의 일반 사건 시점 검토",
+      "validationBoundary": {
+        "read": "원펀맨 메인 13장, 일반 16개, 후일담 2개 및 3작품의 일반·후일담 본문과 관련 메인 순서를 읽었다. 공식 BD 3·4·6권 소개와 출처 기록을 대조했다.",
+        "notPerformed": [
+          "본편 영상 전편 재생",
+          "Warcraft 게임 실행",
+          "시각 검사"
+        ],
+        "sourceLimit": "반다이채널의 이번 직접 열기는 스크립트 셸만 반환했다. 해당 원고 작성자가 기록한 회차 소개와 이번에 실제 읽힌 공식 BD 소개를 구분한다."
+      },
+      "sources": [
+        {
+          "url": "https://onepunchman-anime.net/goods/bd/bd_3.php",
+          "verified": "5화 제노스의 대련 요청 및 6화 C급 주간 보고와 순찰."
+        },
+        {
+          "url": "https://onepunchman-anime.net/goods/bd/bd_4.php",
+          "verified": "운석 대응과 심해왕 사건의 순서."
+        },
+        {
+          "url": "https://onepunchman-anime.net/goods/bd/bd_6.php",
+          "verified": "지상의 멜자르갈드 전투와 사이타마 단독 함선 침입, 보로스와의 결전."
+        }
+      ],
+      "runtimeEligibility": {
+        "path": "System/ExpeditionPrototype.j",
+        "function": "ProtoEventEligible",
+        "finding": "메인 완주 전 일반 사건에는 현재 메인 단계의 상한 제한이 없다. previous/requiredCard 충족 뒤 후반 메인 중에도 후보가 될 수 있다. 완주 후에는 후일담으로 제한되므로 후일담 조기 노출은 발견하지 않았다.",
+        "proofLevel": "정적 코드 검사. 실제 등장 빈도·재현 결과는 아님."
+      },
+      "findings": [
+        {
+          "id": "ZC-01",
+          "severity": "low",
+          "worldKey": "z_city",
+          "eventKeys": [
+            "opm_main_11"
+          ],
+          "field": "intro",
+          "issue": "우주선 안에서는 침입자들이 히어로를 막는다고 적혀 있다. 해당 장면에서 함선에 침입한 인물은 사이타마이므로 방어 병력과 침입자의 역할이 뒤집혀 읽힌다.",
+          "evidence": "공식 BD 6권은 사이타마가 홀로 함선 내부에 침입했다고 소개한다. 같은 초안의 story도 사이타마 혼자 진입하는 구조다.",
+          "suggestion": "지상에서는 멜자르갈드가 버티고, 우주선 안에서는 함선 병력이 사이타마를 막는다.",
+          "classification": "지칭 모호성. 외계 침공 전체를 침입자로 부른 해석까지 원작 오류로 단정하지 않는다."
+        },
+        {
+          "id": "ZC-02",
+          "severity": "medium",
+          "worldKey": "z_city",
+          "eventKeys": [
+            "opm_side_interval",
+            "opm_side_report",
+            "opm_side_short_route"
+          ],
+          "field": "intro/story",
+          "issue": "대련에서 무엇을 볼지 미리 고르거나 사이타마와 제노스가 함께 순찰 보고를 준비하는 현재형 장면이다. 조건 해금 뒤 후반부에도 일반 후보로 남으므로 이미 대련이 끝났거나 사이타마가 함선에 홀로 들어간 메인 진행 중 현재 장면처럼 나타날 수 있다.",
+          "evidence": "interval은 main_05 이후, report는 main_06 이후, short_route는 report 선택 및 카드 조건만 사용한다. ProtoEventEligible에 일반 사건의 상한 단계가 없다.",
+          "suggestion": "각 도입과 본문을 대련 전 정해 두었던 관찰 기준, 앞선 순찰에서 함께 정리했던 기록을 떠올리는 회상으로 명시한다. 진행 중인 함선전에서 새 대련이나 재합류가 일어난다고 쓰지 않는다."
+        },
+        {
+          "id": "DM-01",
+          "severity": "medium",
+          "worldKey": "dungeon_meshi",
+          "eventKeys": [
+            "dm_before_dragon_memory"
+          ],
+          "field": "intro/story",
+          "issue": "이벤트 키는 memory이지만 화면 본문은 라이오스가 검을 확인하고 마르실이 지팡이를 쥐며 센시가 도구 위치를 고르는 현재 준비 장면이다. 큰 싸움을 앞두었다는 문장이 염룡을 쓰러뜨린 main_12나 파린 재회 직전에도 현재 상황처럼 읽힌다.",
+          "evidence": "해당 일반 사건에는 메인 단계의 상한이나 previous 조건이 없으며 메인 범위는 첫 염룡전과 재회 직후까지다.",
+          "suggestion": "도입을 염룡전에 임하기 전의 준비를 회상하는 문장으로 고치고 본문 시제도 함께 과거로 바꾼다. 아직 염룡전을 지나지 않은 단계에서도 자연스럽게 보이도록 특정 승패를 미리 확정하지 않는 준비 경험 회상으로 써도 된다."
+        }
+      ],
+      "checkedWithoutNewFindings": {
+        "hunter_exam": "이미 반영한 3곳의 인과·지칭 수정과 일반 사건의 회상 도입을 확인했다. 추가 확정 문제 없음.",
+        "roswaal_mansion": "16개 일반 도입의 회상 표시 및 main_13 전투 전 선택/공통 결과 분리를 확인했다. 추가 확정 문제 없음.",
+        "epilogues": "3작품 및 원펀맨의 후일담은 공통 자격 처리에서 메인 완주 후로 제한됨.",
+        "z_city_main": "주요 13장 순서에서는 위 지칭 문제 이외에 확정적인 새 원작 오류를 찾지 못했다."
+      },
+      "staticChecks": [
+        {
+          "path": "content/expansion-drafts/z_city.json",
+          "sha256": "4e576cd1b1a99455283b92eb4ea0dcc8ef88fce7cd1c1a5b2b6d3913c551bdeb",
+          "result": {
+            "world": "z_city",
+            "cards": 47,
+            "events": 31,
+            "main": 13,
+            "side": 16,
+            "epilogues": 2,
+            "reachable": 31,
+            "freeSideEvents": [
+              "opm_side_shopping",
+              "opm_side_dojo"
+            ],
+            "freeEpilogues": [],
+            "requiredCards": [
+              {
+                "event": "opm_side_short_route",
+                "card": "opm_genos",
+                "path": [
+                  {
+                    "event": "opm_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_02",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_03",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_04",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_05",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_06",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_side_report",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "opm_side_short_route",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "opm_side_footprint",
+                "card": "opm_sonic",
+                "path": [
+                  {
+                    "event": "opm_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_02",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_03",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_04",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_05",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_06",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_side_report",
+                    "outcome": 3
+                  },
+                  {
+                    "event": "opm_side_footprint",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "opm_side_bicycle",
+                "card": "opm_mumen",
+                "path": [
+                  {
+                    "event": "opm_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_02",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_03",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_04",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_05",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_06",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_07",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "opm_main_08",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "opm_main_09",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "opm_side_frontline",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "opm_side_bicycle",
+                    "outcome": 1
+                  }
+                ]
+              }
+            ],
+            "capacityCards": [
+              {
+                "card": "opm_genos_plan",
+                "baseCapacity": 1,
+                "acquisitionSources": [
+                  {
+                    "event": "opm_side_short_route",
+                    "outcome": 1
+                  }
+                ],
+                "duplicate": null
+              }
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        },
+        {
+          "path": "content/roguelite/21-dungeon_meshi.json",
+          "sha256": "f3e3eba7ce8732212082e48178710790fa763d243a19c7f08c1ccfc805e375e7",
+          "result": {
+            "world": "dungeon_meshi",
+            "cards": 48,
+            "events": 30,
+            "main": 14,
+            "side": 14,
+            "epilogues": 2,
+            "reachable": 30,
+            "freeSideEvents": [
+              "dm_watch_before_meal",
+              "dm_tools_back"
+            ],
+            "freeEpilogues": [],
+            "requiredCards": [
+              {
+                "event": "dm_sound_followup",
+                "card": "dm_chilchuck",
+                "path": [
+                  {
+                    "event": "dm_watch_before_meal",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "dm_sound_followup",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "dm_question_followup",
+                "card": "dm_marcille",
+                "path": [
+                  {
+                    "event": "dm_tools_back",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "dm_question_followup",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "dm_observation_followup",
+                "card": "dm_laios",
+                "path": [
+                  {
+                    "event": "dm_watch_before_meal",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "dm_observation_followup",
+                    "outcome": 1
+                  }
+                ]
+              }
+            ],
+            "capacityCards": [],
+            "errors": [],
+            "warnings": []
+          }
+        },
+        {
+          "path": "content/roguelite/22-hunter_exam.json",
+          "sha256": "1082978192da7570e554ab20cb3dc6bcaa4da8cbe5c09d9a7d0f3405f77c87d6",
+          "result": {
+            "world": "hunter_exam",
+            "cards": 49,
+            "events": 32,
+            "main": 14,
+            "side": 16,
+            "epilogues": 2,
+            "reachable": 32,
+            "freeSideEvents": [
+              "hx_small_rest",
+              "hx_board_wheels"
+            ],
+            "freeEpilogues": [],
+            "requiredCards": [
+              {
+                "event": "hx_pack_followup",
+                "card": "hx_leorio",
+                "path": [
+                  {
+                    "event": "hx_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_main_02",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_main_03",
+                    "outcome": 3
+                  },
+                  {
+                    "event": "hx_supply_sort",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_small_rest",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "hx_pack_followup",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "hx_path_followup",
+                "card": "hx_satotz",
+                "path": [
+                  {
+                    "event": "hx_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_main_02",
+                    "outcome": 3
+                  },
+                  {
+                    "event": "hx_main_03",
+                    "outcome": 3
+                  },
+                  {
+                    "event": "hx_supply_sort",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "hx_start_line",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "hx_path_followup",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "hx_signal_followup",
+                "card": "hx_killua",
+                "path": [
+                  {
+                    "event": "hx_main_01",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_main_02",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_board_wheels",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_main_03",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "hx_rod_knot",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "hx_signal_followup",
+                    "outcome": 1
+                  }
+                ]
+              }
+            ],
+            "capacityCards": [
+              {
+                "card": "hx_leorio_plan",
+                "baseCapacity": 1,
+                "acquisitionSources": [
+                  {
+                    "event": "hx_pack_followup",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "hx_path_followup",
+                    "outcome": 1
+                  }
+                ],
+                "duplicate": null
+              }
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        },
+        {
+          "path": "content/roguelite/23-roswaal_mansion.json",
+          "sha256": "3bbf1d8e21d9e5168715f9bb5cbc8d69ef222494d127dfe8e9a88cd88aa78a66",
+          "result": {
+            "world": "roswaal_mansion",
+            "cards": 50,
+            "events": 32,
+            "main": 14,
+            "side": 16,
+            "epilogues": 2,
+            "reachable": 32,
+            "freeSideEvents": [
+              "rz_side_hall",
+              "rz_side_window"
+            ],
+            "freeEpilogues": [],
+            "requiredCards": [
+              {
+                "event": "rz_side_library_follow",
+                "card": "rz_beatrice",
+                "path": [
+                  {
+                    "event": "rz_side_tray",
+                    "outcome": 3
+                  },
+                  {
+                    "event": "rz_side_library_follow",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "rz_side_chain_follow",
+                "card": "rz_rem_spacing",
+                "path": [
+                  {
+                    "event": "rz_side_laundry",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "rz_side_chain_follow",
+                    "outcome": 1
+                  }
+                ]
+              },
+              {
+                "event": "rz_side_schedule_follow",
+                "card": "rz_subaru_plan",
+                "path": [
+                  {
+                    "event": "rz_side_orders",
+                    "outcome": 1
+                  },
+                  {
+                    "event": "rz_side_tray",
+                    "outcome": 2
+                  },
+                  {
+                    "event": "rz_side_schedule_follow",
+                    "outcome": 1
+                  }
+                ]
+              }
+            ],
+            "capacityCards": [
+              {
+                "card": "rz_ram_schedule",
+                "baseCapacity": 1,
+                "acquisitionSources": [
+                  {
+                    "event": "rz_side_schedule_follow",
+                    "outcome": 1
+                  }
+                ],
+                "duplicate": null
+              }
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "modifications": "검토 JSON만 작성. 원고·운영·코드·이미지 수정 없음."
+    }
+  ],
+  "disposition": "발견한 인과·주체·시점 문제를 반영하고 수정 문장을 Gemma로 재검토했다. 수치 변경 없이 엠포리어스 일반 선택 두 곳의 동일 효과를 다른 기존 아낙사 카드로 구분했다."
+}

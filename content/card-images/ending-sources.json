@@ -245,5 +245,290 @@
       1884,
       1849
     ]
+  },
+  {
+    "cardId": 994,
+    "cardKey": "amphoreus_main_ending_memorial",
+    "cardName": "미래에 남겨 둔 불씨",
+    "world": "amphoreus",
+    "icon": "UI_Card_XP_amphoreus_head_Icon",
+    "art": "UI_Card_XP_amphoreus_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\amphoreus\\cover_bright_final.png",
+    "sourceSha256": "13f4ca22a7698d2dd29a7f9a71e06d6cd52e69950826b4ad439ecf817e95ed29",
+    "sourcePage": "https://hsr.hoyoverse.com/ko-kr/world",
+    "sourceUrl": "https://fastcdn.hoyoverse.com/content-v2/hkrpg/127019/7bce155666cd119ba2983c6ca0359d4c_8493561400547789915.png",
+    "credit": "HoYoverse / COGNOSPHERE. 개별 작가명은 공식 페이지에 확인되지 않음.",
+    "crop": [
+      145,
+      30,
+      434,
+      319
+    ]
+  },
+  {
+    "cardId": 1034,
+    "cardKey": "phantom_blood_ending_memorial",
+    "cardName": "마지막 파문",
+    "world": "phantom_blood",
+    "icon": "UI_Card_XP_phantom_blood_head_Icon",
+    "art": "UI_Card_XP_phantom_blood_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\phantom_blood\\cover_press.webp",
+    "sourceSha256": "d635bc40f1e36cb4a1dd0def399851382fdb8e3111cfdfa78974be222631be68",
+    "sourcePage": "https://mantan-web.jp/article/20120817dog00m200023000c/photopage/001.html",
+    "sourceUrl": "https://storage.mantan-web.jp/w=254,h=360,f=webp:auto/images/2012/08/17/20120817dog00m200023000c/001_size4.jpg",
+    "credit": "荒木飛呂彦 / 集英社 / ジョジョの奇妙な冒険製作委員会",
+    "crop": [
+      0,
+      106,
+      254,
+      360
+    ]
+  },
+  {
+    "cardId": 1076,
+    "cardKey": "madolche_ending_memorial",
+    "cardName": "돌아올 자리가 있는 다과회",
+    "world": "madolche",
+    "icon": "UI_Card_XP_madolche_head_Icon",
+    "art": "UI_Card_XP_madolche_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\madolche\\cover_portrait_v2.jpg",
+    "sourceSha256": "09d2e42a8310a9b323c4757439fbde5c517f02d4383a8e2a44f02197706b19a7",
+    "sourcePage": "https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&keyword=Madolche%20Chateau&request_locale=en",
+    "sourceUrl": "https://images.ygoprodeck.com/images/cards_cropped/14001430.jpg",
+    "credit": "スタジオ・ダイス / 集英社・テレビ東京・KONAMI",
+    "crop": [
+      0,
+      0,
+      624,
+      624
+    ]
+  },
+  {
+    "cardId": 1119,
+    "cardKey": "tengu_main_ending_memorial",
+    "cardName": "텐구시의 기억",
+    "world": "tengu",
+    "icon": "UI_Card_XP_tengu_head_Icon",
+    "art": "UI_Card_XP_tengu_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\tengu\\cover_s1.jpg",
+    "sourceSha256": "7a6721780f0823b688c7ffeebdcc1d50a1a8fbf8ecaaac136c7c9e77f4f07bbd",
+    "sourcePage": "https://en.wikipedia.org/wiki/File:Date_A_Live_poster.jpg",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Date_A_Live_poster.jpg",
+    "credit": "©2023 橘公司・つなこ / KADOKAWA / デート・ア・ライブⅤ製作委員会",
+    "crop": [
+      0,
+      38.22,
+      273,
+      311.22
+    ]
+  },
+  {
+    "cardId": 1162,
+    "cardKey": "ikebukuro_main_ending_memorial",
+    "cardName": "이케부쿠로의 기억",
+    "world": "ikebukuro",
+    "icon": "UI_Card_XP_ikebukuro_head_Icon",
+    "art": "UI_Card_XP_ikebukuro_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\ikebukuro\\cover_portrait.jpg",
+    "sourceSha256": "69f3cf26e1138678be6941caa19f63ca695d52b886affa87e8e450a91acae3c6",
+    "sourcePage": "https://www.durarara2usa.com/",
+    "sourceUrl": "https://www.durarara2usa.com/img/top/KV_ketsu.jpg",
+    "credit": "©2014 Ryohgo Narita / KADOKAWA CORPORATION ASCII MEDIA WORKS / Ikebukuro Dollars",
+    "crop": [
+      0,
+      125.59999999999997,
+      704,
+      829.5999999999999
+    ]
+  },
+  {
+    "cardId": 1208,
+    "cardKey": "fr_ending",
+    "cardName": "프리렌 일행",
+    "world": "frieren",
+    "icon": "UI_Card_XP_frieren_head_Icon",
+    "art": "UI_Card_XP_frieren_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\frieren\\cover_portrait_v2.jpg",
+    "sourceSha256": "ee496b9a640c8d26d05f80fd7eaeb173522eef1139fd2d1d039334d598ac0ece",
+    "sourcePage": "https://frieren-anime.jp/news/232/",
+    "sourceUrl": "https://frieren-anime.jp/wp-content/uploads/2023/08/news0823.jpg",
+    "credit": "山田鐘人・アベツカサ / 小学館 / 葬送のフリーレン製作委員会",
+    "crop": [
+      0,
+      246,
+      600,
+      846
+    ]
+  },
+  {
+    "cardId": 1256,
+    "cardKey": "dungeon_meshi_ending_memorial",
+    "cardName": "다시 마주 앉은 식탁",
+    "world": "dungeon_meshi",
+    "icon": "UI_Card_XP_dungeon_meshi_head_Icon",
+    "art": "UI_Card_XP_dungeon_meshi_head_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\originals\\dungeon_meshi\\cover2_cover.webp",
+    "sourceSha256": "81dd4728c481f870ba36302fc972df8c8deb6ada381234443db9553978d626b2",
+    "sourcePage": "https://delicious-in-dungeon.com/",
+    "sourceUrl": "https://delicious-in-dungeon.com/assets/top/vis2.webp?v2",
+    "credit": "九井諒子 / KADOKAWA / ダンジョン飯製作委員会",
+    "crop": [
+      100,
+      900,
+      2900,
+      3700
+    ]
+  },
+  {
+    "cardId": 1266,
+    "cardKey": "hunter_exam_ending_memorial",
+    "cardName": "합격증 너머의 친구",
+    "world": "hunter_exam",
+    "icon": "UI_Card_XP_hunter_exam_ending_memorial_Icon",
+    "art": "UI_Card_XP_hunter_exam_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hunter-exam\\originals\\ep21_1.jpg",
+    "sourceSha256": "1d188209f358b99f16127923e921e8567611e239703521974907ca858b3ce7ec",
+    "sourcePage": "https://www.ntv.co.jp/hunterhunter/story/021.html",
+    "sourceUrl": "https://www.ntv.co.jp/hunterhunter/story/images/021_1.jpg",
+    "credit": "©POT（冨樫義博）1998年-2011年 / ©VAP・日本テレビ・集英社・マッドハウス",
+    "crop": [
+      120,
+      0,
+      400,
+      280
+    ]
+  },
+  {
+    "cardId": 1355,
+    "cardKey": "rz_main_ending_memorial",
+    "cardName": "모두가 있는 저택의 아침",
+    "world": "roswaal_mansion",
+    "icon": "UI_Card_XP_roswaal_mansion_ending_memorial_Icon",
+    "art": "UI_Card_XP_roswaal_mansion_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\roswaal-mansion\\originals\\ep11_5.jpg",
+    "sourceSha256": "44b2ea068ae885c86c67fd3c5da2983403e09f8d5f77157bd463a2bc929f482e",
+    "sourcePage": "https://re-zero-anime.jp/tv/story/tv1r.html#EP11",
+    "sourceUrl": "https://re-zero-anime.jp/tv/assets/episode/11/5.jpg",
+    "credit": "©長月達平・株式会社KADOKAWA刊／Re:ゼロから始める異世界生活1製作委員会",
+    "crop": [
+      455,
+      0,
+      1175,
+      720
+    ]
+  },
+  {
+    "cardId": 1402,
+    "cardKey": "z_city_ending_memorial",
+    "cardName": "내일도 히어로",
+    "world": "z_city",
+    "icon": "UI_Card_XP_z_city_ending_memorial_Icon",
+    "art": "UI_Card_XP_z_city_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\z-city\\originals\\ep12_6.jpg",
+    "sourceSha256": "b4a91417828c38b6f506cdfff8b7340ebe713f3911fe2a5a20fecb2ef14c45be",
+    "sourcePage": "https://onepunchman-anime.net/story/#/season1/12",
+    "sourceUrl": "https://onepunchman-anime.net/news/wp-content/uploads/2025/08/12_06.jpg",
+    "credit": "©ONE・村田雄介／集英社・ヒーロー協会本部",
+    "crop": [
+      100,
+      0,
+      325,
+      225
+    ]
+  },
+  {
+    "cardId": 1460,
+    "cardKey": "witch_prison_ending_memorial",
+    "cardName": "철문 너머의 내일",
+    "world": "witch_prison",
+    "icon": "UI_Card_XP_witch_prison_ending_memorial_Icon",
+    "art": "UI_Card_XP_witch_prison_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\witch-prison\\originals\\promo_6.jpg",
+    "sourceSha256": "6c1667e42ba87aab79a3f981afa061e20dc7fb5288edcea94ed8bc318225dab3",
+    "sourcePage": "https://prtimes.jp/main/html/rd/p/000000007.000066682.html",
+    "sourceUrl": "https://prcdn.freetls.fastly.net/release_image/66682/7/66682-7-a5ddd130d49c22002ed0df27ac5c6c97-2048x1024.jpg",
+    "credit": "© 2025 Re,AER LLC./Acacia",
+    "crop": [
+      512,
+      0,
+      1536,
+      1024
+    ]
+  },
+  {
+    "cardId": 1519,
+    "cardKey": "p5_ending_memorial",
+    "cardName": "다시 이어질 우리의 길",
+    "world": "persona5",
+    "icon": "UI_Card_XP_persona5_ending_memorial_Icon",
+    "art": "UI_Card_XP_persona5_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5\\originals\\p5_head.png",
+    "sourceSha256": "87210d6dea48286d5f4398e31b41ed7d03f86c829dc84d44f82ec4e777e63246",
+    "sourcePage": "https://persona5.jp/",
+    "sourceUrl": "https://persona5.jp/resources/img/top/key_visual.png",
+    "credit": "©ATLUS ©SEGA All rights reserved.",
+    "crop": [
+      67,
+      0,
+      884,
+      817
+    ]
+  },
+  {
+    "cardId": 1571,
+    "cardKey": "p5r_ending_memorial",
+    "cardName": "우리 손으로 고른 내일",
+    "world": "persona5_royal",
+    "icon": "UI_Card_XP_persona5_royal_ending_memorial_Icon",
+    "art": "UI_Card_XP_persona5_royal_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\persona5-royal\\originals\\p5r_coverpart1.png",
+    "sourceSha256": "c78ca828a1fbe31ce139ac9bbb03e29f4c0150cb62feaaa6fec1137595f792d1",
+    "sourcePage": "https://p5r.jp/",
+    "sourceUrl": "https://p5r.jp/resources/img/top/fv_chara1_58203731d9b71f6b674723d9f93fda37.png",
+    "credit": "©ATLUS ©SEGA All rights reserved.",
+    "crop": [
+      6,
+      0,
+      371,
+      365
+    ]
+  },
+  {
+    "cardId": 1620,
+    "cardKey": "hakugyokurou_ending_memorial",
+    "cardName": "돌아온 봄의 자리",
+    "world": "hakugyokurou",
+    "icon": "UI_Card_XP_hakugyokurou_ending_memorial_Icon",
+    "art": "UI_Card_XP_hakugyokurou_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\hakugyokurou\\originals\\danmaku_card_reimu_r001.jpg",
+    "sourceSha256": "36941601630a20c00ed351d87531c0d50c6dfcfbf58f51576e9501f8013ebe5f",
+    "sourcePage": "https://danmaku.jp/archive/card/r001/",
+    "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+    "credit": "not individually credited on official card page",
+    "crop": [
+      131,
+      0,
+      469,
+      338
+    ]
+  },
+  {
+    "cardId": 1665,
+    "cardKey": "scarlet_mist_ending_memorial",
+    "cardName": "안개 뒤에 돌아온 여름",
+    "world": "scarlet_mist",
+    "icon": "UI_Card_XP_scarlet_mist_ending_memorial_Icon",
+    "art": "UI_Card_XP_scarlet_mist_ending_memorial_Art",
+    "sourceFile": "D:\\Work\\ARCANA\\assets\\head-expansion-20261010\\scarlet-mist\\originals\\danmaku_card_reimu_r001.jpg",
+    "sourceSha256": "36941601630a20c00ed351d87531c0d50c6dfcfbf58f51576e9501f8013ebe5f",
+    "sourcePage": "https://danmaku.jp/archive/card/r001/",
+    "sourceUrl": "https://danmaku.jp/import/card/r001_img.jpg",
+    "credit": "not individually credited on official card page",
+    "crop": [
+      131,
+      0,
+      469,
+      338
+    ]
   }
 ]

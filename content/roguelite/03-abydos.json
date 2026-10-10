@@ -3,7 +3,7 @@
     "key": "abydos",
     "name": "아비도스",
     "work": "블루 아카이브",
-    "intro": "아비도스의 텅 빈 교실에서 대책위원회가 학교를 지킨다. 마지막 교실에 함께 돌아오다의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "텅 빈 교실을 지키는 아비도스 대책위원회 앞에 선생님이 찾아온다. 빚과 위협에 흔들리는 학교에서 다섯 학생은 서로의 자리를 지킬 수 있을까?",
     "effects": [
       {
         "stat": "boss_damage_percent",
@@ -65,7 +65,7 @@
       "key": "abydos_shiroko",
       "name": "스나오오카미 시로코",
       "effectName": "조용한 정찰",
-      "keyword": "이동 · 전투",
+      "keyword": "고정 신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -137,7 +137,7 @@
       "key": "abydos_hoshino",
       "name": "타카나시 호시노",
       "effectName": "선배의 방패",
-      "keyword": "보호막",
+      "keyword": "보호막 유지 중 피해",
       "grade": 1,
       "effects": [
         {
@@ -189,7 +189,7 @@
       "key": "abydos_hifumi",
       "name": "아지타니 히후미",
       "effectName": "함께 찾은 출구",
-      "keyword": "생존 · 이동",
+      "keyword": "생존 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -237,7 +237,7 @@
       "key": "abydos_serika_return",
       "name": "쿠로미 세리카",
       "effectName": "다시 열 가게를 위해",
-      "keyword": "고체력 · 수급",
+      "keyword": "내 체력 65% 이상 피해 · 수급",
       "grade": 1,
       "effects": [
         {
@@ -285,7 +285,7 @@
       "key": "abydos_hoshino_wake",
       "name": "타카나시 호시노",
       "effectName": "쉬는 자리의 앞쪽",
-      "keyword": "고체력 · 피해 감소",
+      "keyword": "내 체력 65% 이상 피해 · 피해 감소",
       "grade": 1,
       "effects": [
         {
@@ -333,7 +333,7 @@
       "key": "abydos_ayane_ledger",
       "name": "오쿠소라 아야네",
       "effectName": "항목 아래 남은 숫자",
-      "keyword": "처치 골드 · 사건 후보",
+      "keyword": "처치 골드 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -357,7 +357,7 @@
       "key": "abydos_hifumi_stall",
       "name": "아지타니 히후미",
       "effectName": "들어 보고 고르는 것",
-      "keyword": "사건 후보 · 최대 체력",
+      "keyword": "고정 신속 · 최대 체력",
       "grade": 1,
       "effects": [
         {
@@ -489,7 +489,7 @@
       "key": "ab68_aru_task",
       "name": "리쿠하치마 아루",
       "effectName": "직함 대신 할 일",
-      "keyword": "치명타 확률 · 고체력",
+      "keyword": "치명타 확률 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -513,7 +513,7 @@
       "key": "ab68_kayoko_reply",
       "name": "오니카타 카요코",
       "effectName": "말을 기다린 박자",
-      "keyword": "행동 속도 · 방어 관통",
+      "keyword": "고정 신속 · 방어 관통",
       "grade": 1,
       "effects": [
         {
@@ -537,7 +537,7 @@
       "key": "abydos_serika_order",
       "name": "쿠로미 세리카",
       "effectName": "먼저 받은 주문",
-      "keyword": "행동 속도 · 일반 적",
+      "keyword": "고정 신속 · 일반 적",
       "grade": 1,
       "effects": [
         {
@@ -585,7 +585,7 @@
       "key": "abydos_ayane_route",
       "name": "오쿠소라 아야네",
       "effectName": "전달할 곳부터",
-      "keyword": "이동 · 최대 체력",
+      "keyword": "고정 신속 · 최대 체력",
       "grade": 1,
       "effects": [
         {
@@ -689,7 +689,7 @@
       "key": "ab68_kayoko_order",
       "name": "오니카타 카요코",
       "effectName": "사과 대신 주문",
-      "keyword": "최대 체력 · 행동 속도",
+      "keyword": "최대 체력 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -737,7 +737,7 @@
       "key": "ab68_haruka_space",
       "name": "이구사 하루카",
       "effectName": "남겨 둔 작은 자리",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -761,7 +761,7 @@
       "key": "ab68_mutsuki_answer",
       "name": "아사기 무츠키",
       "effectName": "답을 듣는 대가",
-      "keyword": "행동 속도 · 비방향",
+      "keyword": "고정 신속 · 비방향",
       "grade": 1,
       "effects": [
         {

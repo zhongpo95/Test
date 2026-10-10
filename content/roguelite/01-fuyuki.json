@@ -8,7 +8,7 @@
       "value": 3
     },
     "entryCard": "shiro_analysis",
-    "intro": "후유키의 방과 후, 린이 아무도 없는 복도를 돌아본다. 이상을 다시 선택하는 밤의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "학교에서 싸움을 목격한 시로의 일상에 성배전쟁이 들이닥친다. 린, 세이버와 함께하는 싸움 속에서 누군가를 구하고 싶다는 이상을 지킬 수 있을까?",
     "icon": "ReplaceableTextures\\CommandButtons\\BTNTome.blp",
     "mainStory": {
       "title": "이상을 다시 선택하는 밤",
@@ -76,7 +76,7 @@
       "key": "saber_opening",
       "name": "세이버",
       "effectName": "검끝의 간격",
-      "keyword": "방향 공격",
+      "keyword": "헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -176,7 +176,7 @@
       "key": "sakura_meal",
       "name": "마토 사쿠라",
       "effectName": "돌아갈 식탁",
-      "keyword": "회복",
+      "keyword": "체력 재생",
       "grade": 1,
       "effects": [
         {
@@ -230,7 +230,7 @@
       "key": "fy_taiga_list",
       "name": "후지무라 타이가",
       "effectName": "빠뜨린 이름까지",
-      "keyword": "사건 후보 · 처치 골드",
+      "keyword": "고정 신속 · 처치 골드",
       "canonFact": "공식 영어 교사·궁도부 고문·시로와 가족 같은 관계를 생활 연락과 준비 목록으로 각색한다. 교육 능력·궁도 기술·친밀 게이지를 새로 지급하지 않는다.",
       "grade": 1,
       "effects": [
@@ -326,7 +326,7 @@
       "key": "fy_saber_stride",
       "name": "세이버",
       "effectName": "곁에 맞춘 보폭",
-      "keyword": "이동 · 피해 감소",
+      "keyword": "고정 신속 · 피해 감소",
       "canonFact": "린의 제안으로 전투를 잠시 잊고 외출하는 공식 소재에서 주변과 보폭을 맞추는 준비로 각색한다. 본편 데이트 결말·호감·순간 회복은 별도 기능이 아니다.",
       "grade": 1,
       "effects": [
@@ -350,7 +350,7 @@
       "key": "fy_lancer_reach",
       "name": "랜서",
       "effectName": "창끝보다 먼저 움직인 발",
-      "keyword": "방향 · 이동 속도",
+      "keyword": "헤드·백 적중 피해 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -402,7 +402,7 @@
       "key": "fy_saber_night",
       "name": "세이버",
       "effectName": "사라지지 않는 자리",
-      "keyword": "신속 · 보호막",
+      "keyword": "신속 · 보호막 유지 중 피해",
       "grade": 1,
       "effects": [
         {
@@ -426,7 +426,7 @@
       "key": "fy_taiga_arrow",
       "name": "후지무라 타이가",
       "effectName": "바닥에 먼저 닿은 화살",
-      "keyword": "치명타 확률 · 방향",
+      "keyword": "치명타 확률 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -450,7 +450,7 @@
       "key": "fy_kirei_shelter",
       "name": "코토미네 키레이",
       "effectName": "감독자의 보호 아래",
-      "keyword": "피해 감소 · 일반 피해 감소",
+      "keyword": "받는 피해 감소 · 일반 적에게 가하는 피해 감소",
       "grade": 1,
       "effects": [
         {
@@ -478,7 +478,7 @@
       "key": "fy_archer_brace",
       "name": "아처",
       "effectName": "막은 다음의 한 수",
-      "keyword": "보호막 · 피해 감소",
+      "keyword": "보호막 유지 중 피해 · 피해 감소",
       "grade": 1,
       "effects": [
         {
@@ -550,7 +550,7 @@
       "key": "fy_shiro_structure",
       "name": "에미야 시로",
       "effectName": "맞춰 본 빈칸",
-      "keyword": "공격력 · 행동 속도",
+      "keyword": "공격력 · 고정 신속",
       "grade": 1,
       "effects": [
         {

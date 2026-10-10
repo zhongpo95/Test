@@ -3,7 +3,7 @@
     "key": "aincrad",
     "name": "아인크라드",
     "work": "소드 아트 온라인",
-    "intro": "아인크라드에 갇힌 사람들이 시작의 거리에서 현실을 받아들인다. 화면 밖에서도 이어질 약속의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "로그아웃이 사라진 아인크라드에서 키리토와 플레이어들이 살아갈 길을 찾는다. 탑을 오르는 싸움 사이에도 함께 식사하고 이름을 나누는 하루가 쌓인다.",
     "effects": [
       {
         "stat": "crit_damage",
@@ -71,7 +71,7 @@
       "key": "sao_kirito",
       "name": "키리토",
       "effectName": "빈틈을 잇는 검",
-      "keyword": "행동 · 치명",
+      "keyword": "고정 신속 · 치명",
       "grade": 1,
       "effects": [
         {
@@ -95,7 +95,7 @@
       "key": "sao_asuna",
       "name": "아스나",
       "effectName": "섬광의 사선",
-      "keyword": "신속 · 방향",
+      "keyword": "신속 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -195,7 +195,7 @@
       "key": "sao_asuna_meal",
       "name": "아스나",
       "effectName": "공략 전의 식탁",
-      "keyword": "고체력 · 체력",
+      "keyword": "내 체력 65% 이상 피해 · 체력",
       "grade": 1,
       "effects": [
         {
@@ -243,7 +243,7 @@
       "key": "sao_agil_shelf",
       "name": "에길",
       "effectName": "값표 아래 남은 항목",
-      "keyword": "처치 골드 · 사건 후보",
+      "keyword": "처치 골드 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -291,7 +291,7 @@
       "key": "sao_sachi_lantern",
       "name": "사치",
       "effectName": "대답을 기다릴 자리",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -367,7 +367,7 @@
       "key": "sao_argo_question",
       "name": "아르고",
       "effectName": "묻지 않은 갈림길",
-      "keyword": "사건 후보 · 관통",
+      "keyword": "고정 신속 · 관통",
       "grade": 1,
       "effects": [
         {
@@ -391,7 +391,7 @@
       "key": "sao_argo_shared",
       "name": "아르고",
       "effectName": "둘이 들어도 남는 정보",
-      "keyword": "행동 · 처치 골드",
+      "keyword": "고정 신속 · 처치 골드",
       "grade": 1,
       "effects": [
         {
@@ -443,7 +443,7 @@
       "key": "sao_kirito_distance",
       "name": "키리토",
       "effectName": "혼자와 다른 한 걸음",
-      "keyword": "이동 · 방향",
+      "keyword": "고정 신속 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {
@@ -523,7 +523,7 @@
       "key": "sao_klein_carry",
       "name": "클라인",
       "effectName": "먼저 들지 않은 짐",
-      "keyword": "이동 · 받는 피해",
+      "keyword": "고정 신속 · 받는 피해",
       "grade": 1,
       "effects": [
         {
@@ -547,7 +547,7 @@
       "key": "sao_agil_axe",
       "name": "에길",
       "effectName": "값을 매기기 전의 무게",
-      "keyword": "일반 적 · 고체력",
+      "keyword": "일반 적 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -671,7 +671,7 @@
       "key": "sao_argo_sketch",
       "name": "아르고",
       "effectName": "값을 묻기 전에 펼치기",
-      "keyword": "치명 피해 · 이동 조건",
+      "keyword": "치명 피해 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {

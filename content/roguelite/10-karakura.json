@@ -3,7 +3,7 @@
     "key": "karakura",
     "name": "카라쿠라 마을",
     "work": "블리치",
-    "intro": "이치고와 루키아의 만남이 평범한 마을의 밤을 바꾼다. 구해 낸 삶이 고르는 자리의 이야기를 따라 주요 만남과 마지막 인사를 기억한다.",
+    "intro": "가족을 덮친 호로 앞에서 이치고는 루키아의 힘을 받아든다. 마을을 지키던 싸움은 루키아를 구하기 위해 소울 소사이어티로 향하는 여정으로 이어진다.",
     "effects": [
       {
         "stat": "crit_damage",
@@ -39,7 +39,7 @@
       "key": "bl_kon",
       "name": "콘",
       "effectName": "몸을 맡길 수 있는 동료",
-      "keyword": "이동",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -135,7 +135,7 @@
       "key": "bl_yoruichi",
       "name": "시호인 요루이치",
       "effectName": "순신의 보법",
-      "keyword": "신속 · 이동 피해",
+      "keyword": "신속 · 이동속도 비례 피해",
       "grade": 1,
       "effects": [
         {
@@ -159,7 +159,7 @@
       "key": "bl_rukia",
       "name": "쿠치키 루키아",
       "effectName": "현세에서 지켜야 할 간격",
-      "keyword": "차지 · 피해",
+      "keyword": "차지 속도 · 피해",
       "grade": 1,
       "effects": [
         {
@@ -235,7 +235,7 @@
       "key": "bl_ichigo_focus",
       "name": "쿠로사키 이치고",
       "effectName": "한 번의 틈에 모은 힘",
-      "keyword": "차지 · 공격",
+      "keyword": "차지 · 공격 · 고정 신속 감소",
       "grade": 1,
       "effects": [
         {
@@ -319,7 +319,7 @@
       "key": "bl_tatsuki_stance",
       "name": "아리사와 타츠키",
       "effectName": "발을 놓고 나서",
-      "keyword": "방향 공격 · 피해 감소",
+      "keyword": "헤드·백 적중 피해 · 피해 감소",
       "grade": 1,
       "effects": [
         {
@@ -343,7 +343,7 @@
       "key": "bl_don_signal",
       "name": "돈 칸온지",
       "effectName": "보이게 전하는 신호",
-      "keyword": "사건 후보 · 이동",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -363,7 +363,7 @@
       "key": "bl_karin_distance",
       "name": "쿠로사키 카린",
       "effectName": "보이지 않아도 비울 자리",
-      "keyword": "이동 속도 · 고체력",
+      "keyword": "고정 신속 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -443,7 +443,7 @@
       "key": "bl_keigo_invitation",
       "name": "아사노 케이고",
       "effectName": "아직 묻지 않은 약속",
-      "keyword": "사건 후보 · 행동 속도",
+      "keyword": "고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -515,7 +515,7 @@
       "key": "bl_orihime_pause",
       "name": "이노우에 오리히메",
       "effectName": "아직 지나지 않은 자리",
-      "keyword": "최대 체력 · 고체력",
+      "keyword": "최대 체력 · 내 체력 65% 이상 피해",
       "grade": 1,
       "effects": [
         {
@@ -591,7 +591,7 @@
       "key": "bl_yuzu_split",
       "name": "쿠로사키 유즈",
       "effectName": "한 번에 쓰지 않을 몫",
-      "keyword": "재생 · 이동",
+      "keyword": "재생 · 고정 신속",
       "grade": 1,
       "effects": [
         {
@@ -615,7 +615,7 @@
       "key": "bl_jinta_boundary",
       "name": "하나카리 진타",
       "effectName": "더 맡기 전에 물을 것",
-      "keyword": "공격력 · 방향",
+      "keyword": "공격력 · 헤드·백 적중 피해",
       "grade": 1,
       "effects": [
         {

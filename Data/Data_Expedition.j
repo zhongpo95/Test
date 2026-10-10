@@ -11,10 +11,13 @@ library DataExpedition
         constant integer EXP_RESULT = 7
         constant integer EXP_EVENT = 8
         constant integer EXP_HUNT = 9
+        // 네 플레이어가 각 0~2047번을 사용하며 마지막 배열 인덱스는 8191이다.
+        constant integer EXP_PLAYER_KEY_STRIDE = 2048
         // 개인 사냥 프로토타입의 동기화 상태. 도감만 원정 간 유지한다.
         boolean ExpPrototypeActive = false
         boolean ExpPrototypeEnabled = false
         constant integer PROTO_BASE_AP = 20
+        constant integer PROTO_BASE_HEAD_CAPACITY = 2
         constant integer PROTO_HUNT_SECONDS = 1200
         constant integer PROTO_CHOICE_SECONDS = 90
         constant integer PROTO_DEFAULT_DENSITY = 8
@@ -31,8 +34,10 @@ library DataExpedition
         integer array ProtoAPMax
         integer array ProtoMainProgress
         integer array ProtoHeadCount
+        integer array ProtoCompletedHeadCount
         integer array ProtoStartHead
         boolean array ProtoHeadOwned
+        boolean array ProtoHeadCompleted
         boolean array ProtoHeadKnown
         integer array ProtoCodexSlot
         integer array ProtoStage
@@ -127,7 +132,11 @@ library DataExpedition
     endglobals
 
     function ExpKey takes integer pid, integer id returns integer
-        return pid * 1024 + id
+        return pid * EXP_PLAYER_KEY_STRIDE + id
+    endfunction
+
+    function ProtoHeadCapacity takes integer pid returns integer
+        return PROTO_BASE_HEAD_CAPACITY + ProtoCompletedHeadCount[pid]
     endfunction
 
     function ExpLoss takes integer node, real progress returns integer

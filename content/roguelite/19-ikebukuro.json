@@ -1,0 +1,2435 @@
+{
+  "world": {
+    "key": "ikebukuro",
+    "name": "이케부쿠로",
+    "work": "듀라라라!!",
+    "intro": "마사오미의 초대로 도시에 온 미카도는 검은 바이크와 색 없는 조직의 소문을 만난다. 서로 다른 이름 뒤에 숨은 세 친구의 이야기를 따라, 다시 대화할 길을 찾는다.",
+    "effects": [
+      {
+        "stat": "move_speed",
+        "value": 2
+      }
+    ],
+    "entryCard": "drrr_mikado",
+    "mainStory": {
+      "title": "색 없는 거리의 세 사람",
+      "length": 12,
+      "focus": [
+        "move_speed",
+        "attack_percent",
+        "crit_chance"
+      ],
+      "source": "TV 애니메이션 1기 1~24화. 미카도의 상경, 첫 다라즈 집회, 반년 뒤 사이카·황건적 갈등과 폐공장 화해까지. 12.5화·25화 및 ×2 이후는 제외한다.",
+      "adaptation": "공식 애니메이션의 사건 순서 안에서 방문자가 덧붙이는 반응과 기억을 창작했다. 세 행동은 같은 다음 장으로 이어지며 원작 결말을 바꾸지 않는다."
+    },
+    "icon": "war3mapImported\\UI_Card_XP_ikebukuro_head_Icon.tga",
+    "entryIcon": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga"
+  },
+  "sources": [
+    "https://www.durarara.com/1st/story/story01.html",
+    "https://www.durarara.com/1st/story/story03.html",
+    "https://www.durarara.com/1st/story/story10.html",
+    "https://www.durarara.com/1st/story/story11.html",
+    "https://www.durarara.com/1st/story/story12.html",
+    "https://www.durarara.com/1st/story/story13.html",
+    "https://www.durarara.com/1st/story/story16.html",
+    "https://www.durarara.com/1st/story/story17.html",
+    "https://www.durarara.com/1st/story/story18.html",
+    "https://www.durarara.com/1st/story/story19.html",
+    "https://www.durarara.com/1st/story/story20.html",
+    "https://www.durarara.com/1st/story/story22.html",
+    "https://www.durarara.com/1st/story/story23.html",
+    "https://www.durarara.com/1st/story/story24.html",
+    "https://www.durarara.com/special/history.html"
+  ],
+  "canonBoundary": "메인은 명시한 애니메이션 범위만 다룬다. 선택 대사와 방문자의 행동, 일상 서브 사건 및 능력치 보상은 창작 각색이다. 카드 이름은 보상의 인물이며 모든 문장의 화자를 뜻하지 않는다. 서브는 독립된 일상 기억으로 메인 현재 시점의 동행·승패를 바꾸지 않는다. 봉인·시간 정지·타인 지배·부활을 게임 기능으로 지급하지 않는다. 현재 체력, 골드, 물약, 몬스터 밀도는 선택 비용·보상으로 사용하지 않는다. 메인 완결 뒤 지정 후일담만 등장한다. 셀티가 1기에서 머리를 되찾았다고 서술하지 않으며, 하리마 미카의 얼굴을 셀티의 실제 머리로 취급하지 않는다. 1기 끝의 화해는 도시 전체 문제의 종결이 아니다. 마사오미가 사키와 떠난 뒤 후일담에 현재 동행자로 배치하지 않는다.",
+  "cards": [
+    {
+      "key": "drrr_mikado",
+      "name": "류가미네 미카도",
+      "effectName": "낯선 도시의 첫 걸음",
+      "keyword": "신속 · 공격",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "이케부쿠로에 온 고등학생이라는 공식 소개를 소재로 한다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_celty",
+      "name": "셀티 스툴루손",
+      "effectName": "밤길을 잇는 바퀴",
+      "keyword": "이동 속도 · 이동속도 비례 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "목 없는 라이더를 소재로 하며 실제 탈것 기능은 추가하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_masaomi",
+      "name": "키다 마사오미",
+      "effectName": "멈추지 않는 말과 발",
+      "keyword": "신속 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "미카도의 소꿉친구라는 관계를 소재로 한다. 조직의 시점은 별도 검수.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_anri",
+      "name": "소노하라 안리",
+      "effectName": "흔들리지 않는 칼끝",
+      "keyword": "치명 · 내 체력 65% 이상 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "healthy_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "검을 다루는 인물을 소재로 하며 타인 지배 기능은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_izaya",
+      "name": "오리하라 이자야",
+      "effectName": "한발 앞선 정보",
+      "keyword": "관통 · 치명 피해",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "penetration",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "신주쿠의 정보상이라는 공식 소개를 소재로 한다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_shizuo",
+      "name": "헤이와지마 시즈오",
+      "effectName": "거리를 비우는 힘",
+      "keyword": "공격 · 보스",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "이케부쿠로 최강으로 불리는 인물의 강한 힘을 보상으로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_shinra",
+      "name": "키시타니 신라",
+      "effectName": "남겨 둔 여유",
+      "keyword": "대미지 · 재생",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "치료의 이미지를 전투 준비로 각색한다. 즉시 치료 사건 보상은 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_kadota",
+      "name": "카도타 쿄헤이",
+      "effectName": "뒤를 맡길 동료",
+      "keyword": "공격 · 피해 감소",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 2
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "일행의 맏형 역할이라는 공식 소개를 바탕으로 공격과 방어를 묶는다.",
+      "uncertain": []
+    },
+    {
+      "key": "drrr_masaomi_schedule",
+      "name": "키다 마사오미",
+      "effectName": "한 번 더 마주칠 약속",
+      "keyword": "한 번 더 마주칠 약속",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "action_capacity",
+          "value": 1
+        },
+        {
+          "stat": "attack_percent",
+          "value": 1
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "일상에서 얻은 기억을 능력치로 각색한 창작 카드다. 인물의 원작 능력을 직접 지급하지 않는다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_01_1",
+      "name": "류가미네 미카도",
+      "effectName": "낯선 길의 첫 판단",
+      "keyword": "낯선 길의 첫 판단",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 낯선 길의 첫 판단라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_01_2",
+      "name": "키다 마사오미",
+      "effectName": "친구가 알려 준 동선",
+      "keyword": "친구가 알려 준 동선",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 친구가 알려 준 동선라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_01_3",
+      "name": "셀티 스툴루손",
+      "effectName": "소문이 지나간 자리",
+      "keyword": "소문이 지나간 자리",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 소문이 지나간 자리라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_02_1",
+      "name": "소노하라 안리",
+      "effectName": "작은 대답을 놓치지 않는 눈",
+      "keyword": "작은 대답을 놓치지 않는 눈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 5
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 작은 대답을 놓치지 않는 눈라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_02_2",
+      "name": "오리하라 이자야",
+      "effectName": "말보다 먼저 살필 단서",
+      "keyword": "말보다 먼저 살필 단서",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "penetration",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 말보다 먼저 살필 단서라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_02_3",
+      "name": "키다 마사오미",
+      "effectName": "소란을 벗어나는 호흡",
+      "keyword": "소란을 벗어나는 호흡",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 소란을 벗어나는 호흡라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_03_1",
+      "name": "류가미네 미카도",
+      "effectName": "서두르지 않는 설명",
+      "keyword": "서두르지 않는 설명",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 서두르지 않는 설명라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_03_2",
+      "name": "셀티 스툴루손",
+      "effectName": "쫓는 이의 사정",
+      "keyword": "쫓는 이의 사정",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 쫓는 이의 사정라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_03_3",
+      "name": "오리하라 이자야",
+      "effectName": "질문이 드러낸 빈틈",
+      "keyword": "질문이 드러낸 빈틈",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 2
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 질문이 드러낸 빈틈라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_04_1",
+      "name": "류가미네 미카도",
+      "effectName": "군중 속에서 지키는 뜻",
+      "keyword": "군중 속에서 지키는 뜻",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 2
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 군중 속에서 지키는 뜻라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_04_2",
+      "name": "키다 마사오미",
+      "effectName": "동시에 닿은 신호",
+      "keyword": "동시에 닿은 신호",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "damage_percent",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 동시에 닿은 신호라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_04_3",
+      "name": "셀티 스툴루손",
+      "effectName": "군중을 가르는 길",
+      "keyword": "군중을 가르는 길",
+      "grade": 1,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 2
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 군중을 가르는 길라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_05_1",
+      "name": "셀티 스툴루손",
+      "effectName": "진실 뒤에 남은 마음",
+      "keyword": "진실 뒤에 남은 마음",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 진실 뒤에 남은 마음라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_05_2",
+      "name": "키시타니 신라",
+      "effectName": "설명 뒤에 남는 책임",
+      "keyword": "설명 뒤에 남는 책임",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 설명 뒤에 남는 책임라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_05_3",
+      "name": "류가미네 미카도",
+      "effectName": "닮은 것과 같은 것",
+      "keyword": "닮은 것과 같은 것",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 닮은 것과 같은 것라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_06_1",
+      "name": "오리하라 이자야",
+      "effectName": "되풀이된 소문의 출처",
+      "keyword": "되풀이된 소문의 출처",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "penetration",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 되풀이된 소문의 출처라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_06_2",
+      "name": "키다 마사오미",
+      "effectName": "평범한 귀가의 약속",
+      "keyword": "평범한 귀가의 약속",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 3
+        },
+        {
+          "stat": "moving_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 평범한 귀가의 약속라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_06_3",
+      "name": "소노하라 안리",
+      "effectName": "익숙한 표정의 변화",
+      "keyword": "익숙한 표정의 변화",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 익숙한 표정의 변화라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_07_1",
+      "name": "카도타 쿄헤이",
+      "effectName": "뒤를 맡길 수 있는 거리",
+      "keyword": "뒤를 맡길 수 있는 거리",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 5
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 뒤를 맡길 수 있는 거리라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_07_2",
+      "name": "헤이와지마 시즈오",
+      "effectName": "힘이 향할 자리를 고르는 눈",
+      "keyword": "힘이 향할 자리를 고르는 눈",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 4
+        },
+        {
+          "stat": "charge_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 힘이 향할 자리를 고르는 눈라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_07_3",
+      "name": "셀티 스툴루손",
+      "effectName": "놓치지 않은 다음 연락",
+      "keyword": "놓치지 않은 다음 연락",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 135
+        },
+        {
+          "stat": "damage_percent",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 놓치지 않은 다음 연락라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_08_1",
+      "name": "소노하라 안리",
+      "effectName": "자기 뜻으로 고른 한마디",
+      "keyword": "자기 뜻으로 고른 한마디",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 3
+        },
+        {
+          "stat": "crit_damage",
+          "value": 6
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 자기 뜻으로 고른 한마디라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_08_2",
+      "name": "류가미네 미카도",
+      "effectName": "이름만으로 정하지 않는 판단",
+      "keyword": "이름만으로 정하지 않는 판단",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 7
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 이름만으로 정하지 않는 판단라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_08_3",
+      "name": "셀티 스툴루손",
+      "effectName": "돌아올 수 있는 연결",
+      "keyword": "돌아올 수 있는 연결",
+      "grade": 2,
+      "effects": [
+        {
+          "stat": "healthy_damage",
+          "value": 7
+        },
+        {
+          "stat": "regeneration",
+          "value": 0.3
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 돌아올 수 있는 연결라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_09_1",
+      "name": "키다 마사오미",
+      "effectName": "처음 지키려 했던 사람",
+      "keyword": "처음 지키려 했던 사람",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 처음 지키려 했던 사람라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_09_2",
+      "name": "카도타 쿄헤이",
+      "effectName": "혼자 짊어지지 않는 말",
+      "keyword": "혼자 짊어지지 않는 말",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "max_health_percent",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 혼자 짊어지지 않는 말라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_09_3",
+      "name": "오리하라 이자야",
+      "effectName": "정보가 비추지 않은 쪽",
+      "keyword": "정보가 비추지 않은 쪽",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 6
+        },
+        {
+          "stat": "penetration",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 정보가 비추지 않은 쪽라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_10_1",
+      "name": "류가미네 미카도",
+      "effectName": "친구의 말로 돌아가는 질문",
+      "keyword": "친구의 말로 돌아가는 질문",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "crit_chance",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 친구의 말로 돌아가는 질문라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_10_2",
+      "name": "셀티 스툴루손",
+      "effectName": "다음 대화를 남기는 길",
+      "keyword": "다음 대화를 남기는 길",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "moving_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 다음 대화를 남기는 길라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_10_3",
+      "name": "키다 마사오미",
+      "effectName": "오해가 시작된 빈칸",
+      "keyword": "오해가 시작된 빈칸",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 오해가 시작된 빈칸라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_11_1",
+      "name": "류가미네 미카도",
+      "effectName": "이름 뒤에도 이어진 신호",
+      "keyword": "이름 뒤에도 이어진 신호",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "swift",
+          "value": 180
+        },
+        {
+          "stat": "damage_percent",
+          "value": 5
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 이름 뒤에도 이어진 신호라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_11_2",
+      "name": "셀티 스툴루손",
+      "effectName": "늦지 않기 위한 방향",
+      "keyword": "늦지 않기 위한 방향",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "move_speed",
+          "value": 4
+        },
+        {
+          "stat": "moving_damage",
+          "value": 8
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 늦지 않기 위한 방향라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_11_3",
+      "name": "카도타 쿄헤이",
+      "effectName": "곁에 닿기 위한 준비",
+      "keyword": "곁에 닿기 위한 준비",
+      "grade": 3,
+      "effects": [
+        {
+          "stat": "attack_percent",
+          "value": 6
+        },
+        {
+          "stat": "damage_reduction",
+          "value": 4
+        }
+      ],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "공식 메인 사건에 대한 방문자의 곁에 닿기 위한 준비라는 반응을 능력치로 각색한다.",
+      "uncertain": []
+    },
+    {
+      "key": "ikebukuro_main_ending_memorial",
+      "name": "이케부쿠로의 기억",
+      "effectName": "색 없는 거리의 세 사람",
+      "keyword": "색 없는 거리의 세 사람",
+      "grade": 4,
+      "effects": [],
+      "evolution": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      },
+      "canonFact": "세 친구는 폐공장의 사건을 지나 서로를 다시 마주한다. 마사오미는 사키와 화해하고 함께 이케부쿠로를 떠나지만, 세 사람의 연결이 모두 사라진 것은 아니다. 셀티의 머리 찾기와 도시의 사정은 계속된다. 이번 이야기는 세 친구가 다시 말할 길을 찾은 자리에서 마친다.",
+      "uncertain": [],
+      "endingCard": true
+    }
+  ],
+  "events": [
+    {
+      "key": "ikebukuro_main_01",
+      "title": "처음 내린 밤의 역",
+      "intro": "마사오미가 낯선 도시의 길을 안내한다.",
+      "story": "친구 마사오미의 초대로 이케부쿠로에 온 미카도는 분주한 거리를 걷는다. 마사오미는 이자야와 시즈오, 다라즈에 얽힌 소문을 들려준다. 그날 밤 미카도는 도시 괴담처럼 알려진 검은 바이크까지 마주친다.",
+      "actionCost": 1,
+      "mainStage": 1,
+      "choices": [
+        {
+          "label": "거리의 움직임을 직접 살핀다",
+          "result": "미카도는 소문과 눈앞의 모습을 나누어 기억한다. 낯선 도시는 어느 한마디보다 넓다.",
+          "card": "ikebukuro_main_01_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미가 피하라는 길을 기억한다",
+          "result": "농담 사이에 섞인 경고를 놓치지 않는다. 익숙한 친구의 안내가 다음 걸음을 가볍게 한다.",
+          "card": "ikebukuro_main_01_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "검은 바이크의 행방을 바라본다",
+          "result": "괴담이라는 이름 뒤에 실제로 움직이는 누군가가 있다. 미카도는 지나간 자리에 시선을 남긴다.",
+          "card": "ikebukuro_main_01_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "미카도의 새 생활이 시작된다. 거리에서 들은 이름들은 곧 그의 일상과 직접 맞닿게 된다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "ikebukuro_main_02",
+      "title": "교실 밖에서 만난 이름들",
+      "intro": "곤란에 처한 안리에게 다가가려 한다.",
+      "story": "이케부쿠로에는 제각기 누군가를 찾는 사람들이 있다. 등교하지 않는 친구를 찾던 안리가 거리에서 시비에 휘말리자, 미카도는 도우려 한다. 그때 마사오미가 경고했던 정보상 이자야가 모습을 드러낸다.",
+      "actionCost": 1,
+      "mainStage": 2,
+      "choices": [
+        {
+          "label": "안리에게 괜찮은지 먼저 묻는다",
+          "result": "주변의 큰 목소리보다 당사자의 반응부터 확인한다. 안리는 짧게 답하며 고개를 든다.",
+          "card": "ikebukuro_main_02_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이자야의 설명에서 확인할 부분을 찾는다",
+          "result": "친절하게 들리는 말도 그대로 믿지 않는다. 말한 사람의 의도와 실제 상황을 나누어 본다.",
+          "card": "ikebukuro_main_02_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미와 물러날 길을 맞춘다",
+          "result": "상황에 휩쓸려 제각기 움직이지 않도록 서로의 위치를 확인한다.",
+          "card": "ikebukuro_main_02_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "미카도와 안리, 마사오미는 같은 학교의 일상을 나누기 시작한다. 그 밖의 거리에서는 다른 관계들이 계속 얽힌다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_anri.tga"
+    },
+    {
+      "key": "ikebukuro_main_03",
+      "title": "숨겨 준 사람의 사정",
+      "intro": "목에 상처가 있는 여성이 도움을 구한다.",
+      "story": "거리에서 부딪친 여성이 검은 바이크를 피해 도망친다. 미카도는 그녀를 집으로 데려오지만 자신을 기억하지 못한다는 말만 듣는다. 마사오미와 의논한 다음 날, 셀티와 이자야가 교문 앞에서 미카도를 기다린다.",
+      "actionCost": 1,
+      "mainStage": 3,
+      "choices": [
+        {
+          "label": "도운 이유부터 차분히 설명한다",
+          "result": "모르는 사정을 아는 척하지 않고 자신이 본 일을 말한다. 대화는 막연한 의심에서 조금 벗어난다.",
+          "card": "ikebukuro_main_03_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 찾는 사람에 대해 묻는다",
+          "result": "쫓는 쪽과 도망치는 쪽의 이야기를 함께 들으려 한다. 성급한 결론을 잠시 미룬다.",
+          "card": "ikebukuro_main_03_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이자야가 알고 있는 범위를 확인한다",
+          "result": "질문의 모양을 살펴 그가 이미 아는 것과 떠보는 것을 구별하려 한다.",
+          "card": "ikebukuro_main_03_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "머리를 찾는 셀티의 사연과 여성의 정체, 야기리 제약의 움직임이 연결되기 시작한다. 미카도도 숨겨 왔던 자신의 역할을 마주한다.",
+        "nodes": [
+          {
+            "key": "account",
+            "story": "서로 알고 있는 사실이 달라 같은 말도 전혀 다르게 들린다. 대화를 어디서부터 잇겠는가?",
+            "choices": [
+              {
+                "label": "직접 본 순서대로 말한다",
+                "result": "본 사실과 추측을 나누자 어긋난 부분이 드러난다."
+              },
+              {
+                "label": "상대가 찾는 것이 무엇인지 되묻는다",
+                "result": "같은 사람을 찾아도 목적까지 같지는 않음을 확인한다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga"
+    },
+    {
+      "key": "ikebukuro_main_04",
+      "title": "색 없는 사람들의 집회",
+      "intro": "평범한 행인들의 손에서 휴대전화가 울린다.",
+      "story": "미카도는 야기리 나미에와 마주해 자신이 모은 정보를 바탕으로 요구를 전한다. 다라즈의 첫 집회가 시작되자 평범해 보이던 거리의 사람들이 반응한다. 셀티도 그 자리에서 자신의 머리에 관한 진실을 쫓는다.",
+      "actionCost": 1,
+      "mainStage": 4,
+      "choices": [
+        {
+          "label": "미카도가 끝까지 말하도록 곁을 지킨다",
+          "result": "사람이 모였다는 사실만으로 말이 대신 전달되지는 않는다. 미카도는 자신의 요구를 분명히 한다.",
+          "card": "ikebukuro_main_04_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "흩어진 사람들의 반응을 살핀다",
+          "result": "같은 표식을 달지 않은 이들도 하나의 연락에 움직인다. 얼굴 없는 연결의 힘을 기억한다.",
+          "card": "ikebukuro_main_04_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 향하는 곳에 주의를 기울인다",
+          "result": "사람들의 소란과 다른 절박함을 놓치지 않는다. 찾는 이의 목적은 아직 끝나지 않았다.",
+          "card": "ikebukuro_main_04_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "미카도가 다라즈를 시작한 사람이라는 사실이 드러난다. 도시의 소문은 이제 그 자신과 분리할 수 없는 일이 된다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "ikebukuro_main_05",
+      "title": "찾던 얼굴과 남은 진실",
+      "intro": "같은 얼굴이 곧 같은 사람은 아니었다.",
+      "story": "하리마 미카의 설명으로 셀티가 쫓던 얼굴의 사정이 밝혀진다. 그 얼굴은 셀티의 머리를 이식한 결과가 아니다. 자신에게 숨겨진 사실을 알게 된 셀티는 신라와 마주하고, 두 사람은 서로의 생각을 직접 꺼낸다.",
+      "actionCost": 1,
+      "mainStage": 5,
+      "choices": [
+        {
+          "label": "셀티가 느낀 배신을 가볍게 넘기지 않는다",
+          "result": "사실을 알게 됐다는 이유로 마음까지 바로 정리되지는 않는다. 그녀의 말을 끝까지 기다린다.",
+          "card": "ikebukuro_main_05_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "신라에게 자신의 뜻을 직접 말하게 한다",
+          "result": "우회한 설명보다 본인이 책임질 말을 기다린다. 숨긴 사실이 대화 밖으로 밀려나지 않게 한다.",
+          "card": "ikebukuro_main_05_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "처음 믿었던 사실을 다시 확인한다",
+          "result": "겉모습만으로 세운 판단을 고친다. 틀렸음을 인정하는 일이 다음 오해를 줄인다.",
+          "card": "ikebukuro_main_05_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "셀티는 머리를 되찾지 못했지만 신라와의 관계를 다시 마주한다. 다라즈 집회의 소란이 지나고, 이케부쿠로에는 새로운 시간이 흐른다.",
+        "nodes": [
+          {
+            "key": "truth",
+            "story": "오래 찾던 답 하나가 사라졌다고 지금 곁의 사람이 사라지는 것은 아니다. 셀티는 휴대전화를 다시 든다.",
+            "choices": [
+              {
+                "label": "지금 남은 생각을 전하도록 기다린다",
+                "result": "묻고 답할 자리가 생겼다는 사실부터 지킨다."
+              },
+              {
+                "label": "해명과 바람을 구분해 듣는다",
+                "result": "왜 숨겼는지 듣는 일과 용서할지는 별개의 판단으로 남긴다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga"
+    },
+    {
+      "key": "ikebukuro_main_06",
+      "title": "반년 뒤의 낯선 소문",
+      "intro": "평온해 보이는 거리 아래 다른 움직임이 번진다.",
+      "story": "첫 다라즈 집회로부터 반년이 지났다. 미카도와 친구들의 생활은 익숙해졌지만, 거리에는 베기마의 소문과 황건적의 움직임이 겹쳐 퍼진다. 누구나 아는 소문처럼 들려도 직접 확인한 사람은 많지 않다.",
+      "actionCost": 1,
+      "mainStage": 6,
+      "choices": [
+        {
+          "label": "들은 이야기의 출처를 되짚는다",
+          "result": "같은 말을 반복한 사람 수와 사실의 수를 혼동하지 않는다. 불확실한 부분을 따로 남긴다.",
+          "card": "ikebukuro_main_06_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "친구들의 귀갓길을 확인한다",
+          "result": "막연한 불안만 나누는 대신 오늘 돌아갈 길을 서로 묻는다. 생활 속에서 할 수 있는 일을 찾는다.",
+          "card": "ikebukuro_main_06_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리의 평소와 다른 반응을 살핀다",
+          "result": "묻기 어려운 사정이 있음을 단정하지 않으면서도 작은 변화를 기억한다.",
+          "card": "ikebukuro_main_06_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "도시의 불안은 친구들의 일상에 가까워진다. 다라즈와 황건적, 베기마를 하나의 소문으로 묶는 말도 늘어난다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga"
+    },
+    {
+      "key": "ikebukuro_main_07",
+      "title": "차창 밖의 급한 그림자",
+      "intro": "안리를 위협하는 움직임을 카도타 일행이 발견한다.",
+      "story": "베기마에게 쫓기던 안리를 차 안에서 발견한 카도타 일행이 도우러 나선다. 시즈오와 셀티도 그 현장에 합류한다. 공격자를 막았다고 생각한 순간에도 사건 전체가 끝났다는 증거는 없다.",
+      "actionCost": 1,
+      "mainStage": 7,
+      "choices": [
+        {
+          "label": "카도타와 안리가 빠져나갈 자리를 만든다",
+          "result": "누가 앞을 막고 누가 뒤를 살필지 맞춘다. 혼자 뛰어드는 것보다 빈틈이 적다.",
+          "card": "ikebukuro_main_07_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "시즈오가 향한 쪽의 위험을 살핀다",
+          "result": "큰 힘에 눈이 쏠리는 동안 주변의 움직임을 확인한다. 지나갈 사람들의 길을 비워 둔다.",
+          "card": "ikebukuro_main_07_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티에게 남은 상황을 전한다",
+          "result": "현장에서 확인한 것만 짧게 전달한다. 새로운 연락이 오자 아직 모르는 일이 있음을 알게 된다.",
+          "card": "ikebukuro_main_07_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "한 공격자의 정체가 드러나지만 채팅방의 글은 또 다른 의문을 남긴다. 귀가한 안리에게도 뜻밖의 방문자가 찾아온다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_kadota.tga"
+    },
+    {
+      "key": "ikebukuro_main_08",
+      "title": "안리가 꺼낸 자신의 말",
+      "intro": "사이카의 목소리와 안리의 뜻은 같지 않다.",
+      "story": "니에카와 하루나가 안리를 찾아오면서 사이카에 얽힌 사정이 드러난다. 안리는 자신이 품고 있던 힘과 과거를 마주한다. 그녀는 타인의 욕망에 떠밀리는 대신 스스로 판단하고 하루나와 대치한다.",
+      "actionCost": 1,
+      "mainStage": 8,
+      "choices": [
+        {
+          "label": "안리가 직접 고른 말을 듣는다",
+          "result": "그녀를 둘러싼 소문보다 당사자가 말하는 뜻을 먼저 기억한다.",
+          "card": "ikebukuro_main_08_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "힘과 그것을 쓰는 선택을 나누어 생각한다",
+          "result": "어떤 힘을 지녔다는 사실만으로 다음 행동을 정해 버리지 않는다.",
+          "card": "ikebukuro_main_08_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "혼자 남지 않도록 연락을 이어 둔다",
+          "result": "답을 강요하지 않되 도움을 구할 길을 닫지 않는다.",
+          "card": "ikebukuro_main_08_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "안리는 하루나와의 대치를 넘기며 사이카에 관한 상황을 다스린다. 그러나 이를 모르는 친구들의 걱정은 다른 방향으로 움직인다.",
+        "nodes": [
+          {
+            "key": "distance",
+            "story": "누군가의 비밀을 알았다고 그 사람을 모두 이해한 것은 아니다. 안리는 평소처럼 조용히 서 있다.",
+            "choices": [
+              {
+                "label": "말할 수 있는 때를 기다린다",
+                "result": "설명을 재촉하지 않으면서 곁에 있을 뜻을 전한다."
+              },
+              {
+                "label": "지금 필요한 도움이 있는지 묻는다",
+                "result": "과거 전부보다 오늘 할 수 있는 일을 먼저 묻는다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_anri.tga"
+    },
+    {
+      "key": "ikebukuro_main_09",
+      "title": "웃음 뒤에 남은 과거",
+      "intro": "마사오미가 다시 황건적의 이름 앞에 선다.",
+      "story": "안리가 공격받았다는 사실은 마사오미를 과거로 끌어당긴다. 황건적을 이끌었던 시절과 사키에게 벌어진 일을 떠올리며, 그는 친구를 지키려 다시 나선다. 이자야는 서로 다른 사정을 아는 위치에서 움직임을 지켜본다.",
+      "actionCost": 1,
+      "mainStage": 9,
+      "choices": [
+        {
+          "label": "지키려는 상대와 싸우려는 상대를 구별한다",
+          "result": "분노가 커질수록 처음 목적이 흐려지지 않게 되묻는다.",
+          "card": "ikebukuro_main_09_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "과거의 책임을 혼자 정리하지 않도록 한다",
+          "result": "후회가 있다는 사실을 듣되 모든 답을 혼자 내려야 한다고 밀어붙이지 않는다.",
+          "card": "ikebukuro_main_09_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이자야의 정보가 향하는 방향을 살핀다",
+          "result": "사실을 건네는 순서에도 의도가 있을 수 있다. 알게 된 것과 유도된 판단을 나누어 본다.",
+          "card": "ikebukuro_main_09_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "마사오미는 황건적으로 돌아가지만 친구들에게 자신의 과거를 모두 말하지 못한다. 서로를 지키려는 마음이 오히려 거리를 만들기 시작한다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_masaomi.tga"
+    },
+    {
+      "key": "ikebukuro_main_10",
+      "title": "같은 교실의 다른 비밀",
+      "intro": "세 친구의 이름이 거리에서 다른 뜻으로 불린다.",
+      "story": "안리는 황건적을 살피다 마사오미의 위치를 알게 되고 위험한 곳에서 셀티의 도움을 받는다. 마사오미에게는 미카도와 다라즈의 관계가 전해진다. 같은 교실에서 마주치는 세 사람은 서로에게 바로 묻지 못한 채 추측을 쌓는다.",
+      "actionCost": 1,
+      "mainStage": 10,
+      "choices": [
+        {
+          "label": "미카도가 실제로 한 말을 다시 떠올린다",
+          "result": "조직의 이름으로 친구의 말 전부를 덮지 않는다. 직접 확인할 질문을 남긴다.",
+          "card": "ikebukuro_main_10_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리가 무사히 빠져나올 길을 우선한다",
+          "result": "모든 의문을 그 자리에서 해결하려 하지 않는다. 다음에 말할 기회를 위해 먼저 움직인다.",
+          "card": "ikebukuro_main_10_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미가 듣지 못한 사정을 짚는다",
+          "result": "이미 안다는 확신을 잠시 멈춘다. 정보가 빠져 있는 곳을 찾아 보려 한다.",
+          "card": "ikebukuro_main_10_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "서로의 정체에 가까워질수록 셋의 대화는 줄어든다. 황건적 안의 폭력적인 움직임도 마사오미의 뜻대로 멈추지 않는다.",
+        "nodes": [
+          {
+            "key": "question",
+            "story": "친구를 지키려 숨긴 말이 이제 친구를 의심하게 만든다. 무엇부터 바꿔야 할까?",
+            "choices": [
+              {
+                "label": "전해 들은 말임을 밝힌다",
+                "result": "직접 본 일처럼 말하지 않기로 한다."
+              },
+              {
+                "label": "대답을 정해 두지 않고 묻는다",
+                "result": "반박할 문장보다 실제 답을 들을 자리를 남긴다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_anri.tga"
+    },
+    {
+      "key": "ikebukuro_main_11",
+      "title": "닫힌 게시판 밖의 연락",
+      "intro": "안리를 도왔던 사람들의 행동이 미카도에게 남는다.",
+      "story": "쫓기던 안리를 다라즈 멤버들이 돕는다. 그러나 황건적의 위협과 내부 불만 속에서 미카도는 해산을 선언하고 게시판을 닫는다. 셀티의 설득을 들은 뒤, 미카도와 안리는 홀로 폐공장에 간 마사오미를 만나러 움직인다.",
+      "actionCost": 1,
+      "mainStage": 11,
+      "choices": [
+        {
+          "label": "안리를 도왔던 사람들의 행동을 돌아본다",
+          "result": "게시판을 닫기 전에 받은 도움을 떠올린다. 이름과 모임을 없애는 것만으로 풀리지 않는 관계가 있음을 인정한다.",
+          "card": "ikebukuro_main_11_1",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티와 목적지까지 갈 길을 살핀다",
+          "result": "늦게 알아챈 사실을 후회하는 데 멈추지 않고, 지금 만날 수 있는 곳으로 향한다.",
+          "card": "ikebukuro_main_11_2",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "혼자 간 마사오미를 떠올리며 준비한다",
+          "result": "누구의 잘못부터 따질지보다 먼저 곁에 도착할 방법을 고른다.",
+          "card": "ikebukuro_main_11_3",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "폐공장으로 향하는 길에서 세 친구의 이야기가 하나로 모인다. 직접 마주하지 않고서는 풀 수 없는 말들이 남아 있다.",
+        "nodes": []
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "ikebukuro_main_12",
+      "title": "서로의 이름으로 다시 만나다",
+      "intro": "폐공장에서 세 친구가 같은 자리에 선다.",
+      "story": "호라다 일행과의 충돌이 벌어진 폐공장에 미카도와 안리가 도착하고 마사오미와 마주한다. 다라즈, 황건적, 사이카라는 이름에 가려졌던 세 친구의 사정이 드러난다. 이제는 소문을 통해서가 아니라 서로에게 말할 차례다.",
+      "actionCost": 1,
+      "mainStage": 12,
+      "choices": [
+        {
+          "label": "미카도의 이름을 부르며 말을 잇는다",
+          "result": "조직을 대표하는 대답을 요구하기보다 친구가 어떤 마음이었는지 듣는다.",
+          "card": "ikebukuro_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미가 혼자 돌아서지 않게 기다린다",
+          "result": "틀린 판단을 덮어 두지는 않되 다음 말을 할 자리를 지킨다.",
+          "card": "ikebukuro_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리가 전하는 뜻을 끝까지 듣는다",
+          "result": "이미 알았다고 생각한 이야기에도 아직 듣지 못한 말이 남아 있음을 받아들인다.",
+          "card": "ikebukuro_main_ending_memorial",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "dialogue": {
+        "enabled": true,
+        "commonResult": "",
+        "nodes": [
+          {
+            "key": "ending",
+            "story": "세 친구는 폐공장의 사건을 지나 서로를 다시 마주한다. 마사오미는 사키와 화해하고 함께 이케부쿠로를 떠나지만, 세 사람의 연결이 모두 사라진 것은 아니다. 셀티의 머리 찾기와 도시의 사정은 계속된다. 이번 이야기는 세 친구가 다시 말할 길을 찾은 자리에서 마친다.",
+            "choices": [
+              {
+                "label": "이 만남을 기억한다",
+                "result": "이 지역에서 함께 지나온 순간들을 한 장의 기억으로 남겼다."
+              }
+            ]
+          }
+        ]
+      },
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_head.tga"
+    },
+    {
+      "key": "drrr_side_crossing",
+      "title": "사거리에서 고른 길",
+      "intro": "마사오미가 지름길과 구경할 길을 가리킨다.",
+      "story": "익숙하지 않은 골목 앞에서 마사오미가 걸음을 멈춘다. 같은 목적지로 가더라도 무엇을 보고 가는지는 다르다. 서두를 일이 없는 지금, 오늘 기억할 길을 고른다.",
+      "actionCost": 0,
+      "choices": [
+        {
+          "label": "마사오미가 아는 지름길을 따른다",
+          "result": "사람이 몰리는 곳을 피해 가는 순서를 익힌다.",
+          "card": "drrr_masaomi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 지나간 큰길을 따라 본다",
+          "result": "시야가 열린 곳에서 다음 방향을 미리 살핀다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도와 눈에 띈 표식을 적는다",
+          "result": "돌아올 때 알아볼 수 있는 작은 기준을 남긴다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_masaomi.tga"
+    },
+    {
+      "key": "drrr_side_message",
+      "title": "짧은 답장 한 줄",
+      "intro": "휴대전화에 위치를 묻는 글이 도착한다.",
+      "story": "복잡한 설명보다 누구나 찾을 수 있는 표식 하나가 도움이 될 때가 있다. 미카도는 만날 장소를 알려 줄 답장을 고른다. 셀티에게 배운 간결한 전달법도 떠오른다.",
+      "actionCost": 0,
+      "choices": [
+        {
+          "label": "가까운 표식부터 적는다",
+          "result": "처음 오는 사람도 찾을 수 있는 방향을 전한다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "움직일 방향을 짧게 덧붙인다",
+          "result": "상대가 도착한 뒤 헤매지 않도록 다음 길을 남긴다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "기다릴 수 있는 장소를 안내한다",
+          "result": "서두르지 않아도 된다는 여유가 답장에 담긴다.",
+          "card": "drrr_shinra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "drrr_side_shop",
+      "title": "서가 사이의 작은 부탁",
+      "intro": "카도타가 일행이 흩어지지 않았는지 살핀다.",
+      "story": "책을 구경하던 일행의 관심사가 각기 다른 선반으로 향한다. 카도타는 나갈 때 다시 모일 곳을 정하자고 한다. 구경하는 시간을 지키면서도 서로를 놓치지 않을 방법을 찾는다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "카도타와 다시 모일 기준을 정한다",
+          "result": "누구 하나가 계속 쫓아다니지 않아도 될 약속을 만든다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도와 눈에 들어온 제목을 나눈다",
+          "result": "같은 장소에서도 서로 다른 것을 보았음을 안다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미에게 돌아갈 길을 확인한다",
+          "result": "구경이 끝난 뒤 움직일 방향을 먼저 맞춘다.",
+          "card": "drrr_masaomi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_kadota.tga"
+    },
+    {
+      "key": "drrr_side_quiet",
+      "title": "조용한 자리를 남기는 법",
+      "intro": "시즈오가 소란스러운 길을 바라본다.",
+      "story": "큰소리가 이어지는 길에서 시즈오가 표정을 굳힌다. 괜히 다가가 자극하기보다 서로 지나갈 공간부터 확보하는 편이 좋겠다. 강한 사람과 함께 있다고 주변을 살필 필요가 없어지는 것은 아니다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "시즈오 앞의 동선을 비워 준다",
+          "result": "불필요한 부딪힘이 생기지 않도록 움직인다.",
+          "card": "drrr_shizuo",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 알려 준 우회로로 향한다",
+          "result": "소란을 키우지 않고 다른 길을 택한다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타와 일행의 위치를 확인한다",
+          "result": "누가 뒤에 남았는지 먼저 살펴 다 함께 이동한다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_shizuo.tga"
+    },
+    {
+      "key": "drrr_side_rumor",
+      "title": "사람마다 다른 같은 소문",
+      "intro": "이자야가 누구에게 들었는지 되묻는다.",
+      "story": "거리에서 들은 이야기를 전하자 이자야는 내용보다 처음 말한 사람을 궁금해한다. 안리와 미카도는 자신이 직접 본 부분만 남겨 보려 한다. 말이 돌아온 길을 살피면 다른 모습이 드러날지도 모른다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "이자야에게 출처를 다시 묻는다",
+          "result": "답을 얻는 동시에 그가 피한 질문도 기억한다.",
+          "card": "drrr_izaya",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도와 확인한 사실만 추린다",
+          "result": "겹쳐 들은 추측을 덜어 내자 필요한 질문이 남는다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리에게 당사자의 사정을 묻는다",
+          "result": "관찰만으로 알 수 없던 작은 이유를 듣는다.",
+          "card": "drrr_anri",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_izaya.tga"
+    },
+    {
+      "key": "drrr_side_lunch",
+      "title": "점심시간의 빈 의자",
+      "intro": "안리가 늦게 온 친구를 위한 자리를 남긴다.",
+      "story": "점심시간이 시작됐지만 모두 동시에 모이지는 못했다. 안리는 조용히 자리를 남기고 마사오미는 어느 쪽을 보고 기다릴지 묻는다. 사소한 준비가 모인 뒤의 시간을 바꾼다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "안리와 늦은 사람을 기다린다",
+          "result": "대화에 들어오기 쉬운 빈자리를 남긴다.",
+          "card": "drrr_anri",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "마사오미와 연락할 순서를 정한다",
+          "result": "중복해서 부르지 않고 필요한 사람에게만 전한다.",
+          "card": "drrr_masaomi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도에게 오늘 할 일을 묻는다",
+          "result": "기다리는 시간을 다음 약속을 나누는 시간으로 바꾼다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_anri.tga"
+    },
+    {
+      "key": "drrr_side_pause",
+      "title": "연락을 마친 뒤의 여유",
+      "intro": "신라가 셀티의 귀가를 기다린다.",
+      "story": "몇 번의 연락이 이어진 뒤 잠깐 조용해진다. 신라는 말을 이어 가려 하고 셀티는 먼저 쉬어 갈 시간을 원한다. 함께 있다는 이유로 상대의 빈틈까지 모두 채울 필요는 없다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "신라와 말할 순서를 천천히 고른다",
+          "result": "떠오른 말을 모두 한꺼번에 꺼내지 않는다.",
+          "card": "drrr_shinra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 쉴 동안 다음 길을 정리한다",
+          "result": "기다림을 방해하지 않고 할 수 있는 준비를 한다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타에게 오늘의 연락을 요약한다",
+          "result": "핵심만 전달해 같은 설명을 반복하지 않는다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_shinra.tga"
+    },
+    {
+      "key": "drrr_side_strength",
+      "title": "힘을 쓰기 전에 볼 것",
+      "intro": "시즈오와 카도타가 좁은 길 앞에 선다.",
+      "story": "사람들이 한꺼번에 지나가려는 길은 금세 막힌다. 곁에 선 시즈오에게 길을 터 달라는 말이 들리지만 카도타는 먼저 누가 어디로 가려는지 확인한다. 시즈오와 함께 문제를 크게 만들지 않고 지나갈 방법을 고른다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "시즈오와 막힌 원인을 살핀다",
+          "result": "움직일 대상과 그대로 둘 대상을 분명히 한다.",
+          "card": "drrr_shizuo",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타와 통과할 순서를 정한다",
+          "result": "서로 밀지 않아도 길이 열리도록 맞춘다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티의 시선으로 다른 경로를 찾는다",
+          "result": "한곳을 고집하지 않자 짧게 돌아갈 길이 보인다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_shizuo.tga"
+    },
+    {
+      "key": "drrr_side_reply",
+      "title": "어제 남긴 글의 답장",
+      "intro": "미카도가 이전에 남긴 질문에 답이 달렸다.",
+      "story": "미카도와 연락을 나눴던 기억이 있어 새 글의 맥락을 알아볼 수 있다. 답장이 길지는 않아도 처음 질문에서 놓친 부분을 짚는다. 다음에는 무엇을 더 확인할지 고른다.",
+      "actionCost": 1,
+      "requiredCard": "drrr_mikado",
+      "choices": [
+        {
+          "label": "미카도와 달라진 상황을 맞춰 본다",
+          "result": "오래된 정보가 된 부분을 구별한다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "이자야가 덧붙인 말의 의도를 살핀다",
+          "result": "사실을 받아들이면서 유도하는 결론까지 따라가지는 않는다.",
+          "card": "drrr_izaya",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리에게 직접 이해한 뜻을 묻는다",
+          "result": "문장만 보고 내린 판단을 당사자의 말로 확인한다.",
+          "card": "drrr_anri",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "drrr_side_night_route",
+      "title": "다시 달리는 밤길",
+      "intro": "셀티가 전에 알려 준 길을 다시 지난다.",
+      "story": "한 번 함께 살핀 길이라도 오늘의 흐름은 다르다. 셀티가 잠시 속도를 늦추며 새로 막힌 구간을 가리킨다. 익숙함을 이유로 놓치지 말아야 할 것을 고른다.",
+      "actionCost": 1,
+      "requiredCard": "drrr_celty",
+      "choices": [
+        {
+          "label": "셀티와 현재의 흐름을 따라간다",
+          "result": "외워 둔 순서보다 눈앞의 길을 기준으로 움직인다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타와 뒤따르는 사람을 확인한다",
+          "result": "앞서가는 사람만 편한 동선이 되지 않게 살핀다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도에게 바뀐 구간을 전한다",
+          "result": "다음 사람이 같은 곳에서 멈추지 않도록 짧게 알린다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga"
+    },
+    {
+      "key": "drrr_side_schedule",
+      "title": "다음에 만날 시간을 고른다",
+      "intro": "마사오미가 겹치는 약속을 헤아린다.",
+      "story": "함께하고 싶은 일은 많아도 한 번에 모두 갈 수는 없다. 마사오미는 먼저 확정한 약속과 아직 물어보지 않은 약속을 나눠 보자고 한다. 미카도는 달력을 다시 펼친다.",
+      "actionCost": 1,
+      "choices": [
+        {
+          "label": "마사오미와 확정된 약속부터 표시한다",
+          "result": "바꿀 수 없는 시간과 다시 물을 시간을 구분한다.",
+          "card": "drrr_masaomi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "셀티가 알려 준 동선을 적용한다",
+          "result": "이동에 걸리는 수고를 줄여 기존 약속에 집중한다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리에게 편한 시간을 직접 묻는다",
+          "result": "혼자 예상한 일정 대신 상대의 답을 기다린다.",
+          "card": "drrr_anri",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_masaomi.tga"
+    },
+    {
+      "key": "drrr_side_schedule_follow",
+      "title": "표시해 둔 시간의 빈칸",
+      "intro": "정리한 약속 사이에 작은 여유가 생겼다.",
+      "story": "마사오미와 확정된 시간을 표시한 덕분에 다음 일정을 고를 수 있게 됐다. 새 만남을 하나 더 남길지, 이미 약속한 상대에게 더 집중할지는 별개의 선택이다.",
+      "actionCost": 1,
+      "previous": "drrr_side_schedule",
+      "previousChoice": 1,
+      "requiredCard": "drrr_masaomi",
+      "choices": [
+        {
+          "label": "다음 만남을 위한 시간을 남긴다",
+          "result": "추가로 사람을 만날 준비를 마친다. 새로운 약속을 감당할 여유가 생긴다.",
+          "card": "drrr_masaomi_schedule",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "미카도와 이번에 확인할 일을 추린다",
+          "result": "만나는 횟수보다 한 번의 대화를 또렷하게 만든다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타와 함께 움직일 준비를 한다",
+          "result": "누구도 약속에 뒤처지지 않도록 챙긴다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_masaomi.tga"
+    },
+    {
+      "key": "drrr_epilogue_message",
+      "title": "다른 곳에서 도착한 글",
+      "intro": "거리를 떠난 친구의 연락이 이어진다.",
+      "story": "사키와 함께 떠난 마사오미가 곁에 있지는 않지만 연락할 길은 남아 있다. 미카도는 짧은 글 앞에서 어떤 소식을 전할지 생각한다. 안리도 같은 도시의 오늘을 보내고 있다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "미카도와 오늘의 작은 일을 전한다",
+          "result": "큰 사건이 없어도 나눌 하루가 있다는 것을 적는다.",
+          "card": "drrr_mikado",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "안리에게 함께 보낼 말을 묻는다",
+          "result": "친구의 목소리를 혼자 대신 쓰지 않는다.",
+          "card": "drrr_anri",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "멀리서도 이어진 약속을 기억한다",
+          "result": "다시 만날 때 서두르지 않고 이야기할 자리를 남긴다.",
+          "card": "drrr_masaomi",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_mikado.tga"
+    },
+    {
+      "key": "drrr_epilogue_street",
+      "title": "아직 이어지는 도시의 길",
+      "intro": "셀티의 바이크가 익숙한 길을 지나간다.",
+      "story": "세 친구의 갈등이 풀렸다고 이케부쿠로의 모든 사정이 끝난 것은 아니다. 셀티는 여전히 자신의 머리를 찾고, 카도타 일행도 각자의 하루를 보낸다. 이번에 배운 것을 오늘의 길에 적용해 본다.",
+      "actionCost": 1,
+      "epilogue": true,
+      "choices": [
+        {
+          "label": "셀티의 다음 연락을 받을 준비를 한다",
+          "result": "해결되지 않은 일 앞에서도 관계를 끊지 않는다.",
+          "card": "drrr_celty",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "카도타와 일행의 걸음을 맞춘다",
+          "result": "같은 곳으로 향하는 사람을 오늘도 놓치지 않는다.",
+          "card": "drrr_kadota",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        },
+        {
+          "label": "신라와 쉬어 갈 시간을 정한다",
+          "result": "이어지는 하루를 위해 잠시 여유를 남긴다.",
+          "card": "drrr_shinra",
+          "card2": "",
+          "gold": 0,
+          "cost": 0,
+          "level": 0,
+          "density": 0,
+          "potions": 0,
+          "chance": 100
+        }
+      ],
+      "icon": "war3mapImported\\UI_Event_XP_ikebukuro_celty.tga"
+    }
+  ],
+  "reviewRecords": [
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\ikebukuro-main-01.json",
+      "monitorRecordId": "58627ed5-41e7-44b8-9416-c41387a956af"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\ikebukuro-side-01.json",
+      "monitorRecordId": "655b1b54-c631-45fe-aeed-8785da4bb494"
+    },
+    {
+      "file": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews\\editor-delta-01.json",
+      "monitorRecordId": "39a76f2a-9715-49d7-b18f-1e00c9a6f276",
+      "scope": "첫 검토 후 바꾼 5작품 14개 사건"
+    }
+  ]
+}

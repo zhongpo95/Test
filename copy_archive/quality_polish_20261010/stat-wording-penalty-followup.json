@@ -1,0 +1,511 @@
+{
+  "role": "패널티가 의미하는 실제 수치 변화를 명확히 밝힌 8개 카드 키워드 후속 교정 기록.",
+  "appliedAt": "2026-10-10T11:47:28.849Z",
+  "changes": [
+    {
+      "file": "content/roguelite/02-axel.json",
+      "world": "axel",
+      "cardKey": "axel_megumin",
+      "before": "차지 · 신속 패널티",
+      "after": "차지 · 고정 신속 감소",
+      "reasons": [
+        {
+          "stat": "swift",
+          "value": -90,
+          "reason": "고정 신속의 음수 수치이므로 고정 신속 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "폭렬 마법에 올인",
+      "effectsPreserved": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "charge_speed",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/09-magnolia.json",
+      "world": "magnolia",
+      "cardKey": "ft_natsu_focus",
+      "before": "공격 · 최종 대미지 · 신속 패널티",
+      "after": "공격 · 최종 대미지 · 고정 신속 감소",
+      "reasons": [
+        {
+          "stat": "swift",
+          "value": -90,
+          "reason": "고정 신속의 음수 수치이므로 고정 신속 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "동료를 향한 불꽃",
+      "effectsPreserved": [
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "final_damage_percent",
+          "value": 2
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/09-magnolia.json",
+      "world": "magnolia",
+      "cardKey": "ft_laxus_reply",
+      "before": "보스 · 치명타 피해 · 공격력 패널티",
+      "after": "보스 · 치명타 피해 · 공격력 감소",
+      "reasons": [
+        {
+          "stat": "attack_percent",
+          "value": -2,
+          "reason": "공격력 증가 스탯의 음수 수치이므로 공격력 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "짧은 말의 뒷자리",
+      "effectsPreserved": [
+        {
+          "stat": "boss_damage_percent",
+          "value": 4
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": -2
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/10-karakura.json",
+      "world": "karakura",
+      "cardKey": "bl_ichigo_focus",
+      "before": "차지 · 공격 · 신속 패널티",
+      "after": "차지 · 공격 · 고정 신속 감소",
+      "reasons": [
+        {
+          "stat": "swift",
+          "value": -90,
+          "reason": "고정 신속의 음수 수치이므로 고정 신속 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "한 번의 틈에 모은 힘",
+      "effectsPreserved": [
+        {
+          "stat": "charge_damage",
+          "value": 4
+        },
+        {
+          "stat": "attack_percent",
+          "value": 3
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/11-penacony.json",
+      "world": "penacony",
+      "cardKey": "hsr_aventurine_scattered",
+      "before": "처치 골드 · 치명타 피해 · 신속 패널티",
+      "after": "처치 골드 · 치명타 피해 · 고정 신속 감소",
+      "reasons": [
+        {
+          "stat": "swift",
+          "value": -90,
+          "reason": "고정 신속의 음수 수치이므로 고정 신속 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "흩어진 판돈",
+      "effectsPreserved": [
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "crit_damage",
+          "value": 4
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        },
+        {
+          "stat": "attack_percent",
+          "value": 2
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/11-penacony.json",
+      "world": "penacony",
+      "cardKey": "hsr_jade_terms",
+      "before": "피해 · 처치 골드 · 신속 패널티",
+      "after": "피해 · 처치 골드 · 고정 신속 감소",
+      "reasons": [
+        {
+          "stat": "swift",
+          "value": -90,
+          "reason": "고정 신속의 음수 수치이므로 고정 신속 감소라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "가격표 밖의 조건",
+      "effectsPreserved": [
+        {
+          "stat": "damage_percent",
+          "value": 3
+        },
+        {
+          "stat": "kill_gold",
+          "value": 1
+        },
+        {
+          "stat": "swift",
+          "value": -90
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/11-penacony.json",
+      "world": "penacony",
+      "cardKey": "hsr_boothill_attention",
+      "before": "고정 신속 · 이동속도 비례 피해 · 받는 피해 감소 패널티",
+      "after": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+      "reasons": [
+        {
+          "stat": "damage_reduction",
+          "value": -2,
+          "reason": "음수 피해 감소는 받는 피해 계수 1 - min(60, reduction)/100를 늘린다. 받는 피해 증가라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "숨기지 않은 발걸음",
+      "effectsPreserved": [
+        {
+          "stat": "swift",
+          "value": 90
+        },
+        {
+          "stat": "moving_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": -2
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    },
+    {
+      "file": "content/roguelite/13-butterfly.json",
+      "world": "butterfly",
+      "cardKey": "kny_inosuke",
+      "before": "일반 · 비방향 · 받는 피해 감소 패널티",
+      "after": "일반 · 비방향 · 받는 피해 증가",
+      "reasons": [
+        {
+          "stat": "damage_reduction",
+          "value": -2,
+          "reason": "음수 피해 감소는 받는 피해 계수 1 - min(60, reduction)/100를 늘린다. 받는 피해 증가라고 표기한다."
+        }
+      ],
+      "effectNamePreserved": "머뭇거리지 않는 돌파",
+      "effectsPreserved": [
+        {
+          "stat": "normal_damage_percent",
+          "value": 5
+        },
+        {
+          "stat": "nondirectional_damage",
+          "value": 4
+        },
+        {
+          "stat": "damage_reduction",
+          "value": -2
+        }
+      ],
+      "evolutionPreserved": {
+        "kind": 0,
+        "goal": 0,
+        "effects": []
+      }
+    }
+  ],
+  "files": [
+    {
+      "file": "content/roguelite/02-axel.json",
+      "beforeSha256": "2e259979c4059044b186251af8cd0090ff53da878770abdf0543ecc0d3c0f686",
+      "afterSha256": "c4618c9d10d982e6d18581c044e317bf9540d5f4a8fcf5cba4092e2d85420725",
+      "nonKeywordFieldsDeepEqual": true,
+      "allTextOutsideTargetKeywordValuesIdentical": true,
+      "lineEndingsPreserved": true,
+      "worldIntroPreserved": true,
+      "changes": 1
+    },
+    {
+      "file": "content/roguelite/09-magnolia.json",
+      "beforeSha256": "72e3a177f5790d3eb6c65dc6bfd7ed677a89a97e22f3e04e227eab1c7586cf72",
+      "afterSha256": "459396f11d480f3b8dce73f9a527ef32c93a6f44f0370b5a1538f907120de075",
+      "nonKeywordFieldsDeepEqual": true,
+      "allTextOutsideTargetKeywordValuesIdentical": true,
+      "lineEndingsPreserved": true,
+      "worldIntroPreserved": true,
+      "changes": 2
+    },
+    {
+      "file": "content/roguelite/10-karakura.json",
+      "beforeSha256": "a89ca437b1b96dd585e312de2a51216845bf6b1bcbbea5f073034a8453996787",
+      "afterSha256": "5a4825c2fd903f7fdf200704a061fe927b4fc574772d54ef8de6543de115b860",
+      "nonKeywordFieldsDeepEqual": true,
+      "allTextOutsideTargetKeywordValuesIdentical": true,
+      "lineEndingsPreserved": true,
+      "worldIntroPreserved": true,
+      "changes": 1
+    },
+    {
+      "file": "content/roguelite/11-penacony.json",
+      "beforeSha256": "4b13e6f1c56bd56738e4b1bbdee0681ab29a8acea8b0ff6071a94fd68452dc27",
+      "afterSha256": "b1bdbc8fa4fa0d821d68c87656532cc2c91283675171c78a07fc276cf4a358dd",
+      "nonKeywordFieldsDeepEqual": true,
+      "allTextOutsideTargetKeywordValuesIdentical": true,
+      "lineEndingsPreserved": true,
+      "worldIntroPreserved": true,
+      "changes": 3
+    },
+    {
+      "file": "content/roguelite/13-butterfly.json",
+      "beforeSha256": "52a41c815cc94b551c972a4e2319623c578ffa116caa85e46138761dce302b97",
+      "afterSha256": "68be87d167368b34b10e4c9e033a0ab4374d8c66129f2dfbe66bae9ba1db6c5f",
+      "nonKeywordFieldsDeepEqual": true,
+      "allTextOutsideTargetKeywordValuesIdentical": true,
+      "lineEndingsPreserved": true,
+      "worldIntroPreserved": true,
+      "changes": 1
+    }
+  ],
+  "preservedPriorRecords": [
+    {
+      "file": "content/expansion-drafts/quality-stat-wording-review.json",
+      "sha256": "a115b506a93e92ccb97bb17c6a6dc5bfd167793a136deefbdc8e19535a00ddf1"
+    },
+    {
+      "file": "content/reviews/quality-polish-20261010/stat-wording-review.json",
+      "sha256": "a115b506a93e92ccb97bb17c6a6dc5bfd167793a136deefbdc8e19535a00ddf1"
+    },
+    {
+      "file": "copy_archive/quality_polish_20261010/stat-wording-changes.json",
+      "sha256": "6d08967b16b9abefb06b9c8f04343928ac38b55041503f8ba6c14f434a3667b8"
+    }
+  ],
+  "mechanismEvidence": {
+    "damageReduction": {
+      "file": "System/DamageEffectBoss.j",
+      "sha256": "cbdfd93f1b80d253539a1badb58fa8efdd71a1cb73b40dfcb6ca3d748d6f545a",
+      "code": "set rate = rate * (1.0 - RMinBJ(60.0, reduction) / 100.0)",
+      "meaning": "집계된 reduction이 음수이면 받는 피해 계수가 1보다 커진다. 해당 카드 효과는 피해 감소 수치를 낮추는 방향으로 작용한다."
+    },
+    "swift": {
+      "file": "Data/Data_PrototypeStats.j",
+      "display": "고정 신속"
+    }
+  },
+  "validation": {
+    "actualBeforeAfterSnapshots": true,
+    "keywordRemovedJsonDeepStrictEqual": true,
+    "allTextOutsideChangedKeywordsIdentical": true,
+    "existingReviewAndFirstChangeRecordUnchanged": true,
+    "currentFilesExactlyMatchAfterSnapshots": true,
+    "changedCards": 8,
+    "changedFiles": 5,
+    "onlyFieldChanged": "cards[].keyword",
+    "numericEffectsChanged": false,
+    "effectNameChanged": false,
+    "evolutionChanged": false,
+    "rewardsChanged": false,
+    "introChanged": false,
+    "lineEndingsChanged": false,
+    "errors": [],
+    "warcraftRuntime": false,
+    "visualInspection": false,
+    "compile": false,
+    "generatedCatalogRebuilt": false,
+    "mapCreated": false
+  },
+  "keywordLength": {
+    "unit": "Unicode code points; 한글/공백/구두점 포함. UTF-8 바이트 수는 별도 기록.",
+    "displayFormat": "world.name + \" · \" + keyword",
+    "allCards": {
+      "cards": 1653,
+      "maximumKeywordCharacters": 75,
+      "rawMaximumCards": [
+        {
+          "cardKey": "amestris_main_ending_memorial",
+          "world": "amestris",
+          "keyword": "타인의 생명 대신 자신의 연금술을 내놓은 형은 동생을 데려왔다. 모든 상처가 지워지지는 않아도, 형제는 남은 삶을 자기 발로 걸어간다.",
+          "keywordCharacters": 75,
+          "keywordUtf8Bytes": 183,
+          "displayedKeyword": "아메스트리스 · 타인의 생명 대신 자신의 연금술을 내놓은 형은 동생을 데려왔다. 모든 상처가 지워지지는 않아도, 형제는 남은 삶을 자기 발로 걸어간다.",
+          "displayedCharacters": 84,
+          "displayedUtf8Bytes": 205,
+          "endingCard": true
+        }
+      ],
+      "maximumDisplayedCharacters": 84,
+      "displayMaximumCards": [
+        {
+          "cardKey": "amestris_main_ending_memorial",
+          "world": "amestris",
+          "keyword": "타인의 생명 대신 자신의 연금술을 내놓은 형은 동생을 데려왔다. 모든 상처가 지워지지는 않아도, 형제는 남은 삶을 자기 발로 걸어간다.",
+          "keywordCharacters": 75,
+          "keywordUtf8Bytes": 183,
+          "displayedKeyword": "아메스트리스 · 타인의 생명 대신 자신의 연금술을 내놓은 형은 동생을 데려왔다. 모든 상처가 지워지지는 않아도, 형제는 남은 삶을 자기 발로 걸어간다.",
+          "displayedCharacters": 84,
+          "displayedUtf8Bytes": 205,
+          "endingCard": true
+        }
+      ]
+    },
+    "nonEndingCards": {
+      "cards": 1625,
+      "maximumKeywordCharacters": 29,
+      "rawMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ],
+      "maximumDisplayedCharacters": 36,
+      "displayMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ]
+    },
+    "primary269": {
+      "cards": 269,
+      "maximumKeywordCharacters": 29,
+      "rawMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ],
+      "maximumDisplayedCharacters": 36,
+      "displayMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ]
+    },
+    "followup8": {
+      "cards": 8,
+      "maximumKeywordCharacters": 29,
+      "rawMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ],
+      "maximumDisplayedCharacters": 36,
+      "displayMaximumCards": [
+        {
+          "cardKey": "hsr_boothill_attention",
+          "world": "penacony",
+          "keyword": "고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "keywordCharacters": 29,
+          "keywordUtf8Bytes": 67,
+          "displayedKeyword": "페나코니 · 고정 신속 · 이동속도 비례 피해 · 받는 피해 증가",
+          "displayedCharacters": 36,
+          "displayedUtf8Bytes": 83,
+          "endingCard": false
+        }
+      ]
+    },
+    "visualBoundary": "문자 수는 실제 글꼴 폭이나 UI 줄바꿈·잘림의 증거가 아니다. 인게임 시각 검증은 수행하지 않았다."
+  }
+}

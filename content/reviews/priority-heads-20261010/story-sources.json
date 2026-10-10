@@ -1,0 +1,686 @@
+{
+  "worlds": [
+    {
+      "file": "content/roguelite/15-amphoreus.json",
+      "sha256": "874131e223c2919899dec5abfa0a3ff5d2f8aec65d8570381cd722266c303778",
+      "world": "amphoreus",
+      "scope": "메인은 3.0~3.7의 주요 전환을 열여섯 장으로 압축한다. 공식 요약의 사건 순서와 희생·계승을 유지하며 전투 세부나 발언을 원문 인용으로 재현하지 않는다. 방문자의 반응, 서브 사건과 능력치 배분은 창작이다. 서브는 시점이 고정된 메인 바깥의 독립된 과거 기억이므로 사망한 인물이 현재에 생존해 다시 나타난다는 뜻이 아니다. 마지막은 철묘 격파 후 키레네가 과거로 들어가 인과를 닫고 문명의 기억을 남기는 지점까지다. 후일담은 남겨진 기억을 읽는 장면이며 전원 현실 부활을 선언하지 않는다. 체력 소모·부활·불사·시간 조작을 카드 기능으로 지급하지 않고 골드·물약·밀도 보상도 넣지 않는다.",
+      "sources": [
+        "https://www.hoyoverse.com/en-us/news/127975",
+        "https://www.hoyolab.com/article/36952116",
+        "https://www.hoyolab.com/article/37796159",
+        "https://www.hoyolab.com/article/38595197",
+        "https://www.hoyoverse.com/en-us/news/155941",
+        "https://www.hoyolab.com/article/39337933",
+        "https://www.hoyoverse.com/en-us/news/157426",
+        "https://www.hoyolab.com/article/40092794",
+        "https://www.hoyolab.com/article/40938445",
+        "https://www.hoyoverse.com/en-us/news/159572",
+        "https://www.hoyolab.com/article/41832976",
+        "https://www.hoyoverse.com/en-us/news/160640",
+        "https://www.hoyolab.com/article/42304666"
+      ],
+      "mainStory": {
+        "title": "불씨가 남긴 내일",
+        "length": 16,
+        "focus": [
+          "boss_damage_percent",
+          "crit_chance",
+          "healthy_damage"
+        ],
+        "source": "게임 3.0~3.7 앰포리어스 개척 임무. 버전별 공식 개발자 소개와 공식 회고 자료의 공개 전사를 대조했다.",
+        "adaptation": "공식 사건의 큰 순서와 결말을 유지한다. 방문자의 반응, 선택 대사, 일상 기억과 능력치 보상은 창작이며 세 행동은 같은 다음 장으로 이어진다."
+      }
+    },
+    {
+      "file": "content/roguelite/16-phantom_blood.json",
+      "sha256": "6ae2505206fdb2aa62f4de1dd4304ed25199f96ef5e3f5e1fe9197e74fbd7f48",
+      "world": "phantom_blood",
+      "scope": "메인은 애니메이션 1부 1~9화의 순서를 따른다. 플레이어는 당시의 기억에 말을 건네는 관점이며 원작의 죽음이나 결말을 바꾸지 않는다. 일반 사건은 당시 관계를 소재로 한 창작 대화다. 체펠리·죠나단의 사망 이후 두 사람이 생존한 후일담을 만들지 않고 과거를 회상한다. 스탠드·시간 정지·후대 인물은 사용하지 않는다. 파문·흡혈 소재의 스탯은 ARCANA용 능력치이며 체력 비용을 부과하지 않는다.",
+      "sources": [
+        "https://jojo-portal.com/anime/pb-bt/story/pb/",
+        "https://jojo-animation.com/fb_bt/character/",
+        "https://jojo-portal.com/en/anime/",
+        "https://www.crunchyroll.com/watch/G6491GN3Y/sorrowful-successor",
+        "https://jojo-portal.com/anime/pb-bt/story/bt/",
+        "https://renote.net/articles/11029"
+      ],
+      "mainStory": {
+        "title": "이어지는 용기의 파문",
+        "length": 12,
+        "focus": [
+          "healthy_damage",
+          "boss_damage_percent",
+          "crit_chance"
+        ],
+        "source": "TV 애니메이션 팬텀 블러드 1~9화",
+        "adaptation": "원작 사건의 순서에 창작 대화를 더한 기억이다. 어느 답도 다음 장과 결말을 잠그지 않는다."
+      }
+    },
+    {
+      "file": "content/roguelite/17-madolche.json",
+      "sha256": "625b76dcebcf4f0e69839ebf23fdc4ef847c32a2e471a10ad48009549f0e9573",
+      "world": "madolche",
+      "scope": "originalEvent. 유희왕 OCG 마돌체 카드의 공식 이름·도상·검색·귀환 효과를 소재로 한 ARCANA의 창작 모험이다. 샤토 다과회와 초대장 사건, 대사, 성격, 관계는 창작이며 공식 정사 줄거리로 소개하지 않는다. 덱 회수·소환·부활·카드 복제 기능을 실제 보상으로 추가하지 않는다. 보상은 명시된 ARCANA 스탯뿐이다.",
+      "sources": [
+        "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10270&ope=2&request_locale=ko",
+        "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10156&ope=2&request_locale=ko",
+        "https://www.db.yugioh-card.com/yugiohdb/card_search.action?cid=10151&ope=2&request_locale=ko"
+      ],
+      "mainStory": {
+        "title": "돌아올 자리가 있는 다과회",
+        "length": 12,
+        "focus": [
+          "crit_chance",
+          "boss_damage_percent",
+          "regeneration"
+        ],
+        "source": "KONAMI OCG 마돌체 공식 카드명·일러스트·효과",
+        "adaptation": "originalEvent. 공식 카드 소재로 만든 ARCANA 창작 연작이며 공식 스토리나 인물 성격의 재현이 아니다."
+      }
+    },
+    {
+      "file": "content/roguelite/18-tengu.json",
+      "sha256": "b3ee20a4ca258077008245162b32c75f0afae4f08db562a98989533ad6387d62",
+      "world": "tengu",
+      "scope": "메인은 명시한 애니메이션 범위만 다룬다. 선택 대사와 방문자의 행동, 일상 서브 사건 및 능력치 보상은 창작 각색이다. 카드 이름은 보상의 인물이며 모든 문장의 화자를 뜻하지 않는다. 서브는 독립된 일상 기억으로 메인 현재 시점의 동행·승패를 바꾸지 않는다. 봉인·시간 정지·타인 지배·부활을 게임 기능으로 지급하지 않는다. 현재 체력, 골드, 물약, 몬스터 밀도는 선택 비용·보상으로 사용하지 않는다. 메인 완결 뒤 지정 후일담만 등장한다.",
+      "sources": [
+        "https://date-a-live-anime.com/1st-2nd/story/season1_01.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_02.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_03.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_04.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_05.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_06.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_07.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_08.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_09.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_10.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_11.html",
+        "https://date-a-live-anime.com/1st-2nd/story/season1_12.html"
+      ],
+      "mainStory": {
+        "title": "다시 함께 돌아갈 하루",
+        "length": 12,
+        "focus": [
+          "crit_chance",
+          "swift",
+          "healthy_damage"
+        ],
+        "source": "TV 애니메이션 1기 1~12화. 첫 공간진부터 코토리와의 데이트 및 오리가미의 습격까지. 2기 이후의 정령과 진상은 포함하지 않는다.",
+        "adaptation": "공식 애니메이션의 사건 순서 안에서 방문자가 덧붙이는 반응과 기억을 창작했다. 세 행동은 같은 다음 장으로 이어지며 원작 결말을 바꾸지 않는다."
+      }
+    },
+    {
+      "file": "content/roguelite/19-ikebukuro.json",
+      "sha256": "ed238c9341793677312493bba05c48f9b1b9e19dbd140a353f909e4f0cd78510",
+      "world": "ikebukuro",
+      "scope": "메인은 명시한 애니메이션 범위만 다룬다. 선택 대사와 방문자의 행동, 일상 서브 사건 및 능력치 보상은 창작 각색이다. 카드 이름은 보상의 인물이며 모든 문장의 화자를 뜻하지 않는다. 서브는 독립된 일상 기억으로 메인 현재 시점의 동행·승패를 바꾸지 않는다. 봉인·시간 정지·타인 지배·부활을 게임 기능으로 지급하지 않는다. 현재 체력, 골드, 물약, 몬스터 밀도는 선택 비용·보상으로 사용하지 않는다. 메인 완결 뒤 지정 후일담만 등장한다. 셀티가 1기에서 머리를 되찾았다고 서술하지 않으며, 하리마 미카의 얼굴을 셀티의 실제 머리로 취급하지 않는다. 1기 끝의 화해는 도시 전체 문제의 종결이 아니다. 마사오미가 사키와 떠난 뒤 후일담에 현재 동행자로 배치하지 않는다.",
+      "sources": [
+        "https://www.durarara.com/1st/story/story01.html",
+        "https://www.durarara.com/1st/story/story03.html",
+        "https://www.durarara.com/1st/story/story10.html",
+        "https://www.durarara.com/1st/story/story11.html",
+        "https://www.durarara.com/1st/story/story12.html",
+        "https://www.durarara.com/1st/story/story13.html",
+        "https://www.durarara.com/1st/story/story16.html",
+        "https://www.durarara.com/1st/story/story17.html",
+        "https://www.durarara.com/1st/story/story18.html",
+        "https://www.durarara.com/1st/story/story19.html",
+        "https://www.durarara.com/1st/story/story20.html",
+        "https://www.durarara.com/1st/story/story22.html",
+        "https://www.durarara.com/1st/story/story23.html",
+        "https://www.durarara.com/1st/story/story24.html",
+        "https://www.durarara.com/special/history.html"
+      ],
+      "mainStory": {
+        "title": "색 없는 거리의 세 사람",
+        "length": 12,
+        "focus": [
+          "move_speed",
+          "attack_percent",
+          "crit_chance"
+        ],
+        "source": "TV 애니메이션 1기 1~24화. 미카도의 상경, 첫 다라즈 집회, 반년 뒤 사이카·황건적 갈등과 폐공장 화해까지. 12.5화·25화 및 ×2 이후는 제외한다.",
+        "adaptation": "공식 애니메이션의 사건 순서 안에서 방문자가 덧붙이는 반응과 기억을 창작했다. 세 행동은 같은 다음 장으로 이어지며 원작 결말을 바꾸지 않는다."
+      }
+    },
+    {
+      "file": "content/roguelite/20-frieren.json",
+      "sha256": "8a69d870915709232049fae0b25d132c55029a3d2206469d727c8aa947f9ddb5",
+      "world": "frieren",
+      "scope": "애니메이션 1기 범위만 사용한다. 메인은 과거 회상과 현재 여행을 구분하고 프리렌의 전체 모험이 끝난다고 서술하지 않는다. 서브·후일담 대화는 원작 인물의 성격을 바탕으로 한 맵 창작이며 죽은 인물 카드는 기억이지 부활이 아니다. 전투 수치는 기술 지급·시험 합격 판정·동료 소환을 뜻하지 않는다.",
+      "sources": [
+        "https://frieren-anime.jp/story/1st/",
+        "https://frieren-anime.jp/story/ep01/",
+        "https://frieren-anime.jp/story/ep28/",
+        "https://frieren-anime.jp/special/map/",
+        "https://frieren-anime.jp/news/4575/",
+        "https://frieren-anime.jp/character/chara_group1/1-5/",
+        "https://frieren-anime.jp/character/chara_group1/1-7/",
+        "https://frieren-anime.jp/character/chara_group1/1-24/",
+        "https://frieren-anime.jp/character/chara_group2/2-2/"
+      ],
+      "mainStory": {
+        "title": "다시 만날 때의 이야기",
+        "length": 12,
+        "focus": [
+          "penetration",
+          "swift",
+          "boss_damage_percent"
+        ],
+        "source": "애니메이션 1기 1~28화",
+        "adaptation": "공식 인물·에피소드 흐름에 기반한 창작 선택 대화. 1기 여행 구간의 끝이며 원작 전체 완결을 의미하지 않는다."
+      }
+    }
+  ],
+  "amphoreus": {
+    "checkedAt": "2026-10-10",
+    "status": "draft_waiting_for_parent_gemma_review",
+    "worldKey": "amphoreus",
+    "scope": "붕괴 스타레일 3.0~3.7 앰포리어스 개척 임무의 주요 전환과 결말",
+    "validation": {
+      "candidateChecker": {
+        "cards": 58,
+        "events": 32,
+        "errors": 0,
+        "warnings": 0
+      },
+      "mainStages": 16,
+      "ordinaryEvents": 14,
+      "epilogues": 2,
+      "freeOrdinaryEvents": 2,
+      "requiredCardEvents": 3,
+      "middleDialogueEvents": 5,
+      "mapBuilt": false,
+      "warcraftRuntime": false,
+      "gemmaReview": false,
+      "imagesConnected": false
+    },
+    "evidenceBoundary": [
+      "개발사 공식 버전 소개로 세계와 인물, 해당 버전의 출발 상황을 확인했다. 공개 전 소개만으로 결말을 추정하지 않았다.",
+      "공식 HoYoLAB 회고 글은 이미지 중심이다. 원문 글의 제목·날짜·공식 계정 링크와 공개된 회고 인포그래픽의 Fandom 텍스트 전사를 대조했다. 인포그래픽 픽셀과 게임 본편을 직접 대조한 검수는 수행하지 않았다.",
+      "보조 전사는 공식 회고 자료를 찾고 사건 순서를 읽기 위한 수단이다. 일반 위키의 추측을 공식 결론으로 바꾸어 적지 않았다.",
+      "방문자의 반응과 추가 대화, 일반 사건, 능력치 보상은 창작이다. 세 선택은 같은 원작 전환으로 이어지며 생사·승패·우주의 결말을 바꾸지 않는다.",
+      "일반 사건은 별도 과거 기억이다. 메인 진행 중 등장해도 현재 시점에 사망한 인물이 살아 있다는 의미가 아니다. 후일담은 남겨진 기록을 읽는 장면으로 한정했다.",
+      "엔딩은 철묘 패배, 작별, 키레네의 과거 진입과 인과 완성, 미래를 기다리는 문명의 기억을 다룬다. 전원 현실 부활이나 즉시 재회를 약속하지 않는다.",
+      "순서가 복잡한 3.4~3.7의 각 반복 횟수와 모든 중간 전투는 생략했다. 단순화를 위해 사건의 핵심 인과를 바꾸지는 않는다.",
+      "기존 회복 합산 최대 체력 10%/초, 머리 최대 2장, 머리 선택 AP 0을 바꾸는 코드가 없다. 원작 체력 소모·부활·불사·시간 조작은 카드의 실제 기능이 아니다.",
+      "효과 없는 엔딩 카드 1장을 제외한 모든 카드에는 효과가 있고 일반 사건의 세 갈래는 서로 다른 보상 카드다. 신규 이미지 경로를 임의로 만들지 않았다.",
+      "엔딩 이름은 미래에 남겨 둔 불씨로 일반 키레네 카드와 구별한다. 지역+이름으로 카드를 모으는 기존 처리에 기념 카드가 묻히지 않게 했다."
+    ],
+    "primaryNews": [
+      {
+        "url": "https://www.hoyoverse.com/en-us/news/127975",
+        "version": "3.0",
+        "supports": "오크마·검은 물결·황금의 후예·불씨 회수 여정의 출발"
+      },
+      {
+        "url": "https://www.hoyoverse.com/en-us/news/155941",
+        "version": "3.3",
+        "supports": "죽음·이성 불씨 이후의 하늘 여정과 히아킨·사이퍼"
+      },
+      {
+        "url": "https://www.hoyoverse.com/en-us/news/157426",
+        "version": "3.4",
+        "supports": "파이논의 고향과 마지막 불씨, 구세 여정의 전환"
+      },
+      {
+        "url": "https://www.hoyoverse.com/en-us/news/159572",
+        "version": "3.6",
+        "supports": "에버나이트와 삼칠이, 단항의 귀환과 대지의 힘"
+      },
+      {
+        "url": "https://www.hoyoverse.com/en-us/news/160640",
+        "version": "3.7",
+        "supports": "시간의 유적, 파이논의 봉인, 철묘와 마지막 싸움의 준비"
+      }
+    ],
+    "recaps": [
+      {
+        "version": "3.0",
+        "title": "Manuscript of Era Nova I: Paean of Era Nova",
+        "date": "2025-02-08",
+        "primary": "https://www.hoyolab.com/article/36952116",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_I%3A_Paean_of_Era_Nova",
+        "mainStages": [
+          1,
+          2
+        ],
+        "verifiedFact": "후예들과의 만남과 니카도르에 맞선 여정. 불씨 회수와 반신 시련은 같은 일이 아니다."
+      },
+      {
+        "version": "3.1",
+        "title": "Era Nova Volume II: Light Slips the Gate, Shadow Greets the Throne",
+        "primary": "https://www.hoyolab.com/article/37796159",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Era_Nova_Volume_II:_%22Light_Slips_the_Gate,_Shadow_Greets_the_Throne%22",
+        "mainStages": [
+          3,
+          4
+        ],
+        "verifiedFact": "숲의 아낙사 구출과 트리비의 과거, 마이데이의 귀환 및 트리안느의 희생."
+      },
+      {
+        "version": "3.2",
+        "title": "Manuscript of Era Nova III: Through the Petals in the Land of Repose",
+        "primary": "https://www.hoyolab.com/article/38595197",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_III:_Through_the_Petals_in_the_Land_of_Repose",
+        "mainStages": [
+          5,
+          6
+        ],
+        "verifiedFact": "카스토리스가 개척자의 미래와 죽음 불씨를 회수한다. 아낙사는 가설을 입증하고 이성 불씨를 돌려놓으며 죽는다."
+      },
+      {
+        "version": "3.3",
+        "title": "Manuscript of Era Nova IV: The Fall at Dawn's Rise",
+        "primary": "https://www.hoyolab.com/article/39337933",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_IV%3A_The_Fall_at_Dawn%27s_Rise",
+        "mainStages": [
+          7,
+          8
+        ],
+        "verifiedFact": "아글라이아의 죽음 뒤 파이논이 이끈다. 히아킨의 하늘 시련과 사이퍼의 여명 비밀·희생 뒤 마지막 불씨가 옮겨진다."
+      },
+      {
+        "version": "3.4",
+        "title": "Manuscript of Era Nova I: For the Sun is Set to Die",
+        "primary": "https://www.hoyolab.com/article/40092794",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_I:_%22For_the_Sun_is_Set_to_Die%22",
+        "mainStages": [
+          9,
+          10
+        ],
+        "verifiedFact": "철묘를 기르는 실험과 반복의 진실이 밝혀진다. 개척자가 파이논의 역할을 이어 새 반복으로 향한다."
+      },
+      {
+        "version": "3.5",
+        "title": "Manuscript of Era Nova II: Before Their Deaths",
+        "primary": "https://www.hoyolab.com/article/40938445",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_II:_%22Before_Their_Deaths%22",
+        "mainStages": [
+          11,
+          12
+        ],
+        "verifiedFact": "최초 여정의 케리드라·히실렌스와 협력하고 율법을 바꾸는 희생과 계승이 이어진다. 관찰자는 잔더의 사유 조각이다."
+      },
+      {
+        "version": "3.6",
+        "title": "Manuscript of Era Nova III: Back to Earth in Evernight",
+        "primary": "https://www.hoyolab.com/article/41832976",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Manuscript_of_Era_Nova_III:_%22Back_to_Earth_in_Evernight%22",
+        "mainStages": [
+          13,
+          14
+        ],
+        "verifiedFact": "시간의 힘으로 만든 불씨의 환상이 드러나고 대지의 단항과 시간의 삼칠이가 재창세에 함께한다."
+      },
+      {
+        "version": "3.7",
+        "title": "Saga Composed: As Tomorrow Became Yesterday",
+        "primary": "https://www.hoyolab.com/article/42304666",
+        "transcription": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Saga_Composed:_%22As_Tomorrow_Became_Yesterday%22",
+        "mainStages": [
+          15,
+          16
+        ],
+        "verifiedFact": "철묘 격파 뒤 작별하고 키레네가 과거의 인과를 닫는다. 문명의 기억은 미래를 기다린다."
+      }
+    ],
+    "nameVerification": {
+      "source": "https://sg-public-api-static.hoyoverse.com/content_v2_user/app/113fe6d3b4514cdd/getContentList?iChanId=242&iPage=1&iPageSize=100&sLangKey=ko-kr&isPreview=0",
+      "verifiedBy": "priority_image_research 에이전트의 공식 한국어 캐릭터 API 원문 확인",
+      "characters": [
+        "트리비",
+        "파이논",
+        "아글라이아",
+        "마이데이",
+        "카스토리스",
+        "아낙사",
+        "히아킨",
+        "사이퍼",
+        "키레네",
+        "케리드라",
+        "히실렌스"
+      ],
+      "corrections": [
+        "세리드라 → 케리드라, 공식 레코드 158016",
+        "히실렌 → 히실렌스, 공식 레코드 158011",
+        "사용자 요청 엠포리어스 → 공식 앰포리어스"
+      ]
+    },
+    "reviewFocus": [
+      "메인 2→3 사이 파이논의 시련과 구출은 자세한 장면을 압축했다. 큰 순서와 구출 대상을 바꾸지 않았는지 확인한다.",
+      "3.3의 아글라이아 희생, 하늘 불씨, 사이퍼 희생의 순서와 이후 파이논의 역할을 확인한다.",
+      "3.4~3.6 압축에서 관찰자의 정체를 너무 일찍 확정하거나 가짜 불씨를 진짜로 설명하지 않는지 확인한다.",
+      "카드 이름은 보상의 인물이고 모든 선택 대사의 화자가 아니다. 기억을 떠올리는 선택은 사망자와 현재 대화하는 장면이 아니다.",
+      "원작 승리 후 미래의 가능성과 현시점 완전 부활을 혼동하지 않는지 엔딩을 다시 검토한다.",
+      "회복 동반 공격과 보스 피해 보상의 실게임 가치는 수치 검사만으로 확정되지 않는다."
+    ]
+  },
+  "tenguIkebukuro": {
+    "checkedAt": "2026-10-10",
+    "status": "draft_waiting_for_parent_gemma_review",
+    "validation": {
+      "candidateChecker": {
+        "tengu": {
+          "cards": 43,
+          "events": 26,
+          "errors": 0,
+          "warnings": 0
+        },
+        "ikebukuro": {
+          "cards": 43,
+          "events": 26,
+          "errors": 0,
+          "warnings": 0
+        }
+      },
+      "mapBuilt": false,
+      "warcraftRuntime": false,
+      "gemmaReview": false
+    },
+    "commonAdaptationBoundary": [
+      "본문은 공식 줄거리의 순서와 핵심 관계를 바탕으로 새로 쓴 짧은 각색이다. 원문 대사를 재현하지 않는다.",
+      "방문자의 세 반응, 세부 대화, 일상 서브와 보상 효과명은 창작이다. 세 반응으로 원작 인물의 생사나 작품 결말을 바꾸지 않는다.",
+      "스탯은 플레이 기억의 게임적 해석이며 실제 원작 능력을 추가하는 구현 약속이 아니다.",
+      "신규 이미지 경로를 넣지 않았다. 확보된 인물 이미지와 연결하는 작업 및 시각 검수는 별도다.",
+      "현재 체력 소비, 골드, 물약, 몬스터 밀도 변경을 사용하지 않았다. 회복 스탯은 기존 합산 상한을 적용하는 데이터이며 상한 로직을 변경하지 않았다."
+    ],
+    "worlds": [
+      {
+        "key": "tengu",
+        "scope": "TV 애니메이션 1기 1~12화만",
+        "exclusions": [
+          "현행 /story/episode01.html 은 나츠미가 등장하는 다른 시즌이므로 1기 출처로 사용하지 않았다.",
+          "야마이 카구야·유즈루는 2기 인물이므로 이번 카드에서 제외했다.",
+          "마나의 오빠 호칭이나 코토리의 과거 의문에 대해 1기 공식 소개문을 넘어서는 최종 진상을 단정하지 않는다.",
+          "1기 마지막 공식 소개는 풀장 데이트 중 오리가미의 습격까지 소개하므로 마무리는 함께 돌아갈 일상의 의미로 한정했다. 오리가미의 과거 오해가 이때 완전히 해결됐다고 쓰지 않는다."
+        ],
+        "portraitCharacters": [
+          "이츠카 시도",
+          "야토가미 토카",
+          "토비이치 오리가미",
+          "이츠카 코토리",
+          "요시노",
+          "토키사키 쿠루미"
+        ],
+        "mainSources": [
+          {
+            "eventKey": "tengu_main_01",
+            "episodes": [
+              1
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_01.html"
+            ],
+            "verifiedFact": "공간진 속에서 시도가 정령과 처음 마주친다."
+          },
+          {
+            "eventKey": "tengu_main_02",
+            "episodes": [
+              2
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_02.html"
+            ],
+            "verifiedFact": "라타토스크가 대화 준비와 연습을 지원한다."
+          },
+          {
+            "eventKey": "tengu_main_03",
+            "episodes": [
+              3
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_03.html"
+            ],
+            "verifiedFact": "시도와 토카가 텐구시에서 데이트한다."
+          },
+          {
+            "eventKey": "tengu_main_04",
+            "episodes": [
+              4
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_04.html"
+            ],
+            "verifiedFact": "빗속 신사의 소녀가 허밋 요시노로 이어진다."
+          },
+          {
+            "eventKey": "tengu_main_05",
+            "episodes": [
+              5
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_05.html"
+            ],
+            "verifiedFact": "사라진 요시농의 행방이 오리가미의 집으로 이어진다."
+          },
+          {
+            "eventKey": "tengu_main_06",
+            "episodes": [
+              6
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_06.html"
+            ],
+            "verifiedFact": "정령들과 AST의 온천 일정이 겹쳐 접촉 회피 작전이 벌어진다."
+          },
+          {
+            "eventKey": "tengu_main_07",
+            "episodes": [
+              7
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_07.html"
+            ],
+            "verifiedFact": "쿠루미가 전학 오고 마나가 시도를 오빠라 부른다."
+          },
+          {
+            "eventKey": "tengu_main_08",
+            "episodes": [
+              8
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_08.html"
+            ],
+            "verifiedFact": "토카·오리가미·쿠루미의 세 데이트가 겹친다."
+          },
+          {
+            "eventKey": "tengu_main_09",
+            "episodes": [
+              9
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_09.html"
+            ],
+            "verifiedFact": "마나의 쿠루미 공격으로 시도가 충격을 받고 토카와 대화한다."
+          },
+          {
+            "eventKey": "tengu_main_10",
+            "episodes": [
+              10
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_10.html"
+            ],
+            "verifiedFact": "코토리가 정령의 힘으로 시도를 구하며 과거 의문이 떠오른다."
+          },
+          {
+            "eventKey": "tengu_main_11",
+            "episodes": [
+              11
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_11.html"
+            ],
+            "verifiedFact": "코토리를 돕기 위한 제한된 시간 속에 데이트를 준비한다."
+          },
+          {
+            "eventKey": "tengu_main_12",
+            "episodes": [
+              12
+            ],
+            "sources": [
+              "https://date-a-live-anime.com/1st-2nd/story/season1_12.html"
+            ],
+            "verifiedFact": "풀장 데이트에 오리가미가 개입한다."
+          }
+        ],
+        "sideBoundary": "12개 서브는 각 인물과의 독립된 일상 기억이다. 쿠루미의 짧은 일상 장면도 1기 메인과 동시 진행하거나 안전한 동료가 되었다는 뜻이 아니다. 후일담 2개는 완결 뒤의 창작 일상이다."
+      },
+      {
+        "key": "ikebukuro",
+        "scope": "TV 애니메이션 1기 1~24화, 12.5·25화와 ×2 이후 제외",
+        "historySource": "https://www.durarara.com/special/history.html",
+        "historyVerifiedFacts": [
+          "미카도의 다라즈 설립, 마사오미의 황건적 지휘, 안리의 사이카 보유를 확인했다.",
+          "하리마 미카의 얼굴은 성형으로 닮게 한 것이며 셀티의 머리 이식이 아니다.",
+          "마사오미는 사키와 화해하고 함께 도시를 떠나며 온라인 연락은 남는다."
+        ],
+        "exclusions": [
+          "셀티의 머리 회수나 도시 전체 갈등의 완전 해결을 1기 결말로 쓰지 않는다.",
+          "마사오미와 사키의 출발 뒤 후일담은 원격 연락이며 현재 동행 장면이 아니다.",
+          "이자야에게 받은 정보를 무조건 사실로 믿거나 선의의 안내로 확정하지 않는다.",
+          "사이카의 지배를 플레이어 스킬로 구현하거나 사건 보상을 위해 다른 인물을 해치는 분기를 넣지 않는다."
+        ],
+        "portraitCharacters": [
+          "류가미네 미카도",
+          "셀티 스툴루손",
+          "키다 마사오미",
+          "소노하라 안리",
+          "오리하라 이자야",
+          "헤이와지마 시즈오",
+          "키시타니 신라",
+          "카도타 쿄헤이"
+        ],
+        "mainSources": [
+          {
+            "eventKey": "ikebukuro_main_01",
+            "episodes": [
+              1
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story01.html"
+            ],
+            "verifiedFact": "마사오미의 안내로 미카도가 도시에 오고 검은 바이크를 목격한다."
+          },
+          {
+            "eventKey": "ikebukuro_main_02",
+            "episodes": [
+              3
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story03.html"
+            ],
+            "verifiedFact": "안리의 곤란을 도우려던 미카도가 이자야와 만난다."
+          },
+          {
+            "eventKey": "ikebukuro_main_03",
+            "episodes": [
+              10
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story10.html"
+            ],
+            "verifiedFact": "미카도가 여성을 숨겨 주고 셀티·이자야가 찾아온다."
+          },
+          {
+            "eventKey": "ikebukuro_main_04",
+            "episodes": [
+              11
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story11.html"
+            ],
+            "verifiedFact": "야기리 나미에와의 대면 및 첫 다라즈 집회가 벌어진다."
+          },
+          {
+            "eventKey": "ikebukuro_main_05",
+            "episodes": [
+              12
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story12.html"
+            ],
+            "verifiedFact": "미카의 얼굴 사정이 드러나고 셀티와 신라가 대화한다."
+          },
+          {
+            "eventKey": "ikebukuro_main_06",
+            "episodes": [
+              13
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story13.html"
+            ],
+            "verifiedFact": "집회로부터 반년 뒤 연쇄 습격과 황건적 활동이 두드러진다."
+          },
+          {
+            "eventKey": "ikebukuro_main_07",
+            "episodes": [
+              16
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story16.html"
+            ],
+            "verifiedFact": "안리를 돕기 위해 카도타 일행·시즈오·셀티가 움직인다."
+          },
+          {
+            "eventKey": "ikebukuro_main_08",
+            "episodes": [
+              17
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story17.html"
+            ],
+            "verifiedFact": "안리가 하루나와 대치하며 사이카에 얽힌 사정이 드러난다."
+          },
+          {
+            "eventKey": "ikebukuro_main_09",
+            "episodes": [
+              18
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story18.html"
+            ],
+            "verifiedFact": "마사오미의 과거와 황건적 복귀가 다뤄진다."
+          },
+          {
+            "eventKey": "ikebukuro_main_10",
+            "episodes": [
+              19,
+              20
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story19.html",
+              "https://www.durarara.com/1st/story/story20.html"
+            ],
+            "verifiedFact": "안리는 마사오미의 역할을 알게 되고, 마사오미도 미카도의 관계를 알게 된다."
+          },
+          {
+            "eventKey": "ikebukuro_main_11",
+            "episodes": [
+              22,
+              23
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story22.html",
+              "https://www.durarara.com/1st/story/story23.html"
+            ],
+            "verifiedFact": "다라즈 해산 선언 뒤에도 안리를 돕는 이들이 있고 친구들이 폐공장으로 향한다."
+          },
+          {
+            "eventKey": "ikebukuro_main_12",
+            "episodes": [
+              24
+            ],
+            "sources": [
+              "https://www.durarara.com/1st/story/story24.html"
+            ],
+            "verifiedFact": "세 친구가 갈등을 풀고 마사오미는 사키와 떠난다."
+          }
+        ],
+        "sideBoundary": "12개 서브는 1기 인물들의 성향에서 만든 별도 일상 기억이다. 본편 사건의 증거가 아니라 창작 각색이다. 마사오미의 출발 후에는 지정 후일담만 현재 시점 장면으로 읽도록 했다."
+      }
+    ]
+  }
+}

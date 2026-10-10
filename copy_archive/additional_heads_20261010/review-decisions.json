@@ -1,0 +1,378 @@
+{
+  "status": "additional_four_complete",
+  "rawReviewRoot": "D:\\Work\\ARCANA\\content\\head-expansion-20261010\\reviews",
+  "beforeEditArchive": "D:\\Work\\ARCANA\\copy_archive\\head-expansion-20261010\\before-editor-review",
+  "records": [
+    {
+      "file": "dungeon_meshi-main-01.json",
+      "monitorRecordId": "fec0111e-bc5e-4de0-8e67-5bb6cd69d01f",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "dm_main_14",
+          "suggestion": "모든 선택지의 보상이 동일함",
+          "reason": "세 엔딩 선택의 공통 비전투 기념 카드는 의도된 예외이며 결과문은 각각 다르다."
+        },
+        {
+          "key": "dm_main_13",
+          "suggestion": "실제 구현 없는 기능 약속",
+          "reason": "부활은 원작 사건의 서사다. 실제 보상은 등록된 수치 카드이며 부활·직접 체력 회복 기능을 지급하지 않는다."
+        },
+        {
+          "key": "dm_main_09",
+          "suggestion": "인물 시점의 내부 모순",
+          "reason": "학교 시절은 기억으로 명시했고 센시의 조언은 현재 시점의 배움과 비교한다."
+        }
+      ]
+    },
+    {
+      "file": "dungeon_meshi-side-01.json",
+      "monitorRecordId": "17742476-3b83-4dd9-9d24-659641fc2ed2",
+      "accepted": [
+        {
+          "key": "dm_question_followup",
+          "decision": "다시 만나면이라는 조건을 선택지에도 넣어 파린의 현재 부재를 바로 알 수 있도록 다듬었다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "dm_separate_notes",
+          "suggestion": "카블루가 다른 파티임을 알면서도 정보 교환을 암시함",
+          "reason": "카블루라면이라는 가정으로 명시했다. 파티끼리 기록을 교환했다고 쓰지 않았다."
+        },
+        {
+          "key": "dm_before_dragon_memory",
+          "suggestion": "특정 미래 전투가 이미 끝났음을 암시할 위험",
+          "reason": "본문은 싸움 전 준비이며 실패해도는 조건문이다. 이미 전투를 끝냈다고 서술하지 않았다."
+        }
+      ]
+    },
+    {
+      "file": "dungeon_meshi-prose-02.json",
+      "monitorRecordId": "18b3a960-ea07-4402-9bdc-cf902a91069a",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "dm_main_06",
+          "suggestion": "화자 모순. 본문에서 카블루가 동료의 표정을 살핀다고 했으나, 선택지에서는 칠책이 상자를 볼 위치를 떠올리는 내용이 포함되어 화자가 불분명함.",
+          "reason": "칠책이라면은 현재 현장 등장이나 화자 선언이 아닌 관찰자의 비교다. 카블루로 일괄 바꾸면 해당 선택의 관점과 보상 의미가 사라진다."
+        },
+        {
+          "key": "dm_main_10",
+          "suggestion": "시점 모순. '이제 그녀는 다른 모험가 일행의 호위를 맡고 있다'는 현재 시점의 설명과 '예전 동료라는 마음'이라는 과거 회상적 맥락이 충돌함.",
+          "reason": "예전 동료이면서 현재 다른 파티의 호위인 상태는 모순이 아니다. 이제는 서로 다른 현재의 역할을 분명히 한다."
+        },
+        {
+          "key": "dm_main_14",
+          "suggestion": "본문과 맞지 않는 행동. 본문은 파린과 재회하여 식탁에 모인 장면인데, 선택지 중 '파린에게 돌아와 줘서 고맙다고 말한다'는 재회 직후의 감정 표현과 '식탁의 남은 자리를 정리했다'는 행동이 시점상 어색하게 섞여 있음.",
+          "reason": "검토가 첫 번째 선택의 인사와 두 번째 선택의 자리 정리를 서로 합쳐 읽었다. 각 선택과 결과는 재회 상황 안에서 독립적으로 대응한다."
+        }
+      ]
+    },
+    {
+      "file": "hunter_exam-main-01.json",
+      "monitorRecordId": "0a18ab74-9666-4e43-9ab6-7eeb053187d6",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "hx_main_13",
+          "issue": "사토츠가 전한 탈락 경위에서 키르아가 보드로를 죽여 실격되었다는 내용이 포함되어 있으나, 원작에서 키르아는 보드로를 죽이지 않고 형 일루미와의 대결 중 실격 처리됨.",
+          "fix": "키르아가 보드로를 죽여 실격했다는 문장을 삭제하고, 일루미와의 대결로 인해 실격되었음을 명시할 것.",
+          "reason": "Gemma가 원작 경위를 잘못 제안했다. 공식 20화 소개는 일루미 대결 뒤 탈락 통보를 확인하며, 별도로 명시한 보조 회차 자료는 보드로 살해와 실격을 확인한다. 일루미에게 패한 것만으로 실격되었다고 바꾸지 않는다.",
+          "sources": [
+            "https://www.ntv.co.jp/hunterhunter/story/020.html",
+            "https://anna-movies.com/hunterhunter/anime-2011-episode-20"
+          ],
+          "evidenceBoundary": "공식 소개와 보조 회차 해설 대조. 원본 영상 직접 재생 미수행."
+        }
+      ]
+    },
+    {
+      "file": "hunter_exam-side-01.json",
+      "monitorRecordId": "43727e7b-5c2d-4c68-94ad-d19e88e2d792",
+      "accepted": [],
+      "rejected": []
+    },
+    {
+      "file": "roswaal_mansion-main-01.json",
+      "monitorRecordId": "52bf02c0-d784-43b2-90f7-76948896524f",
+      "accepted": [
+        {
+          "key": "rz_main_03",
+          "issue": "도입부의 시점과 본문의 시점이 불일치함. 도입은 '두 번째 회차'이나 본문은 '네 번째 밤'의 사건을 다룸.",
+          "fix": "본문의 '네 번째 밤'을 '두 번째 회차의 밤'으로 수정하거나 도입의 회차를 네 번째로 수정.",
+          "decision": "회차와 날짜는 별개여서 원래 순서는 맞다. 두 번째 회차의 네 번째 밤으로 구분을 더 분명하게 표시했다."
+        },
+        {
+          "key": "rz_main_13",
+          "issue": "로즈월의 가세 시점과 저주 해제 조건의 인과관계가 모호함. 로즈월의 불길이 어둠을 가른 직후 저주가 사라진다는 표현이 마수 처치와 저주 해제의 상관관계를 불분명하게 함.",
+          "fix": "로즈월의 가세로 마수를 저지하고, 그 과정에서 저주가 풀렸음을 명확히 연결.",
+          "decision": "독립 편집 검토와 함께 도착 전 위기를 선택 시점으로 통일하고, 공통 결과에서 마수 처치와 저주 해소의 순서를 명시했다."
+        }
+      ],
+      "rejected": [
+        {
+          "key": "rz_main_05",
+          "issue": "사망한 인물에 대한 묘사 오류. 본문에서 렘이 숨진 채 발견되었다고 했으나, commonResult에서 람이 동생을 잃고 흔들린다고 표현하여 람이 사망한 것으로 오인될 수 있음.",
+          "fix": "commonResult의 주체를 람에서 렘으로 수정하거나, 렘의 죽음을 명확히 기술.",
+          "reason": "람은 살아 있으며 동생 렘의 죽음을 슬퍼한다는 문장은 모순이 아니다. 주체를 렘으로 바꾸면 사망 상태와 충돌한다."
+        }
+      ]
+    },
+    {
+      "file": "roswaal_mansion-side-01.json",
+      "monitorRecordId": "c2e0d222-8d01-4a5d-a9eb-9f1f4e4b3698",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "rz_side_hall",
+          "issue": "스바루가 마지막 방을 놓치고 돌아왔다는 묘사와 '다음번에는 무엇부터 다르게 해 볼까?'라는 질문이 현재 시점의 행동과 충돌함.",
+          "fix": "'다음번에는 무엇부터 다르게 해 볼까?'를 '이번에는 무엇부터 다르게 해 볼까?'로 수정하거나, 이미 지나온 길을 되짚는 상황임을 명확히 할 것.",
+          "reason": "직전 실수를 돌아보고 다음 작업을 준비하는 상황이다. 회상 도입을 넣되 다음번이라는 말은 유지한다."
+        },
+        {
+          "key": "rz_side_garden",
+          "issue": "에밀리아가 책을 옮기려다 종이를 발견했다는 상황과 팩이 위에서 종이가 걸린 가지를 바라본다는 시선이 물리적으로 어색함.",
+          "fix": "팩이 '종이가 걸린 가지'를 가리키는 것으로 수정하여 시선의 방향을 명확히 할 것.",
+          "reason": "날아간 종이가 나뭇가지에 걸려 있고 팩이 위에서 이를 보는 것은 물리적으로 모순되지 않는다. 회상 도입 외에는 변경하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "additional-editor-delta-01.json",
+      "worlds": [
+        "hunter_exam",
+        "roswaal_mansion"
+      ],
+      "scope": "독립 편집 후 변경된 21개 사건",
+      "monitorRecordId": "49e17713-c8a0-4faf-b63a-bc3a12c66337",
+      "accepted": [],
+      "rejected": [],
+      "result": "추가 지적 없음"
+    },
+    {
+      "file": "z_city-main-01.json",
+      "monitorRecordId": "52c2b999-f1aa-4f48-8f87-47f1a0a1b3ff",
+      "accepted": [],
+      "rejected": [
+        {
+          "key": "opm_main_02",
+          "reason": "제노스가 모스키토 소녀전 뒤 사이타마의 집을 방문한다는 2화 공식 장면과 대조했다. 서로 다른 시점이 이어지는 본문이지 동시 상황을 주장하지 않는다.",
+          "source": "https://onepunchman-anime.net/story/#/season1/2"
+        },
+        {
+          "key": "opm_main_08",
+          "reason": "무면허 라이더의 정확한 거리를 별도로 명시하지 않았다는 제안은 확정 모순이 아니다. 확인되지 않은 세부 위치를 추가하지 않는다."
+        }
+      ]
+    },
+    {
+      "file": "z_city-side-01.json",
+      "monitorRecordId": "0e1c1a70-aced-4ce3-8f31-4c74b9bcde43",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    },
+    {
+      "file": "opm-editor-delta-01.json",
+      "monitorRecordId": "5d7b44c8-e398-4b2b-9617-911c8709d17a",
+      "worlds": [
+        "z_city",
+        "dungeon_meshi"
+      ],
+      "scope": "독립 편집 후 지칭 1개와 회상 4개 재검토",
+      "accepted": [],
+      "rejected": [],
+      "result": "issues empty"
+    }
+  ],
+  "editorFindings": [
+    {
+      "world": "dungeon_meshi",
+      "key": "dm_main_10",
+      "decision": "타ンス라는 한국어·일본어 혼용 오타를 다른 모험가 일행으로 정리했다.",
+      "reason": "사건의 핵심은 새 파티를 맡은 나마리와의 재회이며 이름 없는 조연 표기는 필요하지 않다."
+    },
+    {
+      "world": "hunter_exam",
+      "key": "hx_main_04 / hx_main_05",
+      "decision": "공통 결과에 첫 판정에서는 합격자가 나오지 않았고 네테로의 중재로 다시 치른 알 과제를 넘긴 뒤 다음 장소로 향했다는 연결을 한두 문장 넣는다. 새 선택지나 원작에 없는 합격 분기를 만들 필요는 없다.",
+      "reason": "hx_main_04는 요리 과제를 제시한 뒤 요구를 다시 살피며 통과했다고 정리하고 바로 비행선으로 넘어간다. 전원 불합격 판정과 네테로가 마련한 재시험이 어느 문장에도 없다.",
+      "reviewId": "HX-01"
+    },
+    {
+      "world": "hunter_exam",
+      "key": "hx_main_10 / hx_main_11",
+      "decision": "hx_main_10 공통 결과에 히소카가 번호표를 남기고 갔으나 곤은 자기 힘으로 얻어 낸 승리로 받아들이지 못했다는 연결을 추가한다. 곤이 원치 않는 빚을 진 감정을 남긴 뒤 동료 합류로 잇는다.",
+      "reason": "hx_main_10의 story에서 곤이 번호표를 빼앗기고 commonResult에서는 동료를 찾으러 간다. hx_main_11은 동굴 탈출 뒤 일행의 4차 시험 통과를 확정하지만 곤이 필요한 표를 어떻게 확보했는지는 두 사건 모두 설명하지 않는다.",
+      "reviewId": "HX-02"
+    },
+    {
+      "world": "hunter_exam",
+      "key": "hx_rule_margin",
+      "decision": "창작 회고의 대화자를 먼저 이름으로 정한다. 예를 들어 크라피카와 레오리오가 복도에서 나누었던 이야기로 명시한 뒤 두 사람이라는 표현을 쓰고, 원작에 해당 대화가 있었다고 단정하지 않는 기존 각색 경계를 유지한다.",
+      "reason": "본문에서 처음 소개한 인물은 곤과 한조인데 곧 두 사람은 곤이 쉬는 동안 생각한다고 쓴다. 복도에서 대화하는 실제 두 사람은 별도로 소개되지 않는다.",
+      "reviewId": "HX-03"
+    },
+    {
+      "world": "roswaal_mansion",
+      "key": "rz_side_tray / rz_side_laundry / rz_side_chain / rz_side_chain_follow / rz_side_tablecloth",
+      "decision": "일반 사건의 도입을 함께 일하던 어느 날을 떠올리는 표현으로 통일한다. 후속 사건도 그때 이어졌던 대화를 되짚는다는 표시를 넣는다. 작업자용 canonBoundary를 UI에 그대로 노출하지 말고 자연스러운 회상 도입 한 문장으로 현재 회차와 구분한다.",
+      "reason": "world와 개별 canonBoundary에는 일반 사건이 독립된 일상 기억이라고 되어 있지만 도입과 본문은 모두 현재의 렘과 일을 하는 장면이다. 이 사건들에는 메인 회차 제한이 없다. ProtoEventEligible은 미완결 지역의 일반 사건을 메인 5장 이후에도 허용한다.",
+      "reviewId": "RZ-01"
+    },
+    {
+      "world": "roswaal_mansion",
+      "key": "rz_main_13",
+      "decision": "story는 샤마크와 남은 무기로 버텨야 하는 순간에서 끝낸다. 로즈월의 도착과 저주 해소는 commonResult에만 둔다. 선택 3도 해결된 일을 회고하는 대신 저주를 건 마수와 퇴로를 확인하는 현재의 판단으로 바꾼다. 카드 효과와 원작의 최종 결과는 유지할 수 있다.",
+      "reason": "story의 마지막 문장에 이미 로즈월의 불길이 도착한다. 선택 1은 큰 힘이 도착할 때까지 시간을 벌고 선택 2는 가진 것으로 버티지만 선택 3은 위협이 이미 해결되었다고 회고한다. commonResult에서 다시 로즈월의 가세와 저주 해소를 선언한다.",
+      "reviewId": "RZ-02"
+    },
+    {
+      "world": "amphoreus",
+      "key": "amph_next_move",
+      "decision": "아낙사 보상을 같은 등급의 구해 낸 질문의 자리로 연결한다.",
+      "before": {
+        "choice": 3,
+        "card": "amph_anaxa",
+        "effects": [
+          [
+            "attack_percent",
+            2
+          ],
+          [
+            "penetration",
+            4
+          ]
+        ]
+      },
+      "after": {
+        "choice": 3,
+        "card": "amphoreus_main_03_1",
+        "effects": [
+          [
+            "boss_damage_percent",
+            4
+          ],
+          [
+            "penetration",
+            2
+          ]
+        ]
+      },
+      "reason": "케리드라와 이름만 다르고 동일했던 선택 효과를 구분한다. 카드 정의 수치와 기존 인물은 바꾸지 않는다."
+    },
+    {
+      "world": "amphoreus",
+      "key": "amph_question_follow",
+      "decision": "아낙사 보상을 같은 등급의 구해 낸 질문의 자리로 연결한다.",
+      "before": {
+        "choice": 1,
+        "card": "amph_anaxa",
+        "effects": [
+          [
+            "attack_percent",
+            2
+          ],
+          [
+            "penetration",
+            4
+          ]
+        ]
+      },
+      "after": {
+        "choice": 1,
+        "card": "amphoreus_main_03_1",
+        "effects": [
+          [
+            "boss_damage_percent",
+            4
+          ],
+          [
+            "penetration",
+            2
+          ]
+        ]
+      },
+      "reason": "케리드라와 이름만 다르고 동일했던 선택 효과를 구분한다. 카드 정의 수치와 기존 인물은 바꾸지 않는다."
+    }
+  ],
+  "failedReviews": [
+    {
+      "request": "review-priority-scope.json",
+      "monitorRecordId": "a9824e27-75ff-4aa1-a952-57a2a50fdc60",
+      "status": "timeout",
+      "reason": "긴 검토 응답 생성이 모니터링 서버의 5분 제한을 넘었다. 우회 호출 없이 지적 최대 3개로 요청을 줄여 재검토했다."
+    }
+  ],
+  "manualCorrections": [
+    {
+      "world": "z_city",
+      "key": "opm_main_11",
+      "before": {
+        "intro": "지상에서는 멜자르갈드가, 우주선 안에서는 침입자들이 히어로를 막는다."
+      },
+      "after": {
+        "intro": "지상에서는 멜자르갈드가 버티고, 우주선 안에서는 함선 병력이 사이타마를 막는다."
+      },
+      "decision": "독립 검토의 시점·지칭 수정 반영",
+      "reason": "함선을 방어하는 병력과 침입한 사이타마를 구분한다."
+    },
+    {
+      "world": "z_city",
+      "key": "opm_side_report",
+      "before": {
+        "intro": "사이타마와 제노스가 순찰 뒤 남길 말을 정리한다.",
+        "story": "긴 문장으로 빈칸을 채우는 것보다 실제로 본 일을 남기는 편이 어렵다. 사이타마가 기억을 더듬고 제노스는 빠진 순서를 확인한다."
+      },
+      "after": {
+        "intro": "사이타마와 제노스가 앞선 순찰의 보고를 정리하던 때를 떠올린다.",
+        "story": "긴 문장으로 빈칸을 채우는 것보다 실제로 본 일을 남기는 편이 어려웠다. 사이타마가 기억을 더듬는 동안 제노스는 빠진 순서를 확인했다. 그때 함께 정리했던 기록을 다시 펼쳐 본다."
+      },
+      "decision": "독립 검토의 시점·지칭 수정 반영",
+      "reason": "메인 후반에 등장해도 이미 지난 준비가 현재 일로 읽히지 않게 회상을 명시한다."
+    },
+    {
+      "world": "z_city",
+      "key": "opm_side_short_route",
+      "before": {
+        "intro": "제노스의 순찰 기록에 아직 쓸 수 있는 공간이 남아 있다.",
+        "story": "오늘의 보고를 마치고 나니 다음에는 덜 헤매도 될 길이 보인다. 제노스는 분 단위로 계획을 채우려 하지만 사이타마는 뜻밖의 부름이 올 자리도 있어야 한다고 생각한다."
+      },
+      "after": {
+        "intro": "제노스와 앞선 순찰 기록의 빈칸을 살폈던 때를 돌아본다.",
+        "story": "그날의 보고를 마치자 덜 헤맬 수 있는 길이 보였다. 제노스는 분 단위로 계획을 채우려 했지만 사이타마는 뜻밖의 부름이 올 자리도 남겨 두자고 했다. 그때 나누었던 말을 되짚어 본다."
+      },
+      "decision": "독립 검토의 시점·지칭 수정 반영",
+      "reason": "메인 후반에 등장해도 이미 지난 준비가 현재 일로 읽히지 않게 회상을 명시한다."
+    },
+    {
+      "world": "z_city",
+      "key": "opm_side_interval",
+      "before": {
+        "intro": "제노스는 대련에서 무엇을 볼지 미리 골라 본다.",
+        "story": "사이타마와의 차이를 단숨에 없애려는 마음만으로는 관찰할 틈이 없다. 제노스는 공격 전에 놓치고 싶지 않은 한 순간을 정한다."
+      },
+      "after": {
+        "intro": "제노스가 대련을 앞두고 정해 두었던 관찰 기준을 떠올린다.",
+        "story": "사이타마와의 차이를 단숨에 없애려는 마음만으로는 관찰할 틈이 없었다. 제노스는 공격하기 전에 놓치고 싶지 않은 한 순간을 골라 두었다. 대련에서 무엇을 보려 했는지 다시 생각해 본다."
+      },
+      "decision": "독립 검토의 시점·지칭 수정 반영",
+      "reason": "메인 후반에 등장해도 이미 지난 준비가 현재 일로 읽히지 않게 회상을 명시한다."
+    },
+    {
+      "world": "dungeon_meshi",
+      "key": "dm_before_dragon_memory",
+      "before": {
+        "intro": "큰 싸움을 앞두고 배운 준비를 하나씩 떠올린다.",
+        "story": "라이오스는 검을 확인하고 마르실은 지팡이를 쥐어 본다. 센시는 도구를 내려놓을 위치를 고른다. 조금 전까지 반복하던 작은 준비들이 큰 상대를 앞두고도 그대로 필요하다."
+      },
+      "after": {
+        "intro": "큰 상대를 앞두고 동료들과 준비했던 순간을 떠올린다.",
+        "story": "라이오스는 검을 확인했고 마르실은 지팡이를 쥐어 보았다. 센시는 도구를 내려놓을 위치를 골랐다. 평소 되풀이하던 작은 준비들이 큰 상대 앞에서도 필요했다. 그때 각자 무엇을 먼저 챙겼는지 돌아본다."
+      },
+      "decision": "독립 검토의 시점·지칭 수정 반영",
+      "reason": "메인 후반에 등장해도 이미 지난 준비가 현재 일로 읽히지 않게 회상을 명시한다."
+    }
+  ]
+}
