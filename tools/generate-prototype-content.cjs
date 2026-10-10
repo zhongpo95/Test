@@ -11,6 +11,7 @@ const eventImageTargets = new Map(eventThumbnails.assets.map(asset=>[asset.sourc
 if (eventImageTargets.size!==eventThumbnails.assets.length) throw Error('사건 썸네일 원본 경로 중복.');
 const statNames = ['attack_percent','damage_percent','final_damage_percent','boss_damage_percent','normal_damage_percent','crit_chance','crit_damage','swift','action_speed','move_speed','charge_speed','penetration','max_health_percent','damage_reduction','leech','regeneration','kill_gold','event_choices','moving_damage','directional_damage','nondirectional_damage','shielded_damage','charge_damage','healthy_damage','action_capacity'];
 const q = x => '"' + String(x).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\r?\n/g,'|n') + '"';
+const readability = JSON.parse(fs.readFileSync(path.join(root,'content/event-readability.json'),'utf8'));
 const highlightConfig = {"palette":{"person":"FF006B8F","clue":"FF865500"},"limits":{"story":4,"intro":2,"label":1,"result":2},"worlds":{"fuyuki":{"person":["에미야 시로","시로","세이버","토오사카 린","린","아처","랜서","캐스터","길가메시"],"clue":["성배","룰 브레이커","수호자","영주"]},"axel":{"person":["카즈마","아쿠아","메구밍","다크니스","위즈","베르디아"],"clue":["디스트로이어","동력원","폭렬 마법"]},"abydos":{"person":["호시노","시로코","세리카","아야네","노노미","선생","검은 양복"],"clue":["자퇴서","사막 기지","카이저론","학교 부지"]},"academy":{"person":["미코토","토우마","누노타바 시노부","시노부","일방통행","10032호","액셀러레이터"],"clue":["시스터즈","트리 다이어그램","레벨 6","미사카 네트워크","레벨6 시프트"]},"mitakihara":{"person":["마도카","호무라","마미","사야카","쿄코","큐베"],"clue":["소울젬","그리프 시드","발푸르기스의 밤","소울 젬"]},"aincrad":{"person":["키리토","아스나","유이","사치","카야바","히스클리프"],"clue":["너브기어","유이의 마음","이도류","시스템 관리자"]},"amestris":{"person":["에드","알","윈리","호엔하임","머스탱","린","그리드","스카"],"clue":["현자의 돌","인체 연성","국토 연성진","진리의 문"]},"karakura":{"person":["이치고","루키아","렌지","뱌쿠야","아이젠","요루이치","우라하라"],"clue":["붕옥","쌍극","만해","중앙 46실"]},"gourmet":{"person":["페코린느","캐르","콧코로","유우키","카이저","라비리스트","쥰"],"clue":["미식전","반지","열쇠","쉐도우"]},"butterfly":{"person":["탄지로","네즈코","시노부","카나오","렌고쿠","엔무","아카자"],"clue":["전집중 상중","정신의 핵","무한열차"]},"magnolia":{"person":["나츠","루시","엘자","그레이","마카로프","가질","조제"],"clue":["페어리 테일","팬텀 로드","주피터","엘리먼트 4"]},"penacony":{"person":["미샤","미하일","반디","선데이","로빈","아케론","어벤츄린","블랙 스완"],"clue":["은하열차","꿈의 주인","시계공","꿈의 경계"]},"zegagrande":{"person":["루리아","비","롤란","릴리스","이드"],"clue":["구속구","앙그라마이뉴","베르사","일지"]}}};
 Object.assign(highlightConfig.worlds, {
   amphoreus: {person:['파이논','키레네','아글라이아','트리비','마이데이','카스토리스','아낙사','히아킨','사이퍼','케리드라','히실렌스','개척자','단항'],clue:['철묘','불씨','검은 물결','재창세']},
@@ -29,13 +30,17 @@ Object.assign(highlightConfig.worlds, {
   hakugyokurou: {person:['레이무','치르노','레티','첸','앨리스','릴리 화이트','루나사','메를랑','리리카','요우무','유유코'],clue:['백옥루','서행요','명계','봉인']},
   scarlet_mist: {person:['레이무','루미아','치르노','메이링','파츄리','사쿠야','레밀리아'],clue:['붉은 안개','홍마관','양산']},
 });
+Object.assign(highlightConfig.palette,{emotion:'FF704261',danger:'FFA53528',scene:'FF80560C'});
+const sceneWords=['초대장','약속','기억','편지','문틈','발자국','소문','비밀','이름표','기록','노랫소리','목소리','꿈','불빛','그림자','꽃','검','책','도시','마을'];
 // 원고는 평문으로 두고 생성 시점에만 짧은 인물·단서 강조를 추가한다.
 function highlight(text, world, field, config) {
   if (!config) return text;
-  const source=String(text), rules=config.worlds[world] || {}, spans=[], used=new Set();
+  const source=String(text).replace(/\\n/g,'\n'), rules=config.worlds[world] || {}, spans=[], used=new Set();
   if (/\|[cr]/i.test(source)) throw Error('사건 원문에 색상 코드가 있습니다. '+world);
-  const candidates=Object.entries(rules).flatMap(([kind,words])=>words.map(word=>({word,kind})))
-    .sort((a,b)=>b.word.length-a.word.length);
+  const reviewed=readability.stories.find(x=>x.world===world && x.story===source);
+  const candidates=[...(reviewed?.highlights || []).map(h=>({word:h.text,kind:h.role})),
+    ...Object.entries(rules).flatMap(([kind,words])=>words.map(word=>({word,kind}))).sort((a,b)=>b.word.length-a.word.length),
+    ...sceneWords.map(word=>({word,kind:'scene'}))];
   for (const {word,kind} of candidates) {
     if (!word || used.has(word)) continue;
     let start=source.indexOf(word);
@@ -51,7 +56,7 @@ function highlight(text, world, field, config) {
     if (start<0 || spans.some(s=>start<s.end && end>s.start)) continue;
     spans.push({start,end,color:config.palette[kind]});used.add(word);
   }
-  const selected=spans.sort((a,b)=>a.start-b.start).slice(0,config.limits[field]);
+  const selected=spans.slice(0,config.limits[field]).sort((a,b)=>a.start-b.start);
   let result='',cursor=0;
   for (const s of selected) {result+=source.slice(cursor,s.start)+'|c'+s.color+source.slice(s.start,s.end)+'|r';cursor=s.end;}
   return result+source.slice(cursor);
@@ -138,7 +143,7 @@ function generate(worlds, options={}) {
     const marked=(text,field)=>highlight(text,w.world.key,field,highlights);
     lines.push('    function ProtoLoadWorld'+wi+' takes nothing returns nothing');
     if (h) {
-      set('ProtoHeadKey',h,w.world.key);set('ProtoHeadName',h,w.world.name); set('ProtoHeadIntro',h,w.world.intro);
+      set('ProtoHeadKey',h,w.world.key);set('ProtoHeadName',h,w.world.name); set('ProtoHeadIntro',h,marked(w.world.intro,'intro'));
       set('ProtoHeadIcon',h,w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNManual.blp');
       set('ProtoHeadEntryCard',h,cards.get(w.world.entryCard));set('ProtoHeadMainLength',h,w.world.mainStory?.length || 0);
       set('ProtoHeadRequiredMain',h,w.world.requiresCompletedHead ? registry.heads[w.world.requiresCompletedHead] : 0);
@@ -156,7 +161,7 @@ function generate(worlds, options={}) {
     }
     for (const c of w.cards) {
       const id=cards.get(c.key);
-      if (c.endingCard) {set('ProtoCardEnding',id,1);set('ProtoCardDescription',id,c.canonFact);}
+      if (c.endingCard) {set('ProtoCardEnding',id,1);set('ProtoCardDescription',id,marked(c.canonFact,'story'));}
       set('ProtoCardKey',id,c.key);set('ProtoCardName',id,c.name);set('ProtoCardEffectName',id,c.effectName);set('ProtoCardKeyword',id,w.world.name+' · '+c.keyword);
       set('ProtoCardHead',id,h);set('ProtoCardGrade',id,c.grade);set('ProtoEvolutionKind',id,c.evolution.kind);
       lines.push('        set ProtoEvolutionGoal['+id+'] = '+Number(c.evolution.goal).toFixed(2));
@@ -169,7 +174,7 @@ function generate(worlds, options={}) {
       // 분기 최고 카드 등급은 가능한 보상의 기준이며 성공률은 각 분기에 별도 표시한다.
       set('ProtoEventGrade',id,Math.max(1,...e.choices.flatMap(b=>[b.card,b.card2]).filter(Boolean).map(key=>worlds.flatMap(x=>x.cards).find(c=>c.key===key).grade)));
       set('ProtoEventStory',id,marked(e.story,'story'));set('ProtoEventIntro',id,marked(e.intro,'intro'));eventImage(id,e.icon || w.world.entryIcon || w.world.icon || 'ReplaceableTextures\\CommandButtons\\BTNTome.blp');
-      set('ProtoEventRequired',id,e.previous ? events.get(e.previous) : 0);set('ProtoEventRequiredChoice',id,e.previousChoice || 0);set('ProtoEventRequiredCard',id,e.requiredCard ? cards.get(e.requiredCard):0);set('ProtoEventFailure',id,e.failure || '');
+      set('ProtoEventRequired',id,e.previous ? events.get(e.previous) : 0);set('ProtoEventRequiredChoice',id,e.previousChoice || 0);set('ProtoEventRequiredCard',id,e.requiredCard ? cards.get(e.requiredCard):0);set('ProtoEventFailure',id,marked(e.failure || '','result'));
       if (e.dialogue?.enabled) {
         set('ProtoEventDialogueEnabled',id,1);
         set('ProtoEventCommonResult',id,marked(e.dialogue.commonResult,'story'));

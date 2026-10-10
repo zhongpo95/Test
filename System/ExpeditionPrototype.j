@@ -350,7 +350,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         else
             set value = value + " · 새 카드"
         endif
-        return value + ProtoStoryChangePreview(pid, card) + "|n" + ProtoCardEffectName[card] + "|n이번에 추가 · " + JNStringReplace(ProtoCardEffectsText(card, ProtoEvolved[ExpKey(pid, card)]), "|n", " · ")
+        return "|cff83e4e6" + value + "|r" + ProtoStoryChangePreview(pid, card) + "|n|n" + ProtoCardEffectName[card] + "|n|cff9cddb0[이번에 얻는 효과]|r|n" + ProtoCardEffectsText(card, ProtoEvolved[ExpKey(pid, card)])
     endfunction
 
     function ProtoBranchAllowed takes integer pid, integer choice returns boolean
@@ -433,6 +433,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                 set reward = reward + " 획득"
             endif
         endif
+        if ProtoBranchCard[key] > 0 then
+            set reward = reward + " · " + ProtoCardEffectName[ProtoBranchCard[key]]
+        endif
         if ProtoBranchCard2[key] > 0 then
             set reward = reward + " · " + ProtoDisplayCardName(pid, ProtoBranchCard2[key])
             if ProtoOwnsCharacter(pid, ProtoBranchCard2[key]) then
@@ -440,6 +443,9 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
             else
                 set reward = reward + " 획득"
             endif
+        endif
+        if ProtoBranchCard2[key] > 0 then
+            set reward = reward + " · " + ProtoCardEffectName[ProtoBranchCard2[key]]
         endif
         if ProtoBranchGold[key] > 0 then
             set reward = reward + " 골드 +" + I2S(ProtoBranchGold[key])
@@ -459,7 +465,13 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
         if ProtoBranchChance[key] < 100 then
             set cost = cost + "성공 " + I2S(ProtoBranchChance[key]) + "%"
         endif
-        return value + "|n" + reward + "|n" + cost
+        if reward != "" then
+            set value = value + "|n|n|cff216548[보상] " + reward + "|r"
+        endif
+        if cost != "" then
+            set value = value + "|n|cff9c4a22[비용·변화] " + cost + "|r"
+        endif
+        return value
     endfunction
 
     function ProtoUpgradeCard takes integer pid, integer card returns nothing
@@ -566,7 +578,7 @@ library ExpeditionPrototype initializer Init requires Expedition, DataPrototype,
                     // 이미 읽은 선택 반응을 다시 출력하지 않는다. 엔딩의 공통 결과는 마지막 대화 앞에 배치된다.
                     set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoEventCommonResult[id]
                 else
-                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n" + ProtoBranchLabel[key] + "|n" + ProtoBranchResult[key]
+                    set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n" + ProtoBranchLabel[key] + "|n|n" + ProtoBranchResult[key]
                 endif
                 if ProtoBranchCard[key] > 0 or ProtoBranchCard2[key] > 0 or ProtoBranchGold[key] > 0 or ProtoBranchPotions[key] > 0 then
                     set ProtoOutcome[pid] = ProtoOutcome[pid] + "|n|n|cff216548[획득 보상]|cff315a70"

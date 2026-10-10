@@ -1,0 +1,9 @@
+{
+  "template": "D:\\Work\\ARCANA\\Arcana_B\\reviews\\combined-content-preflight-20261011\\compile\\input.j",
+  "template_sha256": "781b69a20ffe164bb2b6ee19f695350097a85ec0f4da9e936af616c10890cd0c",
+  "compiler_exit": 0,
+  "map_created": false,
+  "pjass_exit": 0,
+  "script_sha256": "362524ef3660db7f3afe202c376336d76896c97e4973842204a4200f98550b58",
+  "pjass_output": "Parse successful:     1679 lines: common.j\r\nParse successful:    10230 lines: Blizzard.j\r\nParse successful:   162127 lines: war3map.j\r\nParse successful:   174036 lines: <total>\r\n24 errors ignored\r\n"
+}
