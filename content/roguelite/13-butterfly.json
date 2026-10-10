@@ -1708,7 +1708,8 @@
       ],
       "failure": "보급꾼의 목소리로 짐작한 소리는 다른 울음이었고, 준비비를 쓴 수색은 허탕으로 끝났다. 사람을 찾지 못한 기록과 맡은 구역의 더 강한 적이 남아 돌아갈 짐을 다시 꾸린다.",
       "canonFact": "공식 인물 소개의 젠이츠 청각·이노스케 감각과 호전성·탄지로 성실한 수련을 쓴다. 밤길 정찰과 판정·비용은 맵 창작이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga"
     },
     {
       "key": "kny_night_found",
@@ -1758,7 +1759,8 @@
       ],
       "failure": null,
       "canonFact": "소리를 확인한 자기 성공 기록을 요구하는 맵 전용 후속이다. 실제 청각 스킬·새 적 종족을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga"
     },
     {
       "key": "kny_night_wrong",
@@ -1808,7 +1810,8 @@
       ],
       "failure": null,
       "canonFact": "실패 자체를 무료 성장으로 환급하지 않는다. 자기 실패 기록에서 추가 행동력으로 보완하는 창작이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
     },
     {
       "key": "kny_unread_bottles",
@@ -1858,7 +1861,8 @@
       ],
       "failure": null,
       "canonFact": "공식 저택 치료·시노부 약학·아오이 지원에서 별도 젖은 보급 문제를 창작한다. 보급병·기록지는 실제 퀘스트 물품이 아니며 미확인 약 사용이나 즉시 치료를 구현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
     },
     {
       "key": "kny_white_linen",
@@ -1908,7 +1912,8 @@
       ],
       "failure": null,
       "canonFact": "공식 나비저택 치료와 아오이 지원, 이노스케 산 감각에서 마르지 않은 천과 돌아가는 보급길을 별도로 창작한다. 환자 상태·옷 장비·NPC 운반은 생성하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
     },
     {
       "key": "kny_crow_dispatch",
@@ -1958,7 +1963,8 @@
       ],
       "failure": null,
       "canonFact": "공식 26화의 전령 까마귀와 새 임무 안내에서 별도 기록 혼선을 창작한다. 특정 본편 임무를 해결하거나 실제 목적지·남은 시간을 바꾸지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "kny_midday_noise",
@@ -2008,7 +2014,8 @@
       ],
       "failure": null,
       "canonFact": "공식 젠이츠 청각과 탄지로 후각을 별도 소란스러운 출발 장면으로 각색한다. 실종자·밤길 수색을 반복하거나 소리 탐지 UI를 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_zenitsu_Art.tga"
     },
     {
       "key": "kny_mixed_traces",
@@ -2058,7 +2065,8 @@
       ],
       "failure": "같은 자국에 겹친 냄새를 끝내 나누지 못했다. 조사비는 돌아오지 않고 보상도 없다. 맡기로 한 더 강한 구역은 남는다.",
       "canonFact": "공식 탄지로 후각·이노스케 산 감각에서 별도 보급길 흔적을 창작한다. 확률 70은 맵 판정이며 원작 감각이 실패했다는 본편 장면을 재현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "kny_before_departure",
@@ -2108,7 +2116,8 @@
       ],
       "failure": null,
       "canonFact": "공식 저택 치료·출발과 시노부 약학·카나오 신체 능력·이노스케 성향을 별도 보급낭 파손으로 각색한다. 새 독 기술·장비 수선 기능·실제 임무 전환은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO2_shinobu_Art.tga"
     },
     {
       "key": "kny_senior_challenge",
@@ -2158,7 +2167,8 @@
       ],
       "failure": null,
       "canonFact": "물의 호흡을 쓰는 선배 귀살대원과 호전적인 이노스케라는 공식 소개에서 방문 중 호칭 갈등을 창작했다. 무라타의 이 발언은 원작 대사가 아니다. 실제 NPC 대련·선후배 게이지·호흡 전수가 없고 카드와 개인 필드만 변한다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KNYG_murata_Art.tga"
     },
     {
       "key": "kny_return_to_training",
@@ -2208,7 +2218,8 @@
       ],
       "failure": null,
       "canonFact": "24화의 젠이츠 동기와 25화의 탄지로를 보고 훈련에 복귀한 두 동료를 바탕으로 문 앞의 자존심 충돌을 창작했다. 플레이어가 카나오의 스승이 되거나 본편 대련 결과·연애 성취를 결정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "kny_frightened_visitor",
@@ -2258,7 +2269,8 @@
       ],
       "failure": null,
       "canonFact": "네즈코의 자기 의지와 암시·탄지로의 따뜻함이라는 공식 특징을 저택의 야간 방문에 각색했다. 사람을 공격하는 시험·암시 재주입·새 치료·원작 재판 결과·NPC 동행은 없다. 무료 카드도 사건 행동력 1을 소모한다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_nezuko_Art.tga"
     },
     {
       "key": "kny_first_gourd",
@@ -2308,7 +2320,8 @@
       ],
       "failure": "도구값120골드를 먼저 냈지만 숨이 끝나기 전에 박자가 끊겼다. 카드는 얻지 못하고120골드는 돌아오지 않는다. 아오이는 네가 큰 것을 다시 집기 전에 설명부터 끝까지 들으라고 한다.",
       "canonFact": "공식 협업 자료의 표주박/전집중상중관계에서 만든 별도 창작 시험이다. 크기·소리·도구값·60%확률은 원작규칙이 아니고 현재체력지불이나 새미니게임은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
     },
     {
       "key": "kny_morning_greeting",
@@ -2359,7 +2372,8 @@
       "failure": null,
       "canonFact": "공식25화의 온종일 호흡유지연습을 별도 아침 인사로 각색했다. 실제아침대사·원작훈련완성·탄지로구출·새호흡스킬은 확정하지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "kny_hand_return",
@@ -2409,7 +2423,8 @@
       ],
       "failure": null,
       "canonFact": "공식25화의 회복훈련상대카나오를 바탕으로 만든 손동작 연습이다. 원작 찻잔승부규칙/특정대사·동전유래·카나오마음의큰결말을 확정하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KNY_kanawo_Art.tga"
     },
     {
       "key": "kny_partition_role",
@@ -2459,7 +2474,8 @@
       ],
       "failure": null,
       "canonFact": "공식 인물소개 이노스케의 호전성과 촉각에서 만든 별도 가림막놀이이다. 실제맵투시·감지·자동조준·이노스케동료소환은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO2_inosuke_Art.tga"
     },
     {
       "key": "kny_after_first_gourd",
@@ -2509,7 +2525,8 @@
       ],
       "failure": null,
       "canonFact": "자기첫표주박도전성공1번 뒤에만열리는 창작후속이다. 다른플레이어성공/자기실패/자기2번으로열리지않으며 부모카드를반복보상하지않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "butterfly_main_01",
@@ -2566,7 +2583,8 @@
         "enabled": true,
         "commonResult": "동생을 지키며 다음 임무에 나서려면 탄지로부터 몸을 회복해야 한다. 두 주가 지난 뒤 일행은 다시 움직일 힘을 기르는 재활을 시작한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KNYS_aoi_Art.tga"
     },
     {
       "key": "butterfly_main_02",
@@ -2958,7 +2976,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
     },
     {
       "key": "butterfly_main_08",
@@ -3030,7 +3049,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "butterfly_main_09",
@@ -3233,7 +3253,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
     },
     {
       "key": "butterfly_main_12",
@@ -3378,7 +3399,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KMO2_rengoku_Art.tga"
     },
     {
       "key": "butterfly_main_14",
@@ -3446,7 +3468,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_KMO1_tanjiro_Art.tga"
     },
     {
       "key": "butterfly_epilogue_memory",

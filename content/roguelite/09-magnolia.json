@@ -1755,7 +1755,8 @@
       ],
       "failure": null,
       "canonFact": "길드에서 의뢰를 받고 보고하는 구조와 루시의 기록 역할을 참고했다. 잘못 분류한 사본과 수령인 문제는 창작이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "ft_fish",
@@ -1805,7 +1806,8 @@
       ],
       "failure": null,
       "canonFact": "해피의 비행과 생선을 좋아하는 성격, 샤를·웬디의 동료 관계를 참고했다. 실제 운반량·수송 사건은 창작이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_happy_Art.tga"
     },
     {
       "key": "ft_new_board",
@@ -1855,7 +1857,8 @@
       ],
       "failure": null,
       "canonFact": "공식 길드의 의뢰 게시판과 루시의 글쓰기·그레이의 조형·엘자의 환장·미라젠의 업무 역할에서 새 방문을 창작했다. 전에 얻은 의뢰 기록 카드가 개인 자격이며 원작의 같은 날짜·등장인물 동행·길드 순위 상승을 구현하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "ft_armory",
@@ -1905,7 +1908,8 @@
       ],
       "failure": null,
       "canonFact": "엘자가 무구를 별도 공간에서 환장한다는 소개를 활용한 짐 정리 사건이다. 플레이어에게 환장이나 원작 갑옷을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga"
     },
     {
       "key": "ft_river",
@@ -1955,7 +1959,8 @@
       ],
       "failure": "고정에 90골드를 썼지만 물살에 받침이 밀려 짐과 의뢰서가 젖었다. 카드는 받지 못했다. 그레이는 건져 낸 받침을 다른 짐과 섞지 않고 루시는 번진 글씨 중 읽히는 줄부터 찾았다.",
       "canonFact": "그레이의 얼음 조형과 웬디의 지원을 활용한 물길 사건은 창작이다. 실제 보조 유닛·다리·수송 시스템을 구현한다고 주장하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_gray-fullbuster_Art.tga"
     },
     {
       "key": "ft_wet_receipt",
@@ -2005,7 +2010,8 @@
       ],
       "failure": null,
       "canonFact": "물길 선택 실패를 자기 기록으로 이어 받는 창작 후속이다. 루시는 기록을, 웬디는 보급 준비를 돕는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "ft_controlled_flame",
@@ -2055,7 +2061,8 @@
       ],
       "failure": null,
       "canonFact": "나츠의 열정과 동료를 생각하는 성격, 엘자의 검·무구 준비를 각색했다. 원작 고유 기술이나 실제 NPC전투를 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga"
     },
     {
       "key": "ft_iron_lunch",
@@ -2105,7 +2112,8 @@
       ],
       "failure": null,
       "canonFact": "공식 가질의 철을 먹는 특징에서 식사용 철과 수리 부품의 혼동을 창작했다. 플레이어에게 철 소비·의자 수리 시스템·원작 기술을 만들지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FTG_gajeel_Art.tga"
     },
     {
       "key": "ft_two_umbrellas",
@@ -2155,7 +2163,8 @@
       ],
       "failure": null,
       "canonFact": "공식 쥬비아의 그레이를 따르는 성격과 수류 마법 설정에서 별도 우산 분배를 창작했다. 연애 결말을 바꾸거나 수류 신체·즉시 회복을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FTG_juvia_Art.tga"
     },
     {
       "key": "ft_magazine_queue",
@@ -2205,7 +2214,8 @@
       ],
       "failure": null,
       "canonFact": "공식 잡지에도 등장하는 미라젠과 길드 일을 돕는 역할에서 방문객의 혼동을 창작했다. 사진 판매·인기도·팬 동행·성적 연출은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga"
     },
     {
       "key": "ft_laxus_short_reply",
@@ -2255,7 +2265,8 @@
       ],
       "failure": null,
       "canonFact": "공식 렉서스의 서툰 소통과 강한 동료애에서 짧은 답의 오해를 창작했다. 파문·길드 항쟁·동료 관계의 본편 결말을 해결하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FTG_laxus_Art.tga"
     },
     {
       "key": "ft_gildarts_wall",
@@ -2305,7 +2316,8 @@
       ],
       "failure": null,
       "canonFact": "공식 길다트의 무심코 건물을 부수는 특징에서 별도 작은 벽 파손을 창작했다. 실제 맵 건물 파손·플레이어 체력 비용·도시 복구 시스템·파괴 마법은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FTG_gildarts_Art.tga"
     },
     {
       "key": "ft_lucy_unfinished",
@@ -2356,7 +2368,8 @@
       "failure": null,
       "canonFact": "공식 신인 소설가인 루시에서 별도 독자의 질문을 창작했다. 실제 소설 내용·원작 대사·출판 보상·성령 열쇠 찾기의 결말은 주장하지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "ft_mirajane_next_note",
@@ -2407,7 +2420,8 @@
           "chance": 100,
           "result": "160골드로 종이와 보급을 마련하고 루시와 더 약한 연락 담당 구역을 골랐다. 내 개인 사냥의 적 강함 단계를 1 낮췄다(최저 1). 루시는 이번에 맡은 연락의 줄만 적었고 미라젠은 다음 손님의 답을 미리 채우지 않았다."
         }
-      ]
+      ],
+      "icon": "war3mapImported\\UI_Card_FTG_mirajane_Art.tga"
     },
     {
       "key": "magnolia_main_01",
@@ -2464,7 +2478,8 @@
         "enabled": true,
         "commonResult": "루시는 나츠와 해피를 따라 마그놀리아로 향한다. 사칭자의 말로만 보았던 길드를 이제 직접 찾아간다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga"
     },
     {
       "key": "magnolia_main_02",
@@ -2579,7 +2594,8 @@
         "enabled": true,
         "commonResult": "오른손에 페어리 테일의 문장이 새겨진다. 나츠와 해피는 새 동료를 첫 의뢰에 데려가려 한다. 루시는 책 한 권을 없애 달라는 의뢰를 함께 맡는다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_main_04",
@@ -2782,7 +2798,8 @@
         "enabled": true,
         "commonResult": "의뢰와 귀환이 반복되며 길드는 루시가 돌아오는 곳이 된다. 그런 일상을 깨뜨리듯 어느 날 페어리 테일의 건물이 공격받는다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_main_07",
@@ -2897,7 +2914,8 @@
         "enabled": true,
         "commonResult": "아리아가 마카로프의 마력을 빼앗자 페어리 테일은 물러날 수밖에 없다. 그러나 나츠는 붙잡힌 루시를 구하러 향한다. 루시는 조제에게서 자신의 가족과 이번 공격이 얽힌 이유를 듣는다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_main_09",
@@ -2954,7 +2972,8 @@
         "enabled": true,
         "commonResult": "나츠는 아래에서 루시를 받아 줄 준비를 한다. 조제의 말과 가족의 명령 대신, 지금 자신을 부르는 목소리를 믿어야 할 순간이다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_main_10",
@@ -3026,7 +3045,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_nastu-dragneel_Art.tga"
     },
     {
       "key": "magnolia_main_11",
@@ -3083,7 +3103,8 @@
         "enabled": true,
         "commonResult": "나츠는 토토마루를 넘어 주피터를 파괴한다. 하지만 요새가 거인으로 변하고 더 큰 마법 어비스 브레이크를 준비한다. 동료들은 이를 움직이는 엘리먼트 4를 막아야 한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_erza-scarlet_Art.tga"
     },
     {
       "key": "magnolia_main_12",
@@ -3271,7 +3292,8 @@
         "enabled": true,
         "commonResult": "루시는 가문이 정한 삶을 거부하고 저택을 떠난다. 그 자리에서 아버지와 모든 갈등이 풀린 것은 아니다. 그래도 자신이 돌아갈 곳만큼은 분명하다. 마그놀리아의 동료들에게 향한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_main_15",
@@ -3347,7 +3369,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     },
     {
       "key": "magnolia_epilogue_memory",
@@ -3399,7 +3422,8 @@
       ],
       "failure": "",
       "canonFact": "완결 뒤 기존 입문·서브 카드 기억을 되짚는 창작 후일담이며 원작 후속 이야기를 대신하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_FT_lucy-heartfilia_Art.tga"
     }
   ],
   "reviewRecords": [

@@ -1626,7 +1626,8 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_eugen_Art.tga"
     },
     {
       "key": "gbf_broken_focus",
@@ -1676,7 +1677,8 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga"
     },
     {
       "key": "gbf_sealed_report",
@@ -1726,7 +1728,8 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_zeta_Art.tga"
     },
     {
       "key": "gbf_alchemy_sample",
@@ -1776,7 +1779,8 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_cagliostro_Art.tga"
     },
     {
       "key": "gbf_return_signal",
@@ -1826,7 +1830,8 @@
       "requiredCard": null,
       "failure": null,
       "canonFact": "확인한 인물·배경에 플레이어가 개입하는 맵 전용 사건이다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga"
     },
     {
       "key": "gbf_rosetta_dates",
@@ -1876,7 +1881,8 @@
       ],
       "failure": "연락 비용160골드를 썼지만 남은 연락처에서 답이 오지 않아 예전 기록의 주인을 찾지 못했다. 날짜 차이는 아직 확인되지 않아 카드를 받지 못한다. 로제타는 답이 없는 부분을 새 기록의 날짜로 덮지 않았다.",
       "canonFact": "과거와 현재를 잇는 공식 로제타와 조타사 라캄에서 별도 기록의 날짜 문제를 만들었다. 로제타가 미래를 보거나 거짓말 탐지 기능을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_rosetta_Art.tga"
     },
     {
       "key": "gbf_rolan_two_questions",
@@ -1926,7 +1932,8 @@
       ],
       "failure": null,
       "canonFact": "공식 롤란의 붙임성과 임시 동행, 비의 여행 파트너와 라캄의 조타 역할에서 창작했다. 롤란의 숨겨진 정체·교회·실제 동행 유닛은 등장시키지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
     },
     {
       "key": "gbf_lancelot_shift",
@@ -1976,7 +1983,8 @@
       ],
       "failure": null,
       "canonFact": "공식 기사단장 랜슬롯의 통솔과 동료를 지키는 베인에서 별도 교대 문제를 만들었다. 실제 병사 소환·호위 임무·자동 전투 승리는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_lancelot_Art.tga"
     },
     {
       "key": "gbf_percival_load",
@@ -2026,7 +2034,8 @@
       ],
       "failure": null,
       "canonFact": "공식 퍼시벌의 약자를 돕는 이상과 베인의 보호 역할에서 창작한 짐의 부담 문제다. 실제 국가 정책·체력 지불·노동자 시스템·원작 결말을 만들지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_percival_Art.tga"
     },
     {
       "key": "gbf_yodarha_foot",
@@ -2077,7 +2086,8 @@
       "failure": null,
       "canonFact": "공식 낚시꾼을 자처하는 검호의 숨은 기량에서 별도 짐을 피하는 장면을 창작했다. 실제 낚시 결과·물고기 판매·비밀 강제 공개·원작 검법은 지급하지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_GBF_yodarha_Art.tga"
     },
     {
       "key": "gbf_io_audience",
@@ -2127,7 +2137,8 @@
       ],
       "failure": null,
       "canonFact": "공식 이오의 미소를 전하려는 바람과 비의 여행 파트너 역할에서 관객 자리 문제를 창작했다. 추가 마법·관객 유닛·공연 성공 판정·즉시 회복을 만들지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_GBF_io_Art.tga"
     },
     {
       "key": "gbf_rolan_next_request",
@@ -2178,7 +2189,8 @@
           "chance": 100,
           "result": "라캄은 네가 짐을 맡겠다고 하자 든든한 듯 웃으며 무거운 짐꾸러미를 건네준다. 그는 네가 짐을 옮기는 동안 바깥 길의 상황을 실시간으로 파악한다."
         }
-      ]
+      ],
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
     },
     {
       "key": "zegagrande_main_01",
@@ -2235,7 +2247,8 @@
         "enabled": true,
         "commonResult": "라캄이 조타를 맡은 그랑사이퍼가 새로운 하늘로 들어선다. 기공단은 낯선 섬들 사이로 항로를 이어 간다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
     },
     {
       "key": "zegagrande_main_02",
@@ -2408,7 +2421,8 @@
         "enabled": true,
         "commonResult": "폭풍의 근원은 성정수 퓨리칸이었다. 기공단은 구출한 주민들을 뒤로하고, 폭주한 성정수를 진정시키러 향한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
     },
     {
       "key": "zegagrande_main_05",
@@ -2465,7 +2479,8 @@
         "enabled": true,
         "commonResult": "기공단은 이드의 힘을 막아 내지 못하고 루리아를 빼앗긴다. 상처 입은 일행은 폴카로 돌아와 전열을 추스른다. 배를 고치는 일은 이제 붙잡힌 동료를 추적하기 위한 준비가 된다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
     },
     {
       "key": "zegagrande_main_06",
@@ -2522,7 +2537,8 @@
         "enabled": true,
         "commonResult": "기공단은 공중전을 버티고 막힌 항로를 뚫는다. 롤란의 안내를 따라 설산에 도착한 일행은 수도원 쪽으로 나아간다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_rackam_Art.tga"
     },
     {
       "key": "zegagrande_main_07",
@@ -2579,7 +2595,8 @@
         "enabled": true,
         "commonResult": "전투 뒤에도 루리아는 구속에서 풀려나지 못한다. 성정수를 흡수한 그녀가 적들과 함께 떠나자, 일행은 승리만으로 구할 수 없음을 깨닫는다. 롤란의 제안대로 구속 해제 정보를 찾아 수도 시드홀름으로 향한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
     },
     {
       "key": "zegagrande_main_08",
@@ -2708,7 +2725,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
     },
     {
       "key": "zegagrande_main_10",
@@ -2780,7 +2798,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
     },
     {
       "key": "zegagrande_main_11",
@@ -2852,7 +2871,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_lyria_Art.tga"
     },
     {
       "key": "zegagrande_main_12",
@@ -2924,7 +2944,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_id_Art.tga"
     },
     {
       "key": "zegagrande_main_13",
@@ -2981,7 +3002,8 @@
         "enabled": true,
         "commonResult": "루리아와 일행은 단장과 이드를 맞는다. 그러나 롤란의 자리는 비어 있다. 기공단은 그를 죽었다고 단정하지 않고 돌아오게 할 방법을 찾는다. 그가 끝내지 못한 의뢰와 남긴 흔적부터 살피기로 한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
     },
     {
       "key": "zegagrande_main_14",
@@ -3057,7 +3079,8 @@
             ]
           }
         ]
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_GBF_rolan_Art.tga"
     },
     {
       "key": "zegagrande_epilogue_memory",

@@ -1879,7 +1879,8 @@
       ],
       "failure": "회전판은 맞지 않은 그림에서 멈췄다. 바꿔 넣은300골드는 돌아오지 않고 카드와 당첨금도 받지 못했다. 어벤츄린은 다음 판을 대신 돌려주지 않는다. 그림보다 멈추지 못한 손을 돌아볼 차례다.",
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga"
     },
     {
       "key": "hsr_after_win",
@@ -1929,7 +1930,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1306_Art.tga"
     },
     {
       "key": "hsr_after_loss",
@@ -1979,7 +1981,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1307_Art.tga"
     },
     {
       "key": "hsr_sorted_tokens",
@@ -2029,7 +2032,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_soulglad",
@@ -2079,7 +2083,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1301_Art.tga"
     },
     {
       "key": "hsr_masked_stage",
@@ -2129,7 +2134,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1306_Art.tga"
     },
     {
       "key": "hsr_remembered_exit",
@@ -2179,7 +2185,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga"
     },
     {
       "key": "hsr_walking_sign",
@@ -2229,7 +2236,8 @@
       ],
       "failure": null,
       "canonFact": "확인한 황금의 순간의 시설과 인물 역할을 이용한 맵 창작 사건이다. 원작 특정 임무의 재현이 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_scattered_banknotes",
@@ -2279,7 +2287,8 @@
       ],
       "failure": "지폐를 따라갔지만 돌려받을 몫을 챙기지 못했다. 건200골드는 돌아오지 않고 카드와 보수도 받지 못했다. 어벤츄린은 다음 길을 가기 전에 따라간 범위부터 다시 묻는다.",
       "canonFact": "공식 머니 머신과 어벤츄린의 리스크 취향에서 별도 지폐 추적을 창작했다. 기계 출력·60% 확률·260골드는 맵 규칙이며 원작 지급표가 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga"
     },
     {
       "key": "hsr_floating_treat",
@@ -2330,7 +2339,8 @@
       "failure": null,
       "canonFact": "공식 공중 아이스크림과 미샤의 여행 이야기 관심에서 꿈속 일대일 만남을 창작했다. 다른 손님은 미샤에게 말하거나 일을 맡기지 않는다. 아이스크림 상승 동작과 간격 문제는 각색이며 점프·공중 이동·원작 빙결을 지급하지 않는다.",
       "uncertain": [],
-      "actionCost": 0
+      "actionCost": 0,
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_dream_eye_gap",
@@ -2380,7 +2390,8 @@
       ],
       "failure": null,
       "canonFact": "공식 외부인 비공개 공사 구역과 시각 오차로 길을 연결하는 꿈의 눈에서 입구 밖 도면 비교를 창작했다. 아케론은 과묵한 장검 여행자이며 꿈의 눈의 관리인이나 건축가가 아니다. 실제 맵 지형·순간이동·공사장 입장 권한을 바꾸지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1308_Art.tga"
     },
     {
       "key": "hsr_scene_after_applause",
@@ -2430,7 +2441,8 @@
       ],
       "failure": "마지막 장면의 박자를 맞추지 못했다. 준비에 쓴150골드는 돌아오지 않고 카드도 받지 못했다. 스파클은 다른 배역으로 박수쳤고 다음 체험 손님은 자기 차례를 기다렸다.",
       "canonFact": "공식 테마파크의 촬영 체험과 스파클의 역할 전환에서 별도 장면을 창작했다. 실제 영화 출연·원작 캐릭터 변신·촬영 미니게임·행동 게이지는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1306_Art.tga"
     },
     {
       "key": "hsr_monster_last_order",
@@ -2480,7 +2492,8 @@
       ],
       "failure": null,
       "canonFact": "공식 몬스터 손님을 위한 바와 갤러거의 음료 제조·예의·경계를 함께 참고해 창작했다. 갤러거가 그 바의 원작 점주라는 주장은 아니다. 몬스터 손님을 전투 적으로 바꾸거나 음료를 즉시 치유로 쓰지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1301_Art.tga"
     },
     {
       "key": "hsr_jade_unwritten_price",
@@ -2530,7 +2543,8 @@
       ],
       "failure": null,
       "canonFact": "공식 제이드의 대부업·상대 욕망 이해·좋은 거래를 기다리는 특징에서 별도 거래를 창작했다.230골드·지속 이동 감소는 맵 가격이며 미래 미납 부채·영혼·기억·현재체력 지불·카드 제거는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1314_Art.tga"
     },
     {
       "key": "hsr_name_over_song",
@@ -2580,7 +2594,8 @@
       ],
       "failure": null,
       "canonFact": "공식 대극장과 유명 가수 로빈의 예정 공연에서 사전 안내 중의 새 관객 갈등을 창작했다. 플레이어가 실제 공연·조명·관객 수·원작 축제 결과를 결정하지 않는다. 사냥 밀도는 개인 준비의 별도 규칙이며 관객을 몬스터로 바꾸지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga"
     },
     {
       "key": "hsr_introduction_left",
@@ -2630,7 +2645,8 @@
       ],
       "failure": "참가자는 광고 문구까지 읽었지만 자기 이름을 첫마디로 말하지 못했다. 소개지에 쓴150골드는 돌아오지 않고 카드도 받지 못했다. 로빈은 참가자가 말할 여백을 남겼다.",
       "canonFact": "공식 솔글래드 후원 오디션과 로빈의 음악에서 별도 참가자의 말 막힘을 창작했다. 로빈이 원작 오디션 심사위원이라는 주장은 아니다. 70%는 맵 판정이며 공식 우승·심사 점수·노래·명성·추가 참가 기능은 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga"
     },
     {
       "key": "hsr_cowboy_in_frame",
@@ -2680,7 +2696,8 @@
       ],
       "failure": null,
       "canonFact": "공식 부트힐의 사이보그·갤럭시 레인저·IPC 복수 대상을 기념사진의 잘못된 인상에 각색했다. 관광객의 부탁과 대화는 창작이며 실제 사진 기능·총격·새 결투·IPC 소속 변경·복수 완수는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1315_Art.tga"
     },
     {
       "key": "hsr_view_without_armor",
@@ -2730,7 +2747,8 @@
       ],
       "failure": null,
       "canonFact": "공식 반디의 SAM 갑옷과 삶의 의미를 찾는 목적에서 독립 관광 만남을 창작했다. 반디를 로빈의 경호원·점원으로 바꾸지 않고 갑옷 소환·새 장비·질병 치료·본편 죽음이나 결말을 결정하지 않는다. 같은 카드를 골드와 밀도 부담 중 하나로 얻는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1310_Icon.tga"
     },
     {
       "key": "hsr_name_after_poster",
@@ -2780,7 +2798,8 @@
       ],
       "failure": null,
       "canonFact": "첫 소개 시도에 성공한 자신의 행동에서 이어지는 창작 개인 후속이다. 참가자가 오디션을 우승했다는 뜻은 아니며 여행자에게 가수 명성·공연 역할을 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga"
     },
     {
       "key": "hsr_photo_missing_caption",
@@ -2830,7 +2849,8 @@
       ],
       "failure": null,
       "canonFact": "광고를 뺀 사진을 마련한 개인 기록으로만 열리는 창작 후속이다. 부트힐을 IPC의 직원이나 수호자로 설정하는 것이 아니라 관광객의 잘못된 설명을 사건 안에서 바로잡는다. 실제 평판·사진 보관·총격·협박·복수 완수는 없다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1315_Art.tga"
     },
     {
       "key": "hsr_misha_second_page",
@@ -2881,7 +2901,8 @@
       ],
       "failure": null,
       "canonFact": "공식 여행 이야기를 좋아하는 역할을 이용한 창작 재방문이다. 개인 미샤 준비 카드가 자격이며 일반 손님이 그에게 업무를 맡기거나 중요한 본편 반전을 재현하지 않는다. 다음 방문의 몫은 사냥 시간 증가가 아니다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_robin_next_row",
@@ -2932,7 +2953,8 @@
       ],
       "failure": null,
       "canonFact": "공식 음악이 여러 존재에게 울림을 주는 가수 역할에서 창작한 별도 만남이다. 개인 로빈 경청 카드가 자격이며 본편 공연의 성공·심사·NPC 동행·음원·오라를 지급하지 않는다.",
-      "uncertain": []
+      "uncertain": [],
+      "icon": "war3mapImported\\UI_Card_HSR_1309_Art.tga"
     },
     {
       "key": "hsr_main_01",
@@ -2989,7 +3011,8 @@
         "enabled": true,
         "commonResult": "미샤는 객실의 입몽 장치로 잠들면 꿈의 도시를 방문할 수 있다고 설명한다. 안내를 마친 소년과 인사를 나누고, 당신은 장치에 몸을 맡긴다. 눈을 뜨자 호텔 대신 황금빛 거리와 축제의 소음이 펼쳐진다. 페나코니에서의 첫 산책이 시작된다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_main_02",
@@ -3103,7 +3126,8 @@
         "enabled": true,
         "commonResult": "반디는 현실의 몸이 병 때문에 자유롭지 못하다고 털어놓는다. 이 꿈에서는 걷고, 음식을 고르고, 친구와 사진을 남기는 평범한 하루를 보낼 수 있다. 꿈이 병을 고쳐 주지는 않지만 그 시간마저 거짓은 아니다. 당신은 반디와 풍경을 사진에 남긴 뒤, 함께 호텔로 돌아간다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1310_Icon.tga"
     },
     {
       "key": "hsr_main_04",
@@ -3160,7 +3184,8 @@
         "enabled": true,
         "commonResult": "블랙 스완의 개입으로 당장의 위기를 넘기고, 당신은 꿈에서 깨어난다. 안전한 관광 구역 뒤에 이런 장소가 있다는 사실은 패밀리의 설명과 맞지 않는다. 꿈속 호텔에서 무슨 일이 벌어지는지 확인하기 위해 당신은 다시 입몽한다. 반디와도 다시 만나야 한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1307_Art.tga"
     },
     {
       "key": "hsr_main_05",
@@ -3217,7 +3242,8 @@
         "enabled": true,
         "commonResult": "눈앞의 광경만으로 반디의 행방을 단정할 수는 없다. 블랙 스완은 그녀가 지나간 기억의 잔상을 추적하자고 제안한다. 당신은 함께 걷고 사진을 남겼던 사람을 한순간의 악몽으로 넘기지 않기로 한다. 일행은 호텔에 남은 흔적을 따라 움직인다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1310_Icon.tga"
     },
     {
       "key": "hsr_main_06",
@@ -3274,7 +3300,8 @@
         "enabled": true,
         "commonResult": "아케론이 샘을 상대하는 동안 블랙 스완은 당신을 컴퍼니의 협상가 어벤츄린에게 데려간다. 그는 로빈 역시 꿈속에서 죽은 듯 발견되었다는 정보를 내놓는다. 반디 한 사람의 실종으로만 볼 수 없게 된 상황에서, 어벤츄린은 패밀리의 안전 보장을 함께 조사하자고 제안한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1307_Art.tga"
     },
     {
       "key": "hsr_main_07",
@@ -3331,7 +3358,8 @@
         "enabled": true,
         "commonResult": "어벤츄린은 자신의 목숨까지 판에 올릴 생각을 숨기지 않는다. 대중 앞에서 꿈의 안전 보장을 시험하겠다며, 당신을 시계 스튜디오의 무대로 부른다. 정확한 수단까지 모두 말해 주지는 않는다. 당신은 그가 실종의 진상을 밝힐 단서를 쥐고 있다고 보고, 동료들과 무대로 향한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga"
     },
     {
       "key": "hsr_main_08",
@@ -3388,7 +3416,8 @@
         "enabled": true,
         "commonResult": "몰아붙이던 어벤츄린을 향해 아케론이 검을 뽑는다. 일격이 그를 쓰러뜨리고 꿈의 경계를 가르자, 자신의 죽음 너머 감춰진 영역에 닿으려 했던 도박의 목적이 드러난다. 당신도 충격에 휩쓸려 의식을 잃는다. 다시 눈을 뜨니 자신을 구한 샘이 앞에 서 있다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1304_Art.tga"
     },
     {
       "key": "hsr_main_09",
@@ -3560,7 +3589,8 @@
         "enabled": true,
         "commonResult": "기억 속 시계공 미하일은 은하열차의 개척자였고, 동료들과 페나코니에 자유로운 삶의 터전을 일구려 했다. 미샤는 그의 어린 시절 꿈이 남은 존재였다. 소년은 이 도시가 다시 감옥이 되지 않게 해 달라는 뜻과 미하일의 모자를 후대에 전한다. 당신이 그 부탁을 받아들이자 미샤는 자신의 여행을 마치고 사라진다. 남은 길은 이제 일행이 이어 가야 한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_Misha.tga"
     },
     {
       "key": "hsr_main_12",
@@ -3617,7 +3647,8 @@
         "enabled": true,
         "commonResult": "선데이는 어린 시절 구한 새의 추락과 약자들의 불행을 들어 자신의 계획을 고집한다. 로빈은 새에게도 날 기회가 필요하다고 맞서고, 반디 역시 아픈 미래를 남이 대신 정하는 데 반대한다. 보호를 위해 선택을 없애려는 선데이와의 간극은 좁혀지지 않는다. 일행은 그가 기다리는 대극장으로 향한다.",
         "nodes": []
-      }
+      },
+      "icon": "war3mapImported\\UI_Card_HSR_1313_Art.tga"
     },
     {
       "key": "hsr_main_13",
