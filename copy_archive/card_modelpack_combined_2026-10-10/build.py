@@ -1,4 +1,4 @@
-# 검토된 카드 TGA만 담은 Arcana_A.asi와 별도 실행 로더를 만들고 검증한다.
+# 검토된 카드 TGA를 경로와 픽셀 변경 없이 외부 MPQ 및 ASI 모델팩으로 만든다.
 import argparse
 import ctypes
 import hashlib
@@ -72,13 +72,16 @@ def build(args):
         raise ValueError('로더는 클래식 워크래프트용 x86 DLL이어야 합니다.')
     if not struct.unpack_from('<H', loader, pe + 22)[0] & 0x2000:
         raise ValueError('로더의 DLL 플래그가 없습니다.')
-    asi, loader_file = out / 'Arcana_A.asi', out / 'Arcana_Loader.asi'
-    if asi.exists() or loader_file.exists():
+    name = args.name
+    if not name.isascii() or not all(c.isalnum() or c == '_' for c in name):
+        raise ValueError('모델팩 이름은 영문, 숫자, 밑줄만 사용할 수 있습니다.')
+    mpq, asi = out / (name + '.mpq'), out / (name + '.asi')
+    if mpq.exists() or asi.exists():
         raise ValueError('기존 모델팩을 보존하기 위해 새 출력 위치를 지정해야 합니다.')
     lib = bind(args.stormlib.resolve())
     archive = w.HANDLE()
     # MPQ v0, 목록 파일 포함. 4KB 섹터 zlib 압축은 원본 바이트를 보존한다.
-    check(lib.SFileCreateArchive(str(asi), 0x00100000, 1024, ctypes.byref(archive)), 'MPQ 생성')
+    check(lib.SFileCreateArchive(str(mpq), 0x00100000, 1024, ctypes.byref(archive)), 'MPQ 생성')
     try:
         for row in assets:
             path = row['file'].replace('/', '\\')
@@ -86,15 +89,13 @@ def build(args):
                                     0x00000200, 0x02, 0x02), path)
     finally:
         check(lib.SFileCloseArchive(archive), 'MPQ 닫기')
-    mpq_bytes = asi.read_bytes()
+    mpq_bytes = mpq.read_bytes()
     if mpq_bytes[:4] != b'MPQ\x1a' or struct.unpack_from('<H', mpq_bytes, 12)[0] != 0:
         raise ValueError('클래식 MPQ v0 형식이 아닙니다.')
-    # 이미지 팩은 MPQ 헤더부터 시작한다. 실행 코드는 별도 파일에만 둔다.
-    block_count = struct.unpack_from('<I', mpq_bytes, 28)[0]
-    if block_count != len(assets) + 1:
-        raise ValueError('이미지와 MPQ 목록 이외의 항목이 있습니다.')
-    loader_file.write_bytes(loader)
-    for package in [asi]:
+    # Storm이 검색하는 MPQ 헤더는 512바이트 경계에 둔다.
+    mpq_offset = (len(loader) + 511) // 512 * 512
+    asi.write_bytes(loader + b'\0' * (mpq_offset - len(loader)) + mpq_bytes)
+    for package in [mpq, asi]:
         archive = w.HANDLE()
         check(lib.SFileOpenArchive(str(package), 0, 0, ctypes.byref(archive)), str(package))
         try:
@@ -112,13 +113,10 @@ def build(args):
     shutil.copy2(ROOT / 'System/CardModelPack.j', out / 'CardModelPack.j')
     shutil.copy2(Path(__file__).parent / 'loader.c', out / 'loader.c')
     report = {'asiFile': asi.name, 'textureFiles': len(assets), 'sourceBytes': sum(a['bytes'] for a in assets),
-              'mpqBytes': asi.stat().st_size, 'asiBytes': asi.stat().st_size,
+              'mpqBytes': mpq.stat().st_size, 'asiBytes': asi.stat().st_size,
               'mpqSha256': sha(mpq_bytes), 'asiSha256': sha(asi.read_bytes()),
-              'loaderFile': loader_file.name, 'loaderBytes': len(loader),
               'loaderSha256': sha(loader), 'loaderSourceSha256': sha((out / 'loader.c').read_bytes()),
-              'stormlibSha256': sha(args.stormlib.read_bytes()), 'mpqOffset': 0,
-              'imageOnly': True, 'embeddedExecutable': False,
-              'archiveEntries': block_count, 'internalMetadataEntries': ['(listfile)'],
+              'stormlibSha256': sha(args.stormlib.read_bytes()), 'mpqOffset': mpq_offset,
               'archiveVersion': 0, 'compression': 'zlib, 4KB sectors, lossless',
               'allMemberHashesVerified': True, 'pathsUnchanged': True,
               'mapCreated': False, 'installed': False, 'warcraftRuntimeTested': False}
@@ -132,4 +130,5 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--loader', type=Path, required=True)
     parser.add_argument('--stormlib', type=Path, required=True)
+    parser.add_argument('--name', default='Arcana_Cards_20261010_v2')
     build(parser.parse_args())

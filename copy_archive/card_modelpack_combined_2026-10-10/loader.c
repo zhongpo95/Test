@@ -1,4 +1,4 @@
-// 별도 실행 로더와 같은 폴더의 이미지 전용 Arcana_A.asi를 Storm에 연결한다.
+// 맵에서 로드한 카드 ASI 뒤의 MPQ를 클래식 워크래프트 Storm에 연결한다.
 #include <windows.h>
 
 typedef BOOL (WINAPI *OpenArchive)(const char *, DWORD, DWORD, HANDLE *);
@@ -20,9 +20,7 @@ BOOL WINAPI DllMain(HINSTANCE module, DWORD reason, LPVOID reserved)
 {
     if (reason == DLL_PROCESS_ATTACH) {
         char filename[MAX_PATH];
-        const char data_name[] = "Arcana_A.asi";
         DWORD length;
-        DWORD i;
         HMODULE storm = GetModuleHandleA("Storm.dll");
         OpenArchive open_archive;
         StormOpenFile open_file;
@@ -46,13 +44,6 @@ BOOL WINAPI DllMain(HINSTANCE module, DWORD reason, LPVOID reserved)
             pack_status = 3;
             return FALSE;
         }
-        // 실행 로더의 파일명만 바꿔 같은 폴더의 A 이미지 팩을 연다.
-        while (length && filename[length - 1] != '\\' && filename[length - 1] != '/') length--;
-        if (length + sizeof(data_name) > sizeof(filename)) {
-            pack_status = 3;
-            return FALSE;
-        }
-        for (i = 0; i < sizeof(data_name); i++) filename[length + i] = data_name[i];
         if (!open_archive(filename, 16, 0, &card_archive)) {
             pack_status = 4;
             return FALSE;
