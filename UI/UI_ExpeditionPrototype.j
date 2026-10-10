@@ -90,6 +90,8 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             // 템플릿 생성 실패 시 기존 TEXT 본문으로 표시한다.
             set frame = ExpUILabel(StoryPanel, 0.018, 0.126, 0.274, 0.242, 0.011, "")
         endif
+        // 밝은 종이 배경에서는 기존 TEXT와 같은 무외곽선 글꼴을 사용한다.
+        call DzFrameSetFont(frame, "Fonts\\DFHeiMd.ttf", 0.011, 0)
         return frame
     endfunction
 
