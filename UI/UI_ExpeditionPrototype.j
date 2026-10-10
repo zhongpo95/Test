@@ -120,16 +120,17 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         local real x = (0.8 - (0.174 * ProtoChoices[pid] + 0.012 * (ProtoChoices[pid] - 1))) * 0.5 + (i - 1) * 0.186
         local string tag = "공통 사건"
         local string action = "행동력 " + I2S(ProtoEventAPCost[id]) + " · 사건 만나기"
+        local string entryReward
         call PlaceCoverPart(cover, EventRoot, x, 0.138, 0.174, 0.386)
         call ExpUIResizeCover(CandidateButtons[i], 0.174, 0.386)
         call PlaceCoverPart(CandidateRegion[i], cover, 0.012, 0.012, 0.150, 0.038)
-        call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.100, id)
-        call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.160, 0.150, 0.043)
+        call PlaceEventImage(CandidateIcon[i], cover, 0.012, 0.052, 0.150, 0.088, id)
+        call PlaceCoverPart(CandidateTitle[i], cover, 0.012, 0.150, 0.150, 0.034)
         if opening or ProtoEventRequiredCard[id] > 0 then
-            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.214, 0.150, 0.058)
-            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.281, 0.150, 0.057)
+            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.194, 0.150, 0.076)
+            call PlaceCoverPart(CandidateBonus[i], cover, 0.012, 0.278, 0.150, 0.060)
         else
-            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.214, 0.150, 0.118)
+            call PlaceCoverPart(CandidateIntro[i], cover, 0.012, 0.194, 0.150, 0.138)
         endif
         if head > 0 then
             set tag = ProtoHeadName[head]
@@ -137,7 +138,13 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
         if opening then
             set tag = "지역 개방 · " + tag
             set action = "행동력 0 · 머리 카드 획득"
-            call PaperText(CandidateBonus[i], "관련 사건 개방 · " + ProtoHeadEffectText(head) + "|n" + ProtoDisplayCardName(pid, ProtoHeadEntryCard[head]), PAPER_GAIN)
+            set entryReward = "입문 카드 · " + ProtoDisplayCardName(pid, ProtoHeadEntryCard[head])
+            if ProtoOwnsCharacter(pid, ProtoHeadEntryCard[head]) then
+                set entryReward = entryReward + " (효과 추가)"
+            else
+                set entryReward = entryReward + " 획득"
+            endif
+            call PaperText(CandidateBonus[i], "머리 효과 · " + ProtoHeadEffectText(head) + "|n" + entryReward, PAPER_GAIN)
         elseif ProtoEventMainStage[id] > 0 then
             set tag = tag + " · 메인 " + I2S(ProtoEventMainStage[id]) + "/" + I2S(ProtoHeadMainLength[head])
         elseif ProtoEventEpilogue[id] > 0 then
@@ -399,7 +406,7 @@ library UIExpeditionPrototype initializer Init requires UIExpeditionCommon, Expe
             call ExpUIThemeButton(CandidateButtons[i], 2)
             set f = ExpUIButtons[CandidateButtons[i]]
             set CandidateRegion[i] = CoverLabel(f, 0.011)
-            set CandidateTitle[i] = CoverLabel(f, 0.012)
+            set CandidateTitle[i] = CoverLabel(f, 0.014)
             set CandidateIcon[i] = ExpUITexture(f, 0, 0, 0.094, 0.094, "ReplaceableTextures\\CommandButtons\\BTNTome.blp")
             set CandidateIntro[i] = CoverLabel(f, 0.012)
             set CandidateBonus[i] = CoverLabel(f, 0.011)
